@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.RequestImpactStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Statistics that describe how the incident has impacted a service.
@@ -70,15 +71,15 @@ requestImpactStatistics_totalCount = Lens.lens (\RequestImpactStatistics' {total
 requestImpactStatistics_faultCount :: Lens.Lens' RequestImpactStatistics (Prelude.Maybe Prelude.Integer)
 requestImpactStatistics_faultCount = Lens.lens (\RequestImpactStatistics' {faultCount} -> faultCount) (\s@RequestImpactStatistics' {} a -> s {faultCount = a} :: RequestImpactStatistics)
 
-instance Core.FromJSON RequestImpactStatistics where
+instance Data.FromJSON RequestImpactStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RequestImpactStatistics"
       ( \x ->
           RequestImpactStatistics'
-            Prelude.<$> (x Core..:? "OkCount")
-            Prelude.<*> (x Core..:? "TotalCount")
-            Prelude.<*> (x Core..:? "FaultCount")
+            Prelude.<$> (x Data..:? "OkCount")
+            Prelude.<*> (x Data..:? "TotalCount")
+            Prelude.<*> (x Data..:? "FaultCount")
       )
 
 instance Prelude.Hashable RequestImpactStatistics where

@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.ErrorRootCauseService where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.ErrorRootCauseEntity
 
@@ -99,18 +100,18 @@ errorRootCauseService_accountId = Lens.lens (\ErrorRootCauseService' {accountId}
 errorRootCauseService_inferred :: Lens.Lens' ErrorRootCauseService (Prelude.Maybe Prelude.Bool)
 errorRootCauseService_inferred = Lens.lens (\ErrorRootCauseService' {inferred} -> inferred) (\s@ErrorRootCauseService' {} a -> s {inferred = a} :: ErrorRootCauseService)
 
-instance Core.FromJSON ErrorRootCauseService where
+instance Data.FromJSON ErrorRootCauseService where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ErrorRootCauseService"
       ( \x ->
           ErrorRootCauseService'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "EntityPath" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Names" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "Inferred")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "EntityPath" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Names" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "Inferred")
       )
 
 instance Prelude.Hashable ErrorRootCauseService where

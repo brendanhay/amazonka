@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -137,7 +138,7 @@ instance Core.AWSRequest PutEncryptionConfig where
     Response.receiveJSON
       ( \s h x ->
           PutEncryptionConfigResponse'
-            Prelude.<$> (x Core..?> "EncryptionConfig")
+            Prelude.<$> (x Data..?> "EncryptionConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,22 +151,22 @@ instance Prelude.NFData PutEncryptionConfig where
   rnf PutEncryptionConfig' {..} =
     Prelude.rnf keyId `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders PutEncryptionConfig where
+instance Data.ToHeaders PutEncryptionConfig where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON PutEncryptionConfig where
+instance Data.ToJSON PutEncryptionConfig where
   toJSON PutEncryptionConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KeyId" Core..=) Prelude.<$> keyId,
-            Prelude.Just ("Type" Core..= type')
+          [ ("KeyId" Data..=) Prelude.<$> keyId,
+            Prelude.Just ("Type" Data..= type')
           ]
       )
 
-instance Core.ToPath PutEncryptionConfig where
+instance Data.ToPath PutEncryptionConfig where
   toPath = Prelude.const "/PutEncryptionConfig"
 
-instance Core.ToQuery PutEncryptionConfig where
+instance Data.ToQuery PutEncryptionConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutEncryptionConfigResponse' smart constructor.

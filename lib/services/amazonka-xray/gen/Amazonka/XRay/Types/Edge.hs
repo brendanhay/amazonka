@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.Edge where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.Alias
 import Amazonka.XRay.Types.EdgeStatistics
@@ -38,7 +39,7 @@ data Edge = Edge'
     -- | Response statistics for segments on the edge.
     summaryStatistics :: Prelude.Maybe EdgeStatistics,
     -- | The end time of the last segment on the edge.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | A histogram that maps the spread of client response times on an edge.
     -- Only populated for synchronous edges.
     responseTimeHistogram :: Prelude.Maybe [HistogramEntry],
@@ -47,7 +48,7 @@ data Edge = Edge'
     -- | Identifier of the edge. Unique within a service map.
     referenceId :: Prelude.Maybe Prelude.Int,
     -- | The start time of the first segment on the edge.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | A histogram that maps the spread of event age when received by
     -- consumers. Age is calculated each time an event is received. Only
     -- populated when /EdgeType/ is @link@.
@@ -105,7 +106,7 @@ edge_summaryStatistics = Lens.lens (\Edge' {summaryStatistics} -> summaryStatist
 
 -- | The end time of the last segment on the edge.
 edge_endTime :: Lens.Lens' Edge (Prelude.Maybe Prelude.UTCTime)
-edge_endTime = Lens.lens (\Edge' {endTime} -> endTime) (\s@Edge' {} a -> s {endTime = a} :: Edge) Prelude.. Lens.mapping Core._Time
+edge_endTime = Lens.lens (\Edge' {endTime} -> endTime) (\s@Edge' {} a -> s {endTime = a} :: Edge) Prelude.. Lens.mapping Data._Time
 
 -- | A histogram that maps the spread of client response times on an edge.
 -- Only populated for synchronous edges.
@@ -122,7 +123,7 @@ edge_referenceId = Lens.lens (\Edge' {referenceId} -> referenceId) (\s@Edge' {} 
 
 -- | The start time of the first segment on the edge.
 edge_startTime :: Lens.Lens' Edge (Prelude.Maybe Prelude.UTCTime)
-edge_startTime = Lens.lens (\Edge' {startTime} -> startTime) (\s@Edge' {} a -> s {startTime = a} :: Edge) Prelude.. Lens.mapping Core._Time
+edge_startTime = Lens.lens (\Edge' {startTime} -> startTime) (\s@Edge' {} a -> s {startTime = a} :: Edge) Prelude.. Lens.mapping Data._Time
 
 -- | A histogram that maps the spread of event age when received by
 -- consumers. Age is calculated each time an event is received. Only
@@ -130,23 +131,23 @@ edge_startTime = Lens.lens (\Edge' {startTime} -> startTime) (\s@Edge' {} a -> s
 edge_receivedEventAgeHistogram :: Lens.Lens' Edge (Prelude.Maybe [HistogramEntry])
 edge_receivedEventAgeHistogram = Lens.lens (\Edge' {receivedEventAgeHistogram} -> receivedEventAgeHistogram) (\s@Edge' {} a -> s {receivedEventAgeHistogram = a} :: Edge) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Edge where
+instance Data.FromJSON Edge where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Edge"
       ( \x ->
           Edge'
-            Prelude.<$> (x Core..:? "Aliases" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SummaryStatistics")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> ( x Core..:? "ResponseTimeHistogram"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Aliases" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SummaryStatistics")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> ( x Data..:? "ResponseTimeHistogram"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EdgeType")
-            Prelude.<*> (x Core..:? "ReferenceId")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> ( x Core..:? "ReceivedEventAgeHistogram"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "EdgeType")
+            Prelude.<*> (x Data..:? "ReferenceId")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> ( x Data..:? "ReceivedEventAgeHistogram"
+                            Data..!= Prelude.mempty
                         )
       )
 

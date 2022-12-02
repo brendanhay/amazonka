@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.ResourcePolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A resource policy grants one or more Amazon Web Services services and
@@ -33,7 +34,7 @@ data ResourcePolicy = ResourcePolicy'
     -- Web Services account.
     policyName :: Prelude.Maybe Prelude.Text,
     -- | When the policy was last updated, in Unix time seconds.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | Returns the current policy revision id for this policy name.
     policyRevisionId :: Prelude.Maybe Prelude.Text,
     -- | The resource policy document, which can be up to 5kb in size.
@@ -74,7 +75,7 @@ resourcePolicy_policyName = Lens.lens (\ResourcePolicy' {policyName} -> policyNa
 
 -- | When the policy was last updated, in Unix time seconds.
 resourcePolicy_lastUpdatedTime :: Lens.Lens' ResourcePolicy (Prelude.Maybe Prelude.UTCTime)
-resourcePolicy_lastUpdatedTime = Lens.lens (\ResourcePolicy' {lastUpdatedTime} -> lastUpdatedTime) (\s@ResourcePolicy' {} a -> s {lastUpdatedTime = a} :: ResourcePolicy) Prelude.. Lens.mapping Core._Time
+resourcePolicy_lastUpdatedTime = Lens.lens (\ResourcePolicy' {lastUpdatedTime} -> lastUpdatedTime) (\s@ResourcePolicy' {} a -> s {lastUpdatedTime = a} :: ResourcePolicy) Prelude.. Lens.mapping Data._Time
 
 -- | Returns the current policy revision id for this policy name.
 resourcePolicy_policyRevisionId :: Lens.Lens' ResourcePolicy (Prelude.Maybe Prelude.Text)
@@ -84,16 +85,16 @@ resourcePolicy_policyRevisionId = Lens.lens (\ResourcePolicy' {policyRevisionId}
 resourcePolicy_policyDocument :: Lens.Lens' ResourcePolicy (Prelude.Maybe Prelude.Text)
 resourcePolicy_policyDocument = Lens.lens (\ResourcePolicy' {policyDocument} -> policyDocument) (\s@ResourcePolicy' {} a -> s {policyDocument = a} :: ResourcePolicy)
 
-instance Core.FromJSON ResourcePolicy where
+instance Data.FromJSON ResourcePolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourcePolicy"
       ( \x ->
           ResourcePolicy'
-            Prelude.<$> (x Core..:? "PolicyName")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "PolicyRevisionId")
-            Prelude.<*> (x Core..:? "PolicyDocument")
+            Prelude.<$> (x Data..:? "PolicyName")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "PolicyRevisionId")
+            Prelude.<*> (x Data..:? "PolicyDocument")
       )
 
 instance Prelude.Hashable ResourcePolicy where

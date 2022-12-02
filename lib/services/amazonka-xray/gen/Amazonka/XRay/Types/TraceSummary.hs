@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.TraceSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.AvailabilityZoneDetail
 import Amazonka.XRay.Types.ErrorRootCause
@@ -50,7 +51,7 @@ data TraceSummary = TraceSummary'
     -- segments.
     availabilityZones :: Prelude.Maybe [AvailabilityZoneDetail],
     -- | The matched time stamp of a defined event.
-    matchedEventTime :: Prelude.Maybe Core.POSIX,
+    matchedEventTime :: Prelude.Maybe Data.POSIX,
     -- | The revision number of a trace.
     revision :: Prelude.Maybe Prelude.Int,
     -- | A collection of ErrorRootCause structures corresponding to the trace
@@ -201,7 +202,7 @@ traceSummary_availabilityZones = Lens.lens (\TraceSummary' {availabilityZones} -
 
 -- | The matched time stamp of a defined event.
 traceSummary_matchedEventTime :: Lens.Lens' TraceSummary (Prelude.Maybe Prelude.UTCTime)
-traceSummary_matchedEventTime = Lens.lens (\TraceSummary' {matchedEventTime} -> matchedEventTime) (\s@TraceSummary' {} a -> s {matchedEventTime = a} :: TraceSummary) Prelude.. Lens.mapping Core._Time
+traceSummary_matchedEventTime = Lens.lens (\TraceSummary' {matchedEventTime} -> matchedEventTime) (\s@TraceSummary' {} a -> s {matchedEventTime = a} :: TraceSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The revision number of a trace.
 traceSummary_revision :: Lens.Lens' TraceSummary (Prelude.Maybe Prelude.Int)
@@ -269,40 +270,40 @@ traceSummary_instanceIds = Lens.lens (\TraceSummary' {instanceIds} -> instanceId
 traceSummary_resourceARNs :: Lens.Lens' TraceSummary (Prelude.Maybe [ResourceARNDetail])
 traceSummary_resourceARNs = Lens.lens (\TraceSummary' {resourceARNs} -> resourceARNs) (\s@TraceSummary' {} a -> s {resourceARNs = a} :: TraceSummary) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TraceSummary where
+instance Data.FromJSON TraceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TraceSummary"
       ( \x ->
           TraceSummary'
-            Prelude.<$> (x Core..:? "Http")
-            Prelude.<*> ( x Core..:? "ResponseTimeRootCauses"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Http")
+            Prelude.<*> ( x Data..:? "ResponseTimeRootCauses"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "HasFault")
-            Prelude.<*> (x Core..:? "IsPartial")
-            Prelude.<*> ( x Core..:? "AvailabilityZones"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "HasFault")
+            Prelude.<*> (x Data..:? "IsPartial")
+            Prelude.<*> ( x Data..:? "AvailabilityZones"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "MatchedEventTime")
-            Prelude.<*> (x Core..:? "Revision")
-            Prelude.<*> ( x Core..:? "ErrorRootCauses"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "MatchedEventTime")
+            Prelude.<*> (x Data..:? "Revision")
+            Prelude.<*> ( x Data..:? "ErrorRootCauses"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Users" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "HasError")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Annotations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Duration")
-            Prelude.<*> (x Core..:? "HasThrottle")
-            Prelude.<*> ( x Core..:? "FaultRootCauses"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Users" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "HasError")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Annotations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Duration")
+            Prelude.<*> (x Data..:? "HasThrottle")
+            Prelude.<*> ( x Data..:? "FaultRootCauses"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ServiceIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ResponseTime")
-            Prelude.<*> (x Core..:? "EntryPoint")
-            Prelude.<*> (x Core..:? "InstanceIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ResourceARNs" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ServiceIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ResponseTime")
+            Prelude.<*> (x Data..:? "EntryPoint")
+            Prelude.<*> (x Data..:? "InstanceIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ResourceARNs" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TraceSummary where

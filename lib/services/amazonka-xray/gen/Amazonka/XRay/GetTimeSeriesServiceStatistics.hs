@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -77,9 +78,9 @@ data GetTimeSeriesServiceStatistics = GetTimeSeriesServiceStatistics'
     -- from.
     groupARN :: Prelude.Maybe Prelude.Text,
     -- | The start of the time frame for which to aggregate statistics.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The end of the time frame for which to aggregate statistics.
-    endTime :: Core.POSIX
+    endTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -127,8 +128,8 @@ newGetTimeSeriesServiceStatistics
         period = Prelude.Nothing,
         groupName = Prelude.Nothing,
         groupARN = Prelude.Nothing,
-        startTime = Core._Time Lens.# pStartTime_,
-        endTime = Core._Time Lens.# pEndTime_
+        startTime = Data._Time Lens.# pStartTime_,
+        endTime = Data._Time Lens.# pEndTime_
       }
 
 -- | Pagination token.
@@ -161,11 +162,11 @@ getTimeSeriesServiceStatistics_groupARN = Lens.lens (\GetTimeSeriesServiceStatis
 
 -- | The start of the time frame for which to aggregate statistics.
 getTimeSeriesServiceStatistics_startTime :: Lens.Lens' GetTimeSeriesServiceStatistics Prelude.UTCTime
-getTimeSeriesServiceStatistics_startTime = Lens.lens (\GetTimeSeriesServiceStatistics' {startTime} -> startTime) (\s@GetTimeSeriesServiceStatistics' {} a -> s {startTime = a} :: GetTimeSeriesServiceStatistics) Prelude.. Core._Time
+getTimeSeriesServiceStatistics_startTime = Lens.lens (\GetTimeSeriesServiceStatistics' {startTime} -> startTime) (\s@GetTimeSeriesServiceStatistics' {} a -> s {startTime = a} :: GetTimeSeriesServiceStatistics) Prelude.. Data._Time
 
 -- | The end of the time frame for which to aggregate statistics.
 getTimeSeriesServiceStatistics_endTime :: Lens.Lens' GetTimeSeriesServiceStatistics Prelude.UTCTime
-getTimeSeriesServiceStatistics_endTime = Lens.lens (\GetTimeSeriesServiceStatistics' {endTime} -> endTime) (\s@GetTimeSeriesServiceStatistics' {} a -> s {endTime = a} :: GetTimeSeriesServiceStatistics) Prelude.. Core._Time
+getTimeSeriesServiceStatistics_endTime = Lens.lens (\GetTimeSeriesServiceStatistics' {endTime} -> endTime) (\s@GetTimeSeriesServiceStatistics' {} a -> s {endTime = a} :: GetTimeSeriesServiceStatistics) Prelude.. Data._Time
 
 instance Core.AWSPager GetTimeSeriesServiceStatistics where
   page rq rs
@@ -202,11 +203,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetTimeSeriesServiceStatisticsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "TimeSeriesServiceStatistics"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "TimeSeriesServiceStatistics"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ContainsOldGroupVersions")
+            Prelude.<*> (x Data..?> "ContainsOldGroupVersions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -241,32 +242,32 @@ instance
       `Prelude.seq` Prelude.rnf endTime
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetTimeSeriesServiceStatistics
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetTimeSeriesServiceStatistics where
+instance Data.ToJSON GetTimeSeriesServiceStatistics where
   toJSON GetTimeSeriesServiceStatistics' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("EntitySelectorExpression" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("EntitySelectorExpression" Data..=)
               Prelude.<$> entitySelectorExpression,
-            ("ForecastStatistics" Core..=)
+            ("ForecastStatistics" Data..=)
               Prelude.<$> forecastStatistics,
-            ("Period" Core..=) Prelude.<$> period,
-            ("GroupName" Core..=) Prelude.<$> groupName,
-            ("GroupARN" Core..=) Prelude.<$> groupARN,
-            Prelude.Just ("StartTime" Core..= startTime),
-            Prelude.Just ("EndTime" Core..= endTime)
+            ("Period" Data..=) Prelude.<$> period,
+            ("GroupName" Data..=) Prelude.<$> groupName,
+            ("GroupARN" Data..=) Prelude.<$> groupARN,
+            Prelude.Just ("StartTime" Data..= startTime),
+            Prelude.Just ("EndTime" Data..= endTime)
           ]
       )
 
-instance Core.ToPath GetTimeSeriesServiceStatistics where
+instance Data.ToPath GetTimeSeriesServiceStatistics where
   toPath = Prelude.const "/TimeSeriesServiceStatistics"
 
-instance Core.ToQuery GetTimeSeriesServiceStatistics where
+instance Data.ToQuery GetTimeSeriesServiceStatistics where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTimeSeriesServiceStatisticsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.TelemetryRecord where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.BackendConnectionErrors
 
@@ -33,7 +34,7 @@ data TelemetryRecord = TelemetryRecord'
     segmentsSpilloverCount :: Prelude.Maybe Prelude.Int,
     segmentsReceivedCount :: Prelude.Maybe Prelude.Int,
     segmentsRejectedCount :: Prelude.Maybe Prelude.Int,
-    timestamp :: Core.POSIX
+    timestamp :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,7 +69,7 @@ newTelemetryRecord pTimestamp_ =
       segmentsSpilloverCount = Prelude.Nothing,
       segmentsReceivedCount = Prelude.Nothing,
       segmentsRejectedCount = Prelude.Nothing,
-      timestamp = Core._Time Lens.# pTimestamp_
+      timestamp = Data._Time Lens.# pTimestamp_
     }
 
 -- |
@@ -93,7 +94,7 @@ telemetryRecord_segmentsRejectedCount = Lens.lens (\TelemetryRecord' {segmentsRe
 
 -- |
 telemetryRecord_timestamp :: Lens.Lens' TelemetryRecord Prelude.UTCTime
-telemetryRecord_timestamp = Lens.lens (\TelemetryRecord' {timestamp} -> timestamp) (\s@TelemetryRecord' {} a -> s {timestamp = a} :: TelemetryRecord) Prelude.. Core._Time
+telemetryRecord_timestamp = Lens.lens (\TelemetryRecord' {timestamp} -> timestamp) (\s@TelemetryRecord' {} a -> s {timestamp = a} :: TelemetryRecord) Prelude.. Data._Time
 
 instance Prelude.Hashable TelemetryRecord where
   hashWithSalt _salt TelemetryRecord' {..} =
@@ -114,20 +115,20 @@ instance Prelude.NFData TelemetryRecord where
       `Prelude.seq` Prelude.rnf segmentsRejectedCount
       `Prelude.seq` Prelude.rnf timestamp
 
-instance Core.ToJSON TelemetryRecord where
+instance Data.ToJSON TelemetryRecord where
   toJSON TelemetryRecord' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BackendConnectionErrors" Core..=)
+          [ ("BackendConnectionErrors" Data..=)
               Prelude.<$> backendConnectionErrors,
-            ("SegmentsSentCount" Core..=)
+            ("SegmentsSentCount" Data..=)
               Prelude.<$> segmentsSentCount,
-            ("SegmentsSpilloverCount" Core..=)
+            ("SegmentsSpilloverCount" Data..=)
               Prelude.<$> segmentsSpilloverCount,
-            ("SegmentsReceivedCount" Core..=)
+            ("SegmentsReceivedCount" Data..=)
               Prelude.<$> segmentsReceivedCount,
-            ("SegmentsRejectedCount" Core..=)
+            ("SegmentsRejectedCount" Data..=)
               Prelude.<$> segmentsRejectedCount,
-            Prelude.Just ("Timestamp" Core..= timestamp)
+            Prelude.Just ("Timestamp" Data..= timestamp)
           ]
       )

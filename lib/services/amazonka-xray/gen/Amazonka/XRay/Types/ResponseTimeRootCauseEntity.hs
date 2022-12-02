@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.ResponseTimeRootCauseEntity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A collection of segments and corresponding subsegments associated to a
@@ -72,15 +73,15 @@ responseTimeRootCauseEntity_coverage = Lens.lens (\ResponseTimeRootCauseEntity' 
 responseTimeRootCauseEntity_remote :: Lens.Lens' ResponseTimeRootCauseEntity (Prelude.Maybe Prelude.Bool)
 responseTimeRootCauseEntity_remote = Lens.lens (\ResponseTimeRootCauseEntity' {remote} -> remote) (\s@ResponseTimeRootCauseEntity' {} a -> s {remote = a} :: ResponseTimeRootCauseEntity)
 
-instance Core.FromJSON ResponseTimeRootCauseEntity where
+instance Data.FromJSON ResponseTimeRootCauseEntity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResponseTimeRootCauseEntity"
       ( \x ->
           ResponseTimeRootCauseEntity'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Coverage")
-            Prelude.<*> (x Core..:? "Remote")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Coverage")
+            Prelude.<*> (x Data..:? "Remote")
       )
 
 instance Prelude.Hashable ResponseTimeRootCauseEntity where

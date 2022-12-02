@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.InsightEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.AnomalousService
 import Amazonka.XRay.Types.RequestImpactStatistics
@@ -40,7 +41,7 @@ data InsightEvent = InsightEvent'
     -- | A brief description of the event.
     summary :: Prelude.Maybe Prelude.Text,
     -- | The time, in Unix seconds, at which the event was recorded.
-    eventTime :: Prelude.Maybe Core.POSIX,
+    eventTime :: Prelude.Maybe Data.POSIX,
     -- | The impact statistics of the client side service. This includes the
     -- number of requests to the client service and whether the requests were
     -- faults or okay.
@@ -97,7 +98,7 @@ insightEvent_summary = Lens.lens (\InsightEvent' {summary} -> summary) (\s@Insig
 
 -- | The time, in Unix seconds, at which the event was recorded.
 insightEvent_eventTime :: Lens.Lens' InsightEvent (Prelude.Maybe Prelude.UTCTime)
-insightEvent_eventTime = Lens.lens (\InsightEvent' {eventTime} -> eventTime) (\s@InsightEvent' {} a -> s {eventTime = a} :: InsightEvent) Prelude.. Lens.mapping Core._Time
+insightEvent_eventTime = Lens.lens (\InsightEvent' {eventTime} -> eventTime) (\s@InsightEvent' {} a -> s {eventTime = a} :: InsightEvent) Prelude.. Lens.mapping Data._Time
 
 -- | The impact statistics of the client side service. This includes the
 -- number of requests to the client service and whether the requests were
@@ -105,21 +106,21 @@ insightEvent_eventTime = Lens.lens (\InsightEvent' {eventTime} -> eventTime) (\s
 insightEvent_clientRequestImpactStatistics :: Lens.Lens' InsightEvent (Prelude.Maybe RequestImpactStatistics)
 insightEvent_clientRequestImpactStatistics = Lens.lens (\InsightEvent' {clientRequestImpactStatistics} -> clientRequestImpactStatistics) (\s@InsightEvent' {} a -> s {clientRequestImpactStatistics = a} :: InsightEvent)
 
-instance Core.FromJSON InsightEvent where
+instance Data.FromJSON InsightEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InsightEvent"
       ( \x ->
           InsightEvent'
             Prelude.<$> ( x
-                            Core..:? "RootCauseServiceRequestImpactStatistics"
+                            Data..:? "RootCauseServiceRequestImpactStatistics"
                         )
-            Prelude.<*> ( x Core..:? "TopAnomalousServices"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "TopAnomalousServices"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Summary")
-            Prelude.<*> (x Core..:? "EventTime")
-            Prelude.<*> (x Core..:? "ClientRequestImpactStatistics")
+            Prelude.<*> (x Data..:? "Summary")
+            Prelude.<*> (x Data..:? "EventTime")
+            Prelude.<*> (x Data..:? "ClientRequestImpactStatistics")
       )
 
 instance Prelude.Hashable InsightEvent where

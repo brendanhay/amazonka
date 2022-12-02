@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.RootCauseException where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The exception associated with a root cause.
@@ -61,14 +62,14 @@ rootCauseException_message = Lens.lens (\RootCauseException' {message} -> messag
 rootCauseException_name :: Lens.Lens' RootCauseException (Prelude.Maybe Prelude.Text)
 rootCauseException_name = Lens.lens (\RootCauseException' {name} -> name) (\s@RootCauseException' {} a -> s {name = a} :: RootCauseException)
 
-instance Core.FromJSON RootCauseException where
+instance Data.FromJSON RootCauseException where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RootCauseException"
       ( \x ->
           RootCauseException'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable RootCauseException where

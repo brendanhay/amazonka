@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.ServiceStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.ErrorStatistics
 import Amazonka.XRay.Types.FaultStatistics
@@ -97,17 +98,17 @@ serviceStatistics_totalCount = Lens.lens (\ServiceStatistics' {totalCount} -> to
 serviceStatistics_errorStatistics :: Lens.Lens' ServiceStatistics (Prelude.Maybe ErrorStatistics)
 serviceStatistics_errorStatistics = Lens.lens (\ServiceStatistics' {errorStatistics} -> errorStatistics) (\s@ServiceStatistics' {} a -> s {errorStatistics = a} :: ServiceStatistics)
 
-instance Core.FromJSON ServiceStatistics where
+instance Data.FromJSON ServiceStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceStatistics"
       ( \x ->
           ServiceStatistics'
-            Prelude.<$> (x Core..:? "FaultStatistics")
-            Prelude.<*> (x Core..:? "OkCount")
-            Prelude.<*> (x Core..:? "TotalResponseTime")
-            Prelude.<*> (x Core..:? "TotalCount")
-            Prelude.<*> (x Core..:? "ErrorStatistics")
+            Prelude.<$> (x Data..:? "FaultStatistics")
+            Prelude.<*> (x Data..:? "OkCount")
+            Prelude.<*> (x Data..:? "TotalResponseTime")
+            Prelude.<*> (x Data..:? "TotalCount")
+            Prelude.<*> (x Data..:? "ErrorStatistics")
       )
 
 instance Prelude.Hashable ServiceStatistics where

@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.SamplingStrategy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.SamplingStrategyName
 
@@ -71,11 +72,11 @@ instance Prelude.NFData SamplingStrategy where
   rnf SamplingStrategy' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON SamplingStrategy where
+instance Data.ToJSON SamplingStrategy where
   toJSON SamplingStrategy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

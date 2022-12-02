@@ -89,6 +89,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,7 +136,7 @@ instance Core.AWSRequest PutTraceSegments where
     Response.receiveJSON
       ( \s h x ->
           PutTraceSegmentsResponse'
-            Prelude.<$> ( x Core..?> "UnprocessedTraceSegments"
+            Prelude.<$> ( x Data..?> "UnprocessedTraceSegments"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -149,24 +150,24 @@ instance Prelude.NFData PutTraceSegments where
   rnf PutTraceSegments' {..} =
     Prelude.rnf traceSegmentDocuments
 
-instance Core.ToHeaders PutTraceSegments where
+instance Data.ToHeaders PutTraceSegments where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON PutTraceSegments where
+instance Data.ToJSON PutTraceSegments where
   toJSON PutTraceSegments' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "TraceSegmentDocuments"
-                  Core..= traceSegmentDocuments
+                  Data..= traceSegmentDocuments
               )
           ]
       )
 
-instance Core.ToPath PutTraceSegments where
+instance Data.ToPath PutTraceSegments where
   toPath = Prelude.const "/TraceSegments"
 
-instance Core.ToQuery PutTraceSegments where
+instance Data.ToQuery PutTraceSegments where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutTraceSegmentsResponse' smart constructor.

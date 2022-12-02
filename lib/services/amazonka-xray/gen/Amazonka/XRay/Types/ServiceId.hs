@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.ServiceId where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- |
@@ -75,16 +76,16 @@ serviceId_names = Lens.lens (\ServiceId' {names} -> names) (\s@ServiceId' {} a -
 serviceId_accountId :: Lens.Lens' ServiceId (Prelude.Maybe Prelude.Text)
 serviceId_accountId = Lens.lens (\ServiceId' {accountId} -> accountId) (\s@ServiceId' {} a -> s {accountId = a} :: ServiceId)
 
-instance Core.FromJSON ServiceId where
+instance Data.FromJSON ServiceId where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceId"
       ( \x ->
           ServiceId'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Names" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AccountId")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Names" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AccountId")
       )
 
 instance Prelude.Hashable ServiceId where

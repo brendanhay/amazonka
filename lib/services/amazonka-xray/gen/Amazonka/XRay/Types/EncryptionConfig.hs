@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.EncryptionConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.EncryptionStatus
 import Amazonka.XRay.Types.EncryptionType
@@ -79,15 +80,15 @@ encryptionConfig_status = Lens.lens (\EncryptionConfig' {status} -> status) (\s@
 encryptionConfig_keyId :: Lens.Lens' EncryptionConfig (Prelude.Maybe Prelude.Text)
 encryptionConfig_keyId = Lens.lens (\EncryptionConfig' {keyId} -> keyId) (\s@EncryptionConfig' {} a -> s {keyId = a} :: EncryptionConfig)
 
-instance Core.FromJSON EncryptionConfig where
+instance Data.FromJSON EncryptionConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EncryptionConfig"
       ( \x ->
           EncryptionConfig'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "KeyId")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "KeyId")
       )
 
 instance Prelude.Hashable EncryptionConfig where

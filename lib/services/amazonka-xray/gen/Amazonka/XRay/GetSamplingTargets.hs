@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,13 +88,13 @@ instance Core.AWSRequest GetSamplingTargets where
     Response.receiveJSON
       ( \s h x ->
           GetSamplingTargetsResponse'
-            Prelude.<$> ( x Core..?> "UnprocessedStatistics"
+            Prelude.<$> ( x Data..?> "UnprocessedStatistics"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "SamplingTargetDocuments"
+            Prelude.<*> ( x Data..?> "SamplingTargetDocuments"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "LastRuleModification")
+            Prelude.<*> (x Data..?> "LastRuleModification")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,24 +107,24 @@ instance Prelude.NFData GetSamplingTargets where
   rnf GetSamplingTargets' {..} =
     Prelude.rnf samplingStatisticsDocuments
 
-instance Core.ToHeaders GetSamplingTargets where
+instance Data.ToHeaders GetSamplingTargets where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetSamplingTargets where
+instance Data.ToJSON GetSamplingTargets where
   toJSON GetSamplingTargets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "SamplingStatisticsDocuments"
-                  Core..= samplingStatisticsDocuments
+                  Data..= samplingStatisticsDocuments
               )
           ]
       )
 
-instance Core.ToPath GetSamplingTargets where
+instance Data.ToPath GetSamplingTargets where
   toPath = Prelude.const "/SamplingTargets"
 
-instance Core.ToQuery GetSamplingTargets where
+instance Data.ToQuery GetSamplingTargets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSamplingTargetsResponse' smart constructor.
@@ -139,7 +140,7 @@ data GetSamplingTargetsResponse = GetSamplingTargetsResponse'
     -- the service should call
     -- <https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html GetSamplingRules>
     -- to get the latest version.
-    lastRuleModification :: Prelude.Maybe Core.POSIX,
+    lastRuleModification :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,7 +196,7 @@ getSamplingTargetsResponse_samplingTargetDocuments = Lens.lens (\GetSamplingTarg
 -- <https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html GetSamplingRules>
 -- to get the latest version.
 getSamplingTargetsResponse_lastRuleModification :: Lens.Lens' GetSamplingTargetsResponse (Prelude.Maybe Prelude.UTCTime)
-getSamplingTargetsResponse_lastRuleModification = Lens.lens (\GetSamplingTargetsResponse' {lastRuleModification} -> lastRuleModification) (\s@GetSamplingTargetsResponse' {} a -> s {lastRuleModification = a} :: GetSamplingTargetsResponse) Prelude.. Lens.mapping Core._Time
+getSamplingTargetsResponse_lastRuleModification = Lens.lens (\GetSamplingTargetsResponse' {lastRuleModification} -> lastRuleModification) (\s@GetSamplingTargetsResponse' {} a -> s {lastRuleModification = a} :: GetSamplingTargetsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getSamplingTargetsResponse_httpStatus :: Lens.Lens' GetSamplingTargetsResponse Prelude.Int

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,8 +116,8 @@ instance Core.AWSRequest GetInsightEvents where
     Response.receiveJSON
       ( \s h x ->
           GetInsightEventsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "InsightEvents" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "InsightEvents" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,23 +133,23 @@ instance Prelude.NFData GetInsightEvents where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf insightId
 
-instance Core.ToHeaders GetInsightEvents where
+instance Data.ToHeaders GetInsightEvents where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetInsightEvents where
+instance Data.ToJSON GetInsightEvents where
   toJSON GetInsightEvents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("InsightId" Core..= insightId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("InsightId" Data..= insightId)
           ]
       )
 
-instance Core.ToPath GetInsightEvents where
+instance Data.ToPath GetInsightEvents where
   toPath = Prelude.const "/InsightEvents"
 
-instance Core.ToQuery GetInsightEvents where
+instance Data.ToQuery GetInsightEvents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInsightEventsResponse' smart constructor.

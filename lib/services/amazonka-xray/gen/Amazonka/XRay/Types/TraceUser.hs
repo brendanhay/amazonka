@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.TraceUser where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.ServiceId
 
@@ -62,14 +63,14 @@ traceUser_userName = Lens.lens (\TraceUser' {userName} -> userName) (\s@TraceUse
 traceUser_serviceIds :: Lens.Lens' TraceUser (Prelude.Maybe [ServiceId])
 traceUser_serviceIds = Lens.lens (\TraceUser' {serviceIds} -> serviceIds) (\s@TraceUser' {} a -> s {serviceIds = a} :: TraceUser) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TraceUser where
+instance Data.FromJSON TraceUser where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TraceUser"
       ( \x ->
           TraceUser'
-            Prelude.<$> (x Core..:? "UserName")
-            Prelude.<*> (x Core..:? "ServiceIds" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "UserName")
+            Prelude.<*> (x Data..:? "ServiceIds" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TraceUser where

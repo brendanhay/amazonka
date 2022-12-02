@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,7 +100,7 @@ instance Core.AWSRequest DeleteSamplingRule where
     Response.receiveJSON
       ( \s h x ->
           DeleteSamplingRuleResponse'
-            Prelude.<$> (x Core..?> "SamplingRuleRecord")
+            Prelude.<$> (x Data..?> "SamplingRuleRecord")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,22 +114,22 @@ instance Prelude.NFData DeleteSamplingRule where
     Prelude.rnf ruleARN
       `Prelude.seq` Prelude.rnf ruleName
 
-instance Core.ToHeaders DeleteSamplingRule where
+instance Data.ToHeaders DeleteSamplingRule where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON DeleteSamplingRule where
+instance Data.ToJSON DeleteSamplingRule where
   toJSON DeleteSamplingRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RuleARN" Core..=) Prelude.<$> ruleARN,
-            ("RuleName" Core..=) Prelude.<$> ruleName
+          [ ("RuleARN" Data..=) Prelude.<$> ruleARN,
+            ("RuleName" Data..=) Prelude.<$> ruleName
           ]
       )
 
-instance Core.ToPath DeleteSamplingRule where
+instance Data.ToPath DeleteSamplingRule where
   toPath = Prelude.const "/DeleteSamplingRule"
 
-instance Core.ToQuery DeleteSamplingRule where
+instance Data.ToQuery DeleteSamplingRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSamplingRuleResponse' smart constructor.

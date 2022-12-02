@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.SamplingRuleUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A document specifying changes to a sampling rule\'s configuration.
@@ -202,21 +203,21 @@ instance Prelude.NFData SamplingRuleUpdate where
       `Prelude.seq` Prelude.rnf serviceName
       `Prelude.seq` Prelude.rnf uRLPath
 
-instance Core.ToJSON SamplingRuleUpdate where
+instance Data.ToJSON SamplingRuleUpdate where
   toJSON SamplingRuleUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RuleARN" Core..=) Prelude.<$> ruleARN,
-            ("FixedRate" Core..=) Prelude.<$> fixedRate,
-            ("Host" Core..=) Prelude.<$> host,
-            ("ReservoirSize" Core..=) Prelude.<$> reservoirSize,
-            ("ServiceType" Core..=) Prelude.<$> serviceType,
-            ("HTTPMethod" Core..=) Prelude.<$> hTTPMethod,
-            ("RuleName" Core..=) Prelude.<$> ruleName,
-            ("Priority" Core..=) Prelude.<$> priority,
-            ("Attributes" Core..=) Prelude.<$> attributes,
-            ("ResourceARN" Core..=) Prelude.<$> resourceARN,
-            ("ServiceName" Core..=) Prelude.<$> serviceName,
-            ("URLPath" Core..=) Prelude.<$> uRLPath
+          [ ("RuleARN" Data..=) Prelude.<$> ruleARN,
+            ("FixedRate" Data..=) Prelude.<$> fixedRate,
+            ("Host" Data..=) Prelude.<$> host,
+            ("ReservoirSize" Data..=) Prelude.<$> reservoirSize,
+            ("ServiceType" Data..=) Prelude.<$> serviceType,
+            ("HTTPMethod" Data..=) Prelude.<$> hTTPMethod,
+            ("RuleName" Data..=) Prelude.<$> ruleName,
+            ("Priority" Data..=) Prelude.<$> priority,
+            ("Attributes" Data..=) Prelude.<$> attributes,
+            ("ResourceARN" Data..=) Prelude.<$> resourceARN,
+            ("ServiceName" Data..=) Prelude.<$> serviceName,
+            ("URLPath" Data..=) Prelude.<$> uRLPath
           ]
       )

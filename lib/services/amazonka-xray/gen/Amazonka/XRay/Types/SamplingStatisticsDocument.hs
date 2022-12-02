@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.SamplingStatisticsDocument where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Request sampling results for a single rule from a service. Results are
@@ -37,7 +38,7 @@ data SamplingStatisticsDocument = SamplingStatisticsDocument'
     -- | A unique identifier for the service in hexadecimal.
     clientID :: Prelude.Text,
     -- | The current time.
-    timestamp :: Core.POSIX,
+    timestamp :: Data.POSIX,
     -- | The number of requests that matched the rule.
     requestCount :: Prelude.Natural,
     -- | The number of requests recorded.
@@ -87,7 +88,7 @@ newSamplingStatisticsDocument
           Prelude.Nothing,
         ruleName = pRuleName_,
         clientID = pClientID_,
-        timestamp = Core._Time Lens.# pTimestamp_,
+        timestamp = Data._Time Lens.# pTimestamp_,
         requestCount = pRequestCount_,
         sampledCount = pSampledCount_
       }
@@ -106,7 +107,7 @@ samplingStatisticsDocument_clientID = Lens.lens (\SamplingStatisticsDocument' {c
 
 -- | The current time.
 samplingStatisticsDocument_timestamp :: Lens.Lens' SamplingStatisticsDocument Prelude.UTCTime
-samplingStatisticsDocument_timestamp = Lens.lens (\SamplingStatisticsDocument' {timestamp} -> timestamp) (\s@SamplingStatisticsDocument' {} a -> s {timestamp = a} :: SamplingStatisticsDocument) Prelude.. Core._Time
+samplingStatisticsDocument_timestamp = Lens.lens (\SamplingStatisticsDocument' {timestamp} -> timestamp) (\s@SamplingStatisticsDocument' {} a -> s {timestamp = a} :: SamplingStatisticsDocument) Prelude.. Data._Time
 
 -- | The number of requests that matched the rule.
 samplingStatisticsDocument_requestCount :: Lens.Lens' SamplingStatisticsDocument Prelude.Natural
@@ -134,15 +135,15 @@ instance Prelude.NFData SamplingStatisticsDocument where
       `Prelude.seq` Prelude.rnf requestCount
       `Prelude.seq` Prelude.rnf sampledCount
 
-instance Core.ToJSON SamplingStatisticsDocument where
+instance Data.ToJSON SamplingStatisticsDocument where
   toJSON SamplingStatisticsDocument' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BorrowCount" Core..=) Prelude.<$> borrowCount,
-            Prelude.Just ("RuleName" Core..= ruleName),
-            Prelude.Just ("ClientID" Core..= clientID),
-            Prelude.Just ("Timestamp" Core..= timestamp),
-            Prelude.Just ("RequestCount" Core..= requestCount),
-            Prelude.Just ("SampledCount" Core..= sampledCount)
+          [ ("BorrowCount" Data..=) Prelude.<$> borrowCount,
+            Prelude.Just ("RuleName" Data..= ruleName),
+            Prelude.Just ("ClientID" Data..= clientID),
+            Prelude.Just ("Timestamp" Data..= timestamp),
+            Prelude.Just ("RequestCount" Data..= requestCount),
+            Prelude.Just ("SampledCount" Data..= sampledCount)
           ]
       )

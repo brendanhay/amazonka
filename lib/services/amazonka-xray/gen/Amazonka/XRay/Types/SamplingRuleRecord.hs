@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.SamplingRuleRecord where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.SamplingRule
 
@@ -31,11 +32,11 @@ import Amazonka.XRay.Types.SamplingRule
 -- /See:/ 'newSamplingRuleRecord' smart constructor.
 data SamplingRuleRecord = SamplingRuleRecord'
   { -- | When the rule was last modified.
-    modifiedAt :: Prelude.Maybe Core.POSIX,
+    modifiedAt :: Prelude.Maybe Data.POSIX,
     -- | The sampling rule.
     samplingRule :: Prelude.Maybe SamplingRule,
     -- | When the rule was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,7 +64,7 @@ newSamplingRuleRecord =
 
 -- | When the rule was last modified.
 samplingRuleRecord_modifiedAt :: Lens.Lens' SamplingRuleRecord (Prelude.Maybe Prelude.UTCTime)
-samplingRuleRecord_modifiedAt = Lens.lens (\SamplingRuleRecord' {modifiedAt} -> modifiedAt) (\s@SamplingRuleRecord' {} a -> s {modifiedAt = a} :: SamplingRuleRecord) Prelude.. Lens.mapping Core._Time
+samplingRuleRecord_modifiedAt = Lens.lens (\SamplingRuleRecord' {modifiedAt} -> modifiedAt) (\s@SamplingRuleRecord' {} a -> s {modifiedAt = a} :: SamplingRuleRecord) Prelude.. Lens.mapping Data._Time
 
 -- | The sampling rule.
 samplingRuleRecord_samplingRule :: Lens.Lens' SamplingRuleRecord (Prelude.Maybe SamplingRule)
@@ -71,17 +72,17 @@ samplingRuleRecord_samplingRule = Lens.lens (\SamplingRuleRecord' {samplingRule}
 
 -- | When the rule was created.
 samplingRuleRecord_createdAt :: Lens.Lens' SamplingRuleRecord (Prelude.Maybe Prelude.UTCTime)
-samplingRuleRecord_createdAt = Lens.lens (\SamplingRuleRecord' {createdAt} -> createdAt) (\s@SamplingRuleRecord' {} a -> s {createdAt = a} :: SamplingRuleRecord) Prelude.. Lens.mapping Core._Time
+samplingRuleRecord_createdAt = Lens.lens (\SamplingRuleRecord' {createdAt} -> createdAt) (\s@SamplingRuleRecord' {} a -> s {createdAt = a} :: SamplingRuleRecord) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON SamplingRuleRecord where
+instance Data.FromJSON SamplingRuleRecord where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SamplingRuleRecord"
       ( \x ->
           SamplingRuleRecord'
-            Prelude.<$> (x Core..:? "ModifiedAt")
-            Prelude.<*> (x Core..:? "SamplingRule")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "ModifiedAt")
+            Prelude.<*> (x Data..:? "SamplingRule")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable SamplingRuleRecord where

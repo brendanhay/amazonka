@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.AnnotationValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Value of a segment annotation. Has one of three value types: Number,
@@ -71,15 +72,15 @@ annotationValue_booleanValue = Lens.lens (\AnnotationValue' {booleanValue} -> bo
 annotationValue_stringValue :: Lens.Lens' AnnotationValue (Prelude.Maybe Prelude.Text)
 annotationValue_stringValue = Lens.lens (\AnnotationValue' {stringValue} -> stringValue) (\s@AnnotationValue' {} a -> s {stringValue = a} :: AnnotationValue)
 
-instance Core.FromJSON AnnotationValue where
+instance Data.FromJSON AnnotationValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AnnotationValue"
       ( \x ->
           AnnotationValue'
-            Prelude.<$> (x Core..:? "NumberValue")
-            Prelude.<*> (x Core..:? "BooleanValue")
-            Prelude.<*> (x Core..:? "StringValue")
+            Prelude.<$> (x Data..:? "NumberValue")
+            Prelude.<*> (x Data..:? "BooleanValue")
+            Prelude.<*> (x Data..:? "StringValue")
       )
 
 instance Prelude.Hashable AnnotationValue where

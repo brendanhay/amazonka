@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,25 +127,25 @@ instance Prelude.NFData PutTelemetryRecords where
       `Prelude.seq` Prelude.rnf resourceARN
       `Prelude.seq` Prelude.rnf telemetryRecords
 
-instance Core.ToHeaders PutTelemetryRecords where
+instance Data.ToHeaders PutTelemetryRecords where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON PutTelemetryRecords where
+instance Data.ToJSON PutTelemetryRecords where
   toJSON PutTelemetryRecords' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EC2InstanceId" Core..=) Prelude.<$> eC2InstanceId,
-            ("Hostname" Core..=) Prelude.<$> hostname,
-            ("ResourceARN" Core..=) Prelude.<$> resourceARN,
+          [ ("EC2InstanceId" Data..=) Prelude.<$> eC2InstanceId,
+            ("Hostname" Data..=) Prelude.<$> hostname,
+            ("ResourceARN" Data..=) Prelude.<$> resourceARN,
             Prelude.Just
-              ("TelemetryRecords" Core..= telemetryRecords)
+              ("TelemetryRecords" Data..= telemetryRecords)
           ]
       )
 
-instance Core.ToPath PutTelemetryRecords where
+instance Data.ToPath PutTelemetryRecords where
   toPath = Prelude.const "/TelemetryRecords"
 
-instance Core.ToQuery PutTelemetryRecords where
+instance Data.ToQuery PutTelemetryRecords where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutTelemetryRecordsResponse' smart constructor.

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,7 +88,7 @@ instance Core.AWSRequest GetInsight where
     Response.receiveJSON
       ( \s h x ->
           GetInsightResponse'
-            Prelude.<$> (x Core..?> "Insight")
+            Prelude.<$> (x Data..?> "Insight")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,20 +99,20 @@ instance Prelude.Hashable GetInsight where
 instance Prelude.NFData GetInsight where
   rnf GetInsight' {..} = Prelude.rnf insightId
 
-instance Core.ToHeaders GetInsight where
+instance Data.ToHeaders GetInsight where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetInsight where
+instance Data.ToJSON GetInsight where
   toJSON GetInsight' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("InsightId" Core..= insightId)]
+          [Prelude.Just ("InsightId" Data..= insightId)]
       )
 
-instance Core.ToPath GetInsight where
+instance Data.ToPath GetInsight where
   toPath = Prelude.const "/Insight"
 
-instance Core.ToQuery GetInsight where
+instance Data.ToQuery GetInsight where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInsightResponse' smart constructor.

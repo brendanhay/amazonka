@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.Insight where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.AnomalousService
 import Amazonka.XRay.Types.InsightCategory
@@ -49,7 +50,7 @@ data Insight = Insight'
     -- | The name of the group that the insight belongs to.
     groupName :: Prelude.Maybe Prelude.Text,
     -- | The time, in Unix seconds, at which the insight ended.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The categories that label and describe the type of insight.
     categories :: Prelude.Maybe [InsightCategory],
     -- | The impact statistics of the client side service. This includes the
@@ -59,7 +60,7 @@ data Insight = Insight'
     -- | The Amazon Resource Name (ARN) of the group that the insight belongs to.
     groupARN :: Prelude.Maybe Prelude.Text,
     -- | The time, in Unix seconds, at which the insight began.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -149,7 +150,7 @@ insight_groupName = Lens.lens (\Insight' {groupName} -> groupName) (\s@Insight' 
 
 -- | The time, in Unix seconds, at which the insight ended.
 insight_endTime :: Lens.Lens' Insight (Prelude.Maybe Prelude.UTCTime)
-insight_endTime = Lens.lens (\Insight' {endTime} -> endTime) (\s@Insight' {} a -> s {endTime = a} :: Insight) Prelude.. Lens.mapping Core._Time
+insight_endTime = Lens.lens (\Insight' {endTime} -> endTime) (\s@Insight' {} a -> s {endTime = a} :: Insight) Prelude.. Lens.mapping Data._Time
 
 -- | The categories that label and describe the type of insight.
 insight_categories :: Lens.Lens' Insight (Prelude.Maybe [InsightCategory])
@@ -167,30 +168,30 @@ insight_groupARN = Lens.lens (\Insight' {groupARN} -> groupARN) (\s@Insight' {} 
 
 -- | The time, in Unix seconds, at which the insight began.
 insight_startTime :: Lens.Lens' Insight (Prelude.Maybe Prelude.UTCTime)
-insight_startTime = Lens.lens (\Insight' {startTime} -> startTime) (\s@Insight' {} a -> s {startTime = a} :: Insight) Prelude.. Lens.mapping Core._Time
+insight_startTime = Lens.lens (\Insight' {startTime} -> startTime) (\s@Insight' {} a -> s {startTime = a} :: Insight) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Insight where
+instance Data.FromJSON Insight where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Insight"
       ( \x ->
           Insight'
-            Prelude.<$> (x Core..:? "RootCauseServiceId")
+            Prelude.<$> (x Data..:? "RootCauseServiceId")
             Prelude.<*> ( x
-                            Core..:? "RootCauseServiceRequestImpactStatistics"
+                            Data..:? "RootCauseServiceRequestImpactStatistics"
                         )
-            Prelude.<*> ( x Core..:? "TopAnomalousServices"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "TopAnomalousServices"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "InsightId")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Summary")
-            Prelude.<*> (x Core..:? "GroupName")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "Categories" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ClientRequestImpactStatistics")
-            Prelude.<*> (x Core..:? "GroupARN")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<*> (x Data..:? "InsightId")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Summary")
+            Prelude.<*> (x Data..:? "GroupName")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "Categories" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ClientRequestImpactStatistics")
+            Prelude.<*> (x Data..:? "GroupARN")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable Insight where

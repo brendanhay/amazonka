@@ -23,6 +23,7 @@ import Amazonka.CodeStarConnections.Types.ProviderType
 import Amazonka.CodeStarConnections.Types.VpcConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A resource that represents the infrastructure where a third-party
@@ -130,19 +131,19 @@ host_providerType = Lens.lens (\Host' {providerType} -> providerType) (\s@Host' 
 host_statusMessage :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
 host_statusMessage = Lens.lens (\Host' {statusMessage} -> statusMessage) (\s@Host' {} a -> s {statusMessage = a} :: Host)
 
-instance Core.FromJSON Host where
+instance Data.FromJSON Host where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Host"
       ( \x ->
           Host'
-            Prelude.<$> (x Core..:? "VpcConfiguration")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "HostArn")
-            Prelude.<*> (x Core..:? "ProviderEndpoint")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ProviderType")
-            Prelude.<*> (x Core..:? "StatusMessage")
+            Prelude.<$> (x Data..:? "VpcConfiguration")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "HostArn")
+            Prelude.<*> (x Data..:? "ProviderEndpoint")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ProviderType")
+            Prelude.<*> (x Data..:? "StatusMessage")
       )
 
 instance Prelude.Hashable Host where

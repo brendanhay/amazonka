@@ -55,6 +55,7 @@ where
 import Amazonka.CodeStarConnections.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -159,8 +160,8 @@ instance Core.AWSRequest CreateHost where
     Response.receiveJSON
       ( \s h x ->
           CreateHostResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "HostArn")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "HostArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,39 +181,39 @@ instance Prelude.NFData CreateHost where
       `Prelude.seq` Prelude.rnf providerType
       `Prelude.seq` Prelude.rnf providerEndpoint
 
-instance Core.ToHeaders CreateHost where
+instance Data.ToHeaders CreateHost where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.codestar.connections.CodeStar_connections_20191201.CreateHost" ::
+              Data.=# ( "com.amazonaws.codestar.connections.CodeStar_connections_20191201.CreateHost" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateHost where
+instance Data.ToJSON CreateHost where
   toJSON CreateHost' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("VpcConfiguration" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("VpcConfiguration" Data..=)
               Prelude.<$> vpcConfiguration,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("ProviderType" Core..= providerType),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("ProviderType" Data..= providerType),
             Prelude.Just
-              ("ProviderEndpoint" Core..= providerEndpoint)
+              ("ProviderEndpoint" Data..= providerEndpoint)
           ]
       )
 
-instance Core.ToPath CreateHost where
+instance Data.ToPath CreateHost where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateHost where
+instance Data.ToQuery CreateHost where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateHostResponse' smart constructor.

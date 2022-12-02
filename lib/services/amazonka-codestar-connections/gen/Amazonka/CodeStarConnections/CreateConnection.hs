@@ -49,6 +49,7 @@ where
 import Amazonka.CodeStarConnections.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,9 +129,9 @@ instance Core.AWSRequest CreateConnection where
     Response.receiveJSON
       ( \s h x ->
           CreateConnectionResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ConnectionArn")
+            Prelude.<*> (x Data..:> "ConnectionArn")
       )
 
 instance Prelude.Hashable CreateConnection where
@@ -147,37 +148,37 @@ instance Prelude.NFData CreateConnection where
       `Prelude.seq` Prelude.rnf providerType
       `Prelude.seq` Prelude.rnf connectionName
 
-instance Core.ToHeaders CreateConnection where
+instance Data.ToHeaders CreateConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.codestar.connections.CodeStar_connections_20191201.CreateConnection" ::
+              Data.=# ( "com.amazonaws.codestar.connections.CodeStar_connections_20191201.CreateConnection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateConnection where
+instance Data.ToJSON CreateConnection where
   toJSON CreateConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("HostArn" Core..=) Prelude.<$> hostArn,
-            ("ProviderType" Core..=) Prelude.<$> providerType,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("HostArn" Data..=) Prelude.<$> hostArn,
+            ("ProviderType" Data..=) Prelude.<$> providerType,
             Prelude.Just
-              ("ConnectionName" Core..= connectionName)
+              ("ConnectionName" Data..= connectionName)
           ]
       )
 
-instance Core.ToPath CreateConnection where
+instance Data.ToPath CreateConnection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateConnection where
+instance Data.ToQuery CreateConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateConnectionResponse' smart constructor.

@@ -23,6 +23,7 @@ import Amazonka.CodeStarConnections.Types.ConnectionStatus
 import Amazonka.CodeStarConnections.Types.ProviderType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A resource that is used to connect third-party source providers with
@@ -128,18 +129,18 @@ connection_connectionStatus = Lens.lens (\Connection' {connectionStatus} -> conn
 connection_connectionName :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
 connection_connectionName = Lens.lens (\Connection' {connectionName} -> connectionName) (\s@Connection' {} a -> s {connectionName = a} :: Connection)
 
-instance Core.FromJSON Connection where
+instance Data.FromJSON Connection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Connection"
       ( \x ->
           Connection'
-            Prelude.<$> (x Core..:? "HostArn")
-            Prelude.<*> (x Core..:? "ConnectionArn")
-            Prelude.<*> (x Core..:? "ProviderType")
-            Prelude.<*> (x Core..:? "OwnerAccountId")
-            Prelude.<*> (x Core..:? "ConnectionStatus")
-            Prelude.<*> (x Core..:? "ConnectionName")
+            Prelude.<$> (x Data..:? "HostArn")
+            Prelude.<*> (x Data..:? "ConnectionArn")
+            Prelude.<*> (x Data..:? "ProviderType")
+            Prelude.<*> (x Data..:? "OwnerAccountId")
+            Prelude.<*> (x Data..:? "ConnectionStatus")
+            Prelude.<*> (x Data..:? "ConnectionName")
       )
 
 instance Prelude.Hashable Connection where

@@ -21,6 +21,7 @@ module Amazonka.CodeStarConnections.Types.VpcConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The VPC configuration provisioned for the host.
@@ -104,16 +105,16 @@ vpcConfiguration_subnetIds = Lens.lens (\VpcConfiguration' {subnetIds} -> subnet
 vpcConfiguration_securityGroupIds :: Lens.Lens' VpcConfiguration (Prelude.NonEmpty Prelude.Text)
 vpcConfiguration_securityGroupIds = Lens.lens (\VpcConfiguration' {securityGroupIds} -> securityGroupIds) (\s@VpcConfiguration' {} a -> s {securityGroupIds = a} :: VpcConfiguration) Prelude.. Lens.coerced
 
-instance Core.FromJSON VpcConfiguration where
+instance Data.FromJSON VpcConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcConfiguration"
       ( \x ->
           VpcConfiguration'
-            Prelude.<$> (x Core..:? "TlsCertificate")
-            Prelude.<*> (x Core..: "VpcId")
-            Prelude.<*> (x Core..: "SubnetIds")
-            Prelude.<*> (x Core..: "SecurityGroupIds")
+            Prelude.<$> (x Data..:? "TlsCertificate")
+            Prelude.<*> (x Data..: "VpcId")
+            Prelude.<*> (x Data..: "SubnetIds")
+            Prelude.<*> (x Data..: "SecurityGroupIds")
       )
 
 instance Prelude.Hashable VpcConfiguration where
@@ -130,15 +131,15 @@ instance Prelude.NFData VpcConfiguration where
       `Prelude.seq` Prelude.rnf subnetIds
       `Prelude.seq` Prelude.rnf securityGroupIds
 
-instance Core.ToJSON VpcConfiguration where
+instance Data.ToJSON VpcConfiguration where
   toJSON VpcConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TlsCertificate" Core..=)
+          [ ("TlsCertificate" Data..=)
               Prelude.<$> tlsCertificate,
-            Prelude.Just ("VpcId" Core..= vpcId),
-            Prelude.Just ("SubnetIds" Core..= subnetIds),
+            Prelude.Just ("VpcId" Data..= vpcId),
+            Prelude.Just ("SubnetIds" Data..= subnetIds),
             Prelude.Just
-              ("SecurityGroupIds" Core..= securityGroupIds)
+              ("SecurityGroupIds" Data..= securityGroupIds)
           ]
       )

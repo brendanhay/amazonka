@@ -22,6 +22,7 @@ module Amazonka.DMS.Types.MySQLSettings where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.TargetDbType
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that defines a MySQL endpoint.
@@ -58,7 +59,7 @@ data MySQLSettings = MySQLSettings'
     -- in the /Database Migration Service User Guide/.
     secretsManagerAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Endpoint connection password.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Fully qualified domain name of the endpoint.
     serverName :: Prelude.Maybe Prelude.Text,
     -- | Database name for the endpoint. For a MySQL source or target endpoint,
@@ -259,7 +260,7 @@ mySQLSettings_secretsManagerAccessRoleArn = Lens.lens (\MySQLSettings' {secretsM
 
 -- | Endpoint connection password.
 mySQLSettings_password :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Text)
-mySQLSettings_password = Lens.lens (\MySQLSettings' {password} -> password) (\s@MySQLSettings' {} a -> s {password = a} :: MySQLSettings) Prelude.. Lens.mapping Core._Sensitive
+mySQLSettings_password = Lens.lens (\MySQLSettings' {password} -> password) (\s@MySQLSettings' {} a -> s {password = a} :: MySQLSettings) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Fully qualified domain name of the endpoint.
 mySQLSettings_serverName :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Text)
@@ -329,26 +330,26 @@ mySQLSettings_secretsManagerSecretId = Lens.lens (\MySQLSettings' {secretsManage
 mySQLSettings_serverTimezone :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Text)
 mySQLSettings_serverTimezone = Lens.lens (\MySQLSettings' {serverTimezone} -> serverTimezone) (\s@MySQLSettings' {} a -> s {serverTimezone = a} :: MySQLSettings)
 
-instance Core.FromJSON MySQLSettings where
+instance Data.FromJSON MySQLSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MySQLSettings"
       ( \x ->
           MySQLSettings'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "MaxFileSize")
-            Prelude.<*> (x Core..:? "TargetDbType")
-            Prelude.<*> (x Core..:? "SecretsManagerAccessRoleArn")
-            Prelude.<*> (x Core..:? "Password")
-            Prelude.<*> (x Core..:? "ServerName")
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "ParallelLoadThreads")
-            Prelude.<*> (x Core..:? "AfterConnectScript")
-            Prelude.<*> (x Core..:? "EventsPollInterval")
-            Prelude.<*> (x Core..:? "CleanSourceMetadataOnMismatch")
-            Prelude.<*> (x Core..:? "SecretsManagerSecretId")
-            Prelude.<*> (x Core..:? "ServerTimezone")
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "MaxFileSize")
+            Prelude.<*> (x Data..:? "TargetDbType")
+            Prelude.<*> (x Data..:? "SecretsManagerAccessRoleArn")
+            Prelude.<*> (x Data..:? "Password")
+            Prelude.<*> (x Data..:? "ServerName")
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "Username")
+            Prelude.<*> (x Data..:? "ParallelLoadThreads")
+            Prelude.<*> (x Data..:? "AfterConnectScript")
+            Prelude.<*> (x Data..:? "EventsPollInterval")
+            Prelude.<*> (x Data..:? "CleanSourceMetadataOnMismatch")
+            Prelude.<*> (x Data..:? "SecretsManagerSecretId")
+            Prelude.<*> (x Data..:? "ServerTimezone")
       )
 
 instance Prelude.Hashable MySQLSettings where
@@ -385,30 +386,30 @@ instance Prelude.NFData MySQLSettings where
       `Prelude.seq` Prelude.rnf secretsManagerSecretId
       `Prelude.seq` Prelude.rnf serverTimezone
 
-instance Core.ToJSON MySQLSettings where
+instance Data.ToJSON MySQLSettings where
   toJSON MySQLSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Port" Core..=) Prelude.<$> port,
-            ("MaxFileSize" Core..=) Prelude.<$> maxFileSize,
-            ("TargetDbType" Core..=) Prelude.<$> targetDbType,
-            ("SecretsManagerAccessRoleArn" Core..=)
+          [ ("Port" Data..=) Prelude.<$> port,
+            ("MaxFileSize" Data..=) Prelude.<$> maxFileSize,
+            ("TargetDbType" Data..=) Prelude.<$> targetDbType,
+            ("SecretsManagerAccessRoleArn" Data..=)
               Prelude.<$> secretsManagerAccessRoleArn,
-            ("Password" Core..=) Prelude.<$> password,
-            ("ServerName" Core..=) Prelude.<$> serverName,
-            ("DatabaseName" Core..=) Prelude.<$> databaseName,
-            ("Username" Core..=) Prelude.<$> username,
-            ("ParallelLoadThreads" Core..=)
+            ("Password" Data..=) Prelude.<$> password,
+            ("ServerName" Data..=) Prelude.<$> serverName,
+            ("DatabaseName" Data..=) Prelude.<$> databaseName,
+            ("Username" Data..=) Prelude.<$> username,
+            ("ParallelLoadThreads" Data..=)
               Prelude.<$> parallelLoadThreads,
-            ("AfterConnectScript" Core..=)
+            ("AfterConnectScript" Data..=)
               Prelude.<$> afterConnectScript,
-            ("EventsPollInterval" Core..=)
+            ("EventsPollInterval" Data..=)
               Prelude.<$> eventsPollInterval,
-            ("CleanSourceMetadataOnMismatch" Core..=)
+            ("CleanSourceMetadataOnMismatch" Data..=)
               Prelude.<$> cleanSourceMetadataOnMismatch,
-            ("SecretsManagerSecretId" Core..=)
+            ("SecretsManagerSecretId" Data..=)
               Prelude.<$> secretsManagerSecretId,
-            ("ServerTimezone" Core..=)
+            ("ServerTimezone" Data..=)
               Prelude.<$> serverTimezone
           ]
       )

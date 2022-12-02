@@ -47,6 +47,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -163,8 +164,8 @@ instance Core.AWSRequest DescribeEndpointTypes where
     Response.receiveJSON
       ( \s h x ->
           DescribeEndpointTypesResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> ( x Core..?> "SupportedEndpointTypes"
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> ( x Data..?> "SupportedEndpointTypes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -182,35 +183,35 @@ instance Prelude.NFData DescribeEndpointTypes where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeEndpointTypes where
+instance Data.ToHeaders DescribeEndpointTypes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.DescribeEndpointTypes" ::
+              Data.=# ( "AmazonDMSv20160101.DescribeEndpointTypes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEndpointTypes where
+instance Data.ToJSON DescribeEndpointTypes where
   toJSON DescribeEndpointTypes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxRecords" Core..=) Prelude.<$> maxRecords
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxRecords" Data..=) Prelude.<$> maxRecords
           ]
       )
 
-instance Core.ToPath DescribeEndpointTypes where
+instance Data.ToPath DescribeEndpointTypes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEndpointTypes where
+instance Data.ToQuery DescribeEndpointTypes where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

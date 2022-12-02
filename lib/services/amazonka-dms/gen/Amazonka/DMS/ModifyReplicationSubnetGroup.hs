@@ -44,6 +44,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,7 +111,7 @@ instance Core.AWSRequest ModifyReplicationSubnetGroup where
     Response.receiveJSON
       ( \s h x ->
           ModifyReplicationSubnetGroupResponse'
-            Prelude.<$> (x Core..?> "ReplicationSubnetGroup")
+            Prelude.<$> (x Data..?> "ReplicationSubnetGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,39 +131,39 @@ instance Prelude.NFData ModifyReplicationSubnetGroup where
       `Prelude.seq` Prelude.rnf replicationSubnetGroupIdentifier
       `Prelude.seq` Prelude.rnf subnetIds
 
-instance Core.ToHeaders ModifyReplicationSubnetGroup where
+instance Data.ToHeaders ModifyReplicationSubnetGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.ModifyReplicationSubnetGroup" ::
+              Data.=# ( "AmazonDMSv20160101.ModifyReplicationSubnetGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ModifyReplicationSubnetGroup where
+instance Data.ToJSON ModifyReplicationSubnetGroup where
   toJSON ModifyReplicationSubnetGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ReplicationSubnetGroupDescription" Core..=)
+          [ ("ReplicationSubnetGroupDescription" Data..=)
               Prelude.<$> replicationSubnetGroupDescription,
             Prelude.Just
               ( "ReplicationSubnetGroupIdentifier"
-                  Core..= replicationSubnetGroupIdentifier
+                  Data..= replicationSubnetGroupIdentifier
               ),
-            Prelude.Just ("SubnetIds" Core..= subnetIds)
+            Prelude.Just ("SubnetIds" Data..= subnetIds)
           ]
       )
 
-instance Core.ToPath ModifyReplicationSubnetGroup where
+instance Data.ToPath ModifyReplicationSubnetGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyReplicationSubnetGroup where
+instance Data.ToQuery ModifyReplicationSubnetGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

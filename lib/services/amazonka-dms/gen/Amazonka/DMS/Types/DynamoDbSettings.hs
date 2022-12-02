@@ -21,6 +21,7 @@ module Amazonka.DMS.Types.DynamoDbSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the Amazon Resource Name (ARN) of the Identity and Access
@@ -59,13 +60,13 @@ newDynamoDbSettings pServiceAccessRoleArn_ =
 dynamoDbSettings_serviceAccessRoleArn :: Lens.Lens' DynamoDbSettings Prelude.Text
 dynamoDbSettings_serviceAccessRoleArn = Lens.lens (\DynamoDbSettings' {serviceAccessRoleArn} -> serviceAccessRoleArn) (\s@DynamoDbSettings' {} a -> s {serviceAccessRoleArn = a} :: DynamoDbSettings)
 
-instance Core.FromJSON DynamoDbSettings where
+instance Data.FromJSON DynamoDbSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DynamoDbSettings"
       ( \x ->
           DynamoDbSettings'
-            Prelude.<$> (x Core..: "ServiceAccessRoleArn")
+            Prelude.<$> (x Data..: "ServiceAccessRoleArn")
       )
 
 instance Prelude.Hashable DynamoDbSettings where
@@ -76,13 +77,13 @@ instance Prelude.NFData DynamoDbSettings where
   rnf DynamoDbSettings' {..} =
     Prelude.rnf serviceAccessRoleArn
 
-instance Core.ToJSON DynamoDbSettings where
+instance Data.ToJSON DynamoDbSettings where
   toJSON DynamoDbSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ServiceAccessRoleArn"
-                  Core..= serviceAccessRoleArn
+                  Data..= serviceAccessRoleArn
               )
           ]
       )

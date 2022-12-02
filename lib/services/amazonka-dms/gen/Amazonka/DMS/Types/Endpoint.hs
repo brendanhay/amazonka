@@ -41,6 +41,7 @@ import Amazonka.DMS.Types.RedshiftSettings
 import Amazonka.DMS.Types.ReplicationEndpointTypeValue
 import Amazonka.DMS.Types.S3Settings
 import Amazonka.DMS.Types.SybaseSettings
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an endpoint of a database instance in response to operations
@@ -492,47 +493,47 @@ endpoint_mongoDbSettings = Lens.lens (\Endpoint' {mongoDbSettings} -> mongoDbSet
 endpoint_endpointArn :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_endpointArn = Lens.lens (\Endpoint' {endpointArn} -> endpointArn) (\s@Endpoint' {} a -> s {endpointArn = a} :: Endpoint)
 
-instance Core.FromJSON Endpoint where
+instance Data.FromJSON Endpoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Endpoint"
       ( \x ->
           Endpoint'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "ElasticsearchSettings")
-            Prelude.<*> (x Core..:? "RedshiftSettings")
-            Prelude.<*> (x Core..:? "ExternalTableDefinition")
-            Prelude.<*> (x Core..:? "EngineName")
-            Prelude.<*> (x Core..:? "EngineDisplayName")
-            Prelude.<*> (x Core..:? "MySQLSettings")
-            Prelude.<*> (x Core..:? "SslMode")
-            Prelude.<*> (x Core..:? "EndpointIdentifier")
-            Prelude.<*> (x Core..:? "ServerName")
-            Prelude.<*> (x Core..:? "DocDbSettings")
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "GcpMySQLSettings")
-            Prelude.<*> (x Core..:? "ServiceAccessRoleArn")
-            Prelude.<*> (x Core..:? "ExtraConnectionAttributes")
-            Prelude.<*> (x Core..:? "NeptuneSettings")
-            Prelude.<*> (x Core..:? "ExternalId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "EndpointType")
-            Prelude.<*> (x Core..:? "KinesisSettings")
-            Prelude.<*> (x Core..:? "OracleSettings")
-            Prelude.<*> (x Core..:? "CertificateArn")
-            Prelude.<*> (x Core..:? "DynamoDbSettings")
-            Prelude.<*> (x Core..:? "RedisSettings")
-            Prelude.<*> (x Core..:? "S3Settings")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "MicrosoftSQLServerSettings")
-            Prelude.<*> (x Core..:? "KafkaSettings")
-            Prelude.<*> (x Core..:? "DmsTransferSettings")
-            Prelude.<*> (x Core..:? "SybaseSettings")
-            Prelude.<*> (x Core..:? "PostgreSQLSettings")
-            Prelude.<*> (x Core..:? "IBMDb2Settings")
-            Prelude.<*> (x Core..:? "MongoDbSettings")
-            Prelude.<*> (x Core..:? "EndpointArn")
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "ElasticsearchSettings")
+            Prelude.<*> (x Data..:? "RedshiftSettings")
+            Prelude.<*> (x Data..:? "ExternalTableDefinition")
+            Prelude.<*> (x Data..:? "EngineName")
+            Prelude.<*> (x Data..:? "EngineDisplayName")
+            Prelude.<*> (x Data..:? "MySQLSettings")
+            Prelude.<*> (x Data..:? "SslMode")
+            Prelude.<*> (x Data..:? "EndpointIdentifier")
+            Prelude.<*> (x Data..:? "ServerName")
+            Prelude.<*> (x Data..:? "DocDbSettings")
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "Username")
+            Prelude.<*> (x Data..:? "GcpMySQLSettings")
+            Prelude.<*> (x Data..:? "ServiceAccessRoleArn")
+            Prelude.<*> (x Data..:? "ExtraConnectionAttributes")
+            Prelude.<*> (x Data..:? "NeptuneSettings")
+            Prelude.<*> (x Data..:? "ExternalId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "EndpointType")
+            Prelude.<*> (x Data..:? "KinesisSettings")
+            Prelude.<*> (x Data..:? "OracleSettings")
+            Prelude.<*> (x Data..:? "CertificateArn")
+            Prelude.<*> (x Data..:? "DynamoDbSettings")
+            Prelude.<*> (x Data..:? "RedisSettings")
+            Prelude.<*> (x Data..:? "S3Settings")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "MicrosoftSQLServerSettings")
+            Prelude.<*> (x Data..:? "KafkaSettings")
+            Prelude.<*> (x Data..:? "DmsTransferSettings")
+            Prelude.<*> (x Data..:? "SybaseSettings")
+            Prelude.<*> (x Data..:? "PostgreSQLSettings")
+            Prelude.<*> (x Data..:? "IBMDb2Settings")
+            Prelude.<*> (x Data..:? "MongoDbSettings")
+            Prelude.<*> (x Data..:? "EndpointArn")
       )
 
 instance Prelude.Hashable Endpoint where

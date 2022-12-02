@@ -22,6 +22,7 @@ module Amazonka.DMS.Types.ReplicationTaskAssessmentRun where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.ReplicationTaskAssessmentRunProgress
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that describes a premigration assessment run that
@@ -81,7 +82,7 @@ data ReplicationTaskAssessmentRun = ReplicationTaskAssessmentRun'
     resultLocationBucket :: Prelude.Maybe Prelude.Text,
     -- | Date on which the assessment run was created using the
     -- @StartReplicationTaskAssessmentRun@ operation.
-    replicationTaskAssessmentRunCreationDate :: Prelude.Maybe Core.POSIX,
+    replicationTaskAssessmentRunCreationDate :: Prelude.Maybe Data.POSIX,
     -- | Encryption mode used to encrypt the assessment run results.
     resultEncryptionMode :: Prelude.Maybe Prelude.Text,
     -- | Unique name of the assessment run.
@@ -247,7 +248,7 @@ replicationTaskAssessmentRun_resultLocationBucket = Lens.lens (\ReplicationTaskA
 -- | Date on which the assessment run was created using the
 -- @StartReplicationTaskAssessmentRun@ operation.
 replicationTaskAssessmentRun_replicationTaskAssessmentRunCreationDate :: Lens.Lens' ReplicationTaskAssessmentRun (Prelude.Maybe Prelude.UTCTime)
-replicationTaskAssessmentRun_replicationTaskAssessmentRunCreationDate = Lens.lens (\ReplicationTaskAssessmentRun' {replicationTaskAssessmentRunCreationDate} -> replicationTaskAssessmentRunCreationDate) (\s@ReplicationTaskAssessmentRun' {} a -> s {replicationTaskAssessmentRunCreationDate = a} :: ReplicationTaskAssessmentRun) Prelude.. Lens.mapping Core._Time
+replicationTaskAssessmentRun_replicationTaskAssessmentRunCreationDate = Lens.lens (\ReplicationTaskAssessmentRun' {replicationTaskAssessmentRunCreationDate} -> replicationTaskAssessmentRunCreationDate) (\s@ReplicationTaskAssessmentRun' {} a -> s {replicationTaskAssessmentRunCreationDate = a} :: ReplicationTaskAssessmentRun) Prelude.. Lens.mapping Data._Time
 
 -- | Encryption mode used to encrypt the assessment run results.
 replicationTaskAssessmentRun_resultEncryptionMode :: Lens.Lens' ReplicationTaskAssessmentRun (Prelude.Maybe Prelude.Text)
@@ -271,26 +272,26 @@ replicationTaskAssessmentRun_resultKmsKeyArn = Lens.lens (\ReplicationTaskAssess
 replicationTaskAssessmentRun_assessmentProgress :: Lens.Lens' ReplicationTaskAssessmentRun (Prelude.Maybe ReplicationTaskAssessmentRunProgress)
 replicationTaskAssessmentRun_assessmentProgress = Lens.lens (\ReplicationTaskAssessmentRun' {assessmentProgress} -> assessmentProgress) (\s@ReplicationTaskAssessmentRun' {} a -> s {assessmentProgress = a} :: ReplicationTaskAssessmentRun)
 
-instance Core.FromJSON ReplicationTaskAssessmentRun where
+instance Data.FromJSON ReplicationTaskAssessmentRun where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicationTaskAssessmentRun"
       ( \x ->
           ReplicationTaskAssessmentRun'
-            Prelude.<$> (x Core..:? "LastFailureMessage")
-            Prelude.<*> (x Core..:? "ServiceAccessRoleArn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ResultLocationFolder")
-            Prelude.<*> (x Core..:? "ReplicationTaskArn")
-            Prelude.<*> (x Core..:? "ResultLocationBucket")
+            Prelude.<$> (x Data..:? "LastFailureMessage")
+            Prelude.<*> (x Data..:? "ServiceAccessRoleArn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ResultLocationFolder")
+            Prelude.<*> (x Data..:? "ReplicationTaskArn")
+            Prelude.<*> (x Data..:? "ResultLocationBucket")
             Prelude.<*> ( x
-                            Core..:? "ReplicationTaskAssessmentRunCreationDate"
+                            Data..:? "ReplicationTaskAssessmentRunCreationDate"
                         )
-            Prelude.<*> (x Core..:? "ResultEncryptionMode")
-            Prelude.<*> (x Core..:? "AssessmentRunName")
-            Prelude.<*> (x Core..:? "ReplicationTaskAssessmentRunArn")
-            Prelude.<*> (x Core..:? "ResultKmsKeyArn")
-            Prelude.<*> (x Core..:? "AssessmentProgress")
+            Prelude.<*> (x Data..:? "ResultEncryptionMode")
+            Prelude.<*> (x Data..:? "AssessmentRunName")
+            Prelude.<*> (x Data..:? "ReplicationTaskAssessmentRunArn")
+            Prelude.<*> (x Data..:? "ResultKmsKeyArn")
+            Prelude.<*> (x Data..:? "AssessmentProgress")
       )
 
 instance

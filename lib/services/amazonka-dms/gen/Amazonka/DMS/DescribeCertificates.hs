@@ -47,6 +47,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -152,8 +153,8 @@ instance Core.AWSRequest DescribeCertificates where
     Response.receiveJSON
       ( \s h x ->
           DescribeCertificatesResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "Certificates" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "Certificates" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,35 +170,35 @@ instance Prelude.NFData DescribeCertificates where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeCertificates where
+instance Data.ToHeaders DescribeCertificates where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.DescribeCertificates" ::
+              Data.=# ( "AmazonDMSv20160101.DescribeCertificates" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeCertificates where
+instance Data.ToJSON DescribeCertificates where
   toJSON DescribeCertificates' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxRecords" Core..=) Prelude.<$> maxRecords
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxRecords" Data..=) Prelude.<$> maxRecords
           ]
       )
 
-instance Core.ToPath DescribeCertificates where
+instance Data.ToPath DescribeCertificates where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCertificates where
+instance Data.ToQuery DescribeCertificates where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeCertificatesResponse' smart constructor.

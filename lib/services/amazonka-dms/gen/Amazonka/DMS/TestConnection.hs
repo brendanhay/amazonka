@@ -43,6 +43,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,7 +106,7 @@ instance Core.AWSRequest TestConnection where
     Response.receiveJSON
       ( \s h x ->
           TestConnectionResponse'
-            Prelude.<$> (x Core..?> "Connection")
+            Prelude.<$> (x Data..?> "Connection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,37 +120,37 @@ instance Prelude.NFData TestConnection where
     Prelude.rnf replicationInstanceArn
       `Prelude.seq` Prelude.rnf endpointArn
 
-instance Core.ToHeaders TestConnection where
+instance Data.ToHeaders TestConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.TestConnection" ::
+              Data.=# ( "AmazonDMSv20160101.TestConnection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON TestConnection where
+instance Data.ToJSON TestConnection where
   toJSON TestConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ReplicationInstanceArn"
-                  Core..= replicationInstanceArn
+                  Data..= replicationInstanceArn
               ),
-            Prelude.Just ("EndpointArn" Core..= endpointArn)
+            Prelude.Just ("EndpointArn" Data..= endpointArn)
           ]
       )
 
-instance Core.ToPath TestConnection where
+instance Data.ToPath TestConnection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery TestConnection where
+instance Data.ToQuery TestConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

@@ -47,6 +47,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,7 +106,7 @@ instance Core.AWSRequest DescribeEventCategories where
     Response.receiveJSON
       ( \s h x ->
           DescribeEventCategoriesResponse'
-            Prelude.<$> ( x Core..?> "EventCategoryGroupList"
+            Prelude.<$> ( x Data..?> "EventCategoryGroupList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -121,34 +122,34 @@ instance Prelude.NFData DescribeEventCategories where
     Prelude.rnf filters
       `Prelude.seq` Prelude.rnf sourceType
 
-instance Core.ToHeaders DescribeEventCategories where
+instance Data.ToHeaders DescribeEventCategories where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.DescribeEventCategories" ::
+              Data.=# ( "AmazonDMSv20160101.DescribeEventCategories" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEventCategories where
+instance Data.ToJSON DescribeEventCategories where
   toJSON DescribeEventCategories' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("SourceType" Core..=) Prelude.<$> sourceType
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("SourceType" Data..=) Prelude.<$> sourceType
           ]
       )
 
-instance Core.ToPath DescribeEventCategories where
+instance Data.ToPath DescribeEventCategories where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEventCategories where
+instance Data.ToQuery DescribeEventCategories where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

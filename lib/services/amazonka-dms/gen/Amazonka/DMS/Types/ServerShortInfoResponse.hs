@@ -21,6 +21,7 @@ module Amazonka.DMS.Types.ServerShortInfoResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a server in a Fleet Advisor collector inventory.
@@ -71,15 +72,15 @@ serverShortInfoResponse_serverId = Lens.lens (\ServerShortInfoResponse' {serverI
 serverShortInfoResponse_ipAddress :: Lens.Lens' ServerShortInfoResponse (Prelude.Maybe Prelude.Text)
 serverShortInfoResponse_ipAddress = Lens.lens (\ServerShortInfoResponse' {ipAddress} -> ipAddress) (\s@ServerShortInfoResponse' {} a -> s {ipAddress = a} :: ServerShortInfoResponse)
 
-instance Core.FromJSON ServerShortInfoResponse where
+instance Data.FromJSON ServerShortInfoResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServerShortInfoResponse"
       ( \x ->
           ServerShortInfoResponse'
-            Prelude.<$> (x Core..:? "ServerName")
-            Prelude.<*> (x Core..:? "ServerId")
-            Prelude.<*> (x Core..:? "IpAddress")
+            Prelude.<$> (x Data..:? "ServerName")
+            Prelude.<*> (x Data..:? "ServerId")
+            Prelude.<*> (x Data..:? "IpAddress")
       )
 
 instance Prelude.Hashable ServerShortInfoResponse where

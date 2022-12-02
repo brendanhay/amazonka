@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.CollectorHealthCheck
 import Amazonka.DMS.Types.InventoryData
 import Amazonka.DMS.Types.VersionStatus
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a Fleet Advisor collector.
@@ -182,25 +183,25 @@ collectorResponse_modifiedDate = Lens.lens (\CollectorResponse' {modifiedDate} -
 collectorResponse_collectorVersion :: Lens.Lens' CollectorResponse (Prelude.Maybe Prelude.Text)
 collectorResponse_collectorVersion = Lens.lens (\CollectorResponse' {collectorVersion} -> collectorVersion) (\s@CollectorResponse' {} a -> s {collectorVersion = a} :: CollectorResponse)
 
-instance Core.FromJSON CollectorResponse where
+instance Data.FromJSON CollectorResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CollectorResponse"
       ( \x ->
           CollectorResponse'
-            Prelude.<$> (x Core..:? "CollectorName")
-            Prelude.<*> (x Core..:? "S3BucketName")
-            Prelude.<*> (x Core..:? "VersionStatus")
-            Prelude.<*> (x Core..:? "ServiceAccessRoleArn")
-            Prelude.<*> (x Core..:? "InventoryData")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LastDataReceived")
-            Prelude.<*> (x Core..:? "CollectorHealthCheck")
-            Prelude.<*> (x Core..:? "CollectorReferencedId")
-            Prelude.<*> (x Core..:? "RegisteredDate")
-            Prelude.<*> (x Core..:? "CreatedDate")
-            Prelude.<*> (x Core..:? "ModifiedDate")
-            Prelude.<*> (x Core..:? "CollectorVersion")
+            Prelude.<$> (x Data..:? "CollectorName")
+            Prelude.<*> (x Data..:? "S3BucketName")
+            Prelude.<*> (x Data..:? "VersionStatus")
+            Prelude.<*> (x Data..:? "ServiceAccessRoleArn")
+            Prelude.<*> (x Data..:? "InventoryData")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LastDataReceived")
+            Prelude.<*> (x Data..:? "CollectorHealthCheck")
+            Prelude.<*> (x Data..:? "CollectorReferencedId")
+            Prelude.<*> (x Data..:? "RegisteredDate")
+            Prelude.<*> (x Data..:? "CreatedDate")
+            Prelude.<*> (x Data..:? "ModifiedDate")
+            Prelude.<*> (x Data..:? "CollectorVersion")
       )
 
 instance Prelude.Hashable CollectorResponse where

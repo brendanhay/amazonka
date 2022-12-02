@@ -54,6 +54,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -180,8 +181,8 @@ instance Core.AWSRequest DescribeEventSubscriptions where
     Response.receiveJSON
       ( \s h x ->
           DescribeEventSubscriptionsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> ( x Core..?> "EventSubscriptionsList"
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> ( x Data..?> "EventSubscriptionsList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -201,37 +202,37 @@ instance Prelude.NFData DescribeEventSubscriptions where
       `Prelude.seq` Prelude.rnf subscriptionName
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeEventSubscriptions where
+instance Data.ToHeaders DescribeEventSubscriptions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.DescribeEventSubscriptions" ::
+              Data.=# ( "AmazonDMSv20160101.DescribeEventSubscriptions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEventSubscriptions where
+instance Data.ToJSON DescribeEventSubscriptions where
   toJSON DescribeEventSubscriptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("SubscriptionName" Core..=)
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("SubscriptionName" Data..=)
               Prelude.<$> subscriptionName,
-            ("MaxRecords" Core..=) Prelude.<$> maxRecords
+            ("MaxRecords" Data..=) Prelude.<$> maxRecords
           ]
       )
 
-instance Core.ToPath DescribeEventSubscriptions where
+instance Data.ToPath DescribeEventSubscriptions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEventSubscriptions where
+instance Data.ToQuery DescribeEventSubscriptions where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

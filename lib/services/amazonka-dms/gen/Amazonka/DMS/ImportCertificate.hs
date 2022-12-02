@@ -45,6 +45,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -58,9 +59,9 @@ data ImportCertificate = ImportCertificate'
     -- can\'t provide the certificate inline.
     --
     -- Example: @filebase64(\"${path.root}\/rds-ca-2019-root.sso\")@
-    certificateWallet :: Prelude.Maybe Core.Base64,
+    certificateWallet :: Prelude.Maybe Data.Base64,
     -- | The contents of a @.pem@ file, which contains an X.509 certificate.
-    certificatePem :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    certificatePem :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A customer-assigned name for the certificate. Identifiers must begin
     -- with a letter and must contain only ASCII letters, digits, and hyphens.
     -- They can\'t end with a hyphen or contain two consecutive hyphens.
@@ -119,11 +120,11 @@ importCertificate_tags = Lens.lens (\ImportCertificate' {tags} -> tags) (\s@Impo
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 importCertificate_certificateWallet :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.ByteString)
-importCertificate_certificateWallet = Lens.lens (\ImportCertificate' {certificateWallet} -> certificateWallet) (\s@ImportCertificate' {} a -> s {certificateWallet = a} :: ImportCertificate) Prelude.. Lens.mapping Core._Base64
+importCertificate_certificateWallet = Lens.lens (\ImportCertificate' {certificateWallet} -> certificateWallet) (\s@ImportCertificate' {} a -> s {certificateWallet = a} :: ImportCertificate) Prelude.. Lens.mapping Data._Base64
 
 -- | The contents of a @.pem@ file, which contains an X.509 certificate.
 importCertificate_certificatePem :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.Text)
-importCertificate_certificatePem = Lens.lens (\ImportCertificate' {certificatePem} -> certificatePem) (\s@ImportCertificate' {} a -> s {certificatePem = a} :: ImportCertificate) Prelude.. Lens.mapping Core._Sensitive
+importCertificate_certificatePem = Lens.lens (\ImportCertificate' {certificatePem} -> certificatePem) (\s@ImportCertificate' {} a -> s {certificatePem = a} :: ImportCertificate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A customer-assigned name for the certificate. Identifiers must begin
 -- with a letter and must contain only ASCII letters, digits, and hyphens.
@@ -141,7 +142,7 @@ instance Core.AWSRequest ImportCertificate where
     Response.receiveJSON
       ( \s h x ->
           ImportCertificateResponse'
-            Prelude.<$> (x Core..?> "Certificate")
+            Prelude.<$> (x Data..?> "Certificate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,41 +160,41 @@ instance Prelude.NFData ImportCertificate where
       `Prelude.seq` Prelude.rnf certificatePem
       `Prelude.seq` Prelude.rnf certificateIdentifier
 
-instance Core.ToHeaders ImportCertificate where
+instance Data.ToHeaders ImportCertificate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.ImportCertificate" ::
+              Data.=# ( "AmazonDMSv20160101.ImportCertificate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportCertificate where
+instance Data.ToJSON ImportCertificate where
   toJSON ImportCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("CertificateWallet" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("CertificateWallet" Data..=)
               Prelude.<$> certificateWallet,
-            ("CertificatePem" Core..=)
+            ("CertificatePem" Data..=)
               Prelude.<$> certificatePem,
             Prelude.Just
               ( "CertificateIdentifier"
-                  Core..= certificateIdentifier
+                  Data..= certificateIdentifier
               )
           ]
       )
 
-instance Core.ToPath ImportCertificate where
+instance Data.ToPath ImportCertificate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ImportCertificate where
+instance Data.ToQuery ImportCertificate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportCertificateResponse' smart constructor.

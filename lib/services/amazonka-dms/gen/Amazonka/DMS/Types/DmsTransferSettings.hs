@@ -21,6 +21,7 @@ module Amazonka.DMS.Types.DmsTransferSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The settings in JSON format for the DMS Transfer type source endpoint.
@@ -65,14 +66,14 @@ dmsTransferSettings_serviceAccessRoleArn = Lens.lens (\DmsTransferSettings' {ser
 dmsTransferSettings_bucketName :: Lens.Lens' DmsTransferSettings (Prelude.Maybe Prelude.Text)
 dmsTransferSettings_bucketName = Lens.lens (\DmsTransferSettings' {bucketName} -> bucketName) (\s@DmsTransferSettings' {} a -> s {bucketName = a} :: DmsTransferSettings)
 
-instance Core.FromJSON DmsTransferSettings where
+instance Data.FromJSON DmsTransferSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DmsTransferSettings"
       ( \x ->
           DmsTransferSettings'
-            Prelude.<$> (x Core..:? "ServiceAccessRoleArn")
-            Prelude.<*> (x Core..:? "BucketName")
+            Prelude.<$> (x Data..:? "ServiceAccessRoleArn")
+            Prelude.<*> (x Data..:? "BucketName")
       )
 
 instance Prelude.Hashable DmsTransferSettings where
@@ -85,12 +86,12 @@ instance Prelude.NFData DmsTransferSettings where
     Prelude.rnf serviceAccessRoleArn
       `Prelude.seq` Prelude.rnf bucketName
 
-instance Core.ToJSON DmsTransferSettings where
+instance Data.ToJSON DmsTransferSettings where
   toJSON DmsTransferSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ServiceAccessRoleArn" Core..=)
+          [ ("ServiceAccessRoleArn" Data..=)
               Prelude.<$> serviceAccessRoleArn,
-            ("BucketName" Core..=) Prelude.<$> bucketName
+            ("BucketName" Data..=) Prelude.<$> bucketName
           ]
       )

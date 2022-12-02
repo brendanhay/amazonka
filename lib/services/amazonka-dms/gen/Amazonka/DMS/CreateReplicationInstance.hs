@@ -64,6 +64,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -458,7 +459,7 @@ instance Core.AWSRequest CreateReplicationInstance where
     Response.receiveJSON
       ( \s h x ->
           CreateReplicationInstanceResponse'
-            Prelude.<$> (x Core..?> "ReplicationInstance")
+            Prelude.<$> (x Data..?> "ReplicationInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -501,63 +502,63 @@ instance Prelude.NFData CreateReplicationInstance where
         replicationInstanceIdentifier
       `Prelude.seq` Prelude.rnf replicationInstanceClass
 
-instance Core.ToHeaders CreateReplicationInstance where
+instance Data.ToHeaders CreateReplicationInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.CreateReplicationInstance" ::
+              Data.=# ( "AmazonDMSv20160101.CreateReplicationInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateReplicationInstance where
+instance Data.ToJSON CreateReplicationInstance where
   toJSON CreateReplicationInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("VpcSecurityGroupIds" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("VpcSecurityGroupIds" Data..=)
               Prelude.<$> vpcSecurityGroupIds,
-            ("AutoMinorVersionUpgrade" Core..=)
+            ("AutoMinorVersionUpgrade" Data..=)
               Prelude.<$> autoMinorVersionUpgrade,
-            ("AvailabilityZone" Core..=)
+            ("AvailabilityZone" Data..=)
               Prelude.<$> availabilityZone,
-            ("PubliclyAccessible" Core..=)
+            ("PubliclyAccessible" Data..=)
               Prelude.<$> publiclyAccessible,
-            ("ResourceIdentifier" Core..=)
+            ("ResourceIdentifier" Data..=)
               Prelude.<$> resourceIdentifier,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("AllocatedStorage" Core..=)
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("AllocatedStorage" Data..=)
               Prelude.<$> allocatedStorage,
-            ("PreferredMaintenanceWindow" Core..=)
+            ("PreferredMaintenanceWindow" Data..=)
               Prelude.<$> preferredMaintenanceWindow,
-            ("DnsNameServers" Core..=)
+            ("DnsNameServers" Data..=)
               Prelude.<$> dnsNameServers,
-            ("ReplicationSubnetGroupIdentifier" Core..=)
+            ("ReplicationSubnetGroupIdentifier" Data..=)
               Prelude.<$> replicationSubnetGroupIdentifier,
-            ("EngineVersion" Core..=) Prelude.<$> engineVersion,
-            ("NetworkType" Core..=) Prelude.<$> networkType,
-            ("MultiAZ" Core..=) Prelude.<$> multiAZ,
+            ("EngineVersion" Data..=) Prelude.<$> engineVersion,
+            ("NetworkType" Data..=) Prelude.<$> networkType,
+            ("MultiAZ" Data..=) Prelude.<$> multiAZ,
             Prelude.Just
               ( "ReplicationInstanceIdentifier"
-                  Core..= replicationInstanceIdentifier
+                  Data..= replicationInstanceIdentifier
               ),
             Prelude.Just
               ( "ReplicationInstanceClass"
-                  Core..= replicationInstanceClass
+                  Data..= replicationInstanceClass
               )
           ]
       )
 
-instance Core.ToPath CreateReplicationInstance where
+instance Data.ToPath CreateReplicationInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateReplicationInstance where
+instance Data.ToQuery CreateReplicationInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

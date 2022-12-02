@@ -21,6 +21,7 @@ module Amazonka.DMS.Types.Certificate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The SSL certificate that can be used to encrypt connections between the
@@ -31,14 +32,14 @@ data Certificate = Certificate'
   { -- | The key length of the cryptographic algorithm being used.
     keyLength :: Prelude.Maybe Prelude.Int,
     -- | The date that the certificate was created.
-    certificateCreationDate :: Prelude.Maybe Core.POSIX,
+    certificateCreationDate :: Prelude.Maybe Data.POSIX,
     -- | The location of an imported Oracle Wallet certificate for use with SSL.
     -- Example: @filebase64(\"${path.root}\/rds-ca-2019-root.sso\")@
-    certificateWallet :: Prelude.Maybe Core.Base64,
+    certificateWallet :: Prelude.Maybe Data.Base64,
     -- | The owner of the certificate.
     certificateOwner :: Prelude.Maybe Prelude.Text,
     -- | The final date that the certificate is valid.
-    validToDate :: Prelude.Maybe Core.POSIX,
+    validToDate :: Prelude.Maybe Data.POSIX,
     -- | A customer-assigned name for the certificate. Identifiers must begin
     -- with a letter and must contain only ASCII letters, digits, and hyphens.
     -- They can\'t end with a hyphen or contain two consecutive hyphens.
@@ -50,7 +51,7 @@ data Certificate = Certificate'
     -- | The signing algorithm for the certificate.
     signingAlgorithm :: Prelude.Maybe Prelude.Text,
     -- | The beginning date that the certificate is valid.
-    validFromDate :: Prelude.Maybe Core.POSIX
+    validFromDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -110,7 +111,7 @@ certificate_keyLength = Lens.lens (\Certificate' {keyLength} -> keyLength) (\s@C
 
 -- | The date that the certificate was created.
 certificate_certificateCreationDate :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
-certificate_certificateCreationDate = Lens.lens (\Certificate' {certificateCreationDate} -> certificateCreationDate) (\s@Certificate' {} a -> s {certificateCreationDate = a} :: Certificate) Prelude.. Lens.mapping Core._Time
+certificate_certificateCreationDate = Lens.lens (\Certificate' {certificateCreationDate} -> certificateCreationDate) (\s@Certificate' {} a -> s {certificateCreationDate = a} :: Certificate) Prelude.. Lens.mapping Data._Time
 
 -- | The location of an imported Oracle Wallet certificate for use with SSL.
 -- Example: @filebase64(\"${path.root}\/rds-ca-2019-root.sso\")@--
@@ -119,7 +120,7 @@ certificate_certificateCreationDate = Lens.lens (\Certificate' {certificateCreat
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 certificate_certificateWallet :: Lens.Lens' Certificate (Prelude.Maybe Prelude.ByteString)
-certificate_certificateWallet = Lens.lens (\Certificate' {certificateWallet} -> certificateWallet) (\s@Certificate' {} a -> s {certificateWallet = a} :: Certificate) Prelude.. Lens.mapping Core._Base64
+certificate_certificateWallet = Lens.lens (\Certificate' {certificateWallet} -> certificateWallet) (\s@Certificate' {} a -> s {certificateWallet = a} :: Certificate) Prelude.. Lens.mapping Data._Base64
 
 -- | The owner of the certificate.
 certificate_certificateOwner :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
@@ -127,7 +128,7 @@ certificate_certificateOwner = Lens.lens (\Certificate' {certificateOwner} -> ce
 
 -- | The final date that the certificate is valid.
 certificate_validToDate :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
-certificate_validToDate = Lens.lens (\Certificate' {validToDate} -> validToDate) (\s@Certificate' {} a -> s {validToDate = a} :: Certificate) Prelude.. Lens.mapping Core._Time
+certificate_validToDate = Lens.lens (\Certificate' {validToDate} -> validToDate) (\s@Certificate' {} a -> s {validToDate = a} :: Certificate) Prelude.. Lens.mapping Data._Time
 
 -- | A customer-assigned name for the certificate. Identifiers must begin
 -- with a letter and must contain only ASCII letters, digits, and hyphens.
@@ -149,24 +150,24 @@ certificate_signingAlgorithm = Lens.lens (\Certificate' {signingAlgorithm} -> si
 
 -- | The beginning date that the certificate is valid.
 certificate_validFromDate :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
-certificate_validFromDate = Lens.lens (\Certificate' {validFromDate} -> validFromDate) (\s@Certificate' {} a -> s {validFromDate = a} :: Certificate) Prelude.. Lens.mapping Core._Time
+certificate_validFromDate = Lens.lens (\Certificate' {validFromDate} -> validFromDate) (\s@Certificate' {} a -> s {validFromDate = a} :: Certificate) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Certificate where
+instance Data.FromJSON Certificate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Certificate"
       ( \x ->
           Certificate'
-            Prelude.<$> (x Core..:? "KeyLength")
-            Prelude.<*> (x Core..:? "CertificateCreationDate")
-            Prelude.<*> (x Core..:? "CertificateWallet")
-            Prelude.<*> (x Core..:? "CertificateOwner")
-            Prelude.<*> (x Core..:? "ValidToDate")
-            Prelude.<*> (x Core..:? "CertificateIdentifier")
-            Prelude.<*> (x Core..:? "CertificateArn")
-            Prelude.<*> (x Core..:? "CertificatePem")
-            Prelude.<*> (x Core..:? "SigningAlgorithm")
-            Prelude.<*> (x Core..:? "ValidFromDate")
+            Prelude.<$> (x Data..:? "KeyLength")
+            Prelude.<*> (x Data..:? "CertificateCreationDate")
+            Prelude.<*> (x Data..:? "CertificateWallet")
+            Prelude.<*> (x Data..:? "CertificateOwner")
+            Prelude.<*> (x Data..:? "ValidToDate")
+            Prelude.<*> (x Data..:? "CertificateIdentifier")
+            Prelude.<*> (x Data..:? "CertificateArn")
+            Prelude.<*> (x Data..:? "CertificatePem")
+            Prelude.<*> (x Data..:? "SigningAlgorithm")
+            Prelude.<*> (x Data..:? "ValidFromDate")
       )
 
 instance Prelude.Hashable Certificate where

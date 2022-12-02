@@ -29,6 +29,7 @@ import Amazonka.DMS.Types.DatePartitionSequenceValue
 import Amazonka.DMS.Types.EncodingTypeValue
 import Amazonka.DMS.Types.EncryptionModeValue
 import Amazonka.DMS.Types.ParquetVersionValue
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for exporting data to Amazon S3.
@@ -1399,52 +1400,52 @@ s3Settings_csvRowDelimiter = Lens.lens (\S3Settings' {csvRowDelimiter} -> csvRow
 s3Settings_encodingType :: Lens.Lens' S3Settings (Prelude.Maybe EncodingTypeValue)
 s3Settings_encodingType = Lens.lens (\S3Settings' {encodingType} -> encodingType) (\s@S3Settings' {} a -> s {encodingType = a} :: S3Settings)
 
-instance Core.FromJSON S3Settings where
+instance Data.FromJSON S3Settings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Settings"
       ( \x ->
           S3Settings'
-            Prelude.<$> (x Core..:? "DictPageSizeLimit")
-            Prelude.<*> (x Core..:? "TimestampColumnName")
-            Prelude.<*> (x Core..:? "MaxFileSize")
-            Prelude.<*> (x Core..:? "IgnoreHeaderRows")
-            Prelude.<*> (x Core..:? "ExternalTableDefinition")
-            Prelude.<*> (x Core..:? "CdcMinFileSize")
-            Prelude.<*> (x Core..:? "DatePartitionDelimiter")
-            Prelude.<*> (x Core..:? "BucketFolder")
-            Prelude.<*> (x Core..:? "UseCsvNoSupValue")
-            Prelude.<*> (x Core..:? "DataFormat")
-            Prelude.<*> (x Core..:? "DatePartitionSequence")
-            Prelude.<*> (x Core..:? "DataPageSize")
-            Prelude.<*> (x Core..:? "CsvNullValue")
-            Prelude.<*> (x Core..:? "DatePartitionEnabled")
-            Prelude.<*> (x Core..:? "UseTaskStartTimeForFullLoadTimestamp")
-            Prelude.<*> (x Core..:? "ExpectedBucketOwner")
-            Prelude.<*> (x Core..:? "PreserveTransactions")
-            Prelude.<*> (x Core..:? "ServiceAccessRoleArn")
-            Prelude.<*> (x Core..:? "CdcInsertsOnly")
-            Prelude.<*> (x Core..:? "AddTrailingPaddingCharacter")
-            Prelude.<*> (x Core..:? "CdcMaxBatchInterval")
-            Prelude.<*> (x Core..:? "CdcInsertsAndUpdates")
-            Prelude.<*> (x Core..:? "DatePartitionTimezone")
-            Prelude.<*> (x Core..:? "CompressionType")
-            Prelude.<*> (x Core..:? "BucketName")
-            Prelude.<*> (x Core..:? "EnableStatistics")
-            Prelude.<*> (x Core..:? "CdcPath")
-            Prelude.<*> (x Core..:? "ParquetTimestampInMillisecond")
-            Prelude.<*> (x Core..:? "CannedAclForObjects")
-            Prelude.<*> (x Core..:? "CsvDelimiter")
-            Prelude.<*> (x Core..:? "CsvNoSupValue")
-            Prelude.<*> (x Core..:? "ParquetVersion")
-            Prelude.<*> (x Core..:? "ServerSideEncryptionKmsKeyId")
-            Prelude.<*> (x Core..:? "RowGroupLength")
-            Prelude.<*> (x Core..:? "Rfc4180")
-            Prelude.<*> (x Core..:? "AddColumnName")
-            Prelude.<*> (x Core..:? "IncludeOpForFullLoad")
-            Prelude.<*> (x Core..:? "EncryptionMode")
-            Prelude.<*> (x Core..:? "CsvRowDelimiter")
-            Prelude.<*> (x Core..:? "EncodingType")
+            Prelude.<$> (x Data..:? "DictPageSizeLimit")
+            Prelude.<*> (x Data..:? "TimestampColumnName")
+            Prelude.<*> (x Data..:? "MaxFileSize")
+            Prelude.<*> (x Data..:? "IgnoreHeaderRows")
+            Prelude.<*> (x Data..:? "ExternalTableDefinition")
+            Prelude.<*> (x Data..:? "CdcMinFileSize")
+            Prelude.<*> (x Data..:? "DatePartitionDelimiter")
+            Prelude.<*> (x Data..:? "BucketFolder")
+            Prelude.<*> (x Data..:? "UseCsvNoSupValue")
+            Prelude.<*> (x Data..:? "DataFormat")
+            Prelude.<*> (x Data..:? "DatePartitionSequence")
+            Prelude.<*> (x Data..:? "DataPageSize")
+            Prelude.<*> (x Data..:? "CsvNullValue")
+            Prelude.<*> (x Data..:? "DatePartitionEnabled")
+            Prelude.<*> (x Data..:? "UseTaskStartTimeForFullLoadTimestamp")
+            Prelude.<*> (x Data..:? "ExpectedBucketOwner")
+            Prelude.<*> (x Data..:? "PreserveTransactions")
+            Prelude.<*> (x Data..:? "ServiceAccessRoleArn")
+            Prelude.<*> (x Data..:? "CdcInsertsOnly")
+            Prelude.<*> (x Data..:? "AddTrailingPaddingCharacter")
+            Prelude.<*> (x Data..:? "CdcMaxBatchInterval")
+            Prelude.<*> (x Data..:? "CdcInsertsAndUpdates")
+            Prelude.<*> (x Data..:? "DatePartitionTimezone")
+            Prelude.<*> (x Data..:? "CompressionType")
+            Prelude.<*> (x Data..:? "BucketName")
+            Prelude.<*> (x Data..:? "EnableStatistics")
+            Prelude.<*> (x Data..:? "CdcPath")
+            Prelude.<*> (x Data..:? "ParquetTimestampInMillisecond")
+            Prelude.<*> (x Data..:? "CannedAclForObjects")
+            Prelude.<*> (x Data..:? "CsvDelimiter")
+            Prelude.<*> (x Data..:? "CsvNoSupValue")
+            Prelude.<*> (x Data..:? "ParquetVersion")
+            Prelude.<*> (x Data..:? "ServerSideEncryptionKmsKeyId")
+            Prelude.<*> (x Data..:? "RowGroupLength")
+            Prelude.<*> (x Data..:? "Rfc4180")
+            Prelude.<*> (x Data..:? "AddColumnName")
+            Prelude.<*> (x Data..:? "IncludeOpForFullLoad")
+            Prelude.<*> (x Data..:? "EncryptionMode")
+            Prelude.<*> (x Data..:? "CsvRowDelimiter")
+            Prelude.<*> (x Data..:? "EncodingType")
       )
 
 instance Prelude.Hashable S3Settings where
@@ -1555,77 +1556,77 @@ instance Prelude.NFData S3Settings where
       `Prelude.seq` Prelude.rnf
         encodingType
 
-instance Core.ToJSON S3Settings where
+instance Data.ToJSON S3Settings where
   toJSON S3Settings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DictPageSizeLimit" Core..=)
+          [ ("DictPageSizeLimit" Data..=)
               Prelude.<$> dictPageSizeLimit,
-            ("TimestampColumnName" Core..=)
+            ("TimestampColumnName" Data..=)
               Prelude.<$> timestampColumnName,
-            ("MaxFileSize" Core..=) Prelude.<$> maxFileSize,
-            ("IgnoreHeaderRows" Core..=)
+            ("MaxFileSize" Data..=) Prelude.<$> maxFileSize,
+            ("IgnoreHeaderRows" Data..=)
               Prelude.<$> ignoreHeaderRows,
-            ("ExternalTableDefinition" Core..=)
+            ("ExternalTableDefinition" Data..=)
               Prelude.<$> externalTableDefinition,
-            ("CdcMinFileSize" Core..=)
+            ("CdcMinFileSize" Data..=)
               Prelude.<$> cdcMinFileSize,
-            ("DatePartitionDelimiter" Core..=)
+            ("DatePartitionDelimiter" Data..=)
               Prelude.<$> datePartitionDelimiter,
-            ("BucketFolder" Core..=) Prelude.<$> bucketFolder,
-            ("UseCsvNoSupValue" Core..=)
+            ("BucketFolder" Data..=) Prelude.<$> bucketFolder,
+            ("UseCsvNoSupValue" Data..=)
               Prelude.<$> useCsvNoSupValue,
-            ("DataFormat" Core..=) Prelude.<$> dataFormat,
-            ("DatePartitionSequence" Core..=)
+            ("DataFormat" Data..=) Prelude.<$> dataFormat,
+            ("DatePartitionSequence" Data..=)
               Prelude.<$> datePartitionSequence,
-            ("DataPageSize" Core..=) Prelude.<$> dataPageSize,
-            ("CsvNullValue" Core..=) Prelude.<$> csvNullValue,
-            ("DatePartitionEnabled" Core..=)
+            ("DataPageSize" Data..=) Prelude.<$> dataPageSize,
+            ("CsvNullValue" Data..=) Prelude.<$> csvNullValue,
+            ("DatePartitionEnabled" Data..=)
               Prelude.<$> datePartitionEnabled,
-            ("UseTaskStartTimeForFullLoadTimestamp" Core..=)
+            ("UseTaskStartTimeForFullLoadTimestamp" Data..=)
               Prelude.<$> useTaskStartTimeForFullLoadTimestamp,
-            ("ExpectedBucketOwner" Core..=)
+            ("ExpectedBucketOwner" Data..=)
               Prelude.<$> expectedBucketOwner,
-            ("PreserveTransactions" Core..=)
+            ("PreserveTransactions" Data..=)
               Prelude.<$> preserveTransactions,
-            ("ServiceAccessRoleArn" Core..=)
+            ("ServiceAccessRoleArn" Data..=)
               Prelude.<$> serviceAccessRoleArn,
-            ("CdcInsertsOnly" Core..=)
+            ("CdcInsertsOnly" Data..=)
               Prelude.<$> cdcInsertsOnly,
-            ("AddTrailingPaddingCharacter" Core..=)
+            ("AddTrailingPaddingCharacter" Data..=)
               Prelude.<$> addTrailingPaddingCharacter,
-            ("CdcMaxBatchInterval" Core..=)
+            ("CdcMaxBatchInterval" Data..=)
               Prelude.<$> cdcMaxBatchInterval,
-            ("CdcInsertsAndUpdates" Core..=)
+            ("CdcInsertsAndUpdates" Data..=)
               Prelude.<$> cdcInsertsAndUpdates,
-            ("DatePartitionTimezone" Core..=)
+            ("DatePartitionTimezone" Data..=)
               Prelude.<$> datePartitionTimezone,
-            ("CompressionType" Core..=)
+            ("CompressionType" Data..=)
               Prelude.<$> compressionType,
-            ("BucketName" Core..=) Prelude.<$> bucketName,
-            ("EnableStatistics" Core..=)
+            ("BucketName" Data..=) Prelude.<$> bucketName,
+            ("EnableStatistics" Data..=)
               Prelude.<$> enableStatistics,
-            ("CdcPath" Core..=) Prelude.<$> cdcPath,
-            ("ParquetTimestampInMillisecond" Core..=)
+            ("CdcPath" Data..=) Prelude.<$> cdcPath,
+            ("ParquetTimestampInMillisecond" Data..=)
               Prelude.<$> parquetTimestampInMillisecond,
-            ("CannedAclForObjects" Core..=)
+            ("CannedAclForObjects" Data..=)
               Prelude.<$> cannedAclForObjects,
-            ("CsvDelimiter" Core..=) Prelude.<$> csvDelimiter,
-            ("CsvNoSupValue" Core..=) Prelude.<$> csvNoSupValue,
-            ("ParquetVersion" Core..=)
+            ("CsvDelimiter" Data..=) Prelude.<$> csvDelimiter,
+            ("CsvNoSupValue" Data..=) Prelude.<$> csvNoSupValue,
+            ("ParquetVersion" Data..=)
               Prelude.<$> parquetVersion,
-            ("ServerSideEncryptionKmsKeyId" Core..=)
+            ("ServerSideEncryptionKmsKeyId" Data..=)
               Prelude.<$> serverSideEncryptionKmsKeyId,
-            ("RowGroupLength" Core..=)
+            ("RowGroupLength" Data..=)
               Prelude.<$> rowGroupLength,
-            ("Rfc4180" Core..=) Prelude.<$> rfc4180,
-            ("AddColumnName" Core..=) Prelude.<$> addColumnName,
-            ("IncludeOpForFullLoad" Core..=)
+            ("Rfc4180" Data..=) Prelude.<$> rfc4180,
+            ("AddColumnName" Data..=) Prelude.<$> addColumnName,
+            ("IncludeOpForFullLoad" Data..=)
               Prelude.<$> includeOpForFullLoad,
-            ("EncryptionMode" Core..=)
+            ("EncryptionMode" Data..=)
               Prelude.<$> encryptionMode,
-            ("CsvRowDelimiter" Core..=)
+            ("CsvRowDelimiter" Data..=)
               Prelude.<$> csvRowDelimiter,
-            ("EncodingType" Core..=) Prelude.<$> encodingType
+            ("EncodingType" Data..=) Prelude.<$> encodingType
           ]
       )

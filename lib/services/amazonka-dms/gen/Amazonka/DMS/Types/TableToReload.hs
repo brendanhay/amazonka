@@ -21,6 +21,7 @@ module Amazonka.DMS.Types.TableToReload where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the name of the schema and table to be reloaded.
@@ -75,11 +76,11 @@ instance Prelude.NFData TableToReload where
     Prelude.rnf schemaName
       `Prelude.seq` Prelude.rnf tableName
 
-instance Core.ToJSON TableToReload where
+instance Data.ToJSON TableToReload where
   toJSON TableToReload' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SchemaName" Core..= schemaName),
-            Prelude.Just ("TableName" Core..= tableName)
+          [ Prelude.Just ("SchemaName" Data..= schemaName),
+            Prelude.Just ("TableName" Data..= tableName)
           ]
       )

@@ -48,6 +48,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -168,8 +169,8 @@ instance Core.AWSRequest DescribeReplicationInstances where
     Response.receiveJSON
       ( \s h x ->
           DescribeReplicationInstancesResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> ( x Core..?> "ReplicationInstances"
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> ( x Data..?> "ReplicationInstances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -190,35 +191,35 @@ instance Prelude.NFData DescribeReplicationInstances where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeReplicationInstances where
+instance Data.ToHeaders DescribeReplicationInstances where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.DescribeReplicationInstances" ::
+              Data.=# ( "AmazonDMSv20160101.DescribeReplicationInstances" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeReplicationInstances where
+instance Data.ToJSON DescribeReplicationInstances where
   toJSON DescribeReplicationInstances' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxRecords" Core..=) Prelude.<$> maxRecords
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxRecords" Data..=) Prelude.<$> maxRecords
           ]
       )
 
-instance Core.ToPath DescribeReplicationInstances where
+instance Data.ToPath DescribeReplicationInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeReplicationInstances where
+instance Data.ToQuery DescribeReplicationInstances where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

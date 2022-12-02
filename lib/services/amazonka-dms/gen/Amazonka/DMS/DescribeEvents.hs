@@ -56,6 +56,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -76,7 +77,7 @@ data DescribeEvents = DescribeEvents'
     -- Valid values: replication-instance | replication-task
     sourceType :: Prelude.Maybe SourceType,
     -- | The end time for the events to be listed.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -93,7 +94,7 @@ data DescribeEvents = DescribeEvents'
     -- | A list of event categories for the source type that you\'ve chosen.
     eventCategories :: Prelude.Maybe [Prelude.Text],
     -- | The start time for the events to be listed.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -168,7 +169,7 @@ describeEvents_sourceType = Lens.lens (\DescribeEvents' {sourceType} -> sourceTy
 
 -- | The end time for the events to be listed.
 describeEvents_endTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
-describeEvents_endTime = Lens.lens (\DescribeEvents' {endTime} -> endTime) (\s@DescribeEvents' {} a -> s {endTime = a} :: DescribeEvents) Prelude.. Lens.mapping Core._Time
+describeEvents_endTime = Lens.lens (\DescribeEvents' {endTime} -> endTime) (\s@DescribeEvents' {} a -> s {endTime = a} :: DescribeEvents) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -195,7 +196,7 @@ describeEvents_eventCategories = Lens.lens (\DescribeEvents' {eventCategories} -
 
 -- | The start time for the events to be listed.
 describeEvents_startTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
-describeEvents_startTime = Lens.lens (\DescribeEvents' {startTime} -> startTime) (\s@DescribeEvents' {} a -> s {startTime = a} :: DescribeEvents) Prelude.. Lens.mapping Core._Time
+describeEvents_startTime = Lens.lens (\DescribeEvents' {startTime} -> startTime) (\s@DescribeEvents' {} a -> s {startTime = a} :: DescribeEvents) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager DescribeEvents where
   page rq rs
@@ -226,8 +227,8 @@ instance Core.AWSRequest DescribeEvents where
     Response.receiveJSON
       ( \s h x ->
           DescribeEventsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "Events" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "Events" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -255,43 +256,43 @@ instance Prelude.NFData DescribeEvents where
       `Prelude.seq` Prelude.rnf eventCategories
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToHeaders DescribeEvents where
+instance Data.ToHeaders DescribeEvents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.DescribeEvents" ::
+              Data.=# ( "AmazonDMSv20160101.DescribeEvents" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEvents where
+instance Data.ToJSON DescribeEvents where
   toJSON DescribeEvents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("SourceType" Core..=) Prelude.<$> sourceType,
-            ("EndTime" Core..=) Prelude.<$> endTime,
-            ("MaxRecords" Core..=) Prelude.<$> maxRecords,
-            ("Duration" Core..=) Prelude.<$> duration,
-            ("SourceIdentifier" Core..=)
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("SourceType" Data..=) Prelude.<$> sourceType,
+            ("EndTime" Data..=) Prelude.<$> endTime,
+            ("MaxRecords" Data..=) Prelude.<$> maxRecords,
+            ("Duration" Data..=) Prelude.<$> duration,
+            ("SourceIdentifier" Data..=)
               Prelude.<$> sourceIdentifier,
-            ("EventCategories" Core..=)
+            ("EventCategories" Data..=)
               Prelude.<$> eventCategories,
-            ("StartTime" Core..=) Prelude.<$> startTime
+            ("StartTime" Data..=) Prelude.<$> startTime
           ]
       )
 
-instance Core.ToPath DescribeEvents where
+instance Data.ToPath DescribeEvents where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEvents where
+instance Data.ToQuery DescribeEvents where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

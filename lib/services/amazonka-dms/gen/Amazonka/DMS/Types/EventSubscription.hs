@@ -21,6 +21,7 @@ module Amazonka.DMS.Types.EventSubscription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an event notification subscription created by the
@@ -165,23 +166,23 @@ eventSubscription_eventCategoriesList = Lens.lens (\EventSubscription' {eventCat
 eventSubscription_customerAwsId :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
 eventSubscription_customerAwsId = Lens.lens (\EventSubscription' {customerAwsId} -> customerAwsId) (\s@EventSubscription' {} a -> s {customerAwsId = a} :: EventSubscription)
 
-instance Core.FromJSON EventSubscription where
+instance Data.FromJSON EventSubscription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventSubscription"
       ( \x ->
           EventSubscription'
-            Prelude.<$> (x Core..:? "SubscriptionCreationTime")
-            Prelude.<*> (x Core..:? "CustSubscriptionId")
-            Prelude.<*> (x Core..:? "SourceIdsList" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "SourceType")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "SnsTopicArn")
-            Prelude.<*> ( x Core..:? "EventCategoriesList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "SubscriptionCreationTime")
+            Prelude.<*> (x Data..:? "CustSubscriptionId")
+            Prelude.<*> (x Data..:? "SourceIdsList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "SourceType")
+            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "SnsTopicArn")
+            Prelude.<*> ( x Data..:? "EventCategoriesList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CustomerAwsId")
+            Prelude.<*> (x Data..:? "CustomerAwsId")
       )
 
 instance Prelude.Hashable EventSubscription where

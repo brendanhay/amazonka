@@ -42,6 +42,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,7 +89,7 @@ instance Core.AWSRequest DeleteReplicationTask where
     Response.receiveJSON
       ( \s h x ->
           DeleteReplicationTaskResponse'
-            Prelude.<$> (x Core..?> "ReplicationTask")
+            Prelude.<$> (x Data..?> "ReplicationTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,34 +101,34 @@ instance Prelude.NFData DeleteReplicationTask where
   rnf DeleteReplicationTask' {..} =
     Prelude.rnf replicationTaskArn
 
-instance Core.ToHeaders DeleteReplicationTask where
+instance Data.ToHeaders DeleteReplicationTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.DeleteReplicationTask" ::
+              Data.=# ( "AmazonDMSv20160101.DeleteReplicationTask" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteReplicationTask where
+instance Data.ToJSON DeleteReplicationTask where
   toJSON DeleteReplicationTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ReplicationTaskArn" Core..= replicationTaskArn)
+              ("ReplicationTaskArn" Data..= replicationTaskArn)
           ]
       )
 
-instance Core.ToPath DeleteReplicationTask where
+instance Data.ToPath DeleteReplicationTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteReplicationTask where
+instance Data.ToQuery DeleteReplicationTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

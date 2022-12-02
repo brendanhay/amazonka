@@ -21,6 +21,7 @@ module Amazonka.DMS.Types.ReplicationTaskIndividualAssessment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that describes an individual assessment from a
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 data ReplicationTaskIndividualAssessment = ReplicationTaskIndividualAssessment'
   { -- | Date when this individual assessment was started as part of running the
     -- @StartReplicationTaskAssessmentRun@ operation.
-    replicationTaskIndividualAssessmentStartDate :: Prelude.Maybe Core.POSIX,
+    replicationTaskIndividualAssessmentStartDate :: Prelude.Maybe Data.POSIX,
     -- | Name of this individual assessment.
     individualAssessmentName :: Prelude.Maybe Prelude.Text,
     -- | Individual assessment status.
@@ -108,7 +109,7 @@ newReplicationTaskIndividualAssessment =
 -- | Date when this individual assessment was started as part of running the
 -- @StartReplicationTaskAssessmentRun@ operation.
 replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentStartDate :: Lens.Lens' ReplicationTaskIndividualAssessment (Prelude.Maybe Prelude.UTCTime)
-replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentStartDate = Lens.lens (\ReplicationTaskIndividualAssessment' {replicationTaskIndividualAssessmentStartDate} -> replicationTaskIndividualAssessmentStartDate) (\s@ReplicationTaskIndividualAssessment' {} a -> s {replicationTaskIndividualAssessmentStartDate = a} :: ReplicationTaskIndividualAssessment) Prelude.. Lens.mapping Core._Time
+replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentStartDate = Lens.lens (\ReplicationTaskIndividualAssessment' {replicationTaskIndividualAssessmentStartDate} -> replicationTaskIndividualAssessmentStartDate) (\s@ReplicationTaskIndividualAssessment' {} a -> s {replicationTaskIndividualAssessmentStartDate = a} :: ReplicationTaskIndividualAssessment) Prelude.. Lens.mapping Data._Time
 
 -- | Name of this individual assessment.
 replicationTaskIndividualAssessment_individualAssessmentName :: Lens.Lens' ReplicationTaskIndividualAssessment (Prelude.Maybe Prelude.Text)
@@ -142,21 +143,21 @@ replicationTaskIndividualAssessment_replicationTaskAssessmentRunArn :: Lens.Lens
 replicationTaskIndividualAssessment_replicationTaskAssessmentRunArn = Lens.lens (\ReplicationTaskIndividualAssessment' {replicationTaskAssessmentRunArn} -> replicationTaskAssessmentRunArn) (\s@ReplicationTaskIndividualAssessment' {} a -> s {replicationTaskAssessmentRunArn = a} :: ReplicationTaskIndividualAssessment)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ReplicationTaskIndividualAssessment
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicationTaskIndividualAssessment"
       ( \x ->
           ReplicationTaskIndividualAssessment'
             Prelude.<$> ( x
-                            Core..:? "ReplicationTaskIndividualAssessmentStartDate"
+                            Data..:? "ReplicationTaskIndividualAssessmentStartDate"
                         )
-            Prelude.<*> (x Core..:? "IndividualAssessmentName")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ReplicationTaskIndividualAssessmentArn")
-            Prelude.<*> (x Core..:? "ReplicationTaskAssessmentRunArn")
+            Prelude.<*> (x Data..:? "IndividualAssessmentName")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ReplicationTaskIndividualAssessmentArn")
+            Prelude.<*> (x Data..:? "ReplicationTaskAssessmentRunArn")
       )
 
 instance

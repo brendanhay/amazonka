@@ -42,6 +42,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,7 +85,7 @@ instance Core.AWSRequest DeleteFleetAdvisorDatabases where
     Response.receiveJSON
       ( \s h x ->
           DeleteFleetAdvisorDatabasesResponse'
-            Prelude.<$> (x Core..?> "DatabaseIds" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "DatabaseIds" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,32 +97,32 @@ instance Prelude.NFData DeleteFleetAdvisorDatabases where
   rnf DeleteFleetAdvisorDatabases' {..} =
     Prelude.rnf databaseIds
 
-instance Core.ToHeaders DeleteFleetAdvisorDatabases where
+instance Data.ToHeaders DeleteFleetAdvisorDatabases where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.DeleteFleetAdvisorDatabases" ::
+              Data.=# ( "AmazonDMSv20160101.DeleteFleetAdvisorDatabases" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteFleetAdvisorDatabases where
+instance Data.ToJSON DeleteFleetAdvisorDatabases where
   toJSON DeleteFleetAdvisorDatabases' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DatabaseIds" Core..= databaseIds)]
+          [Prelude.Just ("DatabaseIds" Data..= databaseIds)]
       )
 
-instance Core.ToPath DeleteFleetAdvisorDatabases where
+instance Data.ToPath DeleteFleetAdvisorDatabases where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteFleetAdvisorDatabases where
+instance Data.ToQuery DeleteFleetAdvisorDatabases where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFleetAdvisorDatabasesResponse' smart constructor.

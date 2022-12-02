@@ -57,6 +57,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -350,7 +351,7 @@ instance Core.AWSRequest ModifyReplicationInstance where
     Response.receiveJSON
       ( \s h x ->
           ModifyReplicationInstanceResponse'
-            Prelude.<$> (x Core..?> "ReplicationInstance")
+            Prelude.<$> (x Data..?> "ReplicationInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -385,55 +386,55 @@ instance Prelude.NFData ModifyReplicationInstance where
       `Prelude.seq` Prelude.rnf multiAZ
       `Prelude.seq` Prelude.rnf replicationInstanceArn
 
-instance Core.ToHeaders ModifyReplicationInstance where
+instance Data.ToHeaders ModifyReplicationInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.ModifyReplicationInstance" ::
+              Data.=# ( "AmazonDMSv20160101.ModifyReplicationInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ModifyReplicationInstance where
+instance Data.ToJSON ModifyReplicationInstance where
   toJSON ModifyReplicationInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ReplicationInstanceIdentifier" Core..=)
+          [ ("ReplicationInstanceIdentifier" Data..=)
               Prelude.<$> replicationInstanceIdentifier,
-            ("VpcSecurityGroupIds" Core..=)
+            ("VpcSecurityGroupIds" Data..=)
               Prelude.<$> vpcSecurityGroupIds,
-            ("AutoMinorVersionUpgrade" Core..=)
+            ("AutoMinorVersionUpgrade" Data..=)
               Prelude.<$> autoMinorVersionUpgrade,
-            ("ApplyImmediately" Core..=)
+            ("ApplyImmediately" Data..=)
               Prelude.<$> applyImmediately,
-            ("AllowMajorVersionUpgrade" Core..=)
+            ("AllowMajorVersionUpgrade" Data..=)
               Prelude.<$> allowMajorVersionUpgrade,
-            ("AllocatedStorage" Core..=)
+            ("AllocatedStorage" Data..=)
               Prelude.<$> allocatedStorage,
-            ("PreferredMaintenanceWindow" Core..=)
+            ("PreferredMaintenanceWindow" Data..=)
               Prelude.<$> preferredMaintenanceWindow,
-            ("ReplicationInstanceClass" Core..=)
+            ("ReplicationInstanceClass" Data..=)
               Prelude.<$> replicationInstanceClass,
-            ("EngineVersion" Core..=) Prelude.<$> engineVersion,
-            ("NetworkType" Core..=) Prelude.<$> networkType,
-            ("MultiAZ" Core..=) Prelude.<$> multiAZ,
+            ("EngineVersion" Data..=) Prelude.<$> engineVersion,
+            ("NetworkType" Data..=) Prelude.<$> networkType,
+            ("MultiAZ" Data..=) Prelude.<$> multiAZ,
             Prelude.Just
               ( "ReplicationInstanceArn"
-                  Core..= replicationInstanceArn
+                  Data..= replicationInstanceArn
               )
           ]
       )
 
-instance Core.ToPath ModifyReplicationInstance where
+instance Data.ToPath ModifyReplicationInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyReplicationInstance where
+instance Data.ToQuery ModifyReplicationInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

@@ -49,6 +49,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -80,8 +81,8 @@ instance Core.AWSRequest DescribeAccountAttributes where
     Response.receiveJSON
       ( \s h x ->
           DescribeAccountAttributesResponse'
-            Prelude.<$> (x Core..?> "UniqueAccountIdentifier")
-            Prelude.<*> (x Core..?> "AccountQuotas" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "UniqueAccountIdentifier")
+            Prelude.<*> (x Data..?> "AccountQuotas" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -92,28 +93,28 @@ instance Prelude.Hashable DescribeAccountAttributes where
 instance Prelude.NFData DescribeAccountAttributes where
   rnf _ = ()
 
-instance Core.ToHeaders DescribeAccountAttributes where
+instance Data.ToHeaders DescribeAccountAttributes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.DescribeAccountAttributes" ::
+              Data.=# ( "AmazonDMSv20160101.DescribeAccountAttributes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAccountAttributes where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DescribeAccountAttributes where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DescribeAccountAttributes where
+instance Data.ToPath DescribeAccountAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAccountAttributes where
+instance Data.ToQuery DescribeAccountAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

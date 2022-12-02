@@ -48,6 +48,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,7 +129,7 @@ instance Core.AWSRequest ReloadTables where
     Response.receiveJSON
       ( \s h x ->
           ReloadTablesResponse'
-            Prelude.<$> (x Core..?> "ReplicationTaskArn")
+            Prelude.<$> (x Data..?> "ReplicationTaskArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,37 +145,37 @@ instance Prelude.NFData ReloadTables where
       `Prelude.seq` Prelude.rnf replicationTaskArn
       `Prelude.seq` Prelude.rnf tablesToReload
 
-instance Core.ToHeaders ReloadTables where
+instance Data.ToHeaders ReloadTables where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.ReloadTables" ::
+              Data.=# ( "AmazonDMSv20160101.ReloadTables" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ReloadTables where
+instance Data.ToJSON ReloadTables where
   toJSON ReloadTables' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ReloadOption" Core..=) Prelude.<$> reloadOption,
+          [ ("ReloadOption" Data..=) Prelude.<$> reloadOption,
             Prelude.Just
-              ("ReplicationTaskArn" Core..= replicationTaskArn),
+              ("ReplicationTaskArn" Data..= replicationTaskArn),
             Prelude.Just
-              ("TablesToReload" Core..= tablesToReload)
+              ("TablesToReload" Data..= tablesToReload)
           ]
       )
 
-instance Core.ToPath ReloadTables where
+instance Data.ToPath ReloadTables where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ReloadTables where
+instance Data.ToQuery ReloadTables where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newReloadTablesResponse' smart constructor.

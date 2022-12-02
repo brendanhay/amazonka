@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.MigrationTypeValue
 import Amazonka.DMS.Types.ReplicationTaskStats
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that describes a replication task created by the
@@ -82,7 +83,7 @@ data ReplicationTask = ReplicationTask'
     -- | The ARN that uniquely identifies the endpoint.
     targetEndpointArn :: Prelude.Maybe Prelude.Text,
     -- | The date the replication task was created.
-    replicationTaskCreationDate :: Prelude.Maybe Core.POSIX,
+    replicationTaskCreationDate :: Prelude.Maybe Data.POSIX,
     -- | The user-assigned replication task identifier or name.
     --
     -- Constraints:
@@ -190,7 +191,7 @@ data ReplicationTask = ReplicationTask'
     --     database migration performance, among others.
     status :: Prelude.Maybe Prelude.Text,
     -- | The date the replication task is scheduled to start.
-    replicationTaskStartDate :: Prelude.Maybe Core.POSIX,
+    replicationTaskStartDate :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the replication task.
     replicationTaskArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that uniquely identifies the endpoint.
@@ -495,7 +496,7 @@ replicationTask_targetEndpointArn = Lens.lens (\ReplicationTask' {targetEndpoint
 
 -- | The date the replication task was created.
 replicationTask_replicationTaskCreationDate :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.UTCTime)
-replicationTask_replicationTaskCreationDate = Lens.lens (\ReplicationTask' {replicationTaskCreationDate} -> replicationTaskCreationDate) (\s@ReplicationTask' {} a -> s {replicationTaskCreationDate = a} :: ReplicationTask) Prelude.. Lens.mapping Core._Time
+replicationTask_replicationTaskCreationDate = Lens.lens (\ReplicationTask' {replicationTaskCreationDate} -> replicationTaskCreationDate) (\s@ReplicationTask' {} a -> s {replicationTaskCreationDate = a} :: ReplicationTask) Prelude.. Lens.mapping Data._Time
 
 -- | The user-assigned replication task identifier or name.
 --
@@ -615,7 +616,7 @@ replicationTask_status = Lens.lens (\ReplicationTask' {status} -> status) (\s@Re
 
 -- | The date the replication task is scheduled to start.
 replicationTask_replicationTaskStartDate :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.UTCTime)
-replicationTask_replicationTaskStartDate = Lens.lens (\ReplicationTask' {replicationTaskStartDate} -> replicationTaskStartDate) (\s@ReplicationTask' {} a -> s {replicationTaskStartDate = a} :: ReplicationTask) Prelude.. Lens.mapping Core._Time
+replicationTask_replicationTaskStartDate = Lens.lens (\ReplicationTask' {replicationTaskStartDate} -> replicationTaskStartDate) (\s@ReplicationTask' {} a -> s {replicationTaskStartDate = a} :: ReplicationTask) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the replication task.
 replicationTask_replicationTaskArn :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
@@ -650,31 +651,31 @@ replicationTask_recoveryCheckpoint = Lens.lens (\ReplicationTask' {recoveryCheck
 replicationTask_cdcStopPosition :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
 replicationTask_cdcStopPosition = Lens.lens (\ReplicationTask' {cdcStopPosition} -> cdcStopPosition) (\s@ReplicationTask' {} a -> s {cdcStopPosition = a} :: ReplicationTask)
 
-instance Core.FromJSON ReplicationTask where
+instance Data.FromJSON ReplicationTask where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicationTask"
       ( \x ->
           ReplicationTask'
-            Prelude.<$> (x Core..:? "TargetReplicationInstanceArn")
-            Prelude.<*> (x Core..:? "StopReason")
-            Prelude.<*> (x Core..:? "ReplicationInstanceArn")
-            Prelude.<*> (x Core..:? "LastFailureMessage")
-            Prelude.<*> (x Core..:? "ReplicationTaskStats")
-            Prelude.<*> (x Core..:? "TargetEndpointArn")
-            Prelude.<*> (x Core..:? "ReplicationTaskCreationDate")
-            Prelude.<*> (x Core..:? "ReplicationTaskIdentifier")
-            Prelude.<*> (x Core..:? "TaskData")
-            Prelude.<*> (x Core..:? "CdcStartPosition")
-            Prelude.<*> (x Core..:? "ReplicationTaskSettings")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ReplicationTaskStartDate")
-            Prelude.<*> (x Core..:? "ReplicationTaskArn")
-            Prelude.<*> (x Core..:? "SourceEndpointArn")
-            Prelude.<*> (x Core..:? "TableMappings")
-            Prelude.<*> (x Core..:? "MigrationType")
-            Prelude.<*> (x Core..:? "RecoveryCheckpoint")
-            Prelude.<*> (x Core..:? "CdcStopPosition")
+            Prelude.<$> (x Data..:? "TargetReplicationInstanceArn")
+            Prelude.<*> (x Data..:? "StopReason")
+            Prelude.<*> (x Data..:? "ReplicationInstanceArn")
+            Prelude.<*> (x Data..:? "LastFailureMessage")
+            Prelude.<*> (x Data..:? "ReplicationTaskStats")
+            Prelude.<*> (x Data..:? "TargetEndpointArn")
+            Prelude.<*> (x Data..:? "ReplicationTaskCreationDate")
+            Prelude.<*> (x Data..:? "ReplicationTaskIdentifier")
+            Prelude.<*> (x Data..:? "TaskData")
+            Prelude.<*> (x Data..:? "CdcStartPosition")
+            Prelude.<*> (x Data..:? "ReplicationTaskSettings")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ReplicationTaskStartDate")
+            Prelude.<*> (x Data..:? "ReplicationTaskArn")
+            Prelude.<*> (x Data..:? "SourceEndpointArn")
+            Prelude.<*> (x Data..:? "TableMappings")
+            Prelude.<*> (x Data..:? "MigrationType")
+            Prelude.<*> (x Data..:? "RecoveryCheckpoint")
+            Prelude.<*> (x Data..:? "CdcStopPosition")
       )
 
 instance Prelude.Hashable ReplicationTask where

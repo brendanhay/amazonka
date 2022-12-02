@@ -22,6 +22,7 @@ module Amazonka.DMS.Types.MicrosoftSQLServerSettings where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.SafeguardPolicy
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that defines a Microsoft SQL Server endpoint.
@@ -54,7 +55,7 @@ data MicrosoftSQLServerSettings = MicrosoftSQLServerSettings'
     -- in the /Database Migration Service User Guide/.
     secretsManagerAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Endpoint connection password.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Fully qualified domain name of the endpoint.
     serverName :: Prelude.Maybe Prelude.Text,
     -- | Cleans and recreates table metadata information on the replication
@@ -252,7 +253,7 @@ microsoftSQLServerSettings_secretsManagerAccessRoleArn = Lens.lens (\MicrosoftSQ
 
 -- | Endpoint connection password.
 microsoftSQLServerSettings_password :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Text)
-microsoftSQLServerSettings_password = Lens.lens (\MicrosoftSQLServerSettings' {password} -> password) (\s@MicrosoftSQLServerSettings' {} a -> s {password = a} :: MicrosoftSQLServerSettings) Prelude.. Lens.mapping Core._Sensitive
+microsoftSQLServerSettings_password = Lens.lens (\MicrosoftSQLServerSettings' {password} -> password) (\s@MicrosoftSQLServerSettings' {} a -> s {password = a} :: MicrosoftSQLServerSettings) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Fully qualified domain name of the endpoint.
 microsoftSQLServerSettings_serverName :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Text)
@@ -326,27 +327,27 @@ microsoftSQLServerSettings_safeguardPolicy = Lens.lens (\MicrosoftSQLServerSetti
 microsoftSQLServerSettings_useThirdPartyBackupDevice :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Bool)
 microsoftSQLServerSettings_useThirdPartyBackupDevice = Lens.lens (\MicrosoftSQLServerSettings' {useThirdPartyBackupDevice} -> useThirdPartyBackupDevice) (\s@MicrosoftSQLServerSettings' {} a -> s {useThirdPartyBackupDevice = a} :: MicrosoftSQLServerSettings)
 
-instance Core.FromJSON MicrosoftSQLServerSettings where
+instance Data.FromJSON MicrosoftSQLServerSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MicrosoftSQLServerSettings"
       ( \x ->
           MicrosoftSQLServerSettings'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "ControlTablesFileGroup")
-            Prelude.<*> (x Core..:? "TrimSpaceInChar")
-            Prelude.<*> (x Core..:? "SecretsManagerAccessRoleArn")
-            Prelude.<*> (x Core..:? "Password")
-            Prelude.<*> (x Core..:? "ServerName")
-            Prelude.<*> (x Core..:? "QuerySingleAlwaysOnNode")
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "BcpPacketSize")
-            Prelude.<*> (x Core..:? "SecretsManagerSecretId")
-            Prelude.<*> (x Core..:? "UseBcpFullLoad")
-            Prelude.<*> (x Core..:? "ReadBackupOnly")
-            Prelude.<*> (x Core..:? "SafeguardPolicy")
-            Prelude.<*> (x Core..:? "UseThirdPartyBackupDevice")
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "ControlTablesFileGroup")
+            Prelude.<*> (x Data..:? "TrimSpaceInChar")
+            Prelude.<*> (x Data..:? "SecretsManagerAccessRoleArn")
+            Prelude.<*> (x Data..:? "Password")
+            Prelude.<*> (x Data..:? "ServerName")
+            Prelude.<*> (x Data..:? "QuerySingleAlwaysOnNode")
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "Username")
+            Prelude.<*> (x Data..:? "BcpPacketSize")
+            Prelude.<*> (x Data..:? "SecretsManagerSecretId")
+            Prelude.<*> (x Data..:? "UseBcpFullLoad")
+            Prelude.<*> (x Data..:? "ReadBackupOnly")
+            Prelude.<*> (x Data..:? "SafeguardPolicy")
+            Prelude.<*> (x Data..:? "UseThirdPartyBackupDevice")
       )
 
 instance Prelude.Hashable MicrosoftSQLServerSettings where
@@ -385,33 +386,33 @@ instance Prelude.NFData MicrosoftSQLServerSettings where
       `Prelude.seq` Prelude.rnf safeguardPolicy
       `Prelude.seq` Prelude.rnf useThirdPartyBackupDevice
 
-instance Core.ToJSON MicrosoftSQLServerSettings where
+instance Data.ToJSON MicrosoftSQLServerSettings where
   toJSON MicrosoftSQLServerSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Port" Core..=) Prelude.<$> port,
-            ("ControlTablesFileGroup" Core..=)
+          [ ("Port" Data..=) Prelude.<$> port,
+            ("ControlTablesFileGroup" Data..=)
               Prelude.<$> controlTablesFileGroup,
-            ("TrimSpaceInChar" Core..=)
+            ("TrimSpaceInChar" Data..=)
               Prelude.<$> trimSpaceInChar,
-            ("SecretsManagerAccessRoleArn" Core..=)
+            ("SecretsManagerAccessRoleArn" Data..=)
               Prelude.<$> secretsManagerAccessRoleArn,
-            ("Password" Core..=) Prelude.<$> password,
-            ("ServerName" Core..=) Prelude.<$> serverName,
-            ("QuerySingleAlwaysOnNode" Core..=)
+            ("Password" Data..=) Prelude.<$> password,
+            ("ServerName" Data..=) Prelude.<$> serverName,
+            ("QuerySingleAlwaysOnNode" Data..=)
               Prelude.<$> querySingleAlwaysOnNode,
-            ("DatabaseName" Core..=) Prelude.<$> databaseName,
-            ("Username" Core..=) Prelude.<$> username,
-            ("BcpPacketSize" Core..=) Prelude.<$> bcpPacketSize,
-            ("SecretsManagerSecretId" Core..=)
+            ("DatabaseName" Data..=) Prelude.<$> databaseName,
+            ("Username" Data..=) Prelude.<$> username,
+            ("BcpPacketSize" Data..=) Prelude.<$> bcpPacketSize,
+            ("SecretsManagerSecretId" Data..=)
               Prelude.<$> secretsManagerSecretId,
-            ("UseBcpFullLoad" Core..=)
+            ("UseBcpFullLoad" Data..=)
               Prelude.<$> useBcpFullLoad,
-            ("ReadBackupOnly" Core..=)
+            ("ReadBackupOnly" Data..=)
               Prelude.<$> readBackupOnly,
-            ("SafeguardPolicy" Core..=)
+            ("SafeguardPolicy" Data..=)
               Prelude.<$> safeguardPolicy,
-            ("UseThirdPartyBackupDevice" Core..=)
+            ("UseThirdPartyBackupDevice" Data..=)
               Prelude.<$> useThirdPartyBackupDevice
           ]
       )

@@ -38,6 +38,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,36 +92,36 @@ instance Prelude.NFData DeleteFleetAdvisorCollector where
   rnf DeleteFleetAdvisorCollector' {..} =
     Prelude.rnf collectorReferencedId
 
-instance Core.ToHeaders DeleteFleetAdvisorCollector where
+instance Data.ToHeaders DeleteFleetAdvisorCollector where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.DeleteFleetAdvisorCollector" ::
+              Data.=# ( "AmazonDMSv20160101.DeleteFleetAdvisorCollector" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteFleetAdvisorCollector where
+instance Data.ToJSON DeleteFleetAdvisorCollector where
   toJSON DeleteFleetAdvisorCollector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "CollectorReferencedId"
-                  Core..= collectorReferencedId
+                  Data..= collectorReferencedId
               )
           ]
       )
 
-instance Core.ToPath DeleteFleetAdvisorCollector where
+instance Data.ToPath DeleteFleetAdvisorCollector where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteFleetAdvisorCollector where
+instance Data.ToQuery DeleteFleetAdvisorCollector where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFleetAdvisorCollectorResponse' smart constructor.

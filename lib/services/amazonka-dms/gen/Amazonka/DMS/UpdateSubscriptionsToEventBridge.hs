@@ -56,6 +56,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,7 +113,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateSubscriptionsToEventBridgeResponse'
-            Prelude.<$> (x Core..?> "Result")
+            Prelude.<$> (x Data..?> "Result")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,35 +134,35 @@ instance
     Prelude.rnf forceMove
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateSubscriptionsToEventBridge
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.UpdateSubscriptionsToEventBridge" ::
+              Data.=# ( "AmazonDMSv20160101.UpdateSubscriptionsToEventBridge" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSubscriptionsToEventBridge where
+instance Data.ToJSON UpdateSubscriptionsToEventBridge where
   toJSON UpdateSubscriptionsToEventBridge' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("ForceMove" Core..=) Prelude.<$> forceMove]
+          [("ForceMove" Data..=) Prelude.<$> forceMove]
       )
 
-instance Core.ToPath UpdateSubscriptionsToEventBridge where
+instance Data.ToPath UpdateSubscriptionsToEventBridge where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateSubscriptionsToEventBridge
   where
   toQuery = Prelude.const Prelude.mempty

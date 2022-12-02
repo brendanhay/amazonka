@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.RedisAuthTypeValue
 import Amazonka.DMS.Types.SslSecurityProtocolValue
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that defines a Redis target endpoint.
@@ -45,7 +46,7 @@ data RedisSettings = RedisSettings'
     sslSecurityProtocol :: Prelude.Maybe SslSecurityProtocolValue,
     -- | The password provided with the @auth-role@ and @auth-token@ options of
     -- the @AuthType@ setting for a Redis target endpoint.
-    authPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) for the certificate authority (CA) that
     -- DMS uses to connect to your Redis target endpoint.
     sslCaCertificateArn :: Prelude.Maybe Prelude.Text,
@@ -135,7 +136,7 @@ redisSettings_sslSecurityProtocol = Lens.lens (\RedisSettings' {sslSecurityProto
 -- | The password provided with the @auth-role@ and @auth-token@ options of
 -- the @AuthType@ setting for a Redis target endpoint.
 redisSettings_authPassword :: Lens.Lens' RedisSettings (Prelude.Maybe Prelude.Text)
-redisSettings_authPassword = Lens.lens (\RedisSettings' {authPassword} -> authPassword) (\s@RedisSettings' {} a -> s {authPassword = a} :: RedisSettings) Prelude.. Lens.mapping Core._Sensitive
+redisSettings_authPassword = Lens.lens (\RedisSettings' {authPassword} -> authPassword) (\s@RedisSettings' {} a -> s {authPassword = a} :: RedisSettings) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) for the certificate authority (CA) that
 -- DMS uses to connect to your Redis target endpoint.
@@ -157,19 +158,19 @@ redisSettings_serverName = Lens.lens (\RedisSettings' {serverName} -> serverName
 redisSettings_port :: Lens.Lens' RedisSettings Prelude.Int
 redisSettings_port = Lens.lens (\RedisSettings' {port} -> port) (\s@RedisSettings' {} a -> s {port = a} :: RedisSettings)
 
-instance Core.FromJSON RedisSettings where
+instance Data.FromJSON RedisSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RedisSettings"
       ( \x ->
           RedisSettings'
-            Prelude.<$> (x Core..:? "AuthUserName")
-            Prelude.<*> (x Core..:? "SslSecurityProtocol")
-            Prelude.<*> (x Core..:? "AuthPassword")
-            Prelude.<*> (x Core..:? "SslCaCertificateArn")
-            Prelude.<*> (x Core..:? "AuthType")
-            Prelude.<*> (x Core..: "ServerName")
-            Prelude.<*> (x Core..: "Port")
+            Prelude.<$> (x Data..:? "AuthUserName")
+            Prelude.<*> (x Data..:? "SslSecurityProtocol")
+            Prelude.<*> (x Data..:? "AuthPassword")
+            Prelude.<*> (x Data..:? "SslCaCertificateArn")
+            Prelude.<*> (x Data..:? "AuthType")
+            Prelude.<*> (x Data..: "ServerName")
+            Prelude.<*> (x Data..: "Port")
       )
 
 instance Prelude.Hashable RedisSettings where
@@ -192,18 +193,18 @@ instance Prelude.NFData RedisSettings where
       `Prelude.seq` Prelude.rnf serverName
       `Prelude.seq` Prelude.rnf port
 
-instance Core.ToJSON RedisSettings where
+instance Data.ToJSON RedisSettings where
   toJSON RedisSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AuthUserName" Core..=) Prelude.<$> authUserName,
-            ("SslSecurityProtocol" Core..=)
+          [ ("AuthUserName" Data..=) Prelude.<$> authUserName,
+            ("SslSecurityProtocol" Data..=)
               Prelude.<$> sslSecurityProtocol,
-            ("AuthPassword" Core..=) Prelude.<$> authPassword,
-            ("SslCaCertificateArn" Core..=)
+            ("AuthPassword" Data..=) Prelude.<$> authPassword,
+            ("SslCaCertificateArn" Data..=)
               Prelude.<$> sslCaCertificateArn,
-            ("AuthType" Core..=) Prelude.<$> authType,
-            Prelude.Just ("ServerName" Core..= serverName),
-            Prelude.Just ("Port" Core..= port)
+            ("AuthType" Data..=) Prelude.<$> authType,
+            Prelude.Just ("ServerName" Data..= serverName),
+            Prelude.Just ("Port" Data..= port)
           ]
       )

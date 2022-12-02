@@ -50,6 +50,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -63,7 +64,7 @@ data StartReplicationTask = StartReplicationTask'
     -- operation to start. Specifying both values results in an error.
     --
     -- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
-    cdcStartTime :: Prelude.Maybe Core.POSIX,
+    cdcStartTime :: Prelude.Maybe Data.POSIX,
     -- | Indicates when you want a change data capture (CDC) operation to start.
     -- Use either CdcStartPosition or CdcStartTime to specify when you want a
     -- CDC operation to start. Specifying both values results in an error.
@@ -191,7 +192,7 @@ newStartReplicationTask
 --
 -- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
 startReplicationTask_cdcStartTime :: Lens.Lens' StartReplicationTask (Prelude.Maybe Prelude.UTCTime)
-startReplicationTask_cdcStartTime = Lens.lens (\StartReplicationTask' {cdcStartTime} -> cdcStartTime) (\s@StartReplicationTask' {} a -> s {cdcStartTime = a} :: StartReplicationTask) Prelude.. Lens.mapping Core._Time
+startReplicationTask_cdcStartTime = Lens.lens (\StartReplicationTask' {cdcStartTime} -> cdcStartTime) (\s@StartReplicationTask' {} a -> s {cdcStartTime = a} :: StartReplicationTask) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates when you want a change data capture (CDC) operation to start.
 -- Use either CdcStartPosition or CdcStartTime to specify when you want a
@@ -254,7 +255,7 @@ instance Core.AWSRequest StartReplicationTask where
     Response.receiveJSON
       ( \s h x ->
           StartReplicationTaskResponse'
-            Prelude.<$> (x Core..?> "ReplicationTask")
+            Prelude.<$> (x Data..?> "ReplicationTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -274,43 +275,43 @@ instance Prelude.NFData StartReplicationTask where
       `Prelude.seq` Prelude.rnf replicationTaskArn
       `Prelude.seq` Prelude.rnf startReplicationTaskType
 
-instance Core.ToHeaders StartReplicationTask where
+instance Data.ToHeaders StartReplicationTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.StartReplicationTask" ::
+              Data.=# ( "AmazonDMSv20160101.StartReplicationTask" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartReplicationTask where
+instance Data.ToJSON StartReplicationTask where
   toJSON StartReplicationTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CdcStartTime" Core..=) Prelude.<$> cdcStartTime,
-            ("CdcStartPosition" Core..=)
+          [ ("CdcStartTime" Data..=) Prelude.<$> cdcStartTime,
+            ("CdcStartPosition" Data..=)
               Prelude.<$> cdcStartPosition,
-            ("CdcStopPosition" Core..=)
+            ("CdcStopPosition" Data..=)
               Prelude.<$> cdcStopPosition,
             Prelude.Just
-              ("ReplicationTaskArn" Core..= replicationTaskArn),
+              ("ReplicationTaskArn" Data..= replicationTaskArn),
             Prelude.Just
               ( "StartReplicationTaskType"
-                  Core..= startReplicationTaskType
+                  Data..= startReplicationTaskType
               )
           ]
       )
 
-instance Core.ToPath StartReplicationTask where
+instance Data.ToPath StartReplicationTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartReplicationTask where
+instance Data.ToQuery StartReplicationTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

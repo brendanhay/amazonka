@@ -45,6 +45,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -168,8 +169,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeFleetAdvisorDatabasesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Databases" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Databases" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -188,35 +189,35 @@ instance Prelude.NFData DescribeFleetAdvisorDatabases where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeFleetAdvisorDatabases where
+instance Data.ToHeaders DescribeFleetAdvisorDatabases where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.DescribeFleetAdvisorDatabases" ::
+              Data.=# ( "AmazonDMSv20160101.DescribeFleetAdvisorDatabases" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFleetAdvisorDatabases where
+instance Data.ToJSON DescribeFleetAdvisorDatabases where
   toJSON DescribeFleetAdvisorDatabases' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxRecords" Core..=) Prelude.<$> maxRecords
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxRecords" Data..=) Prelude.<$> maxRecords
           ]
       )
 
-instance Core.ToPath DescribeFleetAdvisorDatabases where
+instance Data.ToPath DescribeFleetAdvisorDatabases where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFleetAdvisorDatabases where
+instance Data.ToQuery DescribeFleetAdvisorDatabases where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeFleetAdvisorDatabasesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.DMS.Types.SchemaShortInfoResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a schema in a Fleet Advisor collector inventory.
@@ -89,17 +90,17 @@ schemaShortInfoResponse_databaseIpAddress = Lens.lens (\SchemaShortInfoResponse'
 schemaShortInfoResponse_schemaId :: Lens.Lens' SchemaShortInfoResponse (Prelude.Maybe Prelude.Text)
 schemaShortInfoResponse_schemaId = Lens.lens (\SchemaShortInfoResponse' {schemaId} -> schemaId) (\s@SchemaShortInfoResponse' {} a -> s {schemaId = a} :: SchemaShortInfoResponse)
 
-instance Core.FromJSON SchemaShortInfoResponse where
+instance Data.FromJSON SchemaShortInfoResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SchemaShortInfoResponse"
       ( \x ->
           SchemaShortInfoResponse'
-            Prelude.<$> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "SchemaName")
-            Prelude.<*> (x Core..:? "DatabaseId")
-            Prelude.<*> (x Core..:? "DatabaseIpAddress")
-            Prelude.<*> (x Core..:? "SchemaId")
+            Prelude.<$> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "SchemaName")
+            Prelude.<*> (x Data..:? "DatabaseId")
+            Prelude.<*> (x Data..:? "DatabaseIpAddress")
+            Prelude.<*> (x Data..:? "SchemaId")
       )
 
 instance Prelude.Hashable SchemaShortInfoResponse where

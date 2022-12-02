@@ -22,6 +22,7 @@ module Amazonka.DMS.Types.Subnet where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.AvailabilityZone
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | In response to a request by the @DescribeReplicationSubnetGroups@
@@ -73,15 +74,15 @@ subnet_subnetStatus = Lens.lens (\Subnet' {subnetStatus} -> subnetStatus) (\s@Su
 subnet_subnetAvailabilityZone :: Lens.Lens' Subnet (Prelude.Maybe AvailabilityZone)
 subnet_subnetAvailabilityZone = Lens.lens (\Subnet' {subnetAvailabilityZone} -> subnetAvailabilityZone) (\s@Subnet' {} a -> s {subnetAvailabilityZone = a} :: Subnet)
 
-instance Core.FromJSON Subnet where
+instance Data.FromJSON Subnet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Subnet"
       ( \x ->
           Subnet'
-            Prelude.<$> (x Core..:? "SubnetIdentifier")
-            Prelude.<*> (x Core..:? "SubnetStatus")
-            Prelude.<*> (x Core..:? "SubnetAvailabilityZone")
+            Prelude.<$> (x Data..:? "SubnetIdentifier")
+            Prelude.<*> (x Data..:? "SubnetStatus")
+            Prelude.<*> (x Data..:? "SubnetAvailabilityZone")
       )
 
 instance Prelude.Hashable Subnet where

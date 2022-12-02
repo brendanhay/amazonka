@@ -22,6 +22,7 @@ module Amazonka.DMS.Types.CollectorHealthCheck where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.CollectorStatus
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the last Fleet Advisor collector health check.
@@ -87,16 +88,16 @@ collectorHealthCheck_webCollectorGrantedRoleBasedAccess = Lens.lens (\CollectorH
 collectorHealthCheck_webCollectorS3Access :: Lens.Lens' CollectorHealthCheck (Prelude.Maybe Prelude.Bool)
 collectorHealthCheck_webCollectorS3Access = Lens.lens (\CollectorHealthCheck' {webCollectorS3Access} -> webCollectorS3Access) (\s@CollectorHealthCheck' {} a -> s {webCollectorS3Access = a} :: CollectorHealthCheck)
 
-instance Core.FromJSON CollectorHealthCheck where
+instance Data.FromJSON CollectorHealthCheck where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CollectorHealthCheck"
       ( \x ->
           CollectorHealthCheck'
-            Prelude.<$> (x Core..:? "CollectorStatus")
-            Prelude.<*> (x Core..:? "LocalCollectorS3Access")
-            Prelude.<*> (x Core..:? "WebCollectorGrantedRoleBasedAccess")
-            Prelude.<*> (x Core..:? "WebCollectorS3Access")
+            Prelude.<$> (x Data..:? "CollectorStatus")
+            Prelude.<*> (x Data..:? "LocalCollectorS3Access")
+            Prelude.<*> (x Data..:? "WebCollectorGrantedRoleBasedAccess")
+            Prelude.<*> (x Data..:? "WebCollectorS3Access")
       )
 
 instance Prelude.Hashable CollectorHealthCheck where

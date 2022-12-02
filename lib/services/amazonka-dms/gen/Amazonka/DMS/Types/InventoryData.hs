@@ -21,6 +21,7 @@ module Amazonka.DMS.Types.InventoryData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a Fleet Advisor collector inventory.
@@ -61,14 +62,14 @@ inventoryData_numberOfSchemas = Lens.lens (\InventoryData' {numberOfSchemas} -> 
 inventoryData_numberOfDatabases :: Lens.Lens' InventoryData (Prelude.Maybe Prelude.Int)
 inventoryData_numberOfDatabases = Lens.lens (\InventoryData' {numberOfDatabases} -> numberOfDatabases) (\s@InventoryData' {} a -> s {numberOfDatabases = a} :: InventoryData)
 
-instance Core.FromJSON InventoryData where
+instance Data.FromJSON InventoryData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InventoryData"
       ( \x ->
           InventoryData'
-            Prelude.<$> (x Core..:? "NumberOfSchemas")
-            Prelude.<*> (x Core..:? "NumberOfDatabases")
+            Prelude.<$> (x Data..:? "NumberOfSchemas")
+            Prelude.<*> (x Data..:? "NumberOfDatabases")
       )
 
 instance Prelude.Hashable InventoryData where

@@ -21,6 +21,7 @@ module Amazonka.DMS.Types.SybaseSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that defines a SAP ASE endpoint.
@@ -45,7 +46,7 @@ data SybaseSettings = SybaseSettings'
     -- in the /Database Migration Service User Guide/.
     secretsManagerAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Endpoint connection password.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Fully qualified domain name of the endpoint.
     serverName :: Prelude.Maybe Prelude.Text,
     -- | Database name for the endpoint.
@@ -131,7 +132,7 @@ sybaseSettings_secretsManagerAccessRoleArn = Lens.lens (\SybaseSettings' {secret
 
 -- | Endpoint connection password.
 sybaseSettings_password :: Lens.Lens' SybaseSettings (Prelude.Maybe Prelude.Text)
-sybaseSettings_password = Lens.lens (\SybaseSettings' {password} -> password) (\s@SybaseSettings' {} a -> s {password = a} :: SybaseSettings) Prelude.. Lens.mapping Core._Sensitive
+sybaseSettings_password = Lens.lens (\SybaseSettings' {password} -> password) (\s@SybaseSettings' {} a -> s {password = a} :: SybaseSettings) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Fully qualified domain name of the endpoint.
 sybaseSettings_serverName :: Lens.Lens' SybaseSettings (Prelude.Maybe Prelude.Text)
@@ -151,19 +152,19 @@ sybaseSettings_username = Lens.lens (\SybaseSettings' {username} -> username) (\
 sybaseSettings_secretsManagerSecretId :: Lens.Lens' SybaseSettings (Prelude.Maybe Prelude.Text)
 sybaseSettings_secretsManagerSecretId = Lens.lens (\SybaseSettings' {secretsManagerSecretId} -> secretsManagerSecretId) (\s@SybaseSettings' {} a -> s {secretsManagerSecretId = a} :: SybaseSettings)
 
-instance Core.FromJSON SybaseSettings where
+instance Data.FromJSON SybaseSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SybaseSettings"
       ( \x ->
           SybaseSettings'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "SecretsManagerAccessRoleArn")
-            Prelude.<*> (x Core..:? "Password")
-            Prelude.<*> (x Core..:? "ServerName")
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "SecretsManagerSecretId")
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "SecretsManagerAccessRoleArn")
+            Prelude.<*> (x Data..:? "Password")
+            Prelude.<*> (x Data..:? "ServerName")
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "Username")
+            Prelude.<*> (x Data..:? "SecretsManagerSecretId")
       )
 
 instance Prelude.Hashable SybaseSettings where
@@ -186,18 +187,18 @@ instance Prelude.NFData SybaseSettings where
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf secretsManagerSecretId
 
-instance Core.ToJSON SybaseSettings where
+instance Data.ToJSON SybaseSettings where
   toJSON SybaseSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Port" Core..=) Prelude.<$> port,
-            ("SecretsManagerAccessRoleArn" Core..=)
+          [ ("Port" Data..=) Prelude.<$> port,
+            ("SecretsManagerAccessRoleArn" Data..=)
               Prelude.<$> secretsManagerAccessRoleArn,
-            ("Password" Core..=) Prelude.<$> password,
-            ("ServerName" Core..=) Prelude.<$> serverName,
-            ("DatabaseName" Core..=) Prelude.<$> databaseName,
-            ("Username" Core..=) Prelude.<$> username,
-            ("SecretsManagerSecretId" Core..=)
+            ("Password" Data..=) Prelude.<$> password,
+            ("ServerName" Data..=) Prelude.<$> serverName,
+            ("DatabaseName" Data..=) Prelude.<$> databaseName,
+            ("Username" Data..=) Prelude.<$> username,
+            ("SecretsManagerSecretId" Data..=)
               Prelude.<$> secretsManagerSecretId
           ]
       )

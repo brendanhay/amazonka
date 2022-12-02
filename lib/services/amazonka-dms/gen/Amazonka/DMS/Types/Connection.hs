@@ -21,6 +21,7 @@ module Amazonka.DMS.Types.Connection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Status of the connection between an endpoint and a replication instance,
@@ -136,18 +137,18 @@ connection_status = Lens.lens (\Connection' {status} -> status) (\s@Connection' 
 connection_endpointArn :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
 connection_endpointArn = Lens.lens (\Connection' {endpointArn} -> endpointArn) (\s@Connection' {} a -> s {endpointArn = a} :: Connection)
 
-instance Core.FromJSON Connection where
+instance Data.FromJSON Connection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Connection"
       ( \x ->
           Connection'
-            Prelude.<$> (x Core..:? "ReplicationInstanceIdentifier")
-            Prelude.<*> (x Core..:? "ReplicationInstanceArn")
-            Prelude.<*> (x Core..:? "LastFailureMessage")
-            Prelude.<*> (x Core..:? "EndpointIdentifier")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "EndpointArn")
+            Prelude.<$> (x Data..:? "ReplicationInstanceIdentifier")
+            Prelude.<*> (x Data..:? "ReplicationInstanceArn")
+            Prelude.<*> (x Data..:? "LastFailureMessage")
+            Prelude.<*> (x Data..:? "EndpointIdentifier")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "EndpointArn")
       )
 
 instance Prelude.Hashable Connection where

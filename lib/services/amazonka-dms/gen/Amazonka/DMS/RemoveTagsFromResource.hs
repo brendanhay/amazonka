@@ -46,6 +46,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,34 +118,34 @@ instance Prelude.NFData RemoveTagsFromResource where
     Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf tagKeys
 
-instance Core.ToHeaders RemoveTagsFromResource where
+instance Data.ToHeaders RemoveTagsFromResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.RemoveTagsFromResource" ::
+              Data.=# ( "AmazonDMSv20160101.RemoveTagsFromResource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RemoveTagsFromResource where
+instance Data.ToJSON RemoveTagsFromResource where
   toJSON RemoveTagsFromResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceArn" Core..= resourceArn),
-            Prelude.Just ("TagKeys" Core..= tagKeys)
+          [ Prelude.Just ("ResourceArn" Data..= resourceArn),
+            Prelude.Just ("TagKeys" Data..= tagKeys)
           ]
       )
 
-instance Core.ToPath RemoveTagsFromResource where
+instance Data.ToPath RemoveTagsFromResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RemoveTagsFromResource where
+instance Data.ToQuery RemoveTagsFromResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

@@ -57,6 +57,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -70,7 +71,7 @@ data ModifyReplicationTask = ModifyReplicationTask'
     -- operation to start. Specifying both values results in an error.
     --
     -- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
-    cdcStartTime :: Prelude.Maybe Core.POSIX,
+    cdcStartTime :: Prelude.Maybe Data.POSIX,
     -- | The replication task identifier.
     --
     -- Constraints:
@@ -225,7 +226,7 @@ newModifyReplicationTask pReplicationTaskArn_ =
 --
 -- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
 modifyReplicationTask_cdcStartTime :: Lens.Lens' ModifyReplicationTask (Prelude.Maybe Prelude.UTCTime)
-modifyReplicationTask_cdcStartTime = Lens.lens (\ModifyReplicationTask' {cdcStartTime} -> cdcStartTime) (\s@ModifyReplicationTask' {} a -> s {cdcStartTime = a} :: ModifyReplicationTask) Prelude.. Lens.mapping Core._Time
+modifyReplicationTask_cdcStartTime = Lens.lens (\ModifyReplicationTask' {cdcStartTime} -> cdcStartTime) (\s@ModifyReplicationTask' {} a -> s {cdcStartTime = a} :: ModifyReplicationTask) Prelude.. Lens.mapping Data._Time
 
 -- | The replication task identifier.
 --
@@ -310,7 +311,7 @@ instance Core.AWSRequest ModifyReplicationTask where
     Response.receiveJSON
       ( \s h x ->
           ModifyReplicationTaskResponse'
-            Prelude.<$> (x Core..?> "ReplicationTask")
+            Prelude.<$> (x Data..?> "ReplicationTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -338,46 +339,46 @@ instance Prelude.NFData ModifyReplicationTask where
       `Prelude.seq` Prelude.rnf cdcStopPosition
       `Prelude.seq` Prelude.rnf replicationTaskArn
 
-instance Core.ToHeaders ModifyReplicationTask where
+instance Data.ToHeaders ModifyReplicationTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.ModifyReplicationTask" ::
+              Data.=# ( "AmazonDMSv20160101.ModifyReplicationTask" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ModifyReplicationTask where
+instance Data.ToJSON ModifyReplicationTask where
   toJSON ModifyReplicationTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CdcStartTime" Core..=) Prelude.<$> cdcStartTime,
-            ("ReplicationTaskIdentifier" Core..=)
+          [ ("CdcStartTime" Data..=) Prelude.<$> cdcStartTime,
+            ("ReplicationTaskIdentifier" Data..=)
               Prelude.<$> replicationTaskIdentifier,
-            ("TaskData" Core..=) Prelude.<$> taskData,
-            ("CdcStartPosition" Core..=)
+            ("TaskData" Data..=) Prelude.<$> taskData,
+            ("CdcStartPosition" Data..=)
               Prelude.<$> cdcStartPosition,
-            ("ReplicationTaskSettings" Core..=)
+            ("ReplicationTaskSettings" Data..=)
               Prelude.<$> replicationTaskSettings,
-            ("TableMappings" Core..=) Prelude.<$> tableMappings,
-            ("MigrationType" Core..=) Prelude.<$> migrationType,
-            ("CdcStopPosition" Core..=)
+            ("TableMappings" Data..=) Prelude.<$> tableMappings,
+            ("MigrationType" Data..=) Prelude.<$> migrationType,
+            ("CdcStopPosition" Data..=)
               Prelude.<$> cdcStopPosition,
             Prelude.Just
-              ("ReplicationTaskArn" Core..= replicationTaskArn)
+              ("ReplicationTaskArn" Data..= replicationTaskArn)
           ]
       )
 
-instance Core.ToPath ModifyReplicationTask where
+instance Data.ToPath ModifyReplicationTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyReplicationTask where
+instance Data.ToQuery ModifyReplicationTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

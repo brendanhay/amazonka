@@ -21,6 +21,7 @@ module Amazonka.DMS.Types.DatabaseInstanceSoftwareDetailsResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an inventory database instance for a Fleet Advisor collector.
@@ -120,21 +121,21 @@ databaseInstanceSoftwareDetailsResponse_osArchitecture :: Lens.Lens' DatabaseIns
 databaseInstanceSoftwareDetailsResponse_osArchitecture = Lens.lens (\DatabaseInstanceSoftwareDetailsResponse' {osArchitecture} -> osArchitecture) (\s@DatabaseInstanceSoftwareDetailsResponse' {} a -> s {osArchitecture = a} :: DatabaseInstanceSoftwareDetailsResponse)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DatabaseInstanceSoftwareDetailsResponse
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatabaseInstanceSoftwareDetailsResponse"
       ( \x ->
           DatabaseInstanceSoftwareDetailsResponse'
-            Prelude.<$> (x Core..:? "EngineEdition")
-            Prelude.<*> (x Core..:? "ServicePack")
-            Prelude.<*> (x Core..:? "Engine")
-            Prelude.<*> (x Core..:? "Tooltip")
-            Prelude.<*> (x Core..:? "SupportLevel")
-            Prelude.<*> (x Core..:? "EngineVersion")
-            Prelude.<*> (x Core..:? "OsArchitecture")
+            Prelude.<$> (x Data..:? "EngineEdition")
+            Prelude.<*> (x Data..:? "ServicePack")
+            Prelude.<*> (x Data..:? "Engine")
+            Prelude.<*> (x Data..:? "Tooltip")
+            Prelude.<*> (x Data..:? "SupportLevel")
+            Prelude.<*> (x Data..:? "EngineVersion")
+            Prelude.<*> (x Data..:? "OsArchitecture")
       )
 
 instance

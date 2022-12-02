@@ -41,6 +41,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,36 +104,36 @@ instance Prelude.NFData DeleteReplicationSubnetGroup where
   rnf DeleteReplicationSubnetGroup' {..} =
     Prelude.rnf replicationSubnetGroupIdentifier
 
-instance Core.ToHeaders DeleteReplicationSubnetGroup where
+instance Data.ToHeaders DeleteReplicationSubnetGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.DeleteReplicationSubnetGroup" ::
+              Data.=# ( "AmazonDMSv20160101.DeleteReplicationSubnetGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteReplicationSubnetGroup where
+instance Data.ToJSON DeleteReplicationSubnetGroup where
   toJSON DeleteReplicationSubnetGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ReplicationSubnetGroupIdentifier"
-                  Core..= replicationSubnetGroupIdentifier
+                  Data..= replicationSubnetGroupIdentifier
               )
           ]
       )
 
-instance Core.ToPath DeleteReplicationSubnetGroup where
+instance Data.ToPath DeleteReplicationSubnetGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteReplicationSubnetGroup where
+instance Data.ToQuery DeleteReplicationSubnetGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

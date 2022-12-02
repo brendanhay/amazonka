@@ -24,6 +24,7 @@ import Amazonka.DMS.DescribeReplicationInstances
 import Amazonka.DMS.DescribeReplicationTasks
 import Amazonka.DMS.Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.DMS.DescribeReplicationTasks' every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
@@ -45,7 +46,7 @@ newReplicationTaskStopped =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "ready"
@@ -58,7 +59,7 @@ newReplicationTaskStopped =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "creating"
@@ -71,7 +72,7 @@ newReplicationTaskStopped =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "starting"
@@ -84,7 +85,7 @@ newReplicationTaskStopped =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -97,7 +98,7 @@ newReplicationTaskStopped =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "modifying"
@@ -110,7 +111,7 @@ newReplicationTaskStopped =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "testing"
@@ -123,7 +124,7 @@ newReplicationTaskStopped =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -136,7 +137,7 @@ newReplicationTaskStopped =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -161,7 +162,7 @@ newReplicationInstanceAvailable =
                 )
                 Prelude.. replicationInstance_replicationInstanceStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -174,7 +175,7 @@ newReplicationInstanceAvailable =
                 )
                 Prelude.. replicationInstance_replicationInstanceStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "incompatible-credentials"
@@ -187,7 +188,7 @@ newReplicationInstanceAvailable =
                 )
                 Prelude.. replicationInstance_replicationInstanceStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "incompatible-network"
@@ -200,7 +201,7 @@ newReplicationInstanceAvailable =
                 )
                 Prelude.. replicationInstance_replicationInstanceStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "inaccessible-encryption-credentials"
@@ -213,7 +214,7 @@ newReplicationInstanceAvailable =
                 )
                 Prelude.. replicationInstance_replicationInstanceStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -240,7 +241,7 @@ newEndpointDeleted =
                 )
                 Prelude.. endpoint_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "creating"
@@ -253,7 +254,7 @@ newEndpointDeleted =
                 )
                 Prelude.. endpoint_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -277,7 +278,7 @@ newReplicationTaskDeleted =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "creating"
@@ -290,7 +291,7 @@ newReplicationTaskDeleted =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "stopped"
@@ -303,7 +304,7 @@ newReplicationTaskDeleted =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "running"
@@ -316,7 +317,7 @@ newReplicationTaskDeleted =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -329,7 +330,7 @@ newReplicationTaskDeleted =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "ResourceNotFoundFault"
@@ -356,7 +357,7 @@ newReplicationTaskRunning =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "ready"
@@ -369,7 +370,7 @@ newReplicationTaskRunning =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "creating"
@@ -382,7 +383,7 @@ newReplicationTaskRunning =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "stopping"
@@ -395,7 +396,7 @@ newReplicationTaskRunning =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "stopped"
@@ -408,7 +409,7 @@ newReplicationTaskRunning =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -421,7 +422,7 @@ newReplicationTaskRunning =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "modifying"
@@ -434,7 +435,7 @@ newReplicationTaskRunning =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "testing"
@@ -447,7 +448,7 @@ newReplicationTaskRunning =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -460,7 +461,7 @@ newReplicationTaskRunning =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -484,7 +485,7 @@ newReplicationInstanceDeleted =
                 )
                 Prelude.. replicationInstance_replicationInstanceStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "ResourceNotFoundFault"
@@ -511,7 +512,7 @@ newReplicationTaskReady =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "starting"
@@ -524,7 +525,7 @@ newReplicationTaskReady =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "running"
@@ -537,7 +538,7 @@ newReplicationTaskReady =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "stopping"
@@ -550,7 +551,7 @@ newReplicationTaskReady =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "stopped"
@@ -563,7 +564,7 @@ newReplicationTaskReady =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -576,7 +577,7 @@ newReplicationTaskReady =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "modifying"
@@ -589,7 +590,7 @@ newReplicationTaskReady =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "testing"
@@ -602,7 +603,7 @@ newReplicationTaskReady =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -615,7 +616,7 @@ newReplicationTaskReady =
                 )
                 Prelude.. replicationTask_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -639,7 +640,7 @@ newTestConnectionSucceeds =
                 )
                 Prelude.. connection_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -652,7 +653,7 @@ newTestConnectionSucceeds =
                 )
                 Prelude.. connection_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

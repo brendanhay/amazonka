@@ -45,6 +45,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -161,7 +162,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ApplyPendingMaintenanceActionResponse'
-            Prelude.<$> (x Core..?> "ResourcePendingMaintenanceActions")
+            Prelude.<$> (x Data..?> "ResourcePendingMaintenanceActions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,38 +181,38 @@ instance Prelude.NFData ApplyPendingMaintenanceAction where
       `Prelude.seq` Prelude.rnf applyAction
       `Prelude.seq` Prelude.rnf optInType
 
-instance Core.ToHeaders ApplyPendingMaintenanceAction where
+instance Data.ToHeaders ApplyPendingMaintenanceAction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.ApplyPendingMaintenanceAction" ::
+              Data.=# ( "AmazonDMSv20160101.ApplyPendingMaintenanceAction" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ApplyPendingMaintenanceAction where
+instance Data.ToJSON ApplyPendingMaintenanceAction where
   toJSON ApplyPendingMaintenanceAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ReplicationInstanceArn"
-                  Core..= replicationInstanceArn
+                  Data..= replicationInstanceArn
               ),
-            Prelude.Just ("ApplyAction" Core..= applyAction),
-            Prelude.Just ("OptInType" Core..= optInType)
+            Prelude.Just ("ApplyAction" Data..= applyAction),
+            Prelude.Just ("OptInType" Data..= optInType)
           ]
       )
 
-instance Core.ToPath ApplyPendingMaintenanceAction where
+instance Data.ToPath ApplyPendingMaintenanceAction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ApplyPendingMaintenanceAction where
+instance Data.ToQuery ApplyPendingMaintenanceAction where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

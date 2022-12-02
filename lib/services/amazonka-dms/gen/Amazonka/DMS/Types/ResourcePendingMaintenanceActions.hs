@@ -22,6 +22,7 @@ module Amazonka.DMS.Types.ResourcePendingMaintenanceActions where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.PendingMaintenanceAction
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies an DMS resource and any pending actions for it.
@@ -77,17 +78,17 @@ resourcePendingMaintenanceActions_pendingMaintenanceActionDetails :: Lens.Lens' 
 resourcePendingMaintenanceActions_pendingMaintenanceActionDetails = Lens.lens (\ResourcePendingMaintenanceActions' {pendingMaintenanceActionDetails} -> pendingMaintenanceActionDetails) (\s@ResourcePendingMaintenanceActions' {} a -> s {pendingMaintenanceActionDetails = a} :: ResourcePendingMaintenanceActions) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ResourcePendingMaintenanceActions
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourcePendingMaintenanceActions"
       ( \x ->
           ResourcePendingMaintenanceActions'
-            Prelude.<$> (x Core..:? "ResourceIdentifier")
-            Prelude.<*> ( x Core..:? "PendingMaintenanceActionDetails"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ResourceIdentifier")
+            Prelude.<*> ( x Data..:? "PendingMaintenanceActionDetails"
+                            Data..!= Prelude.mempty
                         )
       )
 

@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.KafkaSecurityProtocol
 import Amazonka.DMS.Types.MessageFormatValue
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that describes an Apache Kafka endpoint. This
@@ -55,7 +56,7 @@ data KafkaSettings = KafkaSettings'
     -- | The secure password you created when you first set up your MSK cluster
     -- to validate a client identity and make an encrypted connection between
     -- server and client using SASL-SSL authentication.
-    saslPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    saslPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The output format for the records created on the endpoint. The message
     -- format is @JSON@ (default) or @JSON_UNFORMATTED@ (a single line with no
     -- tab).
@@ -73,7 +74,7 @@ data KafkaSettings = KafkaSettings'
     includeTableAlterOperations :: Prelude.Maybe Prelude.Bool,
     -- | The password for the client private key used to securely connect to a
     -- Kafka target endpoint.
-    sslClientKeyPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sslClientKeyPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The secure user name you created when you first set up your MSK cluster
     -- to validate a client identity and make an encrypted connection between
     -- server and client using SASL-SSL authentication.
@@ -252,7 +253,7 @@ kafkaSettings_noHexPrefix = Lens.lens (\KafkaSettings' {noHexPrefix} -> noHexPre
 -- to validate a client identity and make an encrypted connection between
 -- server and client using SASL-SSL authentication.
 kafkaSettings_saslPassword :: Lens.Lens' KafkaSettings (Prelude.Maybe Prelude.Text)
-kafkaSettings_saslPassword = Lens.lens (\KafkaSettings' {saslPassword} -> saslPassword) (\s@KafkaSettings' {} a -> s {saslPassword = a} :: KafkaSettings) Prelude.. Lens.mapping Core._Sensitive
+kafkaSettings_saslPassword = Lens.lens (\KafkaSettings' {saslPassword} -> saslPassword) (\s@KafkaSettings' {} a -> s {saslPassword = a} :: KafkaSettings) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The output format for the records created on the endpoint. The message
 -- format is @JSON@ (default) or @JSON_UNFORMATTED@ (a single line with no
@@ -280,7 +281,7 @@ kafkaSettings_includeTableAlterOperations = Lens.lens (\KafkaSettings' {includeT
 -- | The password for the client private key used to securely connect to a
 -- Kafka target endpoint.
 kafkaSettings_sslClientKeyPassword :: Lens.Lens' KafkaSettings (Prelude.Maybe Prelude.Text)
-kafkaSettings_sslClientKeyPassword = Lens.lens (\KafkaSettings' {sslClientKeyPassword} -> sslClientKeyPassword) (\s@KafkaSettings' {} a -> s {sslClientKeyPassword = a} :: KafkaSettings) Prelude.. Lens.mapping Core._Sensitive
+kafkaSettings_sslClientKeyPassword = Lens.lens (\KafkaSettings' {sslClientKeyPassword} -> sslClientKeyPassword) (\s@KafkaSettings' {} a -> s {sslClientKeyPassword = a} :: KafkaSettings) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The secure user name you created when you first set up your MSK cluster
 -- to validate a client identity and make an encrypted connection between
@@ -332,30 +333,30 @@ kafkaSettings_includeControlDetails = Lens.lens (\KafkaSettings' {includeControl
 kafkaSettings_sslCaCertificateArn :: Lens.Lens' KafkaSettings (Prelude.Maybe Prelude.Text)
 kafkaSettings_sslCaCertificateArn = Lens.lens (\KafkaSettings' {sslCaCertificateArn} -> sslCaCertificateArn) (\s@KafkaSettings' {} a -> s {sslCaCertificateArn = a} :: KafkaSettings)
 
-instance Core.FromJSON KafkaSettings where
+instance Data.FromJSON KafkaSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KafkaSettings"
       ( \x ->
           KafkaSettings'
-            Prelude.<$> (x Core..:? "Broker")
-            Prelude.<*> (x Core..:? "MessageMaxBytes")
-            Prelude.<*> (x Core..:? "SslClientKeyArn")
-            Prelude.<*> (x Core..:? "NoHexPrefix")
-            Prelude.<*> (x Core..:? "SaslPassword")
-            Prelude.<*> (x Core..:? "MessageFormat")
-            Prelude.<*> (x Core..:? "SslClientCertificateArn")
-            Prelude.<*> (x Core..:? "IncludePartitionValue")
-            Prelude.<*> (x Core..:? "IncludeTableAlterOperations")
-            Prelude.<*> (x Core..:? "SslClientKeyPassword")
-            Prelude.<*> (x Core..:? "SaslUsername")
-            Prelude.<*> (x Core..:? "SecurityProtocol")
-            Prelude.<*> (x Core..:? "PartitionIncludeSchemaTable")
-            Prelude.<*> (x Core..:? "IncludeNullAndEmpty")
-            Prelude.<*> (x Core..:? "IncludeTransactionDetails")
-            Prelude.<*> (x Core..:? "Topic")
-            Prelude.<*> (x Core..:? "IncludeControlDetails")
-            Prelude.<*> (x Core..:? "SslCaCertificateArn")
+            Prelude.<$> (x Data..:? "Broker")
+            Prelude.<*> (x Data..:? "MessageMaxBytes")
+            Prelude.<*> (x Data..:? "SslClientKeyArn")
+            Prelude.<*> (x Data..:? "NoHexPrefix")
+            Prelude.<*> (x Data..:? "SaslPassword")
+            Prelude.<*> (x Data..:? "MessageFormat")
+            Prelude.<*> (x Data..:? "SslClientCertificateArn")
+            Prelude.<*> (x Data..:? "IncludePartitionValue")
+            Prelude.<*> (x Data..:? "IncludeTableAlterOperations")
+            Prelude.<*> (x Data..:? "SslClientKeyPassword")
+            Prelude.<*> (x Data..:? "SaslUsername")
+            Prelude.<*> (x Data..:? "SecurityProtocol")
+            Prelude.<*> (x Data..:? "PartitionIncludeSchemaTable")
+            Prelude.<*> (x Data..:? "IncludeNullAndEmpty")
+            Prelude.<*> (x Data..:? "IncludeTransactionDetails")
+            Prelude.<*> (x Data..:? "Topic")
+            Prelude.<*> (x Data..:? "IncludeControlDetails")
+            Prelude.<*> (x Data..:? "SslCaCertificateArn")
       )
 
 instance Prelude.Hashable KafkaSettings where
@@ -400,39 +401,39 @@ instance Prelude.NFData KafkaSettings where
       `Prelude.seq` Prelude.rnf includeControlDetails
       `Prelude.seq` Prelude.rnf sslCaCertificateArn
 
-instance Core.ToJSON KafkaSettings where
+instance Data.ToJSON KafkaSettings where
   toJSON KafkaSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Broker" Core..=) Prelude.<$> broker,
-            ("MessageMaxBytes" Core..=)
+          [ ("Broker" Data..=) Prelude.<$> broker,
+            ("MessageMaxBytes" Data..=)
               Prelude.<$> messageMaxBytes,
-            ("SslClientKeyArn" Core..=)
+            ("SslClientKeyArn" Data..=)
               Prelude.<$> sslClientKeyArn,
-            ("NoHexPrefix" Core..=) Prelude.<$> noHexPrefix,
-            ("SaslPassword" Core..=) Prelude.<$> saslPassword,
-            ("MessageFormat" Core..=) Prelude.<$> messageFormat,
-            ("SslClientCertificateArn" Core..=)
+            ("NoHexPrefix" Data..=) Prelude.<$> noHexPrefix,
+            ("SaslPassword" Data..=) Prelude.<$> saslPassword,
+            ("MessageFormat" Data..=) Prelude.<$> messageFormat,
+            ("SslClientCertificateArn" Data..=)
               Prelude.<$> sslClientCertificateArn,
-            ("IncludePartitionValue" Core..=)
+            ("IncludePartitionValue" Data..=)
               Prelude.<$> includePartitionValue,
-            ("IncludeTableAlterOperations" Core..=)
+            ("IncludeTableAlterOperations" Data..=)
               Prelude.<$> includeTableAlterOperations,
-            ("SslClientKeyPassword" Core..=)
+            ("SslClientKeyPassword" Data..=)
               Prelude.<$> sslClientKeyPassword,
-            ("SaslUsername" Core..=) Prelude.<$> saslUsername,
-            ("SecurityProtocol" Core..=)
+            ("SaslUsername" Data..=) Prelude.<$> saslUsername,
+            ("SecurityProtocol" Data..=)
               Prelude.<$> securityProtocol,
-            ("PartitionIncludeSchemaTable" Core..=)
+            ("PartitionIncludeSchemaTable" Data..=)
               Prelude.<$> partitionIncludeSchemaTable,
-            ("IncludeNullAndEmpty" Core..=)
+            ("IncludeNullAndEmpty" Data..=)
               Prelude.<$> includeNullAndEmpty,
-            ("IncludeTransactionDetails" Core..=)
+            ("IncludeTransactionDetails" Data..=)
               Prelude.<$> includeTransactionDetails,
-            ("Topic" Core..=) Prelude.<$> topic,
-            ("IncludeControlDetails" Core..=)
+            ("Topic" Data..=) Prelude.<$> topic,
+            ("IncludeControlDetails" Data..=)
               Prelude.<$> includeControlDetails,
-            ("SslCaCertificateArn" Core..=)
+            ("SslCaCertificateArn" Data..=)
               Prelude.<$> sslCaCertificateArn
           ]
       )

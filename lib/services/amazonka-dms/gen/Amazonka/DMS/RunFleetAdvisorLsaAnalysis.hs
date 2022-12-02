@@ -41,6 +41,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -70,8 +71,8 @@ instance Core.AWSRequest RunFleetAdvisorLsaAnalysis where
     Response.receiveJSON
       ( \s h x ->
           RunFleetAdvisorLsaAnalysisResponse'
-            Prelude.<$> (x Core..?> "LsaAnalysisId")
-            Prelude.<*> (x Core..?> "Status")
+            Prelude.<$> (x Data..?> "LsaAnalysisId")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -82,28 +83,28 @@ instance Prelude.Hashable RunFleetAdvisorLsaAnalysis where
 instance Prelude.NFData RunFleetAdvisorLsaAnalysis where
   rnf _ = ()
 
-instance Core.ToHeaders RunFleetAdvisorLsaAnalysis where
+instance Data.ToHeaders RunFleetAdvisorLsaAnalysis where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.RunFleetAdvisorLsaAnalysis" ::
+              Data.=# ( "AmazonDMSv20160101.RunFleetAdvisorLsaAnalysis" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RunFleetAdvisorLsaAnalysis where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON RunFleetAdvisorLsaAnalysis where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath RunFleetAdvisorLsaAnalysis where
+instance Data.ToPath RunFleetAdvisorLsaAnalysis where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RunFleetAdvisorLsaAnalysis where
+instance Data.ToQuery RunFleetAdvisorLsaAnalysis where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRunFleetAdvisorLsaAnalysisResponse' smart constructor.

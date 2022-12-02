@@ -22,6 +22,7 @@ module Amazonka.DMS.Types.Event where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.SourceType
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an identifiable significant activity that affects a
@@ -34,7 +35,7 @@ data Event = Event'
   { -- | The event message.
     message :: Prelude.Maybe Prelude.Text,
     -- | The date of the event.
-    date :: Prelude.Maybe Core.POSIX,
+    date :: Prelude.Maybe Data.POSIX,
     -- | The type of DMS resource that generates events.
     --
     -- Valid values: replication-instance | endpoint | replication-task
@@ -82,7 +83,7 @@ event_message = Lens.lens (\Event' {message} -> message) (\s@Event' {} a -> s {m
 
 -- | The date of the event.
 event_date :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
-event_date = Lens.lens (\Event' {date} -> date) (\s@Event' {} a -> s {date = a} :: Event) Prelude.. Lens.mapping Core._Time
+event_date = Lens.lens (\Event' {date} -> date) (\s@Event' {} a -> s {date = a} :: Event) Prelude.. Lens.mapping Data._Time
 
 -- | The type of DMS resource that generates events.
 --
@@ -98,18 +99,18 @@ event_sourceIdentifier = Lens.lens (\Event' {sourceIdentifier} -> sourceIdentifi
 event_eventCategories :: Lens.Lens' Event (Prelude.Maybe [Prelude.Text])
 event_eventCategories = Lens.lens (\Event' {eventCategories} -> eventCategories) (\s@Event' {} a -> s {eventCategories = a} :: Event) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Event where
+instance Data.FromJSON Event where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Event"
       ( \x ->
           Event'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Date")
-            Prelude.<*> (x Core..:? "SourceType")
-            Prelude.<*> (x Core..:? "SourceIdentifier")
-            Prelude.<*> ( x Core..:? "EventCategories"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Date")
+            Prelude.<*> (x Data..:? "SourceType")
+            Prelude.<*> (x Data..:? "SourceIdentifier")
+            Prelude.<*> ( x Data..:? "EventCategories"
+                            Data..!= Prelude.mempty
                         )
       )
 

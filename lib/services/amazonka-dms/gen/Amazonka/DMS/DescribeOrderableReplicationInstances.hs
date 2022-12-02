@@ -47,6 +47,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -156,8 +157,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeOrderableReplicationInstancesResponse'
-            Prelude.<$> (x Core..?> "Marker")
-              Prelude.<*> ( x Core..?> "OrderableReplicationInstances"
+            Prelude.<$> (x Data..?> "Marker")
+              Prelude.<*> ( x Data..?> "OrderableReplicationInstances"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -182,43 +183,43 @@ instance
       `Prelude.seq` Prelude.rnf maxRecords
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeOrderableReplicationInstances
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.DescribeOrderableReplicationInstances" ::
+              Data.=# ( "AmazonDMSv20160101.DescribeOrderableReplicationInstances" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeOrderableReplicationInstances
   where
   toJSON DescribeOrderableReplicationInstances' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("MaxRecords" Core..=) Prelude.<$> maxRecords
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("MaxRecords" Data..=) Prelude.<$> maxRecords
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeOrderableReplicationInstances
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeOrderableReplicationInstances
   where
   toQuery = Prelude.const Prelude.mempty

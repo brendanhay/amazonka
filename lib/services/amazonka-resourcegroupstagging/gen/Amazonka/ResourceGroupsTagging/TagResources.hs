@@ -78,6 +78,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceGroupsTagging.Types
@@ -151,7 +152,7 @@ instance Core.AWSRequest TagResources where
     Response.receiveJSON
       ( \s h x ->
           TagResourcesResponse'
-            Prelude.<$> ( x Core..?> "FailedResourcesMap"
+            Prelude.<$> ( x Data..?> "FailedResourcesMap"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -167,35 +168,35 @@ instance Prelude.NFData TagResources where
     Prelude.rnf resourceARNList
       `Prelude.seq` Prelude.rnf tags
 
-instance Core.ToHeaders TagResources where
+instance Data.ToHeaders TagResources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ResourceGroupsTaggingAPI_20170126.TagResources" ::
+              Data.=# ( "ResourceGroupsTaggingAPI_20170126.TagResources" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON TagResources where
+instance Data.ToJSON TagResources where
   toJSON TagResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ResourceARNList" Core..= resourceARNList),
-            Prelude.Just ("Tags" Core..= tags)
+              ("ResourceARNList" Data..= resourceARNList),
+            Prelude.Just ("Tags" Data..= tags)
           ]
       )
 
-instance Core.ToPath TagResources where
+instance Data.ToPath TagResources where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery TagResources where
+instance Data.ToQuery TagResources where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTagResourcesResponse' smart constructor.

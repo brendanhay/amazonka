@@ -21,6 +21,7 @@ module Amazonka.ResourceGroupsTagging.Types.ComplianceDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information that shows whether a resource is compliant with the
@@ -78,18 +79,18 @@ complianceDetails_complianceStatus = Lens.lens (\ComplianceDetails' {complianceS
 complianceDetails_keysWithNoncompliantValues :: Lens.Lens' ComplianceDetails (Prelude.Maybe [Prelude.Text])
 complianceDetails_keysWithNoncompliantValues = Lens.lens (\ComplianceDetails' {keysWithNoncompliantValues} -> keysWithNoncompliantValues) (\s@ComplianceDetails' {} a -> s {keysWithNoncompliantValues = a} :: ComplianceDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ComplianceDetails where
+instance Data.FromJSON ComplianceDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComplianceDetails"
       ( \x ->
           ComplianceDetails'
-            Prelude.<$> ( x Core..:? "NoncompliantKeys"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "NoncompliantKeys"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ComplianceStatus")
-            Prelude.<*> ( x Core..:? "KeysWithNoncompliantValues"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "ComplianceStatus")
+            Prelude.<*> ( x Data..:? "KeysWithNoncompliantValues"
+                            Data..!= Prelude.mempty
                         )
       )
 

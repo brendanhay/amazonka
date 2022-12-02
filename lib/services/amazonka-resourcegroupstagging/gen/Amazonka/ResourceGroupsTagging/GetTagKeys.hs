@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceGroupsTagging.Types
@@ -118,8 +119,8 @@ instance Core.AWSRequest GetTagKeys where
     Response.receiveJSON
       ( \s h x ->
           GetTagKeysResponse'
-            Prelude.<$> (x Core..?> "TagKeys" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "PaginationToken")
+            Prelude.<$> (x Data..?> "TagKeys" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "PaginationToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,34 +131,34 @@ instance Prelude.Hashable GetTagKeys where
 instance Prelude.NFData GetTagKeys where
   rnf GetTagKeys' {..} = Prelude.rnf paginationToken
 
-instance Core.ToHeaders GetTagKeys where
+instance Data.ToHeaders GetTagKeys where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ResourceGroupsTaggingAPI_20170126.GetTagKeys" ::
+              Data.=# ( "ResourceGroupsTaggingAPI_20170126.GetTagKeys" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetTagKeys where
+instance Data.ToJSON GetTagKeys where
   toJSON GetTagKeys' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PaginationToken" Core..=)
+          [ ("PaginationToken" Data..=)
               Prelude.<$> paginationToken
           ]
       )
 
-instance Core.ToPath GetTagKeys where
+instance Data.ToPath GetTagKeys where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetTagKeys where
+instance Data.ToQuery GetTagKeys where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTagKeysResponse' smart constructor.

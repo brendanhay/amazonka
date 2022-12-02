@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceGroupsTagging.Types
@@ -142,7 +143,7 @@ instance Core.AWSRequest UntagResources where
     Response.receiveJSON
       ( \s h x ->
           UntagResourcesResponse'
-            Prelude.<$> ( x Core..?> "FailedResourcesMap"
+            Prelude.<$> ( x Data..?> "FailedResourcesMap"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -158,35 +159,35 @@ instance Prelude.NFData UntagResources where
     Prelude.rnf resourceARNList
       `Prelude.seq` Prelude.rnf tagKeys
 
-instance Core.ToHeaders UntagResources where
+instance Data.ToHeaders UntagResources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ResourceGroupsTaggingAPI_20170126.UntagResources" ::
+              Data.=# ( "ResourceGroupsTaggingAPI_20170126.UntagResources" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UntagResources where
+instance Data.ToJSON UntagResources where
   toJSON UntagResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ResourceARNList" Core..= resourceARNList),
-            Prelude.Just ("TagKeys" Core..= tagKeys)
+              ("ResourceARNList" Data..= resourceARNList),
+            Prelude.Just ("TagKeys" Data..= tagKeys)
           ]
       )
 
-instance Core.ToPath UntagResources where
+instance Data.ToPath UntagResources where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UntagResources where
+instance Data.ToQuery UntagResources where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUntagResourcesResponse' smart constructor.

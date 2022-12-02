@@ -18,6 +18,7 @@ module Amazonka.ResourceGroupsTagging.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResourceGroupsTagging.Lens
 import Amazonka.ResourceGroupsTagging.Types

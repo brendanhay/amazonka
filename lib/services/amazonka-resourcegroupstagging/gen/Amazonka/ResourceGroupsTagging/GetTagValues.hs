@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceGroupsTagging.Types
@@ -138,8 +139,8 @@ instance Core.AWSRequest GetTagValues where
     Response.receiveJSON
       ( \s h x ->
           GetTagValuesResponse'
-            Prelude.<$> (x Core..?> "PaginationToken")
-            Prelude.<*> (x Core..?> "TagValues" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "PaginationToken")
+            Prelude.<*> (x Data..?> "TagValues" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,35 +154,35 @@ instance Prelude.NFData GetTagValues where
     Prelude.rnf paginationToken
       `Prelude.seq` Prelude.rnf key
 
-instance Core.ToHeaders GetTagValues where
+instance Data.ToHeaders GetTagValues where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ResourceGroupsTaggingAPI_20170126.GetTagValues" ::
+              Data.=# ( "ResourceGroupsTaggingAPI_20170126.GetTagValues" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetTagValues where
+instance Data.ToJSON GetTagValues where
   toJSON GetTagValues' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PaginationToken" Core..=)
+          [ ("PaginationToken" Data..=)
               Prelude.<$> paginationToken,
-            Prelude.Just ("Key" Core..= key)
+            Prelude.Just ("Key" Data..= key)
           ]
       )
 
-instance Core.ToPath GetTagValues where
+instance Data.ToPath GetTagValues where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetTagValues where
+instance Data.ToQuery GetTagValues where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTagValuesResponse' smart constructor.

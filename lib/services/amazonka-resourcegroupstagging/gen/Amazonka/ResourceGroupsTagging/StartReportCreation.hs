@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceGroupsTagging.Types
@@ -120,32 +121,32 @@ instance Prelude.Hashable StartReportCreation where
 instance Prelude.NFData StartReportCreation where
   rnf StartReportCreation' {..} = Prelude.rnf s3Bucket
 
-instance Core.ToHeaders StartReportCreation where
+instance Data.ToHeaders StartReportCreation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ResourceGroupsTaggingAPI_20170126.StartReportCreation" ::
+              Data.=# ( "ResourceGroupsTaggingAPI_20170126.StartReportCreation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartReportCreation where
+instance Data.ToJSON StartReportCreation where
   toJSON StartReportCreation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("S3Bucket" Core..= s3Bucket)]
+          [Prelude.Just ("S3Bucket" Data..= s3Bucket)]
       )
 
-instance Core.ToPath StartReportCreation where
+instance Data.ToPath StartReportCreation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartReportCreation where
+instance Data.ToQuery StartReportCreation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartReportCreationResponse' smart constructor.

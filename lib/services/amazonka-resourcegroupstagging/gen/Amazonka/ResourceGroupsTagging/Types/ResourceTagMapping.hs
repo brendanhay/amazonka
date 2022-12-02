@@ -21,6 +21,7 @@ module Amazonka.ResourceGroupsTagging.Types.ResourceTagMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResourceGroupsTagging.Types.ComplianceDetails
 import Amazonka.ResourceGroupsTagging.Types.Tag
@@ -79,15 +80,15 @@ resourceTagMapping_complianceDetails = Lens.lens (\ResourceTagMapping' {complian
 resourceTagMapping_resourceARN :: Lens.Lens' ResourceTagMapping (Prelude.Maybe Prelude.Text)
 resourceTagMapping_resourceARN = Lens.lens (\ResourceTagMapping' {resourceARN} -> resourceARN) (\s@ResourceTagMapping' {} a -> s {resourceARN = a} :: ResourceTagMapping)
 
-instance Core.FromJSON ResourceTagMapping where
+instance Data.FromJSON ResourceTagMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceTagMapping"
       ( \x ->
           ResourceTagMapping'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ComplianceDetails")
-            Prelude.<*> (x Core..:? "ResourceARN")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ComplianceDetails")
+            Prelude.<*> (x Data..:? "ResourceARN")
       )
 
 instance Prelude.Hashable ResourceTagMapping where

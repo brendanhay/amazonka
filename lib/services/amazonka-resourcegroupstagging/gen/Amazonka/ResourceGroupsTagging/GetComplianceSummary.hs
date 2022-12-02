@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceGroupsTagging.Types
@@ -296,8 +297,8 @@ instance Core.AWSRequest GetComplianceSummary where
     Response.receiveJSON
       ( \s h x ->
           GetComplianceSummaryResponse'
-            Prelude.<$> (x Core..?> "PaginationToken")
-            Prelude.<*> (x Core..?> "SummaryList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "PaginationToken")
+            Prelude.<*> (x Data..?> "SummaryList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -321,42 +322,42 @@ instance Prelude.NFData GetComplianceSummary where
       `Prelude.seq` Prelude.rnf resourceTypeFilters
       `Prelude.seq` Prelude.rnf regionFilters
 
-instance Core.ToHeaders GetComplianceSummary where
+instance Data.ToHeaders GetComplianceSummary where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ResourceGroupsTaggingAPI_20170126.GetComplianceSummary" ::
+              Data.=# ( "ResourceGroupsTaggingAPI_20170126.GetComplianceSummary" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetComplianceSummary where
+instance Data.ToJSON GetComplianceSummary where
   toJSON GetComplianceSummary' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TagKeyFilters" Core..=) Prelude.<$> tagKeyFilters,
-            ("TargetIdFilters" Core..=)
+          [ ("TagKeyFilters" Data..=) Prelude.<$> tagKeyFilters,
+            ("TargetIdFilters" Data..=)
               Prelude.<$> targetIdFilters,
-            ("PaginationToken" Core..=)
+            ("PaginationToken" Data..=)
               Prelude.<$> paginationToken,
-            ("GroupBy" Core..=) Prelude.<$> groupBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ResourceTypeFilters" Core..=)
+            ("GroupBy" Data..=) Prelude.<$> groupBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("ResourceTypeFilters" Data..=)
               Prelude.<$> resourceTypeFilters,
-            ("RegionFilters" Core..=) Prelude.<$> regionFilters
+            ("RegionFilters" Data..=) Prelude.<$> regionFilters
           ]
       )
 
-instance Core.ToPath GetComplianceSummary where
+instance Data.ToPath GetComplianceSummary where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetComplianceSummary where
+instance Data.ToQuery GetComplianceSummary where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetComplianceSummaryResponse' smart constructor.

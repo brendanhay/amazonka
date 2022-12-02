@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,7 +98,7 @@ instance Core.AWSRequest ImportKeyPair where
     Response.receiveJSON
       ( \s h x ->
           ImportKeyPairResponse'
-            Prelude.<$> (x Core..?> "operation")
+            Prelude.<$> (x Data..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,35 +112,35 @@ instance Prelude.NFData ImportKeyPair where
     Prelude.rnf keyPairName
       `Prelude.seq` Prelude.rnf publicKeyBase64
 
-instance Core.ToHeaders ImportKeyPair where
+instance Data.ToHeaders ImportKeyPair where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.ImportKeyPair" ::
+              Data.=# ( "Lightsail_20161128.ImportKeyPair" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportKeyPair where
+instance Data.ToJSON ImportKeyPair where
   toJSON ImportKeyPair' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("keyPairName" Core..= keyPairName),
+          [ Prelude.Just ("keyPairName" Data..= keyPairName),
             Prelude.Just
-              ("publicKeyBase64" Core..= publicKeyBase64)
+              ("publicKeyBase64" Data..= publicKeyBase64)
           ]
       )
 
-instance Core.ToPath ImportKeyPair where
+instance Data.ToPath ImportKeyPair where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ImportKeyPair where
+instance Data.ToQuery ImportKeyPair where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportKeyPairResponse' smart constructor.

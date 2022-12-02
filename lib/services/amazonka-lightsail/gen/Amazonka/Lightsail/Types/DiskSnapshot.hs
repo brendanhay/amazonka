@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.DiskSnapshot where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.DiskSnapshotState
 import Amazonka.Lightsail.Types.ResourceLocation
 import Amazonka.Lightsail.Types.ResourceType
@@ -71,7 +72,7 @@ data DiskSnapshot = DiskSnapshot'
     -- easily.
     supportCode :: Prelude.Maybe Prelude.Text,
     -- | The date when the disk snapshot was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -213,29 +214,29 @@ diskSnapshot_supportCode = Lens.lens (\DiskSnapshot' {supportCode} -> supportCod
 
 -- | The date when the disk snapshot was created.
 diskSnapshot_createdAt :: Lens.Lens' DiskSnapshot (Prelude.Maybe Prelude.UTCTime)
-diskSnapshot_createdAt = Lens.lens (\DiskSnapshot' {createdAt} -> createdAt) (\s@DiskSnapshot' {} a -> s {createdAt = a} :: DiskSnapshot) Prelude.. Lens.mapping Core._Time
+diskSnapshot_createdAt = Lens.lens (\DiskSnapshot' {createdAt} -> createdAt) (\s@DiskSnapshot' {} a -> s {createdAt = a} :: DiskSnapshot) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON DiskSnapshot where
+instance Data.FromJSON DiskSnapshot where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DiskSnapshot"
       ( \x ->
           DiskSnapshot'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "progress")
-            Prelude.<*> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "fromInstanceArn")
-            Prelude.<*> (x Core..:? "sizeInGb")
-            Prelude.<*> (x Core..:? "fromDiskName")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "fromDiskArn")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "fromInstanceName")
-            Prelude.<*> (x Core..:? "isFromAutoSnapshot")
-            Prelude.<*> (x Core..:? "supportCode")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "progress")
+            Prelude.<*> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "fromInstanceArn")
+            Prelude.<*> (x Data..:? "sizeInGb")
+            Prelude.<*> (x Data..:? "fromDiskName")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "fromDiskArn")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "fromInstanceName")
+            Prelude.<*> (x Data..:? "isFromAutoSnapshot")
+            Prelude.<*> (x Data..:? "supportCode")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable DiskSnapshot where

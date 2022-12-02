@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.CloudFormationStackRecord where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.CloudFormationStackRecordSourceInfo
 import Amazonka.Lightsail.Types.DestinationInfo
 import Amazonka.Lightsail.Types.RecordState
@@ -53,7 +54,7 @@ data CloudFormationStackRecord = CloudFormationStackRecord'
     -- Services Region of the CloudFormation stack record.
     location :: Prelude.Maybe ResourceLocation,
     -- | The date when the CloudFormation stack record was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | A list of objects describing the destination service, which is AWS
     -- CloudFormation, and the Amazon Resource Name (ARN) of the AWS
     -- CloudFormation stack.
@@ -133,7 +134,7 @@ cloudFormationStackRecord_location = Lens.lens (\CloudFormationStackRecord' {loc
 
 -- | The date when the CloudFormation stack record was created.
 cloudFormationStackRecord_createdAt :: Lens.Lens' CloudFormationStackRecord (Prelude.Maybe Prelude.UTCTime)
-cloudFormationStackRecord_createdAt = Lens.lens (\CloudFormationStackRecord' {createdAt} -> createdAt) (\s@CloudFormationStackRecord' {} a -> s {createdAt = a} :: CloudFormationStackRecord) Prelude.. Lens.mapping Core._Time
+cloudFormationStackRecord_createdAt = Lens.lens (\CloudFormationStackRecord' {createdAt} -> createdAt) (\s@CloudFormationStackRecord' {} a -> s {createdAt = a} :: CloudFormationStackRecord) Prelude.. Lens.mapping Data._Time
 
 -- | A list of objects describing the destination service, which is AWS
 -- CloudFormation, and the Amazon Resource Name (ARN) of the AWS
@@ -141,20 +142,20 @@ cloudFormationStackRecord_createdAt = Lens.lens (\CloudFormationStackRecord' {cr
 cloudFormationStackRecord_destinationInfo :: Lens.Lens' CloudFormationStackRecord (Prelude.Maybe DestinationInfo)
 cloudFormationStackRecord_destinationInfo = Lens.lens (\CloudFormationStackRecord' {destinationInfo} -> destinationInfo) (\s@CloudFormationStackRecord' {} a -> s {destinationInfo = a} :: CloudFormationStackRecord)
 
-instance Core.FromJSON CloudFormationStackRecord where
+instance Data.FromJSON CloudFormationStackRecord where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudFormationStackRecord"
       ( \x ->
           CloudFormationStackRecord'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "sourceInfo" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "destinationInfo")
+            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "sourceInfo" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "destinationInfo")
       )
 
 instance Prelude.Hashable CloudFormationStackRecord where

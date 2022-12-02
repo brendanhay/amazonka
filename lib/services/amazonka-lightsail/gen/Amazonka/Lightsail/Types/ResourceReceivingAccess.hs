@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.ResourceReceivingAccess where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Amazon Lightsail instance that has access to a Lightsail
@@ -63,14 +64,14 @@ resourceReceivingAccess_resourceType = Lens.lens (\ResourceReceivingAccess' {res
 resourceReceivingAccess_name :: Lens.Lens' ResourceReceivingAccess (Prelude.Maybe Prelude.Text)
 resourceReceivingAccess_name = Lens.lens (\ResourceReceivingAccess' {name} -> name) (\s@ResourceReceivingAccess' {} a -> s {name = a} :: ResourceReceivingAccess)
 
-instance Core.FromJSON ResourceReceivingAccess where
+instance Data.FromJSON ResourceReceivingAccess where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceReceivingAccess"
       ( \x ->
           ResourceReceivingAccess'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable ResourceReceivingAccess where

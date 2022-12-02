@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,7 +105,7 @@ data UpdateRelationalDatabase = UpdateRelationalDatabase'
     -- __PostgreSQL__
     --
     -- Constraints: Must contain from 8 to 128 characters.
-    masterUserPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    masterUserPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | When @true@, enables automated backup retention for your database.
     --
     -- Updates are applied during the next maintenance window because this can
@@ -302,7 +303,7 @@ updateRelationalDatabase_publiclyAccessible = Lens.lens (\UpdateRelationalDataba
 --
 -- Constraints: Must contain from 8 to 128 characters.
 updateRelationalDatabase_masterUserPassword :: Lens.Lens' UpdateRelationalDatabase (Prelude.Maybe Prelude.Text)
-updateRelationalDatabase_masterUserPassword = Lens.lens (\UpdateRelationalDatabase' {masterUserPassword} -> masterUserPassword) (\s@UpdateRelationalDatabase' {} a -> s {masterUserPassword = a} :: UpdateRelationalDatabase) Prelude.. Lens.mapping Core._Sensitive
+updateRelationalDatabase_masterUserPassword = Lens.lens (\UpdateRelationalDatabase' {masterUserPassword} -> masterUserPassword) (\s@UpdateRelationalDatabase' {} a -> s {masterUserPassword = a} :: UpdateRelationalDatabase) Prelude.. Lens.mapping Data._Sensitive
 
 -- | When @true@, enables automated backup retention for your database.
 --
@@ -369,7 +370,7 @@ instance Core.AWSRequest UpdateRelationalDatabase where
     Response.receiveJSON
       ( \s h x ->
           UpdateRelationalDatabaseResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -399,54 +400,54 @@ instance Prelude.NFData UpdateRelationalDatabase where
       `Prelude.seq` Prelude.rnf disableBackupRetention
       `Prelude.seq` Prelude.rnf relationalDatabaseName
 
-instance Core.ToHeaders UpdateRelationalDatabase where
+instance Data.ToHeaders UpdateRelationalDatabase where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.UpdateRelationalDatabase" ::
+              Data.=# ( "Lightsail_20161128.UpdateRelationalDatabase" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRelationalDatabase where
+instance Data.ToJSON UpdateRelationalDatabase where
   toJSON UpdateRelationalDatabase' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("preferredBackupWindow" Core..=)
+          [ ("preferredBackupWindow" Data..=)
               Prelude.<$> preferredBackupWindow,
-            ("applyImmediately" Core..=)
+            ("applyImmediately" Data..=)
               Prelude.<$> applyImmediately,
-            ("publiclyAccessible" Core..=)
+            ("publiclyAccessible" Data..=)
               Prelude.<$> publiclyAccessible,
-            ("masterUserPassword" Core..=)
+            ("masterUserPassword" Data..=)
               Prelude.<$> masterUserPassword,
-            ("enableBackupRetention" Core..=)
+            ("enableBackupRetention" Data..=)
               Prelude.<$> enableBackupRetention,
-            ("caCertificateIdentifier" Core..=)
+            ("caCertificateIdentifier" Data..=)
               Prelude.<$> caCertificateIdentifier,
-            ("preferredMaintenanceWindow" Core..=)
+            ("preferredMaintenanceWindow" Data..=)
               Prelude.<$> preferredMaintenanceWindow,
-            ("rotateMasterUserPassword" Core..=)
+            ("rotateMasterUserPassword" Data..=)
               Prelude.<$> rotateMasterUserPassword,
-            ("disableBackupRetention" Core..=)
+            ("disableBackupRetention" Data..=)
               Prelude.<$> disableBackupRetention,
             Prelude.Just
               ( "relationalDatabaseName"
-                  Core..= relationalDatabaseName
+                  Data..= relationalDatabaseName
               )
           ]
       )
 
-instance Core.ToPath UpdateRelationalDatabase where
+instance Data.ToPath UpdateRelationalDatabase where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateRelationalDatabase where
+instance Data.ToQuery UpdateRelationalDatabase where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRelationalDatabaseResponse' smart constructor.

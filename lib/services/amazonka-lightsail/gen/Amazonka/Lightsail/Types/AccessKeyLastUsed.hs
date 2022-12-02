@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.AccessKeyLastUsed where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the last time an access key was used.
@@ -34,7 +35,7 @@ data AccessKeyLastUsed = AccessKeyLastUsed'
   { -- | The date and time when the access key was most recently used.
     --
     -- This value is null if the access key has not been used.
-    lastUsedDate :: Prelude.Maybe Core.POSIX,
+    lastUsedDate :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services Region where this access key was most recently
     -- used.
     --
@@ -82,7 +83,7 @@ newAccessKeyLastUsed =
 --
 -- This value is null if the access key has not been used.
 accessKeyLastUsed_lastUsedDate :: Lens.Lens' AccessKeyLastUsed (Prelude.Maybe Prelude.UTCTime)
-accessKeyLastUsed_lastUsedDate = Lens.lens (\AccessKeyLastUsed' {lastUsedDate} -> lastUsedDate) (\s@AccessKeyLastUsed' {} a -> s {lastUsedDate = a} :: AccessKeyLastUsed) Prelude.. Lens.mapping Core._Time
+accessKeyLastUsed_lastUsedDate = Lens.lens (\AccessKeyLastUsed' {lastUsedDate} -> lastUsedDate) (\s@AccessKeyLastUsed' {} a -> s {lastUsedDate = a} :: AccessKeyLastUsed) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services Region where this access key was most recently
 -- used.
@@ -98,15 +99,15 @@ accessKeyLastUsed_region = Lens.lens (\AccessKeyLastUsed' {region} -> region) (\
 accessKeyLastUsed_serviceName :: Lens.Lens' AccessKeyLastUsed (Prelude.Maybe Prelude.Text)
 accessKeyLastUsed_serviceName = Lens.lens (\AccessKeyLastUsed' {serviceName} -> serviceName) (\s@AccessKeyLastUsed' {} a -> s {serviceName = a} :: AccessKeyLastUsed)
 
-instance Core.FromJSON AccessKeyLastUsed where
+instance Data.FromJSON AccessKeyLastUsed where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccessKeyLastUsed"
       ( \x ->
           AccessKeyLastUsed'
-            Prelude.<$> (x Core..:? "lastUsedDate")
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..:? "serviceName")
+            Prelude.<$> (x Data..:? "lastUsedDate")
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..:? "serviceName")
       )
 
 instance Prelude.Hashable AccessKeyLastUsed where

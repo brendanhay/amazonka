@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -81,7 +82,7 @@ instance Core.AWSRequest GetStaticIp where
     Response.receiveJSON
       ( \s h x ->
           GetStaticIpResponse'
-            Prelude.<$> (x Core..?> "staticIp")
+            Prelude.<$> (x Data..?> "staticIp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -92,32 +93,32 @@ instance Prelude.Hashable GetStaticIp where
 instance Prelude.NFData GetStaticIp where
   rnf GetStaticIp' {..} = Prelude.rnf staticIpName
 
-instance Core.ToHeaders GetStaticIp where
+instance Data.ToHeaders GetStaticIp where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetStaticIp" ::
+              Data.=# ( "Lightsail_20161128.GetStaticIp" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetStaticIp where
+instance Data.ToJSON GetStaticIp where
   toJSON GetStaticIp' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("staticIpName" Core..= staticIpName)]
+          [Prelude.Just ("staticIpName" Data..= staticIpName)]
       )
 
-instance Core.ToPath GetStaticIp where
+instance Data.ToPath GetStaticIp where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetStaticIp where
+instance Data.ToQuery GetStaticIp where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetStaticIpResponse' smart constructor.

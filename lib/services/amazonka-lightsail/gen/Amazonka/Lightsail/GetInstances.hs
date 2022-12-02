@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,8 +117,8 @@ instance Core.AWSRequest GetInstances where
     Response.receiveJSON
       ( \s h x ->
           GetInstancesResponse'
-            Prelude.<$> (x Core..?> "instances" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextPageToken")
+            Prelude.<$> (x Data..?> "instances" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,32 +129,32 @@ instance Prelude.Hashable GetInstances where
 instance Prelude.NFData GetInstances where
   rnf GetInstances' {..} = Prelude.rnf pageToken
 
-instance Core.ToHeaders GetInstances where
+instance Data.ToHeaders GetInstances where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetInstances" ::
+              Data.=# ( "Lightsail_20161128.GetInstances" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetInstances where
+instance Data.ToJSON GetInstances where
   toJSON GetInstances' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("pageToken" Core..=) Prelude.<$> pageToken]
+          [("pageToken" Data..=) Prelude.<$> pageToken]
       )
 
-instance Core.ToPath GetInstances where
+instance Data.ToPath GetInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetInstances where
+instance Data.ToQuery GetInstances where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInstancesResponse' smart constructor.

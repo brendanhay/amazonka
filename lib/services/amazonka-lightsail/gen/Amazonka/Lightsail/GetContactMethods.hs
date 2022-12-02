@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,7 +104,7 @@ instance Core.AWSRequest GetContactMethods where
     Response.receiveJSON
       ( \s h x ->
           GetContactMethodsResponse'
-            Prelude.<$> (x Core..?> "contactMethods" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "contactMethods" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,32 +115,32 @@ instance Prelude.Hashable GetContactMethods where
 instance Prelude.NFData GetContactMethods where
   rnf GetContactMethods' {..} = Prelude.rnf protocols
 
-instance Core.ToHeaders GetContactMethods where
+instance Data.ToHeaders GetContactMethods where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetContactMethods" ::
+              Data.=# ( "Lightsail_20161128.GetContactMethods" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetContactMethods where
+instance Data.ToJSON GetContactMethods where
   toJSON GetContactMethods' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("protocols" Core..=) Prelude.<$> protocols]
+          [("protocols" Data..=) Prelude.<$> protocols]
       )
 
-instance Core.ToPath GetContactMethods where
+instance Data.ToPath GetContactMethods where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetContactMethods where
+instance Data.ToQuery GetContactMethods where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetContactMethodsResponse' smart constructor.

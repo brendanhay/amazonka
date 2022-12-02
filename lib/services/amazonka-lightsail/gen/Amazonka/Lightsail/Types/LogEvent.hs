@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.LogEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a database log event.
@@ -30,7 +31,7 @@ data LogEvent = LogEvent'
   { -- | The message of the database log event.
     message :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the database log event was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,16 +60,16 @@ logEvent_message = Lens.lens (\LogEvent' {message} -> message) (\s@LogEvent' {} 
 
 -- | The timestamp when the database log event was created.
 logEvent_createdAt :: Lens.Lens' LogEvent (Prelude.Maybe Prelude.UTCTime)
-logEvent_createdAt = Lens.lens (\LogEvent' {createdAt} -> createdAt) (\s@LogEvent' {} a -> s {createdAt = a} :: LogEvent) Prelude.. Lens.mapping Core._Time
+logEvent_createdAt = Lens.lens (\LogEvent' {createdAt} -> createdAt) (\s@LogEvent' {} a -> s {createdAt = a} :: LogEvent) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON LogEvent where
+instance Data.FromJSON LogEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogEvent"
       ( \x ->
           LogEvent'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable LogEvent where

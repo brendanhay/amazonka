@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -180,9 +181,9 @@ data GetLoadBalancerMetricData = GetLoadBalancerMetricData'
     -- | The granularity, in seconds, of the returned data points.
     period :: Prelude.Natural,
     -- | The start time of the period.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The end time of the period.
-    endTime :: Core.POSIX,
+    endTime :: Data.POSIX,
     -- | The unit for the metric data request. Valid units depend on the metric
     -- data being requested. For the valid units with each available metric,
     -- see the @metricName@ parameter.
@@ -402,8 +403,8 @@ newGetLoadBalancerMetricData
           pLoadBalancerName_,
         metricName = pMetricName_,
         period = pPeriod_,
-        startTime = Core._Time Lens.# pStartTime_,
-        endTime = Core._Time Lens.# pEndTime_,
+        startTime = Data._Time Lens.# pStartTime_,
+        endTime = Data._Time Lens.# pEndTime_,
         unit = pUnit_,
         statistics = Prelude.mempty
       }
@@ -535,11 +536,11 @@ getLoadBalancerMetricData_period = Lens.lens (\GetLoadBalancerMetricData' {perio
 
 -- | The start time of the period.
 getLoadBalancerMetricData_startTime :: Lens.Lens' GetLoadBalancerMetricData Prelude.UTCTime
-getLoadBalancerMetricData_startTime = Lens.lens (\GetLoadBalancerMetricData' {startTime} -> startTime) (\s@GetLoadBalancerMetricData' {} a -> s {startTime = a} :: GetLoadBalancerMetricData) Prelude.. Core._Time
+getLoadBalancerMetricData_startTime = Lens.lens (\GetLoadBalancerMetricData' {startTime} -> startTime) (\s@GetLoadBalancerMetricData' {} a -> s {startTime = a} :: GetLoadBalancerMetricData) Prelude.. Data._Time
 
 -- | The end time of the period.
 getLoadBalancerMetricData_endTime :: Lens.Lens' GetLoadBalancerMetricData Prelude.UTCTime
-getLoadBalancerMetricData_endTime = Lens.lens (\GetLoadBalancerMetricData' {endTime} -> endTime) (\s@GetLoadBalancerMetricData' {} a -> s {endTime = a} :: GetLoadBalancerMetricData) Prelude.. Core._Time
+getLoadBalancerMetricData_endTime = Lens.lens (\GetLoadBalancerMetricData' {endTime} -> endTime) (\s@GetLoadBalancerMetricData' {} a -> s {endTime = a} :: GetLoadBalancerMetricData) Prelude.. Data._Time
 
 -- | The unit for the metric data request. Valid units depend on the metric
 -- data being requested. For the valid units with each available metric,
@@ -585,8 +586,8 @@ instance Core.AWSRequest GetLoadBalancerMetricData where
     Response.receiveJSON
       ( \s h x ->
           GetLoadBalancerMetricDataResponse'
-            Prelude.<$> (x Core..?> "metricName")
-            Prelude.<*> (x Core..?> "metricData" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "metricName")
+            Prelude.<*> (x Data..?> "metricData" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -610,40 +611,40 @@ instance Prelude.NFData GetLoadBalancerMetricData where
       `Prelude.seq` Prelude.rnf unit
       `Prelude.seq` Prelude.rnf statistics
 
-instance Core.ToHeaders GetLoadBalancerMetricData where
+instance Data.ToHeaders GetLoadBalancerMetricData where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetLoadBalancerMetricData" ::
+              Data.=# ( "Lightsail_20161128.GetLoadBalancerMetricData" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetLoadBalancerMetricData where
+instance Data.ToJSON GetLoadBalancerMetricData where
   toJSON GetLoadBalancerMetricData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("loadBalancerName" Core..= loadBalancerName),
-            Prelude.Just ("metricName" Core..= metricName),
-            Prelude.Just ("period" Core..= period),
-            Prelude.Just ("startTime" Core..= startTime),
-            Prelude.Just ("endTime" Core..= endTime),
-            Prelude.Just ("unit" Core..= unit),
-            Prelude.Just ("statistics" Core..= statistics)
+              ("loadBalancerName" Data..= loadBalancerName),
+            Prelude.Just ("metricName" Data..= metricName),
+            Prelude.Just ("period" Data..= period),
+            Prelude.Just ("startTime" Data..= startTime),
+            Prelude.Just ("endTime" Data..= endTime),
+            Prelude.Just ("unit" Data..= unit),
+            Prelude.Just ("statistics" Data..= statistics)
           ]
       )
 
-instance Core.ToPath GetLoadBalancerMetricData where
+instance Data.ToPath GetLoadBalancerMetricData where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetLoadBalancerMetricData where
+instance Data.ToQuery GetLoadBalancerMetricData where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLoadBalancerMetricDataResponse' smart constructor.

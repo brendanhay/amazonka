@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -150,8 +151,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseParametersResponse'
-            Prelude.<$> (x Core..?> "nextPageToken")
-            Prelude.<*> (x Core..?> "parameters" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextPageToken")
+            Prelude.<*> (x Data..?> "parameters" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,39 +175,39 @@ instance
       `Prelude.seq` Prelude.rnf relationalDatabaseName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetRelationalDatabaseParameters
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetRelationalDatabaseParameters" ::
+              Data.=# ( "Lightsail_20161128.GetRelationalDatabaseParameters" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRelationalDatabaseParameters where
+instance Data.ToJSON GetRelationalDatabaseParameters where
   toJSON GetRelationalDatabaseParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("pageToken" Core..=) Prelude.<$> pageToken,
+          [ ("pageToken" Data..=) Prelude.<$> pageToken,
             Prelude.Just
               ( "relationalDatabaseName"
-                  Core..= relationalDatabaseName
+                  Data..= relationalDatabaseName
               )
           ]
       )
 
-instance Core.ToPath GetRelationalDatabaseParameters where
+instance Data.ToPath GetRelationalDatabaseParameters where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRelationalDatabaseParameters where
+instance Data.ToQuery GetRelationalDatabaseParameters where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRelationalDatabaseParametersResponse' smart constructor.

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,7 +92,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseLogStreamsResponse'
-            Prelude.<$> (x Core..?> "logStreams" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "logStreams" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,38 +113,38 @@ instance
     Prelude.rnf relationalDatabaseName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetRelationalDatabaseLogStreams
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetRelationalDatabaseLogStreams" ::
+              Data.=# ( "Lightsail_20161128.GetRelationalDatabaseLogStreams" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRelationalDatabaseLogStreams where
+instance Data.ToJSON GetRelationalDatabaseLogStreams where
   toJSON GetRelationalDatabaseLogStreams' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "relationalDatabaseName"
-                  Core..= relationalDatabaseName
+                  Data..= relationalDatabaseName
               )
           ]
       )
 
-instance Core.ToPath GetRelationalDatabaseLogStreams where
+instance Data.ToPath GetRelationalDatabaseLogStreams where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRelationalDatabaseLogStreams where
+instance Data.ToQuery GetRelationalDatabaseLogStreams where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRelationalDatabaseLogStreamsResponse' smart constructor.

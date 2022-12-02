@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.InputOrigin where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.OriginProtocolPolicyEnum
 import Amazonka.Lightsail.Types.RegionName
 import qualified Amazonka.Prelude as Prelude
@@ -92,13 +93,13 @@ instance Prelude.NFData InputOrigin where
       `Prelude.seq` Prelude.rnf protocolPolicy
       `Prelude.seq` Prelude.rnf regionName
 
-instance Core.ToJSON InputOrigin where
+instance Data.ToJSON InputOrigin where
   toJSON InputOrigin' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("protocolPolicy" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("protocolPolicy" Data..=)
               Prelude.<$> protocolPolicy,
-            ("regionName" Core..=) Prelude.<$> regionName
+            ("regionName" Data..=) Prelude.<$> regionName
           ]
       )

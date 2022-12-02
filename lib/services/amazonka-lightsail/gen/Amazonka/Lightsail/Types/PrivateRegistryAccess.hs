@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.PrivateRegistryAccess where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.ContainerServiceECRImagePullerRole
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,13 +70,13 @@ newPrivateRegistryAccess =
 privateRegistryAccess_ecrImagePullerRole :: Lens.Lens' PrivateRegistryAccess (Prelude.Maybe ContainerServiceECRImagePullerRole)
 privateRegistryAccess_ecrImagePullerRole = Lens.lens (\PrivateRegistryAccess' {ecrImagePullerRole} -> ecrImagePullerRole) (\s@PrivateRegistryAccess' {} a -> s {ecrImagePullerRole = a} :: PrivateRegistryAccess)
 
-instance Core.FromJSON PrivateRegistryAccess where
+instance Data.FromJSON PrivateRegistryAccess where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PrivateRegistryAccess"
       ( \x ->
           PrivateRegistryAccess'
-            Prelude.<$> (x Core..:? "ecrImagePullerRole")
+            Prelude.<$> (x Data..:? "ecrImagePullerRole")
       )
 
 instance Prelude.Hashable PrivateRegistryAccess where

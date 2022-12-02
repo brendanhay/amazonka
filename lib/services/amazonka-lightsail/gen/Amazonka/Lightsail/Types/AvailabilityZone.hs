@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.AvailabilityZone where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Availability Zone.
@@ -64,14 +65,14 @@ availabilityZone_zoneName = Lens.lens (\AvailabilityZone' {zoneName} -> zoneName
 availabilityZone_state :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
 availabilityZone_state = Lens.lens (\AvailabilityZone' {state} -> state) (\s@AvailabilityZone' {} a -> s {state = a} :: AvailabilityZone)
 
-instance Core.FromJSON AvailabilityZone where
+instance Data.FromJSON AvailabilityZone where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AvailabilityZone"
       ( \x ->
           AvailabilityZone'
-            Prelude.<$> (x Core..:? "zoneName")
-            Prelude.<*> (x Core..:? "state")
+            Prelude.<$> (x Data..:? "zoneName")
+            Prelude.<*> (x Data..:? "state")
       )
 
 instance Prelude.Hashable AvailabilityZone where

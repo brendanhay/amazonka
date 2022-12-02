@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ data GetContainerLog = GetContainerLog'
     --
     -- You can convert a human-friendly time to Unix time format using a
     -- converter like <https://www.epochconverter.com/ Epoch converter>.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The pattern to use to filter the returned log events to a specific term.
     --
     -- The following are a few examples of filter patterns that you can
@@ -116,7 +117,7 @@ data GetContainerLog = GetContainerLog'
     --
     -- You can convert a human-friendly time to Unix time format using a
     -- converter like <https://www.epochconverter.com/ Epoch converter>.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the container service for which to get a container log.
     serviceName :: Prelude.Text,
     -- | The name of the container that is either running or previously ran on
@@ -228,7 +229,7 @@ getContainerLog_pageToken = Lens.lens (\GetContainerLog' {pageToken} -> pageToke
 -- You can convert a human-friendly time to Unix time format using a
 -- converter like <https://www.epochconverter.com/ Epoch converter>.
 getContainerLog_endTime :: Lens.Lens' GetContainerLog (Prelude.Maybe Prelude.UTCTime)
-getContainerLog_endTime = Lens.lens (\GetContainerLog' {endTime} -> endTime) (\s@GetContainerLog' {} a -> s {endTime = a} :: GetContainerLog) Prelude.. Lens.mapping Core._Time
+getContainerLog_endTime = Lens.lens (\GetContainerLog' {endTime} -> endTime) (\s@GetContainerLog' {} a -> s {endTime = a} :: GetContainerLog) Prelude.. Lens.mapping Data._Time
 
 -- | The pattern to use to filter the returned log events to a specific term.
 --
@@ -265,7 +266,7 @@ getContainerLog_filterPattern = Lens.lens (\GetContainerLog' {filterPattern} -> 
 -- You can convert a human-friendly time to Unix time format using a
 -- converter like <https://www.epochconverter.com/ Epoch converter>.
 getContainerLog_startTime :: Lens.Lens' GetContainerLog (Prelude.Maybe Prelude.UTCTime)
-getContainerLog_startTime = Lens.lens (\GetContainerLog' {startTime} -> startTime) (\s@GetContainerLog' {} a -> s {startTime = a} :: GetContainerLog) Prelude.. Lens.mapping Core._Time
+getContainerLog_startTime = Lens.lens (\GetContainerLog' {startTime} -> startTime) (\s@GetContainerLog' {} a -> s {startTime = a} :: GetContainerLog) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the container service for which to get a container log.
 getContainerLog_serviceName :: Lens.Lens' GetContainerLog Prelude.Text
@@ -286,8 +287,8 @@ instance Core.AWSRequest GetContainerLog where
     Response.receiveJSON
       ( \s h x ->
           GetContainerLogResponse'
-            Prelude.<$> (x Core..?> "logEvents" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextPageToken")
+            Prelude.<$> (x Data..?> "logEvents" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -309,39 +310,39 @@ instance Prelude.NFData GetContainerLog where
       `Prelude.seq` Prelude.rnf serviceName
       `Prelude.seq` Prelude.rnf containerName
 
-instance Core.ToHeaders GetContainerLog where
+instance Data.ToHeaders GetContainerLog where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetContainerLog" ::
+              Data.=# ( "Lightsail_20161128.GetContainerLog" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetContainerLog where
+instance Data.ToJSON GetContainerLog where
   toJSON GetContainerLog' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("pageToken" Core..=) Prelude.<$> pageToken,
-            ("endTime" Core..=) Prelude.<$> endTime,
-            ("filterPattern" Core..=) Prelude.<$> filterPattern,
-            ("startTime" Core..=) Prelude.<$> startTime,
-            Prelude.Just ("serviceName" Core..= serviceName),
+          [ ("pageToken" Data..=) Prelude.<$> pageToken,
+            ("endTime" Data..=) Prelude.<$> endTime,
+            ("filterPattern" Data..=) Prelude.<$> filterPattern,
+            ("startTime" Data..=) Prelude.<$> startTime,
+            Prelude.Just ("serviceName" Data..= serviceName),
             Prelude.Just
-              ("containerName" Core..= containerName)
+              ("containerName" Data..= containerName)
           ]
       )
 
-instance Core.ToPath GetContainerLog where
+instance Data.ToPath GetContainerLog where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetContainerLog where
+instance Data.ToQuery GetContainerLog where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetContainerLogResponse' smart constructor.

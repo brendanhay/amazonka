@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.DnsRecordCreationState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.DnsRecordCreationStateCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -102,14 +103,14 @@ dnsRecordCreationState_message = Lens.lens (\DnsRecordCreationState' {message} -
 dnsRecordCreationState_code :: Lens.Lens' DnsRecordCreationState (Prelude.Maybe DnsRecordCreationStateCode)
 dnsRecordCreationState_code = Lens.lens (\DnsRecordCreationState' {code} -> code) (\s@DnsRecordCreationState' {} a -> s {code = a} :: DnsRecordCreationState)
 
-instance Core.FromJSON DnsRecordCreationState where
+instance Data.FromJSON DnsRecordCreationState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DnsRecordCreationState"
       ( \x ->
           DnsRecordCreationState'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "code")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "code")
       )
 
 instance Prelude.Hashable DnsRecordCreationState where

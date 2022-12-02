@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.CacheBehaviorPerPath where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.BehaviorEnum
 import qualified Amazonka.Prelude as Prelude
 
@@ -194,14 +195,14 @@ cacheBehaviorPerPath_path = Lens.lens (\CacheBehaviorPerPath' {path} -> path) (\
 cacheBehaviorPerPath_behavior :: Lens.Lens' CacheBehaviorPerPath (Prelude.Maybe BehaviorEnum)
 cacheBehaviorPerPath_behavior = Lens.lens (\CacheBehaviorPerPath' {behavior} -> behavior) (\s@CacheBehaviorPerPath' {} a -> s {behavior = a} :: CacheBehaviorPerPath)
 
-instance Core.FromJSON CacheBehaviorPerPath where
+instance Data.FromJSON CacheBehaviorPerPath where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CacheBehaviorPerPath"
       ( \x ->
           CacheBehaviorPerPath'
-            Prelude.<$> (x Core..:? "path")
-            Prelude.<*> (x Core..:? "behavior")
+            Prelude.<$> (x Data..:? "path")
+            Prelude.<*> (x Data..:? "behavior")
       )
 
 instance Prelude.Hashable CacheBehaviorPerPath where
@@ -213,11 +214,11 @@ instance Prelude.NFData CacheBehaviorPerPath where
   rnf CacheBehaviorPerPath' {..} =
     Prelude.rnf path `Prelude.seq` Prelude.rnf behavior
 
-instance Core.ToJSON CacheBehaviorPerPath where
+instance Data.ToJSON CacheBehaviorPerPath where
   toJSON CacheBehaviorPerPath' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("path" Core..=) Prelude.<$> path,
-            ("behavior" Core..=) Prelude.<$> behavior
+          [ ("path" Data..=) Prelude.<$> path,
+            ("behavior" Data..=) Prelude.<$> behavior
           ]
       )

@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,7 +126,7 @@ instance Core.AWSRequest UpdateDistributionBundle where
     Response.receiveJSON
       ( \s h x ->
           UpdateDistributionBundleResponse'
-            Prelude.<$> (x Core..?> "operation")
+            Prelude.<$> (x Data..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,35 +140,35 @@ instance Prelude.NFData UpdateDistributionBundle where
     Prelude.rnf distributionName
       `Prelude.seq` Prelude.rnf bundleId
 
-instance Core.ToHeaders UpdateDistributionBundle where
+instance Data.ToHeaders UpdateDistributionBundle where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.UpdateDistributionBundle" ::
+              Data.=# ( "Lightsail_20161128.UpdateDistributionBundle" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDistributionBundle where
+instance Data.ToJSON UpdateDistributionBundle where
   toJSON UpdateDistributionBundle' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("distributionName" Core..=)
+          [ ("distributionName" Data..=)
               Prelude.<$> distributionName,
-            ("bundleId" Core..=) Prelude.<$> bundleId
+            ("bundleId" Data..=) Prelude.<$> bundleId
           ]
       )
 
-instance Core.ToPath UpdateDistributionBundle where
+instance Data.ToPath UpdateDistributionBundle where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDistributionBundle where
+instance Data.ToQuery UpdateDistributionBundle where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDistributionBundleResponse' smart constructor.

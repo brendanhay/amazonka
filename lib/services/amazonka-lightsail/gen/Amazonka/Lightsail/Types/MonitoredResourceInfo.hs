@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.MonitoredResourceInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.ResourceType
 import qualified Amazonka.Prelude as Prelude
 
@@ -85,15 +86,15 @@ monitoredResourceInfo_name = Lens.lens (\MonitoredResourceInfo' {name} -> name) 
 monitoredResourceInfo_arn :: Lens.Lens' MonitoredResourceInfo (Prelude.Maybe Prelude.Text)
 monitoredResourceInfo_arn = Lens.lens (\MonitoredResourceInfo' {arn} -> arn) (\s@MonitoredResourceInfo' {} a -> s {arn = a} :: MonitoredResourceInfo)
 
-instance Core.FromJSON MonitoredResourceInfo where
+instance Data.FromJSON MonitoredResourceInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitoredResourceInfo"
       ( \x ->
           MonitoredResourceInfo'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
+            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
       )
 
 instance Prelude.Hashable MonitoredResourceInfo where

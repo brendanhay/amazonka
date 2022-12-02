@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,7 +95,7 @@ instance Core.AWSRequest GetContainerServices where
     Response.receiveJSON
       ( \s h x ->
           GetContainerServicesResponse'
-            Prelude.<$> ( x Core..?> "containerServices"
+            Prelude.<$> ( x Data..?> "containerServices"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -108,32 +109,32 @@ instance Prelude.NFData GetContainerServices where
   rnf GetContainerServices' {..} =
     Prelude.rnf serviceName
 
-instance Core.ToHeaders GetContainerServices where
+instance Data.ToHeaders GetContainerServices where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetContainerServices" ::
+              Data.=# ( "Lightsail_20161128.GetContainerServices" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetContainerServices where
+instance Data.ToJSON GetContainerServices where
   toJSON GetContainerServices' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("serviceName" Core..=) Prelude.<$> serviceName]
+          [("serviceName" Data..=) Prelude.<$> serviceName]
       )
 
-instance Core.ToPath GetContainerServices where
+instance Data.ToPath GetContainerServices where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetContainerServices where
+instance Data.ToQuery GetContainerServices where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetContainerServicesResponse' smart constructor.

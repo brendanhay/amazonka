@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDomainValidationRecord
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDnsRecordCreationState
 import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDomainStatus
 import qualified Amazonka.Prelude as Prelude
@@ -117,19 +118,19 @@ loadBalancerTlsCertificateDomainValidationRecord_value :: Lens.Lens' LoadBalance
 loadBalancerTlsCertificateDomainValidationRecord_value = Lens.lens (\LoadBalancerTlsCertificateDomainValidationRecord' {value} -> value) (\s@LoadBalancerTlsCertificateDomainValidationRecord' {} a -> s {value = a} :: LoadBalancerTlsCertificateDomainValidationRecord)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LoadBalancerTlsCertificateDomainValidationRecord
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoadBalancerTlsCertificateDomainValidationRecord"
       ( \x ->
           LoadBalancerTlsCertificateDomainValidationRecord'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "type")
-              Prelude.<*> (x Core..:? "dnsRecordCreationState")
-              Prelude.<*> (x Core..:? "domainName")
-              Prelude.<*> (x Core..:? "validationStatus")
-              Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "type")
+              Prelude.<*> (x Data..:? "dnsRecordCreationState")
+              Prelude.<*> (x Data..:? "domainName")
+              Prelude.<*> (x Data..:? "validationStatus")
+              Prelude.<*> (x Data..:? "value")
       )
 
 instance

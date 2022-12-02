@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.RelationalDatabaseParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the parameters of a database.
@@ -122,20 +123,20 @@ relationalDatabaseParameter_allowedValues = Lens.lens (\RelationalDatabaseParame
 relationalDatabaseParameter_dataType :: Lens.Lens' RelationalDatabaseParameter (Prelude.Maybe Prelude.Text)
 relationalDatabaseParameter_dataType = Lens.lens (\RelationalDatabaseParameter' {dataType} -> dataType) (\s@RelationalDatabaseParameter' {} a -> s {dataType = a} :: RelationalDatabaseParameter)
 
-instance Core.FromJSON RelationalDatabaseParameter where
+instance Data.FromJSON RelationalDatabaseParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RelationalDatabaseParameter"
       ( \x ->
           RelationalDatabaseParameter'
-            Prelude.<$> (x Core..:? "parameterValue")
-            Prelude.<*> (x Core..:? "applyMethod")
-            Prelude.<*> (x Core..:? "applyType")
-            Prelude.<*> (x Core..:? "isModifiable")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "parameterName")
-            Prelude.<*> (x Core..:? "allowedValues")
-            Prelude.<*> (x Core..:? "dataType")
+            Prelude.<$> (x Data..:? "parameterValue")
+            Prelude.<*> (x Data..:? "applyMethod")
+            Prelude.<*> (x Data..:? "applyType")
+            Prelude.<*> (x Data..:? "isModifiable")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "parameterName")
+            Prelude.<*> (x Data..:? "allowedValues")
+            Prelude.<*> (x Data..:? "dataType")
       )
 
 instance Prelude.Hashable RelationalDatabaseParameter where
@@ -160,18 +161,18 @@ instance Prelude.NFData RelationalDatabaseParameter where
       `Prelude.seq` Prelude.rnf allowedValues
       `Prelude.seq` Prelude.rnf dataType
 
-instance Core.ToJSON RelationalDatabaseParameter where
+instance Data.ToJSON RelationalDatabaseParameter where
   toJSON RelationalDatabaseParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("parameterValue" Core..=)
+          [ ("parameterValue" Data..=)
               Prelude.<$> parameterValue,
-            ("applyMethod" Core..=) Prelude.<$> applyMethod,
-            ("applyType" Core..=) Prelude.<$> applyType,
-            ("isModifiable" Core..=) Prelude.<$> isModifiable,
-            ("description" Core..=) Prelude.<$> description,
-            ("parameterName" Core..=) Prelude.<$> parameterName,
-            ("allowedValues" Core..=) Prelude.<$> allowedValues,
-            ("dataType" Core..=) Prelude.<$> dataType
+            ("applyMethod" Data..=) Prelude.<$> applyMethod,
+            ("applyType" Data..=) Prelude.<$> applyType,
+            ("isModifiable" Data..=) Prelude.<$> isModifiable,
+            ("description" Data..=) Prelude.<$> description,
+            ("parameterName" Data..=) Prelude.<$> parameterName,
+            ("allowedValues" Data..=) Prelude.<$> allowedValues,
+            ("dataType" Data..=) Prelude.<$> dataType
           ]
       )

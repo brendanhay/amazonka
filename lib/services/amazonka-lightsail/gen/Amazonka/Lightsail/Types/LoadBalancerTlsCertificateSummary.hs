@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.LoadBalancerTlsCertificateSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of SSL\/TLS certificate metadata.
@@ -66,16 +67,16 @@ loadBalancerTlsCertificateSummary_isAttached :: Lens.Lens' LoadBalancerTlsCertif
 loadBalancerTlsCertificateSummary_isAttached = Lens.lens (\LoadBalancerTlsCertificateSummary' {isAttached} -> isAttached) (\s@LoadBalancerTlsCertificateSummary' {} a -> s {isAttached = a} :: LoadBalancerTlsCertificateSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LoadBalancerTlsCertificateSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoadBalancerTlsCertificateSummary"
       ( \x ->
           LoadBalancerTlsCertificateSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "isAttached")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "isAttached")
       )
 
 instance

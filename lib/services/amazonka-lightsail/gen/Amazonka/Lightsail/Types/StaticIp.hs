@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.StaticIp where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.ResourceLocation
 import Amazonka.Lightsail.Types.ResourceType
 import qualified Amazonka.Prelude as Prelude
@@ -49,7 +50,7 @@ data StaticIp = StaticIp'
     -- easily.
     supportCode :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the static IP was created (e.g., @1479735304.222@).
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The static IP address.
     ipAddress :: Prelude.Maybe Prelude.Text
   }
@@ -135,27 +136,27 @@ staticIp_supportCode = Lens.lens (\StaticIp' {supportCode} -> supportCode) (\s@S
 
 -- | The timestamp when the static IP was created (e.g., @1479735304.222@).
 staticIp_createdAt :: Lens.Lens' StaticIp (Prelude.Maybe Prelude.UTCTime)
-staticIp_createdAt = Lens.lens (\StaticIp' {createdAt} -> createdAt) (\s@StaticIp' {} a -> s {createdAt = a} :: StaticIp) Prelude.. Lens.mapping Core._Time
+staticIp_createdAt = Lens.lens (\StaticIp' {createdAt} -> createdAt) (\s@StaticIp' {} a -> s {createdAt = a} :: StaticIp) Prelude.. Lens.mapping Data._Time
 
 -- | The static IP address.
 staticIp_ipAddress :: Lens.Lens' StaticIp (Prelude.Maybe Prelude.Text)
 staticIp_ipAddress = Lens.lens (\StaticIp' {ipAddress} -> ipAddress) (\s@StaticIp' {} a -> s {ipAddress = a} :: StaticIp)
 
-instance Core.FromJSON StaticIp where
+instance Data.FromJSON StaticIp where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StaticIp"
       ( \x ->
           StaticIp'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "attachedTo")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "isAttached")
-            Prelude.<*> (x Core..:? "supportCode")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "ipAddress")
+            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "attachedTo")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "isAttached")
+            Prelude.<*> (x Data..:? "supportCode")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "ipAddress")
       )
 
 instance Prelude.Hashable StaticIp where

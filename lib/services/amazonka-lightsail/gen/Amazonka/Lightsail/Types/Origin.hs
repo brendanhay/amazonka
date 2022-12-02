@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.Origin where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.OriginProtocolPolicyEnum
 import Amazonka.Lightsail.Types.RegionName
 import Amazonka.Lightsail.Types.ResourceType
@@ -90,16 +91,16 @@ origin_protocolPolicy = Lens.lens (\Origin' {protocolPolicy} -> protocolPolicy) 
 origin_regionName :: Lens.Lens' Origin (Prelude.Maybe RegionName)
 origin_regionName = Lens.lens (\Origin' {regionName} -> regionName) (\s@Origin' {} a -> s {regionName = a} :: Origin)
 
-instance Core.FromJSON Origin where
+instance Data.FromJSON Origin where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Origin"
       ( \x ->
           Origin'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "protocolPolicy")
-            Prelude.<*> (x Core..:? "regionName")
+            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "protocolPolicy")
+            Prelude.<*> (x Data..:? "regionName")
       )
 
 instance Prelude.Hashable Origin where

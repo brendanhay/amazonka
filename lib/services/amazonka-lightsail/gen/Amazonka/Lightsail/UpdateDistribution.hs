@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -178,7 +179,7 @@ instance Core.AWSRequest UpdateDistribution where
     Response.receiveJSON
       ( \s h x ->
           UpdateDistributionResponse'
-            Prelude.<$> (x Core..?> "operation")
+            Prelude.<$> (x Data..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -200,42 +201,42 @@ instance Prelude.NFData UpdateDistribution where
       `Prelude.seq` Prelude.rnf defaultCacheBehavior
       `Prelude.seq` Prelude.rnf distributionName
 
-instance Core.ToHeaders UpdateDistribution where
+instance Data.ToHeaders UpdateDistribution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.UpdateDistribution" ::
+              Data.=# ( "Lightsail_20161128.UpdateDistribution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDistribution where
+instance Data.ToJSON UpdateDistribution where
   toJSON UpdateDistribution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("isEnabled" Core..=) Prelude.<$> isEnabled,
-            ("cacheBehaviorSettings" Core..=)
+          [ ("isEnabled" Data..=) Prelude.<$> isEnabled,
+            ("cacheBehaviorSettings" Data..=)
               Prelude.<$> cacheBehaviorSettings,
-            ("cacheBehaviors" Core..=)
+            ("cacheBehaviors" Data..=)
               Prelude.<$> cacheBehaviors,
-            ("origin" Core..=) Prelude.<$> origin,
-            ("defaultCacheBehavior" Core..=)
+            ("origin" Data..=) Prelude.<$> origin,
+            ("defaultCacheBehavior" Data..=)
               Prelude.<$> defaultCacheBehavior,
             Prelude.Just
-              ("distributionName" Core..= distributionName)
+              ("distributionName" Data..= distributionName)
           ]
       )
 
-instance Core.ToPath UpdateDistribution where
+instance Data.ToPath UpdateDistribution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDistribution where
+instance Data.ToQuery UpdateDistribution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDistributionResponse' smart constructor.

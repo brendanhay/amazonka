@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.DistributionBundle where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the specifications of a distribution bundle.
@@ -91,17 +92,17 @@ distributionBundle_price = Lens.lens (\DistributionBundle' {price} -> price) (\s
 distributionBundle_bundleId :: Lens.Lens' DistributionBundle (Prelude.Maybe Prelude.Text)
 distributionBundle_bundleId = Lens.lens (\DistributionBundle' {bundleId} -> bundleId) (\s@DistributionBundle' {} a -> s {bundleId = a} :: DistributionBundle)
 
-instance Core.FromJSON DistributionBundle where
+instance Data.FromJSON DistributionBundle where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DistributionBundle"
       ( \x ->
           DistributionBundle'
-            Prelude.<$> (x Core..:? "isActive")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "transferPerMonthInGb")
-            Prelude.<*> (x Core..:? "price")
-            Prelude.<*> (x Core..:? "bundleId")
+            Prelude.<$> (x Data..:? "isActive")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "transferPerMonthInGb")
+            Prelude.<*> (x Data..:? "price")
+            Prelude.<*> (x Data..:? "bundleId")
       )
 
 instance Prelude.Hashable DistributionBundle where

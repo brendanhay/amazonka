@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.InstanceMetadataOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.HttpEndpoint
 import Amazonka.Lightsail.Types.HttpProtocolIpv6
 import Amazonka.Lightsail.Types.HttpTokens
@@ -189,17 +190,17 @@ instanceMetadataOptions_httpEndpoint = Lens.lens (\InstanceMetadataOptions' {htt
 instanceMetadataOptions_httpProtocolIpv6 :: Lens.Lens' InstanceMetadataOptions (Prelude.Maybe HttpProtocolIpv6)
 instanceMetadataOptions_httpProtocolIpv6 = Lens.lens (\InstanceMetadataOptions' {httpProtocolIpv6} -> httpProtocolIpv6) (\s@InstanceMetadataOptions' {} a -> s {httpProtocolIpv6 = a} :: InstanceMetadataOptions)
 
-instance Core.FromJSON InstanceMetadataOptions where
+instance Data.FromJSON InstanceMetadataOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceMetadataOptions"
       ( \x ->
           InstanceMetadataOptions'
-            Prelude.<$> (x Core..:? "httpPutResponseHopLimit")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "httpTokens")
-            Prelude.<*> (x Core..:? "httpEndpoint")
-            Prelude.<*> (x Core..:? "httpProtocolIpv6")
+            Prelude.<$> (x Data..:? "httpPutResponseHopLimit")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "httpTokens")
+            Prelude.<*> (x Data..:? "httpEndpoint")
+            Prelude.<*> (x Data..:? "httpProtocolIpv6")
       )
 
 instance Prelude.Hashable InstanceMetadataOptions where

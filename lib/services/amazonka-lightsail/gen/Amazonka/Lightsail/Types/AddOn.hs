@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.AddOn where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an add-on that is enabled for an Amazon Lightsail resource.
@@ -115,16 +116,16 @@ addOn_snapshotTimeOfDay = Lens.lens (\AddOn' {snapshotTimeOfDay} -> snapshotTime
 addOn_nextSnapshotTimeOfDay :: Lens.Lens' AddOn (Prelude.Maybe Prelude.Text)
 addOn_nextSnapshotTimeOfDay = Lens.lens (\AddOn' {nextSnapshotTimeOfDay} -> nextSnapshotTimeOfDay) (\s@AddOn' {} a -> s {nextSnapshotTimeOfDay = a} :: AddOn)
 
-instance Core.FromJSON AddOn where
+instance Data.FromJSON AddOn where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AddOn"
       ( \x ->
           AddOn'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "snapshotTimeOfDay")
-            Prelude.<*> (x Core..:? "nextSnapshotTimeOfDay")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "snapshotTimeOfDay")
+            Prelude.<*> (x Data..:? "nextSnapshotTimeOfDay")
       )
 
 instance Prelude.Hashable AddOn where

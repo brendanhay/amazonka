@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,8 +119,8 @@ instance Core.AWSRequest GetLoadBalancers where
     Response.receiveJSON
       ( \s h x ->
           GetLoadBalancersResponse'
-            Prelude.<$> (x Core..?> "nextPageToken")
-            Prelude.<*> (x Core..?> "loadBalancers" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextPageToken")
+            Prelude.<*> (x Data..?> "loadBalancers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,32 +131,32 @@ instance Prelude.Hashable GetLoadBalancers where
 instance Prelude.NFData GetLoadBalancers where
   rnf GetLoadBalancers' {..} = Prelude.rnf pageToken
 
-instance Core.ToHeaders GetLoadBalancers where
+instance Data.ToHeaders GetLoadBalancers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetLoadBalancers" ::
+              Data.=# ( "Lightsail_20161128.GetLoadBalancers" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetLoadBalancers where
+instance Data.ToJSON GetLoadBalancers where
   toJSON GetLoadBalancers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("pageToken" Core..=) Prelude.<$> pageToken]
+          [("pageToken" Data..=) Prelude.<$> pageToken]
       )
 
-instance Core.ToPath GetLoadBalancers where
+instance Data.ToPath GetLoadBalancers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetLoadBalancers where
+instance Data.ToQuery GetLoadBalancers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLoadBalancersResponse' smart constructor.

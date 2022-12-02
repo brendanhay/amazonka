@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.InstanceHealthSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.InstanceHealthReason
 import Amazonka.Lightsail.Types.InstanceHealthState
 import qualified Amazonka.Prelude as Prelude
@@ -226,15 +227,15 @@ instanceHealthSummary_instanceHealth = Lens.lens (\InstanceHealthSummary' {insta
 instanceHealthSummary_instanceName :: Lens.Lens' InstanceHealthSummary (Prelude.Maybe Prelude.Text)
 instanceHealthSummary_instanceName = Lens.lens (\InstanceHealthSummary' {instanceName} -> instanceName) (\s@InstanceHealthSummary' {} a -> s {instanceName = a} :: InstanceHealthSummary)
 
-instance Core.FromJSON InstanceHealthSummary where
+instance Data.FromJSON InstanceHealthSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceHealthSummary"
       ( \x ->
           InstanceHealthSummary'
-            Prelude.<$> (x Core..:? "instanceHealthReason")
-            Prelude.<*> (x Core..:? "instanceHealth")
-            Prelude.<*> (x Core..:? "instanceName")
+            Prelude.<$> (x Data..:? "instanceHealthReason")
+            Prelude.<*> (x Data..:? "instanceHealth")
+            Prelude.<*> (x Data..:? "instanceName")
       )
 
 instance Prelude.Hashable InstanceHealthSummary where

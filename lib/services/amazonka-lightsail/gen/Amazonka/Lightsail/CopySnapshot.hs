@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -265,7 +266,7 @@ instance Core.AWSRequest CopySnapshot where
     Response.receiveJSON
       ( \s h x ->
           CopySnapshotResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -288,42 +289,42 @@ instance Prelude.NFData CopySnapshot where
       `Prelude.seq` Prelude.rnf targetSnapshotName
       `Prelude.seq` Prelude.rnf sourceRegion
 
-instance Core.ToHeaders CopySnapshot where
+instance Data.ToHeaders CopySnapshot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.CopySnapshot" ::
+              Data.=# ( "Lightsail_20161128.CopySnapshot" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CopySnapshot where
+instance Data.ToJSON CopySnapshot where
   toJSON CopySnapshot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("useLatestRestorableAutoSnapshot" Core..=)
+          [ ("useLatestRestorableAutoSnapshot" Data..=)
               Prelude.<$> useLatestRestorableAutoSnapshot,
-            ("sourceResourceName" Core..=)
+            ("sourceResourceName" Data..=)
               Prelude.<$> sourceResourceName,
-            ("restoreDate" Core..=) Prelude.<$> restoreDate,
-            ("sourceSnapshotName" Core..=)
+            ("restoreDate" Data..=) Prelude.<$> restoreDate,
+            ("sourceSnapshotName" Data..=)
               Prelude.<$> sourceSnapshotName,
             Prelude.Just
-              ("targetSnapshotName" Core..= targetSnapshotName),
-            Prelude.Just ("sourceRegion" Core..= sourceRegion)
+              ("targetSnapshotName" Data..= targetSnapshotName),
+            Prelude.Just ("sourceRegion" Data..= sourceRegion)
           ]
       )
 
-instance Core.ToPath CopySnapshot where
+instance Data.ToPath CopySnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CopySnapshot where
+instance Data.ToQuery CopySnapshot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCopySnapshotResponse' smart constructor.

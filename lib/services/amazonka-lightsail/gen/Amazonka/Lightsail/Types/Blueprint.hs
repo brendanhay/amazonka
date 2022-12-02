@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.Blueprint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.BlueprintType
 import Amazonka.Lightsail.Types.InstancePlatform
 import qualified Amazonka.Prelude as Prelude
@@ -183,24 +184,24 @@ blueprint_group = Lens.lens (\Blueprint' {group'} -> group') (\s@Blueprint' {} a
 blueprint_version :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
 blueprint_version = Lens.lens (\Blueprint' {version} -> version) (\s@Blueprint' {} a -> s {version = a} :: Blueprint)
 
-instance Core.FromJSON Blueprint where
+instance Data.FromJSON Blueprint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Blueprint"
       ( \x ->
           Blueprint'
-            Prelude.<$> (x Core..:? "minPower")
-            Prelude.<*> (x Core..:? "isActive")
-            Prelude.<*> (x Core..:? "versionCode")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "licenseUrl")
-            Prelude.<*> (x Core..:? "blueprintId")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "platform")
-            Prelude.<*> (x Core..:? "productUrl")
-            Prelude.<*> (x Core..:? "group")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "minPower")
+            Prelude.<*> (x Data..:? "isActive")
+            Prelude.<*> (x Data..:? "versionCode")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "licenseUrl")
+            Prelude.<*> (x Data..:? "blueprintId")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "productUrl")
+            Prelude.<*> (x Data..:? "group")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable Blueprint where

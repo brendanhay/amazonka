@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,8 +137,8 @@ instance Core.AWSRequest GetBundles where
     Response.receiveJSON
       ( \s h x ->
           GetBundlesResponse'
-            Prelude.<$> (x Core..?> "nextPageToken")
-            Prelude.<*> (x Core..?> "bundles" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextPageToken")
+            Prelude.<*> (x Data..?> "bundles" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,35 +152,35 @@ instance Prelude.NFData GetBundles where
     Prelude.rnf includeInactive
       `Prelude.seq` Prelude.rnf pageToken
 
-instance Core.ToHeaders GetBundles where
+instance Data.ToHeaders GetBundles where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetBundles" ::
+              Data.=# ( "Lightsail_20161128.GetBundles" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetBundles where
+instance Data.ToJSON GetBundles where
   toJSON GetBundles' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("includeInactive" Core..=)
+          [ ("includeInactive" Data..=)
               Prelude.<$> includeInactive,
-            ("pageToken" Core..=) Prelude.<$> pageToken
+            ("pageToken" Data..=) Prelude.<$> pageToken
           ]
       )
 
-instance Core.ToPath GetBundles where
+instance Data.ToPath GetBundles where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetBundles where
+instance Data.ToQuery GetBundles where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetBundlesResponse' smart constructor.

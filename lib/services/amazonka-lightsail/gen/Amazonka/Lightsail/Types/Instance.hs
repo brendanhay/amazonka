@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.Instance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.AddOn
 import Amazonka.Lightsail.Types.InstanceHardware
 import Amazonka.Lightsail.Types.InstanceMetadataOptions
@@ -88,7 +89,7 @@ data Instance = Instance'
     networking :: Prelude.Maybe InstanceNetworking,
     -- | The timestamp when the instance was created (e.g., @1479734909.17@) in
     -- Unix time format.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The IPv6 addresses of the instance.
     ipv6Addresses :: Prelude.Maybe [Prelude.Text],
     -- | The metadata options for the Amazon Lightsail instance.
@@ -279,7 +280,7 @@ instance_networking = Lens.lens (\Instance' {networking} -> networking) (\s@Inst
 -- | The timestamp when the instance was created (e.g., @1479734909.17@) in
 -- Unix time format.
 instance_createdAt :: Lens.Lens' Instance (Prelude.Maybe Prelude.UTCTime)
-instance_createdAt = Lens.lens (\Instance' {createdAt} -> createdAt) (\s@Instance' {} a -> s {createdAt = a} :: Instance) Prelude.. Lens.mapping Core._Time
+instance_createdAt = Lens.lens (\Instance' {createdAt} -> createdAt) (\s@Instance' {} a -> s {createdAt = a} :: Instance) Prelude.. Lens.mapping Data._Time
 
 -- | The IPv6 addresses of the instance.
 instance_ipv6Addresses :: Lens.Lens' Instance (Prelude.Maybe [Prelude.Text])
@@ -289,34 +290,34 @@ instance_ipv6Addresses = Lens.lens (\Instance' {ipv6Addresses} -> ipv6Addresses)
 instance_metadataOptions :: Lens.Lens' Instance (Prelude.Maybe InstanceMetadataOptions)
 instance_metadataOptions = Lens.lens (\Instance' {metadataOptions} -> metadataOptions) (\s@Instance' {} a -> s {metadataOptions = a} :: Instance)
 
-instance Core.FromJSON Instance where
+instance Data.FromJSON Instance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Instance"
       ( \x ->
           Instance'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "username")
-            Prelude.<*> (x Core..:? "blueprintId")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "isStaticIp")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "hardware")
-            Prelude.<*> (x Core..:? "publicIpAddress")
-            Prelude.<*> (x Core..:? "bundleId")
-            Prelude.<*> (x Core..:? "privateIpAddress")
-            Prelude.<*> (x Core..:? "sshKeyName")
-            Prelude.<*> (x Core..:? "addOns" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "supportCode")
-            Prelude.<*> (x Core..:? "blueprintName")
-            Prelude.<*> (x Core..:? "ipAddressType")
-            Prelude.<*> (x Core..:? "networking")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "ipv6Addresses" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "metadataOptions")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "username")
+            Prelude.<*> (x Data..:? "blueprintId")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "isStaticIp")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "hardware")
+            Prelude.<*> (x Data..:? "publicIpAddress")
+            Prelude.<*> (x Data..:? "bundleId")
+            Prelude.<*> (x Data..:? "privateIpAddress")
+            Prelude.<*> (x Data..:? "sshKeyName")
+            Prelude.<*> (x Data..:? "addOns" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "supportCode")
+            Prelude.<*> (x Data..:? "blueprintName")
+            Prelude.<*> (x Data..:? "ipAddressType")
+            Prelude.<*> (x Data..:? "networking")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "ipv6Addresses" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "metadataOptions")
       )
 
 instance Prelude.Hashable Instance where

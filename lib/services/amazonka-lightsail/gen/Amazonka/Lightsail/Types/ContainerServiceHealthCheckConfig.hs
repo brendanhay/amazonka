@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.ContainerServiceHealthCheckConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the health check configuration of an Amazon Lightsail
@@ -130,20 +131,20 @@ containerServiceHealthCheckConfig_successCodes :: Lens.Lens' ContainerServiceHea
 containerServiceHealthCheckConfig_successCodes = Lens.lens (\ContainerServiceHealthCheckConfig' {successCodes} -> successCodes) (\s@ContainerServiceHealthCheckConfig' {} a -> s {successCodes = a} :: ContainerServiceHealthCheckConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ContainerServiceHealthCheckConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerServiceHealthCheckConfig"
       ( \x ->
           ContainerServiceHealthCheckConfig'
-            Prelude.<$> (x Core..:? "timeoutSeconds")
-            Prelude.<*> (x Core..:? "intervalSeconds")
-            Prelude.<*> (x Core..:? "path")
-            Prelude.<*> (x Core..:? "healthyThreshold")
-            Prelude.<*> (x Core..:? "unhealthyThreshold")
-            Prelude.<*> (x Core..:? "successCodes")
+            Prelude.<$> (x Data..:? "timeoutSeconds")
+            Prelude.<*> (x Data..:? "intervalSeconds")
+            Prelude.<*> (x Data..:? "path")
+            Prelude.<*> (x Data..:? "healthyThreshold")
+            Prelude.<*> (x Data..:? "unhealthyThreshold")
+            Prelude.<*> (x Data..:? "successCodes")
       )
 
 instance
@@ -173,21 +174,21 @@ instance
       `Prelude.seq` Prelude.rnf successCodes
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ContainerServiceHealthCheckConfig
   where
   toJSON ContainerServiceHealthCheckConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("timeoutSeconds" Core..=)
+          [ ("timeoutSeconds" Data..=)
               Prelude.<$> timeoutSeconds,
-            ("intervalSeconds" Core..=)
+            ("intervalSeconds" Data..=)
               Prelude.<$> intervalSeconds,
-            ("path" Core..=) Prelude.<$> path,
-            ("healthyThreshold" Core..=)
+            ("path" Data..=) Prelude.<$> path,
+            ("healthyThreshold" Data..=)
               Prelude.<$> healthyThreshold,
-            ("unhealthyThreshold" Core..=)
+            ("unhealthyThreshold" Data..=)
               Prelude.<$> unhealthyThreshold,
-            ("successCodes" Core..=) Prelude.<$> successCodes
+            ("successCodes" Data..=) Prelude.<$> successCodes
           ]
       )

@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,7 +122,7 @@ instance Core.AWSRequest DeleteKeyPair where
     Response.receiveJSON
       ( \s h x ->
           DeleteKeyPairResponse'
-            Prelude.<$> (x Core..?> "operation")
+            Prelude.<$> (x Data..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,35 +136,35 @@ instance Prelude.NFData DeleteKeyPair where
     Prelude.rnf expectedFingerprint
       `Prelude.seq` Prelude.rnf keyPairName
 
-instance Core.ToHeaders DeleteKeyPair where
+instance Data.ToHeaders DeleteKeyPair where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.DeleteKeyPair" ::
+              Data.=# ( "Lightsail_20161128.DeleteKeyPair" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteKeyPair where
+instance Data.ToJSON DeleteKeyPair where
   toJSON DeleteKeyPair' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("expectedFingerprint" Core..=)
+          [ ("expectedFingerprint" Data..=)
               Prelude.<$> expectedFingerprint,
-            Prelude.Just ("keyPairName" Core..= keyPairName)
+            Prelude.Just ("keyPairName" Data..= keyPairName)
           ]
       )
 
-instance Core.ToPath DeleteKeyPair where
+instance Data.ToPath DeleteKeyPair where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteKeyPair where
+instance Data.ToQuery DeleteKeyPair where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteKeyPairResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.KeyPair where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.ResourceLocation
 import Amazonka.Lightsail.Types.ResourceType
 import Amazonka.Lightsail.Types.Tag
@@ -51,7 +52,7 @@ data KeyPair = KeyPair'
     -- easily.
     supportCode :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the key pair was created (e.g., @1479816991.349@).
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -134,22 +135,22 @@ keyPair_supportCode = Lens.lens (\KeyPair' {supportCode} -> supportCode) (\s@Key
 
 -- | The timestamp when the key pair was created (e.g., @1479816991.349@).
 keyPair_createdAt :: Lens.Lens' KeyPair (Prelude.Maybe Prelude.UTCTime)
-keyPair_createdAt = Lens.lens (\KeyPair' {createdAt} -> createdAt) (\s@KeyPair' {} a -> s {createdAt = a} :: KeyPair) Prelude.. Lens.mapping Core._Time
+keyPair_createdAt = Lens.lens (\KeyPair' {createdAt} -> createdAt) (\s@KeyPair' {} a -> s {createdAt = a} :: KeyPair) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON KeyPair where
+instance Data.FromJSON KeyPair where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KeyPair"
       ( \x ->
           KeyPair'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "fingerprint")
-            Prelude.<*> (x Core..:? "supportCode")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "fingerprint")
+            Prelude.<*> (x Data..:? "supportCode")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable KeyPair where

@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -231,8 +232,8 @@ instance Core.AWSRequest CreateDistribution where
     Response.receiveJSON
       ( \s h x ->
           CreateDistributionResponse'
-            Prelude.<$> (x Core..?> "distribution")
-            Prelude.<*> (x Core..?> "operation")
+            Prelude.<$> (x Data..?> "distribution")
+            Prelude.<*> (x Data..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -258,46 +259,46 @@ instance Prelude.NFData CreateDistribution where
       `Prelude.seq` Prelude.rnf defaultCacheBehavior
       `Prelude.seq` Prelude.rnf bundleId
 
-instance Core.ToHeaders CreateDistribution where
+instance Data.ToHeaders CreateDistribution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.CreateDistribution" ::
+              Data.=# ( "Lightsail_20161128.CreateDistribution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDistribution where
+instance Data.ToJSON CreateDistribution where
   toJSON CreateDistribution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("cacheBehaviorSettings" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("cacheBehaviorSettings" Data..=)
               Prelude.<$> cacheBehaviorSettings,
-            ("cacheBehaviors" Core..=)
+            ("cacheBehaviors" Data..=)
               Prelude.<$> cacheBehaviors,
-            ("ipAddressType" Core..=) Prelude.<$> ipAddressType,
+            ("ipAddressType" Data..=) Prelude.<$> ipAddressType,
             Prelude.Just
-              ("distributionName" Core..= distributionName),
-            Prelude.Just ("origin" Core..= origin),
+              ("distributionName" Data..= distributionName),
+            Prelude.Just ("origin" Data..= origin),
             Prelude.Just
               ( "defaultCacheBehavior"
-                  Core..= defaultCacheBehavior
+                  Data..= defaultCacheBehavior
               ),
-            Prelude.Just ("bundleId" Core..= bundleId)
+            Prelude.Just ("bundleId" Data..= bundleId)
           ]
       )
 
-instance Core.ToPath CreateDistribution where
+instance Data.ToPath CreateDistribution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDistribution where
+instance Data.ToQuery CreateDistribution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDistributionResponse' smart constructor.

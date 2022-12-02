@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -165,7 +166,7 @@ instance Core.AWSRequest DeleteRelationalDatabase where
     Response.receiveJSON
       ( \s h x ->
           DeleteRelationalDatabaseResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,40 +183,40 @@ instance Prelude.NFData DeleteRelationalDatabase where
       `Prelude.seq` Prelude.rnf skipFinalSnapshot
       `Prelude.seq` Prelude.rnf relationalDatabaseName
 
-instance Core.ToHeaders DeleteRelationalDatabase where
+instance Data.ToHeaders DeleteRelationalDatabase where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.DeleteRelationalDatabase" ::
+              Data.=# ( "Lightsail_20161128.DeleteRelationalDatabase" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteRelationalDatabase where
+instance Data.ToJSON DeleteRelationalDatabase where
   toJSON DeleteRelationalDatabase' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("finalRelationalDatabaseSnapshotName" Core..=)
+          [ ("finalRelationalDatabaseSnapshotName" Data..=)
               Prelude.<$> finalRelationalDatabaseSnapshotName,
-            ("skipFinalSnapshot" Core..=)
+            ("skipFinalSnapshot" Data..=)
               Prelude.<$> skipFinalSnapshot,
             Prelude.Just
               ( "relationalDatabaseName"
-                  Core..= relationalDatabaseName
+                  Data..= relationalDatabaseName
               )
           ]
       )
 
-instance Core.ToPath DeleteRelationalDatabase where
+instance Data.ToPath DeleteRelationalDatabase where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteRelationalDatabase where
+instance Data.ToQuery DeleteRelationalDatabase where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRelationalDatabaseResponse' smart constructor.

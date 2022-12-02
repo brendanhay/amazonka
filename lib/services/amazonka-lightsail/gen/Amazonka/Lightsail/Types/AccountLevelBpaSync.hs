@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.AccountLevelBpaSync where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.AccountLevelBpaSyncStatus
 import Amazonka.Lightsail.Types.BPAStatusMessage
 import qualified Amazonka.Prelude as Prelude
@@ -104,7 +105,7 @@ data AccountLevelBpaSync = AccountLevelBpaSync'
     -- | The timestamp of when the account-level BPA configuration was last
     -- synchronized. This value is null when the account-level BPA
     -- configuration has not been synchronized.
-    lastSyncedAt :: Prelude.Maybe Core.POSIX,
+    lastSyncedAt :: Prelude.Maybe Data.POSIX,
     -- | A Boolean value that indicates whether account-level block public access
     -- is affecting your Lightsail buckets.
     bpaImpactsLightsail :: Prelude.Maybe Prelude.Bool
@@ -253,23 +254,23 @@ accountLevelBpaSync_status = Lens.lens (\AccountLevelBpaSync' {status} -> status
 -- synchronized. This value is null when the account-level BPA
 -- configuration has not been synchronized.
 accountLevelBpaSync_lastSyncedAt :: Lens.Lens' AccountLevelBpaSync (Prelude.Maybe Prelude.UTCTime)
-accountLevelBpaSync_lastSyncedAt = Lens.lens (\AccountLevelBpaSync' {lastSyncedAt} -> lastSyncedAt) (\s@AccountLevelBpaSync' {} a -> s {lastSyncedAt = a} :: AccountLevelBpaSync) Prelude.. Lens.mapping Core._Time
+accountLevelBpaSync_lastSyncedAt = Lens.lens (\AccountLevelBpaSync' {lastSyncedAt} -> lastSyncedAt) (\s@AccountLevelBpaSync' {} a -> s {lastSyncedAt = a} :: AccountLevelBpaSync) Prelude.. Lens.mapping Data._Time
 
 -- | A Boolean value that indicates whether account-level block public access
 -- is affecting your Lightsail buckets.
 accountLevelBpaSync_bpaImpactsLightsail :: Lens.Lens' AccountLevelBpaSync (Prelude.Maybe Prelude.Bool)
 accountLevelBpaSync_bpaImpactsLightsail = Lens.lens (\AccountLevelBpaSync' {bpaImpactsLightsail} -> bpaImpactsLightsail) (\s@AccountLevelBpaSync' {} a -> s {bpaImpactsLightsail = a} :: AccountLevelBpaSync)
 
-instance Core.FromJSON AccountLevelBpaSync where
+instance Data.FromJSON AccountLevelBpaSync where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountLevelBpaSync"
       ( \x ->
           AccountLevelBpaSync'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "lastSyncedAt")
-            Prelude.<*> (x Core..:? "bpaImpactsLightsail")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "lastSyncedAt")
+            Prelude.<*> (x Data..:? "bpaImpactsLightsail")
       )
 
 instance Prelude.Hashable AccountLevelBpaSync where

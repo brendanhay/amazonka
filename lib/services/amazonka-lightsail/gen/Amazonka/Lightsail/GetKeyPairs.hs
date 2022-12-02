@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,8 +132,8 @@ instance Core.AWSRequest GetKeyPairs where
     Response.receiveJSON
       ( \s h x ->
           GetKeyPairsResponse'
-            Prelude.<$> (x Core..?> "keyPairs" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextPageToken")
+            Prelude.<$> (x Data..?> "keyPairs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,35 +147,35 @@ instance Prelude.NFData GetKeyPairs where
     Prelude.rnf includeDefaultKeyPair
       `Prelude.seq` Prelude.rnf pageToken
 
-instance Core.ToHeaders GetKeyPairs where
+instance Data.ToHeaders GetKeyPairs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetKeyPairs" ::
+              Data.=# ( "Lightsail_20161128.GetKeyPairs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetKeyPairs where
+instance Data.ToJSON GetKeyPairs where
   toJSON GetKeyPairs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("includeDefaultKeyPair" Core..=)
+          [ ("includeDefaultKeyPair" Data..=)
               Prelude.<$> includeDefaultKeyPair,
-            ("pageToken" Core..=) Prelude.<$> pageToken
+            ("pageToken" Data..=) Prelude.<$> pageToken
           ]
       )
 
-instance Core.ToPath GetKeyPairs where
+instance Data.ToPath GetKeyPairs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetKeyPairs where
+instance Data.ToQuery GetKeyPairs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetKeyPairsResponse' smart constructor.

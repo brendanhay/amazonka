@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,8 +142,8 @@ instance Core.AWSRequest GetRelationalDatabaseBundles where
     Response.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseBundlesResponse'
-            Prelude.<$> (x Core..?> "nextPageToken")
-            Prelude.<*> (x Core..?> "bundles" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextPageToken")
+            Prelude.<*> (x Data..?> "bundles" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,35 +160,35 @@ instance Prelude.NFData GetRelationalDatabaseBundles where
     Prelude.rnf includeInactive
       `Prelude.seq` Prelude.rnf pageToken
 
-instance Core.ToHeaders GetRelationalDatabaseBundles where
+instance Data.ToHeaders GetRelationalDatabaseBundles where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetRelationalDatabaseBundles" ::
+              Data.=# ( "Lightsail_20161128.GetRelationalDatabaseBundles" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRelationalDatabaseBundles where
+instance Data.ToJSON GetRelationalDatabaseBundles where
   toJSON GetRelationalDatabaseBundles' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("includeInactive" Core..=)
+          [ ("includeInactive" Data..=)
               Prelude.<$> includeInactive,
-            ("pageToken" Core..=) Prelude.<$> pageToken
+            ("pageToken" Data..=) Prelude.<$> pageToken
           ]
       )
 
-instance Core.ToPath GetRelationalDatabaseBundles where
+instance Data.ToPath GetRelationalDatabaseBundles where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRelationalDatabaseBundles where
+instance Data.ToQuery GetRelationalDatabaseBundles where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRelationalDatabaseBundlesResponse' smart constructor.

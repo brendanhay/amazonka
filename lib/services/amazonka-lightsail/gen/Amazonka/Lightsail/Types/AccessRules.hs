@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.AccessRules where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.AccessType
 import qualified Amazonka.Prelude as Prelude
 
@@ -145,14 +146,14 @@ accessRules_allowPublicOverrides = Lens.lens (\AccessRules' {allowPublicOverride
 accessRules_getObject :: Lens.Lens' AccessRules (Prelude.Maybe AccessType)
 accessRules_getObject = Lens.lens (\AccessRules' {getObject} -> getObject) (\s@AccessRules' {} a -> s {getObject = a} :: AccessRules)
 
-instance Core.FromJSON AccessRules where
+instance Data.FromJSON AccessRules where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccessRules"
       ( \x ->
           AccessRules'
-            Prelude.<$> (x Core..:? "allowPublicOverrides")
-            Prelude.<*> (x Core..:? "getObject")
+            Prelude.<$> (x Data..:? "allowPublicOverrides")
+            Prelude.<*> (x Data..:? "getObject")
       )
 
 instance Prelude.Hashable AccessRules where
@@ -165,12 +166,12 @@ instance Prelude.NFData AccessRules where
     Prelude.rnf allowPublicOverrides
       `Prelude.seq` Prelude.rnf getObject
 
-instance Core.ToJSON AccessRules where
+instance Data.ToJSON AccessRules where
   toJSON AccessRules' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("allowPublicOverrides" Core..=)
+          [ ("allowPublicOverrides" Data..=)
               Prelude.<$> allowPublicOverrides,
-            ("getObject" Core..=) Prelude.<$> getObject
+            ("getObject" Data..=) Prelude.<$> getObject
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.PrivateRegistryAccessRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.ContainerServiceECRImagePullerRoleRequest
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,11 +78,11 @@ instance Prelude.NFData PrivateRegistryAccessRequest where
   rnf PrivateRegistryAccessRequest' {..} =
     Prelude.rnf ecrImagePullerRole
 
-instance Core.ToJSON PrivateRegistryAccessRequest where
+instance Data.ToJSON PrivateRegistryAccessRequest where
   toJSON PrivateRegistryAccessRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ecrImagePullerRole" Core..=)
+          [ ("ecrImagePullerRole" Data..=)
               Prelude.<$> ecrImagePullerRole
           ]
       )

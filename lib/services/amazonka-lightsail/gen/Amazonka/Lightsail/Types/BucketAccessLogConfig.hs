@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.BucketAccessLogConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the access log configuration for a bucket in the Amazon
@@ -123,15 +124,15 @@ bucketAccessLogConfig_prefix = Lens.lens (\BucketAccessLogConfig' {prefix} -> pr
 bucketAccessLogConfig_enabled :: Lens.Lens' BucketAccessLogConfig Prelude.Bool
 bucketAccessLogConfig_enabled = Lens.lens (\BucketAccessLogConfig' {enabled} -> enabled) (\s@BucketAccessLogConfig' {} a -> s {enabled = a} :: BucketAccessLogConfig)
 
-instance Core.FromJSON BucketAccessLogConfig where
+instance Data.FromJSON BucketAccessLogConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BucketAccessLogConfig"
       ( \x ->
           BucketAccessLogConfig'
-            Prelude.<$> (x Core..:? "destination")
-            Prelude.<*> (x Core..:? "prefix")
-            Prelude.<*> (x Core..: "enabled")
+            Prelude.<$> (x Data..:? "destination")
+            Prelude.<*> (x Data..:? "prefix")
+            Prelude.<*> (x Data..: "enabled")
       )
 
 instance Prelude.Hashable BucketAccessLogConfig where
@@ -146,12 +147,12 @@ instance Prelude.NFData BucketAccessLogConfig where
       `Prelude.seq` Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON BucketAccessLogConfig where
+instance Data.ToJSON BucketAccessLogConfig where
   toJSON BucketAccessLogConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("destination" Core..=) Prelude.<$> destination,
-            ("prefix" Core..=) Prelude.<$> prefix,
-            Prelude.Just ("enabled" Core..= enabled)
+          [ ("destination" Data..=) Prelude.<$> destination,
+            ("prefix" Data..=) Prelude.<$> prefix,
+            Prelude.Just ("enabled" Data..= enabled)
           ]
       )

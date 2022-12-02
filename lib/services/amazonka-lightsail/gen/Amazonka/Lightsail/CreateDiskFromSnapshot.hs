@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -335,7 +336,7 @@ instance Core.AWSRequest CreateDiskFromSnapshot where
     Response.receiveJSON
       ( \s h x ->
           CreateDiskFromSnapshotResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -363,45 +364,45 @@ instance Prelude.NFData CreateDiskFromSnapshot where
       `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf sizeInGb
 
-instance Core.ToHeaders CreateDiskFromSnapshot where
+instance Data.ToHeaders CreateDiskFromSnapshot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.CreateDiskFromSnapshot" ::
+              Data.=# ( "Lightsail_20161128.CreateDiskFromSnapshot" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDiskFromSnapshot where
+instance Data.ToJSON CreateDiskFromSnapshot where
   toJSON CreateDiskFromSnapshot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("useLatestRestorableAutoSnapshot" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("useLatestRestorableAutoSnapshot" Data..=)
               Prelude.<$> useLatestRestorableAutoSnapshot,
-            ("sourceDiskName" Core..=)
+            ("sourceDiskName" Data..=)
               Prelude.<$> sourceDiskName,
-            ("diskSnapshotName" Core..=)
+            ("diskSnapshotName" Data..=)
               Prelude.<$> diskSnapshotName,
-            ("restoreDate" Core..=) Prelude.<$> restoreDate,
-            ("addOns" Core..=) Prelude.<$> addOns,
-            Prelude.Just ("diskName" Core..= diskName),
+            ("restoreDate" Data..=) Prelude.<$> restoreDate,
+            ("addOns" Data..=) Prelude.<$> addOns,
+            Prelude.Just ("diskName" Data..= diskName),
             Prelude.Just
-              ("availabilityZone" Core..= availabilityZone),
-            Prelude.Just ("sizeInGb" Core..= sizeInGb)
+              ("availabilityZone" Data..= availabilityZone),
+            Prelude.Just ("sizeInGb" Data..= sizeInGb)
           ]
       )
 
-instance Core.ToPath CreateDiskFromSnapshot where
+instance Data.ToPath CreateDiskFromSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDiskFromSnapshot where
+instance Data.ToQuery CreateDiskFromSnapshot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDiskFromSnapshotResponse' smart constructor.

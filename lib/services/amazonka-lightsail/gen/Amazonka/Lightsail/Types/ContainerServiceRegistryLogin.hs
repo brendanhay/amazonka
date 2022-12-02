@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.ContainerServiceRegistryLogin where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the login information for the container image registry of an
@@ -43,7 +44,7 @@ data ContainerServiceRegistryLogin = ContainerServiceRegistryLogin'
     -- The log in credentials expire 12 hours after they are created, at which
     -- point you will need to create a new set of log in credentials using the
     -- @CreateContainerServiceRegistryLogin@ action.
-    expiresAt :: Prelude.Maybe Core.POSIX
+    expiresAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -103,18 +104,18 @@ containerServiceRegistryLogin_username = Lens.lens (\ContainerServiceRegistryLog
 -- point you will need to create a new set of log in credentials using the
 -- @CreateContainerServiceRegistryLogin@ action.
 containerServiceRegistryLogin_expiresAt :: Lens.Lens' ContainerServiceRegistryLogin (Prelude.Maybe Prelude.UTCTime)
-containerServiceRegistryLogin_expiresAt = Lens.lens (\ContainerServiceRegistryLogin' {expiresAt} -> expiresAt) (\s@ContainerServiceRegistryLogin' {} a -> s {expiresAt = a} :: ContainerServiceRegistryLogin) Prelude.. Lens.mapping Core._Time
+containerServiceRegistryLogin_expiresAt = Lens.lens (\ContainerServiceRegistryLogin' {expiresAt} -> expiresAt) (\s@ContainerServiceRegistryLogin' {} a -> s {expiresAt = a} :: ContainerServiceRegistryLogin) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ContainerServiceRegistryLogin where
+instance Data.FromJSON ContainerServiceRegistryLogin where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerServiceRegistryLogin"
       ( \x ->
           ContainerServiceRegistryLogin'
-            Prelude.<$> (x Core..:? "password")
-            Prelude.<*> (x Core..:? "registry")
-            Prelude.<*> (x Core..:? "username")
-            Prelude.<*> (x Core..:? "expiresAt")
+            Prelude.<$> (x Data..:? "password")
+            Prelude.<*> (x Data..:? "registry")
+            Prelude.<*> (x Data..:? "username")
+            Prelude.<*> (x Data..:? "expiresAt")
       )
 
 instance

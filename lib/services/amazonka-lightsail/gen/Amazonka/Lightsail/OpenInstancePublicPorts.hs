@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,7 +105,7 @@ instance Core.AWSRequest OpenInstancePublicPorts where
     Response.receiveJSON
       ( \s h x ->
           OpenInstancePublicPortsResponse'
-            Prelude.<$> (x Core..?> "operation")
+            Prelude.<$> (x Data..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,34 +119,34 @@ instance Prelude.NFData OpenInstancePublicPorts where
     Prelude.rnf portInfo
       `Prelude.seq` Prelude.rnf instanceName
 
-instance Core.ToHeaders OpenInstancePublicPorts where
+instance Data.ToHeaders OpenInstancePublicPorts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.OpenInstancePublicPorts" ::
+              Data.=# ( "Lightsail_20161128.OpenInstancePublicPorts" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON OpenInstancePublicPorts where
+instance Data.ToJSON OpenInstancePublicPorts where
   toJSON OpenInstancePublicPorts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("portInfo" Core..= portInfo),
-            Prelude.Just ("instanceName" Core..= instanceName)
+          [ Prelude.Just ("portInfo" Data..= portInfo),
+            Prelude.Just ("instanceName" Data..= instanceName)
           ]
       )
 
-instance Core.ToPath OpenInstancePublicPorts where
+instance Data.ToPath OpenInstancePublicPorts where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery OpenInstancePublicPorts where
+instance Data.ToQuery OpenInstancePublicPorts where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newOpenInstancePublicPortsResponse' smart constructor.

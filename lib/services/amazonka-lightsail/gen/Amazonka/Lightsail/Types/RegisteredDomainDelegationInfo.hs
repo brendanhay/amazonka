@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.RegisteredDomainDelegationInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.NameServersUpdateState
 import Amazonka.Lightsail.Types.R53HostedZoneDeletionState
 import qualified Amazonka.Prelude as Prelude
@@ -94,14 +95,14 @@ registeredDomainDelegationInfo_r53HostedZoneDeletionState = Lens.lens (\Register
 registeredDomainDelegationInfo_nameServersUpdateState :: Lens.Lens' RegisteredDomainDelegationInfo (Prelude.Maybe NameServersUpdateState)
 registeredDomainDelegationInfo_nameServersUpdateState = Lens.lens (\RegisteredDomainDelegationInfo' {nameServersUpdateState} -> nameServersUpdateState) (\s@RegisteredDomainDelegationInfo' {} a -> s {nameServersUpdateState = a} :: RegisteredDomainDelegationInfo)
 
-instance Core.FromJSON RegisteredDomainDelegationInfo where
+instance Data.FromJSON RegisteredDomainDelegationInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RegisteredDomainDelegationInfo"
       ( \x ->
           RegisteredDomainDelegationInfo'
-            Prelude.<$> (x Core..:? "r53HostedZoneDeletionState")
-            Prelude.<*> (x Core..:? "nameServersUpdateState")
+            Prelude.<$> (x Data..:? "r53HostedZoneDeletionState")
+            Prelude.<*> (x Data..:? "nameServersUpdateState")
       )
 
 instance

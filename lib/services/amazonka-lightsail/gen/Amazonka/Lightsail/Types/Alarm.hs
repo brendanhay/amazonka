@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.Alarm where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.AlarmState
 import Amazonka.Lightsail.Types.ComparisonOperator
 import Amazonka.Lightsail.Types.ContactProtocol
@@ -136,7 +137,7 @@ data Alarm = Alarm'
     -- | The alarm states that trigger a notification.
     notificationTriggers :: Prelude.Maybe [AlarmState],
     -- | The timestamp when the alarm was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -403,38 +404,38 @@ alarm_notificationTriggers = Lens.lens (\Alarm' {notificationTriggers} -> notifi
 
 -- | The timestamp when the alarm was created.
 alarm_createdAt :: Lens.Lens' Alarm (Prelude.Maybe Prelude.UTCTime)
-alarm_createdAt = Lens.lens (\Alarm' {createdAt} -> createdAt) (\s@Alarm' {} a -> s {createdAt = a} :: Alarm) Prelude.. Lens.mapping Core._Time
+alarm_createdAt = Lens.lens (\Alarm' {createdAt} -> createdAt) (\s@Alarm' {} a -> s {createdAt = a} :: Alarm) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Alarm where
+instance Data.FromJSON Alarm where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Alarm"
       ( \x ->
           Alarm'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "period")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "treatMissingData")
-            Prelude.<*> (x Core..:? "evaluationPeriods")
-            Prelude.<*> (x Core..:? "datapointsToAlarm")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "notificationEnabled")
-            Prelude.<*> (x Core..:? "metricName")
-            Prelude.<*> (x Core..:? "monitoredResourceInfo")
-            Prelude.<*> (x Core..:? "threshold")
-            Prelude.<*> ( x Core..:? "contactProtocols"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "period")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "treatMissingData")
+            Prelude.<*> (x Data..:? "evaluationPeriods")
+            Prelude.<*> (x Data..:? "datapointsToAlarm")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "notificationEnabled")
+            Prelude.<*> (x Data..:? "metricName")
+            Prelude.<*> (x Data..:? "monitoredResourceInfo")
+            Prelude.<*> (x Data..:? "threshold")
+            Prelude.<*> ( x Data..:? "contactProtocols"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "comparisonOperator")
-            Prelude.<*> (x Core..:? "supportCode")
-            Prelude.<*> (x Core..:? "statistic")
-            Prelude.<*> (x Core..:? "unit")
-            Prelude.<*> ( x Core..:? "notificationTriggers"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "comparisonOperator")
+            Prelude.<*> (x Data..:? "supportCode")
+            Prelude.<*> (x Data..:? "statistic")
+            Prelude.<*> (x Data..:? "unit")
+            Prelude.<*> ( x Data..:? "notificationTriggers"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable Alarm where

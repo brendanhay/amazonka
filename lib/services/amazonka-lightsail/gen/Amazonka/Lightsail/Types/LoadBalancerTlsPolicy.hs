@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.LoadBalancerTlsPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the TLS security policies that are available for Lightsail
@@ -102,17 +103,17 @@ loadBalancerTlsPolicy_isDefault = Lens.lens (\LoadBalancerTlsPolicy' {isDefault}
 loadBalancerTlsPolicy_ciphers :: Lens.Lens' LoadBalancerTlsPolicy (Prelude.Maybe [Prelude.Text])
 loadBalancerTlsPolicy_ciphers = Lens.lens (\LoadBalancerTlsPolicy' {ciphers} -> ciphers) (\s@LoadBalancerTlsPolicy' {} a -> s {ciphers = a} :: LoadBalancerTlsPolicy) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON LoadBalancerTlsPolicy where
+instance Data.FromJSON LoadBalancerTlsPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoadBalancerTlsPolicy"
       ( \x ->
           LoadBalancerTlsPolicy'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "protocols" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "isDefault")
-            Prelude.<*> (x Core..:? "ciphers" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "protocols" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "isDefault")
+            Prelude.<*> (x Data..:? "ciphers" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable LoadBalancerTlsPolicy where

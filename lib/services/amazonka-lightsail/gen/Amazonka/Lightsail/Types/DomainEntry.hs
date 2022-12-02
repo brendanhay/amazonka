@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.DomainEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a domain recordset entry.
@@ -205,18 +206,18 @@ domainEntry_id = Lens.lens (\DomainEntry' {id} -> id) (\s@DomainEntry' {} a -> s
 domainEntry_options :: Lens.Lens' DomainEntry (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 domainEntry_options = Lens.lens (\DomainEntry' {options} -> options) (\s@DomainEntry' {} a -> s {options = a} :: DomainEntry) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DomainEntry where
+instance Data.FromJSON DomainEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainEntry"
       ( \x ->
           DomainEntry'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "isAlias")
-            Prelude.<*> (x Core..:? "target")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "options" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "isAlias")
+            Prelude.<*> (x Data..:? "target")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "options" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DomainEntry where
@@ -237,15 +238,15 @@ instance Prelude.NFData DomainEntry where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf options
 
-instance Core.ToJSON DomainEntry where
+instance Data.ToJSON DomainEntry where
   toJSON DomainEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("type" Core..=) Prelude.<$> type',
-            ("isAlias" Core..=) Prelude.<$> isAlias,
-            ("target" Core..=) Prelude.<$> target,
-            ("id" Core..=) Prelude.<$> id,
-            ("options" Core..=) Prelude.<$> options
+          [ ("name" Data..=) Prelude.<$> name,
+            ("type" Data..=) Prelude.<$> type',
+            ("isAlias" Data..=) Prelude.<$> isAlias,
+            ("target" Data..=) Prelude.<$> target,
+            ("id" Data..=) Prelude.<$> id,
+            ("options" Data..=) Prelude.<$> options
           ]
       )

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -80,7 +81,7 @@ data GetRelationalDatabaseLogEvents = GetRelationalDatabaseLogEvents'
     --
     --     For example, if you wish to use an end time of October 1, 2018, at 8
     --     PM UTC, then you input @1538424000@ as the end time.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The start of the time interval from which to get log events.
     --
     -- Constraints:
@@ -91,7 +92,7 @@ data GetRelationalDatabaseLogEvents = GetRelationalDatabaseLogEvents'
     --
     --     For example, if you wish to use a start time of October 1, 2018, at
     --     8 PM UTC, then you input @1538424000@ as the start time.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The name of your database for which to get log events.
     relationalDatabaseName :: Prelude.Text,
     -- | The name of the log stream.
@@ -203,7 +204,7 @@ getRelationalDatabaseLogEvents_pageToken = Lens.lens (\GetRelationalDatabaseLogE
 --     For example, if you wish to use an end time of October 1, 2018, at 8
 --     PM UTC, then you input @1538424000@ as the end time.
 getRelationalDatabaseLogEvents_endTime :: Lens.Lens' GetRelationalDatabaseLogEvents (Prelude.Maybe Prelude.UTCTime)
-getRelationalDatabaseLogEvents_endTime = Lens.lens (\GetRelationalDatabaseLogEvents' {endTime} -> endTime) (\s@GetRelationalDatabaseLogEvents' {} a -> s {endTime = a} :: GetRelationalDatabaseLogEvents) Prelude.. Lens.mapping Core._Time
+getRelationalDatabaseLogEvents_endTime = Lens.lens (\GetRelationalDatabaseLogEvents' {endTime} -> endTime) (\s@GetRelationalDatabaseLogEvents' {} a -> s {endTime = a} :: GetRelationalDatabaseLogEvents) Prelude.. Lens.mapping Data._Time
 
 -- | The start of the time interval from which to get log events.
 --
@@ -216,7 +217,7 @@ getRelationalDatabaseLogEvents_endTime = Lens.lens (\GetRelationalDatabaseLogEve
 --     For example, if you wish to use a start time of October 1, 2018, at
 --     8 PM UTC, then you input @1538424000@ as the start time.
 getRelationalDatabaseLogEvents_startTime :: Lens.Lens' GetRelationalDatabaseLogEvents (Prelude.Maybe Prelude.UTCTime)
-getRelationalDatabaseLogEvents_startTime = Lens.lens (\GetRelationalDatabaseLogEvents' {startTime} -> startTime) (\s@GetRelationalDatabaseLogEvents' {} a -> s {startTime = a} :: GetRelationalDatabaseLogEvents) Prelude.. Lens.mapping Core._Time
+getRelationalDatabaseLogEvents_startTime = Lens.lens (\GetRelationalDatabaseLogEvents' {startTime} -> startTime) (\s@GetRelationalDatabaseLogEvents' {} a -> s {startTime = a} :: GetRelationalDatabaseLogEvents) Prelude.. Lens.mapping Data._Time
 
 -- | The name of your database for which to get log events.
 getRelationalDatabaseLogEvents_relationalDatabaseName :: Lens.Lens' GetRelationalDatabaseLogEvents Prelude.Text
@@ -242,11 +243,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseLogEventsResponse'
-            Prelude.<$> (x Core..?> "nextForwardToken")
-            Prelude.<*> ( x Core..?> "resourceLogEvents"
+            Prelude.<$> (x Data..?> "nextForwardToken")
+            Prelude.<*> ( x Data..?> "resourceLogEvents"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextBackwardToken")
+            Prelude.<*> (x Data..?> "nextBackwardToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -277,44 +278,44 @@ instance
       `Prelude.seq` Prelude.rnf logStreamName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetRelationalDatabaseLogEvents
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetRelationalDatabaseLogEvents" ::
+              Data.=# ( "Lightsail_20161128.GetRelationalDatabaseLogEvents" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRelationalDatabaseLogEvents where
+instance Data.ToJSON GetRelationalDatabaseLogEvents where
   toJSON GetRelationalDatabaseLogEvents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("startFromHead" Core..=) Prelude.<$> startFromHead,
-            ("pageToken" Core..=) Prelude.<$> pageToken,
-            ("endTime" Core..=) Prelude.<$> endTime,
-            ("startTime" Core..=) Prelude.<$> startTime,
+          [ ("startFromHead" Data..=) Prelude.<$> startFromHead,
+            ("pageToken" Data..=) Prelude.<$> pageToken,
+            ("endTime" Data..=) Prelude.<$> endTime,
+            ("startTime" Data..=) Prelude.<$> startTime,
             Prelude.Just
               ( "relationalDatabaseName"
-                  Core..= relationalDatabaseName
+                  Data..= relationalDatabaseName
               ),
             Prelude.Just
-              ("logStreamName" Core..= logStreamName)
+              ("logStreamName" Data..= logStreamName)
           ]
       )
 
-instance Core.ToPath GetRelationalDatabaseLogEvents where
+instance Data.ToPath GetRelationalDatabaseLogEvents where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRelationalDatabaseLogEvents where
+instance Data.ToQuery GetRelationalDatabaseLogEvents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRelationalDatabaseLogEventsResponse' smart constructor.

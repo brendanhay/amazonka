@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.InstanceState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the virtual private server (or /instance/) status.
@@ -61,13 +62,13 @@ instanceState_name = Lens.lens (\InstanceState' {name} -> name) (\s@InstanceStat
 instanceState_code :: Lens.Lens' InstanceState (Prelude.Maybe Prelude.Int)
 instanceState_code = Lens.lens (\InstanceState' {code} -> code) (\s@InstanceState' {} a -> s {code = a} :: InstanceState)
 
-instance Core.FromJSON InstanceState where
+instance Data.FromJSON InstanceState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceState"
       ( \x ->
           InstanceState'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "code")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "code")
       )
 
 instance Prelude.Hashable InstanceState where

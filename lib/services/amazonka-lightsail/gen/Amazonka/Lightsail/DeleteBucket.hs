@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -160,7 +161,7 @@ instance Core.AWSRequest DeleteBucket where
     Response.receiveJSON
       ( \s h x ->
           DeleteBucketResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,34 +175,34 @@ instance Prelude.NFData DeleteBucket where
     Prelude.rnf forceDelete
       `Prelude.seq` Prelude.rnf bucketName
 
-instance Core.ToHeaders DeleteBucket where
+instance Data.ToHeaders DeleteBucket where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.DeleteBucket" ::
+              Data.=# ( "Lightsail_20161128.DeleteBucket" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteBucket where
+instance Data.ToJSON DeleteBucket where
   toJSON DeleteBucket' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("forceDelete" Core..=) Prelude.<$> forceDelete,
-            Prelude.Just ("bucketName" Core..= bucketName)
+          [ ("forceDelete" Data..=) Prelude.<$> forceDelete,
+            Prelude.Just ("bucketName" Data..= bucketName)
           ]
       )
 
-instance Core.ToPath DeleteBucket where
+instance Data.ToPath DeleteBucket where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteBucket where
+instance Data.ToQuery DeleteBucket where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteBucketResponse' smart constructor.

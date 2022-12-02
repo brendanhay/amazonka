@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.LoadBalancer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.InstanceHealthSummary
 import Amazonka.Lightsail.Types.IpAddressType
 import Amazonka.Lightsail.Types.LoadBalancerAttributeName
@@ -93,7 +94,7 @@ data LoadBalancer = LoadBalancer'
     -- and IPv6.
     ipAddressType :: Prelude.Maybe IpAddressType,
     -- | The date when your load balancer was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The name of the TLS security policy for the load balancer.
     tlsPolicyName :: Prelude.Maybe Prelude.Text
   }
@@ -283,43 +284,43 @@ loadBalancer_ipAddressType = Lens.lens (\LoadBalancer' {ipAddressType} -> ipAddr
 
 -- | The date when your load balancer was created.
 loadBalancer_createdAt :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.UTCTime)
-loadBalancer_createdAt = Lens.lens (\LoadBalancer' {createdAt} -> createdAt) (\s@LoadBalancer' {} a -> s {createdAt = a} :: LoadBalancer) Prelude.. Lens.mapping Core._Time
+loadBalancer_createdAt = Lens.lens (\LoadBalancer' {createdAt} -> createdAt) (\s@LoadBalancer' {} a -> s {createdAt = a} :: LoadBalancer) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the TLS security policy for the load balancer.
 loadBalancer_tlsPolicyName :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.Text)
 loadBalancer_tlsPolicyName = Lens.lens (\LoadBalancer' {tlsPolicyName} -> tlsPolicyName) (\s@LoadBalancer' {} a -> s {tlsPolicyName = a} :: LoadBalancer)
 
-instance Core.FromJSON LoadBalancer where
+instance Data.FromJSON LoadBalancer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoadBalancer"
       ( \x ->
           LoadBalancer'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "httpsRedirectionEnabled")
-            Prelude.<*> (x Core..:? "healthCheckPath")
-            Prelude.<*> ( x Core..:? "instanceHealthSummary"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "httpsRedirectionEnabled")
+            Prelude.<*> (x Data..:? "healthCheckPath")
+            Prelude.<*> ( x Data..:? "instanceHealthSummary"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "configurationOptions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "configurationOptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "publicPorts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "instancePort")
-            Prelude.<*> ( x Core..:? "tlsCertificateSummaries"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "publicPorts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "instancePort")
+            Prelude.<*> ( x Data..:? "tlsCertificateSummaries"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "protocol")
-            Prelude.<*> (x Core..:? "dnsName")
-            Prelude.<*> (x Core..:? "supportCode")
-            Prelude.<*> (x Core..:? "ipAddressType")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "tlsPolicyName")
+            Prelude.<*> (x Data..:? "protocol")
+            Prelude.<*> (x Data..:? "dnsName")
+            Prelude.<*> (x Data..:? "supportCode")
+            Prelude.<*> (x Data..:? "ipAddressType")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "tlsPolicyName")
       )
 
 instance Prelude.Hashable LoadBalancer where

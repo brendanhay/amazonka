@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,7 +92,7 @@ instance Core.AWSRequest GetBucketAccessKeys where
     Response.receiveJSON
       ( \s h x ->
           GetBucketAccessKeysResponse'
-            Prelude.<$> (x Core..?> "accessKeys" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "accessKeys" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -102,32 +103,32 @@ instance Prelude.Hashable GetBucketAccessKeys where
 instance Prelude.NFData GetBucketAccessKeys where
   rnf GetBucketAccessKeys' {..} = Prelude.rnf bucketName
 
-instance Core.ToHeaders GetBucketAccessKeys where
+instance Data.ToHeaders GetBucketAccessKeys where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetBucketAccessKeys" ::
+              Data.=# ( "Lightsail_20161128.GetBucketAccessKeys" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetBucketAccessKeys where
+instance Data.ToJSON GetBucketAccessKeys where
   toJSON GetBucketAccessKeys' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("bucketName" Core..= bucketName)]
+          [Prelude.Just ("bucketName" Data..= bucketName)]
       )
 
-instance Core.ToPath GetBucketAccessKeys where
+instance Data.ToPath GetBucketAccessKeys where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetBucketAccessKeys where
+instance Data.ToQuery GetBucketAccessKeys where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetBucketAccessKeysResponse' smart constructor.

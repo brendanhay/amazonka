@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.PasswordData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The password data for the Windows Server-based instance, including the
@@ -122,14 +123,14 @@ passwordData_ciphertext = Lens.lens (\PasswordData' {ciphertext} -> ciphertext) 
 passwordData_keyPairName :: Lens.Lens' PasswordData (Prelude.Maybe Prelude.Text)
 passwordData_keyPairName = Lens.lens (\PasswordData' {keyPairName} -> keyPairName) (\s@PasswordData' {} a -> s {keyPairName = a} :: PasswordData)
 
-instance Core.FromJSON PasswordData where
+instance Data.FromJSON PasswordData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PasswordData"
       ( \x ->
           PasswordData'
-            Prelude.<$> (x Core..:? "ciphertext")
-            Prelude.<*> (x Core..:? "keyPairName")
+            Prelude.<$> (x Data..:? "ciphertext")
+            Prelude.<*> (x Data..:? "keyPairName")
       )
 
 instance Prelude.Hashable PasswordData where

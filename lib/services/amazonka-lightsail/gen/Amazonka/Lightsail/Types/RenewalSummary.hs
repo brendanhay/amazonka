@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.RenewalSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.DomainValidationRecord
 import Amazonka.Lightsail.Types.RenewalStatus
 import qualified Amazonka.Prelude as Prelude
@@ -60,7 +61,7 @@ data RenewalSummary = RenewalSummary'
     -- certificate.
     domainValidationRecords :: Prelude.Maybe [DomainValidationRecord],
     -- | The timestamp when the certificate was last updated.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -150,20 +151,20 @@ renewalSummary_domainValidationRecords = Lens.lens (\RenewalSummary' {domainVali
 
 -- | The timestamp when the certificate was last updated.
 renewalSummary_updatedAt :: Lens.Lens' RenewalSummary (Prelude.Maybe Prelude.UTCTime)
-renewalSummary_updatedAt = Lens.lens (\RenewalSummary' {updatedAt} -> updatedAt) (\s@RenewalSummary' {} a -> s {updatedAt = a} :: RenewalSummary) Prelude.. Lens.mapping Core._Time
+renewalSummary_updatedAt = Lens.lens (\RenewalSummary' {updatedAt} -> updatedAt) (\s@RenewalSummary' {} a -> s {updatedAt = a} :: RenewalSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON RenewalSummary where
+instance Data.FromJSON RenewalSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RenewalSummary"
       ( \x ->
           RenewalSummary'
-            Prelude.<$> (x Core..:? "renewalStatusReason")
-            Prelude.<*> (x Core..:? "renewalStatus")
-            Prelude.<*> ( x Core..:? "domainValidationRecords"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "renewalStatusReason")
+            Prelude.<*> (x Data..:? "renewalStatus")
+            Prelude.<*> ( x Data..:? "domainValidationRecords"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "updatedAt")
+            Prelude.<*> (x Data..:? "updatedAt")
       )
 
 instance Prelude.Hashable RenewalSummary where

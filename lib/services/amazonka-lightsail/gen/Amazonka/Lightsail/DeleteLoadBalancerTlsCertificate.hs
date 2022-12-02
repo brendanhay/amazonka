@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,7 +135,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DeleteLoadBalancerTlsCertificateResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,40 +160,40 @@ instance
       `Prelude.seq` Prelude.rnf certificateName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteLoadBalancerTlsCertificate
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.DeleteLoadBalancerTlsCertificate" ::
+              Data.=# ( "Lightsail_20161128.DeleteLoadBalancerTlsCertificate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteLoadBalancerTlsCertificate where
+instance Data.ToJSON DeleteLoadBalancerTlsCertificate where
   toJSON DeleteLoadBalancerTlsCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("force" Core..=) Prelude.<$> force,
+          [ ("force" Data..=) Prelude.<$> force,
             Prelude.Just
-              ("loadBalancerName" Core..= loadBalancerName),
+              ("loadBalancerName" Data..= loadBalancerName),
             Prelude.Just
-              ("certificateName" Core..= certificateName)
+              ("certificateName" Data..= certificateName)
           ]
       )
 
-instance Core.ToPath DeleteLoadBalancerTlsCertificate where
+instance Data.ToPath DeleteLoadBalancerTlsCertificate where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteLoadBalancerTlsCertificate
   where
   toQuery = Prelude.const Prelude.mempty

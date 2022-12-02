@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,7 +96,7 @@ data CreateRelationalDatabaseFromSnapshot = CreateRelationalDatabaseFromSnapshot
     --
     --     For example, if you wish to use a restore time of October 1, 2018,
     --     at 8 PM UTC, then you input @1538424000@ as the restore time.
-    restoreTime :: Prelude.Maybe Core.POSIX,
+    restoreTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the source database.
     sourceRelationalDatabaseName :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone in which to create your new database. Use the
@@ -261,7 +262,7 @@ createRelationalDatabaseFromSnapshot_tags = Lens.lens (\CreateRelationalDatabase
 --     For example, if you wish to use a restore time of October 1, 2018,
 --     at 8 PM UTC, then you input @1538424000@ as the restore time.
 createRelationalDatabaseFromSnapshot_restoreTime :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Prelude.Maybe Prelude.UTCTime)
-createRelationalDatabaseFromSnapshot_restoreTime = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {restoreTime} -> restoreTime) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {restoreTime = a} :: CreateRelationalDatabaseFromSnapshot) Prelude.. Lens.mapping Core._Time
+createRelationalDatabaseFromSnapshot_restoreTime = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {restoreTime} -> restoreTime) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {restoreTime = a} :: CreateRelationalDatabaseFromSnapshot) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the source database.
 createRelationalDatabaseFromSnapshot_sourceRelationalDatabaseName :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Prelude.Maybe Prelude.Text)
@@ -323,7 +324,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateRelationalDatabaseFromSnapshotResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -361,59 +362,59 @@ instance
       `Prelude.seq` Prelude.rnf relationalDatabaseName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateRelationalDatabaseFromSnapshot
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.CreateRelationalDatabaseFromSnapshot" ::
+              Data.=# ( "Lightsail_20161128.CreateRelationalDatabaseFromSnapshot" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateRelationalDatabaseFromSnapshot
   where
   toJSON CreateRelationalDatabaseFromSnapshot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("relationalDatabaseBundleId" Core..=)
+          [ ("relationalDatabaseBundleId" Data..=)
               Prelude.<$> relationalDatabaseBundleId,
-            ("tags" Core..=) Prelude.<$> tags,
-            ("restoreTime" Core..=) Prelude.<$> restoreTime,
-            ("sourceRelationalDatabaseName" Core..=)
+            ("tags" Data..=) Prelude.<$> tags,
+            ("restoreTime" Data..=) Prelude.<$> restoreTime,
+            ("sourceRelationalDatabaseName" Data..=)
               Prelude.<$> sourceRelationalDatabaseName,
-            ("availabilityZone" Core..=)
+            ("availabilityZone" Data..=)
               Prelude.<$> availabilityZone,
-            ("publiclyAccessible" Core..=)
+            ("publiclyAccessible" Data..=)
               Prelude.<$> publiclyAccessible,
-            ("useLatestRestorableTime" Core..=)
+            ("useLatestRestorableTime" Data..=)
               Prelude.<$> useLatestRestorableTime,
-            ("relationalDatabaseSnapshotName" Core..=)
+            ("relationalDatabaseSnapshotName" Data..=)
               Prelude.<$> relationalDatabaseSnapshotName,
             Prelude.Just
               ( "relationalDatabaseName"
-                  Core..= relationalDatabaseName
+                  Data..= relationalDatabaseName
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateRelationalDatabaseFromSnapshot
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateRelationalDatabaseFromSnapshot
   where
   toQuery = Prelude.const Prelude.mempty

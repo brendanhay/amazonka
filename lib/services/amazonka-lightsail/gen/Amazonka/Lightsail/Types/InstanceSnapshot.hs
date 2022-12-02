@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.InstanceSnapshot where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.Disk
 import Amazonka.Lightsail.Types.InstanceSnapshotState
 import Amazonka.Lightsail.Types.ResourceLocation
@@ -78,7 +79,7 @@ data InstanceSnapshot = InstanceSnapshot'
     -- easily.
     supportCode :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the snapshot was created (e.g., @1479907467.024@).
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -235,32 +236,32 @@ instanceSnapshot_supportCode = Lens.lens (\InstanceSnapshot' {supportCode} -> su
 
 -- | The timestamp when the snapshot was created (e.g., @1479907467.024@).
 instanceSnapshot_createdAt :: Lens.Lens' InstanceSnapshot (Prelude.Maybe Prelude.UTCTime)
-instanceSnapshot_createdAt = Lens.lens (\InstanceSnapshot' {createdAt} -> createdAt) (\s@InstanceSnapshot' {} a -> s {createdAt = a} :: InstanceSnapshot) Prelude.. Lens.mapping Core._Time
+instanceSnapshot_createdAt = Lens.lens (\InstanceSnapshot' {createdAt} -> createdAt) (\s@InstanceSnapshot' {} a -> s {createdAt = a} :: InstanceSnapshot) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON InstanceSnapshot where
+instance Data.FromJSON InstanceSnapshot where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceSnapshot"
       ( \x ->
           InstanceSnapshot'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "progress")
-            Prelude.<*> ( x Core..:? "fromAttachedDisks"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "progress")
+            Prelude.<*> ( x Data..:? "fromAttachedDisks"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "fromInstanceArn")
-            Prelude.<*> (x Core..:? "sizeInGb")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "fromBlueprintId")
-            Prelude.<*> (x Core..:? "fromInstanceName")
-            Prelude.<*> (x Core..:? "isFromAutoSnapshot")
-            Prelude.<*> (x Core..:? "fromBundleId")
-            Prelude.<*> (x Core..:? "supportCode")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "fromInstanceArn")
+            Prelude.<*> (x Data..:? "sizeInGb")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "fromBlueprintId")
+            Prelude.<*> (x Data..:? "fromInstanceName")
+            Prelude.<*> (x Data..:? "isFromAutoSnapshot")
+            Prelude.<*> (x Data..:? "fromBundleId")
+            Prelude.<*> (x Data..:? "supportCode")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable InstanceSnapshot where

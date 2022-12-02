@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest GetInstancePortStates where
     Response.receiveJSON
       ( \s h x ->
           GetInstancePortStatesResponse'
-            Prelude.<$> (x Core..?> "portStates" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "portStates" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,32 +101,32 @@ instance Prelude.NFData GetInstancePortStates where
   rnf GetInstancePortStates' {..} =
     Prelude.rnf instanceName
 
-instance Core.ToHeaders GetInstancePortStates where
+instance Data.ToHeaders GetInstancePortStates where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetInstancePortStates" ::
+              Data.=# ( "Lightsail_20161128.GetInstancePortStates" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetInstancePortStates where
+instance Data.ToJSON GetInstancePortStates where
   toJSON GetInstancePortStates' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("instanceName" Core..= instanceName)]
+          [Prelude.Just ("instanceName" Data..= instanceName)]
       )
 
-instance Core.ToPath GetInstancePortStates where
+instance Data.ToPath GetInstancePortStates where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetInstancePortStates where
+instance Data.ToQuery GetInstancePortStates where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInstancePortStatesResponse' smart constructor.

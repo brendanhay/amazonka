@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,7 +107,7 @@ instance Core.AWSRequest GetRegions where
     Response.receiveJSON
       ( \s h x ->
           GetRegionsResponse'
-            Prelude.<$> (x Core..?> "regions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "regions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,38 +123,38 @@ instance Prelude.NFData GetRegions where
       includeRelationalDatabaseAvailabilityZones
       `Prelude.seq` Prelude.rnf includeAvailabilityZones
 
-instance Core.ToHeaders GetRegions where
+instance Data.ToHeaders GetRegions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetRegions" ::
+              Data.=# ( "Lightsail_20161128.GetRegions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRegions where
+instance Data.ToJSON GetRegions where
   toJSON GetRegions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ ( "includeRelationalDatabaseAvailabilityZones"
-                Core..=
+                Data..=
             )
               Prelude.<$> includeRelationalDatabaseAvailabilityZones,
-            ("includeAvailabilityZones" Core..=)
+            ("includeAvailabilityZones" Data..=)
               Prelude.<$> includeAvailabilityZones
           ]
       )
 
-instance Core.ToPath GetRegions where
+instance Data.ToPath GetRegions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRegions where
+instance Data.ToQuery GetRegions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRegionsResponse' smart constructor.

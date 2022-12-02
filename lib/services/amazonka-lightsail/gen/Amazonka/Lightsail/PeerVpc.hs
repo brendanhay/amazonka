@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -65,7 +66,7 @@ instance Core.AWSRequest PeerVpc where
     Response.receiveJSON
       ( \s h x ->
           PeerVpcResponse'
-            Prelude.<$> (x Core..?> "operation")
+            Prelude.<$> (x Data..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -76,26 +77,26 @@ instance Prelude.Hashable PeerVpc where
 instance Prelude.NFData PeerVpc where
   rnf _ = ()
 
-instance Core.ToHeaders PeerVpc where
+instance Data.ToHeaders PeerVpc where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("Lightsail_20161128.PeerVpc" :: Prelude.ByteString),
+              Data.=# ("Lightsail_20161128.PeerVpc" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PeerVpc where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON PeerVpc where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath PeerVpc where
+instance Data.ToPath PeerVpc where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PeerVpc where
+instance Data.ToQuery PeerVpc where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPeerVpcResponse' smart constructor.

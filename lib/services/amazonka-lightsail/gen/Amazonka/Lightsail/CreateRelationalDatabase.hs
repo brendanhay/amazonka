@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,7 +113,7 @@ data CreateRelationalDatabase = CreateRelationalDatabase'
     -- __PostgreSQL__
     --
     -- Constraints: Must contain from 8 to 128 characters.
-    masterUserPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    masterUserPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The weekly time range during which system maintenance can occur on your
     -- new database.
     --
@@ -523,7 +524,7 @@ createRelationalDatabase_publiclyAccessible = Lens.lens (\CreateRelationalDataba
 --
 -- Constraints: Must contain from 8 to 128 characters.
 createRelationalDatabase_masterUserPassword :: Lens.Lens' CreateRelationalDatabase (Prelude.Maybe Prelude.Text)
-createRelationalDatabase_masterUserPassword = Lens.lens (\CreateRelationalDatabase' {masterUserPassword} -> masterUserPassword) (\s@CreateRelationalDatabase' {} a -> s {masterUserPassword = a} :: CreateRelationalDatabase) Prelude.. Lens.mapping Core._Sensitive
+createRelationalDatabase_masterUserPassword = Lens.lens (\CreateRelationalDatabase' {masterUserPassword} -> masterUserPassword) (\s@CreateRelationalDatabase' {} a -> s {masterUserPassword = a} :: CreateRelationalDatabase) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The weekly time range during which system maintenance can occur on your
 -- new database.
@@ -675,7 +676,7 @@ instance Core.AWSRequest CreateRelationalDatabase where
     Response.receiveJSON
       ( \s h x ->
           CreateRelationalDatabaseResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -707,59 +708,59 @@ instance Prelude.NFData CreateRelationalDatabase where
       `Prelude.seq` Prelude.rnf masterDatabaseName
       `Prelude.seq` Prelude.rnf masterUsername
 
-instance Core.ToHeaders CreateRelationalDatabase where
+instance Data.ToHeaders CreateRelationalDatabase where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.CreateRelationalDatabase" ::
+              Data.=# ( "Lightsail_20161128.CreateRelationalDatabase" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRelationalDatabase where
+instance Data.ToJSON CreateRelationalDatabase where
   toJSON CreateRelationalDatabase' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("preferredBackupWindow" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("preferredBackupWindow" Data..=)
               Prelude.<$> preferredBackupWindow,
-            ("availabilityZone" Core..=)
+            ("availabilityZone" Data..=)
               Prelude.<$> availabilityZone,
-            ("publiclyAccessible" Core..=)
+            ("publiclyAccessible" Data..=)
               Prelude.<$> publiclyAccessible,
-            ("masterUserPassword" Core..=)
+            ("masterUserPassword" Data..=)
               Prelude.<$> masterUserPassword,
-            ("preferredMaintenanceWindow" Core..=)
+            ("preferredMaintenanceWindow" Data..=)
               Prelude.<$> preferredMaintenanceWindow,
             Prelude.Just
               ( "relationalDatabaseName"
-                  Core..= relationalDatabaseName
+                  Data..= relationalDatabaseName
               ),
             Prelude.Just
               ( "relationalDatabaseBlueprintId"
-                  Core..= relationalDatabaseBlueprintId
+                  Data..= relationalDatabaseBlueprintId
               ),
             Prelude.Just
               ( "relationalDatabaseBundleId"
-                  Core..= relationalDatabaseBundleId
+                  Data..= relationalDatabaseBundleId
               ),
             Prelude.Just
-              ("masterDatabaseName" Core..= masterDatabaseName),
+              ("masterDatabaseName" Data..= masterDatabaseName),
             Prelude.Just
-              ("masterUsername" Core..= masterUsername)
+              ("masterUsername" Data..= masterUsername)
           ]
       )
 
-instance Core.ToPath CreateRelationalDatabase where
+instance Data.ToPath CreateRelationalDatabase where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateRelationalDatabase where
+instance Data.ToQuery CreateRelationalDatabase where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRelationalDatabaseResponse' smart constructor.

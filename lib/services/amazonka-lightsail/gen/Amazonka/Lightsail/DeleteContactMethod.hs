@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,7 +104,7 @@ instance Core.AWSRequest DeleteContactMethod where
     Response.receiveJSON
       ( \s h x ->
           DeleteContactMethodResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,32 +115,32 @@ instance Prelude.Hashable DeleteContactMethod where
 instance Prelude.NFData DeleteContactMethod where
   rnf DeleteContactMethod' {..} = Prelude.rnf protocol
 
-instance Core.ToHeaders DeleteContactMethod where
+instance Data.ToHeaders DeleteContactMethod where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.DeleteContactMethod" ::
+              Data.=# ( "Lightsail_20161128.DeleteContactMethod" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteContactMethod where
+instance Data.ToJSON DeleteContactMethod where
   toJSON DeleteContactMethod' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("protocol" Core..= protocol)]
+          [Prelude.Just ("protocol" Data..= protocol)]
       )
 
-instance Core.ToPath DeleteContactMethod where
+instance Data.ToPath DeleteContactMethod where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteContactMethod where
+instance Data.ToQuery DeleteContactMethod where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteContactMethodResponse' smart constructor.

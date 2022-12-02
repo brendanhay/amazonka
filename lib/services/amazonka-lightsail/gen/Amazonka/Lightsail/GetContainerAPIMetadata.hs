@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -68,7 +69,7 @@ instance Core.AWSRequest GetContainerAPIMetadata where
     Response.receiveJSON
       ( \s h x ->
           GetContainerAPIMetadataResponse'
-            Prelude.<$> (x Core..?> "metadata" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "metadata" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -79,28 +80,28 @@ instance Prelude.Hashable GetContainerAPIMetadata where
 instance Prelude.NFData GetContainerAPIMetadata where
   rnf _ = ()
 
-instance Core.ToHeaders GetContainerAPIMetadata where
+instance Data.ToHeaders GetContainerAPIMetadata where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetContainerAPIMetadata" ::
+              Data.=# ( "Lightsail_20161128.GetContainerAPIMetadata" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetContainerAPIMetadata where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetContainerAPIMetadata where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetContainerAPIMetadata where
+instance Data.ToPath GetContainerAPIMetadata where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetContainerAPIMetadata where
+instance Data.ToQuery GetContainerAPIMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetContainerAPIMetadataResponse' smart constructor.

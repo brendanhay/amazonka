@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.ContainerServiceDeployment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.Container
 import Amazonka.Lightsail.Types.ContainerServiceDeploymentState
 import Amazonka.Lightsail.Types.ContainerServiceEndpoint
@@ -57,7 +58,7 @@ data ContainerServiceDeployment = ContainerServiceDeployment'
     -- | An object that describes the endpoint of the deployment.
     publicEndpoint :: Prelude.Maybe ContainerServiceEndpoint,
     -- | The timestamp when the deployment was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The version number of the deployment.
     version :: Prelude.Maybe Prelude.Int
   }
@@ -138,23 +139,23 @@ containerServiceDeployment_publicEndpoint = Lens.lens (\ContainerServiceDeployme
 
 -- | The timestamp when the deployment was created.
 containerServiceDeployment_createdAt :: Lens.Lens' ContainerServiceDeployment (Prelude.Maybe Prelude.UTCTime)
-containerServiceDeployment_createdAt = Lens.lens (\ContainerServiceDeployment' {createdAt} -> createdAt) (\s@ContainerServiceDeployment' {} a -> s {createdAt = a} :: ContainerServiceDeployment) Prelude.. Lens.mapping Core._Time
+containerServiceDeployment_createdAt = Lens.lens (\ContainerServiceDeployment' {createdAt} -> createdAt) (\s@ContainerServiceDeployment' {} a -> s {createdAt = a} :: ContainerServiceDeployment) Prelude.. Lens.mapping Data._Time
 
 -- | The version number of the deployment.
 containerServiceDeployment_version :: Lens.Lens' ContainerServiceDeployment (Prelude.Maybe Prelude.Int)
 containerServiceDeployment_version = Lens.lens (\ContainerServiceDeployment' {version} -> version) (\s@ContainerServiceDeployment' {} a -> s {version = a} :: ContainerServiceDeployment)
 
-instance Core.FromJSON ContainerServiceDeployment where
+instance Data.FromJSON ContainerServiceDeployment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerServiceDeployment"
       ( \x ->
           ContainerServiceDeployment'
-            Prelude.<$> (x Core..:? "containers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "publicEndpoint")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "containers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "publicEndpoint")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable ContainerServiceDeployment where

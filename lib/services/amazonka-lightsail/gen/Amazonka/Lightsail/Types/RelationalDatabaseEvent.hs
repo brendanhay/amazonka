@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.RelationalDatabaseEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an event for a database.
@@ -32,7 +33,7 @@ data RelationalDatabaseEvent = RelationalDatabaseEvent'
     -- | The category that the database event belongs to.
     eventCategories :: Prelude.Maybe [Prelude.Text],
     -- | The timestamp when the database event was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The database that the database event relates to.
     resource :: Prelude.Maybe Prelude.Text
   }
@@ -73,24 +74,24 @@ relationalDatabaseEvent_eventCategories = Lens.lens (\RelationalDatabaseEvent' {
 
 -- | The timestamp when the database event was created.
 relationalDatabaseEvent_createdAt :: Lens.Lens' RelationalDatabaseEvent (Prelude.Maybe Prelude.UTCTime)
-relationalDatabaseEvent_createdAt = Lens.lens (\RelationalDatabaseEvent' {createdAt} -> createdAt) (\s@RelationalDatabaseEvent' {} a -> s {createdAt = a} :: RelationalDatabaseEvent) Prelude.. Lens.mapping Core._Time
+relationalDatabaseEvent_createdAt = Lens.lens (\RelationalDatabaseEvent' {createdAt} -> createdAt) (\s@RelationalDatabaseEvent' {} a -> s {createdAt = a} :: RelationalDatabaseEvent) Prelude.. Lens.mapping Data._Time
 
 -- | The database that the database event relates to.
 relationalDatabaseEvent_resource :: Lens.Lens' RelationalDatabaseEvent (Prelude.Maybe Prelude.Text)
 relationalDatabaseEvent_resource = Lens.lens (\RelationalDatabaseEvent' {resource} -> resource) (\s@RelationalDatabaseEvent' {} a -> s {resource = a} :: RelationalDatabaseEvent)
 
-instance Core.FromJSON RelationalDatabaseEvent where
+instance Data.FromJSON RelationalDatabaseEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RelationalDatabaseEvent"
       ( \x ->
           RelationalDatabaseEvent'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> ( x Core..:? "eventCategories"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> ( x Data..:? "eventCategories"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "resource")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "resource")
       )
 
 instance Prelude.Hashable RelationalDatabaseEvent where

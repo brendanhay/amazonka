@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.Certificate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.CertificateStatus
 import Amazonka.Lightsail.Types.DomainValidationRecord
 import Amazonka.Lightsail.Types.RenewalSummary
@@ -111,7 +112,7 @@ data Certificate = Certificate'
     -- | The number of Lightsail resources that the certificate is attached to.
     inUseResourceCount :: Prelude.Maybe Prelude.Int,
     -- | The timestamp when the certificate is first valid.
-    notBefore :: Prelude.Maybe Core.POSIX,
+    notBefore :: Prelude.Maybe Data.POSIX,
     -- | The reason the certificate was revoked. This value is present only when
     -- the certificate status is @REVOKED@.
     revocationReason :: Prelude.Maybe Prelude.Text,
@@ -124,7 +125,7 @@ data Certificate = Certificate'
     eligibleToRenew :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the certificate was revoked. This value is present
     -- only when the certificate status is @REVOKED@.
-    revokedAt :: Prelude.Maybe Core.POSIX,
+    revokedAt :: Prelude.Maybe Data.POSIX,
     -- | The support code. Include this code in your email to support when you
     -- have questions about your Lightsail certificate. This code enables our
     -- support team to look up your Lightsail information more easily.
@@ -132,15 +133,15 @@ data Certificate = Certificate'
     -- | The certificate authority that issued the certificate.
     issuerCA :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the certificate expires.
-    notAfter :: Prelude.Maybe Core.POSIX,
+    notAfter :: Prelude.Maybe Data.POSIX,
     -- | An array of strings that specify the alternate domains (e.g.,
     -- @example2.com@) and subdomains (e.g., @blog.example.com@) of the
     -- certificate.
     subjectAlternativeNames :: Prelude.Maybe [Prelude.Text],
     -- | The timestamp when the certificate was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The timestamp when the certificate was issued.
-    issuedAt :: Prelude.Maybe Core.POSIX
+    issuedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -377,7 +378,7 @@ certificate_inUseResourceCount = Lens.lens (\Certificate' {inUseResourceCount} -
 
 -- | The timestamp when the certificate is first valid.
 certificate_notBefore :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
-certificate_notBefore = Lens.lens (\Certificate' {notBefore} -> notBefore) (\s@Certificate' {} a -> s {notBefore = a} :: Certificate) Prelude.. Lens.mapping Core._Time
+certificate_notBefore = Lens.lens (\Certificate' {notBefore} -> notBefore) (\s@Certificate' {} a -> s {notBefore = a} :: Certificate) Prelude.. Lens.mapping Data._Time
 
 -- | The reason the certificate was revoked. This value is present only when
 -- the certificate status is @REVOKED@.
@@ -400,7 +401,7 @@ certificate_eligibleToRenew = Lens.lens (\Certificate' {eligibleToRenew} -> elig
 -- | The timestamp when the certificate was revoked. This value is present
 -- only when the certificate status is @REVOKED@.
 certificate_revokedAt :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
-certificate_revokedAt = Lens.lens (\Certificate' {revokedAt} -> revokedAt) (\s@Certificate' {} a -> s {revokedAt = a} :: Certificate) Prelude.. Lens.mapping Core._Time
+certificate_revokedAt = Lens.lens (\Certificate' {revokedAt} -> revokedAt) (\s@Certificate' {} a -> s {revokedAt = a} :: Certificate) Prelude.. Lens.mapping Data._Time
 
 -- | The support code. Include this code in your email to support when you
 -- have questions about your Lightsail certificate. This code enables our
@@ -414,7 +415,7 @@ certificate_issuerCA = Lens.lens (\Certificate' {issuerCA} -> issuerCA) (\s@Cert
 
 -- | The timestamp when the certificate expires.
 certificate_notAfter :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
-certificate_notAfter = Lens.lens (\Certificate' {notAfter} -> notAfter) (\s@Certificate' {} a -> s {notAfter = a} :: Certificate) Prelude.. Lens.mapping Core._Time
+certificate_notAfter = Lens.lens (\Certificate' {notAfter} -> notAfter) (\s@Certificate' {} a -> s {notAfter = a} :: Certificate) Prelude.. Lens.mapping Data._Time
 
 -- | An array of strings that specify the alternate domains (e.g.,
 -- @example2.com@) and subdomains (e.g., @blog.example.com@) of the
@@ -424,43 +425,43 @@ certificate_subjectAlternativeNames = Lens.lens (\Certificate' {subjectAlternati
 
 -- | The timestamp when the certificate was created.
 certificate_createdAt :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
-certificate_createdAt = Lens.lens (\Certificate' {createdAt} -> createdAt) (\s@Certificate' {} a -> s {createdAt = a} :: Certificate) Prelude.. Lens.mapping Core._Time
+certificate_createdAt = Lens.lens (\Certificate' {createdAt} -> createdAt) (\s@Certificate' {} a -> s {createdAt = a} :: Certificate) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp when the certificate was issued.
 certificate_issuedAt :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
-certificate_issuedAt = Lens.lens (\Certificate' {issuedAt} -> issuedAt) (\s@Certificate' {} a -> s {issuedAt = a} :: Certificate) Prelude.. Lens.mapping Core._Time
+certificate_issuedAt = Lens.lens (\Certificate' {issuedAt} -> issuedAt) (\s@Certificate' {} a -> s {issuedAt = a} :: Certificate) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Certificate where
+instance Data.FromJSON Certificate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Certificate"
       ( \x ->
           Certificate'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "domainName")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "renewalSummary")
-            Prelude.<*> (x Core..:? "keyAlgorithm")
-            Prelude.<*> (x Core..:? "requestFailureReason")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "inUseResourceCount")
-            Prelude.<*> (x Core..:? "notBefore")
-            Prelude.<*> (x Core..:? "revocationReason")
-            Prelude.<*> (x Core..:? "serialNumber")
-            Prelude.<*> ( x Core..:? "domainValidationRecords"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "domainName")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "renewalSummary")
+            Prelude.<*> (x Data..:? "keyAlgorithm")
+            Prelude.<*> (x Data..:? "requestFailureReason")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "inUseResourceCount")
+            Prelude.<*> (x Data..:? "notBefore")
+            Prelude.<*> (x Data..:? "revocationReason")
+            Prelude.<*> (x Data..:? "serialNumber")
+            Prelude.<*> ( x Data..:? "domainValidationRecords"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "eligibleToRenew")
-            Prelude.<*> (x Core..:? "revokedAt")
-            Prelude.<*> (x Core..:? "supportCode")
-            Prelude.<*> (x Core..:? "issuerCA")
-            Prelude.<*> (x Core..:? "notAfter")
-            Prelude.<*> ( x Core..:? "subjectAlternativeNames"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "eligibleToRenew")
+            Prelude.<*> (x Data..:? "revokedAt")
+            Prelude.<*> (x Data..:? "supportCode")
+            Prelude.<*> (x Data..:? "issuerCA")
+            Prelude.<*> (x Data..:? "notAfter")
+            Prelude.<*> ( x Data..:? "subjectAlternativeNames"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "issuedAt")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "issuedAt")
       )
 
 instance Prelude.Hashable Certificate where

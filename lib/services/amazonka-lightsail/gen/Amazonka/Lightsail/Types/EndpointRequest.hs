@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.EndpointRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.ContainerServiceHealthCheckConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -91,13 +92,13 @@ instance Prelude.NFData EndpointRequest where
       `Prelude.seq` Prelude.rnf containerName
       `Prelude.seq` Prelude.rnf containerPort
 
-instance Core.ToJSON EndpointRequest where
+instance Data.ToJSON EndpointRequest where
   toJSON EndpointRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("healthCheck" Core..=) Prelude.<$> healthCheck,
-            Prelude.Just ("containerName" Core..= containerName),
+          [ ("healthCheck" Data..=) Prelude.<$> healthCheck,
+            Prelude.Just ("containerName" Data..= containerName),
             Prelude.Just
-              ("containerPort" Core..= containerPort)
+              ("containerPort" Data..= containerPort)
           ]
       )

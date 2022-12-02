@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -163,8 +164,8 @@ instance Core.AWSRequest GetRelationalDatabaseEvents where
     Response.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseEventsResponse'
-            Prelude.<$> (x Core..?> "nextPageToken")
-            Prelude.<*> ( x Core..?> "relationalDatabaseEvents"
+            Prelude.<$> (x Data..?> "nextPageToken")
+            Prelude.<*> ( x Data..?> "relationalDatabaseEvents"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -182,39 +183,39 @@ instance Prelude.NFData GetRelationalDatabaseEvents where
       `Prelude.seq` Prelude.rnf durationInMinutes
       `Prelude.seq` Prelude.rnf relationalDatabaseName
 
-instance Core.ToHeaders GetRelationalDatabaseEvents where
+instance Data.ToHeaders GetRelationalDatabaseEvents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetRelationalDatabaseEvents" ::
+              Data.=# ( "Lightsail_20161128.GetRelationalDatabaseEvents" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRelationalDatabaseEvents where
+instance Data.ToJSON GetRelationalDatabaseEvents where
   toJSON GetRelationalDatabaseEvents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("pageToken" Core..=) Prelude.<$> pageToken,
-            ("durationInMinutes" Core..=)
+          [ ("pageToken" Data..=) Prelude.<$> pageToken,
+            ("durationInMinutes" Data..=)
               Prelude.<$> durationInMinutes,
             Prelude.Just
               ( "relationalDatabaseName"
-                  Core..= relationalDatabaseName
+                  Data..= relationalDatabaseName
               )
           ]
       )
 
-instance Core.ToPath GetRelationalDatabaseEvents where
+instance Data.ToPath GetRelationalDatabaseEvents where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRelationalDatabaseEvents where
+instance Data.ToQuery GetRelationalDatabaseEvents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRelationalDatabaseEventsResponse' smart constructor.

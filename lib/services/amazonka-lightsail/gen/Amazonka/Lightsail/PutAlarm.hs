@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -524,7 +525,7 @@ instance Core.AWSRequest PutAlarm where
     Response.receiveJSON
       ( \s h x ->
           PutAlarmResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -556,53 +557,53 @@ instance Prelude.NFData PutAlarm where
       `Prelude.seq` Prelude.rnf threshold
       `Prelude.seq` Prelude.rnf evaluationPeriods
 
-instance Core.ToHeaders PutAlarm where
+instance Data.ToHeaders PutAlarm where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.PutAlarm" ::
+              Data.=# ( "Lightsail_20161128.PutAlarm" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutAlarm where
+instance Data.ToJSON PutAlarm where
   toJSON PutAlarm' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("treatMissingData" Core..=)
+          [ ("treatMissingData" Data..=)
               Prelude.<$> treatMissingData,
-            ("datapointsToAlarm" Core..=)
+            ("datapointsToAlarm" Data..=)
               Prelude.<$> datapointsToAlarm,
-            ("notificationEnabled" Core..=)
+            ("notificationEnabled" Data..=)
               Prelude.<$> notificationEnabled,
-            ("contactProtocols" Core..=)
+            ("contactProtocols" Data..=)
               Prelude.<$> contactProtocols,
-            ("notificationTriggers" Core..=)
+            ("notificationTriggers" Data..=)
               Prelude.<$> notificationTriggers,
-            Prelude.Just ("alarmName" Core..= alarmName),
-            Prelude.Just ("metricName" Core..= metricName),
+            Prelude.Just ("alarmName" Data..= alarmName),
+            Prelude.Just ("metricName" Data..= metricName),
             Prelude.Just
               ( "monitoredResourceName"
-                  Core..= monitoredResourceName
+                  Data..= monitoredResourceName
               ),
             Prelude.Just
-              ("comparisonOperator" Core..= comparisonOperator),
-            Prelude.Just ("threshold" Core..= threshold),
+              ("comparisonOperator" Data..= comparisonOperator),
+            Prelude.Just ("threshold" Data..= threshold),
             Prelude.Just
-              ("evaluationPeriods" Core..= evaluationPeriods)
+              ("evaluationPeriods" Data..= evaluationPeriods)
           ]
       )
 
-instance Core.ToPath PutAlarm where
+instance Data.ToPath PutAlarm where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutAlarm where
+instance Data.ToQuery PutAlarm where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutAlarmResponse' smart constructor.

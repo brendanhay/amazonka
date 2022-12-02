@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,7 +106,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           SendContactMethodVerificationResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,32 +121,32 @@ instance Prelude.NFData SendContactMethodVerification where
   rnf SendContactMethodVerification' {..} =
     Prelude.rnf protocol
 
-instance Core.ToHeaders SendContactMethodVerification where
+instance Data.ToHeaders SendContactMethodVerification where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.SendContactMethodVerification" ::
+              Data.=# ( "Lightsail_20161128.SendContactMethodVerification" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SendContactMethodVerification where
+instance Data.ToJSON SendContactMethodVerification where
   toJSON SendContactMethodVerification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("protocol" Core..= protocol)]
+          [Prelude.Just ("protocol" Data..= protocol)]
       )
 
-instance Core.ToPath SendContactMethodVerification where
+instance Data.ToPath SendContactMethodVerification where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SendContactMethodVerification where
+instance Data.ToQuery SendContactMethodVerification where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSendContactMethodVerificationResponse' smart constructor.

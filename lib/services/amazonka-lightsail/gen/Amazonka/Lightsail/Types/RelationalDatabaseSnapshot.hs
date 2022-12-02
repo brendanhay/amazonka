@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.RelationalDatabaseSnapshot where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.ResourceLocation
 import Amazonka.Lightsail.Types.ResourceType
 import Amazonka.Lightsail.Types.Tag
@@ -68,7 +69,7 @@ data RelationalDatabaseSnapshot = RelationalDatabaseSnapshot'
     -- information more easily.
     supportCode :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the database snapshot was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The database engine version for the database snapshot (for example,
     -- @5.7.23@).
     engineVersion :: Prelude.Maybe Prelude.Text
@@ -212,34 +213,34 @@ relationalDatabaseSnapshot_supportCode = Lens.lens (\RelationalDatabaseSnapshot'
 
 -- | The timestamp when the database snapshot was created.
 relationalDatabaseSnapshot_createdAt :: Lens.Lens' RelationalDatabaseSnapshot (Prelude.Maybe Prelude.UTCTime)
-relationalDatabaseSnapshot_createdAt = Lens.lens (\RelationalDatabaseSnapshot' {createdAt} -> createdAt) (\s@RelationalDatabaseSnapshot' {} a -> s {createdAt = a} :: RelationalDatabaseSnapshot) Prelude.. Lens.mapping Core._Time
+relationalDatabaseSnapshot_createdAt = Lens.lens (\RelationalDatabaseSnapshot' {createdAt} -> createdAt) (\s@RelationalDatabaseSnapshot' {} a -> s {createdAt = a} :: RelationalDatabaseSnapshot) Prelude.. Lens.mapping Data._Time
 
 -- | The database engine version for the database snapshot (for example,
 -- @5.7.23@).
 relationalDatabaseSnapshot_engineVersion :: Lens.Lens' RelationalDatabaseSnapshot (Prelude.Maybe Prelude.Text)
 relationalDatabaseSnapshot_engineVersion = Lens.lens (\RelationalDatabaseSnapshot' {engineVersion} -> engineVersion) (\s@RelationalDatabaseSnapshot' {} a -> s {engineVersion = a} :: RelationalDatabaseSnapshot)
 
-instance Core.FromJSON RelationalDatabaseSnapshot where
+instance Data.FromJSON RelationalDatabaseSnapshot where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RelationalDatabaseSnapshot"
       ( \x ->
           RelationalDatabaseSnapshot'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "fromRelationalDatabaseBundleId")
-            Prelude.<*> (x Core..:? "sizeInGb")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "fromRelationalDatabaseName")
-            Prelude.<*> (x Core..:? "fromRelationalDatabaseBlueprintId")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "fromRelationalDatabaseArn")
-            Prelude.<*> (x Core..:? "engine")
-            Prelude.<*> (x Core..:? "supportCode")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "engineVersion")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "fromRelationalDatabaseBundleId")
+            Prelude.<*> (x Data..:? "sizeInGb")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "fromRelationalDatabaseName")
+            Prelude.<*> (x Data..:? "fromRelationalDatabaseBlueprintId")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "fromRelationalDatabaseArn")
+            Prelude.<*> (x Data..:? "engine")
+            Prelude.<*> (x Data..:? "supportCode")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "engineVersion")
       )
 
 instance Prelude.Hashable RelationalDatabaseSnapshot where

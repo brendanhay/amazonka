@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.CookieObject where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.ForwardValues
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,16 +74,16 @@ cookieObject_cookiesAllowList = Lens.lens (\CookieObject' {cookiesAllowList} -> 
 cookieObject_option :: Lens.Lens' CookieObject (Prelude.Maybe ForwardValues)
 cookieObject_option = Lens.lens (\CookieObject' {option} -> option) (\s@CookieObject' {} a -> s {option = a} :: CookieObject)
 
-instance Core.FromJSON CookieObject where
+instance Data.FromJSON CookieObject where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CookieObject"
       ( \x ->
           CookieObject'
-            Prelude.<$> ( x Core..:? "cookiesAllowList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "cookiesAllowList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "option")
+            Prelude.<*> (x Data..:? "option")
       )
 
 instance Prelude.Hashable CookieObject where
@@ -95,12 +96,12 @@ instance Prelude.NFData CookieObject where
     Prelude.rnf cookiesAllowList
       `Prelude.seq` Prelude.rnf option
 
-instance Core.ToJSON CookieObject where
+instance Data.ToJSON CookieObject where
   toJSON CookieObject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cookiesAllowList" Core..=)
+          [ ("cookiesAllowList" Data..=)
               Prelude.<$> cookiesAllowList,
-            ("option" Core..=) Prelude.<$> option
+            ("option" Data..=) Prelude.<$> option
           ]
       )

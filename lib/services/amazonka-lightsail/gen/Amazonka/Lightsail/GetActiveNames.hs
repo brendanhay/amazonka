@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,8 +119,8 @@ instance Core.AWSRequest GetActiveNames where
     Response.receiveJSON
       ( \s h x ->
           GetActiveNamesResponse'
-            Prelude.<$> (x Core..?> "nextPageToken")
-            Prelude.<*> (x Core..?> "activeNames" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextPageToken")
+            Prelude.<*> (x Data..?> "activeNames" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,32 +131,32 @@ instance Prelude.Hashable GetActiveNames where
 instance Prelude.NFData GetActiveNames where
   rnf GetActiveNames' {..} = Prelude.rnf pageToken
 
-instance Core.ToHeaders GetActiveNames where
+instance Data.ToHeaders GetActiveNames where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetActiveNames" ::
+              Data.=# ( "Lightsail_20161128.GetActiveNames" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetActiveNames where
+instance Data.ToJSON GetActiveNames where
   toJSON GetActiveNames' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("pageToken" Core..=) Prelude.<$> pageToken]
+          [("pageToken" Data..=) Prelude.<$> pageToken]
       )
 
-instance Core.ToPath GetActiveNames where
+instance Data.ToPath GetActiveNames where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetActiveNames where
+instance Data.ToQuery GetActiveNames where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetActiveNamesResponse' smart constructor.

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -151,7 +152,7 @@ instance Core.AWSRequest GetCertificates where
     Response.receiveJSON
       ( \s h x ->
           GetCertificatesResponse'
-            Prelude.<$> (x Core..?> "certificates" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "certificates" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,38 +169,38 @@ instance Prelude.NFData GetCertificates where
       `Prelude.seq` Prelude.rnf certificateName
       `Prelude.seq` Prelude.rnf certificateStatuses
 
-instance Core.ToHeaders GetCertificates where
+instance Data.ToHeaders GetCertificates where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetCertificates" ::
+              Data.=# ( "Lightsail_20161128.GetCertificates" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCertificates where
+instance Data.ToJSON GetCertificates where
   toJSON GetCertificates' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("includeCertificateDetails" Core..=)
+          [ ("includeCertificateDetails" Data..=)
               Prelude.<$> includeCertificateDetails,
-            ("certificateName" Core..=)
+            ("certificateName" Data..=)
               Prelude.<$> certificateName,
-            ("certificateStatuses" Core..=)
+            ("certificateStatuses" Data..=)
               Prelude.<$> certificateStatuses
           ]
       )
 
-instance Core.ToPath GetCertificates where
+instance Data.ToPath GetCertificates where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCertificates where
+instance Data.ToQuery GetCertificates where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCertificatesResponse' smart constructor.

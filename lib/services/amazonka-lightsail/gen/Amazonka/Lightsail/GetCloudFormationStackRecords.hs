@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,8 +132,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetCloudFormationStackRecordsResponse'
-            Prelude.<$> (x Core..?> "nextPageToken")
-            Prelude.<*> ( x Core..?> "cloudFormationStackRecords"
+            Prelude.<$> (x Data..?> "nextPageToken")
+            Prelude.<*> ( x Data..?> "cloudFormationStackRecords"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -149,32 +150,32 @@ instance Prelude.NFData GetCloudFormationStackRecords where
   rnf GetCloudFormationStackRecords' {..} =
     Prelude.rnf pageToken
 
-instance Core.ToHeaders GetCloudFormationStackRecords where
+instance Data.ToHeaders GetCloudFormationStackRecords where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetCloudFormationStackRecords" ::
+              Data.=# ( "Lightsail_20161128.GetCloudFormationStackRecords" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCloudFormationStackRecords where
+instance Data.ToJSON GetCloudFormationStackRecords where
   toJSON GetCloudFormationStackRecords' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("pageToken" Core..=) Prelude.<$> pageToken]
+          [("pageToken" Data..=) Prelude.<$> pageToken]
       )
 
-instance Core.ToPath GetCloudFormationStackRecords where
+instance Data.ToPath GetCloudFormationStackRecords where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCloudFormationStackRecords where
+instance Data.ToQuery GetCloudFormationStackRecords where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCloudFormationStackRecordsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.CacheSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.CookieObject
 import Amazonka.Lightsail.Types.HeaderObject
 import Amazonka.Lightsail.Types.QueryStringObject
@@ -262,20 +263,20 @@ cacheSettings_forwardedHeaders = Lens.lens (\CacheSettings' {forwardedHeaders} -
 cacheSettings_minimumTTL :: Lens.Lens' CacheSettings (Prelude.Maybe Prelude.Integer)
 cacheSettings_minimumTTL = Lens.lens (\CacheSettings' {minimumTTL} -> minimumTTL) (\s@CacheSettings' {} a -> s {minimumTTL = a} :: CacheSettings)
 
-instance Core.FromJSON CacheSettings where
+instance Data.FromJSON CacheSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CacheSettings"
       ( \x ->
           CacheSettings'
-            Prelude.<$> (x Core..:? "allowedHTTPMethods")
-            Prelude.<*> (x Core..:? "defaultTTL")
-            Prelude.<*> (x Core..:? "forwardedCookies")
-            Prelude.<*> (x Core..:? "maximumTTL")
-            Prelude.<*> (x Core..:? "cachedHTTPMethods")
-            Prelude.<*> (x Core..:? "forwardedQueryStrings")
-            Prelude.<*> (x Core..:? "forwardedHeaders")
-            Prelude.<*> (x Core..:? "minimumTTL")
+            Prelude.<$> (x Data..:? "allowedHTTPMethods")
+            Prelude.<*> (x Data..:? "defaultTTL")
+            Prelude.<*> (x Data..:? "forwardedCookies")
+            Prelude.<*> (x Data..:? "maximumTTL")
+            Prelude.<*> (x Data..:? "cachedHTTPMethods")
+            Prelude.<*> (x Data..:? "forwardedQueryStrings")
+            Prelude.<*> (x Data..:? "forwardedHeaders")
+            Prelude.<*> (x Data..:? "minimumTTL")
       )
 
 instance Prelude.Hashable CacheSettings where
@@ -300,22 +301,22 @@ instance Prelude.NFData CacheSettings where
       `Prelude.seq` Prelude.rnf forwardedHeaders
       `Prelude.seq` Prelude.rnf minimumTTL
 
-instance Core.ToJSON CacheSettings where
+instance Data.ToJSON CacheSettings where
   toJSON CacheSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("allowedHTTPMethods" Core..=)
+          [ ("allowedHTTPMethods" Data..=)
               Prelude.<$> allowedHTTPMethods,
-            ("defaultTTL" Core..=) Prelude.<$> defaultTTL,
-            ("forwardedCookies" Core..=)
+            ("defaultTTL" Data..=) Prelude.<$> defaultTTL,
+            ("forwardedCookies" Data..=)
               Prelude.<$> forwardedCookies,
-            ("maximumTTL" Core..=) Prelude.<$> maximumTTL,
-            ("cachedHTTPMethods" Core..=)
+            ("maximumTTL" Data..=) Prelude.<$> maximumTTL,
+            ("cachedHTTPMethods" Data..=)
               Prelude.<$> cachedHTTPMethods,
-            ("forwardedQueryStrings" Core..=)
+            ("forwardedQueryStrings" Data..=)
               Prelude.<$> forwardedQueryStrings,
-            ("forwardedHeaders" Core..=)
+            ("forwardedHeaders" Data..=)
               Prelude.<$> forwardedHeaders,
-            ("minimumTTL" Core..=) Prelude.<$> minimumTTL
+            ("minimumTTL" Data..=) Prelude.<$> minimumTTL
           ]
       )

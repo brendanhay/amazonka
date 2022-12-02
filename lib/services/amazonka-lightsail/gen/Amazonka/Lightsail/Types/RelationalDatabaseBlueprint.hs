@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.RelationalDatabaseBlueprint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.RelationalDatabaseEngine
 import qualified Amazonka.Prelude as Prelude
 
@@ -109,18 +110,18 @@ relationalDatabaseBlueprint_engine = Lens.lens (\RelationalDatabaseBlueprint' {e
 relationalDatabaseBlueprint_engineVersion :: Lens.Lens' RelationalDatabaseBlueprint (Prelude.Maybe Prelude.Text)
 relationalDatabaseBlueprint_engineVersion = Lens.lens (\RelationalDatabaseBlueprint' {engineVersion} -> engineVersion) (\s@RelationalDatabaseBlueprint' {} a -> s {engineVersion = a} :: RelationalDatabaseBlueprint)
 
-instance Core.FromJSON RelationalDatabaseBlueprint where
+instance Data.FromJSON RelationalDatabaseBlueprint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RelationalDatabaseBlueprint"
       ( \x ->
           RelationalDatabaseBlueprint'
-            Prelude.<$> (x Core..:? "isEngineDefault")
-            Prelude.<*> (x Core..:? "blueprintId")
-            Prelude.<*> (x Core..:? "engineVersionDescription")
-            Prelude.<*> (x Core..:? "engineDescription")
-            Prelude.<*> (x Core..:? "engine")
-            Prelude.<*> (x Core..:? "engineVersion")
+            Prelude.<$> (x Data..:? "isEngineDefault")
+            Prelude.<*> (x Data..:? "blueprintId")
+            Prelude.<*> (x Data..:? "engineVersionDescription")
+            Prelude.<*> (x Data..:? "engineDescription")
+            Prelude.<*> (x Data..:? "engine")
+            Prelude.<*> (x Data..:? "engineVersion")
       )
 
 instance Prelude.Hashable RelationalDatabaseBlueprint where

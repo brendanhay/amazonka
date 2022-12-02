@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,32 +97,32 @@ instance Prelude.NFData DeleteContainerService where
   rnf DeleteContainerService' {..} =
     Prelude.rnf serviceName
 
-instance Core.ToHeaders DeleteContainerService where
+instance Data.ToHeaders DeleteContainerService where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.DeleteContainerService" ::
+              Data.=# ( "Lightsail_20161128.DeleteContainerService" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteContainerService where
+instance Data.ToJSON DeleteContainerService where
   toJSON DeleteContainerService' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("serviceName" Core..= serviceName)]
+          [Prelude.Just ("serviceName" Data..= serviceName)]
       )
 
-instance Core.ToPath DeleteContainerService where
+instance Data.ToPath DeleteContainerService where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteContainerService where
+instance Data.ToQuery DeleteContainerService where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteContainerServiceResponse' smart constructor.

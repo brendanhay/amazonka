@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.PortInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.NetworkProtocol
 import qualified Amazonka.Prelude as Prelude
 
@@ -384,16 +385,16 @@ instance Prelude.NFData PortInfo where
       `Prelude.seq` Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf fromPort
 
-instance Core.ToJSON PortInfo where
+instance Data.ToJSON PortInfo where
   toJSON PortInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("toPort" Core..=) Prelude.<$> toPort,
-            ("ipv6Cidrs" Core..=) Prelude.<$> ipv6Cidrs,
-            ("cidrListAliases" Core..=)
+          [ ("toPort" Data..=) Prelude.<$> toPort,
+            ("ipv6Cidrs" Data..=) Prelude.<$> ipv6Cidrs,
+            ("cidrListAliases" Data..=)
               Prelude.<$> cidrListAliases,
-            ("cidrs" Core..=) Prelude.<$> cidrs,
-            ("protocol" Core..=) Prelude.<$> protocol,
-            ("fromPort" Core..=) Prelude.<$> fromPort
+            ("cidrs" Data..=) Prelude.<$> cidrs,
+            ("protocol" Data..=) Prelude.<$> protocol,
+            ("fromPort" Data..=) Prelude.<$> fromPort
           ]
       )

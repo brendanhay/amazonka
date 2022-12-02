@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.PendingMaintenanceAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a pending database maintenance action.
@@ -30,7 +31,7 @@ data PendingMaintenanceAction = PendingMaintenanceAction'
   { -- | Additional detail about the pending database maintenance action.
     description :: Prelude.Maybe Prelude.Text,
     -- | The effective date of the pending database maintenance action.
-    currentApplyDate :: Prelude.Maybe Core.POSIX,
+    currentApplyDate :: Prelude.Maybe Data.POSIX,
     -- | The type of pending database maintenance action.
     action :: Prelude.Maybe Prelude.Text
   }
@@ -65,21 +66,21 @@ pendingMaintenanceAction_description = Lens.lens (\PendingMaintenanceAction' {de
 
 -- | The effective date of the pending database maintenance action.
 pendingMaintenanceAction_currentApplyDate :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.UTCTime)
-pendingMaintenanceAction_currentApplyDate = Lens.lens (\PendingMaintenanceAction' {currentApplyDate} -> currentApplyDate) (\s@PendingMaintenanceAction' {} a -> s {currentApplyDate = a} :: PendingMaintenanceAction) Prelude.. Lens.mapping Core._Time
+pendingMaintenanceAction_currentApplyDate = Lens.lens (\PendingMaintenanceAction' {currentApplyDate} -> currentApplyDate) (\s@PendingMaintenanceAction' {} a -> s {currentApplyDate = a} :: PendingMaintenanceAction) Prelude.. Lens.mapping Data._Time
 
 -- | The type of pending database maintenance action.
 pendingMaintenanceAction_action :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.Text)
 pendingMaintenanceAction_action = Lens.lens (\PendingMaintenanceAction' {action} -> action) (\s@PendingMaintenanceAction' {} a -> s {action = a} :: PendingMaintenanceAction)
 
-instance Core.FromJSON PendingMaintenanceAction where
+instance Data.FromJSON PendingMaintenanceAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PendingMaintenanceAction"
       ( \x ->
           PendingMaintenanceAction'
-            Prelude.<$> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "currentApplyDate")
-            Prelude.<*> (x Core..:? "action")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "currentApplyDate")
+            Prelude.<*> (x Data..:? "action")
       )
 
 instance Prelude.Hashable PendingMaintenanceAction where

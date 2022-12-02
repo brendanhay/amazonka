@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.ContainerServiceECRImagePullerRole where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the activation status of the role that you can use to grant an
@@ -74,16 +75,16 @@ containerServiceECRImagePullerRole_principalArn :: Lens.Lens' ContainerServiceEC
 containerServiceECRImagePullerRole_principalArn = Lens.lens (\ContainerServiceECRImagePullerRole' {principalArn} -> principalArn) (\s@ContainerServiceECRImagePullerRole' {} a -> s {principalArn = a} :: ContainerServiceECRImagePullerRole)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ContainerServiceECRImagePullerRole
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerServiceECRImagePullerRole"
       ( \x ->
           ContainerServiceECRImagePullerRole'
-            Prelude.<$> (x Core..:? "isActive")
-            Prelude.<*> (x Core..:? "principalArn")
+            Prelude.<$> (x Data..:? "isActive")
+            Prelude.<*> (x Data..:? "principalArn")
       )
 
 instance

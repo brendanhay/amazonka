@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -161,8 +162,8 @@ instance Core.AWSRequest CreateCertificate where
     Response.receiveJSON
       ( \s h x ->
           CreateCertificateResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "certificate")
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "certificate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,38 +181,38 @@ instance Prelude.NFData CreateCertificate where
       `Prelude.seq` Prelude.rnf certificateName
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders CreateCertificate where
+instance Data.ToHeaders CreateCertificate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.CreateCertificate" ::
+              Data.=# ( "Lightsail_20161128.CreateCertificate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCertificate where
+instance Data.ToJSON CreateCertificate where
   toJSON CreateCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("subjectAlternativeNames" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("subjectAlternativeNames" Data..=)
               Prelude.<$> subjectAlternativeNames,
             Prelude.Just
-              ("certificateName" Core..= certificateName),
-            Prelude.Just ("domainName" Core..= domainName)
+              ("certificateName" Data..= certificateName),
+            Prelude.Just ("domainName" Data..= domainName)
           ]
       )
 
-instance Core.ToPath CreateCertificate where
+instance Data.ToPath CreateCertificate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCertificate where
+instance Data.ToQuery CreateCertificate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCertificateResponse' smart constructor.

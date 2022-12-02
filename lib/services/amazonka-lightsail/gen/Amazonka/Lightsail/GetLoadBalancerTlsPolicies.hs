@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,8 +106,8 @@ instance Core.AWSRequest GetLoadBalancerTlsPolicies where
     Response.receiveJSON
       ( \s h x ->
           GetLoadBalancerTlsPoliciesResponse'
-            Prelude.<$> (x Core..?> "tlsPolicies" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextPageToken")
+            Prelude.<$> (x Data..?> "tlsPolicies" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,32 +119,32 @@ instance Prelude.NFData GetLoadBalancerTlsPolicies where
   rnf GetLoadBalancerTlsPolicies' {..} =
     Prelude.rnf pageToken
 
-instance Core.ToHeaders GetLoadBalancerTlsPolicies where
+instance Data.ToHeaders GetLoadBalancerTlsPolicies where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetLoadBalancerTlsPolicies" ::
+              Data.=# ( "Lightsail_20161128.GetLoadBalancerTlsPolicies" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetLoadBalancerTlsPolicies where
+instance Data.ToJSON GetLoadBalancerTlsPolicies where
   toJSON GetLoadBalancerTlsPolicies' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("pageToken" Core..=) Prelude.<$> pageToken]
+          [("pageToken" Data..=) Prelude.<$> pageToken]
       )
 
-instance Core.ToPath GetLoadBalancerTlsPolicies where
+instance Data.ToPath GetLoadBalancerTlsPolicies where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetLoadBalancerTlsPolicies where
+instance Data.ToQuery GetLoadBalancerTlsPolicies where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLoadBalancerTlsPoliciesResponse' smart constructor.

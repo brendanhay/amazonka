@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.DiskMap where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a block storage disk mapping.
@@ -74,12 +75,12 @@ instance Prelude.NFData DiskMap where
     Prelude.rnf newDiskName'
       `Prelude.seq` Prelude.rnf originalDiskPath
 
-instance Core.ToJSON DiskMap where
+instance Data.ToJSON DiskMap where
   toJSON DiskMap' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("newDiskName" Core..=) Prelude.<$> newDiskName',
-            ("originalDiskPath" Core..=)
+          [ ("newDiskName" Data..=) Prelude.<$> newDiskName',
+            ("originalDiskPath" Data..=)
               Prelude.<$> originalDiskPath
           ]
       )

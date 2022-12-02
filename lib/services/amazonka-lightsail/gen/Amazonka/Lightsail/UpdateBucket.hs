@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -168,8 +169,8 @@ instance Core.AWSRequest UpdateBucket where
     Response.receiveJSON
       ( \s h x ->
           UpdateBucketResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "bucket")
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "bucket")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,39 +190,39 @@ instance Prelude.NFData UpdateBucket where
       `Prelude.seq` Prelude.rnf accessLogConfig
       `Prelude.seq` Prelude.rnf bucketName
 
-instance Core.ToHeaders UpdateBucket where
+instance Data.ToHeaders UpdateBucket where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.UpdateBucket" ::
+              Data.=# ( "Lightsail_20161128.UpdateBucket" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateBucket where
+instance Data.ToJSON UpdateBucket where
   toJSON UpdateBucket' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("readonlyAccessAccounts" Core..=)
+          [ ("readonlyAccessAccounts" Data..=)
               Prelude.<$> readonlyAccessAccounts,
-            ("versioning" Core..=) Prelude.<$> versioning,
-            ("accessRules" Core..=) Prelude.<$> accessRules,
-            ("accessLogConfig" Core..=)
+            ("versioning" Data..=) Prelude.<$> versioning,
+            ("accessRules" Data..=) Prelude.<$> accessRules,
+            ("accessLogConfig" Data..=)
               Prelude.<$> accessLogConfig,
-            Prelude.Just ("bucketName" Core..= bucketName)
+            Prelude.Just ("bucketName" Data..= bucketName)
           ]
       )
 
-instance Core.ToPath UpdateBucket where
+instance Data.ToPath UpdateBucket where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateBucket where
+instance Data.ToQuery UpdateBucket where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateBucketResponse' smart constructor.

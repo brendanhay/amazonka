@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,9 +91,9 @@ instance Core.AWSRequest GetAutoSnapshots where
     Response.receiveJSON
       ( \s h x ->
           GetAutoSnapshotsResponse'
-            Prelude.<$> (x Core..?> "resourceType")
-            Prelude.<*> (x Core..?> "resourceName")
-            Prelude.<*> (x Core..?> "autoSnapshots" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "resourceType")
+            Prelude.<*> (x Data..?> "resourceName")
+            Prelude.<*> (x Data..?> "autoSnapshots" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,32 +104,32 @@ instance Prelude.Hashable GetAutoSnapshots where
 instance Prelude.NFData GetAutoSnapshots where
   rnf GetAutoSnapshots' {..} = Prelude.rnf resourceName
 
-instance Core.ToHeaders GetAutoSnapshots where
+instance Data.ToHeaders GetAutoSnapshots where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetAutoSnapshots" ::
+              Data.=# ( "Lightsail_20161128.GetAutoSnapshots" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAutoSnapshots where
+instance Data.ToJSON GetAutoSnapshots where
   toJSON GetAutoSnapshots' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("resourceName" Core..= resourceName)]
+          [Prelude.Just ("resourceName" Data..= resourceName)]
       )
 
-instance Core.ToPath GetAutoSnapshots where
+instance Data.ToPath GetAutoSnapshots where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAutoSnapshots where
+instance Data.ToQuery GetAutoSnapshots where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAutoSnapshotsResponse' smart constructor.

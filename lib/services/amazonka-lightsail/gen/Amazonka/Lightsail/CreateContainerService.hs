@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -379,7 +380,7 @@ instance Core.AWSRequest CreateContainerService where
     Response.receiveJSON
       ( \s h x ->
           CreateContainerServiceResponse'
-            Prelude.<$> (x Core..?> "containerService")
+            Prelude.<$> (x Data..?> "containerService")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -403,41 +404,41 @@ instance Prelude.NFData CreateContainerService where
       `Prelude.seq` Prelude.rnf power
       `Prelude.seq` Prelude.rnf scale
 
-instance Core.ToHeaders CreateContainerService where
+instance Data.ToHeaders CreateContainerService where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.CreateContainerService" ::
+              Data.=# ( "Lightsail_20161128.CreateContainerService" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateContainerService where
+instance Data.ToJSON CreateContainerService where
   toJSON CreateContainerService' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("deployment" Core..=) Prelude.<$> deployment,
-            ("publicDomainNames" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("deployment" Data..=) Prelude.<$> deployment,
+            ("publicDomainNames" Data..=)
               Prelude.<$> publicDomainNames,
-            ("privateRegistryAccess" Core..=)
+            ("privateRegistryAccess" Data..=)
               Prelude.<$> privateRegistryAccess,
-            Prelude.Just ("serviceName" Core..= serviceName),
-            Prelude.Just ("power" Core..= power),
-            Prelude.Just ("scale" Core..= scale)
+            Prelude.Just ("serviceName" Data..= serviceName),
+            Prelude.Just ("power" Data..= power),
+            Prelude.Just ("scale" Data..= scale)
           ]
       )
 
-instance Core.ToPath CreateContainerService where
+instance Data.ToPath CreateContainerService where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateContainerService where
+instance Data.ToQuery CreateContainerService where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateContainerServiceResponse' smart constructor.

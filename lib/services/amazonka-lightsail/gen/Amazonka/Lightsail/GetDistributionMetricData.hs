@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,7 +134,7 @@ data GetDistributionMetricData = GetDistributionMetricData'
     --
     -- You can convert a human-friendly time to Unix time format using a
     -- converter like <https://www.epochconverter.com/ Epoch converter>.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The end of the time interval for which to get metric data.
     --
     -- Constraints:
@@ -147,7 +148,7 @@ data GetDistributionMetricData = GetDistributionMetricData'
     --
     -- You can convert a human-friendly time to Unix time format using a
     -- converter like <https://www.epochconverter.com/ Epoch converter>.
-    endTime :: Core.POSIX,
+    endTime :: Data.POSIX,
     -- | The granularity, in seconds, for the metric data points that will be
     -- returned.
     period :: Prelude.Natural,
@@ -339,8 +340,8 @@ newGetDistributionMetricData
       { distributionName =
           pDistributionName_,
         metricName = pMetricName_,
-        startTime = Core._Time Lens.# pStartTime_,
-        endTime = Core._Time Lens.# pEndTime_,
+        startTime = Data._Time Lens.# pStartTime_,
+        endTime = Data._Time Lens.# pEndTime_,
         period = pPeriod_,
         unit = pUnit_,
         statistics = Prelude.mempty
@@ -424,7 +425,7 @@ getDistributionMetricData_metricName = Lens.lens (\GetDistributionMetricData' {m
 -- You can convert a human-friendly time to Unix time format using a
 -- converter like <https://www.epochconverter.com/ Epoch converter>.
 getDistributionMetricData_startTime :: Lens.Lens' GetDistributionMetricData Prelude.UTCTime
-getDistributionMetricData_startTime = Lens.lens (\GetDistributionMetricData' {startTime} -> startTime) (\s@GetDistributionMetricData' {} a -> s {startTime = a} :: GetDistributionMetricData) Prelude.. Core._Time
+getDistributionMetricData_startTime = Lens.lens (\GetDistributionMetricData' {startTime} -> startTime) (\s@GetDistributionMetricData' {} a -> s {startTime = a} :: GetDistributionMetricData) Prelude.. Data._Time
 
 -- | The end of the time interval for which to get metric data.
 --
@@ -440,7 +441,7 @@ getDistributionMetricData_startTime = Lens.lens (\GetDistributionMetricData' {st
 -- You can convert a human-friendly time to Unix time format using a
 -- converter like <https://www.epochconverter.com/ Epoch converter>.
 getDistributionMetricData_endTime :: Lens.Lens' GetDistributionMetricData Prelude.UTCTime
-getDistributionMetricData_endTime = Lens.lens (\GetDistributionMetricData' {endTime} -> endTime) (\s@GetDistributionMetricData' {} a -> s {endTime = a} :: GetDistributionMetricData) Prelude.. Core._Time
+getDistributionMetricData_endTime = Lens.lens (\GetDistributionMetricData' {endTime} -> endTime) (\s@GetDistributionMetricData' {} a -> s {endTime = a} :: GetDistributionMetricData) Prelude.. Data._Time
 
 -- | The granularity, in seconds, for the metric data points that will be
 -- returned.
@@ -492,8 +493,8 @@ instance Core.AWSRequest GetDistributionMetricData where
     Response.receiveJSON
       ( \s h x ->
           GetDistributionMetricDataResponse'
-            Prelude.<$> (x Core..?> "metricName")
-            Prelude.<*> (x Core..?> "metricData" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "metricName")
+            Prelude.<*> (x Data..?> "metricData" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -517,40 +518,40 @@ instance Prelude.NFData GetDistributionMetricData where
       `Prelude.seq` Prelude.rnf unit
       `Prelude.seq` Prelude.rnf statistics
 
-instance Core.ToHeaders GetDistributionMetricData where
+instance Data.ToHeaders GetDistributionMetricData where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetDistributionMetricData" ::
+              Data.=# ( "Lightsail_20161128.GetDistributionMetricData" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDistributionMetricData where
+instance Data.ToJSON GetDistributionMetricData where
   toJSON GetDistributionMetricData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("distributionName" Core..= distributionName),
-            Prelude.Just ("metricName" Core..= metricName),
-            Prelude.Just ("startTime" Core..= startTime),
-            Prelude.Just ("endTime" Core..= endTime),
-            Prelude.Just ("period" Core..= period),
-            Prelude.Just ("unit" Core..= unit),
-            Prelude.Just ("statistics" Core..= statistics)
+              ("distributionName" Data..= distributionName),
+            Prelude.Just ("metricName" Data..= metricName),
+            Prelude.Just ("startTime" Data..= startTime),
+            Prelude.Just ("endTime" Data..= endTime),
+            Prelude.Just ("period" Data..= period),
+            Prelude.Just ("unit" Data..= unit),
+            Prelude.Just ("statistics" Data..= statistics)
           ]
       )
 
-instance Core.ToPath GetDistributionMetricData where
+instance Data.ToPath GetDistributionMetricData where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDistributionMetricData where
+instance Data.ToQuery GetDistributionMetricData where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDistributionMetricDataResponse' smart constructor.

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest AllocateStaticIp where
     Response.receiveJSON
       ( \s h x ->
           AllocateStaticIpResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,32 +95,32 @@ instance Prelude.Hashable AllocateStaticIp where
 instance Prelude.NFData AllocateStaticIp where
   rnf AllocateStaticIp' {..} = Prelude.rnf staticIpName
 
-instance Core.ToHeaders AllocateStaticIp where
+instance Data.ToHeaders AllocateStaticIp where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.AllocateStaticIp" ::
+              Data.=# ( "Lightsail_20161128.AllocateStaticIp" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AllocateStaticIp where
+instance Data.ToJSON AllocateStaticIp where
   toJSON AllocateStaticIp' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("staticIpName" Core..= staticIpName)]
+          [Prelude.Just ("staticIpName" Data..= staticIpName)]
       )
 
-instance Core.ToPath AllocateStaticIp where
+instance Data.ToPath AllocateStaticIp where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AllocateStaticIp where
+instance Data.ToQuery AllocateStaticIp where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAllocateStaticIpResponse' smart constructor.

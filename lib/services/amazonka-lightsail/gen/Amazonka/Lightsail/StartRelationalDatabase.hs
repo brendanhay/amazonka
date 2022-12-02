@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,7 +93,7 @@ instance Core.AWSRequest StartRelationalDatabase where
     Response.receiveJSON
       ( \s h x ->
           StartRelationalDatabaseResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,36 +105,36 @@ instance Prelude.NFData StartRelationalDatabase where
   rnf StartRelationalDatabase' {..} =
     Prelude.rnf relationalDatabaseName
 
-instance Core.ToHeaders StartRelationalDatabase where
+instance Data.ToHeaders StartRelationalDatabase where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.StartRelationalDatabase" ::
+              Data.=# ( "Lightsail_20161128.StartRelationalDatabase" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartRelationalDatabase where
+instance Data.ToJSON StartRelationalDatabase where
   toJSON StartRelationalDatabase' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "relationalDatabaseName"
-                  Core..= relationalDatabaseName
+                  Data..= relationalDatabaseName
               )
           ]
       )
 
-instance Core.ToPath StartRelationalDatabase where
+instance Data.ToPath StartRelationalDatabase where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartRelationalDatabase where
+instance Data.ToQuery StartRelationalDatabase where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartRelationalDatabaseResponse' smart constructor.

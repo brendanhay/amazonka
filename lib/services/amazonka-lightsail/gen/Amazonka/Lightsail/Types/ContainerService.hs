@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.ContainerService where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.ContainerServiceDeployment
 import Amazonka.Lightsail.Types.ContainerServicePowerName
 import Amazonka.Lightsail.Types.ContainerServiceState
@@ -110,7 +111,7 @@ data ContainerService = ContainerService'
     -- service.
     scale :: Prelude.Maybe Prelude.Natural,
     -- | The timestamp when the container service was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The public domain name of the container service, such as @example.com@
     -- and @www.example.com@.
     --
@@ -394,7 +395,7 @@ containerService_scale = Lens.lens (\ContainerService' {scale} -> scale) (\s@Con
 
 -- | The timestamp when the container service was created.
 containerService_createdAt :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.UTCTime)
-containerService_createdAt = Lens.lens (\ContainerService' {createdAt} -> createdAt) (\s@ContainerService' {} a -> s {createdAt = a} :: ContainerService) Prelude.. Lens.mapping Core._Time
+containerService_createdAt = Lens.lens (\ContainerService' {createdAt} -> createdAt) (\s@ContainerService' {} a -> s {createdAt = a} :: ContainerService) Prelude.. Lens.mapping Data._Time
 
 -- | The public domain name of the container service, such as @example.com@
 -- and @www.example.com@.
@@ -438,33 +439,33 @@ containerService_isDisabled = Lens.lens (\ContainerService' {isDisabled} -> isDi
 containerService_nextDeployment :: Lens.Lens' ContainerService (Prelude.Maybe ContainerServiceDeployment)
 containerService_nextDeployment = Lens.lens (\ContainerService' {nextDeployment} -> nextDeployment) (\s@ContainerService' {} a -> s {nextDeployment = a} :: ContainerService)
 
-instance Core.FromJSON ContainerService where
+instance Data.FromJSON ContainerService where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerService"
       ( \x ->
           ContainerService'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "power")
-            Prelude.<*> (x Core..:? "stateDetail")
-            Prelude.<*> (x Core..:? "currentDeployment")
-            Prelude.<*> (x Core..:? "privateDomainName")
-            Prelude.<*> (x Core..:? "principalArn")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "url")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "containerServiceName")
-            Prelude.<*> (x Core..:? "powerId")
-            Prelude.<*> (x Core..:? "scale")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> ( x Core..:? "publicDomainNames"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "power")
+            Prelude.<*> (x Data..:? "stateDetail")
+            Prelude.<*> (x Data..:? "currentDeployment")
+            Prelude.<*> (x Data..:? "privateDomainName")
+            Prelude.<*> (x Data..:? "principalArn")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "url")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "containerServiceName")
+            Prelude.<*> (x Data..:? "powerId")
+            Prelude.<*> (x Data..:? "scale")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> ( x Data..:? "publicDomainNames"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "privateRegistryAccess")
-            Prelude.<*> (x Core..:? "isDisabled")
-            Prelude.<*> (x Core..:? "nextDeployment")
+            Prelude.<*> (x Data..:? "privateRegistryAccess")
+            Prelude.<*> (x Data..:? "isDisabled")
+            Prelude.<*> (x Data..:? "nextDeployment")
       )
 
 instance Prelude.Hashable ContainerService where

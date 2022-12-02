@@ -49,6 +49,7 @@ where
 import Amazonka.ChimeSDKMessaging.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -113,8 +114,8 @@ instance Core.AWSRequest UpdateChannelReadMarker where
     Response.receiveJSON
       ( \s h x ->
           UpdateChannelReadMarkerResponse'
-            Prelude.<$> (x Core..?> "SubChannelId")
-            Prelude.<*> (x Core..?> "ChannelArn")
+            Prelude.<$> (x Data..?> "SubChannelId")
+            Prelude.<*> (x Data..?> "ChannelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,24 +131,24 @@ instance Prelude.NFData UpdateChannelReadMarker where
       `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf chimeBearer
 
-instance Core.ToHeaders UpdateChannelReadMarker where
+instance Data.ToHeaders UpdateChannelReadMarker where
   toHeaders UpdateChannelReadMarker' {..} =
     Prelude.mconcat
-      ["x-amz-chime-bearer" Core.=# chimeBearer]
+      ["x-amz-chime-bearer" Data.=# chimeBearer]
 
-instance Core.ToJSON UpdateChannelReadMarker where
+instance Data.ToJSON UpdateChannelReadMarker where
   toJSON UpdateChannelReadMarker' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("SubChannelId" Core..=) Prelude.<$> subChannelId]
+          [("SubChannelId" Data..=) Prelude.<$> subChannelId]
       )
 
-instance Core.ToPath UpdateChannelReadMarker where
+instance Data.ToPath UpdateChannelReadMarker where
   toPath UpdateChannelReadMarker' {..} =
     Prelude.mconcat
-      ["/channels/", Core.toBS channelArn, "/readMarker"]
+      ["/channels/", Data.toBS channelArn, "/readMarker"]
 
-instance Core.ToQuery UpdateChannelReadMarker where
+instance Data.ToQuery UpdateChannelReadMarker where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateChannelReadMarkerResponse' smart constructor.

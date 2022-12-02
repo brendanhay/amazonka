@@ -53,6 +53,7 @@ where
 import Amazonka.ChimeSDKMessaging.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -131,9 +132,9 @@ instance Core.AWSRequest RedactChannelMessage where
     Response.receiveJSON
       ( \s h x ->
           RedactChannelMessageResponse'
-            Prelude.<$> (x Core..?> "SubChannelId")
-            Prelude.<*> (x Core..?> "ChannelArn")
-            Prelude.<*> (x Core..?> "MessageId")
+            Prelude.<$> (x Data..?> "SubChannelId")
+            Prelude.<*> (x Data..?> "ChannelArn")
+            Prelude.<*> (x Data..?> "MessageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,28 +152,28 @@ instance Prelude.NFData RedactChannelMessage where
       `Prelude.seq` Prelude.rnf messageId
       `Prelude.seq` Prelude.rnf chimeBearer
 
-instance Core.ToHeaders RedactChannelMessage where
+instance Data.ToHeaders RedactChannelMessage where
   toHeaders RedactChannelMessage' {..} =
     Prelude.mconcat
-      ["x-amz-chime-bearer" Core.=# chimeBearer]
+      ["x-amz-chime-bearer" Data.=# chimeBearer]
 
-instance Core.ToJSON RedactChannelMessage where
+instance Data.ToJSON RedactChannelMessage where
   toJSON RedactChannelMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("SubChannelId" Core..=) Prelude.<$> subChannelId]
+          [("SubChannelId" Data..=) Prelude.<$> subChannelId]
       )
 
-instance Core.ToPath RedactChannelMessage where
+instance Data.ToPath RedactChannelMessage where
   toPath RedactChannelMessage' {..} =
     Prelude.mconcat
       [ "/channels/",
-        Core.toBS channelArn,
+        Data.toBS channelArn,
         "/messages/",
-        Core.toBS messageId
+        Data.toBS messageId
       ]
 
-instance Core.ToQuery RedactChannelMessage where
+instance Data.ToQuery RedactChannelMessage where
   toQuery =
     Prelude.const
       (Prelude.mconcat ["operation=redact"])

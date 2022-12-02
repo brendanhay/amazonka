@@ -26,6 +26,7 @@ import Amazonka.ChimeSDKMessaging.Types.Identity
 import Amazonka.ChimeSDKMessaging.Types.MessageAttributeValue
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of a message in a channel.
@@ -33,13 +34,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newChannelMessage' smart constructor.
 data ChannelMessage = ChannelMessage'
   { -- | The time at which a message was updated.
-    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The message type.
     type' :: Prelude.Maybe ChannelMessageType,
     -- | The message metadata.
-    metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    metadata :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The time at which the message was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The ID of the SubChannel.
     subChannelId :: Prelude.Maybe Prelude.Text,
     -- | Hides the content of a message.
@@ -54,13 +55,13 @@ data ChannelMessage = ChannelMessage'
     -- @FilterRule@ defined in the @PushNotificationPreferences@.
     messageAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue),
     -- | The time at which a message was edited.
-    lastEditedTimestamp :: Prelude.Maybe Core.POSIX,
+    lastEditedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The message sender.
     sender :: Prelude.Maybe Identity,
     -- | The persistence setting for a channel message.
     persistence :: Prelude.Maybe ChannelMessagePersistenceType,
     -- | The message content.
-    content :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    content :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -123,7 +124,7 @@ newChannelMessage =
 
 -- | The time at which a message was updated.
 channelMessage_lastUpdatedTimestamp :: Lens.Lens' ChannelMessage (Prelude.Maybe Prelude.UTCTime)
-channelMessage_lastUpdatedTimestamp = Lens.lens (\ChannelMessage' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@ChannelMessage' {} a -> s {lastUpdatedTimestamp = a} :: ChannelMessage) Prelude.. Lens.mapping Core._Time
+channelMessage_lastUpdatedTimestamp = Lens.lens (\ChannelMessage' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@ChannelMessage' {} a -> s {lastUpdatedTimestamp = a} :: ChannelMessage) Prelude.. Lens.mapping Data._Time
 
 -- | The message type.
 channelMessage_type :: Lens.Lens' ChannelMessage (Prelude.Maybe ChannelMessageType)
@@ -131,11 +132,11 @@ channelMessage_type = Lens.lens (\ChannelMessage' {type'} -> type') (\s@ChannelM
 
 -- | The message metadata.
 channelMessage_metadata :: Lens.Lens' ChannelMessage (Prelude.Maybe Prelude.Text)
-channelMessage_metadata = Lens.lens (\ChannelMessage' {metadata} -> metadata) (\s@ChannelMessage' {} a -> s {metadata = a} :: ChannelMessage) Prelude.. Lens.mapping Core._Sensitive
+channelMessage_metadata = Lens.lens (\ChannelMessage' {metadata} -> metadata) (\s@ChannelMessage' {} a -> s {metadata = a} :: ChannelMessage) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The time at which the message was created.
 channelMessage_createdTimestamp :: Lens.Lens' ChannelMessage (Prelude.Maybe Prelude.UTCTime)
-channelMessage_createdTimestamp = Lens.lens (\ChannelMessage' {createdTimestamp} -> createdTimestamp) (\s@ChannelMessage' {} a -> s {createdTimestamp = a} :: ChannelMessage) Prelude.. Lens.mapping Core._Time
+channelMessage_createdTimestamp = Lens.lens (\ChannelMessage' {createdTimestamp} -> createdTimestamp) (\s@ChannelMessage' {} a -> s {createdTimestamp = a} :: ChannelMessage) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the SubChannel.
 channelMessage_subChannelId :: Lens.Lens' ChannelMessage (Prelude.Maybe Prelude.Text)
@@ -164,7 +165,7 @@ channelMessage_messageAttributes = Lens.lens (\ChannelMessage' {messageAttribute
 
 -- | The time at which a message was edited.
 channelMessage_lastEditedTimestamp :: Lens.Lens' ChannelMessage (Prelude.Maybe Prelude.UTCTime)
-channelMessage_lastEditedTimestamp = Lens.lens (\ChannelMessage' {lastEditedTimestamp} -> lastEditedTimestamp) (\s@ChannelMessage' {} a -> s {lastEditedTimestamp = a} :: ChannelMessage) Prelude.. Lens.mapping Core._Time
+channelMessage_lastEditedTimestamp = Lens.lens (\ChannelMessage' {lastEditedTimestamp} -> lastEditedTimestamp) (\s@ChannelMessage' {} a -> s {lastEditedTimestamp = a} :: ChannelMessage) Prelude.. Lens.mapping Data._Time
 
 -- | The message sender.
 channelMessage_sender :: Lens.Lens' ChannelMessage (Prelude.Maybe Identity)
@@ -176,30 +177,30 @@ channelMessage_persistence = Lens.lens (\ChannelMessage' {persistence} -> persis
 
 -- | The message content.
 channelMessage_content :: Lens.Lens' ChannelMessage (Prelude.Maybe Prelude.Text)
-channelMessage_content = Lens.lens (\ChannelMessage' {content} -> content) (\s@ChannelMessage' {} a -> s {content = a} :: ChannelMessage) Prelude.. Lens.mapping Core._Sensitive
+channelMessage_content = Lens.lens (\ChannelMessage' {content} -> content) (\s@ChannelMessage' {} a -> s {content = a} :: ChannelMessage) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON ChannelMessage where
+instance Data.FromJSON ChannelMessage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelMessage"
       ( \x ->
           ChannelMessage'
-            Prelude.<$> (x Core..:? "LastUpdatedTimestamp")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Metadata")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "SubChannelId")
-            Prelude.<*> (x Core..:? "Redacted")
-            Prelude.<*> (x Core..:? "ChannelArn")
-            Prelude.<*> (x Core..:? "MessageId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> ( x Core..:? "MessageAttributes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "LastUpdatedTimestamp")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Metadata")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "SubChannelId")
+            Prelude.<*> (x Data..:? "Redacted")
+            Prelude.<*> (x Data..:? "ChannelArn")
+            Prelude.<*> (x Data..:? "MessageId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> ( x Data..:? "MessageAttributes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LastEditedTimestamp")
-            Prelude.<*> (x Core..:? "Sender")
-            Prelude.<*> (x Core..:? "Persistence")
-            Prelude.<*> (x Core..:? "Content")
+            Prelude.<*> (x Data..:? "LastEditedTimestamp")
+            Prelude.<*> (x Data..:? "Sender")
+            Prelude.<*> (x Data..:? "Persistence")
+            Prelude.<*> (x Data..:? "Content")
       )
 
 instance Prelude.Hashable ChannelMessage where

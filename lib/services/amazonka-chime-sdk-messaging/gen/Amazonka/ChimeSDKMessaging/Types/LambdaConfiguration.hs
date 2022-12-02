@@ -22,6 +22,7 @@ module Amazonka.ChimeSDKMessaging.Types.LambdaConfiguration where
 import Amazonka.ChimeSDKMessaging.Types.InvocationType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Stores metadata about a Lambda processor.
@@ -66,14 +67,14 @@ lambdaConfiguration_resourceArn = Lens.lens (\LambdaConfiguration' {resourceArn}
 lambdaConfiguration_invocationType :: Lens.Lens' LambdaConfiguration InvocationType
 lambdaConfiguration_invocationType = Lens.lens (\LambdaConfiguration' {invocationType} -> invocationType) (\s@LambdaConfiguration' {} a -> s {invocationType = a} :: LambdaConfiguration)
 
-instance Core.FromJSON LambdaConfiguration where
+instance Data.FromJSON LambdaConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaConfiguration"
       ( \x ->
           LambdaConfiguration'
-            Prelude.<$> (x Core..: "ResourceArn")
-            Prelude.<*> (x Core..: "InvocationType")
+            Prelude.<$> (x Data..: "ResourceArn")
+            Prelude.<*> (x Data..: "InvocationType")
       )
 
 instance Prelude.Hashable LambdaConfiguration where
@@ -86,12 +87,12 @@ instance Prelude.NFData LambdaConfiguration where
     Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf invocationType
 
-instance Core.ToJSON LambdaConfiguration where
+instance Data.ToJSON LambdaConfiguration where
   toJSON LambdaConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceArn" Core..= resourceArn),
+          [ Prelude.Just ("ResourceArn" Data..= resourceArn),
             Prelude.Just
-              ("InvocationType" Core..= invocationType)
+              ("InvocationType" Data..= invocationType)
           ]
       )

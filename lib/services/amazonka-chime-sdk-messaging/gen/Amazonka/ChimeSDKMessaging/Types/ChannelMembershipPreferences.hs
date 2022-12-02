@@ -22,6 +22,7 @@ module Amazonka.ChimeSDKMessaging.Types.ChannelMembershipPreferences where
 import Amazonka.ChimeSDKMessaging.Types.PushNotificationPreferences
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The channel membership preferences for an @AppInstanceUser@.
@@ -54,13 +55,13 @@ newChannelMembershipPreferences =
 channelMembershipPreferences_pushNotifications :: Lens.Lens' ChannelMembershipPreferences (Prelude.Maybe PushNotificationPreferences)
 channelMembershipPreferences_pushNotifications = Lens.lens (\ChannelMembershipPreferences' {pushNotifications} -> pushNotifications) (\s@ChannelMembershipPreferences' {} a -> s {pushNotifications = a} :: ChannelMembershipPreferences)
 
-instance Core.FromJSON ChannelMembershipPreferences where
+instance Data.FromJSON ChannelMembershipPreferences where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelMembershipPreferences"
       ( \x ->
           ChannelMembershipPreferences'
-            Prelude.<$> (x Core..:? "PushNotifications")
+            Prelude.<$> (x Data..:? "PushNotifications")
       )
 
 instance
@@ -74,11 +75,11 @@ instance Prelude.NFData ChannelMembershipPreferences where
   rnf ChannelMembershipPreferences' {..} =
     Prelude.rnf pushNotifications
 
-instance Core.ToJSON ChannelMembershipPreferences where
+instance Data.ToJSON ChannelMembershipPreferences where
   toJSON ChannelMembershipPreferences' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PushNotifications" Core..=)
+          [ ("PushNotifications" Data..=)
               Prelude.<$> pushNotifications
           ]
       )

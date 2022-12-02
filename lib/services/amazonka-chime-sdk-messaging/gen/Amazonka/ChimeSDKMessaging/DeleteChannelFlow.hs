@@ -45,6 +45,7 @@ where
 import Amazonka.ChimeSDKMessaging.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,15 +97,15 @@ instance Prelude.NFData DeleteChannelFlow where
   rnf DeleteChannelFlow' {..} =
     Prelude.rnf channelFlowArn
 
-instance Core.ToHeaders DeleteChannelFlow where
+instance Data.ToHeaders DeleteChannelFlow where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteChannelFlow where
+instance Data.ToPath DeleteChannelFlow where
   toPath DeleteChannelFlow' {..} =
     Prelude.mconcat
-      ["/channel-flows/", Core.toBS channelFlowArn]
+      ["/channel-flows/", Data.toBS channelFlowArn]
 
-instance Core.ToQuery DeleteChannelFlow where
+instance Data.ToQuery DeleteChannelFlow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteChannelFlowResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.ChimeSDKMessaging.Types.ProcessorConfiguration where
 import Amazonka.ChimeSDKMessaging.Types.LambdaConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A processor\'s metadata.
@@ -53,13 +54,13 @@ newProcessorConfiguration pLambda_ =
 processorConfiguration_lambda :: Lens.Lens' ProcessorConfiguration LambdaConfiguration
 processorConfiguration_lambda = Lens.lens (\ProcessorConfiguration' {lambda} -> lambda) (\s@ProcessorConfiguration' {} a -> s {lambda = a} :: ProcessorConfiguration)
 
-instance Core.FromJSON ProcessorConfiguration where
+instance Data.FromJSON ProcessorConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProcessorConfiguration"
       ( \x ->
           ProcessorConfiguration'
-            Prelude.<$> (x Core..: "Lambda")
+            Prelude.<$> (x Data..: "Lambda")
       )
 
 instance Prelude.Hashable ProcessorConfiguration where
@@ -69,9 +70,9 @@ instance Prelude.Hashable ProcessorConfiguration where
 instance Prelude.NFData ProcessorConfiguration where
   rnf ProcessorConfiguration' {..} = Prelude.rnf lambda
 
-instance Core.ToJSON ProcessorConfiguration where
+instance Data.ToJSON ProcessorConfiguration where
   toJSON ProcessorConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Lambda" Core..= lambda)]
+          [Prelude.Just ("Lambda" Data..= lambda)]
       )

@@ -23,6 +23,7 @@ import Amazonka.ChimeSDKMessaging.Types.ChannelMode
 import Amazonka.ChimeSDKMessaging.Types.ChannelPrivacy
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of details of a channel associated with channel flow.
@@ -30,9 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newChannelAssociatedWithFlowSummary' smart constructor.
 data ChannelAssociatedWithFlowSummary = ChannelAssociatedWithFlowSummary'
   { -- | The name of the channel flow.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The channel\'s metadata.
-    metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    metadata :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the channel.
     channelArn :: Prelude.Maybe Prelude.Text,
     -- | The channel\'s privacy setting.
@@ -73,11 +74,11 @@ newChannelAssociatedWithFlowSummary =
 
 -- | The name of the channel flow.
 channelAssociatedWithFlowSummary_name :: Lens.Lens' ChannelAssociatedWithFlowSummary (Prelude.Maybe Prelude.Text)
-channelAssociatedWithFlowSummary_name = Lens.lens (\ChannelAssociatedWithFlowSummary' {name} -> name) (\s@ChannelAssociatedWithFlowSummary' {} a -> s {name = a} :: ChannelAssociatedWithFlowSummary) Prelude.. Lens.mapping Core._Sensitive
+channelAssociatedWithFlowSummary_name = Lens.lens (\ChannelAssociatedWithFlowSummary' {name} -> name) (\s@ChannelAssociatedWithFlowSummary' {} a -> s {name = a} :: ChannelAssociatedWithFlowSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The channel\'s metadata.
 channelAssociatedWithFlowSummary_metadata :: Lens.Lens' ChannelAssociatedWithFlowSummary (Prelude.Maybe Prelude.Text)
-channelAssociatedWithFlowSummary_metadata = Lens.lens (\ChannelAssociatedWithFlowSummary' {metadata} -> metadata) (\s@ChannelAssociatedWithFlowSummary' {} a -> s {metadata = a} :: ChannelAssociatedWithFlowSummary) Prelude.. Lens.mapping Core._Sensitive
+channelAssociatedWithFlowSummary_metadata = Lens.lens (\ChannelAssociatedWithFlowSummary' {metadata} -> metadata) (\s@ChannelAssociatedWithFlowSummary' {} a -> s {metadata = a} :: ChannelAssociatedWithFlowSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARN of the channel.
 channelAssociatedWithFlowSummary_channelArn :: Lens.Lens' ChannelAssociatedWithFlowSummary (Prelude.Maybe Prelude.Text)
@@ -92,19 +93,19 @@ channelAssociatedWithFlowSummary_mode :: Lens.Lens' ChannelAssociatedWithFlowSum
 channelAssociatedWithFlowSummary_mode = Lens.lens (\ChannelAssociatedWithFlowSummary' {mode} -> mode) (\s@ChannelAssociatedWithFlowSummary' {} a -> s {mode = a} :: ChannelAssociatedWithFlowSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ChannelAssociatedWithFlowSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelAssociatedWithFlowSummary"
       ( \x ->
           ChannelAssociatedWithFlowSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Metadata")
-            Prelude.<*> (x Core..:? "ChannelArn")
-            Prelude.<*> (x Core..:? "Privacy")
-            Prelude.<*> (x Core..:? "Mode")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Metadata")
+            Prelude.<*> (x Data..:? "ChannelArn")
+            Prelude.<*> (x Data..:? "Privacy")
+            Prelude.<*> (x Data..:? "Mode")
       )
 
 instance

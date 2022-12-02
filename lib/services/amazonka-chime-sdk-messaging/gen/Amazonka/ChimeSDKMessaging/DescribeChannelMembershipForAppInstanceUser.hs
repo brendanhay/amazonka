@@ -49,6 +49,7 @@ where
 import Amazonka.ChimeSDKMessaging.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,7 +124,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeChannelMembershipForAppInstanceUserResponse'
-            Prelude.<$> (x Core..?> "ChannelMembership")
+            Prelude.<$> (x Data..?> "ChannelMembership")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,31 +149,31 @@ instance
       `Prelude.seq` Prelude.rnf chimeBearer
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeChannelMembershipForAppInstanceUser
   where
   toHeaders
     DescribeChannelMembershipForAppInstanceUser' {..} =
       Prelude.mconcat
-        ["x-amz-chime-bearer" Core.=# chimeBearer]
+        ["x-amz-chime-bearer" Data.=# chimeBearer]
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeChannelMembershipForAppInstanceUser
   where
   toPath
     DescribeChannelMembershipForAppInstanceUser' {..} =
       Prelude.mconcat
-        ["/channels/", Core.toBS channelArn]
+        ["/channels/", Data.toBS channelArn]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeChannelMembershipForAppInstanceUser
   where
   toQuery
     DescribeChannelMembershipForAppInstanceUser' {..} =
       Prelude.mconcat
-        [ "app-instance-user-arn" Core.=: appInstanceUserArn,
+        [ "app-instance-user-arn" Data.=: appInstanceUserArn,
           "scope=app-instance-user-membership"
         ]
 

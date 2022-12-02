@@ -22,6 +22,7 @@ module Amazonka.ChimeSDKMessaging.Types.ChannelBanSummary where
 import Amazonka.ChimeSDKMessaging.Types.Identity
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of the details of a @ChannelBan@.
@@ -51,12 +52,12 @@ newChannelBanSummary =
 channelBanSummary_member :: Lens.Lens' ChannelBanSummary (Prelude.Maybe Identity)
 channelBanSummary_member = Lens.lens (\ChannelBanSummary' {member} -> member) (\s@ChannelBanSummary' {} a -> s {member = a} :: ChannelBanSummary)
 
-instance Core.FromJSON ChannelBanSummary where
+instance Data.FromJSON ChannelBanSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelBanSummary"
       ( \x ->
-          ChannelBanSummary' Prelude.<$> (x Core..:? "Member")
+          ChannelBanSummary' Prelude.<$> (x Data..:? "Member")
       )
 
 instance Prelude.Hashable ChannelBanSummary where

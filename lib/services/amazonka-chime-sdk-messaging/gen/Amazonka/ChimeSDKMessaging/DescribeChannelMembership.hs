@@ -49,6 +49,7 @@ where
 import Amazonka.ChimeSDKMessaging.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,7 +137,7 @@ instance Core.AWSRequest DescribeChannelMembership where
     Response.receiveJSON
       ( \s h x ->
           DescribeChannelMembershipResponse'
-            Prelude.<$> (x Core..?> "ChannelMembership")
+            Prelude.<$> (x Data..?> "ChannelMembership")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,24 +155,24 @@ instance Prelude.NFData DescribeChannelMembership where
       `Prelude.seq` Prelude.rnf memberArn
       `Prelude.seq` Prelude.rnf chimeBearer
 
-instance Core.ToHeaders DescribeChannelMembership where
+instance Data.ToHeaders DescribeChannelMembership where
   toHeaders DescribeChannelMembership' {..} =
     Prelude.mconcat
-      ["x-amz-chime-bearer" Core.=# chimeBearer]
+      ["x-amz-chime-bearer" Data.=# chimeBearer]
 
-instance Core.ToPath DescribeChannelMembership where
+instance Data.ToPath DescribeChannelMembership where
   toPath DescribeChannelMembership' {..} =
     Prelude.mconcat
       [ "/channels/",
-        Core.toBS channelArn,
+        Data.toBS channelArn,
         "/memberships/",
-        Core.toBS memberArn
+        Data.toBS memberArn
       ]
 
-instance Core.ToQuery DescribeChannelMembership where
+instance Data.ToQuery DescribeChannelMembership where
   toQuery DescribeChannelMembership' {..} =
     Prelude.mconcat
-      ["sub-channel-id" Core.=: subChannelId]
+      ["sub-channel-id" Data.=: subChannelId]
 
 -- | /See:/ 'newDescribeChannelMembershipResponse' smart constructor.
 data DescribeChannelMembershipResponse = DescribeChannelMembershipResponse'

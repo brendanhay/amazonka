@@ -22,6 +22,7 @@ module Amazonka.ChimeSDKMessaging.Types.PushNotificationPreferences where
 import Amazonka.ChimeSDKMessaging.Types.AllowNotifications
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The channel membership preferences for push notification.
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 data PushNotificationPreferences = PushNotificationPreferences'
   { -- | The simple JSON object used to send a subset of a push notification to
     -- the requested member.
-    filterRule :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    filterRule :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Enum value that indicates which push notifications to send to the
     -- requested member of a channel. @ALL@ sends all push notifications,
     -- @NONE@ sends no push notifications, @FILTERED@ sends only filtered push
@@ -68,7 +69,7 @@ newPushNotificationPreferences pAllowNotifications_ =
 -- | The simple JSON object used to send a subset of a push notification to
 -- the requested member.
 pushNotificationPreferences_filterRule :: Lens.Lens' PushNotificationPreferences (Prelude.Maybe Prelude.Text)
-pushNotificationPreferences_filterRule = Lens.lens (\PushNotificationPreferences' {filterRule} -> filterRule) (\s@PushNotificationPreferences' {} a -> s {filterRule = a} :: PushNotificationPreferences) Prelude.. Lens.mapping Core._Sensitive
+pushNotificationPreferences_filterRule = Lens.lens (\PushNotificationPreferences' {filterRule} -> filterRule) (\s@PushNotificationPreferences' {} a -> s {filterRule = a} :: PushNotificationPreferences) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Enum value that indicates which push notifications to send to the
 -- requested member of a channel. @ALL@ sends all push notifications,
@@ -77,14 +78,14 @@ pushNotificationPreferences_filterRule = Lens.lens (\PushNotificationPreferences
 pushNotificationPreferences_allowNotifications :: Lens.Lens' PushNotificationPreferences AllowNotifications
 pushNotificationPreferences_allowNotifications = Lens.lens (\PushNotificationPreferences' {allowNotifications} -> allowNotifications) (\s@PushNotificationPreferences' {} a -> s {allowNotifications = a} :: PushNotificationPreferences)
 
-instance Core.FromJSON PushNotificationPreferences where
+instance Data.FromJSON PushNotificationPreferences where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PushNotificationPreferences"
       ( \x ->
           PushNotificationPreferences'
-            Prelude.<$> (x Core..:? "FilterRule")
-            Prelude.<*> (x Core..: "AllowNotifications")
+            Prelude.<$> (x Data..:? "FilterRule")
+            Prelude.<*> (x Data..: "AllowNotifications")
       )
 
 instance Prelude.Hashable PushNotificationPreferences where
@@ -97,12 +98,12 @@ instance Prelude.NFData PushNotificationPreferences where
     Prelude.rnf filterRule
       `Prelude.seq` Prelude.rnf allowNotifications
 
-instance Core.ToJSON PushNotificationPreferences where
+instance Data.ToJSON PushNotificationPreferences where
   toJSON PushNotificationPreferences' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FilterRule" Core..=) Prelude.<$> filterRule,
+          [ ("FilterRule" Data..=) Prelude.<$> filterRule,
             Prelude.Just
-              ("AllowNotifications" Core..= allowNotifications)
+              ("AllowNotifications" Data..= allowNotifications)
           ]
       )

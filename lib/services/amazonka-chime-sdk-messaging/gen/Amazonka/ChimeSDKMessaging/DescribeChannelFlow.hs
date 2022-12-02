@@ -43,6 +43,7 @@ where
 import Amazonka.ChimeSDKMessaging.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,7 +88,7 @@ instance Core.AWSRequest DescribeChannelFlow where
     Response.receiveJSON
       ( \s h x ->
           DescribeChannelFlowResponse'
-            Prelude.<$> (x Core..?> "ChannelFlow")
+            Prelude.<$> (x Data..?> "ChannelFlow")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,15 +100,15 @@ instance Prelude.NFData DescribeChannelFlow where
   rnf DescribeChannelFlow' {..} =
     Prelude.rnf channelFlowArn
 
-instance Core.ToHeaders DescribeChannelFlow where
+instance Data.ToHeaders DescribeChannelFlow where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeChannelFlow where
+instance Data.ToPath DescribeChannelFlow where
   toPath DescribeChannelFlow' {..} =
     Prelude.mconcat
-      ["/channel-flows/", Core.toBS channelFlowArn]
+      ["/channel-flows/", Data.toBS channelFlowArn]
 
-instance Core.ToQuery DescribeChannelFlow where
+instance Data.ToQuery DescribeChannelFlow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeChannelFlowResponse' smart constructor.

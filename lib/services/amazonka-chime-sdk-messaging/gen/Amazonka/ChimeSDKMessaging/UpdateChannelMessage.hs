@@ -54,6 +54,7 @@ where
 import Amazonka.ChimeSDKMessaging.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -61,14 +62,14 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdateChannelMessage' smart constructor.
 data UpdateChannelMessage = UpdateChannelMessage'
   { -- | The metadata of the message being updated.
-    metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    metadata :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the SubChannel in the request.
     --
     -- Only required when updating messages in a SubChannel that the user
     -- belongs to.
     subChannelId :: Prelude.Maybe Prelude.Text,
     -- | The content of the message being updated.
-    content :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    content :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the channel.
     channelArn :: Prelude.Text,
     -- | The ID string of the message being updated.
@@ -123,7 +124,7 @@ newUpdateChannelMessage
 
 -- | The metadata of the message being updated.
 updateChannelMessage_metadata :: Lens.Lens' UpdateChannelMessage (Prelude.Maybe Prelude.Text)
-updateChannelMessage_metadata = Lens.lens (\UpdateChannelMessage' {metadata} -> metadata) (\s@UpdateChannelMessage' {} a -> s {metadata = a} :: UpdateChannelMessage) Prelude.. Lens.mapping Core._Sensitive
+updateChannelMessage_metadata = Lens.lens (\UpdateChannelMessage' {metadata} -> metadata) (\s@UpdateChannelMessage' {} a -> s {metadata = a} :: UpdateChannelMessage) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the SubChannel in the request.
 --
@@ -134,7 +135,7 @@ updateChannelMessage_subChannelId = Lens.lens (\UpdateChannelMessage' {subChanne
 
 -- | The content of the message being updated.
 updateChannelMessage_content :: Lens.Lens' UpdateChannelMessage (Prelude.Maybe Prelude.Text)
-updateChannelMessage_content = Lens.lens (\UpdateChannelMessage' {content} -> content) (\s@UpdateChannelMessage' {} a -> s {content = a} :: UpdateChannelMessage) Prelude.. Lens.mapping Core._Sensitive
+updateChannelMessage_content = Lens.lens (\UpdateChannelMessage' {content} -> content) (\s@UpdateChannelMessage' {} a -> s {content = a} :: UpdateChannelMessage) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARN of the channel.
 updateChannelMessage_channelArn :: Lens.Lens' UpdateChannelMessage Prelude.Text
@@ -158,10 +159,10 @@ instance Core.AWSRequest UpdateChannelMessage where
     Response.receiveJSON
       ( \s h x ->
           UpdateChannelMessageResponse'
-            Prelude.<$> (x Core..?> "SubChannelId")
-            Prelude.<*> (x Core..?> "ChannelArn")
-            Prelude.<*> (x Core..?> "MessageId")
-            Prelude.<*> (x Core..?> "Status")
+            Prelude.<$> (x Data..?> "SubChannelId")
+            Prelude.<*> (x Data..?> "ChannelArn")
+            Prelude.<*> (x Data..?> "MessageId")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,31 +184,31 @@ instance Prelude.NFData UpdateChannelMessage where
       `Prelude.seq` Prelude.rnf messageId
       `Prelude.seq` Prelude.rnf chimeBearer
 
-instance Core.ToHeaders UpdateChannelMessage where
+instance Data.ToHeaders UpdateChannelMessage where
   toHeaders UpdateChannelMessage' {..} =
     Prelude.mconcat
-      ["x-amz-chime-bearer" Core.=# chimeBearer]
+      ["x-amz-chime-bearer" Data.=# chimeBearer]
 
-instance Core.ToJSON UpdateChannelMessage where
+instance Data.ToJSON UpdateChannelMessage where
   toJSON UpdateChannelMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Metadata" Core..=) Prelude.<$> metadata,
-            ("SubChannelId" Core..=) Prelude.<$> subChannelId,
-            ("Content" Core..=) Prelude.<$> content
+          [ ("Metadata" Data..=) Prelude.<$> metadata,
+            ("SubChannelId" Data..=) Prelude.<$> subChannelId,
+            ("Content" Data..=) Prelude.<$> content
           ]
       )
 
-instance Core.ToPath UpdateChannelMessage where
+instance Data.ToPath UpdateChannelMessage where
   toPath UpdateChannelMessage' {..} =
     Prelude.mconcat
       [ "/channels/",
-        Core.toBS channelArn,
+        Data.toBS channelArn,
         "/messages/",
-        Core.toBS messageId
+        Data.toBS messageId
       ]
 
-instance Core.ToQuery UpdateChannelMessage where
+instance Data.ToQuery UpdateChannelMessage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateChannelMessageResponse' smart constructor.

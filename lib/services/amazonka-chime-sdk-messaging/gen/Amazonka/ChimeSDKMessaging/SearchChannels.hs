@@ -48,6 +48,7 @@ where
 import Amazonka.ChimeSDKMessaging.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -56,7 +57,7 @@ import qualified Amazonka.Response as Response
 data SearchChannels = SearchChannels'
   { -- | The token returned from previous API requests until the number of
     -- channels is reached.
-    nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The @AppInstanceUserArn@ of the user making the API call.
     chimeBearer :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of channels that you want returned.
@@ -97,7 +98,7 @@ newSearchChannels pFields_ =
 -- | The token returned from previous API requests until the number of
 -- channels is reached.
 searchChannels_nextToken :: Lens.Lens' SearchChannels (Prelude.Maybe Prelude.Text)
-searchChannels_nextToken = Lens.lens (\SearchChannels' {nextToken} -> nextToken) (\s@SearchChannels' {} a -> s {nextToken = a} :: SearchChannels) Prelude.. Lens.mapping Core._Sensitive
+searchChannels_nextToken = Lens.lens (\SearchChannels' {nextToken} -> nextToken) (\s@SearchChannels' {} a -> s {nextToken = a} :: SearchChannels) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The @AppInstanceUserArn@ of the user making the API call.
 searchChannels_chimeBearer :: Lens.Lens' SearchChannels (Prelude.Maybe Prelude.Text)
@@ -121,8 +122,8 @@ instance Core.AWSRequest SearchChannels where
     Response.receiveJSON
       ( \s h x ->
           SearchChannelsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Channels" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Channels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,26 +141,26 @@ instance Prelude.NFData SearchChannels where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf fields
 
-instance Core.ToHeaders SearchChannels where
+instance Data.ToHeaders SearchChannels where
   toHeaders SearchChannels' {..} =
     Prelude.mconcat
-      ["x-amz-chime-bearer" Core.=# chimeBearer]
+      ["x-amz-chime-bearer" Data.=# chimeBearer]
 
-instance Core.ToJSON SearchChannels where
+instance Data.ToJSON SearchChannels where
   toJSON SearchChannels' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Fields" Core..= fields)]
+          [Prelude.Just ("Fields" Data..= fields)]
       )
 
-instance Core.ToPath SearchChannels where
+instance Data.ToPath SearchChannels where
   toPath = Prelude.const "/channels"
 
-instance Core.ToQuery SearchChannels where
+instance Data.ToQuery SearchChannels where
   toQuery SearchChannels' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults,
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults,
         "operation=search"
       ]
 
@@ -167,7 +168,7 @@ instance Core.ToQuery SearchChannels where
 data SearchChannelsResponse = SearchChannelsResponse'
   { -- | The token returned from previous API responses until the number of
     -- channels is reached.
-    nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A list of the channels in the request.
     channels :: Prelude.Maybe [ChannelSummary],
     -- | The response's http status code.
@@ -204,7 +205,7 @@ newSearchChannelsResponse pHttpStatus_ =
 -- | The token returned from previous API responses until the number of
 -- channels is reached.
 searchChannelsResponse_nextToken :: Lens.Lens' SearchChannelsResponse (Prelude.Maybe Prelude.Text)
-searchChannelsResponse_nextToken = Lens.lens (\SearchChannelsResponse' {nextToken} -> nextToken) (\s@SearchChannelsResponse' {} a -> s {nextToken = a} :: SearchChannelsResponse) Prelude.. Lens.mapping Core._Sensitive
+searchChannelsResponse_nextToken = Lens.lens (\SearchChannelsResponse' {nextToken} -> nextToken) (\s@SearchChannelsResponse' {} a -> s {nextToken = a} :: SearchChannelsResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A list of the channels in the request.
 searchChannelsResponse_channels :: Lens.Lens' SearchChannelsResponse (Prelude.Maybe [ChannelSummary])

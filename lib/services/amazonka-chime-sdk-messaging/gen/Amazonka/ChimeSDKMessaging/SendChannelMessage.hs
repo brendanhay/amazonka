@@ -62,6 +62,7 @@ where
 import Amazonka.ChimeSDKMessaging.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -69,7 +70,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newSendChannelMessage' smart constructor.
 data SendChannelMessage = SendChannelMessage'
   { -- | The optional metadata for each message.
-    metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    metadata :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the SubChannel in the request.
     subChannelId :: Prelude.Maybe Prelude.Text,
     -- | The attributes for the message, used for message filtering along with a
@@ -80,14 +81,14 @@ data SendChannelMessage = SendChannelMessage'
     -- | The ARN of the channel.
     channelArn :: Prelude.Text,
     -- | The content of the message.
-    content :: Core.Sensitive Prelude.Text,
+    content :: Data.Sensitive Prelude.Text,
     -- | The type of message, @STANDARD@ or @CONTROL@.
     type' :: ChannelMessageType,
     -- | Boolean that controls whether the message is persisted on the back end.
     -- Required.
     persistence :: ChannelMessagePersistenceType,
     -- | The @Idempotency@ token for each client request.
-    clientRequestToken :: Core.Sensitive Prelude.Text,
+    clientRequestToken :: Data.Sensitive Prelude.Text,
     -- | The @AppInstanceUserArn@ of the user that makes the API call.
     chimeBearer :: Prelude.Text
   }
@@ -149,17 +150,17 @@ newSendChannelMessage
         messageAttributes = Prelude.Nothing,
         pushNotification = Prelude.Nothing,
         channelArn = pChannelArn_,
-        content = Core._Sensitive Lens.# pContent_,
+        content = Data._Sensitive Lens.# pContent_,
         type' = pType_,
         persistence = pPersistence_,
         clientRequestToken =
-          Core._Sensitive Lens.# pClientRequestToken_,
+          Data._Sensitive Lens.# pClientRequestToken_,
         chimeBearer = pChimeBearer_
       }
 
 -- | The optional metadata for each message.
 sendChannelMessage_metadata :: Lens.Lens' SendChannelMessage (Prelude.Maybe Prelude.Text)
-sendChannelMessage_metadata = Lens.lens (\SendChannelMessage' {metadata} -> metadata) (\s@SendChannelMessage' {} a -> s {metadata = a} :: SendChannelMessage) Prelude.. Lens.mapping Core._Sensitive
+sendChannelMessage_metadata = Lens.lens (\SendChannelMessage' {metadata} -> metadata) (\s@SendChannelMessage' {} a -> s {metadata = a} :: SendChannelMessage) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the SubChannel in the request.
 sendChannelMessage_subChannelId :: Lens.Lens' SendChannelMessage (Prelude.Maybe Prelude.Text)
@@ -180,7 +181,7 @@ sendChannelMessage_channelArn = Lens.lens (\SendChannelMessage' {channelArn} -> 
 
 -- | The content of the message.
 sendChannelMessage_content :: Lens.Lens' SendChannelMessage Prelude.Text
-sendChannelMessage_content = Lens.lens (\SendChannelMessage' {content} -> content) (\s@SendChannelMessage' {} a -> s {content = a} :: SendChannelMessage) Prelude.. Core._Sensitive
+sendChannelMessage_content = Lens.lens (\SendChannelMessage' {content} -> content) (\s@SendChannelMessage' {} a -> s {content = a} :: SendChannelMessage) Prelude.. Data._Sensitive
 
 -- | The type of message, @STANDARD@ or @CONTROL@.
 sendChannelMessage_type :: Lens.Lens' SendChannelMessage ChannelMessageType
@@ -193,7 +194,7 @@ sendChannelMessage_persistence = Lens.lens (\SendChannelMessage' {persistence} -
 
 -- | The @Idempotency@ token for each client request.
 sendChannelMessage_clientRequestToken :: Lens.Lens' SendChannelMessage Prelude.Text
-sendChannelMessage_clientRequestToken = Lens.lens (\SendChannelMessage' {clientRequestToken} -> clientRequestToken) (\s@SendChannelMessage' {} a -> s {clientRequestToken = a} :: SendChannelMessage) Prelude.. Core._Sensitive
+sendChannelMessage_clientRequestToken = Lens.lens (\SendChannelMessage' {clientRequestToken} -> clientRequestToken) (\s@SendChannelMessage' {} a -> s {clientRequestToken = a} :: SendChannelMessage) Prelude.. Data._Sensitive
 
 -- | The @AppInstanceUserArn@ of the user that makes the API call.
 sendChannelMessage_chimeBearer :: Lens.Lens' SendChannelMessage Prelude.Text
@@ -209,10 +210,10 @@ instance Core.AWSRequest SendChannelMessage where
     Response.receiveJSON
       ( \s h x ->
           SendChannelMessageResponse'
-            Prelude.<$> (x Core..?> "SubChannelId")
-            Prelude.<*> (x Core..?> "ChannelArn")
-            Prelude.<*> (x Core..?> "MessageId")
-            Prelude.<*> (x Core..?> "Status")
+            Prelude.<$> (x Data..?> "SubChannelId")
+            Prelude.<*> (x Data..?> "ChannelArn")
+            Prelude.<*> (x Data..?> "MessageId")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -242,35 +243,35 @@ instance Prelude.NFData SendChannelMessage where
       `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf chimeBearer
 
-instance Core.ToHeaders SendChannelMessage where
+instance Data.ToHeaders SendChannelMessage where
   toHeaders SendChannelMessage' {..} =
     Prelude.mconcat
-      ["x-amz-chime-bearer" Core.=# chimeBearer]
+      ["x-amz-chime-bearer" Data.=# chimeBearer]
 
-instance Core.ToJSON SendChannelMessage where
+instance Data.ToJSON SendChannelMessage where
   toJSON SendChannelMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Metadata" Core..=) Prelude.<$> metadata,
-            ("SubChannelId" Core..=) Prelude.<$> subChannelId,
-            ("MessageAttributes" Core..=)
+          [ ("Metadata" Data..=) Prelude.<$> metadata,
+            ("SubChannelId" Data..=) Prelude.<$> subChannelId,
+            ("MessageAttributes" Data..=)
               Prelude.<$> messageAttributes,
-            ("PushNotification" Core..=)
+            ("PushNotification" Data..=)
               Prelude.<$> pushNotification,
-            Prelude.Just ("Content" Core..= content),
-            Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("Persistence" Core..= persistence),
+            Prelude.Just ("Content" Data..= content),
+            Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("Persistence" Data..= persistence),
             Prelude.Just
-              ("ClientRequestToken" Core..= clientRequestToken)
+              ("ClientRequestToken" Data..= clientRequestToken)
           ]
       )
 
-instance Core.ToPath SendChannelMessage where
+instance Data.ToPath SendChannelMessage where
   toPath SendChannelMessage' {..} =
     Prelude.mconcat
-      ["/channels/", Core.toBS channelArn, "/messages"]
+      ["/channels/", Data.toBS channelArn, "/messages"]
 
-instance Core.ToQuery SendChannelMessage where
+instance Data.ToQuery SendChannelMessage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSendChannelMessageResponse' smart constructor.

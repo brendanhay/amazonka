@@ -22,6 +22,7 @@ module Amazonka.ChimeSDKMessaging.Types.ChannelMessageStatusStructure where
 import Amazonka.ChimeSDKMessaging.Types.ChannelMessageStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Stores information about a message status.
@@ -63,14 +64,14 @@ channelMessageStatusStructure_detail = Lens.lens (\ChannelMessageStatusStructure
 channelMessageStatusStructure_value :: Lens.Lens' ChannelMessageStatusStructure (Prelude.Maybe ChannelMessageStatus)
 channelMessageStatusStructure_value = Lens.lens (\ChannelMessageStatusStructure' {value} -> value) (\s@ChannelMessageStatusStructure' {} a -> s {value = a} :: ChannelMessageStatusStructure)
 
-instance Core.FromJSON ChannelMessageStatusStructure where
+instance Data.FromJSON ChannelMessageStatusStructure where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelMessageStatusStructure"
       ( \x ->
           ChannelMessageStatusStructure'
-            Prelude.<$> (x Core..:? "Detail")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Detail")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance

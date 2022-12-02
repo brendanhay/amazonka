@@ -23,6 +23,7 @@ import Amazonka.ChimeSDKMessaging.Types.ChannelMode
 import Amazonka.ChimeSDKMessaging.Types.ChannelPrivacy
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of the details of a @Channel@.
@@ -30,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newChannelSummary' smart constructor.
 data ChannelSummary = ChannelSummary'
   { -- | The time at which the last persistent message in a channel was sent.
-    lastMessageTimestamp :: Prelude.Maybe Core.POSIX,
+    lastMessageTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The name of the channel.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The metadata of the channel.
-    metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    metadata :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the channel.
     channelArn :: Prelude.Maybe Prelude.Text,
     -- | The privacy setting of the channel.
@@ -78,15 +79,15 @@ newChannelSummary =
 
 -- | The time at which the last persistent message in a channel was sent.
 channelSummary_lastMessageTimestamp :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.UTCTime)
-channelSummary_lastMessageTimestamp = Lens.lens (\ChannelSummary' {lastMessageTimestamp} -> lastMessageTimestamp) (\s@ChannelSummary' {} a -> s {lastMessageTimestamp = a} :: ChannelSummary) Prelude.. Lens.mapping Core._Time
+channelSummary_lastMessageTimestamp = Lens.lens (\ChannelSummary' {lastMessageTimestamp} -> lastMessageTimestamp) (\s@ChannelSummary' {} a -> s {lastMessageTimestamp = a} :: ChannelSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the channel.
 channelSummary_name :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.Text)
-channelSummary_name = Lens.lens (\ChannelSummary' {name} -> name) (\s@ChannelSummary' {} a -> s {name = a} :: ChannelSummary) Prelude.. Lens.mapping Core._Sensitive
+channelSummary_name = Lens.lens (\ChannelSummary' {name} -> name) (\s@ChannelSummary' {} a -> s {name = a} :: ChannelSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The metadata of the channel.
 channelSummary_metadata :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.Text)
-channelSummary_metadata = Lens.lens (\ChannelSummary' {metadata} -> metadata) (\s@ChannelSummary' {} a -> s {metadata = a} :: ChannelSummary) Prelude.. Lens.mapping Core._Sensitive
+channelSummary_metadata = Lens.lens (\ChannelSummary' {metadata} -> metadata) (\s@ChannelSummary' {} a -> s {metadata = a} :: ChannelSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARN of the channel.
 channelSummary_channelArn :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.Text)
@@ -100,18 +101,18 @@ channelSummary_privacy = Lens.lens (\ChannelSummary' {privacy} -> privacy) (\s@C
 channelSummary_mode :: Lens.Lens' ChannelSummary (Prelude.Maybe ChannelMode)
 channelSummary_mode = Lens.lens (\ChannelSummary' {mode} -> mode) (\s@ChannelSummary' {} a -> s {mode = a} :: ChannelSummary)
 
-instance Core.FromJSON ChannelSummary where
+instance Data.FromJSON ChannelSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelSummary"
       ( \x ->
           ChannelSummary'
-            Prelude.<$> (x Core..:? "LastMessageTimestamp")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Metadata")
-            Prelude.<*> (x Core..:? "ChannelArn")
-            Prelude.<*> (x Core..:? "Privacy")
-            Prelude.<*> (x Core..:? "Mode")
+            Prelude.<$> (x Data..:? "LastMessageTimestamp")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Metadata")
+            Prelude.<*> (x Data..:? "ChannelArn")
+            Prelude.<*> (x Data..:? "Privacy")
+            Prelude.<*> (x Data..:? "Mode")
       )
 
 instance Prelude.Hashable ChannelSummary where

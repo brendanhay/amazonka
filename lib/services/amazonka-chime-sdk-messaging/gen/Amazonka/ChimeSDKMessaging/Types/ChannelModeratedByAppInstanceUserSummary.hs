@@ -22,6 +22,7 @@ module Amazonka.ChimeSDKMessaging.Types.ChannelModeratedByAppInstanceUserSummary
 import Amazonka.ChimeSDKMessaging.Types.ChannelSummary
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of the details of a moderated channel.
@@ -55,15 +56,15 @@ channelModeratedByAppInstanceUserSummary_channelSummary :: Lens.Lens' ChannelMod
 channelModeratedByAppInstanceUserSummary_channelSummary = Lens.lens (\ChannelModeratedByAppInstanceUserSummary' {channelSummary} -> channelSummary) (\s@ChannelModeratedByAppInstanceUserSummary' {} a -> s {channelSummary = a} :: ChannelModeratedByAppInstanceUserSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ChannelModeratedByAppInstanceUserSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelModeratedByAppInstanceUserSummary"
       ( \x ->
           ChannelModeratedByAppInstanceUserSummary'
-            Prelude.<$> (x Core..:? "ChannelSummary")
+            Prelude.<$> (x Data..:? "ChannelSummary")
       )
 
 instance

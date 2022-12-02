@@ -22,6 +22,7 @@ module Amazonka.ChimeSDKMessaging.Types.ChannelFlow where
 import Amazonka.ChimeSDKMessaging.Types.Processor
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of a channel flow.
@@ -29,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newChannelFlow' smart constructor.
 data ChannelFlow = ChannelFlow'
   { -- | The time at which a channel flow was updated.
-    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The name of the channel flow.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The time at which the channel flow was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | Information about the processor Lambda functions.
     processors :: Prelude.Maybe (Prelude.NonEmpty Processor),
     -- | The ARN of the channel flow.
@@ -72,15 +73,15 @@ newChannelFlow =
 
 -- | The time at which a channel flow was updated.
 channelFlow_lastUpdatedTimestamp :: Lens.Lens' ChannelFlow (Prelude.Maybe Prelude.UTCTime)
-channelFlow_lastUpdatedTimestamp = Lens.lens (\ChannelFlow' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@ChannelFlow' {} a -> s {lastUpdatedTimestamp = a} :: ChannelFlow) Prelude.. Lens.mapping Core._Time
+channelFlow_lastUpdatedTimestamp = Lens.lens (\ChannelFlow' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@ChannelFlow' {} a -> s {lastUpdatedTimestamp = a} :: ChannelFlow) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the channel flow.
 channelFlow_name :: Lens.Lens' ChannelFlow (Prelude.Maybe Prelude.Text)
-channelFlow_name = Lens.lens (\ChannelFlow' {name} -> name) (\s@ChannelFlow' {} a -> s {name = a} :: ChannelFlow) Prelude.. Lens.mapping Core._Sensitive
+channelFlow_name = Lens.lens (\ChannelFlow' {name} -> name) (\s@ChannelFlow' {} a -> s {name = a} :: ChannelFlow) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The time at which the channel flow was created.
 channelFlow_createdTimestamp :: Lens.Lens' ChannelFlow (Prelude.Maybe Prelude.UTCTime)
-channelFlow_createdTimestamp = Lens.lens (\ChannelFlow' {createdTimestamp} -> createdTimestamp) (\s@ChannelFlow' {} a -> s {createdTimestamp = a} :: ChannelFlow) Prelude.. Lens.mapping Core._Time
+channelFlow_createdTimestamp = Lens.lens (\ChannelFlow' {createdTimestamp} -> createdTimestamp) (\s@ChannelFlow' {} a -> s {createdTimestamp = a} :: ChannelFlow) Prelude.. Lens.mapping Data._Time
 
 -- | Information about the processor Lambda functions.
 channelFlow_processors :: Lens.Lens' ChannelFlow (Prelude.Maybe (Prelude.NonEmpty Processor))
@@ -90,17 +91,17 @@ channelFlow_processors = Lens.lens (\ChannelFlow' {processors} -> processors) (\
 channelFlow_channelFlowArn :: Lens.Lens' ChannelFlow (Prelude.Maybe Prelude.Text)
 channelFlow_channelFlowArn = Lens.lens (\ChannelFlow' {channelFlowArn} -> channelFlowArn) (\s@ChannelFlow' {} a -> s {channelFlowArn = a} :: ChannelFlow)
 
-instance Core.FromJSON ChannelFlow where
+instance Data.FromJSON ChannelFlow where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelFlow"
       ( \x ->
           ChannelFlow'
-            Prelude.<$> (x Core..:? "LastUpdatedTimestamp")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "Processors")
-            Prelude.<*> (x Core..:? "ChannelFlowArn")
+            Prelude.<$> (x Data..:? "LastUpdatedTimestamp")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "Processors")
+            Prelude.<*> (x Data..:? "ChannelFlowArn")
       )
 
 instance Prelude.Hashable ChannelFlow where

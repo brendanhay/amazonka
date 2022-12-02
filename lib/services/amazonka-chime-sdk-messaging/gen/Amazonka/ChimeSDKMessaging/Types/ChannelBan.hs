@@ -22,6 +22,7 @@ module Amazonka.ChimeSDKMessaging.Types.ChannelBan where
 import Amazonka.ChimeSDKMessaging.Types.Identity
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of a channel ban.
@@ -31,7 +32,7 @@ data ChannelBan = ChannelBan'
   { -- | The member being banned from the channel.
     member :: Prelude.Maybe Identity,
     -- | The time at which the ban was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the channel from which a member is being banned.
     channelArn :: Prelude.Maybe Prelude.Text,
     -- | The @AppInstanceUser@ who created the ban.
@@ -70,7 +71,7 @@ channelBan_member = Lens.lens (\ChannelBan' {member} -> member) (\s@ChannelBan' 
 
 -- | The time at which the ban was created.
 channelBan_createdTimestamp :: Lens.Lens' ChannelBan (Prelude.Maybe Prelude.UTCTime)
-channelBan_createdTimestamp = Lens.lens (\ChannelBan' {createdTimestamp} -> createdTimestamp) (\s@ChannelBan' {} a -> s {createdTimestamp = a} :: ChannelBan) Prelude.. Lens.mapping Core._Time
+channelBan_createdTimestamp = Lens.lens (\ChannelBan' {createdTimestamp} -> createdTimestamp) (\s@ChannelBan' {} a -> s {createdTimestamp = a} :: ChannelBan) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the channel from which a member is being banned.
 channelBan_channelArn :: Lens.Lens' ChannelBan (Prelude.Maybe Prelude.Text)
@@ -80,16 +81,16 @@ channelBan_channelArn = Lens.lens (\ChannelBan' {channelArn} -> channelArn) (\s@
 channelBan_createdBy :: Lens.Lens' ChannelBan (Prelude.Maybe Identity)
 channelBan_createdBy = Lens.lens (\ChannelBan' {createdBy} -> createdBy) (\s@ChannelBan' {} a -> s {createdBy = a} :: ChannelBan)
 
-instance Core.FromJSON ChannelBan where
+instance Data.FromJSON ChannelBan where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelBan"
       ( \x ->
           ChannelBan'
-            Prelude.<$> (x Core..:? "Member")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "ChannelArn")
-            Prelude.<*> (x Core..:? "CreatedBy")
+            Prelude.<$> (x Data..:? "Member")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "ChannelArn")
+            Prelude.<*> (x Data..:? "CreatedBy")
       )
 
 instance Prelude.Hashable ChannelBan where

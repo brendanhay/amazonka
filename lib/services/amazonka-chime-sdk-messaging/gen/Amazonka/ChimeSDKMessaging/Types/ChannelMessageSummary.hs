@@ -25,6 +25,7 @@ import Amazonka.ChimeSDKMessaging.Types.Identity
 import Amazonka.ChimeSDKMessaging.Types.MessageAttributeValue
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of the messages in a @Channel@.
@@ -32,13 +33,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newChannelMessageSummary' smart constructor.
 data ChannelMessageSummary = ChannelMessageSummary'
   { -- | The time at which a message was last updated.
-    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The type of message.
     type' :: Prelude.Maybe ChannelMessageType,
     -- | The metadata of the message.
-    metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    metadata :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The time at which the message summary was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | Indicates whether a message was redacted.
     redacted :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the message.
@@ -50,11 +51,11 @@ data ChannelMessageSummary = ChannelMessageSummary'
     -- | The message attribues listed in a the summary of a channel message.
     messageAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue),
     -- | The time at which a message was last edited.
-    lastEditedTimestamp :: Prelude.Maybe Core.POSIX,
+    lastEditedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The message sender.
     sender :: Prelude.Maybe Identity,
     -- | The content of the message.
-    content :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    content :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -109,7 +110,7 @@ newChannelMessageSummary =
 
 -- | The time at which a message was last updated.
 channelMessageSummary_lastUpdatedTimestamp :: Lens.Lens' ChannelMessageSummary (Prelude.Maybe Prelude.UTCTime)
-channelMessageSummary_lastUpdatedTimestamp = Lens.lens (\ChannelMessageSummary' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@ChannelMessageSummary' {} a -> s {lastUpdatedTimestamp = a} :: ChannelMessageSummary) Prelude.. Lens.mapping Core._Time
+channelMessageSummary_lastUpdatedTimestamp = Lens.lens (\ChannelMessageSummary' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@ChannelMessageSummary' {} a -> s {lastUpdatedTimestamp = a} :: ChannelMessageSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The type of message.
 channelMessageSummary_type :: Lens.Lens' ChannelMessageSummary (Prelude.Maybe ChannelMessageType)
@@ -117,11 +118,11 @@ channelMessageSummary_type = Lens.lens (\ChannelMessageSummary' {type'} -> type'
 
 -- | The metadata of the message.
 channelMessageSummary_metadata :: Lens.Lens' ChannelMessageSummary (Prelude.Maybe Prelude.Text)
-channelMessageSummary_metadata = Lens.lens (\ChannelMessageSummary' {metadata} -> metadata) (\s@ChannelMessageSummary' {} a -> s {metadata = a} :: ChannelMessageSummary) Prelude.. Lens.mapping Core._Sensitive
+channelMessageSummary_metadata = Lens.lens (\ChannelMessageSummary' {metadata} -> metadata) (\s@ChannelMessageSummary' {} a -> s {metadata = a} :: ChannelMessageSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The time at which the message summary was created.
 channelMessageSummary_createdTimestamp :: Lens.Lens' ChannelMessageSummary (Prelude.Maybe Prelude.UTCTime)
-channelMessageSummary_createdTimestamp = Lens.lens (\ChannelMessageSummary' {createdTimestamp} -> createdTimestamp) (\s@ChannelMessageSummary' {} a -> s {createdTimestamp = a} :: ChannelMessageSummary) Prelude.. Lens.mapping Core._Time
+channelMessageSummary_createdTimestamp = Lens.lens (\ChannelMessageSummary' {createdTimestamp} -> createdTimestamp) (\s@ChannelMessageSummary' {} a -> s {createdTimestamp = a} :: ChannelMessageSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates whether a message was redacted.
 channelMessageSummary_redacted :: Lens.Lens' ChannelMessageSummary (Prelude.Maybe Prelude.Bool)
@@ -143,7 +144,7 @@ channelMessageSummary_messageAttributes = Lens.lens (\ChannelMessageSummary' {me
 
 -- | The time at which a message was last edited.
 channelMessageSummary_lastEditedTimestamp :: Lens.Lens' ChannelMessageSummary (Prelude.Maybe Prelude.UTCTime)
-channelMessageSummary_lastEditedTimestamp = Lens.lens (\ChannelMessageSummary' {lastEditedTimestamp} -> lastEditedTimestamp) (\s@ChannelMessageSummary' {} a -> s {lastEditedTimestamp = a} :: ChannelMessageSummary) Prelude.. Lens.mapping Core._Time
+channelMessageSummary_lastEditedTimestamp = Lens.lens (\ChannelMessageSummary' {lastEditedTimestamp} -> lastEditedTimestamp) (\s@ChannelMessageSummary' {} a -> s {lastEditedTimestamp = a} :: ChannelMessageSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The message sender.
 channelMessageSummary_sender :: Lens.Lens' ChannelMessageSummary (Prelude.Maybe Identity)
@@ -151,27 +152,27 @@ channelMessageSummary_sender = Lens.lens (\ChannelMessageSummary' {sender} -> se
 
 -- | The content of the message.
 channelMessageSummary_content :: Lens.Lens' ChannelMessageSummary (Prelude.Maybe Prelude.Text)
-channelMessageSummary_content = Lens.lens (\ChannelMessageSummary' {content} -> content) (\s@ChannelMessageSummary' {} a -> s {content = a} :: ChannelMessageSummary) Prelude.. Lens.mapping Core._Sensitive
+channelMessageSummary_content = Lens.lens (\ChannelMessageSummary' {content} -> content) (\s@ChannelMessageSummary' {} a -> s {content = a} :: ChannelMessageSummary) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON ChannelMessageSummary where
+instance Data.FromJSON ChannelMessageSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelMessageSummary"
       ( \x ->
           ChannelMessageSummary'
-            Prelude.<$> (x Core..:? "LastUpdatedTimestamp")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Metadata")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "Redacted")
-            Prelude.<*> (x Core..:? "MessageId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> ( x Core..:? "MessageAttributes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "LastUpdatedTimestamp")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Metadata")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "Redacted")
+            Prelude.<*> (x Data..:? "MessageId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> ( x Data..:? "MessageAttributes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LastEditedTimestamp")
-            Prelude.<*> (x Core..:? "Sender")
-            Prelude.<*> (x Core..:? "Content")
+            Prelude.<*> (x Data..:? "LastEditedTimestamp")
+            Prelude.<*> (x Data..:? "Sender")
+            Prelude.<*> (x Data..:? "Content")
       )
 
 instance Prelude.Hashable ChannelMessageSummary where

@@ -47,6 +47,7 @@ where
 import Amazonka.ChimeSDKMessaging.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,21 +128,21 @@ instance Prelude.NFData DisassociateChannelFlow where
       `Prelude.seq` Prelude.rnf channelFlowArn
       `Prelude.seq` Prelude.rnf chimeBearer
 
-instance Core.ToHeaders DisassociateChannelFlow where
+instance Data.ToHeaders DisassociateChannelFlow where
   toHeaders DisassociateChannelFlow' {..} =
     Prelude.mconcat
-      ["x-amz-chime-bearer" Core.=# chimeBearer]
+      ["x-amz-chime-bearer" Data.=# chimeBearer]
 
-instance Core.ToPath DisassociateChannelFlow where
+instance Data.ToPath DisassociateChannelFlow where
   toPath DisassociateChannelFlow' {..} =
     Prelude.mconcat
       [ "/channels/",
-        Core.toBS channelArn,
+        Data.toBS channelArn,
         "/channel-flow/",
-        Core.toBS channelFlowArn
+        Data.toBS channelFlowArn
       ]
 
-instance Core.ToQuery DisassociateChannelFlow where
+instance Data.ToQuery DisassociateChannelFlow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateChannelFlowResponse' smart constructor.

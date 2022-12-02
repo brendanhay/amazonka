@@ -23,6 +23,7 @@ import Amazonka.CodeStar.Types.CodeCommitCodeDestination
 import Amazonka.CodeStar.Types.GitHubCodeDestination
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The repository to be created in AWS CodeStar. Valid values are AWS
@@ -88,11 +89,11 @@ instance Prelude.NFData CodeDestination where
     Prelude.rnf gitHub
       `Prelude.seq` Prelude.rnf codeCommit
 
-instance Core.ToJSON CodeDestination where
+instance Data.ToJSON CodeDestination where
   toJSON CodeDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("gitHub" Core..=) Prelude.<$> gitHub,
-            ("codeCommit" Core..=) Prelude.<$> codeCommit
+          [ ("gitHub" Data..=) Prelude.<$> gitHub,
+            ("codeCommit" Data..=) Prelude.<$> codeCommit
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.CodeStar.Types.CodeCommitCodeDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the AWS CodeCommit repository to be created in AWS
@@ -61,9 +62,9 @@ instance Prelude.Hashable CodeCommitCodeDestination where
 instance Prelude.NFData CodeCommitCodeDestination where
   rnf CodeCommitCodeDestination' {..} = Prelude.rnf name
 
-instance Core.ToJSON CodeCommitCodeDestination where
+instance Data.ToJSON CodeCommitCodeDestination where
   toJSON CodeCommitCodeDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )

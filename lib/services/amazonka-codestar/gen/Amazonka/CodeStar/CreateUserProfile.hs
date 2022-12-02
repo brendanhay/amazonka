@@ -54,6 +54,7 @@ where
 import Amazonka.CodeStar.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -69,10 +70,10 @@ data CreateUserProfile = CreateUserProfile'
     userArn :: Prelude.Text,
     -- | The name that will be displayed as the friendly name for the user in AWS
     -- CodeStar.
-    displayName :: Core.Sensitive Prelude.Text,
+    displayName :: Data.Sensitive Prelude.Text,
     -- | The email address that will be displayed as part of the user\'s profile
     -- in AWS CodeStar.
-    emailAddress :: Core.Sensitive Prelude.Text
+    emailAddress :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -111,8 +112,8 @@ newCreateUserProfile
     CreateUserProfile'
       { sshPublicKey = Prelude.Nothing,
         userArn = pUserArn_,
-        displayName = Core._Sensitive Lens.# pDisplayName_,
-        emailAddress = Core._Sensitive Lens.# pEmailAddress_
+        displayName = Data._Sensitive Lens.# pDisplayName_,
+        emailAddress = Data._Sensitive Lens.# pEmailAddress_
       }
 
 -- | The SSH public key associated with the user in AWS CodeStar. If a
@@ -129,12 +130,12 @@ createUserProfile_userArn = Lens.lens (\CreateUserProfile' {userArn} -> userArn)
 -- | The name that will be displayed as the friendly name for the user in AWS
 -- CodeStar.
 createUserProfile_displayName :: Lens.Lens' CreateUserProfile Prelude.Text
-createUserProfile_displayName = Lens.lens (\CreateUserProfile' {displayName} -> displayName) (\s@CreateUserProfile' {} a -> s {displayName = a} :: CreateUserProfile) Prelude.. Core._Sensitive
+createUserProfile_displayName = Lens.lens (\CreateUserProfile' {displayName} -> displayName) (\s@CreateUserProfile' {} a -> s {displayName = a} :: CreateUserProfile) Prelude.. Data._Sensitive
 
 -- | The email address that will be displayed as part of the user\'s profile
 -- in AWS CodeStar.
 createUserProfile_emailAddress :: Lens.Lens' CreateUserProfile Prelude.Text
-createUserProfile_emailAddress = Lens.lens (\CreateUserProfile' {emailAddress} -> emailAddress) (\s@CreateUserProfile' {} a -> s {emailAddress = a} :: CreateUserProfile) Prelude.. Core._Sensitive
+createUserProfile_emailAddress = Lens.lens (\CreateUserProfile' {emailAddress} -> emailAddress) (\s@CreateUserProfile' {} a -> s {emailAddress = a} :: CreateUserProfile) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest CreateUserProfile where
   type
@@ -146,13 +147,13 @@ instance Core.AWSRequest CreateUserProfile where
     Response.receiveJSON
       ( \s h x ->
           CreateUserProfileResponse'
-            Prelude.<$> (x Core..?> "lastModifiedTimestamp")
-            Prelude.<*> (x Core..?> "createdTimestamp")
-            Prelude.<*> (x Core..?> "displayName")
-            Prelude.<*> (x Core..?> "sshPublicKey")
-            Prelude.<*> (x Core..?> "emailAddress")
+            Prelude.<$> (x Data..?> "lastModifiedTimestamp")
+            Prelude.<*> (x Data..?> "createdTimestamp")
+            Prelude.<*> (x Data..?> "displayName")
+            Prelude.<*> (x Data..?> "sshPublicKey")
+            Prelude.<*> (x Data..?> "emailAddress")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "userArn")
+            Prelude.<*> (x Data..:> "userArn")
       )
 
 instance Prelude.Hashable CreateUserProfile where
@@ -169,47 +170,47 @@ instance Prelude.NFData CreateUserProfile where
       `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf emailAddress
 
-instance Core.ToHeaders CreateUserProfile where
+instance Data.ToHeaders CreateUserProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeStar_20170419.CreateUserProfile" ::
+              Data.=# ( "CodeStar_20170419.CreateUserProfile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateUserProfile where
+instance Data.ToJSON CreateUserProfile where
   toJSON CreateUserProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sshPublicKey" Core..=) Prelude.<$> sshPublicKey,
-            Prelude.Just ("userArn" Core..= userArn),
-            Prelude.Just ("displayName" Core..= displayName),
-            Prelude.Just ("emailAddress" Core..= emailAddress)
+          [ ("sshPublicKey" Data..=) Prelude.<$> sshPublicKey,
+            Prelude.Just ("userArn" Data..= userArn),
+            Prelude.Just ("displayName" Data..= displayName),
+            Prelude.Just ("emailAddress" Data..= emailAddress)
           ]
       )
 
-instance Core.ToPath CreateUserProfile where
+instance Data.ToPath CreateUserProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateUserProfile where
+instance Data.ToQuery CreateUserProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateUserProfileResponse' smart constructor.
 data CreateUserProfileResponse = CreateUserProfileResponse'
   { -- | The date the user profile was last modified, in timestamp format.
-    lastModifiedTimestamp :: Prelude.Maybe Core.POSIX,
+    lastModifiedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The date the user profile was created, in timestamp format.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The name that is displayed as the friendly name for the user in AWS
     -- CodeStar.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The SSH public key associated with the user in AWS CodeStar. This is the
     -- public portion of the public\/private keypair the user can use to access
     -- project resources if a project owner allows the user remote access to
@@ -217,7 +218,7 @@ data CreateUserProfileResponse = CreateUserProfileResponse'
     sshPublicKey :: Prelude.Maybe Prelude.Text,
     -- | The email address that is displayed as part of the user\'s profile in
     -- AWS CodeStar.
-    emailAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    emailAddress :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the user in IAM.
@@ -271,16 +272,16 @@ newCreateUserProfileResponse pHttpStatus_ pUserArn_ =
 
 -- | The date the user profile was last modified, in timestamp format.
 createUserProfileResponse_lastModifiedTimestamp :: Lens.Lens' CreateUserProfileResponse (Prelude.Maybe Prelude.UTCTime)
-createUserProfileResponse_lastModifiedTimestamp = Lens.lens (\CreateUserProfileResponse' {lastModifiedTimestamp} -> lastModifiedTimestamp) (\s@CreateUserProfileResponse' {} a -> s {lastModifiedTimestamp = a} :: CreateUserProfileResponse) Prelude.. Lens.mapping Core._Time
+createUserProfileResponse_lastModifiedTimestamp = Lens.lens (\CreateUserProfileResponse' {lastModifiedTimestamp} -> lastModifiedTimestamp) (\s@CreateUserProfileResponse' {} a -> s {lastModifiedTimestamp = a} :: CreateUserProfileResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date the user profile was created, in timestamp format.
 createUserProfileResponse_createdTimestamp :: Lens.Lens' CreateUserProfileResponse (Prelude.Maybe Prelude.UTCTime)
-createUserProfileResponse_createdTimestamp = Lens.lens (\CreateUserProfileResponse' {createdTimestamp} -> createdTimestamp) (\s@CreateUserProfileResponse' {} a -> s {createdTimestamp = a} :: CreateUserProfileResponse) Prelude.. Lens.mapping Core._Time
+createUserProfileResponse_createdTimestamp = Lens.lens (\CreateUserProfileResponse' {createdTimestamp} -> createdTimestamp) (\s@CreateUserProfileResponse' {} a -> s {createdTimestamp = a} :: CreateUserProfileResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name that is displayed as the friendly name for the user in AWS
 -- CodeStar.
 createUserProfileResponse_displayName :: Lens.Lens' CreateUserProfileResponse (Prelude.Maybe Prelude.Text)
-createUserProfileResponse_displayName = Lens.lens (\CreateUserProfileResponse' {displayName} -> displayName) (\s@CreateUserProfileResponse' {} a -> s {displayName = a} :: CreateUserProfileResponse) Prelude.. Lens.mapping Core._Sensitive
+createUserProfileResponse_displayName = Lens.lens (\CreateUserProfileResponse' {displayName} -> displayName) (\s@CreateUserProfileResponse' {} a -> s {displayName = a} :: CreateUserProfileResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The SSH public key associated with the user in AWS CodeStar. This is the
 -- public portion of the public\/private keypair the user can use to access
@@ -292,7 +293,7 @@ createUserProfileResponse_sshPublicKey = Lens.lens (\CreateUserProfileResponse' 
 -- | The email address that is displayed as part of the user\'s profile in
 -- AWS CodeStar.
 createUserProfileResponse_emailAddress :: Lens.Lens' CreateUserProfileResponse (Prelude.Maybe Prelude.Text)
-createUserProfileResponse_emailAddress = Lens.lens (\CreateUserProfileResponse' {emailAddress} -> emailAddress) (\s@CreateUserProfileResponse' {} a -> s {emailAddress = a} :: CreateUserProfileResponse) Prelude.. Lens.mapping Core._Sensitive
+createUserProfileResponse_emailAddress = Lens.lens (\CreateUserProfileResponse' {emailAddress} -> emailAddress) (\s@CreateUserProfileResponse' {} a -> s {emailAddress = a} :: CreateUserProfileResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The response's http status code.
 createUserProfileResponse_httpStatus :: Lens.Lens' CreateUserProfileResponse Prelude.Int

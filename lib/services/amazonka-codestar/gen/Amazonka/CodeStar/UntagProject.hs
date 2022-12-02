@@ -42,6 +42,7 @@ where
 import Amazonka.CodeStar.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,34 +102,34 @@ instance Prelude.NFData UntagProject where
   rnf UntagProject' {..} =
     Prelude.rnf id `Prelude.seq` Prelude.rnf tags
 
-instance Core.ToHeaders UntagProject where
+instance Data.ToHeaders UntagProject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeStar_20170419.UntagProject" ::
+              Data.=# ( "CodeStar_20170419.UntagProject" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UntagProject where
+instance Data.ToJSON UntagProject where
   toJSON UntagProject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("id" Core..= id),
-            Prelude.Just ("tags" Core..= tags)
+          [ Prelude.Just ("id" Data..= id),
+            Prelude.Just ("tags" Data..= tags)
           ]
       )
 
-instance Core.ToPath UntagProject where
+instance Data.ToPath UntagProject where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UntagProject where
+instance Data.ToQuery UntagProject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUntagProjectResponse' smart constructor.

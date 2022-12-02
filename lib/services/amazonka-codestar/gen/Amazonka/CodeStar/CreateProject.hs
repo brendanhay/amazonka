@@ -54,6 +54,7 @@ where
 import Amazonka.CodeStar.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -71,13 +72,13 @@ data CreateProject = CreateProject'
     -- parameter.
     sourceCode :: Prelude.Maybe [Code],
     -- | The description of the project, if any.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the toolchain template file submitted with the project
     -- request. If this parameter is specified, the request must also include
     -- the sourceCode parameter.
     toolchain :: Prelude.Maybe Toolchain,
     -- | The display name for the project to be created in AWS CodeStar.
-    name :: Core.Sensitive Prelude.Text,
+    name :: Data.Sensitive Prelude.Text,
     -- | The ID of the project to be created in AWS CodeStar.
     id :: Prelude.Text
   }
@@ -123,7 +124,7 @@ newCreateProject pName_ pId_ =
       sourceCode = Prelude.Nothing,
       description = Prelude.Nothing,
       toolchain = Prelude.Nothing,
-      name = Core._Sensitive Lens.# pName_,
+      name = Data._Sensitive Lens.# pName_,
       id = pId_
     }
 
@@ -145,7 +146,7 @@ createProject_sourceCode = Lens.lens (\CreateProject' {sourceCode} -> sourceCode
 
 -- | The description of the project, if any.
 createProject_description :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
-createProject_description = Lens.lens (\CreateProject' {description} -> description) (\s@CreateProject' {} a -> s {description = a} :: CreateProject) Prelude.. Lens.mapping Core._Sensitive
+createProject_description = Lens.lens (\CreateProject' {description} -> description) (\s@CreateProject' {} a -> s {description = a} :: CreateProject) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the toolchain template file submitted with the project
 -- request. If this parameter is specified, the request must also include
@@ -155,7 +156,7 @@ createProject_toolchain = Lens.lens (\CreateProject' {toolchain} -> toolchain) (
 
 -- | The display name for the project to be created in AWS CodeStar.
 createProject_name :: Lens.Lens' CreateProject Prelude.Text
-createProject_name = Lens.lens (\CreateProject' {name} -> name) (\s@CreateProject' {} a -> s {name = a} :: CreateProject) Prelude.. Core._Sensitive
+createProject_name = Lens.lens (\CreateProject' {name} -> name) (\s@CreateProject' {} a -> s {name = a} :: CreateProject) Prelude.. Data._Sensitive
 
 -- | The ID of the project to be created in AWS CodeStar.
 createProject_id :: Lens.Lens' CreateProject Prelude.Text
@@ -171,11 +172,11 @@ instance Core.AWSRequest CreateProject where
     Response.receiveJSON
       ( \s h x ->
           CreateProjectResponse'
-            Prelude.<$> (x Core..?> "clientRequestToken")
-            Prelude.<*> (x Core..?> "projectTemplateId")
+            Prelude.<$> (x Data..?> "clientRequestToken")
+            Prelude.<*> (x Data..?> "projectTemplateId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "id")
-            Prelude.<*> (x Core..:> "arn")
+            Prelude.<*> (x Data..:> "id")
+            Prelude.<*> (x Data..:> "arn")
       )
 
 instance Prelude.Hashable CreateProject where
@@ -198,40 +199,40 @@ instance Prelude.NFData CreateProject where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders CreateProject where
+instance Data.ToHeaders CreateProject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeStar_20170419.CreateProject" ::
+              Data.=# ( "CodeStar_20170419.CreateProject" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateProject where
+instance Data.ToJSON CreateProject where
   toJSON CreateProject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientRequestToken" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("sourceCode" Core..=) Prelude.<$> sourceCode,
-            ("description" Core..=) Prelude.<$> description,
-            ("toolchain" Core..=) Prelude.<$> toolchain,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("id" Core..= id)
+            ("sourceCode" Data..=) Prelude.<$> sourceCode,
+            ("description" Data..=) Prelude.<$> description,
+            ("toolchain" Data..=) Prelude.<$> toolchain,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("id" Data..= id)
           ]
       )
 
-instance Core.ToPath CreateProject where
+instance Data.ToPath CreateProject where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateProject where
+instance Data.ToQuery CreateProject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateProjectResponse' smart constructor.

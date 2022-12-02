@@ -49,6 +49,7 @@ where
 import Amazonka.CodeStar.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,9 +144,9 @@ instance Core.AWSRequest UpdateTeamMember where
     Response.receiveJSON
       ( \s h x ->
           UpdateTeamMemberResponse'
-            Prelude.<$> (x Core..?> "remoteAccessAllowed")
-            Prelude.<*> (x Core..?> "projectRole")
-            Prelude.<*> (x Core..?> "userArn")
+            Prelude.<$> (x Data..?> "remoteAccessAllowed")
+            Prelude.<*> (x Data..?> "projectRole")
+            Prelude.<*> (x Data..?> "userArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,37 +164,37 @@ instance Prelude.NFData UpdateTeamMember where
       `Prelude.seq` Prelude.rnf projectId
       `Prelude.seq` Prelude.rnf userArn
 
-instance Core.ToHeaders UpdateTeamMember where
+instance Data.ToHeaders UpdateTeamMember where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeStar_20170419.UpdateTeamMember" ::
+              Data.=# ( "CodeStar_20170419.UpdateTeamMember" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTeamMember where
+instance Data.ToJSON UpdateTeamMember where
   toJSON UpdateTeamMember' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("remoteAccessAllowed" Core..=)
+          [ ("remoteAccessAllowed" Data..=)
               Prelude.<$> remoteAccessAllowed,
-            ("projectRole" Core..=) Prelude.<$> projectRole,
-            Prelude.Just ("projectId" Core..= projectId),
-            Prelude.Just ("userArn" Core..= userArn)
+            ("projectRole" Data..=) Prelude.<$> projectRole,
+            Prelude.Just ("projectId" Data..= projectId),
+            Prelude.Just ("userArn" Data..= userArn)
           ]
       )
 
-instance Core.ToPath UpdateTeamMember where
+instance Data.ToPath UpdateTeamMember where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateTeamMember where
+instance Data.ToQuery UpdateTeamMember where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTeamMemberResponse' smart constructor.

@@ -45,6 +45,7 @@ where
 import Amazonka.CodeStar.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,7 +88,7 @@ instance Core.AWSRequest DeleteUserProfile where
       ( \s h x ->
           DeleteUserProfileResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "userArn")
+            Prelude.<*> (x Data..:> "userArn")
       )
 
 instance Prelude.Hashable DeleteUserProfile where
@@ -97,32 +98,32 @@ instance Prelude.Hashable DeleteUserProfile where
 instance Prelude.NFData DeleteUserProfile where
   rnf DeleteUserProfile' {..} = Prelude.rnf userArn
 
-instance Core.ToHeaders DeleteUserProfile where
+instance Data.ToHeaders DeleteUserProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeStar_20170419.DeleteUserProfile" ::
+              Data.=# ( "CodeStar_20170419.DeleteUserProfile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteUserProfile where
+instance Data.ToJSON DeleteUserProfile where
   toJSON DeleteUserProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("userArn" Core..= userArn)]
+          [Prelude.Just ("userArn" Data..= userArn)]
       )
 
-instance Core.ToPath DeleteUserProfile where
+instance Data.ToPath DeleteUserProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteUserProfile where
+instance Data.ToQuery DeleteUserProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUserProfileResponse' smart constructor.

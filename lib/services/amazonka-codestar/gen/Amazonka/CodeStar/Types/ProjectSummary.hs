@@ -21,6 +21,7 @@ module Amazonka.CodeStar.Types.ProjectSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the metadata for a project.
@@ -61,14 +62,14 @@ projectSummary_projectId = Lens.lens (\ProjectSummary' {projectId} -> projectId)
 projectSummary_projectArn :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.Text)
 projectSummary_projectArn = Lens.lens (\ProjectSummary' {projectArn} -> projectArn) (\s@ProjectSummary' {} a -> s {projectArn = a} :: ProjectSummary)
 
-instance Core.FromJSON ProjectSummary where
+instance Data.FromJSON ProjectSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectSummary"
       ( \x ->
           ProjectSummary'
-            Prelude.<$> (x Core..:? "projectId")
-            Prelude.<*> (x Core..:? "projectArn")
+            Prelude.<$> (x Data..:? "projectId")
+            Prelude.<*> (x Data..:? "projectArn")
       )
 
 instance Prelude.Hashable ProjectSummary where

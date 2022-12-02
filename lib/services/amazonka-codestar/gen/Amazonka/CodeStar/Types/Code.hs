@@ -23,6 +23,7 @@ import Amazonka.CodeStar.Types.CodeDestination
 import Amazonka.CodeStar.Types.CodeSource
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Location and destination information about the source code files
@@ -94,11 +95,11 @@ instance Prelude.NFData Code where
     Prelude.rnf source
       `Prelude.seq` Prelude.rnf destination
 
-instance Core.ToJSON Code where
+instance Data.ToJSON Code where
   toJSON Code' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("source" Core..= source),
-            Prelude.Just ("destination" Core..= destination)
+          [ Prelude.Just ("source" Data..= source),
+            Prelude.Just ("destination" Data..= destination)
           ]
       )

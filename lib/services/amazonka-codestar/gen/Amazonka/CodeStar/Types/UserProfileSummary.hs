@@ -21,6 +21,7 @@ module Amazonka.CodeStar.Types.UserProfileSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a user\'s profile in AWS CodeStar.
@@ -37,7 +38,7 @@ data UserProfileSummary = UserProfileSummary'
     -- with more than one space (for example \"Mary Jane Major\") would
     -- generate an initial icon using the first character and the first
     -- character after the space (\"MJ\", not \"MM\").
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The SSH public key associated with the user in AWS CodeStar. If a
     -- project owner allows the user remote access to project resources, this
     -- public key will be used along with the user\'s private key for SSH
@@ -46,7 +47,7 @@ data UserProfileSummary = UserProfileSummary'
     -- | The Amazon Resource Name (ARN) of the user in IAM.
     userArn :: Prelude.Maybe Prelude.Text,
     -- | The email address associated with the user.
-    emailAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    emailAddress :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -98,7 +99,7 @@ newUserProfileSummary =
 -- generate an initial icon using the first character and the first
 -- character after the space (\"MJ\", not \"MM\").
 userProfileSummary_displayName :: Lens.Lens' UserProfileSummary (Prelude.Maybe Prelude.Text)
-userProfileSummary_displayName = Lens.lens (\UserProfileSummary' {displayName} -> displayName) (\s@UserProfileSummary' {} a -> s {displayName = a} :: UserProfileSummary) Prelude.. Lens.mapping Core._Sensitive
+userProfileSummary_displayName = Lens.lens (\UserProfileSummary' {displayName} -> displayName) (\s@UserProfileSummary' {} a -> s {displayName = a} :: UserProfileSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The SSH public key associated with the user in AWS CodeStar. If a
 -- project owner allows the user remote access to project resources, this
@@ -113,18 +114,18 @@ userProfileSummary_userArn = Lens.lens (\UserProfileSummary' {userArn} -> userAr
 
 -- | The email address associated with the user.
 userProfileSummary_emailAddress :: Lens.Lens' UserProfileSummary (Prelude.Maybe Prelude.Text)
-userProfileSummary_emailAddress = Lens.lens (\UserProfileSummary' {emailAddress} -> emailAddress) (\s@UserProfileSummary' {} a -> s {emailAddress = a} :: UserProfileSummary) Prelude.. Lens.mapping Core._Sensitive
+userProfileSummary_emailAddress = Lens.lens (\UserProfileSummary' {emailAddress} -> emailAddress) (\s@UserProfileSummary' {} a -> s {emailAddress = a} :: UserProfileSummary) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON UserProfileSummary where
+instance Data.FromJSON UserProfileSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserProfileSummary"
       ( \x ->
           UserProfileSummary'
-            Prelude.<$> (x Core..:? "displayName")
-            Prelude.<*> (x Core..:? "sshPublicKey")
-            Prelude.<*> (x Core..:? "userArn")
-            Prelude.<*> (x Core..:? "emailAddress")
+            Prelude.<$> (x Data..:? "displayName")
+            Prelude.<*> (x Data..:? "sshPublicKey")
+            Prelude.<*> (x Data..:? "userArn")
+            Prelude.<*> (x Data..:? "emailAddress")
       )
 
 instance Prelude.Hashable UserProfileSummary where

@@ -21,6 +21,7 @@ module Amazonka.CodeStar.Types.GitHubCodeDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the GitHub repository to be created in AWS CodeStar.
@@ -46,7 +47,7 @@ data GitHubCodeDestination = GitHubCodeDestination'
     -- | Whether to enable issues for the GitHub repository.
     issuesEnabled :: Prelude.Bool,
     -- | The GitHub user\'s personal access token for the GitHub repository.
-    token :: Core.Sensitive Prelude.Text
+    token :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -104,7 +105,7 @@ newGitHubCodeDestination
         owner = pOwner_,
         privateRepository = pPrivateRepository_,
         issuesEnabled = pIssuesEnabled_,
-        token = Core._Sensitive Lens.# pToken_
+        token = Data._Sensitive Lens.# pToken_
       }
 
 -- | Description for the GitHub repository to be created in AWS CodeStar.
@@ -137,7 +138,7 @@ gitHubCodeDestination_issuesEnabled = Lens.lens (\GitHubCodeDestination' {issues
 
 -- | The GitHub user\'s personal access token for the GitHub repository.
 gitHubCodeDestination_token :: Lens.Lens' GitHubCodeDestination Prelude.Text
-gitHubCodeDestination_token = Lens.lens (\GitHubCodeDestination' {token} -> token) (\s@GitHubCodeDestination' {} a -> s {token = a} :: GitHubCodeDestination) Prelude.. Core._Sensitive
+gitHubCodeDestination_token = Lens.lens (\GitHubCodeDestination' {token} -> token) (\s@GitHubCodeDestination' {} a -> s {token = a} :: GitHubCodeDestination) Prelude.. Data._Sensitive
 
 instance Prelude.Hashable GitHubCodeDestination where
   hashWithSalt _salt GitHubCodeDestination' {..} =
@@ -159,17 +160,17 @@ instance Prelude.NFData GitHubCodeDestination where
       `Prelude.seq` Prelude.rnf issuesEnabled
       `Prelude.seq` Prelude.rnf token
 
-instance Core.ToJSON GitHubCodeDestination where
+instance Data.ToJSON GitHubCodeDestination where
   toJSON GitHubCodeDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("type" Core..= type'),
-            Prelude.Just ("owner" Core..= owner),
+          [ ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("type" Data..= type'),
+            Prelude.Just ("owner" Data..= owner),
             Prelude.Just
-              ("privateRepository" Core..= privateRepository),
-            Prelude.Just ("issuesEnabled" Core..= issuesEnabled),
-            Prelude.Just ("token" Core..= token)
+              ("privateRepository" Data..= privateRepository),
+            Prelude.Just ("issuesEnabled" Data..= issuesEnabled),
+            Prelude.Just ("token" Data..= token)
           ]
       )

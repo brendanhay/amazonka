@@ -21,6 +21,7 @@ module Amazonka.CodeStar.Types.TeamMember where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a team member in a project.
@@ -86,15 +87,15 @@ teamMember_userArn = Lens.lens (\TeamMember' {userArn} -> userArn) (\s@TeamMembe
 teamMember_projectRole :: Lens.Lens' TeamMember Prelude.Text
 teamMember_projectRole = Lens.lens (\TeamMember' {projectRole} -> projectRole) (\s@TeamMember' {} a -> s {projectRole = a} :: TeamMember)
 
-instance Core.FromJSON TeamMember where
+instance Data.FromJSON TeamMember where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TeamMember"
       ( \x ->
           TeamMember'
-            Prelude.<$> (x Core..:? "remoteAccessAllowed")
-            Prelude.<*> (x Core..: "userArn")
-            Prelude.<*> (x Core..: "projectRole")
+            Prelude.<$> (x Data..:? "remoteAccessAllowed")
+            Prelude.<*> (x Data..: "userArn")
+            Prelude.<*> (x Data..: "projectRole")
       )
 
 instance Prelude.Hashable TeamMember where

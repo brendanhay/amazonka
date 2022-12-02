@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -161,7 +162,7 @@ instance Core.AWSRequest CreateGlobalReplicationGroup where
       "CreateGlobalReplicationGroupResult"
       ( \s h x ->
           CreateGlobalReplicationGroupResponse'
-            Prelude.<$> (x Core..@? "GlobalReplicationGroup")
+            Prelude.<$> (x Data..@? "GlobalReplicationGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,27 +182,27 @@ instance Prelude.NFData CreateGlobalReplicationGroup where
       `Prelude.seq` Prelude.rnf globalReplicationGroupIdSuffix
       `Prelude.seq` Prelude.rnf primaryReplicationGroupId
 
-instance Core.ToHeaders CreateGlobalReplicationGroup where
+instance Data.ToHeaders CreateGlobalReplicationGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateGlobalReplicationGroup where
+instance Data.ToPath CreateGlobalReplicationGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateGlobalReplicationGroup where
+instance Data.ToQuery CreateGlobalReplicationGroup where
   toQuery CreateGlobalReplicationGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateGlobalReplicationGroup" ::
+          Data.=: ( "CreateGlobalReplicationGroup" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
         "GlobalReplicationGroupDescription"
-          Core.=: globalReplicationGroupDescription,
+          Data.=: globalReplicationGroupDescription,
         "GlobalReplicationGroupIdSuffix"
-          Core.=: globalReplicationGroupIdSuffix,
+          Data.=: globalReplicationGroupIdSuffix,
         "PrimaryReplicationGroupId"
-          Core.=: primaryReplicationGroupId
+          Data.=: primaryReplicationGroupId
       ]
 
 -- | /See:/ 'newCreateGlobalReplicationGroupResponse' smart constructor.

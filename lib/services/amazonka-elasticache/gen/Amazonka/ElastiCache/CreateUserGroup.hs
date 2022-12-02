@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,7 +126,7 @@ instance Core.AWSRequest CreateUserGroup where
   response =
     Response.receiveXMLWrapper
       "CreateUserGroupResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable CreateUserGroup where
   hashWithSalt _salt CreateUserGroup' {..} =
@@ -141,25 +142,25 @@ instance Prelude.NFData CreateUserGroup where
       `Prelude.seq` Prelude.rnf userGroupId
       `Prelude.seq` Prelude.rnf engine
 
-instance Core.ToHeaders CreateUserGroup where
+instance Data.ToHeaders CreateUserGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateUserGroup where
+instance Data.ToPath CreateUserGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateUserGroup where
+instance Data.ToQuery CreateUserGroup where
   toQuery CreateUserGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateUserGroup" :: Prelude.ByteString),
+          Data.=: ("CreateUserGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
         "UserIds"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> userIds),
-        "UserGroupId" Core.=: userGroupId,
-        "Engine" Core.=: engine
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> userIds),
+        "UserGroupId" Data.=: userGroupId,
+        "Engine" Data.=: engine
       ]

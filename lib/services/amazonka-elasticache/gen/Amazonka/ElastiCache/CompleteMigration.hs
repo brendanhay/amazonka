@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,7 +103,7 @@ instance Core.AWSRequest CompleteMigration where
       "CompleteMigrationResult"
       ( \s h x ->
           CompleteMigrationResponse'
-            Prelude.<$> (x Core..@? "ReplicationGroup")
+            Prelude.<$> (x Data..@? "ReplicationGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,21 +117,21 @@ instance Prelude.NFData CompleteMigration where
     Prelude.rnf force
       `Prelude.seq` Prelude.rnf replicationGroupId
 
-instance Core.ToHeaders CompleteMigration where
+instance Data.ToHeaders CompleteMigration where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CompleteMigration where
+instance Data.ToPath CompleteMigration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CompleteMigration where
+instance Data.ToQuery CompleteMigration where
   toQuery CompleteMigration' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CompleteMigration" :: Prelude.ByteString),
+          Data.=: ("CompleteMigration" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "Force" Core.=: force,
-        "ReplicationGroupId" Core.=: replicationGroupId
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "Force" Data.=: force,
+        "ReplicationGroupId" Data.=: replicationGroupId
       ]
 
 -- | /See:/ 'newCompleteMigrationResponse' smart constructor.

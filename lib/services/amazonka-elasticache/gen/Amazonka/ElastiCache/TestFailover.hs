@@ -95,6 +95,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -162,7 +163,7 @@ instance Core.AWSRequest TestFailover where
       "TestFailoverResult"
       ( \s h x ->
           TestFailoverResponse'
-            Prelude.<$> (x Core..@? "ReplicationGroup")
+            Prelude.<$> (x Data..@? "ReplicationGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,21 +177,21 @@ instance Prelude.NFData TestFailover where
     Prelude.rnf replicationGroupId
       `Prelude.seq` Prelude.rnf nodeGroupId
 
-instance Core.ToHeaders TestFailover where
+instance Data.ToHeaders TestFailover where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath TestFailover where
+instance Data.ToPath TestFailover where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery TestFailover where
+instance Data.ToQuery TestFailover where
   toQuery TestFailover' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("TestFailover" :: Prelude.ByteString),
+          Data.=: ("TestFailover" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "ReplicationGroupId" Core.=: replicationGroupId,
-        "NodeGroupId" Core.=: nodeGroupId
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "ReplicationGroupId" Data.=: replicationGroupId,
+        "NodeGroupId" Data.=: nodeGroupId
       ]
 
 -- | /See:/ 'newTestFailoverResponse' smart constructor.

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,9 +145,9 @@ instance Core.AWSRequest DescribeUserGroups where
       "DescribeUserGroupsResult"
       ( \s h x ->
           DescribeUserGroupsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "UserGroups" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "UserGroups" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -163,22 +164,22 @@ instance Prelude.NFData DescribeUserGroups where
       `Prelude.seq` Prelude.rnf userGroupId
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeUserGroups where
+instance Data.ToHeaders DescribeUserGroups where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeUserGroups where
+instance Data.ToPath DescribeUserGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeUserGroups where
+instance Data.ToQuery DescribeUserGroups where
   toQuery DescribeUserGroups' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeUserGroups" :: Prelude.ByteString),
+          Data.=: ("DescribeUserGroups" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "UserGroupId" Core.=: userGroupId,
-        "MaxRecords" Core.=: maxRecords
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "UserGroupId" Data.=: userGroupId,
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- | /See:/ 'newDescribeUserGroupsResponse' smart constructor.

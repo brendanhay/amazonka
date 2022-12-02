@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.CacheParameterGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a @CreateCacheParameterGroup@ operation.
@@ -106,14 +107,14 @@ cacheParameterGroup_cacheParameterGroupName = Lens.lens (\CacheParameterGroup' {
 cacheParameterGroup_cacheParameterGroupFamily :: Lens.Lens' CacheParameterGroup (Prelude.Maybe Prelude.Text)
 cacheParameterGroup_cacheParameterGroupFamily = Lens.lens (\CacheParameterGroup' {cacheParameterGroupFamily} -> cacheParameterGroupFamily) (\s@CacheParameterGroup' {} a -> s {cacheParameterGroupFamily = a} :: CacheParameterGroup)
 
-instance Core.FromXML CacheParameterGroup where
+instance Data.FromXML CacheParameterGroup where
   parseXML x =
     CacheParameterGroup'
-      Prelude.<$> (x Core..@? "IsGlobal")
-      Prelude.<*> (x Core..@? "ARN")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "CacheParameterGroupName")
-      Prelude.<*> (x Core..@? "CacheParameterGroupFamily")
+      Prelude.<$> (x Data..@? "IsGlobal")
+      Prelude.<*> (x Data..@? "ARN")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "CacheParameterGroupName")
+      Prelude.<*> (x Data..@? "CacheParameterGroupFamily")
 
 instance Prelude.Hashable CacheParameterGroup where
   hashWithSalt _salt CacheParameterGroup' {..} =

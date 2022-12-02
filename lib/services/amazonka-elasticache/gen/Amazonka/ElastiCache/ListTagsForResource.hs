@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,7 +110,7 @@ instance Core.AWSRequest ListTagsForResource where
   response =
     Response.receiveXMLWrapper
       "ListTagsForResourceResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable ListTagsForResource where
   hashWithSalt _salt ListTagsForResource' {..} =
@@ -119,18 +120,18 @@ instance Prelude.NFData ListTagsForResource where
   rnf ListTagsForResource' {..} =
     Prelude.rnf resourceName
 
-instance Core.ToHeaders ListTagsForResource where
+instance Data.ToHeaders ListTagsForResource where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListTagsForResource where
+instance Data.ToPath ListTagsForResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTagsForResource where
+instance Data.ToQuery ListTagsForResource where
   toQuery ListTagsForResource' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListTagsForResource" :: Prelude.ByteString),
+          Data.=: ("ListTagsForResource" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "ResourceName" Core.=: resourceName
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "ResourceName" Data.=: resourceName
       ]

@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.ProcessedUpdateAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.UpdateActionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -82,13 +83,13 @@ processedUpdateAction_serviceUpdateName = Lens.lens (\ProcessedUpdateAction' {se
 processedUpdateAction_replicationGroupId :: Lens.Lens' ProcessedUpdateAction (Prelude.Maybe Prelude.Text)
 processedUpdateAction_replicationGroupId = Lens.lens (\ProcessedUpdateAction' {replicationGroupId} -> replicationGroupId) (\s@ProcessedUpdateAction' {} a -> s {replicationGroupId = a} :: ProcessedUpdateAction)
 
-instance Core.FromXML ProcessedUpdateAction where
+instance Data.FromXML ProcessedUpdateAction where
   parseXML x =
     ProcessedUpdateAction'
-      Prelude.<$> (x Core..@? "UpdateActionStatus")
-      Prelude.<*> (x Core..@? "CacheClusterId")
-      Prelude.<*> (x Core..@? "ServiceUpdateName")
-      Prelude.<*> (x Core..@? "ReplicationGroupId")
+      Prelude.<$> (x Data..@? "UpdateActionStatus")
+      Prelude.<*> (x Data..@? "CacheClusterId")
+      Prelude.<*> (x Data..@? "ServiceUpdateName")
+      Prelude.<*> (x Data..@? "ReplicationGroupId")
 
 instance Prelude.Hashable ProcessedUpdateAction where
   hashWithSalt _salt ProcessedUpdateAction' {..} =

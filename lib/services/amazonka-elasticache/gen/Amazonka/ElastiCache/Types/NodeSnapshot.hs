@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.NodeSnapshot where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.NodeGroupConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 data NodeSnapshot = NodeSnapshot'
   { -- | The date and time when the source node\'s metadata and cache data set
     -- was obtained for the snapshot.
-    snapshotCreateTime :: Prelude.Maybe Core.ISO8601,
+    snapshotCreateTime :: Prelude.Maybe Data.ISO8601,
     -- | A unique identifier for the source cluster.
     cacheClusterId :: Prelude.Maybe Prelude.Text,
     -- | The size of the cache on the source cache node.
@@ -40,7 +41,7 @@ data NodeSnapshot = NodeSnapshot'
     -- | A unique identifier for the source node group (shard).
     nodeGroupId :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the cache node was created in the source cluster.
-    cacheNodeCreateTime :: Prelude.Maybe Core.ISO8601,
+    cacheNodeCreateTime :: Prelude.Maybe Data.ISO8601,
     -- | The configuration for the source node group (shard).
     nodeGroupConfiguration :: Prelude.Maybe NodeGroupConfiguration
   }
@@ -84,7 +85,7 @@ newNodeSnapshot =
 -- | The date and time when the source node\'s metadata and cache data set
 -- was obtained for the snapshot.
 nodeSnapshot_snapshotCreateTime :: Lens.Lens' NodeSnapshot (Prelude.Maybe Prelude.UTCTime)
-nodeSnapshot_snapshotCreateTime = Lens.lens (\NodeSnapshot' {snapshotCreateTime} -> snapshotCreateTime) (\s@NodeSnapshot' {} a -> s {snapshotCreateTime = a} :: NodeSnapshot) Prelude.. Lens.mapping Core._Time
+nodeSnapshot_snapshotCreateTime = Lens.lens (\NodeSnapshot' {snapshotCreateTime} -> snapshotCreateTime) (\s@NodeSnapshot' {} a -> s {snapshotCreateTime = a} :: NodeSnapshot) Prelude.. Lens.mapping Data._Time
 
 -- | A unique identifier for the source cluster.
 nodeSnapshot_cacheClusterId :: Lens.Lens' NodeSnapshot (Prelude.Maybe Prelude.Text)
@@ -104,22 +105,22 @@ nodeSnapshot_nodeGroupId = Lens.lens (\NodeSnapshot' {nodeGroupId} -> nodeGroupI
 
 -- | The date and time when the cache node was created in the source cluster.
 nodeSnapshot_cacheNodeCreateTime :: Lens.Lens' NodeSnapshot (Prelude.Maybe Prelude.UTCTime)
-nodeSnapshot_cacheNodeCreateTime = Lens.lens (\NodeSnapshot' {cacheNodeCreateTime} -> cacheNodeCreateTime) (\s@NodeSnapshot' {} a -> s {cacheNodeCreateTime = a} :: NodeSnapshot) Prelude.. Lens.mapping Core._Time
+nodeSnapshot_cacheNodeCreateTime = Lens.lens (\NodeSnapshot' {cacheNodeCreateTime} -> cacheNodeCreateTime) (\s@NodeSnapshot' {} a -> s {cacheNodeCreateTime = a} :: NodeSnapshot) Prelude.. Lens.mapping Data._Time
 
 -- | The configuration for the source node group (shard).
 nodeSnapshot_nodeGroupConfiguration :: Lens.Lens' NodeSnapshot (Prelude.Maybe NodeGroupConfiguration)
 nodeSnapshot_nodeGroupConfiguration = Lens.lens (\NodeSnapshot' {nodeGroupConfiguration} -> nodeGroupConfiguration) (\s@NodeSnapshot' {} a -> s {nodeGroupConfiguration = a} :: NodeSnapshot)
 
-instance Core.FromXML NodeSnapshot where
+instance Data.FromXML NodeSnapshot where
   parseXML x =
     NodeSnapshot'
-      Prelude.<$> (x Core..@? "SnapshotCreateTime")
-      Prelude.<*> (x Core..@? "CacheClusterId")
-      Prelude.<*> (x Core..@? "CacheSize")
-      Prelude.<*> (x Core..@? "CacheNodeId")
-      Prelude.<*> (x Core..@? "NodeGroupId")
-      Prelude.<*> (x Core..@? "CacheNodeCreateTime")
-      Prelude.<*> (x Core..@? "NodeGroupConfiguration")
+      Prelude.<$> (x Data..@? "SnapshotCreateTime")
+      Prelude.<*> (x Data..@? "CacheClusterId")
+      Prelude.<*> (x Data..@? "CacheSize")
+      Prelude.<*> (x Data..@? "CacheNodeId")
+      Prelude.<*> (x Data..@? "NodeGroupId")
+      Prelude.<*> (x Data..@? "CacheNodeCreateTime")
+      Prelude.<*> (x Data..@? "NodeGroupConfiguration")
 
 instance Prelude.Hashable NodeSnapshot where
   hashWithSalt _salt NodeSnapshot' {..} =

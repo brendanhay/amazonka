@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.Subnet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.AvailabilityZone
 import Amazonka.ElastiCache.Types.NetworkType
 import Amazonka.ElastiCache.Types.SubnetOutpost
@@ -93,15 +94,15 @@ subnet_subnetAvailabilityZone = Lens.lens (\Subnet' {subnetAvailabilityZone} -> 
 subnet_supportedNetworkTypes :: Lens.Lens' Subnet (Prelude.Maybe [NetworkType])
 subnet_supportedNetworkTypes = Lens.lens (\Subnet' {supportedNetworkTypes} -> supportedNetworkTypes) (\s@Subnet' {} a -> s {supportedNetworkTypes = a} :: Subnet) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML Subnet where
+instance Data.FromXML Subnet where
   parseXML x =
     Subnet'
-      Prelude.<$> (x Core..@? "SubnetOutpost")
-      Prelude.<*> (x Core..@? "SubnetIdentifier")
-      Prelude.<*> (x Core..@? "SubnetAvailabilityZone")
-      Prelude.<*> ( x Core..@? "SupportedNetworkTypes"
+      Prelude.<$> (x Data..@? "SubnetOutpost")
+      Prelude.<*> (x Data..@? "SubnetIdentifier")
+      Prelude.<*> (x Data..@? "SubnetAvailabilityZone")
+      Prelude.<*> ( x Data..@? "SupportedNetworkTypes"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable Subnet where

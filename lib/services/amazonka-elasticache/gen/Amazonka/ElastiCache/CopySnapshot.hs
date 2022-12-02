@@ -120,6 +120,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -247,7 +248,7 @@ instance Core.AWSRequest CopySnapshot where
       "CopySnapshotResult"
       ( \s h x ->
           CopySnapshotResponse'
-            Prelude.<$> (x Core..@? "Snapshot")
+            Prelude.<$> (x Data..@? "Snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -267,26 +268,26 @@ instance Prelude.NFData CopySnapshot where
       `Prelude.seq` Prelude.rnf sourceSnapshotName
       `Prelude.seq` Prelude.rnf targetSnapshotName
 
-instance Core.ToHeaders CopySnapshot where
+instance Data.ToHeaders CopySnapshot where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CopySnapshot where
+instance Data.ToPath CopySnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CopySnapshot where
+instance Data.ToQuery CopySnapshot where
   toQuery CopySnapshot' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CopySnapshot" :: Prelude.ByteString),
+          Data.=: ("CopySnapshot" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "TargetBucket" Core.=: targetBucket,
-        "KmsKeyId" Core.=: kmsKeyId,
-        "SourceSnapshotName" Core.=: sourceSnapshotName,
-        "TargetSnapshotName" Core.=: targetSnapshotName
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "TargetBucket" Data.=: targetBucket,
+        "KmsKeyId" Data.=: kmsKeyId,
+        "SourceSnapshotName" Data.=: sourceSnapshotName,
+        "TargetSnapshotName" Data.=: targetSnapshotName
       ]
 
 -- | /See:/ 'newCopySnapshotResponse' smart constructor.

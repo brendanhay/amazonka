@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.CacheEngineVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides all of the details about a particular cache engine version.
@@ -104,14 +105,14 @@ cacheEngineVersion_cacheEngineDescription = Lens.lens (\CacheEngineVersion' {cac
 cacheEngineVersion_engineVersion :: Lens.Lens' CacheEngineVersion (Prelude.Maybe Prelude.Text)
 cacheEngineVersion_engineVersion = Lens.lens (\CacheEngineVersion' {engineVersion} -> engineVersion) (\s@CacheEngineVersion' {} a -> s {engineVersion = a} :: CacheEngineVersion)
 
-instance Core.FromXML CacheEngineVersion where
+instance Data.FromXML CacheEngineVersion where
   parseXML x =
     CacheEngineVersion'
-      Prelude.<$> (x Core..@? "CacheEngineVersionDescription")
-      Prelude.<*> (x Core..@? "Engine")
-      Prelude.<*> (x Core..@? "CacheParameterGroupFamily")
-      Prelude.<*> (x Core..@? "CacheEngineDescription")
-      Prelude.<*> (x Core..@? "EngineVersion")
+      Prelude.<$> (x Data..@? "CacheEngineVersionDescription")
+      Prelude.<*> (x Data..@? "Engine")
+      Prelude.<*> (x Data..@? "CacheParameterGroupFamily")
+      Prelude.<*> (x Data..@? "CacheEngineDescription")
+      Prelude.<*> (x Data..@? "EngineVersion")
 
 instance Prelude.Hashable CacheEngineVersion where
   hashWithSalt _salt CacheEngineVersion' {..} =

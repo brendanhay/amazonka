@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,7 +136,7 @@ instance
       "AuthorizeCacheSecurityGroupIngressResult"
       ( \s h x ->
           AuthorizeCacheSecurityGroupIngressResponse'
-            Prelude.<$> (x Core..@? "CacheSecurityGroup")
+            Prelude.<$> (x Data..@? "CacheSecurityGroup")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,34 +161,34 @@ instance
       `Prelude.seq` Prelude.rnf eC2SecurityGroupOwnerId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AuthorizeCacheSecurityGroupIngress
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     AuthorizeCacheSecurityGroupIngress
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     AuthorizeCacheSecurityGroupIngress
   where
   toQuery AuthorizeCacheSecurityGroupIngress' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "AuthorizeCacheSecurityGroupIngress" ::
+          Data.=: ( "AuthorizeCacheSecurityGroupIngress" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
         "CacheSecurityGroupName"
-          Core.=: cacheSecurityGroupName,
-        "EC2SecurityGroupName" Core.=: eC2SecurityGroupName,
+          Data.=: cacheSecurityGroupName,
+        "EC2SecurityGroupName" Data.=: eC2SecurityGroupName,
         "EC2SecurityGroupOwnerId"
-          Core.=: eC2SecurityGroupOwnerId
+          Data.=: eC2SecurityGroupOwnerId
       ]
 
 -- | /See:/ 'newAuthorizeCacheSecurityGroupIngressResponse' smart constructor.

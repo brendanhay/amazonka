@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.UpdateActionResultsMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.ProcessedUpdateAction
 import Amazonka.ElastiCache.Types.UnprocessedUpdateAction
 import qualified Amazonka.Prelude as Prelude
@@ -62,17 +63,17 @@ updateActionResultsMessage_unprocessedUpdateActions = Lens.lens (\UpdateActionRe
 updateActionResultsMessage_processedUpdateActions :: Lens.Lens' UpdateActionResultsMessage (Prelude.Maybe [ProcessedUpdateAction])
 updateActionResultsMessage_processedUpdateActions = Lens.lens (\UpdateActionResultsMessage' {processedUpdateActions} -> processedUpdateActions) (\s@UpdateActionResultsMessage' {} a -> s {processedUpdateActions = a} :: UpdateActionResultsMessage) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML UpdateActionResultsMessage where
+instance Data.FromXML UpdateActionResultsMessage where
   parseXML x =
     UpdateActionResultsMessage'
-      Prelude.<$> ( x Core..@? "UnprocessedUpdateActions"
+      Prelude.<$> ( x Data..@? "UnprocessedUpdateActions"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "UnprocessedUpdateAction")
+                        (Data.parseXMLList "UnprocessedUpdateAction")
                   )
-      Prelude.<*> ( x Core..@? "ProcessedUpdateActions"
+      Prelude.<*> ( x Data..@? "ProcessedUpdateActions"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "ProcessedUpdateAction")
+                      Prelude.>>= Core.may (Data.parseXMLList "ProcessedUpdateAction")
                   )
 
 instance Prelude.Hashable UpdateActionResultsMessage where

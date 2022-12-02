@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.DestinationDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.CloudWatchLogsDestinationDetails
 import Amazonka.ElastiCache.Types.KinesisFirehoseDestinationDetails
 import qualified Amazonka.Prelude as Prelude
@@ -65,11 +66,11 @@ destinationDetails_kinesisFirehoseDetails = Lens.lens (\DestinationDetails' {kin
 destinationDetails_cloudWatchLogsDetails :: Lens.Lens' DestinationDetails (Prelude.Maybe CloudWatchLogsDestinationDetails)
 destinationDetails_cloudWatchLogsDetails = Lens.lens (\DestinationDetails' {cloudWatchLogsDetails} -> cloudWatchLogsDetails) (\s@DestinationDetails' {} a -> s {cloudWatchLogsDetails = a} :: DestinationDetails)
 
-instance Core.FromXML DestinationDetails where
+instance Data.FromXML DestinationDetails where
   parseXML x =
     DestinationDetails'
-      Prelude.<$> (x Core..@? "KinesisFirehoseDetails")
-      Prelude.<*> (x Core..@? "CloudWatchLogsDetails")
+      Prelude.<$> (x Data..@? "KinesisFirehoseDetails")
+      Prelude.<*> (x Data..@? "CloudWatchLogsDetails")
 
 instance Prelude.Hashable DestinationDetails where
   hashWithSalt _salt DestinationDetails' {..} =
@@ -81,11 +82,11 @@ instance Prelude.NFData DestinationDetails where
     Prelude.rnf kinesisFirehoseDetails
       `Prelude.seq` Prelude.rnf cloudWatchLogsDetails
 
-instance Core.ToQuery DestinationDetails where
+instance Data.ToQuery DestinationDetails where
   toQuery DestinationDetails' {..} =
     Prelude.mconcat
       [ "KinesisFirehoseDetails"
-          Core.=: kinesisFirehoseDetails,
+          Data.=: kinesisFirehoseDetails,
         "CloudWatchLogsDetails"
-          Core.=: cloudWatchLogsDetails
+          Data.=: cloudWatchLogsDetails
       ]

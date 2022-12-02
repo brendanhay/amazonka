@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.KinesisFirehoseDestinationDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration details of the Kinesis Data Firehose destination.
@@ -54,12 +55,12 @@ kinesisFirehoseDestinationDetails_deliveryStream :: Lens.Lens' KinesisFirehoseDe
 kinesisFirehoseDestinationDetails_deliveryStream = Lens.lens (\KinesisFirehoseDestinationDetails' {deliveryStream} -> deliveryStream) (\s@KinesisFirehoseDestinationDetails' {} a -> s {deliveryStream = a} :: KinesisFirehoseDestinationDetails)
 
 instance
-  Core.FromXML
+  Data.FromXML
     KinesisFirehoseDestinationDetails
   where
   parseXML x =
     KinesisFirehoseDestinationDetails'
-      Prelude.<$> (x Core..@? "DeliveryStream")
+      Prelude.<$> (x Data..@? "DeliveryStream")
 
 instance
   Prelude.Hashable
@@ -78,9 +79,9 @@ instance
     Prelude.rnf deliveryStream
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     KinesisFirehoseDestinationDetails
   where
   toQuery KinesisFirehoseDestinationDetails' {..} =
     Prelude.mconcat
-      ["DeliveryStream" Core.=: deliveryStream]
+      ["DeliveryStream" Data.=: deliveryStream]

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -161,10 +162,10 @@ instance Core.AWSRequest DescribeCacheParameterGroups where
       "DescribeCacheParameterGroupsResult"
       ( \s h x ->
           DescribeCacheParameterGroupsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "CacheParameterGroups"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "CacheParameterGroups"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "CacheParameterGroup")
+                            Prelude.>>= Core.may (Data.parseXMLList "CacheParameterGroup")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -184,25 +185,25 @@ instance Prelude.NFData DescribeCacheParameterGroups where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf cacheParameterGroupName
 
-instance Core.ToHeaders DescribeCacheParameterGroups where
+instance Data.ToHeaders DescribeCacheParameterGroups where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeCacheParameterGroups where
+instance Data.ToPath DescribeCacheParameterGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCacheParameterGroups where
+instance Data.ToQuery DescribeCacheParameterGroups where
   toQuery DescribeCacheParameterGroups' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeCacheParameterGroups" ::
+          Data.=: ( "DescribeCacheParameterGroups" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords,
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxRecords" Data.=: maxRecords,
         "CacheParameterGroupName"
-          Core.=: cacheParameterGroupName
+          Data.=: cacheParameterGroupName
       ]
 
 -- | Represents the output of a @DescribeCacheParameterGroups@ operation.

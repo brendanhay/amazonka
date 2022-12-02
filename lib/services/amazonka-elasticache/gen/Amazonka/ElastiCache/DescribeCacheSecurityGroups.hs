@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -161,10 +162,10 @@ instance Core.AWSRequest DescribeCacheSecurityGroups where
       "DescribeCacheSecurityGroupsResult"
       ( \s h x ->
           DescribeCacheSecurityGroupsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "CacheSecurityGroups"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "CacheSecurityGroups"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "CacheSecurityGroup")
+                            Prelude.>>= Core.may (Data.parseXMLList "CacheSecurityGroup")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -181,25 +182,25 @@ instance Prelude.NFData DescribeCacheSecurityGroups where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf cacheSecurityGroupName
 
-instance Core.ToHeaders DescribeCacheSecurityGroups where
+instance Data.ToHeaders DescribeCacheSecurityGroups where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeCacheSecurityGroups where
+instance Data.ToPath DescribeCacheSecurityGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCacheSecurityGroups where
+instance Data.ToQuery DescribeCacheSecurityGroups where
   toQuery DescribeCacheSecurityGroups' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeCacheSecurityGroups" ::
+          Data.=: ( "DescribeCacheSecurityGroups" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords,
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxRecords" Data.=: maxRecords,
         "CacheSecurityGroupName"
-          Core.=: cacheSecurityGroupName
+          Data.=: cacheSecurityGroupName
       ]
 
 -- | Represents the output of a @DescribeCacheSecurityGroups@ operation.

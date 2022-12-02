@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.SubnetOutpost where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The ID of the outpost subnet.
@@ -50,10 +51,10 @@ newSubnetOutpost =
 subnetOutpost_subnetOutpostArn :: Lens.Lens' SubnetOutpost (Prelude.Maybe Prelude.Text)
 subnetOutpost_subnetOutpostArn = Lens.lens (\SubnetOutpost' {subnetOutpostArn} -> subnetOutpostArn) (\s@SubnetOutpost' {} a -> s {subnetOutpostArn = a} :: SubnetOutpost)
 
-instance Core.FromXML SubnetOutpost where
+instance Data.FromXML SubnetOutpost where
   parseXML x =
     SubnetOutpost'
-      Prelude.<$> (x Core..@? "SubnetOutpostArn")
+      Prelude.<$> (x Data..@? "SubnetOutpostArn")
 
 instance Prelude.Hashable SubnetOutpost where
   hashWithSalt _salt SubnetOutpost' {..} =

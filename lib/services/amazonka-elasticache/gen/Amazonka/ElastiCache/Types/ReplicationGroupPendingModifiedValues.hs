@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.ReplicationGroupPendingModifiedValues where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.AuthTokenUpdateStatus
 import Amazonka.ElastiCache.Types.PendingAutomaticFailoverStatus
 import Amazonka.ElastiCache.Types.PendingLogDeliveryConfiguration
@@ -116,20 +117,20 @@ replicationGroupPendingModifiedValues_primaryClusterId :: Lens.Lens' Replication
 replicationGroupPendingModifiedValues_primaryClusterId = Lens.lens (\ReplicationGroupPendingModifiedValues' {primaryClusterId} -> primaryClusterId) (\s@ReplicationGroupPendingModifiedValues' {} a -> s {primaryClusterId = a} :: ReplicationGroupPendingModifiedValues)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ReplicationGroupPendingModifiedValues
   where
   parseXML x =
     ReplicationGroupPendingModifiedValues'
-      Prelude.<$> (x Core..@? "Resharding")
-      Prelude.<*> (x Core..@? "AutomaticFailoverStatus")
-      Prelude.<*> ( x Core..@? "LogDeliveryConfigurations"
+      Prelude.<$> (x Data..@? "Resharding")
+      Prelude.<*> (x Data..@? "AutomaticFailoverStatus")
+      Prelude.<*> ( x Data..@? "LogDeliveryConfigurations"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "UserGroups")
-      Prelude.<*> (x Core..@? "AuthTokenStatus")
-      Prelude.<*> (x Core..@? "PrimaryClusterId")
+      Prelude.<*> (x Data..@? "UserGroups")
+      Prelude.<*> (x Data..@? "AuthTokenStatus")
+      Prelude.<*> (x Data..@? "PrimaryClusterId")
 
 instance
   Prelude.Hashable

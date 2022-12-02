@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.GlobalReplicationGroupInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The name of the Global datastore and role of this replication group in
@@ -67,11 +68,11 @@ globalReplicationGroupInfo_globalReplicationGroupId = Lens.lens (\GlobalReplicat
 globalReplicationGroupInfo_globalReplicationGroupMemberRole :: Lens.Lens' GlobalReplicationGroupInfo (Prelude.Maybe Prelude.Text)
 globalReplicationGroupInfo_globalReplicationGroupMemberRole = Lens.lens (\GlobalReplicationGroupInfo' {globalReplicationGroupMemberRole} -> globalReplicationGroupMemberRole) (\s@GlobalReplicationGroupInfo' {} a -> s {globalReplicationGroupMemberRole = a} :: GlobalReplicationGroupInfo)
 
-instance Core.FromXML GlobalReplicationGroupInfo where
+instance Data.FromXML GlobalReplicationGroupInfo where
   parseXML x =
     GlobalReplicationGroupInfo'
-      Prelude.<$> (x Core..@? "GlobalReplicationGroupId")
-      Prelude.<*> (x Core..@? "GlobalReplicationGroupMemberRole")
+      Prelude.<$> (x Data..@? "GlobalReplicationGroupId")
+      Prelude.<*> (x Data..@? "GlobalReplicationGroupMemberRole")
 
 instance Prelude.Hashable GlobalReplicationGroupInfo where
   hashWithSalt _salt GlobalReplicationGroupInfo' {..} =

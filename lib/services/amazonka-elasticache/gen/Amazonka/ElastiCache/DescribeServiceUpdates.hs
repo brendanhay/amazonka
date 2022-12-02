@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -148,9 +149,9 @@ instance Core.AWSRequest DescribeServiceUpdates where
       "DescribeServiceUpdatesResult"
       ( \s h x ->
           DescribeServiceUpdatesResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "ServiceUpdates" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "ServiceUpdate")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "ServiceUpdates" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "ServiceUpdate")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -169,25 +170,25 @@ instance Prelude.NFData DescribeServiceUpdates where
       `Prelude.seq` Prelude.rnf serviceUpdateName
       `Prelude.seq` Prelude.rnf serviceUpdateStatus
 
-instance Core.ToHeaders DescribeServiceUpdates where
+instance Data.ToHeaders DescribeServiceUpdates where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeServiceUpdates where
+instance Data.ToPath DescribeServiceUpdates where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeServiceUpdates where
+instance Data.ToQuery DescribeServiceUpdates where
   toQuery DescribeServiceUpdates' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeServiceUpdates" :: Prelude.ByteString),
+          Data.=: ("DescribeServiceUpdates" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords,
-        "ServiceUpdateName" Core.=: serviceUpdateName,
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxRecords" Data.=: maxRecords,
+        "ServiceUpdateName" Data.=: serviceUpdateName,
         "ServiceUpdateStatus"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> serviceUpdateStatus
             )
       ]

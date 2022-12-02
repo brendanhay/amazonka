@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -147,7 +148,7 @@ instance Core.AWSRequest CreateCacheSubnetGroup where
       "CreateCacheSubnetGroupResult"
       ( \s h x ->
           CreateCacheSubnetGroupResponse'
-            Prelude.<$> (x Core..@? "CacheSubnetGroup")
+            Prelude.<$> (x Data..@? "CacheSubnetGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,27 +166,27 @@ instance Prelude.NFData CreateCacheSubnetGroup where
       `Prelude.seq` Prelude.rnf cacheSubnetGroupDescription
       `Prelude.seq` Prelude.rnf subnetIds
 
-instance Core.ToHeaders CreateCacheSubnetGroup where
+instance Data.ToHeaders CreateCacheSubnetGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateCacheSubnetGroup where
+instance Data.ToPath CreateCacheSubnetGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCacheSubnetGroup where
+instance Data.ToQuery CreateCacheSubnetGroup where
   toQuery CreateCacheSubnetGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateCacheSubnetGroup" :: Prelude.ByteString),
+          Data.=: ("CreateCacheSubnetGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "CacheSubnetGroupName" Core.=: cacheSubnetGroupName,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "CacheSubnetGroupName" Data.=: cacheSubnetGroupName,
         "CacheSubnetGroupDescription"
-          Core.=: cacheSubnetGroupDescription,
+          Data.=: cacheSubnetGroupDescription,
         "SubnetIds"
-          Core.=: Core.toQueryList "SubnetIdentifier" subnetIds
+          Data.=: Data.toQueryList "SubnetIdentifier" subnetIds
       ]
 
 -- | /See:/ 'newCreateCacheSubnetGroupResponse' smart constructor.

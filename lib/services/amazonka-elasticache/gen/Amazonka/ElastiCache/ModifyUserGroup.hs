@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,7 +109,7 @@ instance Core.AWSRequest ModifyUserGroup where
   response =
     Response.receiveXMLWrapper
       "ModifyUserGroupResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable ModifyUserGroup where
   hashWithSalt _salt ModifyUserGroup' {..} =
@@ -122,26 +123,26 @@ instance Prelude.NFData ModifyUserGroup where
       `Prelude.seq` Prelude.rnf userIdsToAdd
       `Prelude.seq` Prelude.rnf userGroupId
 
-instance Core.ToHeaders ModifyUserGroup where
+instance Data.ToHeaders ModifyUserGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyUserGroup where
+instance Data.ToPath ModifyUserGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyUserGroup where
+instance Data.ToQuery ModifyUserGroup where
   toQuery ModifyUserGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyUserGroup" :: Prelude.ByteString),
+          Data.=: ("ModifyUserGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
         "UserIdsToRemove"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> userIdsToRemove
             ),
         "UserIdsToAdd"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> userIdsToAdd),
-        "UserGroupId" Core.=: userGroupId
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> userIdsToAdd),
+        "UserGroupId" Data.=: userGroupId
       ]

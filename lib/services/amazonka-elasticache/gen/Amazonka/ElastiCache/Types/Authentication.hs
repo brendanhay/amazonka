@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.Authentication where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.AuthenticationType
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,11 +63,11 @@ authentication_type = Lens.lens (\Authentication' {type'} -> type') (\s@Authenti
 authentication_passwordCount :: Lens.Lens' Authentication (Prelude.Maybe Prelude.Int)
 authentication_passwordCount = Lens.lens (\Authentication' {passwordCount} -> passwordCount) (\s@Authentication' {} a -> s {passwordCount = a} :: Authentication)
 
-instance Core.FromXML Authentication where
+instance Data.FromXML Authentication where
   parseXML x =
     Authentication'
-      Prelude.<$> (x Core..@? "Type")
-      Prelude.<*> (x Core..@? "PasswordCount")
+      Prelude.<$> (x Data..@? "Type")
+      Prelude.<*> (x Data..@? "PasswordCount")
 
 instance Prelude.Hashable Authentication where
   hashWithSalt _salt Authentication' {..} =

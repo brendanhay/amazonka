@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.CacheNodeUpdateStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.NodeUpdateInitiatedBy
 import Amazonka.ElastiCache.Types.NodeUpdateStatus
 import qualified Amazonka.Prelude as Prelude
@@ -32,18 +33,18 @@ data CacheNodeUpdateStatus = CacheNodeUpdateStatus'
   { -- | The update status of the node
     nodeUpdateStatus :: Prelude.Maybe NodeUpdateStatus,
     -- | The end date of the update for a node
-    nodeUpdateEndDate :: Prelude.Maybe Core.ISO8601,
+    nodeUpdateEndDate :: Prelude.Maybe Data.ISO8601,
     -- | The start date of the update for a node
-    nodeUpdateStartDate :: Prelude.Maybe Core.ISO8601,
+    nodeUpdateStartDate :: Prelude.Maybe Data.ISO8601,
     -- | The deletion date of the node
-    nodeDeletionDate :: Prelude.Maybe Core.ISO8601,
+    nodeDeletionDate :: Prelude.Maybe Data.ISO8601,
     -- | Reflects whether the update was initiated by the customer or
     -- automatically applied
     nodeUpdateInitiatedBy :: Prelude.Maybe NodeUpdateInitiatedBy,
     -- | The date when the update is triggered
-    nodeUpdateInitiatedDate :: Prelude.Maybe Core.ISO8601,
+    nodeUpdateInitiatedDate :: Prelude.Maybe Data.ISO8601,
     -- | The date when the NodeUpdateStatus was last modified>
-    nodeUpdateStatusModifiedDate :: Prelude.Maybe Core.ISO8601,
+    nodeUpdateStatusModifiedDate :: Prelude.Maybe Data.ISO8601,
     -- | The node ID of the cache cluster
     cacheNodeId :: Prelude.Maybe Prelude.Text
   }
@@ -94,15 +95,15 @@ cacheNodeUpdateStatus_nodeUpdateStatus = Lens.lens (\CacheNodeUpdateStatus' {nod
 
 -- | The end date of the update for a node
 cacheNodeUpdateStatus_nodeUpdateEndDate :: Lens.Lens' CacheNodeUpdateStatus (Prelude.Maybe Prelude.UTCTime)
-cacheNodeUpdateStatus_nodeUpdateEndDate = Lens.lens (\CacheNodeUpdateStatus' {nodeUpdateEndDate} -> nodeUpdateEndDate) (\s@CacheNodeUpdateStatus' {} a -> s {nodeUpdateEndDate = a} :: CacheNodeUpdateStatus) Prelude.. Lens.mapping Core._Time
+cacheNodeUpdateStatus_nodeUpdateEndDate = Lens.lens (\CacheNodeUpdateStatus' {nodeUpdateEndDate} -> nodeUpdateEndDate) (\s@CacheNodeUpdateStatus' {} a -> s {nodeUpdateEndDate = a} :: CacheNodeUpdateStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The start date of the update for a node
 cacheNodeUpdateStatus_nodeUpdateStartDate :: Lens.Lens' CacheNodeUpdateStatus (Prelude.Maybe Prelude.UTCTime)
-cacheNodeUpdateStatus_nodeUpdateStartDate = Lens.lens (\CacheNodeUpdateStatus' {nodeUpdateStartDate} -> nodeUpdateStartDate) (\s@CacheNodeUpdateStatus' {} a -> s {nodeUpdateStartDate = a} :: CacheNodeUpdateStatus) Prelude.. Lens.mapping Core._Time
+cacheNodeUpdateStatus_nodeUpdateStartDate = Lens.lens (\CacheNodeUpdateStatus' {nodeUpdateStartDate} -> nodeUpdateStartDate) (\s@CacheNodeUpdateStatus' {} a -> s {nodeUpdateStartDate = a} :: CacheNodeUpdateStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The deletion date of the node
 cacheNodeUpdateStatus_nodeDeletionDate :: Lens.Lens' CacheNodeUpdateStatus (Prelude.Maybe Prelude.UTCTime)
-cacheNodeUpdateStatus_nodeDeletionDate = Lens.lens (\CacheNodeUpdateStatus' {nodeDeletionDate} -> nodeDeletionDate) (\s@CacheNodeUpdateStatus' {} a -> s {nodeDeletionDate = a} :: CacheNodeUpdateStatus) Prelude.. Lens.mapping Core._Time
+cacheNodeUpdateStatus_nodeDeletionDate = Lens.lens (\CacheNodeUpdateStatus' {nodeDeletionDate} -> nodeDeletionDate) (\s@CacheNodeUpdateStatus' {} a -> s {nodeDeletionDate = a} :: CacheNodeUpdateStatus) Prelude.. Lens.mapping Data._Time
 
 -- | Reflects whether the update was initiated by the customer or
 -- automatically applied
@@ -111,27 +112,27 @@ cacheNodeUpdateStatus_nodeUpdateInitiatedBy = Lens.lens (\CacheNodeUpdateStatus'
 
 -- | The date when the update is triggered
 cacheNodeUpdateStatus_nodeUpdateInitiatedDate :: Lens.Lens' CacheNodeUpdateStatus (Prelude.Maybe Prelude.UTCTime)
-cacheNodeUpdateStatus_nodeUpdateInitiatedDate = Lens.lens (\CacheNodeUpdateStatus' {nodeUpdateInitiatedDate} -> nodeUpdateInitiatedDate) (\s@CacheNodeUpdateStatus' {} a -> s {nodeUpdateInitiatedDate = a} :: CacheNodeUpdateStatus) Prelude.. Lens.mapping Core._Time
+cacheNodeUpdateStatus_nodeUpdateInitiatedDate = Lens.lens (\CacheNodeUpdateStatus' {nodeUpdateInitiatedDate} -> nodeUpdateInitiatedDate) (\s@CacheNodeUpdateStatus' {} a -> s {nodeUpdateInitiatedDate = a} :: CacheNodeUpdateStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The date when the NodeUpdateStatus was last modified>
 cacheNodeUpdateStatus_nodeUpdateStatusModifiedDate :: Lens.Lens' CacheNodeUpdateStatus (Prelude.Maybe Prelude.UTCTime)
-cacheNodeUpdateStatus_nodeUpdateStatusModifiedDate = Lens.lens (\CacheNodeUpdateStatus' {nodeUpdateStatusModifiedDate} -> nodeUpdateStatusModifiedDate) (\s@CacheNodeUpdateStatus' {} a -> s {nodeUpdateStatusModifiedDate = a} :: CacheNodeUpdateStatus) Prelude.. Lens.mapping Core._Time
+cacheNodeUpdateStatus_nodeUpdateStatusModifiedDate = Lens.lens (\CacheNodeUpdateStatus' {nodeUpdateStatusModifiedDate} -> nodeUpdateStatusModifiedDate) (\s@CacheNodeUpdateStatus' {} a -> s {nodeUpdateStatusModifiedDate = a} :: CacheNodeUpdateStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The node ID of the cache cluster
 cacheNodeUpdateStatus_cacheNodeId :: Lens.Lens' CacheNodeUpdateStatus (Prelude.Maybe Prelude.Text)
 cacheNodeUpdateStatus_cacheNodeId = Lens.lens (\CacheNodeUpdateStatus' {cacheNodeId} -> cacheNodeId) (\s@CacheNodeUpdateStatus' {} a -> s {cacheNodeId = a} :: CacheNodeUpdateStatus)
 
-instance Core.FromXML CacheNodeUpdateStatus where
+instance Data.FromXML CacheNodeUpdateStatus where
   parseXML x =
     CacheNodeUpdateStatus'
-      Prelude.<$> (x Core..@? "NodeUpdateStatus")
-      Prelude.<*> (x Core..@? "NodeUpdateEndDate")
-      Prelude.<*> (x Core..@? "NodeUpdateStartDate")
-      Prelude.<*> (x Core..@? "NodeDeletionDate")
-      Prelude.<*> (x Core..@? "NodeUpdateInitiatedBy")
-      Prelude.<*> (x Core..@? "NodeUpdateInitiatedDate")
-      Prelude.<*> (x Core..@? "NodeUpdateStatusModifiedDate")
-      Prelude.<*> (x Core..@? "CacheNodeId")
+      Prelude.<$> (x Data..@? "NodeUpdateStatus")
+      Prelude.<*> (x Data..@? "NodeUpdateEndDate")
+      Prelude.<*> (x Data..@? "NodeUpdateStartDate")
+      Prelude.<*> (x Data..@? "NodeDeletionDate")
+      Prelude.<*> (x Data..@? "NodeUpdateInitiatedBy")
+      Prelude.<*> (x Data..@? "NodeUpdateInitiatedDate")
+      Prelude.<*> (x Data..@? "NodeUpdateStatusModifiedDate")
+      Prelude.<*> (x Data..@? "CacheNodeId")
 
 instance Prelude.Hashable CacheNodeUpdateStatus where
   hashWithSalt _salt CacheNodeUpdateStatus' {..} =

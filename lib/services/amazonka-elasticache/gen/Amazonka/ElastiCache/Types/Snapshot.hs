@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.Snapshot where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.AutomaticFailoverStatus
 import Amazonka.ElastiCache.Types.DataTieringStatus
 import Amazonka.ElastiCache.Types.NodeSnapshot
@@ -57,7 +58,7 @@ data Snapshot = Snapshot'
     -- for publishing notifications.
     topicArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the source cluster was created.
-    cacheClusterCreateTime :: Prelude.Maybe Core.ISO8601,
+    cacheClusterCreateTime :: Prelude.Maybe Data.ISO8601,
     -- | The number of cache nodes in the source cluster.
     --
     -- For clusters running Redis, this value must be 1. For clusters running
@@ -536,7 +537,7 @@ snapshot_topicArn = Lens.lens (\Snapshot' {topicArn} -> topicArn) (\s@Snapshot' 
 
 -- | The date and time when the source cluster was created.
 snapshot_cacheClusterCreateTime :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.UTCTime)
-snapshot_cacheClusterCreateTime = Lens.lens (\Snapshot' {cacheClusterCreateTime} -> cacheClusterCreateTime) (\s@Snapshot' {} a -> s {cacheClusterCreateTime = a} :: Snapshot) Prelude.. Lens.mapping Core._Time
+snapshot_cacheClusterCreateTime = Lens.lens (\Snapshot' {cacheClusterCreateTime} -> cacheClusterCreateTime) (\s@Snapshot' {} a -> s {cacheClusterCreateTime = a} :: Snapshot) Prelude.. Lens.mapping Data._Time
 
 -- | The number of cache nodes in the source cluster.
 --
@@ -755,39 +756,39 @@ snapshot_numNodeGroups = Lens.lens (\Snapshot' {numNodeGroups} -> numNodeGroups)
 snapshot_engineVersion :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_engineVersion = Lens.lens (\Snapshot' {engineVersion} -> engineVersion) (\s@Snapshot' {} a -> s {engineVersion = a} :: Snapshot)
 
-instance Core.FromXML Snapshot where
+instance Data.FromXML Snapshot where
   parseXML x =
     Snapshot'
-      Prelude.<$> (x Core..@? "Port")
-      Prelude.<*> (x Core..@? "SnapshotStatus")
-      Prelude.<*> (x Core..@? "CacheSubnetGroupName")
-      Prelude.<*> (x Core..@? "SnapshotName")
-      Prelude.<*> (x Core..@? "SnapshotSource")
-      Prelude.<*> (x Core..@? "AutoMinorVersionUpgrade")
-      Prelude.<*> (x Core..@? "AutomaticFailover")
-      Prelude.<*> (x Core..@? "ARN")
-      Prelude.<*> (x Core..@? "TopicArn")
-      Prelude.<*> (x Core..@? "CacheClusterCreateTime")
-      Prelude.<*> (x Core..@? "NumCacheNodes")
-      Prelude.<*> (x Core..@? "CacheNodeType")
-      Prelude.<*> (x Core..@? "CacheParameterGroupName")
-      Prelude.<*> (x Core..@? "PreferredAvailabilityZone")
-      Prelude.<*> (x Core..@? "CacheClusterId")
-      Prelude.<*> (x Core..@? "SnapshotWindow")
-      Prelude.<*> (x Core..@? "SnapshotRetentionLimit")
-      Prelude.<*> (x Core..@? "ReplicationGroupDescription")
-      Prelude.<*> (x Core..@? "PreferredOutpostArn")
-      Prelude.<*> (x Core..@? "KmsKeyId")
-      Prelude.<*> (x Core..@? "Engine")
-      Prelude.<*> (x Core..@? "PreferredMaintenanceWindow")
-      Prelude.<*> (x Core..@? "VpcId")
-      Prelude.<*> (x Core..@? "DataTiering")
-      Prelude.<*> (x Core..@? "ReplicationGroupId")
-      Prelude.<*> ( x Core..@? "NodeSnapshots" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "NodeSnapshot")
+      Prelude.<$> (x Data..@? "Port")
+      Prelude.<*> (x Data..@? "SnapshotStatus")
+      Prelude.<*> (x Data..@? "CacheSubnetGroupName")
+      Prelude.<*> (x Data..@? "SnapshotName")
+      Prelude.<*> (x Data..@? "SnapshotSource")
+      Prelude.<*> (x Data..@? "AutoMinorVersionUpgrade")
+      Prelude.<*> (x Data..@? "AutomaticFailover")
+      Prelude.<*> (x Data..@? "ARN")
+      Prelude.<*> (x Data..@? "TopicArn")
+      Prelude.<*> (x Data..@? "CacheClusterCreateTime")
+      Prelude.<*> (x Data..@? "NumCacheNodes")
+      Prelude.<*> (x Data..@? "CacheNodeType")
+      Prelude.<*> (x Data..@? "CacheParameterGroupName")
+      Prelude.<*> (x Data..@? "PreferredAvailabilityZone")
+      Prelude.<*> (x Data..@? "CacheClusterId")
+      Prelude.<*> (x Data..@? "SnapshotWindow")
+      Prelude.<*> (x Data..@? "SnapshotRetentionLimit")
+      Prelude.<*> (x Data..@? "ReplicationGroupDescription")
+      Prelude.<*> (x Data..@? "PreferredOutpostArn")
+      Prelude.<*> (x Data..@? "KmsKeyId")
+      Prelude.<*> (x Data..@? "Engine")
+      Prelude.<*> (x Data..@? "PreferredMaintenanceWindow")
+      Prelude.<*> (x Data..@? "VpcId")
+      Prelude.<*> (x Data..@? "DataTiering")
+      Prelude.<*> (x Data..@? "ReplicationGroupId")
+      Prelude.<*> ( x Data..@? "NodeSnapshots" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "NodeSnapshot")
                   )
-      Prelude.<*> (x Core..@? "NumNodeGroups")
-      Prelude.<*> (x Core..@? "EngineVersion")
+      Prelude.<*> (x Data..@? "NumNodeGroups")
+      Prelude.<*> (x Data..@? "EngineVersion")
 
 instance Prelude.Hashable Snapshot where
   hashWithSalt _salt Snapshot' {..} =

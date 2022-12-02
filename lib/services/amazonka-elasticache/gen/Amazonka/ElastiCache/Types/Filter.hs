@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.Filter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used to streamline results of a search based on the property being
@@ -75,9 +76,9 @@ instance Prelude.NFData Filter where
   rnf Filter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToQuery Filter where
+instance Data.ToQuery Filter where
   toQuery Filter' {..} =
     Prelude.mconcat
-      [ "Name" Core.=: name,
-        "Values" Core.=: Core.toQueryList "member" values
+      [ "Name" Data.=: name,
+        "Values" Data.=: Data.toQueryList "member" values
       ]

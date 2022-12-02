@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,7 +106,7 @@ instance Core.AWSRequest ModifyCacheParameterGroup where
   response =
     Response.receiveXMLWrapper
       "ModifyCacheParameterGroupResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable ModifyCacheParameterGroup where
   hashWithSalt _salt ModifyCacheParameterGroup' {..} =
@@ -118,23 +119,23 @@ instance Prelude.NFData ModifyCacheParameterGroup where
     Prelude.rnf cacheParameterGroupName
       `Prelude.seq` Prelude.rnf parameterNameValues
 
-instance Core.ToHeaders ModifyCacheParameterGroup where
+instance Data.ToHeaders ModifyCacheParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyCacheParameterGroup where
+instance Data.ToPath ModifyCacheParameterGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyCacheParameterGroup where
+instance Data.ToQuery ModifyCacheParameterGroup where
   toQuery ModifyCacheParameterGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyCacheParameterGroup" :: Prelude.ByteString),
+          Data.=: ("ModifyCacheParameterGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
         "CacheParameterGroupName"
-          Core.=: cacheParameterGroupName,
+          Data.=: cacheParameterGroupName,
         "ParameterNameValues"
-          Core.=: Core.toQueryList
+          Data.=: Data.toQueryList
             "ParameterNameValue"
             parameterNameValues
       ]

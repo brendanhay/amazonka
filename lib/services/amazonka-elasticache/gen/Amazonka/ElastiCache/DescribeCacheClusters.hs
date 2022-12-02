@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -219,10 +220,10 @@ instance Core.AWSRequest DescribeCacheClusters where
       "DescribeCacheClustersResult"
       ( \s h x ->
           DescribeCacheClustersResponse'
-            Prelude.<$> ( x Core..@? "CacheClusters" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "CacheCluster")
+            Prelude.<$> ( x Data..@? "CacheClusters" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "CacheCluster")
                         )
-            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -242,25 +243,25 @@ instance Prelude.NFData DescribeCacheClusters where
       `Prelude.seq` Prelude.rnf cacheClusterId
       `Prelude.seq` Prelude.rnf showCacheNodeInfo
 
-instance Core.ToHeaders DescribeCacheClusters where
+instance Data.ToHeaders DescribeCacheClusters where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeCacheClusters where
+instance Data.ToPath DescribeCacheClusters where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCacheClusters where
+instance Data.ToQuery DescribeCacheClusters where
   toQuery DescribeCacheClusters' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeCacheClusters" :: Prelude.ByteString),
+          Data.=: ("DescribeCacheClusters" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
         "ShowCacheClustersNotInReplicationGroups"
-          Core.=: showCacheClustersNotInReplicationGroups,
-        "MaxRecords" Core.=: maxRecords,
-        "CacheClusterId" Core.=: cacheClusterId,
-        "ShowCacheNodeInfo" Core.=: showCacheNodeInfo
+          Data.=: showCacheClustersNotInReplicationGroups,
+        "MaxRecords" Data.=: maxRecords,
+        "CacheClusterId" Data.=: cacheClusterId,
+        "ShowCacheNodeInfo" Data.=: showCacheNodeInfo
       ]
 
 -- | Represents the output of a @DescribeCacheClusters@ operation.

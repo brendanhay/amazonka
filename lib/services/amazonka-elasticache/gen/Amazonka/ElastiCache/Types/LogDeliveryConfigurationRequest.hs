@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.LogDeliveryConfigurationRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.DestinationDetails
 import Amazonka.ElastiCache.Types.DestinationType
 import Amazonka.ElastiCache.Types.LogFormat
@@ -123,12 +124,12 @@ instance
       `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf destinationDetails
 
-instance Core.ToQuery LogDeliveryConfigurationRequest where
+instance Data.ToQuery LogDeliveryConfigurationRequest where
   toQuery LogDeliveryConfigurationRequest' {..} =
     Prelude.mconcat
-      [ "LogType" Core.=: logType,
-        "DestinationType" Core.=: destinationType,
-        "LogFormat" Core.=: logFormat,
-        "Enabled" Core.=: enabled,
-        "DestinationDetails" Core.=: destinationDetails
+      [ "LogType" Data.=: logType,
+        "DestinationType" Data.=: destinationType,
+        "LogFormat" Data.=: logFormat,
+        "Enabled" Data.=: enabled,
+        "DestinationDetails" Data.=: destinationDetails
       ]

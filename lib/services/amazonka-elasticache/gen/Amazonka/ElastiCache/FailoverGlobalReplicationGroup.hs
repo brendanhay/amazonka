@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,7 +121,7 @@ instance
       "FailoverGlobalReplicationGroupResult"
       ( \s h x ->
           FailoverGlobalReplicationGroupResponse'
-            Prelude.<$> (x Core..@? "GlobalReplicationGroup")
+            Prelude.<$> (x Data..@? "GlobalReplicationGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,28 +147,28 @@ instance
       `Prelude.seq` Prelude.rnf primaryReplicationGroupId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     FailoverGlobalReplicationGroup
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath FailoverGlobalReplicationGroup where
+instance Data.ToPath FailoverGlobalReplicationGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery FailoverGlobalReplicationGroup where
+instance Data.ToQuery FailoverGlobalReplicationGroup where
   toQuery FailoverGlobalReplicationGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "FailoverGlobalReplicationGroup" ::
+          Data.=: ( "FailoverGlobalReplicationGroup" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
         "GlobalReplicationGroupId"
-          Core.=: globalReplicationGroupId,
-        "PrimaryRegion" Core.=: primaryRegion,
+          Data.=: globalReplicationGroupId,
+        "PrimaryRegion" Data.=: primaryRegion,
         "PrimaryReplicationGroupId"
-          Core.=: primaryReplicationGroupId
+          Data.=: primaryReplicationGroupId
       ]
 
 -- | /See:/ 'newFailoverGlobalReplicationGroupResponse' smart constructor.

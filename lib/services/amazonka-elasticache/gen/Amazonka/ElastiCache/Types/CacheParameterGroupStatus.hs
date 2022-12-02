@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.CacheParameterGroupStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Status of the cache parameter group.
@@ -77,14 +78,14 @@ cacheParameterGroupStatus_parameterApplyStatus = Lens.lens (\CacheParameterGroup
 cacheParameterGroupStatus_cacheNodeIdsToReboot :: Lens.Lens' CacheParameterGroupStatus (Prelude.Maybe [Prelude.Text])
 cacheParameterGroupStatus_cacheNodeIdsToReboot = Lens.lens (\CacheParameterGroupStatus' {cacheNodeIdsToReboot} -> cacheNodeIdsToReboot) (\s@CacheParameterGroupStatus' {} a -> s {cacheNodeIdsToReboot = a} :: CacheParameterGroupStatus) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML CacheParameterGroupStatus where
+instance Data.FromXML CacheParameterGroupStatus where
   parseXML x =
     CacheParameterGroupStatus'
-      Prelude.<$> (x Core..@? "CacheParameterGroupName")
-      Prelude.<*> (x Core..@? "ParameterApplyStatus")
-      Prelude.<*> ( x Core..@? "CacheNodeIdsToReboot"
+      Prelude.<$> (x Data..@? "CacheParameterGroupName")
+      Prelude.<*> (x Data..@? "ParameterApplyStatus")
+      Prelude.<*> ( x Data..@? "CacheNodeIdsToReboot"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "CacheNodeId")
+                      Prelude.>>= Core.may (Data.parseXMLList "CacheNodeId")
                   )
 
 instance Prelude.Hashable CacheParameterGroupStatus where

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -172,7 +173,7 @@ instance
       "DecreaseNodeGroupsInGlobalReplicationGroupResult"
       ( \s h x ->
           DecreaseNodeGroupsInGlobalReplicationGroupResponse'
-            Prelude.<$> (x Core..@? "GlobalReplicationGroup")
+            Prelude.<$> (x Data..@? "GlobalReplicationGroup")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,44 +203,44 @@ instance
       `Prelude.seq` Prelude.rnf applyImmediately
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DecreaseNodeGroupsInGlobalReplicationGroup
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DecreaseNodeGroupsInGlobalReplicationGroup
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DecreaseNodeGroupsInGlobalReplicationGroup
   where
   toQuery
     DecreaseNodeGroupsInGlobalReplicationGroup' {..} =
       Prelude.mconcat
         [ "Action"
-            Core.=: ( "DecreaseNodeGroupsInGlobalReplicationGroup" ::
+            Data.=: ( "DecreaseNodeGroupsInGlobalReplicationGroup" ::
                         Prelude.ByteString
                     ),
           "Version"
-            Core.=: ("2015-02-02" :: Prelude.ByteString),
+            Data.=: ("2015-02-02" :: Prelude.ByteString),
           "GlobalNodeGroupsToRemove"
-            Core.=: Core.toQuery
-              ( Core.toQueryList "GlobalNodeGroupId"
+            Data.=: Data.toQuery
+              ( Data.toQueryList "GlobalNodeGroupId"
                   Prelude.<$> globalNodeGroupsToRemove
               ),
           "GlobalNodeGroupsToRetain"
-            Core.=: Core.toQuery
-              ( Core.toQueryList "GlobalNodeGroupId"
+            Data.=: Data.toQuery
+              ( Data.toQueryList "GlobalNodeGroupId"
                   Prelude.<$> globalNodeGroupsToRetain
               ),
           "GlobalReplicationGroupId"
-            Core.=: globalReplicationGroupId,
-          "NodeGroupCount" Core.=: nodeGroupCount,
-          "ApplyImmediately" Core.=: applyImmediately
+            Data.=: globalReplicationGroupId,
+          "NodeGroupCount" Data.=: nodeGroupCount,
+          "ApplyImmediately" Data.=: applyImmediately
         ]
 
 -- | /See:/ 'newDecreaseNodeGroupsInGlobalReplicationGroupResponse' smart constructor.

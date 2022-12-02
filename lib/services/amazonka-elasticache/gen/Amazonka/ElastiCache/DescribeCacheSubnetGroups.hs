@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -162,10 +163,10 @@ instance Core.AWSRequest DescribeCacheSubnetGroups where
       "DescribeCacheSubnetGroupsResult"
       ( \s h x ->
           DescribeCacheSubnetGroupsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "CacheSubnetGroups"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "CacheSubnetGroups"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "CacheSubnetGroup")
+                            Prelude.>>= Core.may (Data.parseXMLList "CacheSubnetGroup")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -182,22 +183,22 @@ instance Prelude.NFData DescribeCacheSubnetGroups where
       `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeCacheSubnetGroups where
+instance Data.ToHeaders DescribeCacheSubnetGroups where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeCacheSubnetGroups where
+instance Data.ToPath DescribeCacheSubnetGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCacheSubnetGroups where
+instance Data.ToQuery DescribeCacheSubnetGroups where
   toQuery DescribeCacheSubnetGroups' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeCacheSubnetGroups" :: Prelude.ByteString),
+          Data.=: ("DescribeCacheSubnetGroups" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "CacheSubnetGroupName" Core.=: cacheSubnetGroupName,
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "CacheSubnetGroupName" Data.=: cacheSubnetGroupName,
+        "Marker" Data.=: marker,
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- | Represents the output of a @DescribeCacheSubnetGroups@ operation.

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,7 +90,7 @@ instance Core.AWSRequest DeleteUserGroup where
   response =
     Response.receiveXMLWrapper
       "DeleteUserGroupResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable DeleteUserGroup where
   hashWithSalt _salt DeleteUserGroup' {..} =
@@ -98,18 +99,18 @@ instance Prelude.Hashable DeleteUserGroup where
 instance Prelude.NFData DeleteUserGroup where
   rnf DeleteUserGroup' {..} = Prelude.rnf userGroupId
 
-instance Core.ToHeaders DeleteUserGroup where
+instance Data.ToHeaders DeleteUserGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteUserGroup where
+instance Data.ToPath DeleteUserGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteUserGroup where
+instance Data.ToQuery DeleteUserGroup where
   toQuery DeleteUserGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteUserGroup" :: Prelude.ByteString),
+          Data.=: ("DeleteUserGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "UserGroupId" Core.=: userGroupId
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "UserGroupId" Data.=: userGroupId
       ]

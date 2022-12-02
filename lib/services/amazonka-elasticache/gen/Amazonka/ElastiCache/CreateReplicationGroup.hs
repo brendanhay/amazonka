@@ -116,6 +116,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -1426,7 +1427,7 @@ instance Core.AWSRequest CreateReplicationGroup where
       "CreateReplicationGroupResult"
       ( \s h x ->
           CreateReplicationGroupResponse'
-            Prelude.<$> (x Core..@? "ReplicationGroup")
+            Prelude.<$> (x Data..@? "ReplicationGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -1525,92 +1526,92 @@ instance Prelude.NFData CreateReplicationGroup where
       `Prelude.seq` Prelude.rnf
         replicationGroupDescription
 
-instance Core.ToHeaders CreateReplicationGroup where
+instance Data.ToHeaders CreateReplicationGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateReplicationGroup where
+instance Data.ToPath CreateReplicationGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateReplicationGroup where
+instance Data.ToQuery CreateReplicationGroup where
   toQuery CreateReplicationGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateReplicationGroup" :: Prelude.ByteString),
+          Data.=: ("CreateReplicationGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
         "TransitEncryptionEnabled"
-          Core.=: transitEncryptionEnabled,
+          Data.=: transitEncryptionEnabled,
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "DataTieringEnabled" Core.=: dataTieringEnabled,
-        "Port" Core.=: port,
-        "CacheSubnetGroupName" Core.=: cacheSubnetGroupName,
-        "SnapshotName" Core.=: snapshotName,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "DataTieringEnabled" Data.=: dataTieringEnabled,
+        "Port" Data.=: port,
+        "CacheSubnetGroupName" Data.=: cacheSubnetGroupName,
+        "SnapshotName" Data.=: snapshotName,
         "SecurityGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "SecurityGroupId"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "SecurityGroupId"
                 Prelude.<$> securityGroupIds
             ),
         "AutoMinorVersionUpgrade"
-          Core.=: autoMinorVersionUpgrade,
+          Data.=: autoMinorVersionUpgrade,
         "GlobalReplicationGroupId"
-          Core.=: globalReplicationGroupId,
+          Data.=: globalReplicationGroupId,
         "PreferredCacheClusterAZs"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "AvailabilityZone"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "AvailabilityZone"
                 Prelude.<$> preferredCacheClusterAZs
             ),
-        "AuthToken" Core.=: authToken,
+        "AuthToken" Data.=: authToken,
         "LogDeliveryConfigurations"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "LogDeliveryConfigurationRequest"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "LogDeliveryConfigurationRequest"
                 Prelude.<$> logDeliveryConfigurations
             ),
         "AtRestEncryptionEnabled"
-          Core.=: atRestEncryptionEnabled,
-        "IpDiscovery" Core.=: ipDiscovery,
-        "ReplicasPerNodeGroup" Core.=: replicasPerNodeGroup,
-        "CacheNodeType" Core.=: cacheNodeType,
+          Data.=: atRestEncryptionEnabled,
+        "IpDiscovery" Data.=: ipDiscovery,
+        "ReplicasPerNodeGroup" Data.=: replicasPerNodeGroup,
+        "CacheNodeType" Data.=: cacheNodeType,
         "CacheParameterGroupName"
-          Core.=: cacheParameterGroupName,
-        "NotificationTopicArn" Core.=: notificationTopicArn,
+          Data.=: cacheParameterGroupName,
+        "NotificationTopicArn" Data.=: notificationTopicArn,
         "SnapshotArns"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "SnapshotArn"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "SnapshotArn"
                 Prelude.<$> snapshotArns
             ),
-        "SnapshotWindow" Core.=: snapshotWindow,
+        "SnapshotWindow" Data.=: snapshotWindow,
         "SnapshotRetentionLimit"
-          Core.=: snapshotRetentionLimit,
-        "NumCacheClusters" Core.=: numCacheClusters,
+          Data.=: snapshotRetentionLimit,
+        "NumCacheClusters" Data.=: numCacheClusters,
         "CacheSecurityGroupNames"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "CacheSecurityGroupName"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "CacheSecurityGroupName"
                 Prelude.<$> cacheSecurityGroupNames
             ),
         "UserGroupIds"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> userGroupIds),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> userGroupIds),
         "AutomaticFailoverEnabled"
-          Core.=: automaticFailoverEnabled,
-        "KmsKeyId" Core.=: kmsKeyId,
-        "Engine" Core.=: engine,
+          Data.=: automaticFailoverEnabled,
+        "KmsKeyId" Data.=: kmsKeyId,
+        "Engine" Data.=: engine,
         "PreferredMaintenanceWindow"
-          Core.=: preferredMaintenanceWindow,
-        "PrimaryClusterId" Core.=: primaryClusterId,
+          Data.=: preferredMaintenanceWindow,
+        "PrimaryClusterId" Data.=: primaryClusterId,
         "NodeGroupConfiguration"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "NodeGroupConfiguration"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "NodeGroupConfiguration"
                 Prelude.<$> nodeGroupConfiguration
             ),
-        "NumNodeGroups" Core.=: numNodeGroups,
-        "MultiAZEnabled" Core.=: multiAZEnabled,
-        "EngineVersion" Core.=: engineVersion,
-        "NetworkType" Core.=: networkType,
-        "ReplicationGroupId" Core.=: replicationGroupId,
+        "NumNodeGroups" Data.=: numNodeGroups,
+        "MultiAZEnabled" Data.=: multiAZEnabled,
+        "EngineVersion" Data.=: engineVersion,
+        "NetworkType" Data.=: networkType,
+        "ReplicationGroupId" Data.=: replicationGroupId,
         "ReplicationGroupDescription"
-          Core.=: replicationGroupDescription
+          Data.=: replicationGroupDescription
       ]
 
 -- | /See:/ 'newCreateReplicationGroupResponse' smart constructor.

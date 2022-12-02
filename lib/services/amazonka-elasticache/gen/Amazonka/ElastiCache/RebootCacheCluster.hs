@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,7 +124,7 @@ instance Core.AWSRequest RebootCacheCluster where
       "RebootCacheClusterResult"
       ( \s h x ->
           RebootCacheClusterResponse'
-            Prelude.<$> (x Core..@? "CacheCluster")
+            Prelude.<$> (x Data..@? "CacheCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,22 +138,22 @@ instance Prelude.NFData RebootCacheCluster where
     Prelude.rnf cacheClusterId
       `Prelude.seq` Prelude.rnf cacheNodeIdsToReboot
 
-instance Core.ToHeaders RebootCacheCluster where
+instance Data.ToHeaders RebootCacheCluster where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RebootCacheCluster where
+instance Data.ToPath RebootCacheCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RebootCacheCluster where
+instance Data.ToQuery RebootCacheCluster where
   toQuery RebootCacheCluster' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RebootCacheCluster" :: Prelude.ByteString),
+          Data.=: ("RebootCacheCluster" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "CacheClusterId" Core.=: cacheClusterId,
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "CacheClusterId" Data.=: cacheClusterId,
         "CacheNodeIdsToReboot"
-          Core.=: Core.toQueryList "CacheNodeId" cacheNodeIdsToReboot
+          Data.=: Data.toQueryList "CacheNodeId" cacheNodeIdsToReboot
       ]
 
 -- | /See:/ 'newRebootCacheClusterResponse' smart constructor.

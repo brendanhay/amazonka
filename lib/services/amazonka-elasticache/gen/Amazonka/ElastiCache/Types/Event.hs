@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.Event where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.SourceType
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,7 +34,7 @@ data Event = Event'
   { -- | The text of the event.
     message :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the event occurred.
-    date :: Prelude.Maybe Core.ISO8601,
+    date :: Prelude.Maybe Data.ISO8601,
     -- | Specifies the origin of this event - a cluster, a parameter group, a
     -- security group, etc.
     sourceType :: Prelude.Maybe SourceType,
@@ -78,7 +79,7 @@ event_message = Lens.lens (\Event' {message} -> message) (\s@Event' {} a -> s {m
 
 -- | The date and time when the event occurred.
 event_date :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
-event_date = Lens.lens (\Event' {date} -> date) (\s@Event' {} a -> s {date = a} :: Event) Prelude.. Lens.mapping Core._Time
+event_date = Lens.lens (\Event' {date} -> date) (\s@Event' {} a -> s {date = a} :: Event) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the origin of this event - a cluster, a parameter group, a
 -- security group, etc.
@@ -91,13 +92,13 @@ event_sourceType = Lens.lens (\Event' {sourceType} -> sourceType) (\s@Event' {} 
 event_sourceIdentifier :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_sourceIdentifier = Lens.lens (\Event' {sourceIdentifier} -> sourceIdentifier) (\s@Event' {} a -> s {sourceIdentifier = a} :: Event)
 
-instance Core.FromXML Event where
+instance Data.FromXML Event where
   parseXML x =
     Event'
-      Prelude.<$> (x Core..@? "Message")
-      Prelude.<*> (x Core..@? "Date")
-      Prelude.<*> (x Core..@? "SourceType")
-      Prelude.<*> (x Core..@? "SourceIdentifier")
+      Prelude.<$> (x Data..@? "Message")
+      Prelude.<*> (x Data..@? "Date")
+      Prelude.<*> (x Data..@? "SourceType")
+      Prelude.<*> (x Data..@? "SourceIdentifier")
 
 instance Prelude.Hashable Event where
   hashWithSalt _salt Event' {..} =

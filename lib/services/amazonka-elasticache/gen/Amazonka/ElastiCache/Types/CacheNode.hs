@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.CacheNode where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.Endpoint
 import qualified Amazonka.Prelude as Prelude
 
@@ -151,7 +152,7 @@ data CacheNode = CacheNode'
     -- | The hostname for connecting to this cache node.
     endpoint :: Prelude.Maybe Endpoint,
     -- | The date and time when the cache node was created.
-    cacheNodeCreateTime :: Prelude.Maybe Core.ISO8601
+    cacheNodeCreateTime :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -232,19 +233,19 @@ cacheNode_endpoint = Lens.lens (\CacheNode' {endpoint} -> endpoint) (\s@CacheNod
 
 -- | The date and time when the cache node was created.
 cacheNode_cacheNodeCreateTime :: Lens.Lens' CacheNode (Prelude.Maybe Prelude.UTCTime)
-cacheNode_cacheNodeCreateTime = Lens.lens (\CacheNode' {cacheNodeCreateTime} -> cacheNodeCreateTime) (\s@CacheNode' {} a -> s {cacheNodeCreateTime = a} :: CacheNode) Prelude.. Lens.mapping Core._Time
+cacheNode_cacheNodeCreateTime = Lens.lens (\CacheNode' {cacheNodeCreateTime} -> cacheNodeCreateTime) (\s@CacheNode' {} a -> s {cacheNodeCreateTime = a} :: CacheNode) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML CacheNode where
+instance Data.FromXML CacheNode where
   parseXML x =
     CacheNode'
-      Prelude.<$> (x Core..@? "CustomerOutpostArn")
-      Prelude.<*> (x Core..@? "CustomerAvailabilityZone")
-      Prelude.<*> (x Core..@? "SourceCacheNodeId")
-      Prelude.<*> (x Core..@? "CacheNodeId")
-      Prelude.<*> (x Core..@? "CacheNodeStatus")
-      Prelude.<*> (x Core..@? "ParameterGroupStatus")
-      Prelude.<*> (x Core..@? "Endpoint")
-      Prelude.<*> (x Core..@? "CacheNodeCreateTime")
+      Prelude.<$> (x Data..@? "CustomerOutpostArn")
+      Prelude.<*> (x Data..@? "CustomerAvailabilityZone")
+      Prelude.<*> (x Data..@? "SourceCacheNodeId")
+      Prelude.<*> (x Data..@? "CacheNodeId")
+      Prelude.<*> (x Data..@? "CacheNodeStatus")
+      Prelude.<*> (x Data..@? "ParameterGroupStatus")
+      Prelude.<*> (x Data..@? "Endpoint")
+      Prelude.<*> (x Data..@? "CacheNodeCreateTime")
 
 instance Prelude.Hashable CacheNode where
   hashWithSalt _salt CacheNode' {..} =

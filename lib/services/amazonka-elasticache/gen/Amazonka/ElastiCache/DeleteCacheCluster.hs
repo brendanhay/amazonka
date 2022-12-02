@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,7 +129,7 @@ instance Core.AWSRequest DeleteCacheCluster where
       "DeleteCacheClusterResult"
       ( \s h x ->
           DeleteCacheClusterResponse'
-            Prelude.<$> (x Core..@? "CacheCluster")
+            Prelude.<$> (x Data..@? "CacheCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,22 +144,22 @@ instance Prelude.NFData DeleteCacheCluster where
     Prelude.rnf finalSnapshotIdentifier
       `Prelude.seq` Prelude.rnf cacheClusterId
 
-instance Core.ToHeaders DeleteCacheCluster where
+instance Data.ToHeaders DeleteCacheCluster where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteCacheCluster where
+instance Data.ToPath DeleteCacheCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteCacheCluster where
+instance Data.ToQuery DeleteCacheCluster where
   toQuery DeleteCacheCluster' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteCacheCluster" :: Prelude.ByteString),
+          Data.=: ("DeleteCacheCluster" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
         "FinalSnapshotIdentifier"
-          Core.=: finalSnapshotIdentifier,
-        "CacheClusterId" Core.=: cacheClusterId
+          Data.=: finalSnapshotIdentifier,
+        "CacheClusterId" Data.=: cacheClusterId
       ]
 
 -- | /See:/ 'newDeleteCacheClusterResponse' smart constructor.

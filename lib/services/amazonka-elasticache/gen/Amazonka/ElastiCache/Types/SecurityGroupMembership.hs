@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.SecurityGroupMembership where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a single cache security group and its status.
@@ -68,11 +69,11 @@ securityGroupMembership_securityGroupId = Lens.lens (\SecurityGroupMembership' {
 securityGroupMembership_status :: Lens.Lens' SecurityGroupMembership (Prelude.Maybe Prelude.Text)
 securityGroupMembership_status = Lens.lens (\SecurityGroupMembership' {status} -> status) (\s@SecurityGroupMembership' {} a -> s {status = a} :: SecurityGroupMembership)
 
-instance Core.FromXML SecurityGroupMembership where
+instance Data.FromXML SecurityGroupMembership where
   parseXML x =
     SecurityGroupMembership'
-      Prelude.<$> (x Core..@? "SecurityGroupId")
-      Prelude.<*> (x Core..@? "Status")
+      Prelude.<$> (x Data..@? "SecurityGroupId")
+      Prelude.<*> (x Data..@? "Status")
 
 instance Prelude.Hashable SecurityGroupMembership where
   hashWithSalt _salt SecurityGroupMembership' {..} =

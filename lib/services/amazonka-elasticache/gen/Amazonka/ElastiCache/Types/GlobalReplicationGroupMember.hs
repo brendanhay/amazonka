@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.GlobalReplicationGroupMember where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.AutomaticFailoverStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -94,14 +95,14 @@ globalReplicationGroupMember_role = Lens.lens (\GlobalReplicationGroupMember' {r
 globalReplicationGroupMember_replicationGroupId :: Lens.Lens' GlobalReplicationGroupMember (Prelude.Maybe Prelude.Text)
 globalReplicationGroupMember_replicationGroupId = Lens.lens (\GlobalReplicationGroupMember' {replicationGroupId} -> replicationGroupId) (\s@GlobalReplicationGroupMember' {} a -> s {replicationGroupId = a} :: GlobalReplicationGroupMember)
 
-instance Core.FromXML GlobalReplicationGroupMember where
+instance Data.FromXML GlobalReplicationGroupMember where
   parseXML x =
     GlobalReplicationGroupMember'
-      Prelude.<$> (x Core..@? "ReplicationGroupRegion")
-      Prelude.<*> (x Core..@? "AutomaticFailover")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "Role")
-      Prelude.<*> (x Core..@? "ReplicationGroupId")
+      Prelude.<$> (x Data..@? "ReplicationGroupRegion")
+      Prelude.<*> (x Data..@? "AutomaticFailover")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "Role")
+      Prelude.<*> (x Data..@? "ReplicationGroupId")
 
 instance
   Prelude.Hashable

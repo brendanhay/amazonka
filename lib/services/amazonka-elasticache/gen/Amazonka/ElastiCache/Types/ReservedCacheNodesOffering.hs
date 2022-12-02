@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.ReservedCacheNodesOffering where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.RecurringCharge
 import qualified Amazonka.Prelude as Prelude
 
@@ -420,20 +421,20 @@ reservedCacheNodesOffering_fixedPrice = Lens.lens (\ReservedCacheNodesOffering' 
 reservedCacheNodesOffering_usagePrice :: Lens.Lens' ReservedCacheNodesOffering (Prelude.Maybe Prelude.Double)
 reservedCacheNodesOffering_usagePrice = Lens.lens (\ReservedCacheNodesOffering' {usagePrice} -> usagePrice) (\s@ReservedCacheNodesOffering' {} a -> s {usagePrice = a} :: ReservedCacheNodesOffering)
 
-instance Core.FromXML ReservedCacheNodesOffering where
+instance Data.FromXML ReservedCacheNodesOffering where
   parseXML x =
     ReservedCacheNodesOffering'
-      Prelude.<$> (x Core..@? "ReservedCacheNodesOfferingId")
-      Prelude.<*> ( x Core..@? "RecurringCharges"
+      Prelude.<$> (x Data..@? "ReservedCacheNodesOfferingId")
+      Prelude.<*> ( x Data..@? "RecurringCharges"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "RecurringCharge")
+                      Prelude.>>= Core.may (Data.parseXMLList "RecurringCharge")
                   )
-      Prelude.<*> (x Core..@? "OfferingType")
-      Prelude.<*> (x Core..@? "CacheNodeType")
-      Prelude.<*> (x Core..@? "Duration")
-      Prelude.<*> (x Core..@? "ProductDescription")
-      Prelude.<*> (x Core..@? "FixedPrice")
-      Prelude.<*> (x Core..@? "UsagePrice")
+      Prelude.<*> (x Data..@? "OfferingType")
+      Prelude.<*> (x Data..@? "CacheNodeType")
+      Prelude.<*> (x Data..@? "Duration")
+      Prelude.<*> (x Data..@? "ProductDescription")
+      Prelude.<*> (x Data..@? "FixedPrice")
+      Prelude.<*> (x Data..@? "UsagePrice")
 
 instance Prelude.Hashable ReservedCacheNodesOffering where
   hashWithSalt _salt ReservedCacheNodesOffering' {..} =

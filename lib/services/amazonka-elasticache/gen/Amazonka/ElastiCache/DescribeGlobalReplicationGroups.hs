@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -163,12 +164,12 @@ instance
       "DescribeGlobalReplicationGroupsResult"
       ( \s h x ->
           DescribeGlobalReplicationGroupsResponse'
-            Prelude.<$> ( x Core..@? "GlobalReplicationGroups"
+            Prelude.<$> ( x Data..@? "GlobalReplicationGroups"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may
-                              (Core.parseXMLList "GlobalReplicationGroup")
+                              (Data.parseXMLList "GlobalReplicationGroup")
                         )
-            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -195,28 +196,28 @@ instance
       `Prelude.seq` Prelude.rnf showMemberInfo
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeGlobalReplicationGroups
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeGlobalReplicationGroups where
+instance Data.ToPath DescribeGlobalReplicationGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeGlobalReplicationGroups where
+instance Data.ToQuery DescribeGlobalReplicationGroups where
   toQuery DescribeGlobalReplicationGroups' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeGlobalReplicationGroups" ::
+          Data.=: ( "DescribeGlobalReplicationGroups" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
         "GlobalReplicationGroupId"
-          Core.=: globalReplicationGroupId,
-        "MaxRecords" Core.=: maxRecords,
-        "ShowMemberInfo" Core.=: showMemberInfo
+          Data.=: globalReplicationGroupId,
+        "MaxRecords" Data.=: maxRecords,
+        "ShowMemberInfo" Data.=: showMemberInfo
       ]
 
 -- | /See:/ 'newDescribeGlobalReplicationGroupsResponse' smart constructor.

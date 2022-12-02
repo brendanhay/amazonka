@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.ReservedCacheNode where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.RecurringCharge
 import qualified Amazonka.Prelude as Prelude
 
@@ -156,7 +157,7 @@ data ReservedCacheNode = ReservedCacheNode'
     -- | The fixed price charged for this reserved cache node.
     fixedPrice :: Prelude.Maybe Prelude.Double,
     -- | The time the reservation started.
-    startTime :: Prelude.Maybe Core.ISO8601,
+    startTime :: Prelude.Maybe Data.ISO8601,
     -- | The hourly price charged for this reserved cache node.
     usagePrice :: Prelude.Maybe Prelude.Double
   }
@@ -469,31 +470,31 @@ reservedCacheNode_fixedPrice = Lens.lens (\ReservedCacheNode' {fixedPrice} -> fi
 
 -- | The time the reservation started.
 reservedCacheNode_startTime :: Lens.Lens' ReservedCacheNode (Prelude.Maybe Prelude.UTCTime)
-reservedCacheNode_startTime = Lens.lens (\ReservedCacheNode' {startTime} -> startTime) (\s@ReservedCacheNode' {} a -> s {startTime = a} :: ReservedCacheNode) Prelude.. Lens.mapping Core._Time
+reservedCacheNode_startTime = Lens.lens (\ReservedCacheNode' {startTime} -> startTime) (\s@ReservedCacheNode' {} a -> s {startTime = a} :: ReservedCacheNode) Prelude.. Lens.mapping Data._Time
 
 -- | The hourly price charged for this reserved cache node.
 reservedCacheNode_usagePrice :: Lens.Lens' ReservedCacheNode (Prelude.Maybe Prelude.Double)
 reservedCacheNode_usagePrice = Lens.lens (\ReservedCacheNode' {usagePrice} -> usagePrice) (\s@ReservedCacheNode' {} a -> s {usagePrice = a} :: ReservedCacheNode)
 
-instance Core.FromXML ReservedCacheNode where
+instance Data.FromXML ReservedCacheNode where
   parseXML x =
     ReservedCacheNode'
-      Prelude.<$> (x Core..@? "ReservedCacheNodesOfferingId")
-      Prelude.<*> ( x Core..@? "RecurringCharges"
+      Prelude.<$> (x Data..@? "ReservedCacheNodesOfferingId")
+      Prelude.<*> ( x Data..@? "RecurringCharges"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "RecurringCharge")
+                      Prelude.>>= Core.may (Data.parseXMLList "RecurringCharge")
                   )
-      Prelude.<*> (x Core..@? "State")
-      Prelude.<*> (x Core..@? "OfferingType")
-      Prelude.<*> (x Core..@? "CacheNodeCount")
-      Prelude.<*> (x Core..@? "CacheNodeType")
-      Prelude.<*> (x Core..@? "Duration")
-      Prelude.<*> (x Core..@? "ReservationARN")
-      Prelude.<*> (x Core..@? "ReservedCacheNodeId")
-      Prelude.<*> (x Core..@? "ProductDescription")
-      Prelude.<*> (x Core..@? "FixedPrice")
-      Prelude.<*> (x Core..@? "StartTime")
-      Prelude.<*> (x Core..@? "UsagePrice")
+      Prelude.<*> (x Data..@? "State")
+      Prelude.<*> (x Data..@? "OfferingType")
+      Prelude.<*> (x Data..@? "CacheNodeCount")
+      Prelude.<*> (x Data..@? "CacheNodeType")
+      Prelude.<*> (x Data..@? "Duration")
+      Prelude.<*> (x Data..@? "ReservationARN")
+      Prelude.<*> (x Data..@? "ReservedCacheNodeId")
+      Prelude.<*> (x Data..@? "ProductDescription")
+      Prelude.<*> (x Data..@? "FixedPrice")
+      Prelude.<*> (x Data..@? "StartTime")
+      Prelude.<*> (x Data..@? "UsagePrice")
 
 instance Prelude.Hashable ReservedCacheNode where
   hashWithSalt _salt ReservedCacheNode' {..} =

@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.NodeGroupMember where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.Endpoint
 import qualified Amazonka.Prelude as Prelude
 
@@ -114,15 +115,15 @@ nodeGroupMember_readEndpoint = Lens.lens (\NodeGroupMember' {readEndpoint} -> re
 nodeGroupMember_currentRole :: Lens.Lens' NodeGroupMember (Prelude.Maybe Prelude.Text)
 nodeGroupMember_currentRole = Lens.lens (\NodeGroupMember' {currentRole} -> currentRole) (\s@NodeGroupMember' {} a -> s {currentRole = a} :: NodeGroupMember)
 
-instance Core.FromXML NodeGroupMember where
+instance Data.FromXML NodeGroupMember where
   parseXML x =
     NodeGroupMember'
-      Prelude.<$> (x Core..@? "PreferredAvailabilityZone")
-      Prelude.<*> (x Core..@? "CacheClusterId")
-      Prelude.<*> (x Core..@? "PreferredOutpostArn")
-      Prelude.<*> (x Core..@? "CacheNodeId")
-      Prelude.<*> (x Core..@? "ReadEndpoint")
-      Prelude.<*> (x Core..@? "CurrentRole")
+      Prelude.<$> (x Data..@? "PreferredAvailabilityZone")
+      Prelude.<*> (x Data..@? "CacheClusterId")
+      Prelude.<*> (x Data..@? "PreferredOutpostArn")
+      Prelude.<*> (x Data..@? "CacheNodeId")
+      Prelude.<*> (x Data..@? "ReadEndpoint")
+      Prelude.<*> (x Data..@? "CurrentRole")
 
 instance Prelude.Hashable NodeGroupMember where
   hashWithSalt _salt NodeGroupMember' {..} =

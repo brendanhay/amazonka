@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.ReshardingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of @PreferredAvailabilityZones@ objects that specifies the
@@ -77,13 +78,13 @@ instance Prelude.NFData ReshardingConfiguration where
     Prelude.rnf preferredAvailabilityZones
       `Prelude.seq` Prelude.rnf nodeGroupId
 
-instance Core.ToQuery ReshardingConfiguration where
+instance Data.ToQuery ReshardingConfiguration where
   toQuery ReshardingConfiguration' {..} =
     Prelude.mconcat
       [ "PreferredAvailabilityZones"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "AvailabilityZone"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "AvailabilityZone"
                 Prelude.<$> preferredAvailabilityZones
             ),
-        "NodeGroupId" Core.=: nodeGroupId
+        "NodeGroupId" Data.=: nodeGroupId
       ]

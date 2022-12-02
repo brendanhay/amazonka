@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,7 +91,7 @@ instance Core.AWSRequest DeleteUser where
   response =
     Response.receiveXMLWrapper
       "DeleteUserResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable DeleteUser where
   hashWithSalt _salt DeleteUser' {..} =
@@ -99,18 +100,18 @@ instance Prelude.Hashable DeleteUser where
 instance Prelude.NFData DeleteUser where
   rnf DeleteUser' {..} = Prelude.rnf userId
 
-instance Core.ToHeaders DeleteUser where
+instance Data.ToHeaders DeleteUser where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteUser where
+instance Data.ToPath DeleteUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteUser where
+instance Data.ToQuery DeleteUser where
   toQuery DeleteUser' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteUser" :: Prelude.ByteString),
+          Data.=: ("DeleteUser" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "UserId" Core.=: userId
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "UserId" Data.=: userId
       ]

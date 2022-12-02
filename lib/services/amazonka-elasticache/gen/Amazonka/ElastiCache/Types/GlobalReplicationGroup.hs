@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.GlobalReplicationGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.GlobalNodeGroup
 import Amazonka.ElastiCache.Types.GlobalReplicationGroupMember
 import qualified Amazonka.Prelude as Prelude
@@ -224,27 +225,27 @@ globalReplicationGroup_engineVersion = Lens.lens (\GlobalReplicationGroup' {engi
 globalReplicationGroup_globalNodeGroups :: Lens.Lens' GlobalReplicationGroup (Prelude.Maybe [GlobalNodeGroup])
 globalReplicationGroup_globalNodeGroups = Lens.lens (\GlobalReplicationGroup' {globalNodeGroups} -> globalNodeGroups) (\s@GlobalReplicationGroup' {} a -> s {globalNodeGroups = a} :: GlobalReplicationGroup) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML GlobalReplicationGroup where
+instance Data.FromXML GlobalReplicationGroup where
   parseXML x =
     GlobalReplicationGroup'
-      Prelude.<$> (x Core..@? "TransitEncryptionEnabled")
-      Prelude.<*> (x Core..@? "GlobalReplicationGroupDescription")
-      Prelude.<*> (x Core..@? "ClusterEnabled")
-      Prelude.<*> (x Core..@? "GlobalReplicationGroupId")
-      Prelude.<*> ( x Core..@? "Members" Core..!@ Prelude.mempty
+      Prelude.<$> (x Data..@? "TransitEncryptionEnabled")
+      Prelude.<*> (x Data..@? "GlobalReplicationGroupDescription")
+      Prelude.<*> (x Data..@? "ClusterEnabled")
+      Prelude.<*> (x Data..@? "GlobalReplicationGroupId")
+      Prelude.<*> ( x Data..@? "Members" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "GlobalReplicationGroupMember")
+                        (Data.parseXMLList "GlobalReplicationGroupMember")
                   )
-      Prelude.<*> (x Core..@? "ARN")
-      Prelude.<*> (x Core..@? "AtRestEncryptionEnabled")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "CacheNodeType")
-      Prelude.<*> (x Core..@? "AuthTokenEnabled")
-      Prelude.<*> (x Core..@? "Engine")
-      Prelude.<*> (x Core..@? "EngineVersion")
-      Prelude.<*> ( x Core..@? "GlobalNodeGroups"
+      Prelude.<*> (x Data..@? "ARN")
+      Prelude.<*> (x Data..@? "AtRestEncryptionEnabled")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "CacheNodeType")
+      Prelude.<*> (x Data..@? "AuthTokenEnabled")
+      Prelude.<*> (x Data..@? "Engine")
+      Prelude.<*> (x Data..@? "EngineVersion")
+      Prelude.<*> ( x Data..@? "GlobalNodeGroups"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "GlobalNodeGroup")
+                      Prelude.>>= Core.may (Data.parseXMLList "GlobalNodeGroup")
                   )
 
 instance Prelude.Hashable GlobalReplicationGroup where

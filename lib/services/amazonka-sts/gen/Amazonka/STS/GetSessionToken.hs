@@ -109,6 +109,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -248,7 +249,7 @@ instance Core.AWSRequest GetSessionToken where
       "GetSessionTokenResult"
       ( \s h x ->
           GetSessionTokenResponse'
-            Prelude.<$> (x Core..@? "Credentials")
+            Prelude.<$> (x Data..@? "Credentials")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -264,22 +265,22 @@ instance Prelude.NFData GetSessionToken where
       `Prelude.seq` Prelude.rnf tokenCode
       `Prelude.seq` Prelude.rnf serialNumber
 
-instance Core.ToHeaders GetSessionToken where
+instance Data.ToHeaders GetSessionToken where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetSessionToken where
+instance Data.ToPath GetSessionToken where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetSessionToken where
+instance Data.ToQuery GetSessionToken where
   toQuery GetSessionToken' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetSessionToken" :: Prelude.ByteString),
+          Data.=: ("GetSessionToken" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-06-15" :: Prelude.ByteString),
-        "DurationSeconds" Core.=: durationSeconds,
-        "TokenCode" Core.=: tokenCode,
-        "SerialNumber" Core.=: serialNumber
+          Data.=: ("2011-06-15" :: Prelude.ByteString),
+        "DurationSeconds" Data.=: durationSeconds,
+        "TokenCode" Data.=: tokenCode,
+        "SerialNumber" Data.=: serialNumber
       ]
 
 -- | Contains the response to a successful GetSessionToken request, including

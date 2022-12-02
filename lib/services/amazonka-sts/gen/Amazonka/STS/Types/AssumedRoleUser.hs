@@ -21,6 +21,7 @@ module Amazonka.STS.Types.AssumedRoleUser where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The identifiers for the temporary security credentials that the
@@ -84,11 +85,11 @@ assumedRoleUser_assumedRoleId = Lens.lens (\AssumedRoleUser' {assumedRoleId} -> 
 assumedRoleUser_arn :: Lens.Lens' AssumedRoleUser Prelude.Text
 assumedRoleUser_arn = Lens.lens (\AssumedRoleUser' {arn} -> arn) (\s@AssumedRoleUser' {} a -> s {arn = a} :: AssumedRoleUser)
 
-instance Core.FromXML AssumedRoleUser where
+instance Data.FromXML AssumedRoleUser where
   parseXML x =
     AssumedRoleUser'
-      Prelude.<$> (x Core..@ "AssumedRoleId")
-      Prelude.<*> (x Core..@ "Arn")
+      Prelude.<$> (x Data..@ "AssumedRoleId")
+      Prelude.<*> (x Data..@ "Arn")
 
 instance Prelude.Hashable AssumedRoleUser where
   hashWithSalt _salt AssumedRoleUser' {..} =

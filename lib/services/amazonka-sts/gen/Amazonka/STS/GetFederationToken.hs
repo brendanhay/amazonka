@@ -153,6 +153,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -591,9 +592,9 @@ instance Core.AWSRequest GetFederationToken where
       "GetFederationTokenResult"
       ( \s h x ->
           GetFederationTokenResponse'
-            Prelude.<$> (x Core..@? "FederatedUser")
-            Prelude.<*> (x Core..@? "Credentials")
-            Prelude.<*> (x Core..@? "PackedPolicySize")
+            Prelude.<$> (x Data..@? "FederatedUser")
+            Prelude.<*> (x Data..@? "Credentials")
+            Prelude.<*> (x Data..@? "PackedPolicySize")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -613,28 +614,28 @@ instance Prelude.NFData GetFederationToken where
       `Prelude.seq` Prelude.rnf durationSeconds
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders GetFederationToken where
+instance Data.ToHeaders GetFederationToken where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetFederationToken where
+instance Data.ToPath GetFederationToken where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetFederationToken where
+instance Data.ToQuery GetFederationToken where
   toQuery GetFederationToken' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetFederationToken" :: Prelude.ByteString),
+          Data.=: ("GetFederationToken" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-06-15" :: Prelude.ByteString),
+          Data.=: ("2011-06-15" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "Policy" Core.=: policy,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
+        "Policy" Data.=: policy,
         "PolicyArns"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> policyArns),
-        "DurationSeconds" Core.=: durationSeconds,
-        "Name" Core.=: name
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> policyArns),
+        "DurationSeconds" Data.=: durationSeconds,
+        "Name" Data.=: name
       ]
 
 -- | Contains the response to a successful GetFederationToken request,

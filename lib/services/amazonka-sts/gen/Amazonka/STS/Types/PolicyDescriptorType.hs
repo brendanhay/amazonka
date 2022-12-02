@@ -21,6 +21,7 @@ module Amazonka.STS.Types.PolicyDescriptorType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A reference to the IAM managed policy that is passed as a session policy
@@ -67,6 +68,6 @@ instance Prelude.Hashable PolicyDescriptorType where
 instance Prelude.NFData PolicyDescriptorType where
   rnf PolicyDescriptorType' {..} = Prelude.rnf arn
 
-instance Core.ToQuery PolicyDescriptorType where
+instance Data.ToQuery PolicyDescriptorType where
   toQuery PolicyDescriptorType' {..} =
-    Prelude.mconcat ["arn" Core.=: arn]
+    Prelude.mconcat ["arn" Data.=: arn]

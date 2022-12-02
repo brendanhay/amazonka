@@ -162,6 +162,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -873,11 +874,11 @@ instance Core.AWSRequest AssumeRole where
       "AssumeRoleResult"
       ( \s h x ->
           AssumeRoleResponse'
-            Prelude.<$> (x Core..@? "AssumedRoleUser")
-            Prelude.<*> (x Core..@? "SourceIdentity")
-            Prelude.<*> (x Core..@? "PackedPolicySize")
+            Prelude.<$> (x Data..@? "AssumedRoleUser")
+            Prelude.<*> (x Data..@? "SourceIdentity")
+            Prelude.<*> (x Data..@? "PackedPolicySize")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "Credentials")
+            Prelude.<*> (x Data..@ "Credentials")
       )
 
 instance Prelude.Hashable AssumeRole where
@@ -908,38 +909,38 @@ instance Prelude.NFData AssumeRole where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf roleSessionName
 
-instance Core.ToHeaders AssumeRole where
+instance Data.ToHeaders AssumeRole where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AssumeRole where
+instance Data.ToPath AssumeRole where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssumeRole where
+instance Data.ToQuery AssumeRole where
   toQuery AssumeRole' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AssumeRole" :: Prelude.ByteString),
+          Data.=: ("AssumeRole" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-06-15" :: Prelude.ByteString),
+          Data.=: ("2011-06-15" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "Policy" Core.=: policy,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
+        "Policy" Data.=: policy,
         "TransitiveTagKeys"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> transitiveTagKeys
             ),
         "PolicyArns"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> policyArns),
-        "ExternalId" Core.=: externalId,
-        "DurationSeconds" Core.=: durationSeconds,
-        "TokenCode" Core.=: tokenCode,
-        "SerialNumber" Core.=: serialNumber,
-        "SourceIdentity" Core.=: sourceIdentity,
-        "RoleArn" Core.=: roleArn,
-        "RoleSessionName" Core.=: roleSessionName
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> policyArns),
+        "ExternalId" Data.=: externalId,
+        "DurationSeconds" Data.=: durationSeconds,
+        "TokenCode" Data.=: tokenCode,
+        "SerialNumber" Data.=: serialNumber,
+        "SourceIdentity" Data.=: sourceIdentity,
+        "RoleArn" Data.=: roleArn,
+        "RoleSessionName" Data.=: roleSessionName
       ]
 
 -- | Contains the response to a successful AssumeRole request, including

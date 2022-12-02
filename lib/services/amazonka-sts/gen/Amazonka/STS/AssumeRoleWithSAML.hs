@@ -194,6 +194,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -528,15 +529,15 @@ instance Core.AWSRequest AssumeRoleWithSAML where
       "AssumeRoleWithSAMLResult"
       ( \s h x ->
           AssumeRoleWithSAMLResponse'
-            Prelude.<$> (x Core..@? "Issuer")
-            Prelude.<*> (x Core..@? "NameQualifier")
-            Prelude.<*> (x Core..@? "AssumedRoleUser")
-            Prelude.<*> (x Core..@? "Audience")
-            Prelude.<*> (x Core..@? "Credentials")
-            Prelude.<*> (x Core..@? "SourceIdentity")
-            Prelude.<*> (x Core..@? "PackedPolicySize")
-            Prelude.<*> (x Core..@? "SubjectType")
-            Prelude.<*> (x Core..@? "Subject")
+            Prelude.<$> (x Data..@? "Issuer")
+            Prelude.<*> (x Data..@? "NameQualifier")
+            Prelude.<*> (x Data..@? "AssumedRoleUser")
+            Prelude.<*> (x Data..@? "Audience")
+            Prelude.<*> (x Data..@? "Credentials")
+            Prelude.<*> (x Data..@? "SourceIdentity")
+            Prelude.<*> (x Data..@? "PackedPolicySize")
+            Prelude.<*> (x Data..@? "SubjectType")
+            Prelude.<*> (x Data..@? "Subject")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -558,27 +559,27 @@ instance Prelude.NFData AssumeRoleWithSAML where
       `Prelude.seq` Prelude.rnf principalArn
       `Prelude.seq` Prelude.rnf sAMLAssertion
 
-instance Core.ToHeaders AssumeRoleWithSAML where
+instance Data.ToHeaders AssumeRoleWithSAML where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AssumeRoleWithSAML where
+instance Data.ToPath AssumeRoleWithSAML where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssumeRoleWithSAML where
+instance Data.ToQuery AssumeRoleWithSAML where
   toQuery AssumeRoleWithSAML' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AssumeRoleWithSAML" :: Prelude.ByteString),
+          Data.=: ("AssumeRoleWithSAML" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-06-15" :: Prelude.ByteString),
-        "Policy" Core.=: policy,
+          Data.=: ("2011-06-15" :: Prelude.ByteString),
+        "Policy" Data.=: policy,
         "PolicyArns"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> policyArns),
-        "DurationSeconds" Core.=: durationSeconds,
-        "RoleArn" Core.=: roleArn,
-        "PrincipalArn" Core.=: principalArn,
-        "SAMLAssertion" Core.=: sAMLAssertion
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> policyArns),
+        "DurationSeconds" Data.=: durationSeconds,
+        "RoleArn" Data.=: roleArn,
+        "PrincipalArn" Data.=: principalArn,
+        "SAMLAssertion" Data.=: sAMLAssertion
       ]
 
 -- | Contains the response to a successful AssumeRoleWithSAML request,

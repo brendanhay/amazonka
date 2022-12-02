@@ -77,6 +77,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,7 +124,7 @@ instance Core.AWSRequest DecodeAuthorizationMessage where
       "DecodeAuthorizationMessageResult"
       ( \s h x ->
           DecodeAuthorizationMessageResponse'
-            Prelude.<$> (x Core..@? "DecodedMessage")
+            Prelude.<$> (x Data..@? "DecodedMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,20 +136,20 @@ instance Prelude.NFData DecodeAuthorizationMessage where
   rnf DecodeAuthorizationMessage' {..} =
     Prelude.rnf encodedMessage
 
-instance Core.ToHeaders DecodeAuthorizationMessage where
+instance Data.ToHeaders DecodeAuthorizationMessage where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DecodeAuthorizationMessage where
+instance Data.ToPath DecodeAuthorizationMessage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DecodeAuthorizationMessage where
+instance Data.ToQuery DecodeAuthorizationMessage where
   toQuery DecodeAuthorizationMessage' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DecodeAuthorizationMessage" :: Prelude.ByteString),
+          Data.=: ("DecodeAuthorizationMessage" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-06-15" :: Prelude.ByteString),
-        "EncodedMessage" Core.=: encodedMessage
+          Data.=: ("2011-06-15" :: Prelude.ByteString),
+        "EncodedMessage" Data.=: encodedMessage
       ]
 
 -- | A document that contains additional information about the authorization

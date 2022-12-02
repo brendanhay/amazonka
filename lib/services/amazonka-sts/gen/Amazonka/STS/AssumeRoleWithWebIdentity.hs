@@ -212,6 +212,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -598,14 +599,14 @@ instance Core.AWSRequest AssumeRoleWithWebIdentity where
       "AssumeRoleWithWebIdentityResult"
       ( \s h x ->
           AssumeRoleWithWebIdentityResponse'
-            Prelude.<$> (x Core..@? "SubjectFromWebIdentityToken")
-            Prelude.<*> (x Core..@? "Provider")
-            Prelude.<*> (x Core..@? "AssumedRoleUser")
-            Prelude.<*> (x Core..@? "Audience")
-            Prelude.<*> (x Core..@? "SourceIdentity")
-            Prelude.<*> (x Core..@? "PackedPolicySize")
+            Prelude.<$> (x Data..@? "SubjectFromWebIdentityToken")
+            Prelude.<*> (x Data..@? "Provider")
+            Prelude.<*> (x Data..@? "AssumedRoleUser")
+            Prelude.<*> (x Data..@? "Audience")
+            Prelude.<*> (x Data..@? "SourceIdentity")
+            Prelude.<*> (x Data..@? "PackedPolicySize")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "Credentials")
+            Prelude.<*> (x Data..@ "Credentials")
       )
 
 instance Prelude.Hashable AssumeRoleWithWebIdentity where
@@ -628,28 +629,28 @@ instance Prelude.NFData AssumeRoleWithWebIdentity where
       `Prelude.seq` Prelude.rnf roleSessionName
       `Prelude.seq` Prelude.rnf webIdentityToken
 
-instance Core.ToHeaders AssumeRoleWithWebIdentity where
+instance Data.ToHeaders AssumeRoleWithWebIdentity where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AssumeRoleWithWebIdentity where
+instance Data.ToPath AssumeRoleWithWebIdentity where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssumeRoleWithWebIdentity where
+instance Data.ToQuery AssumeRoleWithWebIdentity where
   toQuery AssumeRoleWithWebIdentity' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AssumeRoleWithWebIdentity" :: Prelude.ByteString),
+          Data.=: ("AssumeRoleWithWebIdentity" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-06-15" :: Prelude.ByteString),
-        "Policy" Core.=: policy,
+          Data.=: ("2011-06-15" :: Prelude.ByteString),
+        "Policy" Data.=: policy,
         "PolicyArns"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> policyArns),
-        "DurationSeconds" Core.=: durationSeconds,
-        "ProviderId" Core.=: providerId,
-        "RoleArn" Core.=: roleArn,
-        "RoleSessionName" Core.=: roleSessionName,
-        "WebIdentityToken" Core.=: webIdentityToken
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> policyArns),
+        "DurationSeconds" Data.=: durationSeconds,
+        "ProviderId" Data.=: providerId,
+        "RoleArn" Data.=: roleArn,
+        "RoleSessionName" Data.=: roleSessionName,
+        "WebIdentityToken" Data.=: webIdentityToken
       ]
 
 -- | Contains the response to a successful AssumeRoleWithWebIdentity request,

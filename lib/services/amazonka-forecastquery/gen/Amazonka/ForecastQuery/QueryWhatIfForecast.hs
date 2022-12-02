@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ForecastQuery.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -167,7 +168,7 @@ instance Core.AWSRequest QueryWhatIfForecast where
     Response.receiveJSON
       ( \s h x ->
           QueryWhatIfForecastResponse'
-            Prelude.<$> (x Core..?> "Forecast")
+            Prelude.<$> (x Data..?> "Forecast")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,38 +188,38 @@ instance Prelude.NFData QueryWhatIfForecast where
       `Prelude.seq` Prelude.rnf whatIfForecastArn
       `Prelude.seq` Prelude.rnf filters
 
-instance Core.ToHeaders QueryWhatIfForecast where
+instance Data.ToHeaders QueryWhatIfForecast where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecastRuntime.QueryWhatIfForecast" ::
+              Data.=# ( "AmazonForecastRuntime.QueryWhatIfForecast" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON QueryWhatIfForecast where
+instance Data.ToJSON QueryWhatIfForecast where
   toJSON QueryWhatIfForecast' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("EndDate" Core..=) Prelude.<$> endDate,
-            ("StartDate" Core..=) Prelude.<$> startDate,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("EndDate" Data..=) Prelude.<$> endDate,
+            ("StartDate" Data..=) Prelude.<$> startDate,
             Prelude.Just
-              ("WhatIfForecastArn" Core..= whatIfForecastArn),
-            Prelude.Just ("Filters" Core..= filters)
+              ("WhatIfForecastArn" Data..= whatIfForecastArn),
+            Prelude.Just ("Filters" Data..= filters)
           ]
       )
 
-instance Core.ToPath QueryWhatIfForecast where
+instance Data.ToPath QueryWhatIfForecast where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery QueryWhatIfForecast where
+instance Data.ToQuery QueryWhatIfForecast where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newQueryWhatIfForecastResponse' smart constructor.

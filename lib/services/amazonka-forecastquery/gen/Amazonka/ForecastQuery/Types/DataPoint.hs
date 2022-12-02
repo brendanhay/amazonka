@@ -21,6 +21,7 @@ module Amazonka.ForecastQuery.Types.DataPoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The forecast value for a specific date. Part of the Forecast object.
@@ -61,14 +62,14 @@ dataPoint_timestamp = Lens.lens (\DataPoint' {timestamp} -> timestamp) (\s@DataP
 dataPoint_value :: Lens.Lens' DataPoint (Prelude.Maybe Prelude.Double)
 dataPoint_value = Lens.lens (\DataPoint' {value} -> value) (\s@DataPoint' {} a -> s {value = a} :: DataPoint)
 
-instance Core.FromJSON DataPoint where
+instance Data.FromJSON DataPoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataPoint"
       ( \x ->
           DataPoint'
-            Prelude.<$> (x Core..:? "Timestamp")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Timestamp")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable DataPoint where

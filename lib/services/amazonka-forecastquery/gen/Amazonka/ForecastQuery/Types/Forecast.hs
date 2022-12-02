@@ -21,6 +21,7 @@ module Amazonka.ForecastQuery.Types.Forecast where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ForecastQuery.Types.DataPoint
 import qualified Amazonka.Prelude as Prelude
 
@@ -94,13 +95,13 @@ newForecast =
 forecast_predictions :: Lens.Lens' Forecast (Prelude.Maybe (Prelude.HashMap Prelude.Text [DataPoint]))
 forecast_predictions = Lens.lens (\Forecast' {predictions} -> predictions) (\s@Forecast' {} a -> s {predictions = a} :: Forecast) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Forecast where
+instance Data.FromJSON Forecast where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Forecast"
       ( \x ->
           Forecast'
-            Prelude.<$> (x Core..:? "Predictions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Predictions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Forecast where

@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.Tool where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.ExitBehavior
 
@@ -114,17 +115,17 @@ tool_name = Lens.lens (\Tool' {name} -> name) (\s@Tool' {} a -> s {name = a} :: 
 tool_command :: Lens.Lens' Tool Prelude.Text
 tool_command = Lens.lens (\Tool' {command} -> command) (\s@Tool' {} a -> s {command = a} :: Tool)
 
-instance Core.FromJSON Tool where
+instance Data.FromJSON Tool where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Tool"
       ( \x ->
           Tool'
-            Prelude.<$> (x Core..:? "streamOutputToCloudWatch")
-            Prelude.<*> (x Core..:? "streamUI")
-            Prelude.<*> (x Core..:? "exitBehavior")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "command")
+            Prelude.<$> (x Data..:? "streamOutputToCloudWatch")
+            Prelude.<*> (x Data..:? "streamUI")
+            Prelude.<*> (x Data..:? "exitBehavior")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "command")
       )
 
 instance Prelude.Hashable Tool where
@@ -144,15 +145,15 @@ instance Prelude.NFData Tool where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf command
 
-instance Core.ToJSON Tool where
+instance Data.ToJSON Tool where
   toJSON Tool' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("streamOutputToCloudWatch" Core..=)
+          [ ("streamOutputToCloudWatch" Data..=)
               Prelude.<$> streamOutputToCloudWatch,
-            ("streamUI" Core..=) Prelude.<$> streamUI,
-            ("exitBehavior" Core..=) Prelude.<$> exitBehavior,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("command" Core..= command)
+            ("streamUI" Data..=) Prelude.<$> streamUI,
+            ("exitBehavior" Data..=) Prelude.<$> exitBehavior,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("command" Data..= command)
           ]
       )

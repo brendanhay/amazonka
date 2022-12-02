@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.TemplateSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information for a template.
@@ -31,12 +32,12 @@ data TemplateSummary = TemplateSummary'
     name :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the template was last
     -- updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the template.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the template was
     -- created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The version of the template that you\'re using.
     version :: Prelude.Maybe Prelude.Text
   }
@@ -79,7 +80,7 @@ templateSummary_name = Lens.lens (\TemplateSummary' {name} -> name) (\s@Template
 -- | The time, in milliseconds since the epoch, when the template was last
 -- updated.
 templateSummary_lastUpdatedAt :: Lens.Lens' TemplateSummary (Prelude.Maybe Prelude.UTCTime)
-templateSummary_lastUpdatedAt = Lens.lens (\TemplateSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@TemplateSummary' {} a -> s {lastUpdatedAt = a} :: TemplateSummary) Prelude.. Lens.mapping Core._Time
+templateSummary_lastUpdatedAt = Lens.lens (\TemplateSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@TemplateSummary' {} a -> s {lastUpdatedAt = a} :: TemplateSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the template.
 templateSummary_arn :: Lens.Lens' TemplateSummary (Prelude.Maybe Prelude.Text)
@@ -88,23 +89,23 @@ templateSummary_arn = Lens.lens (\TemplateSummary' {arn} -> arn) (\s@TemplateSum
 -- | The time, in milliseconds since the epoch, when the template was
 -- created.
 templateSummary_createdAt :: Lens.Lens' TemplateSummary (Prelude.Maybe Prelude.UTCTime)
-templateSummary_createdAt = Lens.lens (\TemplateSummary' {createdAt} -> createdAt) (\s@TemplateSummary' {} a -> s {createdAt = a} :: TemplateSummary) Prelude.. Lens.mapping Core._Time
+templateSummary_createdAt = Lens.lens (\TemplateSummary' {createdAt} -> createdAt) (\s@TemplateSummary' {} a -> s {createdAt = a} :: TemplateSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The version of the template that you\'re using.
 templateSummary_version :: Lens.Lens' TemplateSummary (Prelude.Maybe Prelude.Text)
 templateSummary_version = Lens.lens (\TemplateSummary' {version} -> version) (\s@TemplateSummary' {} a -> s {version = a} :: TemplateSummary)
 
-instance Core.FromJSON TemplateSummary where
+instance Data.FromJSON TemplateSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TemplateSummary"
       ( \x ->
           TemplateSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable TemplateSummary where

@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.VPCConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | If your simulation job accesses resources in a VPC, you provide this
@@ -75,15 +76,15 @@ vPCConfig_assignPublicIp = Lens.lens (\VPCConfig' {assignPublicIp} -> assignPubl
 vPCConfig_subnets :: Lens.Lens' VPCConfig (Prelude.NonEmpty Prelude.Text)
 vPCConfig_subnets = Lens.lens (\VPCConfig' {subnets} -> subnets) (\s@VPCConfig' {} a -> s {subnets = a} :: VPCConfig) Prelude.. Lens.coerced
 
-instance Core.FromJSON VPCConfig where
+instance Data.FromJSON VPCConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VPCConfig"
       ( \x ->
           VPCConfig'
-            Prelude.<$> (x Core..:? "securityGroups")
-            Prelude.<*> (x Core..:? "assignPublicIp")
-            Prelude.<*> (x Core..: "subnets")
+            Prelude.<$> (x Data..:? "securityGroups")
+            Prelude.<*> (x Data..:? "assignPublicIp")
+            Prelude.<*> (x Data..: "subnets")
       )
 
 instance Prelude.Hashable VPCConfig where
@@ -98,14 +99,14 @@ instance Prelude.NFData VPCConfig where
       `Prelude.seq` Prelude.rnf assignPublicIp
       `Prelude.seq` Prelude.rnf subnets
 
-instance Core.ToJSON VPCConfig where
+instance Data.ToJSON VPCConfig where
   toJSON VPCConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("securityGroups" Core..=)
+          [ ("securityGroups" Data..=)
               Prelude.<$> securityGroups,
-            ("assignPublicIp" Core..=)
+            ("assignPublicIp" Data..=)
               Prelude.<$> assignPublicIp,
-            Prelude.Just ("subnets" Core..= subnets)
+            Prelude.Just ("subnets" Data..= subnets)
           ]
       )

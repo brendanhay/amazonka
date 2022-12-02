@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.RenderingEngine where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.RenderingEngineType
 
@@ -62,14 +63,14 @@ renderingEngine_name = Lens.lens (\RenderingEngine' {name} -> name) (\s@Renderin
 renderingEngine_version :: Lens.Lens' RenderingEngine (Prelude.Maybe Prelude.Text)
 renderingEngine_version = Lens.lens (\RenderingEngine' {version} -> version) (\s@RenderingEngine' {} a -> s {version = a} :: RenderingEngine)
 
-instance Core.FromJSON RenderingEngine where
+instance Data.FromJSON RenderingEngine where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RenderingEngine"
       ( \x ->
           RenderingEngine'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable RenderingEngine where
@@ -81,11 +82,11 @@ instance Prelude.NFData RenderingEngine where
   rnf RenderingEngine' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON RenderingEngine where
+instance Data.ToJSON RenderingEngine where
   toJSON RenderingEngine' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("version" Core..=) Prelude.<$> version
+          [ ("name" Data..=) Prelude.<$> name,
+            ("version" Data..=) Prelude.<$> version
           ]
       )

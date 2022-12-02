@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.ComputeResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.ComputeType
 
@@ -83,15 +84,15 @@ computeResponse_simulationUnitLimit = Lens.lens (\ComputeResponse' {simulationUn
 computeResponse_computeType :: Lens.Lens' ComputeResponse (Prelude.Maybe ComputeType)
 computeResponse_computeType = Lens.lens (\ComputeResponse' {computeType} -> computeType) (\s@ComputeResponse' {} a -> s {computeType = a} :: ComputeResponse)
 
-instance Core.FromJSON ComputeResponse where
+instance Data.FromJSON ComputeResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComputeResponse"
       ( \x ->
           ComputeResponse'
-            Prelude.<$> (x Core..:? "gpuUnitLimit")
-            Prelude.<*> (x Core..:? "simulationUnitLimit")
-            Prelude.<*> (x Core..:? "computeType")
+            Prelude.<$> (x Data..:? "gpuUnitLimit")
+            Prelude.<*> (x Data..:? "simulationUnitLimit")
+            Prelude.<*> (x Data..:? "computeType")
       )
 
 instance Prelude.Hashable ComputeResponse where

@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -282,24 +283,24 @@ instance Core.AWSRequest CreateSimulationJob where
     Response.receiveJSON
       ( \s h x ->
           CreateSimulationJobResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "lastStartedAt")
-            Prelude.<*> (x Core..?> "iamRole")
-            Prelude.<*> (x Core..?> "maxJobDurationInSeconds")
-            Prelude.<*> (x Core..?> "failureCode")
-            Prelude.<*> (x Core..?> "clientRequestToken")
-            Prelude.<*> (x Core..?> "lastUpdatedAt")
-            Prelude.<*> (x Core..?> "dataSources" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "vpcConfig")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "outputLocation")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "simulationApplications")
-            Prelude.<*> (x Core..?> "simulationTimeMillis")
-            Prelude.<*> (x Core..?> "failureBehavior")
-            Prelude.<*> (x Core..?> "robotApplications")
-            Prelude.<*> (x Core..?> "loggingConfig")
-            Prelude.<*> (x Core..?> "compute")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "lastStartedAt")
+            Prelude.<*> (x Data..?> "iamRole")
+            Prelude.<*> (x Data..?> "maxJobDurationInSeconds")
+            Prelude.<*> (x Data..?> "failureCode")
+            Prelude.<*> (x Data..?> "clientRequestToken")
+            Prelude.<*> (x Data..?> "lastUpdatedAt")
+            Prelude.<*> (x Data..?> "dataSources" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "vpcConfig")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "outputLocation")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "simulationApplications")
+            Prelude.<*> (x Data..?> "simulationTimeMillis")
+            Prelude.<*> (x Data..?> "failureBehavior")
+            Prelude.<*> (x Data..?> "robotApplications")
+            Prelude.<*> (x Data..?> "loggingConfig")
+            Prelude.<*> (x Data..?> "compute")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -333,48 +334,48 @@ instance Prelude.NFData CreateSimulationJob where
       `Prelude.seq` Prelude.rnf maxJobDurationInSeconds
       `Prelude.seq` Prelude.rnf iamRole
 
-instance Core.ToHeaders CreateSimulationJob where
+instance Data.ToHeaders CreateSimulationJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSimulationJob where
+instance Data.ToJSON CreateSimulationJob where
   toJSON CreateSimulationJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientRequestToken" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("dataSources" Core..=) Prelude.<$> dataSources,
-            ("vpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("outputLocation" Core..=)
+            ("dataSources" Data..=) Prelude.<$> dataSources,
+            ("vpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("outputLocation" Data..=)
               Prelude.<$> outputLocation,
-            ("simulationApplications" Core..=)
+            ("simulationApplications" Data..=)
               Prelude.<$> simulationApplications,
-            ("failureBehavior" Core..=)
+            ("failureBehavior" Data..=)
               Prelude.<$> failureBehavior,
-            ("robotApplications" Core..=)
+            ("robotApplications" Data..=)
               Prelude.<$> robotApplications,
-            ("loggingConfig" Core..=) Prelude.<$> loggingConfig,
-            ("compute" Core..=) Prelude.<$> compute,
+            ("loggingConfig" Data..=) Prelude.<$> loggingConfig,
+            ("compute" Data..=) Prelude.<$> compute,
             Prelude.Just
               ( "maxJobDurationInSeconds"
-                  Core..= maxJobDurationInSeconds
+                  Data..= maxJobDurationInSeconds
               ),
-            Prelude.Just ("iamRole" Core..= iamRole)
+            Prelude.Just ("iamRole" Data..= iamRole)
           ]
       )
 
-instance Core.ToPath CreateSimulationJob where
+instance Data.ToPath CreateSimulationJob where
   toPath = Prelude.const "/createSimulationJob"
 
-instance Core.ToQuery CreateSimulationJob where
+instance Data.ToQuery CreateSimulationJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSimulationJobResponse' smart constructor.
@@ -383,7 +384,7 @@ data CreateSimulationJobResponse = CreateSimulationJobResponse'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The time, in milliseconds since the epoch, when the simulation job was
     -- last started.
-    lastStartedAt :: Prelude.Maybe Core.POSIX,
+    lastStartedAt :: Prelude.Maybe Data.POSIX,
     -- | The IAM role that allows the simulation job to call the AWS APIs that
     -- are specified in its associated policies on your behalf.
     iamRole :: Prelude.Maybe Prelude.Text,
@@ -443,7 +444,7 @@ data CreateSimulationJobResponse = CreateSimulationJobResponse'
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the simulation job was
     -- last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The data sources for the simulation job.
     dataSources :: Prelude.Maybe [DataSource],
     -- | Information about the vpc configuration.
@@ -602,7 +603,7 @@ createSimulationJobResponse_tags = Lens.lens (\CreateSimulationJobResponse' {tag
 -- | The time, in milliseconds since the epoch, when the simulation job was
 -- last started.
 createSimulationJobResponse_lastStartedAt :: Lens.Lens' CreateSimulationJobResponse (Prelude.Maybe Prelude.UTCTime)
-createSimulationJobResponse_lastStartedAt = Lens.lens (\CreateSimulationJobResponse' {lastStartedAt} -> lastStartedAt) (\s@CreateSimulationJobResponse' {} a -> s {lastStartedAt = a} :: CreateSimulationJobResponse) Prelude.. Lens.mapping Core._Time
+createSimulationJobResponse_lastStartedAt = Lens.lens (\CreateSimulationJobResponse' {lastStartedAt} -> lastStartedAt) (\s@CreateSimulationJobResponse' {} a -> s {lastStartedAt = a} :: CreateSimulationJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The IAM role that allows the simulation job to call the AWS APIs that
 -- are specified in its associated policies on your behalf.
@@ -672,7 +673,7 @@ createSimulationJobResponse_clientRequestToken = Lens.lens (\CreateSimulationJob
 -- | The time, in milliseconds since the epoch, when the simulation job was
 -- last updated.
 createSimulationJobResponse_lastUpdatedAt :: Lens.Lens' CreateSimulationJobResponse (Prelude.Maybe Prelude.UTCTime)
-createSimulationJobResponse_lastUpdatedAt = Lens.lens (\CreateSimulationJobResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@CreateSimulationJobResponse' {} a -> s {lastUpdatedAt = a} :: CreateSimulationJobResponse) Prelude.. Lens.mapping Core._Time
+createSimulationJobResponse_lastUpdatedAt = Lens.lens (\CreateSimulationJobResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@CreateSimulationJobResponse' {} a -> s {lastUpdatedAt = a} :: CreateSimulationJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The data sources for the simulation job.
 createSimulationJobResponse_dataSources :: Lens.Lens' CreateSimulationJobResponse (Prelude.Maybe [DataSource])

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,12 +89,12 @@ instance Core.AWSRequest DescribeWorld where
     Response.receiveJSON
       ( \s h x ->
           DescribeWorldResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "generationJob")
-            Prelude.<*> (x Core..?> "worldDescriptionBody")
-            Prelude.<*> (x Core..?> "createdAt")
-            Prelude.<*> (x Core..?> "template")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "generationJob")
+            Prelude.<*> (x Data..?> "worldDescriptionBody")
+            Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "template")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,28 +105,28 @@ instance Prelude.Hashable DescribeWorld where
 instance Prelude.NFData DescribeWorld where
   rnf DescribeWorld' {..} = Prelude.rnf world
 
-instance Core.ToHeaders DescribeWorld where
+instance Data.ToHeaders DescribeWorld where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeWorld where
+instance Data.ToJSON DescribeWorld where
   toJSON DescribeWorld' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("world" Core..= world)]
+          [Prelude.Just ("world" Data..= world)]
       )
 
-instance Core.ToPath DescribeWorld where
+instance Data.ToPath DescribeWorld where
   toPath = Prelude.const "/describeWorld"
 
-instance Core.ToQuery DescribeWorld where
+instance Data.ToQuery DescribeWorld where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeWorldResponse' smart constructor.
@@ -142,7 +143,7 @@ data DescribeWorldResponse = DescribeWorldResponse'
     -- world.
     worldDescriptionBody :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the world was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The world template.
     template :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -210,7 +211,7 @@ describeWorldResponse_worldDescriptionBody = Lens.lens (\DescribeWorldResponse' 
 
 -- | The time, in milliseconds since the epoch, when the world was created.
 describeWorldResponse_createdAt :: Lens.Lens' DescribeWorldResponse (Prelude.Maybe Prelude.UTCTime)
-describeWorldResponse_createdAt = Lens.lens (\DescribeWorldResponse' {createdAt} -> createdAt) (\s@DescribeWorldResponse' {} a -> s {createdAt = a} :: DescribeWorldResponse) Prelude.. Lens.mapping Core._Time
+describeWorldResponse_createdAt = Lens.lens (\DescribeWorldResponse' {createdAt} -> createdAt) (\s@DescribeWorldResponse' {} a -> s {createdAt = a} :: DescribeWorldResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The world template.
 describeWorldResponse_template :: Lens.Lens' DescribeWorldResponse (Prelude.Maybe Prelude.Text)

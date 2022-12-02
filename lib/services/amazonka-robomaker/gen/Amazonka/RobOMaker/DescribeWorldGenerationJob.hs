@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,17 +94,17 @@ instance Core.AWSRequest DescribeWorldGenerationJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeWorldGenerationJobResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "worldCount")
-            Prelude.<*> (x Core..?> "worldTags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "failureCode")
-            Prelude.<*> (x Core..?> "clientRequestToken")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "finishedWorldsSummary")
-            Prelude.<*> (x Core..?> "createdAt")
-            Prelude.<*> (x Core..?> "failureReason")
-            Prelude.<*> (x Core..?> "template")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "worldCount")
+            Prelude.<*> (x Data..?> "worldTags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "failureCode")
+            Prelude.<*> (x Data..?> "clientRequestToken")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "finishedWorldsSummary")
+            Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "failureReason")
+            Prelude.<*> (x Data..?> "template")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,28 +115,28 @@ instance Prelude.Hashable DescribeWorldGenerationJob where
 instance Prelude.NFData DescribeWorldGenerationJob where
   rnf DescribeWorldGenerationJob' {..} = Prelude.rnf job
 
-instance Core.ToHeaders DescribeWorldGenerationJob where
+instance Data.ToHeaders DescribeWorldGenerationJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeWorldGenerationJob where
+instance Data.ToJSON DescribeWorldGenerationJob where
   toJSON DescribeWorldGenerationJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("job" Core..= job)]
+          [Prelude.Just ("job" Data..= job)]
       )
 
-instance Core.ToPath DescribeWorldGenerationJob where
+instance Data.ToPath DescribeWorldGenerationJob where
   toPath = Prelude.const "/describeWorldGenerationJob"
 
-instance Core.ToQuery DescribeWorldGenerationJob where
+instance Data.ToQuery DescribeWorldGenerationJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeWorldGenerationJobResponse' smart constructor.
@@ -200,7 +201,7 @@ data DescribeWorldGenerationJobResponse = DescribeWorldGenerationJobResponse'
     finishedWorldsSummary :: Prelude.Maybe FinishedWorldsSummary,
     -- | The time, in milliseconds since the epoch, when the world generation job
     -- was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The reason why the world generation job failed.
     failureReason :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (arn) of the world template.
@@ -382,7 +383,7 @@ describeWorldGenerationJobResponse_finishedWorldsSummary = Lens.lens (\DescribeW
 -- | The time, in milliseconds since the epoch, when the world generation job
 -- was created.
 describeWorldGenerationJobResponse_createdAt :: Lens.Lens' DescribeWorldGenerationJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeWorldGenerationJobResponse_createdAt = Lens.lens (\DescribeWorldGenerationJobResponse' {createdAt} -> createdAt) (\s@DescribeWorldGenerationJobResponse' {} a -> s {createdAt = a} :: DescribeWorldGenerationJobResponse) Prelude.. Lens.mapping Core._Time
+describeWorldGenerationJobResponse_createdAt = Lens.lens (\DescribeWorldGenerationJobResponse' {createdAt} -> createdAt) (\s@DescribeWorldGenerationJobResponse' {} a -> s {createdAt = a} :: DescribeWorldGenerationJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The reason why the world generation job failed.
 describeWorldGenerationJobResponse_failureReason :: Lens.Lens' DescribeWorldGenerationJobResponse (Prelude.Maybe Prelude.Text)

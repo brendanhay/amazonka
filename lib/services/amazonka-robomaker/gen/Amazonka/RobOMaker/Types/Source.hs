@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.Source where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.Architecture
 
@@ -80,16 +81,16 @@ source_etag = Lens.lens (\Source' {etag} -> etag) (\s@Source' {} a -> s {etag = 
 source_architecture :: Lens.Lens' Source (Prelude.Maybe Architecture)
 source_architecture = Lens.lens (\Source' {architecture} -> architecture) (\s@Source' {} a -> s {architecture = a} :: Source)
 
-instance Core.FromJSON Source where
+instance Data.FromJSON Source where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Source"
       ( \x ->
           Source'
-            Prelude.<$> (x Core..:? "s3Bucket")
-            Prelude.<*> (x Core..:? "s3Key")
-            Prelude.<*> (x Core..:? "etag")
-            Prelude.<*> (x Core..:? "architecture")
+            Prelude.<$> (x Data..:? "s3Bucket")
+            Prelude.<*> (x Data..:? "s3Key")
+            Prelude.<*> (x Data..:? "etag")
+            Prelude.<*> (x Data..:? "architecture")
       )
 
 instance Prelude.Hashable Source where

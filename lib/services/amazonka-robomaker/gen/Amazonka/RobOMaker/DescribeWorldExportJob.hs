@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,16 +93,16 @@ instance Core.AWSRequest DescribeWorldExportJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeWorldExportJobResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "iamRole")
-            Prelude.<*> (x Core..?> "failureCode")
-            Prelude.<*> (x Core..?> "clientRequestToken")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "outputLocation")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "worlds")
-            Prelude.<*> (x Core..?> "createdAt")
-            Prelude.<*> (x Core..?> "failureReason")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "iamRole")
+            Prelude.<*> (x Data..?> "failureCode")
+            Prelude.<*> (x Data..?> "clientRequestToken")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "outputLocation")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "worlds")
+            Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "failureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,28 +113,28 @@ instance Prelude.Hashable DescribeWorldExportJob where
 instance Prelude.NFData DescribeWorldExportJob where
   rnf DescribeWorldExportJob' {..} = Prelude.rnf job
 
-instance Core.ToHeaders DescribeWorldExportJob where
+instance Data.ToHeaders DescribeWorldExportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeWorldExportJob where
+instance Data.ToJSON DescribeWorldExportJob where
   toJSON DescribeWorldExportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("job" Core..= job)]
+          [Prelude.Just ("job" Data..= job)]
       )
 
-instance Core.ToPath DescribeWorldExportJob where
+instance Data.ToPath DescribeWorldExportJob where
   toPath = Prelude.const "/describeWorldExportJob"
 
-instance Core.ToQuery DescribeWorldExportJob where
+instance Data.ToQuery DescribeWorldExportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeWorldExportJobResponse' smart constructor.
@@ -195,7 +196,7 @@ data DescribeWorldExportJobResponse = DescribeWorldExportJobResponse'
     worlds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The time, in milliseconds since the epoch, when the world export job was
     -- created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The reason why the world export job failed.
     failureReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -368,7 +369,7 @@ describeWorldExportJobResponse_worlds = Lens.lens (\DescribeWorldExportJobRespon
 -- | The time, in milliseconds since the epoch, when the world export job was
 -- created.
 describeWorldExportJobResponse_createdAt :: Lens.Lens' DescribeWorldExportJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeWorldExportJobResponse_createdAt = Lens.lens (\DescribeWorldExportJobResponse' {createdAt} -> createdAt) (\s@DescribeWorldExportJobResponse' {} a -> s {createdAt = a} :: DescribeWorldExportJobResponse) Prelude.. Lens.mapping Core._Time
+describeWorldExportJobResponse_createdAt = Lens.lens (\DescribeWorldExportJobResponse' {createdAt} -> createdAt) (\s@DescribeWorldExportJobResponse' {} a -> s {createdAt = a} :: DescribeWorldExportJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The reason why the world export job failed.
 describeWorldExportJobResponse_failureReason :: Lens.Lens' DescribeWorldExportJobResponse (Prelude.Maybe Prelude.Text)

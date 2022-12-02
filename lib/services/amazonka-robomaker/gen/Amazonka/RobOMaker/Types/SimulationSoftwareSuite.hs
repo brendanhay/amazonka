@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.SimulationSoftwareSuite where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.SimulationSoftwareSuiteType
 
@@ -62,14 +63,14 @@ simulationSoftwareSuite_name = Lens.lens (\SimulationSoftwareSuite' {name} -> na
 simulationSoftwareSuite_version :: Lens.Lens' SimulationSoftwareSuite (Prelude.Maybe Prelude.Text)
 simulationSoftwareSuite_version = Lens.lens (\SimulationSoftwareSuite' {version} -> version) (\s@SimulationSoftwareSuite' {} a -> s {version = a} :: SimulationSoftwareSuite)
 
-instance Core.FromJSON SimulationSoftwareSuite where
+instance Data.FromJSON SimulationSoftwareSuite where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SimulationSoftwareSuite"
       ( \x ->
           SimulationSoftwareSuite'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable SimulationSoftwareSuite where
@@ -81,11 +82,11 @@ instance Prelude.NFData SimulationSoftwareSuite where
   rnf SimulationSoftwareSuite' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON SimulationSoftwareSuite where
+instance Data.ToJSON SimulationSoftwareSuite where
   toJSON SimulationSoftwareSuite' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("version" Core..=) Prelude.<$> version
+          [ ("name" Data..=) Prelude.<$> name,
+            ("version" Data..=) Prelude.<$> version
           ]
       )

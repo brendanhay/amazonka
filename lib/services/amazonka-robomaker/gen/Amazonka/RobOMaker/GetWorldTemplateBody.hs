@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,7 +95,7 @@ instance Core.AWSRequest GetWorldTemplateBody where
     Response.receiveJSON
       ( \s h x ->
           GetWorldTemplateBodyResponse'
-            Prelude.<$> (x Core..?> "templateBody")
+            Prelude.<$> (x Data..?> "templateBody")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,30 +109,30 @@ instance Prelude.NFData GetWorldTemplateBody where
     Prelude.rnf generationJob
       `Prelude.seq` Prelude.rnf template
 
-instance Core.ToHeaders GetWorldTemplateBody where
+instance Data.ToHeaders GetWorldTemplateBody where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetWorldTemplateBody where
+instance Data.ToJSON GetWorldTemplateBody where
   toJSON GetWorldTemplateBody' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("generationJob" Core..=) Prelude.<$> generationJob,
-            ("template" Core..=) Prelude.<$> template
+          [ ("generationJob" Data..=) Prelude.<$> generationJob,
+            ("template" Data..=) Prelude.<$> template
           ]
       )
 
-instance Core.ToPath GetWorldTemplateBody where
+instance Data.ToPath GetWorldTemplateBody where
   toPath = Prelude.const "/getWorldTemplateBody"
 
-instance Core.ToQuery GetWorldTemplateBody where
+instance Data.ToQuery GetWorldTemplateBody where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetWorldTemplateBodyResponse' smart constructor.

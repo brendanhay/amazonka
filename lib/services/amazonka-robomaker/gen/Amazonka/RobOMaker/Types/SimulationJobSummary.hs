@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.SimulationJobSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.ComputeType
 import Amazonka.RobOMaker.Types.SimulationJobStatus
@@ -33,7 +34,7 @@ data SimulationJobSummary = SimulationJobSummary'
     name :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the simulation job was
     -- last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the simulation job.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The names of the data sources.
@@ -94,7 +95,7 @@ simulationJobSummary_name = Lens.lens (\SimulationJobSummary' {name} -> name) (\
 -- | The time, in milliseconds since the epoch, when the simulation job was
 -- last updated.
 simulationJobSummary_lastUpdatedAt :: Lens.Lens' SimulationJobSummary (Prelude.Maybe Prelude.UTCTime)
-simulationJobSummary_lastUpdatedAt = Lens.lens (\SimulationJobSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@SimulationJobSummary' {} a -> s {lastUpdatedAt = a} :: SimulationJobSummary) Prelude.. Lens.mapping Core._Time
+simulationJobSummary_lastUpdatedAt = Lens.lens (\SimulationJobSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@SimulationJobSummary' {} a -> s {lastUpdatedAt = a} :: SimulationJobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the simulation job.
 simulationJobSummary_arn :: Lens.Lens' SimulationJobSummary (Prelude.Maybe Prelude.Text)
@@ -120,26 +121,26 @@ simulationJobSummary_simulationApplicationNames = Lens.lens (\SimulationJobSumma
 simulationJobSummary_computeType :: Lens.Lens' SimulationJobSummary (Prelude.Maybe ComputeType)
 simulationJobSummary_computeType = Lens.lens (\SimulationJobSummary' {computeType} -> computeType) (\s@SimulationJobSummary' {} a -> s {computeType = a} :: SimulationJobSummary)
 
-instance Core.FromJSON SimulationJobSummary where
+instance Data.FromJSON SimulationJobSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SimulationJobSummary"
       ( \x ->
           SimulationJobSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> ( x Core..:? "dataSourceNames"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> ( x Data..:? "dataSourceNames"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "robotApplicationNames"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "robotApplicationNames"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> ( x Core..:? "simulationApplicationNames"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> ( x Data..:? "simulationApplicationNames"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "computeType")
+            Prelude.<*> (x Data..:? "computeType")
       )
 
 instance Prelude.Hashable SimulationJobSummary where

@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -147,15 +148,15 @@ instance Core.AWSRequest CreateWorldGenerationJob where
     Response.receiveJSON
       ( \s h x ->
           CreateWorldGenerationJobResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "worldCount")
-            Prelude.<*> (x Core..?> "worldTags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "failureCode")
-            Prelude.<*> (x Core..?> "clientRequestToken")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "createdAt")
-            Prelude.<*> (x Core..?> "template")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "worldCount")
+            Prelude.<*> (x Data..?> "worldTags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "failureCode")
+            Prelude.<*> (x Data..?> "clientRequestToken")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "template")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,34 +176,34 @@ instance Prelude.NFData CreateWorldGenerationJob where
       `Prelude.seq` Prelude.rnf template
       `Prelude.seq` Prelude.rnf worldCount
 
-instance Core.ToHeaders CreateWorldGenerationJob where
+instance Data.ToHeaders CreateWorldGenerationJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWorldGenerationJob where
+instance Data.ToJSON CreateWorldGenerationJob where
   toJSON CreateWorldGenerationJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("worldTags" Core..=) Prelude.<$> worldTags,
-            ("clientRequestToken" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("worldTags" Data..=) Prelude.<$> worldTags,
+            ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            Prelude.Just ("template" Core..= template),
-            Prelude.Just ("worldCount" Core..= worldCount)
+            Prelude.Just ("template" Data..= template),
+            Prelude.Just ("worldCount" Data..= worldCount)
           ]
       )
 
-instance Core.ToPath CreateWorldGenerationJob where
+instance Data.ToPath CreateWorldGenerationJob where
   toPath = Prelude.const "/createWorldGenerationJob"
 
-instance Core.ToQuery CreateWorldGenerationJob where
+instance Data.ToQuery CreateWorldGenerationJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWorldGenerationJobResponse' smart constructor.
@@ -265,7 +266,7 @@ data CreateWorldGenerationJobResponse = CreateWorldGenerationJobResponse'
     status :: Prelude.Maybe WorldGenerationJobStatus,
     -- | The time, in milliseconds since the epoch, when the world generator job
     -- was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (arn) of the world template.
     template :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -435,7 +436,7 @@ createWorldGenerationJobResponse_status = Lens.lens (\CreateWorldGenerationJobRe
 -- | The time, in milliseconds since the epoch, when the world generator job
 -- was created.
 createWorldGenerationJobResponse_createdAt :: Lens.Lens' CreateWorldGenerationJobResponse (Prelude.Maybe Prelude.UTCTime)
-createWorldGenerationJobResponse_createdAt = Lens.lens (\CreateWorldGenerationJobResponse' {createdAt} -> createdAt) (\s@CreateWorldGenerationJobResponse' {} a -> s {createdAt = a} :: CreateWorldGenerationJobResponse) Prelude.. Lens.mapping Core._Time
+createWorldGenerationJobResponse_createdAt = Lens.lens (\CreateWorldGenerationJobResponse' {createdAt} -> createdAt) (\s@CreateWorldGenerationJobResponse' {} a -> s {createdAt = a} :: CreateWorldGenerationJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (arn) of the world template.
 createWorldGenerationJobResponse_template :: Lens.Lens' CreateWorldGenerationJobResponse (Prelude.Maybe Prelude.Text)

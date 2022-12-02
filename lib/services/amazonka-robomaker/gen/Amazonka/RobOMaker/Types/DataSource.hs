@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.DataSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.DataSourceType
 import Amazonka.RobOMaker.Types.S3KeyOutput
@@ -138,17 +139,17 @@ dataSource_type = Lens.lens (\DataSource' {type'} -> type') (\s@DataSource' {} a
 dataSource_s3Keys :: Lens.Lens' DataSource (Prelude.Maybe [S3KeyOutput])
 dataSource_s3Keys = Lens.lens (\DataSource' {s3Keys} -> s3Keys) (\s@DataSource' {} a -> s {s3Keys = a} :: DataSource) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DataSource where
+instance Data.FromJSON DataSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSource"
       ( \x ->
           DataSource'
-            Prelude.<$> (x Core..:? "destination")
-            Prelude.<*> (x Core..:? "s3Bucket")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "s3Keys" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "destination")
+            Prelude.<*> (x Data..:? "s3Bucket")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "s3Keys" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DataSource where

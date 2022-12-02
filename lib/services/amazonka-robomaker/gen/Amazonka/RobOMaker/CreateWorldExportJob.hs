@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -150,14 +151,14 @@ instance Core.AWSRequest CreateWorldExportJob where
     Response.receiveJSON
       ( \s h x ->
           CreateWorldExportJobResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "iamRole")
-            Prelude.<*> (x Core..?> "failureCode")
-            Prelude.<*> (x Core..?> "clientRequestToken")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "outputLocation")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "createdAt")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "iamRole")
+            Prelude.<*> (x Data..?> "failureCode")
+            Prelude.<*> (x Data..?> "clientRequestToken")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "outputLocation")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "createdAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,35 +178,35 @@ instance Prelude.NFData CreateWorldExportJob where
       `Prelude.seq` Prelude.rnf outputLocation
       `Prelude.seq` Prelude.rnf iamRole
 
-instance Core.ToHeaders CreateWorldExportJob where
+instance Data.ToHeaders CreateWorldExportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWorldExportJob where
+instance Data.ToJSON CreateWorldExportJob where
   toJSON CreateWorldExportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientRequestToken" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            Prelude.Just ("worlds" Core..= worlds),
+            Prelude.Just ("worlds" Data..= worlds),
             Prelude.Just
-              ("outputLocation" Core..= outputLocation),
-            Prelude.Just ("iamRole" Core..= iamRole)
+              ("outputLocation" Data..= outputLocation),
+            Prelude.Just ("iamRole" Data..= iamRole)
           ]
       )
 
-instance Core.ToPath CreateWorldExportJob where
+instance Data.ToPath CreateWorldExportJob where
   toPath = Prelude.const "/createWorldExportJob"
 
-instance Core.ToQuery CreateWorldExportJob where
+instance Data.ToQuery CreateWorldExportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWorldExportJobResponse' smart constructor.
@@ -270,7 +271,7 @@ data CreateWorldExportJobResponse = CreateWorldExportJobResponse'
     status :: Prelude.Maybe WorldExportJobStatus,
     -- | The time, in milliseconds since the epoch, when the world export job was
     -- created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -441,7 +442,7 @@ createWorldExportJobResponse_status = Lens.lens (\CreateWorldExportJobResponse' 
 -- | The time, in milliseconds since the epoch, when the world export job was
 -- created.
 createWorldExportJobResponse_createdAt :: Lens.Lens' CreateWorldExportJobResponse (Prelude.Maybe Prelude.UTCTime)
-createWorldExportJobResponse_createdAt = Lens.lens (\CreateWorldExportJobResponse' {createdAt} -> createdAt) (\s@CreateWorldExportJobResponse' {} a -> s {createdAt = a} :: CreateWorldExportJobResponse) Prelude.. Lens.mapping Core._Time
+createWorldExportJobResponse_createdAt = Lens.lens (\CreateWorldExportJobResponse' {createdAt} -> createdAt) (\s@CreateWorldExportJobResponse' {} a -> s {createdAt = a} :: CreateWorldExportJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 createWorldExportJobResponse_httpStatus :: Lens.Lens' CreateWorldExportJobResponse Prelude.Int

@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.LaunchConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.PortForwardingConfig
 
@@ -128,20 +129,20 @@ launchConfig_environmentVariables = Lens.lens (\LaunchConfig' {environmentVariab
 launchConfig_portForwardingConfig :: Lens.Lens' LaunchConfig (Prelude.Maybe PortForwardingConfig)
 launchConfig_portForwardingConfig = Lens.lens (\LaunchConfig' {portForwardingConfig} -> portForwardingConfig) (\s@LaunchConfig' {} a -> s {portForwardingConfig = a} :: LaunchConfig)
 
-instance Core.FromJSON LaunchConfig where
+instance Data.FromJSON LaunchConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LaunchConfig"
       ( \x ->
           LaunchConfig'
-            Prelude.<$> (x Core..:? "packageName")
-            Prelude.<*> (x Core..:? "launchFile")
-            Prelude.<*> (x Core..:? "command" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "streamUI")
-            Prelude.<*> ( x Core..:? "environmentVariables"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "packageName")
+            Prelude.<*> (x Data..:? "launchFile")
+            Prelude.<*> (x Data..:? "command" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "streamUI")
+            Prelude.<*> ( x Data..:? "environmentVariables"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "portForwardingConfig")
+            Prelude.<*> (x Data..:? "portForwardingConfig")
       )
 
 instance Prelude.Hashable LaunchConfig where
@@ -162,17 +163,17 @@ instance Prelude.NFData LaunchConfig where
       `Prelude.seq` Prelude.rnf environmentVariables
       `Prelude.seq` Prelude.rnf portForwardingConfig
 
-instance Core.ToJSON LaunchConfig where
+instance Data.ToJSON LaunchConfig where
   toJSON LaunchConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("packageName" Core..=) Prelude.<$> packageName,
-            ("launchFile" Core..=) Prelude.<$> launchFile,
-            ("command" Core..=) Prelude.<$> command,
-            ("streamUI" Core..=) Prelude.<$> streamUI,
-            ("environmentVariables" Core..=)
+          [ ("packageName" Data..=) Prelude.<$> packageName,
+            ("launchFile" Data..=) Prelude.<$> launchFile,
+            ("command" Data..=) Prelude.<$> command,
+            ("streamUI" Data..=) Prelude.<$> streamUI,
+            ("environmentVariables" Data..=)
               Prelude.<$> environmentVariables,
-            ("portForwardingConfig" Core..=)
+            ("portForwardingConfig" Data..=)
               Prelude.<$> portForwardingConfig
           ]
       )

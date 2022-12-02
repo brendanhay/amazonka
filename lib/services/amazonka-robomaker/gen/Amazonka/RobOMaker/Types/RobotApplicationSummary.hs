@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.RobotApplicationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.RobotSoftwareSuite
 
@@ -32,7 +33,7 @@ data RobotApplicationSummary = RobotApplicationSummary'
     name :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the robot application
     -- was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the robot.
     arn :: Prelude.Maybe Prelude.Text,
     -- | Information about a robot software suite (ROS distribution).
@@ -78,7 +79,7 @@ robotApplicationSummary_name = Lens.lens (\RobotApplicationSummary' {name} -> na
 -- | The time, in milliseconds since the epoch, when the robot application
 -- was last updated.
 robotApplicationSummary_lastUpdatedAt :: Lens.Lens' RobotApplicationSummary (Prelude.Maybe Prelude.UTCTime)
-robotApplicationSummary_lastUpdatedAt = Lens.lens (\RobotApplicationSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@RobotApplicationSummary' {} a -> s {lastUpdatedAt = a} :: RobotApplicationSummary) Prelude.. Lens.mapping Core._Time
+robotApplicationSummary_lastUpdatedAt = Lens.lens (\RobotApplicationSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@RobotApplicationSummary' {} a -> s {lastUpdatedAt = a} :: RobotApplicationSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the robot.
 robotApplicationSummary_arn :: Lens.Lens' RobotApplicationSummary (Prelude.Maybe Prelude.Text)
@@ -92,17 +93,17 @@ robotApplicationSummary_robotSoftwareSuite = Lens.lens (\RobotApplicationSummary
 robotApplicationSummary_version :: Lens.Lens' RobotApplicationSummary (Prelude.Maybe Prelude.Text)
 robotApplicationSummary_version = Lens.lens (\RobotApplicationSummary' {version} -> version) (\s@RobotApplicationSummary' {} a -> s {version = a} :: RobotApplicationSummary)
 
-instance Core.FromJSON RobotApplicationSummary where
+instance Data.FromJSON RobotApplicationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RobotApplicationSummary"
       ( \x ->
           RobotApplicationSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "robotSoftwareSuite")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "robotSoftwareSuite")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable RobotApplicationSummary where

@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.UploadConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.UploadBehavior
 
@@ -147,15 +148,15 @@ uploadConfiguration_path = Lens.lens (\UploadConfiguration' {path} -> path) (\s@
 uploadConfiguration_uploadBehavior :: Lens.Lens' UploadConfiguration UploadBehavior
 uploadConfiguration_uploadBehavior = Lens.lens (\UploadConfiguration' {uploadBehavior} -> uploadBehavior) (\s@UploadConfiguration' {} a -> s {uploadBehavior = a} :: UploadConfiguration)
 
-instance Core.FromJSON UploadConfiguration where
+instance Data.FromJSON UploadConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UploadConfiguration"
       ( \x ->
           UploadConfiguration'
-            Prelude.<$> (x Core..: "name")
-            Prelude.<*> (x Core..: "path")
-            Prelude.<*> (x Core..: "uploadBehavior")
+            Prelude.<$> (x Data..: "name")
+            Prelude.<*> (x Data..: "path")
+            Prelude.<*> (x Data..: "uploadBehavior")
       )
 
 instance Prelude.Hashable UploadConfiguration where
@@ -170,13 +171,13 @@ instance Prelude.NFData UploadConfiguration where
       `Prelude.seq` Prelude.rnf path
       `Prelude.seq` Prelude.rnf uploadBehavior
 
-instance Core.ToJSON UploadConfiguration where
+instance Data.ToJSON UploadConfiguration where
   toJSON UploadConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
-            Prelude.Just ("path" Core..= path),
+          [ Prelude.Just ("name" Data..= name),
+            Prelude.Just ("path" Data..= path),
             Prelude.Just
-              ("uploadBehavior" Core..= uploadBehavior)
+              ("uploadBehavior" Data..= uploadBehavior)
           ]
       )

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -220,10 +221,10 @@ instance Core.AWSRequest ListPlatformBranches where
       "ListPlatformBranchesResult"
       ( \s h x ->
           ListPlatformBranchesResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "PlatformBranchSummaryList"
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "PlatformBranchSummaryList"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -240,24 +241,24 @@ instance Prelude.NFData ListPlatformBranches where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders ListPlatformBranches where
+instance Data.ToHeaders ListPlatformBranches where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListPlatformBranches where
+instance Data.ToPath ListPlatformBranches where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListPlatformBranches where
+instance Data.ToQuery ListPlatformBranches where
   toQuery ListPlatformBranches' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListPlatformBranches" :: Prelude.ByteString),
+          Data.=: ("ListPlatformBranches" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> filters),
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- | /See:/ 'newListPlatformBranchesResponse' smart constructor.

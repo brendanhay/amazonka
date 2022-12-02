@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.EnvironmentDescriptionsMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.EnvironmentDescription
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,12 +67,12 @@ environmentDescriptionsMessage_nextToken = Lens.lens (\EnvironmentDescriptionsMe
 environmentDescriptionsMessage_environments :: Lens.Lens' EnvironmentDescriptionsMessage (Prelude.Maybe [EnvironmentDescription])
 environmentDescriptionsMessage_environments = Lens.lens (\EnvironmentDescriptionsMessage' {environments} -> environments) (\s@EnvironmentDescriptionsMessage' {} a -> s {environments = a} :: EnvironmentDescriptionsMessage) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML EnvironmentDescriptionsMessage where
+instance Data.FromXML EnvironmentDescriptionsMessage where
   parseXML x =
     EnvironmentDescriptionsMessage'
-      Prelude.<$> (x Core..@? "NextToken")
-      Prelude.<*> ( x Core..@? "Environments" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> (x Data..@? "NextToken")
+      Prelude.<*> ( x Data..@? "Environments" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance

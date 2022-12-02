@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,7 +92,7 @@ instance Core.AWSRequest DescribePlatformVersion where
       "DescribePlatformVersionResult"
       ( \s h x ->
           DescribePlatformVersionResponse'
-            Prelude.<$> (x Core..@? "PlatformDescription")
+            Prelude.<$> (x Data..@? "PlatformDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,20 +104,20 @@ instance Prelude.NFData DescribePlatformVersion where
   rnf DescribePlatformVersion' {..} =
     Prelude.rnf platformArn
 
-instance Core.ToHeaders DescribePlatformVersion where
+instance Data.ToHeaders DescribePlatformVersion where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribePlatformVersion where
+instance Data.ToPath DescribePlatformVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribePlatformVersion where
+instance Data.ToQuery DescribePlatformVersion where
   toQuery DescribePlatformVersion' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribePlatformVersion" :: Prelude.ByteString),
+          Data.=: ("DescribePlatformVersion" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "PlatformArn" Core.=: platformArn
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "PlatformArn" Data.=: platformArn
       ]
 
 -- | /See:/ 'newDescribePlatformVersionResponse' smart constructor.

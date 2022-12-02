@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.SystemStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.CPUUtilization
 import qualified Amazonka.Prelude as Prelude
 
@@ -68,13 +69,13 @@ systemStatus_loadAverage = Lens.lens (\SystemStatus' {loadAverage} -> loadAverag
 systemStatus_cPUUtilization :: Lens.Lens' SystemStatus (Prelude.Maybe CPUUtilization)
 systemStatus_cPUUtilization = Lens.lens (\SystemStatus' {cPUUtilization} -> cPUUtilization) (\s@SystemStatus' {} a -> s {cPUUtilization = a} :: SystemStatus)
 
-instance Core.FromXML SystemStatus where
+instance Data.FromXML SystemStatus where
   parseXML x =
     SystemStatus'
-      Prelude.<$> ( x Core..@? "LoadAverage" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "LoadAverage" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "CPUUtilization")
+      Prelude.<*> (x Data..@? "CPUUtilization")
 
 instance Prelude.Hashable SystemStatus where
   hashWithSalt _salt SystemStatus' {..} =

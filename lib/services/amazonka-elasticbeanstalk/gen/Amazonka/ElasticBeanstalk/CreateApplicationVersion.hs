@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -278,7 +279,7 @@ instance Core.AWSRequest CreateApplicationVersion where
   response =
     Response.receiveXMLWrapper
       "CreateApplicationVersionResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable CreateApplicationVersion where
   hashWithSalt _salt CreateApplicationVersion' {..} =
@@ -304,30 +305,30 @@ instance Prelude.NFData CreateApplicationVersion where
       `Prelude.seq` Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf versionLabel
 
-instance Core.ToHeaders CreateApplicationVersion where
+instance Data.ToHeaders CreateApplicationVersion where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateApplicationVersion where
+instance Data.ToPath CreateApplicationVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateApplicationVersion where
+instance Data.ToQuery CreateApplicationVersion where
   toQuery CreateApplicationVersion' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateApplicationVersion" :: Prelude.ByteString),
+          Data.=: ("CreateApplicationVersion" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
         "AutoCreateApplication"
-          Core.=: autoCreateApplication,
-        "Description" Core.=: description,
-        "SourceBundle" Core.=: sourceBundle,
+          Data.=: autoCreateApplication,
+        "Description" Data.=: description,
+        "SourceBundle" Data.=: sourceBundle,
         "SourceBuildInformation"
-          Core.=: sourceBuildInformation,
-        "Process" Core.=: process,
-        "BuildConfiguration" Core.=: buildConfiguration,
-        "ApplicationName" Core.=: applicationName,
-        "VersionLabel" Core.=: versionLabel
+          Data.=: sourceBuildInformation,
+        "Process" Data.=: process,
+        "BuildConfiguration" Data.=: buildConfiguration,
+        "ApplicationName" Data.=: applicationName,
+        "VersionLabel" Data.=: versionLabel
       ]

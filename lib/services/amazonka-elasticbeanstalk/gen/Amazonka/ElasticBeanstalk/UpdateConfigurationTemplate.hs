@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -179,7 +180,7 @@ instance Core.AWSRequest UpdateConfigurationTemplate where
   response =
     Response.receiveXMLWrapper
       "UpdateConfigurationTemplateResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable UpdateConfigurationTemplate where
   hashWithSalt _salt UpdateConfigurationTemplate' {..} =
@@ -197,32 +198,32 @@ instance Prelude.NFData UpdateConfigurationTemplate where
       `Prelude.seq` Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf templateName
 
-instance Core.ToHeaders UpdateConfigurationTemplate where
+instance Data.ToHeaders UpdateConfigurationTemplate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UpdateConfigurationTemplate where
+instance Data.ToPath UpdateConfigurationTemplate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateConfigurationTemplate where
+instance Data.ToQuery UpdateConfigurationTemplate where
   toQuery UpdateConfigurationTemplate' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "UpdateConfigurationTemplate" ::
+          Data.=: ( "UpdateConfigurationTemplate" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "Description" Core.=: description,
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "Description" Data.=: description,
         "OptionsToRemove"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> optionsToRemove
             ),
         "OptionSettings"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> optionSettings
             ),
-        "ApplicationName" Core.=: applicationName,
-        "TemplateName" Core.=: templateName
+        "ApplicationName" Data.=: applicationName,
+        "TemplateName" Data.=: templateName
       ]

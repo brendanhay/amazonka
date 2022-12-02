@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.CustomAmi where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A custom AMI available to platforms.
@@ -61,11 +62,11 @@ customAmi_virtualizationType = Lens.lens (\CustomAmi' {virtualizationType} -> vi
 customAmi_imageId :: Lens.Lens' CustomAmi (Prelude.Maybe Prelude.Text)
 customAmi_imageId = Lens.lens (\CustomAmi' {imageId} -> imageId) (\s@CustomAmi' {} a -> s {imageId = a} :: CustomAmi)
 
-instance Core.FromXML CustomAmi where
+instance Data.FromXML CustomAmi where
   parseXML x =
     CustomAmi'
-      Prelude.<$> (x Core..@? "VirtualizationType")
-      Prelude.<*> (x Core..@? "ImageId")
+      Prelude.<$> (x Data..@? "VirtualizationType")
+      Prelude.<*> (x Data..@? "ImageId")
 
 instance Prelude.Hashable CustomAmi where
   hashWithSalt _salt CustomAmi' {..} =

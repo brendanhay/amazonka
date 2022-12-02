@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.Listener where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the properties of a Listener for the LoadBalancer.
@@ -61,11 +62,11 @@ listener_port = Lens.lens (\Listener' {port} -> port) (\s@Listener' {} a -> s {p
 listener_protocol :: Lens.Lens' Listener (Prelude.Maybe Prelude.Text)
 listener_protocol = Lens.lens (\Listener' {protocol} -> protocol) (\s@Listener' {} a -> s {protocol = a} :: Listener)
 
-instance Core.FromXML Listener where
+instance Data.FromXML Listener where
   parseXML x =
     Listener'
-      Prelude.<$> (x Core..@? "Port")
-      Prelude.<*> (x Core..@? "Protocol")
+      Prelude.<$> (x Data..@? "Port")
+      Prelude.<*> (x Data..@? "Protocol")
 
 instance Prelude.Hashable Listener where
   hashWithSalt _salt Listener' {..} =

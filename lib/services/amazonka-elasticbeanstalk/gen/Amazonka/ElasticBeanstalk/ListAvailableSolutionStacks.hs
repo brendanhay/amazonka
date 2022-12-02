@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -71,12 +72,12 @@ instance Core.AWSRequest ListAvailableSolutionStacks where
       "ListAvailableSolutionStacksResult"
       ( \s h x ->
           ListAvailableSolutionStacksResponse'
-            Prelude.<$> ( x Core..@? "SolutionStacks" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "SolutionStacks" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Core..@? "SolutionStackDetails"
+            Prelude.<*> ( x Data..@? "SolutionStackDetails"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -88,22 +89,22 @@ instance Prelude.Hashable ListAvailableSolutionStacks where
 instance Prelude.NFData ListAvailableSolutionStacks where
   rnf _ = ()
 
-instance Core.ToHeaders ListAvailableSolutionStacks where
+instance Data.ToHeaders ListAvailableSolutionStacks where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListAvailableSolutionStacks where
+instance Data.ToPath ListAvailableSolutionStacks where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAvailableSolutionStacks where
+instance Data.ToQuery ListAvailableSolutionStacks where
   toQuery =
     Prelude.const
       ( Prelude.mconcat
           [ "Action"
-              Core.=: ( "ListAvailableSolutionStacks" ::
+              Data.=: ( "ListAvailableSolutionStacks" ::
                           Prelude.ByteString
                       ),
             "Version"
-              Core.=: ("2010-12-01" :: Prelude.ByteString)
+              Data.=: ("2010-12-01" :: Prelude.ByteString)
           ]
       )
 

@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.EnvironmentLink where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A link to another environment, defined in the environment\'s manifest.
@@ -65,11 +66,11 @@ environmentLink_environmentName = Lens.lens (\EnvironmentLink' {environmentName}
 environmentLink_linkName :: Lens.Lens' EnvironmentLink (Prelude.Maybe Prelude.Text)
 environmentLink_linkName = Lens.lens (\EnvironmentLink' {linkName} -> linkName) (\s@EnvironmentLink' {} a -> s {linkName = a} :: EnvironmentLink)
 
-instance Core.FromXML EnvironmentLink where
+instance Data.FromXML EnvironmentLink where
   parseXML x =
     EnvironmentLink'
-      Prelude.<$> (x Core..@? "EnvironmentName")
-      Prelude.<*> (x Core..@? "LinkName")
+      Prelude.<$> (x Data..@? "EnvironmentName")
+      Prelude.<*> (x Data..@? "LinkName")
 
 instance Prelude.Hashable EnvironmentLink where
   hashWithSalt _salt EnvironmentLink' {..} =

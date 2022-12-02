@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.ConfigurationOptionSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A specification identifying an individual configuration option along
@@ -90,13 +91,13 @@ configurationOptionSetting_namespace = Lens.lens (\ConfigurationOptionSetting' {
 configurationOptionSetting_value :: Lens.Lens' ConfigurationOptionSetting (Prelude.Maybe Prelude.Text)
 configurationOptionSetting_value = Lens.lens (\ConfigurationOptionSetting' {value} -> value) (\s@ConfigurationOptionSetting' {} a -> s {value = a} :: ConfigurationOptionSetting)
 
-instance Core.FromXML ConfigurationOptionSetting where
+instance Data.FromXML ConfigurationOptionSetting where
   parseXML x =
     ConfigurationOptionSetting'
-      Prelude.<$> (x Core..@? "ResourceName")
-      Prelude.<*> (x Core..@? "OptionName")
-      Prelude.<*> (x Core..@? "Namespace")
-      Prelude.<*> (x Core..@? "Value")
+      Prelude.<$> (x Data..@? "ResourceName")
+      Prelude.<*> (x Data..@? "OptionName")
+      Prelude.<*> (x Data..@? "Namespace")
+      Prelude.<*> (x Data..@? "Value")
 
 instance Prelude.Hashable ConfigurationOptionSetting where
   hashWithSalt _salt ConfigurationOptionSetting' {..} =
@@ -112,11 +113,11 @@ instance Prelude.NFData ConfigurationOptionSetting where
       `Prelude.seq` Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToQuery ConfigurationOptionSetting where
+instance Data.ToQuery ConfigurationOptionSetting where
   toQuery ConfigurationOptionSetting' {..} =
     Prelude.mconcat
-      [ "ResourceName" Core.=: resourceName,
-        "OptionName" Core.=: optionName,
-        "Namespace" Core.=: namespace,
-        "Value" Core.=: value
+      [ "ResourceName" Data.=: resourceName,
+        "OptionName" Data.=: optionName,
+        "Namespace" Data.=: namespace,
+        "Value" Data.=: value
       ]

@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -320,7 +321,7 @@ instance Core.AWSRequest CreateConfigurationTemplate where
   response =
     Response.receiveXMLWrapper
       "CreateConfigurationTemplateResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable CreateConfigurationTemplate where
   hashWithSalt _salt CreateConfigurationTemplate' {..} =
@@ -346,34 +347,34 @@ instance Prelude.NFData CreateConfigurationTemplate where
       `Prelude.seq` Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf templateName
 
-instance Core.ToHeaders CreateConfigurationTemplate where
+instance Data.ToHeaders CreateConfigurationTemplate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateConfigurationTemplate where
+instance Data.ToPath CreateConfigurationTemplate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateConfigurationTemplate where
+instance Data.ToQuery CreateConfigurationTemplate where
   toQuery CreateConfigurationTemplate' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateConfigurationTemplate" ::
+          Data.=: ( "CreateConfigurationTemplate" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "SourceConfiguration" Core.=: sourceConfiguration,
-        "Description" Core.=: description,
-        "SolutionStackName" Core.=: solutionStackName,
-        "PlatformArn" Core.=: platformArn,
-        "EnvironmentId" Core.=: environmentId,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
+        "SourceConfiguration" Data.=: sourceConfiguration,
+        "Description" Data.=: description,
+        "SolutionStackName" Data.=: solutionStackName,
+        "PlatformArn" Data.=: platformArn,
+        "EnvironmentId" Data.=: environmentId,
         "OptionSettings"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> optionSettings
             ),
-        "ApplicationName" Core.=: applicationName,
-        "TemplateName" Core.=: templateName
+        "ApplicationName" Data.=: applicationName,
+        "TemplateName" Data.=: templateName
       ]

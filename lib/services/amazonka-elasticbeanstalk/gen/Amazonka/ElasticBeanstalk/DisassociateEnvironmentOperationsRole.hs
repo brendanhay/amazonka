@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,30 +115,30 @@ instance
     Prelude.rnf environmentName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateEnvironmentOperationsRole
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DisassociateEnvironmentOperationsRole
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisassociateEnvironmentOperationsRole
   where
   toQuery DisassociateEnvironmentOperationsRole' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DisassociateEnvironmentOperationsRole" ::
+          Data.=: ( "DisassociateEnvironmentOperationsRole" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "EnvironmentName" Core.=: environmentName
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "EnvironmentName" Data.=: environmentName
       ]
 
 -- | /See:/ 'newDisassociateEnvironmentOperationsRoleResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.EnvironmentTier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the properties of an environment tier
@@ -118,12 +119,12 @@ environmentTier_type = Lens.lens (\EnvironmentTier' {type'} -> type') (\s@Enviro
 environmentTier_version :: Lens.Lens' EnvironmentTier (Prelude.Maybe Prelude.Text)
 environmentTier_version = Lens.lens (\EnvironmentTier' {version} -> version) (\s@EnvironmentTier' {} a -> s {version = a} :: EnvironmentTier)
 
-instance Core.FromXML EnvironmentTier where
+instance Data.FromXML EnvironmentTier where
   parseXML x =
     EnvironmentTier'
-      Prelude.<$> (x Core..@? "Name")
-      Prelude.<*> (x Core..@? "Type")
-      Prelude.<*> (x Core..@? "Version")
+      Prelude.<$> (x Data..@? "Name")
+      Prelude.<*> (x Data..@? "Type")
+      Prelude.<*> (x Data..@? "Version")
 
 instance Prelude.Hashable EnvironmentTier where
   hashWithSalt _salt EnvironmentTier' {..} =
@@ -137,10 +138,10 @@ instance Prelude.NFData EnvironmentTier where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToQuery EnvironmentTier where
+instance Data.ToQuery EnvironmentTier where
   toQuery EnvironmentTier' {..} =
     Prelude.mconcat
-      [ "Name" Core.=: name,
-        "Type" Core.=: type',
-        "Version" Core.=: version
+      [ "Name" Data.=: name,
+        "Type" Data.=: type',
+        "Version" Data.=: version
       ]

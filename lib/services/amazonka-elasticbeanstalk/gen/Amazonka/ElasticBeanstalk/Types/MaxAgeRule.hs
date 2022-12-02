@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.MaxAgeRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A lifecycle rule that deletes application versions after the specified
@@ -76,12 +77,12 @@ maxAgeRule_deleteSourceFromS3 = Lens.lens (\MaxAgeRule' {deleteSourceFromS3} -> 
 maxAgeRule_enabled :: Lens.Lens' MaxAgeRule Prelude.Bool
 maxAgeRule_enabled = Lens.lens (\MaxAgeRule' {enabled} -> enabled) (\s@MaxAgeRule' {} a -> s {enabled = a} :: MaxAgeRule)
 
-instance Core.FromXML MaxAgeRule where
+instance Data.FromXML MaxAgeRule where
   parseXML x =
     MaxAgeRule'
-      Prelude.<$> (x Core..@? "MaxAgeInDays")
-      Prelude.<*> (x Core..@? "DeleteSourceFromS3")
-      Prelude.<*> (x Core..@ "Enabled")
+      Prelude.<$> (x Data..@? "MaxAgeInDays")
+      Prelude.<*> (x Data..@? "DeleteSourceFromS3")
+      Prelude.<*> (x Data..@ "Enabled")
 
 instance Prelude.Hashable MaxAgeRule where
   hashWithSalt _salt MaxAgeRule' {..} =
@@ -95,10 +96,10 @@ instance Prelude.NFData MaxAgeRule where
       `Prelude.seq` Prelude.rnf deleteSourceFromS3
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToQuery MaxAgeRule where
+instance Data.ToQuery MaxAgeRule where
   toQuery MaxAgeRule' {..} =
     Prelude.mconcat
-      [ "MaxAgeInDays" Core.=: maxAgeInDays,
-        "DeleteSourceFromS3" Core.=: deleteSourceFromS3,
-        "Enabled" Core.=: enabled
+      [ "MaxAgeInDays" Data.=: maxAgeInDays,
+        "DeleteSourceFromS3" Data.=: deleteSourceFromS3,
+        "Enabled" Data.=: enabled
       ]

@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.EnvironmentResourcesDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.LoadBalancerDescription
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,10 +56,10 @@ newEnvironmentResourcesDescription =
 environmentResourcesDescription_loadBalancer :: Lens.Lens' EnvironmentResourcesDescription (Prelude.Maybe LoadBalancerDescription)
 environmentResourcesDescription_loadBalancer = Lens.lens (\EnvironmentResourcesDescription' {loadBalancer} -> loadBalancer) (\s@EnvironmentResourcesDescription' {} a -> s {loadBalancer = a} :: EnvironmentResourcesDescription)
 
-instance Core.FromXML EnvironmentResourcesDescription where
+instance Data.FromXML EnvironmentResourcesDescription where
   parseXML x =
     EnvironmentResourcesDescription'
-      Prelude.<$> (x Core..@? "LoadBalancer")
+      Prelude.<$> (x Data..@? "LoadBalancer")
 
 instance
   Prelude.Hashable

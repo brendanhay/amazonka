@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.Builder where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The builder used to build the custom platform.
@@ -49,8 +50,8 @@ newBuilder = Builder' {arn = Prelude.Nothing}
 builder_arn :: Lens.Lens' Builder (Prelude.Maybe Prelude.Text)
 builder_arn = Lens.lens (\Builder' {arn} -> arn) (\s@Builder' {} a -> s {arn = a} :: Builder)
 
-instance Core.FromXML Builder where
-  parseXML x = Builder' Prelude.<$> (x Core..@? "ARN")
+instance Data.FromXML Builder where
+  parseXML x = Builder' Prelude.<$> (x Data..@? "ARN")
 
 instance Prelude.Hashable Builder where
   hashWithSalt _salt Builder' {..} =

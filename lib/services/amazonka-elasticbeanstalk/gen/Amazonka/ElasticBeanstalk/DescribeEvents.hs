@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -85,7 +86,7 @@ data DescribeEvents = DescribeEvents'
     requestId :: Prelude.Maybe Prelude.Text,
     -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
     -- to those that occur up to, but not including, the @EndTime@.
-    endTime :: Prelude.Maybe Core.ISO8601,
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | Specifies the maximum number of events that can be returned, beginning
     -- with the most recent event.
     maxRecords :: Prelude.Maybe Prelude.Natural,
@@ -98,7 +99,7 @@ data DescribeEvents = DescribeEvents'
     environmentId :: Prelude.Maybe Prelude.Text,
     -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
     -- to those that occur on or after this time.
-    startTime :: Prelude.Maybe Core.ISO8601,
+    startTime :: Prelude.Maybe Data.ISO8601,
     -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
     -- to those associated with this application version.
     versionLabel :: Prelude.Maybe Prelude.Text,
@@ -198,7 +199,7 @@ describeEvents_requestId = Lens.lens (\DescribeEvents' {requestId} -> requestId)
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those that occur up to, but not including, the @EndTime@.
 describeEvents_endTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
-describeEvents_endTime = Lens.lens (\DescribeEvents' {endTime} -> endTime) (\s@DescribeEvents' {} a -> s {endTime = a} :: DescribeEvents) Prelude.. Lens.mapping Core._Time
+describeEvents_endTime = Lens.lens (\DescribeEvents' {endTime} -> endTime) (\s@DescribeEvents' {} a -> s {endTime = a} :: DescribeEvents) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the maximum number of events that can be returned, beginning
 -- with the most recent event.
@@ -219,7 +220,7 @@ describeEvents_environmentId = Lens.lens (\DescribeEvents' {environmentId} -> en
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those that occur on or after this time.
 describeEvents_startTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
-describeEvents_startTime = Lens.lens (\DescribeEvents' {startTime} -> startTime) (\s@DescribeEvents' {} a -> s {startTime = a} :: DescribeEvents) Prelude.. Lens.mapping Core._Time
+describeEvents_startTime = Lens.lens (\DescribeEvents' {startTime} -> startTime) (\s@DescribeEvents' {} a -> s {startTime = a} :: DescribeEvents) Prelude.. Lens.mapping Data._Time
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those associated with this application version.
@@ -262,9 +263,9 @@ instance Core.AWSRequest DescribeEvents where
       "DescribeEventsResult"
       ( \s h x ->
           DescribeEventsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "Events" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "Events" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -299,31 +300,31 @@ instance Prelude.NFData DescribeEvents where
       `Prelude.seq` Prelude.rnf versionLabel
       `Prelude.seq` Prelude.rnf applicationName
 
-instance Core.ToHeaders DescribeEvents where
+instance Data.ToHeaders DescribeEvents where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeEvents where
+instance Data.ToPath DescribeEvents where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEvents where
+instance Data.ToQuery DescribeEvents where
   toQuery DescribeEvents' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeEvents" :: Prelude.ByteString),
+          Data.=: ("DescribeEvents" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "Severity" Core.=: severity,
-        "TemplateName" Core.=: templateName,
-        "NextToken" Core.=: nextToken,
-        "EnvironmentName" Core.=: environmentName,
-        "RequestId" Core.=: requestId,
-        "EndTime" Core.=: endTime,
-        "MaxRecords" Core.=: maxRecords,
-        "PlatformArn" Core.=: platformArn,
-        "EnvironmentId" Core.=: environmentId,
-        "StartTime" Core.=: startTime,
-        "VersionLabel" Core.=: versionLabel,
-        "ApplicationName" Core.=: applicationName
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "Severity" Data.=: severity,
+        "TemplateName" Data.=: templateName,
+        "NextToken" Data.=: nextToken,
+        "EnvironmentName" Data.=: environmentName,
+        "RequestId" Data.=: requestId,
+        "EndTime" Data.=: endTime,
+        "MaxRecords" Data.=: maxRecords,
+        "PlatformArn" Data.=: platformArn,
+        "EnvironmentId" Data.=: environmentId,
+        "StartTime" Data.=: startTime,
+        "VersionLabel" Data.=: versionLabel,
+        "ApplicationName" Data.=: applicationName
       ]
 
 -- | Result message wrapping a list of event descriptions.

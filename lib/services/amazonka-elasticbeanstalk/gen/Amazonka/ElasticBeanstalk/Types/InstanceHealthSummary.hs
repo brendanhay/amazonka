@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.InstanceHealthSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents summary information about the health of an instance. For more
@@ -138,17 +139,17 @@ instanceHealthSummary_severe = Lens.lens (\InstanceHealthSummary' {severe} -> se
 instanceHealthSummary_pending :: Lens.Lens' InstanceHealthSummary (Prelude.Maybe Prelude.Int)
 instanceHealthSummary_pending = Lens.lens (\InstanceHealthSummary' {pending} -> pending) (\s@InstanceHealthSummary' {} a -> s {pending = a} :: InstanceHealthSummary)
 
-instance Core.FromXML InstanceHealthSummary where
+instance Data.FromXML InstanceHealthSummary where
   parseXML x =
     InstanceHealthSummary'
-      Prelude.<$> (x Core..@? "Info")
-      Prelude.<*> (x Core..@? "Warning")
-      Prelude.<*> (x Core..@? "Degraded")
-      Prelude.<*> (x Core..@? "NoData")
-      Prelude.<*> (x Core..@? "Unknown")
-      Prelude.<*> (x Core..@? "Ok")
-      Prelude.<*> (x Core..@? "Severe")
-      Prelude.<*> (x Core..@? "Pending")
+      Prelude.<$> (x Data..@? "Info")
+      Prelude.<*> (x Data..@? "Warning")
+      Prelude.<*> (x Data..@? "Degraded")
+      Prelude.<*> (x Data..@? "NoData")
+      Prelude.<*> (x Data..@? "Unknown")
+      Prelude.<*> (x Data..@? "Ok")
+      Prelude.<*> (x Data..@? "Severe")
+      Prelude.<*> (x Data..@? "Pending")
 
 instance Prelude.Hashable InstanceHealthSummary where
   hashWithSalt _salt InstanceHealthSummary' {..} =

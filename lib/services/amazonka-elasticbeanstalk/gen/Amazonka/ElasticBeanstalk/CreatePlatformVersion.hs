@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -159,8 +160,8 @@ instance Core.AWSRequest CreatePlatformVersion where
       "CreatePlatformVersionResult"
       ( \s h x ->
           CreatePlatformVersionResponse'
-            Prelude.<$> (x Core..@? "PlatformSummary")
-            Prelude.<*> (x Core..@? "Builder")
+            Prelude.<$> (x Data..@? "PlatformSummary")
+            Prelude.<*> (x Data..@? "Builder")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,32 +183,32 @@ instance Prelude.NFData CreatePlatformVersion where
       `Prelude.seq` Prelude.rnf platformVersion
       `Prelude.seq` Prelude.rnf platformDefinitionBundle
 
-instance Core.ToHeaders CreatePlatformVersion where
+instance Data.ToHeaders CreatePlatformVersion where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreatePlatformVersion where
+instance Data.ToPath CreatePlatformVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreatePlatformVersion where
+instance Data.ToQuery CreatePlatformVersion where
   toQuery CreatePlatformVersion' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreatePlatformVersion" :: Prelude.ByteString),
+          Data.=: ("CreatePlatformVersion" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "EnvironmentName" Core.=: environmentName,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
+        "EnvironmentName" Data.=: environmentName,
         "OptionSettings"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> optionSettings
             ),
-        "PlatformName" Core.=: platformName,
-        "PlatformVersion" Core.=: platformVersion,
+        "PlatformName" Data.=: platformName,
+        "PlatformVersion" Data.=: platformVersion,
         "PlatformDefinitionBundle"
-          Core.=: platformDefinitionBundle
+          Data.=: platformDefinitionBundle
       ]
 
 -- | /See:/ 'newCreatePlatformVersionResponse' smart constructor.

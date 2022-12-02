@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,7 +129,7 @@ instance Core.AWSRequest CreateApplication where
   response =
     Response.receiveXMLWrapper
       "CreateApplicationResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =
@@ -144,24 +145,24 @@ instance Prelude.NFData CreateApplication where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf applicationName
 
-instance Core.ToHeaders CreateApplication where
+instance Data.ToHeaders CreateApplication where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateApplication where
+instance Data.ToPath CreateApplication where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateApplication where
+instance Data.ToQuery CreateApplication where
   toQuery CreateApplication' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateApplication" :: Prelude.ByteString),
+          Data.=: ("CreateApplication" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
         "ResourceLifecycleConfig"
-          Core.=: resourceLifecycleConfig,
-        "Description" Core.=: description,
-        "ApplicationName" Core.=: applicationName
+          Data.=: resourceLifecycleConfig,
+        "Description" Data.=: description,
+        "ApplicationName" Data.=: applicationName
       ]

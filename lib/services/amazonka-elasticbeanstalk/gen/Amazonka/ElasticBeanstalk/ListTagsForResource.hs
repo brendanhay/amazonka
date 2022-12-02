@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,10 +100,10 @@ instance Core.AWSRequest ListTagsForResource where
       "ListTagsForResourceResult"
       ( \s h x ->
           ListTagsForResourceResponse'
-            Prelude.<$> ( x Core..@? "ResourceTags" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "ResourceTags" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "ResourceArn")
+            Prelude.<*> (x Data..@? "ResourceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,20 +115,20 @@ instance Prelude.NFData ListTagsForResource where
   rnf ListTagsForResource' {..} =
     Prelude.rnf resourceArn
 
-instance Core.ToHeaders ListTagsForResource where
+instance Data.ToHeaders ListTagsForResource where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListTagsForResource where
+instance Data.ToPath ListTagsForResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTagsForResource where
+instance Data.ToQuery ListTagsForResource where
   toQuery ListTagsForResource' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListTagsForResource" :: Prelude.ByteString),
+          Data.=: ("ListTagsForResource" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "ResourceArn" Core.=: resourceArn
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "ResourceArn" Data.=: resourceArn
       ]
 
 -- | /See:/ 'newListTagsForResourceResponse' smart constructor.

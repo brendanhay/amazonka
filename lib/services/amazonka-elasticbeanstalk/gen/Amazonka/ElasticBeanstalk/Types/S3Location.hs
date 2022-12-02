@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.S3Location where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The bucket and key of an item stored in Amazon S3.
@@ -61,11 +62,11 @@ s3Location_s3Bucket = Lens.lens (\S3Location' {s3Bucket} -> s3Bucket) (\s@S3Loca
 s3Location_s3Key :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
 s3Location_s3Key = Lens.lens (\S3Location' {s3Key} -> s3Key) (\s@S3Location' {} a -> s {s3Key = a} :: S3Location)
 
-instance Core.FromXML S3Location where
+instance Data.FromXML S3Location where
   parseXML x =
     S3Location'
-      Prelude.<$> (x Core..@? "S3Bucket")
-      Prelude.<*> (x Core..@? "S3Key")
+      Prelude.<$> (x Data..@? "S3Bucket")
+      Prelude.<*> (x Data..@? "S3Key")
 
 instance Prelude.Hashable S3Location where
   hashWithSalt _salt S3Location' {..} =
@@ -77,7 +78,7 @@ instance Prelude.NFData S3Location where
     Prelude.rnf s3Bucket
       `Prelude.seq` Prelude.rnf s3Key
 
-instance Core.ToQuery S3Location where
+instance Data.ToQuery S3Location where
   toQuery S3Location' {..} =
     Prelude.mconcat
-      ["S3Bucket" Core.=: s3Bucket, "S3Key" Core.=: s3Key]
+      ["S3Bucket" Data.=: s3Bucket, "S3Key" Data.=: s3Key]

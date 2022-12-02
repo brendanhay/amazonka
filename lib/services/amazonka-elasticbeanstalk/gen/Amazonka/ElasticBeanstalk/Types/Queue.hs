@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.Queue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a queue.
@@ -61,10 +62,10 @@ queue_name = Lens.lens (\Queue' {name} -> name) (\s@Queue' {} a -> s {name = a} 
 queue_url :: Lens.Lens' Queue (Prelude.Maybe Prelude.Text)
 queue_url = Lens.lens (\Queue' {url} -> url) (\s@Queue' {} a -> s {url = a} :: Queue)
 
-instance Core.FromXML Queue where
+instance Data.FromXML Queue where
   parseXML x =
     Queue'
-      Prelude.<$> (x Core..@? "Name") Prelude.<*> (x Core..@? "URL")
+      Prelude.<$> (x Data..@? "Name") Prelude.<*> (x Data..@? "URL")
 
 instance Prelude.Hashable Queue where
   hashWithSalt _salt Queue' {..} =

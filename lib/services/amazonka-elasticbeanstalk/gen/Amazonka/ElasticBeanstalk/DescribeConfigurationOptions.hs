@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -161,11 +162,11 @@ instance Core.AWSRequest DescribeConfigurationOptions where
       "DescribeConfigurationOptionsResult"
       ( \s h x ->
           DescribeConfigurationOptionsResponse'
-            Prelude.<$> ( x Core..@? "Options" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Options" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "SolutionStackName")
-            Prelude.<*> (x Core..@? "PlatformArn")
+            Prelude.<*> (x Data..@? "SolutionStackName")
+            Prelude.<*> (x Data..@? "PlatformArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,29 +191,29 @@ instance Prelude.NFData DescribeConfigurationOptions where
       `Prelude.seq` Prelude.rnf platformArn
       `Prelude.seq` Prelude.rnf applicationName
 
-instance Core.ToHeaders DescribeConfigurationOptions where
+instance Data.ToHeaders DescribeConfigurationOptions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeConfigurationOptions where
+instance Data.ToPath DescribeConfigurationOptions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeConfigurationOptions where
+instance Data.ToQuery DescribeConfigurationOptions where
   toQuery DescribeConfigurationOptions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeConfigurationOptions" ::
+          Data.=: ( "DescribeConfigurationOptions" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "TemplateName" Core.=: templateName,
-        "EnvironmentName" Core.=: environmentName,
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "TemplateName" Data.=: templateName,
+        "EnvironmentName" Data.=: environmentName,
         "Options"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> options),
-        "SolutionStackName" Core.=: solutionStackName,
-        "PlatformArn" Core.=: platformArn,
-        "ApplicationName" Core.=: applicationName
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> options),
+        "SolutionStackName" Data.=: solutionStackName,
+        "PlatformArn" Data.=: platformArn,
+        "ApplicationName" Data.=: applicationName
       ]
 
 -- | Describes the settings for a specified configuration set.

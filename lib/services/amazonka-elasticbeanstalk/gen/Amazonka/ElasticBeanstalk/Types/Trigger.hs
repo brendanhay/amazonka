@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.Trigger where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a trigger.
@@ -49,8 +50,8 @@ newTrigger = Trigger' {name = Prelude.Nothing}
 trigger_name :: Lens.Lens' Trigger (Prelude.Maybe Prelude.Text)
 trigger_name = Lens.lens (\Trigger' {name} -> name) (\s@Trigger' {} a -> s {name = a} :: Trigger)
 
-instance Core.FromXML Trigger where
-  parseXML x = Trigger' Prelude.<$> (x Core..@? "Name")
+instance Data.FromXML Trigger where
+  parseXML x = Trigger' Prelude.<$> (x Data..@? "Name")
 
 instance Prelude.Hashable Trigger where
   hashWithSalt _salt Trigger' {..} =

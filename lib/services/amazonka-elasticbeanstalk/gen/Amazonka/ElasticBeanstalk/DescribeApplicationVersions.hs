@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -169,10 +170,10 @@ instance Core.AWSRequest DescribeApplicationVersions where
       "DescribeApplicationVersionsResult"
       ( \s h x ->
           DescribeApplicationVersionsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "ApplicationVersions"
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "ApplicationVersions"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -191,29 +192,29 @@ instance Prelude.NFData DescribeApplicationVersions where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf applicationName
 
-instance Core.ToHeaders DescribeApplicationVersions where
+instance Data.ToHeaders DescribeApplicationVersions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeApplicationVersions where
+instance Data.ToPath DescribeApplicationVersions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeApplicationVersions where
+instance Data.ToQuery DescribeApplicationVersions where
   toQuery DescribeApplicationVersions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeApplicationVersions" ::
+          Data.=: ( "DescribeApplicationVersions" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
         "VersionLabels"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> versionLabels
             ),
-        "MaxRecords" Core.=: maxRecords,
-        "ApplicationName" Core.=: applicationName
+        "MaxRecords" Data.=: maxRecords,
+        "ApplicationName" Data.=: applicationName
       ]
 
 -- | Result message wrapping a list of application version descriptions.

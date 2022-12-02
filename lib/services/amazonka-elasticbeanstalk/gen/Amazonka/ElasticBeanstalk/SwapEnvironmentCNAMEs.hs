@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -179,26 +180,26 @@ instance Prelude.NFData SwapEnvironmentCNAMEs where
       `Prelude.seq` Prelude.rnf destinationEnvironmentId
       `Prelude.seq` Prelude.rnf destinationEnvironmentName
 
-instance Core.ToHeaders SwapEnvironmentCNAMEs where
+instance Data.ToHeaders SwapEnvironmentCNAMEs where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SwapEnvironmentCNAMEs where
+instance Data.ToPath SwapEnvironmentCNAMEs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SwapEnvironmentCNAMEs where
+instance Data.ToQuery SwapEnvironmentCNAMEs where
   toQuery SwapEnvironmentCNAMEs' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SwapEnvironmentCNAMEs" :: Prelude.ByteString),
+          Data.=: ("SwapEnvironmentCNAMEs" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "SourceEnvironmentId" Core.=: sourceEnvironmentId,
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "SourceEnvironmentId" Data.=: sourceEnvironmentId,
         "SourceEnvironmentName"
-          Core.=: sourceEnvironmentName,
+          Data.=: sourceEnvironmentName,
         "DestinationEnvironmentId"
-          Core.=: destinationEnvironmentId,
+          Data.=: destinationEnvironmentId,
         "DestinationEnvironmentName"
-          Core.=: destinationEnvironmentName
+          Data.=: destinationEnvironmentName
       ]
 
 -- | /See:/ 'newSwapEnvironmentCNAMEsResponse' smart constructor.

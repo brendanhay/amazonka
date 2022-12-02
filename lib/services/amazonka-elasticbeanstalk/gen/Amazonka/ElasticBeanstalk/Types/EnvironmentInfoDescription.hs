@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.EnvironmentInfoDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.EnvironmentInfoType
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,7 +38,7 @@ data EnvironmentInfoDescription = EnvironmentInfoDescription'
     -- | The Amazon EC2 Instance ID for this information.
     ec2InstanceId :: Prelude.Maybe Prelude.Text,
     -- | The time stamp when this information was retrieved.
-    sampleTimestamp :: Prelude.Maybe Core.ISO8601,
+    sampleTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The type of information retrieved.
     infoType :: Prelude.Maybe EnvironmentInfoType
   }
@@ -87,19 +88,19 @@ environmentInfoDescription_ec2InstanceId = Lens.lens (\EnvironmentInfoDescriptio
 
 -- | The time stamp when this information was retrieved.
 environmentInfoDescription_sampleTimestamp :: Lens.Lens' EnvironmentInfoDescription (Prelude.Maybe Prelude.UTCTime)
-environmentInfoDescription_sampleTimestamp = Lens.lens (\EnvironmentInfoDescription' {sampleTimestamp} -> sampleTimestamp) (\s@EnvironmentInfoDescription' {} a -> s {sampleTimestamp = a} :: EnvironmentInfoDescription) Prelude.. Lens.mapping Core._Time
+environmentInfoDescription_sampleTimestamp = Lens.lens (\EnvironmentInfoDescription' {sampleTimestamp} -> sampleTimestamp) (\s@EnvironmentInfoDescription' {} a -> s {sampleTimestamp = a} :: EnvironmentInfoDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The type of information retrieved.
 environmentInfoDescription_infoType :: Lens.Lens' EnvironmentInfoDescription (Prelude.Maybe EnvironmentInfoType)
 environmentInfoDescription_infoType = Lens.lens (\EnvironmentInfoDescription' {infoType} -> infoType) (\s@EnvironmentInfoDescription' {} a -> s {infoType = a} :: EnvironmentInfoDescription)
 
-instance Core.FromXML EnvironmentInfoDescription where
+instance Data.FromXML EnvironmentInfoDescription where
   parseXML x =
     EnvironmentInfoDescription'
-      Prelude.<$> (x Core..@? "Message")
-      Prelude.<*> (x Core..@? "Ec2InstanceId")
-      Prelude.<*> (x Core..@? "SampleTimestamp")
-      Prelude.<*> (x Core..@? "InfoType")
+      Prelude.<$> (x Data..@? "Message")
+      Prelude.<*> (x Data..@? "Ec2InstanceId")
+      Prelude.<*> (x Data..@? "SampleTimestamp")
+      Prelude.<*> (x Data..@? "InfoType")
 
 instance Prelude.Hashable EnvironmentInfoDescription where
   hashWithSalt _salt EnvironmentInfoDescription' {..} =

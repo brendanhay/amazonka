@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -139,7 +140,7 @@ instance Core.AWSRequest ComposeEnvironments where
   response =
     Response.receiveXMLWrapper
       "ComposeEnvironmentsResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable ComposeEnvironments where
   hashWithSalt _salt ComposeEnvironments' {..} =
@@ -153,24 +154,24 @@ instance Prelude.NFData ComposeEnvironments where
       `Prelude.seq` Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf applicationName
 
-instance Core.ToHeaders ComposeEnvironments where
+instance Data.ToHeaders ComposeEnvironments where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ComposeEnvironments where
+instance Data.ToPath ComposeEnvironments where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ComposeEnvironments where
+instance Data.ToQuery ComposeEnvironments where
   toQuery ComposeEnvironments' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ComposeEnvironments" :: Prelude.ByteString),
+          Data.=: ("ComposeEnvironments" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
         "VersionLabels"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> versionLabels
             ),
-        "GroupName" Core.=: groupName,
-        "ApplicationName" Core.=: applicationName
+        "GroupName" Data.=: groupName,
+        "ApplicationName" Data.=: applicationName
       ]

@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,21 +128,21 @@ instance Prelude.NFData RebuildEnvironment where
     Prelude.rnf environmentName
       `Prelude.seq` Prelude.rnf environmentId
 
-instance Core.ToHeaders RebuildEnvironment where
+instance Data.ToHeaders RebuildEnvironment where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RebuildEnvironment where
+instance Data.ToPath RebuildEnvironment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RebuildEnvironment where
+instance Data.ToQuery RebuildEnvironment where
   toQuery RebuildEnvironment' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RebuildEnvironment" :: Prelude.ByteString),
+          Data.=: ("RebuildEnvironment" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "EnvironmentName" Core.=: environmentName,
-        "EnvironmentId" Core.=: environmentId
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "EnvironmentName" Data.=: environmentName,
+        "EnvironmentId" Data.=: environmentId
       ]
 
 -- | /See:/ 'newRebuildEnvironmentResponse' smart constructor.

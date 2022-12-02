@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.SearchFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes criteria to restrict a list of results.
@@ -103,12 +104,12 @@ instance Prelude.NFData SearchFilter where
       `Prelude.seq` Prelude.rnf operator
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToQuery SearchFilter where
+instance Data.ToQuery SearchFilter where
   toQuery SearchFilter' {..} =
     Prelude.mconcat
-      [ "Attribute" Core.=: attribute,
-        "Operator" Core.=: operator,
+      [ "Attribute" Data.=: attribute,
+        "Operator" Data.=: operator,
         "Values"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> values)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> values)
       ]

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,8 +145,8 @@ instance
       "ValidateConfigurationSettingsResult"
       ( \s h x ->
           ValidateConfigurationSettingsResponse'
-            Prelude.<$> ( x Core..@? "Messages" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Messages" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -167,26 +168,26 @@ instance Prelude.NFData ValidateConfigurationSettings where
       `Prelude.seq` Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf optionSettings
 
-instance Core.ToHeaders ValidateConfigurationSettings where
+instance Data.ToHeaders ValidateConfigurationSettings where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ValidateConfigurationSettings where
+instance Data.ToPath ValidateConfigurationSettings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ValidateConfigurationSettings where
+instance Data.ToQuery ValidateConfigurationSettings where
   toQuery ValidateConfigurationSettings' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ValidateConfigurationSettings" ::
+          Data.=: ( "ValidateConfigurationSettings" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "TemplateName" Core.=: templateName,
-        "EnvironmentName" Core.=: environmentName,
-        "ApplicationName" Core.=: applicationName,
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "TemplateName" Data.=: templateName,
+        "EnvironmentName" Data.=: environmentName,
+        "ApplicationName" Data.=: applicationName,
         "OptionSettings"
-          Core.=: Core.toQueryList "member" optionSettings
+          Data.=: Data.toQueryList "member" optionSettings
       ]
 
 -- | Provides a list of validation messages.

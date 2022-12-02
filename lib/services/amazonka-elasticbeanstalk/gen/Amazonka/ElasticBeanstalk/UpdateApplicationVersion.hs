@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,7 +133,7 @@ instance Core.AWSRequest UpdateApplicationVersion where
   response =
     Response.receiveXMLWrapper
       "UpdateApplicationVersionResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable UpdateApplicationVersion where
   hashWithSalt _salt UpdateApplicationVersion' {..} =
@@ -146,20 +147,20 @@ instance Prelude.NFData UpdateApplicationVersion where
       `Prelude.seq` Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf versionLabel
 
-instance Core.ToHeaders UpdateApplicationVersion where
+instance Data.ToHeaders UpdateApplicationVersion where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UpdateApplicationVersion where
+instance Data.ToPath UpdateApplicationVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateApplicationVersion where
+instance Data.ToQuery UpdateApplicationVersion where
   toQuery UpdateApplicationVersion' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateApplicationVersion" :: Prelude.ByteString),
+          Data.=: ("UpdateApplicationVersion" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "Description" Core.=: description,
-        "ApplicationName" Core.=: applicationName,
-        "VersionLabel" Core.=: versionLabel
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "Description" Data.=: description,
+        "ApplicationName" Data.=: applicationName,
+        "VersionLabel" Data.=: versionLabel
       ]

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -150,10 +151,10 @@ instance
       "DescribeEnvironmentManagedActionHistoryResult"
       ( \s h x ->
           DescribeEnvironmentManagedActionHistoryResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-              Prelude.<*> ( x Core..@? "ManagedActionHistoryItems"
+            Prelude.<$> (x Data..@? "NextToken")
+              Prelude.<*> ( x Data..@? "ManagedActionHistoryItems"
                               Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Core.parseXMLList1 "member")
+                              Prelude.>>= Core.may (Data.parseXMLList1 "member")
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -181,33 +182,33 @@ instance
       `Prelude.seq` Prelude.rnf environmentId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeEnvironmentManagedActionHistory
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeEnvironmentManagedActionHistory
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeEnvironmentManagedActionHistory
   where
   toQuery DescribeEnvironmentManagedActionHistory' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeEnvironmentManagedActionHistory" ::
+          Data.=: ( "DescribeEnvironmentManagedActionHistory" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "EnvironmentName" Core.=: environmentName,
-        "MaxItems" Core.=: maxItems,
-        "EnvironmentId" Core.=: environmentId
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "EnvironmentName" Data.=: environmentName,
+        "MaxItems" Data.=: maxItems,
+        "EnvironmentId" Data.=: environmentId
       ]
 
 -- | A result message containing a list of completed and failed managed

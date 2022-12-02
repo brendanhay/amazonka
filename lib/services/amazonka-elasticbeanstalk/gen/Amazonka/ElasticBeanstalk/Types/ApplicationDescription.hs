@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.ApplicationDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -40,9 +41,9 @@ data ApplicationDescription = ApplicationDescription'
     -- | The names of the versions for this application.
     versions :: Prelude.Maybe [Prelude.Text],
     -- | The date when the application was last modified.
-    dateUpdated :: Prelude.Maybe Core.ISO8601,
+    dateUpdated :: Prelude.Maybe Data.ISO8601,
     -- | The date when the application was created.
-    dateCreated :: Prelude.Maybe Core.ISO8601,
+    dateCreated :: Prelude.Maybe Data.ISO8601,
     -- | The name of the application.
     applicationName :: Prelude.Maybe Prelude.Text
   }
@@ -110,32 +111,32 @@ applicationDescription_versions = Lens.lens (\ApplicationDescription' {versions}
 
 -- | The date when the application was last modified.
 applicationDescription_dateUpdated :: Lens.Lens' ApplicationDescription (Prelude.Maybe Prelude.UTCTime)
-applicationDescription_dateUpdated = Lens.lens (\ApplicationDescription' {dateUpdated} -> dateUpdated) (\s@ApplicationDescription' {} a -> s {dateUpdated = a} :: ApplicationDescription) Prelude.. Lens.mapping Core._Time
+applicationDescription_dateUpdated = Lens.lens (\ApplicationDescription' {dateUpdated} -> dateUpdated) (\s@ApplicationDescription' {} a -> s {dateUpdated = a} :: ApplicationDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The date when the application was created.
 applicationDescription_dateCreated :: Lens.Lens' ApplicationDescription (Prelude.Maybe Prelude.UTCTime)
-applicationDescription_dateCreated = Lens.lens (\ApplicationDescription' {dateCreated} -> dateCreated) (\s@ApplicationDescription' {} a -> s {dateCreated = a} :: ApplicationDescription) Prelude.. Lens.mapping Core._Time
+applicationDescription_dateCreated = Lens.lens (\ApplicationDescription' {dateCreated} -> dateCreated) (\s@ApplicationDescription' {} a -> s {dateCreated = a} :: ApplicationDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the application.
 applicationDescription_applicationName :: Lens.Lens' ApplicationDescription (Prelude.Maybe Prelude.Text)
 applicationDescription_applicationName = Lens.lens (\ApplicationDescription' {applicationName} -> applicationName) (\s@ApplicationDescription' {} a -> s {applicationName = a} :: ApplicationDescription)
 
-instance Core.FromXML ApplicationDescription where
+instance Data.FromXML ApplicationDescription where
   parseXML x =
     ApplicationDescription'
-      Prelude.<$> (x Core..@? "ApplicationArn")
-      Prelude.<*> (x Core..@? "ResourceLifecycleConfig")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> ( x Core..@? "ConfigurationTemplates"
+      Prelude.<$> (x Data..@? "ApplicationArn")
+      Prelude.<*> (x Data..@? "ResourceLifecycleConfig")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> ( x Data..@? "ConfigurationTemplates"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "Versions" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> ( x Data..@? "Versions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "DateUpdated")
-      Prelude.<*> (x Core..@? "DateCreated")
-      Prelude.<*> (x Core..@? "ApplicationName")
+      Prelude.<*> (x Data..@? "DateUpdated")
+      Prelude.<*> (x Data..@? "DateCreated")
+      Prelude.<*> (x Data..@? "ApplicationName")
 
 instance Prelude.Hashable ApplicationDescription where
   hashWithSalt _salt ApplicationDescription' {..} =

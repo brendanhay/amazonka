@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.ConfigurationDeploymentStatus
 import Amazonka.ElasticBeanstalk.Types.ConfigurationOptionSetting
 import qualified Amazonka.Prelude as Prelude
@@ -55,9 +56,9 @@ data ConfigurationSettingsDescription = ConfigurationSettingsDescription'
     -- | The name of the solution stack this configuration set uses.
     solutionStackName :: Prelude.Maybe Prelude.Text,
     -- | The date (in UTC time) when this configuration set was last modified.
-    dateUpdated :: Prelude.Maybe Core.ISO8601,
+    dateUpdated :: Prelude.Maybe Data.ISO8601,
     -- | The date (in UTC time) when this configuration set was created.
-    dateCreated :: Prelude.Maybe Core.ISO8601,
+    dateCreated :: Prelude.Maybe Data.ISO8601,
     -- | The ARN of the platform version.
     platformArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the application associated with this configuration set.
@@ -165,11 +166,11 @@ configurationSettingsDescription_solutionStackName = Lens.lens (\ConfigurationSe
 
 -- | The date (in UTC time) when this configuration set was last modified.
 configurationSettingsDescription_dateUpdated :: Lens.Lens' ConfigurationSettingsDescription (Prelude.Maybe Prelude.UTCTime)
-configurationSettingsDescription_dateUpdated = Lens.lens (\ConfigurationSettingsDescription' {dateUpdated} -> dateUpdated) (\s@ConfigurationSettingsDescription' {} a -> s {dateUpdated = a} :: ConfigurationSettingsDescription) Prelude.. Lens.mapping Core._Time
+configurationSettingsDescription_dateUpdated = Lens.lens (\ConfigurationSettingsDescription' {dateUpdated} -> dateUpdated) (\s@ConfigurationSettingsDescription' {} a -> s {dateUpdated = a} :: ConfigurationSettingsDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The date (in UTC time) when this configuration set was created.
 configurationSettingsDescription_dateCreated :: Lens.Lens' ConfigurationSettingsDescription (Prelude.Maybe Prelude.UTCTime)
-configurationSettingsDescription_dateCreated = Lens.lens (\ConfigurationSettingsDescription' {dateCreated} -> dateCreated) (\s@ConfigurationSettingsDescription' {} a -> s {dateCreated = a} :: ConfigurationSettingsDescription) Prelude.. Lens.mapping Core._Time
+configurationSettingsDescription_dateCreated = Lens.lens (\ConfigurationSettingsDescription' {dateCreated} -> dateCreated) (\s@ConfigurationSettingsDescription' {} a -> s {dateCreated = a} :: ConfigurationSettingsDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the platform version.
 configurationSettingsDescription_platformArn :: Lens.Lens' ConfigurationSettingsDescription (Prelude.Maybe Prelude.Text)
@@ -185,22 +186,22 @@ configurationSettingsDescription_optionSettings :: Lens.Lens' ConfigurationSetti
 configurationSettingsDescription_optionSettings = Lens.lens (\ConfigurationSettingsDescription' {optionSettings} -> optionSettings) (\s@ConfigurationSettingsDescription' {} a -> s {optionSettings = a} :: ConfigurationSettingsDescription) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromXML
+  Data.FromXML
     ConfigurationSettingsDescription
   where
   parseXML x =
     ConfigurationSettingsDescription'
-      Prelude.<$> (x Core..@? "DeploymentStatus")
-      Prelude.<*> (x Core..@? "TemplateName")
-      Prelude.<*> (x Core..@? "EnvironmentName")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "SolutionStackName")
-      Prelude.<*> (x Core..@? "DateUpdated")
-      Prelude.<*> (x Core..@? "DateCreated")
-      Prelude.<*> (x Core..@? "PlatformArn")
-      Prelude.<*> (x Core..@? "ApplicationName")
-      Prelude.<*> ( x Core..@? "OptionSettings" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> (x Data..@? "DeploymentStatus")
+      Prelude.<*> (x Data..@? "TemplateName")
+      Prelude.<*> (x Data..@? "EnvironmentName")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "SolutionStackName")
+      Prelude.<*> (x Data..@? "DateUpdated")
+      Prelude.<*> (x Data..@? "DateCreated")
+      Prelude.<*> (x Data..@? "PlatformArn")
+      Prelude.<*> (x Data..@? "ApplicationName")
+      Prelude.<*> ( x Data..@? "OptionSettings" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance

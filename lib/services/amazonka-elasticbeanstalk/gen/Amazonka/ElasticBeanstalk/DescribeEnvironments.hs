@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ data DescribeEnvironments = DescribeEnvironments'
     environmentIds :: Prelude.Maybe [Prelude.Text],
     -- | If specified when @IncludeDeleted@ is set to @true@, then environments
     -- deleted after this date are displayed.
-    includedDeletedBackTo :: Prelude.Maybe Core.ISO8601,
+    includedDeletedBackTo :: Prelude.Maybe Data.ISO8601,
     -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
     -- to include only those that have the specified names.
     environmentNames :: Prelude.Maybe [Prelude.Text],
@@ -184,7 +185,7 @@ describeEnvironments_environmentIds = Lens.lens (\DescribeEnvironments' {environ
 -- | If specified when @IncludeDeleted@ is set to @true@, then environments
 -- deleted after this date are displayed.
 describeEnvironments_includedDeletedBackTo :: Lens.Lens' DescribeEnvironments (Prelude.Maybe Prelude.UTCTime)
-describeEnvironments_includedDeletedBackTo = Lens.lens (\DescribeEnvironments' {includedDeletedBackTo} -> includedDeletedBackTo) (\s@DescribeEnvironments' {} a -> s {includedDeletedBackTo = a} :: DescribeEnvironments) Prelude.. Lens.mapping Core._Time
+describeEnvironments_includedDeletedBackTo = Lens.lens (\DescribeEnvironments' {includedDeletedBackTo} -> includedDeletedBackTo) (\s@DescribeEnvironments' {} a -> s {includedDeletedBackTo = a} :: DescribeEnvironments) Prelude.. Lens.mapping Data._Time
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those that have the specified names.
@@ -232,7 +233,7 @@ instance Core.AWSRequest DescribeEnvironments where
   response =
     Response.receiveXMLWrapper
       "DescribeEnvironmentsResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable DescribeEnvironments where
   hashWithSalt _salt DescribeEnvironments' {..} =
@@ -256,34 +257,34 @@ instance Prelude.NFData DescribeEnvironments where
       `Prelude.seq` Prelude.rnf versionLabel
       `Prelude.seq` Prelude.rnf applicationName
 
-instance Core.ToHeaders DescribeEnvironments where
+instance Data.ToHeaders DescribeEnvironments where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeEnvironments where
+instance Data.ToPath DescribeEnvironments where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEnvironments where
+instance Data.ToQuery DescribeEnvironments where
   toQuery DescribeEnvironments' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeEnvironments" :: Prelude.ByteString),
+          Data.=: ("DescribeEnvironments" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "IncludeDeleted" Core.=: includeDeleted,
-        "MaxRecords" Core.=: maxRecords,
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "IncludeDeleted" Data.=: includeDeleted,
+        "MaxRecords" Data.=: maxRecords,
         "EnvironmentIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> environmentIds
             ),
         "IncludedDeletedBackTo"
-          Core.=: includedDeletedBackTo,
+          Data.=: includedDeletedBackTo,
         "EnvironmentNames"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> environmentNames
             ),
-        "VersionLabel" Core.=: versionLabel,
-        "ApplicationName" Core.=: applicationName
+        "VersionLabel" Data.=: versionLabel,
+        "ApplicationName" Data.=: applicationName
       ]

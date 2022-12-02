@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,7 +122,7 @@ instance Core.AWSRequest DescribeEnvironmentResources where
       "DescribeEnvironmentResourcesResult"
       ( \s h x ->
           DescribeEnvironmentResourcesResponse'
-            Prelude.<$> (x Core..@? "EnvironmentResources")
+            Prelude.<$> (x Data..@? "EnvironmentResources")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,23 +139,23 @@ instance Prelude.NFData DescribeEnvironmentResources where
     Prelude.rnf environmentName
       `Prelude.seq` Prelude.rnf environmentId
 
-instance Core.ToHeaders DescribeEnvironmentResources where
+instance Data.ToHeaders DescribeEnvironmentResources where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeEnvironmentResources where
+instance Data.ToPath DescribeEnvironmentResources where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEnvironmentResources where
+instance Data.ToQuery DescribeEnvironmentResources where
   toQuery DescribeEnvironmentResources' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeEnvironmentResources" ::
+          Data.=: ( "DescribeEnvironmentResources" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "EnvironmentName" Core.=: environmentName,
-        "EnvironmentId" Core.=: environmentId
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "EnvironmentName" Data.=: environmentName,
+        "EnvironmentId" Data.=: environmentId
       ]
 
 -- | Result message containing a list of environment resource descriptions.

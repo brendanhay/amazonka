@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.PlatformDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.CustomAmi
 import Amazonka.ElasticBeanstalk.Types.PlatformFramework
 import Amazonka.ElasticBeanstalk.Types.PlatformProgrammingLanguage
@@ -58,7 +59,7 @@ data PlatformDescription = PlatformDescription'
     -- | The category of the platform version.
     platformCategory :: Prelude.Maybe Prelude.Text,
     -- | The date when the platform version was last updated.
-    dateUpdated :: Prelude.Maybe Core.ISO8601,
+    dateUpdated :: Prelude.Maybe Data.ISO8601,
     -- | The version of the platform version.
     platformVersion :: Prelude.Maybe Prelude.Text,
     -- | The state of the platform version in its lifecycle.
@@ -72,7 +73,7 @@ data PlatformDescription = PlatformDescription'
     -- | The frameworks supported by the platform version.
     frameworks :: Prelude.Maybe [PlatformFramework],
     -- | The date when the platform version was created.
-    dateCreated :: Prelude.Maybe Core.ISO8601,
+    dateCreated :: Prelude.Maybe Data.ISO8601,
     -- | The AWS account ID of the person who created the platform version.
     platformOwner :: Prelude.Maybe Prelude.Text,
     -- | The additions supported by the platform version.
@@ -221,7 +222,7 @@ platformDescription_platformCategory = Lens.lens (\PlatformDescription' {platfor
 
 -- | The date when the platform version was last updated.
 platformDescription_dateUpdated :: Lens.Lens' PlatformDescription (Prelude.Maybe Prelude.UTCTime)
-platformDescription_dateUpdated = Lens.lens (\PlatformDescription' {dateUpdated} -> dateUpdated) (\s@PlatformDescription' {} a -> s {dateUpdated = a} :: PlatformDescription) Prelude.. Lens.mapping Core._Time
+platformDescription_dateUpdated = Lens.lens (\PlatformDescription' {dateUpdated} -> dateUpdated) (\s@PlatformDescription' {} a -> s {dateUpdated = a} :: PlatformDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The version of the platform version.
 platformDescription_platformVersion :: Lens.Lens' PlatformDescription (Prelude.Maybe Prelude.Text)
@@ -243,7 +244,7 @@ platformDescription_frameworks = Lens.lens (\PlatformDescription' {frameworks} -
 
 -- | The date when the platform version was created.
 platformDescription_dateCreated :: Lens.Lens' PlatformDescription (Prelude.Maybe Prelude.UTCTime)
-platformDescription_dateCreated = Lens.lens (\PlatformDescription' {dateCreated} -> dateCreated) (\s@PlatformDescription' {} a -> s {dateCreated = a} :: PlatformDescription) Prelude.. Lens.mapping Core._Time
+platformDescription_dateCreated = Lens.lens (\PlatformDescription' {dateCreated} -> dateCreated) (\s@PlatformDescription' {} a -> s {dateCreated = a} :: PlatformDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The AWS account ID of the person who created the platform version.
 platformDescription_platformOwner :: Lens.Lens' PlatformDescription (Prelude.Maybe Prelude.Text)
@@ -261,43 +262,43 @@ platformDescription_platformBranchName = Lens.lens (\PlatformDescription' {platf
 platformDescription_platformArn :: Lens.Lens' PlatformDescription (Prelude.Maybe Prelude.Text)
 platformDescription_platformArn = Lens.lens (\PlatformDescription' {platformArn} -> platformArn) (\s@PlatformDescription' {} a -> s {platformArn = a} :: PlatformDescription)
 
-instance Core.FromXML PlatformDescription where
+instance Data.FromXML PlatformDescription where
   parseXML x =
     PlatformDescription'
-      Prelude.<$> (x Core..@? "PlatformBranchLifecycleState")
-      Prelude.<*> (x Core..@? "OperatingSystemName")
-      Prelude.<*> (x Core..@? "OperatingSystemVersion")
-      Prelude.<*> ( x Core..@? "ProgrammingLanguages"
+      Prelude.<$> (x Data..@? "PlatformBranchLifecycleState")
+      Prelude.<*> (x Data..@? "OperatingSystemName")
+      Prelude.<*> (x Data..@? "OperatingSystemVersion")
+      Prelude.<*> ( x Data..@? "ProgrammingLanguages"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "SupportedTierList"
+      Prelude.<*> ( x Data..@? "SupportedTierList"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "PlatformName")
-      Prelude.<*> (x Core..@? "Maintainer")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "PlatformStatus")
-      Prelude.<*> (x Core..@? "SolutionStackName")
-      Prelude.<*> ( x Core..@? "CustomAmiList" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "PlatformName")
+      Prelude.<*> (x Data..@? "Maintainer")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "PlatformStatus")
+      Prelude.<*> (x Data..@? "SolutionStackName")
+      Prelude.<*> ( x Data..@? "CustomAmiList" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "PlatformCategory")
-      Prelude.<*> (x Core..@? "DateUpdated")
-      Prelude.<*> (x Core..@? "PlatformVersion")
-      Prelude.<*> (x Core..@? "PlatformLifecycleState")
-      Prelude.<*> ( x Core..@? "Frameworks" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "PlatformCategory")
+      Prelude.<*> (x Data..@? "DateUpdated")
+      Prelude.<*> (x Data..@? "PlatformVersion")
+      Prelude.<*> (x Data..@? "PlatformLifecycleState")
+      Prelude.<*> ( x Data..@? "Frameworks" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "DateCreated")
-      Prelude.<*> (x Core..@? "PlatformOwner")
-      Prelude.<*> ( x Core..@? "SupportedAddonList"
+      Prelude.<*> (x Data..@? "DateCreated")
+      Prelude.<*> (x Data..@? "PlatformOwner")
+      Prelude.<*> ( x Data..@? "SupportedAddonList"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "PlatformBranchName")
-      Prelude.<*> (x Core..@? "PlatformArn")
+      Prelude.<*> (x Data..@? "PlatformBranchName")
+      Prelude.<*> (x Data..@? "PlatformArn")
 
 instance Prelude.Hashable PlatformDescription where
   hashWithSalt _salt PlatformDescription' {..} =

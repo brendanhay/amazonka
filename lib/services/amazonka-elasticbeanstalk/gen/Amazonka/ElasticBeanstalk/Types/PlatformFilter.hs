@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.PlatformFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes criteria to restrict the results when listing platform
@@ -148,12 +149,12 @@ instance Prelude.NFData PlatformFilter where
       `Prelude.seq` Prelude.rnf operator
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToQuery PlatformFilter where
+instance Data.ToQuery PlatformFilter where
   toQuery PlatformFilter' {..} =
     Prelude.mconcat
-      [ "Type" Core.=: type',
-        "Operator" Core.=: operator,
+      [ "Type" Data.=: type',
+        "Operator" Data.=: operator,
         "Values"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> values)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> values)
       ]

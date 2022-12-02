@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.PlatformBranchSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about a platform branch.
@@ -119,17 +120,17 @@ platformBranchSummary_platformName = Lens.lens (\PlatformBranchSummary' {platfor
 platformBranchSummary_lifecycleState :: Lens.Lens' PlatformBranchSummary (Prelude.Maybe Prelude.Text)
 platformBranchSummary_lifecycleState = Lens.lens (\PlatformBranchSummary' {lifecycleState} -> lifecycleState) (\s@PlatformBranchSummary' {} a -> s {lifecycleState = a} :: PlatformBranchSummary)
 
-instance Core.FromXML PlatformBranchSummary where
+instance Data.FromXML PlatformBranchSummary where
   parseXML x =
     PlatformBranchSummary'
-      Prelude.<$> (x Core..@? "BranchName")
-      Prelude.<*> ( x Core..@? "SupportedTierList"
+      Prelude.<$> (x Data..@? "BranchName")
+      Prelude.<*> ( x Data..@? "SupportedTierList"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "BranchOrder")
-      Prelude.<*> (x Core..@? "PlatformName")
-      Prelude.<*> (x Core..@? "LifecycleState")
+      Prelude.<*> (x Data..@? "BranchOrder")
+      Prelude.<*> (x Data..@? "PlatformName")
+      Prelude.<*> (x Data..@? "LifecycleState")
 
 instance Prelude.Hashable PlatformBranchSummary where
   hashWithSalt _salt PlatformBranchSummary' {..} =

@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.EventDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.EventSeverity
 import qualified Amazonka.Prelude as Prelude
 
@@ -39,7 +40,7 @@ data EventDescription = EventDescription'
     -- | The web service request ID for the activity of this event.
     requestId :: Prelude.Maybe Prelude.Text,
     -- | The date when the event occurred.
-    eventDate :: Prelude.Maybe Core.ISO8601,
+    eventDate :: Prelude.Maybe Data.ISO8601,
     -- | The ARN of the platform version.
     platformArn :: Prelude.Maybe Prelude.Text,
     -- | The release label for the application version associated with this
@@ -113,7 +114,7 @@ eventDescription_requestId = Lens.lens (\EventDescription' {requestId} -> reques
 
 -- | The date when the event occurred.
 eventDescription_eventDate :: Lens.Lens' EventDescription (Prelude.Maybe Prelude.UTCTime)
-eventDescription_eventDate = Lens.lens (\EventDescription' {eventDate} -> eventDate) (\s@EventDescription' {} a -> s {eventDate = a} :: EventDescription) Prelude.. Lens.mapping Core._Time
+eventDescription_eventDate = Lens.lens (\EventDescription' {eventDate} -> eventDate) (\s@EventDescription' {} a -> s {eventDate = a} :: EventDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the platform version.
 eventDescription_platformArn :: Lens.Lens' EventDescription (Prelude.Maybe Prelude.Text)
@@ -128,18 +129,18 @@ eventDescription_versionLabel = Lens.lens (\EventDescription' {versionLabel} -> 
 eventDescription_applicationName :: Lens.Lens' EventDescription (Prelude.Maybe Prelude.Text)
 eventDescription_applicationName = Lens.lens (\EventDescription' {applicationName} -> applicationName) (\s@EventDescription' {} a -> s {applicationName = a} :: EventDescription)
 
-instance Core.FromXML EventDescription where
+instance Data.FromXML EventDescription where
   parseXML x =
     EventDescription'
-      Prelude.<$> (x Core..@? "Message")
-      Prelude.<*> (x Core..@? "Severity")
-      Prelude.<*> (x Core..@? "TemplateName")
-      Prelude.<*> (x Core..@? "EnvironmentName")
-      Prelude.<*> (x Core..@? "RequestId")
-      Prelude.<*> (x Core..@? "EventDate")
-      Prelude.<*> (x Core..@? "PlatformArn")
-      Prelude.<*> (x Core..@? "VersionLabel")
-      Prelude.<*> (x Core..@? "ApplicationName")
+      Prelude.<$> (x Data..@? "Message")
+      Prelude.<*> (x Data..@? "Severity")
+      Prelude.<*> (x Data..@? "TemplateName")
+      Prelude.<*> (x Data..@? "EnvironmentName")
+      Prelude.<*> (x Data..@? "RequestId")
+      Prelude.<*> (x Data..@? "EventDate")
+      Prelude.<*> (x Data..@? "PlatformArn")
+      Prelude.<*> (x Data..@? "VersionLabel")
+      Prelude.<*> (x Data..@? "ApplicationName")
 
 instance Prelude.Hashable EventDescription where
   hashWithSalt _salt EventDescription' {..} =

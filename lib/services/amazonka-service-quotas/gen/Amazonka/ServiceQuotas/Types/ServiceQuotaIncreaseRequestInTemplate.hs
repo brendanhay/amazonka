@@ -21,6 +21,7 @@ module Amazonka.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a quota increase request.
@@ -117,22 +118,22 @@ serviceQuotaIncreaseRequestInTemplate_desiredValue :: Lens.Lens' ServiceQuotaInc
 serviceQuotaIncreaseRequestInTemplate_desiredValue = Lens.lens (\ServiceQuotaIncreaseRequestInTemplate' {desiredValue} -> desiredValue) (\s@ServiceQuotaIncreaseRequestInTemplate' {} a -> s {desiredValue = a} :: ServiceQuotaIncreaseRequestInTemplate)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ServiceQuotaIncreaseRequestInTemplate
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceQuotaIncreaseRequestInTemplate"
       ( \x ->
           ServiceQuotaIncreaseRequestInTemplate'
-            Prelude.<$> (x Core..:? "GlobalQuota")
-            Prelude.<*> (x Core..:? "QuotaCode")
-            Prelude.<*> (x Core..:? "ServiceCode")
-            Prelude.<*> (x Core..:? "QuotaName")
-            Prelude.<*> (x Core..:? "AwsRegion")
-            Prelude.<*> (x Core..:? "ServiceName")
-            Prelude.<*> (x Core..:? "Unit")
-            Prelude.<*> (x Core..:? "DesiredValue")
+            Prelude.<$> (x Data..:? "GlobalQuota")
+            Prelude.<*> (x Data..:? "QuotaCode")
+            Prelude.<*> (x Data..:? "ServiceCode")
+            Prelude.<*> (x Data..:? "QuotaName")
+            Prelude.<*> (x Data..:? "AwsRegion")
+            Prelude.<*> (x Data..:? "ServiceName")
+            Prelude.<*> (x Data..:? "Unit")
+            Prelude.<*> (x Data..:? "DesiredValue")
       )
 
 instance

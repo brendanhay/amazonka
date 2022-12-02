@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -72,7 +73,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetAssociationForServiceQuotaTemplateResponse'
-            Prelude.<$> (x Core..?> "ServiceQuotaTemplateAssociationStatus")
+            Prelude.<$> (x Data..?> "ServiceQuotaTemplateAssociationStatus")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -90,37 +91,37 @@ instance
   rnf _ = ()
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetAssociationForServiceQuotaTemplate
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ServiceQuotasV20190624.GetAssociationForServiceQuotaTemplate" ::
+              Data.=# ( "ServiceQuotasV20190624.GetAssociationForServiceQuotaTemplate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     GetAssociationForServiceQuotaTemplate
   where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetAssociationForServiceQuotaTemplate
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetAssociationForServiceQuotaTemplate
   where
   toQuery = Prelude.const Prelude.mempty

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -168,8 +169,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListRequestedServiceQuotaChangeHistoryByQuotaResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> ( x Core..?> "RequestedQuotas"
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> ( x Data..?> "RequestedQuotas"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -201,47 +202,47 @@ instance
         `Prelude.seq` Prelude.rnf quotaCode
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListRequestedServiceQuotaChangeHistoryByQuota
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistoryByQuota" ::
+              Data.=# ( "ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistoryByQuota" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ListRequestedServiceQuotaChangeHistoryByQuota
   where
   toJSON
     ListRequestedServiceQuotaChangeHistoryByQuota' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("NextToken" Core..=) Prelude.<$> nextToken,
-              ("Status" Core..=) Prelude.<$> status,
-              ("MaxResults" Core..=) Prelude.<$> maxResults,
-              Prelude.Just ("ServiceCode" Core..= serviceCode),
-              Prelude.Just ("QuotaCode" Core..= quotaCode)
+            [ ("NextToken" Data..=) Prelude.<$> nextToken,
+              ("Status" Data..=) Prelude.<$> status,
+              ("MaxResults" Data..=) Prelude.<$> maxResults,
+              Prelude.Just ("ServiceCode" Data..= serviceCode),
+              Prelude.Just ("QuotaCode" Data..= quotaCode)
             ]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListRequestedServiceQuotaChangeHistoryByQuota
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListRequestedServiceQuotaChangeHistoryByQuota
   where
   toQuery = Prelude.const Prelude.mempty

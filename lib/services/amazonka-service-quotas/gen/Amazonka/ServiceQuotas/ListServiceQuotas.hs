@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,8 +139,8 @@ instance Core.AWSRequest ListServiceQuotas where
     Response.receiveJSON
       ( \s h x ->
           ListServiceQuotasResponse'
-            Prelude.<$> (x Core..?> "Quotas" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Quotas" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,35 +156,35 @@ instance Prelude.NFData ListServiceQuotas where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf serviceCode
 
-instance Core.ToHeaders ListServiceQuotas where
+instance Data.ToHeaders ListServiceQuotas where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ServiceQuotasV20190624.ListServiceQuotas" ::
+              Data.=# ( "ServiceQuotasV20190624.ListServiceQuotas" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListServiceQuotas where
+instance Data.ToJSON ListServiceQuotas where
   toJSON ListServiceQuotas' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("ServiceCode" Core..= serviceCode)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("ServiceCode" Data..= serviceCode)
           ]
       )
 
-instance Core.ToPath ListServiceQuotas where
+instance Data.ToPath ListServiceQuotas where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListServiceQuotas where
+instance Data.ToQuery ListServiceQuotas where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListServiceQuotasResponse' smart constructor.

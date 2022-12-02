@@ -21,6 +21,7 @@ module Amazonka.ServiceQuotas.Types.MetricInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the CloudWatch metric that reflects quota usage.
@@ -86,18 +87,18 @@ metricInfo_metricDimensions = Lens.lens (\MetricInfo' {metricDimensions} -> metr
 metricInfo_metricNamespace :: Lens.Lens' MetricInfo (Prelude.Maybe Prelude.Text)
 metricInfo_metricNamespace = Lens.lens (\MetricInfo' {metricNamespace} -> metricNamespace) (\s@MetricInfo' {} a -> s {metricNamespace = a} :: MetricInfo)
 
-instance Core.FromJSON MetricInfo where
+instance Data.FromJSON MetricInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricInfo"
       ( \x ->
           MetricInfo'
-            Prelude.<$> (x Core..:? "MetricStatisticRecommendation")
-            Prelude.<*> (x Core..:? "MetricName")
-            Prelude.<*> ( x Core..:? "MetricDimensions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "MetricStatisticRecommendation")
+            Prelude.<*> (x Data..:? "MetricName")
+            Prelude.<*> ( x Data..:? "MetricDimensions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "MetricNamespace")
+            Prelude.<*> (x Data..:? "MetricNamespace")
       )
 
 instance Prelude.Hashable MetricInfo where

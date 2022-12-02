@@ -21,6 +21,7 @@ module Amazonka.ServiceQuotas.Types.ErrorReason where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceQuotas.Types.ErrorCode
 
@@ -98,14 +99,14 @@ errorReason_errorMessage = Lens.lens (\ErrorReason' {errorMessage} -> errorMessa
 errorReason_errorCode :: Lens.Lens' ErrorReason (Prelude.Maybe ErrorCode)
 errorReason_errorCode = Lens.lens (\ErrorReason' {errorCode} -> errorCode) (\s@ErrorReason' {} a -> s {errorCode = a} :: ErrorReason)
 
-instance Core.FromJSON ErrorReason where
+instance Data.FromJSON ErrorReason where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ErrorReason"
       ( \x ->
           ErrorReason'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable ErrorReason where

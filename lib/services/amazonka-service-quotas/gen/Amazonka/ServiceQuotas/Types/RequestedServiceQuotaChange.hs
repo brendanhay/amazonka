@@ -21,6 +21,7 @@ module Amazonka.ServiceQuotas.Types.RequestedServiceQuotaChange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceQuotas.Types.RequestStatus
 
@@ -38,7 +39,7 @@ data RequestedServiceQuotaChange = RequestedServiceQuotaChange'
     caseId :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the quota increase request was received and the
     -- case ID was created.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | The service identifier.
     serviceCode :: Prelude.Maybe Prelude.Text,
     -- | The state of the quota increase request.
@@ -46,7 +47,7 @@ data RequestedServiceQuotaChange = RequestedServiceQuotaChange'
     -- | The unique identifier.
     id :: Prelude.Maybe Prelude.Text,
     -- | The date and time of the most recent change.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     -- | The quota name.
     quotaName :: Prelude.Maybe Prelude.Text,
     -- | The service name.
@@ -136,7 +137,7 @@ requestedServiceQuotaChange_caseId = Lens.lens (\RequestedServiceQuotaChange' {c
 -- | The date and time when the quota increase request was received and the
 -- case ID was created.
 requestedServiceQuotaChange_created :: Lens.Lens' RequestedServiceQuotaChange (Prelude.Maybe Prelude.UTCTime)
-requestedServiceQuotaChange_created = Lens.lens (\RequestedServiceQuotaChange' {created} -> created) (\s@RequestedServiceQuotaChange' {} a -> s {created = a} :: RequestedServiceQuotaChange) Prelude.. Lens.mapping Core._Time
+requestedServiceQuotaChange_created = Lens.lens (\RequestedServiceQuotaChange' {created} -> created) (\s@RequestedServiceQuotaChange' {} a -> s {created = a} :: RequestedServiceQuotaChange) Prelude.. Lens.mapping Data._Time
 
 -- | The service identifier.
 requestedServiceQuotaChange_serviceCode :: Lens.Lens' RequestedServiceQuotaChange (Prelude.Maybe Prelude.Text)
@@ -152,7 +153,7 @@ requestedServiceQuotaChange_id = Lens.lens (\RequestedServiceQuotaChange' {id} -
 
 -- | The date and time of the most recent change.
 requestedServiceQuotaChange_lastUpdated :: Lens.Lens' RequestedServiceQuotaChange (Prelude.Maybe Prelude.UTCTime)
-requestedServiceQuotaChange_lastUpdated = Lens.lens (\RequestedServiceQuotaChange' {lastUpdated} -> lastUpdated) (\s@RequestedServiceQuotaChange' {} a -> s {lastUpdated = a} :: RequestedServiceQuotaChange) Prelude.. Lens.mapping Core._Time
+requestedServiceQuotaChange_lastUpdated = Lens.lens (\RequestedServiceQuotaChange' {lastUpdated} -> lastUpdated) (\s@RequestedServiceQuotaChange' {} a -> s {lastUpdated = a} :: RequestedServiceQuotaChange) Prelude.. Lens.mapping Data._Time
 
 -- | The quota name.
 requestedServiceQuotaChange_quotaName :: Lens.Lens' RequestedServiceQuotaChange (Prelude.Maybe Prelude.Text)
@@ -174,26 +175,26 @@ requestedServiceQuotaChange_unit = Lens.lens (\RequestedServiceQuotaChange' {uni
 requestedServiceQuotaChange_desiredValue :: Lens.Lens' RequestedServiceQuotaChange (Prelude.Maybe Prelude.Double)
 requestedServiceQuotaChange_desiredValue = Lens.lens (\RequestedServiceQuotaChange' {desiredValue} -> desiredValue) (\s@RequestedServiceQuotaChange' {} a -> s {desiredValue = a} :: RequestedServiceQuotaChange)
 
-instance Core.FromJSON RequestedServiceQuotaChange where
+instance Data.FromJSON RequestedServiceQuotaChange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RequestedServiceQuotaChange"
       ( \x ->
           RequestedServiceQuotaChange'
-            Prelude.<$> (x Core..:? "QuotaArn")
-            Prelude.<*> (x Core..:? "GlobalQuota")
-            Prelude.<*> (x Core..:? "QuotaCode")
-            Prelude.<*> (x Core..:? "CaseId")
-            Prelude.<*> (x Core..:? "Created")
-            Prelude.<*> (x Core..:? "ServiceCode")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "LastUpdated")
-            Prelude.<*> (x Core..:? "QuotaName")
-            Prelude.<*> (x Core..:? "ServiceName")
-            Prelude.<*> (x Core..:? "Requester")
-            Prelude.<*> (x Core..:? "Unit")
-            Prelude.<*> (x Core..:? "DesiredValue")
+            Prelude.<$> (x Data..:? "QuotaArn")
+            Prelude.<*> (x Data..:? "GlobalQuota")
+            Prelude.<*> (x Data..:? "QuotaCode")
+            Prelude.<*> (x Data..:? "CaseId")
+            Prelude.<*> (x Data..:? "Created")
+            Prelude.<*> (x Data..:? "ServiceCode")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "LastUpdated")
+            Prelude.<*> (x Data..:? "QuotaName")
+            Prelude.<*> (x Data..:? "ServiceName")
+            Prelude.<*> (x Data..:? "Requester")
+            Prelude.<*> (x Data..:? "Unit")
+            Prelude.<*> (x Data..:? "DesiredValue")
       )
 
 instance Prelude.Hashable RequestedServiceQuotaChange where

@@ -21,6 +21,7 @@ module Amazonka.ServiceQuotas.Types.ServiceInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a service.
@@ -61,14 +62,14 @@ serviceInfo_serviceCode = Lens.lens (\ServiceInfo' {serviceCode} -> serviceCode)
 serviceInfo_serviceName :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
 serviceInfo_serviceName = Lens.lens (\ServiceInfo' {serviceName} -> serviceName) (\s@ServiceInfo' {} a -> s {serviceName = a} :: ServiceInfo)
 
-instance Core.FromJSON ServiceInfo where
+instance Data.FromJSON ServiceInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceInfo"
       ( \x ->
           ServiceInfo'
-            Prelude.<$> (x Core..:? "ServiceCode")
-            Prelude.<*> (x Core..:? "ServiceName")
+            Prelude.<$> (x Data..:? "ServiceCode")
+            Prelude.<*> (x Data..:? "ServiceName")
       )
 
 instance Prelude.Hashable ServiceInfo where

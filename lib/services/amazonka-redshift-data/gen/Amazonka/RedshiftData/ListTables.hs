@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftData.Types
 import qualified Amazonka.Request as Request
@@ -293,8 +294,8 @@ instance Core.AWSRequest ListTables where
     Response.receiveJSON
       ( \s h x ->
           ListTablesResponse'
-            Prelude.<$> (x Core..?> "Tables" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Tables" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -324,42 +325,42 @@ instance Prelude.NFData ListTables where
       `Prelude.seq` Prelude.rnf schemaPattern
       `Prelude.seq` Prelude.rnf database
 
-instance Core.ToHeaders ListTables where
+instance Data.ToHeaders ListTables where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("RedshiftData.ListTables" :: Prelude.ByteString),
+              Data.=# ("RedshiftData.ListTables" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListTables where
+instance Data.ToJSON ListTables where
   toJSON ListTables' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClusterIdentifier" Core..=)
+          [ ("ClusterIdentifier" Data..=)
               Prelude.<$> clusterIdentifier,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("TablePattern" Core..=) Prelude.<$> tablePattern,
-            ("WorkgroupName" Core..=) Prelude.<$> workgroupName,
-            ("ConnectedDatabase" Core..=)
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("TablePattern" Data..=) Prelude.<$> tablePattern,
+            ("WorkgroupName" Data..=) Prelude.<$> workgroupName,
+            ("ConnectedDatabase" Data..=)
               Prelude.<$> connectedDatabase,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("SecretArn" Core..=) Prelude.<$> secretArn,
-            ("DbUser" Core..=) Prelude.<$> dbUser,
-            ("SchemaPattern" Core..=) Prelude.<$> schemaPattern,
-            Prelude.Just ("Database" Core..= database)
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("SecretArn" Data..=) Prelude.<$> secretArn,
+            ("DbUser" Data..=) Prelude.<$> dbUser,
+            ("SchemaPattern" Data..=) Prelude.<$> schemaPattern,
+            Prelude.Just ("Database" Data..= database)
           ]
       )
 
-instance Core.ToPath ListTables where
+instance Data.ToPath ListTables where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTables where
+instance Data.ToQuery ListTables where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTablesResponse' smart constructor.

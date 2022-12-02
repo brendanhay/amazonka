@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftData.Types
 import qualified Amazonka.Request as Request
@@ -257,8 +258,8 @@ instance Core.AWSRequest ListSchemas where
     Response.receiveJSON
       ( \s h x ->
           ListSchemasResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Schemas" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Schemas" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -286,41 +287,41 @@ instance Prelude.NFData ListSchemas where
       `Prelude.seq` Prelude.rnf schemaPattern
       `Prelude.seq` Prelude.rnf database
 
-instance Core.ToHeaders ListSchemas where
+instance Data.ToHeaders ListSchemas where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("RedshiftData.ListSchemas" :: Prelude.ByteString),
+              Data.=# ("RedshiftData.ListSchemas" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSchemas where
+instance Data.ToJSON ListSchemas where
   toJSON ListSchemas' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClusterIdentifier" Core..=)
+          [ ("ClusterIdentifier" Data..=)
               Prelude.<$> clusterIdentifier,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("WorkgroupName" Core..=) Prelude.<$> workgroupName,
-            ("ConnectedDatabase" Core..=)
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("WorkgroupName" Data..=) Prelude.<$> workgroupName,
+            ("ConnectedDatabase" Data..=)
               Prelude.<$> connectedDatabase,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("SecretArn" Core..=) Prelude.<$> secretArn,
-            ("DbUser" Core..=) Prelude.<$> dbUser,
-            ("SchemaPattern" Core..=) Prelude.<$> schemaPattern,
-            Prelude.Just ("Database" Core..= database)
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("SecretArn" Data..=) Prelude.<$> secretArn,
+            ("DbUser" Data..=) Prelude.<$> dbUser,
+            ("SchemaPattern" Data..=) Prelude.<$> schemaPattern,
+            Prelude.Just ("Database" Data..= database)
           ]
       )
 
-instance Core.ToPath ListSchemas where
+instance Data.ToPath ListSchemas where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSchemas where
+instance Data.ToQuery ListSchemas where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSchemasResponse' smart constructor.

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftData.Types
 import qualified Amazonka.Request as Request
@@ -241,9 +242,9 @@ instance Core.AWSRequest ListStatements where
     Response.receiveJSON
       ( \s h x ->
           ListStatementsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Statements" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Statements" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListStatements where
@@ -262,37 +263,37 @@ instance Prelude.NFData ListStatements where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf statementName
 
-instance Core.ToHeaders ListStatements where
+instance Data.ToHeaders ListStatements where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftData.ListStatements" ::
+              Data.=# ( "RedshiftData.ListStatements" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListStatements where
+instance Data.ToJSON ListStatements where
   toJSON ListStatements' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleLevel" Core..=) Prelude.<$> roleLevel,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Status" Core..=) Prelude.<$> status,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("StatementName" Core..=) Prelude.<$> statementName
+          [ ("RoleLevel" Data..=) Prelude.<$> roleLevel,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Status" Data..=) Prelude.<$> status,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("StatementName" Data..=) Prelude.<$> statementName
           ]
       )
 
-instance Core.ToPath ListStatements where
+instance Data.ToPath ListStatements where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListStatements where
+instance Data.ToQuery ListStatements where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListStatementsResponse' smart constructor.

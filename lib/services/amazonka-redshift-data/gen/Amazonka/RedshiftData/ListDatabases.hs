@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftData.Types
 import qualified Amazonka.Request as Request
@@ -224,8 +225,8 @@ instance Core.AWSRequest ListDatabases where
     Response.receiveJSON
       ( \s h x ->
           ListDatabasesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Databases" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Databases" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -249,38 +250,38 @@ instance Prelude.NFData ListDatabases where
       `Prelude.seq` Prelude.rnf dbUser
       `Prelude.seq` Prelude.rnf database
 
-instance Core.ToHeaders ListDatabases where
+instance Data.ToHeaders ListDatabases where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("RedshiftData.ListDatabases" :: Prelude.ByteString),
+              Data.=# ("RedshiftData.ListDatabases" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDatabases where
+instance Data.ToJSON ListDatabases where
   toJSON ListDatabases' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClusterIdentifier" Core..=)
+          [ ("ClusterIdentifier" Data..=)
               Prelude.<$> clusterIdentifier,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("WorkgroupName" Core..=) Prelude.<$> workgroupName,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("SecretArn" Core..=) Prelude.<$> secretArn,
-            ("DbUser" Core..=) Prelude.<$> dbUser,
-            Prelude.Just ("Database" Core..= database)
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("WorkgroupName" Data..=) Prelude.<$> workgroupName,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("SecretArn" Data..=) Prelude.<$> secretArn,
+            ("DbUser" Data..=) Prelude.<$> dbUser,
+            Prelude.Just ("Database" Data..= database)
           ]
       )
 
-instance Core.ToPath ListDatabases where
+instance Data.ToPath ListDatabases where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDatabases where
+instance Data.ToQuery ListDatabases where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDatabasesResponse' smart constructor.

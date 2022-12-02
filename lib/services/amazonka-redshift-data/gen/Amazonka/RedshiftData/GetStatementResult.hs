@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftData.Types
 import qualified Amazonka.Request as Request
@@ -153,11 +154,11 @@ instance Core.AWSRequest GetStatementResult where
     Response.receiveJSON
       ( \s h x ->
           GetStatementResultResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ColumnMetadata" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "TotalNumRows")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ColumnMetadata" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "TotalNumRows")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Records" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Records" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable GetStatementResult where
@@ -169,34 +170,34 @@ instance Prelude.NFData GetStatementResult where
   rnf GetStatementResult' {..} =
     Prelude.rnf nextToken `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders GetStatementResult where
+instance Data.ToHeaders GetStatementResult where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftData.GetStatementResult" ::
+              Data.=# ( "RedshiftData.GetStatementResult" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetStatementResult where
+instance Data.ToJSON GetStatementResult where
   toJSON GetStatementResult' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            Prelude.Just ("Id" Core..= id)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            Prelude.Just ("Id" Data..= id)
           ]
       )
 
-instance Core.ToPath GetStatementResult where
+instance Data.ToPath GetStatementResult where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetStatementResult where
+instance Data.ToQuery GetStatementResult where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetStatementResultResponse' smart constructor.

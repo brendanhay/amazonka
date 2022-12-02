@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.DryRunResults where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Results of a dry run performed in an update domain request.
@@ -94,14 +95,14 @@ dryRunResults_message = Lens.lens (\DryRunResults' {message} -> message) (\s@Dry
 dryRunResults_deploymentType :: Lens.Lens' DryRunResults (Prelude.Maybe Prelude.Text)
 dryRunResults_deploymentType = Lens.lens (\DryRunResults' {deploymentType} -> deploymentType) (\s@DryRunResults' {} a -> s {deploymentType = a} :: DryRunResults)
 
-instance Core.FromJSON DryRunResults where
+instance Data.FromJSON DryRunResults where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DryRunResults"
       ( \x ->
           DryRunResults'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "DeploymentType")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "DeploymentType")
       )
 
 instance Prelude.Hashable DryRunResults where

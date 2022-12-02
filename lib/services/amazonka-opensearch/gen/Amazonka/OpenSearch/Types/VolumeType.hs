@@ -29,13 +29,14 @@ module Amazonka.OpenSearch.Types.VolumeType
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The type of EBS volume that a domain uses. For more information, see
 -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/opensearch-createupdatedomains.html#opensearch-createdomain-configure-ebs Configuring EBS-based storage>.
 newtype VolumeType = VolumeType'
   { fromVolumeType ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -47,18 +48,18 @@ newtype VolumeType = VolumeType'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern VolumeType_Gp2 :: VolumeType

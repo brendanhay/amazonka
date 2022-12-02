@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.StorageType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.StorageTypeLimit
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,17 +73,17 @@ storageType_storageTypeLimits = Lens.lens (\StorageType' {storageTypeLimits} -> 
 storageType_storageTypeName :: Lens.Lens' StorageType (Prelude.Maybe Prelude.Text)
 storageType_storageTypeName = Lens.lens (\StorageType' {storageTypeName} -> storageTypeName) (\s@StorageType' {} a -> s {storageTypeName = a} :: StorageType)
 
-instance Core.FromJSON StorageType where
+instance Data.FromJSON StorageType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StorageType"
       ( \x ->
           StorageType'
-            Prelude.<$> (x Core..:? "StorageSubTypeName")
-            Prelude.<*> ( x Core..:? "StorageTypeLimits"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "StorageSubTypeName")
+            Prelude.<*> ( x Data..:? "StorageTypeLimits"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "StorageTypeName")
+            Prelude.<*> (x Data..:? "StorageTypeName")
       )
 
 instance Prelude.Hashable StorageType where

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest DeleteDomain where
     Response.receiveJSON
       ( \s h x ->
           DeleteDomainResponse'
-            Prelude.<$> (x Core..?> "DomainStatus")
+            Prelude.<$> (x Data..?> "DomainStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,17 +96,17 @@ instance Prelude.Hashable DeleteDomain where
 instance Prelude.NFData DeleteDomain where
   rnf DeleteDomain' {..} = Prelude.rnf domainName
 
-instance Core.ToHeaders DeleteDomain where
+instance Data.ToHeaders DeleteDomain where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteDomain where
+instance Data.ToPath DeleteDomain where
   toPath DeleteDomain' {..} =
     Prelude.mconcat
       [ "/2021-01-01/opensearch/domain/",
-        Core.toBS domainName
+        Data.toBS domainName
       ]
 
-instance Core.ToQuery DeleteDomain where
+instance Data.ToQuery DeleteDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The results of a @DeleteDomain@ request. Contains the status of the

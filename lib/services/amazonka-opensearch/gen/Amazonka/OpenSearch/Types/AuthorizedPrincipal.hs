@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.AuthorizedPrincipal where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.PrincipalType
 import qualified Amazonka.Prelude as Prelude
 
@@ -70,14 +71,14 @@ authorizedPrincipal_principal = Lens.lens (\AuthorizedPrincipal' {principal} -> 
 authorizedPrincipal_principalType :: Lens.Lens' AuthorizedPrincipal (Prelude.Maybe PrincipalType)
 authorizedPrincipal_principalType = Lens.lens (\AuthorizedPrincipal' {principalType} -> principalType) (\s@AuthorizedPrincipal' {} a -> s {principalType = a} :: AuthorizedPrincipal)
 
-instance Core.FromJSON AuthorizedPrincipal where
+instance Data.FromJSON AuthorizedPrincipal where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuthorizedPrincipal"
       ( \x ->
           AuthorizedPrincipal'
-            Prelude.<$> (x Core..:? "Principal")
-            Prelude.<*> (x Core..:? "PrincipalType")
+            Prelude.<$> (x Data..:? "Principal")
+            Prelude.<*> (x Data..:? "PrincipalType")
       )
 
 instance Prelude.Hashable AuthorizedPrincipal where

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,9 +90,9 @@ instance Core.AWSRequest GetUpgradeStatus where
     Response.receiveJSON
       ( \s h x ->
           GetUpgradeStatusResponse'
-            Prelude.<$> (x Core..?> "UpgradeStep")
-            Prelude.<*> (x Core..?> "UpgradeName")
-            Prelude.<*> (x Core..?> "StepStatus")
+            Prelude.<$> (x Data..?> "UpgradeStep")
+            Prelude.<*> (x Data..?> "UpgradeName")
+            Prelude.<*> (x Data..?> "StepStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -102,18 +103,18 @@ instance Prelude.Hashable GetUpgradeStatus where
 instance Prelude.NFData GetUpgradeStatus where
   rnf GetUpgradeStatus' {..} = Prelude.rnf domainName
 
-instance Core.ToHeaders GetUpgradeStatus where
+instance Data.ToHeaders GetUpgradeStatus where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetUpgradeStatus where
+instance Data.ToPath GetUpgradeStatus where
   toPath GetUpgradeStatus' {..} =
     Prelude.mconcat
       [ "/2021-01-01/opensearch/upgradeDomain/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/status"
       ]
 
-instance Core.ToQuery GetUpgradeStatus where
+instance Data.ToQuery GetUpgradeStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Container for the response returned by the @GetUpgradeStatus@ operation.

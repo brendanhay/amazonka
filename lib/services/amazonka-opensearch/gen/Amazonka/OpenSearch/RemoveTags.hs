@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,22 +101,22 @@ instance Prelude.NFData RemoveTags where
   rnf RemoveTags' {..} =
     Prelude.rnf arn `Prelude.seq` Prelude.rnf tagKeys
 
-instance Core.ToHeaders RemoveTags where
+instance Data.ToHeaders RemoveTags where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON RemoveTags where
+instance Data.ToJSON RemoveTags where
   toJSON RemoveTags' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ARN" Core..= arn),
-            Prelude.Just ("TagKeys" Core..= tagKeys)
+          [ Prelude.Just ("ARN" Data..= arn),
+            Prelude.Just ("TagKeys" Data..= tagKeys)
           ]
       )
 
-instance Core.ToPath RemoveTags where
+instance Data.ToPath RemoveTags where
   toPath = Prelude.const "/2021-01-01/tags-removal"
 
-instance Core.ToQuery RemoveTags where
+instance Data.ToQuery RemoveTags where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveTagsResponse' smart constructor.

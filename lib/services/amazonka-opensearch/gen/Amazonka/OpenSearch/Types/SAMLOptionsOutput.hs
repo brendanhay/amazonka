@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.SAMLOptionsOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.SAMLIdp
 import qualified Amazonka.Prelude as Prelude
 
@@ -89,17 +90,17 @@ sAMLOptionsOutput_idp = Lens.lens (\SAMLOptionsOutput' {idp} -> idp) (\s@SAMLOpt
 sAMLOptionsOutput_subjectKey :: Lens.Lens' SAMLOptionsOutput (Prelude.Maybe Prelude.Text)
 sAMLOptionsOutput_subjectKey = Lens.lens (\SAMLOptionsOutput' {subjectKey} -> subjectKey) (\s@SAMLOptionsOutput' {} a -> s {subjectKey = a} :: SAMLOptionsOutput)
 
-instance Core.FromJSON SAMLOptionsOutput where
+instance Data.FromJSON SAMLOptionsOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SAMLOptionsOutput"
       ( \x ->
           SAMLOptionsOutput'
-            Prelude.<$> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "SessionTimeoutMinutes")
-            Prelude.<*> (x Core..:? "RolesKey")
-            Prelude.<*> (x Core..:? "Idp")
-            Prelude.<*> (x Core..:? "SubjectKey")
+            Prelude.<$> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "SessionTimeoutMinutes")
+            Prelude.<*> (x Data..:? "RolesKey")
+            Prelude.<*> (x Data..:? "Idp")
+            Prelude.<*> (x Data..:? "SubjectKey")
       )
 
 instance Prelude.Hashable SAMLOptionsOutput where

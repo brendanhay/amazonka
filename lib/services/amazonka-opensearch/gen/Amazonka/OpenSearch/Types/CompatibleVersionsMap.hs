@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.CompatibleVersionsMap where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A map of OpenSearch or Elasticsearch versions and the versions you can
@@ -63,14 +64,14 @@ compatibleVersionsMap_targetVersions = Lens.lens (\CompatibleVersionsMap' {targe
 compatibleVersionsMap_sourceVersion :: Lens.Lens' CompatibleVersionsMap (Prelude.Maybe Prelude.Text)
 compatibleVersionsMap_sourceVersion = Lens.lens (\CompatibleVersionsMap' {sourceVersion} -> sourceVersion) (\s@CompatibleVersionsMap' {} a -> s {sourceVersion = a} :: CompatibleVersionsMap)
 
-instance Core.FromJSON CompatibleVersionsMap where
+instance Data.FromJSON CompatibleVersionsMap where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CompatibleVersionsMap"
       ( \x ->
           CompatibleVersionsMap'
-            Prelude.<$> (x Core..:? "TargetVersions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SourceVersion")
+            Prelude.<$> (x Data..:? "TargetVersions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SourceVersion")
       )
 
 instance Prelude.Hashable CompatibleVersionsMap where

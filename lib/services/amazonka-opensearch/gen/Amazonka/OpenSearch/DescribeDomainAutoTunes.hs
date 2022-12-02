@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,8 +124,8 @@ instance Core.AWSRequest DescribeDomainAutoTunes where
     Response.receiveJSON
       ( \s h x ->
           DescribeDomainAutoTunesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "AutoTunes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "AutoTunes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,18 +141,18 @@ instance Prelude.NFData DescribeDomainAutoTunes where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders DescribeDomainAutoTunes where
+instance Data.ToHeaders DescribeDomainAutoTunes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDomainAutoTunes where
+instance Data.ToPath DescribeDomainAutoTunes where
   toPath DescribeDomainAutoTunes' {..} =
     Prelude.mconcat
       [ "/2021-01-01/opensearch/domain/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/autoTunes"
       ]
 
-instance Core.ToQuery DescribeDomainAutoTunes where
+instance Data.ToQuery DescribeDomainAutoTunes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result of a @DescribeDomainAutoTunes@ request.

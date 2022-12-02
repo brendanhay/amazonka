@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,8 +134,8 @@ instance Core.AWSRequest ListInstanceTypeDetails where
     Response.receiveJSON
       ( \s h x ->
           ListInstanceTypeDetailsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "InstanceTypeDetails"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "InstanceTypeDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -154,22 +155,22 @@ instance Prelude.NFData ListInstanceTypeDetails where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf engineVersion
 
-instance Core.ToHeaders ListInstanceTypeDetails where
+instance Data.ToHeaders ListInstanceTypeDetails where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListInstanceTypeDetails where
+instance Data.ToPath ListInstanceTypeDetails where
   toPath ListInstanceTypeDetails' {..} =
     Prelude.mconcat
       [ "/2021-01-01/opensearch/instanceTypeDetails/",
-        Core.toBS engineVersion
+        Data.toBS engineVersion
       ]
 
-instance Core.ToQuery ListInstanceTypeDetails where
+instance Data.ToQuery ListInstanceTypeDetails where
   toQuery ListInstanceTypeDetails' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "domainName" Core.=: domainName,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "domainName" Data.=: domainName,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListInstanceTypeDetailsResponse' smart constructor.

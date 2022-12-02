@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.LogPublishingOption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies whether the Amazon OpenSearch Service domain publishes the
@@ -70,14 +71,14 @@ logPublishingOption_enabled = Lens.lens (\LogPublishingOption' {enabled} -> enab
 logPublishingOption_cloudWatchLogsLogGroupArn :: Lens.Lens' LogPublishingOption (Prelude.Maybe Prelude.Text)
 logPublishingOption_cloudWatchLogsLogGroupArn = Lens.lens (\LogPublishingOption' {cloudWatchLogsLogGroupArn} -> cloudWatchLogsLogGroupArn) (\s@LogPublishingOption' {} a -> s {cloudWatchLogsLogGroupArn = a} :: LogPublishingOption)
 
-instance Core.FromJSON LogPublishingOption where
+instance Data.FromJSON LogPublishingOption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogPublishingOption"
       ( \x ->
           LogPublishingOption'
-            Prelude.<$> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "CloudWatchLogsLogGroupArn")
+            Prelude.<$> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "CloudWatchLogsLogGroupArn")
       )
 
 instance Prelude.Hashable LogPublishingOption where
@@ -90,12 +91,12 @@ instance Prelude.NFData LogPublishingOption where
     Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf cloudWatchLogsLogGroupArn
 
-instance Core.ToJSON LogPublishingOption where
+instance Data.ToJSON LogPublishingOption where
   toJSON LogPublishingOption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Enabled" Core..=) Prelude.<$> enabled,
-            ("CloudWatchLogsLogGroupArn" Core..=)
+          [ ("Enabled" Data..=) Prelude.<$> enabled,
+            ("CloudWatchLogsLogGroupArn" Data..=)
               Prelude.<$> cloudWatchLogsLogGroupArn
           ]
       )

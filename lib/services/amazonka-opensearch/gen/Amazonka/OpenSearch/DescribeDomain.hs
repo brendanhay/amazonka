@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest DescribeDomain where
       ( \s h x ->
           DescribeDomainResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "DomainStatus")
+            Prelude.<*> (x Data..:> "DomainStatus")
       )
 
 instance Prelude.Hashable DescribeDomain where
@@ -98,17 +99,17 @@ instance Prelude.Hashable DescribeDomain where
 instance Prelude.NFData DescribeDomain where
   rnf DescribeDomain' {..} = Prelude.rnf domainName
 
-instance Core.ToHeaders DescribeDomain where
+instance Data.ToHeaders DescribeDomain where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDomain where
+instance Data.ToPath DescribeDomain where
   toPath DescribeDomain' {..} =
     Prelude.mconcat
       [ "/2021-01-01/opensearch/domain/",
-        Core.toBS domainName
+        Data.toBS domainName
       ]
 
-instance Core.ToQuery DescribeDomain where
+instance Data.ToQuery DescribeDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the status of the domain specified in the request.

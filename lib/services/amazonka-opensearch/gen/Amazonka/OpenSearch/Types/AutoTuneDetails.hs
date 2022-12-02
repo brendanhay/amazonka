@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.AutoTuneDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.ScheduledAutoTuneDetails
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,13 +57,13 @@ newAutoTuneDetails =
 autoTuneDetails_scheduledAutoTuneDetails :: Lens.Lens' AutoTuneDetails (Prelude.Maybe ScheduledAutoTuneDetails)
 autoTuneDetails_scheduledAutoTuneDetails = Lens.lens (\AutoTuneDetails' {scheduledAutoTuneDetails} -> scheduledAutoTuneDetails) (\s@AutoTuneDetails' {} a -> s {scheduledAutoTuneDetails = a} :: AutoTuneDetails)
 
-instance Core.FromJSON AutoTuneDetails where
+instance Data.FromJSON AutoTuneDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoTuneDetails"
       ( \x ->
           AutoTuneDetails'
-            Prelude.<$> (x Core..:? "ScheduledAutoTuneDetails")
+            Prelude.<$> (x Data..:? "ScheduledAutoTuneDetails")
       )
 
 instance Prelude.Hashable AutoTuneDetails where

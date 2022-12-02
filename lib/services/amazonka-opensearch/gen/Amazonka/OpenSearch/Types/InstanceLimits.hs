@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.InstanceLimits where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.InstanceCountLimits
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,13 +59,13 @@ newInstanceLimits =
 instanceLimits_instanceCountLimits :: Lens.Lens' InstanceLimits (Prelude.Maybe InstanceCountLimits)
 instanceLimits_instanceCountLimits = Lens.lens (\InstanceLimits' {instanceCountLimits} -> instanceCountLimits) (\s@InstanceLimits' {} a -> s {instanceCountLimits = a} :: InstanceLimits)
 
-instance Core.FromJSON InstanceLimits where
+instance Data.FromJSON InstanceLimits where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceLimits"
       ( \x ->
           InstanceLimits'
-            Prelude.<$> (x Core..:? "InstanceCountLimits")
+            Prelude.<$> (x Data..:? "InstanceCountLimits")
       )
 
 instance Prelude.Hashable InstanceLimits where

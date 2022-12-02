@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.InboundConnectionStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.InboundConnectionStatusCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -120,14 +121,14 @@ inboundConnectionStatus_message = Lens.lens (\InboundConnectionStatus' {message}
 inboundConnectionStatus_statusCode :: Lens.Lens' InboundConnectionStatus (Prelude.Maybe InboundConnectionStatusCode)
 inboundConnectionStatus_statusCode = Lens.lens (\InboundConnectionStatus' {statusCode} -> statusCode) (\s@InboundConnectionStatus' {} a -> s {statusCode = a} :: InboundConnectionStatus)
 
-instance Core.FromJSON InboundConnectionStatus where
+instance Data.FromJSON InboundConnectionStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InboundConnectionStatus"
       ( \x ->
           InboundConnectionStatus'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "StatusCode")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "StatusCode")
       )
 
 instance Prelude.Hashable InboundConnectionStatus where

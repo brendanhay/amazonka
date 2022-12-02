@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.VPCDerivedInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the subnets and security groups for an Amazon
@@ -90,20 +91,20 @@ vPCDerivedInfo_vPCId = Lens.lens (\VPCDerivedInfo' {vPCId} -> vPCId) (\s@VPCDeri
 vPCDerivedInfo_subnetIds :: Lens.Lens' VPCDerivedInfo (Prelude.Maybe [Prelude.Text])
 vPCDerivedInfo_subnetIds = Lens.lens (\VPCDerivedInfo' {subnetIds} -> subnetIds) (\s@VPCDerivedInfo' {} a -> s {subnetIds = a} :: VPCDerivedInfo) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON VPCDerivedInfo where
+instance Data.FromJSON VPCDerivedInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VPCDerivedInfo"
       ( \x ->
           VPCDerivedInfo'
-            Prelude.<$> ( x Core..:? "SecurityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "SecurityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "AvailabilityZones"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "AvailabilityZones"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "VPCId")
-            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "VPCId")
+            Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable VPCDerivedInfo where

@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.AWSDomainInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an Amazon OpenSearch Service domain.
@@ -72,15 +73,15 @@ aWSDomainInformation_region = Lens.lens (\AWSDomainInformation' {region} -> regi
 aWSDomainInformation_domainName :: Lens.Lens' AWSDomainInformation Prelude.Text
 aWSDomainInformation_domainName = Lens.lens (\AWSDomainInformation' {domainName} -> domainName) (\s@AWSDomainInformation' {} a -> s {domainName = a} :: AWSDomainInformation)
 
-instance Core.FromJSON AWSDomainInformation where
+instance Data.FromJSON AWSDomainInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AWSDomainInformation"
       ( \x ->
           AWSDomainInformation'
-            Prelude.<$> (x Core..:? "OwnerId")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..: "DomainName")
+            Prelude.<$> (x Data..:? "OwnerId")
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..: "DomainName")
       )
 
 instance Prelude.Hashable AWSDomainInformation where
@@ -95,12 +96,12 @@ instance Prelude.NFData AWSDomainInformation where
       `Prelude.seq` Prelude.rnf region
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToJSON AWSDomainInformation where
+instance Data.ToJSON AWSDomainInformation where
   toJSON AWSDomainInformation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OwnerId" Core..=) Prelude.<$> ownerId,
-            ("Region" Core..=) Prelude.<$> region,
-            Prelude.Just ("DomainName" Core..= domainName)
+          [ ("OwnerId" Data..=) Prelude.<$> ownerId,
+            ("Region" Data..=) Prelude.<$> region,
+            Prelude.Just ("DomainName" Data..= domainName)
           ]
       )

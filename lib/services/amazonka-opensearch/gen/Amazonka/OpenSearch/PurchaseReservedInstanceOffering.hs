@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,8 +119,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           PurchaseReservedInstanceOfferingResponse'
-            Prelude.<$> (x Core..?> "ReservedInstanceId")
-            Prelude.<*> (x Core..?> "ReservationName")
+            Prelude.<$> (x Data..?> "ReservedInstanceId")
+            Prelude.<*> (x Data..?> "ReservationName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,32 +145,32 @@ instance
       `Prelude.seq` Prelude.rnf reservationName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PurchaseReservedInstanceOffering
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON PurchaseReservedInstanceOffering where
+instance Data.ToJSON PurchaseReservedInstanceOffering where
   toJSON PurchaseReservedInstanceOffering' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InstanceCount" Core..=) Prelude.<$> instanceCount,
+          [ ("InstanceCount" Data..=) Prelude.<$> instanceCount,
             Prelude.Just
               ( "ReservedInstanceOfferingId"
-                  Core..= reservedInstanceOfferingId
+                  Data..= reservedInstanceOfferingId
               ),
             Prelude.Just
-              ("ReservationName" Core..= reservationName)
+              ("ReservationName" Data..= reservationName)
           ]
       )
 
-instance Core.ToPath PurchaseReservedInstanceOffering where
+instance Data.ToPath PurchaseReservedInstanceOffering where
   toPath =
     Prelude.const
       "/2021-01-01/opensearch/purchaseReservedInstanceOffering"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PurchaseReservedInstanceOffering
   where
   toQuery = Prelude.const Prelude.mempty

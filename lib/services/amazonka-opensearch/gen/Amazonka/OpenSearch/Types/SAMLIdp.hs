@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.SAMLIdp where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The SAML identity povider information.
@@ -65,14 +66,14 @@ sAMLIdp_metadataContent = Lens.lens (\SAMLIdp' {metadataContent} -> metadataCont
 sAMLIdp_entityId :: Lens.Lens' SAMLIdp Prelude.Text
 sAMLIdp_entityId = Lens.lens (\SAMLIdp' {entityId} -> entityId) (\s@SAMLIdp' {} a -> s {entityId = a} :: SAMLIdp)
 
-instance Core.FromJSON SAMLIdp where
+instance Data.FromJSON SAMLIdp where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SAMLIdp"
       ( \x ->
           SAMLIdp'
-            Prelude.<$> (x Core..: "MetadataContent")
-            Prelude.<*> (x Core..: "EntityId")
+            Prelude.<$> (x Data..: "MetadataContent")
+            Prelude.<*> (x Data..: "EntityId")
       )
 
 instance Prelude.Hashable SAMLIdp where
@@ -85,12 +86,12 @@ instance Prelude.NFData SAMLIdp where
     Prelude.rnf metadataContent
       `Prelude.seq` Prelude.rnf entityId
 
-instance Core.ToJSON SAMLIdp where
+instance Data.ToJSON SAMLIdp where
   toJSON SAMLIdp' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("MetadataContent" Core..= metadataContent),
-            Prelude.Just ("EntityId" Core..= entityId)
+              ("MetadataContent" Data..= metadataContent),
+            Prelude.Just ("EntityId" Data..= entityId)
           ]
       )

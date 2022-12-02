@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,7 +92,7 @@ instance Core.AWSRequest DeleteInboundConnection where
     Response.receiveJSON
       ( \s h x ->
           DeleteInboundConnectionResponse'
-            Prelude.<$> (x Core..?> "Connection")
+            Prelude.<$> (x Data..?> "Connection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,17 +104,17 @@ instance Prelude.NFData DeleteInboundConnection where
   rnf DeleteInboundConnection' {..} =
     Prelude.rnf connectionId
 
-instance Core.ToHeaders DeleteInboundConnection where
+instance Data.ToHeaders DeleteInboundConnection where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteInboundConnection where
+instance Data.ToPath DeleteInboundConnection where
   toPath DeleteInboundConnection' {..} =
     Prelude.mconcat
       [ "/2021-01-01/opensearch/cc/inboundConnection/",
-        Core.toBS connectionId
+        Data.toBS connectionId
       ]
 
-instance Core.ToQuery DeleteInboundConnection where
+instance Data.ToQuery DeleteInboundConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The results of a @DeleteInboundConnection@ operation. Contains details

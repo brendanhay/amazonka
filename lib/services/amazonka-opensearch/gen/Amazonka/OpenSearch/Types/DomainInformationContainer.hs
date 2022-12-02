@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.DomainInformationContainer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.AWSDomainInformation
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newDomainInformationContainer =
 domainInformationContainer_aWSDomainInformation :: Lens.Lens' DomainInformationContainer (Prelude.Maybe AWSDomainInformation)
 domainInformationContainer_aWSDomainInformation = Lens.lens (\DomainInformationContainer' {aWSDomainInformation} -> aWSDomainInformation) (\s@DomainInformationContainer' {} a -> s {aWSDomainInformation = a} :: DomainInformationContainer)
 
-instance Core.FromJSON DomainInformationContainer where
+instance Data.FromJSON DomainInformationContainer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainInformationContainer"
       ( \x ->
           DomainInformationContainer'
-            Prelude.<$> (x Core..:? "AWSDomainInformation")
+            Prelude.<$> (x Data..:? "AWSDomainInformation")
       )
 
 instance Prelude.Hashable DomainInformationContainer where
@@ -71,11 +72,11 @@ instance Prelude.NFData DomainInformationContainer where
   rnf DomainInformationContainer' {..} =
     Prelude.rnf aWSDomainInformation
 
-instance Core.ToJSON DomainInformationContainer where
+instance Data.ToJSON DomainInformationContainer where
   toJSON DomainInformationContainer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AWSDomainInformation" Core..=)
+          [ ("AWSDomainInformation" Data..=)
               Prelude.<$> aWSDomainInformation
           ]
       )

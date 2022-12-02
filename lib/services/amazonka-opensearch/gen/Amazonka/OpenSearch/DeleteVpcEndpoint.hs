@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest DeleteVpcEndpoint where
       ( \s h x ->
           DeleteVpcEndpointResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "VpcEndpointSummary")
+            Prelude.<*> (x Data..:> "VpcEndpointSummary")
       )
 
 instance Prelude.Hashable DeleteVpcEndpoint where
@@ -95,17 +96,17 @@ instance Prelude.NFData DeleteVpcEndpoint where
   rnf DeleteVpcEndpoint' {..} =
     Prelude.rnf vpcEndpointId
 
-instance Core.ToHeaders DeleteVpcEndpoint where
+instance Data.ToHeaders DeleteVpcEndpoint where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteVpcEndpoint where
+instance Data.ToPath DeleteVpcEndpoint where
   toPath DeleteVpcEndpoint' {..} =
     Prelude.mconcat
       [ "/2021-01-01/opensearch/vpcEndpoints/",
-        Core.toBS vpcEndpointId
+        Data.toBS vpcEndpointId
       ]
 
-instance Core.ToQuery DeleteVpcEndpoint where
+instance Data.ToQuery DeleteVpcEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteVpcEndpointResponse' smart constructor.

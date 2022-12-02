@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.ScheduledAutoTuneDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.ScheduledAutoTuneActionType
 import Amazonka.OpenSearch.Types.ScheduledAutoTuneSeverityType
 import qualified Amazonka.Prelude as Prelude
@@ -37,7 +38,7 @@ data ScheduledAutoTuneDetails = ScheduledAutoTuneDetails'
     -- | The type of Auto-Tune action.
     actionType :: Prelude.Maybe ScheduledAutoTuneActionType,
     -- | The date and time when the Auto-Tune action is scheduled for the domain.
-    date :: Prelude.Maybe Core.POSIX,
+    date :: Prelude.Maybe Data.POSIX,
     -- | A description of the Auto-Tune action.
     action :: Prelude.Maybe Prelude.Text
   }
@@ -81,22 +82,22 @@ scheduledAutoTuneDetails_actionType = Lens.lens (\ScheduledAutoTuneDetails' {act
 
 -- | The date and time when the Auto-Tune action is scheduled for the domain.
 scheduledAutoTuneDetails_date :: Lens.Lens' ScheduledAutoTuneDetails (Prelude.Maybe Prelude.UTCTime)
-scheduledAutoTuneDetails_date = Lens.lens (\ScheduledAutoTuneDetails' {date} -> date) (\s@ScheduledAutoTuneDetails' {} a -> s {date = a} :: ScheduledAutoTuneDetails) Prelude.. Lens.mapping Core._Time
+scheduledAutoTuneDetails_date = Lens.lens (\ScheduledAutoTuneDetails' {date} -> date) (\s@ScheduledAutoTuneDetails' {} a -> s {date = a} :: ScheduledAutoTuneDetails) Prelude.. Lens.mapping Data._Time
 
 -- | A description of the Auto-Tune action.
 scheduledAutoTuneDetails_action :: Lens.Lens' ScheduledAutoTuneDetails (Prelude.Maybe Prelude.Text)
 scheduledAutoTuneDetails_action = Lens.lens (\ScheduledAutoTuneDetails' {action} -> action) (\s@ScheduledAutoTuneDetails' {} a -> s {action = a} :: ScheduledAutoTuneDetails)
 
-instance Core.FromJSON ScheduledAutoTuneDetails where
+instance Data.FromJSON ScheduledAutoTuneDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScheduledAutoTuneDetails"
       ( \x ->
           ScheduledAutoTuneDetails'
-            Prelude.<$> (x Core..:? "Severity")
-            Prelude.<*> (x Core..:? "ActionType")
-            Prelude.<*> (x Core..:? "Date")
-            Prelude.<*> (x Core..:? "Action")
+            Prelude.<$> (x Data..:? "Severity")
+            Prelude.<*> (x Data..:? "ActionType")
+            Prelude.<*> (x Data..:? "Date")
+            Prelude.<*> (x Data..:? "Action")
       )
 
 instance Prelude.Hashable ScheduledAutoTuneDetails where

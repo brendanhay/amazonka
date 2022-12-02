@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.ClusterConfigStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.ClusterConfig
 import Amazonka.OpenSearch.Types.OptionStatus
 import qualified Amazonka.Prelude as Prelude
@@ -67,14 +68,14 @@ clusterConfigStatus_options = Lens.lens (\ClusterConfigStatus' {options} -> opti
 clusterConfigStatus_status :: Lens.Lens' ClusterConfigStatus OptionStatus
 clusterConfigStatus_status = Lens.lens (\ClusterConfigStatus' {status} -> status) (\s@ClusterConfigStatus' {} a -> s {status = a} :: ClusterConfigStatus)
 
-instance Core.FromJSON ClusterConfigStatus where
+instance Data.FromJSON ClusterConfigStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClusterConfigStatus"
       ( \x ->
           ClusterConfigStatus'
-            Prelude.<$> (x Core..: "Options")
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..: "Options")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance Prelude.Hashable ClusterConfigStatus where

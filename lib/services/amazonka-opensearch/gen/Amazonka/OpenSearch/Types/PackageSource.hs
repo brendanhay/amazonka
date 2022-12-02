@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.PackageSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon S3 location to import the package from.
@@ -71,11 +72,11 @@ instance Prelude.NFData PackageSource where
     Prelude.rnf s3BucketName
       `Prelude.seq` Prelude.rnf s3Key
 
-instance Core.ToJSON PackageSource where
+instance Data.ToJSON PackageSource where
   toJSON PackageSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3BucketName" Core..=) Prelude.<$> s3BucketName,
-            ("S3Key" Core..=) Prelude.<$> s3Key
+          [ ("S3BucketName" Data..=) Prelude.<$> s3BucketName,
+            ("S3Key" Data..=) Prelude.<$> s3Key
           ]
       )

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,11 +124,11 @@ instance Core.AWSRequest CreateOutboundConnection where
     Response.receiveJSON
       ( \s h x ->
           CreateOutboundConnectionResponse'
-            Prelude.<$> (x Core..?> "ConnectionAlias")
-            Prelude.<*> (x Core..?> "RemoteDomainInfo")
-            Prelude.<*> (x Core..?> "ConnectionId")
-            Prelude.<*> (x Core..?> "LocalDomainInfo")
-            Prelude.<*> (x Core..?> "ConnectionStatus")
+            Prelude.<$> (x Data..?> "ConnectionAlias")
+            Prelude.<*> (x Data..?> "RemoteDomainInfo")
+            Prelude.<*> (x Data..?> "ConnectionId")
+            Prelude.<*> (x Data..?> "LocalDomainInfo")
+            Prelude.<*> (x Data..?> "ConnectionStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,28 +144,28 @@ instance Prelude.NFData CreateOutboundConnection where
       `Prelude.seq` Prelude.rnf remoteDomainInfo
       `Prelude.seq` Prelude.rnf connectionAlias
 
-instance Core.ToHeaders CreateOutboundConnection where
+instance Data.ToHeaders CreateOutboundConnection where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateOutboundConnection where
+instance Data.ToJSON CreateOutboundConnection where
   toJSON CreateOutboundConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("LocalDomainInfo" Core..= localDomainInfo),
+              ("LocalDomainInfo" Data..= localDomainInfo),
             Prelude.Just
-              ("RemoteDomainInfo" Core..= remoteDomainInfo),
+              ("RemoteDomainInfo" Data..= remoteDomainInfo),
             Prelude.Just
-              ("ConnectionAlias" Core..= connectionAlias)
+              ("ConnectionAlias" Data..= connectionAlias)
           ]
       )
 
-instance Core.ToPath CreateOutboundConnection where
+instance Data.ToPath CreateOutboundConnection where
   toPath =
     Prelude.const
       "/2021-01-01/opensearch/cc/outboundConnection"
 
-instance Core.ToQuery CreateOutboundConnection where
+instance Data.ToQuery CreateOutboundConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result of a @CreateOutboundConnection@ request. Contains details

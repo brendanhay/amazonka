@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,8 +120,8 @@ instance Core.AWSRequest GetUpgradeHistory where
     Response.receiveJSON
       ( \s h x ->
           GetUpgradeHistoryResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "UpgradeHistories"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "UpgradeHistories"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -138,22 +139,22 @@ instance Prelude.NFData GetUpgradeHistory where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders GetUpgradeHistory where
+instance Data.ToHeaders GetUpgradeHistory where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetUpgradeHistory where
+instance Data.ToPath GetUpgradeHistory where
   toPath GetUpgradeHistory' {..} =
     Prelude.mconcat
       [ "/2021-01-01/opensearch/upgradeDomain/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/history"
       ]
 
-instance Core.ToQuery GetUpgradeHistory where
+instance Data.ToQuery GetUpgradeHistory where
   toQuery GetUpgradeHistory' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | Container for the response returned by the @GetUpgradeHistory@

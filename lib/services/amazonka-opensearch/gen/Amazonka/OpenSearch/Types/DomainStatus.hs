@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.DomainStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.AdvancedSecurityOptions
 import Amazonka.OpenSearch.Types.AutoTuneOptionsOutput
 import Amazonka.OpenSearch.Types.ChangeProgressDetails
@@ -346,41 +347,41 @@ domainStatus_arn = Lens.lens (\DomainStatus' {arn} -> arn) (\s@DomainStatus' {} 
 domainStatus_clusterConfig :: Lens.Lens' DomainStatus ClusterConfig
 domainStatus_clusterConfig = Lens.lens (\DomainStatus' {clusterConfig} -> clusterConfig) (\s@DomainStatus' {} a -> s {clusterConfig = a} :: DomainStatus)
 
-instance Core.FromJSON DomainStatus where
+instance Data.FromJSON DomainStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainStatus"
       ( \x ->
           DomainStatus'
-            Prelude.<$> (x Core..:? "NodeToNodeEncryptionOptions")
-            Prelude.<*> ( x Core..:? "AdvancedOptions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "NodeToNodeEncryptionOptions")
+            Prelude.<*> ( x Data..:? "AdvancedOptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ChangeProgressDetails")
-            Prelude.<*> (x Core..:? "Deleted")
-            Prelude.<*> (x Core..:? "Created")
-            Prelude.<*> (x Core..:? "AdvancedSecurityOptions")
-            Prelude.<*> (x Core..:? "UpgradeProcessing")
-            Prelude.<*> (x Core..:? "Processing")
-            Prelude.<*> (x Core..:? "CognitoOptions")
-            Prelude.<*> (x Core..:? "EncryptionAtRestOptions")
-            Prelude.<*> (x Core..:? "Endpoints" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "EBSOptions")
-            Prelude.<*> (x Core..:? "AccessPolicies")
-            Prelude.<*> (x Core..:? "VPCOptions")
-            Prelude.<*> (x Core..:? "AutoTuneOptions")
-            Prelude.<*> (x Core..:? "DomainEndpointOptions")
-            Prelude.<*> (x Core..:? "Endpoint")
-            Prelude.<*> (x Core..:? "ServiceSoftwareOptions")
-            Prelude.<*> (x Core..:? "SnapshotOptions")
-            Prelude.<*> ( x Core..:? "LogPublishingOptions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "ChangeProgressDetails")
+            Prelude.<*> (x Data..:? "Deleted")
+            Prelude.<*> (x Data..:? "Created")
+            Prelude.<*> (x Data..:? "AdvancedSecurityOptions")
+            Prelude.<*> (x Data..:? "UpgradeProcessing")
+            Prelude.<*> (x Data..:? "Processing")
+            Prelude.<*> (x Data..:? "CognitoOptions")
+            Prelude.<*> (x Data..:? "EncryptionAtRestOptions")
+            Prelude.<*> (x Data..:? "Endpoints" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "EBSOptions")
+            Prelude.<*> (x Data..:? "AccessPolicies")
+            Prelude.<*> (x Data..:? "VPCOptions")
+            Prelude.<*> (x Data..:? "AutoTuneOptions")
+            Prelude.<*> (x Data..:? "DomainEndpointOptions")
+            Prelude.<*> (x Data..:? "Endpoint")
+            Prelude.<*> (x Data..:? "ServiceSoftwareOptions")
+            Prelude.<*> (x Data..:? "SnapshotOptions")
+            Prelude.<*> ( x Data..:? "LogPublishingOptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EngineVersion")
-            Prelude.<*> (x Core..: "DomainId")
-            Prelude.<*> (x Core..: "DomainName")
-            Prelude.<*> (x Core..: "ARN")
-            Prelude.<*> (x Core..: "ClusterConfig")
+            Prelude.<*> (x Data..:? "EngineVersion")
+            Prelude.<*> (x Data..: "DomainId")
+            Prelude.<*> (x Data..: "DomainName")
+            Prelude.<*> (x Data..: "ARN")
+            Prelude.<*> (x Data..: "ClusterConfig")
       )
 
 instance Prelude.Hashable DomainStatus where

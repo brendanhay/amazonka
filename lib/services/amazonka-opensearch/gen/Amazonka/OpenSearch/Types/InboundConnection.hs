@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.InboundConnection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.DomainInformationContainer
 import Amazonka.OpenSearch.Types.InboundConnectionStatus
 import qualified Amazonka.Prelude as Prelude
@@ -84,16 +85,16 @@ inboundConnection_localDomainInfo = Lens.lens (\InboundConnection' {localDomainI
 inboundConnection_connectionStatus :: Lens.Lens' InboundConnection (Prelude.Maybe InboundConnectionStatus)
 inboundConnection_connectionStatus = Lens.lens (\InboundConnection' {connectionStatus} -> connectionStatus) (\s@InboundConnection' {} a -> s {connectionStatus = a} :: InboundConnection)
 
-instance Core.FromJSON InboundConnection where
+instance Data.FromJSON InboundConnection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InboundConnection"
       ( \x ->
           InboundConnection'
-            Prelude.<$> (x Core..:? "RemoteDomainInfo")
-            Prelude.<*> (x Core..:? "ConnectionId")
-            Prelude.<*> (x Core..:? "LocalDomainInfo")
-            Prelude.<*> (x Core..:? "ConnectionStatus")
+            Prelude.<$> (x Data..:? "RemoteDomainInfo")
+            Prelude.<*> (x Data..:? "ConnectionId")
+            Prelude.<*> (x Data..:? "LocalDomainInfo")
+            Prelude.<*> (x Data..:? "ConnectionStatus")
       )
 
 instance Prelude.Hashable InboundConnection where

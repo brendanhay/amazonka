@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,8 +105,8 @@ instance Core.AWSRequest ListVersions where
     Response.receiveJSON
       ( \s h x ->
           ListVersionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Versions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Versions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,18 +120,18 @@ instance Prelude.NFData ListVersions where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListVersions where
+instance Data.ToHeaders ListVersions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListVersions where
+instance Data.ToPath ListVersions where
   toPath =
     Prelude.const "/2021-01-01/opensearch/versions"
 
-instance Core.ToQuery ListVersions where
+instance Data.ToQuery ListVersions where
   toQuery ListVersions' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | Container for the parameters for response received from the

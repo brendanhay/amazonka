@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,7 +99,7 @@ instance Core.AWSRequest UpdateVpcEndpoint where
       ( \s h x ->
           UpdateVpcEndpointResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "VpcEndpoint")
+            Prelude.<*> (x Data..:> "VpcEndpoint")
       )
 
 instance Prelude.Hashable UpdateVpcEndpoint where
@@ -111,25 +112,25 @@ instance Prelude.NFData UpdateVpcEndpoint where
     Prelude.rnf vpcEndpointId
       `Prelude.seq` Prelude.rnf vpcOptions
 
-instance Core.ToHeaders UpdateVpcEndpoint where
+instance Data.ToHeaders UpdateVpcEndpoint where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateVpcEndpoint where
+instance Data.ToJSON UpdateVpcEndpoint where
   toJSON UpdateVpcEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("VpcEndpointId" Core..= vpcEndpointId),
-            Prelude.Just ("VpcOptions" Core..= vpcOptions)
+              ("VpcEndpointId" Data..= vpcEndpointId),
+            Prelude.Just ("VpcOptions" Data..= vpcOptions)
           ]
       )
 
-instance Core.ToPath UpdateVpcEndpoint where
+instance Data.ToPath UpdateVpcEndpoint where
   toPath =
     Prelude.const
       "/2021-01-01/opensearch/vpcEndpoints/update"
 
-instance Core.ToQuery UpdateVpcEndpoint where
+instance Data.ToQuery UpdateVpcEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateVpcEndpointResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.NodeToNodeEncryptionOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Enables or disables node-to-node encryption. For more information, see
@@ -54,13 +55,13 @@ newNodeToNodeEncryptionOptions =
 nodeToNodeEncryptionOptions_enabled :: Lens.Lens' NodeToNodeEncryptionOptions (Prelude.Maybe Prelude.Bool)
 nodeToNodeEncryptionOptions_enabled = Lens.lens (\NodeToNodeEncryptionOptions' {enabled} -> enabled) (\s@NodeToNodeEncryptionOptions' {} a -> s {enabled = a} :: NodeToNodeEncryptionOptions)
 
-instance Core.FromJSON NodeToNodeEncryptionOptions where
+instance Data.FromJSON NodeToNodeEncryptionOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NodeToNodeEncryptionOptions"
       ( \x ->
           NodeToNodeEncryptionOptions'
-            Prelude.<$> (x Core..:? "Enabled")
+            Prelude.<$> (x Data..:? "Enabled")
       )
 
 instance Prelude.Hashable NodeToNodeEncryptionOptions where
@@ -71,9 +72,9 @@ instance Prelude.NFData NodeToNodeEncryptionOptions where
   rnf NodeToNodeEncryptionOptions' {..} =
     Prelude.rnf enabled
 
-instance Core.ToJSON NodeToNodeEncryptionOptions where
+instance Data.ToJSON NodeToNodeEncryptionOptions where
   toJSON NodeToNodeEncryptionOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Enabled" Core..=) Prelude.<$> enabled]
+          [("Enabled" Data..=) Prelude.<$> enabled]
       )

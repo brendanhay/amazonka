@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,14 +145,14 @@ instance Core.AWSRequest UpgradeDomain where
     Response.receiveJSON
       ( \s h x ->
           UpgradeDomainResponse'
-            Prelude.<$> ( x Core..?> "AdvancedOptions"
+            Prelude.<$> ( x Data..?> "AdvancedOptions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ChangeProgressDetails")
-            Prelude.<*> (x Core..?> "DomainName")
-            Prelude.<*> (x Core..?> "TargetVersion")
-            Prelude.<*> (x Core..?> "PerformCheckOnly")
-            Prelude.<*> (x Core..?> "UpgradeId")
+            Prelude.<*> (x Data..?> "ChangeProgressDetails")
+            Prelude.<*> (x Data..?> "DomainName")
+            Prelude.<*> (x Data..?> "TargetVersion")
+            Prelude.<*> (x Data..?> "PerformCheckOnly")
+            Prelude.<*> (x Data..?> "UpgradeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,29 +170,29 @@ instance Prelude.NFData UpgradeDomain where
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf targetVersion
 
-instance Core.ToHeaders UpgradeDomain where
+instance Data.ToHeaders UpgradeDomain where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpgradeDomain where
+instance Data.ToJSON UpgradeDomain where
   toJSON UpgradeDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AdvancedOptions" Core..=)
+          [ ("AdvancedOptions" Data..=)
               Prelude.<$> advancedOptions,
-            ("PerformCheckOnly" Core..=)
+            ("PerformCheckOnly" Data..=)
               Prelude.<$> performCheckOnly,
-            Prelude.Just ("DomainName" Core..= domainName),
+            Prelude.Just ("DomainName" Data..= domainName),
             Prelude.Just
-              ("TargetVersion" Core..= targetVersion)
+              ("TargetVersion" Data..= targetVersion)
           ]
       )
 
-instance Core.ToPath UpgradeDomain where
+instance Data.ToPath UpgradeDomain where
   toPath =
     Prelude.const
       "/2021-01-01/opensearch/upgradeDomain"
 
-instance Core.ToQuery UpgradeDomain where
+instance Data.ToQuery UpgradeDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Container for the response returned by @UpgradeDomain@ operation.

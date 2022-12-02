@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,7 +124,7 @@ instance Core.AWSRequest DescribeInstanceTypeLimits where
     Response.receiveJSON
       ( \s h x ->
           DescribeInstanceTypeLimitsResponse'
-            Prelude.<$> (x Core..?> "LimitsByRole" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "LimitsByRole" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,21 +140,21 @@ instance Prelude.NFData DescribeInstanceTypeLimits where
       `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf engineVersion
 
-instance Core.ToHeaders DescribeInstanceTypeLimits where
+instance Data.ToHeaders DescribeInstanceTypeLimits where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeInstanceTypeLimits where
+instance Data.ToPath DescribeInstanceTypeLimits where
   toPath DescribeInstanceTypeLimits' {..} =
     Prelude.mconcat
       [ "/2021-01-01/opensearch/instanceTypeLimits/",
-        Core.toBS engineVersion,
+        Data.toBS engineVersion,
         "/",
-        Core.toBS instanceType
+        Data.toBS instanceType
       ]
 
-instance Core.ToQuery DescribeInstanceTypeLimits where
+instance Data.ToQuery DescribeInstanceTypeLimits where
   toQuery DescribeInstanceTypeLimits' {..} =
-    Prelude.mconcat ["domainName" Core.=: domainName]
+    Prelude.mconcat ["domainName" Data.=: domainName]
 
 -- | Container for the parameters received from the
 -- @DescribeInstanceTypeLimits@ operation.

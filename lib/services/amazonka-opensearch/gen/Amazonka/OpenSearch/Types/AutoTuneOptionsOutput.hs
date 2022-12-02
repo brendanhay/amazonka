@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.AutoTuneOptionsOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.AutoTuneState
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,14 +65,14 @@ autoTuneOptionsOutput_errorMessage = Lens.lens (\AutoTuneOptionsOutput' {errorMe
 autoTuneOptionsOutput_state :: Lens.Lens' AutoTuneOptionsOutput (Prelude.Maybe AutoTuneState)
 autoTuneOptionsOutput_state = Lens.lens (\AutoTuneOptionsOutput' {state} -> state) (\s@AutoTuneOptionsOutput' {} a -> s {state = a} :: AutoTuneOptionsOutput)
 
-instance Core.FromJSON AutoTuneOptionsOutput where
+instance Data.FromJSON AutoTuneOptionsOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoTuneOptionsOutput"
       ( \x ->
           AutoTuneOptionsOutput'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "State")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "State")
       )
 
 instance Prelude.Hashable AutoTuneOptionsOutput where

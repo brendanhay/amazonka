@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.EncryptionAtRestOptionsStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.EncryptionAtRestOptions
 import Amazonka.OpenSearch.Types.OptionStatus
 import qualified Amazonka.Prelude as Prelude
@@ -68,14 +69,14 @@ encryptionAtRestOptionsStatus_options = Lens.lens (\EncryptionAtRestOptionsStatu
 encryptionAtRestOptionsStatus_status :: Lens.Lens' EncryptionAtRestOptionsStatus OptionStatus
 encryptionAtRestOptionsStatus_status = Lens.lens (\EncryptionAtRestOptionsStatus' {status} -> status) (\s@EncryptionAtRestOptionsStatus' {} a -> s {status = a} :: EncryptionAtRestOptionsStatus)
 
-instance Core.FromJSON EncryptionAtRestOptionsStatus where
+instance Data.FromJSON EncryptionAtRestOptionsStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EncryptionAtRestOptionsStatus"
       ( \x ->
           EncryptionAtRestOptionsStatus'
-            Prelude.<$> (x Core..: "Options")
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..: "Options")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance

@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.EBSOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.VolumeType
 import qualified Amazonka.Prelude as Prelude
 
@@ -102,17 +103,17 @@ eBSOptions_eBSEnabled = Lens.lens (\EBSOptions' {eBSEnabled} -> eBSEnabled) (\s@
 eBSOptions_iops :: Lens.Lens' EBSOptions (Prelude.Maybe Prelude.Int)
 eBSOptions_iops = Lens.lens (\EBSOptions' {iops} -> iops) (\s@EBSOptions' {} a -> s {iops = a} :: EBSOptions)
 
-instance Core.FromJSON EBSOptions where
+instance Data.FromJSON EBSOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EBSOptions"
       ( \x ->
           EBSOptions'
-            Prelude.<$> (x Core..:? "VolumeType")
-            Prelude.<*> (x Core..:? "VolumeSize")
-            Prelude.<*> (x Core..:? "Throughput")
-            Prelude.<*> (x Core..:? "EBSEnabled")
-            Prelude.<*> (x Core..:? "Iops")
+            Prelude.<$> (x Data..:? "VolumeType")
+            Prelude.<*> (x Data..:? "VolumeSize")
+            Prelude.<*> (x Data..:? "Throughput")
+            Prelude.<*> (x Data..:? "EBSEnabled")
+            Prelude.<*> (x Data..:? "Iops")
       )
 
 instance Prelude.Hashable EBSOptions where
@@ -131,14 +132,14 @@ instance Prelude.NFData EBSOptions where
       `Prelude.seq` Prelude.rnf eBSEnabled
       `Prelude.seq` Prelude.rnf iops
 
-instance Core.ToJSON EBSOptions where
+instance Data.ToJSON EBSOptions where
   toJSON EBSOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VolumeType" Core..=) Prelude.<$> volumeType,
-            ("VolumeSize" Core..=) Prelude.<$> volumeSize,
-            ("Throughput" Core..=) Prelude.<$> throughput,
-            ("EBSEnabled" Core..=) Prelude.<$> eBSEnabled,
-            ("Iops" Core..=) Prelude.<$> iops
+          [ ("VolumeType" Data..=) Prelude.<$> volumeType,
+            ("VolumeSize" Data..=) Prelude.<$> volumeSize,
+            ("Throughput" Data..=) Prelude.<$> throughput,
+            ("EBSEnabled" Data..=) Prelude.<$> eBSEnabled,
+            ("Iops" Data..=) Prelude.<$> iops
           ]
       )

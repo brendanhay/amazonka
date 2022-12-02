@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.AutoTuneOptionsStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.AutoTuneOptions
 import Amazonka.OpenSearch.Types.AutoTuneStatus
 import qualified Amazonka.Prelude as Prelude
@@ -63,14 +64,14 @@ autoTuneOptionsStatus_status = Lens.lens (\AutoTuneOptionsStatus' {status} -> st
 autoTuneOptionsStatus_options :: Lens.Lens' AutoTuneOptionsStatus (Prelude.Maybe AutoTuneOptions)
 autoTuneOptionsStatus_options = Lens.lens (\AutoTuneOptionsStatus' {options} -> options) (\s@AutoTuneOptionsStatus' {} a -> s {options = a} :: AutoTuneOptionsStatus)
 
-instance Core.FromJSON AutoTuneOptionsStatus where
+instance Data.FromJSON AutoTuneOptionsStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoTuneOptionsStatus"
       ( \x ->
           AutoTuneOptionsStatus'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Options")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Options")
       )
 
 instance Prelude.Hashable AutoTuneOptionsStatus where

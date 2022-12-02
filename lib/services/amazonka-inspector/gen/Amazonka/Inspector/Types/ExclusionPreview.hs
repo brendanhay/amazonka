@@ -21,6 +21,7 @@ module Amazonka.Inspector.Types.ExclusionPreview where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types.Attribute
 import Amazonka.Inspector.Types.Scope
 import qualified Amazonka.Prelude as Prelude
@@ -103,17 +104,17 @@ exclusionPreview_recommendation = Lens.lens (\ExclusionPreview' {recommendation}
 exclusionPreview_scopes :: Lens.Lens' ExclusionPreview (Prelude.NonEmpty Scope)
 exclusionPreview_scopes = Lens.lens (\ExclusionPreview' {scopes} -> scopes) (\s@ExclusionPreview' {} a -> s {scopes = a} :: ExclusionPreview) Prelude.. Lens.coerced
 
-instance Core.FromJSON ExclusionPreview where
+instance Data.FromJSON ExclusionPreview where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExclusionPreview"
       ( \x ->
           ExclusionPreview'
-            Prelude.<$> (x Core..:? "attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "title")
-            Prelude.<*> (x Core..: "description")
-            Prelude.<*> (x Core..: "recommendation")
-            Prelude.<*> (x Core..: "scopes")
+            Prelude.<$> (x Data..:? "attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "title")
+            Prelude.<*> (x Data..: "description")
+            Prelude.<*> (x Data..: "recommendation")
+            Prelude.<*> (x Data..: "scopes")
       )
 
 instance Prelude.Hashable ExclusionPreview where

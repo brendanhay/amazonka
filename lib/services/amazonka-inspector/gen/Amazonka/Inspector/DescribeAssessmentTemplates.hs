@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,10 +90,10 @@ instance Core.AWSRequest DescribeAssessmentTemplates where
       ( \s h x ->
           DescribeAssessmentTemplatesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "assessmentTemplates"
+            Prelude.<*> ( x Data..?> "assessmentTemplates"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "failedItems" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "failedItems" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable DescribeAssessmentTemplates where
@@ -103,36 +104,36 @@ instance Prelude.NFData DescribeAssessmentTemplates where
   rnf DescribeAssessmentTemplates' {..} =
     Prelude.rnf assessmentTemplateArns
 
-instance Core.ToHeaders DescribeAssessmentTemplates where
+instance Data.ToHeaders DescribeAssessmentTemplates where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "InspectorService.DescribeAssessmentTemplates" ::
+              Data.=# ( "InspectorService.DescribeAssessmentTemplates" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAssessmentTemplates where
+instance Data.ToJSON DescribeAssessmentTemplates where
   toJSON DescribeAssessmentTemplates' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "assessmentTemplateArns"
-                  Core..= assessmentTemplateArns
+                  Data..= assessmentTemplateArns
               )
           ]
       )
 
-instance Core.ToPath DescribeAssessmentTemplates where
+instance Data.ToPath DescribeAssessmentTemplates where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAssessmentTemplates where
+instance Data.ToQuery DescribeAssessmentTemplates where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAssessmentTemplatesResponse' smart constructor.

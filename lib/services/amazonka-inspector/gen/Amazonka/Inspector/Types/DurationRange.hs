@@ -21,6 +21,7 @@ module Amazonka.Inspector.Types.DurationRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This data type is used in the AssessmentTemplateFilter data type.
@@ -74,11 +75,11 @@ instance Prelude.NFData DurationRange where
     Prelude.rnf minSeconds
       `Prelude.seq` Prelude.rnf maxSeconds
 
-instance Core.ToJSON DurationRange where
+instance Data.ToJSON DurationRange where
   toJSON DurationRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("minSeconds" Core..=) Prelude.<$> minSeconds,
-            ("maxSeconds" Core..=) Prelude.<$> maxSeconds
+          [ ("minSeconds" Data..=) Prelude.<$> minSeconds,
+            ("maxSeconds" Data..=) Prelude.<$> maxSeconds
           ]
       )

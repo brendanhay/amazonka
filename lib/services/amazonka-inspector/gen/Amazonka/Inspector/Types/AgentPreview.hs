@@ -21,6 +21,7 @@ module Amazonka.Inspector.Types.AgentPreview where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types.AgentHealth
 import qualified Amazonka.Prelude as Prelude
 
@@ -133,20 +134,20 @@ agentPreview_agentVersion = Lens.lens (\AgentPreview' {agentVersion} -> agentVer
 agentPreview_agentId :: Lens.Lens' AgentPreview Prelude.Text
 agentPreview_agentId = Lens.lens (\AgentPreview' {agentId} -> agentId) (\s@AgentPreview' {} a -> s {agentId = a} :: AgentPreview)
 
-instance Core.FromJSON AgentPreview where
+instance Data.FromJSON AgentPreview where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AgentPreview"
       ( \x ->
           AgentPreview'
-            Prelude.<$> (x Core..:? "operatingSystem")
-            Prelude.<*> (x Core..:? "kernelVersion")
-            Prelude.<*> (x Core..:? "autoScalingGroup")
-            Prelude.<*> (x Core..:? "hostname")
-            Prelude.<*> (x Core..:? "agentHealth")
-            Prelude.<*> (x Core..:? "ipv4Address")
-            Prelude.<*> (x Core..:? "agentVersion")
-            Prelude.<*> (x Core..: "agentId")
+            Prelude.<$> (x Data..:? "operatingSystem")
+            Prelude.<*> (x Data..:? "kernelVersion")
+            Prelude.<*> (x Data..:? "autoScalingGroup")
+            Prelude.<*> (x Data..:? "hostname")
+            Prelude.<*> (x Data..:? "agentHealth")
+            Prelude.<*> (x Data..:? "ipv4Address")
+            Prelude.<*> (x Data..:? "agentVersion")
+            Prelude.<*> (x Data..: "agentId")
       )
 
 instance Prelude.Hashable AgentPreview where

@@ -21,6 +21,7 @@ module Amazonka.Inspector.Types.FindingFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types.Attribute
 import Amazonka.Inspector.Types.Severity
 import Amazonka.Inspector.Types.TimestampRange
@@ -183,21 +184,21 @@ instance Prelude.NFData FindingFilter where
       `Prelude.seq` Prelude.rnf rulesPackageArns
       `Prelude.seq` Prelude.rnf agentIds
 
-instance Core.ToJSON FindingFilter where
+instance Data.ToJSON FindingFilter where
   toJSON FindingFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("autoScalingGroups" Core..=)
+          [ ("autoScalingGroups" Data..=)
               Prelude.<$> autoScalingGroups,
-            ("severities" Core..=) Prelude.<$> severities,
-            ("ruleNames" Core..=) Prelude.<$> ruleNames,
-            ("creationTimeRange" Core..=)
+            ("severities" Data..=) Prelude.<$> severities,
+            ("ruleNames" Data..=) Prelude.<$> ruleNames,
+            ("creationTimeRange" Data..=)
               Prelude.<$> creationTimeRange,
-            ("userAttributes" Core..=)
+            ("userAttributes" Data..=)
               Prelude.<$> userAttributes,
-            ("attributes" Core..=) Prelude.<$> attributes,
-            ("rulesPackageArns" Core..=)
+            ("attributes" Data..=) Prelude.<$> attributes,
+            ("rulesPackageArns" Data..=)
               Prelude.<$> rulesPackageArns,
-            ("agentIds" Core..=) Prelude.<$> agentIds
+            ("agentIds" Data..=) Prelude.<$> agentIds
           ]
       )

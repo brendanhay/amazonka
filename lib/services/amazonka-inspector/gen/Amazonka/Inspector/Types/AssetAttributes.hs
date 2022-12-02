@@ -21,6 +21,7 @@ module Amazonka.Inspector.Types.AssetAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types.NetworkInterface
 import Amazonka.Inspector.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -135,22 +136,22 @@ assetAttributes_networkInterfaces = Lens.lens (\AssetAttributes' {networkInterfa
 assetAttributes_schemaVersion :: Lens.Lens' AssetAttributes Prelude.Natural
 assetAttributes_schemaVersion = Lens.lens (\AssetAttributes' {schemaVersion} -> schemaVersion) (\s@AssetAttributes' {} a -> s {schemaVersion = a} :: AssetAttributes)
 
-instance Core.FromJSON AssetAttributes where
+instance Data.FromJSON AssetAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssetAttributes"
       ( \x ->
           AssetAttributes'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "amiId")
-            Prelude.<*> (x Core..:? "ipv4Addresses" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "autoScalingGroup")
-            Prelude.<*> (x Core..:? "hostname")
-            Prelude.<*> (x Core..:? "agentId")
-            Prelude.<*> ( x Core..:? "networkInterfaces"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "amiId")
+            Prelude.<*> (x Data..:? "ipv4Addresses" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "autoScalingGroup")
+            Prelude.<*> (x Data..:? "hostname")
+            Prelude.<*> (x Data..:? "agentId")
+            Prelude.<*> ( x Data..:? "networkInterfaces"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "schemaVersion")
+            Prelude.<*> (x Data..: "schemaVersion")
       )
 
 instance Prelude.Hashable AssetAttributes where

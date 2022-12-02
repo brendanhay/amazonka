@@ -21,6 +21,7 @@ module Amazonka.Inspector.Types.SecurityGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a security group associated with a network
@@ -63,14 +64,14 @@ securityGroup_groupName = Lens.lens (\SecurityGroup' {groupName} -> groupName) (
 securityGroup_groupId :: Lens.Lens' SecurityGroup (Prelude.Maybe Prelude.Text)
 securityGroup_groupId = Lens.lens (\SecurityGroup' {groupId} -> groupId) (\s@SecurityGroup' {} a -> s {groupId = a} :: SecurityGroup)
 
-instance Core.FromJSON SecurityGroup where
+instance Data.FromJSON SecurityGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SecurityGroup"
       ( \x ->
           SecurityGroup'
-            Prelude.<$> (x Core..:? "groupName")
-            Prelude.<*> (x Core..:? "groupId")
+            Prelude.<$> (x Data..:? "groupName")
+            Prelude.<*> (x Data..:? "groupId")
       )
 
 instance Prelude.Hashable SecurityGroup where

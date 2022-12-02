@@ -21,6 +21,7 @@ module Amazonka.Inspector.Types.ResourceGroupTag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This data type is used as one of the elements of the ResourceGroup data
@@ -64,13 +65,13 @@ resourceGroupTag_value = Lens.lens (\ResourceGroupTag' {value} -> value) (\s@Res
 resourceGroupTag_key :: Lens.Lens' ResourceGroupTag Prelude.Text
 resourceGroupTag_key = Lens.lens (\ResourceGroupTag' {key} -> key) (\s@ResourceGroupTag' {} a -> s {key = a} :: ResourceGroupTag)
 
-instance Core.FromJSON ResourceGroupTag where
+instance Data.FromJSON ResourceGroupTag where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceGroupTag"
       ( \x ->
           ResourceGroupTag'
-            Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..: "key")
+            Prelude.<$> (x Data..:? "value") Prelude.<*> (x Data..: "key")
       )
 
 instance Prelude.Hashable ResourceGroupTag where
@@ -82,11 +83,11 @@ instance Prelude.NFData ResourceGroupTag where
   rnf ResourceGroupTag' {..} =
     Prelude.rnf value `Prelude.seq` Prelude.rnf key
 
-instance Core.ToJSON ResourceGroupTag where
+instance Data.ToJSON ResourceGroupTag where
   toJSON ResourceGroupTag' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("value" Core..=) Prelude.<$> value,
-            Prelude.Just ("key" Core..= key)
+          [ ("value" Data..=) Prelude.<$> value,
+            Prelude.Just ("key" Data..= key)
           ]
       )

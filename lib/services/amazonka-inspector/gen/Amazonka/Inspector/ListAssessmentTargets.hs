@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -159,9 +160,9 @@ instance Core.AWSRequest ListAssessmentTargets where
     Response.receiveJSON
       ( \s h x ->
           ListAssessmentTargetsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "assessmentTargetArns"
+            Prelude.<*> ( x Data..?> "assessmentTargetArns"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -178,35 +179,35 @@ instance Prelude.NFData ListAssessmentTargets where
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListAssessmentTargets where
+instance Data.ToHeaders ListAssessmentTargets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "InspectorService.ListAssessmentTargets" ::
+              Data.=# ( "InspectorService.ListAssessmentTargets" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAssessmentTargets where
+instance Data.ToJSON ListAssessmentTargets where
   toJSON ListAssessmentTargets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filter" Core..=) Prelude.<$> filter',
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filter" Data..=) Prelude.<$> filter',
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListAssessmentTargets where
+instance Data.ToPath ListAssessmentTargets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAssessmentTargets where
+instance Data.ToQuery ListAssessmentTargets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAssessmentTargetsResponse' smart constructor.

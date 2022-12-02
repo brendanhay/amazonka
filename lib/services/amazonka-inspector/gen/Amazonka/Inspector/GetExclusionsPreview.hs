@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -157,12 +158,12 @@ instance Core.AWSRequest GetExclusionsPreview where
     Response.receiveJSON
       ( \s h x ->
           GetExclusionsPreviewResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "exclusionPreviews"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "exclusionPreviews"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "previewStatus")
+            Prelude.<*> (x Data..:> "previewStatus")
       )
 
 instance Prelude.Hashable GetExclusionsPreview where
@@ -181,40 +182,40 @@ instance Prelude.NFData GetExclusionsPreview where
       `Prelude.seq` Prelude.rnf assessmentTemplateArn
       `Prelude.seq` Prelude.rnf previewToken
 
-instance Core.ToHeaders GetExclusionsPreview where
+instance Data.ToHeaders GetExclusionsPreview where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "InspectorService.GetExclusionsPreview" ::
+              Data.=# ( "InspectorService.GetExclusionsPreview" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetExclusionsPreview where
+instance Data.ToJSON GetExclusionsPreview where
   toJSON GetExclusionsPreview' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("locale" Core..=) Prelude.<$> locale,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("locale" Data..=) Prelude.<$> locale,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
               ( "assessmentTemplateArn"
-                  Core..= assessmentTemplateArn
+                  Data..= assessmentTemplateArn
               ),
-            Prelude.Just ("previewToken" Core..= previewToken)
+            Prelude.Just ("previewToken" Data..= previewToken)
           ]
       )
 
-instance Core.ToPath GetExclusionsPreview where
+instance Data.ToPath GetExclusionsPreview where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetExclusionsPreview where
+instance Data.ToQuery GetExclusionsPreview where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetExclusionsPreviewResponse' smart constructor.

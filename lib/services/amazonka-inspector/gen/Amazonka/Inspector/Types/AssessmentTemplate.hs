@@ -21,6 +21,7 @@ module Amazonka.Inspector.Types.AssessmentTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types.Attribute
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,7 +55,7 @@ data AssessmentTemplate = AssessmentTemplate'
     -- template. This value can be zero or a positive integer.
     assessmentRunCount :: Prelude.Int,
     -- | The time at which the assessment template is created.
-    createdAt :: Core.POSIX
+    createdAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -121,7 +122,7 @@ newAssessmentTemplate
         rulesPackageArns = Prelude.mempty,
         userAttributesForFindings = Prelude.mempty,
         assessmentRunCount = pAssessmentRunCount_,
-        createdAt = Core._Time Lens.# pCreatedAt_
+        createdAt = Data._Time Lens.# pCreatedAt_
       }
 
 -- | The Amazon Resource Name (ARN) of the most recent assessment run
@@ -165,27 +166,27 @@ assessmentTemplate_assessmentRunCount = Lens.lens (\AssessmentTemplate' {assessm
 
 -- | The time at which the assessment template is created.
 assessmentTemplate_createdAt :: Lens.Lens' AssessmentTemplate Prelude.UTCTime
-assessmentTemplate_createdAt = Lens.lens (\AssessmentTemplate' {createdAt} -> createdAt) (\s@AssessmentTemplate' {} a -> s {createdAt = a} :: AssessmentTemplate) Prelude.. Core._Time
+assessmentTemplate_createdAt = Lens.lens (\AssessmentTemplate' {createdAt} -> createdAt) (\s@AssessmentTemplate' {} a -> s {createdAt = a} :: AssessmentTemplate) Prelude.. Data._Time
 
-instance Core.FromJSON AssessmentTemplate where
+instance Data.FromJSON AssessmentTemplate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssessmentTemplate"
       ( \x ->
           AssessmentTemplate'
-            Prelude.<$> (x Core..:? "lastAssessmentRunArn")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "assessmentTargetArn")
-            Prelude.<*> (x Core..: "durationInSeconds")
-            Prelude.<*> ( x Core..:? "rulesPackageArns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "lastAssessmentRunArn")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "assessmentTargetArn")
+            Prelude.<*> (x Data..: "durationInSeconds")
+            Prelude.<*> ( x Data..:? "rulesPackageArns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "userAttributesForFindings"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "userAttributesForFindings"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "assessmentRunCount")
-            Prelude.<*> (x Core..: "createdAt")
+            Prelude.<*> (x Data..: "assessmentRunCount")
+            Prelude.<*> (x Data..: "createdAt")
       )
 
 instance Prelude.Hashable AssessmentTemplate where

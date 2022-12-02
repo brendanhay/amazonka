@@ -21,6 +21,7 @@ module Amazonka.Inspector.Types.AgentFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types.AgentHealth
 import Amazonka.Inspector.Types.AgentHealthCode
 import qualified Amazonka.Prelude as Prelude
@@ -83,12 +84,12 @@ instance Prelude.NFData AgentFilter where
     Prelude.rnf agentHealths
       `Prelude.seq` Prelude.rnf agentHealthCodes
 
-instance Core.ToJSON AgentFilter where
+instance Data.ToJSON AgentFilter where
   toJSON AgentFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("agentHealths" Core..= agentHealths),
+          [ Prelude.Just ("agentHealths" Data..= agentHealths),
             Prelude.Just
-              ("agentHealthCodes" Core..= agentHealthCodes)
+              ("agentHealthCodes" Data..= agentHealthCodes)
           ]
       )

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,9 +133,9 @@ instance Core.AWSRequest ListRulesPackages where
     Response.receiveJSON
       ( \s h x ->
           ListRulesPackagesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "rulesPackageArns"
+            Prelude.<*> ( x Data..?> "rulesPackageArns"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -149,34 +150,34 @@ instance Prelude.NFData ListRulesPackages where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListRulesPackages where
+instance Data.ToHeaders ListRulesPackages where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "InspectorService.ListRulesPackages" ::
+              Data.=# ( "InspectorService.ListRulesPackages" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListRulesPackages where
+instance Data.ToJSON ListRulesPackages where
   toJSON ListRulesPackages' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListRulesPackages where
+instance Data.ToPath ListRulesPackages where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListRulesPackages where
+instance Data.ToQuery ListRulesPackages where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListRulesPackagesResponse' smart constructor.

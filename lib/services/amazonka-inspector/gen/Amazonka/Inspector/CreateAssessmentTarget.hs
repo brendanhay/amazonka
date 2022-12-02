@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,7 +120,7 @@ instance Core.AWSRequest CreateAssessmentTarget where
       ( \s h x ->
           CreateAssessmentTargetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "assessmentTargetArn")
+            Prelude.<*> (x Data..:> "assessmentTargetArn")
       )
 
 instance Prelude.Hashable CreateAssessmentTarget where
@@ -132,38 +133,38 @@ instance Prelude.NFData CreateAssessmentTarget where
     Prelude.rnf resourceGroupArn
       `Prelude.seq` Prelude.rnf assessmentTargetName
 
-instance Core.ToHeaders CreateAssessmentTarget where
+instance Data.ToHeaders CreateAssessmentTarget where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "InspectorService.CreateAssessmentTarget" ::
+              Data.=# ( "InspectorService.CreateAssessmentTarget" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAssessmentTarget where
+instance Data.ToJSON CreateAssessmentTarget where
   toJSON CreateAssessmentTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("resourceGroupArn" Core..=)
+          [ ("resourceGroupArn" Data..=)
               Prelude.<$> resourceGroupArn,
             Prelude.Just
               ( "assessmentTargetName"
-                  Core..= assessmentTargetName
+                  Data..= assessmentTargetName
               )
           ]
       )
 
-instance Core.ToPath CreateAssessmentTarget where
+instance Data.ToPath CreateAssessmentTarget where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateAssessmentTarget where
+instance Data.ToQuery CreateAssessmentTarget where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAssessmentTargetResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Inspector.Types.TelemetryMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata about the Amazon Inspector application data metrics
@@ -82,15 +83,15 @@ telemetryMetadata_messageType = Lens.lens (\TelemetryMetadata' {messageType} -> 
 telemetryMetadata_count :: Lens.Lens' TelemetryMetadata Prelude.Integer
 telemetryMetadata_count = Lens.lens (\TelemetryMetadata' {count} -> count) (\s@TelemetryMetadata' {} a -> s {count = a} :: TelemetryMetadata)
 
-instance Core.FromJSON TelemetryMetadata where
+instance Data.FromJSON TelemetryMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TelemetryMetadata"
       ( \x ->
           TelemetryMetadata'
-            Prelude.<$> (x Core..:? "dataSize")
-            Prelude.<*> (x Core..: "messageType")
-            Prelude.<*> (x Core..: "count")
+            Prelude.<$> (x Data..:? "dataSize")
+            Prelude.<*> (x Data..: "messageType")
+            Prelude.<*> (x Data..: "count")
       )
 
 instance Prelude.Hashable TelemetryMetadata where

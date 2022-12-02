@@ -21,6 +21,7 @@ module Amazonka.Organizations.Types.CreateAccountStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types.CreateAccountFailureReason
 import Amazonka.Organizations.Types.CreateAccountState
 import qualified Amazonka.Prelude as Prelude
@@ -32,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newCreateAccountStatus' smart constructor.
 data CreateAccountStatus = CreateAccountStatus'
   { -- | The date and time that the request was made for the account creation.
-    requestedTimestamp :: Prelude.Maybe Core.POSIX,
+    requestedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | If the account was created successfully, the unique identifier (ID) of
     -- the new account in the Amazon Web Services GovCloud (US) Region.
     govCloudAccountId :: Prelude.Maybe Prelude.Text,
@@ -54,10 +55,10 @@ data CreateAccountStatus = CreateAccountStatus'
     -- string requires exactly 12 digits.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The account name given to the account when it was created.
-    accountName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    accountName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The date and time that the account was created and the request
     -- completed.
-    completedTimestamp :: Prelude.Maybe Core.POSIX,
+    completedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | If the request failed, a description of the reason for the failure.
     --
     -- -   ACCOUNT_LIMIT_EXCEEDED: The account couldn\'t be created because you
@@ -222,7 +223,7 @@ newCreateAccountStatus =
 
 -- | The date and time that the request was made for the account creation.
 createAccountStatus_requestedTimestamp :: Lens.Lens' CreateAccountStatus (Prelude.Maybe Prelude.UTCTime)
-createAccountStatus_requestedTimestamp = Lens.lens (\CreateAccountStatus' {requestedTimestamp} -> requestedTimestamp) (\s@CreateAccountStatus' {} a -> s {requestedTimestamp = a} :: CreateAccountStatus) Prelude.. Lens.mapping Core._Time
+createAccountStatus_requestedTimestamp = Lens.lens (\CreateAccountStatus' {requestedTimestamp} -> requestedTimestamp) (\s@CreateAccountStatus' {} a -> s {requestedTimestamp = a} :: CreateAccountStatus) Prelude.. Lens.mapping Data._Time
 
 -- | If the account was created successfully, the unique identifier (ID) of
 -- the new account in the Amazon Web Services GovCloud (US) Region.
@@ -254,12 +255,12 @@ createAccountStatus_accountId = Lens.lens (\CreateAccountStatus' {accountId} -> 
 
 -- | The account name given to the account when it was created.
 createAccountStatus_accountName :: Lens.Lens' CreateAccountStatus (Prelude.Maybe Prelude.Text)
-createAccountStatus_accountName = Lens.lens (\CreateAccountStatus' {accountName} -> accountName) (\s@CreateAccountStatus' {} a -> s {accountName = a} :: CreateAccountStatus) Prelude.. Lens.mapping Core._Sensitive
+createAccountStatus_accountName = Lens.lens (\CreateAccountStatus' {accountName} -> accountName) (\s@CreateAccountStatus' {} a -> s {accountName = a} :: CreateAccountStatus) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The date and time that the account was created and the request
 -- completed.
 createAccountStatus_completedTimestamp :: Lens.Lens' CreateAccountStatus (Prelude.Maybe Prelude.UTCTime)
-createAccountStatus_completedTimestamp = Lens.lens (\CreateAccountStatus' {completedTimestamp} -> completedTimestamp) (\s@CreateAccountStatus' {} a -> s {completedTimestamp = a} :: CreateAccountStatus) Prelude.. Lens.mapping Core._Time
+createAccountStatus_completedTimestamp = Lens.lens (\CreateAccountStatus' {completedTimestamp} -> completedTimestamp) (\s@CreateAccountStatus' {} a -> s {completedTimestamp = a} :: CreateAccountStatus) Prelude.. Lens.mapping Data._Time
 
 -- | If the request failed, a description of the reason for the failure.
 --
@@ -318,20 +319,20 @@ createAccountStatus_completedTimestamp = Lens.lens (\CreateAccountStatus' {compl
 createAccountStatus_failureReason :: Lens.Lens' CreateAccountStatus (Prelude.Maybe CreateAccountFailureReason)
 createAccountStatus_failureReason = Lens.lens (\CreateAccountStatus' {failureReason} -> failureReason) (\s@CreateAccountStatus' {} a -> s {failureReason = a} :: CreateAccountStatus)
 
-instance Core.FromJSON CreateAccountStatus where
+instance Data.FromJSON CreateAccountStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CreateAccountStatus"
       ( \x ->
           CreateAccountStatus'
-            Prelude.<$> (x Core..:? "RequestedTimestamp")
-            Prelude.<*> (x Core..:? "GovCloudAccountId")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "AccountName")
-            Prelude.<*> (x Core..:? "CompletedTimestamp")
-            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<$> (x Data..:? "RequestedTimestamp")
+            Prelude.<*> (x Data..:? "GovCloudAccountId")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "AccountName")
+            Prelude.<*> (x Data..:? "CompletedTimestamp")
+            Prelude.<*> (x Data..:? "FailureReason")
       )
 
 instance Prelude.Hashable CreateAccountStatus where

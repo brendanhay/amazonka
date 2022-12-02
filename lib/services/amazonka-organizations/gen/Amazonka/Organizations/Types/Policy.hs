@@ -21,6 +21,7 @@ module Amazonka.Organizations.Types.Policy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types.PolicySummary
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,14 +65,14 @@ policy_policySummary = Lens.lens (\Policy' {policySummary} -> policySummary) (\s
 policy_content :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
 policy_content = Lens.lens (\Policy' {content} -> content) (\s@Policy' {} a -> s {content = a} :: Policy)
 
-instance Core.FromJSON Policy where
+instance Data.FromJSON Policy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Policy"
       ( \x ->
           Policy'
-            Prelude.<$> (x Core..:? "PolicySummary")
-            Prelude.<*> (x Core..:? "Content")
+            Prelude.<$> (x Data..:? "PolicySummary")
+            Prelude.<*> (x Data..:? "Content")
       )
 
 instance Prelude.Hashable Policy where

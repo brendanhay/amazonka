@@ -21,6 +21,7 @@ module Amazonka.Organizations.Types.Organization where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types.OrganizationFeatureSet
 import Amazonka.Organizations.Types.PolicyTypeSummary
 import qualified Amazonka.Prelude as Prelude
@@ -66,7 +67,7 @@ data Organization = Organization'
     -- | The email address that is associated with the Amazon Web Services
     -- account that is designated as the management account for the
     -- organization.
-    masterAccountEmail :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    masterAccountEmail :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the account that is designated as the
     -- management account for the organization.
     --
@@ -184,7 +185,7 @@ organization_featureSet = Lens.lens (\Organization' {featureSet} -> featureSet) 
 -- account that is designated as the management account for the
 -- organization.
 organization_masterAccountEmail :: Lens.Lens' Organization (Prelude.Maybe Prelude.Text)
-organization_masterAccountEmail = Lens.lens (\Organization' {masterAccountEmail} -> masterAccountEmail) (\s@Organization' {} a -> s {masterAccountEmail = a} :: Organization) Prelude.. Lens.mapping Core._Sensitive
+organization_masterAccountEmail = Lens.lens (\Organization' {masterAccountEmail} -> masterAccountEmail) (\s@Organization' {} a -> s {masterAccountEmail = a} :: Organization) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the account that is designated as the
 -- management account for the organization.
@@ -195,21 +196,21 @@ organization_masterAccountEmail = Lens.lens (\Organization' {masterAccountEmail}
 organization_masterAccountArn :: Lens.Lens' Organization (Prelude.Maybe Prelude.Text)
 organization_masterAccountArn = Lens.lens (\Organization' {masterAccountArn} -> masterAccountArn) (\s@Organization' {} a -> s {masterAccountArn = a} :: Organization)
 
-instance Core.FromJSON Organization where
+instance Data.FromJSON Organization where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Organization"
       ( \x ->
           Organization'
-            Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "MasterAccountId")
-            Prelude.<*> ( x Core..:? "AvailablePolicyTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "MasterAccountId")
+            Prelude.<*> ( x Data..:? "AvailablePolicyTypes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "FeatureSet")
-            Prelude.<*> (x Core..:? "MasterAccountEmail")
-            Prelude.<*> (x Core..:? "MasterAccountArn")
+            Prelude.<*> (x Data..:? "FeatureSet")
+            Prelude.<*> (x Data..:? "MasterAccountEmail")
+            Prelude.<*> (x Data..:? "MasterAccountArn")
       )
 
 instance Prelude.Hashable Organization where

@@ -68,6 +68,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,7 +98,7 @@ data InviteAccountToOrganization = InviteAccountToOrganization'
     tags :: Prelude.Maybe [Tag],
     -- | Additional information that you want to include in the generated email
     -- to the recipient account owner.
-    notes :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    notes :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The identifier (ID) of the Amazon Web Services account that you want to
     -- invite to join your organization. This is a JSON object that contains
     -- the following elements:
@@ -204,7 +205,7 @@ inviteAccountToOrganization_tags = Lens.lens (\InviteAccountToOrganization' {tag
 -- | Additional information that you want to include in the generated email
 -- to the recipient account owner.
 inviteAccountToOrganization_notes :: Lens.Lens' InviteAccountToOrganization (Prelude.Maybe Prelude.Text)
-inviteAccountToOrganization_notes = Lens.lens (\InviteAccountToOrganization' {notes} -> notes) (\s@InviteAccountToOrganization' {} a -> s {notes = a} :: InviteAccountToOrganization) Prelude.. Lens.mapping Core._Sensitive
+inviteAccountToOrganization_notes = Lens.lens (\InviteAccountToOrganization' {notes} -> notes) (\s@InviteAccountToOrganization' {} a -> s {notes = a} :: InviteAccountToOrganization) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The identifier (ID) of the Amazon Web Services account that you want to
 -- invite to join your organization. This is a JSON object that contains
@@ -236,7 +237,7 @@ instance Core.AWSRequest InviteAccountToOrganization where
     Response.receiveJSON
       ( \s h x ->
           InviteAccountToOrganizationResponse'
-            Prelude.<$> (x Core..?> "Handshake")
+            Prelude.<$> (x Data..?> "Handshake")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -252,35 +253,35 @@ instance Prelude.NFData InviteAccountToOrganization where
       `Prelude.seq` Prelude.rnf notes
       `Prelude.seq` Prelude.rnf target
 
-instance Core.ToHeaders InviteAccountToOrganization where
+instance Data.ToHeaders InviteAccountToOrganization where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.InviteAccountToOrganization" ::
+              Data.=# ( "AWSOrganizationsV20161128.InviteAccountToOrganization" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON InviteAccountToOrganization where
+instance Data.ToJSON InviteAccountToOrganization where
   toJSON InviteAccountToOrganization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Notes" Core..=) Prelude.<$> notes,
-            Prelude.Just ("Target" Core..= target)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Notes" Data..=) Prelude.<$> notes,
+            Prelude.Just ("Target" Data..= target)
           ]
       )
 
-instance Core.ToPath InviteAccountToOrganization where
+instance Data.ToPath InviteAccountToOrganization where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery InviteAccountToOrganization where
+instance Data.ToQuery InviteAccountToOrganization where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newInviteAccountToOrganizationResponse' smart constructor.

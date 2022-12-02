@@ -21,6 +21,7 @@ module Amazonka.Organizations.Types.HandshakeFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types.ActionType
 import qualified Amazonka.Prelude as Prelude
 
@@ -106,12 +107,12 @@ instance Prelude.NFData HandshakeFilter where
     Prelude.rnf actionType
       `Prelude.seq` Prelude.rnf parentHandshakeId
 
-instance Core.ToJSON HandshakeFilter where
+instance Data.ToJSON HandshakeFilter where
   toJSON HandshakeFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ActionType" Core..=) Prelude.<$> actionType,
-            ("ParentHandshakeId" Core..=)
+          [ ("ActionType" Data..=) Prelude.<$> actionType,
+            ("ParentHandshakeId" Data..=)
               Prelude.<$> parentHandshakeId
           ]
       )

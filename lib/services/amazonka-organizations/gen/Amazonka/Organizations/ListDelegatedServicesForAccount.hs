@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -184,8 +185,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListDelegatedServicesForAccountResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "DelegatedServices"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "DelegatedServices"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -212,37 +213,37 @@ instance
       `Prelude.seq` Prelude.rnf accountId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListDelegatedServicesForAccount
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.ListDelegatedServicesForAccount" ::
+              Data.=# ( "AWSOrganizationsV20161128.ListDelegatedServicesForAccount" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDelegatedServicesForAccount where
+instance Data.ToJSON ListDelegatedServicesForAccount where
   toJSON ListDelegatedServicesForAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("AccountId" Core..= accountId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("AccountId" Data..= accountId)
           ]
       )
 
-instance Core.ToPath ListDelegatedServicesForAccount where
+instance Data.ToPath ListDelegatedServicesForAccount where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDelegatedServicesForAccount where
+instance Data.ToQuery ListDelegatedServicesForAccount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDelegatedServicesForAccountResponse' smart constructor.

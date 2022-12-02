@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -199,8 +200,8 @@ instance Core.AWSRequest ListHandshakesForAccount where
     Response.receiveJSON
       ( \s h x ->
           ListHandshakesForAccountResponse'
-            Prelude.<$> (x Core..?> "Handshakes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Handshakes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -216,35 +217,35 @@ instance Prelude.NFData ListHandshakesForAccount where
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListHandshakesForAccount where
+instance Data.ToHeaders ListHandshakesForAccount where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.ListHandshakesForAccount" ::
+              Data.=# ( "AWSOrganizationsV20161128.ListHandshakesForAccount" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListHandshakesForAccount where
+instance Data.ToJSON ListHandshakesForAccount where
   toJSON ListHandshakesForAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filter" Core..=) Prelude.<$> filter',
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListHandshakesForAccount where
+instance Data.ToPath ListHandshakesForAccount where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListHandshakesForAccount where
+instance Data.ToQuery ListHandshakesForAccount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListHandshakesForAccountResponse' smart constructor.

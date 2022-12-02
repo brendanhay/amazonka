@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,7 +115,7 @@ instance Core.AWSRequest DescribeOrganizationalUnit where
     Response.receiveJSON
       ( \s h x ->
           DescribeOrganizationalUnitResponse'
-            Prelude.<$> (x Core..?> "OrganizationalUnit")
+            Prelude.<$> (x Data..?> "OrganizationalUnit")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,36 +127,36 @@ instance Prelude.NFData DescribeOrganizationalUnit where
   rnf DescribeOrganizationalUnit' {..} =
     Prelude.rnf organizationalUnitId
 
-instance Core.ToHeaders DescribeOrganizationalUnit where
+instance Data.ToHeaders DescribeOrganizationalUnit where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.DescribeOrganizationalUnit" ::
+              Data.=# ( "AWSOrganizationsV20161128.DescribeOrganizationalUnit" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeOrganizationalUnit where
+instance Data.ToJSON DescribeOrganizationalUnit where
   toJSON DescribeOrganizationalUnit' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "OrganizationalUnitId"
-                  Core..= organizationalUnitId
+                  Data..= organizationalUnitId
               )
           ]
       )
 
-instance Core.ToPath DescribeOrganizationalUnit where
+instance Data.ToPath DescribeOrganizationalUnit where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeOrganizationalUnit where
+instance Data.ToQuery DescribeOrganizationalUnit where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeOrganizationalUnitResponse' smart constructor.

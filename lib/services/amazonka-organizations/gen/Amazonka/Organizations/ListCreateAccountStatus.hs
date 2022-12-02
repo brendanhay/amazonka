@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -185,8 +186,8 @@ instance Core.AWSRequest ListCreateAccountStatus where
     Response.receiveJSON
       ( \s h x ->
           ListCreateAccountStatusResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "CreateAccountStatuses"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "CreateAccountStatuses"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -204,35 +205,35 @@ instance Prelude.NFData ListCreateAccountStatus where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf states
 
-instance Core.ToHeaders ListCreateAccountStatus where
+instance Data.ToHeaders ListCreateAccountStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.ListCreateAccountStatus" ::
+              Data.=# ( "AWSOrganizationsV20161128.ListCreateAccountStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListCreateAccountStatus where
+instance Data.ToJSON ListCreateAccountStatus where
   toJSON ListCreateAccountStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("States" Core..=) Prelude.<$> states
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("States" Data..=) Prelude.<$> states
           ]
       )
 
-instance Core.ToPath ListCreateAccountStatus where
+instance Data.ToPath ListCreateAccountStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListCreateAccountStatus where
+instance Data.ToQuery ListCreateAccountStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCreateAccountStatusResponse' smart constructor.

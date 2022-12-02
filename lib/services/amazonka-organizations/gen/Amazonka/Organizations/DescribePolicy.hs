@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,7 +106,7 @@ instance Core.AWSRequest DescribePolicy where
     Response.receiveJSON
       ( \s h x ->
           DescribePolicyResponse'
-            Prelude.<$> (x Core..?> "Policy")
+            Prelude.<$> (x Data..?> "Policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,32 +117,32 @@ instance Prelude.Hashable DescribePolicy where
 instance Prelude.NFData DescribePolicy where
   rnf DescribePolicy' {..} = Prelude.rnf policyId
 
-instance Core.ToHeaders DescribePolicy where
+instance Data.ToHeaders DescribePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.DescribePolicy" ::
+              Data.=# ( "AWSOrganizationsV20161128.DescribePolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribePolicy where
+instance Data.ToJSON DescribePolicy where
   toJSON DescribePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("PolicyId" Core..= policyId)]
+          [Prelude.Just ("PolicyId" Data..= policyId)]
       )
 
-instance Core.ToPath DescribePolicy where
+instance Data.ToPath DescribePolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribePolicy where
+instance Data.ToQuery DescribePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePolicyResponse' smart constructor.

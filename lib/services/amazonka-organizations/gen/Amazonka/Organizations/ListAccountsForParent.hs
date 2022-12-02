@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -187,8 +188,8 @@ instance Core.AWSRequest ListAccountsForParent where
     Response.receiveJSON
       ( \s h x ->
           ListAccountsForParentResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Accounts" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Accounts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,35 +205,35 @@ instance Prelude.NFData ListAccountsForParent where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf parentId
 
-instance Core.ToHeaders ListAccountsForParent where
+instance Data.ToHeaders ListAccountsForParent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.ListAccountsForParent" ::
+              Data.=# ( "AWSOrganizationsV20161128.ListAccountsForParent" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAccountsForParent where
+instance Data.ToJSON ListAccountsForParent where
   toJSON ListAccountsForParent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("ParentId" Core..= parentId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("ParentId" Data..= parentId)
           ]
       )
 
-instance Core.ToPath ListAccountsForParent where
+instance Data.ToPath ListAccountsForParent where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAccountsForParent where
+instance Data.ToQuery ListAccountsForParent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAccountsForParentResponse' smart constructor.

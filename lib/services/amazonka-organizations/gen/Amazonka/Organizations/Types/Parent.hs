@@ -21,6 +21,7 @@ module Amazonka.Organizations.Types.Parent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types.ParentType
 import qualified Amazonka.Prelude as Prelude
 
@@ -96,13 +97,13 @@ parent_type = Lens.lens (\Parent' {type'} -> type') (\s@Parent' {} a -> s {type'
 parent_id :: Lens.Lens' Parent (Prelude.Maybe Prelude.Text)
 parent_id = Lens.lens (\Parent' {id} -> id) (\s@Parent' {} a -> s {id = a} :: Parent)
 
-instance Core.FromJSON Parent where
+instance Data.FromJSON Parent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Parent"
       ( \x ->
           Parent'
-            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable Parent where

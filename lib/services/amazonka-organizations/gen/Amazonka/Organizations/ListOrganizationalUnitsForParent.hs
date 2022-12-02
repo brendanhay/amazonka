@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -223,8 +224,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListOrganizationalUnitsForParentResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "OrganizationalUnits"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "OrganizationalUnits"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -251,38 +252,38 @@ instance
       `Prelude.seq` Prelude.rnf parentId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListOrganizationalUnitsForParent
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.ListOrganizationalUnitsForParent" ::
+              Data.=# ( "AWSOrganizationsV20161128.ListOrganizationalUnitsForParent" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListOrganizationalUnitsForParent where
+instance Data.ToJSON ListOrganizationalUnitsForParent where
   toJSON ListOrganizationalUnitsForParent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("ParentId" Core..= parentId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("ParentId" Data..= parentId)
           ]
       )
 
-instance Core.ToPath ListOrganizationalUnitsForParent where
+instance Data.ToPath ListOrganizationalUnitsForParent where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListOrganizationalUnitsForParent
   where
   toQuery = Prelude.const Prelude.mempty

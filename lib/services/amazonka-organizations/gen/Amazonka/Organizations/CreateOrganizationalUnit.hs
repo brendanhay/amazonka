@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -181,7 +182,7 @@ instance Core.AWSRequest CreateOrganizationalUnit where
     Response.receiveJSON
       ( \s h x ->
           CreateOrganizationalUnitResponse'
-            Prelude.<$> (x Core..?> "OrganizationalUnit")
+            Prelude.<$> (x Data..?> "OrganizationalUnit")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -197,35 +198,35 @@ instance Prelude.NFData CreateOrganizationalUnit where
       `Prelude.seq` Prelude.rnf parentId
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateOrganizationalUnit where
+instance Data.ToHeaders CreateOrganizationalUnit where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.CreateOrganizationalUnit" ::
+              Data.=# ( "AWSOrganizationsV20161128.CreateOrganizationalUnit" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateOrganizationalUnit where
+instance Data.ToJSON CreateOrganizationalUnit where
   toJSON CreateOrganizationalUnit' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("ParentId" Core..= parentId),
-            Prelude.Just ("Name" Core..= name)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("ParentId" Data..= parentId),
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateOrganizationalUnit where
+instance Data.ToPath CreateOrganizationalUnit where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateOrganizationalUnit where
+instance Data.ToQuery CreateOrganizationalUnit where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateOrganizationalUnitResponse' smart constructor.

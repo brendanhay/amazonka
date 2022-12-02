@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -225,8 +226,8 @@ instance Core.AWSRequest ListChildren where
     Response.receiveJSON
       ( \s h x ->
           ListChildrenResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Children" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Children" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -244,36 +245,36 @@ instance Prelude.NFData ListChildren where
       `Prelude.seq` Prelude.rnf parentId
       `Prelude.seq` Prelude.rnf childType
 
-instance Core.ToHeaders ListChildren where
+instance Data.ToHeaders ListChildren where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.ListChildren" ::
+              Data.=# ( "AWSOrganizationsV20161128.ListChildren" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListChildren where
+instance Data.ToJSON ListChildren where
   toJSON ListChildren' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("ParentId" Core..= parentId),
-            Prelude.Just ("ChildType" Core..= childType)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("ParentId" Data..= parentId),
+            Prelude.Just ("ChildType" Data..= childType)
           ]
       )
 
-instance Core.ToPath ListChildren where
+instance Data.ToPath ListChildren where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListChildren where
+instance Data.ToQuery ListChildren where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListChildrenResponse' smart constructor.

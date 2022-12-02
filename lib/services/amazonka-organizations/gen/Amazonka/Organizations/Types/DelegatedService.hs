@@ -21,6 +21,7 @@ module Amazonka.Organizations.Types.DelegatedService where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the Amazon Web Services service for which the
@@ -34,7 +35,7 @@ data DelegatedService = DelegatedService'
     servicePrincipal :: Prelude.Maybe Prelude.Text,
     -- | The date that the account became a delegated administrator for this
     -- service.
-    delegationEnabledDate :: Prelude.Maybe Core.POSIX
+    delegationEnabledDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,16 +71,16 @@ delegatedService_servicePrincipal = Lens.lens (\DelegatedService' {servicePrinci
 -- | The date that the account became a delegated administrator for this
 -- service.
 delegatedService_delegationEnabledDate :: Lens.Lens' DelegatedService (Prelude.Maybe Prelude.UTCTime)
-delegatedService_delegationEnabledDate = Lens.lens (\DelegatedService' {delegationEnabledDate} -> delegationEnabledDate) (\s@DelegatedService' {} a -> s {delegationEnabledDate = a} :: DelegatedService) Prelude.. Lens.mapping Core._Time
+delegatedService_delegationEnabledDate = Lens.lens (\DelegatedService' {delegationEnabledDate} -> delegationEnabledDate) (\s@DelegatedService' {} a -> s {delegationEnabledDate = a} :: DelegatedService) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON DelegatedService where
+instance Data.FromJSON DelegatedService where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DelegatedService"
       ( \x ->
           DelegatedService'
-            Prelude.<$> (x Core..:? "ServicePrincipal")
-            Prelude.<*> (x Core..:? "DelegationEnabledDate")
+            Prelude.<$> (x Data..:? "ServicePrincipal")
+            Prelude.<*> (x Data..:? "DelegationEnabledDate")
       )
 
 instance Prelude.Hashable DelegatedService where

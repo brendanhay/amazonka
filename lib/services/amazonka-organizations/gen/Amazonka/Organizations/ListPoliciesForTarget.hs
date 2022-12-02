@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -262,8 +263,8 @@ instance Core.AWSRequest ListPoliciesForTarget where
     Response.receiveJSON
       ( \s h x ->
           ListPoliciesForTargetResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Policies" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Policies" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -281,36 +282,36 @@ instance Prelude.NFData ListPoliciesForTarget where
       `Prelude.seq` Prelude.rnf targetId
       `Prelude.seq` Prelude.rnf filter'
 
-instance Core.ToHeaders ListPoliciesForTarget where
+instance Data.ToHeaders ListPoliciesForTarget where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.ListPoliciesForTarget" ::
+              Data.=# ( "AWSOrganizationsV20161128.ListPoliciesForTarget" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListPoliciesForTarget where
+instance Data.ToJSON ListPoliciesForTarget where
   toJSON ListPoliciesForTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("TargetId" Core..= targetId),
-            Prelude.Just ("Filter" Core..= filter')
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("TargetId" Data..= targetId),
+            Prelude.Just ("Filter" Data..= filter')
           ]
       )
 
-instance Core.ToPath ListPoliciesForTarget where
+instance Data.ToPath ListPoliciesForTarget where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListPoliciesForTarget where
+instance Data.ToQuery ListPoliciesForTarget where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListPoliciesForTargetResponse' smart constructor.

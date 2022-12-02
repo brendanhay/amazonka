@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,7 +113,7 @@ instance Core.AWSRequest DescribeHandshake where
     Response.receiveJSON
       ( \s h x ->
           DescribeHandshakeResponse'
-            Prelude.<$> (x Core..?> "Handshake")
+            Prelude.<$> (x Data..?> "Handshake")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,32 +124,32 @@ instance Prelude.Hashable DescribeHandshake where
 instance Prelude.NFData DescribeHandshake where
   rnf DescribeHandshake' {..} = Prelude.rnf handshakeId
 
-instance Core.ToHeaders DescribeHandshake where
+instance Data.ToHeaders DescribeHandshake where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.DescribeHandshake" ::
+              Data.=# ( "AWSOrganizationsV20161128.DescribeHandshake" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeHandshake where
+instance Data.ToJSON DescribeHandshake where
   toJSON DescribeHandshake' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("HandshakeId" Core..= handshakeId)]
+          [Prelude.Just ("HandshakeId" Data..= handshakeId)]
       )
 
-instance Core.ToPath DescribeHandshake where
+instance Data.ToPath DescribeHandshake where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeHandshake where
+instance Data.ToQuery DescribeHandshake where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeHandshakeResponse' smart constructor.

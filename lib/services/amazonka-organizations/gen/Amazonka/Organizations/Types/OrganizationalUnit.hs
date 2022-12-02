@@ -21,6 +21,7 @@ module Amazonka.Organizations.Types.OrganizationalUnit where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about an organizational unit (OU). An OU is a container
@@ -115,15 +116,15 @@ organizationalUnit_arn = Lens.lens (\OrganizationalUnit' {arn} -> arn) (\s@Organ
 organizationalUnit_id :: Lens.Lens' OrganizationalUnit (Prelude.Maybe Prelude.Text)
 organizationalUnit_id = Lens.lens (\OrganizationalUnit' {id} -> id) (\s@OrganizationalUnit' {} a -> s {id = a} :: OrganizationalUnit)
 
-instance Core.FromJSON OrganizationalUnit where
+instance Data.FromJSON OrganizationalUnit where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OrganizationalUnit"
       ( \x ->
           OrganizationalUnit'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable OrganizationalUnit where

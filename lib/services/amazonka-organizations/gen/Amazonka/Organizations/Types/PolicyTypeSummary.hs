@@ -21,6 +21,7 @@ module Amazonka.Organizations.Types.PolicyTypeSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types.PolicyType
 import Amazonka.Organizations.Types.PolicyTypeStatus
 import qualified Amazonka.Prelude as Prelude
@@ -73,14 +74,14 @@ policyTypeSummary_type = Lens.lens (\PolicyTypeSummary' {type'} -> type') (\s@Po
 policyTypeSummary_status :: Lens.Lens' PolicyTypeSummary (Prelude.Maybe PolicyTypeStatus)
 policyTypeSummary_status = Lens.lens (\PolicyTypeSummary' {status} -> status) (\s@PolicyTypeSummary' {} a -> s {status = a} :: PolicyTypeSummary)
 
-instance Core.FromJSON PolicyTypeSummary where
+instance Data.FromJSON PolicyTypeSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PolicyTypeSummary"
       ( \x ->
           PolicyTypeSummary'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable PolicyTypeSummary where

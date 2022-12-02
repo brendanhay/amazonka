@@ -21,6 +21,7 @@ module Amazonka.Organizations.Types.HandshakeParty where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types.HandshakePartyType
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,7 +34,7 @@ data HandshakeParty = HandshakeParty'
     -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID
     -- string requires \"h-\" followed by from 8 to 32 lowercase letters or
     -- digits.
-    id :: Core.Sensitive Prelude.Text,
+    id :: Data.Sensitive Prelude.Text,
     -- | The type of party.
     type' :: HandshakePartyType
   }
@@ -62,7 +63,7 @@ newHandshakeParty ::
   HandshakeParty
 newHandshakeParty pId_ pType_ =
   HandshakeParty'
-    { id = Core._Sensitive Lens.# pId_,
+    { id = Data._Sensitive Lens.# pId_,
       type' = pType_
     }
 
@@ -72,19 +73,19 @@ newHandshakeParty pId_ pType_ =
 -- string requires \"h-\" followed by from 8 to 32 lowercase letters or
 -- digits.
 handshakeParty_id :: Lens.Lens' HandshakeParty Prelude.Text
-handshakeParty_id = Lens.lens (\HandshakeParty' {id} -> id) (\s@HandshakeParty' {} a -> s {id = a} :: HandshakeParty) Prelude.. Core._Sensitive
+handshakeParty_id = Lens.lens (\HandshakeParty' {id} -> id) (\s@HandshakeParty' {} a -> s {id = a} :: HandshakeParty) Prelude.. Data._Sensitive
 
 -- | The type of party.
 handshakeParty_type :: Lens.Lens' HandshakeParty HandshakePartyType
 handshakeParty_type = Lens.lens (\HandshakeParty' {type'} -> type') (\s@HandshakeParty' {} a -> s {type' = a} :: HandshakeParty)
 
-instance Core.FromJSON HandshakeParty where
+instance Data.FromJSON HandshakeParty where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HandshakeParty"
       ( \x ->
           HandshakeParty'
-            Prelude.<$> (x Core..: "Id") Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..: "Id") Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable HandshakeParty where
@@ -96,11 +97,11 @@ instance Prelude.NFData HandshakeParty where
   rnf HandshakeParty' {..} =
     Prelude.rnf id `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON HandshakeParty where
+instance Data.ToJSON HandshakeParty where
   toJSON HandshakeParty' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("Type" Core..= type')
+          [ Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("Type" Data..= type')
           ]
       )

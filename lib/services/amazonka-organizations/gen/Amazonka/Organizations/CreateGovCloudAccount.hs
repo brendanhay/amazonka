@@ -166,6 +166,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -258,12 +259,12 @@ data CreateGovCloudAccount = CreateGovCloudAccount'
     -- for @CreateGovCloudAccount@, the request for the email address for the
     -- Amazon Web Services GovCloud (US) account originates from the commercial
     -- Region, not from the Amazon Web Services GovCloud (US) Region.
-    email :: Core.Sensitive Prelude.Text,
+    email :: Data.Sensitive Prelude.Text,
     -- | The friendly name of the member account.
     --
     -- The account name can consist of only the characters [a-z],[A-Z],[0-9],
     -- hyphen (-), or dot (.) You can\'t separate characters with a dash (–).
-    accountName :: Core.Sensitive Prelude.Text
+    accountName :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -376,8 +377,8 @@ newCreateGovCloudAccount pEmail_ pAccountName_ =
     { tags = Prelude.Nothing,
       roleName = Prelude.Nothing,
       iamUserAccessToBilling = Prelude.Nothing,
-      email = Core._Sensitive Lens.# pEmail_,
-      accountName = Core._Sensitive Lens.# pAccountName_
+      email = Data._Sensitive Lens.# pEmail_,
+      accountName = Data._Sensitive Lens.# pAccountName_
     }
 
 -- | A list of tags that you want to attach to the newly created account.
@@ -472,14 +473,14 @@ createGovCloudAccount_iamUserAccessToBilling = Lens.lens (\CreateGovCloudAccount
 -- Amazon Web Services GovCloud (US) account originates from the commercial
 -- Region, not from the Amazon Web Services GovCloud (US) Region.
 createGovCloudAccount_email :: Lens.Lens' CreateGovCloudAccount Prelude.Text
-createGovCloudAccount_email = Lens.lens (\CreateGovCloudAccount' {email} -> email) (\s@CreateGovCloudAccount' {} a -> s {email = a} :: CreateGovCloudAccount) Prelude.. Core._Sensitive
+createGovCloudAccount_email = Lens.lens (\CreateGovCloudAccount' {email} -> email) (\s@CreateGovCloudAccount' {} a -> s {email = a} :: CreateGovCloudAccount) Prelude.. Data._Sensitive
 
 -- | The friendly name of the member account.
 --
 -- The account name can consist of only the characters [a-z],[A-Z],[0-9],
 -- hyphen (-), or dot (.) You can\'t separate characters with a dash (–).
 createGovCloudAccount_accountName :: Lens.Lens' CreateGovCloudAccount Prelude.Text
-createGovCloudAccount_accountName = Lens.lens (\CreateGovCloudAccount' {accountName} -> accountName) (\s@CreateGovCloudAccount' {} a -> s {accountName = a} :: CreateGovCloudAccount) Prelude.. Core._Sensitive
+createGovCloudAccount_accountName = Lens.lens (\CreateGovCloudAccount' {accountName} -> accountName) (\s@CreateGovCloudAccount' {} a -> s {accountName = a} :: CreateGovCloudAccount) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest CreateGovCloudAccount where
   type
@@ -491,7 +492,7 @@ instance Core.AWSRequest CreateGovCloudAccount where
     Response.receiveJSON
       ( \s h x ->
           CreateGovCloudAccountResponse'
-            Prelude.<$> (x Core..?> "CreateAccountStatus")
+            Prelude.<$> (x Data..?> "CreateAccountStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -511,38 +512,38 @@ instance Prelude.NFData CreateGovCloudAccount where
       `Prelude.seq` Prelude.rnf email
       `Prelude.seq` Prelude.rnf accountName
 
-instance Core.ToHeaders CreateGovCloudAccount where
+instance Data.ToHeaders CreateGovCloudAccount where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.CreateGovCloudAccount" ::
+              Data.=# ( "AWSOrganizationsV20161128.CreateGovCloudAccount" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateGovCloudAccount where
+instance Data.ToJSON CreateGovCloudAccount where
   toJSON CreateGovCloudAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("RoleName" Core..=) Prelude.<$> roleName,
-            ("IamUserAccessToBilling" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("RoleName" Data..=) Prelude.<$> roleName,
+            ("IamUserAccessToBilling" Data..=)
               Prelude.<$> iamUserAccessToBilling,
-            Prelude.Just ("Email" Core..= email),
-            Prelude.Just ("AccountName" Core..= accountName)
+            Prelude.Just ("Email" Data..= email),
+            Prelude.Just ("AccountName" Data..= accountName)
           ]
       )
 
-instance Core.ToPath CreateGovCloudAccount where
+instance Data.ToPath CreateGovCloudAccount where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateGovCloudAccount where
+instance Data.ToQuery CreateGovCloudAccount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateGovCloudAccountResponse' smart constructor.

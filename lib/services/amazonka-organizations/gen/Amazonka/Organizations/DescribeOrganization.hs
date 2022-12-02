@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -74,7 +75,7 @@ instance Core.AWSRequest DescribeOrganization where
     Response.receiveJSON
       ( \s h x ->
           DescribeOrganizationResponse'
-            Prelude.<$> (x Core..?> "Organization")
+            Prelude.<$> (x Data..?> "Organization")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -85,28 +86,28 @@ instance Prelude.Hashable DescribeOrganization where
 instance Prelude.NFData DescribeOrganization where
   rnf _ = ()
 
-instance Core.ToHeaders DescribeOrganization where
+instance Data.ToHeaders DescribeOrganization where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.DescribeOrganization" ::
+              Data.=# ( "AWSOrganizationsV20161128.DescribeOrganization" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeOrganization where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DescribeOrganization where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DescribeOrganization where
+instance Data.ToPath DescribeOrganization where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeOrganization where
+instance Data.ToQuery DescribeOrganization where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeOrganizationResponse' smart constructor.

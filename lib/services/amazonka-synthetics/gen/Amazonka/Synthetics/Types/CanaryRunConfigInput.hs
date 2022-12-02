@@ -21,6 +21,7 @@ module Amazonka.Synthetics.Types.CanaryRunConfigInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains input information for a canary run.
@@ -172,15 +173,15 @@ instance Prelude.NFData CanaryRunConfigInput where
       `Prelude.seq` Prelude.rnf environmentVariables
       `Prelude.seq` Prelude.rnf memoryInMB
 
-instance Core.ToJSON CanaryRunConfigInput where
+instance Data.ToJSON CanaryRunConfigInput where
   toJSON CanaryRunConfigInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ActiveTracing" Core..=) Prelude.<$> activeTracing,
-            ("TimeoutInSeconds" Core..=)
+          [ ("ActiveTracing" Data..=) Prelude.<$> activeTracing,
+            ("TimeoutInSeconds" Data..=)
               Prelude.<$> timeoutInSeconds,
-            ("EnvironmentVariables" Core..=)
+            ("EnvironmentVariables" Data..=)
               Prelude.<$> environmentVariables,
-            ("MemoryInMB" Core..=) Prelude.<$> memoryInMB
+            ("MemoryInMB" Data..=) Prelude.<$> memoryInMB
           ]
       )

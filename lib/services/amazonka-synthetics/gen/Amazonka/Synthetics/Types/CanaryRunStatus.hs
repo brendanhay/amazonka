@@ -21,6 +21,7 @@ module Amazonka.Synthetics.Types.CanaryRunStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Synthetics.Types.CanaryRunState
 import Amazonka.Synthetics.Types.CanaryRunStateReasonCode
@@ -81,15 +82,15 @@ canaryRunStatus_stateReasonCode = Lens.lens (\CanaryRunStatus' {stateReasonCode}
 canaryRunStatus_stateReason :: Lens.Lens' CanaryRunStatus (Prelude.Maybe Prelude.Text)
 canaryRunStatus_stateReason = Lens.lens (\CanaryRunStatus' {stateReason} -> stateReason) (\s@CanaryRunStatus' {} a -> s {stateReason = a} :: CanaryRunStatus)
 
-instance Core.FromJSON CanaryRunStatus where
+instance Data.FromJSON CanaryRunStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CanaryRunStatus"
       ( \x ->
           CanaryRunStatus'
-            Prelude.<$> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "StateReasonCode")
-            Prelude.<*> (x Core..:? "StateReason")
+            Prelude.<$> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "StateReasonCode")
+            Prelude.<*> (x Data..:? "StateReason")
       )
 
 instance Prelude.Hashable CanaryRunStatus where

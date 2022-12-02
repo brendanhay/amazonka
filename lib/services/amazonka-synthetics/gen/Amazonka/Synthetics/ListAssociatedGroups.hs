@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,8 +120,8 @@ instance Core.AWSRequest ListAssociatedGroups where
     Response.receiveJSON
       ( \s h x ->
           ListAssociatedGroupsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Groups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Groups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,32 +137,32 @@ instance Prelude.NFData ListAssociatedGroups where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf resourceArn
 
-instance Core.ToHeaders ListAssociatedGroups where
+instance Data.ToHeaders ListAssociatedGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAssociatedGroups where
+instance Data.ToJSON ListAssociatedGroups where
   toJSON ListAssociatedGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListAssociatedGroups where
+instance Data.ToPath ListAssociatedGroups where
   toPath ListAssociatedGroups' {..} =
     Prelude.mconcat
-      ["/resource/", Core.toBS resourceArn, "/groups"]
+      ["/resource/", Data.toBS resourceArn, "/groups"]
 
-instance Core.ToQuery ListAssociatedGroups where
+instance Data.ToQuery ListAssociatedGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAssociatedGroupsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Synthetics.Types.CanaryRunTimeline where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure contains the start and end times of a single canary run.
@@ -28,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newCanaryRunTimeline' smart constructor.
 data CanaryRunTimeline = CanaryRunTimeline'
   { -- | The start time of the run.
-    started :: Prelude.Maybe Core.POSIX,
+    started :: Prelude.Maybe Data.POSIX,
     -- | The end time of the run.
-    completed :: Prelude.Maybe Core.POSIX
+    completed :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,20 +56,20 @@ newCanaryRunTimeline =
 
 -- | The start time of the run.
 canaryRunTimeline_started :: Lens.Lens' CanaryRunTimeline (Prelude.Maybe Prelude.UTCTime)
-canaryRunTimeline_started = Lens.lens (\CanaryRunTimeline' {started} -> started) (\s@CanaryRunTimeline' {} a -> s {started = a} :: CanaryRunTimeline) Prelude.. Lens.mapping Core._Time
+canaryRunTimeline_started = Lens.lens (\CanaryRunTimeline' {started} -> started) (\s@CanaryRunTimeline' {} a -> s {started = a} :: CanaryRunTimeline) Prelude.. Lens.mapping Data._Time
 
 -- | The end time of the run.
 canaryRunTimeline_completed :: Lens.Lens' CanaryRunTimeline (Prelude.Maybe Prelude.UTCTime)
-canaryRunTimeline_completed = Lens.lens (\CanaryRunTimeline' {completed} -> completed) (\s@CanaryRunTimeline' {} a -> s {completed = a} :: CanaryRunTimeline) Prelude.. Lens.mapping Core._Time
+canaryRunTimeline_completed = Lens.lens (\CanaryRunTimeline' {completed} -> completed) (\s@CanaryRunTimeline' {} a -> s {completed = a} :: CanaryRunTimeline) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON CanaryRunTimeline where
+instance Data.FromJSON CanaryRunTimeline where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CanaryRunTimeline"
       ( \x ->
           CanaryRunTimeline'
-            Prelude.<$> (x Core..:? "Started")
-            Prelude.<*> (x Core..:? "Completed")
+            Prelude.<$> (x Data..:? "Started")
+            Prelude.<*> (x Data..:? "Completed")
       )
 
 instance Prelude.Hashable CanaryRunTimeline where

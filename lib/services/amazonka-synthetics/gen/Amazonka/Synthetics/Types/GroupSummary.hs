@@ -21,6 +21,7 @@ module Amazonka.Synthetics.Types.GroupSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing some information about a group.
@@ -70,15 +71,15 @@ groupSummary_arn = Lens.lens (\GroupSummary' {arn} -> arn) (\s@GroupSummary' {} 
 groupSummary_id :: Lens.Lens' GroupSummary (Prelude.Maybe Prelude.Text)
 groupSummary_id = Lens.lens (\GroupSummary' {id} -> id) (\s@GroupSummary' {} a -> s {id = a} :: GroupSummary)
 
-instance Core.FromJSON GroupSummary where
+instance Data.FromJSON GroupSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GroupSummary"
       ( \x ->
           GroupSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable GroupSummary where

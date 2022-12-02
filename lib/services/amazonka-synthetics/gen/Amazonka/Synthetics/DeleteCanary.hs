@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -145,25 +146,25 @@ instance Prelude.NFData DeleteCanary where
     Prelude.rnf deleteLambda
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders DeleteCanary where
+instance Data.ToHeaders DeleteCanary where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteCanary where
+instance Data.ToPath DeleteCanary where
   toPath DeleteCanary' {..} =
-    Prelude.mconcat ["/canary/", Core.toBS name]
+    Prelude.mconcat ["/canary/", Data.toBS name]
 
-instance Core.ToQuery DeleteCanary where
+instance Data.ToQuery DeleteCanary where
   toQuery DeleteCanary' {..} =
     Prelude.mconcat
-      ["deleteLambda" Core.=: deleteLambda]
+      ["deleteLambda" Data.=: deleteLambda]
 
 -- | /See:/ 'newDeleteCanaryResponse' smart constructor.
 data DeleteCanaryResponse = DeleteCanaryResponse'

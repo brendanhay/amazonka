@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -370,7 +371,7 @@ instance Core.AWSRequest CreateCanary where
     Response.receiveJSON
       ( \s h x ->
           CreateCanaryResponse'
-            Prelude.<$> (x Core..?> "Canary")
+            Prelude.<$> (x Data..?> "Canary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -404,46 +405,46 @@ instance Prelude.NFData CreateCanary where
       `Prelude.seq` Prelude.rnf schedule
       `Prelude.seq` Prelude.rnf runtimeVersion
 
-instance Core.ToHeaders CreateCanary where
+instance Data.ToHeaders CreateCanary where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCanary where
+instance Data.ToJSON CreateCanary where
   toJSON CreateCanary' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("ArtifactConfig" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("ArtifactConfig" Data..=)
               Prelude.<$> artifactConfig,
-            ("FailureRetentionPeriodInDays" Core..=)
+            ("FailureRetentionPeriodInDays" Data..=)
               Prelude.<$> failureRetentionPeriodInDays,
-            ("SuccessRetentionPeriodInDays" Core..=)
+            ("SuccessRetentionPeriodInDays" Data..=)
               Prelude.<$> successRetentionPeriodInDays,
-            ("RunConfig" Core..=) Prelude.<$> runConfig,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Code" Core..= code),
+            ("RunConfig" Data..=) Prelude.<$> runConfig,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Code" Data..= code),
             Prelude.Just
-              ("ArtifactS3Location" Core..= artifactS3Location),
+              ("ArtifactS3Location" Data..= artifactS3Location),
             Prelude.Just
-              ("ExecutionRoleArn" Core..= executionRoleArn),
-            Prelude.Just ("Schedule" Core..= schedule),
+              ("ExecutionRoleArn" Data..= executionRoleArn),
+            Prelude.Just ("Schedule" Data..= schedule),
             Prelude.Just
-              ("RuntimeVersion" Core..= runtimeVersion)
+              ("RuntimeVersion" Data..= runtimeVersion)
           ]
       )
 
-instance Core.ToPath CreateCanary where
+instance Data.ToPath CreateCanary where
   toPath = Prelude.const "/canary"
 
-instance Core.ToQuery CreateCanary where
+instance Data.ToQuery CreateCanary where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCanaryResponse' smart constructor.

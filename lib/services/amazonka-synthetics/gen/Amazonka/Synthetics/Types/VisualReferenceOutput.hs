@@ -21,6 +21,7 @@ module Amazonka.Synthetics.Types.VisualReferenceOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Synthetics.Types.BaseScreenshot
 
@@ -75,15 +76,15 @@ visualReferenceOutput_baseCanaryRunId = Lens.lens (\VisualReferenceOutput' {base
 visualReferenceOutput_baseScreenshots :: Lens.Lens' VisualReferenceOutput (Prelude.Maybe [BaseScreenshot])
 visualReferenceOutput_baseScreenshots = Lens.lens (\VisualReferenceOutput' {baseScreenshots} -> baseScreenshots) (\s@VisualReferenceOutput' {} a -> s {baseScreenshots = a} :: VisualReferenceOutput) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON VisualReferenceOutput where
+instance Data.FromJSON VisualReferenceOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VisualReferenceOutput"
       ( \x ->
           VisualReferenceOutput'
-            Prelude.<$> (x Core..:? "BaseCanaryRunId")
-            Prelude.<*> ( x Core..:? "BaseScreenshots"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "BaseCanaryRunId")
+            Prelude.<*> ( x Data..:? "BaseScreenshots"
+                            Data..!= Prelude.mempty
                         )
       )
 

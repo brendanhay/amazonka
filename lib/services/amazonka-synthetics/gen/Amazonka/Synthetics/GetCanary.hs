@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetCanary where
     Response.receiveJSON
       ( \s h x ->
           GetCanaryResponse'
-            Prelude.<$> (x Core..?> "Canary")
+            Prelude.<$> (x Data..?> "Canary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,22 +95,22 @@ instance Prelude.Hashable GetCanary where
 instance Prelude.NFData GetCanary where
   rnf GetCanary' {..} = Prelude.rnf name
 
-instance Core.ToHeaders GetCanary where
+instance Data.ToHeaders GetCanary where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetCanary where
+instance Data.ToPath GetCanary where
   toPath GetCanary' {..} =
-    Prelude.mconcat ["/canary/", Core.toBS name]
+    Prelude.mconcat ["/canary/", Data.toBS name]
 
-instance Core.ToQuery GetCanary where
+instance Data.ToQuery GetCanary where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCanaryResponse' smart constructor.

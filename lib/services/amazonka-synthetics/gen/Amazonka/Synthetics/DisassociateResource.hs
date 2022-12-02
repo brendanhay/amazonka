@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,33 +117,33 @@ instance Prelude.NFData DisassociateResource where
     Prelude.rnf groupIdentifier
       `Prelude.seq` Prelude.rnf resourceArn
 
-instance Core.ToHeaders DisassociateResource where
+instance Data.ToHeaders DisassociateResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateResource where
+instance Data.ToJSON DisassociateResource where
   toJSON DisassociateResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ResourceArn" Core..= resourceArn)]
+          [Prelude.Just ("ResourceArn" Data..= resourceArn)]
       )
 
-instance Core.ToPath DisassociateResource where
+instance Data.ToPath DisassociateResource where
   toPath DisassociateResource' {..} =
     Prelude.mconcat
       [ "/group/",
-        Core.toBS groupIdentifier,
+        Data.toBS groupIdentifier,
         "/disassociate"
       ]
 
-instance Core.ToQuery DisassociateResource where
+instance Data.ToQuery DisassociateResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateResourceResponse' smart constructor.

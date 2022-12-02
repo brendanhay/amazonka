@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,8 +110,8 @@ instance Core.AWSRequest DescribeRuntimeVersions where
     Response.receiveJSON
       ( \s h x ->
           DescribeRuntimeVersionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "RuntimeVersions"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "RuntimeVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -126,30 +127,30 @@ instance Prelude.NFData DescribeRuntimeVersions where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeRuntimeVersions where
+instance Data.ToHeaders DescribeRuntimeVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeRuntimeVersions where
+instance Data.ToJSON DescribeRuntimeVersions where
   toJSON DescribeRuntimeVersions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeRuntimeVersions where
+instance Data.ToPath DescribeRuntimeVersions where
   toPath = Prelude.const "/runtime-versions"
 
-instance Core.ToQuery DescribeRuntimeVersions where
+instance Data.ToQuery DescribeRuntimeVersions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRuntimeVersionsResponse' smart constructor.

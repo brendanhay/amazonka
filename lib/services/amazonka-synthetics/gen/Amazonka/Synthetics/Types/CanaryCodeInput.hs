@@ -21,6 +21,7 @@ module Amazonka.Synthetics.Types.CanaryCodeInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use this structure to input your script code for the canary. This
@@ -47,7 +48,7 @@ data CanaryCodeInput = CanaryCodeInput'
     --
     -- For large canary scripts, we recommend that you use an S3 location
     -- instead of inputting it directly with this parameter.
-    zipFile :: Prelude.Maybe Core.Base64,
+    zipFile :: Prelude.Maybe Data.Base64,
     -- | The entry point to use for the source code when running the canary. For
     -- canaries that use the @syn-python-selenium-1.0@ runtime or a
     -- @syn-nodejs.puppeteer@ runtime earlier than @syn-nodejs.puppeteer-3.4@,
@@ -135,7 +136,7 @@ canaryCodeInput_s3Key = Lens.lens (\CanaryCodeInput' {s3Key} -> s3Key) (\s@Canar
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 canaryCodeInput_zipFile :: Lens.Lens' CanaryCodeInput (Prelude.Maybe Prelude.ByteString)
-canaryCodeInput_zipFile = Lens.lens (\CanaryCodeInput' {zipFile} -> zipFile) (\s@CanaryCodeInput' {} a -> s {zipFile = a} :: CanaryCodeInput) Prelude.. Lens.mapping Core._Base64
+canaryCodeInput_zipFile = Lens.lens (\CanaryCodeInput' {zipFile} -> zipFile) (\s@CanaryCodeInput' {} a -> s {zipFile = a} :: CanaryCodeInput) Prelude.. Lens.mapping Data._Base64
 
 -- | The entry point to use for the source code when running the canary. For
 -- canaries that use the @syn-python-selenium-1.0@ runtime or a
@@ -164,14 +165,14 @@ instance Prelude.NFData CanaryCodeInput where
       `Prelude.seq` Prelude.rnf zipFile
       `Prelude.seq` Prelude.rnf handler
 
-instance Core.ToJSON CanaryCodeInput where
+instance Data.ToJSON CanaryCodeInput where
   toJSON CanaryCodeInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3Bucket" Core..=) Prelude.<$> s3Bucket,
-            ("S3Version" Core..=) Prelude.<$> s3Version,
-            ("S3Key" Core..=) Prelude.<$> s3Key,
-            ("ZipFile" Core..=) Prelude.<$> zipFile,
-            Prelude.Just ("Handler" Core..= handler)
+          [ ("S3Bucket" Data..=) Prelude.<$> s3Bucket,
+            ("S3Version" Data..=) Prelude.<$> s3Version,
+            ("S3Key" Data..=) Prelude.<$> s3Key,
+            ("ZipFile" Data..=) Prelude.<$> zipFile,
+            Prelude.Just ("Handler" Data..= handler)
           ]
       )

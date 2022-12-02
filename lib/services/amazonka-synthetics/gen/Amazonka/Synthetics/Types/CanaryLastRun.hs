@@ -21,6 +21,7 @@ module Amazonka.Synthetics.Types.CanaryLastRun where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Synthetics.Types.CanaryRun
 
@@ -63,14 +64,14 @@ canaryLastRun_lastRun = Lens.lens (\CanaryLastRun' {lastRun} -> lastRun) (\s@Can
 canaryLastRun_canaryName :: Lens.Lens' CanaryLastRun (Prelude.Maybe Prelude.Text)
 canaryLastRun_canaryName = Lens.lens (\CanaryLastRun' {canaryName} -> canaryName) (\s@CanaryLastRun' {} a -> s {canaryName = a} :: CanaryLastRun)
 
-instance Core.FromJSON CanaryLastRun where
+instance Data.FromJSON CanaryLastRun where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CanaryLastRun"
       ( \x ->
           CanaryLastRun'
-            Prelude.<$> (x Core..:? "LastRun")
-            Prelude.<*> (x Core..:? "CanaryName")
+            Prelude.<$> (x Data..:? "LastRun")
+            Prelude.<*> (x Data..:? "CanaryName")
       )
 
 instance Prelude.Hashable CanaryLastRun where

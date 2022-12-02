@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -161,8 +162,8 @@ instance Core.AWSRequest DescribeCanaries where
     Response.receiveJSON
       ( \s h x ->
           DescribeCanariesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Canaries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Canaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,31 +179,31 @@ instance Prelude.NFData DescribeCanaries where
       `Prelude.seq` Prelude.rnf names
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeCanaries where
+instance Data.ToHeaders DescribeCanaries where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeCanaries where
+instance Data.ToJSON DescribeCanaries where
   toJSON DescribeCanaries' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Names" Core..=) Prelude.<$> names,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Names" Data..=) Prelude.<$> names,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeCanaries where
+instance Data.ToPath DescribeCanaries where
   toPath = Prelude.const "/canaries"
 
-instance Core.ToQuery DescribeCanaries where
+instance Data.ToQuery DescribeCanaries where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeCanariesResponse' smart constructor.

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,8 +119,8 @@ instance Core.AWSRequest GetCanaryRuns where
     Response.receiveJSON
       ( \s h x ->
           GetCanaryRunsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "CanaryRuns" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "CanaryRuns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,32 +136,32 @@ instance Prelude.NFData GetCanaryRuns where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders GetCanaryRuns where
+instance Data.ToHeaders GetCanaryRuns where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCanaryRuns where
+instance Data.ToJSON GetCanaryRuns where
   toJSON GetCanaryRuns' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath GetCanaryRuns where
+instance Data.ToPath GetCanaryRuns where
   toPath GetCanaryRuns' {..} =
     Prelude.mconcat
-      ["/canary/", Core.toBS name, "/runs"]
+      ["/canary/", Data.toBS name, "/runs"]
 
-instance Core.ToQuery GetCanaryRuns where
+instance Data.ToQuery GetCanaryRuns where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCanaryRunsResponse' smart constructor.

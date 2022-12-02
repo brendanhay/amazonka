@@ -21,6 +21,7 @@ module Amazonka.Synthetics.Types.ArtifactConfigOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Synthetics.Types.S3EncryptionConfig
 
@@ -59,13 +60,13 @@ newArtifactConfigOutput =
 artifactConfigOutput_s3Encryption :: Lens.Lens' ArtifactConfigOutput (Prelude.Maybe S3EncryptionConfig)
 artifactConfigOutput_s3Encryption = Lens.lens (\ArtifactConfigOutput' {s3Encryption} -> s3Encryption) (\s@ArtifactConfigOutput' {} a -> s {s3Encryption = a} :: ArtifactConfigOutput)
 
-instance Core.FromJSON ArtifactConfigOutput where
+instance Data.FromJSON ArtifactConfigOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ArtifactConfigOutput"
       ( \x ->
           ArtifactConfigOutput'
-            Prelude.<$> (x Core..:? "S3Encryption")
+            Prelude.<$> (x Data..:? "S3Encryption")
       )
 
 instance Prelude.Hashable ArtifactConfigOutput where

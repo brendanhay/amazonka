@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -364,47 +365,47 @@ instance Prelude.NFData UpdateCanary where
       `Prelude.seq` Prelude.rnf runtimeVersion
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateCanary where
+instance Data.ToHeaders UpdateCanary where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateCanary where
+instance Data.ToJSON UpdateCanary where
   toJSON UpdateCanary' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Schedule" Core..=) Prelude.<$> schedule,
-            ("Code" Core..=) Prelude.<$> code,
-            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("VisualReference" Core..=)
+          [ ("Schedule" Data..=) Prelude.<$> schedule,
+            ("Code" Data..=) Prelude.<$> code,
+            ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("VisualReference" Data..=)
               Prelude.<$> visualReference,
-            ("ArtifactConfig" Core..=)
+            ("ArtifactConfig" Data..=)
               Prelude.<$> artifactConfig,
-            ("FailureRetentionPeriodInDays" Core..=)
+            ("FailureRetentionPeriodInDays" Data..=)
               Prelude.<$> failureRetentionPeriodInDays,
-            ("SuccessRetentionPeriodInDays" Core..=)
+            ("SuccessRetentionPeriodInDays" Data..=)
               Prelude.<$> successRetentionPeriodInDays,
-            ("ExecutionRoleArn" Core..=)
+            ("ExecutionRoleArn" Data..=)
               Prelude.<$> executionRoleArn,
-            ("RunConfig" Core..=) Prelude.<$> runConfig,
-            ("ArtifactS3Location" Core..=)
+            ("RunConfig" Data..=) Prelude.<$> runConfig,
+            ("ArtifactS3Location" Data..=)
               Prelude.<$> artifactS3Location,
-            ("RuntimeVersion" Core..=)
+            ("RuntimeVersion" Data..=)
               Prelude.<$> runtimeVersion
           ]
       )
 
-instance Core.ToPath UpdateCanary where
+instance Data.ToPath UpdateCanary where
   toPath UpdateCanary' {..} =
-    Prelude.mconcat ["/canary/", Core.toBS name]
+    Prelude.mconcat ["/canary/", Data.toBS name]
 
-instance Core.ToQuery UpdateCanary where
+instance Data.ToQuery UpdateCanary where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCanaryResponse' smart constructor.

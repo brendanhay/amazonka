@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -162,8 +163,8 @@ instance Core.AWSRequest DescribeCanariesLastRun where
     Response.receiveJSON
       ( \s h x ->
           DescribeCanariesLastRunResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "CanariesLastRun"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "CanariesLastRun"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -181,31 +182,31 @@ instance Prelude.NFData DescribeCanariesLastRun where
       `Prelude.seq` Prelude.rnf names
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeCanariesLastRun where
+instance Data.ToHeaders DescribeCanariesLastRun where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeCanariesLastRun where
+instance Data.ToJSON DescribeCanariesLastRun where
   toJSON DescribeCanariesLastRun' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Names" Core..=) Prelude.<$> names,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Names" Data..=) Prelude.<$> names,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeCanariesLastRun where
+instance Data.ToPath DescribeCanariesLastRun where
   toPath = Prelude.const "/canaries/last-run"
 
-instance Core.ToQuery DescribeCanariesLastRun where
+instance Data.ToQuery DescribeCanariesLastRun where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeCanariesLastRunResponse' smart constructor.

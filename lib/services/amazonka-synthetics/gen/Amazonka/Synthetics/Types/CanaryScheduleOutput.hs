@@ -21,6 +21,7 @@ module Amazonka.Synthetics.Types.CanaryScheduleOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | How long, in seconds, for the canary to continue making regular runs
@@ -116,14 +117,14 @@ canaryScheduleOutput_expression = Lens.lens (\CanaryScheduleOutput' {expression}
 canaryScheduleOutput_durationInSeconds :: Lens.Lens' CanaryScheduleOutput (Prelude.Maybe Prelude.Natural)
 canaryScheduleOutput_durationInSeconds = Lens.lens (\CanaryScheduleOutput' {durationInSeconds} -> durationInSeconds) (\s@CanaryScheduleOutput' {} a -> s {durationInSeconds = a} :: CanaryScheduleOutput)
 
-instance Core.FromJSON CanaryScheduleOutput where
+instance Data.FromJSON CanaryScheduleOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CanaryScheduleOutput"
       ( \x ->
           CanaryScheduleOutput'
-            Prelude.<$> (x Core..:? "Expression")
-            Prelude.<*> (x Core..:? "DurationInSeconds")
+            Prelude.<$> (x Data..:? "Expression")
+            Prelude.<*> (x Data..:? "DurationInSeconds")
       )
 
 instance Prelude.Hashable CanaryScheduleOutput where

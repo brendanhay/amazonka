@@ -21,6 +21,7 @@ module Amazonka.Synthetics.Types.Canary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Synthetics.Types.ArtifactConfigOutput
 import Amazonka.Synthetics.Types.CanaryCodeOutput
@@ -244,29 +245,29 @@ canary_artifactS3Location = Lens.lens (\Canary' {artifactS3Location} -> artifact
 canary_runtimeVersion :: Lens.Lens' Canary (Prelude.Maybe Prelude.Text)
 canary_runtimeVersion = Lens.lens (\Canary' {runtimeVersion} -> runtimeVersion) (\s@Canary' {} a -> s {runtimeVersion = a} :: Canary)
 
-instance Core.FromJSON Canary where
+instance Data.FromJSON Canary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Canary"
       ( \x ->
           Canary'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Schedule")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Code")
-            Prelude.<*> (x Core..:? "VpcConfig")
-            Prelude.<*> (x Core..:? "Timeline")
-            Prelude.<*> (x Core..:? "VisualReference")
-            Prelude.<*> (x Core..:? "ArtifactConfig")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "FailureRetentionPeriodInDays")
-            Prelude.<*> (x Core..:? "SuccessRetentionPeriodInDays")
-            Prelude.<*> (x Core..:? "EngineArn")
-            Prelude.<*> (x Core..:? "ExecutionRoleArn")
-            Prelude.<*> (x Core..:? "RunConfig")
-            Prelude.<*> (x Core..:? "ArtifactS3Location")
-            Prelude.<*> (x Core..:? "RuntimeVersion")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Schedule")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Code")
+            Prelude.<*> (x Data..:? "VpcConfig")
+            Prelude.<*> (x Data..:? "Timeline")
+            Prelude.<*> (x Data..:? "VisualReference")
+            Prelude.<*> (x Data..:? "ArtifactConfig")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "FailureRetentionPeriodInDays")
+            Prelude.<*> (x Data..:? "SuccessRetentionPeriodInDays")
+            Prelude.<*> (x Data..:? "EngineArn")
+            Prelude.<*> (x Data..:? "ExecutionRoleArn")
+            Prelude.<*> (x Data..:? "RunConfig")
+            Prelude.<*> (x Data..:? "ArtifactS3Location")
+            Prelude.<*> (x Data..:? "RuntimeVersion")
       )
 
 instance Prelude.Hashable Canary where

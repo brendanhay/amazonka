@@ -21,6 +21,7 @@ module Amazonka.Synthetics.Types.CanaryRunConfigOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains information about a canary run.
@@ -74,15 +75,15 @@ canaryRunConfigOutput_timeoutInSeconds = Lens.lens (\CanaryRunConfigOutput' {tim
 canaryRunConfigOutput_memoryInMB :: Lens.Lens' CanaryRunConfigOutput (Prelude.Maybe Prelude.Natural)
 canaryRunConfigOutput_memoryInMB = Lens.lens (\CanaryRunConfigOutput' {memoryInMB} -> memoryInMB) (\s@CanaryRunConfigOutput' {} a -> s {memoryInMB = a} :: CanaryRunConfigOutput)
 
-instance Core.FromJSON CanaryRunConfigOutput where
+instance Data.FromJSON CanaryRunConfigOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CanaryRunConfigOutput"
       ( \x ->
           CanaryRunConfigOutput'
-            Prelude.<$> (x Core..:? "ActiveTracing")
-            Prelude.<*> (x Core..:? "TimeoutInSeconds")
-            Prelude.<*> (x Core..:? "MemoryInMB")
+            Prelude.<$> (x Data..:? "ActiveTracing")
+            Prelude.<*> (x Data..:? "TimeoutInSeconds")
+            Prelude.<*> (x Data..:? "MemoryInMB")
       )
 
 instance Prelude.Hashable CanaryRunConfigOutput where

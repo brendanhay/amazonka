@@ -21,6 +21,7 @@ module Amazonka.Synthetics.Types.ArtifactConfigInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Synthetics.Types.S3EncryptionConfig
 
@@ -79,9 +80,9 @@ instance Prelude.NFData ArtifactConfigInput where
   rnf ArtifactConfigInput' {..} =
     Prelude.rnf s3Encryption
 
-instance Core.ToJSON ArtifactConfigInput where
+instance Data.ToJSON ArtifactConfigInput where
   toJSON ArtifactConfigInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("S3Encryption" Core..=) Prelude.<$> s3Encryption]
+          [("S3Encryption" Data..=) Prelude.<$> s3Encryption]
       )

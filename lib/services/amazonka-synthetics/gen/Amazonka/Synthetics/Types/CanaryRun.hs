@@ -21,6 +21,7 @@ module Amazonka.Synthetics.Types.CanaryRun where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Synthetics.Types.CanaryRunStatus
 import Amazonka.Synthetics.Types.CanaryRunTimeline
@@ -93,17 +94,17 @@ canaryRun_id = Lens.lens (\CanaryRun' {id} -> id) (\s@CanaryRun' {} a -> s {id =
 canaryRun_artifactS3Location :: Lens.Lens' CanaryRun (Prelude.Maybe Prelude.Text)
 canaryRun_artifactS3Location = Lens.lens (\CanaryRun' {artifactS3Location} -> artifactS3Location) (\s@CanaryRun' {} a -> s {artifactS3Location = a} :: CanaryRun)
 
-instance Core.FromJSON CanaryRun where
+instance Data.FromJSON CanaryRun where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CanaryRun"
       ( \x ->
           CanaryRun'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Timeline")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "ArtifactS3Location")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Timeline")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "ArtifactS3Location")
       )
 
 instance Prelude.Hashable CanaryRun where

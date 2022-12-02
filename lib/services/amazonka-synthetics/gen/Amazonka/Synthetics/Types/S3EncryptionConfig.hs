@@ -21,6 +21,7 @@ module Amazonka.Synthetics.Types.S3EncryptionConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Synthetics.Types.EncryptionMode
 
@@ -87,14 +88,14 @@ s3EncryptionConfig_kmsKeyArn = Lens.lens (\S3EncryptionConfig' {kmsKeyArn} -> km
 s3EncryptionConfig_encryptionMode :: Lens.Lens' S3EncryptionConfig (Prelude.Maybe EncryptionMode)
 s3EncryptionConfig_encryptionMode = Lens.lens (\S3EncryptionConfig' {encryptionMode} -> encryptionMode) (\s@S3EncryptionConfig' {} a -> s {encryptionMode = a} :: S3EncryptionConfig)
 
-instance Core.FromJSON S3EncryptionConfig where
+instance Data.FromJSON S3EncryptionConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3EncryptionConfig"
       ( \x ->
           S3EncryptionConfig'
-            Prelude.<$> (x Core..:? "KmsKeyArn")
-            Prelude.<*> (x Core..:? "EncryptionMode")
+            Prelude.<$> (x Data..:? "KmsKeyArn")
+            Prelude.<*> (x Data..:? "EncryptionMode")
       )
 
 instance Prelude.Hashable S3EncryptionConfig where
@@ -107,12 +108,12 @@ instance Prelude.NFData S3EncryptionConfig where
     Prelude.rnf kmsKeyArn
       `Prelude.seq` Prelude.rnf encryptionMode
 
-instance Core.ToJSON S3EncryptionConfig where
+instance Data.ToJSON S3EncryptionConfig where
   toJSON S3EncryptionConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            ("EncryptionMode" Core..=)
+          [ ("KmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            ("EncryptionMode" Data..=)
               Prelude.<$> encryptionMode
           ]
       )

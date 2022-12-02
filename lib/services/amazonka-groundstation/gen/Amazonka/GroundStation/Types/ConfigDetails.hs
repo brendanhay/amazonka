@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.ConfigDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types.AntennaDemodDecodeDetails
 import Amazonka.GroundStation.Types.EndpointDetails
 import Amazonka.GroundStation.Types.S3RecordingDetails
@@ -72,15 +73,15 @@ configDetails_s3RecordingDetails = Lens.lens (\ConfigDetails' {s3RecordingDetail
 configDetails_antennaDemodDecodeDetails :: Lens.Lens' ConfigDetails (Prelude.Maybe AntennaDemodDecodeDetails)
 configDetails_antennaDemodDecodeDetails = Lens.lens (\ConfigDetails' {antennaDemodDecodeDetails} -> antennaDemodDecodeDetails) (\s@ConfigDetails' {} a -> s {antennaDemodDecodeDetails = a} :: ConfigDetails)
 
-instance Core.FromJSON ConfigDetails where
+instance Data.FromJSON ConfigDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfigDetails"
       ( \x ->
           ConfigDetails'
-            Prelude.<$> (x Core..:? "endpointDetails")
-            Prelude.<*> (x Core..:? "s3RecordingDetails")
-            Prelude.<*> (x Core..:? "antennaDemodDecodeDetails")
+            Prelude.<$> (x Data..:? "endpointDetails")
+            Prelude.<*> (x Data..:? "s3RecordingDetails")
+            Prelude.<*> (x Data..:? "antennaDemodDecodeDetails")
       )
 
 instance Prelude.Hashable ConfigDetails where

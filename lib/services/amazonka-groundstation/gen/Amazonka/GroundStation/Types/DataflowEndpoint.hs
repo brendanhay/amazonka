@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.DataflowEndpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types.EndpointStatus
 import Amazonka.GroundStation.Types.SocketAddress
 import qualified Amazonka.Prelude as Prelude
@@ -81,16 +82,16 @@ dataflowEndpoint_address = Lens.lens (\DataflowEndpoint' {address} -> address) (
 dataflowEndpoint_mtu :: Lens.Lens' DataflowEndpoint (Prelude.Maybe Prelude.Natural)
 dataflowEndpoint_mtu = Lens.lens (\DataflowEndpoint' {mtu} -> mtu) (\s@DataflowEndpoint' {} a -> s {mtu = a} :: DataflowEndpoint)
 
-instance Core.FromJSON DataflowEndpoint where
+instance Data.FromJSON DataflowEndpoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataflowEndpoint"
       ( \x ->
           DataflowEndpoint'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "address")
-            Prelude.<*> (x Core..:? "mtu")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "address")
+            Prelude.<*> (x Data..:? "mtu")
       )
 
 instance Prelude.Hashable DataflowEndpoint where
@@ -107,13 +108,13 @@ instance Prelude.NFData DataflowEndpoint where
       `Prelude.seq` Prelude.rnf address
       `Prelude.seq` Prelude.rnf mtu
 
-instance Core.ToJSON DataflowEndpoint where
+instance Data.ToJSON DataflowEndpoint where
   toJSON DataflowEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("status" Core..=) Prelude.<$> status,
-            ("address" Core..=) Prelude.<$> address,
-            ("mtu" Core..=) Prelude.<$> mtu
+          [ ("name" Data..=) Prelude.<$> name,
+            ("status" Data..=) Prelude.<$> status,
+            ("address" Data..=) Prelude.<$> address,
+            ("mtu" Data..=) Prelude.<$> mtu
           ]
       )

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,7 +102,7 @@ instance Core.AWSRequest CreateDataflowEndpointGroup where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateDataflowEndpointGroup where
   hashWithSalt _salt CreateDataflowEndpointGroup' {..} =
@@ -113,29 +114,29 @@ instance Prelude.NFData CreateDataflowEndpointGroup where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf endpointDetails
 
-instance Core.ToHeaders CreateDataflowEndpointGroup where
+instance Data.ToHeaders CreateDataflowEndpointGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDataflowEndpointGroup where
+instance Data.ToJSON CreateDataflowEndpointGroup where
   toJSON CreateDataflowEndpointGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
-              ("endpointDetails" Core..= endpointDetails)
+              ("endpointDetails" Data..= endpointDetails)
           ]
       )
 
-instance Core.ToPath CreateDataflowEndpointGroup where
+instance Data.ToPath CreateDataflowEndpointGroup where
   toPath = Prelude.const "/dataflowEndpointGroup"
 
-instance Core.ToQuery CreateDataflowEndpointGroup where
+instance Data.ToQuery CreateDataflowEndpointGroup where
   toQuery = Prelude.const Prelude.mempty

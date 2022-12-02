@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.OEMEphemeris where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types.S3Object
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,11 +76,11 @@ instance Prelude.NFData OEMEphemeris where
     Prelude.rnf oemData
       `Prelude.seq` Prelude.rnf s3Object
 
-instance Core.ToJSON OEMEphemeris where
+instance Data.ToJSON OEMEphemeris where
   toJSON OEMEphemeris' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("oemData" Core..=) Prelude.<$> oemData,
-            ("s3Object" Core..=) Prelude.<$> s3Object
+          [ ("oemData" Data..=) Prelude.<$> oemData,
+            ("s3Object" Data..=) Prelude.<$> s3Object
           ]
       )

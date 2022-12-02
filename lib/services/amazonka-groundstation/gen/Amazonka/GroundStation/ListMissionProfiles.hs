@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,8 +124,8 @@ instance Core.AWSRequest ListMissionProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListMissionProfilesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "missionProfileList"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "missionProfileList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -140,25 +141,25 @@ instance Prelude.NFData ListMissionProfiles where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListMissionProfiles where
+instance Data.ToHeaders ListMissionProfiles where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListMissionProfiles where
+instance Data.ToPath ListMissionProfiles where
   toPath = Prelude.const "/missionprofile"
 
-instance Core.ToQuery ListMissionProfiles where
+instance Data.ToQuery ListMissionProfiles where
   toQuery ListMissionProfiles' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- |

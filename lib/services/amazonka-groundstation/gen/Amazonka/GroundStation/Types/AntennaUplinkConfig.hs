@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.AntennaUplinkConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types.Eirp
 import Amazonka.GroundStation.Types.UplinkSpectrumConfig
 import qualified Amazonka.Prelude as Prelude
@@ -77,15 +78,15 @@ antennaUplinkConfig_spectrumConfig = Lens.lens (\AntennaUplinkConfig' {spectrumC
 antennaUplinkConfig_targetEirp :: Lens.Lens' AntennaUplinkConfig Eirp
 antennaUplinkConfig_targetEirp = Lens.lens (\AntennaUplinkConfig' {targetEirp} -> targetEirp) (\s@AntennaUplinkConfig' {} a -> s {targetEirp = a} :: AntennaUplinkConfig)
 
-instance Core.FromJSON AntennaUplinkConfig where
+instance Data.FromJSON AntennaUplinkConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AntennaUplinkConfig"
       ( \x ->
           AntennaUplinkConfig'
-            Prelude.<$> (x Core..:? "transmitDisabled")
-            Prelude.<*> (x Core..: "spectrumConfig")
-            Prelude.<*> (x Core..: "targetEirp")
+            Prelude.<$> (x Data..:? "transmitDisabled")
+            Prelude.<*> (x Data..: "spectrumConfig")
+            Prelude.<*> (x Data..: "targetEirp")
       )
 
 instance Prelude.Hashable AntennaUplinkConfig where
@@ -100,14 +101,14 @@ instance Prelude.NFData AntennaUplinkConfig where
       `Prelude.seq` Prelude.rnf spectrumConfig
       `Prelude.seq` Prelude.rnf targetEirp
 
-instance Core.ToJSON AntennaUplinkConfig where
+instance Data.ToJSON AntennaUplinkConfig where
   toJSON AntennaUplinkConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("transmitDisabled" Core..=)
+          [ ("transmitDisabled" Data..=)
               Prelude.<$> transmitDisabled,
             Prelude.Just
-              ("spectrumConfig" Core..= spectrumConfig),
-            Prelude.Just ("targetEirp" Core..= targetEirp)
+              ("spectrumConfig" Data..= spectrumConfig),
+            Prelude.Just ("targetEirp" Data..= targetEirp)
           ]
       )

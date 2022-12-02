@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.DataflowDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types.Destination
 import Amazonka.GroundStation.Types.Source
 import qualified Amazonka.Prelude as Prelude
@@ -70,15 +71,15 @@ dataflowDetail_errorMessage = Lens.lens (\DataflowDetail' {errorMessage} -> erro
 dataflowDetail_source :: Lens.Lens' DataflowDetail (Prelude.Maybe Source)
 dataflowDetail_source = Lens.lens (\DataflowDetail' {source} -> source) (\s@DataflowDetail' {} a -> s {source = a} :: DataflowDetail)
 
-instance Core.FromJSON DataflowDetail where
+instance Data.FromJSON DataflowDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataflowDetail"
       ( \x ->
           DataflowDetail'
-            Prelude.<$> (x Core..:? "destination")
-            Prelude.<*> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "source")
+            Prelude.<$> (x Data..:? "destination")
+            Prelude.<*> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "source")
       )
 
 instance Prelude.Hashable DataflowDetail where

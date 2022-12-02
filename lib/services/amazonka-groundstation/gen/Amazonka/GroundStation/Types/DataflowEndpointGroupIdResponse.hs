@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.DataflowEndpointGroupIdResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- |
@@ -54,15 +55,15 @@ dataflowEndpointGroupIdResponse_dataflowEndpointGroupId :: Lens.Lens' DataflowEn
 dataflowEndpointGroupIdResponse_dataflowEndpointGroupId = Lens.lens (\DataflowEndpointGroupIdResponse' {dataflowEndpointGroupId} -> dataflowEndpointGroupId) (\s@DataflowEndpointGroupIdResponse' {} a -> s {dataflowEndpointGroupId = a} :: DataflowEndpointGroupIdResponse)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DataflowEndpointGroupIdResponse
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataflowEndpointGroupIdResponse"
       ( \x ->
           DataflowEndpointGroupIdResponse'
-            Prelude.<$> (x Core..:? "dataflowEndpointGroupId")
+            Prelude.<$> (x Data..:? "dataflowEndpointGroupId")
       )
 
 instance

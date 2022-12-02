@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.MissionProfileListItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Item in a list of mission profiles.
@@ -80,16 +81,16 @@ missionProfileListItem_missionProfileId = Lens.lens (\MissionProfileListItem' {m
 missionProfileListItem_region :: Lens.Lens' MissionProfileListItem (Prelude.Maybe Prelude.Text)
 missionProfileListItem_region = Lens.lens (\MissionProfileListItem' {region} -> region) (\s@MissionProfileListItem' {} a -> s {region = a} :: MissionProfileListItem)
 
-instance Core.FromJSON MissionProfileListItem where
+instance Data.FromJSON MissionProfileListItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MissionProfileListItem"
       ( \x ->
           MissionProfileListItem'
-            Prelude.<$> (x Core..:? "missionProfileArn")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "missionProfileId")
-            Prelude.<*> (x Core..:? "region")
+            Prelude.<$> (x Data..:? "missionProfileArn")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "missionProfileId")
+            Prelude.<*> (x Data..:? "region")
       )
 
 instance Prelude.Hashable MissionProfileListItem where

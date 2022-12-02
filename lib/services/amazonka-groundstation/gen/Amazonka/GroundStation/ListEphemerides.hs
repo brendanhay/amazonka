@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -65,13 +66,13 @@ data ListEphemerides = ListEphemerides'
     -- | The end time to list in UTC. The operation will return an ephemeris if
     -- its expiration time is within the time range defined by the @startTime@
     -- and @endTime@.
-    endTime :: Core.POSIX,
+    endTime :: Data.POSIX,
     -- | The AWS Ground Station satellite ID to list ephemeris for.
     satelliteId :: Prelude.Text,
     -- | The start time to list in UTC. The operation will return an ephemeris if
     -- its expiration time is within the time range defined by the @startTime@
     -- and @endTime@.
-    startTime :: Core.POSIX
+    startTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -114,9 +115,9 @@ newListEphemerides
       { nextToken = Prelude.Nothing,
         maxResults = Prelude.Nothing,
         statusList = Prelude.Nothing,
-        endTime = Core._Time Lens.# pEndTime_,
+        endTime = Data._Time Lens.# pEndTime_,
         satelliteId = pSatelliteId_,
-        startTime = Core._Time Lens.# pStartTime_
+        startTime = Data._Time Lens.# pStartTime_
       }
 
 -- | Pagination token.
@@ -135,7 +136,7 @@ listEphemerides_statusList = Lens.lens (\ListEphemerides' {statusList} -> status
 -- its expiration time is within the time range defined by the @startTime@
 -- and @endTime@.
 listEphemerides_endTime :: Lens.Lens' ListEphemerides Prelude.UTCTime
-listEphemerides_endTime = Lens.lens (\ListEphemerides' {endTime} -> endTime) (\s@ListEphemerides' {} a -> s {endTime = a} :: ListEphemerides) Prelude.. Core._Time
+listEphemerides_endTime = Lens.lens (\ListEphemerides' {endTime} -> endTime) (\s@ListEphemerides' {} a -> s {endTime = a} :: ListEphemerides) Prelude.. Data._Time
 
 -- | The AWS Ground Station satellite ID to list ephemeris for.
 listEphemerides_satelliteId :: Lens.Lens' ListEphemerides Prelude.Text
@@ -145,7 +146,7 @@ listEphemerides_satelliteId = Lens.lens (\ListEphemerides' {satelliteId} -> sate
 -- its expiration time is within the time range defined by the @startTime@
 -- and @endTime@.
 listEphemerides_startTime :: Lens.Lens' ListEphemerides Prelude.UTCTime
-listEphemerides_startTime = Lens.lens (\ListEphemerides' {startTime} -> startTime) (\s@ListEphemerides' {} a -> s {startTime = a} :: ListEphemerides) Prelude.. Core._Time
+listEphemerides_startTime = Lens.lens (\ListEphemerides' {startTime} -> startTime) (\s@ListEphemerides' {} a -> s {startTime = a} :: ListEphemerides) Prelude.. Data._Time
 
 instance Core.AWSPager ListEphemerides where
   page rq rs
@@ -180,8 +181,8 @@ instance Core.AWSRequest ListEphemerides where
     Response.receiveJSON
       ( \s h x ->
           ListEphemeridesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "ephemerides")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "ephemerides")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,36 +204,36 @@ instance Prelude.NFData ListEphemerides where
       `Prelude.seq` Prelude.rnf satelliteId
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToHeaders ListEphemerides where
+instance Data.ToHeaders ListEphemerides where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListEphemerides where
+instance Data.ToJSON ListEphemerides where
   toJSON ListEphemerides' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("statusList" Core..=) Prelude.<$> statusList,
-            Prelude.Just ("endTime" Core..= endTime),
-            Prelude.Just ("satelliteId" Core..= satelliteId),
-            Prelude.Just ("startTime" Core..= startTime)
+          [ ("statusList" Data..=) Prelude.<$> statusList,
+            Prelude.Just ("endTime" Data..= endTime),
+            Prelude.Just ("satelliteId" Data..= satelliteId),
+            Prelude.Just ("startTime" Data..= startTime)
           ]
       )
 
-instance Core.ToPath ListEphemerides where
+instance Data.ToPath ListEphemerides where
   toPath = Prelude.const "/ephemerides"
 
-instance Core.ToQuery ListEphemerides where
+instance Data.ToQuery ListEphemerides where
   toQuery ListEphemerides' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListEphemeridesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.FrequencyBandwidth where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types.BandwidthUnits
 import qualified Amazonka.Prelude as Prelude
 
@@ -96,13 +97,13 @@ frequencyBandwidth_units = Lens.lens (\FrequencyBandwidth' {units} -> units) (\s
 frequencyBandwidth_value :: Lens.Lens' FrequencyBandwidth Prelude.Double
 frequencyBandwidth_value = Lens.lens (\FrequencyBandwidth' {value} -> value) (\s@FrequencyBandwidth' {} a -> s {value = a} :: FrequencyBandwidth)
 
-instance Core.FromJSON FrequencyBandwidth where
+instance Data.FromJSON FrequencyBandwidth where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FrequencyBandwidth"
       ( \x ->
           FrequencyBandwidth'
-            Prelude.<$> (x Core..: "units") Prelude.<*> (x Core..: "value")
+            Prelude.<$> (x Data..: "units") Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable FrequencyBandwidth where
@@ -114,11 +115,11 @@ instance Prelude.NFData FrequencyBandwidth where
   rnf FrequencyBandwidth' {..} =
     Prelude.rnf units `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON FrequencyBandwidth where
+instance Data.ToJSON FrequencyBandwidth where
   toJSON FrequencyBandwidth' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("units" Core..= units),
-            Prelude.Just ("value" Core..= value)
+          [ Prelude.Just ("units" Data..= units),
+            Prelude.Just ("value" Data..= value)
           ]
       )

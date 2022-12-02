@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.ConfigListItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types.ConfigCapabilityType
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,16 +81,16 @@ configListItem_configType = Lens.lens (\ConfigListItem' {configType} -> configTy
 configListItem_configArn :: Lens.Lens' ConfigListItem (Prelude.Maybe Prelude.Text)
 configListItem_configArn = Lens.lens (\ConfigListItem' {configArn} -> configArn) (\s@ConfigListItem' {} a -> s {configArn = a} :: ConfigListItem)
 
-instance Core.FromJSON ConfigListItem where
+instance Data.FromJSON ConfigListItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfigListItem"
       ( \x ->
           ConfigListItem'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "configId")
-            Prelude.<*> (x Core..:? "configType")
-            Prelude.<*> (x Core..:? "configArn")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "configId")
+            Prelude.<*> (x Data..:? "configType")
+            Prelude.<*> (x Data..:? "configArn")
       )
 
 instance Prelude.Hashable ConfigListItem where

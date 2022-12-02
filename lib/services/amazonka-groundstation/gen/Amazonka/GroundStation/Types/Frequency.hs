@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.Frequency where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types.FrequencyUnits
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,13 +67,13 @@ frequency_units = Lens.lens (\Frequency' {units} -> units) (\s@Frequency' {} a -
 frequency_value :: Lens.Lens' Frequency Prelude.Double
 frequency_value = Lens.lens (\Frequency' {value} -> value) (\s@Frequency' {} a -> s {value = a} :: Frequency)
 
-instance Core.FromJSON Frequency where
+instance Data.FromJSON Frequency where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Frequency"
       ( \x ->
           Frequency'
-            Prelude.<$> (x Core..: "units") Prelude.<*> (x Core..: "value")
+            Prelude.<$> (x Data..: "units") Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable Frequency where
@@ -84,11 +85,11 @@ instance Prelude.NFData Frequency where
   rnf Frequency' {..} =
     Prelude.rnf units `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON Frequency where
+instance Data.ToJSON Frequency where
   toJSON Frequency' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("units" Core..= units),
-            Prelude.Just ("value" Core..= value)
+          [ Prelude.Just ("units" Data..= units),
+            Prelude.Just ("value" Data..= value)
           ]
       )

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,12 +92,12 @@ instance Core.AWSRequest GetDataflowEndpointGroup where
     Response.receiveJSON
       ( \s h x ->
           GetDataflowEndpointGroupResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "dataflowEndpointGroupArn")
-            Prelude.<*> ( x Core..?> "endpointsDetails"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "dataflowEndpointGroupArn")
+            Prelude.<*> ( x Data..?> "endpointsDetails"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "dataflowEndpointGroupId")
+            Prelude.<*> (x Data..?> "dataflowEndpointGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,25 +110,25 @@ instance Prelude.NFData GetDataflowEndpointGroup where
   rnf GetDataflowEndpointGroup' {..} =
     Prelude.rnf dataflowEndpointGroupId
 
-instance Core.ToHeaders GetDataflowEndpointGroup where
+instance Data.ToHeaders GetDataflowEndpointGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDataflowEndpointGroup where
+instance Data.ToPath GetDataflowEndpointGroup where
   toPath GetDataflowEndpointGroup' {..} =
     Prelude.mconcat
       [ "/dataflowEndpointGroup/",
-        Core.toBS dataflowEndpointGroupId
+        Data.toBS dataflowEndpointGroupId
       ]
 
-instance Core.ToQuery GetDataflowEndpointGroup where
+instance Data.ToQuery GetDataflowEndpointGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.ConfigIdResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types.ConfigCapabilityType
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,15 +72,15 @@ configIdResponse_configType = Lens.lens (\ConfigIdResponse' {configType} -> conf
 configIdResponse_configArn :: Lens.Lens' ConfigIdResponse (Prelude.Maybe Prelude.Text)
 configIdResponse_configArn = Lens.lens (\ConfigIdResponse' {configArn} -> configArn) (\s@ConfigIdResponse' {} a -> s {configArn = a} :: ConfigIdResponse)
 
-instance Core.FromJSON ConfigIdResponse where
+instance Data.FromJSON ConfigIdResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfigIdResponse"
       ( \x ->
           ConfigIdResponse'
-            Prelude.<$> (x Core..:? "configId")
-            Prelude.<*> (x Core..:? "configType")
-            Prelude.<*> (x Core..:? "configArn")
+            Prelude.<$> (x Data..:? "configId")
+            Prelude.<*> (x Data..:? "configType")
+            Prelude.<*> (x Data..:? "configArn")
       )
 
 instance Prelude.Hashable ConfigIdResponse where

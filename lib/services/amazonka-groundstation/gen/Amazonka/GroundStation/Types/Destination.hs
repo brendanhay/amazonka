@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.Destination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types.ConfigCapabilityType
 import Amazonka.GroundStation.Types.ConfigDetails
 import qualified Amazonka.Prelude as Prelude
@@ -85,16 +86,16 @@ destination_configDetails = Lens.lens (\Destination' {configDetails} -> configDe
 destination_configType :: Lens.Lens' Destination (Prelude.Maybe ConfigCapabilityType)
 destination_configType = Lens.lens (\Destination' {configType} -> configType) (\s@Destination' {} a -> s {configType = a} :: Destination)
 
-instance Core.FromJSON Destination where
+instance Data.FromJSON Destination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Destination"
       ( \x ->
           Destination'
-            Prelude.<$> (x Core..:? "dataflowDestinationRegion")
-            Prelude.<*> (x Core..:? "configId")
-            Prelude.<*> (x Core..:? "configDetails")
-            Prelude.<*> (x Core..:? "configType")
+            Prelude.<$> (x Data..:? "dataflowDestinationRegion")
+            Prelude.<*> (x Data..:? "configId")
+            Prelude.<*> (x Data..:? "configDetails")
+            Prelude.<*> (x Data..:? "configType")
       )
 
 instance Prelude.Hashable Destination where

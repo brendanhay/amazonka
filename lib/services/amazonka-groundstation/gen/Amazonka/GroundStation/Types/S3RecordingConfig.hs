@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.S3RecordingConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an S3 recording @Config@.
@@ -74,15 +75,15 @@ s3RecordingConfig_bucketArn = Lens.lens (\S3RecordingConfig' {bucketArn} -> buck
 s3RecordingConfig_roleArn :: Lens.Lens' S3RecordingConfig Prelude.Text
 s3RecordingConfig_roleArn = Lens.lens (\S3RecordingConfig' {roleArn} -> roleArn) (\s@S3RecordingConfig' {} a -> s {roleArn = a} :: S3RecordingConfig)
 
-instance Core.FromJSON S3RecordingConfig where
+instance Data.FromJSON S3RecordingConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3RecordingConfig"
       ( \x ->
           S3RecordingConfig'
-            Prelude.<$> (x Core..:? "prefix")
-            Prelude.<*> (x Core..: "bucketArn")
-            Prelude.<*> (x Core..: "roleArn")
+            Prelude.<$> (x Data..:? "prefix")
+            Prelude.<*> (x Data..: "bucketArn")
+            Prelude.<*> (x Data..: "roleArn")
       )
 
 instance Prelude.Hashable S3RecordingConfig where
@@ -97,12 +98,12 @@ instance Prelude.NFData S3RecordingConfig where
       `Prelude.seq` Prelude.rnf bucketArn
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToJSON S3RecordingConfig where
+instance Data.ToJSON S3RecordingConfig where
   toJSON S3RecordingConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("prefix" Core..=) Prelude.<$> prefix,
-            Prelude.Just ("bucketArn" Core..= bucketArn),
-            Prelude.Just ("roleArn" Core..= roleArn)
+          [ ("prefix" Data..=) Prelude.<$> prefix,
+            Prelude.Just ("bucketArn" Data..= bucketArn),
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )

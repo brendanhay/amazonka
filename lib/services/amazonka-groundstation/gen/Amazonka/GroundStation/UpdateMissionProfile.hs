@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -163,7 +164,7 @@ instance Core.AWSRequest UpdateMissionProfile where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateMissionProfile where
   hashWithSalt _salt UpdateMissionProfile' {..} =
@@ -185,38 +186,38 @@ instance Prelude.NFData UpdateMissionProfile where
       `Prelude.seq` Prelude.rnf trackingConfigArn
       `Prelude.seq` Prelude.rnf missionProfileId
 
-instance Core.ToHeaders UpdateMissionProfile where
+instance Data.ToHeaders UpdateMissionProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateMissionProfile where
+instance Data.ToJSON UpdateMissionProfile where
   toJSON UpdateMissionProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("minimumViableContactDurationSeconds" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("minimumViableContactDurationSeconds" Data..=)
               Prelude.<$> minimumViableContactDurationSeconds,
-            ("contactPrePassDurationSeconds" Core..=)
+            ("contactPrePassDurationSeconds" Data..=)
               Prelude.<$> contactPrePassDurationSeconds,
-            ("dataflowEdges" Core..=) Prelude.<$> dataflowEdges,
-            ("contactPostPassDurationSeconds" Core..=)
+            ("dataflowEdges" Data..=) Prelude.<$> dataflowEdges,
+            ("contactPostPassDurationSeconds" Data..=)
               Prelude.<$> contactPostPassDurationSeconds,
-            ("trackingConfigArn" Core..=)
+            ("trackingConfigArn" Data..=)
               Prelude.<$> trackingConfigArn
           ]
       )
 
-instance Core.ToPath UpdateMissionProfile where
+instance Data.ToPath UpdateMissionProfile where
   toPath UpdateMissionProfile' {..} =
     Prelude.mconcat
-      ["/missionprofile/", Core.toBS missionProfileId]
+      ["/missionprofile/", Data.toBS missionProfileId]
 
-instance Core.ToQuery UpdateMissionProfile where
+instance Data.ToQuery UpdateMissionProfile where
   toQuery = Prelude.const Prelude.mempty

@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.GroundStationData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the ground station data.
@@ -71,15 +72,15 @@ groundStationData_region = Lens.lens (\GroundStationData' {region} -> region) (\
 groundStationData_groundStationId :: Lens.Lens' GroundStationData (Prelude.Maybe Prelude.Text)
 groundStationData_groundStationId = Lens.lens (\GroundStationData' {groundStationId} -> groundStationId) (\s@GroundStationData' {} a -> s {groundStationId = a} :: GroundStationData)
 
-instance Core.FromJSON GroundStationData where
+instance Data.FromJSON GroundStationData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GroundStationData"
       ( \x ->
           GroundStationData'
-            Prelude.<$> (x Core..:? "groundStationName")
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..:? "groundStationId")
+            Prelude.<$> (x Data..:? "groundStationName")
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..:? "groundStationId")
       )
 
 instance Prelude.Hashable GroundStationData where

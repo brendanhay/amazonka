@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.S3Object where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object stored in S3 containing ephemeris data.
@@ -70,15 +71,15 @@ s3Object_bucket = Lens.lens (\S3Object' {bucket} -> bucket) (\s@S3Object' {} a -
 s3Object_version :: Lens.Lens' S3Object (Prelude.Maybe Prelude.Text)
 s3Object_version = Lens.lens (\S3Object' {version} -> version) (\s@S3Object' {} a -> s {version = a} :: S3Object)
 
-instance Core.FromJSON S3Object where
+instance Data.FromJSON S3Object where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Object"
       ( \x ->
           S3Object'
-            Prelude.<$> (x Core..:? "key")
-            Prelude.<*> (x Core..:? "bucket")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "key")
+            Prelude.<*> (x Data..:? "bucket")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable S3Object where
@@ -93,12 +94,12 @@ instance Prelude.NFData S3Object where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON S3Object where
+instance Data.ToJSON S3Object where
   toJSON S3Object' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("key" Core..=) Prelude.<$> key,
-            ("bucket" Core..=) Prelude.<$> bucket,
-            ("version" Core..=) Prelude.<$> version
+          [ ("key" Data..=) Prelude.<$> key,
+            ("bucket" Data..=) Prelude.<$> bucket,
+            ("version" Data..=) Prelude.<$> version
           ]
       )

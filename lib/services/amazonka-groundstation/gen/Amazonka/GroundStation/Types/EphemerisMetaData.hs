@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.EphemerisMetaData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types.EphemerisSource
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,7 +38,7 @@ data EphemerisMetaData = EphemerisMetaData'
     -- | The epoch of a default, ephemeris from Space Track in UTC.
     --
     -- This field is not populated for customer-provided ephemerides.
-    epoch :: Prelude.Maybe Core.POSIX,
+    epoch :: Prelude.Maybe Data.POSIX,
     -- | UUID of a customer-provided ephemeris.
     --
     -- This field is not populated for default ephemerides from Space Track.
@@ -94,7 +95,7 @@ ephemerisMetaData_name = Lens.lens (\EphemerisMetaData' {name} -> name) (\s@Ephe
 --
 -- This field is not populated for customer-provided ephemerides.
 ephemerisMetaData_epoch :: Lens.Lens' EphemerisMetaData (Prelude.Maybe Prelude.UTCTime)
-ephemerisMetaData_epoch = Lens.lens (\EphemerisMetaData' {epoch} -> epoch) (\s@EphemerisMetaData' {} a -> s {epoch = a} :: EphemerisMetaData) Prelude.. Lens.mapping Core._Time
+ephemerisMetaData_epoch = Lens.lens (\EphemerisMetaData' {epoch} -> epoch) (\s@EphemerisMetaData' {} a -> s {epoch = a} :: EphemerisMetaData) Prelude.. Lens.mapping Data._Time
 
 -- | UUID of a customer-provided ephemeris.
 --
@@ -106,16 +107,16 @@ ephemerisMetaData_ephemerisId = Lens.lens (\EphemerisMetaData' {ephemerisId} -> 
 ephemerisMetaData_source :: Lens.Lens' EphemerisMetaData EphemerisSource
 ephemerisMetaData_source = Lens.lens (\EphemerisMetaData' {source} -> source) (\s@EphemerisMetaData' {} a -> s {source = a} :: EphemerisMetaData)
 
-instance Core.FromJSON EphemerisMetaData where
+instance Data.FromJSON EphemerisMetaData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EphemerisMetaData"
       ( \x ->
           EphemerisMetaData'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "epoch")
-            Prelude.<*> (x Core..:? "ephemerisId")
-            Prelude.<*> (x Core..: "source")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "epoch")
+            Prelude.<*> (x Data..:? "ephemerisId")
+            Prelude.<*> (x Data..: "source")
       )
 
 instance Prelude.Hashable EphemerisMetaData where

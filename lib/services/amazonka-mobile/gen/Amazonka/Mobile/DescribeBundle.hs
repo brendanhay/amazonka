@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Mobile.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -85,7 +86,7 @@ instance Core.AWSRequest DescribeBundle where
     Response.receiveJSON
       ( \s h x ->
           DescribeBundleResponse'
-            Prelude.<$> (x Core..?> "details")
+            Prelude.<$> (x Data..?> "details")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,22 +97,22 @@ instance Prelude.Hashable DescribeBundle where
 instance Prelude.NFData DescribeBundle where
   rnf DescribeBundle' {..} = Prelude.rnf bundleId
 
-instance Core.ToHeaders DescribeBundle where
+instance Data.ToHeaders DescribeBundle where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeBundle where
+instance Data.ToPath DescribeBundle where
   toPath DescribeBundle' {..} =
-    Prelude.mconcat ["/bundles/", Core.toBS bundleId]
+    Prelude.mconcat ["/bundles/", Data.toBS bundleId]
 
-instance Core.ToQuery DescribeBundle where
+instance Data.ToQuery DescribeBundle where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Result structure contains the details of the bundle.

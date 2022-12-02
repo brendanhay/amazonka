@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Mobile.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,9 +92,9 @@ instance Core.AWSRequest ExportProject where
     Response.receiveJSON
       ( \s h x ->
           ExportProjectResponse'
-            Prelude.<$> (x Core..?> "downloadUrl")
-            Prelude.<*> (x Core..?> "shareUrl")
-            Prelude.<*> (x Core..?> "snapshotId")
+            Prelude.<$> (x Data..?> "downloadUrl")
+            Prelude.<*> (x Data..?> "shareUrl")
+            Prelude.<*> (x Data..?> "snapshotId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,25 +105,25 @@ instance Prelude.Hashable ExportProject where
 instance Prelude.NFData ExportProject where
   rnf ExportProject' {..} = Prelude.rnf projectId
 
-instance Core.ToHeaders ExportProject where
+instance Data.ToHeaders ExportProject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ExportProject where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON ExportProject where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath ExportProject where
+instance Data.ToPath ExportProject where
   toPath ExportProject' {..} =
-    Prelude.mconcat ["/exports/", Core.toBS projectId]
+    Prelude.mconcat ["/exports/", Data.toBS projectId]
 
-instance Core.ToQuery ExportProject where
+instance Data.ToQuery ExportProject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Result structure used for requests to export project configuration

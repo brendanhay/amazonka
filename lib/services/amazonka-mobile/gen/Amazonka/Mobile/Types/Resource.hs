@@ -21,6 +21,7 @@ module Amazonka.Mobile.Types.Resource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an instance of an AWS resource associated with a
@@ -84,17 +85,17 @@ resource_feature = Lens.lens (\Resource' {feature} -> feature) (\s@Resource' {} 
 resource_attributes :: Lens.Lens' Resource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 resource_attributes = Lens.lens (\Resource' {attributes} -> attributes) (\s@Resource' {} a -> s {attributes = a} :: Resource) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Resource where
+instance Data.FromJSON Resource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "feature")
-            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "feature")
+            Prelude.<*> (x Data..:? "attributes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Resource where

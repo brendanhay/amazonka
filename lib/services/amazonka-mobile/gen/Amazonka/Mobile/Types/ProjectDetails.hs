@@ -21,6 +21,7 @@ module Amazonka.Mobile.Types.ProjectDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Mobile.Types.ProjectState
 import Amazonka.Mobile.Types.Resource
 import qualified Amazonka.Prelude as Prelude
@@ -33,12 +34,12 @@ data ProjectDetails = ProjectDetails'
     -- | Website URL for this project in the AWS Mobile Hub console.
     consoleUrl :: Prelude.Maybe Prelude.Text,
     -- | Date of the last modification of the project.
-    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDate :: Prelude.Maybe Data.POSIX,
     state :: Prelude.Maybe ProjectState,
     projectId :: Prelude.Maybe Prelude.Text,
     region :: Prelude.Maybe Prelude.Text,
     -- | Date the project was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     resources :: Prelude.Maybe [Resource]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -90,7 +91,7 @@ projectDetails_consoleUrl = Lens.lens (\ProjectDetails' {consoleUrl} -> consoleU
 
 -- | Date of the last modification of the project.
 projectDetails_lastUpdatedDate :: Lens.Lens' ProjectDetails (Prelude.Maybe Prelude.UTCTime)
-projectDetails_lastUpdatedDate = Lens.lens (\ProjectDetails' {lastUpdatedDate} -> lastUpdatedDate) (\s@ProjectDetails' {} a -> s {lastUpdatedDate = a} :: ProjectDetails) Prelude.. Lens.mapping Core._Time
+projectDetails_lastUpdatedDate = Lens.lens (\ProjectDetails' {lastUpdatedDate} -> lastUpdatedDate) (\s@ProjectDetails' {} a -> s {lastUpdatedDate = a} :: ProjectDetails) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 projectDetails_state :: Lens.Lens' ProjectDetails (Prelude.Maybe ProjectState)
@@ -106,26 +107,26 @@ projectDetails_region = Lens.lens (\ProjectDetails' {region} -> region) (\s@Proj
 
 -- | Date the project was created.
 projectDetails_createdDate :: Lens.Lens' ProjectDetails (Prelude.Maybe Prelude.UTCTime)
-projectDetails_createdDate = Lens.lens (\ProjectDetails' {createdDate} -> createdDate) (\s@ProjectDetails' {} a -> s {createdDate = a} :: ProjectDetails) Prelude.. Lens.mapping Core._Time
+projectDetails_createdDate = Lens.lens (\ProjectDetails' {createdDate} -> createdDate) (\s@ProjectDetails' {} a -> s {createdDate = a} :: ProjectDetails) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 projectDetails_resources :: Lens.Lens' ProjectDetails (Prelude.Maybe [Resource])
 projectDetails_resources = Lens.lens (\ProjectDetails' {resources} -> resources) (\s@ProjectDetails' {} a -> s {resources = a} :: ProjectDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ProjectDetails where
+instance Data.FromJSON ProjectDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectDetails"
       ( \x ->
           ProjectDetails'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "consoleUrl")
-            Prelude.<*> (x Core..:? "lastUpdatedDate")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "projectId")
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..:? "createdDate")
-            Prelude.<*> (x Core..:? "resources" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "consoleUrl")
+            Prelude.<*> (x Data..:? "lastUpdatedDate")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "projectId")
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..:? "createdDate")
+            Prelude.<*> (x Data..:? "resources" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ProjectDetails where

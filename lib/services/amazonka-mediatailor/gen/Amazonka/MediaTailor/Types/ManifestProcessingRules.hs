@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.ManifestProcessingRules where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types.AdMarkerPassthrough
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,13 +75,13 @@ newManifestProcessingRules =
 manifestProcessingRules_adMarkerPassthrough :: Lens.Lens' ManifestProcessingRules (Prelude.Maybe AdMarkerPassthrough)
 manifestProcessingRules_adMarkerPassthrough = Lens.lens (\ManifestProcessingRules' {adMarkerPassthrough} -> adMarkerPassthrough) (\s@ManifestProcessingRules' {} a -> s {adMarkerPassthrough = a} :: ManifestProcessingRules)
 
-instance Core.FromJSON ManifestProcessingRules where
+instance Data.FromJSON ManifestProcessingRules where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ManifestProcessingRules"
       ( \x ->
           ManifestProcessingRules'
-            Prelude.<$> (x Core..:? "AdMarkerPassthrough")
+            Prelude.<$> (x Data..:? "AdMarkerPassthrough")
       )
 
 instance Prelude.Hashable ManifestProcessingRules where
@@ -91,11 +92,11 @@ instance Prelude.NFData ManifestProcessingRules where
   rnf ManifestProcessingRules' {..} =
     Prelude.rnf adMarkerPassthrough
 
-instance Core.ToJSON ManifestProcessingRules where
+instance Data.ToJSON ManifestProcessingRules where
   toJSON ManifestProcessingRules' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AdMarkerPassthrough" Core..=)
+          [ ("AdMarkerPassthrough" Data..=)
               Prelude.<$> adMarkerPassthrough
           ]
       )

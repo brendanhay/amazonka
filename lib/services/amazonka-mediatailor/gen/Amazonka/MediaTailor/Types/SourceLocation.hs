@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.SourceLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types.AccessConfiguration
 import Amazonka.MediaTailor.Types.DefaultSegmentDeliveryConfiguration
 import Amazonka.MediaTailor.Types.HttpConfiguration
@@ -46,9 +47,9 @@ data SourceLocation = SourceLocation'
     -- | The default segment delivery configuration.
     defaultSegmentDeliveryConfiguration :: Prelude.Maybe DefaultSegmentDeliveryConfiguration,
     -- | The timestamp that indicates when the source location was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The timestamp that indicates when the source location was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the SourceLocation.
     arn :: Prelude.Text,
     -- | The HTTP configuration for the source location.
@@ -132,11 +133,11 @@ sourceLocation_defaultSegmentDeliveryConfiguration = Lens.lens (\SourceLocation'
 
 -- | The timestamp that indicates when the source location was last modified.
 sourceLocation_lastModifiedTime :: Lens.Lens' SourceLocation (Prelude.Maybe Prelude.UTCTime)
-sourceLocation_lastModifiedTime = Lens.lens (\SourceLocation' {lastModifiedTime} -> lastModifiedTime) (\s@SourceLocation' {} a -> s {lastModifiedTime = a} :: SourceLocation) Prelude.. Lens.mapping Core._Time
+sourceLocation_lastModifiedTime = Lens.lens (\SourceLocation' {lastModifiedTime} -> lastModifiedTime) (\s@SourceLocation' {} a -> s {lastModifiedTime = a} :: SourceLocation) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp that indicates when the source location was created.
 sourceLocation_creationTime :: Lens.Lens' SourceLocation (Prelude.Maybe Prelude.UTCTime)
-sourceLocation_creationTime = Lens.lens (\SourceLocation' {creationTime} -> creationTime) (\s@SourceLocation' {} a -> s {creationTime = a} :: SourceLocation) Prelude.. Lens.mapping Core._Time
+sourceLocation_creationTime = Lens.lens (\SourceLocation' {creationTime} -> creationTime) (\s@SourceLocation' {} a -> s {creationTime = a} :: SourceLocation) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the SourceLocation.
 sourceLocation_arn :: Lens.Lens' SourceLocation Prelude.Text
@@ -150,23 +151,23 @@ sourceLocation_httpConfiguration = Lens.lens (\SourceLocation' {httpConfiguratio
 sourceLocation_sourceLocationName :: Lens.Lens' SourceLocation Prelude.Text
 sourceLocation_sourceLocationName = Lens.lens (\SourceLocation' {sourceLocationName} -> sourceLocationName) (\s@SourceLocation' {} a -> s {sourceLocationName = a} :: SourceLocation)
 
-instance Core.FromJSON SourceLocation where
+instance Data.FromJSON SourceLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceLocation"
       ( \x ->
           SourceLocation'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "SegmentDeliveryConfigurations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "SegmentDeliveryConfigurations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "AccessConfiguration")
-            Prelude.<*> (x Core..:? "DefaultSegmentDeliveryConfiguration")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..: "Arn")
-            Prelude.<*> (x Core..: "HttpConfiguration")
-            Prelude.<*> (x Core..: "SourceLocationName")
+            Prelude.<*> (x Data..:? "AccessConfiguration")
+            Prelude.<*> (x Data..:? "DefaultSegmentDeliveryConfiguration")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..: "Arn")
+            Prelude.<*> (x Data..: "HttpConfiguration")
+            Prelude.<*> (x Data..: "SourceLocationName")
       )
 
 instance Prelude.Hashable SourceLocation where

@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.PlaybackConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types.AvailSuppression
 import Amazonka.MediaTailor.Types.Bumper
 import Amazonka.MediaTailor.Types.CdnConfiguration
@@ -339,33 +340,33 @@ playbackConfiguration_playbackEndpointPrefix = Lens.lens (\PlaybackConfiguration
 playbackConfiguration_personalizationThresholdSeconds :: Lens.Lens' PlaybackConfiguration (Prelude.Maybe Prelude.Natural)
 playbackConfiguration_personalizationThresholdSeconds = Lens.lens (\PlaybackConfiguration' {personalizationThresholdSeconds} -> personalizationThresholdSeconds) (\s@PlaybackConfiguration' {} a -> s {personalizationThresholdSeconds = a} :: PlaybackConfiguration)
 
-instance Core.FromJSON PlaybackConfiguration where
+instance Data.FromJSON PlaybackConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PlaybackConfiguration"
       ( \x ->
           PlaybackConfiguration'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> ( x Core..:? "ConfigurationAliases"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> ( x Data..:? "ConfigurationAliases"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LogConfiguration")
-            Prelude.<*> (x Core..:? "SessionInitializationEndpointPrefix")
-            Prelude.<*> (x Core..:? "CdnConfiguration")
-            Prelude.<*> (x Core..:? "Bumper")
-            Prelude.<*> (x Core..:? "ManifestProcessingRules")
-            Prelude.<*> (x Core..:? "LivePreRollConfiguration")
-            Prelude.<*> (x Core..:? "DashConfiguration")
-            Prelude.<*> (x Core..:? "AdDecisionServerUrl")
-            Prelude.<*> (x Core..:? "TranscodeProfileName")
-            Prelude.<*> (x Core..:? "VideoContentSourceUrl")
-            Prelude.<*> (x Core..:? "PlaybackConfigurationArn")
-            Prelude.<*> (x Core..:? "HlsConfiguration")
-            Prelude.<*> (x Core..:? "SlateAdUrl")
-            Prelude.<*> (x Core..:? "AvailSuppression")
-            Prelude.<*> (x Core..:? "PlaybackEndpointPrefix")
-            Prelude.<*> (x Core..:? "PersonalizationThresholdSeconds")
+            Prelude.<*> (x Data..:? "LogConfiguration")
+            Prelude.<*> (x Data..:? "SessionInitializationEndpointPrefix")
+            Prelude.<*> (x Data..:? "CdnConfiguration")
+            Prelude.<*> (x Data..:? "Bumper")
+            Prelude.<*> (x Data..:? "ManifestProcessingRules")
+            Prelude.<*> (x Data..:? "LivePreRollConfiguration")
+            Prelude.<*> (x Data..:? "DashConfiguration")
+            Prelude.<*> (x Data..:? "AdDecisionServerUrl")
+            Prelude.<*> (x Data..:? "TranscodeProfileName")
+            Prelude.<*> (x Data..:? "VideoContentSourceUrl")
+            Prelude.<*> (x Data..:? "PlaybackConfigurationArn")
+            Prelude.<*> (x Data..:? "HlsConfiguration")
+            Prelude.<*> (x Data..:? "SlateAdUrl")
+            Prelude.<*> (x Data..:? "AvailSuppression")
+            Prelude.<*> (x Data..:? "PlaybackEndpointPrefix")
+            Prelude.<*> (x Data..:? "PersonalizationThresholdSeconds")
       )
 
 instance Prelude.Hashable PlaybackConfiguration where

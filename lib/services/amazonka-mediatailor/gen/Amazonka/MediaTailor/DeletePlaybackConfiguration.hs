@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,23 +96,23 @@ instance Prelude.NFData DeletePlaybackConfiguration where
   rnf DeletePlaybackConfiguration' {..} =
     Prelude.rnf name
 
-instance Core.ToHeaders DeletePlaybackConfiguration where
+instance Data.ToHeaders DeletePlaybackConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeletePlaybackConfiguration where
+instance Data.ToPath DeletePlaybackConfiguration where
   toPath DeletePlaybackConfiguration' {..} =
     Prelude.mconcat
-      ["/playbackConfiguration/", Core.toBS name]
+      ["/playbackConfiguration/", Data.toBS name]
 
-instance Core.ToQuery DeletePlaybackConfiguration where
+instance Data.ToQuery DeletePlaybackConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePlaybackConfigurationResponse' smart constructor.

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,27 +112,27 @@ instance Prelude.NFData DeleteProgram where
     Prelude.rnf channelName
       `Prelude.seq` Prelude.rnf programName
 
-instance Core.ToHeaders DeleteProgram where
+instance Data.ToHeaders DeleteProgram where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteProgram where
+instance Data.ToPath DeleteProgram where
   toPath DeleteProgram' {..} =
     Prelude.mconcat
       [ "/channel/",
-        Core.toBS channelName,
+        Data.toBS channelName,
         "/program/",
-        Core.toBS programName
+        Data.toBS programName
       ]
 
-instance Core.ToQuery DeleteProgram where
+instance Data.ToQuery DeleteProgram where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteProgramResponse' smart constructor.

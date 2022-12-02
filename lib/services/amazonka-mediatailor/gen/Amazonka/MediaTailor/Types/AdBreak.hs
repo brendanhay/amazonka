@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.AdBreak where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types.MessageType
 import Amazonka.MediaTailor.Types.SlateSource
 import Amazonka.MediaTailor.Types.SpliceInsertMessage
@@ -128,17 +129,17 @@ adBreak_slate = Lens.lens (\AdBreak' {slate} -> slate) (\s@AdBreak' {} a -> s {s
 adBreak_timeSignalMessage :: Lens.Lens' AdBreak (Prelude.Maybe TimeSignalMessage)
 adBreak_timeSignalMessage = Lens.lens (\AdBreak' {timeSignalMessage} -> timeSignalMessage) (\s@AdBreak' {} a -> s {timeSignalMessage = a} :: AdBreak)
 
-instance Core.FromJSON AdBreak where
+instance Data.FromJSON AdBreak where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AdBreak"
       ( \x ->
           AdBreak'
-            Prelude.<$> (x Core..:? "MessageType")
-            Prelude.<*> (x Core..:? "OffsetMillis")
-            Prelude.<*> (x Core..:? "SpliceInsertMessage")
-            Prelude.<*> (x Core..:? "Slate")
-            Prelude.<*> (x Core..:? "TimeSignalMessage")
+            Prelude.<$> (x Data..:? "MessageType")
+            Prelude.<*> (x Data..:? "OffsetMillis")
+            Prelude.<*> (x Data..:? "SpliceInsertMessage")
+            Prelude.<*> (x Data..:? "Slate")
+            Prelude.<*> (x Data..:? "TimeSignalMessage")
       )
 
 instance Prelude.Hashable AdBreak where
@@ -157,16 +158,16 @@ instance Prelude.NFData AdBreak where
       `Prelude.seq` Prelude.rnf slate
       `Prelude.seq` Prelude.rnf timeSignalMessage
 
-instance Core.ToJSON AdBreak where
+instance Data.ToJSON AdBreak where
   toJSON AdBreak' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MessageType" Core..=) Prelude.<$> messageType,
-            ("OffsetMillis" Core..=) Prelude.<$> offsetMillis,
-            ("SpliceInsertMessage" Core..=)
+          [ ("MessageType" Data..=) Prelude.<$> messageType,
+            ("OffsetMillis" Data..=) Prelude.<$> offsetMillis,
+            ("SpliceInsertMessage" Data..=)
               Prelude.<$> spliceInsertMessage,
-            ("Slate" Core..=) Prelude.<$> slate,
-            ("TimeSignalMessage" Core..=)
+            ("Slate" Data..=) Prelude.<$> slate,
+            ("TimeSignalMessage" Data..=)
               Prelude.<$> timeSignalMessage
           ]
       )

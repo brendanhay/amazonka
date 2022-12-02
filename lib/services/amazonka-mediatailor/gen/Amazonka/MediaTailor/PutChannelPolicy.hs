@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,30 +111,30 @@ instance Prelude.NFData PutChannelPolicy where
     Prelude.rnf channelName
       `Prelude.seq` Prelude.rnf policy
 
-instance Core.ToHeaders PutChannelPolicy where
+instance Data.ToHeaders PutChannelPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutChannelPolicy where
+instance Data.ToJSON PutChannelPolicy where
   toJSON PutChannelPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Policy" Core..= policy)]
+          [Prelude.Just ("Policy" Data..= policy)]
       )
 
-instance Core.ToPath PutChannelPolicy where
+instance Data.ToPath PutChannelPolicy where
   toPath PutChannelPolicy' {..} =
     Prelude.mconcat
-      ["/channel/", Core.toBS channelName, "/policy"]
+      ["/channel/", Data.toBS channelName, "/policy"]
 
-instance Core.ToQuery PutChannelPolicy where
+instance Data.ToQuery PutChannelPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutChannelPolicyResponse' smart constructor.

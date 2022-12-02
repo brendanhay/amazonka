@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,23 +100,23 @@ instance Prelude.NFData DeleteSourceLocation where
   rnf DeleteSourceLocation' {..} =
     Prelude.rnf sourceLocationName
 
-instance Core.ToHeaders DeleteSourceLocation where
+instance Data.ToHeaders DeleteSourceLocation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteSourceLocation where
+instance Data.ToPath DeleteSourceLocation where
   toPath DeleteSourceLocation' {..} =
     Prelude.mconcat
-      ["/sourceLocation/", Core.toBS sourceLocationName]
+      ["/sourceLocation/", Data.toBS sourceLocationName]
 
-instance Core.ToQuery DeleteSourceLocation where
+instance Data.ToQuery DeleteSourceLocation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSourceLocationResponse' smart constructor.

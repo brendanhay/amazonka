@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.LiveSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types.HttpPackageConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -34,9 +35,9 @@ data LiveSource = LiveSource'
     -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The timestamp that indicates when the live source was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The timestamp that indicates when the live source was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN for the live source.
     arn :: Prelude.Text,
     -- | The HTTP package configurations for the live source.
@@ -103,11 +104,11 @@ liveSource_tags = Lens.lens (\LiveSource' {tags} -> tags) (\s@LiveSource' {} a -
 
 -- | The timestamp that indicates when the live source was last modified.
 liveSource_lastModifiedTime :: Lens.Lens' LiveSource (Prelude.Maybe Prelude.UTCTime)
-liveSource_lastModifiedTime = Lens.lens (\LiveSource' {lastModifiedTime} -> lastModifiedTime) (\s@LiveSource' {} a -> s {lastModifiedTime = a} :: LiveSource) Prelude.. Lens.mapping Core._Time
+liveSource_lastModifiedTime = Lens.lens (\LiveSource' {lastModifiedTime} -> lastModifiedTime) (\s@LiveSource' {} a -> s {lastModifiedTime = a} :: LiveSource) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp that indicates when the live source was created.
 liveSource_creationTime :: Lens.Lens' LiveSource (Prelude.Maybe Prelude.UTCTime)
-liveSource_creationTime = Lens.lens (\LiveSource' {creationTime} -> creationTime) (\s@LiveSource' {} a -> s {creationTime = a} :: LiveSource) Prelude.. Lens.mapping Core._Time
+liveSource_creationTime = Lens.lens (\LiveSource' {creationTime} -> creationTime) (\s@LiveSource' {} a -> s {creationTime = a} :: LiveSource) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN for the live source.
 liveSource_arn :: Lens.Lens' LiveSource Prelude.Text
@@ -125,21 +126,21 @@ liveSource_liveSourceName = Lens.lens (\LiveSource' {liveSourceName} -> liveSour
 liveSource_sourceLocationName :: Lens.Lens' LiveSource Prelude.Text
 liveSource_sourceLocationName = Lens.lens (\LiveSource' {sourceLocationName} -> sourceLocationName) (\s@LiveSource' {} a -> s {sourceLocationName = a} :: LiveSource)
 
-instance Core.FromJSON LiveSource where
+instance Data.FromJSON LiveSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LiveSource"
       ( \x ->
           LiveSource'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..: "Arn")
-            Prelude.<*> ( x Core..:? "HttpPackageConfigurations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..: "Arn")
+            Prelude.<*> ( x Data..:? "HttpPackageConfigurations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "LiveSourceName")
-            Prelude.<*> (x Core..: "SourceLocationName")
+            Prelude.<*> (x Data..: "LiveSourceName")
+            Prelude.<*> (x Data..: "SourceLocationName")
       )
 
 instance Prelude.Hashable LiveSource where

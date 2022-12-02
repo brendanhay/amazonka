@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,9 +133,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ConfigureLogsForPlaybackConfigurationResponse'
-            Prelude.<$> (x Core..?> "PlaybackConfigurationName")
+            Prelude.<$> (x Data..?> "PlaybackConfigurationName")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "PercentEnabled")
+              Prelude.<*> (x Data..:> "PercentEnabled")
       )
 
 instance
@@ -156,37 +157,37 @@ instance
       `Prelude.seq` Prelude.rnf playbackConfigurationName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ConfigureLogsForPlaybackConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ConfigureLogsForPlaybackConfiguration
   where
   toJSON ConfigureLogsForPlaybackConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("PercentEnabled" Core..= percentEnabled),
+              ("PercentEnabled" Data..= percentEnabled),
             Prelude.Just
               ( "PlaybackConfigurationName"
-                  Core..= playbackConfigurationName
+                  Data..= playbackConfigurationName
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ConfigureLogsForPlaybackConfiguration
   where
   toPath =
@@ -194,7 +195,7 @@ instance
       "/configureLogs/playbackConfiguration"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ConfigureLogsForPlaybackConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

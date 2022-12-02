@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.ResponseOutputItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types.DashPlaylistSettings
 import Amazonka.MediaTailor.Types.HlsPlaylistSettings
 import qualified Amazonka.Prelude as Prelude
@@ -106,17 +107,17 @@ responseOutputItem_playbackUrl = Lens.lens (\ResponseOutputItem' {playbackUrl} -
 responseOutputItem_sourceGroup :: Lens.Lens' ResponseOutputItem Prelude.Text
 responseOutputItem_sourceGroup = Lens.lens (\ResponseOutputItem' {sourceGroup} -> sourceGroup) (\s@ResponseOutputItem' {} a -> s {sourceGroup = a} :: ResponseOutputItem)
 
-instance Core.FromJSON ResponseOutputItem where
+instance Data.FromJSON ResponseOutputItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResponseOutputItem"
       ( \x ->
           ResponseOutputItem'
-            Prelude.<$> (x Core..:? "HlsPlaylistSettings")
-            Prelude.<*> (x Core..:? "DashPlaylistSettings")
-            Prelude.<*> (x Core..: "ManifestName")
-            Prelude.<*> (x Core..: "PlaybackUrl")
-            Prelude.<*> (x Core..: "SourceGroup")
+            Prelude.<$> (x Data..:? "HlsPlaylistSettings")
+            Prelude.<*> (x Data..:? "DashPlaylistSettings")
+            Prelude.<*> (x Data..: "ManifestName")
+            Prelude.<*> (x Data..: "PlaybackUrl")
+            Prelude.<*> (x Data..: "SourceGroup")
       )
 
 instance Prelude.Hashable ResponseOutputItem where

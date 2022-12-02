@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.VodSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types.HttpPackageConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -34,9 +35,9 @@ data VodSource = VodSource'
     -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The timestamp that indicates when the VOD source was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The timestamp that indicates when the VOD source was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN for the VOD source.
     arn :: Prelude.Text,
     -- | The HTTP package configurations for the VOD source.
@@ -103,11 +104,11 @@ vodSource_tags = Lens.lens (\VodSource' {tags} -> tags) (\s@VodSource' {} a -> s
 
 -- | The timestamp that indicates when the VOD source was last modified.
 vodSource_lastModifiedTime :: Lens.Lens' VodSource (Prelude.Maybe Prelude.UTCTime)
-vodSource_lastModifiedTime = Lens.lens (\VodSource' {lastModifiedTime} -> lastModifiedTime) (\s@VodSource' {} a -> s {lastModifiedTime = a} :: VodSource) Prelude.. Lens.mapping Core._Time
+vodSource_lastModifiedTime = Lens.lens (\VodSource' {lastModifiedTime} -> lastModifiedTime) (\s@VodSource' {} a -> s {lastModifiedTime = a} :: VodSource) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp that indicates when the VOD source was created.
 vodSource_creationTime :: Lens.Lens' VodSource (Prelude.Maybe Prelude.UTCTime)
-vodSource_creationTime = Lens.lens (\VodSource' {creationTime} -> creationTime) (\s@VodSource' {} a -> s {creationTime = a} :: VodSource) Prelude.. Lens.mapping Core._Time
+vodSource_creationTime = Lens.lens (\VodSource' {creationTime} -> creationTime) (\s@VodSource' {} a -> s {creationTime = a} :: VodSource) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN for the VOD source.
 vodSource_arn :: Lens.Lens' VodSource Prelude.Text
@@ -125,21 +126,21 @@ vodSource_sourceLocationName = Lens.lens (\VodSource' {sourceLocationName} -> so
 vodSource_vodSourceName :: Lens.Lens' VodSource Prelude.Text
 vodSource_vodSourceName = Lens.lens (\VodSource' {vodSourceName} -> vodSourceName) (\s@VodSource' {} a -> s {vodSourceName = a} :: VodSource)
 
-instance Core.FromJSON VodSource where
+instance Data.FromJSON VodSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VodSource"
       ( \x ->
           VodSource'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..: "Arn")
-            Prelude.<*> ( x Core..:? "HttpPackageConfigurations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..: "Arn")
+            Prelude.<*> ( x Data..:? "HttpPackageConfigurations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "SourceLocationName")
-            Prelude.<*> (x Core..: "VodSourceName")
+            Prelude.<*> (x Data..: "SourceLocationName")
+            Prelude.<*> (x Data..: "VodSourceName")
       )
 
 instance Prelude.Hashable VodSource where

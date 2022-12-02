@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.SegmentDeliveryConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The segment delivery configuration settings.
@@ -80,14 +81,14 @@ segmentDeliveryConfiguration_baseUrl = Lens.lens (\SegmentDeliveryConfiguration'
 segmentDeliveryConfiguration_name :: Lens.Lens' SegmentDeliveryConfiguration (Prelude.Maybe Prelude.Text)
 segmentDeliveryConfiguration_name = Lens.lens (\SegmentDeliveryConfiguration' {name} -> name) (\s@SegmentDeliveryConfiguration' {} a -> s {name = a} :: SegmentDeliveryConfiguration)
 
-instance Core.FromJSON SegmentDeliveryConfiguration where
+instance Data.FromJSON SegmentDeliveryConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SegmentDeliveryConfiguration"
       ( \x ->
           SegmentDeliveryConfiguration'
-            Prelude.<$> (x Core..:? "BaseUrl")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Data..:? "BaseUrl")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance
@@ -102,11 +103,11 @@ instance Prelude.NFData SegmentDeliveryConfiguration where
   rnf SegmentDeliveryConfiguration' {..} =
     Prelude.rnf baseUrl `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON SegmentDeliveryConfiguration where
+instance Data.ToJSON SegmentDeliveryConfiguration where
   toJSON SegmentDeliveryConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BaseUrl" Core..=) Prelude.<$> baseUrl,
-            ("Name" Core..=) Prelude.<$> name
+          [ ("BaseUrl" Data..=) Prelude.<$> baseUrl,
+            ("Name" Data..=) Prelude.<$> name
           ]
       )

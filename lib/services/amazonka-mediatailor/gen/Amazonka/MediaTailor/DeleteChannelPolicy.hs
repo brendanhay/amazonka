@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,23 +94,23 @@ instance Prelude.NFData DeleteChannelPolicy where
   rnf DeleteChannelPolicy' {..} =
     Prelude.rnf channelName
 
-instance Core.ToHeaders DeleteChannelPolicy where
+instance Data.ToHeaders DeleteChannelPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteChannelPolicy where
+instance Data.ToPath DeleteChannelPolicy where
   toPath DeleteChannelPolicy' {..} =
     Prelude.mconcat
-      ["/channel/", Core.toBS channelName, "/policy"]
+      ["/channel/", Data.toBS channelName, "/policy"]
 
-instance Core.ToQuery DeleteChannelPolicy where
+instance Data.ToQuery DeleteChannelPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteChannelPolicyResponse' smart constructor.

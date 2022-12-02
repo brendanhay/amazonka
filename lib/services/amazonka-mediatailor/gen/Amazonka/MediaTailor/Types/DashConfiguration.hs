@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.DashConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types.OriginManifestType
 import qualified Amazonka.Prelude as Prelude
 
@@ -111,15 +112,15 @@ dashConfiguration_mpdLocation = Lens.lens (\DashConfiguration' {mpdLocation} -> 
 dashConfiguration_originManifestType :: Lens.Lens' DashConfiguration (Prelude.Maybe OriginManifestType)
 dashConfiguration_originManifestType = Lens.lens (\DashConfiguration' {originManifestType} -> originManifestType) (\s@DashConfiguration' {} a -> s {originManifestType = a} :: DashConfiguration)
 
-instance Core.FromJSON DashConfiguration where
+instance Data.FromJSON DashConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DashConfiguration"
       ( \x ->
           DashConfiguration'
-            Prelude.<$> (x Core..:? "ManifestEndpointPrefix")
-            Prelude.<*> (x Core..:? "MpdLocation")
-            Prelude.<*> (x Core..:? "OriginManifestType")
+            Prelude.<$> (x Data..:? "ManifestEndpointPrefix")
+            Prelude.<*> (x Data..:? "MpdLocation")
+            Prelude.<*> (x Data..:? "OriginManifestType")
       )
 
 instance Prelude.Hashable DashConfiguration where

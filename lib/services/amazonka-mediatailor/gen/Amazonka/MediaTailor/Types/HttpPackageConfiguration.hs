@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.HttpPackageConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types.Type
 import qualified Amazonka.Prelude as Prelude
 
@@ -89,15 +90,15 @@ httpPackageConfiguration_sourceGroup = Lens.lens (\HttpPackageConfiguration' {so
 httpPackageConfiguration_type :: Lens.Lens' HttpPackageConfiguration Type
 httpPackageConfiguration_type = Lens.lens (\HttpPackageConfiguration' {type'} -> type') (\s@HttpPackageConfiguration' {} a -> s {type' = a} :: HttpPackageConfiguration)
 
-instance Core.FromJSON HttpPackageConfiguration where
+instance Data.FromJSON HttpPackageConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpPackageConfiguration"
       ( \x ->
           HttpPackageConfiguration'
-            Prelude.<$> (x Core..: "Path")
-            Prelude.<*> (x Core..: "SourceGroup")
-            Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..: "Path")
+            Prelude.<*> (x Data..: "SourceGroup")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable HttpPackageConfiguration where
@@ -112,12 +113,12 @@ instance Prelude.NFData HttpPackageConfiguration where
       `Prelude.seq` Prelude.rnf sourceGroup
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON HttpPackageConfiguration where
+instance Data.ToJSON HttpPackageConfiguration where
   toJSON HttpPackageConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Path" Core..= path),
-            Prelude.Just ("SourceGroup" Core..= sourceGroup),
-            Prelude.Just ("Type" Core..= type')
+          [ Prelude.Just ("Path" Data..= path),
+            Prelude.Just ("SourceGroup" Data..= sourceGroup),
+            Prelude.Just ("Type" Data..= type')
           ]
       )

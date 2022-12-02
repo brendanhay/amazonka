@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.Bumper where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for bumpers. Bumpers are short audio or video clips
@@ -64,14 +65,14 @@ bumper_startUrl = Lens.lens (\Bumper' {startUrl} -> startUrl) (\s@Bumper' {} a -
 bumper_endUrl :: Lens.Lens' Bumper (Prelude.Maybe Prelude.Text)
 bumper_endUrl = Lens.lens (\Bumper' {endUrl} -> endUrl) (\s@Bumper' {} a -> s {endUrl = a} :: Bumper)
 
-instance Core.FromJSON Bumper where
+instance Data.FromJSON Bumper where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Bumper"
       ( \x ->
           Bumper'
-            Prelude.<$> (x Core..:? "StartUrl")
-            Prelude.<*> (x Core..:? "EndUrl")
+            Prelude.<$> (x Data..:? "StartUrl")
+            Prelude.<*> (x Data..:? "EndUrl")
       )
 
 instance Prelude.Hashable Bumper where
@@ -84,11 +85,11 @@ instance Prelude.NFData Bumper where
     Prelude.rnf startUrl
       `Prelude.seq` Prelude.rnf endUrl
 
-instance Core.ToJSON Bumper where
+instance Data.ToJSON Bumper where
   toJSON Bumper' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StartUrl" Core..=) Prelude.<$> startUrl,
-            ("EndUrl" Core..=) Prelude.<$> endUrl
+          [ ("StartUrl" Data..=) Prelude.<$> startUrl,
+            ("EndUrl" Data..=) Prelude.<$> endUrl
           ]
       )

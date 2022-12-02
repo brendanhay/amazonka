@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.DashPlaylistSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Dash manifest configuration parameters.
@@ -101,16 +102,16 @@ dashPlaylistSettings_minUpdatePeriodSeconds = Lens.lens (\DashPlaylistSettings' 
 dashPlaylistSettings_minBufferTimeSeconds :: Lens.Lens' DashPlaylistSettings (Prelude.Maybe Prelude.Int)
 dashPlaylistSettings_minBufferTimeSeconds = Lens.lens (\DashPlaylistSettings' {minBufferTimeSeconds} -> minBufferTimeSeconds) (\s@DashPlaylistSettings' {} a -> s {minBufferTimeSeconds = a} :: DashPlaylistSettings)
 
-instance Core.FromJSON DashPlaylistSettings where
+instance Data.FromJSON DashPlaylistSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DashPlaylistSettings"
       ( \x ->
           DashPlaylistSettings'
-            Prelude.<$> (x Core..:? "SuggestedPresentationDelaySeconds")
-            Prelude.<*> (x Core..:? "ManifestWindowSeconds")
-            Prelude.<*> (x Core..:? "MinUpdatePeriodSeconds")
-            Prelude.<*> (x Core..:? "MinBufferTimeSeconds")
+            Prelude.<$> (x Data..:? "SuggestedPresentationDelaySeconds")
+            Prelude.<*> (x Data..:? "ManifestWindowSeconds")
+            Prelude.<*> (x Data..:? "MinUpdatePeriodSeconds")
+            Prelude.<*> (x Data..:? "MinBufferTimeSeconds")
       )
 
 instance Prelude.Hashable DashPlaylistSettings where
@@ -128,17 +129,17 @@ instance Prelude.NFData DashPlaylistSettings where
       `Prelude.seq` Prelude.rnf minUpdatePeriodSeconds
       `Prelude.seq` Prelude.rnf minBufferTimeSeconds
 
-instance Core.ToJSON DashPlaylistSettings where
+instance Data.ToJSON DashPlaylistSettings where
   toJSON DashPlaylistSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SuggestedPresentationDelaySeconds" Core..=)
+          [ ("SuggestedPresentationDelaySeconds" Data..=)
               Prelude.<$> suggestedPresentationDelaySeconds,
-            ("ManifestWindowSeconds" Core..=)
+            ("ManifestWindowSeconds" Data..=)
               Prelude.<$> manifestWindowSeconds,
-            ("MinUpdatePeriodSeconds" Core..=)
+            ("MinUpdatePeriodSeconds" Data..=)
               Prelude.<$> minUpdatePeriodSeconds,
-            ("MinBufferTimeSeconds" Core..=)
+            ("MinBufferTimeSeconds" Data..=)
               Prelude.<$> minBufferTimeSeconds
           ]
       )

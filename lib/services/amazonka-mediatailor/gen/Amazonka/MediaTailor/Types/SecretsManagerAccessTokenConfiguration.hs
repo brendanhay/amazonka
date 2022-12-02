@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.SecretsManagerAccessTokenConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | AWS Secrets Manager access token configuration parameters. For
@@ -89,17 +90,17 @@ secretsManagerAccessTokenConfiguration_secretStringKey :: Lens.Lens' SecretsMana
 secretsManagerAccessTokenConfiguration_secretStringKey = Lens.lens (\SecretsManagerAccessTokenConfiguration' {secretStringKey} -> secretStringKey) (\s@SecretsManagerAccessTokenConfiguration' {} a -> s {secretStringKey = a} :: SecretsManagerAccessTokenConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SecretsManagerAccessTokenConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SecretsManagerAccessTokenConfiguration"
       ( \x ->
           SecretsManagerAccessTokenConfiguration'
-            Prelude.<$> (x Core..:? "HeaderName")
-            Prelude.<*> (x Core..:? "SecretArn")
-            Prelude.<*> (x Core..:? "SecretStringKey")
+            Prelude.<$> (x Data..:? "HeaderName")
+            Prelude.<*> (x Data..:? "SecretArn")
+            Prelude.<*> (x Data..:? "SecretStringKey")
       )
 
 instance
@@ -123,15 +124,15 @@ instance
       `Prelude.seq` Prelude.rnf secretStringKey
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SecretsManagerAccessTokenConfiguration
   where
   toJSON SecretsManagerAccessTokenConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HeaderName" Core..=) Prelude.<$> headerName,
-            ("SecretArn" Core..=) Prelude.<$> secretArn,
-            ("SecretStringKey" Core..=)
+          [ ("HeaderName" Data..=) Prelude.<$> headerName,
+            ("SecretArn" Data..=) Prelude.<$> secretArn,
+            ("SecretStringKey" Data..=)
               Prelude.<$> secretStringKey
           ]
       )

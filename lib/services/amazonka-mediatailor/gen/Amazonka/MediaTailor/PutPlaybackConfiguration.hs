@@ -74,6 +74,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -343,27 +344,27 @@ instance Core.AWSRequest PutPlaybackConfiguration where
     Response.receiveJSON
       ( \s h x ->
           PutPlaybackConfigurationResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> ( x Core..?> "ConfigurationAliases"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> ( x Data..?> "ConfigurationAliases"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "LogConfiguration")
-            Prelude.<*> (x Core..?> "SessionInitializationEndpointPrefix")
-            Prelude.<*> (x Core..?> "CdnConfiguration")
-            Prelude.<*> (x Core..?> "Bumper")
-            Prelude.<*> (x Core..?> "ManifestProcessingRules")
-            Prelude.<*> (x Core..?> "LivePreRollConfiguration")
-            Prelude.<*> (x Core..?> "DashConfiguration")
-            Prelude.<*> (x Core..?> "AdDecisionServerUrl")
-            Prelude.<*> (x Core..?> "TranscodeProfileName")
-            Prelude.<*> (x Core..?> "VideoContentSourceUrl")
-            Prelude.<*> (x Core..?> "PlaybackConfigurationArn")
-            Prelude.<*> (x Core..?> "HlsConfiguration")
-            Prelude.<*> (x Core..?> "SlateAdUrl")
-            Prelude.<*> (x Core..?> "AvailSuppression")
-            Prelude.<*> (x Core..?> "PlaybackEndpointPrefix")
-            Prelude.<*> (x Core..?> "PersonalizationThresholdSeconds")
+            Prelude.<*> (x Data..?> "LogConfiguration")
+            Prelude.<*> (x Data..?> "SessionInitializationEndpointPrefix")
+            Prelude.<*> (x Data..?> "CdnConfiguration")
+            Prelude.<*> (x Data..?> "Bumper")
+            Prelude.<*> (x Data..?> "ManifestProcessingRules")
+            Prelude.<*> (x Data..?> "LivePreRollConfiguration")
+            Prelude.<*> (x Data..?> "DashConfiguration")
+            Prelude.<*> (x Data..?> "AdDecisionServerUrl")
+            Prelude.<*> (x Data..?> "TranscodeProfileName")
+            Prelude.<*> (x Data..?> "VideoContentSourceUrl")
+            Prelude.<*> (x Data..?> "PlaybackConfigurationArn")
+            Prelude.<*> (x Data..?> "HlsConfiguration")
+            Prelude.<*> (x Data..?> "SlateAdUrl")
+            Prelude.<*> (x Data..?> "AvailSuppression")
+            Prelude.<*> (x Data..?> "PlaybackEndpointPrefix")
+            Prelude.<*> (x Data..?> "PersonalizationThresholdSeconds")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -401,52 +402,52 @@ instance Prelude.NFData PutPlaybackConfiguration where
       `Prelude.seq` Prelude.rnf personalizationThresholdSeconds
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders PutPlaybackConfiguration where
+instance Data.ToHeaders PutPlaybackConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutPlaybackConfiguration where
+instance Data.ToJSON PutPlaybackConfiguration where
   toJSON PutPlaybackConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("ConfigurationAliases" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("ConfigurationAliases" Data..=)
               Prelude.<$> configurationAliases,
-            ("CdnConfiguration" Core..=)
+            ("CdnConfiguration" Data..=)
               Prelude.<$> cdnConfiguration,
-            ("Bumper" Core..=) Prelude.<$> bumper,
-            ("ManifestProcessingRules" Core..=)
+            ("Bumper" Data..=) Prelude.<$> bumper,
+            ("ManifestProcessingRules" Data..=)
               Prelude.<$> manifestProcessingRules,
-            ("LivePreRollConfiguration" Core..=)
+            ("LivePreRollConfiguration" Data..=)
               Prelude.<$> livePreRollConfiguration,
-            ("DashConfiguration" Core..=)
+            ("DashConfiguration" Data..=)
               Prelude.<$> dashConfiguration,
-            ("AdDecisionServerUrl" Core..=)
+            ("AdDecisionServerUrl" Data..=)
               Prelude.<$> adDecisionServerUrl,
-            ("TranscodeProfileName" Core..=)
+            ("TranscodeProfileName" Data..=)
               Prelude.<$> transcodeProfileName,
-            ("VideoContentSourceUrl" Core..=)
+            ("VideoContentSourceUrl" Data..=)
               Prelude.<$> videoContentSourceUrl,
-            ("SlateAdUrl" Core..=) Prelude.<$> slateAdUrl,
-            ("AvailSuppression" Core..=)
+            ("SlateAdUrl" Data..=) Prelude.<$> slateAdUrl,
+            ("AvailSuppression" Data..=)
               Prelude.<$> availSuppression,
-            ("PersonalizationThresholdSeconds" Core..=)
+            ("PersonalizationThresholdSeconds" Data..=)
               Prelude.<$> personalizationThresholdSeconds,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath PutPlaybackConfiguration where
+instance Data.ToPath PutPlaybackConfiguration where
   toPath = Prelude.const "/playbackConfiguration"
 
-instance Core.ToQuery PutPlaybackConfiguration where
+instance Data.ToQuery PutPlaybackConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutPlaybackConfigurationResponse' smart constructor.

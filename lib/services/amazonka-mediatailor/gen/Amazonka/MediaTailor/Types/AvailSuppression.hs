@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.AvailSuppression where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types.Mode
 import qualified Amazonka.Prelude as Prelude
 
@@ -100,13 +101,13 @@ availSuppression_mode = Lens.lens (\AvailSuppression' {mode} -> mode) (\s@AvailS
 availSuppression_value :: Lens.Lens' AvailSuppression (Prelude.Maybe Prelude.Text)
 availSuppression_value = Lens.lens (\AvailSuppression' {value} -> value) (\s@AvailSuppression' {} a -> s {value = a} :: AvailSuppression)
 
-instance Core.FromJSON AvailSuppression where
+instance Data.FromJSON AvailSuppression where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AvailSuppression"
       ( \x ->
           AvailSuppression'
-            Prelude.<$> (x Core..:? "Mode") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Mode") Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable AvailSuppression where
@@ -118,11 +119,11 @@ instance Prelude.NFData AvailSuppression where
   rnf AvailSuppression' {..} =
     Prelude.rnf mode `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON AvailSuppression where
+instance Data.ToJSON AvailSuppression where
   toJSON AvailSuppression' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Mode" Core..=) Prelude.<$> mode,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Mode" Data..=) Prelude.<$> mode,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

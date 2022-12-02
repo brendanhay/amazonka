@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,8 +139,8 @@ instance Core.AWSRequest ListAlerts where
     Response.receiveJSON
       ( \s h x ->
           ListAlertsResponse'
-            Prelude.<$> (x Core..?> "Items" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Items" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,26 +156,26 @@ instance Prelude.NFData ListAlerts where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf resourceArn
 
-instance Core.ToHeaders ListAlerts where
+instance Data.ToHeaders ListAlerts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListAlerts where
+instance Data.ToPath ListAlerts where
   toPath = Prelude.const "/alerts"
 
-instance Core.ToQuery ListAlerts where
+instance Data.ToQuery ListAlerts where
   toQuery ListAlerts' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "resourceArn" Core.=: resourceArn
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "resourceArn" Data.=: resourceArn
       ]
 
 -- | /See:/ 'newListAlertsResponse' smart constructor.

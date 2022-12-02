@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.SpliceInsertMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Splice insert message configuration.
@@ -101,16 +102,16 @@ spliceInsertMessage_availNum = Lens.lens (\SpliceInsertMessage' {availNum} -> av
 spliceInsertMessage_uniqueProgramId :: Lens.Lens' SpliceInsertMessage (Prelude.Maybe Prelude.Int)
 spliceInsertMessage_uniqueProgramId = Lens.lens (\SpliceInsertMessage' {uniqueProgramId} -> uniqueProgramId) (\s@SpliceInsertMessage' {} a -> s {uniqueProgramId = a} :: SpliceInsertMessage)
 
-instance Core.FromJSON SpliceInsertMessage where
+instance Data.FromJSON SpliceInsertMessage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SpliceInsertMessage"
       ( \x ->
           SpliceInsertMessage'
-            Prelude.<$> (x Core..:? "AvailsExpected")
-            Prelude.<*> (x Core..:? "SpliceEventId")
-            Prelude.<*> (x Core..:? "AvailNum")
-            Prelude.<*> (x Core..:? "UniqueProgramId")
+            Prelude.<$> (x Data..:? "AvailsExpected")
+            Prelude.<*> (x Data..:? "SpliceEventId")
+            Prelude.<*> (x Data..:? "AvailNum")
+            Prelude.<*> (x Data..:? "UniqueProgramId")
       )
 
 instance Prelude.Hashable SpliceInsertMessage where
@@ -127,15 +128,15 @@ instance Prelude.NFData SpliceInsertMessage where
       `Prelude.seq` Prelude.rnf availNum
       `Prelude.seq` Prelude.rnf uniqueProgramId
 
-instance Core.ToJSON SpliceInsertMessage where
+instance Data.ToJSON SpliceInsertMessage where
   toJSON SpliceInsertMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AvailsExpected" Core..=)
+          [ ("AvailsExpected" Data..=)
               Prelude.<$> availsExpected,
-            ("SpliceEventId" Core..=) Prelude.<$> spliceEventId,
-            ("AvailNum" Core..=) Prelude.<$> availNum,
-            ("UniqueProgramId" Core..=)
+            ("SpliceEventId" Data..=) Prelude.<$> spliceEventId,
+            ("AvailNum" Data..=) Prelude.<$> availNum,
+            ("UniqueProgramId" Data..=)
               Prelude.<$> uniqueProgramId
           ]
       )

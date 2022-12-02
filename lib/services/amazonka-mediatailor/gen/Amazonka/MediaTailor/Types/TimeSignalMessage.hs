@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.TimeSignalMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types.SegmentationDescriptor
 import qualified Amazonka.Prelude as Prelude
 
@@ -67,14 +68,14 @@ newTimeSignalMessage =
 timeSignalMessage_segmentationDescriptors :: Lens.Lens' TimeSignalMessage (Prelude.Maybe [SegmentationDescriptor])
 timeSignalMessage_segmentationDescriptors = Lens.lens (\TimeSignalMessage' {segmentationDescriptors} -> segmentationDescriptors) (\s@TimeSignalMessage' {} a -> s {segmentationDescriptors = a} :: TimeSignalMessage) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TimeSignalMessage where
+instance Data.FromJSON TimeSignalMessage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimeSignalMessage"
       ( \x ->
           TimeSignalMessage'
-            Prelude.<$> ( x Core..:? "SegmentationDescriptors"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "SegmentationDescriptors"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -87,11 +88,11 @@ instance Prelude.NFData TimeSignalMessage where
   rnf TimeSignalMessage' {..} =
     Prelude.rnf segmentationDescriptors
 
-instance Core.ToJSON TimeSignalMessage where
+instance Data.ToJSON TimeSignalMessage where
   toJSON TimeSignalMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SegmentationDescriptors" Core..=)
+          [ ("SegmentationDescriptors" Data..=)
               Prelude.<$> segmentationDescriptors
           ]
       )

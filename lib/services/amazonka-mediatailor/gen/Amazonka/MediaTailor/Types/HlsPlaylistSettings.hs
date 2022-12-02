@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.HlsPlaylistSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | HLS playlist configuration parameters.
@@ -56,13 +57,13 @@ newHlsPlaylistSettings =
 hlsPlaylistSettings_manifestWindowSeconds :: Lens.Lens' HlsPlaylistSettings (Prelude.Maybe Prelude.Int)
 hlsPlaylistSettings_manifestWindowSeconds = Lens.lens (\HlsPlaylistSettings' {manifestWindowSeconds} -> manifestWindowSeconds) (\s@HlsPlaylistSettings' {} a -> s {manifestWindowSeconds = a} :: HlsPlaylistSettings)
 
-instance Core.FromJSON HlsPlaylistSettings where
+instance Data.FromJSON HlsPlaylistSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HlsPlaylistSettings"
       ( \x ->
           HlsPlaylistSettings'
-            Prelude.<$> (x Core..:? "ManifestWindowSeconds")
+            Prelude.<$> (x Data..:? "ManifestWindowSeconds")
       )
 
 instance Prelude.Hashable HlsPlaylistSettings where
@@ -73,11 +74,11 @@ instance Prelude.NFData HlsPlaylistSettings where
   rnf HlsPlaylistSettings' {..} =
     Prelude.rnf manifestWindowSeconds
 
-instance Core.ToJSON HlsPlaylistSettings where
+instance Data.ToJSON HlsPlaylistSettings where
   toJSON HlsPlaylistSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ManifestWindowSeconds" Core..=)
+          [ ("ManifestWindowSeconds" Data..=)
               Prelude.<$> manifestWindowSeconds
           ]
       )

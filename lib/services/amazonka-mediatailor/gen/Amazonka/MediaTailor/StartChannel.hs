@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,26 +93,26 @@ instance Prelude.Hashable StartChannel where
 instance Prelude.NFData StartChannel where
   rnf StartChannel' {..} = Prelude.rnf channelName
 
-instance Core.ToHeaders StartChannel where
+instance Data.ToHeaders StartChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartChannel where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON StartChannel where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath StartChannel where
+instance Data.ToPath StartChannel where
   toPath StartChannel' {..} =
     Prelude.mconcat
-      ["/channel/", Core.toBS channelName, "/start"]
+      ["/channel/", Data.toBS channelName, "/start"]
 
-instance Core.ToQuery StartChannel where
+instance Data.ToQuery StartChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartChannelResponse' smart constructor.

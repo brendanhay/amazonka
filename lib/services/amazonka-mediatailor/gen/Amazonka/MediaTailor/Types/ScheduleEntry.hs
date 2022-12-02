@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.ScheduleEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types.ScheduleAdBreak
 import Amazonka.MediaTailor.Types.ScheduleEntryType
 import qualified Amazonka.Prelude as Prelude
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newScheduleEntry' smart constructor.
 data ScheduleEntry = ScheduleEntry'
   { -- | The approximate time that the program will start playing.
-    approximateStartTime :: Prelude.Maybe Core.POSIX,
+    approximateStartTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the live source used for the program.
     liveSourceName :: Prelude.Maybe Prelude.Text,
     -- | The name of the VOD source.
@@ -110,7 +111,7 @@ newScheduleEntry
 
 -- | The approximate time that the program will start playing.
 scheduleEntry_approximateStartTime :: Lens.Lens' ScheduleEntry (Prelude.Maybe Prelude.UTCTime)
-scheduleEntry_approximateStartTime = Lens.lens (\ScheduleEntry' {approximateStartTime} -> approximateStartTime) (\s@ScheduleEntry' {} a -> s {approximateStartTime = a} :: ScheduleEntry) Prelude.. Lens.mapping Core._Time
+scheduleEntry_approximateStartTime = Lens.lens (\ScheduleEntry' {approximateStartTime} -> approximateStartTime) (\s@ScheduleEntry' {} a -> s {approximateStartTime = a} :: ScheduleEntry) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the live source used for the program.
 scheduleEntry_liveSourceName :: Lens.Lens' ScheduleEntry (Prelude.Maybe Prelude.Text)
@@ -148,24 +149,24 @@ scheduleEntry_programName = Lens.lens (\ScheduleEntry' {programName} -> programN
 scheduleEntry_sourceLocationName :: Lens.Lens' ScheduleEntry Prelude.Text
 scheduleEntry_sourceLocationName = Lens.lens (\ScheduleEntry' {sourceLocationName} -> sourceLocationName) (\s@ScheduleEntry' {} a -> s {sourceLocationName = a} :: ScheduleEntry)
 
-instance Core.FromJSON ScheduleEntry where
+instance Data.FromJSON ScheduleEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScheduleEntry"
       ( \x ->
           ScheduleEntry'
-            Prelude.<$> (x Core..:? "ApproximateStartTime")
-            Prelude.<*> (x Core..:? "LiveSourceName")
-            Prelude.<*> (x Core..:? "VodSourceName")
-            Prelude.<*> (x Core..:? "ApproximateDurationSeconds")
-            Prelude.<*> (x Core..:? "ScheduleEntryType")
-            Prelude.<*> ( x Core..:? "ScheduleAdBreaks"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ApproximateStartTime")
+            Prelude.<*> (x Data..:? "LiveSourceName")
+            Prelude.<*> (x Data..:? "VodSourceName")
+            Prelude.<*> (x Data..:? "ApproximateDurationSeconds")
+            Prelude.<*> (x Data..:? "ScheduleEntryType")
+            Prelude.<*> ( x Data..:? "ScheduleAdBreaks"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "Arn")
-            Prelude.<*> (x Core..: "ChannelName")
-            Prelude.<*> (x Core..: "ProgramName")
-            Prelude.<*> (x Core..: "SourceLocationName")
+            Prelude.<*> (x Data..: "Arn")
+            Prelude.<*> (x Data..: "ChannelName")
+            Prelude.<*> (x Data..: "ProgramName")
+            Prelude.<*> (x Data..: "SourceLocationName")
       )
 
 instance Prelude.Hashable ScheduleEntry where

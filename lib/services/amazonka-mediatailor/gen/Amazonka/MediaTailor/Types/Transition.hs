@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.Transition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types.RelativePosition
 import qualified Amazonka.Prelude as Prelude
 
@@ -166,18 +167,18 @@ instance Prelude.NFData Transition where
       `Prelude.seq` Prelude.rnf relativePosition
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON Transition where
+instance Data.ToJSON Transition where
   toJSON Transition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RelativeProgram" Core..=)
+          [ ("RelativeProgram" Data..=)
               Prelude.<$> relativeProgram,
-            ("ScheduledStartTimeMillis" Core..=)
+            ("ScheduledStartTimeMillis" Data..=)
               Prelude.<$> scheduledStartTimeMillis,
-            ("DurationMillis" Core..=)
+            ("DurationMillis" Data..=)
               Prelude.<$> durationMillis,
             Prelude.Just
-              ("RelativePosition" Core..= relativePosition),
-            Prelude.Just ("Type" Core..= type')
+              ("RelativePosition" Data..= relativePosition),
+            Prelude.Just ("Type" Data..= type')
           ]
       )

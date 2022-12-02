@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -182,8 +183,8 @@ instance Core.AWSRequest GetChannelSchedule where
     Response.receiveJSON
       ( \s h x ->
           GetChannelScheduleResponse'
-            Prelude.<$> (x Core..?> "Items" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Items" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,28 +202,28 @@ instance Prelude.NFData GetChannelSchedule where
       `Prelude.seq` Prelude.rnf durationMinutes
       `Prelude.seq` Prelude.rnf channelName
 
-instance Core.ToHeaders GetChannelSchedule where
+instance Data.ToHeaders GetChannelSchedule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetChannelSchedule where
+instance Data.ToPath GetChannelSchedule where
   toPath GetChannelSchedule' {..} =
     Prelude.mconcat
-      ["/channel/", Core.toBS channelName, "/schedule"]
+      ["/channel/", Data.toBS channelName, "/schedule"]
 
-instance Core.ToQuery GetChannelSchedule where
+instance Data.ToQuery GetChannelSchedule where
   toQuery GetChannelSchedule' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "durationMinutes" Core.=: durationMinutes
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "durationMinutes" Data.=: durationMinutes
       ]
 
 -- | /See:/ 'newGetChannelScheduleResponse' smart constructor.

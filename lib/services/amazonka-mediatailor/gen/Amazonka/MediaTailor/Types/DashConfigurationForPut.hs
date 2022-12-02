@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.DashConfigurationForPut where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types.OriginManifestType
 import qualified Amazonka.Prelude as Prelude
 
@@ -106,12 +107,12 @@ instance Prelude.NFData DashConfigurationForPut where
     Prelude.rnf mpdLocation
       `Prelude.seq` Prelude.rnf originManifestType
 
-instance Core.ToJSON DashConfigurationForPut where
+instance Data.ToJSON DashConfigurationForPut where
   toJSON DashConfigurationForPut' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MpdLocation" Core..=) Prelude.<$> mpdLocation,
-            ("OriginManifestType" Core..=)
+          [ ("MpdLocation" Data..=) Prelude.<$> mpdLocation,
+            ("OriginManifestType" Data..=)
               Prelude.<$> originManifestType
           ]
       )

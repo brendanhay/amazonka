@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.RequestOutputItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types.DashPlaylistSettings
 import Amazonka.MediaTailor.Types.HlsPlaylistSettings
 import qualified Amazonka.Prelude as Prelude
@@ -106,15 +107,15 @@ instance Prelude.NFData RequestOutputItem where
       `Prelude.seq` Prelude.rnf manifestName
       `Prelude.seq` Prelude.rnf sourceGroup
 
-instance Core.ToJSON RequestOutputItem where
+instance Data.ToJSON RequestOutputItem where
   toJSON RequestOutputItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HlsPlaylistSettings" Core..=)
+          [ ("HlsPlaylistSettings" Data..=)
               Prelude.<$> hlsPlaylistSettings,
-            ("DashPlaylistSettings" Core..=)
+            ("DashPlaylistSettings" Data..=)
               Prelude.<$> dashPlaylistSettings,
-            Prelude.Just ("ManifestName" Core..= manifestName),
-            Prelude.Just ("SourceGroup" Core..= sourceGroup)
+            Prelude.Just ("ManifestName" Data..= manifestName),
+            Prelude.Just ("SourceGroup" Data..= sourceGroup)
           ]
       )

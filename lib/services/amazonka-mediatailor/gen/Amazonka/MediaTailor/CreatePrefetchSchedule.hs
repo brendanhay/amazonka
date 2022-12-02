@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -179,12 +180,12 @@ instance Core.AWSRequest CreatePrefetchSchedule where
     Response.receiveJSON
       ( \s h x ->
           CreatePrefetchScheduleResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "StreamId")
-            Prelude.<*> (x Core..?> "Retrieval")
-            Prelude.<*> (x Core..?> "PlaybackConfigurationName")
-            Prelude.<*> (x Core..?> "Consumption")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "StreamId")
+            Prelude.<*> (x Data..?> "Retrieval")
+            Prelude.<*> (x Data..?> "PlaybackConfigurationName")
+            Prelude.<*> (x Data..?> "Consumption")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,37 +205,37 @@ instance Prelude.NFData CreatePrefetchSchedule where
       `Prelude.seq` Prelude.rnf playbackConfigurationName
       `Prelude.seq` Prelude.rnf retrieval
 
-instance Core.ToHeaders CreatePrefetchSchedule where
+instance Data.ToHeaders CreatePrefetchSchedule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePrefetchSchedule where
+instance Data.ToJSON CreatePrefetchSchedule where
   toJSON CreatePrefetchSchedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StreamId" Core..=) Prelude.<$> streamId,
-            Prelude.Just ("Consumption" Core..= consumption),
-            Prelude.Just ("Retrieval" Core..= retrieval)
+          [ ("StreamId" Data..=) Prelude.<$> streamId,
+            Prelude.Just ("Consumption" Data..= consumption),
+            Prelude.Just ("Retrieval" Data..= retrieval)
           ]
       )
 
-instance Core.ToPath CreatePrefetchSchedule where
+instance Data.ToPath CreatePrefetchSchedule where
   toPath CreatePrefetchSchedule' {..} =
     Prelude.mconcat
       [ "/prefetchSchedule/",
-        Core.toBS playbackConfigurationName,
+        Data.toBS playbackConfigurationName,
         "/",
-        Core.toBS name
+        Data.toBS name
       ]
 
-instance Core.ToQuery CreatePrefetchSchedule where
+instance Data.ToQuery CreatePrefetchSchedule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePrefetchScheduleResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.PrefetchRetrieval where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that contains settings governing when MediaTailor
@@ -42,10 +43,10 @@ data PrefetchRetrieval = PrefetchRetrieval'
     -- prefetching will be attempted for manifest requests that occur at or
     -- after this time. Defaults to the current time. If not specified, the
     -- prefetch retrieval starts as soon as possible.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The time when prefetch retrieval ends for the ad break. Prefetching will
     -- be attempted for manifest requests that occur at or before this time.
-    endTime :: Core.POSIX
+    endTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,7 +83,7 @@ newPrefetchRetrieval pEndTime_ =
     { dynamicVariables =
         Prelude.Nothing,
       startTime = Prelude.Nothing,
-      endTime = Core._Time Lens.# pEndTime_
+      endTime = Data._Time Lens.# pEndTime_
     }
 
 -- | The dynamic variables to use for substitution during prefetch requests
@@ -101,24 +102,24 @@ prefetchRetrieval_dynamicVariables = Lens.lens (\PrefetchRetrieval' {dynamicVari
 -- after this time. Defaults to the current time. If not specified, the
 -- prefetch retrieval starts as soon as possible.
 prefetchRetrieval_startTime :: Lens.Lens' PrefetchRetrieval (Prelude.Maybe Prelude.UTCTime)
-prefetchRetrieval_startTime = Lens.lens (\PrefetchRetrieval' {startTime} -> startTime) (\s@PrefetchRetrieval' {} a -> s {startTime = a} :: PrefetchRetrieval) Prelude.. Lens.mapping Core._Time
+prefetchRetrieval_startTime = Lens.lens (\PrefetchRetrieval' {startTime} -> startTime) (\s@PrefetchRetrieval' {} a -> s {startTime = a} :: PrefetchRetrieval) Prelude.. Lens.mapping Data._Time
 
 -- | The time when prefetch retrieval ends for the ad break. Prefetching will
 -- be attempted for manifest requests that occur at or before this time.
 prefetchRetrieval_endTime :: Lens.Lens' PrefetchRetrieval Prelude.UTCTime
-prefetchRetrieval_endTime = Lens.lens (\PrefetchRetrieval' {endTime} -> endTime) (\s@PrefetchRetrieval' {} a -> s {endTime = a} :: PrefetchRetrieval) Prelude.. Core._Time
+prefetchRetrieval_endTime = Lens.lens (\PrefetchRetrieval' {endTime} -> endTime) (\s@PrefetchRetrieval' {} a -> s {endTime = a} :: PrefetchRetrieval) Prelude.. Data._Time
 
-instance Core.FromJSON PrefetchRetrieval where
+instance Data.FromJSON PrefetchRetrieval where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PrefetchRetrieval"
       ( \x ->
           PrefetchRetrieval'
-            Prelude.<$> ( x Core..:? "DynamicVariables"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "DynamicVariables"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..: "EndTime")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..: "EndTime")
       )
 
 instance Prelude.Hashable PrefetchRetrieval where
@@ -133,13 +134,13 @@ instance Prelude.NFData PrefetchRetrieval where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf endTime
 
-instance Core.ToJSON PrefetchRetrieval where
+instance Data.ToJSON PrefetchRetrieval where
   toJSON PrefetchRetrieval' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DynamicVariables" Core..=)
+          [ ("DynamicVariables" Data..=)
               Prelude.<$> dynamicVariables,
-            ("StartTime" Core..=) Prelude.<$> startTime,
-            Prelude.Just ("EndTime" Core..= endTime)
+            ("StartTime" Data..=) Prelude.<$> startTime,
+            Prelude.Just ("EndTime" Data..= endTime)
           ]
       )

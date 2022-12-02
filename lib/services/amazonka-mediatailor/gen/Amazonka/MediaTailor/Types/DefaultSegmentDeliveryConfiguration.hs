@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.DefaultSegmentDeliveryConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The optional configuration for a server that serves segments. Use this
@@ -63,15 +64,15 @@ defaultSegmentDeliveryConfiguration_baseUrl :: Lens.Lens' DefaultSegmentDelivery
 defaultSegmentDeliveryConfiguration_baseUrl = Lens.lens (\DefaultSegmentDeliveryConfiguration' {baseUrl} -> baseUrl) (\s@DefaultSegmentDeliveryConfiguration' {} a -> s {baseUrl = a} :: DefaultSegmentDeliveryConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DefaultSegmentDeliveryConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DefaultSegmentDeliveryConfiguration"
       ( \x ->
           DefaultSegmentDeliveryConfiguration'
-            Prelude.<$> (x Core..:? "BaseUrl")
+            Prelude.<$> (x Data..:? "BaseUrl")
       )
 
 instance
@@ -91,11 +92,11 @@ instance
     Prelude.rnf baseUrl
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DefaultSegmentDeliveryConfiguration
   where
   toJSON DefaultSegmentDeliveryConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("BaseUrl" Core..=) Prelude.<$> baseUrl]
+          [("BaseUrl" Data..=) Prelude.<$> baseUrl]
       )

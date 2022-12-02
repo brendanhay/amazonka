@@ -25,6 +25,7 @@ import Amazonka.AutoScalingPlans.Types.ScalingStatusCode
 import Amazonka.AutoScalingPlans.Types.ServiceNamespace
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a scalable resource.
@@ -315,22 +316,22 @@ scalingPlanResource_scalableDimension = Lens.lens (\ScalingPlanResource' {scalab
 scalingPlanResource_scalingStatusCode :: Lens.Lens' ScalingPlanResource ScalingStatusCode
 scalingPlanResource_scalingStatusCode = Lens.lens (\ScalingPlanResource' {scalingStatusCode} -> scalingStatusCode) (\s@ScalingPlanResource' {} a -> s {scalingStatusCode = a} :: ScalingPlanResource)
 
-instance Core.FromJSON ScalingPlanResource where
+instance Data.FromJSON ScalingPlanResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScalingPlanResource"
       ( \x ->
           ScalingPlanResource'
-            Prelude.<$> (x Core..:? "ScalingStatusMessage")
-            Prelude.<*> ( x Core..:? "ScalingPolicies"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ScalingStatusMessage")
+            Prelude.<*> ( x Data..:? "ScalingPolicies"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "ScalingPlanName")
-            Prelude.<*> (x Core..: "ScalingPlanVersion")
-            Prelude.<*> (x Core..: "ServiceNamespace")
-            Prelude.<*> (x Core..: "ResourceId")
-            Prelude.<*> (x Core..: "ScalableDimension")
-            Prelude.<*> (x Core..: "ScalingStatusCode")
+            Prelude.<*> (x Data..: "ScalingPlanName")
+            Prelude.<*> (x Data..: "ScalingPlanVersion")
+            Prelude.<*> (x Data..: "ServiceNamespace")
+            Prelude.<*> (x Data..: "ResourceId")
+            Prelude.<*> (x Data..: "ScalableDimension")
+            Prelude.<*> (x Data..: "ScalingStatusCode")
       )
 
 instance Prelude.Hashable ScalingPlanResource where

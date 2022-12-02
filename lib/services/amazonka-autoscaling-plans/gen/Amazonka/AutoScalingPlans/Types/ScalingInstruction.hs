@@ -29,6 +29,7 @@ import Amazonka.AutoScalingPlans.Types.ServiceNamespace
 import Amazonka.AutoScalingPlans.Types.TargetTrackingConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a scaling instruction for a scalable resource in a scaling
@@ -565,27 +566,27 @@ scalingInstruction_maxCapacity = Lens.lens (\ScalingInstruction' {maxCapacity} -
 scalingInstruction_targetTrackingConfigurations :: Lens.Lens' ScalingInstruction [TargetTrackingConfiguration]
 scalingInstruction_targetTrackingConfigurations = Lens.lens (\ScalingInstruction' {targetTrackingConfigurations} -> targetTrackingConfigurations) (\s@ScalingInstruction' {} a -> s {targetTrackingConfigurations = a} :: ScalingInstruction) Prelude.. Lens.coerced
 
-instance Core.FromJSON ScalingInstruction where
+instance Data.FromJSON ScalingInstruction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScalingInstruction"
       ( \x ->
           ScalingInstruction'
-            Prelude.<$> (x Core..:? "ScalingPolicyUpdateBehavior")
-            Prelude.<*> (x Core..:? "PredefinedLoadMetricSpecification")
-            Prelude.<*> (x Core..:? "CustomizedLoadMetricSpecification")
-            Prelude.<*> (x Core..:? "PredictiveScalingMaxCapacityBehavior")
-            Prelude.<*> (x Core..:? "PredictiveScalingMaxCapacityBuffer")
-            Prelude.<*> (x Core..:? "ScheduledActionBufferTime")
-            Prelude.<*> (x Core..:? "PredictiveScalingMode")
-            Prelude.<*> (x Core..:? "DisableDynamicScaling")
-            Prelude.<*> (x Core..: "ServiceNamespace")
-            Prelude.<*> (x Core..: "ResourceId")
-            Prelude.<*> (x Core..: "ScalableDimension")
-            Prelude.<*> (x Core..: "MinCapacity")
-            Prelude.<*> (x Core..: "MaxCapacity")
-            Prelude.<*> ( x Core..:? "TargetTrackingConfigurations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ScalingPolicyUpdateBehavior")
+            Prelude.<*> (x Data..:? "PredefinedLoadMetricSpecification")
+            Prelude.<*> (x Data..:? "CustomizedLoadMetricSpecification")
+            Prelude.<*> (x Data..:? "PredictiveScalingMaxCapacityBehavior")
+            Prelude.<*> (x Data..:? "PredictiveScalingMaxCapacityBuffer")
+            Prelude.<*> (x Data..:? "ScheduledActionBufferTime")
+            Prelude.<*> (x Data..:? "PredictiveScalingMode")
+            Prelude.<*> (x Data..:? "DisableDynamicScaling")
+            Prelude.<*> (x Data..: "ServiceNamespace")
+            Prelude.<*> (x Data..: "ResourceId")
+            Prelude.<*> (x Data..: "ScalableDimension")
+            Prelude.<*> (x Data..: "MinCapacity")
+            Prelude.<*> (x Data..: "MaxCapacity")
+            Prelude.<*> ( x Data..:? "TargetTrackingConfigurations"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -624,36 +625,36 @@ instance Prelude.NFData ScalingInstruction where
       `Prelude.seq` Prelude.rnf maxCapacity
       `Prelude.seq` Prelude.rnf targetTrackingConfigurations
 
-instance Core.ToJSON ScalingInstruction where
+instance Data.ToJSON ScalingInstruction where
   toJSON ScalingInstruction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ScalingPolicyUpdateBehavior" Core..=)
+          [ ("ScalingPolicyUpdateBehavior" Data..=)
               Prelude.<$> scalingPolicyUpdateBehavior,
-            ("PredefinedLoadMetricSpecification" Core..=)
+            ("PredefinedLoadMetricSpecification" Data..=)
               Prelude.<$> predefinedLoadMetricSpecification,
-            ("CustomizedLoadMetricSpecification" Core..=)
+            ("CustomizedLoadMetricSpecification" Data..=)
               Prelude.<$> customizedLoadMetricSpecification,
-            ("PredictiveScalingMaxCapacityBehavior" Core..=)
+            ("PredictiveScalingMaxCapacityBehavior" Data..=)
               Prelude.<$> predictiveScalingMaxCapacityBehavior,
-            ("PredictiveScalingMaxCapacityBuffer" Core..=)
+            ("PredictiveScalingMaxCapacityBuffer" Data..=)
               Prelude.<$> predictiveScalingMaxCapacityBuffer,
-            ("ScheduledActionBufferTime" Core..=)
+            ("ScheduledActionBufferTime" Data..=)
               Prelude.<$> scheduledActionBufferTime,
-            ("PredictiveScalingMode" Core..=)
+            ("PredictiveScalingMode" Data..=)
               Prelude.<$> predictiveScalingMode,
-            ("DisableDynamicScaling" Core..=)
+            ("DisableDynamicScaling" Data..=)
               Prelude.<$> disableDynamicScaling,
             Prelude.Just
-              ("ServiceNamespace" Core..= serviceNamespace),
-            Prelude.Just ("ResourceId" Core..= resourceId),
+              ("ServiceNamespace" Data..= serviceNamespace),
+            Prelude.Just ("ResourceId" Data..= resourceId),
             Prelude.Just
-              ("ScalableDimension" Core..= scalableDimension),
-            Prelude.Just ("MinCapacity" Core..= minCapacity),
-            Prelude.Just ("MaxCapacity" Core..= maxCapacity),
+              ("ScalableDimension" Data..= scalableDimension),
+            Prelude.Just ("MinCapacity" Data..= minCapacity),
+            Prelude.Just ("MaxCapacity" Data..= maxCapacity),
             Prelude.Just
               ( "TargetTrackingConfigurations"
-                  Core..= targetTrackingConfigurations
+                  Data..= targetTrackingConfigurations
               )
           ]
       )

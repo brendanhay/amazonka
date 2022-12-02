@@ -21,6 +21,7 @@ module Amazonka.AutoScalingPlans.Types.Datapoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a single value in the forecast data used for predictive
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newDatapoint' smart constructor.
 data Datapoint = Datapoint'
   { -- | The time stamp for the data point in UTC format.
-    timestamp :: Prelude.Maybe Core.POSIX,
+    timestamp :: Prelude.Maybe Data.POSIX,
     -- | The value of the data point.
     value :: Prelude.Maybe Prelude.Double
   }
@@ -56,20 +57,20 @@ newDatapoint =
 
 -- | The time stamp for the data point in UTC format.
 datapoint_timestamp :: Lens.Lens' Datapoint (Prelude.Maybe Prelude.UTCTime)
-datapoint_timestamp = Lens.lens (\Datapoint' {timestamp} -> timestamp) (\s@Datapoint' {} a -> s {timestamp = a} :: Datapoint) Prelude.. Lens.mapping Core._Time
+datapoint_timestamp = Lens.lens (\Datapoint' {timestamp} -> timestamp) (\s@Datapoint' {} a -> s {timestamp = a} :: Datapoint) Prelude.. Lens.mapping Data._Time
 
 -- | The value of the data point.
 datapoint_value :: Lens.Lens' Datapoint (Prelude.Maybe Prelude.Double)
 datapoint_value = Lens.lens (\Datapoint' {value} -> value) (\s@Datapoint' {} a -> s {value = a} :: Datapoint)
 
-instance Core.FromJSON Datapoint where
+instance Data.FromJSON Datapoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Datapoint"
       ( \x ->
           Datapoint'
-            Prelude.<$> (x Core..:? "Timestamp")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Timestamp")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable Datapoint where

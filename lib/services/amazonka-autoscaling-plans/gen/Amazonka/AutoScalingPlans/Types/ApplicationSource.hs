@@ -22,6 +22,7 @@ module Amazonka.AutoScalingPlans.Types.ApplicationSource where
 import Amazonka.AutoScalingPlans.Types.TagFilter
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an application source.
@@ -63,14 +64,14 @@ applicationSource_cloudFormationStackARN = Lens.lens (\ApplicationSource' {cloud
 applicationSource_tagFilters :: Lens.Lens' ApplicationSource (Prelude.Maybe [TagFilter])
 applicationSource_tagFilters = Lens.lens (\ApplicationSource' {tagFilters} -> tagFilters) (\s@ApplicationSource' {} a -> s {tagFilters = a} :: ApplicationSource) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ApplicationSource where
+instance Data.FromJSON ApplicationSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationSource"
       ( \x ->
           ApplicationSource'
-            Prelude.<$> (x Core..:? "CloudFormationStackARN")
-            Prelude.<*> (x Core..:? "TagFilters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "CloudFormationStackARN")
+            Prelude.<*> (x Data..:? "TagFilters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ApplicationSource where
@@ -83,12 +84,12 @@ instance Prelude.NFData ApplicationSource where
     Prelude.rnf cloudFormationStackARN
       `Prelude.seq` Prelude.rnf tagFilters
 
-instance Core.ToJSON ApplicationSource where
+instance Data.ToJSON ApplicationSource where
   toJSON ApplicationSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CloudFormationStackARN" Core..=)
+          [ ("CloudFormationStackARN" Data..=)
               Prelude.<$> cloudFormationStackARN,
-            ("TagFilters" Core..=) Prelude.<$> tagFilters
+            ("TagFilters" Data..=) Prelude.<$> tagFilters
           ]
       )

@@ -47,6 +47,7 @@ where
 import Amazonka.AutoScalingPlans.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -166,40 +167,40 @@ instance Prelude.NFData UpdateScalingPlan where
       `Prelude.seq` Prelude.rnf scalingPlanName
       `Prelude.seq` Prelude.rnf scalingPlanVersion
 
-instance Core.ToHeaders UpdateScalingPlan where
+instance Data.ToHeaders UpdateScalingPlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AnyScaleScalingPlannerFrontendService.UpdateScalingPlan" ::
+              Data.=# ( "AnyScaleScalingPlannerFrontendService.UpdateScalingPlan" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateScalingPlan where
+instance Data.ToJSON UpdateScalingPlan where
   toJSON UpdateScalingPlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ScalingInstructions" Core..=)
+          [ ("ScalingInstructions" Data..=)
               Prelude.<$> scalingInstructions,
-            ("ApplicationSource" Core..=)
+            ("ApplicationSource" Data..=)
               Prelude.<$> applicationSource,
             Prelude.Just
-              ("ScalingPlanName" Core..= scalingPlanName),
+              ("ScalingPlanName" Data..= scalingPlanName),
             Prelude.Just
-              ("ScalingPlanVersion" Core..= scalingPlanVersion)
+              ("ScalingPlanVersion" Data..= scalingPlanVersion)
           ]
       )
 
-instance Core.ToPath UpdateScalingPlan where
+instance Data.ToPath UpdateScalingPlan where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateScalingPlan where
+instance Data.ToQuery UpdateScalingPlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateScalingPlanResponse' smart constructor.

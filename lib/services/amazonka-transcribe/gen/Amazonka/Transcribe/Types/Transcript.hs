@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.Transcript where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides you with the Amazon S3 URI you can use to access your
@@ -159,14 +160,14 @@ transcript_redactedTranscriptFileUri = Lens.lens (\Transcript' {redactedTranscri
 transcript_transcriptFileUri :: Lens.Lens' Transcript (Prelude.Maybe Prelude.Text)
 transcript_transcriptFileUri = Lens.lens (\Transcript' {transcriptFileUri} -> transcriptFileUri) (\s@Transcript' {} a -> s {transcriptFileUri = a} :: Transcript)
 
-instance Core.FromJSON Transcript where
+instance Data.FromJSON Transcript where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Transcript"
       ( \x ->
           Transcript'
-            Prelude.<$> (x Core..:? "RedactedTranscriptFileUri")
-            Prelude.<*> (x Core..:? "TranscriptFileUri")
+            Prelude.<$> (x Data..:? "RedactedTranscriptFileUri")
+            Prelude.<*> (x Data..:? "TranscriptFileUri")
       )
 
 instance Prelude.Hashable Transcript where

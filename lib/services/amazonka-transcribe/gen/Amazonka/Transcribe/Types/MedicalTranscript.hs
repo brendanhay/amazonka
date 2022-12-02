@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.MedicalTranscript where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides you with the Amazon S3 URI you can use to access your
@@ -102,13 +103,13 @@ newMedicalTranscript =
 medicalTranscript_transcriptFileUri :: Lens.Lens' MedicalTranscript (Prelude.Maybe Prelude.Text)
 medicalTranscript_transcriptFileUri = Lens.lens (\MedicalTranscript' {transcriptFileUri} -> transcriptFileUri) (\s@MedicalTranscript' {} a -> s {transcriptFileUri = a} :: MedicalTranscript)
 
-instance Core.FromJSON MedicalTranscript where
+instance Data.FromJSON MedicalTranscript where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MedicalTranscript"
       ( \x ->
           MedicalTranscript'
-            Prelude.<$> (x Core..:? "TranscriptFileUri")
+            Prelude.<$> (x Data..:? "TranscriptFileUri")
       )
 
 instance Prelude.Hashable MedicalTranscript where

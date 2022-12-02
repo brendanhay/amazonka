@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,7 +99,7 @@ instance Core.AWSRequest GetMedicalTranscriptionJob where
     Response.receiveJSON
       ( \s h x ->
           GetMedicalTranscriptionJobResponse'
-            Prelude.<$> (x Core..?> "MedicalTranscriptionJob")
+            Prelude.<$> (x Data..?> "MedicalTranscriptionJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,36 +112,36 @@ instance Prelude.NFData GetMedicalTranscriptionJob where
   rnf GetMedicalTranscriptionJob' {..} =
     Prelude.rnf medicalTranscriptionJobName
 
-instance Core.ToHeaders GetMedicalTranscriptionJob where
+instance Data.ToHeaders GetMedicalTranscriptionJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Transcribe.GetMedicalTranscriptionJob" ::
+              Data.=# ( "Transcribe.GetMedicalTranscriptionJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetMedicalTranscriptionJob where
+instance Data.ToJSON GetMedicalTranscriptionJob where
   toJSON GetMedicalTranscriptionJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "MedicalTranscriptionJobName"
-                  Core..= medicalTranscriptionJobName
+                  Data..= medicalTranscriptionJobName
               )
           ]
       )
 
-instance Core.ToPath GetMedicalTranscriptionJob where
+instance Data.ToPath GetMedicalTranscriptionJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetMedicalTranscriptionJob where
+instance Data.ToQuery GetMedicalTranscriptionJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMedicalTranscriptionJobResponse' smart constructor.

@@ -90,6 +90,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -414,7 +415,7 @@ instance Core.AWSRequest StartCallAnalyticsJob where
     Response.receiveJSON
       ( \s h x ->
           StartCallAnalyticsJobResponse'
-            Prelude.<$> (x Core..?> "CallAnalyticsJob")
+            Prelude.<$> (x Data..?> "CallAnalyticsJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -438,46 +439,46 @@ instance Prelude.NFData StartCallAnalyticsJob where
       `Prelude.seq` Prelude.rnf callAnalyticsJobName
       `Prelude.seq` Prelude.rnf media
 
-instance Core.ToHeaders StartCallAnalyticsJob where
+instance Data.ToHeaders StartCallAnalyticsJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Transcribe.StartCallAnalyticsJob" ::
+              Data.=# ( "Transcribe.StartCallAnalyticsJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartCallAnalyticsJob where
+instance Data.ToJSON StartCallAnalyticsJob where
   toJSON StartCallAnalyticsJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OutputLocation" Core..=)
+          [ ("OutputLocation" Data..=)
               Prelude.<$> outputLocation,
-            ("DataAccessRoleArn" Core..=)
+            ("DataAccessRoleArn" Data..=)
               Prelude.<$> dataAccessRoleArn,
-            ("Settings" Core..=) Prelude.<$> settings,
-            ("OutputEncryptionKMSKeyId" Core..=)
+            ("Settings" Data..=) Prelude.<$> settings,
+            ("OutputEncryptionKMSKeyId" Data..=)
               Prelude.<$> outputEncryptionKMSKeyId,
-            ("ChannelDefinitions" Core..=)
+            ("ChannelDefinitions" Data..=)
               Prelude.<$> channelDefinitions,
             Prelude.Just
               ( "CallAnalyticsJobName"
-                  Core..= callAnalyticsJobName
+                  Data..= callAnalyticsJobName
               ),
-            Prelude.Just ("Media" Core..= media)
+            Prelude.Just ("Media" Data..= media)
           ]
       )
 
-instance Core.ToPath StartCallAnalyticsJob where
+instance Data.ToPath StartCallAnalyticsJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartCallAnalyticsJob where
+instance Data.ToQuery StartCallAnalyticsJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartCallAnalyticsJobResponse' smart constructor.

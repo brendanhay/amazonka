@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.SentimentFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.AbsoluteTimeRange
 import Amazonka.Transcribe.Types.ParticipantRole
@@ -134,17 +135,17 @@ sentimentFilter_relativeTimeRange = Lens.lens (\SentimentFilter' {relativeTimeRa
 sentimentFilter_sentiments :: Lens.Lens' SentimentFilter (Prelude.NonEmpty SentimentValue)
 sentimentFilter_sentiments = Lens.lens (\SentimentFilter' {sentiments} -> sentiments) (\s@SentimentFilter' {} a -> s {sentiments = a} :: SentimentFilter) Prelude.. Lens.coerced
 
-instance Core.FromJSON SentimentFilter where
+instance Data.FromJSON SentimentFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SentimentFilter"
       ( \x ->
           SentimentFilter'
-            Prelude.<$> (x Core..:? "Negate")
-            Prelude.<*> (x Core..:? "AbsoluteTimeRange")
-            Prelude.<*> (x Core..:? "ParticipantRole")
-            Prelude.<*> (x Core..:? "RelativeTimeRange")
-            Prelude.<*> (x Core..: "Sentiments")
+            Prelude.<$> (x Data..:? "Negate")
+            Prelude.<*> (x Data..:? "AbsoluteTimeRange")
+            Prelude.<*> (x Data..:? "ParticipantRole")
+            Prelude.<*> (x Data..:? "RelativeTimeRange")
+            Prelude.<*> (x Data..: "Sentiments")
       )
 
 instance Prelude.Hashable SentimentFilter where
@@ -163,17 +164,17 @@ instance Prelude.NFData SentimentFilter where
       `Prelude.seq` Prelude.rnf relativeTimeRange
       `Prelude.seq` Prelude.rnf sentiments
 
-instance Core.ToJSON SentimentFilter where
+instance Data.ToJSON SentimentFilter where
   toJSON SentimentFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Negate" Core..=) Prelude.<$> negate,
-            ("AbsoluteTimeRange" Core..=)
+          [ ("Negate" Data..=) Prelude.<$> negate,
+            ("AbsoluteTimeRange" Data..=)
               Prelude.<$> absoluteTimeRange,
-            ("ParticipantRole" Core..=)
+            ("ParticipantRole" Data..=)
               Prelude.<$> participantRole,
-            ("RelativeTimeRange" Core..=)
+            ("RelativeTimeRange" Data..=)
               Prelude.<$> relativeTimeRange,
-            Prelude.Just ("Sentiments" Core..= sentiments)
+            Prelude.Just ("Sentiments" Data..= sentiments)
           ]
       )

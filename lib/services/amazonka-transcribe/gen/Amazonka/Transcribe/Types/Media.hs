@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.Media where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the Amazon S3 location of the media file you want to use in
@@ -125,14 +126,14 @@ media_redactedMediaFileUri = Lens.lens (\Media' {redactedMediaFileUri} -> redact
 media_mediaFileUri :: Lens.Lens' Media (Prelude.Maybe Prelude.Text)
 media_mediaFileUri = Lens.lens (\Media' {mediaFileUri} -> mediaFileUri) (\s@Media' {} a -> s {mediaFileUri = a} :: Media)
 
-instance Core.FromJSON Media where
+instance Data.FromJSON Media where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Media"
       ( \x ->
           Media'
-            Prelude.<$> (x Core..:? "RedactedMediaFileUri")
-            Prelude.<*> (x Core..:? "MediaFileUri")
+            Prelude.<$> (x Data..:? "RedactedMediaFileUri")
+            Prelude.<*> (x Data..:? "MediaFileUri")
       )
 
 instance Prelude.Hashable Media where
@@ -145,12 +146,12 @@ instance Prelude.NFData Media where
     Prelude.rnf redactedMediaFileUri
       `Prelude.seq` Prelude.rnf mediaFileUri
 
-instance Core.ToJSON Media where
+instance Data.ToJSON Media where
   toJSON Media' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RedactedMediaFileUri" Core..=)
+          [ ("RedactedMediaFileUri" Data..=)
               Prelude.<$> redactedMediaFileUri,
-            ("MediaFileUri" Core..=) Prelude.<$> mediaFileUri
+            ("MediaFileUri" Data..=) Prelude.<$> mediaFileUri
           ]
       )

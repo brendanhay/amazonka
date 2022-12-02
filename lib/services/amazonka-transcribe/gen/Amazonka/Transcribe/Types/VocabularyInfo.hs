@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.VocabularyInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.LanguageCode
 import Amazonka.Transcribe.Types.VocabularyState
@@ -43,7 +44,7 @@ data VocabularyInfo = VocabularyInfo'
     -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
     -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
     -- May 4, 2022.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The language code used to create your custom vocabulary. Each vocabulary
     -- must contain terms in only one language.
     --
@@ -110,7 +111,7 @@ vocabularyInfo_vocabularyState = Lens.lens (\VocabularyInfo' {vocabularyState} -
 -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
 -- May 4, 2022.
 vocabularyInfo_lastModifiedTime :: Lens.Lens' VocabularyInfo (Prelude.Maybe Prelude.UTCTime)
-vocabularyInfo_lastModifiedTime = Lens.lens (\VocabularyInfo' {lastModifiedTime} -> lastModifiedTime) (\s@VocabularyInfo' {} a -> s {lastModifiedTime = a} :: VocabularyInfo) Prelude.. Lens.mapping Core._Time
+vocabularyInfo_lastModifiedTime = Lens.lens (\VocabularyInfo' {lastModifiedTime} -> lastModifiedTime) (\s@VocabularyInfo' {} a -> s {lastModifiedTime = a} :: VocabularyInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The language code used to create your custom vocabulary. Each vocabulary
 -- must contain terms in only one language.
@@ -122,16 +123,16 @@ vocabularyInfo_lastModifiedTime = Lens.lens (\VocabularyInfo' {lastModifiedTime}
 vocabularyInfo_languageCode :: Lens.Lens' VocabularyInfo (Prelude.Maybe LanguageCode)
 vocabularyInfo_languageCode = Lens.lens (\VocabularyInfo' {languageCode} -> languageCode) (\s@VocabularyInfo' {} a -> s {languageCode = a} :: VocabularyInfo)
 
-instance Core.FromJSON VocabularyInfo where
+instance Data.FromJSON VocabularyInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VocabularyInfo"
       ( \x ->
           VocabularyInfo'
-            Prelude.<$> (x Core..:? "VocabularyName")
-            Prelude.<*> (x Core..:? "VocabularyState")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "LanguageCode")
+            Prelude.<$> (x Data..:? "VocabularyName")
+            Prelude.<*> (x Data..:? "VocabularyState")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "LanguageCode")
       )
 
 instance Prelude.Hashable VocabularyInfo where

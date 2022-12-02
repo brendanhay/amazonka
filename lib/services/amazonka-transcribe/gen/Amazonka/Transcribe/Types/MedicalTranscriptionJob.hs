@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.MedicalTranscriptionJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.LanguageCode
 import Amazonka.Transcribe.Types.Media
@@ -67,7 +68,7 @@ data MedicalTranscriptionJob = MedicalTranscriptionJob'
     -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
     -- example, @2022-05-04T12:33:13.922000-07:00@ represents a transcription
     -- job that started processing at 12:33 PM UTC-7 on May 4, 2022.
-    completionTime :: Prelude.Maybe Core.POSIX,
+    completionTime :: Prelude.Maybe Data.POSIX,
     -- | Specify additional optional settings in your request, including channel
     -- identification, alternative transcriptions, and speaker labeling; allows
     -- you to apply custom vocabularies to your medical transcription job.
@@ -91,7 +92,7 @@ data MedicalTranscriptionJob = MedicalTranscriptionJob'
     -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
     -- example, @2022-05-04T12:32:58.761000-07:00@ represents a transcription
     -- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | Describes the medical specialty represented in your media.
     specialty :: Prelude.Maybe Specialty,
     -- | The date and time the specified medical transcription job began
@@ -100,7 +101,7 @@ data MedicalTranscriptionJob = MedicalTranscriptionJob'
     -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
     -- example, @2022-05-04T12:32:58.789000-07:00@ represents a transcription
     -- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | If @TranscriptionJobStatus@ is @FAILED@, @FailureReason@ contains
     -- information about why the transcription job request failed.
     --
@@ -309,7 +310,7 @@ medicalTranscriptionJob_medicalTranscriptionJobName = Lens.lens (\MedicalTranscr
 -- example, @2022-05-04T12:33:13.922000-07:00@ represents a transcription
 -- job that started processing at 12:33 PM UTC-7 on May 4, 2022.
 medicalTranscriptionJob_completionTime :: Lens.Lens' MedicalTranscriptionJob (Prelude.Maybe Prelude.UTCTime)
-medicalTranscriptionJob_completionTime = Lens.lens (\MedicalTranscriptionJob' {completionTime} -> completionTime) (\s@MedicalTranscriptionJob' {} a -> s {completionTime = a} :: MedicalTranscriptionJob) Prelude.. Lens.mapping Core._Time
+medicalTranscriptionJob_completionTime = Lens.lens (\MedicalTranscriptionJob' {completionTime} -> completionTime) (\s@MedicalTranscriptionJob' {} a -> s {completionTime = a} :: MedicalTranscriptionJob) Prelude.. Lens.mapping Data._Time
 
 -- | Specify additional optional settings in your request, including channel
 -- identification, alternative transcriptions, and speaker labeling; allows
@@ -343,7 +344,7 @@ medicalTranscriptionJob_transcriptionJobStatus = Lens.lens (\MedicalTranscriptio
 -- example, @2022-05-04T12:32:58.761000-07:00@ represents a transcription
 -- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
 medicalTranscriptionJob_creationTime :: Lens.Lens' MedicalTranscriptionJob (Prelude.Maybe Prelude.UTCTime)
-medicalTranscriptionJob_creationTime = Lens.lens (\MedicalTranscriptionJob' {creationTime} -> creationTime) (\s@MedicalTranscriptionJob' {} a -> s {creationTime = a} :: MedicalTranscriptionJob) Prelude.. Lens.mapping Core._Time
+medicalTranscriptionJob_creationTime = Lens.lens (\MedicalTranscriptionJob' {creationTime} -> creationTime) (\s@MedicalTranscriptionJob' {} a -> s {creationTime = a} :: MedicalTranscriptionJob) Prelude.. Lens.mapping Data._Time
 
 -- | Describes the medical specialty represented in your media.
 medicalTranscriptionJob_specialty :: Lens.Lens' MedicalTranscriptionJob (Prelude.Maybe Specialty)
@@ -356,7 +357,7 @@ medicalTranscriptionJob_specialty = Lens.lens (\MedicalTranscriptionJob' {specia
 -- example, @2022-05-04T12:32:58.789000-07:00@ represents a transcription
 -- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
 medicalTranscriptionJob_startTime :: Lens.Lens' MedicalTranscriptionJob (Prelude.Maybe Prelude.UTCTime)
-medicalTranscriptionJob_startTime = Lens.lens (\MedicalTranscriptionJob' {startTime} -> startTime) (\s@MedicalTranscriptionJob' {} a -> s {startTime = a} :: MedicalTranscriptionJob) Prelude.. Lens.mapping Core._Time
+medicalTranscriptionJob_startTime = Lens.lens (\MedicalTranscriptionJob' {startTime} -> startTime) (\s@MedicalTranscriptionJob' {} a -> s {startTime = a} :: MedicalTranscriptionJob) Prelude.. Lens.mapping Data._Time
 
 -- | If @TranscriptionJobStatus@ is @FAILED@, @FailureReason@ contains
 -- information about why the transcription job request failed.
@@ -403,28 +404,28 @@ medicalTranscriptionJob_failureReason = Lens.lens (\MedicalTranscriptionJob' {fa
 medicalTranscriptionJob_media :: Lens.Lens' MedicalTranscriptionJob (Prelude.Maybe Media)
 medicalTranscriptionJob_media = Lens.lens (\MedicalTranscriptionJob' {media} -> media) (\s@MedicalTranscriptionJob' {} a -> s {media = a} :: MedicalTranscriptionJob)
 
-instance Core.FromJSON MedicalTranscriptionJob where
+instance Data.FromJSON MedicalTranscriptionJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MedicalTranscriptionJob"
       ( \x ->
           MedicalTranscriptionJob'
-            Prelude.<$> (x Core..:? "Tags")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "ContentIdentificationType")
-            Prelude.<*> (x Core..:? "Transcript")
-            Prelude.<*> (x Core..:? "MediaFormat")
-            Prelude.<*> (x Core..:? "MedicalTranscriptionJobName")
-            Prelude.<*> (x Core..:? "CompletionTime")
-            Prelude.<*> (x Core..:? "Settings")
-            Prelude.<*> (x Core..:? "MediaSampleRateHertz")
-            Prelude.<*> (x Core..:? "LanguageCode")
-            Prelude.<*> (x Core..:? "TranscriptionJobStatus")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "Specialty")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "FailureReason")
-            Prelude.<*> (x Core..:? "Media")
+            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "ContentIdentificationType")
+            Prelude.<*> (x Data..:? "Transcript")
+            Prelude.<*> (x Data..:? "MediaFormat")
+            Prelude.<*> (x Data..:? "MedicalTranscriptionJobName")
+            Prelude.<*> (x Data..:? "CompletionTime")
+            Prelude.<*> (x Data..:? "Settings")
+            Prelude.<*> (x Data..:? "MediaSampleRateHertz")
+            Prelude.<*> (x Data..:? "LanguageCode")
+            Prelude.<*> (x Data..:? "TranscriptionJobStatus")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "Specialty")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..:? "Media")
       )
 
 instance Prelude.Hashable MedicalTranscriptionJob where

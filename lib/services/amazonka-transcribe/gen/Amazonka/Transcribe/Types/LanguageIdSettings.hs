@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.LanguageIdSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | If using automatic language identification (@IdentifyLanguage@) in your
@@ -164,15 +165,15 @@ languageIdSettings_languageModelName = Lens.lens (\LanguageIdSettings' {language
 languageIdSettings_vocabularyFilterName :: Lens.Lens' LanguageIdSettings (Prelude.Maybe Prelude.Text)
 languageIdSettings_vocabularyFilterName = Lens.lens (\LanguageIdSettings' {vocabularyFilterName} -> vocabularyFilterName) (\s@LanguageIdSettings' {} a -> s {vocabularyFilterName = a} :: LanguageIdSettings)
 
-instance Core.FromJSON LanguageIdSettings where
+instance Data.FromJSON LanguageIdSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LanguageIdSettings"
       ( \x ->
           LanguageIdSettings'
-            Prelude.<$> (x Core..:? "VocabularyName")
-            Prelude.<*> (x Core..:? "LanguageModelName")
-            Prelude.<*> (x Core..:? "VocabularyFilterName")
+            Prelude.<$> (x Data..:? "VocabularyName")
+            Prelude.<*> (x Data..:? "LanguageModelName")
+            Prelude.<*> (x Data..:? "VocabularyFilterName")
       )
 
 instance Prelude.Hashable LanguageIdSettings where
@@ -187,15 +188,15 @@ instance Prelude.NFData LanguageIdSettings where
       `Prelude.seq` Prelude.rnf languageModelName
       `Prelude.seq` Prelude.rnf vocabularyFilterName
 
-instance Core.ToJSON LanguageIdSettings where
+instance Data.ToJSON LanguageIdSettings where
   toJSON LanguageIdSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VocabularyName" Core..=)
+          [ ("VocabularyName" Data..=)
               Prelude.<$> vocabularyName,
-            ("LanguageModelName" Core..=)
+            ("LanguageModelName" Data..=)
               Prelude.<$> languageModelName,
-            ("VocabularyFilterName" Core..=)
+            ("VocabularyFilterName" Data..=)
               Prelude.<$> vocabularyFilterName
           ]
       )

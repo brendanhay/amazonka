@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -274,11 +275,11 @@ instance Core.AWSRequest CreateLanguageModel where
     Response.receiveJSON
       ( \s h x ->
           CreateLanguageModelResponse'
-            Prelude.<$> (x Core..?> "ModelStatus")
-            Prelude.<*> (x Core..?> "LanguageCode")
-            Prelude.<*> (x Core..?> "ModelName")
-            Prelude.<*> (x Core..?> "BaseModelName")
-            Prelude.<*> (x Core..?> "InputDataConfig")
+            Prelude.<$> (x Data..?> "ModelStatus")
+            Prelude.<*> (x Data..?> "LanguageCode")
+            Prelude.<*> (x Data..?> "ModelName")
+            Prelude.<*> (x Data..?> "BaseModelName")
+            Prelude.<*> (x Data..?> "InputDataConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -298,38 +299,38 @@ instance Prelude.NFData CreateLanguageModel where
       `Prelude.seq` Prelude.rnf modelName
       `Prelude.seq` Prelude.rnf inputDataConfig
 
-instance Core.ToHeaders CreateLanguageModel where
+instance Data.ToHeaders CreateLanguageModel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Transcribe.CreateLanguageModel" ::
+              Data.=# ( "Transcribe.CreateLanguageModel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLanguageModel where
+instance Data.ToJSON CreateLanguageModel where
   toJSON CreateLanguageModel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("LanguageCode" Core..= languageCode),
-            Prelude.Just ("BaseModelName" Core..= baseModelName),
-            Prelude.Just ("ModelName" Core..= modelName),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("LanguageCode" Data..= languageCode),
+            Prelude.Just ("BaseModelName" Data..= baseModelName),
+            Prelude.Just ("ModelName" Data..= modelName),
             Prelude.Just
-              ("InputDataConfig" Core..= inputDataConfig)
+              ("InputDataConfig" Data..= inputDataConfig)
           ]
       )
 
-instance Core.ToPath CreateLanguageModel where
+instance Data.ToPath CreateLanguageModel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLanguageModel where
+instance Data.ToQuery CreateLanguageModel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLanguageModelResponse' smart constructor.

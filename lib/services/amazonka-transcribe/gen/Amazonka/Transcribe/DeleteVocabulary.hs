@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,34 +95,34 @@ instance Prelude.NFData DeleteVocabulary where
   rnf DeleteVocabulary' {..} =
     Prelude.rnf vocabularyName
 
-instance Core.ToHeaders DeleteVocabulary where
+instance Data.ToHeaders DeleteVocabulary where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Transcribe.DeleteVocabulary" ::
+              Data.=# ( "Transcribe.DeleteVocabulary" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteVocabulary where
+instance Data.ToJSON DeleteVocabulary where
   toJSON DeleteVocabulary' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("VocabularyName" Core..= vocabularyName)
+              ("VocabularyName" Data..= vocabularyName)
           ]
       )
 
-instance Core.ToPath DeleteVocabulary where
+instance Data.ToPath DeleteVocabulary where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteVocabulary where
+instance Data.ToQuery DeleteVocabulary where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteVocabularyResponse' smart constructor.

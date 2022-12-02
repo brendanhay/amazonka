@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.AbsoluteTimeRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A time range, in milliseconds, between two points in your media file.
@@ -119,16 +120,16 @@ absoluteTimeRange_first = Lens.lens (\AbsoluteTimeRange' {first} -> first) (\s@A
 absoluteTimeRange_startTime :: Lens.Lens' AbsoluteTimeRange (Prelude.Maybe Prelude.Natural)
 absoluteTimeRange_startTime = Lens.lens (\AbsoluteTimeRange' {startTime} -> startTime) (\s@AbsoluteTimeRange' {} a -> s {startTime = a} :: AbsoluteTimeRange)
 
-instance Core.FromJSON AbsoluteTimeRange where
+instance Data.FromJSON AbsoluteTimeRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AbsoluteTimeRange"
       ( \x ->
           AbsoluteTimeRange'
-            Prelude.<$> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "Last")
-            Prelude.<*> (x Core..:? "First")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<$> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "Last")
+            Prelude.<*> (x Data..:? "First")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable AbsoluteTimeRange where
@@ -145,13 +146,13 @@ instance Prelude.NFData AbsoluteTimeRange where
       `Prelude.seq` Prelude.rnf first
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToJSON AbsoluteTimeRange where
+instance Data.ToJSON AbsoluteTimeRange where
   toJSON AbsoluteTimeRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EndTime" Core..=) Prelude.<$> endTime,
-            ("Last" Core..=) Prelude.<$> last,
-            ("First" Core..=) Prelude.<$> first,
-            ("StartTime" Core..=) Prelude.<$> startTime
+          [ ("EndTime" Data..=) Prelude.<$> endTime,
+            ("Last" Data..=) Prelude.<$> last,
+            ("First" Data..=) Prelude.<$> first,
+            ("StartTime" Data..=) Prelude.<$> startTime
           ]
       )

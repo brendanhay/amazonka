@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,32 +102,32 @@ instance Prelude.NFData DeleteCallAnalyticsCategory where
   rnf DeleteCallAnalyticsCategory' {..} =
     Prelude.rnf categoryName
 
-instance Core.ToHeaders DeleteCallAnalyticsCategory where
+instance Data.ToHeaders DeleteCallAnalyticsCategory where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Transcribe.DeleteCallAnalyticsCategory" ::
+              Data.=# ( "Transcribe.DeleteCallAnalyticsCategory" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteCallAnalyticsCategory where
+instance Data.ToJSON DeleteCallAnalyticsCategory where
   toJSON DeleteCallAnalyticsCategory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("CategoryName" Core..= categoryName)]
+          [Prelude.Just ("CategoryName" Data..= categoryName)]
       )
 
-instance Core.ToPath DeleteCallAnalyticsCategory where
+instance Data.ToPath DeleteCallAnalyticsCategory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteCallAnalyticsCategory where
+instance Data.ToQuery DeleteCallAnalyticsCategory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCallAnalyticsCategoryResponse' smart constructor.

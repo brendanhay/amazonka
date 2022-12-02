@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,7 +105,7 @@ instance Core.AWSRequest GetCallAnalyticsJob where
     Response.receiveJSON
       ( \s h x ->
           GetCallAnalyticsJobResponse'
-            Prelude.<$> (x Core..?> "CallAnalyticsJob")
+            Prelude.<$> (x Data..?> "CallAnalyticsJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,36 +117,36 @@ instance Prelude.NFData GetCallAnalyticsJob where
   rnf GetCallAnalyticsJob' {..} =
     Prelude.rnf callAnalyticsJobName
 
-instance Core.ToHeaders GetCallAnalyticsJob where
+instance Data.ToHeaders GetCallAnalyticsJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Transcribe.GetCallAnalyticsJob" ::
+              Data.=# ( "Transcribe.GetCallAnalyticsJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCallAnalyticsJob where
+instance Data.ToJSON GetCallAnalyticsJob where
   toJSON GetCallAnalyticsJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "CallAnalyticsJobName"
-                  Core..= callAnalyticsJobName
+                  Data..= callAnalyticsJobName
               )
           ]
       )
 
-instance Core.ToPath GetCallAnalyticsJob where
+instance Data.ToPath GetCallAnalyticsJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCallAnalyticsJob where
+instance Data.ToQuery GetCallAnalyticsJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCallAnalyticsJobResponse' smart constructor.

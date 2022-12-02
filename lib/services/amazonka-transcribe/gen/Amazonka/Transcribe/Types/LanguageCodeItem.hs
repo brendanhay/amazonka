@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.LanguageCodeItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.LanguageCode
 
@@ -68,14 +69,14 @@ languageCodeItem_languageCode = Lens.lens (\LanguageCodeItem' {languageCode} -> 
 languageCodeItem_durationInSeconds :: Lens.Lens' LanguageCodeItem (Prelude.Maybe Prelude.Double)
 languageCodeItem_durationInSeconds = Lens.lens (\LanguageCodeItem' {durationInSeconds} -> durationInSeconds) (\s@LanguageCodeItem' {} a -> s {durationInSeconds = a} :: LanguageCodeItem)
 
-instance Core.FromJSON LanguageCodeItem where
+instance Data.FromJSON LanguageCodeItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LanguageCodeItem"
       ( \x ->
           LanguageCodeItem'
-            Prelude.<$> (x Core..:? "LanguageCode")
-            Prelude.<*> (x Core..:? "DurationInSeconds")
+            Prelude.<$> (x Data..:? "LanguageCode")
+            Prelude.<*> (x Data..:? "DurationInSeconds")
       )
 
 instance Prelude.Hashable LanguageCodeItem where

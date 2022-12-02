@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,8 +134,8 @@ instance Core.AWSRequest ListVocabularyFilters where
     Response.receiveJSON
       ( \s h x ->
           ListVocabularyFiltersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "VocabularyFilters"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "VocabularyFilters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -152,35 +153,35 @@ instance Prelude.NFData ListVocabularyFilters where
       `Prelude.seq` Prelude.rnf nameContains
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListVocabularyFilters where
+instance Data.ToHeaders ListVocabularyFilters where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Transcribe.ListVocabularyFilters" ::
+              Data.=# ( "Transcribe.ListVocabularyFilters" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListVocabularyFilters where
+instance Data.ToJSON ListVocabularyFilters where
   toJSON ListVocabularyFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListVocabularyFilters where
+instance Data.ToPath ListVocabularyFilters where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListVocabularyFilters where
+instance Data.ToQuery ListVocabularyFilters where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListVocabularyFiltersResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.RelativeTimeRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A time range, in percentage, between two points in your media file.
@@ -117,16 +118,16 @@ relativeTimeRange_startPercentage = Lens.lens (\RelativeTimeRange' {startPercent
 relativeTimeRange_first :: Lens.Lens' RelativeTimeRange (Prelude.Maybe Prelude.Natural)
 relativeTimeRange_first = Lens.lens (\RelativeTimeRange' {first} -> first) (\s@RelativeTimeRange' {} a -> s {first = a} :: RelativeTimeRange)
 
-instance Core.FromJSON RelativeTimeRange where
+instance Data.FromJSON RelativeTimeRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RelativeTimeRange"
       ( \x ->
           RelativeTimeRange'
-            Prelude.<$> (x Core..:? "Last")
-            Prelude.<*> (x Core..:? "EndPercentage")
-            Prelude.<*> (x Core..:? "StartPercentage")
-            Prelude.<*> (x Core..:? "First")
+            Prelude.<$> (x Data..:? "Last")
+            Prelude.<*> (x Data..:? "EndPercentage")
+            Prelude.<*> (x Data..:? "StartPercentage")
+            Prelude.<*> (x Data..:? "First")
       )
 
 instance Prelude.Hashable RelativeTimeRange where
@@ -143,14 +144,14 @@ instance Prelude.NFData RelativeTimeRange where
       `Prelude.seq` Prelude.rnf startPercentage
       `Prelude.seq` Prelude.rnf first
 
-instance Core.ToJSON RelativeTimeRange where
+instance Data.ToJSON RelativeTimeRange where
   toJSON RelativeTimeRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Last" Core..=) Prelude.<$> last,
-            ("EndPercentage" Core..=) Prelude.<$> endPercentage,
-            ("StartPercentage" Core..=)
+          [ ("Last" Data..=) Prelude.<$> last,
+            ("EndPercentage" Data..=) Prelude.<$> endPercentage,
+            ("StartPercentage" Data..=)
               Prelude.<$> startPercentage,
-            ("First" Core..=) Prelude.<$> first
+            ("First" Data..=) Prelude.<$> first
           ]
       )

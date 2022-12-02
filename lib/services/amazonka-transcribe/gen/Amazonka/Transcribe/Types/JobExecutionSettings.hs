@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.JobExecutionSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Allows you to control how your transcription job is processed.
@@ -132,14 +133,14 @@ jobExecutionSettings_allowDeferredExecution = Lens.lens (\JobExecutionSettings' 
 jobExecutionSettings_dataAccessRoleArn :: Lens.Lens' JobExecutionSettings (Prelude.Maybe Prelude.Text)
 jobExecutionSettings_dataAccessRoleArn = Lens.lens (\JobExecutionSettings' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@JobExecutionSettings' {} a -> s {dataAccessRoleArn = a} :: JobExecutionSettings)
 
-instance Core.FromJSON JobExecutionSettings where
+instance Data.FromJSON JobExecutionSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobExecutionSettings"
       ( \x ->
           JobExecutionSettings'
-            Prelude.<$> (x Core..:? "AllowDeferredExecution")
-            Prelude.<*> (x Core..:? "DataAccessRoleArn")
+            Prelude.<$> (x Data..:? "AllowDeferredExecution")
+            Prelude.<*> (x Data..:? "DataAccessRoleArn")
       )
 
 instance Prelude.Hashable JobExecutionSettings where
@@ -152,13 +153,13 @@ instance Prelude.NFData JobExecutionSettings where
     Prelude.rnf allowDeferredExecution
       `Prelude.seq` Prelude.rnf dataAccessRoleArn
 
-instance Core.ToJSON JobExecutionSettings where
+instance Data.ToJSON JobExecutionSettings where
   toJSON JobExecutionSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AllowDeferredExecution" Core..=)
+          [ ("AllowDeferredExecution" Data..=)
               Prelude.<$> allowDeferredExecution,
-            ("DataAccessRoleArn" Core..=)
+            ("DataAccessRoleArn" Data..=)
               Prelude.<$> dataAccessRoleArn
           ]
       )

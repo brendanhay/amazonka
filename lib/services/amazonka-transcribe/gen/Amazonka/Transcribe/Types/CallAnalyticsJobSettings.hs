@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.CallAnalyticsJobSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.ContentRedaction
 import Amazonka.Transcribe.Types.LanguageCode
@@ -281,21 +282,21 @@ callAnalyticsJobSettings_vocabularyFilterName = Lens.lens (\CallAnalyticsJobSett
 callAnalyticsJobSettings_languageOptions :: Lens.Lens' CallAnalyticsJobSettings (Prelude.Maybe (Prelude.NonEmpty LanguageCode))
 callAnalyticsJobSettings_languageOptions = Lens.lens (\CallAnalyticsJobSettings' {languageOptions} -> languageOptions) (\s@CallAnalyticsJobSettings' {} a -> s {languageOptions = a} :: CallAnalyticsJobSettings) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CallAnalyticsJobSettings where
+instance Data.FromJSON CallAnalyticsJobSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CallAnalyticsJobSettings"
       ( \x ->
           CallAnalyticsJobSettings'
-            Prelude.<$> (x Core..:? "VocabularyFilterMethod")
-            Prelude.<*> (x Core..:? "VocabularyName")
-            Prelude.<*> (x Core..:? "LanguageModelName")
-            Prelude.<*> (x Core..:? "ContentRedaction")
-            Prelude.<*> ( x Core..:? "LanguageIdSettings"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "VocabularyFilterMethod")
+            Prelude.<*> (x Data..:? "VocabularyName")
+            Prelude.<*> (x Data..:? "LanguageModelName")
+            Prelude.<*> (x Data..:? "ContentRedaction")
+            Prelude.<*> ( x Data..:? "LanguageIdSettings"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "VocabularyFilterName")
-            Prelude.<*> (x Core..:? "LanguageOptions")
+            Prelude.<*> (x Data..:? "VocabularyFilterName")
+            Prelude.<*> (x Data..:? "LanguageOptions")
       )
 
 instance Prelude.Hashable CallAnalyticsJobSettings where
@@ -318,23 +319,23 @@ instance Prelude.NFData CallAnalyticsJobSettings where
       `Prelude.seq` Prelude.rnf vocabularyFilterName
       `Prelude.seq` Prelude.rnf languageOptions
 
-instance Core.ToJSON CallAnalyticsJobSettings where
+instance Data.ToJSON CallAnalyticsJobSettings where
   toJSON CallAnalyticsJobSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VocabularyFilterMethod" Core..=)
+          [ ("VocabularyFilterMethod" Data..=)
               Prelude.<$> vocabularyFilterMethod,
-            ("VocabularyName" Core..=)
+            ("VocabularyName" Data..=)
               Prelude.<$> vocabularyName,
-            ("LanguageModelName" Core..=)
+            ("LanguageModelName" Data..=)
               Prelude.<$> languageModelName,
-            ("ContentRedaction" Core..=)
+            ("ContentRedaction" Data..=)
               Prelude.<$> contentRedaction,
-            ("LanguageIdSettings" Core..=)
+            ("LanguageIdSettings" Data..=)
               Prelude.<$> languageIdSettings,
-            ("VocabularyFilterName" Core..=)
+            ("VocabularyFilterName" Data..=)
               Prelude.<$> vocabularyFilterName,
-            ("LanguageOptions" Core..=)
+            ("LanguageOptions" Data..=)
               Prelude.<$> languageOptions
           ]
       )

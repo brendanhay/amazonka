@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.ChannelDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.ParticipantRole
 
@@ -69,14 +70,14 @@ channelDefinition_participantRole = Lens.lens (\ChannelDefinition' {participantR
 channelDefinition_channelId :: Lens.Lens' ChannelDefinition (Prelude.Maybe Prelude.Natural)
 channelDefinition_channelId = Lens.lens (\ChannelDefinition' {channelId} -> channelId) (\s@ChannelDefinition' {} a -> s {channelId = a} :: ChannelDefinition)
 
-instance Core.FromJSON ChannelDefinition where
+instance Data.FromJSON ChannelDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelDefinition"
       ( \x ->
           ChannelDefinition'
-            Prelude.<$> (x Core..:? "ParticipantRole")
-            Prelude.<*> (x Core..:? "ChannelId")
+            Prelude.<$> (x Data..:? "ParticipantRole")
+            Prelude.<*> (x Data..:? "ChannelId")
       )
 
 instance Prelude.Hashable ChannelDefinition where
@@ -89,12 +90,12 @@ instance Prelude.NFData ChannelDefinition where
     Prelude.rnf participantRole
       `Prelude.seq` Prelude.rnf channelId
 
-instance Core.ToJSON ChannelDefinition where
+instance Data.ToJSON ChannelDefinition where
   toJSON ChannelDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ParticipantRole" Core..=)
+          [ ("ParticipantRole" Data..=)
               Prelude.<$> participantRole,
-            ("ChannelId" Core..=) Prelude.<$> channelId
+            ("ChannelId" Data..=) Prelude.<$> channelId
           ]
       )

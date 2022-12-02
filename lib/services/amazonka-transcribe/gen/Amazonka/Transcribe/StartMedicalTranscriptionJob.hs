@@ -90,6 +90,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -643,7 +644,7 @@ instance Core.AWSRequest StartMedicalTranscriptionJob where
     Response.receiveJSON
       ( \s h x ->
           StartMedicalTranscriptionJobResponse'
-            Prelude.<$> (x Core..?> "MedicalTranscriptionJob")
+            Prelude.<$> (x Data..?> "MedicalTranscriptionJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -684,54 +685,54 @@ instance Prelude.NFData StartMedicalTranscriptionJob where
       `Prelude.seq` Prelude.rnf specialty
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders StartMedicalTranscriptionJob where
+instance Data.ToHeaders StartMedicalTranscriptionJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Transcribe.StartMedicalTranscriptionJob" ::
+              Data.=# ( "Transcribe.StartMedicalTranscriptionJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartMedicalTranscriptionJob where
+instance Data.ToJSON StartMedicalTranscriptionJob where
   toJSON StartMedicalTranscriptionJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ContentIdentificationType" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ContentIdentificationType" Data..=)
               Prelude.<$> contentIdentificationType,
-            ("KMSEncryptionContext" Core..=)
+            ("KMSEncryptionContext" Data..=)
               Prelude.<$> kmsEncryptionContext,
-            ("MediaFormat" Core..=) Prelude.<$> mediaFormat,
-            ("OutputKey" Core..=) Prelude.<$> outputKey,
-            ("Settings" Core..=) Prelude.<$> settings,
-            ("MediaSampleRateHertz" Core..=)
+            ("MediaFormat" Data..=) Prelude.<$> mediaFormat,
+            ("OutputKey" Data..=) Prelude.<$> outputKey,
+            ("Settings" Data..=) Prelude.<$> settings,
+            ("MediaSampleRateHertz" Data..=)
               Prelude.<$> mediaSampleRateHertz,
-            ("OutputEncryptionKMSKeyId" Core..=)
+            ("OutputEncryptionKMSKeyId" Data..=)
               Prelude.<$> outputEncryptionKMSKeyId,
             Prelude.Just
               ( "MedicalTranscriptionJobName"
-                  Core..= medicalTranscriptionJobName
+                  Data..= medicalTranscriptionJobName
               ),
-            Prelude.Just ("LanguageCode" Core..= languageCode),
-            Prelude.Just ("Media" Core..= media),
+            Prelude.Just ("LanguageCode" Data..= languageCode),
+            Prelude.Just ("Media" Data..= media),
             Prelude.Just
-              ("OutputBucketName" Core..= outputBucketName),
-            Prelude.Just ("Specialty" Core..= specialty),
-            Prelude.Just ("Type" Core..= type')
+              ("OutputBucketName" Data..= outputBucketName),
+            Prelude.Just ("Specialty" Data..= specialty),
+            Prelude.Just ("Type" Data..= type')
           ]
       )
 
-instance Core.ToPath StartMedicalTranscriptionJob where
+instance Data.ToPath StartMedicalTranscriptionJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartMedicalTranscriptionJob where
+instance Data.ToQuery StartMedicalTranscriptionJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartMedicalTranscriptionJobResponse' smart constructor.

@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,7 +98,7 @@ instance Core.AWSRequest DescribeLanguageModel where
     Response.receiveJSON
       ( \s h x ->
           DescribeLanguageModelResponse'
-            Prelude.<$> (x Core..?> "LanguageModel")
+            Prelude.<$> (x Data..?> "LanguageModel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,32 +110,32 @@ instance Prelude.NFData DescribeLanguageModel where
   rnf DescribeLanguageModel' {..} =
     Prelude.rnf modelName
 
-instance Core.ToHeaders DescribeLanguageModel where
+instance Data.ToHeaders DescribeLanguageModel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Transcribe.DescribeLanguageModel" ::
+              Data.=# ( "Transcribe.DescribeLanguageModel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeLanguageModel where
+instance Data.ToJSON DescribeLanguageModel where
   toJSON DescribeLanguageModel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ModelName" Core..= modelName)]
+          [Prelude.Just ("ModelName" Data..= modelName)]
       )
 
-instance Core.ToPath DescribeLanguageModel where
+instance Data.ToPath DescribeLanguageModel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLanguageModel where
+instance Data.ToQuery DescribeLanguageModel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeLanguageModelResponse' smart constructor.

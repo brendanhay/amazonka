@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.Rule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.InterruptionFilter
 import Amazonka.Transcribe.Types.NonTalkTimeFilter
@@ -106,16 +107,16 @@ rule_sentimentFilter = Lens.lens (\Rule' {sentimentFilter} -> sentimentFilter) (
 rule_nonTalkTimeFilter :: Lens.Lens' Rule (Prelude.Maybe NonTalkTimeFilter)
 rule_nonTalkTimeFilter = Lens.lens (\Rule' {nonTalkTimeFilter} -> nonTalkTimeFilter) (\s@Rule' {} a -> s {nonTalkTimeFilter = a} :: Rule)
 
-instance Core.FromJSON Rule where
+instance Data.FromJSON Rule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Rule"
       ( \x ->
           Rule'
-            Prelude.<$> (x Core..:? "TranscriptFilter")
-            Prelude.<*> (x Core..:? "InterruptionFilter")
-            Prelude.<*> (x Core..:? "SentimentFilter")
-            Prelude.<*> (x Core..:? "NonTalkTimeFilter")
+            Prelude.<$> (x Data..:? "TranscriptFilter")
+            Prelude.<*> (x Data..:? "InterruptionFilter")
+            Prelude.<*> (x Data..:? "SentimentFilter")
+            Prelude.<*> (x Data..:? "NonTalkTimeFilter")
       )
 
 instance Prelude.Hashable Rule where
@@ -132,17 +133,17 @@ instance Prelude.NFData Rule where
       `Prelude.seq` Prelude.rnf sentimentFilter
       `Prelude.seq` Prelude.rnf nonTalkTimeFilter
 
-instance Core.ToJSON Rule where
+instance Data.ToJSON Rule where
   toJSON Rule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TranscriptFilter" Core..=)
+          [ ("TranscriptFilter" Data..=)
               Prelude.<$> transcriptFilter,
-            ("InterruptionFilter" Core..=)
+            ("InterruptionFilter" Data..=)
               Prelude.<$> interruptionFilter,
-            ("SentimentFilter" Core..=)
+            ("SentimentFilter" Data..=)
               Prelude.<$> sentimentFilter,
-            ("NonTalkTimeFilter" Core..=)
+            ("NonTalkTimeFilter" Data..=)
               Prelude.<$> nonTalkTimeFilter
           ]
       )

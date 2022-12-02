@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.TranscriptFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.AbsoluteTimeRange
 import Amazonka.Transcribe.Types.ParticipantRole
@@ -158,18 +159,18 @@ transcriptFilter_transcriptFilterType = Lens.lens (\TranscriptFilter' {transcrip
 transcriptFilter_targets :: Lens.Lens' TranscriptFilter (Prelude.NonEmpty Prelude.Text)
 transcriptFilter_targets = Lens.lens (\TranscriptFilter' {targets} -> targets) (\s@TranscriptFilter' {} a -> s {targets = a} :: TranscriptFilter) Prelude.. Lens.coerced
 
-instance Core.FromJSON TranscriptFilter where
+instance Data.FromJSON TranscriptFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TranscriptFilter"
       ( \x ->
           TranscriptFilter'
-            Prelude.<$> (x Core..:? "Negate")
-            Prelude.<*> (x Core..:? "AbsoluteTimeRange")
-            Prelude.<*> (x Core..:? "ParticipantRole")
-            Prelude.<*> (x Core..:? "RelativeTimeRange")
-            Prelude.<*> (x Core..: "TranscriptFilterType")
-            Prelude.<*> (x Core..: "Targets")
+            Prelude.<$> (x Data..:? "Negate")
+            Prelude.<*> (x Data..:? "AbsoluteTimeRange")
+            Prelude.<*> (x Data..:? "ParticipantRole")
+            Prelude.<*> (x Data..:? "RelativeTimeRange")
+            Prelude.<*> (x Data..: "TranscriptFilterType")
+            Prelude.<*> (x Data..: "Targets")
       )
 
 instance Prelude.Hashable TranscriptFilter where
@@ -190,21 +191,21 @@ instance Prelude.NFData TranscriptFilter where
       `Prelude.seq` Prelude.rnf transcriptFilterType
       `Prelude.seq` Prelude.rnf targets
 
-instance Core.ToJSON TranscriptFilter where
+instance Data.ToJSON TranscriptFilter where
   toJSON TranscriptFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Negate" Core..=) Prelude.<$> negate,
-            ("AbsoluteTimeRange" Core..=)
+          [ ("Negate" Data..=) Prelude.<$> negate,
+            ("AbsoluteTimeRange" Data..=)
               Prelude.<$> absoluteTimeRange,
-            ("ParticipantRole" Core..=)
+            ("ParticipantRole" Data..=)
               Prelude.<$> participantRole,
-            ("RelativeTimeRange" Core..=)
+            ("RelativeTimeRange" Data..=)
               Prelude.<$> relativeTimeRange,
             Prelude.Just
               ( "TranscriptFilterType"
-                  Core..= transcriptFilterType
+                  Data..= transcriptFilterType
               ),
-            Prelude.Just ("Targets" Core..= targets)
+            Prelude.Just ("Targets" Data..= targets)
           ]
       )

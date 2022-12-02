@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -224,10 +225,10 @@ instance Core.AWSRequest UpdateVocabulary where
     Response.receiveJSON
       ( \s h x ->
           UpdateVocabularyResponse'
-            Prelude.<$> (x Core..?> "VocabularyName")
-            Prelude.<*> (x Core..?> "VocabularyState")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "LanguageCode")
+            Prelude.<$> (x Data..?> "VocabularyName")
+            Prelude.<*> (x Data..?> "VocabularyState")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "LanguageCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -245,38 +246,38 @@ instance Prelude.NFData UpdateVocabulary where
       `Prelude.seq` Prelude.rnf vocabularyName
       `Prelude.seq` Prelude.rnf languageCode
 
-instance Core.ToHeaders UpdateVocabulary where
+instance Data.ToHeaders UpdateVocabulary where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Transcribe.UpdateVocabulary" ::
+              Data.=# ( "Transcribe.UpdateVocabulary" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateVocabulary where
+instance Data.ToJSON UpdateVocabulary where
   toJSON UpdateVocabulary' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Phrases" Core..=) Prelude.<$> phrases,
-            ("VocabularyFileUri" Core..=)
+          [ ("Phrases" Data..=) Prelude.<$> phrases,
+            ("VocabularyFileUri" Data..=)
               Prelude.<$> vocabularyFileUri,
             Prelude.Just
-              ("VocabularyName" Core..= vocabularyName),
-            Prelude.Just ("LanguageCode" Core..= languageCode)
+              ("VocabularyName" Data..= vocabularyName),
+            Prelude.Just ("LanguageCode" Data..= languageCode)
           ]
       )
 
-instance Core.ToPath UpdateVocabulary where
+instance Data.ToPath UpdateVocabulary where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateVocabulary where
+instance Data.ToQuery UpdateVocabulary where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateVocabularyResponse' smart constructor.
@@ -291,7 +292,7 @@ data UpdateVocabularyResponse = UpdateVocabularyResponse'
     -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
     -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
     -- May 4, 2022.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The language code you selected for your custom vocabulary.
     languageCode :: Prelude.Maybe LanguageCode,
     -- | The response's http status code.
@@ -350,7 +351,7 @@ updateVocabularyResponse_vocabularyState = Lens.lens (\UpdateVocabularyResponse'
 -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
 -- May 4, 2022.
 updateVocabularyResponse_lastModifiedTime :: Lens.Lens' UpdateVocabularyResponse (Prelude.Maybe Prelude.UTCTime)
-updateVocabularyResponse_lastModifiedTime = Lens.lens (\UpdateVocabularyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateVocabularyResponse' {} a -> s {lastModifiedTime = a} :: UpdateVocabularyResponse) Prelude.. Lens.mapping Core._Time
+updateVocabularyResponse_lastModifiedTime = Lens.lens (\UpdateVocabularyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateVocabularyResponse' {} a -> s {lastModifiedTime = a} :: UpdateVocabularyResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The language code you selected for your custom vocabulary.
 updateVocabularyResponse_languageCode :: Lens.Lens' UpdateVocabularyResponse (Prelude.Maybe LanguageCode)

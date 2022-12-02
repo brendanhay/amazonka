@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,8 +150,8 @@ instance Core.AWSRequest ListLanguageModels where
     Response.receiveJSON
       ( \s h x ->
           ListLanguageModelsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Models" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Models" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,36 +169,36 @@ instance Prelude.NFData ListLanguageModels where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf statusEquals
 
-instance Core.ToHeaders ListLanguageModels where
+instance Data.ToHeaders ListLanguageModels where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Transcribe.ListLanguageModels" ::
+              Data.=# ( "Transcribe.ListLanguageModels" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListLanguageModels where
+instance Data.ToJSON ListLanguageModels where
   toJSON ListLanguageModels' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("StatusEquals" Core..=) Prelude.<$> statusEquals
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("StatusEquals" Data..=) Prelude.<$> statusEquals
           ]
       )
 
-instance Core.ToPath ListLanguageModels where
+instance Data.ToPath ListLanguageModels where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListLanguageModels where
+instance Data.ToQuery ListLanguageModels where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListLanguageModelsResponse' smart constructor.

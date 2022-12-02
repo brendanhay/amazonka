@@ -21,6 +21,7 @@ module Amazonka.KinesisVideoMedia.Types.StartSelector where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideoMedia.Types.StartSelectorType
 import qualified Amazonka.Prelude as Prelude
 
@@ -48,7 +49,7 @@ data StartSelector = StartSelector'
     -- PRODUCER_TIMESTAMP or the SERVER_TIMESTAMP as the @startSelectorType@.
     -- The @GetMedia@ API then starts with the chunk containing the fragment
     -- that has the specified timestamp.
-    startTimestamp :: Prelude.Maybe Core.POSIX,
+    startTimestamp :: Prelude.Maybe Data.POSIX,
     -- | Continuation token that Kinesis Video Streams returned in the previous
     -- @GetMedia@ response. The @GetMedia@ API then starts with the chunk
     -- identified by the continuation token.
@@ -138,7 +139,7 @@ startSelector_afterFragmentNumber = Lens.lens (\StartSelector' {afterFragmentNum
 -- The @GetMedia@ API then starts with the chunk containing the fragment
 -- that has the specified timestamp.
 startSelector_startTimestamp :: Lens.Lens' StartSelector (Prelude.Maybe Prelude.UTCTime)
-startSelector_startTimestamp = Lens.lens (\StartSelector' {startTimestamp} -> startTimestamp) (\s@StartSelector' {} a -> s {startTimestamp = a} :: StartSelector) Prelude.. Lens.mapping Core._Time
+startSelector_startTimestamp = Lens.lens (\StartSelector' {startTimestamp} -> startTimestamp) (\s@StartSelector' {} a -> s {startTimestamp = a} :: StartSelector) Prelude.. Lens.mapping Data._Time
 
 -- | Continuation token that Kinesis Video Streams returned in the previous
 -- @GetMedia@ response. The @GetMedia@ API then starts with the chunk
@@ -182,17 +183,17 @@ instance Prelude.NFData StartSelector where
       `Prelude.seq` Prelude.rnf continuationToken
       `Prelude.seq` Prelude.rnf startSelectorType
 
-instance Core.ToJSON StartSelector where
+instance Data.ToJSON StartSelector where
   toJSON StartSelector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AfterFragmentNumber" Core..=)
+          [ ("AfterFragmentNumber" Data..=)
               Prelude.<$> afterFragmentNumber,
-            ("StartTimestamp" Core..=)
+            ("StartTimestamp" Data..=)
               Prelude.<$> startTimestamp,
-            ("ContinuationToken" Core..=)
+            ("ContinuationToken" Data..=)
               Prelude.<$> continuationToken,
             Prelude.Just
-              ("StartSelectorType" Core..= startSelectorType)
+              ("StartSelectorType" Data..= startSelectorType)
           ]
       )

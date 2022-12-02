@@ -21,6 +21,7 @@ module Amazonka.RBin.Types.RuleSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RBin.Types.LockState
 import Amazonka.RBin.Types.RetentionPeriod
@@ -126,16 +127,16 @@ ruleSummary_retentionPeriod = Lens.lens (\RuleSummary' {retentionPeriod} -> rete
 ruleSummary_identifier :: Lens.Lens' RuleSummary (Prelude.Maybe Prelude.Text)
 ruleSummary_identifier = Lens.lens (\RuleSummary' {identifier} -> identifier) (\s@RuleSummary' {} a -> s {identifier = a} :: RuleSummary)
 
-instance Core.FromJSON RuleSummary where
+instance Data.FromJSON RuleSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleSummary"
       ( \x ->
           RuleSummary'
-            Prelude.<$> (x Core..:? "LockState")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "RetentionPeriod")
-            Prelude.<*> (x Core..:? "Identifier")
+            Prelude.<$> (x Data..:? "LockState")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "RetentionPeriod")
+            Prelude.<*> (x Data..:? "Identifier")
       )
 
 instance Prelude.Hashable RuleSummary where

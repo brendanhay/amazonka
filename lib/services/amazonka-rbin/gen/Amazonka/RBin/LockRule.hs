@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RBin.Types
 import qualified Amazonka.Request as Request
@@ -103,14 +104,14 @@ instance Core.AWSRequest LockRule where
     Response.receiveJSON
       ( \s h x ->
           LockRuleResponse'
-            Prelude.<$> (x Core..?> "ResourceType")
-            Prelude.<*> (x Core..?> "LockState")
-            Prelude.<*> (x Core..?> "LockConfiguration")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "ResourceTags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "RetentionPeriod")
-            Prelude.<*> (x Core..?> "Identifier")
+            Prelude.<$> (x Data..?> "ResourceType")
+            Prelude.<*> (x Data..?> "LockState")
+            Prelude.<*> (x Data..?> "LockConfiguration")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "ResourceTags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "RetentionPeriod")
+            Prelude.<*> (x Data..?> "Identifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,32 +125,32 @@ instance Prelude.NFData LockRule where
     Prelude.rnf identifier
       `Prelude.seq` Prelude.rnf lockConfiguration
 
-instance Core.ToHeaders LockRule where
+instance Data.ToHeaders LockRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON LockRule where
+instance Data.ToJSON LockRule where
   toJSON LockRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("LockConfiguration" Core..= lockConfiguration)
+              ("LockConfiguration" Data..= lockConfiguration)
           ]
       )
 
-instance Core.ToPath LockRule where
+instance Data.ToPath LockRule where
   toPath LockRule' {..} =
     Prelude.mconcat
-      ["/rules/", Core.toBS identifier, "/lock"]
+      ["/rules/", Data.toBS identifier, "/lock"]
 
-instance Core.ToQuery LockRule where
+instance Data.ToQuery LockRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newLockRuleResponse' smart constructor.

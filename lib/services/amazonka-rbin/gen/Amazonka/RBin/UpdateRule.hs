@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RBin.Types
 import qualified Amazonka.Request as Request
@@ -186,14 +187,14 @@ instance Core.AWSRequest UpdateRule where
     Response.receiveJSON
       ( \s h x ->
           UpdateRuleResponse'
-            Prelude.<$> (x Core..?> "ResourceType")
-            Prelude.<*> (x Core..?> "LockState")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "ResourceTags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "LockEndTime")
-            Prelude.<*> (x Core..?> "RetentionPeriod")
-            Prelude.<*> (x Core..?> "Identifier")
+            Prelude.<$> (x Data..?> "ResourceType")
+            Prelude.<*> (x Data..?> "LockState")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "ResourceTags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "LockEndTime")
+            Prelude.<*> (x Data..?> "RetentionPeriod")
+            Prelude.<*> (x Data..?> "Identifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -213,34 +214,34 @@ instance Prelude.NFData UpdateRule where
       `Prelude.seq` Prelude.rnf retentionPeriod
       `Prelude.seq` Prelude.rnf identifier
 
-instance Core.ToHeaders UpdateRule where
+instance Data.ToHeaders UpdateRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRule where
+instance Data.ToJSON UpdateRule where
   toJSON UpdateRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceType" Core..=) Prelude.<$> resourceType,
-            ("ResourceTags" Core..=) Prelude.<$> resourceTags,
-            ("Description" Core..=) Prelude.<$> description,
-            ("RetentionPeriod" Core..=)
+          [ ("ResourceType" Data..=) Prelude.<$> resourceType,
+            ("ResourceTags" Data..=) Prelude.<$> resourceTags,
+            ("Description" Data..=) Prelude.<$> description,
+            ("RetentionPeriod" Data..=)
               Prelude.<$> retentionPeriod
           ]
       )
 
-instance Core.ToPath UpdateRule where
+instance Data.ToPath UpdateRule where
   toPath UpdateRule' {..} =
-    Prelude.mconcat ["/rules/", Core.toBS identifier]
+    Prelude.mconcat ["/rules/", Data.toBS identifier]
 
-instance Core.ToQuery UpdateRule where
+instance Data.ToQuery UpdateRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRuleResponse' smart constructor.
@@ -274,7 +275,7 @@ data UpdateRuleResponse = UpdateRuleResponse'
     -- | The date and time at which the unlock delay is set to expire. Only
     -- returned for retention rules that have been unlocked and that are still
     -- within the unlock delay period.
-    lockEndTime :: Prelude.Maybe Core.POSIX,
+    lockEndTime :: Prelude.Maybe Data.POSIX,
     retentionPeriod :: Prelude.Maybe RetentionPeriod,
     -- | The unique ID of the retention rule.
     identifier :: Prelude.Maybe Prelude.Text,
@@ -383,7 +384,7 @@ updateRuleResponse_description = Lens.lens (\UpdateRuleResponse' {description} -
 -- returned for retention rules that have been unlocked and that are still
 -- within the unlock delay period.
 updateRuleResponse_lockEndTime :: Lens.Lens' UpdateRuleResponse (Prelude.Maybe Prelude.UTCTime)
-updateRuleResponse_lockEndTime = Lens.lens (\UpdateRuleResponse' {lockEndTime} -> lockEndTime) (\s@UpdateRuleResponse' {} a -> s {lockEndTime = a} :: UpdateRuleResponse) Prelude.. Lens.mapping Core._Time
+updateRuleResponse_lockEndTime = Lens.lens (\UpdateRuleResponse' {lockEndTime} -> lockEndTime) (\s@UpdateRuleResponse' {} a -> s {lockEndTime = a} :: UpdateRuleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 updateRuleResponse_retentionPeriod :: Lens.Lens' UpdateRuleResponse (Prelude.Maybe RetentionPeriod)

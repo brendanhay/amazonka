@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RBin.Types
 import qualified Amazonka.Request as Request
@@ -202,15 +203,15 @@ instance Core.AWSRequest CreateRule where
     Response.receiveJSON
       ( \s h x ->
           CreateRuleResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ResourceType")
-            Prelude.<*> (x Core..?> "LockState")
-            Prelude.<*> (x Core..?> "LockConfiguration")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "ResourceTags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "RetentionPeriod")
-            Prelude.<*> (x Core..?> "Identifier")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ResourceType")
+            Prelude.<*> (x Data..?> "LockState")
+            Prelude.<*> (x Data..?> "LockConfiguration")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "ResourceTags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "RetentionPeriod")
+            Prelude.<*> (x Data..?> "Identifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -232,36 +233,36 @@ instance Prelude.NFData CreateRule where
       `Prelude.seq` Prelude.rnf retentionPeriod
       `Prelude.seq` Prelude.rnf resourceType
 
-instance Core.ToHeaders CreateRule where
+instance Data.ToHeaders CreateRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRule where
+instance Data.ToJSON CreateRule where
   toJSON CreateRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("LockConfiguration" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("LockConfiguration" Data..=)
               Prelude.<$> lockConfiguration,
-            ("ResourceTags" Core..=) Prelude.<$> resourceTags,
-            ("Description" Core..=) Prelude.<$> description,
+            ("ResourceTags" Data..=) Prelude.<$> resourceTags,
+            ("Description" Data..=) Prelude.<$> description,
             Prelude.Just
-              ("RetentionPeriod" Core..= retentionPeriod),
-            Prelude.Just ("ResourceType" Core..= resourceType)
+              ("RetentionPeriod" Data..= retentionPeriod),
+            Prelude.Just ("ResourceType" Data..= resourceType)
           ]
       )
 
-instance Core.ToPath CreateRule where
+instance Data.ToPath CreateRule where
   toPath = Prelude.const "/rules"
 
-instance Core.ToQuery CreateRule where
+instance Data.ToQuery CreateRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRuleResponse' smart constructor.

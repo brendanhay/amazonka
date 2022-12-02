@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RBin.Types
 import qualified Amazonka.Request as Request
@@ -90,15 +91,15 @@ instance Core.AWSRequest UnlockRule where
     Response.receiveJSON
       ( \s h x ->
           UnlockRuleResponse'
-            Prelude.<$> (x Core..?> "ResourceType")
-            Prelude.<*> (x Core..?> "LockState")
-            Prelude.<*> (x Core..?> "LockConfiguration")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "ResourceTags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "LockEndTime")
-            Prelude.<*> (x Core..?> "RetentionPeriod")
-            Prelude.<*> (x Core..?> "Identifier")
+            Prelude.<$> (x Data..?> "ResourceType")
+            Prelude.<*> (x Data..?> "LockState")
+            Prelude.<*> (x Data..?> "LockConfiguration")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "ResourceTags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "LockEndTime")
+            Prelude.<*> (x Data..?> "RetentionPeriod")
+            Prelude.<*> (x Data..?> "Identifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,26 +110,26 @@ instance Prelude.Hashable UnlockRule where
 instance Prelude.NFData UnlockRule where
   rnf UnlockRule' {..} = Prelude.rnf identifier
 
-instance Core.ToHeaders UnlockRule where
+instance Data.ToHeaders UnlockRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UnlockRule where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON UnlockRule where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath UnlockRule where
+instance Data.ToPath UnlockRule where
   toPath UnlockRule' {..} =
     Prelude.mconcat
-      ["/rules/", Core.toBS identifier, "/unlock"]
+      ["/rules/", Data.toBS identifier, "/unlock"]
 
-instance Core.ToQuery UnlockRule where
+instance Data.ToQuery UnlockRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUnlockRuleResponse' smart constructor.
@@ -164,7 +165,7 @@ data UnlockRuleResponse = UnlockRuleResponse'
     -- | The date and time at which the unlock delay is set to expire. Only
     -- returned for retention rules that have been unlocked and that are still
     -- within the unlock delay period.
-    lockEndTime :: Prelude.Maybe Core.POSIX,
+    lockEndTime :: Prelude.Maybe Data.POSIX,
     retentionPeriod :: Prelude.Maybe RetentionPeriod,
     -- | The unique ID of the retention rule.
     identifier :: Prelude.Maybe Prelude.Text,
@@ -280,7 +281,7 @@ unlockRuleResponse_description = Lens.lens (\UnlockRuleResponse' {description} -
 -- returned for retention rules that have been unlocked and that are still
 -- within the unlock delay period.
 unlockRuleResponse_lockEndTime :: Lens.Lens' UnlockRuleResponse (Prelude.Maybe Prelude.UTCTime)
-unlockRuleResponse_lockEndTime = Lens.lens (\UnlockRuleResponse' {lockEndTime} -> lockEndTime) (\s@UnlockRuleResponse' {} a -> s {lockEndTime = a} :: UnlockRuleResponse) Prelude.. Lens.mapping Core._Time
+unlockRuleResponse_lockEndTime = Lens.lens (\UnlockRuleResponse' {lockEndTime} -> lockEndTime) (\s@UnlockRuleResponse' {} a -> s {lockEndTime = a} :: UnlockRuleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 unlockRuleResponse_retentionPeriod :: Lens.Lens' UnlockRuleResponse (Prelude.Maybe RetentionPeriod)

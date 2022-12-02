@@ -21,6 +21,7 @@ module Amazonka.RBin.Types.LockConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RBin.Types.UnlockDelay
 
@@ -53,13 +54,13 @@ newLockConfiguration pUnlockDelay_ =
 lockConfiguration_unlockDelay :: Lens.Lens' LockConfiguration UnlockDelay
 lockConfiguration_unlockDelay = Lens.lens (\LockConfiguration' {unlockDelay} -> unlockDelay) (\s@LockConfiguration' {} a -> s {unlockDelay = a} :: LockConfiguration)
 
-instance Core.FromJSON LockConfiguration where
+instance Data.FromJSON LockConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LockConfiguration"
       ( \x ->
           LockConfiguration'
-            Prelude.<$> (x Core..: "UnlockDelay")
+            Prelude.<$> (x Data..: "UnlockDelay")
       )
 
 instance Prelude.Hashable LockConfiguration where
@@ -69,9 +70,9 @@ instance Prelude.Hashable LockConfiguration where
 instance Prelude.NFData LockConfiguration where
   rnf LockConfiguration' {..} = Prelude.rnf unlockDelay
 
-instance Core.ToJSON LockConfiguration where
+instance Data.ToJSON LockConfiguration where
   toJSON LockConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("UnlockDelay" Core..= unlockDelay)]
+          [Prelude.Just ("UnlockDelay" Data..= unlockDelay)]
       )

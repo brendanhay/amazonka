@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.RegexMatchStatement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.FieldToMatch
 import Amazonka.WAFV2.Types.TextTransformation
@@ -98,15 +99,15 @@ regexMatchStatement_fieldToMatch = Lens.lens (\RegexMatchStatement' {fieldToMatc
 regexMatchStatement_textTransformations :: Lens.Lens' RegexMatchStatement (Prelude.NonEmpty TextTransformation)
 regexMatchStatement_textTransformations = Lens.lens (\RegexMatchStatement' {textTransformations} -> textTransformations) (\s@RegexMatchStatement' {} a -> s {textTransformations = a} :: RegexMatchStatement) Prelude.. Lens.coerced
 
-instance Core.FromJSON RegexMatchStatement where
+instance Data.FromJSON RegexMatchStatement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RegexMatchStatement"
       ( \x ->
           RegexMatchStatement'
-            Prelude.<$> (x Core..: "RegexString")
-            Prelude.<*> (x Core..: "FieldToMatch")
-            Prelude.<*> (x Core..: "TextTransformations")
+            Prelude.<$> (x Data..: "RegexString")
+            Prelude.<*> (x Data..: "FieldToMatch")
+            Prelude.<*> (x Data..: "TextTransformations")
       )
 
 instance Prelude.Hashable RegexMatchStatement where
@@ -121,13 +122,13 @@ instance Prelude.NFData RegexMatchStatement where
       `Prelude.seq` Prelude.rnf fieldToMatch
       `Prelude.seq` Prelude.rnf textTransformations
 
-instance Core.ToJSON RegexMatchStatement where
+instance Data.ToJSON RegexMatchStatement where
   toJSON RegexMatchStatement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("RegexString" Core..= regexString),
-            Prelude.Just ("FieldToMatch" Core..= fieldToMatch),
+          [ Prelude.Just ("RegexString" Data..= regexString),
+            Prelude.Just ("FieldToMatch" Data..= fieldToMatch),
             Prelude.Just
-              ("TextTransformations" Core..= textTransformations)
+              ("TextTransformations" Data..= textTransformations)
           ]
       )

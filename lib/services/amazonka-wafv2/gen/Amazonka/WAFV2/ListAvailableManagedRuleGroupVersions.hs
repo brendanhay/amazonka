@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -197,9 +198,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAvailableManagedRuleGroupVersionsResponse'
-            Prelude.<$> (x Core..?> "Versions" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Core..?> "NextMarker")
-              Prelude.<*> (x Core..?> "CurrentDefaultVersion")
+            Prelude.<$> (x Data..?> "Versions" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "NextMarker")
+              Prelude.<*> (x Data..?> "CurrentDefaultVersion")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -228,46 +229,46 @@ instance
       `Prelude.seq` Prelude.rnf scope
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListAvailableManagedRuleGroupVersions
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20190729.ListAvailableManagedRuleGroupVersions" ::
+              Data.=# ( "AWSWAF_20190729.ListAvailableManagedRuleGroupVersions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ListAvailableManagedRuleGroupVersions
   where
   toJSON ListAvailableManagedRuleGroupVersions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("NextMarker" Core..=) Prelude.<$> nextMarker,
-            Prelude.Just ("VendorName" Core..= vendorName),
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Scope" Core..= scope)
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextMarker" Data..=) Prelude.<$> nextMarker,
+            Prelude.Just ("VendorName" Data..= vendorName),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Scope" Data..= scope)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListAvailableManagedRuleGroupVersions
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListAvailableManagedRuleGroupVersions
   where
   toQuery = Prelude.const Prelude.mempty

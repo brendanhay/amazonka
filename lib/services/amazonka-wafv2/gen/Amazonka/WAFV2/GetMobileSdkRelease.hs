@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,7 +105,7 @@ instance Core.AWSRequest GetMobileSdkRelease where
     Response.receiveJSON
       ( \s h x ->
           GetMobileSdkReleaseResponse'
-            Prelude.<$> (x Core..?> "MobileSdkRelease")
+            Prelude.<$> (x Data..?> "MobileSdkRelease")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,35 +119,35 @@ instance Prelude.NFData GetMobileSdkRelease where
     Prelude.rnf platform
       `Prelude.seq` Prelude.rnf releaseVersion
 
-instance Core.ToHeaders GetMobileSdkRelease where
+instance Data.ToHeaders GetMobileSdkRelease where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20190729.GetMobileSdkRelease" ::
+              Data.=# ( "AWSWAF_20190729.GetMobileSdkRelease" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetMobileSdkRelease where
+instance Data.ToJSON GetMobileSdkRelease where
   toJSON GetMobileSdkRelease' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Platform" Core..= platform),
+          [ Prelude.Just ("Platform" Data..= platform),
             Prelude.Just
-              ("ReleaseVersion" Core..= releaseVersion)
+              ("ReleaseVersion" Data..= releaseVersion)
           ]
       )
 
-instance Core.ToPath GetMobileSdkRelease where
+instance Data.ToPath GetMobileSdkRelease where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetMobileSdkRelease where
+instance Data.ToQuery GetMobileSdkRelease where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMobileSdkReleaseResponse' smart constructor.

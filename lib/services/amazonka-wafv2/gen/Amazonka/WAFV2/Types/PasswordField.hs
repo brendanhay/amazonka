@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.PasswordField where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about your login page password field, used in a
@@ -53,12 +54,12 @@ newPasswordField pIdentifier_ =
 passwordField_identifier :: Lens.Lens' PasswordField Prelude.Text
 passwordField_identifier = Lens.lens (\PasswordField' {identifier} -> identifier) (\s@PasswordField' {} a -> s {identifier = a} :: PasswordField)
 
-instance Core.FromJSON PasswordField where
+instance Data.FromJSON PasswordField where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PasswordField"
       ( \x ->
-          PasswordField' Prelude.<$> (x Core..: "Identifier")
+          PasswordField' Prelude.<$> (x Data..: "Identifier")
       )
 
 instance Prelude.Hashable PasswordField where
@@ -68,9 +69,9 @@ instance Prelude.Hashable PasswordField where
 instance Prelude.NFData PasswordField where
   rnf PasswordField' {..} = Prelude.rnf identifier
 
-instance Core.ToJSON PasswordField where
+instance Data.ToJSON PasswordField where
   toJSON PasswordField' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Identifier" Core..= identifier)]
+          [Prelude.Just ("Identifier" Data..= identifier)]
       )

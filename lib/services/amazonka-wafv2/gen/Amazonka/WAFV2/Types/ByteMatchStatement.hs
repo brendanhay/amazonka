@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.ByteMatchStatement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.FieldToMatch
 import Amazonka.WAFV2.Types.PositionalConstraint
@@ -66,7 +67,7 @@ data ByteMatchStatement = ByteMatchStatement'
     --
     -- The value that you want WAF to search for. The SDK automatically base64
     -- encodes the value.
-    searchString :: Core.Base64,
+    searchString :: Data.Base64,
     -- | The part of the web request that you want WAF to inspect.
     fieldToMatch :: FieldToMatch,
     -- | Text transformations eliminate some of the unusual formatting that
@@ -228,7 +229,7 @@ newByteMatchStatement
   pPositionalConstraint_ =
     ByteMatchStatement'
       { searchString =
-          Core._Base64 Lens.# pSearchString_,
+          Data._Base64 Lens.# pSearchString_,
         fieldToMatch = pFieldToMatch_,
         textTransformations =
           Lens.coerced Lens.# pTextTransformations_,
@@ -271,7 +272,7 @@ newByteMatchStatement
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 byteMatchStatement_searchString :: Lens.Lens' ByteMatchStatement Prelude.ByteString
-byteMatchStatement_searchString = Lens.lens (\ByteMatchStatement' {searchString} -> searchString) (\s@ByteMatchStatement' {} a -> s {searchString = a} :: ByteMatchStatement) Prelude.. Core._Base64
+byteMatchStatement_searchString = Lens.lens (\ByteMatchStatement' {searchString} -> searchString) (\s@ByteMatchStatement' {} a -> s {searchString = a} :: ByteMatchStatement) Prelude.. Data._Base64
 
 -- | The part of the web request that you want WAF to inspect.
 byteMatchStatement_fieldToMatch :: Lens.Lens' ByteMatchStatement FieldToMatch
@@ -328,16 +329,16 @@ byteMatchStatement_textTransformations = Lens.lens (\ByteMatchStatement' {textTr
 byteMatchStatement_positionalConstraint :: Lens.Lens' ByteMatchStatement PositionalConstraint
 byteMatchStatement_positionalConstraint = Lens.lens (\ByteMatchStatement' {positionalConstraint} -> positionalConstraint) (\s@ByteMatchStatement' {} a -> s {positionalConstraint = a} :: ByteMatchStatement)
 
-instance Core.FromJSON ByteMatchStatement where
+instance Data.FromJSON ByteMatchStatement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ByteMatchStatement"
       ( \x ->
           ByteMatchStatement'
-            Prelude.<$> (x Core..: "SearchString")
-            Prelude.<*> (x Core..: "FieldToMatch")
-            Prelude.<*> (x Core..: "TextTransformations")
-            Prelude.<*> (x Core..: "PositionalConstraint")
+            Prelude.<$> (x Data..: "SearchString")
+            Prelude.<*> (x Data..: "FieldToMatch")
+            Prelude.<*> (x Data..: "TextTransformations")
+            Prelude.<*> (x Data..: "PositionalConstraint")
       )
 
 instance Prelude.Hashable ByteMatchStatement where
@@ -354,17 +355,17 @@ instance Prelude.NFData ByteMatchStatement where
       `Prelude.seq` Prelude.rnf textTransformations
       `Prelude.seq` Prelude.rnf positionalConstraint
 
-instance Core.ToJSON ByteMatchStatement where
+instance Data.ToJSON ByteMatchStatement where
   toJSON ByteMatchStatement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SearchString" Core..= searchString),
-            Prelude.Just ("FieldToMatch" Core..= fieldToMatch),
+          [ Prelude.Just ("SearchString" Data..= searchString),
+            Prelude.Just ("FieldToMatch" Data..= fieldToMatch),
             Prelude.Just
-              ("TextTransformations" Core..= textTransformations),
+              ("TextTransformations" Data..= textTransformations),
             Prelude.Just
               ( "PositionalConstraint"
-                  Core..= positionalConstraint
+                  Data..= positionalConstraint
               )
           ]
       )

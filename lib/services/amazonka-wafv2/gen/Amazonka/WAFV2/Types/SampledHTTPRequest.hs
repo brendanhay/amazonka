@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.SampledHTTPRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.CaptchaResponse
 import Amazonka.WAFV2.Types.ChallengeResponse
@@ -44,7 +45,7 @@ data SampledHTTPRequest = SampledHTTPRequest'
     overriddenAction :: Prelude.Maybe Prelude.Text,
     -- | The time at which WAF received the request from your Amazon Web Services
     -- resource, in Unix time format (in seconds).
-    timestamp :: Prelude.Maybe Core.POSIX,
+    timestamp :: Prelude.Maybe Data.POSIX,
     -- | The @CAPTCHA@ response for the request.
     captchaResponse :: Prelude.Maybe CaptchaResponse,
     -- | The name of the @Rule@ that the request matched. For managed rule
@@ -165,7 +166,7 @@ sampledHTTPRequest_overriddenAction = Lens.lens (\SampledHTTPRequest' {overridde
 -- | The time at which WAF received the request from your Amazon Web Services
 -- resource, in Unix time format (in seconds).
 sampledHTTPRequest_timestamp :: Lens.Lens' SampledHTTPRequest (Prelude.Maybe Prelude.UTCTime)
-sampledHTTPRequest_timestamp = Lens.lens (\SampledHTTPRequest' {timestamp} -> timestamp) (\s@SampledHTTPRequest' {} a -> s {timestamp = a} :: SampledHTTPRequest) Prelude.. Lens.mapping Core._Time
+sampledHTTPRequest_timestamp = Lens.lens (\SampledHTTPRequest' {timestamp} -> timestamp) (\s@SampledHTTPRequest' {} a -> s {timestamp = a} :: SampledHTTPRequest) Prelude.. Lens.mapping Data._Time
 
 -- | The @CAPTCHA@ response for the request.
 sampledHTTPRequest_captchaResponse :: Lens.Lens' SampledHTTPRequest (Prelude.Maybe CaptchaResponse)
@@ -215,25 +216,25 @@ sampledHTTPRequest_request = Lens.lens (\SampledHTTPRequest' {request} -> reques
 sampledHTTPRequest_weight :: Lens.Lens' SampledHTTPRequest Prelude.Natural
 sampledHTTPRequest_weight = Lens.lens (\SampledHTTPRequest' {weight} -> weight) (\s@SampledHTTPRequest' {} a -> s {weight = a} :: SampledHTTPRequest)
 
-instance Core.FromJSON SampledHTTPRequest where
+instance Data.FromJSON SampledHTTPRequest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SampledHTTPRequest"
       ( \x ->
           SampledHTTPRequest'
-            Prelude.<$> (x Core..:? "ChallengeResponse")
-            Prelude.<*> (x Core..:? "OverriddenAction")
-            Prelude.<*> (x Core..:? "Timestamp")
-            Prelude.<*> (x Core..:? "CaptchaResponse")
-            Prelude.<*> (x Core..:? "RuleNameWithinRuleGroup")
-            Prelude.<*> (x Core..:? "Labels" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Action")
-            Prelude.<*> ( x Core..:? "RequestHeadersInserted"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ChallengeResponse")
+            Prelude.<*> (x Data..:? "OverriddenAction")
+            Prelude.<*> (x Data..:? "Timestamp")
+            Prelude.<*> (x Data..:? "CaptchaResponse")
+            Prelude.<*> (x Data..:? "RuleNameWithinRuleGroup")
+            Prelude.<*> (x Data..:? "Labels" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Action")
+            Prelude.<*> ( x Data..:? "RequestHeadersInserted"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ResponseCodeSent")
-            Prelude.<*> (x Core..: "Request")
-            Prelude.<*> (x Core..: "Weight")
+            Prelude.<*> (x Data..:? "ResponseCodeSent")
+            Prelude.<*> (x Data..: "Request")
+            Prelude.<*> (x Data..: "Weight")
       )
 
 instance Prelude.Hashable SampledHTTPRequest where

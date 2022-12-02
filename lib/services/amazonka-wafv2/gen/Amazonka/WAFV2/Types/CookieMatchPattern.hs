@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.CookieMatchPattern where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.All
 
@@ -84,15 +85,15 @@ cookieMatchPattern_includedCookies = Lens.lens (\CookieMatchPattern' {includedCo
 cookieMatchPattern_excludedCookies :: Lens.Lens' CookieMatchPattern (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 cookieMatchPattern_excludedCookies = Lens.lens (\CookieMatchPattern' {excludedCookies} -> excludedCookies) (\s@CookieMatchPattern' {} a -> s {excludedCookies = a} :: CookieMatchPattern) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CookieMatchPattern where
+instance Data.FromJSON CookieMatchPattern where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CookieMatchPattern"
       ( \x ->
           CookieMatchPattern'
-            Prelude.<$> (x Core..:? "All")
-            Prelude.<*> (x Core..:? "IncludedCookies")
-            Prelude.<*> (x Core..:? "ExcludedCookies")
+            Prelude.<$> (x Data..:? "All")
+            Prelude.<*> (x Data..:? "IncludedCookies")
+            Prelude.<*> (x Data..:? "ExcludedCookies")
       )
 
 instance Prelude.Hashable CookieMatchPattern where
@@ -107,14 +108,14 @@ instance Prelude.NFData CookieMatchPattern where
       `Prelude.seq` Prelude.rnf includedCookies
       `Prelude.seq` Prelude.rnf excludedCookies
 
-instance Core.ToJSON CookieMatchPattern where
+instance Data.ToJSON CookieMatchPattern where
   toJSON CookieMatchPattern' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("All" Core..=) Prelude.<$> all,
-            ("IncludedCookies" Core..=)
+          [ ("All" Data..=) Prelude.<$> all,
+            ("IncludedCookies" Data..=)
               Prelude.<$> includedCookies,
-            ("ExcludedCookies" Core..=)
+            ("ExcludedCookies" Data..=)
               Prelude.<$> excludedCookies
           ]
       )

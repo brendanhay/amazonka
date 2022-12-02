@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.WebACLSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | High-level information about a WebACL, returned by operations like
@@ -121,17 +122,17 @@ webACLSummary_description = Lens.lens (\WebACLSummary' {description} -> descript
 webACLSummary_lockToken :: Lens.Lens' WebACLSummary (Prelude.Maybe Prelude.Text)
 webACLSummary_lockToken = Lens.lens (\WebACLSummary' {lockToken} -> lockToken) (\s@WebACLSummary' {} a -> s {lockToken = a} :: WebACLSummary)
 
-instance Core.FromJSON WebACLSummary where
+instance Data.FromJSON WebACLSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WebACLSummary"
       ( \x ->
           WebACLSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ARN")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LockToken")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ARN")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LockToken")
       )
 
 instance Prelude.Hashable WebACLSummary where

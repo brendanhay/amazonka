@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.RuleGroupReferenceStatement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.ExcludedRule
 import Amazonka.WAFV2.Types.RuleActionOverride
@@ -114,15 +115,15 @@ ruleGroupReferenceStatement_excludedRules = Lens.lens (\RuleGroupReferenceStatem
 ruleGroupReferenceStatement_arn :: Lens.Lens' RuleGroupReferenceStatement Prelude.Text
 ruleGroupReferenceStatement_arn = Lens.lens (\RuleGroupReferenceStatement' {arn} -> arn) (\s@RuleGroupReferenceStatement' {} a -> s {arn = a} :: RuleGroupReferenceStatement)
 
-instance Core.FromJSON RuleGroupReferenceStatement where
+instance Data.FromJSON RuleGroupReferenceStatement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroupReferenceStatement"
       ( \x ->
           RuleGroupReferenceStatement'
-            Prelude.<$> (x Core..:? "RuleActionOverrides")
-            Prelude.<*> (x Core..:? "ExcludedRules" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "ARN")
+            Prelude.<$> (x Data..:? "RuleActionOverrides")
+            Prelude.<*> (x Data..:? "ExcludedRules" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "ARN")
       )
 
 instance Prelude.Hashable RuleGroupReferenceStatement where
@@ -137,13 +138,13 @@ instance Prelude.NFData RuleGroupReferenceStatement where
       `Prelude.seq` Prelude.rnf excludedRules
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToJSON RuleGroupReferenceStatement where
+instance Data.ToJSON RuleGroupReferenceStatement where
   toJSON RuleGroupReferenceStatement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RuleActionOverrides" Core..=)
+          [ ("RuleActionOverrides" Data..=)
               Prelude.<$> ruleActionOverrides,
-            ("ExcludedRules" Core..=) Prelude.<$> excludedRules,
-            Prelude.Just ("ARN" Core..= arn)
+            ("ExcludedRules" Data..=) Prelude.<$> excludedRules,
+            Prelude.Just ("ARN" Data..= arn)
           ]
       )

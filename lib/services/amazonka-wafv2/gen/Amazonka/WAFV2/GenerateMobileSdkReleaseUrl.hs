@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,7 +107,7 @@ instance Core.AWSRequest GenerateMobileSdkReleaseUrl where
     Response.receiveJSON
       ( \s h x ->
           GenerateMobileSdkReleaseUrlResponse'
-            Prelude.<$> (x Core..?> "Url")
+            Prelude.<$> (x Data..?> "Url")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,35 +121,35 @@ instance Prelude.NFData GenerateMobileSdkReleaseUrl where
     Prelude.rnf platform
       `Prelude.seq` Prelude.rnf releaseVersion
 
-instance Core.ToHeaders GenerateMobileSdkReleaseUrl where
+instance Data.ToHeaders GenerateMobileSdkReleaseUrl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20190729.GenerateMobileSdkReleaseUrl" ::
+              Data.=# ( "AWSWAF_20190729.GenerateMobileSdkReleaseUrl" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GenerateMobileSdkReleaseUrl where
+instance Data.ToJSON GenerateMobileSdkReleaseUrl where
   toJSON GenerateMobileSdkReleaseUrl' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Platform" Core..= platform),
+          [ Prelude.Just ("Platform" Data..= platform),
             Prelude.Just
-              ("ReleaseVersion" Core..= releaseVersion)
+              ("ReleaseVersion" Data..= releaseVersion)
           ]
       )
 
-instance Core.ToPath GenerateMobileSdkReleaseUrl where
+instance Data.ToPath GenerateMobileSdkReleaseUrl where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GenerateMobileSdkReleaseUrl where
+instance Data.ToQuery GenerateMobileSdkReleaseUrl where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGenerateMobileSdkReleaseUrlResponse' smart constructor.

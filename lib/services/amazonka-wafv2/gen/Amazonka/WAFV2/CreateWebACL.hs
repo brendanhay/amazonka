@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -339,7 +340,7 @@ instance Core.AWSRequest CreateWebACL where
     Response.receiveJSON
       ( \s h x ->
           CreateWebACLResponse'
-            Prelude.<$> (x Core..?> "Summary")
+            Prelude.<$> (x Data..?> "Summary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -371,46 +372,46 @@ instance Prelude.NFData CreateWebACL where
       `Prelude.seq` Prelude.rnf defaultAction
       `Prelude.seq` Prelude.rnf visibilityConfig
 
-instance Core.ToHeaders CreateWebACL where
+instance Data.ToHeaders CreateWebACL where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20190729.CreateWebACL" ::
+              Data.=# ( "AWSWAF_20190729.CreateWebACL" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWebACL where
+instance Data.ToJSON CreateWebACL where
   toJSON CreateWebACL' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("TokenDomains" Core..=) Prelude.<$> tokenDomains,
-            ("CaptchaConfig" Core..=) Prelude.<$> captchaConfig,
-            ("Rules" Core..=) Prelude.<$> rules,
-            ("Description" Core..=) Prelude.<$> description,
-            ("CustomResponseBodies" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("TokenDomains" Data..=) Prelude.<$> tokenDomains,
+            ("CaptchaConfig" Data..=) Prelude.<$> captchaConfig,
+            ("Rules" Data..=) Prelude.<$> rules,
+            ("Description" Data..=) Prelude.<$> description,
+            ("CustomResponseBodies" Data..=)
               Prelude.<$> customResponseBodies,
-            ("ChallengeConfig" Core..=)
+            ("ChallengeConfig" Data..=)
               Prelude.<$> challengeConfig,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Scope" Core..= scope),
-            Prelude.Just ("DefaultAction" Core..= defaultAction),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Scope" Data..= scope),
+            Prelude.Just ("DefaultAction" Data..= defaultAction),
             Prelude.Just
-              ("VisibilityConfig" Core..= visibilityConfig)
+              ("VisibilityConfig" Data..= visibilityConfig)
           ]
       )
 
-instance Core.ToPath CreateWebACL where
+instance Data.ToPath CreateWebACL where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateWebACL where
+instance Data.ToQuery CreateWebACL where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWebACLResponse' smart constructor.

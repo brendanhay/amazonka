@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.GeoMatchStatement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.CountryCode
 import Amazonka.WAFV2.Types.ForwardedIPConfig
@@ -142,14 +143,14 @@ geoMatchStatement_countryCodes = Lens.lens (\GeoMatchStatement' {countryCodes} -
 geoMatchStatement_forwardedIPConfig :: Lens.Lens' GeoMatchStatement (Prelude.Maybe ForwardedIPConfig)
 geoMatchStatement_forwardedIPConfig = Lens.lens (\GeoMatchStatement' {forwardedIPConfig} -> forwardedIPConfig) (\s@GeoMatchStatement' {} a -> s {forwardedIPConfig = a} :: GeoMatchStatement)
 
-instance Core.FromJSON GeoMatchStatement where
+instance Data.FromJSON GeoMatchStatement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GeoMatchStatement"
       ( \x ->
           GeoMatchStatement'
-            Prelude.<$> (x Core..:? "CountryCodes")
-            Prelude.<*> (x Core..:? "ForwardedIPConfig")
+            Prelude.<$> (x Data..:? "CountryCodes")
+            Prelude.<*> (x Data..:? "ForwardedIPConfig")
       )
 
 instance Prelude.Hashable GeoMatchStatement where
@@ -162,12 +163,12 @@ instance Prelude.NFData GeoMatchStatement where
     Prelude.rnf countryCodes
       `Prelude.seq` Prelude.rnf forwardedIPConfig
 
-instance Core.ToJSON GeoMatchStatement where
+instance Data.ToJSON GeoMatchStatement where
   toJSON GeoMatchStatement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CountryCodes" Core..=) Prelude.<$> countryCodes,
-            ("ForwardedIPConfig" Core..=)
+          [ ("CountryCodes" Data..=) Prelude.<$> countryCodes,
+            ("ForwardedIPConfig" Data..=)
               Prelude.<$> forwardedIPConfig
           ]
       )

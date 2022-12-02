@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.ChallengeResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.FailureReason
 
@@ -82,15 +83,15 @@ challengeResponse_responseCode = Lens.lens (\ChallengeResponse' {responseCode} -
 challengeResponse_failureReason :: Lens.Lens' ChallengeResponse (Prelude.Maybe FailureReason)
 challengeResponse_failureReason = Lens.lens (\ChallengeResponse' {failureReason} -> failureReason) (\s@ChallengeResponse' {} a -> s {failureReason = a} :: ChallengeResponse)
 
-instance Core.FromJSON ChallengeResponse where
+instance Data.FromJSON ChallengeResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChallengeResponse"
       ( \x ->
           ChallengeResponse'
-            Prelude.<$> (x Core..:? "SolveTimestamp")
-            Prelude.<*> (x Core..:? "ResponseCode")
-            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<$> (x Data..:? "SolveTimestamp")
+            Prelude.<*> (x Data..:? "ResponseCode")
+            Prelude.<*> (x Data..:? "FailureReason")
       )
 
 instance Prelude.Hashable ChallengeResponse where

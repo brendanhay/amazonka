@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.RuleAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.AllowAction
 import Amazonka.WAFV2.Types.BlockAction
@@ -98,17 +99,17 @@ ruleAction_captcha = Lens.lens (\RuleAction' {captcha} -> captcha) (\s@RuleActio
 ruleAction_block :: Lens.Lens' RuleAction (Prelude.Maybe BlockAction)
 ruleAction_block = Lens.lens (\RuleAction' {block} -> block) (\s@RuleAction' {} a -> s {block = a} :: RuleAction)
 
-instance Core.FromJSON RuleAction where
+instance Data.FromJSON RuleAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleAction"
       ( \x ->
           RuleAction'
-            Prelude.<$> (x Core..:? "Challenge")
-            Prelude.<*> (x Core..:? "Allow")
-            Prelude.<*> (x Core..:? "Count")
-            Prelude.<*> (x Core..:? "Captcha")
-            Prelude.<*> (x Core..:? "Block")
+            Prelude.<$> (x Data..:? "Challenge")
+            Prelude.<*> (x Data..:? "Allow")
+            Prelude.<*> (x Data..:? "Count")
+            Prelude.<*> (x Data..:? "Captcha")
+            Prelude.<*> (x Data..:? "Block")
       )
 
 instance Prelude.Hashable RuleAction where
@@ -127,14 +128,14 @@ instance Prelude.NFData RuleAction where
       `Prelude.seq` Prelude.rnf captcha
       `Prelude.seq` Prelude.rnf block
 
-instance Core.ToJSON RuleAction where
+instance Data.ToJSON RuleAction where
   toJSON RuleAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Challenge" Core..=) Prelude.<$> challenge,
-            ("Allow" Core..=) Prelude.<$> allow,
-            ("Count" Core..=) Prelude.<$> count,
-            ("Captcha" Core..=) Prelude.<$> captcha,
-            ("Block" Core..=) Prelude.<$> block
+          [ ("Challenge" Data..=) Prelude.<$> challenge,
+            ("Allow" Data..=) Prelude.<$> allow,
+            ("Count" Data..=) Prelude.<$> count,
+            ("Captcha" Data..=) Prelude.<$> captcha,
+            ("Block" Data..=) Prelude.<$> block
           ]
       )

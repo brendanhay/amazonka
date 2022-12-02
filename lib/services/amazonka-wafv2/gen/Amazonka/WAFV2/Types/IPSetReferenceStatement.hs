@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.IPSetReferenceStatement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.IPSetForwardedIPConfig
 
@@ -94,14 +95,14 @@ iPSetReferenceStatement_iPSetForwardedIPConfig = Lens.lens (\IPSetReferenceState
 iPSetReferenceStatement_arn :: Lens.Lens' IPSetReferenceStatement Prelude.Text
 iPSetReferenceStatement_arn = Lens.lens (\IPSetReferenceStatement' {arn} -> arn) (\s@IPSetReferenceStatement' {} a -> s {arn = a} :: IPSetReferenceStatement)
 
-instance Core.FromJSON IPSetReferenceStatement where
+instance Data.FromJSON IPSetReferenceStatement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IPSetReferenceStatement"
       ( \x ->
           IPSetReferenceStatement'
-            Prelude.<$> (x Core..:? "IPSetForwardedIPConfig")
-            Prelude.<*> (x Core..: "ARN")
+            Prelude.<$> (x Data..:? "IPSetForwardedIPConfig")
+            Prelude.<*> (x Data..: "ARN")
       )
 
 instance Prelude.Hashable IPSetReferenceStatement where
@@ -114,12 +115,12 @@ instance Prelude.NFData IPSetReferenceStatement where
     Prelude.rnf iPSetForwardedIPConfig
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToJSON IPSetReferenceStatement where
+instance Data.ToJSON IPSetReferenceStatement where
   toJSON IPSetReferenceStatement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IPSetForwardedIPConfig" Core..=)
+          [ ("IPSetForwardedIPConfig" Data..=)
               Prelude.<$> iPSetForwardedIPConfig,
-            Prelude.Just ("ARN" Core..= arn)
+            Prelude.Just ("ARN" Data..= arn)
           ]
       )

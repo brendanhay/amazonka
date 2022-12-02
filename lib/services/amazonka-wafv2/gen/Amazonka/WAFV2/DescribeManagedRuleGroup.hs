@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -175,15 +176,15 @@ instance Core.AWSRequest DescribeManagedRuleGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeManagedRuleGroupResponse'
-            Prelude.<$> ( x Core..?> "AvailableLabels"
+            Prelude.<$> ( x Data..?> "AvailableLabels"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Rules" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "SnsTopicArn")
-            Prelude.<*> (x Core..?> "LabelNamespace")
-            Prelude.<*> (x Core..?> "VersionName")
-            Prelude.<*> (x Core..?> "ConsumedLabels" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Capacity")
+            Prelude.<*> (x Data..?> "Rules" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "SnsTopicArn")
+            Prelude.<*> (x Data..?> "LabelNamespace")
+            Prelude.<*> (x Data..?> "VersionName")
+            Prelude.<*> (x Data..?> "ConsumedLabels" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Capacity")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,36 +202,36 @@ instance Prelude.NFData DescribeManagedRuleGroup where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf scope
 
-instance Core.ToHeaders DescribeManagedRuleGroup where
+instance Data.ToHeaders DescribeManagedRuleGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20190729.DescribeManagedRuleGroup" ::
+              Data.=# ( "AWSWAF_20190729.DescribeManagedRuleGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeManagedRuleGroup where
+instance Data.ToJSON DescribeManagedRuleGroup where
   toJSON DescribeManagedRuleGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VersionName" Core..=) Prelude.<$> versionName,
-            Prelude.Just ("VendorName" Core..= vendorName),
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Scope" Core..= scope)
+          [ ("VersionName" Data..=) Prelude.<$> versionName,
+            Prelude.Just ("VendorName" Data..= vendorName),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Scope" Data..= scope)
           ]
       )
 
-instance Core.ToPath DescribeManagedRuleGroup where
+instance Data.ToPath DescribeManagedRuleGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeManagedRuleGroup where
+instance Data.ToQuery DescribeManagedRuleGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeManagedRuleGroupResponse' smart constructor.

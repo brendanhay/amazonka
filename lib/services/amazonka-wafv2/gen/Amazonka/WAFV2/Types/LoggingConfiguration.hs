@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.LoggingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.FieldToMatch
 import Amazonka.WAFV2.Types.LoggingFilter
@@ -171,17 +172,17 @@ loggingConfiguration_resourceArn = Lens.lens (\LoggingConfiguration' {resourceAr
 loggingConfiguration_logDestinationConfigs :: Lens.Lens' LoggingConfiguration (Prelude.NonEmpty Prelude.Text)
 loggingConfiguration_logDestinationConfigs = Lens.lens (\LoggingConfiguration' {logDestinationConfigs} -> logDestinationConfigs) (\s@LoggingConfiguration' {} a -> s {logDestinationConfigs = a} :: LoggingConfiguration) Prelude.. Lens.coerced
 
-instance Core.FromJSON LoggingConfiguration where
+instance Data.FromJSON LoggingConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoggingConfiguration"
       ( \x ->
           LoggingConfiguration'
-            Prelude.<$> (x Core..:? "ManagedByFirewallManager")
-            Prelude.<*> (x Core..:? "LoggingFilter")
-            Prelude.<*> (x Core..:? "RedactedFields" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "ResourceArn")
-            Prelude.<*> (x Core..: "LogDestinationConfigs")
+            Prelude.<$> (x Data..:? "ManagedByFirewallManager")
+            Prelude.<*> (x Data..:? "LoggingFilter")
+            Prelude.<*> (x Data..:? "RedactedFields" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "ResourceArn")
+            Prelude.<*> (x Data..: "LogDestinationConfigs")
       )
 
 instance Prelude.Hashable LoggingConfiguration where
@@ -201,19 +202,19 @@ instance Prelude.NFData LoggingConfiguration where
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf logDestinationConfigs
 
-instance Core.ToJSON LoggingConfiguration where
+instance Data.ToJSON LoggingConfiguration where
   toJSON LoggingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ManagedByFirewallManager" Core..=)
+          [ ("ManagedByFirewallManager" Data..=)
               Prelude.<$> managedByFirewallManager,
-            ("LoggingFilter" Core..=) Prelude.<$> loggingFilter,
-            ("RedactedFields" Core..=)
+            ("LoggingFilter" Data..=) Prelude.<$> loggingFilter,
+            ("RedactedFields" Data..=)
               Prelude.<$> redactedFields,
-            Prelude.Just ("ResourceArn" Core..= resourceArn),
+            Prelude.Just ("ResourceArn" Data..= resourceArn),
             Prelude.Just
               ( "LogDestinationConfigs"
-                  Core..= logDestinationConfigs
+                  Data..= logDestinationConfigs
               )
           ]
       )

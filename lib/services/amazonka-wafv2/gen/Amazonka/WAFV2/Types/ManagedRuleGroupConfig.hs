@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.ManagedRuleGroupConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.AWSManagedRulesBotControlRuleSet
 import Amazonka.WAFV2.Types.PasswordField
@@ -124,17 +125,17 @@ managedRuleGroupConfig_payloadType = Lens.lens (\ManagedRuleGroupConfig' {payloa
 managedRuleGroupConfig_usernameField :: Lens.Lens' ManagedRuleGroupConfig (Prelude.Maybe UsernameField)
 managedRuleGroupConfig_usernameField = Lens.lens (\ManagedRuleGroupConfig' {usernameField} -> usernameField) (\s@ManagedRuleGroupConfig' {} a -> s {usernameField = a} :: ManagedRuleGroupConfig)
 
-instance Core.FromJSON ManagedRuleGroupConfig where
+instance Data.FromJSON ManagedRuleGroupConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ManagedRuleGroupConfig"
       ( \x ->
           ManagedRuleGroupConfig'
-            Prelude.<$> (x Core..:? "PasswordField")
-            Prelude.<*> (x Core..:? "LoginPath")
-            Prelude.<*> (x Core..:? "AWSManagedRulesBotControlRuleSet")
-            Prelude.<*> (x Core..:? "PayloadType")
-            Prelude.<*> (x Core..:? "UsernameField")
+            Prelude.<$> (x Data..:? "PasswordField")
+            Prelude.<*> (x Data..:? "LoginPath")
+            Prelude.<*> (x Data..:? "AWSManagedRulesBotControlRuleSet")
+            Prelude.<*> (x Data..:? "PayloadType")
+            Prelude.<*> (x Data..:? "UsernameField")
       )
 
 instance Prelude.Hashable ManagedRuleGroupConfig where
@@ -153,15 +154,15 @@ instance Prelude.NFData ManagedRuleGroupConfig where
       `Prelude.seq` Prelude.rnf payloadType
       `Prelude.seq` Prelude.rnf usernameField
 
-instance Core.ToJSON ManagedRuleGroupConfig where
+instance Data.ToJSON ManagedRuleGroupConfig where
   toJSON ManagedRuleGroupConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PasswordField" Core..=) Prelude.<$> passwordField,
-            ("LoginPath" Core..=) Prelude.<$> loginPath,
-            ("AWSManagedRulesBotControlRuleSet" Core..=)
+          [ ("PasswordField" Data..=) Prelude.<$> passwordField,
+            ("LoginPath" Data..=) Prelude.<$> loginPath,
+            ("AWSManagedRulesBotControlRuleSet" Data..=)
               Prelude.<$> aWSManagedRulesBotControlRuleSet,
-            ("PayloadType" Core..=) Prelude.<$> payloadType,
-            ("UsernameField" Core..=) Prelude.<$> usernameField
+            ("PayloadType" Data..=) Prelude.<$> payloadType,
+            ("UsernameField" Data..=) Prelude.<$> usernameField
           ]
       )

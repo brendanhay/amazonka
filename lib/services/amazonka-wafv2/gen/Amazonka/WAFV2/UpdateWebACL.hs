@@ -85,6 +85,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -404,7 +405,7 @@ instance Core.AWSRequest UpdateWebACL where
     Response.receiveJSON
       ( \s h x ->
           UpdateWebACLResponse'
-            Prelude.<$> (x Core..?> "NextLockToken")
+            Prelude.<$> (x Data..?> "NextLockToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -438,47 +439,47 @@ instance Prelude.NFData UpdateWebACL where
       `Prelude.seq` Prelude.rnf visibilityConfig
       `Prelude.seq` Prelude.rnf lockToken
 
-instance Core.ToHeaders UpdateWebACL where
+instance Data.ToHeaders UpdateWebACL where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20190729.UpdateWebACL" ::
+              Data.=# ( "AWSWAF_20190729.UpdateWebACL" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateWebACL where
+instance Data.ToJSON UpdateWebACL where
   toJSON UpdateWebACL' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TokenDomains" Core..=) Prelude.<$> tokenDomains,
-            ("CaptchaConfig" Core..=) Prelude.<$> captchaConfig,
-            ("Rules" Core..=) Prelude.<$> rules,
-            ("Description" Core..=) Prelude.<$> description,
-            ("CustomResponseBodies" Core..=)
+          [ ("TokenDomains" Data..=) Prelude.<$> tokenDomains,
+            ("CaptchaConfig" Data..=) Prelude.<$> captchaConfig,
+            ("Rules" Data..=) Prelude.<$> rules,
+            ("Description" Data..=) Prelude.<$> description,
+            ("CustomResponseBodies" Data..=)
               Prelude.<$> customResponseBodies,
-            ("ChallengeConfig" Core..=)
+            ("ChallengeConfig" Data..=)
               Prelude.<$> challengeConfig,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Scope" Core..= scope),
-            Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("DefaultAction" Core..= defaultAction),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Scope" Data..= scope),
+            Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("DefaultAction" Data..= defaultAction),
             Prelude.Just
-              ("VisibilityConfig" Core..= visibilityConfig),
-            Prelude.Just ("LockToken" Core..= lockToken)
+              ("VisibilityConfig" Data..= visibilityConfig),
+            Prelude.Just ("LockToken" Data..= lockToken)
           ]
       )
 
-instance Core.ToPath UpdateWebACL where
+instance Data.ToPath UpdateWebACL where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateWebACL where
+instance Data.ToQuery UpdateWebACL where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateWebACLResponse' smart constructor.

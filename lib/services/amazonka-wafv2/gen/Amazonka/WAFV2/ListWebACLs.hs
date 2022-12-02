@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -156,8 +157,8 @@ instance Core.AWSRequest ListWebACLs where
     Response.receiveJSON
       ( \s h x ->
           ListWebACLsResponse'
-            Prelude.<$> (x Core..?> "WebACLs" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<$> (x Data..?> "WebACLs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,35 +174,35 @@ instance Prelude.NFData ListWebACLs where
       `Prelude.seq` Prelude.rnf nextMarker
       `Prelude.seq` Prelude.rnf scope
 
-instance Core.ToHeaders ListWebACLs where
+instance Data.ToHeaders ListWebACLs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20190729.ListWebACLs" ::
+              Data.=# ( "AWSWAF_20190729.ListWebACLs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListWebACLs where
+instance Data.ToJSON ListWebACLs where
   toJSON ListWebACLs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("NextMarker" Core..=) Prelude.<$> nextMarker,
-            Prelude.Just ("Scope" Core..= scope)
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextMarker" Data..=) Prelude.<$> nextMarker,
+            Prelude.Just ("Scope" Data..= scope)
           ]
       )
 
-instance Core.ToPath ListWebACLs where
+instance Data.ToPath ListWebACLs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListWebACLs where
+instance Data.ToQuery ListWebACLs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListWebACLsResponse' smart constructor.

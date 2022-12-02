@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.Body where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.OversizeHandling
 
@@ -114,12 +115,12 @@ newBody = Body' {oversizeHandling = Prelude.Nothing}
 body_oversizeHandling :: Lens.Lens' Body (Prelude.Maybe OversizeHandling)
 body_oversizeHandling = Lens.lens (\Body' {oversizeHandling} -> oversizeHandling) (\s@Body' {} a -> s {oversizeHandling = a} :: Body)
 
-instance Core.FromJSON Body where
+instance Data.FromJSON Body where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Body"
       ( \x ->
-          Body' Prelude.<$> (x Core..:? "OversizeHandling")
+          Body' Prelude.<$> (x Data..:? "OversizeHandling")
       )
 
 instance Prelude.Hashable Body where
@@ -129,11 +130,11 @@ instance Prelude.Hashable Body where
 instance Prelude.NFData Body where
   rnf Body' {..} = Prelude.rnf oversizeHandling
 
-instance Core.ToJSON Body where
+instance Data.ToJSON Body where
   toJSON Body' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OversizeHandling" Core..=)
+          [ ("OversizeHandling" Data..=)
               Prelude.<$> oversizeHandling
           ]
       )

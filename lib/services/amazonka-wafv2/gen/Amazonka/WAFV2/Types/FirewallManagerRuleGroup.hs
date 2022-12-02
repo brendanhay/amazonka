@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.FirewallManagerRuleGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.FirewallManagerStatement
 import Amazonka.WAFV2.Types.OverrideAction
@@ -161,17 +162,17 @@ firewallManagerRuleGroup_overrideAction = Lens.lens (\FirewallManagerRuleGroup' 
 firewallManagerRuleGroup_visibilityConfig :: Lens.Lens' FirewallManagerRuleGroup VisibilityConfig
 firewallManagerRuleGroup_visibilityConfig = Lens.lens (\FirewallManagerRuleGroup' {visibilityConfig} -> visibilityConfig) (\s@FirewallManagerRuleGroup' {} a -> s {visibilityConfig = a} :: FirewallManagerRuleGroup)
 
-instance Core.FromJSON FirewallManagerRuleGroup where
+instance Data.FromJSON FirewallManagerRuleGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FirewallManagerRuleGroup"
       ( \x ->
           FirewallManagerRuleGroup'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Priority")
-            Prelude.<*> (x Core..: "FirewallManagerStatement")
-            Prelude.<*> (x Core..: "OverrideAction")
-            Prelude.<*> (x Core..: "VisibilityConfig")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Priority")
+            Prelude.<*> (x Data..: "FirewallManagerStatement")
+            Prelude.<*> (x Data..: "OverrideAction")
+            Prelude.<*> (x Data..: "VisibilityConfig")
       )
 
 instance Prelude.Hashable FirewallManagerRuleGroup where

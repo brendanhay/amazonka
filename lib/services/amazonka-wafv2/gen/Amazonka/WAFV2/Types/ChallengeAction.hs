@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.ChallengeAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.CustomRequestHandling
 
@@ -112,13 +113,13 @@ newChallengeAction =
 challengeAction_customRequestHandling :: Lens.Lens' ChallengeAction (Prelude.Maybe CustomRequestHandling)
 challengeAction_customRequestHandling = Lens.lens (\ChallengeAction' {customRequestHandling} -> customRequestHandling) (\s@ChallengeAction' {} a -> s {customRequestHandling = a} :: ChallengeAction)
 
-instance Core.FromJSON ChallengeAction where
+instance Data.FromJSON ChallengeAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChallengeAction"
       ( \x ->
           ChallengeAction'
-            Prelude.<$> (x Core..:? "CustomRequestHandling")
+            Prelude.<$> (x Data..:? "CustomRequestHandling")
       )
 
 instance Prelude.Hashable ChallengeAction where
@@ -129,11 +130,11 @@ instance Prelude.NFData ChallengeAction where
   rnf ChallengeAction' {..} =
     Prelude.rnf customRequestHandling
 
-instance Core.ToJSON ChallengeAction where
+instance Data.ToJSON ChallengeAction where
   toJSON ChallengeAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CustomRequestHandling" Core..=)
+          [ ("CustomRequestHandling" Data..=)
               Prelude.<$> customRequestHandling
           ]
       )

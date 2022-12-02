@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.UriPath where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Inspect the path component of the URI of the web request. This is the
@@ -46,9 +47,9 @@ newUriPath ::
   UriPath
 newUriPath = UriPath'
 
-instance Core.FromJSON UriPath where
+instance Data.FromJSON UriPath where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UriPath"
       (\x -> Prelude.pure UriPath')
 
@@ -59,5 +60,5 @@ instance Prelude.Hashable UriPath where
 instance Prelude.NFData UriPath where
   rnf _ = ()
 
-instance Core.ToJSON UriPath where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON UriPath where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

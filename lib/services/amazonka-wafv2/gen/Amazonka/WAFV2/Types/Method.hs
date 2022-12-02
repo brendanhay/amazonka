@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.Method where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Inspect the HTTP method of the web request. The method indicates the
@@ -45,9 +46,9 @@ newMethod ::
   Method
 newMethod = Method'
 
-instance Core.FromJSON Method where
+instance Data.FromJSON Method where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Method"
       (\x -> Prelude.pure Method')
 
@@ -58,5 +59,5 @@ instance Prelude.Hashable Method where
 instance Prelude.NFData Method where
   rnf _ = ()
 
-instance Core.ToJSON Method where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON Method where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.CustomRequestHandling where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.CustomHTTPHeader
 
@@ -85,13 +86,13 @@ newCustomRequestHandling pInsertHeaders_ =
 customRequestHandling_insertHeaders :: Lens.Lens' CustomRequestHandling (Prelude.NonEmpty CustomHTTPHeader)
 customRequestHandling_insertHeaders = Lens.lens (\CustomRequestHandling' {insertHeaders} -> insertHeaders) (\s@CustomRequestHandling' {} a -> s {insertHeaders = a} :: CustomRequestHandling) Prelude.. Lens.coerced
 
-instance Core.FromJSON CustomRequestHandling where
+instance Data.FromJSON CustomRequestHandling where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomRequestHandling"
       ( \x ->
           CustomRequestHandling'
-            Prelude.<$> (x Core..: "InsertHeaders")
+            Prelude.<$> (x Data..: "InsertHeaders")
       )
 
 instance Prelude.Hashable CustomRequestHandling where
@@ -102,11 +103,11 @@ instance Prelude.NFData CustomRequestHandling where
   rnf CustomRequestHandling' {..} =
     Prelude.rnf insertHeaders
 
-instance Core.ToJSON CustomRequestHandling where
+instance Data.ToJSON CustomRequestHandling where
   toJSON CustomRequestHandling' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("InsertHeaders" Core..= insertHeaders)
+              ("InsertHeaders" Data..= insertHeaders)
           ]
       )

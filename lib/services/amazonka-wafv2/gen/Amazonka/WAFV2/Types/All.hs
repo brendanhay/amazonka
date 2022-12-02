@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.All where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Inspect all of the elements that WAF has parsed and extracted from the
@@ -46,9 +47,9 @@ newAll ::
   All
 newAll = All'
 
-instance Core.FromJSON All where
+instance Data.FromJSON All where
   parseJSON =
-    Core.withObject "All" (\x -> Prelude.pure All')
+    Data.withObject "All" (\x -> Prelude.pure All')
 
 instance Prelude.Hashable All where
   hashWithSalt _salt _ =
@@ -57,5 +58,5 @@ instance Prelude.Hashable All where
 instance Prelude.NFData All where
   rnf _ = ()
 
-instance Core.ToJSON All where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON All where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

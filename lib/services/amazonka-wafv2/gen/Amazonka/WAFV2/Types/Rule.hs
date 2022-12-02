@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.Rule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.CaptchaConfig
 import Amazonka.WAFV2.Types.ChallengeConfig
@@ -320,21 +321,21 @@ rule_statement = Lens.lens (\Rule' {statement} -> statement) (\s@Rule' {} a -> s
 rule_visibilityConfig :: Lens.Lens' Rule VisibilityConfig
 rule_visibilityConfig = Lens.lens (\Rule' {visibilityConfig} -> visibilityConfig) (\s@Rule' {} a -> s {visibilityConfig = a} :: Rule)
 
-instance Core.FromJSON Rule where
+instance Data.FromJSON Rule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Rule"
       ( \x ->
           Rule'
-            Prelude.<$> (x Core..:? "CaptchaConfig")
-            Prelude.<*> (x Core..:? "OverrideAction")
-            Prelude.<*> (x Core..:? "RuleLabels" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Action")
-            Prelude.<*> (x Core..:? "ChallengeConfig")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Priority")
-            Prelude.<*> (x Core..: "Statement")
-            Prelude.<*> (x Core..: "VisibilityConfig")
+            Prelude.<$> (x Data..:? "CaptchaConfig")
+            Prelude.<*> (x Data..:? "OverrideAction")
+            Prelude.<*> (x Data..:? "RuleLabels" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Action")
+            Prelude.<*> (x Data..:? "ChallengeConfig")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Priority")
+            Prelude.<*> (x Data..: "Statement")
+            Prelude.<*> (x Data..: "VisibilityConfig")
       )
 
 instance Prelude.Hashable Rule where
@@ -361,21 +362,21 @@ instance Prelude.NFData Rule where
       `Prelude.seq` Prelude.rnf statement
       `Prelude.seq` Prelude.rnf visibilityConfig
 
-instance Core.ToJSON Rule where
+instance Data.ToJSON Rule where
   toJSON Rule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CaptchaConfig" Core..=) Prelude.<$> captchaConfig,
-            ("OverrideAction" Core..=)
+          [ ("CaptchaConfig" Data..=) Prelude.<$> captchaConfig,
+            ("OverrideAction" Data..=)
               Prelude.<$> overrideAction,
-            ("RuleLabels" Core..=) Prelude.<$> ruleLabels,
-            ("Action" Core..=) Prelude.<$> action,
-            ("ChallengeConfig" Core..=)
+            ("RuleLabels" Data..=) Prelude.<$> ruleLabels,
+            ("Action" Data..=) Prelude.<$> action,
+            ("ChallengeConfig" Data..=)
               Prelude.<$> challengeConfig,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Priority" Core..= priority),
-            Prelude.Just ("Statement" Core..= statement),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Priority" Data..= priority),
+            Prelude.Just ("Statement" Data..= statement),
             Prelude.Just
-              ("VisibilityConfig" Core..= visibilityConfig)
+              ("VisibilityConfig" Data..= visibilityConfig)
           ]
       )

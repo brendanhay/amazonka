@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -228,7 +229,7 @@ instance Core.AWSRequest UpdateRegexPatternSet where
     Response.receiveJSON
       ( \s h x ->
           UpdateRegexPatternSetResponse'
-            Prelude.<$> (x Core..?> "NextLockToken")
+            Prelude.<$> (x Data..?> "NextLockToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -250,41 +251,41 @@ instance Prelude.NFData UpdateRegexPatternSet where
       `Prelude.seq` Prelude.rnf regularExpressionList
       `Prelude.seq` Prelude.rnf lockToken
 
-instance Core.ToHeaders UpdateRegexPatternSet where
+instance Data.ToHeaders UpdateRegexPatternSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20190729.UpdateRegexPatternSet" ::
+              Data.=# ( "AWSWAF_20190729.UpdateRegexPatternSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRegexPatternSet where
+instance Data.ToJSON UpdateRegexPatternSet where
   toJSON UpdateRegexPatternSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Scope" Core..= scope),
-            Prelude.Just ("Id" Core..= id),
+          [ ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Scope" Data..= scope),
+            Prelude.Just ("Id" Data..= id),
             Prelude.Just
               ( "RegularExpressionList"
-                  Core..= regularExpressionList
+                  Data..= regularExpressionList
               ),
-            Prelude.Just ("LockToken" Core..= lockToken)
+            Prelude.Just ("LockToken" Data..= lockToken)
           ]
       )
 
-instance Core.ToPath UpdateRegexPatternSet where
+instance Data.ToPath UpdateRegexPatternSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateRegexPatternSet where
+instance Data.ToQuery UpdateRegexPatternSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRegexPatternSetResponse' smart constructor.

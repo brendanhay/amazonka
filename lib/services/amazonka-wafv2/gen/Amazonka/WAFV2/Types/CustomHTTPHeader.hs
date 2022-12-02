@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.CustomHTTPHeader where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A custom header for custom request and response handling. This is used
@@ -78,13 +79,13 @@ customHTTPHeader_name = Lens.lens (\CustomHTTPHeader' {name} -> name) (\s@Custom
 customHTTPHeader_value :: Lens.Lens' CustomHTTPHeader Prelude.Text
 customHTTPHeader_value = Lens.lens (\CustomHTTPHeader' {value} -> value) (\s@CustomHTTPHeader' {} a -> s {value = a} :: CustomHTTPHeader)
 
-instance Core.FromJSON CustomHTTPHeader where
+instance Data.FromJSON CustomHTTPHeader where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomHTTPHeader"
       ( \x ->
           CustomHTTPHeader'
-            Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable CustomHTTPHeader where
@@ -96,11 +97,11 @@ instance Prelude.NFData CustomHTTPHeader where
   rnf CustomHTTPHeader' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON CustomHTTPHeader where
+instance Data.ToJSON CustomHTTPHeader where
   toJSON CustomHTTPHeader' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

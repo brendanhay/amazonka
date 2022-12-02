@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -131,10 +132,10 @@ instance Core.AWSRequest ListMobileSdkReleases where
     Response.receiveJSON
       ( \s h x ->
           ListMobileSdkReleasesResponse'
-            Prelude.<$> ( x Core..?> "ReleaseSummaries"
+            Prelude.<$> ( x Data..?> "ReleaseSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,35 +151,35 @@ instance Prelude.NFData ListMobileSdkReleases where
       `Prelude.seq` Prelude.rnf nextMarker
       `Prelude.seq` Prelude.rnf platform
 
-instance Core.ToHeaders ListMobileSdkReleases where
+instance Data.ToHeaders ListMobileSdkReleases where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20190729.ListMobileSdkReleases" ::
+              Data.=# ( "AWSWAF_20190729.ListMobileSdkReleases" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListMobileSdkReleases where
+instance Data.ToJSON ListMobileSdkReleases where
   toJSON ListMobileSdkReleases' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("NextMarker" Core..=) Prelude.<$> nextMarker,
-            Prelude.Just ("Platform" Core..= platform)
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextMarker" Data..=) Prelude.<$> nextMarker,
+            Prelude.Just ("Platform" Data..= platform)
           ]
       )
 
-instance Core.ToPath ListMobileSdkReleases where
+instance Data.ToPath ListMobileSdkReleases where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListMobileSdkReleases where
+instance Data.ToQuery ListMobileSdkReleases where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListMobileSdkReleasesResponse' smart constructor.

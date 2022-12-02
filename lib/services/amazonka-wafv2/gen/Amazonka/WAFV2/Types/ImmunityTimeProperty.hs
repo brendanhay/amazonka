@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.ImmunityTimeProperty where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used for CAPTCHA and challenge token settings. Determines how long a
@@ -66,13 +67,13 @@ newImmunityTimeProperty pImmunityTime_ =
 immunityTimeProperty_immunityTime :: Lens.Lens' ImmunityTimeProperty Prelude.Natural
 immunityTimeProperty_immunityTime = Lens.lens (\ImmunityTimeProperty' {immunityTime} -> immunityTime) (\s@ImmunityTimeProperty' {} a -> s {immunityTime = a} :: ImmunityTimeProperty)
 
-instance Core.FromJSON ImmunityTimeProperty where
+instance Data.FromJSON ImmunityTimeProperty where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImmunityTimeProperty"
       ( \x ->
           ImmunityTimeProperty'
-            Prelude.<$> (x Core..: "ImmunityTime")
+            Prelude.<$> (x Data..: "ImmunityTime")
       )
 
 instance Prelude.Hashable ImmunityTimeProperty where
@@ -83,9 +84,9 @@ instance Prelude.NFData ImmunityTimeProperty where
   rnf ImmunityTimeProperty' {..} =
     Prelude.rnf immunityTime
 
-instance Core.ToJSON ImmunityTimeProperty where
+instance Data.ToJSON ImmunityTimeProperty where
   toJSON ImmunityTimeProperty' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ImmunityTime" Core..= immunityTime)]
+          [Prelude.Just ("ImmunityTime" Data..= immunityTime)]
       )

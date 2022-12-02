@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -221,36 +222,36 @@ instance Prelude.NFData DeleteWebACL where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf lockToken
 
-instance Core.ToHeaders DeleteWebACL where
+instance Data.ToHeaders DeleteWebACL where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20190729.DeleteWebACL" ::
+              Data.=# ( "AWSWAF_20190729.DeleteWebACL" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteWebACL where
+instance Data.ToJSON DeleteWebACL where
   toJSON DeleteWebACL' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Scope" Core..= scope),
-            Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("LockToken" Core..= lockToken)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Scope" Data..= scope),
+            Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("LockToken" Data..= lockToken)
           ]
       )
 
-instance Core.ToPath DeleteWebACL where
+instance Data.ToPath DeleteWebACL where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteWebACL where
+instance Data.ToQuery DeleteWebACL where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteWebACLResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.SingleHeader where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Inspect one of the headers in the web request, identified by name, for
@@ -60,11 +61,11 @@ newSingleHeader pName_ = SingleHeader' {name = pName_}
 singleHeader_name :: Lens.Lens' SingleHeader Prelude.Text
 singleHeader_name = Lens.lens (\SingleHeader' {name} -> name) (\s@SingleHeader' {} a -> s {name = a} :: SingleHeader)
 
-instance Core.FromJSON SingleHeader where
+instance Data.FromJSON SingleHeader where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SingleHeader"
-      (\x -> SingleHeader' Prelude.<$> (x Core..: "Name"))
+      (\x -> SingleHeader' Prelude.<$> (x Data..: "Name"))
 
 instance Prelude.Hashable SingleHeader where
   hashWithSalt _salt SingleHeader' {..} =
@@ -73,9 +74,9 @@ instance Prelude.Hashable SingleHeader where
 instance Prelude.NFData SingleHeader where
   rnf SingleHeader' {..} = Prelude.rnf name
 
-instance Core.ToJSON SingleHeader where
+instance Data.ToJSON SingleHeader where
   toJSON SingleHeader' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )

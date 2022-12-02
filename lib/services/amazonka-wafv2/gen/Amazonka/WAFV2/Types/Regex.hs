@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.Regex where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A single regular expression. This is used in a RegexPatternSet.
@@ -49,12 +50,12 @@ newRegex = Regex' {regexString = Prelude.Nothing}
 regex_regexString :: Lens.Lens' Regex (Prelude.Maybe Prelude.Text)
 regex_regexString = Lens.lens (\Regex' {regexString} -> regexString) (\s@Regex' {} a -> s {regexString = a} :: Regex)
 
-instance Core.FromJSON Regex where
+instance Data.FromJSON Regex where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Regex"
       ( \x ->
-          Regex' Prelude.<$> (x Core..:? "RegexString")
+          Regex' Prelude.<$> (x Data..:? "RegexString")
       )
 
 instance Prelude.Hashable Regex where
@@ -64,9 +65,9 @@ instance Prelude.Hashable Regex where
 instance Prelude.NFData Regex where
   rnf Regex' {..} = Prelude.rnf regexString
 
-instance Core.ToJSON Regex where
+instance Data.ToJSON Regex where
   toJSON Regex' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("RegexString" Core..=) Prelude.<$> regexString]
+          [("RegexString" Data..=) Prelude.<$> regexString]
       )

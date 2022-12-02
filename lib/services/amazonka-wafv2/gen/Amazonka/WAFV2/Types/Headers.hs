@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.Headers where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.HeaderMatchPattern
 import Amazonka.WAFV2.Types.MapMatchScope
@@ -162,15 +163,15 @@ headers_matchScope = Lens.lens (\Headers' {matchScope} -> matchScope) (\s@Header
 headers_oversizeHandling :: Lens.Lens' Headers OversizeHandling
 headers_oversizeHandling = Lens.lens (\Headers' {oversizeHandling} -> oversizeHandling) (\s@Headers' {} a -> s {oversizeHandling = a} :: Headers)
 
-instance Core.FromJSON Headers where
+instance Data.FromJSON Headers where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Headers"
       ( \x ->
           Headers'
-            Prelude.<$> (x Core..: "MatchPattern")
-            Prelude.<*> (x Core..: "MatchScope")
-            Prelude.<*> (x Core..: "OversizeHandling")
+            Prelude.<$> (x Data..: "MatchPattern")
+            Prelude.<*> (x Data..: "MatchScope")
+            Prelude.<*> (x Data..: "OversizeHandling")
       )
 
 instance Prelude.Hashable Headers where
@@ -185,13 +186,13 @@ instance Prelude.NFData Headers where
       `Prelude.seq` Prelude.rnf matchScope
       `Prelude.seq` Prelude.rnf oversizeHandling
 
-instance Core.ToJSON Headers where
+instance Data.ToJSON Headers where
   toJSON Headers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("MatchPattern" Core..= matchPattern),
-            Prelude.Just ("MatchScope" Core..= matchScope),
+          [ Prelude.Just ("MatchPattern" Data..= matchPattern),
+            Prelude.Just ("MatchScope" Data..= matchScope),
             Prelude.Just
-              ("OversizeHandling" Core..= oversizeHandling)
+              ("OversizeHandling" Data..= oversizeHandling)
           ]
       )

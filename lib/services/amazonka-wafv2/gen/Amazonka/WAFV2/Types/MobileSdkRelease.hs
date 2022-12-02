@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.MobileSdkRelease where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.Tag
 
@@ -42,7 +43,7 @@ data MobileSdkRelease = MobileSdkRelease'
     -- | Notes describing the release.
     releaseNotes :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of the release.
-    timestamp :: Prelude.Maybe Core.POSIX
+    timestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,18 +86,18 @@ mobileSdkRelease_releaseNotes = Lens.lens (\MobileSdkRelease' {releaseNotes} -> 
 
 -- | The timestamp of the release.
 mobileSdkRelease_timestamp :: Lens.Lens' MobileSdkRelease (Prelude.Maybe Prelude.UTCTime)
-mobileSdkRelease_timestamp = Lens.lens (\MobileSdkRelease' {timestamp} -> timestamp) (\s@MobileSdkRelease' {} a -> s {timestamp = a} :: MobileSdkRelease) Prelude.. Lens.mapping Core._Time
+mobileSdkRelease_timestamp = Lens.lens (\MobileSdkRelease' {timestamp} -> timestamp) (\s@MobileSdkRelease' {} a -> s {timestamp = a} :: MobileSdkRelease) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON MobileSdkRelease where
+instance Data.FromJSON MobileSdkRelease where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MobileSdkRelease"
       ( \x ->
           MobileSdkRelease'
-            Prelude.<$> (x Core..:? "ReleaseVersion")
-            Prelude.<*> (x Core..:? "Tags")
-            Prelude.<*> (x Core..:? "ReleaseNotes")
-            Prelude.<*> (x Core..:? "Timestamp")
+            Prelude.<$> (x Data..:? "ReleaseVersion")
+            Prelude.<*> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "ReleaseNotes")
+            Prelude.<*> (x Data..:? "Timestamp")
       )
 
 instance Prelude.Hashable MobileSdkRelease where

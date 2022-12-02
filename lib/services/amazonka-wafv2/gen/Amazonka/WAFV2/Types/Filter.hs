@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.Filter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.Condition
 import Amazonka.WAFV2.Types.FilterBehavior
@@ -88,15 +89,15 @@ filter_requirement = Lens.lens (\Filter' {requirement} -> requirement) (\s@Filte
 filter_conditions :: Lens.Lens' Filter (Prelude.NonEmpty Condition)
 filter_conditions = Lens.lens (\Filter' {conditions} -> conditions) (\s@Filter' {} a -> s {conditions = a} :: Filter) Prelude.. Lens.coerced
 
-instance Core.FromJSON Filter where
+instance Data.FromJSON Filter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Filter"
       ( \x ->
           Filter'
-            Prelude.<$> (x Core..: "Behavior")
-            Prelude.<*> (x Core..: "Requirement")
-            Prelude.<*> (x Core..: "Conditions")
+            Prelude.<$> (x Data..: "Behavior")
+            Prelude.<*> (x Data..: "Requirement")
+            Prelude.<*> (x Data..: "Conditions")
       )
 
 instance Prelude.Hashable Filter where
@@ -111,12 +112,12 @@ instance Prelude.NFData Filter where
       `Prelude.seq` Prelude.rnf requirement
       `Prelude.seq` Prelude.rnf conditions
 
-instance Core.ToJSON Filter where
+instance Data.ToJSON Filter where
   toJSON Filter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Behavior" Core..= behavior),
-            Prelude.Just ("Requirement" Core..= requirement),
-            Prelude.Just ("Conditions" Core..= conditions)
+          [ Prelude.Just ("Behavior" Data..= behavior),
+            Prelude.Just ("Requirement" Data..= requirement),
+            Prelude.Just ("Conditions" Data..= conditions)
           ]
       )

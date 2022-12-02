@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.OrStatement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import {-# SOURCE #-} Amazonka.WAFV2.Types.Statement
 
@@ -55,13 +56,13 @@ newOrStatement =
 orStatement_statements :: Lens.Lens' OrStatement [Statement]
 orStatement_statements = Lens.lens (\OrStatement' {statements} -> statements) (\s@OrStatement' {} a -> s {statements = a} :: OrStatement) Prelude.. Lens.coerced
 
-instance Core.FromJSON OrStatement where
+instance Data.FromJSON OrStatement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OrStatement"
       ( \x ->
           OrStatement'
-            Prelude.<$> (x Core..:? "Statements" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Statements" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable OrStatement where
@@ -71,9 +72,9 @@ instance Prelude.Hashable OrStatement where
 instance Prelude.NFData OrStatement where
   rnf OrStatement' {..} = Prelude.rnf statements
 
-instance Core.ToJSON OrStatement where
+instance Data.ToJSON OrStatement where
   toJSON OrStatement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Statements" Core..= statements)]
+          [Prelude.Just ("Statements" Data..= statements)]
       )

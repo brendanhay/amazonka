@@ -68,6 +68,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -246,7 +247,7 @@ instance Core.AWSRequest PutManagedRuleSetVersions where
     Response.receiveJSON
       ( \s h x ->
           PutManagedRuleSetVersionsResponse'
-            Prelude.<$> (x Core..?> "NextLockToken")
+            Prelude.<$> (x Data..?> "NextLockToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -268,40 +269,40 @@ instance Prelude.NFData PutManagedRuleSetVersions where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf lockToken
 
-instance Core.ToHeaders PutManagedRuleSetVersions where
+instance Data.ToHeaders PutManagedRuleSetVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20190729.PutManagedRuleSetVersions" ::
+              Data.=# ( "AWSWAF_20190729.PutManagedRuleSetVersions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutManagedRuleSetVersions where
+instance Data.ToJSON PutManagedRuleSetVersions where
   toJSON PutManagedRuleSetVersions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RecommendedVersion" Core..=)
+          [ ("RecommendedVersion" Data..=)
               Prelude.<$> recommendedVersion,
-            ("VersionsToPublish" Core..=)
+            ("VersionsToPublish" Data..=)
               Prelude.<$> versionsToPublish,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Scope" Core..= scope),
-            Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("LockToken" Core..= lockToken)
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Scope" Data..= scope),
+            Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("LockToken" Data..= lockToken)
           ]
       )
 
-instance Core.ToPath PutManagedRuleSetVersions where
+instance Data.ToPath PutManagedRuleSetVersions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutManagedRuleSetVersions where
+instance Data.ToQuery PutManagedRuleSetVersions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutManagedRuleSetVersionsResponse' smart constructor.

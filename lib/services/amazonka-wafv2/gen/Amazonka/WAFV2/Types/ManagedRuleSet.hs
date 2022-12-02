@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.ManagedRuleSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.ManagedRuleSetVersion
 
@@ -188,21 +189,21 @@ managedRuleSet_id = Lens.lens (\ManagedRuleSet' {id} -> id) (\s@ManagedRuleSet' 
 managedRuleSet_arn :: Lens.Lens' ManagedRuleSet Prelude.Text
 managedRuleSet_arn = Lens.lens (\ManagedRuleSet' {arn} -> arn) (\s@ManagedRuleSet' {} a -> s {arn = a} :: ManagedRuleSet)
 
-instance Core.FromJSON ManagedRuleSet where
+instance Data.FromJSON ManagedRuleSet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ManagedRuleSet"
       ( \x ->
           ManagedRuleSet'
-            Prelude.<$> (x Core..:? "RecommendedVersion")
-            Prelude.<*> ( x Core..:? "PublishedVersions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "RecommendedVersion")
+            Prelude.<*> ( x Data..:? "PublishedVersions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LabelNamespace")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "ARN")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LabelNamespace")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "ARN")
       )
 
 instance Prelude.Hashable ManagedRuleSet where

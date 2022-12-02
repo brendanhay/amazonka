@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -166,8 +167,8 @@ instance Core.AWSRequest ListManagedRuleSets where
     Response.receiveJSON
       ( \s h x ->
           ListManagedRuleSetsResponse'
-            Prelude.<$> (x Core..?> "NextMarker")
-            Prelude.<*> ( x Core..?> "ManagedRuleSets"
+            Prelude.<$> (x Data..?> "NextMarker")
+            Prelude.<*> ( x Data..?> "ManagedRuleSets"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -185,35 +186,35 @@ instance Prelude.NFData ListManagedRuleSets where
       `Prelude.seq` Prelude.rnf nextMarker
       `Prelude.seq` Prelude.rnf scope
 
-instance Core.ToHeaders ListManagedRuleSets where
+instance Data.ToHeaders ListManagedRuleSets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20190729.ListManagedRuleSets" ::
+              Data.=# ( "AWSWAF_20190729.ListManagedRuleSets" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListManagedRuleSets where
+instance Data.ToJSON ListManagedRuleSets where
   toJSON ListManagedRuleSets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("NextMarker" Core..=) Prelude.<$> nextMarker,
-            Prelude.Just ("Scope" Core..= scope)
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextMarker" Data..=) Prelude.<$> nextMarker,
+            Prelude.Just ("Scope" Data..= scope)
           ]
       )
 
-instance Core.ToPath ListManagedRuleSets where
+instance Data.ToPath ListManagedRuleSets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListManagedRuleSets where
+instance Data.ToQuery ListManagedRuleSets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListManagedRuleSetsResponse' smart constructor.

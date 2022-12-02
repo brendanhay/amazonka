@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.ManagedRuleSetSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | High-level information for a managed rule set.
@@ -187,18 +188,18 @@ managedRuleSetSummary_labelNamespace = Lens.lens (\ManagedRuleSetSummary' {label
 managedRuleSetSummary_lockToken :: Lens.Lens' ManagedRuleSetSummary (Prelude.Maybe Prelude.Text)
 managedRuleSetSummary_lockToken = Lens.lens (\ManagedRuleSetSummary' {lockToken} -> lockToken) (\s@ManagedRuleSetSummary' {} a -> s {lockToken = a} :: ManagedRuleSetSummary)
 
-instance Core.FromJSON ManagedRuleSetSummary where
+instance Data.FromJSON ManagedRuleSetSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ManagedRuleSetSummary"
       ( \x ->
           ManagedRuleSetSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ARN")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LabelNamespace")
-            Prelude.<*> (x Core..:? "LockToken")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ARN")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LabelNamespace")
+            Prelude.<*> (x Data..:? "LockToken")
       )
 
 instance Prelude.Hashable ManagedRuleSetSummary where

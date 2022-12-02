@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.CustomResponseBody where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.ResponseContentType
 
@@ -97,14 +98,14 @@ customResponseBody_contentType = Lens.lens (\CustomResponseBody' {contentType} -
 customResponseBody_content :: Lens.Lens' CustomResponseBody Prelude.Text
 customResponseBody_content = Lens.lens (\CustomResponseBody' {content} -> content) (\s@CustomResponseBody' {} a -> s {content = a} :: CustomResponseBody)
 
-instance Core.FromJSON CustomResponseBody where
+instance Data.FromJSON CustomResponseBody where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomResponseBody"
       ( \x ->
           CustomResponseBody'
-            Prelude.<$> (x Core..: "ContentType")
-            Prelude.<*> (x Core..: "Content")
+            Prelude.<$> (x Data..: "ContentType")
+            Prelude.<*> (x Data..: "Content")
       )
 
 instance Prelude.Hashable CustomResponseBody where
@@ -117,11 +118,11 @@ instance Prelude.NFData CustomResponseBody where
     Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf content
 
-instance Core.ToJSON CustomResponseBody where
+instance Data.ToJSON CustomResponseBody where
   toJSON CustomResponseBody' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ContentType" Core..= contentType),
-            Prelude.Just ("Content" Core..= content)
+          [ Prelude.Just ("ContentType" Data..= contentType),
+            Prelude.Just ("Content" Data..= content)
           ]
       )

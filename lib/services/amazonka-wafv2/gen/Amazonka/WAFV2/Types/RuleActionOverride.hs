@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.RuleActionOverride where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.RuleAction
 
@@ -77,14 +78,14 @@ ruleActionOverride_name = Lens.lens (\RuleActionOverride' {name} -> name) (\s@Ru
 ruleActionOverride_actionToUse :: Lens.Lens' RuleActionOverride RuleAction
 ruleActionOverride_actionToUse = Lens.lens (\RuleActionOverride' {actionToUse} -> actionToUse) (\s@RuleActionOverride' {} a -> s {actionToUse = a} :: RuleActionOverride)
 
-instance Core.FromJSON RuleActionOverride where
+instance Data.FromJSON RuleActionOverride where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleActionOverride"
       ( \x ->
           RuleActionOverride'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "ActionToUse")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "ActionToUse")
       )
 
 instance Prelude.Hashable RuleActionOverride where
@@ -97,11 +98,11 @@ instance Prelude.NFData RuleActionOverride where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf actionToUse
 
-instance Core.ToJSON RuleActionOverride where
+instance Data.ToJSON RuleActionOverride where
   toJSON RuleActionOverride' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("ActionToUse" Core..= actionToUse)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("ActionToUse" Data..= actionToUse)
           ]
       )

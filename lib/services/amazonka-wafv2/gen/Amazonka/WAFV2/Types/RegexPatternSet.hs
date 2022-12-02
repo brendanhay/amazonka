@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.RegexPatternSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.Regex
 
@@ -102,18 +103,18 @@ regexPatternSet_description = Lens.lens (\RegexPatternSet' {description} -> desc
 regexPatternSet_regularExpressionList :: Lens.Lens' RegexPatternSet (Prelude.Maybe [Regex])
 regexPatternSet_regularExpressionList = Lens.lens (\RegexPatternSet' {regularExpressionList} -> regularExpressionList) (\s@RegexPatternSet' {} a -> s {regularExpressionList = a} :: RegexPatternSet) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON RegexPatternSet where
+instance Data.FromJSON RegexPatternSet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RegexPatternSet"
       ( \x ->
           RegexPatternSet'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ARN")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> ( x Core..:? "RegularExpressionList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ARN")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> ( x Data..:? "RegularExpressionList"
+                            Data..!= Prelude.mempty
                         )
       )
 

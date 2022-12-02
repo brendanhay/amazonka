@@ -11,7 +11,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.WAFV2.Types.OrStatement where
 
-import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 data OrStatement
@@ -24,9 +24,9 @@ instance Prelude.Show OrStatement
 
 instance Prelude.Generic OrStatement
 
-instance Core.ToJSON OrStatement
+instance Data.ToJSON OrStatement
 
-instance Core.FromJSON OrStatement
+instance Data.FromJSON OrStatement
 
 instance Prelude.NFData OrStatement
 

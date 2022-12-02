@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.LabelNameCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A single label name condition for a Condition in a logging filter.
@@ -64,13 +65,13 @@ newLabelNameCondition pLabelName_ =
 labelNameCondition_labelName :: Lens.Lens' LabelNameCondition Prelude.Text
 labelNameCondition_labelName = Lens.lens (\LabelNameCondition' {labelName} -> labelName) (\s@LabelNameCondition' {} a -> s {labelName = a} :: LabelNameCondition)
 
-instance Core.FromJSON LabelNameCondition where
+instance Data.FromJSON LabelNameCondition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LabelNameCondition"
       ( \x ->
           LabelNameCondition'
-            Prelude.<$> (x Core..: "LabelName")
+            Prelude.<$> (x Data..: "LabelName")
       )
 
 instance Prelude.Hashable LabelNameCondition where
@@ -80,9 +81,9 @@ instance Prelude.Hashable LabelNameCondition where
 instance Prelude.NFData LabelNameCondition where
   rnf LabelNameCondition' {..} = Prelude.rnf labelName
 
-instance Core.ToJSON LabelNameCondition where
+instance Data.ToJSON LabelNameCondition where
   toJSON LabelNameCondition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("LabelName" Core..= labelName)]
+          [Prelude.Just ("LabelName" Data..= labelName)]
       )

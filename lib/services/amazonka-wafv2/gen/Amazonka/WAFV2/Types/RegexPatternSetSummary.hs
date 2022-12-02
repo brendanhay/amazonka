@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.RegexPatternSetSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | High-level information about a RegexPatternSet, returned by operations
@@ -122,17 +123,17 @@ regexPatternSetSummary_description = Lens.lens (\RegexPatternSetSummary' {descri
 regexPatternSetSummary_lockToken :: Lens.Lens' RegexPatternSetSummary (Prelude.Maybe Prelude.Text)
 regexPatternSetSummary_lockToken = Lens.lens (\RegexPatternSetSummary' {lockToken} -> lockToken) (\s@RegexPatternSetSummary' {} a -> s {lockToken = a} :: RegexPatternSetSummary)
 
-instance Core.FromJSON RegexPatternSetSummary where
+instance Data.FromJSON RegexPatternSetSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RegexPatternSetSummary"
       ( \x ->
           RegexPatternSetSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ARN")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LockToken")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ARN")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LockToken")
       )
 
 instance Prelude.Hashable RegexPatternSetSummary where

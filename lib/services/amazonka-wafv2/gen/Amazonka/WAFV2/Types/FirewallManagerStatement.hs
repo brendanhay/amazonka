@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.FirewallManagerStatement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.ManagedRuleGroupStatement
 import Amazonka.WAFV2.Types.RuleGroupReferenceStatement
@@ -122,14 +123,14 @@ firewallManagerStatement_ruleGroupReferenceStatement = Lens.lens (\FirewallManag
 firewallManagerStatement_managedRuleGroupStatement :: Lens.Lens' FirewallManagerStatement (Prelude.Maybe ManagedRuleGroupStatement)
 firewallManagerStatement_managedRuleGroupStatement = Lens.lens (\FirewallManagerStatement' {managedRuleGroupStatement} -> managedRuleGroupStatement) (\s@FirewallManagerStatement' {} a -> s {managedRuleGroupStatement = a} :: FirewallManagerStatement)
 
-instance Core.FromJSON FirewallManagerStatement where
+instance Data.FromJSON FirewallManagerStatement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FirewallManagerStatement"
       ( \x ->
           FirewallManagerStatement'
-            Prelude.<$> (x Core..:? "RuleGroupReferenceStatement")
-            Prelude.<*> (x Core..:? "ManagedRuleGroupStatement")
+            Prelude.<$> (x Data..:? "RuleGroupReferenceStatement")
+            Prelude.<*> (x Data..:? "ManagedRuleGroupStatement")
       )
 
 instance Prelude.Hashable FirewallManagerStatement where

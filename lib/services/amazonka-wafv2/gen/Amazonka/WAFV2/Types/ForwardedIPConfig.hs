@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.ForwardedIPConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.FallbackBehavior
 
@@ -126,14 +127,14 @@ forwardedIPConfig_headerName = Lens.lens (\ForwardedIPConfig' {headerName} -> he
 forwardedIPConfig_fallbackBehavior :: Lens.Lens' ForwardedIPConfig FallbackBehavior
 forwardedIPConfig_fallbackBehavior = Lens.lens (\ForwardedIPConfig' {fallbackBehavior} -> fallbackBehavior) (\s@ForwardedIPConfig' {} a -> s {fallbackBehavior = a} :: ForwardedIPConfig)
 
-instance Core.FromJSON ForwardedIPConfig where
+instance Data.FromJSON ForwardedIPConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ForwardedIPConfig"
       ( \x ->
           ForwardedIPConfig'
-            Prelude.<$> (x Core..: "HeaderName")
-            Prelude.<*> (x Core..: "FallbackBehavior")
+            Prelude.<$> (x Data..: "HeaderName")
+            Prelude.<*> (x Data..: "FallbackBehavior")
       )
 
 instance Prelude.Hashable ForwardedIPConfig where
@@ -146,12 +147,12 @@ instance Prelude.NFData ForwardedIPConfig where
     Prelude.rnf headerName
       `Prelude.seq` Prelude.rnf fallbackBehavior
 
-instance Core.ToJSON ForwardedIPConfig where
+instance Data.ToJSON ForwardedIPConfig where
   toJSON ForwardedIPConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("HeaderName" Core..= headerName),
+          [ Prelude.Just ("HeaderName" Data..= headerName),
             Prelude.Just
-              ("FallbackBehavior" Core..= fallbackBehavior)
+              ("FallbackBehavior" Data..= fallbackBehavior)
           ]
       )

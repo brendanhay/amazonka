@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.JsonBody where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.BodyParsingFallbackBehavior
 import Amazonka.WAFV2.Types.JsonMatchPattern
@@ -247,16 +248,16 @@ jsonBody_matchPattern = Lens.lens (\JsonBody' {matchPattern} -> matchPattern) (\
 jsonBody_matchScope :: Lens.Lens' JsonBody JsonMatchScope
 jsonBody_matchScope = Lens.lens (\JsonBody' {matchScope} -> matchScope) (\s@JsonBody' {} a -> s {matchScope = a} :: JsonBody)
 
-instance Core.FromJSON JsonBody where
+instance Data.FromJSON JsonBody where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JsonBody"
       ( \x ->
           JsonBody'
-            Prelude.<$> (x Core..:? "InvalidFallbackBehavior")
-            Prelude.<*> (x Core..:? "OversizeHandling")
-            Prelude.<*> (x Core..: "MatchPattern")
-            Prelude.<*> (x Core..: "MatchScope")
+            Prelude.<$> (x Data..:? "InvalidFallbackBehavior")
+            Prelude.<*> (x Data..:? "OversizeHandling")
+            Prelude.<*> (x Data..: "MatchPattern")
+            Prelude.<*> (x Data..: "MatchScope")
       )
 
 instance Prelude.Hashable JsonBody where
@@ -274,15 +275,15 @@ instance Prelude.NFData JsonBody where
       `Prelude.seq` Prelude.rnf matchPattern
       `Prelude.seq` Prelude.rnf matchScope
 
-instance Core.ToJSON JsonBody where
+instance Data.ToJSON JsonBody where
   toJSON JsonBody' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InvalidFallbackBehavior" Core..=)
+          [ ("InvalidFallbackBehavior" Data..=)
               Prelude.<$> invalidFallbackBehavior,
-            ("OversizeHandling" Core..=)
+            ("OversizeHandling" Data..=)
               Prelude.<$> oversizeHandling,
-            Prelude.Just ("MatchPattern" Core..= matchPattern),
-            Prelude.Just ("MatchScope" Core..= matchScope)
+            Prelude.Just ("MatchPattern" Data..= matchPattern),
+            Prelude.Just ("MatchScope" Data..= matchScope)
           ]
       )

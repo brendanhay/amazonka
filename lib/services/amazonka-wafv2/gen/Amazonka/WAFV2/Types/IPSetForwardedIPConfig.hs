@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.IPSetForwardedIPConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.FallbackBehavior
 import Amazonka.WAFV2.Types.ForwardedIPPosition
@@ -183,15 +184,15 @@ iPSetForwardedIPConfig_fallbackBehavior = Lens.lens (\IPSetForwardedIPConfig' {f
 iPSetForwardedIPConfig_position :: Lens.Lens' IPSetForwardedIPConfig ForwardedIPPosition
 iPSetForwardedIPConfig_position = Lens.lens (\IPSetForwardedIPConfig' {position} -> position) (\s@IPSetForwardedIPConfig' {} a -> s {position = a} :: IPSetForwardedIPConfig)
 
-instance Core.FromJSON IPSetForwardedIPConfig where
+instance Data.FromJSON IPSetForwardedIPConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IPSetForwardedIPConfig"
       ( \x ->
           IPSetForwardedIPConfig'
-            Prelude.<$> (x Core..: "HeaderName")
-            Prelude.<*> (x Core..: "FallbackBehavior")
-            Prelude.<*> (x Core..: "Position")
+            Prelude.<$> (x Data..: "HeaderName")
+            Prelude.<*> (x Data..: "FallbackBehavior")
+            Prelude.<*> (x Data..: "Position")
       )
 
 instance Prelude.Hashable IPSetForwardedIPConfig where
@@ -206,13 +207,13 @@ instance Prelude.NFData IPSetForwardedIPConfig where
       `Prelude.seq` Prelude.rnf fallbackBehavior
       `Prelude.seq` Prelude.rnf position
 
-instance Core.ToJSON IPSetForwardedIPConfig where
+instance Data.ToJSON IPSetForwardedIPConfig where
   toJSON IPSetForwardedIPConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("HeaderName" Core..= headerName),
+          [ Prelude.Just ("HeaderName" Data..= headerName),
             Prelude.Just
-              ("FallbackBehavior" Core..= fallbackBehavior),
-            Prelude.Just ("Position" Core..= position)
+              ("FallbackBehavior" Data..= fallbackBehavior),
+            Prelude.Just ("Position" Data..= position)
           ]
       )

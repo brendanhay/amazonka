@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.ChallengeConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.ImmunityTimeProperty
 
@@ -58,13 +59,13 @@ newChallengeConfig =
 challengeConfig_immunityTimeProperty :: Lens.Lens' ChallengeConfig (Prelude.Maybe ImmunityTimeProperty)
 challengeConfig_immunityTimeProperty = Lens.lens (\ChallengeConfig' {immunityTimeProperty} -> immunityTimeProperty) (\s@ChallengeConfig' {} a -> s {immunityTimeProperty = a} :: ChallengeConfig)
 
-instance Core.FromJSON ChallengeConfig where
+instance Data.FromJSON ChallengeConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChallengeConfig"
       ( \x ->
           ChallengeConfig'
-            Prelude.<$> (x Core..:? "ImmunityTimeProperty")
+            Prelude.<$> (x Data..:? "ImmunityTimeProperty")
       )
 
 instance Prelude.Hashable ChallengeConfig where
@@ -75,11 +76,11 @@ instance Prelude.NFData ChallengeConfig where
   rnf ChallengeConfig' {..} =
     Prelude.rnf immunityTimeProperty
 
-instance Core.ToJSON ChallengeConfig where
+instance Data.ToJSON ChallengeConfig where
   toJSON ChallengeConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ImmunityTimeProperty" Core..=)
+          [ ("ImmunityTimeProperty" Data..=)
               Prelude.<$> immunityTimeProperty
           ]
       )

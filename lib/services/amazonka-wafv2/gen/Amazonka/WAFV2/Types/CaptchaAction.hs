@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.CaptchaAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.CustomRequestHandling
 
@@ -99,13 +100,13 @@ newCaptchaAction =
 captchaAction_customRequestHandling :: Lens.Lens' CaptchaAction (Prelude.Maybe CustomRequestHandling)
 captchaAction_customRequestHandling = Lens.lens (\CaptchaAction' {customRequestHandling} -> customRequestHandling) (\s@CaptchaAction' {} a -> s {customRequestHandling = a} :: CaptchaAction)
 
-instance Core.FromJSON CaptchaAction where
+instance Data.FromJSON CaptchaAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CaptchaAction"
       ( \x ->
           CaptchaAction'
-            Prelude.<$> (x Core..:? "CustomRequestHandling")
+            Prelude.<$> (x Data..:? "CustomRequestHandling")
       )
 
 instance Prelude.Hashable CaptchaAction where
@@ -116,11 +117,11 @@ instance Prelude.NFData CaptchaAction where
   rnf CaptchaAction' {..} =
     Prelude.rnf customRequestHandling
 
-instance Core.ToJSON CaptchaAction where
+instance Data.ToJSON CaptchaAction where
   toJSON CaptchaAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CustomRequestHandling" Core..=)
+          [ ("CustomRequestHandling" Data..=)
               Prelude.<$> customRequestHandling
           ]
       )

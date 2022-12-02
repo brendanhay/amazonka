@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -220,11 +221,11 @@ instance Core.AWSRequest GetSampledRequests where
     Response.receiveJSON
       ( \s h x ->
           GetSampledRequestsResponse'
-            Prelude.<$> ( x Core..?> "SampledRequests"
+            Prelude.<$> ( x Data..?> "SampledRequests"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "PopulationSize")
-            Prelude.<*> (x Core..?> "TimeWindow")
+            Prelude.<*> (x Data..?> "PopulationSize")
+            Prelude.<*> (x Data..?> "TimeWindow")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -244,38 +245,38 @@ instance Prelude.NFData GetSampledRequests where
       `Prelude.seq` Prelude.rnf timeWindow
       `Prelude.seq` Prelude.rnf maxItems
 
-instance Core.ToHeaders GetSampledRequests where
+instance Data.ToHeaders GetSampledRequests where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20190729.GetSampledRequests" ::
+              Data.=# ( "AWSWAF_20190729.GetSampledRequests" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetSampledRequests where
+instance Data.ToJSON GetSampledRequests where
   toJSON GetSampledRequests' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("WebAclArn" Core..= webAclArn),
+          [ Prelude.Just ("WebAclArn" Data..= webAclArn),
             Prelude.Just
-              ("RuleMetricName" Core..= ruleMetricName),
-            Prelude.Just ("Scope" Core..= scope),
-            Prelude.Just ("TimeWindow" Core..= timeWindow),
-            Prelude.Just ("MaxItems" Core..= maxItems)
+              ("RuleMetricName" Data..= ruleMetricName),
+            Prelude.Just ("Scope" Data..= scope),
+            Prelude.Just ("TimeWindow" Data..= timeWindow),
+            Prelude.Just ("MaxItems" Data..= maxItems)
           ]
       )
 
-instance Core.ToPath GetSampledRequests where
+instance Data.ToPath GetSampledRequests where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetSampledRequests where
+instance Data.ToQuery GetSampledRequests where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSampledRequestsResponse' smart constructor.

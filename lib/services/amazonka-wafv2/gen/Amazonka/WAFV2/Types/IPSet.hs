@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.IPSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.IPAddressVersion
 
@@ -228,18 +229,18 @@ iPSet_iPAddressVersion = Lens.lens (\IPSet' {iPAddressVersion} -> iPAddressVersi
 iPSet_addresses :: Lens.Lens' IPSet [Prelude.Text]
 iPSet_addresses = Lens.lens (\IPSet' {addresses} -> addresses) (\s@IPSet' {} a -> s {addresses = a} :: IPSet) Prelude.. Lens.coerced
 
-instance Core.FromJSON IPSet where
+instance Data.FromJSON IPSet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IPSet"
       ( \x ->
           IPSet'
-            Prelude.<$> (x Core..:? "Description")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "ARN")
-            Prelude.<*> (x Core..: "IPAddressVersion")
-            Prelude.<*> (x Core..:? "Addresses" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "ARN")
+            Prelude.<*> (x Data..: "IPAddressVersion")
+            Prelude.<*> (x Data..:? "Addresses" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable IPSet where

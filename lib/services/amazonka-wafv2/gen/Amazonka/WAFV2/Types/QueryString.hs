@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.QueryString where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Inspect the query string of the web request. This is the part of a URL
@@ -45,9 +46,9 @@ newQueryString ::
   QueryString
 newQueryString = QueryString'
 
-instance Core.FromJSON QueryString where
+instance Data.FromJSON QueryString where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueryString"
       (\x -> Prelude.pure QueryString')
 
@@ -58,5 +59,5 @@ instance Prelude.Hashable QueryString where
 instance Prelude.NFData QueryString where
   rnf _ = ()
 
-instance Core.ToJSON QueryString where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON QueryString where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

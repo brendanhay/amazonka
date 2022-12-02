@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.SizeConstraintStatement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.ComparisonOperator
 import Amazonka.WAFV2.Types.FieldToMatch
@@ -126,16 +127,16 @@ sizeConstraintStatement_size = Lens.lens (\SizeConstraintStatement' {size} -> si
 sizeConstraintStatement_textTransformations :: Lens.Lens' SizeConstraintStatement (Prelude.NonEmpty TextTransformation)
 sizeConstraintStatement_textTransformations = Lens.lens (\SizeConstraintStatement' {textTransformations} -> textTransformations) (\s@SizeConstraintStatement' {} a -> s {textTransformations = a} :: SizeConstraintStatement) Prelude.. Lens.coerced
 
-instance Core.FromJSON SizeConstraintStatement where
+instance Data.FromJSON SizeConstraintStatement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SizeConstraintStatement"
       ( \x ->
           SizeConstraintStatement'
-            Prelude.<$> (x Core..: "FieldToMatch")
-            Prelude.<*> (x Core..: "ComparisonOperator")
-            Prelude.<*> (x Core..: "Size")
-            Prelude.<*> (x Core..: "TextTransformations")
+            Prelude.<$> (x Data..: "FieldToMatch")
+            Prelude.<*> (x Data..: "ComparisonOperator")
+            Prelude.<*> (x Data..: "Size")
+            Prelude.<*> (x Data..: "TextTransformations")
       )
 
 instance Prelude.Hashable SizeConstraintStatement where
@@ -152,15 +153,15 @@ instance Prelude.NFData SizeConstraintStatement where
       `Prelude.seq` Prelude.rnf size
       `Prelude.seq` Prelude.rnf textTransformations
 
-instance Core.ToJSON SizeConstraintStatement where
+instance Data.ToJSON SizeConstraintStatement where
   toJSON SizeConstraintStatement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("FieldToMatch" Core..= fieldToMatch),
+          [ Prelude.Just ("FieldToMatch" Data..= fieldToMatch),
             Prelude.Just
-              ("ComparisonOperator" Core..= comparisonOperator),
-            Prelude.Just ("Size" Core..= size),
+              ("ComparisonOperator" Data..= comparisonOperator),
+            Prelude.Just ("Size" Data..= size),
             Prelude.Just
-              ("TextTransformations" Core..= textTransformations)
+              ("TextTransformations" Data..= textTransformations)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.LabelSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | List of labels used by one or more of the rules of a RuleGroup. This
@@ -58,12 +59,12 @@ newLabelSummary =
 labelSummary_name :: Lens.Lens' LabelSummary (Prelude.Maybe Prelude.Text)
 labelSummary_name = Lens.lens (\LabelSummary' {name} -> name) (\s@LabelSummary' {} a -> s {name = a} :: LabelSummary)
 
-instance Core.FromJSON LabelSummary where
+instance Data.FromJSON LabelSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LabelSummary"
       ( \x ->
-          LabelSummary' Prelude.<$> (x Core..:? "Name")
+          LabelSummary' Prelude.<$> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable LabelSummary where

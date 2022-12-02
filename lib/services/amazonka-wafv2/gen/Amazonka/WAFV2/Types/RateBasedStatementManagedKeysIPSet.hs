@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.RateBasedStatementManagedKeysIPSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.IPAddressVersion
 
@@ -65,16 +66,16 @@ rateBasedStatementManagedKeysIPSet_iPAddressVersion :: Lens.Lens' RateBasedState
 rateBasedStatementManagedKeysIPSet_iPAddressVersion = Lens.lens (\RateBasedStatementManagedKeysIPSet' {iPAddressVersion} -> iPAddressVersion) (\s@RateBasedStatementManagedKeysIPSet' {} a -> s {iPAddressVersion = a} :: RateBasedStatementManagedKeysIPSet)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RateBasedStatementManagedKeysIPSet
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RateBasedStatementManagedKeysIPSet"
       ( \x ->
           RateBasedStatementManagedKeysIPSet'
-            Prelude.<$> (x Core..:? "Addresses" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "IPAddressVersion")
+            Prelude.<$> (x Data..:? "Addresses" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "IPAddressVersion")
       )
 
 instance

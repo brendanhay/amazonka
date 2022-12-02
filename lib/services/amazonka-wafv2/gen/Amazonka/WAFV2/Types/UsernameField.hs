@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.UsernameField where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about your login page username field, used in a
@@ -53,12 +54,12 @@ newUsernameField pIdentifier_ =
 usernameField_identifier :: Lens.Lens' UsernameField Prelude.Text
 usernameField_identifier = Lens.lens (\UsernameField' {identifier} -> identifier) (\s@UsernameField' {} a -> s {identifier = a} :: UsernameField)
 
-instance Core.FromJSON UsernameField where
+instance Data.FromJSON UsernameField where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UsernameField"
       ( \x ->
-          UsernameField' Prelude.<$> (x Core..: "Identifier")
+          UsernameField' Prelude.<$> (x Data..: "Identifier")
       )
 
 instance Prelude.Hashable UsernameField where
@@ -68,9 +69,9 @@ instance Prelude.Hashable UsernameField where
 instance Prelude.NFData UsernameField where
   rnf UsernameField' {..} = Prelude.rnf identifier
 
-instance Core.ToJSON UsernameField where
+instance Data.ToJSON UsernameField where
   toJSON UsernameField' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Identifier" Core..= identifier)]
+          [Prelude.Just ("Identifier" Data..= identifier)]
       )

@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.NoneAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies that WAF should do nothing. This is used for the
@@ -46,9 +47,9 @@ newNoneAction ::
   NoneAction
 newNoneAction = NoneAction'
 
-instance Core.FromJSON NoneAction where
+instance Data.FromJSON NoneAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NoneAction"
       (\x -> Prelude.pure NoneAction')
 
@@ -59,5 +60,5 @@ instance Prelude.Hashable NoneAction where
 instance Prelude.NFData NoneAction where
   rnf _ = ()
 
-instance Core.ToJSON NoneAction where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON NoneAction where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

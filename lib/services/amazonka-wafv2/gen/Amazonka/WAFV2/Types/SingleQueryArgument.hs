@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.SingleQueryArgument where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Inspect one query argument in the web request, identified by name, for
@@ -58,12 +59,12 @@ newSingleQueryArgument pName_ =
 singleQueryArgument_name :: Lens.Lens' SingleQueryArgument Prelude.Text
 singleQueryArgument_name = Lens.lens (\SingleQueryArgument' {name} -> name) (\s@SingleQueryArgument' {} a -> s {name = a} :: SingleQueryArgument)
 
-instance Core.FromJSON SingleQueryArgument where
+instance Data.FromJSON SingleQueryArgument where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SingleQueryArgument"
       ( \x ->
-          SingleQueryArgument' Prelude.<$> (x Core..: "Name")
+          SingleQueryArgument' Prelude.<$> (x Data..: "Name")
       )
 
 instance Prelude.Hashable SingleQueryArgument where
@@ -73,9 +74,9 @@ instance Prelude.Hashable SingleQueryArgument where
 instance Prelude.NFData SingleQueryArgument where
   rnf SingleQueryArgument' {..} = Prelude.rnf name
 
-instance Core.ToJSON SingleQueryArgument where
+instance Data.ToJSON SingleQueryArgument where
   toJSON SingleQueryArgument' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )

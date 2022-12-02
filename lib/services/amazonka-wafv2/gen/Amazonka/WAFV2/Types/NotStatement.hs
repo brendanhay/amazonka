@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.NotStatement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import {-# SOURCE #-} Amazonka.WAFV2.Types.Statement
 
@@ -54,12 +55,12 @@ newNotStatement pStatement_ =
 notStatement_statement :: Lens.Lens' NotStatement Statement
 notStatement_statement = Lens.lens (\NotStatement' {statement} -> statement) (\s@NotStatement' {} a -> s {statement = a} :: NotStatement)
 
-instance Core.FromJSON NotStatement where
+instance Data.FromJSON NotStatement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NotStatement"
       ( \x ->
-          NotStatement' Prelude.<$> (x Core..: "Statement")
+          NotStatement' Prelude.<$> (x Data..: "Statement")
       )
 
 instance Prelude.Hashable NotStatement where
@@ -69,9 +70,9 @@ instance Prelude.Hashable NotStatement where
 instance Prelude.NFData NotStatement where
   rnf NotStatement' {..} = Prelude.rnf statement
 
-instance Core.ToJSON NotStatement where
+instance Data.ToJSON NotStatement where
   toJSON NotStatement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Statement" Core..= statement)]
+          [Prelude.Just ("Statement" Data..= statement)]
       )

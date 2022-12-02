@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,7 +107,7 @@ data UpdateManagedRuleSetVersionExpiryDate = UpdateManagedRuleSetVersionExpiryDa
     --
     -- Times are in Coordinated Universal Time (UTC) format. UTC format
     -- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
-    expiryTimestamp :: Core.POSIX
+    expiryTimestamp :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -186,7 +187,7 @@ newUpdateManagedRuleSetVersionExpiryDate
         lockToken = pLockToken_,
         versionToExpire = pVersionToExpire_,
         expiryTimestamp =
-          Core._Time
+          Data._Time
             Lens.# pExpiryTimestamp_
       }
 
@@ -240,7 +241,7 @@ updateManagedRuleSetVersionExpiryDate_versionToExpire = Lens.lens (\UpdateManage
 -- Times are in Coordinated Universal Time (UTC) format. UTC format
 -- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
 updateManagedRuleSetVersionExpiryDate_expiryTimestamp :: Lens.Lens' UpdateManagedRuleSetVersionExpiryDate Prelude.UTCTime
-updateManagedRuleSetVersionExpiryDate_expiryTimestamp = Lens.lens (\UpdateManagedRuleSetVersionExpiryDate' {expiryTimestamp} -> expiryTimestamp) (\s@UpdateManagedRuleSetVersionExpiryDate' {} a -> s {expiryTimestamp = a} :: UpdateManagedRuleSetVersionExpiryDate) Prelude.. Core._Time
+updateManagedRuleSetVersionExpiryDate_expiryTimestamp = Lens.lens (\UpdateManagedRuleSetVersionExpiryDate' {expiryTimestamp} -> expiryTimestamp) (\s@UpdateManagedRuleSetVersionExpiryDate' {} a -> s {expiryTimestamp = a} :: UpdateManagedRuleSetVersionExpiryDate) Prelude.. Data._Time
 
 instance
   Core.AWSRequest
@@ -256,9 +257,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateManagedRuleSetVersionExpiryDateResponse'
-            Prelude.<$> (x Core..?> "ExpiringVersion")
-              Prelude.<*> (x Core..?> "ExpiryTimestamp")
-              Prelude.<*> (x Core..?> "NextLockToken")
+            Prelude.<$> (x Data..?> "ExpiringVersion")
+              Prelude.<*> (x Data..?> "ExpiryTimestamp")
+              Prelude.<*> (x Data..?> "NextLockToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -289,49 +290,49 @@ instance
       `Prelude.seq` Prelude.rnf expiryTimestamp
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateManagedRuleSetVersionExpiryDate
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20190729.UpdateManagedRuleSetVersionExpiryDate" ::
+              Data.=# ( "AWSWAF_20190729.UpdateManagedRuleSetVersionExpiryDate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateManagedRuleSetVersionExpiryDate
   where
   toJSON UpdateManagedRuleSetVersionExpiryDate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Scope" Core..= scope),
-            Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("LockToken" Core..= lockToken),
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Scope" Data..= scope),
+            Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("LockToken" Data..= lockToken),
             Prelude.Just
-              ("VersionToExpire" Core..= versionToExpire),
+              ("VersionToExpire" Data..= versionToExpire),
             Prelude.Just
-              ("ExpiryTimestamp" Core..= expiryTimestamp)
+              ("ExpiryTimestamp" Data..= expiryTimestamp)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateManagedRuleSetVersionExpiryDate
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateManagedRuleSetVersionExpiryDate
   where
   toQuery = Prelude.const Prelude.mempty
@@ -344,7 +345,7 @@ data UpdateManagedRuleSetVersionExpiryDateResponse = UpdateManagedRuleSetVersion
     --
     -- Times are in Coordinated Universal Time (UTC) format. UTC format
     -- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
-    expiryTimestamp :: Prelude.Maybe Core.POSIX,
+    expiryTimestamp :: Prelude.Maybe Data.POSIX,
     -- | A token used for optimistic locking. WAF returns a token to your @get@
     -- and @list@ requests, to mark the state of the entity at the time of the
     -- request. To make changes to the entity associated with the token, you
@@ -409,7 +410,7 @@ updateManagedRuleSetVersionExpiryDateResponse_expiringVersion = Lens.lens (\Upda
 -- Times are in Coordinated Universal Time (UTC) format. UTC format
 -- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
 updateManagedRuleSetVersionExpiryDateResponse_expiryTimestamp :: Lens.Lens' UpdateManagedRuleSetVersionExpiryDateResponse (Prelude.Maybe Prelude.UTCTime)
-updateManagedRuleSetVersionExpiryDateResponse_expiryTimestamp = Lens.lens (\UpdateManagedRuleSetVersionExpiryDateResponse' {expiryTimestamp} -> expiryTimestamp) (\s@UpdateManagedRuleSetVersionExpiryDateResponse' {} a -> s {expiryTimestamp = a} :: UpdateManagedRuleSetVersionExpiryDateResponse) Prelude.. Lens.mapping Core._Time
+updateManagedRuleSetVersionExpiryDateResponse_expiryTimestamp = Lens.lens (\UpdateManagedRuleSetVersionExpiryDateResponse' {expiryTimestamp} -> expiryTimestamp) (\s@UpdateManagedRuleSetVersionExpiryDateResponse' {} a -> s {expiryTimestamp = a} :: UpdateManagedRuleSetVersionExpiryDateResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A token used for optimistic locking. WAF returns a token to your @get@
 -- and @list@ requests, to mark the state of the entity at the time of the

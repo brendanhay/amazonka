@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.AllQueryArguments where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Inspect all query arguments of the web request.
@@ -44,9 +45,9 @@ newAllQueryArguments ::
   AllQueryArguments
 newAllQueryArguments = AllQueryArguments'
 
-instance Core.FromJSON AllQueryArguments where
+instance Data.FromJSON AllQueryArguments where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AllQueryArguments"
       (\x -> Prelude.pure AllQueryArguments')
 
@@ -57,5 +58,5 @@ instance Prelude.Hashable AllQueryArguments where
 instance Prelude.NFData AllQueryArguments where
   rnf _ = ()
 
-instance Core.ToJSON AllQueryArguments where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON AllQueryArguments where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

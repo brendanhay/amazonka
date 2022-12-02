@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.ReleaseSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | High level information for an SDK release.
@@ -30,7 +31,7 @@ data ReleaseSummary = ReleaseSummary'
   { -- | The release version.
     releaseVersion :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of the release.
-    timestamp :: Prelude.Maybe Core.POSIX
+    timestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,16 +60,16 @@ releaseSummary_releaseVersion = Lens.lens (\ReleaseSummary' {releaseVersion} -> 
 
 -- | The timestamp of the release.
 releaseSummary_timestamp :: Lens.Lens' ReleaseSummary (Prelude.Maybe Prelude.UTCTime)
-releaseSummary_timestamp = Lens.lens (\ReleaseSummary' {timestamp} -> timestamp) (\s@ReleaseSummary' {} a -> s {timestamp = a} :: ReleaseSummary) Prelude.. Lens.mapping Core._Time
+releaseSummary_timestamp = Lens.lens (\ReleaseSummary' {timestamp} -> timestamp) (\s@ReleaseSummary' {} a -> s {timestamp = a} :: ReleaseSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ReleaseSummary where
+instance Data.FromJSON ReleaseSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReleaseSummary"
       ( \x ->
           ReleaseSummary'
-            Prelude.<$> (x Core..:? "ReleaseVersion")
-            Prelude.<*> (x Core..:? "Timestamp")
+            Prelude.<$> (x Data..:? "ReleaseVersion")
+            Prelude.<*> (x Data..:? "Timestamp")
       )
 
 instance Prelude.Hashable ReleaseSummary where

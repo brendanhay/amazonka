@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.OverrideAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.CountAction
 import Amazonka.WAFV2.Types.NoneAction
@@ -96,13 +97,13 @@ overrideAction_none = Lens.lens (\OverrideAction' {none} -> none) (\s@OverrideAc
 overrideAction_count :: Lens.Lens' OverrideAction (Prelude.Maybe CountAction)
 overrideAction_count = Lens.lens (\OverrideAction' {count} -> count) (\s@OverrideAction' {} a -> s {count = a} :: OverrideAction)
 
-instance Core.FromJSON OverrideAction where
+instance Data.FromJSON OverrideAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OverrideAction"
       ( \x ->
           OverrideAction'
-            Prelude.<$> (x Core..:? "None") Prelude.<*> (x Core..:? "Count")
+            Prelude.<$> (x Data..:? "None") Prelude.<*> (x Data..:? "Count")
       )
 
 instance Prelude.Hashable OverrideAction where
@@ -114,11 +115,11 @@ instance Prelude.NFData OverrideAction where
   rnf OverrideAction' {..} =
     Prelude.rnf none `Prelude.seq` Prelude.rnf count
 
-instance Core.ToJSON OverrideAction where
+instance Data.ToJSON OverrideAction where
   toJSON OverrideAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("None" Core..=) Prelude.<$> none,
-            ("Count" Core..=) Prelude.<$> count
+          [ ("None" Data..=) Prelude.<$> none,
+            ("Count" Data..=) Prelude.<$> count
           ]
       )

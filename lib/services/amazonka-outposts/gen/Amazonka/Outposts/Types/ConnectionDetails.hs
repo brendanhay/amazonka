@@ -21,6 +21,7 @@ module Amazonka.Outposts.Types.ConnectionDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a connection.
@@ -98,18 +99,18 @@ connectionDetails_serverTunnelAddress = Lens.lens (\ConnectionDetails' {serverTu
 connectionDetails_allowedIps :: Lens.Lens' ConnectionDetails (Prelude.Maybe [Prelude.Text])
 connectionDetails_allowedIps = Lens.lens (\ConnectionDetails' {allowedIps} -> allowedIps) (\s@ConnectionDetails' {} a -> s {allowedIps = a} :: ConnectionDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ConnectionDetails where
+instance Data.FromJSON ConnectionDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectionDetails"
       ( \x ->
           ConnectionDetails'
-            Prelude.<$> (x Core..:? "ServerEndpoint")
-            Prelude.<*> (x Core..:? "ServerPublicKey")
-            Prelude.<*> (x Core..:? "ClientPublicKey")
-            Prelude.<*> (x Core..:? "ClientTunnelAddress")
-            Prelude.<*> (x Core..:? "ServerTunnelAddress")
-            Prelude.<*> (x Core..:? "AllowedIps" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ServerEndpoint")
+            Prelude.<*> (x Data..:? "ServerPublicKey")
+            Prelude.<*> (x Data..:? "ClientPublicKey")
+            Prelude.<*> (x Data..:? "ClientTunnelAddress")
+            Prelude.<*> (x Data..:? "ServerTunnelAddress")
+            Prelude.<*> (x Data..:? "AllowedIps" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ConnectionDetails where

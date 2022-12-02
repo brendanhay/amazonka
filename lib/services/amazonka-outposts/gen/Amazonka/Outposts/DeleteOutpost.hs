@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,22 +93,22 @@ instance Prelude.Hashable DeleteOutpost where
 instance Prelude.NFData DeleteOutpost where
   rnf DeleteOutpost' {..} = Prelude.rnf outpostId
 
-instance Core.ToHeaders DeleteOutpost where
+instance Data.ToHeaders DeleteOutpost where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteOutpost where
+instance Data.ToPath DeleteOutpost where
   toPath DeleteOutpost' {..} =
-    Prelude.mconcat ["/outposts/", Core.toBS outpostId]
+    Prelude.mconcat ["/outposts/", Data.toBS outpostId]
 
-instance Core.ToQuery DeleteOutpost where
+instance Data.ToQuery DeleteOutpost where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteOutpostResponse' smart constructor.

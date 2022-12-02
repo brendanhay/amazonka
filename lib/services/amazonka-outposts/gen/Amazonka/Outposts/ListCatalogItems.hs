@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,8 +129,8 @@ instance Core.AWSRequest ListCatalogItems where
     Response.receiveJSON
       ( \s h x ->
           ListCatalogItemsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "CatalogItems" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "CatalogItems" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,40 +150,40 @@ instance Prelude.NFData ListCatalogItems where
       `Prelude.seq` Prelude.rnf eC2FamilyFilter
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListCatalogItems where
+instance Data.ToHeaders ListCatalogItems where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListCatalogItems where
+instance Data.ToPath ListCatalogItems where
   toPath = Prelude.const "/catalog/items"
 
-instance Core.ToQuery ListCatalogItems where
+instance Data.ToQuery ListCatalogItems where
   toQuery ListCatalogItems' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
+      [ "NextToken" Data.=: nextToken,
         "ItemClassFilter"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> itemClassFilter
             ),
         "SupportedStorageFilter"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> supportedStorageFilter
             ),
         "EC2FamilyFilter"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> eC2FamilyFilter
             ),
-        "MaxResults" Core.=: maxResults
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListCatalogItemsResponse' smart constructor.

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -145,7 +146,7 @@ instance Core.AWSRequest CreateOutpost where
     Response.receiveJSON
       ( \s h x ->
           CreateOutpostResponse'
-            Prelude.<$> (x Core..?> "Outpost")
+            Prelude.<$> (x Data..?> "Outpost")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,38 +170,38 @@ instance Prelude.NFData CreateOutpost where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf siteId
 
-instance Core.ToHeaders CreateOutpost where
+instance Data.ToHeaders CreateOutpost where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateOutpost where
+instance Data.ToJSON CreateOutpost where
   toJSON CreateOutpost' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("SupportedHardwareType" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("SupportedHardwareType" Data..=)
               Prelude.<$> supportedHardwareType,
-            ("AvailabilityZone" Core..=)
+            ("AvailabilityZone" Data..=)
               Prelude.<$> availabilityZone,
-            ("Description" Core..=) Prelude.<$> description,
-            ("AvailabilityZoneId" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("AvailabilityZoneId" Data..=)
               Prelude.<$> availabilityZoneId,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("SiteId" Core..= siteId)
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("SiteId" Data..= siteId)
           ]
       )
 
-instance Core.ToPath CreateOutpost where
+instance Data.ToPath CreateOutpost where
   toPath = Prelude.const "/outposts"
 
-instance Core.ToQuery CreateOutpost where
+instance Data.ToQuery CreateOutpost where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateOutpostResponse' smart constructor.

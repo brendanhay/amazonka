@@ -21,6 +21,7 @@ module Amazonka.Outposts.Types.Outpost where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types.SupportedHardwareType
 import qualified Amazonka.Prelude as Prelude
 
@@ -143,24 +144,24 @@ outpost_lifeCycleStatus = Lens.lens (\Outpost' {lifeCycleStatus} -> lifeCycleSta
 outpost_availabilityZoneId :: Lens.Lens' Outpost (Prelude.Maybe Prelude.Text)
 outpost_availabilityZoneId = Lens.lens (\Outpost' {availabilityZoneId} -> availabilityZoneId) (\s@Outpost' {} a -> s {availabilityZoneId = a} :: Outpost)
 
-instance Core.FromJSON Outpost where
+instance Data.FromJSON Outpost where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Outpost"
       ( \x ->
           Outpost'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "OutpostId")
-            Prelude.<*> (x Core..:? "OutpostArn")
-            Prelude.<*> (x Core..:? "OwnerId")
-            Prelude.<*> (x Core..:? "SiteArn")
-            Prelude.<*> (x Core..:? "SupportedHardwareType")
-            Prelude.<*> (x Core..:? "AvailabilityZone")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "SiteId")
-            Prelude.<*> (x Core..:? "LifeCycleStatus")
-            Prelude.<*> (x Core..:? "AvailabilityZoneId")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "OutpostId")
+            Prelude.<*> (x Data..:? "OutpostArn")
+            Prelude.<*> (x Data..:? "OwnerId")
+            Prelude.<*> (x Data..:? "SiteArn")
+            Prelude.<*> (x Data..:? "SupportedHardwareType")
+            Prelude.<*> (x Data..:? "AvailabilityZone")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "SiteId")
+            Prelude.<*> (x Data..:? "LifeCycleStatus")
+            Prelude.<*> (x Data..:? "AvailabilityZoneId")
       )
 
 instance Prelude.Hashable Outpost where

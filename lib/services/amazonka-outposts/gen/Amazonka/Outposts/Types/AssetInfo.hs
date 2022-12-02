@@ -21,6 +21,7 @@ module Amazonka.Outposts.Types.AssetInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types.AssetLocation
 import Amazonka.Outposts.Types.AssetType
 import Amazonka.Outposts.Types.ComputeAttributes
@@ -91,17 +92,17 @@ assetInfo_assetType = Lens.lens (\AssetInfo' {assetType} -> assetType) (\s@Asset
 assetInfo_rackId :: Lens.Lens' AssetInfo (Prelude.Maybe Prelude.Text)
 assetInfo_rackId = Lens.lens (\AssetInfo' {rackId} -> rackId) (\s@AssetInfo' {} a -> s {rackId = a} :: AssetInfo)
 
-instance Core.FromJSON AssetInfo where
+instance Data.FromJSON AssetInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssetInfo"
       ( \x ->
           AssetInfo'
-            Prelude.<$> (x Core..:? "AssetLocation")
-            Prelude.<*> (x Core..:? "AssetId")
-            Prelude.<*> (x Core..:? "ComputeAttributes")
-            Prelude.<*> (x Core..:? "AssetType")
-            Prelude.<*> (x Core..:? "RackId")
+            Prelude.<$> (x Data..:? "AssetLocation")
+            Prelude.<*> (x Data..:? "AssetId")
+            Prelude.<*> (x Data..:? "ComputeAttributes")
+            Prelude.<*> (x Data..:? "AssetType")
+            Prelude.<*> (x Data..:? "RackId")
       )
 
 instance Prelude.Hashable AssetInfo where

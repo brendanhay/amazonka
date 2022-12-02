@@ -21,6 +21,7 @@ module Amazonka.Outposts.Types.OrderSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types.LineItemStatus
 import Amazonka.Outposts.Types.OrderStatus
 import Amazonka.Outposts.Types.OrderType
@@ -33,7 +34,7 @@ data OrderSummary = OrderSummary'
   { -- | The ID of the Outpost.
     outpostId :: Prelude.Maybe Prelude.Text,
     -- | The fulfilment date for the order.
-    orderFulfilledDate :: Prelude.Maybe Core.POSIX,
+    orderFulfilledDate :: Prelude.Maybe Data.POSIX,
     -- | The status of all line items in the order.
     lineItemCountsByStatus :: Prelude.Maybe (Prelude.HashMap LineItemStatus Prelude.Natural),
     -- | The status of the order.
@@ -57,7 +58,7 @@ data OrderSummary = OrderSummary'
     -- | The type of order.
     orderType :: Prelude.Maybe OrderType,
     -- | The submission date for the order.
-    orderSubmissionDate :: Prelude.Maybe Core.POSIX
+    orderSubmissionDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -115,7 +116,7 @@ orderSummary_outpostId = Lens.lens (\OrderSummary' {outpostId} -> outpostId) (\s
 
 -- | The fulfilment date for the order.
 orderSummary_orderFulfilledDate :: Lens.Lens' OrderSummary (Prelude.Maybe Prelude.UTCTime)
-orderSummary_orderFulfilledDate = Lens.lens (\OrderSummary' {orderFulfilledDate} -> orderFulfilledDate) (\s@OrderSummary' {} a -> s {orderFulfilledDate = a} :: OrderSummary) Prelude.. Lens.mapping Core._Time
+orderSummary_orderFulfilledDate = Lens.lens (\OrderSummary' {orderFulfilledDate} -> orderFulfilledDate) (\s@OrderSummary' {} a -> s {orderFulfilledDate = a} :: OrderSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The status of all line items in the order.
 orderSummary_lineItemCountsByStatus :: Lens.Lens' OrderSummary (Prelude.Maybe (Prelude.HashMap LineItemStatus Prelude.Natural))
@@ -149,23 +150,23 @@ orderSummary_orderType = Lens.lens (\OrderSummary' {orderType} -> orderType) (\s
 
 -- | The submission date for the order.
 orderSummary_orderSubmissionDate :: Lens.Lens' OrderSummary (Prelude.Maybe Prelude.UTCTime)
-orderSummary_orderSubmissionDate = Lens.lens (\OrderSummary' {orderSubmissionDate} -> orderSubmissionDate) (\s@OrderSummary' {} a -> s {orderSubmissionDate = a} :: OrderSummary) Prelude.. Lens.mapping Core._Time
+orderSummary_orderSubmissionDate = Lens.lens (\OrderSummary' {orderSubmissionDate} -> orderSubmissionDate) (\s@OrderSummary' {} a -> s {orderSubmissionDate = a} :: OrderSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON OrderSummary where
+instance Data.FromJSON OrderSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OrderSummary"
       ( \x ->
           OrderSummary'
-            Prelude.<$> (x Core..:? "OutpostId")
-            Prelude.<*> (x Core..:? "OrderFulfilledDate")
-            Prelude.<*> ( x Core..:? "LineItemCountsByStatus"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "OutpostId")
+            Prelude.<*> (x Data..:? "OrderFulfilledDate")
+            Prelude.<*> ( x Data..:? "LineItemCountsByStatus"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "OrderId")
-            Prelude.<*> (x Core..:? "OrderType")
-            Prelude.<*> (x Core..:? "OrderSubmissionDate")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "OrderId")
+            Prelude.<*> (x Data..:? "OrderType")
+            Prelude.<*> (x Data..:? "OrderSubmissionDate")
       )
 
 instance Prelude.Hashable OrderSummary where

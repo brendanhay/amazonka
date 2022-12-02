@@ -21,6 +21,7 @@ module Amazonka.Outposts.Types.LineItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types.LineItemAssetInformation
 import Amazonka.Outposts.Types.LineItemStatus
 import Amazonka.Outposts.Types.ShipmentInformation
@@ -100,20 +101,20 @@ lineItem_shipmentInformation = Lens.lens (\LineItem' {shipmentInformation} -> sh
 lineItem_lineItemId :: Lens.Lens' LineItem (Prelude.Maybe Prelude.Text)
 lineItem_lineItemId = Lens.lens (\LineItem' {lineItemId} -> lineItemId) (\s@LineItem' {} a -> s {lineItemId = a} :: LineItem)
 
-instance Core.FromJSON LineItem where
+instance Data.FromJSON LineItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LineItem"
       ( \x ->
           LineItem'
-            Prelude.<$> (x Core..:? "Quantity")
-            Prelude.<*> ( x Core..:? "AssetInformationList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Quantity")
+            Prelude.<*> ( x Data..:? "AssetInformationList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CatalogItemId")
-            Prelude.<*> (x Core..:? "ShipmentInformation")
-            Prelude.<*> (x Core..:? "LineItemId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "CatalogItemId")
+            Prelude.<*> (x Data..:? "ShipmentInformation")
+            Prelude.<*> (x Data..:? "LineItemId")
       )
 
 instance Prelude.Hashable LineItem where

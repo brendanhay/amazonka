@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,7 +121,7 @@ instance Core.AWSRequest CreateOrder where
     Response.receiveJSON
       ( \s h x ->
           CreateOrderResponse'
-            Prelude.<$> (x Core..?> "Order")
+            Prelude.<$> (x Data..?> "Order")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,34 +139,34 @@ instance Prelude.NFData CreateOrder where
       `Prelude.seq` Prelude.rnf lineItems
       `Prelude.seq` Prelude.rnf paymentOption
 
-instance Core.ToHeaders CreateOrder where
+instance Data.ToHeaders CreateOrder where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateOrder where
+instance Data.ToJSON CreateOrder where
   toJSON CreateOrder' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PaymentTerm" Core..=) Prelude.<$> paymentTerm,
+          [ ("PaymentTerm" Data..=) Prelude.<$> paymentTerm,
             Prelude.Just
-              ("OutpostIdentifier" Core..= outpostIdentifier),
-            Prelude.Just ("LineItems" Core..= lineItems),
+              ("OutpostIdentifier" Data..= outpostIdentifier),
+            Prelude.Just ("LineItems" Data..= lineItems),
             Prelude.Just
-              ("PaymentOption" Core..= paymentOption)
+              ("PaymentOption" Data..= paymentOption)
           ]
       )
 
-instance Core.ToPath CreateOrder where
+instance Data.ToPath CreateOrder where
   toPath = Prelude.const "/orders"
 
-instance Core.ToQuery CreateOrder where
+instance Data.ToQuery CreateOrder where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateOrderResponse' smart constructor.

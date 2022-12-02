@@ -21,6 +21,7 @@ module Amazonka.Outposts.Types.LineItemRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a line item request.
@@ -71,11 +72,11 @@ instance Prelude.NFData LineItemRequest where
     Prelude.rnf quantity
       `Prelude.seq` Prelude.rnf catalogItemId
 
-instance Core.ToJSON LineItemRequest where
+instance Data.ToJSON LineItemRequest where
   toJSON LineItemRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Quantity" Core..=) Prelude.<$> quantity,
-            ("CatalogItemId" Core..=) Prelude.<$> catalogItemId
+          [ ("Quantity" Data..=) Prelude.<$> quantity,
+            ("CatalogItemId" Data..=) Prelude.<$> catalogItemId
           ]
       )

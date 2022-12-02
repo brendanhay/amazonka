@@ -21,6 +21,7 @@ module Amazonka.Outposts.Types.LineItemAssetInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a line item asset.
@@ -62,14 +63,14 @@ lineItemAssetInformation_macAddressList = Lens.lens (\LineItemAssetInformation' 
 lineItemAssetInformation_assetId :: Lens.Lens' LineItemAssetInformation (Prelude.Maybe Prelude.Text)
 lineItemAssetInformation_assetId = Lens.lens (\LineItemAssetInformation' {assetId} -> assetId) (\s@LineItemAssetInformation' {} a -> s {assetId = a} :: LineItemAssetInformation)
 
-instance Core.FromJSON LineItemAssetInformation where
+instance Data.FromJSON LineItemAssetInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LineItemAssetInformation"
       ( \x ->
           LineItemAssetInformation'
-            Prelude.<$> (x Core..:? "MacAddressList" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AssetId")
+            Prelude.<$> (x Data..:? "MacAddressList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AssetId")
       )
 
 instance Prelude.Hashable LineItemAssetInformation where

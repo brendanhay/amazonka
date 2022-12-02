@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,8 +101,8 @@ instance Core.AWSRequest ListOrders where
     Response.receiveJSON
       ( \s h x ->
           ListOrdersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Orders" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Orders" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,27 +118,27 @@ instance Prelude.NFData ListOrders where
       `Prelude.seq` Prelude.rnf outpostIdentifierFilter
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListOrders where
+instance Data.ToHeaders ListOrders where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListOrders where
+instance Data.ToPath ListOrders where
   toPath = Prelude.const "/list-orders"
 
-instance Core.ToQuery ListOrders where
+instance Data.ToQuery ListOrders where
   toQuery ListOrders' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
+      [ "NextToken" Data.=: nextToken,
         "OutpostIdentifierFilter"
-          Core.=: outpostIdentifierFilter,
-        "MaxResults" Core.=: maxResults
+          Data.=: outpostIdentifierFilter,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListOrdersResponse' smart constructor.

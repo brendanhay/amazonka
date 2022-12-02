@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,8 +130,8 @@ instance Core.AWSRequest ListSites where
     Response.receiveJSON
       ( \s h x ->
           ListSitesResponse'
-            Prelude.<$> (x Core..?> "Sites" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Sites" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,38 +152,38 @@ instance Prelude.NFData ListSites where
       `Prelude.seq` Prelude.rnf operatingAddressCountryCodeFilter
       `Prelude.seq` Prelude.rnf operatingAddressStateOrRegionFilter
 
-instance Core.ToHeaders ListSites where
+instance Data.ToHeaders ListSites where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListSites where
+instance Data.ToPath ListSites where
   toPath = Prelude.const "/sites"
 
-instance Core.ToQuery ListSites where
+instance Data.ToQuery ListSites where
   toQuery ListSites' {..} =
     Prelude.mconcat
       [ "OperatingAddressCityFilter"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> operatingAddressCityFilter
             ),
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
+        "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults,
         "OperatingAddressCountryCodeFilter"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> operatingAddressCountryCodeFilter
             ),
         "OperatingAddressStateOrRegionFilter"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> operatingAddressStateOrRegionFilter
             )
       ]

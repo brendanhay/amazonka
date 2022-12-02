@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,7 +112,7 @@ instance Core.AWSRequest UpdateSite where
     Response.receiveJSON
       ( \s h x ->
           UpdateSiteResponse'
-            Prelude.<$> (x Core..?> "Site")
+            Prelude.<$> (x Data..?> "Site")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,32 +130,32 @@ instance Prelude.NFData UpdateSite where
       `Prelude.seq` Prelude.rnf notes
       `Prelude.seq` Prelude.rnf siteId
 
-instance Core.ToHeaders UpdateSite where
+instance Data.ToHeaders UpdateSite where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSite where
+instance Data.ToJSON UpdateSite where
   toJSON UpdateSite' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Notes" Core..=) Prelude.<$> notes
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Notes" Data..=) Prelude.<$> notes
           ]
       )
 
-instance Core.ToPath UpdateSite where
+instance Data.ToPath UpdateSite where
   toPath UpdateSite' {..} =
-    Prelude.mconcat ["/sites/", Core.toBS siteId]
+    Prelude.mconcat ["/sites/", Data.toBS siteId]
 
-instance Core.ToQuery UpdateSite where
+instance Data.ToQuery UpdateSite where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSiteResponse' smart constructor.

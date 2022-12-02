@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,8 +95,8 @@ instance Core.AWSRequest GetConnection where
     Response.receiveJSON
       ( \s h x ->
           GetConnectionResponse'
-            Prelude.<$> (x Core..?> "ConnectionDetails")
-            Prelude.<*> (x Core..?> "ConnectionId")
+            Prelude.<$> (x Data..?> "ConnectionDetails")
+            Prelude.<*> (x Data..?> "ConnectionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,23 +107,23 @@ instance Prelude.Hashable GetConnection where
 instance Prelude.NFData GetConnection where
   rnf GetConnection' {..} = Prelude.rnf connectionId
 
-instance Core.ToHeaders GetConnection where
+instance Data.ToHeaders GetConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetConnection where
+instance Data.ToPath GetConnection where
   toPath GetConnection' {..} =
     Prelude.mconcat
-      ["/connections/", Core.toBS connectionId]
+      ["/connections/", Data.toBS connectionId]
 
-instance Core.ToQuery GetConnection where
+instance Data.ToQuery GetConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetConnectionResponse' smart constructor.

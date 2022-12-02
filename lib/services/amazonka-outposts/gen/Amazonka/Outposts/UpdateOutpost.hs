@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,7 +114,7 @@ instance Core.AWSRequest UpdateOutpost where
     Response.receiveJSON
       ( \s h x ->
           UpdateOutpostResponse'
-            Prelude.<$> (x Core..?> "Outpost")
+            Prelude.<$> (x Data..?> "Outpost")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,33 +132,33 @@ instance Prelude.NFData UpdateOutpost where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf outpostId
 
-instance Core.ToHeaders UpdateOutpost where
+instance Data.ToHeaders UpdateOutpost where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateOutpost where
+instance Data.ToJSON UpdateOutpost where
   toJSON UpdateOutpost' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("SupportedHardwareType" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("SupportedHardwareType" Data..=)
               Prelude.<$> supportedHardwareType,
-            ("Description" Core..=) Prelude.<$> description
+            ("Description" Data..=) Prelude.<$> description
           ]
       )
 
-instance Core.ToPath UpdateOutpost where
+instance Data.ToPath UpdateOutpost where
   toPath UpdateOutpost' {..} =
-    Prelude.mconcat ["/outposts/", Core.toBS outpostId]
+    Prelude.mconcat ["/outposts/", Data.toBS outpostId]
 
-instance Core.ToQuery UpdateOutpost where
+instance Data.ToQuery UpdateOutpost where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateOutpostResponse' smart constructor.

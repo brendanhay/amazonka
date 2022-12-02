@@ -21,6 +21,7 @@ module Amazonka.Outposts.Types.Order where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types.LineItem
 import Amazonka.Outposts.Types.OrderStatus
 import Amazonka.Outposts.Types.PaymentOption
@@ -33,7 +34,7 @@ data Order = Order'
   { -- | The ID of the Outpost in the order.
     outpostId :: Prelude.Maybe Prelude.Text,
     -- | The fulfillment date of the order.
-    orderFulfilledDate :: Prelude.Maybe Core.POSIX,
+    orderFulfilledDate :: Prelude.Maybe Data.POSIX,
     -- | The line items for the order
     lineItems :: Prelude.Maybe [LineItem],
     -- | The status of the order.
@@ -55,7 +56,7 @@ data Order = Order'
     -- | The ID of the order.
     orderId :: Prelude.Maybe Prelude.Text,
     -- | The submission date for the order.
-    orderSubmissionDate :: Prelude.Maybe Core.POSIX,
+    orderSubmissionDate :: Prelude.Maybe Data.POSIX,
     -- | The payment option for the order.
     paymentOption :: Prelude.Maybe PaymentOption
   }
@@ -115,7 +116,7 @@ order_outpostId = Lens.lens (\Order' {outpostId} -> outpostId) (\s@Order' {} a -
 
 -- | The fulfillment date of the order.
 order_orderFulfilledDate :: Lens.Lens' Order (Prelude.Maybe Prelude.UTCTime)
-order_orderFulfilledDate = Lens.lens (\Order' {orderFulfilledDate} -> orderFulfilledDate) (\s@Order' {} a -> s {orderFulfilledDate = a} :: Order) Prelude.. Lens.mapping Core._Time
+order_orderFulfilledDate = Lens.lens (\Order' {orderFulfilledDate} -> orderFulfilledDate) (\s@Order' {} a -> s {orderFulfilledDate = a} :: Order) Prelude.. Lens.mapping Data._Time
 
 -- | The line items for the order
 order_lineItems :: Lens.Lens' Order (Prelude.Maybe [LineItem])
@@ -145,25 +146,25 @@ order_orderId = Lens.lens (\Order' {orderId} -> orderId) (\s@Order' {} a -> s {o
 
 -- | The submission date for the order.
 order_orderSubmissionDate :: Lens.Lens' Order (Prelude.Maybe Prelude.UTCTime)
-order_orderSubmissionDate = Lens.lens (\Order' {orderSubmissionDate} -> orderSubmissionDate) (\s@Order' {} a -> s {orderSubmissionDate = a} :: Order) Prelude.. Lens.mapping Core._Time
+order_orderSubmissionDate = Lens.lens (\Order' {orderSubmissionDate} -> orderSubmissionDate) (\s@Order' {} a -> s {orderSubmissionDate = a} :: Order) Prelude.. Lens.mapping Data._Time
 
 -- | The payment option for the order.
 order_paymentOption :: Lens.Lens' Order (Prelude.Maybe PaymentOption)
 order_paymentOption = Lens.lens (\Order' {paymentOption} -> paymentOption) (\s@Order' {} a -> s {paymentOption = a} :: Order)
 
-instance Core.FromJSON Order where
+instance Data.FromJSON Order where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Order"
       ( \x ->
           Order'
-            Prelude.<$> (x Core..:? "OutpostId")
-            Prelude.<*> (x Core..:? "OrderFulfilledDate")
-            Prelude.<*> (x Core..:? "LineItems" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "OrderId")
-            Prelude.<*> (x Core..:? "OrderSubmissionDate")
-            Prelude.<*> (x Core..:? "PaymentOption")
+            Prelude.<$> (x Data..:? "OutpostId")
+            Prelude.<*> (x Data..:? "OrderFulfilledDate")
+            Prelude.<*> (x Data..:? "LineItems" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "OrderId")
+            Prelude.<*> (x Data..:? "OrderSubmissionDate")
+            Prelude.<*> (x Data..:? "PaymentOption")
       )
 
 instance Prelude.Hashable Order where

@@ -21,6 +21,7 @@ module Amazonka.Outposts.Types.RackPhysicalProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types.FiberOpticCableType
 import Amazonka.Outposts.Types.MaximumSupportedWeightLbs
 import Amazonka.Outposts.Types.OpticalStandard
@@ -158,21 +159,21 @@ rackPhysicalProperties_uplinkCount = Lens.lens (\RackPhysicalProperties' {uplink
 rackPhysicalProperties_uplinkGbps :: Lens.Lens' RackPhysicalProperties (Prelude.Maybe UplinkGbps)
 rackPhysicalProperties_uplinkGbps = Lens.lens (\RackPhysicalProperties' {uplinkGbps} -> uplinkGbps) (\s@RackPhysicalProperties' {} a -> s {uplinkGbps = a} :: RackPhysicalProperties)
 
-instance Core.FromJSON RackPhysicalProperties where
+instance Data.FromJSON RackPhysicalProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RackPhysicalProperties"
       ( \x ->
           RackPhysicalProperties'
-            Prelude.<$> (x Core..:? "PowerPhase")
-            Prelude.<*> (x Core..:? "PowerDrawKva")
-            Prelude.<*> (x Core..:? "FiberOpticCableType")
-            Prelude.<*> (x Core..:? "MaximumSupportedWeightLbs")
-            Prelude.<*> (x Core..:? "PowerConnector")
-            Prelude.<*> (x Core..:? "OpticalStandard")
-            Prelude.<*> (x Core..:? "PowerFeedDrop")
-            Prelude.<*> (x Core..:? "UplinkCount")
-            Prelude.<*> (x Core..:? "UplinkGbps")
+            Prelude.<$> (x Data..:? "PowerPhase")
+            Prelude.<*> (x Data..:? "PowerDrawKva")
+            Prelude.<*> (x Data..:? "FiberOpticCableType")
+            Prelude.<*> (x Data..:? "MaximumSupportedWeightLbs")
+            Prelude.<*> (x Data..:? "PowerConnector")
+            Prelude.<*> (x Data..:? "OpticalStandard")
+            Prelude.<*> (x Data..:? "PowerFeedDrop")
+            Prelude.<*> (x Data..:? "UplinkCount")
+            Prelude.<*> (x Data..:? "UplinkGbps")
       )
 
 instance Prelude.Hashable RackPhysicalProperties where
@@ -199,22 +200,22 @@ instance Prelude.NFData RackPhysicalProperties where
       `Prelude.seq` Prelude.rnf uplinkCount
       `Prelude.seq` Prelude.rnf uplinkGbps
 
-instance Core.ToJSON RackPhysicalProperties where
+instance Data.ToJSON RackPhysicalProperties where
   toJSON RackPhysicalProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PowerPhase" Core..=) Prelude.<$> powerPhase,
-            ("PowerDrawKva" Core..=) Prelude.<$> powerDrawKva,
-            ("FiberOpticCableType" Core..=)
+          [ ("PowerPhase" Data..=) Prelude.<$> powerPhase,
+            ("PowerDrawKva" Data..=) Prelude.<$> powerDrawKva,
+            ("FiberOpticCableType" Data..=)
               Prelude.<$> fiberOpticCableType,
-            ("MaximumSupportedWeightLbs" Core..=)
+            ("MaximumSupportedWeightLbs" Data..=)
               Prelude.<$> maximumSupportedWeightLbs,
-            ("PowerConnector" Core..=)
+            ("PowerConnector" Data..=)
               Prelude.<$> powerConnector,
-            ("OpticalStandard" Core..=)
+            ("OpticalStandard" Data..=)
               Prelude.<$> opticalStandard,
-            ("PowerFeedDrop" Core..=) Prelude.<$> powerFeedDrop,
-            ("UplinkCount" Core..=) Prelude.<$> uplinkCount,
-            ("UplinkGbps" Core..=) Prelude.<$> uplinkGbps
+            ("PowerFeedDrop" Data..=) Prelude.<$> powerFeedDrop,
+            ("UplinkCount" Data..=) Prelude.<$> uplinkCount,
+            ("UplinkGbps" Data..=) Prelude.<$> uplinkGbps
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Outposts.Types.ComputeAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types.ComputeAssetState
 import qualified Amazonka.Prelude as Prelude
 
@@ -98,14 +99,14 @@ computeAttributes_hostId = Lens.lens (\ComputeAttributes' {hostId} -> hostId) (\
 computeAttributes_state :: Lens.Lens' ComputeAttributes (Prelude.Maybe ComputeAssetState)
 computeAttributes_state = Lens.lens (\ComputeAttributes' {state} -> state) (\s@ComputeAttributes' {} a -> s {state = a} :: ComputeAttributes)
 
-instance Core.FromJSON ComputeAttributes where
+instance Data.FromJSON ComputeAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComputeAttributes"
       ( \x ->
           ComputeAttributes'
-            Prelude.<$> (x Core..:? "HostId")
-            Prelude.<*> (x Core..:? "State")
+            Prelude.<$> (x Data..:? "HostId")
+            Prelude.<*> (x Data..:? "State")
       )
 
 instance Prelude.Hashable ComputeAttributes where

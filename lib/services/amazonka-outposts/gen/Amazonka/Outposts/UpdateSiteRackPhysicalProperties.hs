@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -375,7 +376,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateSiteRackPhysicalPropertiesResponse'
-            Prelude.<$> (x Core..?> "Site")
+            Prelude.<$> (x Data..?> "Site")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -414,49 +415,49 @@ instance
       `Prelude.seq` Prelude.rnf siteId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateSiteRackPhysicalProperties
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSiteRackPhysicalProperties where
+instance Data.ToJSON UpdateSiteRackPhysicalProperties where
   toJSON UpdateSiteRackPhysicalProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PowerPhase" Core..=) Prelude.<$> powerPhase,
-            ("PowerDrawKva" Core..=) Prelude.<$> powerDrawKva,
-            ("FiberOpticCableType" Core..=)
+          [ ("PowerPhase" Data..=) Prelude.<$> powerPhase,
+            ("PowerDrawKva" Data..=) Prelude.<$> powerDrawKva,
+            ("FiberOpticCableType" Data..=)
               Prelude.<$> fiberOpticCableType,
-            ("MaximumSupportedWeightLbs" Core..=)
+            ("MaximumSupportedWeightLbs" Data..=)
               Prelude.<$> maximumSupportedWeightLbs,
-            ("PowerConnector" Core..=)
+            ("PowerConnector" Data..=)
               Prelude.<$> powerConnector,
-            ("OpticalStandard" Core..=)
+            ("OpticalStandard" Data..=)
               Prelude.<$> opticalStandard,
-            ("PowerFeedDrop" Core..=) Prelude.<$> powerFeedDrop,
-            ("UplinkCount" Core..=) Prelude.<$> uplinkCount,
-            ("UplinkGbps" Core..=) Prelude.<$> uplinkGbps
+            ("PowerFeedDrop" Data..=) Prelude.<$> powerFeedDrop,
+            ("UplinkCount" Data..=) Prelude.<$> uplinkCount,
+            ("UplinkGbps" Data..=) Prelude.<$> uplinkGbps
           ]
       )
 
-instance Core.ToPath UpdateSiteRackPhysicalProperties where
+instance Data.ToPath UpdateSiteRackPhysicalProperties where
   toPath UpdateSiteRackPhysicalProperties' {..} =
     Prelude.mconcat
       [ "/sites/",
-        Core.toBS siteId,
+        Data.toBS siteId,
         "/rackPhysicalProperties"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateSiteRackPhysicalProperties
   where
   toQuery = Prelude.const Prelude.mempty

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HealthLake.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,9 +109,9 @@ instance Core.AWSRequest ListFHIRDatastores where
     Response.receiveJSON
       ( \s h x ->
           ListFHIRDatastoresResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "DatastorePropertiesList"
+            Prelude.<*> ( x Data..?> "DatastorePropertiesList"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -127,35 +128,35 @@ instance Prelude.NFData ListFHIRDatastores where
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListFHIRDatastores where
+instance Data.ToHeaders ListFHIRDatastores where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "HealthLake.ListFHIRDatastores" ::
+              Data.=# ( "HealthLake.ListFHIRDatastores" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListFHIRDatastores where
+instance Data.ToJSON ListFHIRDatastores where
   toJSON ListFHIRDatastores' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filter" Core..=) Prelude.<$> filter',
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListFHIRDatastores where
+instance Data.ToPath ListFHIRDatastores where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListFHIRDatastores where
+instance Data.ToQuery ListFHIRDatastores where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListFHIRDatastoresResponse' smart constructor.

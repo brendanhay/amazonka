@@ -21,6 +21,7 @@ module Amazonka.HealthLake.Types.DatastoreFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HealthLake.Types.DatastoreStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,12 +32,12 @@ data DatastoreFilter = DatastoreFilter'
   { -- | A filter that allows the user to set cutoff dates for records. All Data
     -- Stores created before the specified date will be included in the
     -- results.
-    createdBefore :: Prelude.Maybe Core.POSIX,
+    createdBefore :: Prelude.Maybe Data.POSIX,
     -- | Allows the user to filter Data Store results by name.
     datastoreName :: Prelude.Maybe Prelude.Text,
     -- | A filter that allows the user to set cutoff dates for records. All Data
     -- Stores created after the specified date will be included in the results.
-    createdAfter :: Prelude.Maybe Core.POSIX,
+    createdAfter :: Prelude.Maybe Data.POSIX,
     -- | Allows the user to filter Data Store results by status.
     datastoreStatus :: Prelude.Maybe DatastoreStatus
   }
@@ -74,7 +75,7 @@ newDatastoreFilter =
 -- Stores created before the specified date will be included in the
 -- results.
 datastoreFilter_createdBefore :: Lens.Lens' DatastoreFilter (Prelude.Maybe Prelude.UTCTime)
-datastoreFilter_createdBefore = Lens.lens (\DatastoreFilter' {createdBefore} -> createdBefore) (\s@DatastoreFilter' {} a -> s {createdBefore = a} :: DatastoreFilter) Prelude.. Lens.mapping Core._Time
+datastoreFilter_createdBefore = Lens.lens (\DatastoreFilter' {createdBefore} -> createdBefore) (\s@DatastoreFilter' {} a -> s {createdBefore = a} :: DatastoreFilter) Prelude.. Lens.mapping Data._Time
 
 -- | Allows the user to filter Data Store results by name.
 datastoreFilter_datastoreName :: Lens.Lens' DatastoreFilter (Prelude.Maybe Prelude.Text)
@@ -83,7 +84,7 @@ datastoreFilter_datastoreName = Lens.lens (\DatastoreFilter' {datastoreName} -> 
 -- | A filter that allows the user to set cutoff dates for records. All Data
 -- Stores created after the specified date will be included in the results.
 datastoreFilter_createdAfter :: Lens.Lens' DatastoreFilter (Prelude.Maybe Prelude.UTCTime)
-datastoreFilter_createdAfter = Lens.lens (\DatastoreFilter' {createdAfter} -> createdAfter) (\s@DatastoreFilter' {} a -> s {createdAfter = a} :: DatastoreFilter) Prelude.. Lens.mapping Core._Time
+datastoreFilter_createdAfter = Lens.lens (\DatastoreFilter' {createdAfter} -> createdAfter) (\s@DatastoreFilter' {} a -> s {createdAfter = a} :: DatastoreFilter) Prelude.. Lens.mapping Data._Time
 
 -- | Allows the user to filter Data Store results by status.
 datastoreFilter_datastoreStatus :: Lens.Lens' DatastoreFilter (Prelude.Maybe DatastoreStatus)
@@ -103,14 +104,14 @@ instance Prelude.NFData DatastoreFilter where
       `Prelude.seq` Prelude.rnf createdAfter
       `Prelude.seq` Prelude.rnf datastoreStatus
 
-instance Core.ToJSON DatastoreFilter where
+instance Data.ToJSON DatastoreFilter where
   toJSON DatastoreFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
-            ("DatastoreName" Core..=) Prelude.<$> datastoreName,
-            ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
-            ("DatastoreStatus" Core..=)
+          [ ("CreatedBefore" Data..=) Prelude.<$> createdBefore,
+            ("DatastoreName" Data..=) Prelude.<$> datastoreName,
+            ("CreatedAfter" Data..=) Prelude.<$> createdAfter,
+            ("DatastoreStatus" Data..=)
               Prelude.<$> datastoreStatus
           ]
       )

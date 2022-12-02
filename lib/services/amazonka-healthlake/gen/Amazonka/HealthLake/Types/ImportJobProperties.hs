@@ -21,6 +21,7 @@ module Amazonka.HealthLake.Types.ImportJobProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HealthLake.Types.InputDataConfig
 import Amazonka.HealthLake.Types.JobStatus
 import Amazonka.HealthLake.Types.OutputDataConfig
@@ -41,14 +42,14 @@ data ImportJobProperties = ImportJobProperties'
     -- your input data.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the Import job was completed.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The AWS-generated id number for the Import job.
     jobId :: Prelude.Text,
     -- | The job status for an Import job. Possible statuses are SUBMITTED,
     -- IN_PROGRESS, COMPLETED, FAILED.
     jobStatus :: JobStatus,
     -- | The time that the Import job was submitted for processing.
-    submitTime :: Core.POSIX,
+    submitTime :: Data.POSIX,
     -- | The datastore id used when the Import job was created.
     datastoreId :: Prelude.Text,
     -- | The input data configuration that was supplied when the Import job was
@@ -114,7 +115,7 @@ newImportJobProperties
         endTime = Prelude.Nothing,
         jobId = pJobId_,
         jobStatus = pJobStatus_,
-        submitTime = Core._Time Lens.# pSubmitTime_,
+        submitTime = Data._Time Lens.# pSubmitTime_,
         datastoreId = pDatastoreId_,
         inputDataConfig = pInputDataConfig_
       }
@@ -139,7 +140,7 @@ importJobProperties_dataAccessRoleArn = Lens.lens (\ImportJobProperties' {dataAc
 
 -- | The time that the Import job was completed.
 importJobProperties_endTime :: Lens.Lens' ImportJobProperties (Prelude.Maybe Prelude.UTCTime)
-importJobProperties_endTime = Lens.lens (\ImportJobProperties' {endTime} -> endTime) (\s@ImportJobProperties' {} a -> s {endTime = a} :: ImportJobProperties) Prelude.. Lens.mapping Core._Time
+importJobProperties_endTime = Lens.lens (\ImportJobProperties' {endTime} -> endTime) (\s@ImportJobProperties' {} a -> s {endTime = a} :: ImportJobProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The AWS-generated id number for the Import job.
 importJobProperties_jobId :: Lens.Lens' ImportJobProperties Prelude.Text
@@ -152,7 +153,7 @@ importJobProperties_jobStatus = Lens.lens (\ImportJobProperties' {jobStatus} -> 
 
 -- | The time that the Import job was submitted for processing.
 importJobProperties_submitTime :: Lens.Lens' ImportJobProperties Prelude.UTCTime
-importJobProperties_submitTime = Lens.lens (\ImportJobProperties' {submitTime} -> submitTime) (\s@ImportJobProperties' {} a -> s {submitTime = a} :: ImportJobProperties) Prelude.. Core._Time
+importJobProperties_submitTime = Lens.lens (\ImportJobProperties' {submitTime} -> submitTime) (\s@ImportJobProperties' {} a -> s {submitTime = a} :: ImportJobProperties) Prelude.. Data._Time
 
 -- | The datastore id used when the Import job was created.
 importJobProperties_datastoreId :: Lens.Lens' ImportJobProperties Prelude.Text
@@ -163,22 +164,22 @@ importJobProperties_datastoreId = Lens.lens (\ImportJobProperties' {datastoreId}
 importJobProperties_inputDataConfig :: Lens.Lens' ImportJobProperties InputDataConfig
 importJobProperties_inputDataConfig = Lens.lens (\ImportJobProperties' {inputDataConfig} -> inputDataConfig) (\s@ImportJobProperties' {} a -> s {inputDataConfig = a} :: ImportJobProperties)
 
-instance Core.FromJSON ImportJobProperties where
+instance Data.FromJSON ImportJobProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportJobProperties"
       ( \x ->
           ImportJobProperties'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "JobOutputDataConfig")
-            Prelude.<*> (x Core..:? "DataAccessRoleArn")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..: "JobId")
-            Prelude.<*> (x Core..: "JobStatus")
-            Prelude.<*> (x Core..: "SubmitTime")
-            Prelude.<*> (x Core..: "DatastoreId")
-            Prelude.<*> (x Core..: "InputDataConfig")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "JobOutputDataConfig")
+            Prelude.<*> (x Data..:? "DataAccessRoleArn")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..: "JobId")
+            Prelude.<*> (x Data..: "JobStatus")
+            Prelude.<*> (x Data..: "SubmitTime")
+            Prelude.<*> (x Data..: "DatastoreId")
+            Prelude.<*> (x Data..: "InputDataConfig")
       )
 
 instance Prelude.Hashable ImportJobProperties where

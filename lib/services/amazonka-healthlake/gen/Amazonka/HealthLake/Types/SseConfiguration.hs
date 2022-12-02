@@ -21,6 +21,7 @@ module Amazonka.HealthLake.Types.SseConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HealthLake.Types.KmsEncryptionConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -60,13 +61,13 @@ newSseConfiguration pKmsEncryptionConfig_ =
 sseConfiguration_kmsEncryptionConfig :: Lens.Lens' SseConfiguration KmsEncryptionConfig
 sseConfiguration_kmsEncryptionConfig = Lens.lens (\SseConfiguration' {kmsEncryptionConfig} -> kmsEncryptionConfig) (\s@SseConfiguration' {} a -> s {kmsEncryptionConfig = a} :: SseConfiguration)
 
-instance Core.FromJSON SseConfiguration where
+instance Data.FromJSON SseConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SseConfiguration"
       ( \x ->
           SseConfiguration'
-            Prelude.<$> (x Core..: "KmsEncryptionConfig")
+            Prelude.<$> (x Data..: "KmsEncryptionConfig")
       )
 
 instance Prelude.Hashable SseConfiguration where
@@ -77,11 +78,11 @@ instance Prelude.NFData SseConfiguration where
   rnf SseConfiguration' {..} =
     Prelude.rnf kmsEncryptionConfig
 
-instance Core.ToJSON SseConfiguration where
+instance Data.ToJSON SseConfiguration where
   toJSON SseConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("KmsEncryptionConfig" Core..= kmsEncryptionConfig)
+              ("KmsEncryptionConfig" Data..= kmsEncryptionConfig)
           ]
       )

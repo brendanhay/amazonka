@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HealthLake.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,7 +103,7 @@ instance Core.AWSRequest DescribeFHIRExportJob where
       ( \s h x ->
           DescribeFHIRExportJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ExportJobProperties")
+            Prelude.<*> (x Data..:> "ExportJobProperties")
       )
 
 instance Prelude.Hashable DescribeFHIRExportJob where
@@ -115,34 +116,34 @@ instance Prelude.NFData DescribeFHIRExportJob where
     Prelude.rnf datastoreId
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders DescribeFHIRExportJob where
+instance Data.ToHeaders DescribeFHIRExportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "HealthLake.DescribeFHIRExportJob" ::
+              Data.=# ( "HealthLake.DescribeFHIRExportJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFHIRExportJob where
+instance Data.ToJSON DescribeFHIRExportJob where
   toJSON DescribeFHIRExportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DatastoreId" Core..= datastoreId),
-            Prelude.Just ("JobId" Core..= jobId)
+          [ Prelude.Just ("DatastoreId" Data..= datastoreId),
+            Prelude.Just ("JobId" Data..= jobId)
           ]
       )
 
-instance Core.ToPath DescribeFHIRExportJob where
+instance Data.ToPath DescribeFHIRExportJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFHIRExportJob where
+instance Data.ToQuery DescribeFHIRExportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeFHIRExportJobResponse' smart constructor.

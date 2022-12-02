@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HealthLake.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,7 +91,7 @@ instance Core.AWSRequest DescribeFHIRDatastore where
       ( \s h x ->
           DescribeFHIRDatastoreResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "DatastoreProperties")
+            Prelude.<*> (x Data..:> "DatastoreProperties")
       )
 
 instance Prelude.Hashable DescribeFHIRDatastore where
@@ -101,32 +102,32 @@ instance Prelude.NFData DescribeFHIRDatastore where
   rnf DescribeFHIRDatastore' {..} =
     Prelude.rnf datastoreId
 
-instance Core.ToHeaders DescribeFHIRDatastore where
+instance Data.ToHeaders DescribeFHIRDatastore where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "HealthLake.DescribeFHIRDatastore" ::
+              Data.=# ( "HealthLake.DescribeFHIRDatastore" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFHIRDatastore where
+instance Data.ToJSON DescribeFHIRDatastore where
   toJSON DescribeFHIRDatastore' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("DatastoreId" Core..=) Prelude.<$> datastoreId]
+          [("DatastoreId" Data..=) Prelude.<$> datastoreId]
       )
 
-instance Core.ToPath DescribeFHIRDatastore where
+instance Data.ToPath DescribeFHIRDatastore where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFHIRDatastore where
+instance Data.ToQuery DescribeFHIRDatastore where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeFHIRDatastoreResponse' smart constructor.

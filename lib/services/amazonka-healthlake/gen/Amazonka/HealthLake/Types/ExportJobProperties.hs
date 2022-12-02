@@ -21,6 +21,7 @@ module Amazonka.HealthLake.Types.ExportJobProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HealthLake.Types.JobStatus
 import Amazonka.HealthLake.Types.OutputDataConfig
 import qualified Amazonka.Prelude as Prelude
@@ -38,14 +39,14 @@ data ExportJobProperties = ExportJobProperties'
     -- | The Amazon Resource Name used during the initiation of the job.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The time an export job completed.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The AWS generated ID for an export job.
     jobId :: Prelude.Text,
     -- | The status of a FHIR export job. Possible statuses are SUBMITTED,
     -- IN_PROGRESS, COMPLETED, or FAILED.
     jobStatus :: JobStatus,
     -- | The time an export job was initiated.
-    submitTime :: Core.POSIX,
+    submitTime :: Data.POSIX,
     -- | The AWS generated ID for the Data Store from which files are being
     -- exported for an export job.
     datastoreId :: Prelude.Text,
@@ -109,7 +110,7 @@ newExportJobProperties
         endTime = Prelude.Nothing,
         jobId = pJobId_,
         jobStatus = pJobStatus_,
-        submitTime = Core._Time Lens.# pSubmitTime_,
+        submitTime = Data._Time Lens.# pSubmitTime_,
         datastoreId = pDatastoreId_,
         outputDataConfig = pOutputDataConfig_
       }
@@ -129,7 +130,7 @@ exportJobProperties_dataAccessRoleArn = Lens.lens (\ExportJobProperties' {dataAc
 
 -- | The time an export job completed.
 exportJobProperties_endTime :: Lens.Lens' ExportJobProperties (Prelude.Maybe Prelude.UTCTime)
-exportJobProperties_endTime = Lens.lens (\ExportJobProperties' {endTime} -> endTime) (\s@ExportJobProperties' {} a -> s {endTime = a} :: ExportJobProperties) Prelude.. Lens.mapping Core._Time
+exportJobProperties_endTime = Lens.lens (\ExportJobProperties' {endTime} -> endTime) (\s@ExportJobProperties' {} a -> s {endTime = a} :: ExportJobProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The AWS generated ID for an export job.
 exportJobProperties_jobId :: Lens.Lens' ExportJobProperties Prelude.Text
@@ -142,7 +143,7 @@ exportJobProperties_jobStatus = Lens.lens (\ExportJobProperties' {jobStatus} -> 
 
 -- | The time an export job was initiated.
 exportJobProperties_submitTime :: Lens.Lens' ExportJobProperties Prelude.UTCTime
-exportJobProperties_submitTime = Lens.lens (\ExportJobProperties' {submitTime} -> submitTime) (\s@ExportJobProperties' {} a -> s {submitTime = a} :: ExportJobProperties) Prelude.. Core._Time
+exportJobProperties_submitTime = Lens.lens (\ExportJobProperties' {submitTime} -> submitTime) (\s@ExportJobProperties' {} a -> s {submitTime = a} :: ExportJobProperties) Prelude.. Data._Time
 
 -- | The AWS generated ID for the Data Store from which files are being
 -- exported for an export job.
@@ -154,21 +155,21 @@ exportJobProperties_datastoreId = Lens.lens (\ExportJobProperties' {datastoreId}
 exportJobProperties_outputDataConfig :: Lens.Lens' ExportJobProperties OutputDataConfig
 exportJobProperties_outputDataConfig = Lens.lens (\ExportJobProperties' {outputDataConfig} -> outputDataConfig) (\s@ExportJobProperties' {} a -> s {outputDataConfig = a} :: ExportJobProperties)
 
-instance Core.FromJSON ExportJobProperties where
+instance Data.FromJSON ExportJobProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExportJobProperties"
       ( \x ->
           ExportJobProperties'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "DataAccessRoleArn")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..: "JobId")
-            Prelude.<*> (x Core..: "JobStatus")
-            Prelude.<*> (x Core..: "SubmitTime")
-            Prelude.<*> (x Core..: "DatastoreId")
-            Prelude.<*> (x Core..: "OutputDataConfig")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "DataAccessRoleArn")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..: "JobId")
+            Prelude.<*> (x Data..: "JobStatus")
+            Prelude.<*> (x Data..: "SubmitTime")
+            Prelude.<*> (x Data..: "DatastoreId")
+            Prelude.<*> (x Data..: "OutputDataConfig")
       )
 
 instance Prelude.Hashable ExportJobProperties where

@@ -48,6 +48,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DAX.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -150,8 +151,8 @@ instance Core.AWSRequest DescribeSubnetGroups where
     Response.receiveJSON
       ( \s h x ->
           DescribeSubnetGroupsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "SubnetGroups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "SubnetGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,36 +168,36 @@ instance Prelude.NFData DescribeSubnetGroups where
       `Prelude.seq` Prelude.rnf subnetGroupNames
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeSubnetGroups where
+instance Data.ToHeaders DescribeSubnetGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDAXV3.DescribeSubnetGroups" ::
+              Data.=# ( "AmazonDAXV3.DescribeSubnetGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeSubnetGroups where
+instance Data.ToJSON DescribeSubnetGroups where
   toJSON DescribeSubnetGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SubnetGroupNames" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SubnetGroupNames" Data..=)
               Prelude.<$> subnetGroupNames,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeSubnetGroups where
+instance Data.ToPath DescribeSubnetGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSubnetGroups where
+instance Data.ToQuery DescribeSubnetGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSubnetGroupsResponse' smart constructor.

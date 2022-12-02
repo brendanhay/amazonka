@@ -45,6 +45,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DAX.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -113,7 +114,7 @@ instance Core.AWSRequest UpdateParameterGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateParameterGroupResponse'
-            Prelude.<$> (x Core..?> "ParameterGroup")
+            Prelude.<$> (x Data..?> "ParameterGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,36 +128,36 @@ instance Prelude.NFData UpdateParameterGroup where
     Prelude.rnf parameterGroupName
       `Prelude.seq` Prelude.rnf parameterNameValues
 
-instance Core.ToHeaders UpdateParameterGroup where
+instance Data.ToHeaders UpdateParameterGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDAXV3.UpdateParameterGroup" ::
+              Data.=# ( "AmazonDAXV3.UpdateParameterGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateParameterGroup where
+instance Data.ToJSON UpdateParameterGroup where
   toJSON UpdateParameterGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ParameterGroupName" Core..= parameterGroupName),
+              ("ParameterGroupName" Data..= parameterGroupName),
             Prelude.Just
-              ("ParameterNameValues" Core..= parameterNameValues)
+              ("ParameterNameValues" Data..= parameterNameValues)
           ]
       )
 
-instance Core.ToPath UpdateParameterGroup where
+instance Data.ToPath UpdateParameterGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateParameterGroup where
+instance Data.ToQuery UpdateParameterGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateParameterGroupResponse' smart constructor.

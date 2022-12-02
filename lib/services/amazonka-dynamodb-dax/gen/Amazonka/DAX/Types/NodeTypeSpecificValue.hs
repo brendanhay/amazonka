@@ -21,6 +21,7 @@ module Amazonka.DAX.Types.NodeTypeSpecificValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a parameter value that is applicable to a particular node
@@ -62,14 +63,14 @@ nodeTypeSpecificValue_nodeType = Lens.lens (\NodeTypeSpecificValue' {nodeType} -
 nodeTypeSpecificValue_value :: Lens.Lens' NodeTypeSpecificValue (Prelude.Maybe Prelude.Text)
 nodeTypeSpecificValue_value = Lens.lens (\NodeTypeSpecificValue' {value} -> value) (\s@NodeTypeSpecificValue' {} a -> s {value = a} :: NodeTypeSpecificValue)
 
-instance Core.FromJSON NodeTypeSpecificValue where
+instance Data.FromJSON NodeTypeSpecificValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NodeTypeSpecificValue"
       ( \x ->
           NodeTypeSpecificValue'
-            Prelude.<$> (x Core..:? "NodeType")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "NodeType")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable NodeTypeSpecificValue where

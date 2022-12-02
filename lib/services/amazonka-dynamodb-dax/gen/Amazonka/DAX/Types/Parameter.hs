@@ -25,6 +25,7 @@ import Amazonka.DAX.Types.ChangeType
 import Amazonka.DAX.Types.IsModifiable
 import Amazonka.DAX.Types.NodeTypeSpecificValue
 import Amazonka.DAX.Types.ParameterType
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an individual setting that controls some aspect of DAX
@@ -150,24 +151,24 @@ parameter_allowedValues = Lens.lens (\Parameter' {allowedValues} -> allowedValue
 parameter_dataType :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_dataType = Lens.lens (\Parameter' {dataType} -> dataType) (\s@Parameter' {} a -> s {dataType = a} :: Parameter)
 
-instance Core.FromJSON Parameter where
+instance Data.FromJSON Parameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Parameter"
       ( \x ->
           Parameter'
-            Prelude.<$> (x Core..:? "ChangeType")
-            Prelude.<*> (x Core..:? "ParameterValue")
-            Prelude.<*> (x Core..:? "IsModifiable")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ParameterName")
-            Prelude.<*> ( x Core..:? "NodeTypeSpecificValues"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ChangeType")
+            Prelude.<*> (x Data..:? "ParameterValue")
+            Prelude.<*> (x Data..:? "IsModifiable")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ParameterName")
+            Prelude.<*> ( x Data..:? "NodeTypeSpecificValues"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Source")
-            Prelude.<*> (x Core..:? "ParameterType")
-            Prelude.<*> (x Core..:? "AllowedValues")
-            Prelude.<*> (x Core..:? "DataType")
+            Prelude.<*> (x Data..:? "Source")
+            Prelude.<*> (x Data..:? "ParameterType")
+            Prelude.<*> (x Data..:? "AllowedValues")
+            Prelude.<*> (x Data..:? "DataType")
       )
 
 instance Prelude.Hashable Parameter where

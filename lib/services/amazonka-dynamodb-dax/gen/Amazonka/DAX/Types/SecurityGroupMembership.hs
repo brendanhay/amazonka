@@ -21,6 +21,7 @@ module Amazonka.DAX.Types.SecurityGroupMembership where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An individual VPC security group and its status.
@@ -62,14 +63,14 @@ securityGroupMembership_securityGroupIdentifier = Lens.lens (\SecurityGroupMembe
 securityGroupMembership_status :: Lens.Lens' SecurityGroupMembership (Prelude.Maybe Prelude.Text)
 securityGroupMembership_status = Lens.lens (\SecurityGroupMembership' {status} -> status) (\s@SecurityGroupMembership' {} a -> s {status = a} :: SecurityGroupMembership)
 
-instance Core.FromJSON SecurityGroupMembership where
+instance Data.FromJSON SecurityGroupMembership where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SecurityGroupMembership"
       ( \x ->
           SecurityGroupMembership'
-            Prelude.<$> (x Core..:? "SecurityGroupIdentifier")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Data..:? "SecurityGroupIdentifier")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable SecurityGroupMembership where

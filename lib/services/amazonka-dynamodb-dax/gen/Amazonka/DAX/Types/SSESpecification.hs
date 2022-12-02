@@ -21,6 +21,7 @@ module Amazonka.DAX.Types.SSESpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the settings used to enable server-side encryption.
@@ -62,9 +63,9 @@ instance Prelude.Hashable SSESpecification where
 instance Prelude.NFData SSESpecification where
   rnf SSESpecification' {..} = Prelude.rnf enabled
 
-instance Core.ToJSON SSESpecification where
+instance Data.ToJSON SSESpecification where
   toJSON SSESpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Enabled" Core..= enabled)]
+          [Prelude.Just ("Enabled" Data..= enabled)]
       )

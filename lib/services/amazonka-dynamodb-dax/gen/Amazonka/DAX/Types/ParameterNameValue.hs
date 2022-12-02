@@ -21,6 +21,7 @@ module Amazonka.DAX.Types.ParameterNameValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An individual DAX parameter.
@@ -72,12 +73,12 @@ instance Prelude.NFData ParameterNameValue where
     Prelude.rnf parameterValue
       `Prelude.seq` Prelude.rnf parameterName
 
-instance Core.ToJSON ParameterNameValue where
+instance Data.ToJSON ParameterNameValue where
   toJSON ParameterNameValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ParameterValue" Core..=)
+          [ ("ParameterValue" Data..=)
               Prelude.<$> parameterValue,
-            ("ParameterName" Core..=) Prelude.<$> parameterName
+            ("ParameterName" Data..=) Prelude.<$> parameterName
           ]
       )

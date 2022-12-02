@@ -21,6 +21,7 @@ module Amazonka.DAX.Types.ParameterGroupStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The status of a parameter group.
@@ -71,16 +72,16 @@ parameterGroupStatus_parameterApplyStatus = Lens.lens (\ParameterGroupStatus' {p
 parameterGroupStatus_nodeIdsToReboot :: Lens.Lens' ParameterGroupStatus (Prelude.Maybe [Prelude.Text])
 parameterGroupStatus_nodeIdsToReboot = Lens.lens (\ParameterGroupStatus' {nodeIdsToReboot} -> nodeIdsToReboot) (\s@ParameterGroupStatus' {} a -> s {nodeIdsToReboot = a} :: ParameterGroupStatus) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ParameterGroupStatus where
+instance Data.FromJSON ParameterGroupStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParameterGroupStatus"
       ( \x ->
           ParameterGroupStatus'
-            Prelude.<$> (x Core..:? "ParameterGroupName")
-            Prelude.<*> (x Core..:? "ParameterApplyStatus")
-            Prelude.<*> ( x Core..:? "NodeIdsToReboot"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ParameterGroupName")
+            Prelude.<*> (x Data..:? "ParameterApplyStatus")
+            Prelude.<*> ( x Data..:? "NodeIdsToReboot"
+                            Data..!= Prelude.mempty
                         )
       )
 

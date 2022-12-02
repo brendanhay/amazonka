@@ -48,6 +48,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DAX.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,7 +124,7 @@ instance Core.AWSRequest DecreaseReplicationFactor where
     Response.receiveJSON
       ( \s h x ->
           DecreaseReplicationFactorResponse'
-            Prelude.<$> (x Core..?> "Cluster")
+            Prelude.<$> (x Data..?> "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,41 +142,41 @@ instance Prelude.NFData DecreaseReplicationFactor where
       `Prelude.seq` Prelude.rnf clusterName
       `Prelude.seq` Prelude.rnf newReplicationFactor'
 
-instance Core.ToHeaders DecreaseReplicationFactor where
+instance Data.ToHeaders DecreaseReplicationFactor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDAXV3.DecreaseReplicationFactor" ::
+              Data.=# ( "AmazonDAXV3.DecreaseReplicationFactor" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DecreaseReplicationFactor where
+instance Data.ToJSON DecreaseReplicationFactor where
   toJSON DecreaseReplicationFactor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AvailabilityZones" Core..=)
+          [ ("AvailabilityZones" Data..=)
               Prelude.<$> availabilityZones,
-            ("NodeIdsToRemove" Core..=)
+            ("NodeIdsToRemove" Data..=)
               Prelude.<$> nodeIdsToRemove,
-            Prelude.Just ("ClusterName" Core..= clusterName),
+            Prelude.Just ("ClusterName" Data..= clusterName),
             Prelude.Just
               ( "NewReplicationFactor"
-                  Core..= newReplicationFactor'
+                  Data..= newReplicationFactor'
               )
           ]
       )
 
-instance Core.ToPath DecreaseReplicationFactor where
+instance Data.ToPath DecreaseReplicationFactor where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DecreaseReplicationFactor where
+instance Data.ToQuery DecreaseReplicationFactor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDecreaseReplicationFactorResponse' smart constructor.

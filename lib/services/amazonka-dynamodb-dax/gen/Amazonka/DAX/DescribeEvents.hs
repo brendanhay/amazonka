@@ -57,6 +57,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DAX.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -76,7 +77,7 @@ data DescribeEvents = DescribeEvents'
     sourceType :: Prelude.Maybe SourceType,
     -- | The end of the time interval for which to retrieve events, specified in
     -- ISO 8601 format.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The number of minutes\' worth of events to retrieve.
     duration :: Prelude.Maybe Prelude.Int,
     -- | The maximum number of results to include in the response. If more
@@ -87,7 +88,7 @@ data DescribeEvents = DescribeEvents'
     maxResults :: Prelude.Maybe Prelude.Int,
     -- | The beginning of the time interval to retrieve events for, specified in
     -- ISO 8601 format.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -156,7 +157,7 @@ describeEvents_sourceType = Lens.lens (\DescribeEvents' {sourceType} -> sourceTy
 -- | The end of the time interval for which to retrieve events, specified in
 -- ISO 8601 format.
 describeEvents_endTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
-describeEvents_endTime = Lens.lens (\DescribeEvents' {endTime} -> endTime) (\s@DescribeEvents' {} a -> s {endTime = a} :: DescribeEvents) Prelude.. Lens.mapping Core._Time
+describeEvents_endTime = Lens.lens (\DescribeEvents' {endTime} -> endTime) (\s@DescribeEvents' {} a -> s {endTime = a} :: DescribeEvents) Prelude.. Lens.mapping Data._Time
 
 -- | The number of minutes\' worth of events to retrieve.
 describeEvents_duration :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Int)
@@ -173,7 +174,7 @@ describeEvents_maxResults = Lens.lens (\DescribeEvents' {maxResults} -> maxResul
 -- | The beginning of the time interval to retrieve events for, specified in
 -- ISO 8601 format.
 describeEvents_startTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
-describeEvents_startTime = Lens.lens (\DescribeEvents' {startTime} -> startTime) (\s@DescribeEvents' {} a -> s {startTime = a} :: DescribeEvents) Prelude.. Lens.mapping Core._Time
+describeEvents_startTime = Lens.lens (\DescribeEvents' {startTime} -> startTime) (\s@DescribeEvents' {} a -> s {startTime = a} :: DescribeEvents) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager DescribeEvents where
   page rq rs
@@ -205,8 +206,8 @@ instance Core.AWSRequest DescribeEvents where
     Response.receiveJSON
       ( \s h x ->
           DescribeEventsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Events" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Events" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -230,37 +231,37 @@ instance Prelude.NFData DescribeEvents where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToHeaders DescribeEvents where
+instance Data.ToHeaders DescribeEvents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonDAXV3.DescribeEvents" :: Prelude.ByteString),
+              Data.=# ("AmazonDAXV3.DescribeEvents" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEvents where
+instance Data.ToJSON DescribeEvents where
   toJSON DescribeEvents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SourceName" Core..=) Prelude.<$> sourceName,
-            ("SourceType" Core..=) Prelude.<$> sourceType,
-            ("EndTime" Core..=) Prelude.<$> endTime,
-            ("Duration" Core..=) Prelude.<$> duration,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("StartTime" Core..=) Prelude.<$> startTime
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SourceName" Data..=) Prelude.<$> sourceName,
+            ("SourceType" Data..=) Prelude.<$> sourceType,
+            ("EndTime" Data..=) Prelude.<$> endTime,
+            ("Duration" Data..=) Prelude.<$> duration,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("StartTime" Data..=) Prelude.<$> startTime
           ]
       )
 
-instance Core.ToPath DescribeEvents where
+instance Data.ToPath DescribeEvents where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEvents where
+instance Data.ToQuery DescribeEvents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEventsResponse' smart constructor.

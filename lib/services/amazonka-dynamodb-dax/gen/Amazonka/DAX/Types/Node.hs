@@ -22,6 +22,7 @@ module Amazonka.DAX.Types.Node where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DAX.Types.Endpoint
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an individual node within a DAX cluster.
@@ -33,7 +34,7 @@ data Node = Node'
     -- | A system-generated identifier for the node.
     nodeId :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in UNIX epoch format) when the node was launched.
-    nodeCreateTime :: Prelude.Maybe Core.POSIX,
+    nodeCreateTime :: Prelude.Maybe Data.POSIX,
     -- | The Availability Zone (AZ) in which the node has been deployed.
     availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The status of the parameter group associated with this node. For
@@ -92,7 +93,7 @@ node_nodeId = Lens.lens (\Node' {nodeId} -> nodeId) (\s@Node' {} a -> s {nodeId 
 
 -- | The date and time (in UNIX epoch format) when the node was launched.
 node_nodeCreateTime :: Lens.Lens' Node (Prelude.Maybe Prelude.UTCTime)
-node_nodeCreateTime = Lens.lens (\Node' {nodeCreateTime} -> nodeCreateTime) (\s@Node' {} a -> s {nodeCreateTime = a} :: Node) Prelude.. Lens.mapping Core._Time
+node_nodeCreateTime = Lens.lens (\Node' {nodeCreateTime} -> nodeCreateTime) (\s@Node' {} a -> s {nodeCreateTime = a} :: Node) Prelude.. Lens.mapping Data._Time
 
 -- | The Availability Zone (AZ) in which the node has been deployed.
 node_availabilityZone :: Lens.Lens' Node (Prelude.Maybe Prelude.Text)
@@ -110,18 +111,18 @@ node_parameterGroupStatus = Lens.lens (\Node' {parameterGroupStatus} -> paramete
 node_endpoint :: Lens.Lens' Node (Prelude.Maybe Endpoint)
 node_endpoint = Lens.lens (\Node' {endpoint} -> endpoint) (\s@Node' {} a -> s {endpoint = a} :: Node)
 
-instance Core.FromJSON Node where
+instance Data.FromJSON Node where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Node"
       ( \x ->
           Node'
-            Prelude.<$> (x Core..:? "NodeStatus")
-            Prelude.<*> (x Core..:? "NodeId")
-            Prelude.<*> (x Core..:? "NodeCreateTime")
-            Prelude.<*> (x Core..:? "AvailabilityZone")
-            Prelude.<*> (x Core..:? "ParameterGroupStatus")
-            Prelude.<*> (x Core..:? "Endpoint")
+            Prelude.<$> (x Data..:? "NodeStatus")
+            Prelude.<*> (x Data..:? "NodeId")
+            Prelude.<*> (x Data..:? "NodeCreateTime")
+            Prelude.<*> (x Data..:? "AvailabilityZone")
+            Prelude.<*> (x Data..:? "ParameterGroupStatus")
+            Prelude.<*> (x Data..:? "Endpoint")
       )
 
 instance Prelude.Hashable Node where

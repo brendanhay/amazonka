@@ -44,6 +44,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DAX.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,7 +106,7 @@ instance Core.AWSRequest UpdateSubnetGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateSubnetGroupResponse'
-            Prelude.<$> (x Core..?> "SubnetGroup")
+            Prelude.<$> (x Data..?> "SubnetGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,36 +122,36 @@ instance Prelude.NFData UpdateSubnetGroup where
       `Prelude.seq` Prelude.rnf subnetIds
       `Prelude.seq` Prelude.rnf subnetGroupName
 
-instance Core.ToHeaders UpdateSubnetGroup where
+instance Data.ToHeaders UpdateSubnetGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDAXV3.UpdateSubnetGroup" ::
+              Data.=# ( "AmazonDAXV3.UpdateSubnetGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSubnetGroup where
+instance Data.ToJSON UpdateSubnetGroup where
   toJSON UpdateSubnetGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("SubnetIds" Core..=) Prelude.<$> subnetIds,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("SubnetIds" Data..=) Prelude.<$> subnetIds,
             Prelude.Just
-              ("SubnetGroupName" Core..= subnetGroupName)
+              ("SubnetGroupName" Data..= subnetGroupName)
           ]
       )
 
-instance Core.ToPath UpdateSubnetGroup where
+instance Data.ToPath UpdateSubnetGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateSubnetGroup where
+instance Data.ToQuery UpdateSubnetGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSubnetGroupResponse' smart constructor.

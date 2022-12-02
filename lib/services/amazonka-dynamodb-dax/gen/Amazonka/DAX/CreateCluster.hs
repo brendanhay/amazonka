@@ -56,6 +56,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DAX.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -409,7 +410,7 @@ instance Core.AWSRequest CreateCluster where
     Response.receiveJSON
       ( \s h x ->
           CreateClusterResponse'
-            Prelude.<$> (x Core..?> "Cluster")
+            Prelude.<$> (x Data..?> "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -447,53 +448,53 @@ instance Prelude.NFData CreateCluster where
       `Prelude.seq` Prelude.rnf replicationFactor
       `Prelude.seq` Prelude.rnf iamRoleArn
 
-instance Core.ToHeaders CreateCluster where
+instance Data.ToHeaders CreateCluster where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonDAXV3.CreateCluster" :: Prelude.ByteString),
+              Data.=# ("AmazonDAXV3.CreateCluster" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCluster where
+instance Data.ToJSON CreateCluster where
   toJSON CreateCluster' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("SubnetGroupName" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("SubnetGroupName" Data..=)
               Prelude.<$> subnetGroupName,
-            ("ParameterGroupName" Core..=)
+            ("ParameterGroupName" Data..=)
               Prelude.<$> parameterGroupName,
-            ("SecurityGroupIds" Core..=)
+            ("SecurityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("AvailabilityZones" Core..=)
+            ("AvailabilityZones" Data..=)
               Prelude.<$> availabilityZones,
-            ("Description" Core..=) Prelude.<$> description,
-            ("SSESpecification" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("SSESpecification" Data..=)
               Prelude.<$> sSESpecification,
-            ("NotificationTopicArn" Core..=)
+            ("NotificationTopicArn" Data..=)
               Prelude.<$> notificationTopicArn,
-            ("ClusterEndpointEncryptionType" Core..=)
+            ("ClusterEndpointEncryptionType" Data..=)
               Prelude.<$> clusterEndpointEncryptionType,
-            ("PreferredMaintenanceWindow" Core..=)
+            ("PreferredMaintenanceWindow" Data..=)
               Prelude.<$> preferredMaintenanceWindow,
-            Prelude.Just ("ClusterName" Core..= clusterName),
-            Prelude.Just ("NodeType" Core..= nodeType),
+            Prelude.Just ("ClusterName" Data..= clusterName),
+            Prelude.Just ("NodeType" Data..= nodeType),
             Prelude.Just
-              ("ReplicationFactor" Core..= replicationFactor),
-            Prelude.Just ("IamRoleArn" Core..= iamRoleArn)
+              ("ReplicationFactor" Data..= replicationFactor),
+            Prelude.Just ("IamRoleArn" Data..= iamRoleArn)
           ]
       )
 
-instance Core.ToPath CreateCluster where
+instance Data.ToPath CreateCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCluster where
+instance Data.ToQuery CreateCluster where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateClusterResponse' smart constructor.

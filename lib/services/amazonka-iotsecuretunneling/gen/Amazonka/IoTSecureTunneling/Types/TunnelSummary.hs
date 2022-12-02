@@ -21,6 +21,7 @@ module Amazonka.IoTSecureTunneling.Types.TunnelSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSecureTunneling.Types.TunnelStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newTunnelSummary' smart constructor.
 data TunnelSummary = TunnelSummary'
   { -- | The time the tunnel was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The status of a tunnel. Valid values are: Open and Closed.
     status :: Prelude.Maybe TunnelStatus,
     -- | A description of the tunnel.
@@ -39,7 +40,7 @@ data TunnelSummary = TunnelSummary'
     -- | The Amazon Resource Name of the tunnel.
     tunnelArn :: Prelude.Maybe Prelude.Text,
     -- | The time the tunnel was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,7 +77,7 @@ newTunnelSummary =
 
 -- | The time the tunnel was last updated.
 tunnelSummary_lastUpdatedAt :: Lens.Lens' TunnelSummary (Prelude.Maybe Prelude.UTCTime)
-tunnelSummary_lastUpdatedAt = Lens.lens (\TunnelSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@TunnelSummary' {} a -> s {lastUpdatedAt = a} :: TunnelSummary) Prelude.. Lens.mapping Core._Time
+tunnelSummary_lastUpdatedAt = Lens.lens (\TunnelSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@TunnelSummary' {} a -> s {lastUpdatedAt = a} :: TunnelSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The status of a tunnel. Valid values are: Open and Closed.
 tunnelSummary_status :: Lens.Lens' TunnelSummary (Prelude.Maybe TunnelStatus)
@@ -96,20 +97,20 @@ tunnelSummary_tunnelArn = Lens.lens (\TunnelSummary' {tunnelArn} -> tunnelArn) (
 
 -- | The time the tunnel was created.
 tunnelSummary_createdAt :: Lens.Lens' TunnelSummary (Prelude.Maybe Prelude.UTCTime)
-tunnelSummary_createdAt = Lens.lens (\TunnelSummary' {createdAt} -> createdAt) (\s@TunnelSummary' {} a -> s {createdAt = a} :: TunnelSummary) Prelude.. Lens.mapping Core._Time
+tunnelSummary_createdAt = Lens.lens (\TunnelSummary' {createdAt} -> createdAt) (\s@TunnelSummary' {} a -> s {createdAt = a} :: TunnelSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON TunnelSummary where
+instance Data.FromJSON TunnelSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TunnelSummary"
       ( \x ->
           TunnelSummary'
-            Prelude.<$> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "tunnelId")
-            Prelude.<*> (x Core..:? "tunnelArn")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "tunnelId")
+            Prelude.<*> (x Data..:? "tunnelArn")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable TunnelSummary where

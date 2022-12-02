@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSecureTunneling.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,34 +115,34 @@ instance Prelude.NFData CloseTunnel where
     Prelude.rnf delete'
       `Prelude.seq` Prelude.rnf tunnelId
 
-instance Core.ToHeaders CloseTunnel where
+instance Data.ToHeaders CloseTunnel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTSecuredTunneling.CloseTunnel" ::
+              Data.=# ( "IoTSecuredTunneling.CloseTunnel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CloseTunnel where
+instance Data.ToJSON CloseTunnel where
   toJSON CloseTunnel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("delete" Core..=) Prelude.<$> delete',
-            Prelude.Just ("tunnelId" Core..= tunnelId)
+          [ ("delete" Data..=) Prelude.<$> delete',
+            Prelude.Just ("tunnelId" Data..= tunnelId)
           ]
       )
 
-instance Core.ToPath CloseTunnel where
+instance Data.ToPath CloseTunnel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CloseTunnel where
+instance Data.ToQuery CloseTunnel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCloseTunnelResponse' smart constructor.

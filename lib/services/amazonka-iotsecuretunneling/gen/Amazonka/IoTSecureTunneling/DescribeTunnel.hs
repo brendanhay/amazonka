@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSecureTunneling.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,7 +88,7 @@ instance Core.AWSRequest DescribeTunnel where
     Response.receiveJSON
       ( \s h x ->
           DescribeTunnelResponse'
-            Prelude.<$> (x Core..?> "tunnel")
+            Prelude.<$> (x Data..?> "tunnel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,32 +99,32 @@ instance Prelude.Hashable DescribeTunnel where
 instance Prelude.NFData DescribeTunnel where
   rnf DescribeTunnel' {..} = Prelude.rnf tunnelId
 
-instance Core.ToHeaders DescribeTunnel where
+instance Data.ToHeaders DescribeTunnel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTSecuredTunneling.DescribeTunnel" ::
+              Data.=# ( "IoTSecuredTunneling.DescribeTunnel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeTunnel where
+instance Data.ToJSON DescribeTunnel where
   toJSON DescribeTunnel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("tunnelId" Core..= tunnelId)]
+          [Prelude.Just ("tunnelId" Data..= tunnelId)]
       )
 
-instance Core.ToPath DescribeTunnel where
+instance Data.ToPath DescribeTunnel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeTunnel where
+instance Data.ToQuery DescribeTunnel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeTunnelResponse' smart constructor.

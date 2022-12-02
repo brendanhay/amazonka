@@ -21,6 +21,7 @@ module Amazonka.CloudSearchDomains.Types.FieldStats where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The statistics for a field calculated in the request.
@@ -193,20 +194,20 @@ fieldStats_sum = Lens.lens (\FieldStats' {sum} -> sum) (\s@FieldStats' {} a -> s
 fieldStats_mean :: Lens.Lens' FieldStats (Prelude.Maybe Prelude.Text)
 fieldStats_mean = Lens.lens (\FieldStats' {mean} -> mean) (\s@FieldStats' {} a -> s {mean = a} :: FieldStats)
 
-instance Core.FromJSON FieldStats where
+instance Data.FromJSON FieldStats where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FieldStats"
       ( \x ->
           FieldStats'
-            Prelude.<$> (x Core..:? "missing")
-            Prelude.<*> (x Core..:? "max")
-            Prelude.<*> (x Core..:? "sumOfSquares")
-            Prelude.<*> (x Core..:? "count")
-            Prelude.<*> (x Core..:? "min")
-            Prelude.<*> (x Core..:? "stddev")
-            Prelude.<*> (x Core..:? "sum")
-            Prelude.<*> (x Core..:? "mean")
+            Prelude.<$> (x Data..:? "missing")
+            Prelude.<*> (x Data..:? "max")
+            Prelude.<*> (x Data..:? "sumOfSquares")
+            Prelude.<*> (x Data..:? "count")
+            Prelude.<*> (x Data..:? "min")
+            Prelude.<*> (x Data..:? "stddev")
+            Prelude.<*> (x Data..:? "sum")
+            Prelude.<*> (x Data..:? "mean")
       )
 
 instance Prelude.Hashable FieldStats where

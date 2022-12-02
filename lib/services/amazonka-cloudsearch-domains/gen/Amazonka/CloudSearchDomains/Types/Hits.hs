@@ -22,6 +22,7 @@ module Amazonka.CloudSearchDomains.Types.Hits where
 import Amazonka.CloudSearchDomains.Types.Hit
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The collection of documents that match the search request.
@@ -83,16 +84,16 @@ hits_cursor = Lens.lens (\Hits' {cursor} -> cursor) (\s@Hits' {} a -> s {cursor 
 hits_found :: Lens.Lens' Hits (Prelude.Maybe Prelude.Integer)
 hits_found = Lens.lens (\Hits' {found} -> found) (\s@Hits' {} a -> s {found = a} :: Hits)
 
-instance Core.FromJSON Hits where
+instance Data.FromJSON Hits where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Hits"
       ( \x ->
           Hits'
-            Prelude.<$> (x Core..:? "start")
-            Prelude.<*> (x Core..:? "hit" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "cursor")
-            Prelude.<*> (x Core..:? "found")
+            Prelude.<$> (x Data..:? "start")
+            Prelude.<*> (x Data..:? "hit" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "cursor")
+            Prelude.<*> (x Data..:? "found")
       )
 
 instance Prelude.Hashable Hits where

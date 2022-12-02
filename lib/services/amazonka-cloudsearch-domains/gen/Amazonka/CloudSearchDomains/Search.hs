@@ -82,6 +82,7 @@ where
 import Amazonka.CloudSearchDomains.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -1112,10 +1113,10 @@ instance Core.AWSRequest Search where
     Response.receiveJSON
       ( \s h x ->
           SearchResponse'
-            Prelude.<$> (x Core..?> "facets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "stats" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "hits")
-            Prelude.<*> (x Core..?> "status")
+            Prelude.<$> (x Data..?> "facets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "stats" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "hits")
+            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -1153,37 +1154,37 @@ instance Prelude.NFData Search where
       `Prelude.seq` Prelude.rnf expr
       `Prelude.seq` Prelude.rnf query
 
-instance Core.ToHeaders Search where
+instance Data.ToHeaders Search where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath Search where
+instance Data.ToPath Search where
   toPath = Prelude.const "/2013-01-01/search"
 
-instance Core.ToQuery Search where
+instance Data.ToQuery Search where
   toQuery Search' {..} =
     Prelude.mconcat
-      [ "fq" Core.=: filterQuery,
-        "q.parser" Core.=: queryParser,
-        "start" Core.=: start,
-        "return" Core.=: return',
-        "cursor" Core.=: cursor,
-        "size" Core.=: size,
-        "stats" Core.=: stats,
-        "facet" Core.=: facet,
-        "sort" Core.=: sort,
-        "q.options" Core.=: queryOptions,
-        "partial" Core.=: partial,
-        "highlight" Core.=: highlight,
-        "expr" Core.=: expr,
-        "q" Core.=: query,
+      [ "fq" Data.=: filterQuery,
+        "q.parser" Data.=: queryParser,
+        "start" Data.=: start,
+        "return" Data.=: return',
+        "cursor" Data.=: cursor,
+        "size" Data.=: size,
+        "stats" Data.=: stats,
+        "facet" Data.=: facet,
+        "sort" Data.=: sort,
+        "q.options" Data.=: queryOptions,
+        "partial" Data.=: partial,
+        "highlight" Data.=: highlight,
+        "expr" Data.=: expr,
+        "q" Data.=: query,
         "format=sdk&pretty=true"
       ]
 

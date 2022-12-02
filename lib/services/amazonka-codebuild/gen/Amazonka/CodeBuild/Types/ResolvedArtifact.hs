@@ -22,6 +22,7 @@ module Amazonka.CodeBuild.Types.ResolvedArtifact where
 import Amazonka.CodeBuild.Types.ArtifactsType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a resolved build artifact. A resolved artifact is an artifact
@@ -72,15 +73,15 @@ resolvedArtifact_location = Lens.lens (\ResolvedArtifact' {location} -> location
 resolvedArtifact_identifier :: Lens.Lens' ResolvedArtifact (Prelude.Maybe Prelude.Text)
 resolvedArtifact_identifier = Lens.lens (\ResolvedArtifact' {identifier} -> identifier) (\s@ResolvedArtifact' {} a -> s {identifier = a} :: ResolvedArtifact)
 
-instance Core.FromJSON ResolvedArtifact where
+instance Data.FromJSON ResolvedArtifact where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResolvedArtifact"
       ( \x ->
           ResolvedArtifact'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "identifier")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "identifier")
       )
 
 instance Prelude.Hashable ResolvedArtifact where

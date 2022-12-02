@@ -33,6 +33,7 @@ import Amazonka.CodeBuild.Types.StatusType
 import Amazonka.CodeBuild.Types.VpcConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a batch build.
@@ -82,7 +83,7 @@ data BuildBatch = BuildBatch'
     -- | The current phase of the batch build.
     currentPhase :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the batch build ended.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     cache :: Prelude.Maybe ProjectCache,
     -- | The identifier of the batch build.
     id :: Prelude.Maybe Prelude.Text,
@@ -146,7 +147,7 @@ data BuildBatch = BuildBatch'
     -- deleted, the @buildBatchNumber@ of other batch builds does not change.
     buildBatchNumber :: Prelude.Maybe Prelude.Integer,
     -- | The date and time that the batch build started.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | A @BuildArtifacts@ object the defines the build artifacts for this batch
     -- build.
     artifacts :: Prelude.Maybe BuildArtifacts
@@ -385,7 +386,7 @@ buildBatch_currentPhase = Lens.lens (\BuildBatch' {currentPhase} -> currentPhase
 
 -- | The date and time that the batch build ended.
 buildBatch_endTime :: Lens.Lens' BuildBatch (Prelude.Maybe Prelude.UTCTime)
-buildBatch_endTime = Lens.lens (\BuildBatch' {endTime} -> endTime) (\s@BuildBatch' {} a -> s {endTime = a} :: BuildBatch) Prelude.. Lens.mapping Core._Time
+buildBatch_endTime = Lens.lens (\BuildBatch' {endTime} -> endTime) (\s@BuildBatch' {} a -> s {endTime = a} :: BuildBatch) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 buildBatch_cache :: Lens.Lens' BuildBatch (Prelude.Maybe ProjectCache)
@@ -483,57 +484,57 @@ buildBatch_buildBatchNumber = Lens.lens (\BuildBatch' {buildBatchNumber} -> buil
 
 -- | The date and time that the batch build started.
 buildBatch_startTime :: Lens.Lens' BuildBatch (Prelude.Maybe Prelude.UTCTime)
-buildBatch_startTime = Lens.lens (\BuildBatch' {startTime} -> startTime) (\s@BuildBatch' {} a -> s {startTime = a} :: BuildBatch) Prelude.. Lens.mapping Core._Time
+buildBatch_startTime = Lens.lens (\BuildBatch' {startTime} -> startTime) (\s@BuildBatch' {} a -> s {startTime = a} :: BuildBatch) Prelude.. Lens.mapping Data._Time
 
 -- | A @BuildArtifacts@ object the defines the build artifacts for this batch
 -- build.
 buildBatch_artifacts :: Lens.Lens' BuildBatch (Prelude.Maybe BuildArtifacts)
 buildBatch_artifacts = Lens.lens (\BuildBatch' {artifacts} -> artifacts) (\s@BuildBatch' {} a -> s {artifacts = a} :: BuildBatch)
 
-instance Core.FromJSON BuildBatch where
+instance Data.FromJSON BuildBatch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BuildBatch"
       ( \x ->
           BuildBatch'
-            Prelude.<$> (x Core..:? "environment")
-            Prelude.<*> (x Core..:? "resolvedSourceVersion")
-            Prelude.<*> ( x Core..:? "secondarySources"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "environment")
+            Prelude.<*> (x Data..:? "resolvedSourceVersion")
+            Prelude.<*> ( x Data..:? "secondarySources"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "fileSystemLocations"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "fileSystemLocations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "queuedTimeoutInMinutes")
-            Prelude.<*> (x Core..:? "vpcConfig")
-            Prelude.<*> ( x Core..:? "secondaryArtifacts"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "queuedTimeoutInMinutes")
+            Prelude.<*> (x Data..:? "vpcConfig")
+            Prelude.<*> ( x Data..:? "secondaryArtifacts"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "debugSessionEnabled")
-            Prelude.<*> (x Core..:? "sourceVersion")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "complete")
-            Prelude.<*> (x Core..:? "phases" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "currentPhase")
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "cache")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "serviceRole")
-            Prelude.<*> (x Core..:? "buildBatchStatus")
-            Prelude.<*> ( x Core..:? "secondarySourceVersions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "debugSessionEnabled")
+            Prelude.<*> (x Data..:? "sourceVersion")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "complete")
+            Prelude.<*> (x Data..:? "phases" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "currentPhase")
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "cache")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "serviceRole")
+            Prelude.<*> (x Data..:? "buildBatchStatus")
+            Prelude.<*> ( x Data..:? "secondarySourceVersions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "source")
-            Prelude.<*> (x Core..:? "buildBatchConfig")
-            Prelude.<*> (x Core..:? "projectName")
-            Prelude.<*> (x Core..:? "encryptionKey")
-            Prelude.<*> (x Core..:? "buildGroups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "buildTimeoutInMinutes")
-            Prelude.<*> (x Core..:? "initiator")
-            Prelude.<*> (x Core..:? "logConfig")
-            Prelude.<*> (x Core..:? "buildBatchNumber")
-            Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..:? "artifacts")
+            Prelude.<*> (x Data..:? "source")
+            Prelude.<*> (x Data..:? "buildBatchConfig")
+            Prelude.<*> (x Data..:? "projectName")
+            Prelude.<*> (x Data..:? "encryptionKey")
+            Prelude.<*> (x Data..:? "buildGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "buildTimeoutInMinutes")
+            Prelude.<*> (x Data..:? "initiator")
+            Prelude.<*> (x Data..:? "logConfig")
+            Prelude.<*> (x Data..:? "buildBatchNumber")
+            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..:? "artifacts")
       )
 
 instance Prelude.Hashable BuildBatch where

@@ -23,6 +23,7 @@ import Amazonka.CodeBuild.Types.WebhookBuildType
 import Amazonka.CodeBuild.Types.WebhookFilter
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a webhook that connects repository events to a build
@@ -32,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 data Webhook = Webhook'
   { -- | A timestamp that indicates the last time a repository\'s secret token
     -- was modified.
-    lastModifiedSecret :: Prelude.Maybe Core.POSIX,
+    lastModifiedSecret :: Prelude.Maybe Data.POSIX,
     -- | The URL to the webhook.
     url :: Prelude.Maybe Prelude.Text,
     -- | The CodeBuild endpoint where webhook events are sent.
@@ -112,7 +113,7 @@ newWebhook =
 -- | A timestamp that indicates the last time a repository\'s secret token
 -- was modified.
 webhook_lastModifiedSecret :: Lens.Lens' Webhook (Prelude.Maybe Prelude.UTCTime)
-webhook_lastModifiedSecret = Lens.lens (\Webhook' {lastModifiedSecret} -> lastModifiedSecret) (\s@Webhook' {} a -> s {lastModifiedSecret = a} :: Webhook) Prelude.. Lens.mapping Core._Time
+webhook_lastModifiedSecret = Lens.lens (\Webhook' {lastModifiedSecret} -> lastModifiedSecret) (\s@Webhook' {} a -> s {lastModifiedSecret = a} :: Webhook) Prelude.. Lens.mapping Data._Time
 
 -- | The URL to the webhook.
 webhook_url :: Lens.Lens' Webhook (Prelude.Maybe Prelude.Text)
@@ -151,19 +152,19 @@ webhook_buildType = Lens.lens (\Webhook' {buildType} -> buildType) (\s@Webhook' 
 webhook_filterGroups :: Lens.Lens' Webhook (Prelude.Maybe [[WebhookFilter]])
 webhook_filterGroups = Lens.lens (\Webhook' {filterGroups} -> filterGroups) (\s@Webhook' {} a -> s {filterGroups = a} :: Webhook) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Webhook where
+instance Data.FromJSON Webhook where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Webhook"
       ( \x ->
           Webhook'
-            Prelude.<$> (x Core..:? "lastModifiedSecret")
-            Prelude.<*> (x Core..:? "url")
-            Prelude.<*> (x Core..:? "payloadUrl")
-            Prelude.<*> (x Core..:? "secret")
-            Prelude.<*> (x Core..:? "branchFilter")
-            Prelude.<*> (x Core..:? "buildType")
-            Prelude.<*> (x Core..:? "filterGroups" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "lastModifiedSecret")
+            Prelude.<*> (x Data..:? "url")
+            Prelude.<*> (x Data..:? "payloadUrl")
+            Prelude.<*> (x Data..:? "secret")
+            Prelude.<*> (x Data..:? "branchFilter")
+            Prelude.<*> (x Data..:? "buildType")
+            Prelude.<*> (x Data..:? "filterGroups" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Webhook where

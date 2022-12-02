@@ -34,6 +34,7 @@ import Amazonka.CodeBuild.Types.StatusType
 import Amazonka.CodeBuild.Types.VpcConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a build.
@@ -117,7 +118,7 @@ data Build = Build'
     -- | An array of the ARNs associated with this build\'s reports.
     reportArns :: Prelude.Maybe [Prelude.Text],
     -- | When the build process ended, expressed in Unix time format.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | Information about the cache for the build.
     cache :: Prelude.Maybe ProjectCache,
     -- | The unique ID for the build.
@@ -180,7 +181,7 @@ data Build = Build'
     --     @CodeBuild-Jenkins-Plugin@.
     initiator :: Prelude.Maybe Prelude.Text,
     -- | When the build process started, expressed in Unix time format.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | Information about the output artifacts for the build.
     artifacts :: Prelude.Maybe BuildArtifacts
   }
@@ -486,7 +487,7 @@ build_reportArns = Lens.lens (\Build' {reportArns} -> reportArns) (\s@Build' {} 
 
 -- | When the build process ended, expressed in Unix time format.
 build_endTime :: Lens.Lens' Build (Prelude.Maybe Prelude.UTCTime)
-build_endTime = Lens.lens (\Build' {endTime} -> endTime) (\s@Build' {} a -> s {endTime = a} :: Build) Prelude.. Lens.mapping Core._Time
+build_endTime = Lens.lens (\Build' {endTime} -> endTime) (\s@Build' {} a -> s {endTime = a} :: Build) Prelude.. Lens.mapping Data._Time
 
 -- | Information about the cache for the build.
 build_cache :: Lens.Lens' Build (Prelude.Maybe ProjectCache)
@@ -575,60 +576,60 @@ build_initiator = Lens.lens (\Build' {initiator} -> initiator) (\s@Build' {} a -
 
 -- | When the build process started, expressed in Unix time format.
 build_startTime :: Lens.Lens' Build (Prelude.Maybe Prelude.UTCTime)
-build_startTime = Lens.lens (\Build' {startTime} -> startTime) (\s@Build' {} a -> s {startTime = a} :: Build) Prelude.. Lens.mapping Core._Time
+build_startTime = Lens.lens (\Build' {startTime} -> startTime) (\s@Build' {} a -> s {startTime = a} :: Build) Prelude.. Lens.mapping Data._Time
 
 -- | Information about the output artifacts for the build.
 build_artifacts :: Lens.Lens' Build (Prelude.Maybe BuildArtifacts)
 build_artifacts = Lens.lens (\Build' {artifacts} -> artifacts) (\s@Build' {} a -> s {artifacts = a} :: Build)
 
-instance Core.FromJSON Build where
+instance Data.FromJSON Build where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Build"
       ( \x ->
           Build'
-            Prelude.<$> (x Core..:? "environment")
-            Prelude.<*> (x Core..:? "resolvedSourceVersion")
-            Prelude.<*> ( x Core..:? "secondarySources"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "environment")
+            Prelude.<*> (x Data..:? "resolvedSourceVersion")
+            Prelude.<*> ( x Data..:? "secondarySources"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "fileSystemLocations"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "fileSystemLocations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "exportedEnvironmentVariables"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "exportedEnvironmentVariables"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "timeoutInMinutes")
-            Prelude.<*> (x Core..:? "queuedTimeoutInMinutes")
-            Prelude.<*> (x Core..:? "vpcConfig")
-            Prelude.<*> ( x Core..:? "secondaryArtifacts"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "timeoutInMinutes")
+            Prelude.<*> (x Data..:? "queuedTimeoutInMinutes")
+            Prelude.<*> (x Data..:? "vpcConfig")
+            Prelude.<*> ( x Data..:? "secondaryArtifacts"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "buildStatus")
-            Prelude.<*> (x Core..:? "debugSession")
-            Prelude.<*> (x Core..:? "sourceVersion")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "buildBatchArn")
-            Prelude.<*> (x Core..:? "phases" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "currentPhase")
-            Prelude.<*> (x Core..:? "reportArns" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "cache")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "serviceRole")
-            Prelude.<*> (x Core..:? "logs")
-            Prelude.<*> ( x Core..:? "secondarySourceVersions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "buildStatus")
+            Prelude.<*> (x Data..:? "debugSession")
+            Prelude.<*> (x Data..:? "sourceVersion")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "buildBatchArn")
+            Prelude.<*> (x Data..:? "phases" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "currentPhase")
+            Prelude.<*> (x Data..:? "reportArns" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "cache")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "serviceRole")
+            Prelude.<*> (x Data..:? "logs")
+            Prelude.<*> ( x Data..:? "secondarySourceVersions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "source")
-            Prelude.<*> (x Core..:? "buildComplete")
-            Prelude.<*> (x Core..:? "buildNumber")
-            Prelude.<*> (x Core..:? "projectName")
-            Prelude.<*> (x Core..:? "encryptionKey")
-            Prelude.<*> (x Core..:? "networkInterface")
-            Prelude.<*> (x Core..:? "initiator")
-            Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..:? "artifacts")
+            Prelude.<*> (x Data..:? "source")
+            Prelude.<*> (x Data..:? "buildComplete")
+            Prelude.<*> (x Data..:? "buildNumber")
+            Prelude.<*> (x Data..:? "projectName")
+            Prelude.<*> (x Data..:? "encryptionKey")
+            Prelude.<*> (x Data..:? "networkInterface")
+            Prelude.<*> (x Data..:? "initiator")
+            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..:? "artifacts")
       )
 
 instance Prelude.Hashable Build where

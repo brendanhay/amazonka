@@ -22,6 +22,7 @@ module Amazonka.CodeBuild.Types.EnvironmentVariable where
 import Amazonka.CodeBuild.Types.EnvironmentVariableType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an environment variable for a build project or a
@@ -142,15 +143,15 @@ environmentVariable_name = Lens.lens (\EnvironmentVariable' {name} -> name) (\s@
 environmentVariable_value :: Lens.Lens' EnvironmentVariable Prelude.Text
 environmentVariable_value = Lens.lens (\EnvironmentVariable' {value} -> value) (\s@EnvironmentVariable' {} a -> s {value = a} :: EnvironmentVariable)
 
-instance Core.FromJSON EnvironmentVariable where
+instance Data.FromJSON EnvironmentVariable where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnvironmentVariable"
       ( \x ->
           EnvironmentVariable'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "value")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable EnvironmentVariable where
@@ -165,12 +166,12 @@ instance Prelude.NFData EnvironmentVariable where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON EnvironmentVariable where
+instance Data.ToJSON EnvironmentVariable where
   toJSON EnvironmentVariable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("type" Core..=) Prelude.<$> type',
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("value" Core..= value)
+          [ ("type" Data..=) Prelude.<$> type',
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("value" Data..= value)
           ]
       )

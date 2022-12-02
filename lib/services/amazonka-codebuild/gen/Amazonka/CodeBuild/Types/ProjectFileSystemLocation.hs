@@ -22,6 +22,7 @@ module Amazonka.CodeBuild.Types.ProjectFileSystemLocation where
 import Amazonka.CodeBuild.Types.FileSystemType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a file system created by Amazon Elastic File System
@@ -154,17 +155,17 @@ projectFileSystemLocation_location = Lens.lens (\ProjectFileSystemLocation' {loc
 projectFileSystemLocation_identifier :: Lens.Lens' ProjectFileSystemLocation (Prelude.Maybe Prelude.Text)
 projectFileSystemLocation_identifier = Lens.lens (\ProjectFileSystemLocation' {identifier} -> identifier) (\s@ProjectFileSystemLocation' {} a -> s {identifier = a} :: ProjectFileSystemLocation)
 
-instance Core.FromJSON ProjectFileSystemLocation where
+instance Data.FromJSON ProjectFileSystemLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectFileSystemLocation"
       ( \x ->
           ProjectFileSystemLocation'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "mountPoint")
-            Prelude.<*> (x Core..:? "mountOptions")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "identifier")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "mountPoint")
+            Prelude.<*> (x Data..:? "mountOptions")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "identifier")
       )
 
 instance Prelude.Hashable ProjectFileSystemLocation where
@@ -183,14 +184,14 @@ instance Prelude.NFData ProjectFileSystemLocation where
       `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf identifier
 
-instance Core.ToJSON ProjectFileSystemLocation where
+instance Data.ToJSON ProjectFileSystemLocation where
   toJSON ProjectFileSystemLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("type" Core..=) Prelude.<$> type',
-            ("mountPoint" Core..=) Prelude.<$> mountPoint,
-            ("mountOptions" Core..=) Prelude.<$> mountOptions,
-            ("location" Core..=) Prelude.<$> location,
-            ("identifier" Core..=) Prelude.<$> identifier
+          [ ("type" Data..=) Prelude.<$> type',
+            ("mountPoint" Data..=) Prelude.<$> mountPoint,
+            ("mountOptions" Data..=) Prelude.<$> mountOptions,
+            ("location" Data..=) Prelude.<$> location,
+            ("identifier" Data..=) Prelude.<$> identifier
           ]
       )

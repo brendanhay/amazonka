@@ -51,6 +51,7 @@ where
 import Amazonka.CodeBuild.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -194,8 +195,8 @@ instance Core.AWSRequest DescribeCodeCoverages where
     Response.receiveJSON
       ( \s h x ->
           DescribeCodeCoveragesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "codeCoverages" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "codeCoverages" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -219,41 +220,41 @@ instance Prelude.NFData DescribeCodeCoverages where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf reportArn
 
-instance Core.ToHeaders DescribeCodeCoverages where
+instance Data.ToHeaders DescribeCodeCoverages where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeBuild_20161006.DescribeCodeCoverages" ::
+              Data.=# ( "CodeBuild_20161006.DescribeCodeCoverages" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeCodeCoverages where
+instance Data.ToJSON DescribeCodeCoverages where
   toJSON DescribeCodeCoverages' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("minLineCoveragePercentage" Core..=)
+          [ ("sortOrder" Data..=) Prelude.<$> sortOrder,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("minLineCoveragePercentage" Data..=)
               Prelude.<$> minLineCoveragePercentage,
-            ("sortBy" Core..=) Prelude.<$> sortBy,
-            ("maxLineCoveragePercentage" Core..=)
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("maxLineCoveragePercentage" Data..=)
               Prelude.<$> maxLineCoveragePercentage,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("reportArn" Core..= reportArn)
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("reportArn" Data..= reportArn)
           ]
       )
 
-instance Core.ToPath DescribeCodeCoverages where
+instance Data.ToPath DescribeCodeCoverages where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCodeCoverages where
+instance Data.ToQuery DescribeCodeCoverages where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeCodeCoveragesResponse' smart constructor.

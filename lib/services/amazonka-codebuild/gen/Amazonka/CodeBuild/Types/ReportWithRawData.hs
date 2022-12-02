@@ -21,6 +21,7 @@ module Amazonka.CodeBuild.Types.ReportWithRawData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the unmodified data for the report. For more information, see .
@@ -61,14 +62,14 @@ reportWithRawData_reportArn = Lens.lens (\ReportWithRawData' {reportArn} -> repo
 reportWithRawData_data :: Lens.Lens' ReportWithRawData (Prelude.Maybe Prelude.Text)
 reportWithRawData_data = Lens.lens (\ReportWithRawData' {data'} -> data') (\s@ReportWithRawData' {} a -> s {data' = a} :: ReportWithRawData)
 
-instance Core.FromJSON ReportWithRawData where
+instance Data.FromJSON ReportWithRawData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReportWithRawData"
       ( \x ->
           ReportWithRawData'
-            Prelude.<$> (x Core..:? "reportArn")
-            Prelude.<*> (x Core..:? "data")
+            Prelude.<$> (x Data..:? "reportArn")
+            Prelude.<*> (x Data..:? "data")
       )
 
 instance Prelude.Hashable ReportWithRawData where

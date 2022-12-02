@@ -48,6 +48,7 @@ where
 import Amazonka.CodeBuild.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -154,7 +155,7 @@ instance Core.AWSRequest UpdateWebhook where
     Response.receiveJSON
       ( \s h x ->
           UpdateWebhookResponse'
-            Prelude.<$> (x Core..?> "webhook")
+            Prelude.<$> (x Data..?> "webhook")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,37 +175,37 @@ instance Prelude.NFData UpdateWebhook where
       `Prelude.seq` Prelude.rnf filterGroups
       `Prelude.seq` Prelude.rnf projectName
 
-instance Core.ToHeaders UpdateWebhook where
+instance Data.ToHeaders UpdateWebhook where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeBuild_20161006.UpdateWebhook" ::
+              Data.=# ( "CodeBuild_20161006.UpdateWebhook" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateWebhook where
+instance Data.ToJSON UpdateWebhook where
   toJSON UpdateWebhook' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("rotateSecret" Core..=) Prelude.<$> rotateSecret,
-            ("branchFilter" Core..=) Prelude.<$> branchFilter,
-            ("buildType" Core..=) Prelude.<$> buildType,
-            ("filterGroups" Core..=) Prelude.<$> filterGroups,
-            Prelude.Just ("projectName" Core..= projectName)
+          [ ("rotateSecret" Data..=) Prelude.<$> rotateSecret,
+            ("branchFilter" Data..=) Prelude.<$> branchFilter,
+            ("buildType" Data..=) Prelude.<$> buildType,
+            ("filterGroups" Data..=) Prelude.<$> filterGroups,
+            Prelude.Just ("projectName" Data..= projectName)
           ]
       )
 
-instance Core.ToPath UpdateWebhook where
+instance Data.ToPath UpdateWebhook where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateWebhook where
+instance Data.ToQuery UpdateWebhook where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateWebhookResponse' smart constructor.

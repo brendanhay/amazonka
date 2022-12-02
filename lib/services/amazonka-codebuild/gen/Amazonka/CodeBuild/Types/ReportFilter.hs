@@ -22,6 +22,7 @@ module Amazonka.CodeBuild.Types.ReportFilter where
 import Amazonka.CodeBuild.Types.ReportStatusType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter used to return reports with the status specified by the input
@@ -59,9 +60,9 @@ instance Prelude.Hashable ReportFilter where
 instance Prelude.NFData ReportFilter where
   rnf ReportFilter' {..} = Prelude.rnf status
 
-instance Core.ToJSON ReportFilter where
+instance Data.ToJSON ReportFilter where
   toJSON ReportFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("status" Core..=) Prelude.<$> status]
+          [("status" Data..=) Prelude.<$> status]
       )

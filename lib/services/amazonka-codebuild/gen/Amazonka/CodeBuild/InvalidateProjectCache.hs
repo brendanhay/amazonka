@@ -41,6 +41,7 @@ where
 import Amazonka.CodeBuild.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,32 +97,32 @@ instance Prelude.NFData InvalidateProjectCache where
   rnf InvalidateProjectCache' {..} =
     Prelude.rnf projectName
 
-instance Core.ToHeaders InvalidateProjectCache where
+instance Data.ToHeaders InvalidateProjectCache where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeBuild_20161006.InvalidateProjectCache" ::
+              Data.=# ( "CodeBuild_20161006.InvalidateProjectCache" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON InvalidateProjectCache where
+instance Data.ToJSON InvalidateProjectCache where
   toJSON InvalidateProjectCache' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("projectName" Core..= projectName)]
+          [Prelude.Just ("projectName" Data..= projectName)]
       )
 
-instance Core.ToPath InvalidateProjectCache where
+instance Data.ToPath InvalidateProjectCache where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery InvalidateProjectCache where
+instance Data.ToQuery InvalidateProjectCache where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newInvalidateProjectCacheResponse' smart constructor.

@@ -43,6 +43,7 @@ where
 import Amazonka.CodeBuild.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -82,8 +83,8 @@ instance Core.AWSRequest BatchGetBuildBatches where
     Response.receiveJSON
       ( \s h x ->
           BatchGetBuildBatchesResponse'
-            Prelude.<$> (x Core..?> "buildBatches" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "buildBatchesNotFound"
+            Prelude.<$> (x Data..?> "buildBatches" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "buildBatchesNotFound"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -96,32 +97,32 @@ instance Prelude.Hashable BatchGetBuildBatches where
 instance Prelude.NFData BatchGetBuildBatches where
   rnf BatchGetBuildBatches' {..} = Prelude.rnf ids
 
-instance Core.ToHeaders BatchGetBuildBatches where
+instance Data.ToHeaders BatchGetBuildBatches where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeBuild_20161006.BatchGetBuildBatches" ::
+              Data.=# ( "CodeBuild_20161006.BatchGetBuildBatches" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetBuildBatches where
+instance Data.ToJSON BatchGetBuildBatches where
   toJSON BatchGetBuildBatches' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ids" Core..= ids)]
+          [Prelude.Just ("ids" Data..= ids)]
       )
 
-instance Core.ToPath BatchGetBuildBatches where
+instance Data.ToPath BatchGetBuildBatches where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetBuildBatches where
+instance Data.ToQuery BatchGetBuildBatches where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetBuildBatchesResponse' smart constructor.

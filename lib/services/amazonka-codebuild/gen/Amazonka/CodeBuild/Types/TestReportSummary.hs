@@ -21,6 +21,7 @@ module Amazonka.CodeBuild.Types.TestReportSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a test report.
@@ -83,15 +84,15 @@ testReportSummary_statusCounts = Lens.lens (\TestReportSummary' {statusCounts} -
 testReportSummary_durationInNanoSeconds :: Lens.Lens' TestReportSummary Prelude.Integer
 testReportSummary_durationInNanoSeconds = Lens.lens (\TestReportSummary' {durationInNanoSeconds} -> durationInNanoSeconds) (\s@TestReportSummary' {} a -> s {durationInNanoSeconds = a} :: TestReportSummary)
 
-instance Core.FromJSON TestReportSummary where
+instance Data.FromJSON TestReportSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TestReportSummary"
       ( \x ->
           TestReportSummary'
-            Prelude.<$> (x Core..: "total")
-            Prelude.<*> (x Core..:? "statusCounts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "durationInNanoSeconds")
+            Prelude.<$> (x Data..: "total")
+            Prelude.<*> (x Data..:? "statusCounts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "durationInNanoSeconds")
       )
 
 instance Prelude.Hashable TestReportSummary where

@@ -22,6 +22,7 @@ module Amazonka.CodeBuild.Types.BuildBatchFilter where
 import Amazonka.CodeBuild.Types.StatusType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies filters when retrieving batch builds.
@@ -61,9 +62,9 @@ instance Prelude.Hashable BuildBatchFilter where
 instance Prelude.NFData BuildBatchFilter where
   rnf BuildBatchFilter' {..} = Prelude.rnf status
 
-instance Core.ToJSON BuildBatchFilter where
+instance Data.ToJSON BuildBatchFilter where
   toJSON BuildBatchFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("status" Core..=) Prelude.<$> status]
+          [("status" Data..=) Prelude.<$> status]
       )

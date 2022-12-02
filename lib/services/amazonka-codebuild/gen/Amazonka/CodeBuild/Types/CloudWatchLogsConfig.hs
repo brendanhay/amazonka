@@ -22,6 +22,7 @@ module Amazonka.CodeBuild.Types.CloudWatchLogsConfig where
 import Amazonka.CodeBuild.Types.LogsConfigStatusType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about CloudWatch Logs for a build project.
@@ -97,15 +98,15 @@ cloudWatchLogsConfig_streamName = Lens.lens (\CloudWatchLogsConfig' {streamName}
 cloudWatchLogsConfig_status :: Lens.Lens' CloudWatchLogsConfig LogsConfigStatusType
 cloudWatchLogsConfig_status = Lens.lens (\CloudWatchLogsConfig' {status} -> status) (\s@CloudWatchLogsConfig' {} a -> s {status = a} :: CloudWatchLogsConfig)
 
-instance Core.FromJSON CloudWatchLogsConfig where
+instance Data.FromJSON CloudWatchLogsConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudWatchLogsConfig"
       ( \x ->
           CloudWatchLogsConfig'
-            Prelude.<$> (x Core..:? "groupName")
-            Prelude.<*> (x Core..:? "streamName")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "groupName")
+            Prelude.<*> (x Data..:? "streamName")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable CloudWatchLogsConfig where
@@ -120,12 +121,12 @@ instance Prelude.NFData CloudWatchLogsConfig where
       `Prelude.seq` Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToJSON CloudWatchLogsConfig where
+instance Data.ToJSON CloudWatchLogsConfig where
   toJSON CloudWatchLogsConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("groupName" Core..=) Prelude.<$> groupName,
-            ("streamName" Core..=) Prelude.<$> streamName,
-            Prelude.Just ("status" Core..= status)
+          [ ("groupName" Data..=) Prelude.<$> groupName,
+            ("streamName" Data..=) Prelude.<$> streamName,
+            Prelude.Just ("status" Data..= status)
           ]
       )

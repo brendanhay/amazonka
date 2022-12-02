@@ -48,6 +48,7 @@ where
 import Amazonka.CodeBuild.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -63,7 +64,7 @@ data ImportSourceCredentials = ImportSourceCredentials'
     username :: Prelude.Maybe Prelude.Text,
     -- | For GitHub or GitHub Enterprise, this is the personal access token. For
     -- Bitbucket, this is the app password.
-    token :: Core.Sensitive Prelude.Text,
+    token :: Data.Sensitive Prelude.Text,
     -- | The source provider used for this project.
     serverType :: ServerType,
     -- | The type of authentication used to connect to a GitHub, GitHub
@@ -112,7 +113,7 @@ newImportSourceCredentials
       { shouldOverwrite =
           Prelude.Nothing,
         username = Prelude.Nothing,
-        token = Core._Sensitive Lens.# pToken_,
+        token = Data._Sensitive Lens.# pToken_,
         serverType = pServerType_,
         authType = pAuthType_
       }
@@ -131,7 +132,7 @@ importSourceCredentials_username = Lens.lens (\ImportSourceCredentials' {usernam
 -- | For GitHub or GitHub Enterprise, this is the personal access token. For
 -- Bitbucket, this is the app password.
 importSourceCredentials_token :: Lens.Lens' ImportSourceCredentials Prelude.Text
-importSourceCredentials_token = Lens.lens (\ImportSourceCredentials' {token} -> token) (\s@ImportSourceCredentials' {} a -> s {token = a} :: ImportSourceCredentials) Prelude.. Core._Sensitive
+importSourceCredentials_token = Lens.lens (\ImportSourceCredentials' {token} -> token) (\s@ImportSourceCredentials' {} a -> s {token = a} :: ImportSourceCredentials) Prelude.. Data._Sensitive
 
 -- | The source provider used for this project.
 importSourceCredentials_serverType :: Lens.Lens' ImportSourceCredentials ServerType
@@ -153,7 +154,7 @@ instance Core.AWSRequest ImportSourceCredentials where
     Response.receiveJSON
       ( \s h x ->
           ImportSourceCredentialsResponse'
-            Prelude.<$> (x Core..?> "arn")
+            Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,38 +174,38 @@ instance Prelude.NFData ImportSourceCredentials where
       `Prelude.seq` Prelude.rnf serverType
       `Prelude.seq` Prelude.rnf authType
 
-instance Core.ToHeaders ImportSourceCredentials where
+instance Data.ToHeaders ImportSourceCredentials where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeBuild_20161006.ImportSourceCredentials" ::
+              Data.=# ( "CodeBuild_20161006.ImportSourceCredentials" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportSourceCredentials where
+instance Data.ToJSON ImportSourceCredentials where
   toJSON ImportSourceCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("shouldOverwrite" Core..=)
+          [ ("shouldOverwrite" Data..=)
               Prelude.<$> shouldOverwrite,
-            ("username" Core..=) Prelude.<$> username,
-            Prelude.Just ("token" Core..= token),
-            Prelude.Just ("serverType" Core..= serverType),
-            Prelude.Just ("authType" Core..= authType)
+            ("username" Data..=) Prelude.<$> username,
+            Prelude.Just ("token" Data..= token),
+            Prelude.Just ("serverType" Data..= serverType),
+            Prelude.Just ("authType" Data..= authType)
           ]
       )
 
-instance Core.ToPath ImportSourceCredentials where
+instance Data.ToPath ImportSourceCredentials where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ImportSourceCredentials where
+instance Data.ToQuery ImportSourceCredentials where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportSourceCredentialsResponse' smart constructor.

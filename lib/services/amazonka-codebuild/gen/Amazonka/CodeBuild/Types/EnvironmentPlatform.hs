@@ -23,6 +23,7 @@ import Amazonka.CodeBuild.Types.EnvironmentLanguage
 import Amazonka.CodeBuild.Types.PlatformType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A set of Docker images that are related by platform and are managed by
@@ -67,14 +68,14 @@ environmentPlatform_platform = Lens.lens (\EnvironmentPlatform' {platform} -> pl
 environmentPlatform_languages :: Lens.Lens' EnvironmentPlatform (Prelude.Maybe [EnvironmentLanguage])
 environmentPlatform_languages = Lens.lens (\EnvironmentPlatform' {languages} -> languages) (\s@EnvironmentPlatform' {} a -> s {languages = a} :: EnvironmentPlatform) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON EnvironmentPlatform where
+instance Data.FromJSON EnvironmentPlatform where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnvironmentPlatform"
       ( \x ->
           EnvironmentPlatform'
-            Prelude.<$> (x Core..:? "platform")
-            Prelude.<*> (x Core..:? "languages" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "languages" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EnvironmentPlatform where

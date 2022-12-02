@@ -21,6 +21,7 @@ module Amazonka.CodeBuild.Types.BuildStatusConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information that defines how the CodeBuild build project
@@ -143,14 +144,14 @@ buildStatusConfig_targetUrl = Lens.lens (\BuildStatusConfig' {targetUrl} -> targ
 buildStatusConfig_context :: Lens.Lens' BuildStatusConfig (Prelude.Maybe Prelude.Text)
 buildStatusConfig_context = Lens.lens (\BuildStatusConfig' {context} -> context) (\s@BuildStatusConfig' {} a -> s {context = a} :: BuildStatusConfig)
 
-instance Core.FromJSON BuildStatusConfig where
+instance Data.FromJSON BuildStatusConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BuildStatusConfig"
       ( \x ->
           BuildStatusConfig'
-            Prelude.<$> (x Core..:? "targetUrl")
-            Prelude.<*> (x Core..:? "context")
+            Prelude.<$> (x Data..:? "targetUrl")
+            Prelude.<*> (x Data..:? "context")
       )
 
 instance Prelude.Hashable BuildStatusConfig where
@@ -163,11 +164,11 @@ instance Prelude.NFData BuildStatusConfig where
     Prelude.rnf targetUrl
       `Prelude.seq` Prelude.rnf context
 
-instance Core.ToJSON BuildStatusConfig where
+instance Data.ToJSON BuildStatusConfig where
   toJSON BuildStatusConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("targetUrl" Core..=) Prelude.<$> targetUrl,
-            ("context" Core..=) Prelude.<$> context
+          [ ("targetUrl" Data..=) Prelude.<$> targetUrl,
+            ("context" Data..=) Prelude.<$> context
           ]
       )

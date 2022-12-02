@@ -21,6 +21,7 @@ module Amazonka.CodeBuild.Types.EnvironmentImage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a Docker image that is managed by CodeBuild.
@@ -70,15 +71,15 @@ environmentImage_description = Lens.lens (\EnvironmentImage' {description} -> de
 environmentImage_versions :: Lens.Lens' EnvironmentImage (Prelude.Maybe [Prelude.Text])
 environmentImage_versions = Lens.lens (\EnvironmentImage' {versions} -> versions) (\s@EnvironmentImage' {} a -> s {versions = a} :: EnvironmentImage) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON EnvironmentImage where
+instance Data.FromJSON EnvironmentImage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnvironmentImage"
       ( \x ->
           EnvironmentImage'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "versions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "versions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EnvironmentImage where

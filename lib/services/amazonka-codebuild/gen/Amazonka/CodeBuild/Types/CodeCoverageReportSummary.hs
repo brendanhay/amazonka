@@ -21,6 +21,7 @@ module Amazonka.CodeBuild.Types.CodeCoverageReportSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a summary of a code coverage report.
@@ -104,18 +105,18 @@ codeCoverageReportSummary_branchesCovered = Lens.lens (\CodeCoverageReportSummar
 codeCoverageReportSummary_branchCoveragePercentage :: Lens.Lens' CodeCoverageReportSummary (Prelude.Maybe Prelude.Double)
 codeCoverageReportSummary_branchCoveragePercentage = Lens.lens (\CodeCoverageReportSummary' {branchCoveragePercentage} -> branchCoveragePercentage) (\s@CodeCoverageReportSummary' {} a -> s {branchCoveragePercentage = a} :: CodeCoverageReportSummary)
 
-instance Core.FromJSON CodeCoverageReportSummary where
+instance Data.FromJSON CodeCoverageReportSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CodeCoverageReportSummary"
       ( \x ->
           CodeCoverageReportSummary'
-            Prelude.<$> (x Core..:? "linesCovered")
-            Prelude.<*> (x Core..:? "lineCoveragePercentage")
-            Prelude.<*> (x Core..:? "linesMissed")
-            Prelude.<*> (x Core..:? "branchesMissed")
-            Prelude.<*> (x Core..:? "branchesCovered")
-            Prelude.<*> (x Core..:? "branchCoveragePercentage")
+            Prelude.<$> (x Data..:? "linesCovered")
+            Prelude.<*> (x Data..:? "lineCoveragePercentage")
+            Prelude.<*> (x Data..:? "linesMissed")
+            Prelude.<*> (x Data..:? "branchesMissed")
+            Prelude.<*> (x Data..:? "branchesCovered")
+            Prelude.<*> (x Data..:? "branchCoveragePercentage")
       )
 
 instance Prelude.Hashable CodeCoverageReportSummary where

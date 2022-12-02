@@ -23,6 +23,7 @@ import Amazonka.CodeBuild.Types.EnvironmentImage
 import Amazonka.CodeBuild.Types.LanguageType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A set of Docker images that are related by programming language and are
@@ -67,14 +68,14 @@ environmentLanguage_language = Lens.lens (\EnvironmentLanguage' {language} -> la
 environmentLanguage_images :: Lens.Lens' EnvironmentLanguage (Prelude.Maybe [EnvironmentImage])
 environmentLanguage_images = Lens.lens (\EnvironmentLanguage' {images} -> images) (\s@EnvironmentLanguage' {} a -> s {images = a} :: EnvironmentLanguage) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON EnvironmentLanguage where
+instance Data.FromJSON EnvironmentLanguage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnvironmentLanguage"
       ( \x ->
           EnvironmentLanguage'
-            Prelude.<$> (x Core..:? "language")
-            Prelude.<*> (x Core..:? "images" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "language")
+            Prelude.<*> (x Data..:? "images" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EnvironmentLanguage where

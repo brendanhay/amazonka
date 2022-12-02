@@ -23,6 +23,7 @@ import Amazonka.CodeBuild.Types.CacheMode
 import Amazonka.CodeBuild.Types.CacheType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the cache for the build project.
@@ -233,15 +234,15 @@ projectCache_location = Lens.lens (\ProjectCache' {location} -> location) (\s@Pr
 projectCache_type :: Lens.Lens' ProjectCache CacheType
 projectCache_type = Lens.lens (\ProjectCache' {type'} -> type') (\s@ProjectCache' {} a -> s {type' = a} :: ProjectCache)
 
-instance Core.FromJSON ProjectCache where
+instance Data.FromJSON ProjectCache where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectCache"
       ( \x ->
           ProjectCache'
-            Prelude.<$> (x Core..:? "modes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "modes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable ProjectCache where
@@ -256,12 +257,12 @@ instance Prelude.NFData ProjectCache where
       `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON ProjectCache where
+instance Data.ToJSON ProjectCache where
   toJSON ProjectCache' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("modes" Core..=) Prelude.<$> modes,
-            ("location" Core..=) Prelude.<$> location,
-            Prelude.Just ("type" Core..= type')
+          [ ("modes" Data..=) Prelude.<$> modes,
+            ("location" Data..=) Prelude.<$> location,
+            Prelude.Just ("type" Data..= type')
           ]
       )

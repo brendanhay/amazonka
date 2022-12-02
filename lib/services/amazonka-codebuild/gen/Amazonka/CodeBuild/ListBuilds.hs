@@ -47,6 +47,7 @@ where
 import Amazonka.CodeBuild.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -142,8 +143,8 @@ instance Core.AWSRequest ListBuilds where
     Response.receiveJSON
       ( \s h x ->
           ListBuildsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "ids")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "ids")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,34 +158,34 @@ instance Prelude.NFData ListBuilds where
     Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf nextToken
 
-instance Core.ToHeaders ListBuilds where
+instance Data.ToHeaders ListBuilds where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeBuild_20161006.ListBuilds" ::
+              Data.=# ( "CodeBuild_20161006.ListBuilds" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListBuilds where
+instance Data.ToJSON ListBuilds where
   toJSON ListBuilds' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("nextToken" Core..=) Prelude.<$> nextToken
+          [ ("sortOrder" Data..=) Prelude.<$> sortOrder,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
-instance Core.ToPath ListBuilds where
+instance Data.ToPath ListBuilds where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListBuilds where
+instance Data.ToQuery ListBuilds where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListBuildsResponse' smart constructor.

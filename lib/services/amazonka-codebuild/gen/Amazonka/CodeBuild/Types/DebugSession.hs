@@ -21,6 +21,7 @@ module Amazonka.CodeBuild.Types.DebugSession where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the debug session for a build. For more
@@ -69,14 +70,14 @@ debugSession_sessionEnabled = Lens.lens (\DebugSession' {sessionEnabled} -> sess
 debugSession_sessionTarget :: Lens.Lens' DebugSession (Prelude.Maybe Prelude.Text)
 debugSession_sessionTarget = Lens.lens (\DebugSession' {sessionTarget} -> sessionTarget) (\s@DebugSession' {} a -> s {sessionTarget = a} :: DebugSession)
 
-instance Core.FromJSON DebugSession where
+instance Data.FromJSON DebugSession where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DebugSession"
       ( \x ->
           DebugSession'
-            Prelude.<$> (x Core..:? "sessionEnabled")
-            Prelude.<*> (x Core..:? "sessionTarget")
+            Prelude.<$> (x Data..:? "sessionEnabled")
+            Prelude.<*> (x Data..:? "sessionTarget")
       )
 
 instance Prelude.Hashable DebugSession where

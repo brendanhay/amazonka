@@ -22,6 +22,7 @@ module Amazonka.CodeBuild.Types.SourceAuth where
 import Amazonka.CodeBuild.Types.SourceAuthType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the authorization settings for CodeBuild to access the
@@ -77,14 +78,14 @@ sourceAuth_resource = Lens.lens (\SourceAuth' {resource} -> resource) (\s@Source
 sourceAuth_type :: Lens.Lens' SourceAuth SourceAuthType
 sourceAuth_type = Lens.lens (\SourceAuth' {type'} -> type') (\s@SourceAuth' {} a -> s {type' = a} :: SourceAuth)
 
-instance Core.FromJSON SourceAuth where
+instance Data.FromJSON SourceAuth where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceAuth"
       ( \x ->
           SourceAuth'
-            Prelude.<$> (x Core..:? "resource")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "resource")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable SourceAuth where
@@ -97,11 +98,11 @@ instance Prelude.NFData SourceAuth where
     Prelude.rnf resource
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON SourceAuth where
+instance Data.ToJSON SourceAuth where
   toJSON SourceAuth' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("resource" Core..=) Prelude.<$> resource,
-            Prelude.Just ("type" Core..= type')
+          [ ("resource" Data..=) Prelude.<$> resource,
+            Prelude.Just ("type" Data..= type')
           ]
       )

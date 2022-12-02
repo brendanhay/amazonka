@@ -49,6 +49,7 @@ where
 import Amazonka.CodeBuild.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -191,8 +192,8 @@ instance Core.AWSRequest ListReportGroups where
     Response.receiveJSON
       ( \s h x ->
           ListReportGroupsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "reportGroups")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "reportGroups")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -210,36 +211,36 @@ instance Prelude.NFData ListReportGroups where
       `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListReportGroups where
+instance Data.ToHeaders ListReportGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeBuild_20161006.ListReportGroups" ::
+              Data.=# ( "CodeBuild_20161006.ListReportGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListReportGroups where
+instance Data.ToJSON ListReportGroups where
   toJSON ListReportGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("sortBy" Core..=) Prelude.<$> sortBy,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("sortOrder" Data..=) Prelude.<$> sortOrder,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListReportGroups where
+instance Data.ToPath ListReportGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListReportGroups where
+instance Data.ToQuery ListReportGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListReportGroupsResponse' smart constructor.

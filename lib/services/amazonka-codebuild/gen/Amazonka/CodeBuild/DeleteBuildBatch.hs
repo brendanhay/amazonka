@@ -44,6 +44,7 @@ where
 import Amazonka.CodeBuild.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,11 +86,11 @@ instance Core.AWSRequest DeleteBuildBatch where
     Response.receiveJSON
       ( \s h x ->
           DeleteBuildBatchResponse'
-            Prelude.<$> (x Core..?> "buildsDeleted")
-            Prelude.<*> ( x Core..?> "buildsNotDeleted"
+            Prelude.<$> (x Data..?> "buildsDeleted")
+            Prelude.<*> ( x Data..?> "buildsNotDeleted"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "statusCode")
+            Prelude.<*> (x Data..?> "statusCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,30 +101,30 @@ instance Prelude.Hashable DeleteBuildBatch where
 instance Prelude.NFData DeleteBuildBatch where
   rnf DeleteBuildBatch' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DeleteBuildBatch where
+instance Data.ToHeaders DeleteBuildBatch where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeBuild_20161006.DeleteBuildBatch" ::
+              Data.=# ( "CodeBuild_20161006.DeleteBuildBatch" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteBuildBatch where
+instance Data.ToJSON DeleteBuildBatch where
   toJSON DeleteBuildBatch' {..} =
-    Core.object
-      (Prelude.catMaybes [Prelude.Just ("id" Core..= id)])
+    Data.object
+      (Prelude.catMaybes [Prelude.Just ("id" Data..= id)])
 
-instance Core.ToPath DeleteBuildBatch where
+instance Data.ToPath DeleteBuildBatch where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteBuildBatch where
+instance Data.ToQuery DeleteBuildBatch where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteBuildBatchResponse' smart constructor.

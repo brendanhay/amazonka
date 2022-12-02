@@ -21,6 +21,7 @@ module Amazonka.CodeBuild.Types.TestCase where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a test case created using a framework such as NUnit or
@@ -38,7 +39,7 @@ data TestCase = TestCase'
     -- | The date and time a test case expires. A test case expires 30 days after
     -- it is created. An expired test case is not available to view in
     -- CodeBuild.
-    expired :: Prelude.Maybe Core.POSIX,
+    expired :: Prelude.Maybe Data.POSIX,
     -- | The status returned by the test case after it was run. Valid statuses
     -- are @SUCCEEDED@, @FAILED@, @ERROR@, @SKIPPED@, and @UNKNOWN@.
     status :: Prelude.Maybe Prelude.Text,
@@ -113,7 +114,7 @@ testCase_reportArn = Lens.lens (\TestCase' {reportArn} -> reportArn) (\s@TestCas
 -- it is created. An expired test case is not available to view in
 -- CodeBuild.
 testCase_expired :: Lens.Lens' TestCase (Prelude.Maybe Prelude.UTCTime)
-testCase_expired = Lens.lens (\TestCase' {expired} -> expired) (\s@TestCase' {} a -> s {expired = a} :: TestCase) Prelude.. Lens.mapping Core._Time
+testCase_expired = Lens.lens (\TestCase' {expired} -> expired) (\s@TestCase' {} a -> s {expired = a} :: TestCase) Prelude.. Lens.mapping Data._Time
 
 -- | The status returned by the test case after it was run. Valid statuses
 -- are @SUCCEEDED@, @FAILED@, @ERROR@, @SKIPPED@, and @UNKNOWN@.
@@ -134,20 +135,20 @@ testCase_prefix = Lens.lens (\TestCase' {prefix} -> prefix) (\s@TestCase' {} a -
 testCase_testRawDataPath :: Lens.Lens' TestCase (Prelude.Maybe Prelude.Text)
 testCase_testRawDataPath = Lens.lens (\TestCase' {testRawDataPath} -> testRawDataPath) (\s@TestCase' {} a -> s {testRawDataPath = a} :: TestCase)
 
-instance Core.FromJSON TestCase where
+instance Data.FromJSON TestCase where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TestCase"
       ( \x ->
           TestCase'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "reportArn")
-            Prelude.<*> (x Core..:? "expired")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "durationInNanoSeconds")
-            Prelude.<*> (x Core..:? "prefix")
-            Prelude.<*> (x Core..:? "testRawDataPath")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "reportArn")
+            Prelude.<*> (x Data..:? "expired")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "durationInNanoSeconds")
+            Prelude.<*> (x Data..:? "prefix")
+            Prelude.<*> (x Data..:? "testRawDataPath")
       )
 
 instance Prelude.Hashable TestCase where

@@ -45,6 +45,7 @@ where
 import Amazonka.CodeBuild.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,7 +118,7 @@ instance Core.AWSRequest RetryBuildBatch where
     Response.receiveJSON
       ( \s h x ->
           RetryBuildBatchResponse'
-            Prelude.<$> (x Core..?> "buildBatch")
+            Prelude.<$> (x Data..?> "buildBatch")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,36 +134,36 @@ instance Prelude.NFData RetryBuildBatch where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf retryType
 
-instance Core.ToHeaders RetryBuildBatch where
+instance Data.ToHeaders RetryBuildBatch where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeBuild_20161006.RetryBuildBatch" ::
+              Data.=# ( "CodeBuild_20161006.RetryBuildBatch" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RetryBuildBatch where
+instance Data.ToJSON RetryBuildBatch where
   toJSON RetryBuildBatch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("idempotencyToken" Core..=)
+          [ ("idempotencyToken" Data..=)
               Prelude.<$> idempotencyToken,
-            ("id" Core..=) Prelude.<$> id,
-            ("retryType" Core..=) Prelude.<$> retryType
+            ("id" Data..=) Prelude.<$> id,
+            ("retryType" Data..=) Prelude.<$> retryType
           ]
       )
 
-instance Core.ToPath RetryBuildBatch where
+instance Data.ToPath RetryBuildBatch where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RetryBuildBatch where
+instance Data.ToQuery RetryBuildBatch where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRetryBuildBatchResponse' smart constructor.

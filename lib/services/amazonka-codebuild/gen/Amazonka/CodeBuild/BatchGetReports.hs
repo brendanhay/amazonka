@@ -43,6 +43,7 @@ where
 import Amazonka.CodeBuild.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,8 +88,8 @@ instance Core.AWSRequest BatchGetReports where
     Response.receiveJSON
       ( \s h x ->
           BatchGetReportsResponse'
-            Prelude.<$> (x Core..?> "reportsNotFound")
-            Prelude.<*> (x Core..?> "reports")
+            Prelude.<$> (x Data..?> "reportsNotFound")
+            Prelude.<*> (x Data..?> "reports")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,32 +100,32 @@ instance Prelude.Hashable BatchGetReports where
 instance Prelude.NFData BatchGetReports where
   rnf BatchGetReports' {..} = Prelude.rnf reportArns
 
-instance Core.ToHeaders BatchGetReports where
+instance Data.ToHeaders BatchGetReports where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeBuild_20161006.BatchGetReports" ::
+              Data.=# ( "CodeBuild_20161006.BatchGetReports" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetReports where
+instance Data.ToJSON BatchGetReports where
   toJSON BatchGetReports' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("reportArns" Core..= reportArns)]
+          [Prelude.Just ("reportArns" Data..= reportArns)]
       )
 
-instance Core.ToPath BatchGetReports where
+instance Data.ToPath BatchGetReports where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetReports where
+instance Data.ToQuery BatchGetReports where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetReportsResponse' smart constructor.

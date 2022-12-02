@@ -79,6 +79,7 @@ where
 import Amazonka.CodeBuild.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -147,9 +148,9 @@ instance Core.AWSRequest UpdateProjectVisibility where
     Response.receiveJSON
       ( \s h x ->
           UpdateProjectVisibilityResponse'
-            Prelude.<$> (x Core..?> "projectVisibility")
-            Prelude.<*> (x Core..?> "publicProjectAlias")
-            Prelude.<*> (x Core..?> "projectArn")
+            Prelude.<$> (x Data..?> "projectVisibility")
+            Prelude.<*> (x Data..?> "publicProjectAlias")
+            Prelude.<*> (x Data..?> "projectArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,37 +166,37 @@ instance Prelude.NFData UpdateProjectVisibility where
       `Prelude.seq` Prelude.rnf projectArn
       `Prelude.seq` Prelude.rnf projectVisibility
 
-instance Core.ToHeaders UpdateProjectVisibility where
+instance Data.ToHeaders UpdateProjectVisibility where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeBuild_20161006.UpdateProjectVisibility" ::
+              Data.=# ( "CodeBuild_20161006.UpdateProjectVisibility" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateProjectVisibility where
+instance Data.ToJSON UpdateProjectVisibility where
   toJSON UpdateProjectVisibility' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("resourceAccessRole" Core..=)
+          [ ("resourceAccessRole" Data..=)
               Prelude.<$> resourceAccessRole,
-            Prelude.Just ("projectArn" Core..= projectArn),
+            Prelude.Just ("projectArn" Data..= projectArn),
             Prelude.Just
-              ("projectVisibility" Core..= projectVisibility)
+              ("projectVisibility" Data..= projectVisibility)
           ]
       )
 
-instance Core.ToPath UpdateProjectVisibility where
+instance Data.ToPath UpdateProjectVisibility where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateProjectVisibility where
+instance Data.ToQuery UpdateProjectVisibility where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateProjectVisibilityResponse' smart constructor.

@@ -24,6 +24,7 @@ import Amazonka.CodeBuild.Types.PhaseContext
 import Amazonka.CodeBuild.Types.StatusType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a stage for a build.
@@ -54,7 +55,7 @@ data BuildPhase = BuildPhase'
     --     The build phase timed out.
     phaseStatus :: Prelude.Maybe StatusType,
     -- | When the build phase ended, expressed in Unix time format.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the build phase. Valid values include:
     --
     -- [BUILD]
@@ -95,7 +96,7 @@ data BuildPhase = BuildPhase'
     -- build\'s phase.
     durationInSeconds :: Prelude.Maybe Prelude.Integer,
     -- | When the build phase started, expressed in Unix time format.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -213,7 +214,7 @@ buildPhase_phaseStatus = Lens.lens (\BuildPhase' {phaseStatus} -> phaseStatus) (
 
 -- | When the build phase ended, expressed in Unix time format.
 buildPhase_endTime :: Lens.Lens' BuildPhase (Prelude.Maybe Prelude.UTCTime)
-buildPhase_endTime = Lens.lens (\BuildPhase' {endTime} -> endTime) (\s@BuildPhase' {} a -> s {endTime = a} :: BuildPhase) Prelude.. Lens.mapping Core._Time
+buildPhase_endTime = Lens.lens (\BuildPhase' {endTime} -> endTime) (\s@BuildPhase' {} a -> s {endTime = a} :: BuildPhase) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the build phase. Valid values include:
 --
@@ -260,20 +261,20 @@ buildPhase_durationInSeconds = Lens.lens (\BuildPhase' {durationInSeconds} -> du
 
 -- | When the build phase started, expressed in Unix time format.
 buildPhase_startTime :: Lens.Lens' BuildPhase (Prelude.Maybe Prelude.UTCTime)
-buildPhase_startTime = Lens.lens (\BuildPhase' {startTime} -> startTime) (\s@BuildPhase' {} a -> s {startTime = a} :: BuildPhase) Prelude.. Lens.mapping Core._Time
+buildPhase_startTime = Lens.lens (\BuildPhase' {startTime} -> startTime) (\s@BuildPhase' {} a -> s {startTime = a} :: BuildPhase) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON BuildPhase where
+instance Data.FromJSON BuildPhase where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BuildPhase"
       ( \x ->
           BuildPhase'
-            Prelude.<$> (x Core..:? "contexts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "phaseStatus")
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "phaseType")
-            Prelude.<*> (x Core..:? "durationInSeconds")
-            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<$> (x Data..:? "contexts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "phaseStatus")
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "phaseType")
+            Prelude.<*> (x Data..:? "durationInSeconds")
+            Prelude.<*> (x Data..:? "startTime")
       )
 
 instance Prelude.Hashable BuildPhase where

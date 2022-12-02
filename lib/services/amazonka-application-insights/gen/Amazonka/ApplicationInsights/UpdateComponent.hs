@@ -45,6 +45,7 @@ where
 import Amazonka.ApplicationInsights.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,39 +137,39 @@ instance Prelude.NFData UpdateComponent where
       `Prelude.seq` Prelude.rnf resourceGroupName
       `Prelude.seq` Prelude.rnf componentName
 
-instance Core.ToHeaders UpdateComponent where
+instance Data.ToHeaders UpdateComponent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "EC2WindowsBarleyService.UpdateComponent" ::
+              Data.=# ( "EC2WindowsBarleyService.UpdateComponent" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateComponent where
+instance Data.ToJSON UpdateComponent where
   toJSON UpdateComponent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceList" Core..=) Prelude.<$> resourceList,
-            ("NewComponentName" Core..=)
+          [ ("ResourceList" Data..=) Prelude.<$> resourceList,
+            ("NewComponentName" Data..=)
               Prelude.<$> newComponentName',
             Prelude.Just
-              ("ResourceGroupName" Core..= resourceGroupName),
+              ("ResourceGroupName" Data..= resourceGroupName),
             Prelude.Just
-              ("ComponentName" Core..= componentName)
+              ("ComponentName" Data..= componentName)
           ]
       )
 
-instance Core.ToPath UpdateComponent where
+instance Data.ToPath UpdateComponent where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateComponent where
+instance Data.ToQuery UpdateComponent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateComponentResponse' smart constructor.

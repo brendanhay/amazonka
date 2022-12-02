@@ -23,6 +23,7 @@ import Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType
 import Amazonka.ApplicationInsights.Types.ConfigurationEventStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The event information.
@@ -40,7 +41,7 @@ data ConfigurationEvent = ConfigurationEvent'
     -- example, CLOUDWATCH_ALARM.
     eventResourceType :: Prelude.Maybe ConfigurationEventResourceType,
     -- | The timestamp of the event.
-    eventTime :: Prelude.Maybe Core.POSIX,
+    eventTime :: Prelude.Maybe Data.POSIX,
     -- | The details of the event in plain text.
     eventDetail :: Prelude.Maybe Prelude.Text
   }
@@ -100,24 +101,24 @@ configurationEvent_eventResourceType = Lens.lens (\ConfigurationEvent' {eventRes
 
 -- | The timestamp of the event.
 configurationEvent_eventTime :: Lens.Lens' ConfigurationEvent (Prelude.Maybe Prelude.UTCTime)
-configurationEvent_eventTime = Lens.lens (\ConfigurationEvent' {eventTime} -> eventTime) (\s@ConfigurationEvent' {} a -> s {eventTime = a} :: ConfigurationEvent) Prelude.. Lens.mapping Core._Time
+configurationEvent_eventTime = Lens.lens (\ConfigurationEvent' {eventTime} -> eventTime) (\s@ConfigurationEvent' {} a -> s {eventTime = a} :: ConfigurationEvent) Prelude.. Lens.mapping Data._Time
 
 -- | The details of the event in plain text.
 configurationEvent_eventDetail :: Lens.Lens' ConfigurationEvent (Prelude.Maybe Prelude.Text)
 configurationEvent_eventDetail = Lens.lens (\ConfigurationEvent' {eventDetail} -> eventDetail) (\s@ConfigurationEvent' {} a -> s {eventDetail = a} :: ConfigurationEvent)
 
-instance Core.FromJSON ConfigurationEvent where
+instance Data.FromJSON ConfigurationEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfigurationEvent"
       ( \x ->
           ConfigurationEvent'
-            Prelude.<$> (x Core..:? "EventResourceName")
-            Prelude.<*> (x Core..:? "MonitoredResourceARN")
-            Prelude.<*> (x Core..:? "EventStatus")
-            Prelude.<*> (x Core..:? "EventResourceType")
-            Prelude.<*> (x Core..:? "EventTime")
-            Prelude.<*> (x Core..:? "EventDetail")
+            Prelude.<$> (x Data..:? "EventResourceName")
+            Prelude.<*> (x Data..:? "MonitoredResourceARN")
+            Prelude.<*> (x Data..:? "EventStatus")
+            Prelude.<*> (x Data..:? "EventResourceType")
+            Prelude.<*> (x Data..:? "EventTime")
+            Prelude.<*> (x Data..:? "EventDetail")
       )
 
 instance Prelude.Hashable ConfigurationEvent where

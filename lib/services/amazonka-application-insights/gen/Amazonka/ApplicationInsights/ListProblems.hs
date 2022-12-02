@@ -49,6 +49,7 @@ where
 import Amazonka.ApplicationInsights.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -61,7 +62,7 @@ data ListProblems = ListProblems'
     componentName :: Prelude.Maybe Prelude.Text,
     -- | The time when the problem ended, in epoch seconds. If not specified,
     -- problems within the past seven days are returned.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the resource group.
     resourceGroupName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in a single call. To retrieve
@@ -71,7 +72,7 @@ data ListProblems = ListProblems'
     -- | The time when the problem was detected, in epoch seconds. If you don\'t
     -- specify a time frame for the request, problems within the past seven
     -- days are returned.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -122,7 +123,7 @@ listProblems_componentName = Lens.lens (\ListProblems' {componentName} -> compon
 -- | The time when the problem ended, in epoch seconds. If not specified,
 -- problems within the past seven days are returned.
 listProblems_endTime :: Lens.Lens' ListProblems (Prelude.Maybe Prelude.UTCTime)
-listProblems_endTime = Lens.lens (\ListProblems' {endTime} -> endTime) (\s@ListProblems' {} a -> s {endTime = a} :: ListProblems) Prelude.. Lens.mapping Core._Time
+listProblems_endTime = Lens.lens (\ListProblems' {endTime} -> endTime) (\s@ListProblems' {} a -> s {endTime = a} :: ListProblems) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the resource group.
 listProblems_resourceGroupName :: Lens.Lens' ListProblems (Prelude.Maybe Prelude.Text)
@@ -138,7 +139,7 @@ listProblems_maxResults = Lens.lens (\ListProblems' {maxResults} -> maxResults) 
 -- specify a time frame for the request, problems within the past seven
 -- days are returned.
 listProblems_startTime :: Lens.Lens' ListProblems (Prelude.Maybe Prelude.UTCTime)
-listProblems_startTime = Lens.lens (\ListProblems' {startTime} -> startTime) (\s@ListProblems' {} a -> s {startTime = a} :: ListProblems) Prelude.. Lens.mapping Core._Time
+listProblems_startTime = Lens.lens (\ListProblems' {startTime} -> startTime) (\s@ListProblems' {} a -> s {startTime = a} :: ListProblems) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSRequest ListProblems where
   type AWSResponse ListProblems = ListProblemsResponse
@@ -148,9 +149,9 @@ instance Core.AWSRequest ListProblems where
     Response.receiveJSON
       ( \s h x ->
           ListProblemsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ProblemList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ResourceGroupName")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ProblemList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ResourceGroupName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,39 +173,39 @@ instance Prelude.NFData ListProblems where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToHeaders ListProblems where
+instance Data.ToHeaders ListProblems where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "EC2WindowsBarleyService.ListProblems" ::
+              Data.=# ( "EC2WindowsBarleyService.ListProblems" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListProblems where
+instance Data.ToJSON ListProblems where
   toJSON ListProblems' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ComponentName" Core..=) Prelude.<$> componentName,
-            ("EndTime" Core..=) Prelude.<$> endTime,
-            ("ResourceGroupName" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ComponentName" Data..=) Prelude.<$> componentName,
+            ("EndTime" Data..=) Prelude.<$> endTime,
+            ("ResourceGroupName" Data..=)
               Prelude.<$> resourceGroupName,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("StartTime" Core..=) Prelude.<$> startTime
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("StartTime" Data..=) Prelude.<$> startTime
           ]
       )
 
-instance Core.ToPath ListProblems where
+instance Data.ToPath ListProblems where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListProblems where
+instance Data.ToQuery ListProblems where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListProblemsResponse' smart constructor.

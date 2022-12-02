@@ -47,6 +47,7 @@ where
 import Amazonka.ApplicationInsights.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,9 +124,9 @@ instance Core.AWSRequest ListLogPatterns where
     Response.receiveJSON
       ( \s h x ->
           ListLogPatternsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ResourceGroupName")
-            Prelude.<*> (x Core..?> "LogPatterns" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ResourceGroupName")
+            Prelude.<*> (x Data..?> "LogPatterns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,38 +144,38 @@ instance Prelude.NFData ListLogPatterns where
       `Prelude.seq` Prelude.rnf patternSetName
       `Prelude.seq` Prelude.rnf resourceGroupName
 
-instance Core.ToHeaders ListLogPatterns where
+instance Data.ToHeaders ListLogPatterns where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "EC2WindowsBarleyService.ListLogPatterns" ::
+              Data.=# ( "EC2WindowsBarleyService.ListLogPatterns" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListLogPatterns where
+instance Data.ToJSON ListLogPatterns where
   toJSON ListLogPatterns' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("PatternSetName" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("PatternSetName" Data..=)
               Prelude.<$> patternSetName,
             Prelude.Just
-              ("ResourceGroupName" Core..= resourceGroupName)
+              ("ResourceGroupName" Data..= resourceGroupName)
           ]
       )
 
-instance Core.ToPath ListLogPatterns where
+instance Data.ToPath ListLogPatterns where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListLogPatterns where
+instance Data.ToQuery ListLogPatterns where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListLogPatternsResponse' smart constructor.

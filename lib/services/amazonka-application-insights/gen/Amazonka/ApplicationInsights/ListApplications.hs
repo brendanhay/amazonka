@@ -44,6 +44,7 @@ where
 import Amazonka.ApplicationInsights.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,8 +101,8 @@ instance Core.AWSRequest ListApplications where
     Response.receiveJSON
       ( \s h x ->
           ListApplicationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ApplicationInfoList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ApplicationInfoList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -117,34 +118,34 @@ instance Prelude.NFData ListApplications where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListApplications where
+instance Data.ToHeaders ListApplications where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "EC2WindowsBarleyService.ListApplications" ::
+              Data.=# ( "EC2WindowsBarleyService.ListApplications" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListApplications where
+instance Data.ToJSON ListApplications where
   toJSON ListApplications' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListApplications where
+instance Data.ToPath ListApplications where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListApplications where
+instance Data.ToQuery ListApplications where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListApplicationsResponse' smart constructor.

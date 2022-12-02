@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSMSVoice.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -139,7 +140,7 @@ instance Core.AWSRequest SendVoiceMessage where
     Response.receiveJSON
       ( \s h x ->
           SendVoiceMessageResponse'
-            Prelude.<$> (x Core..?> "MessageId")
+            Prelude.<$> (x Data..?> "MessageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,36 +160,36 @@ instance Prelude.NFData SendVoiceMessage where
       `Prelude.seq` Prelude.rnf originationPhoneNumber
       `Prelude.seq` Prelude.rnf content
 
-instance Core.ToHeaders SendVoiceMessage where
+instance Data.ToHeaders SendVoiceMessage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SendVoiceMessage where
+instance Data.ToJSON SendVoiceMessage where
   toJSON SendVoiceMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CallerId" Core..=) Prelude.<$> callerId,
-            ("ConfigurationSetName" Core..=)
+          [ ("CallerId" Data..=) Prelude.<$> callerId,
+            ("ConfigurationSetName" Data..=)
               Prelude.<$> configurationSetName,
-            ("DestinationPhoneNumber" Core..=)
+            ("DestinationPhoneNumber" Data..=)
               Prelude.<$> destinationPhoneNumber,
-            ("OriginationPhoneNumber" Core..=)
+            ("OriginationPhoneNumber" Data..=)
               Prelude.<$> originationPhoneNumber,
-            ("Content" Core..=) Prelude.<$> content
+            ("Content" Data..=) Prelude.<$> content
           ]
       )
 
-instance Core.ToPath SendVoiceMessage where
+instance Data.ToPath SendVoiceMessage where
   toPath = Prelude.const "/v1/sms-voice/voice/message"
 
-instance Core.ToQuery SendVoiceMessage where
+instance Data.ToQuery SendVoiceMessage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | An object that that contains the Message ID of a Voice message that was

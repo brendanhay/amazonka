@@ -47,6 +47,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,8 +122,8 @@ instance Core.AWSRequest ListAccountIntegrations where
     Response.receiveJSON
       ( \s h x ->
           ListAccountIntegrationsResponse'
-            Prelude.<$> (x Core..?> "Items" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Items" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,33 +141,33 @@ instance Prelude.NFData ListAccountIntegrations where
       `Prelude.seq` Prelude.rnf includeHidden
       `Prelude.seq` Prelude.rnf uri
 
-instance Core.ToHeaders ListAccountIntegrations where
+instance Data.ToHeaders ListAccountIntegrations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAccountIntegrations where
+instance Data.ToJSON ListAccountIntegrations where
   toJSON ListAccountIntegrations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Uri" Core..= uri)]
+          [Prelude.Just ("Uri" Data..= uri)]
       )
 
-instance Core.ToPath ListAccountIntegrations where
+instance Data.ToPath ListAccountIntegrations where
   toPath = Prelude.const "/integrations"
 
-instance Core.ToQuery ListAccountIntegrations where
+instance Data.ToQuery ListAccountIntegrations where
   toQuery ListAccountIntegrations' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults,
-        "include-hidden" Core.=: includeHidden
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults,
+        "include-hidden" Data.=: includeHidden
       ]
 
 -- | /See:/ 'newListAccountIntegrationsResponse' smart constructor.

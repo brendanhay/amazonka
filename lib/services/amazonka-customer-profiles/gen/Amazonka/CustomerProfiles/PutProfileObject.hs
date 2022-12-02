@@ -57,6 +57,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,7 +127,7 @@ instance Core.AWSRequest PutProfileObject where
     Response.receiveJSON
       ( \s h x ->
           PutProfileObjectResponse'
-            Prelude.<$> (x Core..?> "ProfileObjectUniqueKey")
+            Prelude.<$> (x Data..?> "ProfileObjectUniqueKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,36 +143,36 @@ instance Prelude.NFData PutProfileObject where
       `Prelude.seq` Prelude.rnf object'
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders PutProfileObject where
+instance Data.ToHeaders PutProfileObject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutProfileObject where
+instance Data.ToJSON PutProfileObject where
   toJSON PutProfileObject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ObjectTypeName" Core..= objectTypeName),
-            Prelude.Just ("Object" Core..= object')
+              ("ObjectTypeName" Data..= objectTypeName),
+            Prelude.Just ("Object" Data..= object')
           ]
       )
 
-instance Core.ToPath PutProfileObject where
+instance Data.ToPath PutProfileObject where
   toPath PutProfileObject' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/profiles/objects"
       ]
 
-instance Core.ToQuery PutProfileObject where
+instance Data.ToQuery PutProfileObject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutProfileObjectResponse' smart constructor.

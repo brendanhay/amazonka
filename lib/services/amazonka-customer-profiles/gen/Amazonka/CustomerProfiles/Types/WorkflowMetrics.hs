@@ -22,6 +22,7 @@ module Amazonka.CustomerProfiles.Types.WorkflowMetrics where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowMetrics
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Generic object containing workflow execution metrics.
@@ -54,13 +55,13 @@ newWorkflowMetrics =
 workflowMetrics_appflowIntegration :: Lens.Lens' WorkflowMetrics (Prelude.Maybe AppflowIntegrationWorkflowMetrics)
 workflowMetrics_appflowIntegration = Lens.lens (\WorkflowMetrics' {appflowIntegration} -> appflowIntegration) (\s@WorkflowMetrics' {} a -> s {appflowIntegration = a} :: WorkflowMetrics)
 
-instance Core.FromJSON WorkflowMetrics where
+instance Data.FromJSON WorkflowMetrics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowMetrics"
       ( \x ->
           WorkflowMetrics'
-            Prelude.<$> (x Core..:? "AppflowIntegration")
+            Prelude.<$> (x Data..:? "AppflowIntegration")
       )
 
 instance Prelude.Hashable WorkflowMetrics where

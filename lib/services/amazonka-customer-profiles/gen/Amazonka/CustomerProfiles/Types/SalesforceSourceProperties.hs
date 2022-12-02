@@ -21,6 +21,7 @@ module Amazonka.CustomerProfiles.Types.SalesforceSourceProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that are applied when Salesforce is being used as a
@@ -89,14 +90,14 @@ instance Prelude.NFData SalesforceSourceProperties where
       `Prelude.seq` Prelude.rnf enableDynamicFieldUpdate
       `Prelude.seq` Prelude.rnf object'
 
-instance Core.ToJSON SalesforceSourceProperties where
+instance Data.ToJSON SalesforceSourceProperties where
   toJSON SalesforceSourceProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IncludeDeletedRecords" Core..=)
+          [ ("IncludeDeletedRecords" Data..=)
               Prelude.<$> includeDeletedRecords,
-            ("EnableDynamicFieldUpdate" Core..=)
+            ("EnableDynamicFieldUpdate" Data..=)
               Prelude.<$> enableDynamicFieldUpdate,
-            Prelude.Just ("Object" Core..= object')
+            Prelude.Just ("Object" Data..= object')
           ]
       )

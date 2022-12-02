@@ -21,6 +21,7 @@ module Amazonka.CustomerProfiles.Types.ListProfileObjectTypeItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A ProfileObjectType instance.
@@ -30,9 +31,9 @@ data ListProfileObjectTypeItem = ListProfileObjectTypeItem'
   { -- | The tags used to organize, track, or control access for this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The timestamp of when the domain was most recently edited.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The timestamp of when the domain was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The name of the profile object type.
     objectTypeName :: Prelude.Text,
     -- | Description of the profile object type.
@@ -80,11 +81,11 @@ listProfileObjectTypeItem_tags = Lens.lens (\ListProfileObjectTypeItem' {tags} -
 
 -- | The timestamp of when the domain was most recently edited.
 listProfileObjectTypeItem_lastUpdatedAt :: Lens.Lens' ListProfileObjectTypeItem (Prelude.Maybe Prelude.UTCTime)
-listProfileObjectTypeItem_lastUpdatedAt = Lens.lens (\ListProfileObjectTypeItem' {lastUpdatedAt} -> lastUpdatedAt) (\s@ListProfileObjectTypeItem' {} a -> s {lastUpdatedAt = a} :: ListProfileObjectTypeItem) Prelude.. Lens.mapping Core._Time
+listProfileObjectTypeItem_lastUpdatedAt = Lens.lens (\ListProfileObjectTypeItem' {lastUpdatedAt} -> lastUpdatedAt) (\s@ListProfileObjectTypeItem' {} a -> s {lastUpdatedAt = a} :: ListProfileObjectTypeItem) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp of when the domain was created.
 listProfileObjectTypeItem_createdAt :: Lens.Lens' ListProfileObjectTypeItem (Prelude.Maybe Prelude.UTCTime)
-listProfileObjectTypeItem_createdAt = Lens.lens (\ListProfileObjectTypeItem' {createdAt} -> createdAt) (\s@ListProfileObjectTypeItem' {} a -> s {createdAt = a} :: ListProfileObjectTypeItem) Prelude.. Lens.mapping Core._Time
+listProfileObjectTypeItem_createdAt = Lens.lens (\ListProfileObjectTypeItem' {createdAt} -> createdAt) (\s@ListProfileObjectTypeItem' {} a -> s {createdAt = a} :: ListProfileObjectTypeItem) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the profile object type.
 listProfileObjectTypeItem_objectTypeName :: Lens.Lens' ListProfileObjectTypeItem Prelude.Text
@@ -94,17 +95,17 @@ listProfileObjectTypeItem_objectTypeName = Lens.lens (\ListProfileObjectTypeItem
 listProfileObjectTypeItem_description :: Lens.Lens' ListProfileObjectTypeItem Prelude.Text
 listProfileObjectTypeItem_description = Lens.lens (\ListProfileObjectTypeItem' {description} -> description) (\s@ListProfileObjectTypeItem' {} a -> s {description = a} :: ListProfileObjectTypeItem)
 
-instance Core.FromJSON ListProfileObjectTypeItem where
+instance Data.FromJSON ListProfileObjectTypeItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListProfileObjectTypeItem"
       ( \x ->
           ListProfileObjectTypeItem'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LastUpdatedAt")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..: "ObjectTypeName")
-            Prelude.<*> (x Core..: "Description")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LastUpdatedAt")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..: "ObjectTypeName")
+            Prelude.<*> (x Data..: "Description")
       )
 
 instance Prelude.Hashable ListProfileObjectTypeItem where

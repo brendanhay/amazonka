@@ -56,6 +56,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -242,8 +243,8 @@ instance Core.AWSRequest SearchProfiles where
     Response.receiveJSON
       ( \s h x ->
           SearchProfilesResponse'
-            Prelude.<$> (x Core..?> "Items" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Items" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -267,43 +268,43 @@ instance Prelude.NFData SearchProfiles where
       `Prelude.seq` Prelude.rnf keyName
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToHeaders SearchProfiles where
+instance Data.ToHeaders SearchProfiles where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchProfiles where
+instance Data.ToJSON SearchProfiles where
   toJSON SearchProfiles' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LogicalOperator" Core..=)
+          [ ("LogicalOperator" Data..=)
               Prelude.<$> logicalOperator,
-            ("AdditionalSearchKeys" Core..=)
+            ("AdditionalSearchKeys" Data..=)
               Prelude.<$> additionalSearchKeys,
-            Prelude.Just ("KeyName" Core..= keyName),
-            Prelude.Just ("Values" Core..= values)
+            Prelude.Just ("KeyName" Data..= keyName),
+            Prelude.Just ("Values" Data..= values)
           ]
       )
 
-instance Core.ToPath SearchProfiles where
+instance Data.ToPath SearchProfiles where
   toPath SearchProfiles' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/profiles/search"
       ]
 
-instance Core.ToQuery SearchProfiles where
+instance Data.ToQuery SearchProfiles where
   toQuery SearchProfiles' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newSearchProfilesResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.CustomerProfiles.Types.JobSchedule where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.JobScheduleDayOfTheWeek
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The day and time when do you want to start the Identity Resolution Job
@@ -67,14 +68,14 @@ jobSchedule_dayOfTheWeek = Lens.lens (\JobSchedule' {dayOfTheWeek} -> dayOfTheWe
 jobSchedule_time :: Lens.Lens' JobSchedule Prelude.Text
 jobSchedule_time = Lens.lens (\JobSchedule' {time} -> time) (\s@JobSchedule' {} a -> s {time = a} :: JobSchedule)
 
-instance Core.FromJSON JobSchedule where
+instance Data.FromJSON JobSchedule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobSchedule"
       ( \x ->
           JobSchedule'
-            Prelude.<$> (x Core..: "DayOfTheWeek")
-            Prelude.<*> (x Core..: "Time")
+            Prelude.<$> (x Data..: "DayOfTheWeek")
+            Prelude.<*> (x Data..: "Time")
       )
 
 instance Prelude.Hashable JobSchedule where
@@ -87,11 +88,11 @@ instance Prelude.NFData JobSchedule where
     Prelude.rnf dayOfTheWeek
       `Prelude.seq` Prelude.rnf time
 
-instance Core.ToJSON JobSchedule where
+instance Data.ToJSON JobSchedule where
   toJSON JobSchedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DayOfTheWeek" Core..= dayOfTheWeek),
-            Prelude.Just ("Time" Core..= time)
+          [ Prelude.Just ("DayOfTheWeek" Data..= dayOfTheWeek),
+            Prelude.Just ("Time" Data..= time)
           ]
       )

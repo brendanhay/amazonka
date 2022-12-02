@@ -22,6 +22,7 @@ module Amazonka.CustomerProfiles.Types.ConflictResolution where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.ConflictResolvingModel
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | How the auto-merging process should resolve conflicts between different
@@ -92,14 +93,14 @@ conflictResolution_sourceName = Lens.lens (\ConflictResolution' {sourceName} -> 
 conflictResolution_conflictResolvingModel :: Lens.Lens' ConflictResolution ConflictResolvingModel
 conflictResolution_conflictResolvingModel = Lens.lens (\ConflictResolution' {conflictResolvingModel} -> conflictResolvingModel) (\s@ConflictResolution' {} a -> s {conflictResolvingModel = a} :: ConflictResolution)
 
-instance Core.FromJSON ConflictResolution where
+instance Data.FromJSON ConflictResolution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConflictResolution"
       ( \x ->
           ConflictResolution'
-            Prelude.<$> (x Core..:? "SourceName")
-            Prelude.<*> (x Core..: "ConflictResolvingModel")
+            Prelude.<$> (x Data..:? "SourceName")
+            Prelude.<*> (x Data..: "ConflictResolvingModel")
       )
 
 instance Prelude.Hashable ConflictResolution where
@@ -112,14 +113,14 @@ instance Prelude.NFData ConflictResolution where
     Prelude.rnf sourceName
       `Prelude.seq` Prelude.rnf conflictResolvingModel
 
-instance Core.ToJSON ConflictResolution where
+instance Data.ToJSON ConflictResolution where
   toJSON ConflictResolution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SourceName" Core..=) Prelude.<$> sourceName,
+          [ ("SourceName" Data..=) Prelude.<$> sourceName,
             Prelude.Just
               ( "ConflictResolvingModel"
-                  Core..= conflictResolvingModel
+                  Data..= conflictResolvingModel
               )
           ]
       )

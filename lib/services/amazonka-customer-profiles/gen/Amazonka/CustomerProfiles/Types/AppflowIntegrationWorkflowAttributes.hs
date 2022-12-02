@@ -22,6 +22,7 @@ module Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowAttributes wher
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.SourceConnectorType
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Structure holding all @APPFLOW_INTEGRATION@ specific workflow
@@ -91,17 +92,17 @@ appflowIntegrationWorkflowAttributes_connectorProfileName :: Lens.Lens' AppflowI
 appflowIntegrationWorkflowAttributes_connectorProfileName = Lens.lens (\AppflowIntegrationWorkflowAttributes' {connectorProfileName} -> connectorProfileName) (\s@AppflowIntegrationWorkflowAttributes' {} a -> s {connectorProfileName = a} :: AppflowIntegrationWorkflowAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AppflowIntegrationWorkflowAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppflowIntegrationWorkflowAttributes"
       ( \x ->
           AppflowIntegrationWorkflowAttributes'
-            Prelude.<$> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..: "SourceConnectorType")
-            Prelude.<*> (x Core..: "ConnectorProfileName")
+            Prelude.<$> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..: "SourceConnectorType")
+            Prelude.<*> (x Data..: "ConnectorProfileName")
       )
 
 instance

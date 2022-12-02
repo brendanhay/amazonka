@@ -21,6 +21,7 @@ module Amazonka.CustomerProfiles.Types.Address where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A generic address associated with the customer that is not mailing,
@@ -134,22 +135,22 @@ address_address4 = Lens.lens (\Address' {address4} -> address4) (\s@Address' {} 
 address_address1 :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
 address_address1 = Lens.lens (\Address' {address1} -> address1) (\s@Address' {} a -> s {address1 = a} :: Address)
 
-instance Core.FromJSON Address where
+instance Data.FromJSON Address where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Address"
       ( \x ->
           Address'
-            Prelude.<$> (x Core..:? "Address2")
-            Prelude.<*> (x Core..:? "PostalCode")
-            Prelude.<*> (x Core..:? "Country")
-            Prelude.<*> (x Core..:? "County")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Province")
-            Prelude.<*> (x Core..:? "Address3")
-            Prelude.<*> (x Core..:? "City")
-            Prelude.<*> (x Core..:? "Address4")
-            Prelude.<*> (x Core..:? "Address1")
+            Prelude.<$> (x Data..:? "Address2")
+            Prelude.<*> (x Data..:? "PostalCode")
+            Prelude.<*> (x Data..:? "Country")
+            Prelude.<*> (x Data..:? "County")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Province")
+            Prelude.<*> (x Data..:? "Address3")
+            Prelude.<*> (x Data..:? "City")
+            Prelude.<*> (x Data..:? "Address4")
+            Prelude.<*> (x Data..:? "Address1")
       )
 
 instance Prelude.Hashable Address where
@@ -178,19 +179,19 @@ instance Prelude.NFData Address where
       `Prelude.seq` Prelude.rnf address4
       `Prelude.seq` Prelude.rnf address1
 
-instance Core.ToJSON Address where
+instance Data.ToJSON Address where
   toJSON Address' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Address2" Core..=) Prelude.<$> address2,
-            ("PostalCode" Core..=) Prelude.<$> postalCode,
-            ("Country" Core..=) Prelude.<$> country,
-            ("County" Core..=) Prelude.<$> county,
-            ("State" Core..=) Prelude.<$> state,
-            ("Province" Core..=) Prelude.<$> province,
-            ("Address3" Core..=) Prelude.<$> address3,
-            ("City" Core..=) Prelude.<$> city,
-            ("Address4" Core..=) Prelude.<$> address4,
-            ("Address1" Core..=) Prelude.<$> address1
+          [ ("Address2" Data..=) Prelude.<$> address2,
+            ("PostalCode" Data..=) Prelude.<$> postalCode,
+            ("Country" Data..=) Prelude.<$> country,
+            ("County" Data..=) Prelude.<$> county,
+            ("State" Data..=) Prelude.<$> state,
+            ("Province" Data..=) Prelude.<$> province,
+            ("Address3" Data..=) Prelude.<$> address3,
+            ("City" Data..=) Prelude.<$> city,
+            ("Address4" Data..=) Prelude.<$> address4,
+            ("Address1" Data..=) Prelude.<$> address1
           ]
       )

@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.AutoMerging
 import Amazonka.CustomerProfiles.Types.ExportingConfig
 import Amazonka.CustomerProfiles.Types.JobSchedule
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The flag that enables the matching process of duplicate profiles.
@@ -88,16 +89,16 @@ matchingResponse_enabled = Lens.lens (\MatchingResponse' {enabled} -> enabled) (
 matchingResponse_exportingConfig :: Lens.Lens' MatchingResponse (Prelude.Maybe ExportingConfig)
 matchingResponse_exportingConfig = Lens.lens (\MatchingResponse' {exportingConfig} -> exportingConfig) (\s@MatchingResponse' {} a -> s {exportingConfig = a} :: MatchingResponse)
 
-instance Core.FromJSON MatchingResponse where
+instance Data.FromJSON MatchingResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MatchingResponse"
       ( \x ->
           MatchingResponse'
-            Prelude.<$> (x Core..:? "JobSchedule")
-            Prelude.<*> (x Core..:? "AutoMerging")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "ExportingConfig")
+            Prelude.<$> (x Data..:? "JobSchedule")
+            Prelude.<*> (x Data..:? "AutoMerging")
+            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "ExportingConfig")
       )
 
 instance Prelude.Hashable MatchingResponse where

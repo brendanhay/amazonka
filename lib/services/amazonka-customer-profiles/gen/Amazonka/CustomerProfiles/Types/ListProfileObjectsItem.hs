@@ -21,6 +21,7 @@ module Amazonka.CustomerProfiles.Types.ListProfileObjectsItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A ProfileObject in a list of ProfileObjects.
@@ -73,15 +74,15 @@ listProfileObjectsItem_profileObjectUniqueKey = Lens.lens (\ListProfileObjectsIt
 listProfileObjectsItem_objectTypeName :: Lens.Lens' ListProfileObjectsItem (Prelude.Maybe Prelude.Text)
 listProfileObjectsItem_objectTypeName = Lens.lens (\ListProfileObjectsItem' {objectTypeName} -> objectTypeName) (\s@ListProfileObjectsItem' {} a -> s {objectTypeName = a} :: ListProfileObjectsItem)
 
-instance Core.FromJSON ListProfileObjectsItem where
+instance Data.FromJSON ListProfileObjectsItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListProfileObjectsItem"
       ( \x ->
           ListProfileObjectsItem'
-            Prelude.<$> (x Core..:? "Object")
-            Prelude.<*> (x Core..:? "ProfileObjectUniqueKey")
-            Prelude.<*> (x Core..:? "ObjectTypeName")
+            Prelude.<$> (x Data..:? "Object")
+            Prelude.<*> (x Data..:? "ProfileObjectUniqueKey")
+            Prelude.<*> (x Data..:? "ObjectTypeName")
       )
 
 instance Prelude.Hashable ListProfileObjectsItem where

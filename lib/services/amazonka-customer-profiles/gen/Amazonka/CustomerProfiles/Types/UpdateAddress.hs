@@ -21,6 +21,7 @@ module Amazonka.CustomerProfiles.Types.UpdateAddress where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Updates associated with the address properties of a customer profile.
@@ -159,19 +160,19 @@ instance Prelude.NFData UpdateAddress where
       `Prelude.seq` Prelude.rnf address4
       `Prelude.seq` Prelude.rnf address1
 
-instance Core.ToJSON UpdateAddress where
+instance Data.ToJSON UpdateAddress where
   toJSON UpdateAddress' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Address2" Core..=) Prelude.<$> address2,
-            ("PostalCode" Core..=) Prelude.<$> postalCode,
-            ("Country" Core..=) Prelude.<$> country,
-            ("County" Core..=) Prelude.<$> county,
-            ("State" Core..=) Prelude.<$> state,
-            ("Province" Core..=) Prelude.<$> province,
-            ("Address3" Core..=) Prelude.<$> address3,
-            ("City" Core..=) Prelude.<$> city,
-            ("Address4" Core..=) Prelude.<$> address4,
-            ("Address1" Core..=) Prelude.<$> address1
+          [ ("Address2" Data..=) Prelude.<$> address2,
+            ("PostalCode" Data..=) Prelude.<$> postalCode,
+            ("Country" Data..=) Prelude.<$> country,
+            ("County" Data..=) Prelude.<$> county,
+            ("State" Data..=) Prelude.<$> state,
+            ("Province" Data..=) Prelude.<$> province,
+            ("Address3" Data..=) Prelude.<$> address3,
+            ("City" Data..=) Prelude.<$> city,
+            ("Address4" Data..=) Prelude.<$> address4,
+            ("Address1" Data..=) Prelude.<$> address1
           ]
       )

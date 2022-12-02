@@ -70,6 +70,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -206,15 +207,15 @@ instance Core.AWSRequest CreateDomain where
     Response.receiveJSON
       ( \s h x ->
           CreateDomainResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Matching")
-            Prelude.<*> (x Core..?> "DeadLetterQueueUrl")
-            Prelude.<*> (x Core..?> "DefaultEncryptionKey")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Matching")
+            Prelude.<*> (x Data..?> "DeadLetterQueueUrl")
+            Prelude.<*> (x Data..?> "DefaultEncryptionKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "DomainName")
-            Prelude.<*> (x Core..:> "DefaultExpirationDays")
-            Prelude.<*> (x Core..:> "CreatedAt")
-            Prelude.<*> (x Core..:> "LastUpdatedAt")
+            Prelude.<*> (x Data..:> "DomainName")
+            Prelude.<*> (x Data..:> "DefaultExpirationDays")
+            Prelude.<*> (x Data..:> "CreatedAt")
+            Prelude.<*> (x Data..:> "LastUpdatedAt")
       )
 
 instance Prelude.Hashable CreateDomain where
@@ -235,39 +236,39 @@ instance Prelude.NFData CreateDomain where
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf defaultExpirationDays
 
-instance Core.ToHeaders CreateDomain where
+instance Data.ToHeaders CreateDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDomain where
+instance Data.ToJSON CreateDomain where
   toJSON CreateDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Matching" Core..=) Prelude.<$> matching,
-            ("DeadLetterQueueUrl" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Matching" Data..=) Prelude.<$> matching,
+            ("DeadLetterQueueUrl" Data..=)
               Prelude.<$> deadLetterQueueUrl,
-            ("DefaultEncryptionKey" Core..=)
+            ("DefaultEncryptionKey" Data..=)
               Prelude.<$> defaultEncryptionKey,
             Prelude.Just
               ( "DefaultExpirationDays"
-                  Core..= defaultExpirationDays
+                  Data..= defaultExpirationDays
               )
           ]
       )
 
-instance Core.ToPath CreateDomain where
+instance Data.ToPath CreateDomain where
   toPath CreateDomain' {..} =
-    Prelude.mconcat ["/domains/", Core.toBS domainName]
+    Prelude.mconcat ["/domains/", Data.toBS domainName]
 
-instance Core.ToQuery CreateDomain where
+instance Data.ToQuery CreateDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDomainResponse' smart constructor.
@@ -300,9 +301,9 @@ data CreateDomainResponse = CreateDomainResponse'
     -- | The default number of days until the data within the domain expires.
     defaultExpirationDays :: Prelude.Natural,
     -- | The timestamp of when the domain was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The timestamp of when the domain was most recently edited.
-    lastUpdatedAt :: Core.POSIX
+    lastUpdatedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -370,8 +371,8 @@ newCreateDomainResponse
         httpStatus = pHttpStatus_,
         domainName = pDomainName_,
         defaultExpirationDays = pDefaultExpirationDays_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        lastUpdatedAt = Core._Time Lens.# pLastUpdatedAt_
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        lastUpdatedAt = Data._Time Lens.# pLastUpdatedAt_
       }
 
 -- | The tags used to organize, track, or control access for this resource.
@@ -417,11 +418,11 @@ createDomainResponse_defaultExpirationDays = Lens.lens (\CreateDomainResponse' {
 
 -- | The timestamp of when the domain was created.
 createDomainResponse_createdAt :: Lens.Lens' CreateDomainResponse Prelude.UTCTime
-createDomainResponse_createdAt = Lens.lens (\CreateDomainResponse' {createdAt} -> createdAt) (\s@CreateDomainResponse' {} a -> s {createdAt = a} :: CreateDomainResponse) Prelude.. Core._Time
+createDomainResponse_createdAt = Lens.lens (\CreateDomainResponse' {createdAt} -> createdAt) (\s@CreateDomainResponse' {} a -> s {createdAt = a} :: CreateDomainResponse) Prelude.. Data._Time
 
 -- | The timestamp of when the domain was most recently edited.
 createDomainResponse_lastUpdatedAt :: Lens.Lens' CreateDomainResponse Prelude.UTCTime
-createDomainResponse_lastUpdatedAt = Lens.lens (\CreateDomainResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@CreateDomainResponse' {} a -> s {lastUpdatedAt = a} :: CreateDomainResponse) Prelude.. Core._Time
+createDomainResponse_lastUpdatedAt = Lens.lens (\CreateDomainResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@CreateDomainResponse' {} a -> s {lastUpdatedAt = a} :: CreateDomainResponse) Prelude.. Data._Time
 
 instance Prelude.NFData CreateDomainResponse where
   rnf CreateDomainResponse' {..} =

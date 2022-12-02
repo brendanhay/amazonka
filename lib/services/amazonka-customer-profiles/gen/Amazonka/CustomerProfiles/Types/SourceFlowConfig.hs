@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.IncrementalPullConfig
 import Amazonka.CustomerProfiles.Types.SourceConnectorProperties
 import Amazonka.CustomerProfiles.Types.SourceConnectorType
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the configuration of the source connector
@@ -117,18 +118,18 @@ instance Prelude.NFData SourceFlowConfig where
       `Prelude.seq` Prelude.rnf connectorType
       `Prelude.seq` Prelude.rnf sourceConnectorProperties
 
-instance Core.ToJSON SourceFlowConfig where
+instance Data.ToJSON SourceFlowConfig where
   toJSON SourceFlowConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConnectorProfileName" Core..=)
+          [ ("ConnectorProfileName" Data..=)
               Prelude.<$> connectorProfileName,
-            ("IncrementalPullConfig" Core..=)
+            ("IncrementalPullConfig" Data..=)
               Prelude.<$> incrementalPullConfig,
-            Prelude.Just ("ConnectorType" Core..= connectorType),
+            Prelude.Just ("ConnectorType" Data..= connectorType),
             Prelude.Just
               ( "SourceConnectorProperties"
-                  Core..= sourceConnectorProperties
+                  Data..= sourceConnectorProperties
               )
           ]
       )

@@ -54,6 +54,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,19 +109,19 @@ instance Core.AWSRequest GetProfileObjectType where
     Response.receiveJSON
       ( \s h x ->
           GetProfileObjectTypeResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "LastUpdatedAt")
-            Prelude.<*> (x Core..?> "Fields" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "TemplateId")
-            Prelude.<*> (x Core..?> "ExpirationDays")
-            Prelude.<*> (x Core..?> "SourceLastUpdatedTimestampFormat")
-            Prelude.<*> (x Core..?> "Keys" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "EncryptionKey")
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "AllowProfileCreation")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "LastUpdatedAt")
+            Prelude.<*> (x Data..?> "Fields" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "TemplateId")
+            Prelude.<*> (x Data..?> "ExpirationDays")
+            Prelude.<*> (x Data..?> "SourceLastUpdatedTimestampFormat")
+            Prelude.<*> (x Data..?> "Keys" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "EncryptionKey")
+            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "AllowProfileCreation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ObjectTypeName")
-            Prelude.<*> (x Core..:> "Description")
+            Prelude.<*> (x Data..:> "ObjectTypeName")
+            Prelude.<*> (x Data..:> "Description")
       )
 
 instance Prelude.Hashable GetProfileObjectType where
@@ -133,27 +134,27 @@ instance Prelude.NFData GetProfileObjectType where
     Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf objectTypeName
 
-instance Core.ToHeaders GetProfileObjectType where
+instance Data.ToHeaders GetProfileObjectType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetProfileObjectType where
+instance Data.ToPath GetProfileObjectType where
   toPath GetProfileObjectType' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/object-types/",
-        Core.toBS objectTypeName
+        Data.toBS objectTypeName
       ]
 
-instance Core.ToQuery GetProfileObjectType where
+instance Data.ToQuery GetProfileObjectType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetProfileObjectTypeResponse' smart constructor.
@@ -161,7 +162,7 @@ data GetProfileObjectTypeResponse = GetProfileObjectTypeResponse'
   { -- | The tags used to organize, track, or control access for this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The timestamp of when the domain was most recently edited.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | A map of the name and ObjectType field.
     fields :: Prelude.Maybe (Prelude.HashMap Prelude.Text ObjectTypeField),
     -- | A unique identifier for the object template.
@@ -177,7 +178,7 @@ data GetProfileObjectTypeResponse = GetProfileObjectTypeResponse'
     -- created in this profile object type.
     encryptionKey :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the domain was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | Indicates whether a profile should be created when data is received if
     -- one doesn’t exist for an object of this type. The default is @FALSE@. If
     -- the AllowProfileCreation flag is set to @FALSE@, then the service tries
@@ -270,7 +271,7 @@ getProfileObjectTypeResponse_tags = Lens.lens (\GetProfileObjectTypeResponse' {t
 
 -- | The timestamp of when the domain was most recently edited.
 getProfileObjectTypeResponse_lastUpdatedAt :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe Prelude.UTCTime)
-getProfileObjectTypeResponse_lastUpdatedAt = Lens.lens (\GetProfileObjectTypeResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetProfileObjectTypeResponse' {} a -> s {lastUpdatedAt = a} :: GetProfileObjectTypeResponse) Prelude.. Lens.mapping Core._Time
+getProfileObjectTypeResponse_lastUpdatedAt = Lens.lens (\GetProfileObjectTypeResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetProfileObjectTypeResponse' {} a -> s {lastUpdatedAt = a} :: GetProfileObjectTypeResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A map of the name and ObjectType field.
 getProfileObjectTypeResponse_fields :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text ObjectTypeField))
@@ -300,7 +301,7 @@ getProfileObjectTypeResponse_encryptionKey = Lens.lens (\GetProfileObjectTypeRes
 
 -- | The timestamp of when the domain was created.
 getProfileObjectTypeResponse_createdAt :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe Prelude.UTCTime)
-getProfileObjectTypeResponse_createdAt = Lens.lens (\GetProfileObjectTypeResponse' {createdAt} -> createdAt) (\s@GetProfileObjectTypeResponse' {} a -> s {createdAt = a} :: GetProfileObjectTypeResponse) Prelude.. Lens.mapping Core._Time
+getProfileObjectTypeResponse_createdAt = Lens.lens (\GetProfileObjectTypeResponse' {createdAt} -> createdAt) (\s@GetProfileObjectTypeResponse' {} a -> s {createdAt = a} :: GetProfileObjectTypeResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates whether a profile should be created when data is received if
 -- one doesn’t exist for an object of this type. The default is @FALSE@. If

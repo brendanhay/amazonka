@@ -70,6 +70,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -210,15 +211,15 @@ instance Core.AWSRequest UpdateDomain where
     Response.receiveJSON
       ( \s h x ->
           UpdateDomainResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "DefaultExpirationDays")
-            Prelude.<*> (x Core..?> "Matching")
-            Prelude.<*> (x Core..?> "DeadLetterQueueUrl")
-            Prelude.<*> (x Core..?> "DefaultEncryptionKey")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "DefaultExpirationDays")
+            Prelude.<*> (x Data..?> "Matching")
+            Prelude.<*> (x Data..?> "DeadLetterQueueUrl")
+            Prelude.<*> (x Data..?> "DefaultEncryptionKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "DomainName")
-            Prelude.<*> (x Core..:> "CreatedAt")
-            Prelude.<*> (x Core..:> "LastUpdatedAt")
+            Prelude.<*> (x Data..:> "DomainName")
+            Prelude.<*> (x Data..:> "CreatedAt")
+            Prelude.<*> (x Data..:> "LastUpdatedAt")
       )
 
 instance Prelude.Hashable UpdateDomain where
@@ -239,37 +240,37 @@ instance Prelude.NFData UpdateDomain where
       `Prelude.seq` Prelude.rnf defaultEncryptionKey
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders UpdateDomain where
+instance Data.ToHeaders UpdateDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDomain where
+instance Data.ToJSON UpdateDomain where
   toJSON UpdateDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("DefaultExpirationDays" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("DefaultExpirationDays" Data..=)
               Prelude.<$> defaultExpirationDays,
-            ("Matching" Core..=) Prelude.<$> matching,
-            ("DeadLetterQueueUrl" Core..=)
+            ("Matching" Data..=) Prelude.<$> matching,
+            ("DeadLetterQueueUrl" Data..=)
               Prelude.<$> deadLetterQueueUrl,
-            ("DefaultEncryptionKey" Core..=)
+            ("DefaultEncryptionKey" Data..=)
               Prelude.<$> defaultEncryptionKey
           ]
       )
 
-instance Core.ToPath UpdateDomain where
+instance Data.ToPath UpdateDomain where
   toPath UpdateDomain' {..} =
-    Prelude.mconcat ["/domains/", Core.toBS domainName]
+    Prelude.mconcat ["/domains/", Data.toBS domainName]
 
-instance Core.ToQuery UpdateDomain where
+instance Data.ToQuery UpdateDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDomainResponse' smart constructor.
@@ -302,9 +303,9 @@ data UpdateDomainResponse = UpdateDomainResponse'
     -- | The unique name of the domain.
     domainName :: Prelude.Text,
     -- | The timestamp of when the domain was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The timestamp of when the domain was most recently edited.
-    lastUpdatedAt :: Core.POSIX
+    lastUpdatedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -369,8 +370,8 @@ newUpdateDomainResponse
         defaultEncryptionKey = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         domainName = pDomainName_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        lastUpdatedAt = Core._Time Lens.# pLastUpdatedAt_
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        lastUpdatedAt = Data._Time Lens.# pLastUpdatedAt_
       }
 
 -- | The tags used to organize, track, or control access for this resource.
@@ -416,11 +417,11 @@ updateDomainResponse_domainName = Lens.lens (\UpdateDomainResponse' {domainName}
 
 -- | The timestamp of when the domain was created.
 updateDomainResponse_createdAt :: Lens.Lens' UpdateDomainResponse Prelude.UTCTime
-updateDomainResponse_createdAt = Lens.lens (\UpdateDomainResponse' {createdAt} -> createdAt) (\s@UpdateDomainResponse' {} a -> s {createdAt = a} :: UpdateDomainResponse) Prelude.. Core._Time
+updateDomainResponse_createdAt = Lens.lens (\UpdateDomainResponse' {createdAt} -> createdAt) (\s@UpdateDomainResponse' {} a -> s {createdAt = a} :: UpdateDomainResponse) Prelude.. Data._Time
 
 -- | The timestamp of when the domain was most recently edited.
 updateDomainResponse_lastUpdatedAt :: Lens.Lens' UpdateDomainResponse Prelude.UTCTime
-updateDomainResponse_lastUpdatedAt = Lens.lens (\UpdateDomainResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@UpdateDomainResponse' {} a -> s {lastUpdatedAt = a} :: UpdateDomainResponse) Prelude.. Core._Time
+updateDomainResponse_lastUpdatedAt = Lens.lens (\UpdateDomainResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@UpdateDomainResponse' {} a -> s {lastUpdatedAt = a} :: UpdateDomainResponse) Prelude.. Data._Time
 
 instance Prelude.NFData UpdateDomainResponse where
   rnf UpdateDomainResponse' {..} =

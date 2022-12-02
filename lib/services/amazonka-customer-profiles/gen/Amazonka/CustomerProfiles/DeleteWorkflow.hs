@@ -43,6 +43,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,27 +111,27 @@ instance Prelude.NFData DeleteWorkflow where
     Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf workflowId
 
-instance Core.ToHeaders DeleteWorkflow where
+instance Data.ToHeaders DeleteWorkflow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteWorkflow where
+instance Data.ToPath DeleteWorkflow where
   toPath DeleteWorkflow' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/workflows/",
-        Core.toBS workflowId
+        Data.toBS workflowId
       ]
 
-instance Core.ToQuery DeleteWorkflow where
+instance Data.ToQuery DeleteWorkflow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteWorkflowResponse' smart constructor.

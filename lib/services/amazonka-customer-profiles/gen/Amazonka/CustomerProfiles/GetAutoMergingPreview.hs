@@ -63,6 +63,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -147,11 +148,11 @@ instance Core.AWSRequest GetAutoMergingPreview where
     Response.receiveJSON
       ( \s h x ->
           GetAutoMergingPreviewResponse'
-            Prelude.<$> (x Core..?> "NumberOfProfilesInSample")
-            Prelude.<*> (x Core..?> "NumberOfMatchesInSample")
-            Prelude.<*> (x Core..?> "NumberOfProfilesWillBeMerged")
+            Prelude.<$> (x Data..?> "NumberOfProfilesInSample")
+            Prelude.<*> (x Data..?> "NumberOfMatchesInSample")
+            Prelude.<*> (x Data..?> "NumberOfProfilesWillBeMerged")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "DomainName")
+            Prelude.<*> (x Data..:> "DomainName")
       )
 
 instance Prelude.Hashable GetAutoMergingPreview where
@@ -169,38 +170,38 @@ instance Prelude.NFData GetAutoMergingPreview where
       `Prelude.seq` Prelude.rnf consolidation
       `Prelude.seq` Prelude.rnf conflictResolution
 
-instance Core.ToHeaders GetAutoMergingPreview where
+instance Data.ToHeaders GetAutoMergingPreview where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAutoMergingPreview where
+instance Data.ToJSON GetAutoMergingPreview where
   toJSON GetAutoMergingPreview' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MinAllowedConfidenceScoreForMerging" Core..=)
+          [ ("MinAllowedConfidenceScoreForMerging" Data..=)
               Prelude.<$> minAllowedConfidenceScoreForMerging,
-            Prelude.Just ("Consolidation" Core..= consolidation),
+            Prelude.Just ("Consolidation" Data..= consolidation),
             Prelude.Just
-              ("ConflictResolution" Core..= conflictResolution)
+              ("ConflictResolution" Data..= conflictResolution)
           ]
       )
 
-instance Core.ToPath GetAutoMergingPreview where
+instance Data.ToPath GetAutoMergingPreview where
   toPath GetAutoMergingPreview' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/identity-resolution-jobs/auto-merging-preview"
       ]
 
-instance Core.ToQuery GetAutoMergingPreview where
+instance Data.ToQuery GetAutoMergingPreview where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAutoMergingPreviewResponse' smart constructor.

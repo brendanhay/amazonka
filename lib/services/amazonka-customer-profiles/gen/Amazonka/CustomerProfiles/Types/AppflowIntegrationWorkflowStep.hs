@@ -22,6 +22,7 @@ module Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowStep where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.Status
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Workflow step details for @APPFLOW_INTEGRATION@ workflow.
@@ -47,10 +48,10 @@ data AppflowIntegrationWorkflowStep = AppflowIntegrationWorkflowStep'
     -- step for @APPFLOW_INTEGRATION@ workflow.
     batchRecordsEndTime :: Prelude.Text,
     -- | Creation timestamp of workflow step for @APPFLOW_INTEGRATION@ workflow.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | Last updated timestamp for workflow step for @APPFLOW_INTEGRATION@
     -- workflow.
-    lastUpdatedAt :: Core.POSIX
+    lastUpdatedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -120,9 +121,9 @@ newAppflowIntegrationWorkflowStep
         batchRecordsStartTime =
           pBatchRecordsStartTime_,
         batchRecordsEndTime = pBatchRecordsEndTime_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
         lastUpdatedAt =
-          Core._Time Lens.# pLastUpdatedAt_
+          Data._Time Lens.# pLastUpdatedAt_
       }
 
 -- | Name of the flow created during execution of workflow step.
@@ -157,27 +158,27 @@ appflowIntegrationWorkflowStep_batchRecordsEndTime = Lens.lens (\AppflowIntegrat
 
 -- | Creation timestamp of workflow step for @APPFLOW_INTEGRATION@ workflow.
 appflowIntegrationWorkflowStep_createdAt :: Lens.Lens' AppflowIntegrationWorkflowStep Prelude.UTCTime
-appflowIntegrationWorkflowStep_createdAt = Lens.lens (\AppflowIntegrationWorkflowStep' {createdAt} -> createdAt) (\s@AppflowIntegrationWorkflowStep' {} a -> s {createdAt = a} :: AppflowIntegrationWorkflowStep) Prelude.. Core._Time
+appflowIntegrationWorkflowStep_createdAt = Lens.lens (\AppflowIntegrationWorkflowStep' {createdAt} -> createdAt) (\s@AppflowIntegrationWorkflowStep' {} a -> s {createdAt = a} :: AppflowIntegrationWorkflowStep) Prelude.. Data._Time
 
 -- | Last updated timestamp for workflow step for @APPFLOW_INTEGRATION@
 -- workflow.
 appflowIntegrationWorkflowStep_lastUpdatedAt :: Lens.Lens' AppflowIntegrationWorkflowStep Prelude.UTCTime
-appflowIntegrationWorkflowStep_lastUpdatedAt = Lens.lens (\AppflowIntegrationWorkflowStep' {lastUpdatedAt} -> lastUpdatedAt) (\s@AppflowIntegrationWorkflowStep' {} a -> s {lastUpdatedAt = a} :: AppflowIntegrationWorkflowStep) Prelude.. Core._Time
+appflowIntegrationWorkflowStep_lastUpdatedAt = Lens.lens (\AppflowIntegrationWorkflowStep' {lastUpdatedAt} -> lastUpdatedAt) (\s@AppflowIntegrationWorkflowStep' {} a -> s {lastUpdatedAt = a} :: AppflowIntegrationWorkflowStep) Prelude.. Data._Time
 
-instance Core.FromJSON AppflowIntegrationWorkflowStep where
+instance Data.FromJSON AppflowIntegrationWorkflowStep where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppflowIntegrationWorkflowStep"
       ( \x ->
           AppflowIntegrationWorkflowStep'
-            Prelude.<$> (x Core..: "FlowName")
-            Prelude.<*> (x Core..: "Status")
-            Prelude.<*> (x Core..: "ExecutionMessage")
-            Prelude.<*> (x Core..: "RecordsProcessed")
-            Prelude.<*> (x Core..: "BatchRecordsStartTime")
-            Prelude.<*> (x Core..: "BatchRecordsEndTime")
-            Prelude.<*> (x Core..: "CreatedAt")
-            Prelude.<*> (x Core..: "LastUpdatedAt")
+            Prelude.<$> (x Data..: "FlowName")
+            Prelude.<*> (x Data..: "Status")
+            Prelude.<*> (x Data..: "ExecutionMessage")
+            Prelude.<*> (x Data..: "RecordsProcessed")
+            Prelude.<*> (x Data..: "BatchRecordsStartTime")
+            Prelude.<*> (x Data..: "BatchRecordsEndTime")
+            Prelude.<*> (x Data..: "CreatedAt")
+            Prelude.<*> (x Data..: "LastUpdatedAt")
       )
 
 instance

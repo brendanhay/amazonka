@@ -49,6 +49,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -60,9 +61,9 @@ data ListWorkflows = ListWorkflows'
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Retrieve workflows started after timestamp.
-    queryStartDate :: Prelude.Maybe Core.POSIX,
+    queryStartDate :: Prelude.Maybe Data.POSIX,
     -- | Retrieve workflows ended after timestamp.
-    queryEndDate :: Prelude.Maybe Core.POSIX,
+    queryEndDate :: Prelude.Maybe Data.POSIX,
     -- | Status of workflow execution.
     status :: Prelude.Maybe Status,
     -- | The type of workflow. The only supported value is APPFLOW_INTEGRATION.
@@ -120,11 +121,11 @@ listWorkflows_nextToken = Lens.lens (\ListWorkflows' {nextToken} -> nextToken) (
 
 -- | Retrieve workflows started after timestamp.
 listWorkflows_queryStartDate :: Lens.Lens' ListWorkflows (Prelude.Maybe Prelude.UTCTime)
-listWorkflows_queryStartDate = Lens.lens (\ListWorkflows' {queryStartDate} -> queryStartDate) (\s@ListWorkflows' {} a -> s {queryStartDate = a} :: ListWorkflows) Prelude.. Lens.mapping Core._Time
+listWorkflows_queryStartDate = Lens.lens (\ListWorkflows' {queryStartDate} -> queryStartDate) (\s@ListWorkflows' {} a -> s {queryStartDate = a} :: ListWorkflows) Prelude.. Lens.mapping Data._Time
 
 -- | Retrieve workflows ended after timestamp.
 listWorkflows_queryEndDate :: Lens.Lens' ListWorkflows (Prelude.Maybe Prelude.UTCTime)
-listWorkflows_queryEndDate = Lens.lens (\ListWorkflows' {queryEndDate} -> queryEndDate) (\s@ListWorkflows' {} a -> s {queryEndDate = a} :: ListWorkflows) Prelude.. Lens.mapping Core._Time
+listWorkflows_queryEndDate = Lens.lens (\ListWorkflows' {queryEndDate} -> queryEndDate) (\s@ListWorkflows' {} a -> s {queryEndDate = a} :: ListWorkflows) Prelude.. Lens.mapping Data._Time
 
 -- | Status of workflow execution.
 listWorkflows_status :: Lens.Lens' ListWorkflows (Prelude.Maybe Status)
@@ -152,8 +153,8 @@ instance Core.AWSRequest ListWorkflows where
     Response.receiveJSON
       ( \s h x ->
           ListWorkflowsResponse'
-            Prelude.<$> (x Core..?> "Items" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Items" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,39 +178,39 @@ instance Prelude.NFData ListWorkflows where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders ListWorkflows where
+instance Data.ToHeaders ListWorkflows where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListWorkflows where
+instance Data.ToJSON ListWorkflows where
   toJSON ListWorkflows' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("QueryStartDate" Core..=)
+          [ ("QueryStartDate" Data..=)
               Prelude.<$> queryStartDate,
-            ("QueryEndDate" Core..=) Prelude.<$> queryEndDate,
-            ("Status" Core..=) Prelude.<$> status,
-            ("WorkflowType" Core..=) Prelude.<$> workflowType
+            ("QueryEndDate" Data..=) Prelude.<$> queryEndDate,
+            ("Status" Data..=) Prelude.<$> status,
+            ("WorkflowType" Data..=) Prelude.<$> workflowType
           ]
       )
 
-instance Core.ToPath ListWorkflows where
+instance Data.ToPath ListWorkflows where
   toPath ListWorkflows' {..} =
     Prelude.mconcat
-      ["/domains/", Core.toBS domainName, "/workflows"]
+      ["/domains/", Data.toBS domainName, "/workflows"]
 
-instance Core.ToQuery ListWorkflows where
+instance Data.ToQuery ListWorkflows where
   toQuery ListWorkflows' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListWorkflowsResponse' smart constructor.

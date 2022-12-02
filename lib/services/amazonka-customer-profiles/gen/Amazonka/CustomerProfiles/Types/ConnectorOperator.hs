@@ -26,6 +26,7 @@ import Amazonka.CustomerProfiles.Types.S3ConnectorOperator
 import Amazonka.CustomerProfiles.Types.SalesforceConnectorOperator
 import Amazonka.CustomerProfiles.Types.ServiceNowConnectorOperator
 import Amazonka.CustomerProfiles.Types.ZendeskConnectorOperator
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The operation to be performed on the provided source fields.
@@ -109,14 +110,14 @@ instance Prelude.NFData ConnectorOperator where
       `Prelude.seq` Prelude.rnf marketo
       `Prelude.seq` Prelude.rnf serviceNow
 
-instance Core.ToJSON ConnectorOperator where
+instance Data.ToJSON ConnectorOperator where
   toJSON ConnectorOperator' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Zendesk" Core..=) Prelude.<$> zendesk,
-            ("S3" Core..=) Prelude.<$> s3,
-            ("Salesforce" Core..=) Prelude.<$> salesforce,
-            ("Marketo" Core..=) Prelude.<$> marketo,
-            ("ServiceNow" Core..=) Prelude.<$> serviceNow
+          [ ("Zendesk" Data..=) Prelude.<$> zendesk,
+            ("S3" Data..=) Prelude.<$> s3,
+            ("Salesforce" Data..=) Prelude.<$> salesforce,
+            ("Marketo" Data..=) Prelude.<$> marketo,
+            ("ServiceNow" Data..=) Prelude.<$> serviceNow
           ]
       )

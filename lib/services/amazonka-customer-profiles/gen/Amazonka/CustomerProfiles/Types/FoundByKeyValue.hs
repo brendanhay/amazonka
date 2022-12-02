@@ -21,6 +21,7 @@ module Amazonka.CustomerProfiles.Types.FoundByKeyValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A data type pair that consists of a @KeyName@ and @Values@ list that
@@ -64,14 +65,14 @@ foundByKeyValue_keyName = Lens.lens (\FoundByKeyValue' {keyName} -> keyName) (\s
 foundByKeyValue_values :: Lens.Lens' FoundByKeyValue (Prelude.Maybe [Prelude.Text])
 foundByKeyValue_values = Lens.lens (\FoundByKeyValue' {values} -> values) (\s@FoundByKeyValue' {} a -> s {values = a} :: FoundByKeyValue) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON FoundByKeyValue where
+instance Data.FromJSON FoundByKeyValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FoundByKeyValue"
       ( \x ->
           FoundByKeyValue'
-            Prelude.<$> (x Core..:? "KeyName")
-            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "KeyName")
+            Prelude.<*> (x Data..:? "Values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable FoundByKeyValue where

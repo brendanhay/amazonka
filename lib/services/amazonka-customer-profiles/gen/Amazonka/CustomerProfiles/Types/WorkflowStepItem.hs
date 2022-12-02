@@ -22,6 +22,7 @@ module Amazonka.CustomerProfiles.Types.WorkflowStepItem where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowStep
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | List containing steps in workflow.
@@ -54,13 +55,13 @@ newWorkflowStepItem =
 workflowStepItem_appflowIntegration :: Lens.Lens' WorkflowStepItem (Prelude.Maybe AppflowIntegrationWorkflowStep)
 workflowStepItem_appflowIntegration = Lens.lens (\WorkflowStepItem' {appflowIntegration} -> appflowIntegration) (\s@WorkflowStepItem' {} a -> s {appflowIntegration = a} :: WorkflowStepItem)
 
-instance Core.FromJSON WorkflowStepItem where
+instance Data.FromJSON WorkflowStepItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowStepItem"
       ( \x ->
           WorkflowStepItem'
-            Prelude.<$> (x Core..:? "AppflowIntegration")
+            Prelude.<$> (x Data..:? "AppflowIntegration")
       )
 
 instance Prelude.Hashable WorkflowStepItem where

@@ -25,6 +25,7 @@ import Amazonka.CustomerProfiles.Types.Address
 import Amazonka.CustomerProfiles.Types.FoundByKeyValue
 import Amazonka.CustomerProfiles.Types.Gender
 import Amazonka.CustomerProfiles.Types.PartyType
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The standard profile of a customer.
@@ -332,35 +333,35 @@ profile_emailAddress = Lens.lens (\Profile' {emailAddress} -> emailAddress) (\s@
 profile_accountNumber :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
 profile_accountNumber = Lens.lens (\Profile' {accountNumber} -> accountNumber) (\s@Profile' {} a -> s {accountNumber = a} :: Profile)
 
-instance Core.FromJSON Profile where
+instance Data.FromJSON Profile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Profile"
       ( \x ->
           Profile'
-            Prelude.<$> (x Core..:? "HomePhoneNumber")
-            Prelude.<*> (x Core..:? "MailingAddress")
-            Prelude.<*> (x Core..:? "ShippingAddress")
-            Prelude.<*> (x Core..:? "ProfileId")
-            Prelude.<*> (x Core..:? "FirstName")
-            Prelude.<*> (x Core..:? "BusinessPhoneNumber")
-            Prelude.<*> (x Core..:? "BusinessEmailAddress")
-            Prelude.<*> (x Core..:? "BusinessName")
-            Prelude.<*> (x Core..:? "PersonalEmailAddress")
-            Prelude.<*> (x Core..:? "BillingAddress")
-            Prelude.<*> (x Core..:? "LastName")
-            Prelude.<*> (x Core..:? "BirthDate")
-            Prelude.<*> (x Core..:? "Address")
-            Prelude.<*> (x Core..:? "PartyType")
-            Prelude.<*> (x Core..:? "Gender")
-            Prelude.<*> (x Core..:? "FoundByItems")
-            Prelude.<*> (x Core..:? "MobilePhoneNumber")
-            Prelude.<*> (x Core..:? "MiddleName")
-            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "PhoneNumber")
-            Prelude.<*> (x Core..:? "AdditionalInformation")
-            Prelude.<*> (x Core..:? "EmailAddress")
-            Prelude.<*> (x Core..:? "AccountNumber")
+            Prelude.<$> (x Data..:? "HomePhoneNumber")
+            Prelude.<*> (x Data..:? "MailingAddress")
+            Prelude.<*> (x Data..:? "ShippingAddress")
+            Prelude.<*> (x Data..:? "ProfileId")
+            Prelude.<*> (x Data..:? "FirstName")
+            Prelude.<*> (x Data..:? "BusinessPhoneNumber")
+            Prelude.<*> (x Data..:? "BusinessEmailAddress")
+            Prelude.<*> (x Data..:? "BusinessName")
+            Prelude.<*> (x Data..:? "PersonalEmailAddress")
+            Prelude.<*> (x Data..:? "BillingAddress")
+            Prelude.<*> (x Data..:? "LastName")
+            Prelude.<*> (x Data..:? "BirthDate")
+            Prelude.<*> (x Data..:? "Address")
+            Prelude.<*> (x Data..:? "PartyType")
+            Prelude.<*> (x Data..:? "Gender")
+            Prelude.<*> (x Data..:? "FoundByItems")
+            Prelude.<*> (x Data..:? "MobilePhoneNumber")
+            Prelude.<*> (x Data..:? "MiddleName")
+            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "PhoneNumber")
+            Prelude.<*> (x Data..:? "AdditionalInformation")
+            Prelude.<*> (x Data..:? "EmailAddress")
+            Prelude.<*> (x Data..:? "AccountNumber")
       )
 
 instance Prelude.Hashable Profile where

@@ -22,6 +22,7 @@ module Amazonka.CustomerProfiles.Types.ObjectTypeKey where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.StandardIdentifier
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that defines the Key element of a ProfileObject. A Key is a
@@ -90,15 +91,15 @@ objectTypeKey_fieldNames = Lens.lens (\ObjectTypeKey' {fieldNames} -> fieldNames
 objectTypeKey_standardIdentifiers :: Lens.Lens' ObjectTypeKey (Prelude.Maybe [StandardIdentifier])
 objectTypeKey_standardIdentifiers = Lens.lens (\ObjectTypeKey' {standardIdentifiers} -> standardIdentifiers) (\s@ObjectTypeKey' {} a -> s {standardIdentifiers = a} :: ObjectTypeKey) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ObjectTypeKey where
+instance Data.FromJSON ObjectTypeKey where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ObjectTypeKey"
       ( \x ->
           ObjectTypeKey'
-            Prelude.<$> (x Core..:? "FieldNames" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "StandardIdentifiers"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "FieldNames" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "StandardIdentifiers"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -112,12 +113,12 @@ instance Prelude.NFData ObjectTypeKey where
     Prelude.rnf fieldNames
       `Prelude.seq` Prelude.rnf standardIdentifiers
 
-instance Core.ToJSON ObjectTypeKey where
+instance Data.ToJSON ObjectTypeKey where
   toJSON ObjectTypeKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FieldNames" Core..=) Prelude.<$> fieldNames,
-            ("StandardIdentifiers" Core..=)
+          [ ("FieldNames" Data..=) Prelude.<$> fieldNames,
+            ("StandardIdentifiers" Data..=)
               Prelude.<$> standardIdentifiers
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowMetrics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Workflow specific execution metrics for @APPFLOW_INTEGRATION@ workflow.
@@ -81,17 +82,17 @@ appflowIntegrationWorkflowMetrics_totalSteps :: Lens.Lens' AppflowIntegrationWor
 appflowIntegrationWorkflowMetrics_totalSteps = Lens.lens (\AppflowIntegrationWorkflowMetrics' {totalSteps} -> totalSteps) (\s@AppflowIntegrationWorkflowMetrics' {} a -> s {totalSteps = a} :: AppflowIntegrationWorkflowMetrics)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AppflowIntegrationWorkflowMetrics
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppflowIntegrationWorkflowMetrics"
       ( \x ->
           AppflowIntegrationWorkflowMetrics'
-            Prelude.<$> (x Core..: "RecordsProcessed")
-            Prelude.<*> (x Core..: "StepsCompleted")
-            Prelude.<*> (x Core..: "TotalSteps")
+            Prelude.<$> (x Data..: "RecordsProcessed")
+            Prelude.<*> (x Data..: "StepsCompleted")
+            Prelude.<*> (x Data..: "TotalSteps")
       )
 
 instance

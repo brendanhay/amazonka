@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.ConflictResolution
 import Amazonka.CustomerProfiles.Types.Consolidation
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration settings for how to perform the auto-merging of profiles.
@@ -108,16 +109,16 @@ autoMerging_minAllowedConfidenceScoreForMerging = Lens.lens (\AutoMerging' {minA
 autoMerging_enabled :: Lens.Lens' AutoMerging Prelude.Bool
 autoMerging_enabled = Lens.lens (\AutoMerging' {enabled} -> enabled) (\s@AutoMerging' {} a -> s {enabled = a} :: AutoMerging)
 
-instance Core.FromJSON AutoMerging where
+instance Data.FromJSON AutoMerging where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoMerging"
       ( \x ->
           AutoMerging'
-            Prelude.<$> (x Core..:? "Consolidation")
-            Prelude.<*> (x Core..:? "ConflictResolution")
-            Prelude.<*> (x Core..:? "MinAllowedConfidenceScoreForMerging")
-            Prelude.<*> (x Core..: "Enabled")
+            Prelude.<$> (x Data..:? "Consolidation")
+            Prelude.<*> (x Data..:? "ConflictResolution")
+            Prelude.<*> (x Data..:? "MinAllowedConfidenceScoreForMerging")
+            Prelude.<*> (x Data..: "Enabled")
       )
 
 instance Prelude.Hashable AutoMerging where
@@ -134,15 +135,15 @@ instance Prelude.NFData AutoMerging where
       `Prelude.seq` Prelude.rnf minAllowedConfidenceScoreForMerging
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON AutoMerging where
+instance Data.ToJSON AutoMerging where
   toJSON AutoMerging' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Consolidation" Core..=) Prelude.<$> consolidation,
-            ("ConflictResolution" Core..=)
+          [ ("Consolidation" Data..=) Prelude.<$> consolidation,
+            ("ConflictResolution" Data..=)
               Prelude.<$> conflictResolution,
-            ("MinAllowedConfidenceScoreForMerging" Core..=)
+            ("MinAllowedConfidenceScoreForMerging" Data..=)
               Prelude.<$> minAllowedConfidenceScoreForMerging,
-            Prelude.Just ("Enabled" Core..= enabled)
+            Prelude.Just ("Enabled" Data..= enabled)
           ]
       )

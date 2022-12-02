@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.TriggerProperties
 import Amazonka.CustomerProfiles.Types.TriggerType
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The trigger settings that determine how and when Amazon AppFlow runs the
@@ -85,12 +86,12 @@ instance Prelude.NFData TriggerConfig where
     Prelude.rnf triggerProperties
       `Prelude.seq` Prelude.rnf triggerType
 
-instance Core.ToJSON TriggerConfig where
+instance Data.ToJSON TriggerConfig where
   toJSON TriggerConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TriggerProperties" Core..=)
+          [ ("TriggerProperties" Data..=)
               Prelude.<$> triggerProperties,
-            Prelude.Just ("TriggerType" Core..= triggerType)
+            Prelude.Just ("TriggerType" Data..= triggerType)
           ]
       )

@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.Batch
 import Amazonka.CustomerProfiles.Types.FlowDefinition
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details for workflow of type @APPFLOW_INTEGRATION@.
@@ -74,12 +75,12 @@ instance Prelude.NFData AppflowIntegration where
     Prelude.rnf batches
       `Prelude.seq` Prelude.rnf flowDefinition
 
-instance Core.ToJSON AppflowIntegration where
+instance Data.ToJSON AppflowIntegration where
   toJSON AppflowIntegration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Batches" Core..=) Prelude.<$> batches,
+          [ ("Batches" Data..=) Prelude.<$> batches,
             Prelude.Just
-              ("FlowDefinition" Core..= flowDefinition)
+              ("FlowDefinition" Data..= flowDefinition)
           ]
       )

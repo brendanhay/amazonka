@@ -46,6 +46,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,8 +120,8 @@ instance Core.AWSRequest ListIntegrations where
     Response.receiveJSON
       ( \s h x ->
           ListIntegrationsResponse'
-            Prelude.<$> (x Core..?> "Items" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Items" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,28 +139,28 @@ instance Prelude.NFData ListIntegrations where
       `Prelude.seq` Prelude.rnf includeHidden
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders ListIntegrations where
+instance Data.ToHeaders ListIntegrations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListIntegrations where
+instance Data.ToPath ListIntegrations where
   toPath ListIntegrations' {..} =
     Prelude.mconcat
-      ["/domains/", Core.toBS domainName, "/integrations"]
+      ["/domains/", Data.toBS domainName, "/integrations"]
 
-instance Core.ToQuery ListIntegrations where
+instance Data.ToQuery ListIntegrations where
   toQuery ListIntegrations' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults,
-        "include-hidden" Core.=: includeHidden
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults,
+        "include-hidden" Data.=: includeHidden
       ]
 
 -- | /See:/ 'newListIntegrationsResponse' smart constructor.

@@ -92,6 +92,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -157,10 +158,10 @@ instance Core.AWSRequest GetMatches where
     Response.receiveJSON
       ( \s h x ->
           GetMatchesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Matches" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "PotentialMatches")
-            Prelude.<*> (x Core..?> "MatchGenerationDate")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Matches" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "PotentialMatches")
+            Prelude.<*> (x Data..?> "MatchGenerationDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,27 +177,27 @@ instance Prelude.NFData GetMatches where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders GetMatches where
+instance Data.ToHeaders GetMatches where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetMatches where
+instance Data.ToPath GetMatches where
   toPath GetMatches' {..} =
     Prelude.mconcat
-      ["/domains/", Core.toBS domainName, "/matches"]
+      ["/domains/", Data.toBS domainName, "/matches"]
 
-instance Core.ToQuery GetMatches where
+instance Data.ToQuery GetMatches where
   toQuery GetMatches' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newGetMatchesResponse' smart constructor.
@@ -209,7 +210,7 @@ data GetMatchesResponse = GetMatchesResponse'
     -- | The number of potential matches found.
     potentialMatches :: Prelude.Maybe Prelude.Natural,
     -- | The timestamp this version of Match Result generated.
-    matchGenerationDate :: Prelude.Maybe Core.POSIX,
+    matchGenerationDate :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -261,7 +262,7 @@ getMatchesResponse_potentialMatches = Lens.lens (\GetMatchesResponse' {potential
 
 -- | The timestamp this version of Match Result generated.
 getMatchesResponse_matchGenerationDate :: Lens.Lens' GetMatchesResponse (Prelude.Maybe Prelude.UTCTime)
-getMatchesResponse_matchGenerationDate = Lens.lens (\GetMatchesResponse' {matchGenerationDate} -> matchGenerationDate) (\s@GetMatchesResponse' {} a -> s {matchGenerationDate = a} :: GetMatchesResponse) Prelude.. Lens.mapping Core._Time
+getMatchesResponse_matchGenerationDate = Lens.lens (\GetMatchesResponse' {matchGenerationDate} -> matchGenerationDate) (\s@GetMatchesResponse' {} a -> s {matchGenerationDate = a} :: GetMatchesResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getMatchesResponse_httpStatus :: Lens.Lens' GetMatchesResponse Prelude.Int

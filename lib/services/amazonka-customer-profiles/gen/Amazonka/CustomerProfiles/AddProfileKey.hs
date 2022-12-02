@@ -51,6 +51,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,8 +144,8 @@ instance Core.AWSRequest AddProfileKey where
     Response.receiveJSON
       ( \s h x ->
           AddProfileKeyResponse'
-            Prelude.<$> (x Core..?> "KeyName")
-            Prelude.<*> (x Core..?> "Values" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "KeyName")
+            Prelude.<*> (x Data..?> "Values" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,33 +163,33 @@ instance Prelude.NFData AddProfileKey where
       `Prelude.seq` Prelude.rnf values
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders AddProfileKey where
+instance Data.ToHeaders AddProfileKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AddProfileKey where
+instance Data.ToJSON AddProfileKey where
   toJSON AddProfileKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ProfileId" Core..= profileId),
-            Prelude.Just ("KeyName" Core..= keyName),
-            Prelude.Just ("Values" Core..= values)
+          [ Prelude.Just ("ProfileId" Data..= profileId),
+            Prelude.Just ("KeyName" Data..= keyName),
+            Prelude.Just ("Values" Data..= values)
           ]
       )
 
-instance Core.ToPath AddProfileKey where
+instance Data.ToPath AddProfileKey where
   toPath AddProfileKey' {..} =
     Prelude.mconcat
-      ["/domains/", Core.toBS domainName, "/profiles/keys"]
+      ["/domains/", Data.toBS domainName, "/profiles/keys"]
 
-instance Core.ToQuery AddProfileKey where
+instance Data.ToQuery AddProfileKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddProfileKeyResponse' smart constructor.

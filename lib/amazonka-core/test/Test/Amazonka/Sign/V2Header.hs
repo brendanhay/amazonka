@@ -4,7 +4,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.Amazonka.Sign.V2Header (tests) where
 
-import Amazonka.Core hiding (length, nonEmptyText)
+import Amazonka.Data hiding (length)
 import Amazonka.Prelude
 import Amazonka.Sign.V2Header
 import qualified Data.ByteString.Char8 as BS8
@@ -270,7 +270,7 @@ allIncreasing xs =
 
 testHeaders :: [HTTP.Header] -> Bool
 testHeaders headers =
-  length sortedHeaders == length sortedHeaders && allIncreasing sortedHeaders
+  length headers == length sortedHeaders && allIncreasing sortedHeaders
   where
     sortedHeaders = List.sort headers
 

@@ -7,7 +7,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.Amazonka.Data.Time (tests) where
 
-import Amazonka.Core hiding (error)
+import Amazonka.Data
 import Amazonka.Prelude
 import qualified Data.Time as Time
 import Test.Amazonka.Util

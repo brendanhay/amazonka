@@ -7,10 +7,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.Amazonka.Data.Maybe (tests) where
 
-import Amazonka.Core
-import Amazonka.Prelude hiding
-  ( Item,
-  )
+import Amazonka.Data
+import Amazonka.Prelude hiding (Item)
 import Test.Amazonka.Util
 import Test.Tasty
 import Test.Tasty.HUnit

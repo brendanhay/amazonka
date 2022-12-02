@@ -19,7 +19,13 @@ module Amazonka.Core
   )
 where
 
-import Amazonka.Data
+-- Export Amazonka.Data submodules piecemeal and avoid exporting AWS
+-- encoding/decoding modules, so we don't leak too much to library
+-- clients. Service bindings import Amazonka.Data directly.
+import Amazonka.Data.Base64 as Amazonka.Data
+import Amazonka.Data.Body as Amazonka.Data
+import Amazonka.Data.Log as Amazonka.Data
+import Amazonka.Data.Sensitive as Amazonka.Data
 import Amazonka.Endpoint
 import Amazonka.Error
 import Amazonka.Pager

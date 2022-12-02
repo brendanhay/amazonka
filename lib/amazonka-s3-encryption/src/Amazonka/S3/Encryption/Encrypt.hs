@@ -11,6 +11,7 @@ module Amazonka.S3.Encryption.Encrypt where
 
 import qualified Amazonka as AWS
 import Amazonka.Core
+import Amazonka.Data
 import Amazonka.Prelude
 import qualified Amazonka.S3 as S3
 import Amazonka.S3.Encryption.Envelope

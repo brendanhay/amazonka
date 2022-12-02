@@ -8,6 +8,7 @@
 module Test.Amazonka.Error (tests) where
 
 import Amazonka.Core
+import Amazonka.Data
 import Amazonka.Prelude
 import Network.HTTP.Types.Status (status400, status404)
 import Test.Amazonka.Arbitrary ()

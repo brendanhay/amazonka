@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.Amazonka.Orphans where
 
-import Amazonka.Core
+import Amazonka.Data
 import Data.Aeson
 
 instance FromJSON ByteString where

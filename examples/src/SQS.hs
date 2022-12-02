@@ -13,6 +13,7 @@ import Control.Monad
 import Control.Monad.IO.Class
 import Data.Foldable (for_)
 import Data.Generics.Labels ()
+import Data.Text (Text)
 import qualified Data.Text as Text
 import qualified Data.Text.IO as Text
 import System.IO

@@ -22,6 +22,7 @@ module Amazonka.Route53.Internal
     ) where
 
 import Amazonka.Core
+import Amazonka.Data
 import Amazonka.Prelude
 import qualified Data.Text as Text
 

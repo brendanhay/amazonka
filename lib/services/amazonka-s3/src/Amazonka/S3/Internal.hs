@@ -16,9 +16,18 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.S3.Internal
   ( Region (..),
+
+    -- * BucketName
     BucketName (..),
+    _BucketName,
+
+    -- * ETag
     ETag (..),
+    _ETag,
+
+    -- * Object Version ID
     ObjectVersionId (..),
+    _ObjectVersionId,
 
     -- * Bucket Location
     LocationConstraint (..),
@@ -39,10 +48,11 @@ where
 
 import Amazonka.Core
 import Amazonka.Core.Lens.Internal (IndexedTraversal', iso, prism, traversed, _1, _2)
+import Amazonka.Data
 import Amazonka.Prelude
 import qualified Data.Text as Text
 
-newtype BucketName = BucketName Text
+newtype BucketName = BucketName {fromBucketName :: Text}
   deriving
     ( Eq,
       Ord,
@@ -60,13 +70,16 @@ newtype BucketName = BucketName Text
       FromJSON
     )
 
+_BucketName :: Iso' BucketName Text
+_BucketName = iso fromBucketName BucketName
+
 instance Hashable BucketName
 
 instance NFData BucketName
 
 -- FIXME: Add the difference between weak + strong ETags and their respective
 -- equalities if necessary, see: https://github.com/brendanhay/amazonka/issues/76
-newtype ETag = ETag ByteString
+newtype ETag = ETag {fromETag :: ByteString}
   deriving
     ( Eq,
       Ord,
@@ -82,12 +95,15 @@ newtype ETag = ETag ByteString
       ToQuery,
       ToLog
     )
+
+_ETag :: Iso' ETag ByteString
+_ETag = iso fromETag ETag
 
 instance Hashable ETag
 
 instance NFData ETag
 
-newtype ObjectVersionId = ObjectVersionId Text
+newtype ObjectVersionId = ObjectVersionId {fromObjectVersionId :: Text}
   deriving
     ( Eq,
       Ord,
@@ -103,6 +119,9 @@ newtype ObjectVersionId = ObjectVersionId Text
       ToQuery,
       ToLog
     )
+
+_ObjectVersionId :: Iso' ObjectVersionId Text
+_ObjectVersionId = iso fromObjectVersionId ObjectVersionId
 
 instance Hashable ObjectVersionId
 

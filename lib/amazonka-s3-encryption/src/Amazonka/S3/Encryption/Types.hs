@@ -9,7 +9,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.S3.Encryption.Types where
 
-import Amazonka.Core
+import Amazonka.Data
 import Amazonka.Prelude
 import qualified Amazonka.S3 as S3
 import qualified Control.Exception.Lens as Exception.Lens

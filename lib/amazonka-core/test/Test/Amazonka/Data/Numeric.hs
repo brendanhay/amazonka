@@ -7,7 +7,6 @@
 -- Portability : non-portable (GHC extensions)
 module Test.Amazonka.Data.Numeric (tests) where
 
-import Amazonka.Core
 import Amazonka.Prelude
 import Test.Amazonka.Util
 import Test.Tasty

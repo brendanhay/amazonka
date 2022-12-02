@@ -26,7 +26,7 @@ instanceOverview reg = do
           [ "[instance:" <> build (x ^. #instanceId) <> "] {",
             "\n  public-dns = " <> build (x ^. #publicDnsName),
             "\n  tags       = " <> build (x ^. #tags . to show),
-            "\n  state      = " <> build (x ^. #state . #name . to toBS),
+            "\n  state      = " <> build (x ^. #state . #name . to fromInstanceStateName),
             "\n}\n"
           ]
 

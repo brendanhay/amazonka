@@ -8,6 +8,7 @@
 module Test.Amazonka.Sign.V4.Base where
 
 import Amazonka.Core
+import Amazonka.Data
 import Amazonka.Prelude
 import Amazonka.Sign.V4
 import Amazonka.Sign.V4.Base as Base

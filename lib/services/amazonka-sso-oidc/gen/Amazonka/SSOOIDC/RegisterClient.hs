@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,12 +121,12 @@ instance Core.AWSRequest RegisterClient where
     Response.receiveJSON
       ( \s h x ->
           RegisterClientResponse'
-            Prelude.<$> (x Core..?> "clientSecret")
-            Prelude.<*> (x Core..?> "authorizationEndpoint")
-            Prelude.<*> (x Core..?> "clientId")
-            Prelude.<*> (x Core..?> "clientIdIssuedAt")
-            Prelude.<*> (x Core..?> "clientSecretExpiresAt")
-            Prelude.<*> (x Core..?> "tokenEndpoint")
+            Prelude.<$> (x Data..?> "clientSecret")
+            Prelude.<*> (x Data..?> "authorizationEndpoint")
+            Prelude.<*> (x Data..?> "clientId")
+            Prelude.<*> (x Data..?> "clientIdIssuedAt")
+            Prelude.<*> (x Data..?> "clientSecretExpiresAt")
+            Prelude.<*> (x Data..?> "tokenEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,31 +142,31 @@ instance Prelude.NFData RegisterClient where
       `Prelude.seq` Prelude.rnf clientName
       `Prelude.seq` Prelude.rnf clientType
 
-instance Core.ToHeaders RegisterClient where
+instance Data.ToHeaders RegisterClient where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterClient where
+instance Data.ToJSON RegisterClient where
   toJSON RegisterClient' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("scopes" Core..=) Prelude.<$> scopes,
-            Prelude.Just ("clientName" Core..= clientName),
-            Prelude.Just ("clientType" Core..= clientType)
+          [ ("scopes" Data..=) Prelude.<$> scopes,
+            Prelude.Just ("clientName" Data..= clientName),
+            Prelude.Just ("clientType" Data..= clientType)
           ]
       )
 
-instance Core.ToPath RegisterClient where
+instance Data.ToPath RegisterClient where
   toPath = Prelude.const "/client/register"
 
-instance Core.ToQuery RegisterClient where
+instance Data.ToQuery RegisterClient where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterClientResponse' smart constructor.

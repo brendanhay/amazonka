@@ -49,6 +49,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,8 +103,8 @@ instance Core.AWSRequest GetCachePolicyConfig where
     Response.receiveXML
       ( \s h x ->
           GetCachePolicyConfigResponse'
-            Prelude.<$> (Core.parseXML x)
-            Prelude.<*> (h Core..#? "ETag")
+            Prelude.<$> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,18 +115,18 @@ instance Prelude.Hashable GetCachePolicyConfig where
 instance Prelude.NFData GetCachePolicyConfig where
   rnf GetCachePolicyConfig' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetCachePolicyConfig where
+instance Data.ToHeaders GetCachePolicyConfig where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetCachePolicyConfig where
+instance Data.ToPath GetCachePolicyConfig where
   toPath GetCachePolicyConfig' {..} =
     Prelude.mconcat
       [ "/2020-05-31/cache-policy/",
-        Core.toBS id,
+        Data.toBS id,
         "/config"
       ]
 
-instance Core.ToQuery GetCachePolicyConfig where
+instance Data.ToQuery GetCachePolicyConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCachePolicyConfigResponse' smart constructor.

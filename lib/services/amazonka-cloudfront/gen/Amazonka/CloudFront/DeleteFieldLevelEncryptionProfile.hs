@@ -39,6 +39,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,24 +117,24 @@ instance
     Prelude.rnf ifMatch `Prelude.seq` Prelude.rnf id
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteFieldLevelEncryptionProfile
   where
   toHeaders DeleteFieldLevelEncryptionProfile' {..} =
-    Prelude.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Data.=# ifMatch]
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeleteFieldLevelEncryptionProfile
   where
   toPath DeleteFieldLevelEncryptionProfile' {..} =
     Prelude.mconcat
       [ "/2020-05-31/field-level-encryption-profile/",
-        Core.toBS id
+        Data.toBS id
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteFieldLevelEncryptionProfile
   where
   toQuery = Prelude.const Prelude.mempty

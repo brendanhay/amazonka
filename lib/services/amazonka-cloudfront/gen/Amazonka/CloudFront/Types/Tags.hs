@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.Tags where
 import Amazonka.CloudFront.Types.Tag
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that contains zero or more @Tag@ elements.
@@ -50,11 +51,11 @@ newTags = Tags' {items = Prelude.Nothing}
 tags_items :: Lens.Lens' Tags (Prelude.Maybe [Tag])
 tags_items = Lens.lens (\Tags' {items} -> items) (\s@Tags' {} a -> s {items = a} :: Tags) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML Tags where
+instance Data.FromXML Tags where
   parseXML x =
     Tags'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
 
 instance Prelude.Hashable Tags where
@@ -64,9 +65,9 @@ instance Prelude.Hashable Tags where
 instance Prelude.NFData Tags where
   rnf Tags' {..} = Prelude.rnf items
 
-instance Core.ToXML Tags where
+instance Data.ToXML Tags where
   toXML Tags' {..} =
     Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML (Core.toXMLList "Tag" Prelude.<$> items)
+          Data.@= Data.toXML (Data.toXMLList "Tag" Prelude.<$> items)
       ]

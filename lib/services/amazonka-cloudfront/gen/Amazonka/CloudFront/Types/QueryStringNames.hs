@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.QueryStringNames where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a list of query string names.
@@ -63,13 +64,13 @@ queryStringNames_items = Lens.lens (\QueryStringNames' {items} -> items) (\s@Que
 queryStringNames_quantity :: Lens.Lens' QueryStringNames Prelude.Int
 queryStringNames_quantity = Lens.lens (\QueryStringNames' {quantity} -> quantity) (\s@QueryStringNames' {} a -> s {quantity = a} :: QueryStringNames)
 
-instance Core.FromXML QueryStringNames where
+instance Data.FromXML QueryStringNames where
   parseXML x =
     QueryStringNames'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Name")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Name")
                   )
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable QueryStringNames where
   hashWithSalt _salt QueryStringNames' {..} =
@@ -81,10 +82,10 @@ instance Prelude.NFData QueryStringNames where
     Prelude.rnf items
       `Prelude.seq` Prelude.rnf quantity
 
-instance Core.ToXML QueryStringNames where
+instance Data.ToXML QueryStringNames where
   toXML QueryStringNames' {..} =
     Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML (Core.toXMLList "Name" Prelude.<$> items),
-        "Quantity" Core.@= quantity
+          Data.@= Data.toXML (Data.toXMLList "Name" Prelude.<$> items),
+        "Quantity" Data.@= quantity
       ]

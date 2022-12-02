@@ -53,6 +53,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -68,7 +69,7 @@ data UpdateFunction = UpdateFunction'
     -- function, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html Writing function code for CloudFront Functions>
     -- in the /Amazon CloudFront Developer Guide/.
-    functionCode :: Core.Sensitive Core.Base64,
+    functionCode :: Data.Sensitive Data.Base64,
     -- | The name of the function that you are updating.
     name :: Prelude.Text
   }
@@ -116,7 +117,7 @@ newUpdateFunction
       { ifMatch = pIfMatch_,
         functionConfig = pFunctionConfig_,
         functionCode =
-          Core._Sensitive Prelude.. Core._Base64
+          Data._Sensitive Prelude.. Data._Base64
             Lens.# pFunctionCode_,
         name = pName_
       }
@@ -139,7 +140,7 @@ updateFunction_functionConfig = Lens.lens (\UpdateFunction' {functionConfig} -> 
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 updateFunction_functionCode :: Lens.Lens' UpdateFunction Prelude.ByteString
-updateFunction_functionCode = Lens.lens (\UpdateFunction' {functionCode} -> functionCode) (\s@UpdateFunction' {} a -> s {functionCode = a} :: UpdateFunction) Prelude.. Core._Sensitive Prelude.. Core._Base64
+updateFunction_functionCode = Lens.lens (\UpdateFunction' {functionCode} -> functionCode) (\s@UpdateFunction' {} a -> s {functionCode = a} :: UpdateFunction) Prelude.. Data._Sensitive Prelude.. Data._Base64
 
 -- | The name of the function that you are updating.
 updateFunction_name :: Lens.Lens' UpdateFunction Prelude.Text
@@ -155,8 +156,8 @@ instance Core.AWSRequest UpdateFunction where
     Response.receiveXML
       ( \s h x ->
           UpdateFunctionResponse'
-            Prelude.<$> (Core.parseXML x)
-            Prelude.<*> (h Core..#? "ETtag")
+            Prelude.<$> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "ETtag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,28 +175,28 @@ instance Prelude.NFData UpdateFunction where
       `Prelude.seq` Prelude.rnf functionCode
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToElement UpdateFunction where
+instance Data.ToElement UpdateFunction where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}UpdateFunctionRequest"
 
-instance Core.ToHeaders UpdateFunction where
+instance Data.ToHeaders UpdateFunction where
   toHeaders UpdateFunction' {..} =
-    Prelude.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Data.=# ifMatch]
 
-instance Core.ToPath UpdateFunction where
+instance Data.ToPath UpdateFunction where
   toPath UpdateFunction' {..} =
     Prelude.mconcat
-      ["/2020-05-31/function/", Core.toBS name]
+      ["/2020-05-31/function/", Data.toBS name]
 
-instance Core.ToQuery UpdateFunction where
+instance Data.ToQuery UpdateFunction where
   toQuery = Prelude.const Prelude.mempty
 
-instance Core.ToXML UpdateFunction where
+instance Data.ToXML UpdateFunction where
   toXML UpdateFunction' {..} =
     Prelude.mconcat
-      [ "FunctionConfig" Core.@= functionConfig,
-        "FunctionCode" Core.@= functionCode
+      [ "FunctionConfig" Data.@= functionConfig,
+        "FunctionCode" Data.@= functionCode
       ]
 
 -- | /See:/ 'newUpdateFunctionResponse' smart constructor.

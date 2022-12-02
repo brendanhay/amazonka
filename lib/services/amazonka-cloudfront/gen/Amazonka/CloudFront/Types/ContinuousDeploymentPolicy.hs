@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.ContinuousDeploymentPolicy where
 import Amazonka.CloudFront.Types.ContinuousDeploymentPolicyConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A continuous deployment policy.
@@ -31,7 +32,7 @@ data ContinuousDeploymentPolicy = ContinuousDeploymentPolicy'
   { -- | The identifier of the continuous deployment policy.
     id :: Prelude.Text,
     -- | The date and time the continuous deployment policy was last modified.
-    lastModifiedTime :: Core.ISO8601,
+    lastModifiedTime :: Data.ISO8601,
     continuousDeploymentPolicyConfig :: ContinuousDeploymentPolicyConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,7 +65,7 @@ newContinuousDeploymentPolicy
     ContinuousDeploymentPolicy'
       { id = pId_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_,
+          Data._Time Lens.# pLastModifiedTime_,
         continuousDeploymentPolicyConfig =
           pContinuousDeploymentPolicyConfig_
       }
@@ -75,18 +76,18 @@ continuousDeploymentPolicy_id = Lens.lens (\ContinuousDeploymentPolicy' {id} -> 
 
 -- | The date and time the continuous deployment policy was last modified.
 continuousDeploymentPolicy_lastModifiedTime :: Lens.Lens' ContinuousDeploymentPolicy Prelude.UTCTime
-continuousDeploymentPolicy_lastModifiedTime = Lens.lens (\ContinuousDeploymentPolicy' {lastModifiedTime} -> lastModifiedTime) (\s@ContinuousDeploymentPolicy' {} a -> s {lastModifiedTime = a} :: ContinuousDeploymentPolicy) Prelude.. Core._Time
+continuousDeploymentPolicy_lastModifiedTime = Lens.lens (\ContinuousDeploymentPolicy' {lastModifiedTime} -> lastModifiedTime) (\s@ContinuousDeploymentPolicy' {} a -> s {lastModifiedTime = a} :: ContinuousDeploymentPolicy) Prelude.. Data._Time
 
 -- | Undocumented member.
 continuousDeploymentPolicy_continuousDeploymentPolicyConfig :: Lens.Lens' ContinuousDeploymentPolicy ContinuousDeploymentPolicyConfig
 continuousDeploymentPolicy_continuousDeploymentPolicyConfig = Lens.lens (\ContinuousDeploymentPolicy' {continuousDeploymentPolicyConfig} -> continuousDeploymentPolicyConfig) (\s@ContinuousDeploymentPolicy' {} a -> s {continuousDeploymentPolicyConfig = a} :: ContinuousDeploymentPolicy)
 
-instance Core.FromXML ContinuousDeploymentPolicy where
+instance Data.FromXML ContinuousDeploymentPolicy where
   parseXML x =
     ContinuousDeploymentPolicy'
-      Prelude.<$> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "LastModifiedTime")
-      Prelude.<*> (x Core..@ "ContinuousDeploymentPolicyConfig")
+      Prelude.<$> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "LastModifiedTime")
+      Prelude.<*> (x Data..@ "ContinuousDeploymentPolicyConfig")
 
 instance Prelude.Hashable ContinuousDeploymentPolicy where
   hashWithSalt _salt ContinuousDeploymentPolicy' {..} =

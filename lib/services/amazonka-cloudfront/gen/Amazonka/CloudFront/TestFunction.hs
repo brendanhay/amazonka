@@ -59,6 +59,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -77,7 +78,7 @@ data TestFunction = TestFunction'
     -- the structure of the event object, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/managing-functions.html#test-function Testing functions>
     -- in the /Amazon CloudFront Developer Guide/.
-    eventObject :: Core.Sensitive Core.Base64
+    eventObject :: Data.Sensitive Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -119,7 +120,7 @@ newTestFunction pName_ pIfMatch_ pEventObject_ =
       name = pName_,
       ifMatch = pIfMatch_,
       eventObject =
-        Core._Sensitive Prelude.. Core._Base64
+        Data._Sensitive Prelude.. Data._Base64
           Lens.# pEventObject_
     }
 
@@ -146,7 +147,7 @@ testFunction_ifMatch = Lens.lens (\TestFunction' {ifMatch} -> ifMatch) (\s@TestF
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 testFunction_eventObject :: Lens.Lens' TestFunction Prelude.ByteString
-testFunction_eventObject = Lens.lens (\TestFunction' {eventObject} -> eventObject) (\s@TestFunction' {} a -> s {eventObject = a} :: TestFunction) Prelude.. Core._Sensitive Prelude.. Core._Base64
+testFunction_eventObject = Lens.lens (\TestFunction' {eventObject} -> eventObject) (\s@TestFunction' {} a -> s {eventObject = a} :: TestFunction) Prelude.. Data._Sensitive Prelude.. Data._Base64
 
 instance Core.AWSRequest TestFunction where
   type AWSResponse TestFunction = TestFunctionResponse
@@ -156,7 +157,7 @@ instance Core.AWSRequest TestFunction where
     Response.receiveXML
       ( \s h x ->
           TestFunctionResponse'
-            Prelude.<$> (Core.parseXML x)
+            Prelude.<$> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,28 +175,28 @@ instance Prelude.NFData TestFunction where
       `Prelude.seq` Prelude.rnf ifMatch
       `Prelude.seq` Prelude.rnf eventObject
 
-instance Core.ToElement TestFunction where
+instance Data.ToElement TestFunction where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}TestFunctionRequest"
 
-instance Core.ToHeaders TestFunction where
+instance Data.ToHeaders TestFunction where
   toHeaders TestFunction' {..} =
-    Prelude.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Data.=# ifMatch]
 
-instance Core.ToPath TestFunction where
+instance Data.ToPath TestFunction where
   toPath TestFunction' {..} =
     Prelude.mconcat
-      ["/2020-05-31/function/", Core.toBS name, "/test"]
+      ["/2020-05-31/function/", Data.toBS name, "/test"]
 
-instance Core.ToQuery TestFunction where
+instance Data.ToQuery TestFunction where
   toQuery = Prelude.const Prelude.mempty
 
-instance Core.ToXML TestFunction where
+instance Data.ToXML TestFunction where
   toXML TestFunction' {..} =
     Prelude.mconcat
-      [ "Stage" Core.@= stage,
-        "EventObject" Core.@= eventObject
+      [ "Stage" Data.@= stage,
+        "EventObject" Data.@= eventObject
       ]
 
 -- | /See:/ 'newTestFunctionResponse' smart constructor.

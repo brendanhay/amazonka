@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.TrustedSigners where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of Amazon Web Services accounts whose public keys CloudFront can
@@ -81,14 +82,14 @@ trustedSigners_enabled = Lens.lens (\TrustedSigners' {enabled} -> enabled) (\s@T
 trustedSigners_quantity :: Lens.Lens' TrustedSigners Prelude.Int
 trustedSigners_quantity = Lens.lens (\TrustedSigners' {quantity} -> quantity) (\s@TrustedSigners' {} a -> s {quantity = a} :: TrustedSigners)
 
-instance Core.FromXML TrustedSigners where
+instance Data.FromXML TrustedSigners where
   parseXML x =
     TrustedSigners'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "AwsAccountNumber")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "AwsAccountNumber")
                   )
-      Prelude.<*> (x Core..@ "Enabled")
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@ "Enabled")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable TrustedSigners where
   hashWithSalt _salt TrustedSigners' {..} =
@@ -102,14 +103,14 @@ instance Prelude.NFData TrustedSigners where
       `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf quantity
 
-instance Core.ToXML TrustedSigners where
+instance Data.ToXML TrustedSigners where
   toXML TrustedSigners' {..} =
     Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML
-            ( Core.toXMLList "AwsAccountNumber"
+          Data.@= Data.toXML
+            ( Data.toXMLList "AwsAccountNumber"
                 Prelude.<$> items
             ),
-        "Enabled" Core.@= enabled,
-        "Quantity" Core.@= quantity
+        "Enabled" Data.@= enabled,
+        "Quantity" Data.@= quantity
       ]

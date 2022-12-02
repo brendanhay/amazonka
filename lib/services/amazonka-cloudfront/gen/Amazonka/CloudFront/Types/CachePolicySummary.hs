@@ -23,6 +23,7 @@ import Amazonka.CloudFront.Types.CachePolicy
 import Amazonka.CloudFront.Types.CachePolicyType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a cache policy.
@@ -70,11 +71,11 @@ cachePolicySummary_type = Lens.lens (\CachePolicySummary' {type'} -> type') (\s@
 cachePolicySummary_cachePolicy :: Lens.Lens' CachePolicySummary CachePolicy
 cachePolicySummary_cachePolicy = Lens.lens (\CachePolicySummary' {cachePolicy} -> cachePolicy) (\s@CachePolicySummary' {} a -> s {cachePolicy = a} :: CachePolicySummary)
 
-instance Core.FromXML CachePolicySummary where
+instance Data.FromXML CachePolicySummary where
   parseXML x =
     CachePolicySummary'
-      Prelude.<$> (x Core..@ "Type")
-      Prelude.<*> (x Core..@ "CachePolicy")
+      Prelude.<$> (x Data..@ "Type")
+      Prelude.<*> (x Data..@ "CachePolicy")
 
 instance Prelude.Hashable CachePolicySummary where
   hashWithSalt _salt CachePolicySummary' {..} =

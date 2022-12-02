@@ -45,6 +45,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,8 +118,8 @@ instance Core.AWSRequest UpdateStreamingDistribution where
     Response.receiveXML
       ( \s h x ->
           UpdateStreamingDistributionResponse'
-            Prelude.<$> (Core.parseXML x)
-            Prelude.<*> (h Core..#? "ETag")
+            Prelude.<$> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,25 +135,25 @@ instance Prelude.NFData UpdateStreamingDistribution where
       `Prelude.seq` Prelude.rnf streamingDistributionConfig
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToElement UpdateStreamingDistribution where
+instance Data.ToElement UpdateStreamingDistribution where
   toElement UpdateStreamingDistribution' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}StreamingDistributionConfig"
       streamingDistributionConfig
 
-instance Core.ToHeaders UpdateStreamingDistribution where
+instance Data.ToHeaders UpdateStreamingDistribution where
   toHeaders UpdateStreamingDistribution' {..} =
-    Prelude.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Data.=# ifMatch]
 
-instance Core.ToPath UpdateStreamingDistribution where
+instance Data.ToPath UpdateStreamingDistribution where
   toPath UpdateStreamingDistribution' {..} =
     Prelude.mconcat
       [ "/2020-05-31/streaming-distribution/",
-        Core.toBS id,
+        Data.toBS id,
         "/config"
       ]
 
-instance Core.ToQuery UpdateStreamingDistribution where
+instance Data.ToQuery UpdateStreamingDistribution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The returned result of the corresponding request.

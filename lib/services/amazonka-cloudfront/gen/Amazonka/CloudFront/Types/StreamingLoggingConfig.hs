@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.StreamingLoggingConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that controls whether access logs are written for this
@@ -107,12 +108,12 @@ streamingLoggingConfig_bucket = Lens.lens (\StreamingLoggingConfig' {bucket} -> 
 streamingLoggingConfig_prefix :: Lens.Lens' StreamingLoggingConfig Prelude.Text
 streamingLoggingConfig_prefix = Lens.lens (\StreamingLoggingConfig' {prefix} -> prefix) (\s@StreamingLoggingConfig' {} a -> s {prefix = a} :: StreamingLoggingConfig)
 
-instance Core.FromXML StreamingLoggingConfig where
+instance Data.FromXML StreamingLoggingConfig where
   parseXML x =
     StreamingLoggingConfig'
-      Prelude.<$> (x Core..@ "Enabled")
-      Prelude.<*> (x Core..@ "Bucket")
-      Prelude.<*> (x Core..@ "Prefix")
+      Prelude.<$> (x Data..@ "Enabled")
+      Prelude.<*> (x Data..@ "Bucket")
+      Prelude.<*> (x Data..@ "Prefix")
 
 instance Prelude.Hashable StreamingLoggingConfig where
   hashWithSalt _salt StreamingLoggingConfig' {..} =
@@ -126,10 +127,10 @@ instance Prelude.NFData StreamingLoggingConfig where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf prefix
 
-instance Core.ToXML StreamingLoggingConfig where
+instance Data.ToXML StreamingLoggingConfig where
   toXML StreamingLoggingConfig' {..} =
     Prelude.mconcat
-      [ "Enabled" Core.@= enabled,
-        "Bucket" Core.@= bucket,
-        "Prefix" Core.@= prefix
+      [ "Enabled" Data.@= enabled,
+        "Bucket" Data.@= bucket,
+        "Prefix" Data.@= prefix
       ]

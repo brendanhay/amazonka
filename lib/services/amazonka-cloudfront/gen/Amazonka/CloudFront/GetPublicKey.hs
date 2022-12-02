@@ -43,6 +43,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -81,8 +82,8 @@ instance Core.AWSRequest GetPublicKey where
     Response.receiveXML
       ( \s h x ->
           GetPublicKeyResponse'
-            Prelude.<$> (Core.parseXML x)
-            Prelude.<*> (h Core..#? "ETag")
+            Prelude.<$> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -93,15 +94,15 @@ instance Prelude.Hashable GetPublicKey where
 instance Prelude.NFData GetPublicKey where
   rnf GetPublicKey' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetPublicKey where
+instance Data.ToHeaders GetPublicKey where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetPublicKey where
+instance Data.ToPath GetPublicKey where
   toPath GetPublicKey' {..} =
     Prelude.mconcat
-      ["/2020-05-31/public-key/", Core.toBS id]
+      ["/2020-05-31/public-key/", Data.toBS id]
 
-instance Core.ToQuery GetPublicKey where
+instance Data.ToQuery GetPublicKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPublicKeyResponse' smart constructor.

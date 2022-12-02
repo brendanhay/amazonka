@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.KeyGroupConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A key group configuration.
@@ -78,13 +79,13 @@ keyGroupConfig_name = Lens.lens (\KeyGroupConfig' {name} -> name) (\s@KeyGroupCo
 keyGroupConfig_items :: Lens.Lens' KeyGroupConfig [Prelude.Text]
 keyGroupConfig_items = Lens.lens (\KeyGroupConfig' {items} -> items) (\s@KeyGroupConfig' {} a -> s {items = a} :: KeyGroupConfig) Prelude.. Lens.coerced
 
-instance Core.FromXML KeyGroupConfig where
+instance Data.FromXML KeyGroupConfig where
   parseXML x =
     KeyGroupConfig'
-      Prelude.<$> (x Core..@? "Comment")
-      Prelude.<*> (x Core..@ "Name")
-      Prelude.<*> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.parseXMLList "PublicKey"
+      Prelude.<$> (x Data..@? "Comment")
+      Prelude.<*> (x Data..@ "Name")
+      Prelude.<*> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Data.parseXMLList "PublicKey"
                   )
 
 instance Prelude.Hashable KeyGroupConfig where
@@ -99,10 +100,10 @@ instance Prelude.NFData KeyGroupConfig where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf items
 
-instance Core.ToXML KeyGroupConfig where
+instance Data.ToXML KeyGroupConfig where
   toXML KeyGroupConfig' {..} =
     Prelude.mconcat
-      [ "Comment" Core.@= comment,
-        "Name" Core.@= name,
-        "Items" Core.@= Core.toXMLList "PublicKey" items
+      [ "Comment" Data.@= comment,
+        "Name" Data.@= name,
+        "Items" Data.@= Data.toXMLList "PublicKey" items
       ]

@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.RealtimeMetricsSubscriptionConfig where
 import Amazonka.CloudFront.Types.RealtimeMetricsSubscriptionStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A subscription configuration for additional CloudWatch metrics.
@@ -61,12 +62,12 @@ realtimeMetricsSubscriptionConfig_realtimeMetricsSubscriptionStatus :: Lens.Lens
 realtimeMetricsSubscriptionConfig_realtimeMetricsSubscriptionStatus = Lens.lens (\RealtimeMetricsSubscriptionConfig' {realtimeMetricsSubscriptionStatus} -> realtimeMetricsSubscriptionStatus) (\s@RealtimeMetricsSubscriptionConfig' {} a -> s {realtimeMetricsSubscriptionStatus = a} :: RealtimeMetricsSubscriptionConfig)
 
 instance
-  Core.FromXML
+  Data.FromXML
     RealtimeMetricsSubscriptionConfig
   where
   parseXML x =
     RealtimeMetricsSubscriptionConfig'
-      Prelude.<$> (x Core..@ "RealtimeMetricsSubscriptionStatus")
+      Prelude.<$> (x Data..@ "RealtimeMetricsSubscriptionStatus")
 
 instance
   Prelude.Hashable
@@ -85,9 +86,9 @@ instance
   rnf RealtimeMetricsSubscriptionConfig' {..} =
     Prelude.rnf realtimeMetricsSubscriptionStatus
 
-instance Core.ToXML RealtimeMetricsSubscriptionConfig where
+instance Data.ToXML RealtimeMetricsSubscriptionConfig where
   toXML RealtimeMetricsSubscriptionConfig' {..} =
     Prelude.mconcat
       [ "RealtimeMetricsSubscriptionStatus"
-          Core.@= realtimeMetricsSubscriptionStatus
+          Data.@= realtimeMetricsSubscriptionStatus
       ]

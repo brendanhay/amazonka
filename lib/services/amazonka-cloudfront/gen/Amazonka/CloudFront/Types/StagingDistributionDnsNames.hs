@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.StagingDistributionDnsNames where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The CloudFront domain name of the staging distribution.
@@ -64,13 +65,13 @@ stagingDistributionDnsNames_items = Lens.lens (\StagingDistributionDnsNames' {it
 stagingDistributionDnsNames_quantity :: Lens.Lens' StagingDistributionDnsNames Prelude.Int
 stagingDistributionDnsNames_quantity = Lens.lens (\StagingDistributionDnsNames' {quantity} -> quantity) (\s@StagingDistributionDnsNames' {} a -> s {quantity = a} :: StagingDistributionDnsNames)
 
-instance Core.FromXML StagingDistributionDnsNames where
+instance Data.FromXML StagingDistributionDnsNames where
   parseXML x =
     StagingDistributionDnsNames'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "DnsName")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "DnsName")
                   )
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable StagingDistributionDnsNames where
   hashWithSalt _salt StagingDistributionDnsNames' {..} =
@@ -82,11 +83,11 @@ instance Prelude.NFData StagingDistributionDnsNames where
     Prelude.rnf items
       `Prelude.seq` Prelude.rnf quantity
 
-instance Core.ToXML StagingDistributionDnsNames where
+instance Data.ToXML StagingDistributionDnsNames where
   toXML StagingDistributionDnsNames' {..} =
     Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML
-            (Core.toXMLList "DnsName" Prelude.<$> items),
-        "Quantity" Core.@= quantity
+          Data.@= Data.toXML
+            (Data.toXMLList "DnsName" Prelude.<$> items),
+        "Quantity" Data.@= quantity
       ]

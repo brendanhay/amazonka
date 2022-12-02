@@ -23,6 +23,7 @@ import Amazonka.CloudFront.Types.StagingDistributionDnsNames
 import Amazonka.CloudFront.Types.TrafficConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the configuration for a continuous deployment policy.
@@ -96,14 +97,14 @@ continuousDeploymentPolicyConfig_enabled :: Lens.Lens' ContinuousDeploymentPolic
 continuousDeploymentPolicyConfig_enabled = Lens.lens (\ContinuousDeploymentPolicyConfig' {enabled} -> enabled) (\s@ContinuousDeploymentPolicyConfig' {} a -> s {enabled = a} :: ContinuousDeploymentPolicyConfig)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ContinuousDeploymentPolicyConfig
   where
   parseXML x =
     ContinuousDeploymentPolicyConfig'
-      Prelude.<$> (x Core..@? "TrafficConfig")
-      Prelude.<*> (x Core..@ "StagingDistributionDnsNames")
-      Prelude.<*> (x Core..@ "Enabled")
+      Prelude.<$> (x Data..@? "TrafficConfig")
+      Prelude.<*> (x Data..@ "StagingDistributionDnsNames")
+      Prelude.<*> (x Data..@ "Enabled")
 
 instance
   Prelude.Hashable
@@ -125,11 +126,11 @@ instance
       `Prelude.seq` Prelude.rnf stagingDistributionDnsNames
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToXML ContinuousDeploymentPolicyConfig where
+instance Data.ToXML ContinuousDeploymentPolicyConfig where
   toXML ContinuousDeploymentPolicyConfig' {..} =
     Prelude.mconcat
-      [ "TrafficConfig" Core.@= trafficConfig,
+      [ "TrafficConfig" Data.@= trafficConfig,
         "StagingDistributionDnsNames"
-          Core.@= stagingDistributionDnsNames,
-        "Enabled" Core.@= enabled
+          Data.@= stagingDistributionDnsNames,
+        "Enabled" Data.@= enabled
       ]

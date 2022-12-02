@@ -51,6 +51,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,7 +117,7 @@ instance Core.AWSRequest ListOriginAccessControls where
     Response.receiveXML
       ( \s h x ->
           ListOriginAccessControlsResponse'
-            Prelude.<$> (Core.parseXML x)
+            Prelude.<$> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,18 +131,18 @@ instance Prelude.NFData ListOriginAccessControls where
     Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
 
-instance Core.ToHeaders ListOriginAccessControls where
+instance Data.ToHeaders ListOriginAccessControls where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListOriginAccessControls where
+instance Data.ToPath ListOriginAccessControls where
   toPath =
     Prelude.const "/2020-05-31/origin-access-control"
 
-instance Core.ToQuery ListOriginAccessControls where
+instance Data.ToQuery ListOriginAccessControls where
   toQuery ListOriginAccessControls' {..} =
     Prelude.mconcat
-      [ "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems
+      [ "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems
       ]
 
 -- | /See:/ 'newListOriginAccessControlsResponse' smart constructor.

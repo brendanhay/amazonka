@@ -27,6 +27,7 @@ import Amazonka.CloudFront.Types.ResponseHeadersPolicyStrictTransportSecurity
 import Amazonka.CloudFront.Types.ResponseHeadersPolicyXSSProtection
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A configuration for a set of security-related HTTP response headers.
@@ -219,17 +220,17 @@ responseHeadersPolicySecurityHeadersConfig_strictTransportSecurity :: Lens.Lens'
 responseHeadersPolicySecurityHeadersConfig_strictTransportSecurity = Lens.lens (\ResponseHeadersPolicySecurityHeadersConfig' {strictTransportSecurity} -> strictTransportSecurity) (\s@ResponseHeadersPolicySecurityHeadersConfig' {} a -> s {strictTransportSecurity = a} :: ResponseHeadersPolicySecurityHeadersConfig)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ResponseHeadersPolicySecurityHeadersConfig
   where
   parseXML x =
     ResponseHeadersPolicySecurityHeadersConfig'
-      Prelude.<$> (x Core..@? "ContentTypeOptions")
-        Prelude.<*> (x Core..@? "XSSProtection")
-        Prelude.<*> (x Core..@? "FrameOptions")
-        Prelude.<*> (x Core..@? "ContentSecurityPolicy")
-        Prelude.<*> (x Core..@? "ReferrerPolicy")
-        Prelude.<*> (x Core..@? "StrictTransportSecurity")
+      Prelude.<$> (x Data..@? "ContentTypeOptions")
+        Prelude.<*> (x Data..@? "XSSProtection")
+        Prelude.<*> (x Data..@? "FrameOptions")
+        Prelude.<*> (x Data..@? "ContentSecurityPolicy")
+        Prelude.<*> (x Data..@? "ReferrerPolicy")
+        Prelude.<*> (x Data..@? "StrictTransportSecurity")
 
 instance
   Prelude.Hashable
@@ -258,17 +259,17 @@ instance
       `Prelude.seq` Prelude.rnf strictTransportSecurity
 
 instance
-  Core.ToXML
+  Data.ToXML
     ResponseHeadersPolicySecurityHeadersConfig
   where
   toXML ResponseHeadersPolicySecurityHeadersConfig' {..} =
     Prelude.mconcat
-      [ "ContentTypeOptions" Core.@= contentTypeOptions,
-        "XSSProtection" Core.@= xSSProtection,
-        "FrameOptions" Core.@= frameOptions,
+      [ "ContentTypeOptions" Data.@= contentTypeOptions,
+        "XSSProtection" Data.@= xSSProtection,
+        "FrameOptions" Data.@= frameOptions,
         "ContentSecurityPolicy"
-          Core.@= contentSecurityPolicy,
-        "ReferrerPolicy" Core.@= referrerPolicy,
+          Data.@= contentSecurityPolicy,
+        "ReferrerPolicy" Data.@= referrerPolicy,
         "StrictTransportSecurity"
-          Core.@= strictTransportSecurity
+          Data.@= strictTransportSecurity
       ]

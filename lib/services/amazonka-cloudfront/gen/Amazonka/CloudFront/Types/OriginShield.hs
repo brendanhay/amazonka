@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.OriginShield where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | CloudFront Origin Shield.
@@ -116,11 +117,11 @@ originShield_originShieldRegion = Lens.lens (\OriginShield' {originShieldRegion}
 originShield_enabled :: Lens.Lens' OriginShield Prelude.Bool
 originShield_enabled = Lens.lens (\OriginShield' {enabled} -> enabled) (\s@OriginShield' {} a -> s {enabled = a} :: OriginShield)
 
-instance Core.FromXML OriginShield where
+instance Data.FromXML OriginShield where
   parseXML x =
     OriginShield'
-      Prelude.<$> (x Core..@? "OriginShieldRegion")
-      Prelude.<*> (x Core..@ "Enabled")
+      Prelude.<$> (x Data..@? "OriginShieldRegion")
+      Prelude.<*> (x Data..@ "Enabled")
 
 instance Prelude.Hashable OriginShield where
   hashWithSalt _salt OriginShield' {..} =
@@ -132,9 +133,9 @@ instance Prelude.NFData OriginShield where
     Prelude.rnf originShieldRegion
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToXML OriginShield where
+instance Data.ToXML OriginShield where
   toXML OriginShield' {..} =
     Prelude.mconcat
-      [ "OriginShieldRegion" Core.@= originShieldRegion,
-        "Enabled" Core.@= enabled
+      [ "OriginShieldRegion" Data.@= originShieldRegion,
+        "Enabled" Data.@= enabled
       ]

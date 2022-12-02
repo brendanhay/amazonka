@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.CustomErrorResponses where
 import Amazonka.CloudFront.Types.CustomErrorResponse
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that controls:
@@ -87,13 +88,13 @@ customErrorResponses_items = Lens.lens (\CustomErrorResponses' {items} -> items)
 customErrorResponses_quantity :: Lens.Lens' CustomErrorResponses Prelude.Int
 customErrorResponses_quantity = Lens.lens (\CustomErrorResponses' {quantity} -> quantity) (\s@CustomErrorResponses' {} a -> s {quantity = a} :: CustomErrorResponses)
 
-instance Core.FromXML CustomErrorResponses where
+instance Data.FromXML CustomErrorResponses where
   parseXML x =
     CustomErrorResponses'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "CustomErrorResponse")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "CustomErrorResponse")
                   )
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable CustomErrorResponses where
   hashWithSalt _salt CustomErrorResponses' {..} =
@@ -105,13 +106,13 @@ instance Prelude.NFData CustomErrorResponses where
     Prelude.rnf items
       `Prelude.seq` Prelude.rnf quantity
 
-instance Core.ToXML CustomErrorResponses where
+instance Data.ToXML CustomErrorResponses where
   toXML CustomErrorResponses' {..} =
     Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML
-            ( Core.toXMLList "CustomErrorResponse"
+          Data.@= Data.toXML
+            ( Data.toXMLList "CustomErrorResponse"
                 Prelude.<$> items
             ),
-        "Quantity" Core.@= quantity
+        "Quantity" Data.@= quantity
       ]

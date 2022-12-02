@@ -39,6 +39,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,16 +103,16 @@ instance Prelude.NFData DeletePublicKey where
   rnf DeletePublicKey' {..} =
     Prelude.rnf ifMatch `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders DeletePublicKey where
+instance Data.ToHeaders DeletePublicKey where
   toHeaders DeletePublicKey' {..} =
-    Prelude.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Data.=# ifMatch]
 
-instance Core.ToPath DeletePublicKey where
+instance Data.ToPath DeletePublicKey where
   toPath DeletePublicKey' {..} =
     Prelude.mconcat
-      ["/2020-05-31/public-key/", Core.toBS id]
+      ["/2020-05-31/public-key/", Data.toBS id]
 
-instance Core.ToQuery DeletePublicKey where
+instance Data.ToQuery DeletePublicKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePublicKeyResponse' smart constructor.

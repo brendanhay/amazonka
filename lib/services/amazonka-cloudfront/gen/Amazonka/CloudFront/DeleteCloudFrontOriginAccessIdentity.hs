@@ -39,6 +39,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,24 +119,24 @@ instance
     Prelude.rnf ifMatch `Prelude.seq` Prelude.rnf id
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteCloudFrontOriginAccessIdentity
   where
   toHeaders DeleteCloudFrontOriginAccessIdentity' {..} =
-    Prelude.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Data.=# ifMatch]
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeleteCloudFrontOriginAccessIdentity
   where
   toPath DeleteCloudFrontOriginAccessIdentity' {..} =
     Prelude.mconcat
       [ "/2020-05-31/origin-access-identity/cloudfront/",
-        Core.toBS id
+        Data.toBS id
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteCloudFrontOriginAccessIdentity
   where
   toQuery = Prelude.const Prelude.mempty

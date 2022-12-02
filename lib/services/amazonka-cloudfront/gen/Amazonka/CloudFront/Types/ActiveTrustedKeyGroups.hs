@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.ActiveTrustedKeyGroups where
 import Amazonka.CloudFront.Types.KGKeyPairIds
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of key groups, and the public keys in each key group, that
@@ -89,14 +90,14 @@ activeTrustedKeyGroups_enabled = Lens.lens (\ActiveTrustedKeyGroups' {enabled} -
 activeTrustedKeyGroups_quantity :: Lens.Lens' ActiveTrustedKeyGroups Prelude.Int
 activeTrustedKeyGroups_quantity = Lens.lens (\ActiveTrustedKeyGroups' {quantity} -> quantity) (\s@ActiveTrustedKeyGroups' {} a -> s {quantity = a} :: ActiveTrustedKeyGroups)
 
-instance Core.FromXML ActiveTrustedKeyGroups where
+instance Data.FromXML ActiveTrustedKeyGroups where
   parseXML x =
     ActiveTrustedKeyGroups'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "KeyGroup")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "KeyGroup")
                   )
-      Prelude.<*> (x Core..@ "Enabled")
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@ "Enabled")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable ActiveTrustedKeyGroups where
   hashWithSalt _salt ActiveTrustedKeyGroups' {..} =

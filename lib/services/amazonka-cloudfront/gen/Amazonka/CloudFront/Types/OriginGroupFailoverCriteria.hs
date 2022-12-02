@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.OriginGroupFailoverCriteria where
 import Amazonka.CloudFront.Types.StatusCodes
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex data type that includes information about the failover
@@ -61,10 +62,10 @@ newOriginGroupFailoverCriteria pStatusCodes_ =
 originGroupFailoverCriteria_statusCodes :: Lens.Lens' OriginGroupFailoverCriteria StatusCodes
 originGroupFailoverCriteria_statusCodes = Lens.lens (\OriginGroupFailoverCriteria' {statusCodes} -> statusCodes) (\s@OriginGroupFailoverCriteria' {} a -> s {statusCodes = a} :: OriginGroupFailoverCriteria)
 
-instance Core.FromXML OriginGroupFailoverCriteria where
+instance Data.FromXML OriginGroupFailoverCriteria where
   parseXML x =
     OriginGroupFailoverCriteria'
-      Prelude.<$> (x Core..@ "StatusCodes")
+      Prelude.<$> (x Data..@ "StatusCodes")
 
 instance Prelude.Hashable OriginGroupFailoverCriteria where
   hashWithSalt _salt OriginGroupFailoverCriteria' {..} =
@@ -74,6 +75,6 @@ instance Prelude.NFData OriginGroupFailoverCriteria where
   rnf OriginGroupFailoverCriteria' {..} =
     Prelude.rnf statusCodes
 
-instance Core.ToXML OriginGroupFailoverCriteria where
+instance Data.ToXML OriginGroupFailoverCriteria where
   toXML OriginGroupFailoverCriteria' {..} =
-    Prelude.mconcat ["StatusCodes" Core.@= statusCodes]
+    Prelude.mconcat ["StatusCodes" Data.@= statusCodes]

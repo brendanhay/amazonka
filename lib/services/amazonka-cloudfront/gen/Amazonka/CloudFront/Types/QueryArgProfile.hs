@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.QueryArgProfile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Query argument-profile mapping for field-level encryption.
@@ -71,11 +72,11 @@ queryArgProfile_queryArg = Lens.lens (\QueryArgProfile' {queryArg} -> queryArg) 
 queryArgProfile_profileId :: Lens.Lens' QueryArgProfile Prelude.Text
 queryArgProfile_profileId = Lens.lens (\QueryArgProfile' {profileId} -> profileId) (\s@QueryArgProfile' {} a -> s {profileId = a} :: QueryArgProfile)
 
-instance Core.FromXML QueryArgProfile where
+instance Data.FromXML QueryArgProfile where
   parseXML x =
     QueryArgProfile'
-      Prelude.<$> (x Core..@ "QueryArg")
-      Prelude.<*> (x Core..@ "ProfileId")
+      Prelude.<$> (x Data..@ "QueryArg")
+      Prelude.<*> (x Data..@ "ProfileId")
 
 instance Prelude.Hashable QueryArgProfile where
   hashWithSalt _salt QueryArgProfile' {..} =
@@ -87,9 +88,9 @@ instance Prelude.NFData QueryArgProfile where
     Prelude.rnf queryArg
       `Prelude.seq` Prelude.rnf profileId
 
-instance Core.ToXML QueryArgProfile where
+instance Data.ToXML QueryArgProfile where
   toXML QueryArgProfile' {..} =
     Prelude.mconcat
-      [ "QueryArg" Core.@= queryArg,
-        "ProfileId" Core.@= profileId
+      [ "QueryArg" Data.@= queryArg,
+        "ProfileId" Data.@= profileId
       ]

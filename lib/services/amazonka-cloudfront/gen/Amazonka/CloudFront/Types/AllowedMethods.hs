@@ -23,6 +23,7 @@ import Amazonka.CloudFront.Types.CachedMethods
 import Amazonka.CloudFront.Types.Method
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that controls which HTTP methods CloudFront processes and
@@ -99,13 +100,13 @@ allowedMethods_quantity = Lens.lens (\AllowedMethods' {quantity} -> quantity) (\
 allowedMethods_items :: Lens.Lens' AllowedMethods [Method]
 allowedMethods_items = Lens.lens (\AllowedMethods' {items} -> items) (\s@AllowedMethods' {} a -> s {items = a} :: AllowedMethods) Prelude.. Lens.coerced
 
-instance Core.FromXML AllowedMethods where
+instance Data.FromXML AllowedMethods where
   parseXML x =
     AllowedMethods'
-      Prelude.<$> (x Core..@? "CachedMethods")
-      Prelude.<*> (x Core..@ "Quantity")
-      Prelude.<*> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.parseXMLList "Method"
+      Prelude.<$> (x Data..@? "CachedMethods")
+      Prelude.<*> (x Data..@ "Quantity")
+      Prelude.<*> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Data.parseXMLList "Method"
                   )
 
 instance Prelude.Hashable AllowedMethods where
@@ -120,10 +121,10 @@ instance Prelude.NFData AllowedMethods where
       `Prelude.seq` Prelude.rnf quantity
       `Prelude.seq` Prelude.rnf items
 
-instance Core.ToXML AllowedMethods where
+instance Data.ToXML AllowedMethods where
   toXML AllowedMethods' {..} =
     Prelude.mconcat
-      [ "CachedMethods" Core.@= cachedMethods,
-        "Quantity" Core.@= quantity,
-        "Items" Core.@= Core.toXMLList "Method" items
+      [ "CachedMethods" Data.@= cachedMethods,
+        "Quantity" Data.@= quantity,
+        "Items" Data.@= Data.toXMLList "Method" items
       ]

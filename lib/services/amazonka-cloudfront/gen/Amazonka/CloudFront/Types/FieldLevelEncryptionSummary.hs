@@ -23,6 +23,7 @@ import Amazonka.CloudFront.Types.ContentTypeProfileConfig
 import Amazonka.CloudFront.Types.QueryArgProfileConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of a field-level encryption item.
@@ -40,7 +41,7 @@ data FieldLevelEncryptionSummary = FieldLevelEncryptionSummary'
     id :: Prelude.Text,
     -- | The last time that the summary of field-level encryption items was
     -- modified.
-    lastModifiedTime :: Core.ISO8601
+    lastModifiedTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,7 +80,7 @@ newFieldLevelEncryptionSummary
         queryArgProfileConfig = Prelude.Nothing,
         id = pId_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_
+          Data._Time Lens.# pLastModifiedTime_
       }
 
 -- | An optional comment about the field-level encryption item. The comment
@@ -102,16 +103,16 @@ fieldLevelEncryptionSummary_id = Lens.lens (\FieldLevelEncryptionSummary' {id} -
 -- | The last time that the summary of field-level encryption items was
 -- modified.
 fieldLevelEncryptionSummary_lastModifiedTime :: Lens.Lens' FieldLevelEncryptionSummary Prelude.UTCTime
-fieldLevelEncryptionSummary_lastModifiedTime = Lens.lens (\FieldLevelEncryptionSummary' {lastModifiedTime} -> lastModifiedTime) (\s@FieldLevelEncryptionSummary' {} a -> s {lastModifiedTime = a} :: FieldLevelEncryptionSummary) Prelude.. Core._Time
+fieldLevelEncryptionSummary_lastModifiedTime = Lens.lens (\FieldLevelEncryptionSummary' {lastModifiedTime} -> lastModifiedTime) (\s@FieldLevelEncryptionSummary' {} a -> s {lastModifiedTime = a} :: FieldLevelEncryptionSummary) Prelude.. Data._Time
 
-instance Core.FromXML FieldLevelEncryptionSummary where
+instance Data.FromXML FieldLevelEncryptionSummary where
   parseXML x =
     FieldLevelEncryptionSummary'
-      Prelude.<$> (x Core..@? "Comment")
-      Prelude.<*> (x Core..@? "ContentTypeProfileConfig")
-      Prelude.<*> (x Core..@? "QueryArgProfileConfig")
-      Prelude.<*> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "LastModifiedTime")
+      Prelude.<$> (x Data..@? "Comment")
+      Prelude.<*> (x Data..@? "ContentTypeProfileConfig")
+      Prelude.<*> (x Data..@? "QueryArgProfileConfig")
+      Prelude.<*> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "LastModifiedTime")
 
 instance Prelude.Hashable FieldLevelEncryptionSummary where
   hashWithSalt _salt FieldLevelEncryptionSummary' {..} =

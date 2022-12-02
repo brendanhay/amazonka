@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.Restrictions where
 import Amazonka.CloudFront.Types.GeoRestriction
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that identifies ways in which you want to restrict
@@ -60,10 +61,10 @@ newRestrictions pGeoRestriction_ =
 restrictions_geoRestriction :: Lens.Lens' Restrictions GeoRestriction
 restrictions_geoRestriction = Lens.lens (\Restrictions' {geoRestriction} -> geoRestriction) (\s@Restrictions' {} a -> s {geoRestriction = a} :: Restrictions)
 
-instance Core.FromXML Restrictions where
+instance Data.FromXML Restrictions where
   parseXML x =
     Restrictions'
-      Prelude.<$> (x Core..@ "GeoRestriction")
+      Prelude.<$> (x Data..@ "GeoRestriction")
 
 instance Prelude.Hashable Restrictions where
   hashWithSalt _salt Restrictions' {..} =
@@ -72,7 +73,7 @@ instance Prelude.Hashable Restrictions where
 instance Prelude.NFData Restrictions where
   rnf Restrictions' {..} = Prelude.rnf geoRestriction
 
-instance Core.ToXML Restrictions where
+instance Data.ToXML Restrictions where
   toXML Restrictions' {..} =
     Prelude.mconcat
-      ["GeoRestriction" Core.@= geoRestriction]
+      ["GeoRestriction" Data.@= geoRestriction]

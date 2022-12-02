@@ -78,6 +78,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -145,16 +146,16 @@ instance Prelude.NFData DeleteStreamingDistribution where
   rnf DeleteStreamingDistribution' {..} =
     Prelude.rnf ifMatch `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders DeleteStreamingDistribution where
+instance Data.ToHeaders DeleteStreamingDistribution where
   toHeaders DeleteStreamingDistribution' {..} =
-    Prelude.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Data.=# ifMatch]
 
-instance Core.ToPath DeleteStreamingDistribution where
+instance Data.ToPath DeleteStreamingDistribution where
   toPath DeleteStreamingDistribution' {..} =
     Prelude.mconcat
-      ["/2020-05-31/streaming-distribution/", Core.toBS id]
+      ["/2020-05-31/streaming-distribution/", Data.toBS id]
 
-instance Core.ToQuery DeleteStreamingDistribution where
+instance Data.ToQuery DeleteStreamingDistribution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteStreamingDistributionResponse' smart constructor.

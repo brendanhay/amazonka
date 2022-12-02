@@ -23,6 +23,7 @@ import Amazonka.CloudFront.Types.ContentTypeProfileConfig
 import Amazonka.CloudFront.Types.QueryArgProfileConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex data type that includes the profile configurations specified
@@ -100,13 +101,13 @@ fieldLevelEncryptionConfig_queryArgProfileConfig = Lens.lens (\FieldLevelEncrypt
 fieldLevelEncryptionConfig_callerReference :: Lens.Lens' FieldLevelEncryptionConfig Prelude.Text
 fieldLevelEncryptionConfig_callerReference = Lens.lens (\FieldLevelEncryptionConfig' {callerReference} -> callerReference) (\s@FieldLevelEncryptionConfig' {} a -> s {callerReference = a} :: FieldLevelEncryptionConfig)
 
-instance Core.FromXML FieldLevelEncryptionConfig where
+instance Data.FromXML FieldLevelEncryptionConfig where
   parseXML x =
     FieldLevelEncryptionConfig'
-      Prelude.<$> (x Core..@? "Comment")
-      Prelude.<*> (x Core..@? "ContentTypeProfileConfig")
-      Prelude.<*> (x Core..@? "QueryArgProfileConfig")
-      Prelude.<*> (x Core..@ "CallerReference")
+      Prelude.<$> (x Data..@? "Comment")
+      Prelude.<*> (x Data..@? "ContentTypeProfileConfig")
+      Prelude.<*> (x Data..@? "QueryArgProfileConfig")
+      Prelude.<*> (x Data..@ "CallerReference")
 
 instance Prelude.Hashable FieldLevelEncryptionConfig where
   hashWithSalt _salt FieldLevelEncryptionConfig' {..} =
@@ -122,13 +123,13 @@ instance Prelude.NFData FieldLevelEncryptionConfig where
       `Prelude.seq` Prelude.rnf queryArgProfileConfig
       `Prelude.seq` Prelude.rnf callerReference
 
-instance Core.ToXML FieldLevelEncryptionConfig where
+instance Data.ToXML FieldLevelEncryptionConfig where
   toXML FieldLevelEncryptionConfig' {..} =
     Prelude.mconcat
-      [ "Comment" Core.@= comment,
+      [ "Comment" Data.@= comment,
         "ContentTypeProfileConfig"
-          Core.@= contentTypeProfileConfig,
+          Data.@= contentTypeProfileConfig,
         "QueryArgProfileConfig"
-          Core.@= queryArgProfileConfig,
-        "CallerReference" Core.@= callerReference
+          Data.@= queryArgProfileConfig,
+        "CallerReference" Data.@= callerReference
       ]

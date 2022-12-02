@@ -24,6 +24,7 @@ import Amazonka.CloudFront.Types.MinimumProtocolVersion
 import Amazonka.CloudFront.Types.SSLSupportMethod
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that determines the distribution’s SSL\/TLS configuration
@@ -404,16 +405,16 @@ viewerCertificate_sSLSupportMethod = Lens.lens (\ViewerCertificate' {sSLSupportM
 viewerCertificate_certificateSource :: Lens.Lens' ViewerCertificate (Prelude.Maybe CertificateSource)
 viewerCertificate_certificateSource = Lens.lens (\ViewerCertificate' {certificateSource} -> certificateSource) (\s@ViewerCertificate' {} a -> s {certificateSource = a} :: ViewerCertificate)
 
-instance Core.FromXML ViewerCertificate where
+instance Data.FromXML ViewerCertificate where
   parseXML x =
     ViewerCertificate'
-      Prelude.<$> (x Core..@? "IAMCertificateId")
-      Prelude.<*> (x Core..@? "CloudFrontDefaultCertificate")
-      Prelude.<*> (x Core..@? "Certificate")
-      Prelude.<*> (x Core..@? "MinimumProtocolVersion")
-      Prelude.<*> (x Core..@? "ACMCertificateArn")
-      Prelude.<*> (x Core..@? "SSLSupportMethod")
-      Prelude.<*> (x Core..@? "CertificateSource")
+      Prelude.<$> (x Data..@? "IAMCertificateId")
+      Prelude.<*> (x Data..@? "CloudFrontDefaultCertificate")
+      Prelude.<*> (x Data..@? "Certificate")
+      Prelude.<*> (x Data..@? "MinimumProtocolVersion")
+      Prelude.<*> (x Data..@? "ACMCertificateArn")
+      Prelude.<*> (x Data..@? "SSLSupportMethod")
+      Prelude.<*> (x Data..@? "CertificateSource")
 
 instance Prelude.Hashable ViewerCertificate where
   hashWithSalt _salt ViewerCertificate' {..} =
@@ -435,16 +436,16 @@ instance Prelude.NFData ViewerCertificate where
       `Prelude.seq` Prelude.rnf sSLSupportMethod
       `Prelude.seq` Prelude.rnf certificateSource
 
-instance Core.ToXML ViewerCertificate where
+instance Data.ToXML ViewerCertificate where
   toXML ViewerCertificate' {..} =
     Prelude.mconcat
-      [ "IAMCertificateId" Core.@= iAMCertificateId,
+      [ "IAMCertificateId" Data.@= iAMCertificateId,
         "CloudFrontDefaultCertificate"
-          Core.@= cloudFrontDefaultCertificate,
-        "Certificate" Core.@= certificate,
+          Data.@= cloudFrontDefaultCertificate,
+        "Certificate" Data.@= certificate,
         "MinimumProtocolVersion"
-          Core.@= minimumProtocolVersion,
-        "ACMCertificateArn" Core.@= aCMCertificateArn,
-        "SSLSupportMethod" Core.@= sSLSupportMethod,
-        "CertificateSource" Core.@= certificateSource
+          Data.@= minimumProtocolVersion,
+        "ACMCertificateArn" Data.@= aCMCertificateArn,
+        "SSLSupportMethod" Data.@= sSLSupportMethod,
+        "CertificateSource" Data.@= certificateSource
       ]

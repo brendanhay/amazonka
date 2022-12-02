@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.ContentTypeProfiles where
 import Amazonka.CloudFront.Types.ContentTypeProfile
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Field-level encryption content type-profile.
@@ -64,13 +65,13 @@ contentTypeProfiles_items = Lens.lens (\ContentTypeProfiles' {items} -> items) (
 contentTypeProfiles_quantity :: Lens.Lens' ContentTypeProfiles Prelude.Int
 contentTypeProfiles_quantity = Lens.lens (\ContentTypeProfiles' {quantity} -> quantity) (\s@ContentTypeProfiles' {} a -> s {quantity = a} :: ContentTypeProfiles)
 
-instance Core.FromXML ContentTypeProfiles where
+instance Data.FromXML ContentTypeProfiles where
   parseXML x =
     ContentTypeProfiles'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "ContentTypeProfile")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "ContentTypeProfile")
                   )
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable ContentTypeProfiles where
   hashWithSalt _salt ContentTypeProfiles' {..} =
@@ -82,13 +83,13 @@ instance Prelude.NFData ContentTypeProfiles where
     Prelude.rnf items
       `Prelude.seq` Prelude.rnf quantity
 
-instance Core.ToXML ContentTypeProfiles where
+instance Data.ToXML ContentTypeProfiles where
   toXML ContentTypeProfiles' {..} =
     Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML
-            ( Core.toXMLList "ContentTypeProfile"
+          Data.@= Data.toXML
+            ( Data.toXMLList "ContentTypeProfile"
                 Prelude.<$> items
             ),
-        "Quantity" Core.@= quantity
+        "Quantity" Data.@= quantity
       ]

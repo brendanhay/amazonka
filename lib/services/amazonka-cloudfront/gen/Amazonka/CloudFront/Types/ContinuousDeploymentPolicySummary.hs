@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.ContinuousDeploymentPolicySummary where
 import Amazonka.CloudFront.Types.ContinuousDeploymentPolicy
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of the information about your continuous deployment policies.
@@ -58,12 +59,12 @@ continuousDeploymentPolicySummary_continuousDeploymentPolicy :: Lens.Lens' Conti
 continuousDeploymentPolicySummary_continuousDeploymentPolicy = Lens.lens (\ContinuousDeploymentPolicySummary' {continuousDeploymentPolicy} -> continuousDeploymentPolicy) (\s@ContinuousDeploymentPolicySummary' {} a -> s {continuousDeploymentPolicy = a} :: ContinuousDeploymentPolicySummary)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ContinuousDeploymentPolicySummary
   where
   parseXML x =
     ContinuousDeploymentPolicySummary'
-      Prelude.<$> (x Core..@ "ContinuousDeploymentPolicy")
+      Prelude.<$> (x Data..@ "ContinuousDeploymentPolicy")
 
 instance
   Prelude.Hashable

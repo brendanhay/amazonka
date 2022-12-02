@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.CustomErrorResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that controls:
@@ -243,13 +244,13 @@ customErrorResponse_responseCode = Lens.lens (\CustomErrorResponse' {responseCod
 customErrorResponse_errorCode :: Lens.Lens' CustomErrorResponse Prelude.Int
 customErrorResponse_errorCode = Lens.lens (\CustomErrorResponse' {errorCode} -> errorCode) (\s@CustomErrorResponse' {} a -> s {errorCode = a} :: CustomErrorResponse)
 
-instance Core.FromXML CustomErrorResponse where
+instance Data.FromXML CustomErrorResponse where
   parseXML x =
     CustomErrorResponse'
-      Prelude.<$> (x Core..@? "ResponsePagePath")
-      Prelude.<*> (x Core..@? "ErrorCachingMinTTL")
-      Prelude.<*> (x Core..@? "ResponseCode")
-      Prelude.<*> (x Core..@ "ErrorCode")
+      Prelude.<$> (x Data..@? "ResponsePagePath")
+      Prelude.<*> (x Data..@? "ErrorCachingMinTTL")
+      Prelude.<*> (x Data..@? "ResponseCode")
+      Prelude.<*> (x Data..@ "ErrorCode")
 
 instance Prelude.Hashable CustomErrorResponse where
   hashWithSalt _salt CustomErrorResponse' {..} =
@@ -265,11 +266,11 @@ instance Prelude.NFData CustomErrorResponse where
       `Prelude.seq` Prelude.rnf responseCode
       `Prelude.seq` Prelude.rnf errorCode
 
-instance Core.ToXML CustomErrorResponse where
+instance Data.ToXML CustomErrorResponse where
   toXML CustomErrorResponse' {..} =
     Prelude.mconcat
-      [ "ResponsePagePath" Core.@= responsePagePath,
-        "ErrorCachingMinTTL" Core.@= errorCachingMinTTL,
-        "ResponseCode" Core.@= responseCode,
-        "ErrorCode" Core.@= errorCode
+      [ "ResponsePagePath" Data.@= responsePagePath,
+        "ErrorCachingMinTTL" Data.@= errorCachingMinTTL,
+        "ResponseCode" Data.@= responseCode,
+        "ErrorCode" Data.@= errorCode
       ]

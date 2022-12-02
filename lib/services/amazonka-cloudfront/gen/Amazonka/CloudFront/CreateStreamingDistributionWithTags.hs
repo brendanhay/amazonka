@@ -48,6 +48,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,8 +99,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateStreamingDistributionWithTagsResponse'
-            Prelude.<$> (h Core..#? "Location") Prelude.<*> (Core.parseXML x)
-              Prelude.<*> (h Core..#? "ETag")
+            Prelude.<$> (h Data..#? "Location") Prelude.<*> (Data.parseXML x)
+              Prelude.<*> (h Data..#? "ETag")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,29 +122,29 @@ instance
     Prelude.rnf streamingDistributionConfigWithTags
 
 instance
-  Core.ToElement
+  Data.ToElement
     CreateStreamingDistributionWithTags
   where
   toElement CreateStreamingDistributionWithTags' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}StreamingDistributionConfigWithTags"
       streamingDistributionConfigWithTags
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateStreamingDistributionWithTags
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateStreamingDistributionWithTags
   where
   toPath =
     Prelude.const "/2020-05-31/streaming-distribution"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateStreamingDistributionWithTags
   where
   toQuery =

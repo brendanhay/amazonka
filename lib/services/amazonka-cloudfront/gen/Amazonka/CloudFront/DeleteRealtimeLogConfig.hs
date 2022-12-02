@@ -49,6 +49,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,26 +112,26 @@ instance Prelude.NFData DeleteRealtimeLogConfig where
   rnf DeleteRealtimeLogConfig' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToElement DeleteRealtimeLogConfig where
+instance Data.ToElement DeleteRealtimeLogConfig where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}DeleteRealtimeLogConfigRequest"
 
-instance Core.ToHeaders DeleteRealtimeLogConfig where
+instance Data.ToHeaders DeleteRealtimeLogConfig where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteRealtimeLogConfig where
+instance Data.ToPath DeleteRealtimeLogConfig where
   toPath =
     Prelude.const
       "/2020-05-31/delete-realtime-log-config/"
 
-instance Core.ToQuery DeleteRealtimeLogConfig where
+instance Data.ToQuery DeleteRealtimeLogConfig where
   toQuery = Prelude.const Prelude.mempty
 
-instance Core.ToXML DeleteRealtimeLogConfig where
+instance Data.ToXML DeleteRealtimeLogConfig where
   toXML DeleteRealtimeLogConfig' {..} =
     Prelude.mconcat
-      ["Name" Core.@= name, "ARN" Core.@= arn]
+      ["Name" Data.@= name, "ARN" Data.@= arn]
 
 -- | /See:/ 'newDeleteRealtimeLogConfigResponse' smart constructor.
 data DeleteRealtimeLogConfigResponse = DeleteRealtimeLogConfigResponse'

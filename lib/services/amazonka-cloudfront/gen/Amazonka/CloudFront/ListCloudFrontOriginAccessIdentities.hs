@@ -45,6 +45,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -144,7 +145,7 @@ instance
       ( \s h x ->
           ListCloudFrontOriginAccessIdentitiesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (Core.parseXML x)
+              Prelude.<*> (Data.parseXML x)
       )
 
 instance
@@ -166,13 +167,13 @@ instance
       `Prelude.seq` Prelude.rnf maxItems
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListCloudFrontOriginAccessIdentities
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListCloudFrontOriginAccessIdentities
   where
   toPath =
@@ -180,13 +181,13 @@ instance
       "/2020-05-31/origin-access-identity/cloudfront"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListCloudFrontOriginAccessIdentities
   where
   toQuery ListCloudFrontOriginAccessIdentities' {..} =
     Prelude.mconcat
-      [ "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems
+      [ "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems
       ]
 
 -- | The returned result of the corresponding request.

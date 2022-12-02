@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.OriginRequestPolicyList where
 import Amazonka.CloudFront.Types.OriginRequestPolicySummary
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of origin request policies.
@@ -93,16 +94,16 @@ originRequestPolicyList_maxItems = Lens.lens (\OriginRequestPolicyList' {maxItem
 originRequestPolicyList_quantity :: Lens.Lens' OriginRequestPolicyList Prelude.Int
 originRequestPolicyList_quantity = Lens.lens (\OriginRequestPolicyList' {quantity} -> quantity) (\s@OriginRequestPolicyList' {} a -> s {quantity = a} :: OriginRequestPolicyList)
 
-instance Core.FromXML OriginRequestPolicyList where
+instance Data.FromXML OriginRequestPolicyList where
   parseXML x =
     OriginRequestPolicyList'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "OriginRequestPolicySummary")
+                        (Data.parseXMLList "OriginRequestPolicySummary")
                   )
-      Prelude.<*> (x Core..@? "NextMarker")
-      Prelude.<*> (x Core..@ "MaxItems")
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@? "NextMarker")
+      Prelude.<*> (x Data..@ "MaxItems")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable OriginRequestPolicyList where
   hashWithSalt _salt OriginRequestPolicyList' {..} =

@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.CustomHeaders where
 import Amazonka.CloudFront.Types.OriginCustomHeader
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that contains the list of Custom Headers for each origin.
@@ -70,13 +71,13 @@ customHeaders_items = Lens.lens (\CustomHeaders' {items} -> items) (\s@CustomHea
 customHeaders_quantity :: Lens.Lens' CustomHeaders Prelude.Int
 customHeaders_quantity = Lens.lens (\CustomHeaders' {quantity} -> quantity) (\s@CustomHeaders' {} a -> s {quantity = a} :: CustomHeaders)
 
-instance Core.FromXML CustomHeaders where
+instance Data.FromXML CustomHeaders where
   parseXML x =
     CustomHeaders'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "OriginCustomHeader")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "OriginCustomHeader")
                   )
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable CustomHeaders where
   hashWithSalt _salt CustomHeaders' {..} =
@@ -88,13 +89,13 @@ instance Prelude.NFData CustomHeaders where
     Prelude.rnf items
       `Prelude.seq` Prelude.rnf quantity
 
-instance Core.ToXML CustomHeaders where
+instance Data.ToXML CustomHeaders where
   toXML CustomHeaders' {..} =
     Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML
-            ( Core.toXMLList "OriginCustomHeader"
+          Data.@= Data.toXML
+            ( Data.toXMLList "OriginCustomHeader"
                 Prelude.<$> items
             ),
-        "Quantity" Core.@= quantity
+        "Quantity" Data.@= quantity
       ]

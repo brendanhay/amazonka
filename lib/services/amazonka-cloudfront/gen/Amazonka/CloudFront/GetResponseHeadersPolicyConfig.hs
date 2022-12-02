@@ -50,6 +50,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,8 +113,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetResponseHeadersPolicyConfigResponse'
-            Prelude.<$> (h Core..#? "ETag")
-            Prelude.<*> (Core.parseXML x)
+            Prelude.<$> (h Data..#? "ETag")
+            Prelude.<*> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,20 +135,20 @@ instance
     Prelude.rnf id
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetResponseHeadersPolicyConfig
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetResponseHeadersPolicyConfig where
+instance Data.ToPath GetResponseHeadersPolicyConfig where
   toPath GetResponseHeadersPolicyConfig' {..} =
     Prelude.mconcat
       [ "/2020-05-31/response-headers-policy/",
-        Core.toBS id,
+        Data.toBS id,
         "/config"
       ]
 
-instance Core.ToQuery GetResponseHeadersPolicyConfig where
+instance Data.ToQuery GetResponseHeadersPolicyConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetResponseHeadersPolicyConfigResponse' smart constructor.

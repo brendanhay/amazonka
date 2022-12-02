@@ -53,6 +53,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,20 +118,20 @@ instance Prelude.NFData AssociateAlias where
     Prelude.rnf targetDistributionId
       `Prelude.seq` Prelude.rnf alias
 
-instance Core.ToHeaders AssociateAlias where
+instance Data.ToHeaders AssociateAlias where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AssociateAlias where
+instance Data.ToPath AssociateAlias where
   toPath AssociateAlias' {..} =
     Prelude.mconcat
       [ "/2020-05-31/distribution/",
-        Core.toBS targetDistributionId,
+        Data.toBS targetDistributionId,
         "/associate-alias"
       ]
 
-instance Core.ToQuery AssociateAlias where
+instance Data.ToQuery AssociateAlias where
   toQuery AssociateAlias' {..} =
-    Prelude.mconcat ["Alias" Core.=: alias]
+    Prelude.mconcat ["Alias" Data.=: alias]
 
 -- | /See:/ 'newAssociateAliasResponse' smart constructor.
 data AssociateAliasResponse = AssociateAliasResponse'

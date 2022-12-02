@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.CachePolicyConfig where
 import Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A cache policy configuration.
@@ -207,17 +208,17 @@ cachePolicyConfig_name = Lens.lens (\CachePolicyConfig' {name} -> name) (\s@Cach
 cachePolicyConfig_minTTL :: Lens.Lens' CachePolicyConfig Prelude.Integer
 cachePolicyConfig_minTTL = Lens.lens (\CachePolicyConfig' {minTTL} -> minTTL) (\s@CachePolicyConfig' {} a -> s {minTTL = a} :: CachePolicyConfig)
 
-instance Core.FromXML CachePolicyConfig where
+instance Data.FromXML CachePolicyConfig where
   parseXML x =
     CachePolicyConfig'
       Prelude.<$> ( x
-                      Core..@? "ParametersInCacheKeyAndForwardedToOrigin"
+                      Data..@? "ParametersInCacheKeyAndForwardedToOrigin"
                   )
-      Prelude.<*> (x Core..@? "DefaultTTL")
-      Prelude.<*> (x Core..@? "Comment")
-      Prelude.<*> (x Core..@? "MaxTTL")
-      Prelude.<*> (x Core..@ "Name")
-      Prelude.<*> (x Core..@ "MinTTL")
+      Prelude.<*> (x Data..@? "DefaultTTL")
+      Prelude.<*> (x Data..@? "Comment")
+      Prelude.<*> (x Data..@? "MaxTTL")
+      Prelude.<*> (x Data..@ "Name")
+      Prelude.<*> (x Data..@ "MinTTL")
 
 instance Prelude.Hashable CachePolicyConfig where
   hashWithSalt _salt CachePolicyConfig' {..} =
@@ -239,14 +240,14 @@ instance Prelude.NFData CachePolicyConfig where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf minTTL
 
-instance Core.ToXML CachePolicyConfig where
+instance Data.ToXML CachePolicyConfig where
   toXML CachePolicyConfig' {..} =
     Prelude.mconcat
       [ "ParametersInCacheKeyAndForwardedToOrigin"
-          Core.@= parametersInCacheKeyAndForwardedToOrigin,
-        "DefaultTTL" Core.@= defaultTTL,
-        "Comment" Core.@= comment,
-        "MaxTTL" Core.@= maxTTL,
-        "Name" Core.@= name,
-        "MinTTL" Core.@= minTTL
+          Data.@= parametersInCacheKeyAndForwardedToOrigin,
+        "DefaultTTL" Data.@= defaultTTL,
+        "Comment" Data.@= comment,
+        "MaxTTL" Data.@= maxTTL,
+        "Name" Data.@= name,
+        "MinTTL" Data.@= minTTL
       ]

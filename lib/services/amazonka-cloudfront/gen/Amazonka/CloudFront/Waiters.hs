@@ -23,6 +23,7 @@ import Amazonka.CloudFront.Lens
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.CloudFront.GetDistribution' every 60 seconds until a successful state is reached. An error is returned after 35 failed checks.
@@ -39,7 +40,7 @@ newDistributionDeployed =
             ( getDistributionResponse_distribution
                 Prelude.. Lens._Just
                 Prelude.. distribution_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -58,7 +59,7 @@ newInvalidationCompleted =
             ( getInvalidationResponse_invalidation
                 Prelude.. Lens._Just
                 Prelude.. invalidation_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -78,7 +79,7 @@ newStreamingDistributionDeployed =
             ( getStreamingDistributionResponse_streamingDistribution
                 Prelude.. Lens._Just
                 Prelude.. streamingDistribution_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

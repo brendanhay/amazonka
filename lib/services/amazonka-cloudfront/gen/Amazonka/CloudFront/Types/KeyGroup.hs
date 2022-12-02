@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.KeyGroup where
 import Amazonka.CloudFront.Types.KeyGroupConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A key group.
@@ -34,7 +35,7 @@ data KeyGroup = KeyGroup'
   { -- | The identifier for the key group.
     id :: Prelude.Text,
     -- | The date and time when the key group was last modified.
-    lastModifiedTime :: Core.ISO8601,
+    lastModifiedTime :: Data.ISO8601,
     -- | The key group configuration.
     keyGroupConfig :: KeyGroupConfig
   }
@@ -65,7 +66,7 @@ newKeyGroup pId_ pLastModifiedTime_ pKeyGroupConfig_ =
   KeyGroup'
     { id = pId_,
       lastModifiedTime =
-        Core._Time Lens.# pLastModifiedTime_,
+        Data._Time Lens.# pLastModifiedTime_,
       keyGroupConfig = pKeyGroupConfig_
     }
 
@@ -75,18 +76,18 @@ keyGroup_id = Lens.lens (\KeyGroup' {id} -> id) (\s@KeyGroup' {} a -> s {id = a}
 
 -- | The date and time when the key group was last modified.
 keyGroup_lastModifiedTime :: Lens.Lens' KeyGroup Prelude.UTCTime
-keyGroup_lastModifiedTime = Lens.lens (\KeyGroup' {lastModifiedTime} -> lastModifiedTime) (\s@KeyGroup' {} a -> s {lastModifiedTime = a} :: KeyGroup) Prelude.. Core._Time
+keyGroup_lastModifiedTime = Lens.lens (\KeyGroup' {lastModifiedTime} -> lastModifiedTime) (\s@KeyGroup' {} a -> s {lastModifiedTime = a} :: KeyGroup) Prelude.. Data._Time
 
 -- | The key group configuration.
 keyGroup_keyGroupConfig :: Lens.Lens' KeyGroup KeyGroupConfig
 keyGroup_keyGroupConfig = Lens.lens (\KeyGroup' {keyGroupConfig} -> keyGroupConfig) (\s@KeyGroup' {} a -> s {keyGroupConfig = a} :: KeyGroup)
 
-instance Core.FromXML KeyGroup where
+instance Data.FromXML KeyGroup where
   parseXML x =
     KeyGroup'
-      Prelude.<$> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "LastModifiedTime")
-      Prelude.<*> (x Core..@ "KeyGroupConfig")
+      Prelude.<$> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "LastModifiedTime")
+      Prelude.<*> (x Data..@ "KeyGroupConfig")
 
 instance Prelude.Hashable KeyGroup where
   hashWithSalt _salt KeyGroup' {..} =

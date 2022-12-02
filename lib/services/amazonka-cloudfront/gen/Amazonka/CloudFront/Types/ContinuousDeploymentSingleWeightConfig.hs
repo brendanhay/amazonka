@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.ContinuousDeploymentSingleWeightConfig where
 import Amazonka.CloudFront.Types.SessionStickinessConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the percentage of traffic to send to a staging distribution,
@@ -69,13 +70,13 @@ continuousDeploymentSingleWeightConfig_weight :: Lens.Lens' ContinuousDeployment
 continuousDeploymentSingleWeightConfig_weight = Lens.lens (\ContinuousDeploymentSingleWeightConfig' {weight} -> weight) (\s@ContinuousDeploymentSingleWeightConfig' {} a -> s {weight = a} :: ContinuousDeploymentSingleWeightConfig)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ContinuousDeploymentSingleWeightConfig
   where
   parseXML x =
     ContinuousDeploymentSingleWeightConfig'
-      Prelude.<$> (x Core..@? "SessionStickinessConfig")
-      Prelude.<*> (x Core..@ "Weight")
+      Prelude.<$> (x Data..@? "SessionStickinessConfig")
+      Prelude.<*> (x Data..@ "Weight")
 
 instance
   Prelude.Hashable
@@ -97,12 +98,12 @@ instance
       `Prelude.seq` Prelude.rnf weight
 
 instance
-  Core.ToXML
+  Data.ToXML
     ContinuousDeploymentSingleWeightConfig
   where
   toXML ContinuousDeploymentSingleWeightConfig' {..} =
     Prelude.mconcat
       [ "SessionStickinessConfig"
-          Core.@= sessionStickinessConfig,
-        "Weight" Core.@= weight
+          Data.@= sessionStickinessConfig,
+        "Weight" Data.@= weight
       ]

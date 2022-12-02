@@ -43,6 +43,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,16 +112,16 @@ instance Prelude.NFData DeleteOriginAccessControl where
   rnf DeleteOriginAccessControl' {..} =
     Prelude.rnf ifMatch `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders DeleteOriginAccessControl where
+instance Data.ToHeaders DeleteOriginAccessControl where
   toHeaders DeleteOriginAccessControl' {..} =
-    Prelude.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Data.=# ifMatch]
 
-instance Core.ToPath DeleteOriginAccessControl where
+instance Data.ToPath DeleteOriginAccessControl where
   toPath DeleteOriginAccessControl' {..} =
     Prelude.mconcat
-      ["/2020-05-31/origin-access-control/", Core.toBS id]
+      ["/2020-05-31/origin-access-control/", Data.toBS id]
 
-instance Core.ToQuery DeleteOriginAccessControl where
+instance Data.ToQuery DeleteOriginAccessControl where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteOriginAccessControlResponse' smart constructor.

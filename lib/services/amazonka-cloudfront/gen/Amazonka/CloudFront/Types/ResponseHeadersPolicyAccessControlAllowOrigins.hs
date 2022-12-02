@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.ResponseHeadersPolicyAccessControlAllowOrigins 
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of origins (domain names) that CloudFront can use as the value
@@ -75,14 +76,14 @@ responseHeadersPolicyAccessControlAllowOrigins_items :: Lens.Lens' ResponseHeade
 responseHeadersPolicyAccessControlAllowOrigins_items = Lens.lens (\ResponseHeadersPolicyAccessControlAllowOrigins' {items} -> items) (\s@ResponseHeadersPolicyAccessControlAllowOrigins' {} a -> s {items = a} :: ResponseHeadersPolicyAccessControlAllowOrigins) Prelude.. Lens.coerced
 
 instance
-  Core.FromXML
+  Data.FromXML
     ResponseHeadersPolicyAccessControlAllowOrigins
   where
   parseXML x =
     ResponseHeadersPolicyAccessControlAllowOrigins'
-      Prelude.<$> (x Core..@ "Quantity")
-        Prelude.<*> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                        Prelude.>>= Core.parseXMLList "Origin"
+      Prelude.<$> (x Data..@ "Quantity")
+        Prelude.<*> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                        Prelude.>>= Data.parseXMLList "Origin"
                     )
 
 instance
@@ -105,12 +106,12 @@ instance
         `Prelude.seq` Prelude.rnf items
 
 instance
-  Core.ToXML
+  Data.ToXML
     ResponseHeadersPolicyAccessControlAllowOrigins
   where
   toXML
     ResponseHeadersPolicyAccessControlAllowOrigins' {..} =
       Prelude.mconcat
-        [ "Quantity" Core.@= quantity,
-          "Items" Core.@= Core.toXMLList "Origin" items
+        [ "Quantity" Data.@= quantity,
+          "Items" Data.@= Data.toXMLList "Origin" items
         ]

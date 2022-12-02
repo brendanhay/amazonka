@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.LambdaFunctionAssociations where
 import Amazonka.CloudFront.Types.LambdaFunctionAssociation
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that specifies a list of Lambda\@Edge functions
@@ -85,14 +86,14 @@ lambdaFunctionAssociations_items = Lens.lens (\LambdaFunctionAssociations' {item
 lambdaFunctionAssociations_quantity :: Lens.Lens' LambdaFunctionAssociations Prelude.Int
 lambdaFunctionAssociations_quantity = Lens.lens (\LambdaFunctionAssociations' {quantity} -> quantity) (\s@LambdaFunctionAssociations' {} a -> s {quantity = a} :: LambdaFunctionAssociations)
 
-instance Core.FromXML LambdaFunctionAssociations where
+instance Data.FromXML LambdaFunctionAssociations where
   parseXML x =
     LambdaFunctionAssociations'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "LambdaFunctionAssociation")
+                        (Data.parseXMLList "LambdaFunctionAssociation")
                   )
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable LambdaFunctionAssociations where
   hashWithSalt _salt LambdaFunctionAssociations' {..} =
@@ -104,13 +105,13 @@ instance Prelude.NFData LambdaFunctionAssociations where
     Prelude.rnf items
       `Prelude.seq` Prelude.rnf quantity
 
-instance Core.ToXML LambdaFunctionAssociations where
+instance Data.ToXML LambdaFunctionAssociations where
   toXML LambdaFunctionAssociations' {..} =
     Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML
-            ( Core.toXMLList "LambdaFunctionAssociation"
+          Data.@= Data.toXML
+            ( Data.toXMLList "LambdaFunctionAssociation"
                 Prelude.<$> items
             ),
-        "Quantity" Core.@= quantity
+        "Quantity" Data.@= quantity
       ]

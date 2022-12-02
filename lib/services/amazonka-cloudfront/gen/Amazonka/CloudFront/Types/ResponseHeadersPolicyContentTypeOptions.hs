@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.ResponseHeadersPolicyContentTypeOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Determines whether CloudFront includes the @X-Content-Type-Options@ HTTP
@@ -68,12 +69,12 @@ responseHeadersPolicyContentTypeOptions_override :: Lens.Lens' ResponseHeadersPo
 responseHeadersPolicyContentTypeOptions_override = Lens.lens (\ResponseHeadersPolicyContentTypeOptions' {override} -> override) (\s@ResponseHeadersPolicyContentTypeOptions' {} a -> s {override = a} :: ResponseHeadersPolicyContentTypeOptions)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ResponseHeadersPolicyContentTypeOptions
   where
   parseXML x =
     ResponseHeadersPolicyContentTypeOptions'
-      Prelude.<$> (x Core..@ "Override")
+      Prelude.<$> (x Data..@ "Override")
 
 instance
   Prelude.Hashable
@@ -92,8 +93,8 @@ instance
     Prelude.rnf override
 
 instance
-  Core.ToXML
+  Data.ToXML
     ResponseHeadersPolicyContentTypeOptions
   where
   toXML ResponseHeadersPolicyContentTypeOptions' {..} =
-    Prelude.mconcat ["Override" Core.@= override]
+    Prelude.mconcat ["Override" Data.@= override]

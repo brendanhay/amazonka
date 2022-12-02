@@ -32,6 +32,7 @@ import Amazonka.CloudFront.Types.Restrictions
 import Amazonka.CloudFront.Types.ViewerCertificate
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of the information about a CloudFront distribution.
@@ -62,7 +63,7 @@ data DistributionSummary = DistributionSummary'
     -- locations.
     status :: Prelude.Text,
     -- | The date and time the distribution was last modified.
-    lastModifiedTime :: Core.ISO8601,
+    lastModifiedTime :: Data.ISO8601,
     -- | The domain name that corresponds to the distribution, for example,
     -- @d111111abcdef8.cloudfront.net@.
     domainName :: Prelude.Text,
@@ -247,7 +248,7 @@ newDistributionSummary
         arn = pARN_,
         status = pStatus_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_,
+          Data._Time Lens.# pLastModifiedTime_,
         domainName = pDomainName_,
         aliases = pAliases_,
         origins = pOrigins_,
@@ -299,7 +300,7 @@ distributionSummary_status = Lens.lens (\DistributionSummary' {status} -> status
 
 -- | The date and time the distribution was last modified.
 distributionSummary_lastModifiedTime :: Lens.Lens' DistributionSummary Prelude.UTCTime
-distributionSummary_lastModifiedTime = Lens.lens (\DistributionSummary' {lastModifiedTime} -> lastModifiedTime) (\s@DistributionSummary' {} a -> s {lastModifiedTime = a} :: DistributionSummary) Prelude.. Core._Time
+distributionSummary_lastModifiedTime = Lens.lens (\DistributionSummary' {lastModifiedTime} -> lastModifiedTime) (\s@DistributionSummary' {} a -> s {lastModifiedTime = a} :: DistributionSummary) Prelude.. Data._Time
 
 -- | The domain name that corresponds to the distribution, for example,
 -- @d111111abcdef8.cloudfront.net@.
@@ -371,32 +372,32 @@ distributionSummary_httpVersion = Lens.lens (\DistributionSummary' {httpVersion}
 distributionSummary_isIPV6Enabled :: Lens.Lens' DistributionSummary Prelude.Bool
 distributionSummary_isIPV6Enabled = Lens.lens (\DistributionSummary' {isIPV6Enabled} -> isIPV6Enabled) (\s@DistributionSummary' {} a -> s {isIPV6Enabled = a} :: DistributionSummary)
 
-instance Core.FromXML DistributionSummary where
+instance Data.FromXML DistributionSummary where
   parseXML x =
     DistributionSummary'
-      Prelude.<$> ( x Core..@? "AliasICPRecordals"
+      Prelude.<$> ( x Data..@? "AliasICPRecordals"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "AliasICPRecordal")
+                      Prelude.>>= Core.may (Data.parseXMLList "AliasICPRecordal")
                   )
-      Prelude.<*> (x Core..@? "OriginGroups")
-      Prelude.<*> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "ARN")
-      Prelude.<*> (x Core..@ "Status")
-      Prelude.<*> (x Core..@ "LastModifiedTime")
-      Prelude.<*> (x Core..@ "DomainName")
-      Prelude.<*> (x Core..@ "Aliases")
-      Prelude.<*> (x Core..@ "Origins")
-      Prelude.<*> (x Core..@ "DefaultCacheBehavior")
-      Prelude.<*> (x Core..@ "CacheBehaviors")
-      Prelude.<*> (x Core..@ "CustomErrorResponses")
-      Prelude.<*> (x Core..@ "Comment")
-      Prelude.<*> (x Core..@ "PriceClass")
-      Prelude.<*> (x Core..@ "Enabled")
-      Prelude.<*> (x Core..@ "ViewerCertificate")
-      Prelude.<*> (x Core..@ "Restrictions")
-      Prelude.<*> (x Core..@ "WebACLId")
-      Prelude.<*> (x Core..@ "HttpVersion")
-      Prelude.<*> (x Core..@ "IsIPV6Enabled")
+      Prelude.<*> (x Data..@? "OriginGroups")
+      Prelude.<*> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "ARN")
+      Prelude.<*> (x Data..@ "Status")
+      Prelude.<*> (x Data..@ "LastModifiedTime")
+      Prelude.<*> (x Data..@ "DomainName")
+      Prelude.<*> (x Data..@ "Aliases")
+      Prelude.<*> (x Data..@ "Origins")
+      Prelude.<*> (x Data..@ "DefaultCacheBehavior")
+      Prelude.<*> (x Data..@ "CacheBehaviors")
+      Prelude.<*> (x Data..@ "CustomErrorResponses")
+      Prelude.<*> (x Data..@ "Comment")
+      Prelude.<*> (x Data..@ "PriceClass")
+      Prelude.<*> (x Data..@ "Enabled")
+      Prelude.<*> (x Data..@ "ViewerCertificate")
+      Prelude.<*> (x Data..@ "Restrictions")
+      Prelude.<*> (x Data..@ "WebACLId")
+      Prelude.<*> (x Data..@ "HttpVersion")
+      Prelude.<*> (x Data..@ "IsIPV6Enabled")
 
 instance Prelude.Hashable DistributionSummary where
   hashWithSalt _salt DistributionSummary' {..} =

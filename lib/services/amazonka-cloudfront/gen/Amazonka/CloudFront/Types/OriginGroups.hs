@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.OriginGroups where
 import Amazonka.CloudFront.Types.OriginGroup
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex data type for the origin groups specified for a distribution.
@@ -64,13 +65,13 @@ originGroups_items = Lens.lens (\OriginGroups' {items} -> items) (\s@OriginGroup
 originGroups_quantity :: Lens.Lens' OriginGroups Prelude.Int
 originGroups_quantity = Lens.lens (\OriginGroups' {quantity} -> quantity) (\s@OriginGroups' {} a -> s {quantity = a} :: OriginGroups)
 
-instance Core.FromXML OriginGroups where
+instance Data.FromXML OriginGroups where
   parseXML x =
     OriginGroups'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "OriginGroup")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "OriginGroup")
                   )
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable OriginGroups where
   hashWithSalt _salt OriginGroups' {..} =
@@ -82,11 +83,11 @@ instance Prelude.NFData OriginGroups where
     Prelude.rnf items
       `Prelude.seq` Prelude.rnf quantity
 
-instance Core.ToXML OriginGroups where
+instance Data.ToXML OriginGroups where
   toXML OriginGroups' {..} =
     Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML
-            (Core.toXMLList "OriginGroup" Prelude.<$> items),
-        "Quantity" Core.@= quantity
+          Data.@= Data.toXML
+            (Data.toXMLList "OriginGroup" Prelude.<$> items),
+        "Quantity" Data.@= quantity
       ]

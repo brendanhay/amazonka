@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityList where
 import Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentitySummary
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Lists the origin access identities for CloudFront.Send a @GET@ request
@@ -157,22 +158,22 @@ cloudFrontOriginAccessIdentityList_quantity :: Lens.Lens' CloudFrontOriginAccess
 cloudFrontOriginAccessIdentityList_quantity = Lens.lens (\CloudFrontOriginAccessIdentityList' {quantity} -> quantity) (\s@CloudFrontOriginAccessIdentityList' {} a -> s {quantity = a} :: CloudFrontOriginAccessIdentityList)
 
 instance
-  Core.FromXML
+  Data.FromXML
     CloudFrontOriginAccessIdentityList
   where
   parseXML x =
     CloudFrontOriginAccessIdentityList'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        ( Core.parseXMLList
+                        ( Data.parseXMLList
                             "CloudFrontOriginAccessIdentitySummary"
                         )
                   )
-      Prelude.<*> (x Core..@? "NextMarker")
-      Prelude.<*> (x Core..@ "Marker")
-      Prelude.<*> (x Core..@ "MaxItems")
-      Prelude.<*> (x Core..@ "IsTruncated")
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@? "NextMarker")
+      Prelude.<*> (x Data..@ "Marker")
+      Prelude.<*> (x Data..@ "MaxItems")
+      Prelude.<*> (x Data..@ "IsTruncated")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance
   Prelude.Hashable

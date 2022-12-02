@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.KeyPairIds where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of CloudFront key pair identifiers.
@@ -63,13 +64,13 @@ keyPairIds_items = Lens.lens (\KeyPairIds' {items} -> items) (\s@KeyPairIds' {} 
 keyPairIds_quantity :: Lens.Lens' KeyPairIds Prelude.Int
 keyPairIds_quantity = Lens.lens (\KeyPairIds' {quantity} -> quantity) (\s@KeyPairIds' {} a -> s {quantity = a} :: KeyPairIds)
 
-instance Core.FromXML KeyPairIds where
+instance Data.FromXML KeyPairIds where
   parseXML x =
     KeyPairIds'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "KeyPairId")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "KeyPairId")
                   )
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable KeyPairIds where
   hashWithSalt _salt KeyPairIds' {..} =

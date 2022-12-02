@@ -26,6 +26,7 @@ import Amazonka.CloudFront.Types.StreamingLoggingConfig
 import Amazonka.CloudFront.Types.TrustedSigners
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The RTMP distribution\'s configuration information.
@@ -196,17 +197,17 @@ streamingDistributionConfig_trustedSigners = Lens.lens (\StreamingDistributionCo
 streamingDistributionConfig_enabled :: Lens.Lens' StreamingDistributionConfig Prelude.Bool
 streamingDistributionConfig_enabled = Lens.lens (\StreamingDistributionConfig' {enabled} -> enabled) (\s@StreamingDistributionConfig' {} a -> s {enabled = a} :: StreamingDistributionConfig)
 
-instance Core.FromXML StreamingDistributionConfig where
+instance Data.FromXML StreamingDistributionConfig where
   parseXML x =
     StreamingDistributionConfig'
-      Prelude.<$> (x Core..@? "Aliases")
-      Prelude.<*> (x Core..@? "Logging")
-      Prelude.<*> (x Core..@? "PriceClass")
-      Prelude.<*> (x Core..@ "CallerReference")
-      Prelude.<*> (x Core..@ "S3Origin")
-      Prelude.<*> (x Core..@ "Comment")
-      Prelude.<*> (x Core..@ "TrustedSigners")
-      Prelude.<*> (x Core..@ "Enabled")
+      Prelude.<$> (x Data..@? "Aliases")
+      Prelude.<*> (x Data..@? "Logging")
+      Prelude.<*> (x Data..@? "PriceClass")
+      Prelude.<*> (x Data..@ "CallerReference")
+      Prelude.<*> (x Data..@ "S3Origin")
+      Prelude.<*> (x Data..@ "Comment")
+      Prelude.<*> (x Data..@ "TrustedSigners")
+      Prelude.<*> (x Data..@ "Enabled")
 
 instance Prelude.Hashable StreamingDistributionConfig where
   hashWithSalt _salt StreamingDistributionConfig' {..} =
@@ -230,15 +231,15 @@ instance Prelude.NFData StreamingDistributionConfig where
       `Prelude.seq` Prelude.rnf trustedSigners
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToXML StreamingDistributionConfig where
+instance Data.ToXML StreamingDistributionConfig where
   toXML StreamingDistributionConfig' {..} =
     Prelude.mconcat
-      [ "Aliases" Core.@= aliases,
-        "Logging" Core.@= logging,
-        "PriceClass" Core.@= priceClass,
-        "CallerReference" Core.@= callerReference,
-        "S3Origin" Core.@= s3Origin,
-        "Comment" Core.@= comment,
-        "TrustedSigners" Core.@= trustedSigners,
-        "Enabled" Core.@= enabled
+      [ "Aliases" Data.@= aliases,
+        "Logging" Data.@= logging,
+        "PriceClass" Data.@= priceClass,
+        "CallerReference" Data.@= callerReference,
+        "S3Origin" Data.@= s3Origin,
+        "Comment" Data.@= comment,
+        "TrustedSigners" Data.@= trustedSigners,
+        "Enabled" Data.@= enabled
       ]

@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.ResponseHeadersPolicyFrameOptions where
 import Amazonka.CloudFront.Types.FrameOptionsList
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Determines whether CloudFront includes the @X-Frame-Options@ HTTP
@@ -97,13 +98,13 @@ responseHeadersPolicyFrameOptions_frameOption :: Lens.Lens' ResponseHeadersPolic
 responseHeadersPolicyFrameOptions_frameOption = Lens.lens (\ResponseHeadersPolicyFrameOptions' {frameOption} -> frameOption) (\s@ResponseHeadersPolicyFrameOptions' {} a -> s {frameOption = a} :: ResponseHeadersPolicyFrameOptions)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ResponseHeadersPolicyFrameOptions
   where
   parseXML x =
     ResponseHeadersPolicyFrameOptions'
-      Prelude.<$> (x Core..@ "Override")
-      Prelude.<*> (x Core..@ "FrameOption")
+      Prelude.<$> (x Data..@ "Override")
+      Prelude.<*> (x Data..@ "FrameOption")
 
 instance
   Prelude.Hashable
@@ -123,9 +124,9 @@ instance
     Prelude.rnf override
       `Prelude.seq` Prelude.rnf frameOption
 
-instance Core.ToXML ResponseHeadersPolicyFrameOptions where
+instance Data.ToXML ResponseHeadersPolicyFrameOptions where
   toXML ResponseHeadersPolicyFrameOptions' {..} =
     Prelude.mconcat
-      [ "Override" Core.@= override,
-        "FrameOption" Core.@= frameOption
+      [ "Override" Data.@= override,
+        "FrameOption" Data.@= frameOption
       ]

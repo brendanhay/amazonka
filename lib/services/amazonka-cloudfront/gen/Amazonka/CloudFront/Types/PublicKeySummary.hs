@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.PublicKeySummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a public key.
@@ -35,7 +36,7 @@ data PublicKeySummary = PublicKeySummary'
     -- | A name to help identify the public key.
     name :: Prelude.Text,
     -- | The date and time when the public key was uploaded.
-    createdTime :: Core.ISO8601,
+    createdTime :: Data.ISO8601,
     -- | The public key.
     encodedKey :: Prelude.Text
   }
@@ -78,7 +79,7 @@ newPublicKeySummary
       { comment = Prelude.Nothing,
         id = pId_,
         name = pName_,
-        createdTime = Core._Time Lens.# pCreatedTime_,
+        createdTime = Data._Time Lens.# pCreatedTime_,
         encodedKey = pEncodedKey_
       }
 
@@ -97,20 +98,20 @@ publicKeySummary_name = Lens.lens (\PublicKeySummary' {name} -> name) (\s@Public
 
 -- | The date and time when the public key was uploaded.
 publicKeySummary_createdTime :: Lens.Lens' PublicKeySummary Prelude.UTCTime
-publicKeySummary_createdTime = Lens.lens (\PublicKeySummary' {createdTime} -> createdTime) (\s@PublicKeySummary' {} a -> s {createdTime = a} :: PublicKeySummary) Prelude.. Core._Time
+publicKeySummary_createdTime = Lens.lens (\PublicKeySummary' {createdTime} -> createdTime) (\s@PublicKeySummary' {} a -> s {createdTime = a} :: PublicKeySummary) Prelude.. Data._Time
 
 -- | The public key.
 publicKeySummary_encodedKey :: Lens.Lens' PublicKeySummary Prelude.Text
 publicKeySummary_encodedKey = Lens.lens (\PublicKeySummary' {encodedKey} -> encodedKey) (\s@PublicKeySummary' {} a -> s {encodedKey = a} :: PublicKeySummary)
 
-instance Core.FromXML PublicKeySummary where
+instance Data.FromXML PublicKeySummary where
   parseXML x =
     PublicKeySummary'
-      Prelude.<$> (x Core..@? "Comment")
-      Prelude.<*> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "Name")
-      Prelude.<*> (x Core..@ "CreatedTime")
-      Prelude.<*> (x Core..@ "EncodedKey")
+      Prelude.<$> (x Data..@? "Comment")
+      Prelude.<*> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "Name")
+      Prelude.<*> (x Data..@ "CreatedTime")
+      Prelude.<*> (x Data..@ "EncodedKey")
 
 instance Prelude.Hashable PublicKeySummary where
   hashWithSalt _salt PublicKeySummary' {..} =

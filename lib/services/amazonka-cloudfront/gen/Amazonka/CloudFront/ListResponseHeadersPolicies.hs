@@ -55,6 +55,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -151,7 +152,7 @@ instance Core.AWSRequest ListResponseHeadersPolicies where
     Response.receiveXML
       ( \s h x ->
           ListResponseHeadersPoliciesResponse'
-            Prelude.<$> (Core.parseXML x)
+            Prelude.<$> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,19 +168,19 @@ instance Prelude.NFData ListResponseHeadersPolicies where
       `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
 
-instance Core.ToHeaders ListResponseHeadersPolicies where
+instance Data.ToHeaders ListResponseHeadersPolicies where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListResponseHeadersPolicies where
+instance Data.ToPath ListResponseHeadersPolicies where
   toPath =
     Prelude.const "/2020-05-31/response-headers-policy"
 
-instance Core.ToQuery ListResponseHeadersPolicies where
+instance Data.ToQuery ListResponseHeadersPolicies where
   toQuery ListResponseHeadersPolicies' {..} =
     Prelude.mconcat
-      [ "Type" Core.=: type',
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems
+      [ "Type" Data.=: type',
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems
       ]
 
 -- | /See:/ 'newListResponseHeadersPoliciesResponse' smart constructor.

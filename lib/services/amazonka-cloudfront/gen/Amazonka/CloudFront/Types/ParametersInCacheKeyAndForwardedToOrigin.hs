@@ -24,6 +24,7 @@ import Amazonka.CloudFront.Types.CachePolicyHeadersConfig
 import Amazonka.CloudFront.Types.CachePolicyQueryStringsConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This object determines the values that CloudFront includes in the cache
@@ -318,16 +319,16 @@ parametersInCacheKeyAndForwardedToOrigin_queryStringsConfig :: Lens.Lens' Parame
 parametersInCacheKeyAndForwardedToOrigin_queryStringsConfig = Lens.lens (\ParametersInCacheKeyAndForwardedToOrigin' {queryStringsConfig} -> queryStringsConfig) (\s@ParametersInCacheKeyAndForwardedToOrigin' {} a -> s {queryStringsConfig = a} :: ParametersInCacheKeyAndForwardedToOrigin)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ParametersInCacheKeyAndForwardedToOrigin
   where
   parseXML x =
     ParametersInCacheKeyAndForwardedToOrigin'
-      Prelude.<$> (x Core..@? "EnableAcceptEncodingBrotli")
-        Prelude.<*> (x Core..@ "EnableAcceptEncodingGzip")
-        Prelude.<*> (x Core..@ "HeadersConfig")
-        Prelude.<*> (x Core..@ "CookiesConfig")
-        Prelude.<*> (x Core..@ "QueryStringsConfig")
+      Prelude.<$> (x Data..@? "EnableAcceptEncodingBrotli")
+        Prelude.<*> (x Data..@ "EnableAcceptEncodingGzip")
+        Prelude.<*> (x Data..@ "HeadersConfig")
+        Prelude.<*> (x Data..@ "CookiesConfig")
+        Prelude.<*> (x Data..@ "QueryStringsConfig")
 
 instance
   Prelude.Hashable
@@ -355,16 +356,16 @@ instance
       `Prelude.seq` Prelude.rnf queryStringsConfig
 
 instance
-  Core.ToXML
+  Data.ToXML
     ParametersInCacheKeyAndForwardedToOrigin
   where
   toXML ParametersInCacheKeyAndForwardedToOrigin' {..} =
     Prelude.mconcat
       [ "EnableAcceptEncodingBrotli"
-          Core.@= enableAcceptEncodingBrotli,
+          Data.@= enableAcceptEncodingBrotli,
         "EnableAcceptEncodingGzip"
-          Core.@= enableAcceptEncodingGzip,
-        "HeadersConfig" Core.@= headersConfig,
-        "CookiesConfig" Core.@= cookiesConfig,
-        "QueryStringsConfig" Core.@= queryStringsConfig
+          Data.@= enableAcceptEncodingGzip,
+        "HeadersConfig" Data.@= headersConfig,
+        "CookiesConfig" Data.@= cookiesConfig,
+        "QueryStringsConfig" Data.@= queryStringsConfig
       ]

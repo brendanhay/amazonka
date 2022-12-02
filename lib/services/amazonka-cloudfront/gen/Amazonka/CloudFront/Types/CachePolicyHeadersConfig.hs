@@ -23,6 +23,7 @@ import Amazonka.CloudFront.Types.CachePolicyHeaderBehavior
 import Amazonka.CloudFront.Types.Headers
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that determines whether any HTTP headers (and if so, which
@@ -103,11 +104,11 @@ cachePolicyHeadersConfig_headers = Lens.lens (\CachePolicyHeadersConfig' {header
 cachePolicyHeadersConfig_headerBehavior :: Lens.Lens' CachePolicyHeadersConfig CachePolicyHeaderBehavior
 cachePolicyHeadersConfig_headerBehavior = Lens.lens (\CachePolicyHeadersConfig' {headerBehavior} -> headerBehavior) (\s@CachePolicyHeadersConfig' {} a -> s {headerBehavior = a} :: CachePolicyHeadersConfig)
 
-instance Core.FromXML CachePolicyHeadersConfig where
+instance Data.FromXML CachePolicyHeadersConfig where
   parseXML x =
     CachePolicyHeadersConfig'
-      Prelude.<$> (x Core..@? "Headers")
-      Prelude.<*> (x Core..@ "HeaderBehavior")
+      Prelude.<$> (x Data..@? "Headers")
+      Prelude.<*> (x Data..@ "HeaderBehavior")
 
 instance Prelude.Hashable CachePolicyHeadersConfig where
   hashWithSalt _salt CachePolicyHeadersConfig' {..} =
@@ -119,9 +120,9 @@ instance Prelude.NFData CachePolicyHeadersConfig where
     Prelude.rnf headers
       `Prelude.seq` Prelude.rnf headerBehavior
 
-instance Core.ToXML CachePolicyHeadersConfig where
+instance Data.ToXML CachePolicyHeadersConfig where
   toXML CachePolicyHeadersConfig' {..} =
     Prelude.mconcat
-      [ "Headers" Core.@= headers,
-        "HeaderBehavior" Core.@= headerBehavior
+      [ "Headers" Data.@= headers,
+        "HeaderBehavior" Data.@= headerBehavior
       ]

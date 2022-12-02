@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.Paths where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that contains information about the objects that you want
@@ -72,13 +73,13 @@ paths_items = Lens.lens (\Paths' {items} -> items) (\s@Paths' {} a -> s {items =
 paths_quantity :: Lens.Lens' Paths Prelude.Int
 paths_quantity = Lens.lens (\Paths' {quantity} -> quantity) (\s@Paths' {} a -> s {quantity = a} :: Paths)
 
-instance Core.FromXML Paths where
+instance Data.FromXML Paths where
   parseXML x =
     Paths'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Path")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Path")
                   )
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable Paths where
   hashWithSalt _salt Paths' {..} =
@@ -90,10 +91,10 @@ instance Prelude.NFData Paths where
     Prelude.rnf items
       `Prelude.seq` Prelude.rnf quantity
 
-instance Core.ToXML Paths where
+instance Data.ToXML Paths where
   toXML Paths' {..} =
     Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML (Core.toXMLList "Path" Prelude.<$> items),
-        "Quantity" Core.@= quantity
+          Data.@= Data.toXML (Data.toXMLList "Path" Prelude.<$> items),
+        "Quantity" Data.@= quantity
       ]

@@ -55,6 +55,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -147,7 +148,7 @@ instance Core.AWSRequest ListCachePolicies where
     Response.receiveXML
       ( \s h x ->
           ListCachePoliciesResponse'
-            Prelude.<$> (Core.parseXML x)
+            Prelude.<$> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,18 +164,18 @@ instance Prelude.NFData ListCachePolicies where
       `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
 
-instance Core.ToHeaders ListCachePolicies where
+instance Data.ToHeaders ListCachePolicies where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListCachePolicies where
+instance Data.ToPath ListCachePolicies where
   toPath = Prelude.const "/2020-05-31/cache-policy"
 
-instance Core.ToQuery ListCachePolicies where
+instance Data.ToQuery ListCachePolicies where
   toQuery ListCachePolicies' {..} =
     Prelude.mconcat
-      [ "Type" Core.=: type',
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems
+      [ "Type" Data.=: type',
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems
       ]
 
 -- | /See:/ 'newListCachePoliciesResponse' smart constructor.

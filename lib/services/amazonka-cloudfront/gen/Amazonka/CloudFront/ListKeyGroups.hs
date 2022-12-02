@@ -50,6 +50,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,7 +113,7 @@ instance Core.AWSRequest ListKeyGroups where
     Response.receiveXML
       ( \s h x ->
           ListKeyGroupsResponse'
-            Prelude.<$> (Core.parseXML x)
+            Prelude.<$> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,17 +127,17 @@ instance Prelude.NFData ListKeyGroups where
     Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
 
-instance Core.ToHeaders ListKeyGroups where
+instance Data.ToHeaders ListKeyGroups where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListKeyGroups where
+instance Data.ToPath ListKeyGroups where
   toPath = Prelude.const "/2020-05-31/key-group"
 
-instance Core.ToQuery ListKeyGroups where
+instance Data.ToQuery ListKeyGroups where
   toQuery ListKeyGroups' {..} =
     Prelude.mconcat
-      [ "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems
+      [ "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems
       ]
 
 -- | /See:/ 'newListKeyGroupsResponse' smart constructor.

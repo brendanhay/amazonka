@@ -24,6 +24,7 @@ import Amazonka.CloudFront.Types.OriginAccessControlSigningBehaviors
 import Amazonka.CloudFront.Types.OriginAccessControlSigningProtocols
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A CloudFront origin access control.
@@ -167,15 +168,15 @@ originAccessControlSummary_signingBehavior = Lens.lens (\OriginAccessControlSumm
 originAccessControlSummary_originAccessControlOriginType :: Lens.Lens' OriginAccessControlSummary OriginAccessControlOriginTypes
 originAccessControlSummary_originAccessControlOriginType = Lens.lens (\OriginAccessControlSummary' {originAccessControlOriginType} -> originAccessControlOriginType) (\s@OriginAccessControlSummary' {} a -> s {originAccessControlOriginType = a} :: OriginAccessControlSummary)
 
-instance Core.FromXML OriginAccessControlSummary where
+instance Data.FromXML OriginAccessControlSummary where
   parseXML x =
     OriginAccessControlSummary'
-      Prelude.<$> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "Description")
-      Prelude.<*> (x Core..@ "Name")
-      Prelude.<*> (x Core..@ "SigningProtocol")
-      Prelude.<*> (x Core..@ "SigningBehavior")
-      Prelude.<*> (x Core..@ "OriginAccessControlOriginType")
+      Prelude.<$> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "Description")
+      Prelude.<*> (x Data..@ "Name")
+      Prelude.<*> (x Data..@ "SigningProtocol")
+      Prelude.<*> (x Data..@ "SigningBehavior")
+      Prelude.<*> (x Data..@ "OriginAccessControlOriginType")
 
 instance Prelude.Hashable OriginAccessControlSummary where
   hashWithSalt _salt OriginAccessControlSummary' {..} =

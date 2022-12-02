@@ -67,6 +67,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,9 +112,9 @@ instance Core.AWSRequest CreateCachePolicy where
     Response.receiveXML
       ( \s h x ->
           CreateCachePolicyResponse'
-            Prelude.<$> (h Core..#? "Location")
-            Prelude.<*> (Core.parseXML x)
-            Prelude.<*> (h Core..#? "ETag")
+            Prelude.<$> (h Data..#? "Location")
+            Prelude.<*> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,19 +126,19 @@ instance Prelude.NFData CreateCachePolicy where
   rnf CreateCachePolicy' {..} =
     Prelude.rnf cachePolicyConfig
 
-instance Core.ToElement CreateCachePolicy where
+instance Data.ToElement CreateCachePolicy where
   toElement CreateCachePolicy' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}CachePolicyConfig"
       cachePolicyConfig
 
-instance Core.ToHeaders CreateCachePolicy where
+instance Data.ToHeaders CreateCachePolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateCachePolicy where
+instance Data.ToPath CreateCachePolicy where
   toPath = Prelude.const "/2020-05-31/cache-policy"
 
-instance Core.ToQuery CreateCachePolicy where
+instance Data.ToQuery CreateCachePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCachePolicyResponse' smart constructor.

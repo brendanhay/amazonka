@@ -58,6 +58,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,7 +150,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           ListDistributionsByRealtimeLogConfigResponse'
-            Prelude.<$> (Core.parseXML x)
+            Prelude.<$> (Data.parseXML x)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,21 +177,21 @@ instance
       `Prelude.seq` Prelude.rnf realtimeLogConfigArn
 
 instance
-  Core.ToElement
+  Data.ToElement
     ListDistributionsByRealtimeLogConfig
   where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}ListDistributionsByRealtimeLogConfigRequest"
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListDistributionsByRealtimeLogConfig
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListDistributionsByRealtimeLogConfig
   where
   toPath =
@@ -198,22 +199,22 @@ instance
       "/2020-05-31/distributionsByRealtimeLogConfig/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListDistributionsByRealtimeLogConfig
   where
   toQuery = Prelude.const Prelude.mempty
 
 instance
-  Core.ToXML
+  Data.ToXML
     ListDistributionsByRealtimeLogConfig
   where
   toXML ListDistributionsByRealtimeLogConfig' {..} =
     Prelude.mconcat
       [ "RealtimeLogConfigName"
-          Core.@= realtimeLogConfigName,
-        "Marker" Core.@= marker,
-        "MaxItems" Core.@= maxItems,
-        "RealtimeLogConfigArn" Core.@= realtimeLogConfigArn
+          Data.@= realtimeLogConfigName,
+        "Marker" Data.@= marker,
+        "MaxItems" Data.@= maxItems,
+        "RealtimeLogConfigArn" Data.@= realtimeLogConfigArn
       ]
 
 -- | /See:/ 'newListDistributionsByRealtimeLogConfigResponse' smart constructor.

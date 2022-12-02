@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.KeyGroupSummary where
 import Amazonka.CloudFront.Types.KeyGroup
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a key group.
@@ -53,9 +54,9 @@ newKeyGroupSummary pKeyGroup_ =
 keyGroupSummary_keyGroup :: Lens.Lens' KeyGroupSummary KeyGroup
 keyGroupSummary_keyGroup = Lens.lens (\KeyGroupSummary' {keyGroup} -> keyGroup) (\s@KeyGroupSummary' {} a -> s {keyGroup = a} :: KeyGroupSummary)
 
-instance Core.FromXML KeyGroupSummary where
+instance Data.FromXML KeyGroupSummary where
   parseXML x =
-    KeyGroupSummary' Prelude.<$> (x Core..@ "KeyGroup")
+    KeyGroupSummary' Prelude.<$> (x Data..@ "KeyGroup")
 
 instance Prelude.Hashable KeyGroupSummary where
   hashWithSalt _salt KeyGroupSummary' {..} =

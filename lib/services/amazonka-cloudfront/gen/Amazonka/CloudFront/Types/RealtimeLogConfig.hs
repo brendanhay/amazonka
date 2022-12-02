@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.RealtimeLogConfig where
 import Amazonka.CloudFront.Types.EndPoint
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A real-time log configuration.
@@ -125,17 +126,17 @@ realtimeLogConfig_endPoints = Lens.lens (\RealtimeLogConfig' {endPoints} -> endP
 realtimeLogConfig_fields :: Lens.Lens' RealtimeLogConfig [Prelude.Text]
 realtimeLogConfig_fields = Lens.lens (\RealtimeLogConfig' {fields} -> fields) (\s@RealtimeLogConfig' {} a -> s {fields = a} :: RealtimeLogConfig) Prelude.. Lens.coerced
 
-instance Core.FromXML RealtimeLogConfig where
+instance Data.FromXML RealtimeLogConfig where
   parseXML x =
     RealtimeLogConfig'
-      Prelude.<$> (x Core..@ "ARN")
-      Prelude.<*> (x Core..@ "Name")
-      Prelude.<*> (x Core..@ "SamplingRate")
-      Prelude.<*> ( x Core..@? "EndPoints" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.parseXMLList "member"
+      Prelude.<$> (x Data..@ "ARN")
+      Prelude.<*> (x Data..@ "Name")
+      Prelude.<*> (x Data..@ "SamplingRate")
+      Prelude.<*> ( x Data..@? "EndPoints" Core..!@ Prelude.mempty
+                      Prelude.>>= Data.parseXMLList "member"
                   )
-      Prelude.<*> ( x Core..@? "Fields" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.parseXMLList "Field"
+      Prelude.<*> ( x Data..@? "Fields" Core..!@ Prelude.mempty
+                      Prelude.>>= Data.parseXMLList "Field"
                   )
 
 instance Prelude.Hashable RealtimeLogConfig where

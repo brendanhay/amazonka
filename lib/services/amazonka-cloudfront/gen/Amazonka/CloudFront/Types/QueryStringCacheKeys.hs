@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.QueryStringCacheKeys where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This field is deprecated. We recommend that you use a cache policy or an
@@ -84,13 +85,13 @@ queryStringCacheKeys_items = Lens.lens (\QueryStringCacheKeys' {items} -> items)
 queryStringCacheKeys_quantity :: Lens.Lens' QueryStringCacheKeys Prelude.Int
 queryStringCacheKeys_quantity = Lens.lens (\QueryStringCacheKeys' {quantity} -> quantity) (\s@QueryStringCacheKeys' {} a -> s {quantity = a} :: QueryStringCacheKeys)
 
-instance Core.FromXML QueryStringCacheKeys where
+instance Data.FromXML QueryStringCacheKeys where
   parseXML x =
     QueryStringCacheKeys'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Name")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Name")
                   )
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable QueryStringCacheKeys where
   hashWithSalt _salt QueryStringCacheKeys' {..} =
@@ -102,10 +103,10 @@ instance Prelude.NFData QueryStringCacheKeys where
     Prelude.rnf items
       `Prelude.seq` Prelude.rnf quantity
 
-instance Core.ToXML QueryStringCacheKeys where
+instance Data.ToXML QueryStringCacheKeys where
   toXML QueryStringCacheKeys' {..} =
     Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML (Core.toXMLList "Name" Prelude.<$> items),
-        "Quantity" Core.@= quantity
+          Data.@= Data.toXML (Data.toXMLList "Name" Prelude.<$> items),
+        "Quantity" Data.@= quantity
       ]

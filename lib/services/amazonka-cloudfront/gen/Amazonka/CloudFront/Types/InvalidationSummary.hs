@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.InvalidationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of an invalidation request.
@@ -30,7 +31,7 @@ data InvalidationSummary = InvalidationSummary'
   { -- | The unique ID for an invalidation request.
     id :: Prelude.Text,
     -- | The time that an invalidation request was created.
-    createTime :: Core.ISO8601,
+    createTime :: Data.ISO8601,
     -- | The status of an invalidation request.
     status :: Prelude.Text
   }
@@ -60,7 +61,7 @@ newInvalidationSummary ::
 newInvalidationSummary pId_ pCreateTime_ pStatus_ =
   InvalidationSummary'
     { id = pId_,
-      createTime = Core._Time Lens.# pCreateTime_,
+      createTime = Data._Time Lens.# pCreateTime_,
       status = pStatus_
     }
 
@@ -70,18 +71,18 @@ invalidationSummary_id = Lens.lens (\InvalidationSummary' {id} -> id) (\s@Invali
 
 -- | The time that an invalidation request was created.
 invalidationSummary_createTime :: Lens.Lens' InvalidationSummary Prelude.UTCTime
-invalidationSummary_createTime = Lens.lens (\InvalidationSummary' {createTime} -> createTime) (\s@InvalidationSummary' {} a -> s {createTime = a} :: InvalidationSummary) Prelude.. Core._Time
+invalidationSummary_createTime = Lens.lens (\InvalidationSummary' {createTime} -> createTime) (\s@InvalidationSummary' {} a -> s {createTime = a} :: InvalidationSummary) Prelude.. Data._Time
 
 -- | The status of an invalidation request.
 invalidationSummary_status :: Lens.Lens' InvalidationSummary Prelude.Text
 invalidationSummary_status = Lens.lens (\InvalidationSummary' {status} -> status) (\s@InvalidationSummary' {} a -> s {status = a} :: InvalidationSummary)
 
-instance Core.FromXML InvalidationSummary where
+instance Data.FromXML InvalidationSummary where
   parseXML x =
     InvalidationSummary'
-      Prelude.<$> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "CreateTime")
-      Prelude.<*> (x Core..@ "Status")
+      Prelude.<$> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "CreateTime")
+      Prelude.<*> (x Data..@ "Status")
 
 instance Prelude.Hashable InvalidationSummary where
   hashWithSalt _salt InvalidationSummary' {..} =

@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.ContinuousDeploymentPolicyList where
 import Amazonka.CloudFront.Types.ContinuousDeploymentPolicySummary
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a list of continuous deployment policies.
@@ -99,18 +100,18 @@ continuousDeploymentPolicyList_maxItems = Lens.lens (\ContinuousDeploymentPolicy
 continuousDeploymentPolicyList_quantity :: Lens.Lens' ContinuousDeploymentPolicyList Prelude.Int
 continuousDeploymentPolicyList_quantity = Lens.lens (\ContinuousDeploymentPolicyList' {quantity} -> quantity) (\s@ContinuousDeploymentPolicyList' {} a -> s {quantity = a} :: ContinuousDeploymentPolicyList)
 
-instance Core.FromXML ContinuousDeploymentPolicyList where
+instance Data.FromXML ContinuousDeploymentPolicyList where
   parseXML x =
     ContinuousDeploymentPolicyList'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        ( Core.parseXMLList
+                        ( Data.parseXMLList
                             "ContinuousDeploymentPolicySummary"
                         )
                   )
-      Prelude.<*> (x Core..@? "NextMarker")
-      Prelude.<*> (x Core..@ "MaxItems")
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@? "NextMarker")
+      Prelude.<*> (x Data..@ "MaxItems")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance
   Prelude.Hashable

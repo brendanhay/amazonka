@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.ResponseHeadersPolicyXSSProtection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Determines whether CloudFront includes the @X-XSS-Protection@ HTTP
@@ -156,15 +157,15 @@ responseHeadersPolicyXSSProtection_protection :: Lens.Lens' ResponseHeadersPolic
 responseHeadersPolicyXSSProtection_protection = Lens.lens (\ResponseHeadersPolicyXSSProtection' {protection} -> protection) (\s@ResponseHeadersPolicyXSSProtection' {} a -> s {protection = a} :: ResponseHeadersPolicyXSSProtection)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ResponseHeadersPolicyXSSProtection
   where
   parseXML x =
     ResponseHeadersPolicyXSSProtection'
-      Prelude.<$> (x Core..@? "ModeBlock")
-      Prelude.<*> (x Core..@? "ReportUri")
-      Prelude.<*> (x Core..@ "Override")
-      Prelude.<*> (x Core..@ "Protection")
+      Prelude.<$> (x Data..@? "ModeBlock")
+      Prelude.<*> (x Data..@? "ReportUri")
+      Prelude.<*> (x Data..@ "Override")
+      Prelude.<*> (x Data..@ "Protection")
 
 instance
   Prelude.Hashable
@@ -189,13 +190,13 @@ instance
       `Prelude.seq` Prelude.rnf protection
 
 instance
-  Core.ToXML
+  Data.ToXML
     ResponseHeadersPolicyXSSProtection
   where
   toXML ResponseHeadersPolicyXSSProtection' {..} =
     Prelude.mconcat
-      [ "ModeBlock" Core.@= modeBlock,
-        "ReportUri" Core.@= reportUri,
-        "Override" Core.@= override,
-        "Protection" Core.@= protection
+      [ "ModeBlock" Data.@= modeBlock,
+        "ReportUri" Data.@= reportUri,
+        "Override" Data.@= override,
+        "Protection" Data.@= protection
       ]

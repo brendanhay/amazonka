@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.GeoRestriction where
 import Amazonka.CloudFront.Types.GeoRestrictionType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that controls the countries in which your content is
@@ -149,14 +150,14 @@ geoRestriction_restrictionType = Lens.lens (\GeoRestriction' {restrictionType} -
 geoRestriction_quantity :: Lens.Lens' GeoRestriction Prelude.Int
 geoRestriction_quantity = Lens.lens (\GeoRestriction' {quantity} -> quantity) (\s@GeoRestriction' {} a -> s {quantity = a} :: GeoRestriction)
 
-instance Core.FromXML GeoRestriction where
+instance Data.FromXML GeoRestriction where
   parseXML x =
     GeoRestriction'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Location")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Location")
                   )
-      Prelude.<*> (x Core..@ "RestrictionType")
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@ "RestrictionType")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable GeoRestriction where
   hashWithSalt _salt GeoRestriction' {..} =
@@ -170,12 +171,12 @@ instance Prelude.NFData GeoRestriction where
       `Prelude.seq` Prelude.rnf restrictionType
       `Prelude.seq` Prelude.rnf quantity
 
-instance Core.ToXML GeoRestriction where
+instance Data.ToXML GeoRestriction where
   toXML GeoRestriction' {..} =
     Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML
-            (Core.toXMLList "Location" Prelude.<$> items),
-        "RestrictionType" Core.@= restrictionType,
-        "Quantity" Core.@= quantity
+          Data.@= Data.toXML
+            (Data.toXMLList "Location" Prelude.<$> items),
+        "RestrictionType" Data.@= restrictionType,
+        "Quantity" Data.@= quantity
       ]

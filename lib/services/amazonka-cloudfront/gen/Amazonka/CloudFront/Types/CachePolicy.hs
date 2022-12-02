@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.CachePolicy where
 import Amazonka.CloudFront.Types.CachePolicyConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A cache policy.
@@ -49,7 +50,7 @@ data CachePolicy = CachePolicy'
   { -- | The unique identifier for the cache policy.
     id :: Prelude.Text,
     -- | The date and time when the cache policy was last modified.
-    lastModifiedTime :: Core.ISO8601,
+    lastModifiedTime :: Data.ISO8601,
     -- | The cache policy configuration.
     cachePolicyConfig :: CachePolicyConfig
   }
@@ -83,7 +84,7 @@ newCachePolicy
     CachePolicy'
       { id = pId_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_,
+          Data._Time Lens.# pLastModifiedTime_,
         cachePolicyConfig = pCachePolicyConfig_
       }
 
@@ -93,18 +94,18 @@ cachePolicy_id = Lens.lens (\CachePolicy' {id} -> id) (\s@CachePolicy' {} a -> s
 
 -- | The date and time when the cache policy was last modified.
 cachePolicy_lastModifiedTime :: Lens.Lens' CachePolicy Prelude.UTCTime
-cachePolicy_lastModifiedTime = Lens.lens (\CachePolicy' {lastModifiedTime} -> lastModifiedTime) (\s@CachePolicy' {} a -> s {lastModifiedTime = a} :: CachePolicy) Prelude.. Core._Time
+cachePolicy_lastModifiedTime = Lens.lens (\CachePolicy' {lastModifiedTime} -> lastModifiedTime) (\s@CachePolicy' {} a -> s {lastModifiedTime = a} :: CachePolicy) Prelude.. Data._Time
 
 -- | The cache policy configuration.
 cachePolicy_cachePolicyConfig :: Lens.Lens' CachePolicy CachePolicyConfig
 cachePolicy_cachePolicyConfig = Lens.lens (\CachePolicy' {cachePolicyConfig} -> cachePolicyConfig) (\s@CachePolicy' {} a -> s {cachePolicyConfig = a} :: CachePolicy)
 
-instance Core.FromXML CachePolicy where
+instance Data.FromXML CachePolicy where
   parseXML x =
     CachePolicy'
-      Prelude.<$> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "LastModifiedTime")
-      Prelude.<*> (x Core..@ "CachePolicyConfig")
+      Prelude.<$> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "LastModifiedTime")
+      Prelude.<*> (x Data..@ "CachePolicyConfig")
 
 instance Prelude.Hashable CachePolicy where
   hashWithSalt _salt CachePolicy' {..} =

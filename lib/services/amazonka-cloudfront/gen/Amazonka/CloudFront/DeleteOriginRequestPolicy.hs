@@ -47,6 +47,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,16 +125,16 @@ instance Prelude.NFData DeleteOriginRequestPolicy where
   rnf DeleteOriginRequestPolicy' {..} =
     Prelude.rnf ifMatch `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders DeleteOriginRequestPolicy where
+instance Data.ToHeaders DeleteOriginRequestPolicy where
   toHeaders DeleteOriginRequestPolicy' {..} =
-    Prelude.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Data.=# ifMatch]
 
-instance Core.ToPath DeleteOriginRequestPolicy where
+instance Data.ToPath DeleteOriginRequestPolicy where
   toPath DeleteOriginRequestPolicy' {..} =
     Prelude.mconcat
-      ["/2020-05-31/origin-request-policy/", Core.toBS id]
+      ["/2020-05-31/origin-request-policy/", Data.toBS id]
 
-instance Core.ToQuery DeleteOriginRequestPolicy where
+instance Data.ToQuery DeleteOriginRequestPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteOriginRequestPolicyResponse' smart constructor.

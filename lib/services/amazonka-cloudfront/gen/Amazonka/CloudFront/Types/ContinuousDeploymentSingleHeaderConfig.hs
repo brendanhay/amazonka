@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.ContinuousDeploymentSingleHeaderConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This configuration determines which HTTP requests are sent to the
@@ -75,12 +76,12 @@ continuousDeploymentSingleHeaderConfig_value :: Lens.Lens' ContinuousDeploymentS
 continuousDeploymentSingleHeaderConfig_value = Lens.lens (\ContinuousDeploymentSingleHeaderConfig' {value} -> value) (\s@ContinuousDeploymentSingleHeaderConfig' {} a -> s {value = a} :: ContinuousDeploymentSingleHeaderConfig)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ContinuousDeploymentSingleHeaderConfig
   where
   parseXML x =
     ContinuousDeploymentSingleHeaderConfig'
-      Prelude.<$> (x Core..@ "Header") Prelude.<*> (x Core..@ "Value")
+      Prelude.<$> (x Data..@ "Header") Prelude.<*> (x Data..@ "Value")
 
 instance
   Prelude.Hashable
@@ -100,9 +101,9 @@ instance
     Prelude.rnf header `Prelude.seq` Prelude.rnf value
 
 instance
-  Core.ToXML
+  Data.ToXML
     ContinuousDeploymentSingleHeaderConfig
   where
   toXML ContinuousDeploymentSingleHeaderConfig' {..} =
     Prelude.mconcat
-      ["Header" Core.@= header, "Value" Core.@= value]
+      ["Header" Data.@= header, "Value" Data.@= value]

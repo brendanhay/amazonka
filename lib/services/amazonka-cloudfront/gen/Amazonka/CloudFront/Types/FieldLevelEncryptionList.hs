@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.FieldLevelEncryptionList where
 import Amazonka.CloudFront.Types.FieldLevelEncryptionSummary
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | List of field-level encrpytion configurations.
@@ -90,16 +91,16 @@ fieldLevelEncryptionList_maxItems = Lens.lens (\FieldLevelEncryptionList' {maxIt
 fieldLevelEncryptionList_quantity :: Lens.Lens' FieldLevelEncryptionList Prelude.Int
 fieldLevelEncryptionList_quantity = Lens.lens (\FieldLevelEncryptionList' {quantity} -> quantity) (\s@FieldLevelEncryptionList' {} a -> s {quantity = a} :: FieldLevelEncryptionList)
 
-instance Core.FromXML FieldLevelEncryptionList where
+instance Data.FromXML FieldLevelEncryptionList where
   parseXML x =
     FieldLevelEncryptionList'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "FieldLevelEncryptionSummary")
+                        (Data.parseXMLList "FieldLevelEncryptionSummary")
                   )
-      Prelude.<*> (x Core..@? "NextMarker")
-      Prelude.<*> (x Core..@ "MaxItems")
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@? "NextMarker")
+      Prelude.<*> (x Data..@ "MaxItems")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable FieldLevelEncryptionList where
   hashWithSalt _salt FieldLevelEncryptionList' {..} =

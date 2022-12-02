@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.OriginRequestPolicy where
 import Amazonka.CloudFront.Types.OriginRequestPolicyConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An origin request policy.
@@ -51,7 +52,7 @@ data OriginRequestPolicy = OriginRequestPolicy'
   { -- | The unique identifier for the origin request policy.
     id :: Prelude.Text,
     -- | The date and time when the origin request policy was last modified.
-    lastModifiedTime :: Core.ISO8601,
+    lastModifiedTime :: Data.ISO8601,
     -- | The origin request policy configuration.
     originRequestPolicyConfig :: OriginRequestPolicyConfig
   }
@@ -85,7 +86,7 @@ newOriginRequestPolicy
     OriginRequestPolicy'
       { id = pId_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_,
+          Data._Time Lens.# pLastModifiedTime_,
         originRequestPolicyConfig =
           pOriginRequestPolicyConfig_
       }
@@ -96,18 +97,18 @@ originRequestPolicy_id = Lens.lens (\OriginRequestPolicy' {id} -> id) (\s@Origin
 
 -- | The date and time when the origin request policy was last modified.
 originRequestPolicy_lastModifiedTime :: Lens.Lens' OriginRequestPolicy Prelude.UTCTime
-originRequestPolicy_lastModifiedTime = Lens.lens (\OriginRequestPolicy' {lastModifiedTime} -> lastModifiedTime) (\s@OriginRequestPolicy' {} a -> s {lastModifiedTime = a} :: OriginRequestPolicy) Prelude.. Core._Time
+originRequestPolicy_lastModifiedTime = Lens.lens (\OriginRequestPolicy' {lastModifiedTime} -> lastModifiedTime) (\s@OriginRequestPolicy' {} a -> s {lastModifiedTime = a} :: OriginRequestPolicy) Prelude.. Data._Time
 
 -- | The origin request policy configuration.
 originRequestPolicy_originRequestPolicyConfig :: Lens.Lens' OriginRequestPolicy OriginRequestPolicyConfig
 originRequestPolicy_originRequestPolicyConfig = Lens.lens (\OriginRequestPolicy' {originRequestPolicyConfig} -> originRequestPolicyConfig) (\s@OriginRequestPolicy' {} a -> s {originRequestPolicyConfig = a} :: OriginRequestPolicy)
 
-instance Core.FromXML OriginRequestPolicy where
+instance Data.FromXML OriginRequestPolicy where
   parseXML x =
     OriginRequestPolicy'
-      Prelude.<$> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "LastModifiedTime")
-      Prelude.<*> (x Core..@ "OriginRequestPolicyConfig")
+      Prelude.<$> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "LastModifiedTime")
+      Prelude.<*> (x Data..@ "OriginRequestPolicyConfig")
 
 instance Prelude.Hashable OriginRequestPolicy where
   hashWithSalt _salt OriginRequestPolicy' {..} =

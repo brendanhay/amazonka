@@ -48,6 +48,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,18 +129,18 @@ instance Prelude.NFData DeleteResponseHeadersPolicy where
   rnf DeleteResponseHeadersPolicy' {..} =
     Prelude.rnf ifMatch `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders DeleteResponseHeadersPolicy where
+instance Data.ToHeaders DeleteResponseHeadersPolicy where
   toHeaders DeleteResponseHeadersPolicy' {..} =
-    Prelude.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Data.=# ifMatch]
 
-instance Core.ToPath DeleteResponseHeadersPolicy where
+instance Data.ToPath DeleteResponseHeadersPolicy where
   toPath DeleteResponseHeadersPolicy' {..} =
     Prelude.mconcat
       [ "/2020-05-31/response-headers-policy/",
-        Core.toBS id
+        Data.toBS id
       ]
 
-instance Core.ToQuery DeleteResponseHeadersPolicy where
+instance Data.ToQuery DeleteResponseHeadersPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteResponseHeadersPolicyResponse' smart constructor.

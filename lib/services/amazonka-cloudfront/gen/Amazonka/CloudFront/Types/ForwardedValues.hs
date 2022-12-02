@@ -24,6 +24,7 @@ import Amazonka.CloudFront.Types.Headers
 import Amazonka.CloudFront.Types.QueryStringCacheKeys
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This field is deprecated. We recommend that you use a cache policy or an
@@ -370,13 +371,13 @@ forwardedValues_queryString = Lens.lens (\ForwardedValues' {queryString} -> quer
 forwardedValues_cookies :: Lens.Lens' ForwardedValues CookiePreference
 forwardedValues_cookies = Lens.lens (\ForwardedValues' {cookies} -> cookies) (\s@ForwardedValues' {} a -> s {cookies = a} :: ForwardedValues)
 
-instance Core.FromXML ForwardedValues where
+instance Data.FromXML ForwardedValues where
   parseXML x =
     ForwardedValues'
-      Prelude.<$> (x Core..@? "Headers")
-      Prelude.<*> (x Core..@? "QueryStringCacheKeys")
-      Prelude.<*> (x Core..@ "QueryString")
-      Prelude.<*> (x Core..@ "Cookies")
+      Prelude.<$> (x Data..@? "Headers")
+      Prelude.<*> (x Data..@? "QueryStringCacheKeys")
+      Prelude.<*> (x Data..@ "QueryString")
+      Prelude.<*> (x Data..@ "Cookies")
 
 instance Prelude.Hashable ForwardedValues where
   hashWithSalt _salt ForwardedValues' {..} =
@@ -392,11 +393,11 @@ instance Prelude.NFData ForwardedValues where
       `Prelude.seq` Prelude.rnf queryString
       `Prelude.seq` Prelude.rnf cookies
 
-instance Core.ToXML ForwardedValues where
+instance Data.ToXML ForwardedValues where
   toXML ForwardedValues' {..} =
     Prelude.mconcat
-      [ "Headers" Core.@= headers,
-        "QueryStringCacheKeys" Core.@= queryStringCacheKeys,
-        "QueryString" Core.@= queryString,
-        "Cookies" Core.@= cookies
+      [ "Headers" Data.@= headers,
+        "QueryStringCacheKeys" Data.@= queryStringCacheKeys,
+        "QueryString" Data.@= queryString,
+        "Cookies" Data.@= cookies
       ]

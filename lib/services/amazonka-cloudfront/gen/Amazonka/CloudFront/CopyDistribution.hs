@@ -55,6 +55,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -150,9 +151,9 @@ instance Core.AWSRequest CopyDistribution where
     Response.receiveXML
       ( \s h x ->
           CopyDistributionResponse'
-            Prelude.<$> (h Core..#? "Location")
-            Prelude.<*> (Core.parseXML x)
-            Prelude.<*> (h Core..#? "ETag")
+            Prelude.<$> (h Data..#? "Location")
+            Prelude.<*> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,33 +171,33 @@ instance Prelude.NFData CopyDistribution where
       `Prelude.seq` Prelude.rnf primaryDistributionId
       `Prelude.seq` Prelude.rnf callerReference
 
-instance Core.ToElement CopyDistribution where
+instance Data.ToElement CopyDistribution where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}CopyDistributionRequest"
 
-instance Core.ToHeaders CopyDistribution where
+instance Data.ToHeaders CopyDistribution where
   toHeaders CopyDistribution' {..} =
     Prelude.mconcat
-      [ "Staging" Core.=# staging,
-        "If-Match" Core.=# ifMatch
+      [ "Staging" Data.=# staging,
+        "If-Match" Data.=# ifMatch
       ]
 
-instance Core.ToPath CopyDistribution where
+instance Data.ToPath CopyDistribution where
   toPath CopyDistribution' {..} =
     Prelude.mconcat
       [ "/2020-05-31/distribution/",
-        Core.toBS primaryDistributionId,
+        Data.toBS primaryDistributionId,
         "/copy"
       ]
 
-instance Core.ToQuery CopyDistribution where
+instance Data.ToQuery CopyDistribution where
   toQuery = Prelude.const Prelude.mempty
 
-instance Core.ToXML CopyDistribution where
+instance Data.ToXML CopyDistribution where
   toXML CopyDistribution' {..} =
     Prelude.mconcat
-      ["CallerReference" Core.@= callerReference]
+      ["CallerReference" Data.@= callerReference]
 
 -- | /See:/ 'newCopyDistributionResponse' smart constructor.
 data CopyDistributionResponse = CopyDistributionResponse'

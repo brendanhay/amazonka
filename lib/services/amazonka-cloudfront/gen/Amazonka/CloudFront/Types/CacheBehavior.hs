@@ -28,6 +28,7 @@ import Amazonka.CloudFront.Types.TrustedSigners
 import Amazonka.CloudFront.Types.ViewerProtocolPolicy
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that describes how CloudFront processes requests.
@@ -741,28 +742,28 @@ cacheBehavior_targetOriginId = Lens.lens (\CacheBehavior' {targetOriginId} -> ta
 cacheBehavior_viewerProtocolPolicy :: Lens.Lens' CacheBehavior ViewerProtocolPolicy
 cacheBehavior_viewerProtocolPolicy = Lens.lens (\CacheBehavior' {viewerProtocolPolicy} -> viewerProtocolPolicy) (\s@CacheBehavior' {} a -> s {viewerProtocolPolicy = a} :: CacheBehavior)
 
-instance Core.FromXML CacheBehavior where
+instance Data.FromXML CacheBehavior where
   parseXML x =
     CacheBehavior'
-      Prelude.<$> (x Core..@? "TrustedKeyGroups")
-      Prelude.<*> (x Core..@? "AllowedMethods")
-      Prelude.<*> (x Core..@? "DefaultTTL")
-      Prelude.<*> (x Core..@? "CachePolicyId")
-      Prelude.<*> (x Core..@? "FieldLevelEncryptionId")
-      Prelude.<*> (x Core..@? "LambdaFunctionAssociations")
-      Prelude.<*> (x Core..@? "OriginRequestPolicyId")
-      Prelude.<*> (x Core..@? "FunctionAssociations")
-      Prelude.<*> (x Core..@? "ForwardedValues")
-      Prelude.<*> (x Core..@? "ResponseHeadersPolicyId")
-      Prelude.<*> (x Core..@? "MinTTL")
-      Prelude.<*> (x Core..@? "RealtimeLogConfigArn")
-      Prelude.<*> (x Core..@? "Compress")
-      Prelude.<*> (x Core..@? "MaxTTL")
-      Prelude.<*> (x Core..@? "SmoothStreaming")
-      Prelude.<*> (x Core..@? "TrustedSigners")
-      Prelude.<*> (x Core..@ "PathPattern")
-      Prelude.<*> (x Core..@ "TargetOriginId")
-      Prelude.<*> (x Core..@ "ViewerProtocolPolicy")
+      Prelude.<$> (x Data..@? "TrustedKeyGroups")
+      Prelude.<*> (x Data..@? "AllowedMethods")
+      Prelude.<*> (x Data..@? "DefaultTTL")
+      Prelude.<*> (x Data..@? "CachePolicyId")
+      Prelude.<*> (x Data..@? "FieldLevelEncryptionId")
+      Prelude.<*> (x Data..@? "LambdaFunctionAssociations")
+      Prelude.<*> (x Data..@? "OriginRequestPolicyId")
+      Prelude.<*> (x Data..@? "FunctionAssociations")
+      Prelude.<*> (x Data..@? "ForwardedValues")
+      Prelude.<*> (x Data..@? "ResponseHeadersPolicyId")
+      Prelude.<*> (x Data..@? "MinTTL")
+      Prelude.<*> (x Data..@? "RealtimeLogConfigArn")
+      Prelude.<*> (x Data..@? "Compress")
+      Prelude.<*> (x Data..@? "MaxTTL")
+      Prelude.<*> (x Data..@? "SmoothStreaming")
+      Prelude.<*> (x Data..@? "TrustedSigners")
+      Prelude.<*> (x Data..@ "PathPattern")
+      Prelude.<*> (x Data..@ "TargetOriginId")
+      Prelude.<*> (x Data..@ "ViewerProtocolPolicy")
 
 instance Prelude.Hashable CacheBehavior where
   hashWithSalt _salt CacheBehavior' {..} =
@@ -808,30 +809,30 @@ instance Prelude.NFData CacheBehavior where
       `Prelude.seq` Prelude.rnf targetOriginId
       `Prelude.seq` Prelude.rnf viewerProtocolPolicy
 
-instance Core.ToXML CacheBehavior where
+instance Data.ToXML CacheBehavior where
   toXML CacheBehavior' {..} =
     Prelude.mconcat
-      [ "TrustedKeyGroups" Core.@= trustedKeyGroups,
-        "AllowedMethods" Core.@= allowedMethods,
-        "DefaultTTL" Core.@= defaultTTL,
-        "CachePolicyId" Core.@= cachePolicyId,
+      [ "TrustedKeyGroups" Data.@= trustedKeyGroups,
+        "AllowedMethods" Data.@= allowedMethods,
+        "DefaultTTL" Data.@= defaultTTL,
+        "CachePolicyId" Data.@= cachePolicyId,
         "FieldLevelEncryptionId"
-          Core.@= fieldLevelEncryptionId,
+          Data.@= fieldLevelEncryptionId,
         "LambdaFunctionAssociations"
-          Core.@= lambdaFunctionAssociations,
+          Data.@= lambdaFunctionAssociations,
         "OriginRequestPolicyId"
-          Core.@= originRequestPolicyId,
-        "FunctionAssociations" Core.@= functionAssociations,
-        "ForwardedValues" Core.@= forwardedValues,
+          Data.@= originRequestPolicyId,
+        "FunctionAssociations" Data.@= functionAssociations,
+        "ForwardedValues" Data.@= forwardedValues,
         "ResponseHeadersPolicyId"
-          Core.@= responseHeadersPolicyId,
-        "MinTTL" Core.@= minTTL,
-        "RealtimeLogConfigArn" Core.@= realtimeLogConfigArn,
-        "Compress" Core.@= compress,
-        "MaxTTL" Core.@= maxTTL,
-        "SmoothStreaming" Core.@= smoothStreaming,
-        "TrustedSigners" Core.@= trustedSigners,
-        "PathPattern" Core.@= pathPattern,
-        "TargetOriginId" Core.@= targetOriginId,
-        "ViewerProtocolPolicy" Core.@= viewerProtocolPolicy
+          Data.@= responseHeadersPolicyId,
+        "MinTTL" Data.@= minTTL,
+        "RealtimeLogConfigArn" Data.@= realtimeLogConfigArn,
+        "Compress" Data.@= compress,
+        "MaxTTL" Data.@= maxTTL,
+        "SmoothStreaming" Data.@= smoothStreaming,
+        "TrustedSigners" Data.@= trustedSigners,
+        "PathPattern" Data.@= pathPattern,
+        "TargetOriginId" Data.@= targetOriginId,
+        "ViewerProtocolPolicy" Data.@= viewerProtocolPolicy
       ]

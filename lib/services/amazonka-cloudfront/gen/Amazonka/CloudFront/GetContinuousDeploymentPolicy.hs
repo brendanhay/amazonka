@@ -44,6 +44,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,8 +89,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetContinuousDeploymentPolicyResponse'
-            Prelude.<$> (Core.parseXML x)
-            Prelude.<*> (h Core..#? "ETag")
+            Prelude.<$> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,17 +105,17 @@ instance Prelude.NFData GetContinuousDeploymentPolicy where
   rnf GetContinuousDeploymentPolicy' {..} =
     Prelude.rnf id
 
-instance Core.ToHeaders GetContinuousDeploymentPolicy where
+instance Data.ToHeaders GetContinuousDeploymentPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetContinuousDeploymentPolicy where
+instance Data.ToPath GetContinuousDeploymentPolicy where
   toPath GetContinuousDeploymentPolicy' {..} =
     Prelude.mconcat
       [ "/2020-05-31/continuous-deployment-policy/",
-        Core.toBS id
+        Data.toBS id
       ]
 
-instance Core.ToQuery GetContinuousDeploymentPolicy where
+instance Data.ToQuery GetContinuousDeploymentPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetContinuousDeploymentPolicyResponse' smart constructor.

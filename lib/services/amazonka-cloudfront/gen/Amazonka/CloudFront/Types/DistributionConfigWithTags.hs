@@ -23,6 +23,7 @@ import Amazonka.CloudFront.Types.DistributionConfig
 import Amazonka.CloudFront.Types.Tags
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A distribution Configuration and a list of tags to be associated with
@@ -81,9 +82,9 @@ instance Prelude.NFData DistributionConfigWithTags where
     Prelude.rnf distributionConfig
       `Prelude.seq` Prelude.rnf tags
 
-instance Core.ToXML DistributionConfigWithTags where
+instance Data.ToXML DistributionConfigWithTags where
   toXML DistributionConfigWithTags' {..} =
     Prelude.mconcat
-      [ "DistributionConfig" Core.@= distributionConfig,
-        "Tags" Core.@= tags
+      [ "DistributionConfig" Data.@= distributionConfig,
+        "Tags" Data.@= tags
       ]

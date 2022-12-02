@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.QueryArgProfiles where
 import Amazonka.CloudFront.Types.QueryArgProfile
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Query argument-profile mapping for field-level encryption.
@@ -70,13 +71,13 @@ queryArgProfiles_items = Lens.lens (\QueryArgProfiles' {items} -> items) (\s@Que
 queryArgProfiles_quantity :: Lens.Lens' QueryArgProfiles Prelude.Int
 queryArgProfiles_quantity = Lens.lens (\QueryArgProfiles' {quantity} -> quantity) (\s@QueryArgProfiles' {} a -> s {quantity = a} :: QueryArgProfiles)
 
-instance Core.FromXML QueryArgProfiles where
+instance Data.FromXML QueryArgProfiles where
   parseXML x =
     QueryArgProfiles'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "QueryArgProfile")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "QueryArgProfile")
                   )
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable QueryArgProfiles where
   hashWithSalt _salt QueryArgProfiles' {..} =
@@ -88,11 +89,11 @@ instance Prelude.NFData QueryArgProfiles where
     Prelude.rnf items
       `Prelude.seq` Prelude.rnf quantity
 
-instance Core.ToXML QueryArgProfiles where
+instance Data.ToXML QueryArgProfiles where
   toXML QueryArgProfiles' {..} =
     Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML
-            (Core.toXMLList "QueryArgProfile" Prelude.<$> items),
-        "Quantity" Core.@= quantity
+          Data.@= Data.toXML
+            (Data.toXMLList "QueryArgProfile" Prelude.<$> items),
+        "Quantity" Data.@= quantity
       ]

@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.ContentTypeProfileConfig where
 import Amazonka.CloudFront.Types.ContentTypeProfiles
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for a field-level encryption content type-profile
@@ -80,11 +81,11 @@ contentTypeProfileConfig_contentTypeProfiles = Lens.lens (\ContentTypeProfileCon
 contentTypeProfileConfig_forwardWhenContentTypeIsUnknown :: Lens.Lens' ContentTypeProfileConfig Prelude.Bool
 contentTypeProfileConfig_forwardWhenContentTypeIsUnknown = Lens.lens (\ContentTypeProfileConfig' {forwardWhenContentTypeIsUnknown} -> forwardWhenContentTypeIsUnknown) (\s@ContentTypeProfileConfig' {} a -> s {forwardWhenContentTypeIsUnknown = a} :: ContentTypeProfileConfig)
 
-instance Core.FromXML ContentTypeProfileConfig where
+instance Data.FromXML ContentTypeProfileConfig where
   parseXML x =
     ContentTypeProfileConfig'
-      Prelude.<$> (x Core..@? "ContentTypeProfiles")
-      Prelude.<*> (x Core..@ "ForwardWhenContentTypeIsUnknown")
+      Prelude.<$> (x Data..@? "ContentTypeProfiles")
+      Prelude.<*> (x Data..@ "ForwardWhenContentTypeIsUnknown")
 
 instance Prelude.Hashable ContentTypeProfileConfig where
   hashWithSalt _salt ContentTypeProfileConfig' {..} =
@@ -96,10 +97,10 @@ instance Prelude.NFData ContentTypeProfileConfig where
     Prelude.rnf contentTypeProfiles
       `Prelude.seq` Prelude.rnf forwardWhenContentTypeIsUnknown
 
-instance Core.ToXML ContentTypeProfileConfig where
+instance Data.ToXML ContentTypeProfileConfig where
   toXML ContentTypeProfileConfig' {..} =
     Prelude.mconcat
-      [ "ContentTypeProfiles" Core.@= contentTypeProfiles,
+      [ "ContentTypeProfiles" Data.@= contentTypeProfiles,
         "ForwardWhenContentTypeIsUnknown"
-          Core.@= forwardWhenContentTypeIsUnknown
+          Data.@= forwardWhenContentTypeIsUnknown
       ]

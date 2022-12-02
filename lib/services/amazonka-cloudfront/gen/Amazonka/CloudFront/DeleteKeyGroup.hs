@@ -47,6 +47,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,16 +117,16 @@ instance Prelude.NFData DeleteKeyGroup where
   rnf DeleteKeyGroup' {..} =
     Prelude.rnf ifMatch `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders DeleteKeyGroup where
+instance Data.ToHeaders DeleteKeyGroup where
   toHeaders DeleteKeyGroup' {..} =
-    Prelude.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Data.=# ifMatch]
 
-instance Core.ToPath DeleteKeyGroup where
+instance Data.ToPath DeleteKeyGroup where
   toPath DeleteKeyGroup' {..} =
     Prelude.mconcat
-      ["/2020-05-31/key-group/", Core.toBS id]
+      ["/2020-05-31/key-group/", Data.toBS id]
 
-instance Core.ToQuery DeleteKeyGroup where
+instance Data.ToQuery DeleteKeyGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteKeyGroupResponse' smart constructor.

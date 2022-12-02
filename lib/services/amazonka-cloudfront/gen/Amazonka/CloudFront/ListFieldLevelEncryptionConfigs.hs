@@ -44,6 +44,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -113,7 +114,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           ListFieldLevelEncryptionConfigsResponse'
-            Prelude.<$> (Core.parseXML x)
+            Prelude.<$> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,20 +137,20 @@ instance
       `Prelude.seq` Prelude.rnf maxItems
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListFieldLevelEncryptionConfigs
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListFieldLevelEncryptionConfigs where
+instance Data.ToPath ListFieldLevelEncryptionConfigs where
   toPath =
     Prelude.const "/2020-05-31/field-level-encryption"
 
-instance Core.ToQuery ListFieldLevelEncryptionConfigs where
+instance Data.ToQuery ListFieldLevelEncryptionConfigs where
   toQuery ListFieldLevelEncryptionConfigs' {..} =
     Prelude.mconcat
-      [ "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems
+      [ "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems
       ]
 
 -- | /See:/ 'newListFieldLevelEncryptionConfigsResponse' smart constructor.

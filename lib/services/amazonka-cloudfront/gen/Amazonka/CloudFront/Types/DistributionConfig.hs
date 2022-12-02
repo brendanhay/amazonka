@@ -32,6 +32,7 @@ import Amazonka.CloudFront.Types.Restrictions
 import Amazonka.CloudFront.Types.ViewerCertificate
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A distribution configuration.
@@ -202,7 +203,7 @@ data DistributionConfig = DistributionConfig'
     defaultCacheBehavior :: DefaultCacheBehavior,
     -- | An optional comment to describe the distribution. The comment cannot be
     -- longer than 128 characters.
-    comment :: Core.Sensitive Prelude.Text,
+    comment :: Data.Sensitive Prelude.Text,
     -- | From this field, you can enable or disable the selected distribution.
     enabled :: Prelude.Bool
   }
@@ -417,7 +418,7 @@ newDistributionConfig
         callerReference = pCallerReference_,
         origins = pOrigins_,
         defaultCacheBehavior = pDefaultCacheBehavior_,
-        comment = Core._Sensitive Lens.# pComment_,
+        comment = Data._Sensitive Lens.# pComment_,
         enabled = pEnabled_
       }
 
@@ -616,32 +617,32 @@ distributionConfig_defaultCacheBehavior = Lens.lens (\DistributionConfig' {defau
 -- | An optional comment to describe the distribution. The comment cannot be
 -- longer than 128 characters.
 distributionConfig_comment :: Lens.Lens' DistributionConfig Prelude.Text
-distributionConfig_comment = Lens.lens (\DistributionConfig' {comment} -> comment) (\s@DistributionConfig' {} a -> s {comment = a} :: DistributionConfig) Prelude.. Core._Sensitive
+distributionConfig_comment = Lens.lens (\DistributionConfig' {comment} -> comment) (\s@DistributionConfig' {} a -> s {comment = a} :: DistributionConfig) Prelude.. Data._Sensitive
 
 -- | From this field, you can enable or disable the selected distribution.
 distributionConfig_enabled :: Lens.Lens' DistributionConfig Prelude.Bool
 distributionConfig_enabled = Lens.lens (\DistributionConfig' {enabled} -> enabled) (\s@DistributionConfig' {} a -> s {enabled = a} :: DistributionConfig)
 
-instance Core.FromXML DistributionConfig where
+instance Data.FromXML DistributionConfig where
   parseXML x =
     DistributionConfig'
-      Prelude.<$> (x Core..@? "IsIPV6Enabled")
-      Prelude.<*> (x Core..@? "HttpVersion")
-      Prelude.<*> (x Core..@? "CustomErrorResponses")
-      Prelude.<*> (x Core..@? "Aliases")
-      Prelude.<*> (x Core..@? "Restrictions")
-      Prelude.<*> (x Core..@? "DefaultRootObject")
-      Prelude.<*> (x Core..@? "ViewerCertificate")
-      Prelude.<*> (x Core..@? "Logging")
-      Prelude.<*> (x Core..@? "WebACLId")
-      Prelude.<*> (x Core..@? "OriginGroups")
-      Prelude.<*> (x Core..@? "PriceClass")
-      Prelude.<*> (x Core..@? "CacheBehaviors")
-      Prelude.<*> (x Core..@ "CallerReference")
-      Prelude.<*> (x Core..@ "Origins")
-      Prelude.<*> (x Core..@ "DefaultCacheBehavior")
-      Prelude.<*> (x Core..@ "Comment")
-      Prelude.<*> (x Core..@ "Enabled")
+      Prelude.<$> (x Data..@? "IsIPV6Enabled")
+      Prelude.<*> (x Data..@? "HttpVersion")
+      Prelude.<*> (x Data..@? "CustomErrorResponses")
+      Prelude.<*> (x Data..@? "Aliases")
+      Prelude.<*> (x Data..@? "Restrictions")
+      Prelude.<*> (x Data..@? "DefaultRootObject")
+      Prelude.<*> (x Data..@? "ViewerCertificate")
+      Prelude.<*> (x Data..@? "Logging")
+      Prelude.<*> (x Data..@? "WebACLId")
+      Prelude.<*> (x Data..@? "OriginGroups")
+      Prelude.<*> (x Data..@? "PriceClass")
+      Prelude.<*> (x Data..@? "CacheBehaviors")
+      Prelude.<*> (x Data..@ "CallerReference")
+      Prelude.<*> (x Data..@ "Origins")
+      Prelude.<*> (x Data..@ "DefaultCacheBehavior")
+      Prelude.<*> (x Data..@ "Comment")
+      Prelude.<*> (x Data..@ "Enabled")
 
 instance Prelude.Hashable DistributionConfig where
   hashWithSalt _salt DistributionConfig' {..} =
@@ -683,24 +684,24 @@ instance Prelude.NFData DistributionConfig where
       `Prelude.seq` Prelude.rnf comment
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToXML DistributionConfig where
+instance Data.ToXML DistributionConfig where
   toXML DistributionConfig' {..} =
     Prelude.mconcat
-      [ "IsIPV6Enabled" Core.@= isIPV6Enabled,
-        "HttpVersion" Core.@= httpVersion,
-        "CustomErrorResponses" Core.@= customErrorResponses,
-        "Aliases" Core.@= aliases,
-        "Restrictions" Core.@= restrictions,
-        "DefaultRootObject" Core.@= defaultRootObject,
-        "ViewerCertificate" Core.@= viewerCertificate,
-        "Logging" Core.@= logging,
-        "WebACLId" Core.@= webACLId,
-        "OriginGroups" Core.@= originGroups,
-        "PriceClass" Core.@= priceClass,
-        "CacheBehaviors" Core.@= cacheBehaviors,
-        "CallerReference" Core.@= callerReference,
-        "Origins" Core.@= origins,
-        "DefaultCacheBehavior" Core.@= defaultCacheBehavior,
-        "Comment" Core.@= comment,
-        "Enabled" Core.@= enabled
+      [ "IsIPV6Enabled" Data.@= isIPV6Enabled,
+        "HttpVersion" Data.@= httpVersion,
+        "CustomErrorResponses" Data.@= customErrorResponses,
+        "Aliases" Data.@= aliases,
+        "Restrictions" Data.@= restrictions,
+        "DefaultRootObject" Data.@= defaultRootObject,
+        "ViewerCertificate" Data.@= viewerCertificate,
+        "Logging" Data.@= logging,
+        "WebACLId" Data.@= webACLId,
+        "OriginGroups" Data.@= originGroups,
+        "PriceClass" Data.@= priceClass,
+        "CacheBehaviors" Data.@= cacheBehaviors,
+        "CallerReference" Data.@= callerReference,
+        "Origins" Data.@= origins,
+        "DefaultCacheBehavior" Data.@= defaultCacheBehavior,
+        "Comment" Data.@= comment,
+        "Enabled" Data.@= enabled
       ]

@@ -25,6 +25,7 @@ import Amazonka.CloudFront.Types.S3Origin
 import Amazonka.CloudFront.Types.TrustedSigners
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of the information for a CloudFront streaming distribution.
@@ -43,7 +44,7 @@ data StreamingDistributionSummary = StreamingDistributionSummary'
     -- throughout the Amazon CloudFront system.
     status :: Prelude.Text,
     -- | The date and time the distribution was last modified.
-    lastModifiedTime :: Core.ISO8601,
+    lastModifiedTime :: Data.ISO8601,
     -- | The domain name corresponding to the distribution, for example,
     -- @d111111abcdef8.cloudfront.net@.
     domainName :: Prelude.Text,
@@ -174,7 +175,7 @@ newStreamingDistributionSummary
         arn = pARN_,
         status = pStatus_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_,
+          Data._Time Lens.# pLastModifiedTime_,
         domainName = pDomainName_,
         s3Origin = pS3Origin_,
         aliases = pAliases_,
@@ -203,7 +204,7 @@ streamingDistributionSummary_status = Lens.lens (\StreamingDistributionSummary' 
 
 -- | The date and time the distribution was last modified.
 streamingDistributionSummary_lastModifiedTime :: Lens.Lens' StreamingDistributionSummary Prelude.UTCTime
-streamingDistributionSummary_lastModifiedTime = Lens.lens (\StreamingDistributionSummary' {lastModifiedTime} -> lastModifiedTime) (\s@StreamingDistributionSummary' {} a -> s {lastModifiedTime = a} :: StreamingDistributionSummary) Prelude.. Core._Time
+streamingDistributionSummary_lastModifiedTime = Lens.lens (\StreamingDistributionSummary' {lastModifiedTime} -> lastModifiedTime) (\s@StreamingDistributionSummary' {} a -> s {lastModifiedTime = a} :: StreamingDistributionSummary) Prelude.. Data._Time
 
 -- | The domain name corresponding to the distribution, for example,
 -- @d111111abcdef8.cloudfront.net@.
@@ -252,20 +253,20 @@ streamingDistributionSummary_priceClass = Lens.lens (\StreamingDistributionSumma
 streamingDistributionSummary_enabled :: Lens.Lens' StreamingDistributionSummary Prelude.Bool
 streamingDistributionSummary_enabled = Lens.lens (\StreamingDistributionSummary' {enabled} -> enabled) (\s@StreamingDistributionSummary' {} a -> s {enabled = a} :: StreamingDistributionSummary)
 
-instance Core.FromXML StreamingDistributionSummary where
+instance Data.FromXML StreamingDistributionSummary where
   parseXML x =
     StreamingDistributionSummary'
-      Prelude.<$> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "ARN")
-      Prelude.<*> (x Core..@ "Status")
-      Prelude.<*> (x Core..@ "LastModifiedTime")
-      Prelude.<*> (x Core..@ "DomainName")
-      Prelude.<*> (x Core..@ "S3Origin")
-      Prelude.<*> (x Core..@ "Aliases")
-      Prelude.<*> (x Core..@ "TrustedSigners")
-      Prelude.<*> (x Core..@ "Comment")
-      Prelude.<*> (x Core..@ "PriceClass")
-      Prelude.<*> (x Core..@ "Enabled")
+      Prelude.<$> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "ARN")
+      Prelude.<*> (x Data..@ "Status")
+      Prelude.<*> (x Data..@ "LastModifiedTime")
+      Prelude.<*> (x Data..@ "DomainName")
+      Prelude.<*> (x Data..@ "S3Origin")
+      Prelude.<*> (x Data..@ "Aliases")
+      Prelude.<*> (x Data..@ "TrustedSigners")
+      Prelude.<*> (x Data..@ "Comment")
+      Prelude.<*> (x Data..@ "PriceClass")
+      Prelude.<*> (x Data..@ "Enabled")
 
 instance
   Prelude.Hashable

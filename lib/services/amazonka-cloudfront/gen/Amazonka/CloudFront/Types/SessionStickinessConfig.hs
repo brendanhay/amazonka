@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.SessionStickinessConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Session stickiness provides the ability to define multiple requests from
@@ -90,11 +91,11 @@ sessionStickinessConfig_idleTTL = Lens.lens (\SessionStickinessConfig' {idleTTL}
 sessionStickinessConfig_maximumTTL :: Lens.Lens' SessionStickinessConfig Prelude.Int
 sessionStickinessConfig_maximumTTL = Lens.lens (\SessionStickinessConfig' {maximumTTL} -> maximumTTL) (\s@SessionStickinessConfig' {} a -> s {maximumTTL = a} :: SessionStickinessConfig)
 
-instance Core.FromXML SessionStickinessConfig where
+instance Data.FromXML SessionStickinessConfig where
   parseXML x =
     SessionStickinessConfig'
-      Prelude.<$> (x Core..@ "IdleTTL")
-      Prelude.<*> (x Core..@ "MaximumTTL")
+      Prelude.<$> (x Data..@ "IdleTTL")
+      Prelude.<*> (x Data..@ "MaximumTTL")
 
 instance Prelude.Hashable SessionStickinessConfig where
   hashWithSalt _salt SessionStickinessConfig' {..} =
@@ -106,9 +107,9 @@ instance Prelude.NFData SessionStickinessConfig where
     Prelude.rnf idleTTL
       `Prelude.seq` Prelude.rnf maximumTTL
 
-instance Core.ToXML SessionStickinessConfig where
+instance Data.ToXML SessionStickinessConfig where
   toXML SessionStickinessConfig' {..} =
     Prelude.mconcat
-      [ "IdleTTL" Core.@= idleTTL,
-        "MaximumTTL" Core.@= maximumTTL
+      [ "IdleTTL" Data.@= idleTTL,
+        "MaximumTTL" Data.@= maximumTTL
       ]

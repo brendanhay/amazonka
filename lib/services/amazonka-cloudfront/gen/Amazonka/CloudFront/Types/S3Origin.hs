@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.S3Origin where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that contains information about the Amazon S3 bucket from
@@ -120,11 +121,11 @@ s3Origin_domainName = Lens.lens (\S3Origin' {domainName} -> domainName) (\s@S3Or
 s3Origin_originAccessIdentity :: Lens.Lens' S3Origin Prelude.Text
 s3Origin_originAccessIdentity = Lens.lens (\S3Origin' {originAccessIdentity} -> originAccessIdentity) (\s@S3Origin' {} a -> s {originAccessIdentity = a} :: S3Origin)
 
-instance Core.FromXML S3Origin where
+instance Data.FromXML S3Origin where
   parseXML x =
     S3Origin'
-      Prelude.<$> (x Core..@ "DomainName")
-      Prelude.<*> (x Core..@ "OriginAccessIdentity")
+      Prelude.<$> (x Data..@ "DomainName")
+      Prelude.<*> (x Data..@ "OriginAccessIdentity")
 
 instance Prelude.Hashable S3Origin where
   hashWithSalt _salt S3Origin' {..} =
@@ -136,9 +137,9 @@ instance Prelude.NFData S3Origin where
     Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf originAccessIdentity
 
-instance Core.ToXML S3Origin where
+instance Data.ToXML S3Origin where
   toXML S3Origin' {..} =
     Prelude.mconcat
-      [ "DomainName" Core.@= domainName,
-        "OriginAccessIdentity" Core.@= originAccessIdentity
+      [ "DomainName" Data.@= domainName,
+        "OriginAccessIdentity" Data.@= originAccessIdentity
       ]

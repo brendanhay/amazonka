@@ -23,6 +23,7 @@ import Amazonka.CloudFront.Types.ResponseHeadersPolicy
 import Amazonka.CloudFront.Types.ResponseHeadersPolicyType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a response headers policy.
@@ -73,11 +74,11 @@ responseHeadersPolicySummary_type = Lens.lens (\ResponseHeadersPolicySummary' {t
 responseHeadersPolicySummary_responseHeadersPolicy :: Lens.Lens' ResponseHeadersPolicySummary ResponseHeadersPolicy
 responseHeadersPolicySummary_responseHeadersPolicy = Lens.lens (\ResponseHeadersPolicySummary' {responseHeadersPolicy} -> responseHeadersPolicy) (\s@ResponseHeadersPolicySummary' {} a -> s {responseHeadersPolicy = a} :: ResponseHeadersPolicySummary)
 
-instance Core.FromXML ResponseHeadersPolicySummary where
+instance Data.FromXML ResponseHeadersPolicySummary where
   parseXML x =
     ResponseHeadersPolicySummary'
-      Prelude.<$> (x Core..@ "Type")
-      Prelude.<*> (x Core..@ "ResponseHeadersPolicy")
+      Prelude.<$> (x Data..@ "Type")
+      Prelude.<*> (x Data..@ "ResponseHeadersPolicy")
 
 instance
   Prelude.Hashable

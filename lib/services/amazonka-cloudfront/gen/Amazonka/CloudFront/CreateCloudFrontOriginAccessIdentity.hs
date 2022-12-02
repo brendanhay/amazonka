@@ -49,6 +49,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,8 +105,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateCloudFrontOriginAccessIdentityResponse'
-            Prelude.<$> (Core.parseXML x) Prelude.<*> (h Core..#? "Location")
-              Prelude.<*> (h Core..#? "ETag")
+            Prelude.<$> (Data.parseXML x) Prelude.<*> (h Data..#? "Location")
+              Prelude.<*> (h Data..#? "ETag")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,22 +128,22 @@ instance
     Prelude.rnf cloudFrontOriginAccessIdentityConfig
 
 instance
-  Core.ToElement
+  Data.ToElement
     CreateCloudFrontOriginAccessIdentity
   where
   toElement CreateCloudFrontOriginAccessIdentity' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}CloudFrontOriginAccessIdentityConfig"
       cloudFrontOriginAccessIdentityConfig
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateCloudFrontOriginAccessIdentity
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateCloudFrontOriginAccessIdentity
   where
   toPath =
@@ -150,7 +151,7 @@ instance
       "/2020-05-31/origin-access-identity/cloudfront"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateCloudFrontOriginAccessIdentity
   where
   toQuery = Prelude.const Prelude.mempty

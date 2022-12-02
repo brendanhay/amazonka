@@ -42,6 +42,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,18 +101,18 @@ instance Prelude.NFData DeleteMonitoringSubscription where
   rnf DeleteMonitoringSubscription' {..} =
     Prelude.rnf distributionId
 
-instance Core.ToHeaders DeleteMonitoringSubscription where
+instance Data.ToHeaders DeleteMonitoringSubscription where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteMonitoringSubscription where
+instance Data.ToPath DeleteMonitoringSubscription where
   toPath DeleteMonitoringSubscription' {..} =
     Prelude.mconcat
       [ "/2020-05-31/distributions/",
-        Core.toBS distributionId,
+        Data.toBS distributionId,
         "/monitoring-subscription/"
       ]
 
-instance Core.ToQuery DeleteMonitoringSubscription where
+instance Data.ToQuery DeleteMonitoringSubscription where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMonitoringSubscriptionResponse' smart constructor.

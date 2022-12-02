@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentity where
 import Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | CloudFront origin access identity.
@@ -84,12 +85,12 @@ cloudFrontOriginAccessIdentity_id = Lens.lens (\CloudFrontOriginAccessIdentity' 
 cloudFrontOriginAccessIdentity_s3CanonicalUserId :: Lens.Lens' CloudFrontOriginAccessIdentity Prelude.Text
 cloudFrontOriginAccessIdentity_s3CanonicalUserId = Lens.lens (\CloudFrontOriginAccessIdentity' {s3CanonicalUserId} -> s3CanonicalUserId) (\s@CloudFrontOriginAccessIdentity' {} a -> s {s3CanonicalUserId = a} :: CloudFrontOriginAccessIdentity)
 
-instance Core.FromXML CloudFrontOriginAccessIdentity where
+instance Data.FromXML CloudFrontOriginAccessIdentity where
   parseXML x =
     CloudFrontOriginAccessIdentity'
-      Prelude.<$> (x Core..@? "CloudFrontOriginAccessIdentityConfig")
-      Prelude.<*> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "S3CanonicalUserId")
+      Prelude.<$> (x Data..@? "CloudFrontOriginAccessIdentityConfig")
+      Prelude.<*> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "S3CanonicalUserId")
 
 instance
   Prelude.Hashable

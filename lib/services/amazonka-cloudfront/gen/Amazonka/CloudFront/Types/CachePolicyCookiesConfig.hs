@@ -23,6 +23,7 @@ import Amazonka.CloudFront.Types.CachePolicyCookieBehavior
 import Amazonka.CloudFront.Types.CookieNames
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that determines whether any cookies in viewer requests (and if
@@ -130,11 +131,11 @@ cachePolicyCookiesConfig_cookies = Lens.lens (\CachePolicyCookiesConfig' {cookie
 cachePolicyCookiesConfig_cookieBehavior :: Lens.Lens' CachePolicyCookiesConfig CachePolicyCookieBehavior
 cachePolicyCookiesConfig_cookieBehavior = Lens.lens (\CachePolicyCookiesConfig' {cookieBehavior} -> cookieBehavior) (\s@CachePolicyCookiesConfig' {} a -> s {cookieBehavior = a} :: CachePolicyCookiesConfig)
 
-instance Core.FromXML CachePolicyCookiesConfig where
+instance Data.FromXML CachePolicyCookiesConfig where
   parseXML x =
     CachePolicyCookiesConfig'
-      Prelude.<$> (x Core..@? "Cookies")
-      Prelude.<*> (x Core..@ "CookieBehavior")
+      Prelude.<$> (x Data..@? "Cookies")
+      Prelude.<*> (x Data..@ "CookieBehavior")
 
 instance Prelude.Hashable CachePolicyCookiesConfig where
   hashWithSalt _salt CachePolicyCookiesConfig' {..} =
@@ -146,9 +147,9 @@ instance Prelude.NFData CachePolicyCookiesConfig where
     Prelude.rnf cookies
       `Prelude.seq` Prelude.rnf cookieBehavior
 
-instance Core.ToXML CachePolicyCookiesConfig where
+instance Data.ToXML CachePolicyCookiesConfig where
   toXML CachePolicyCookiesConfig' {..} =
     Prelude.mconcat
-      [ "Cookies" Core.@= cookies,
-        "CookieBehavior" Core.@= cookieBehavior
+      [ "Cookies" Data.@= cookies,
+        "CookieBehavior" Data.@= cookieBehavior
       ]

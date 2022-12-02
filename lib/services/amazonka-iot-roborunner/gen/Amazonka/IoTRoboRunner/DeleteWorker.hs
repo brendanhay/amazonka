@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTRoboRunner.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,26 +89,26 @@ instance Prelude.Hashable DeleteWorker where
 instance Prelude.NFData DeleteWorker where
   rnf DeleteWorker' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DeleteWorker where
+instance Data.ToHeaders DeleteWorker where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteWorker where
+instance Data.ToJSON DeleteWorker where
   toJSON DeleteWorker' {..} =
-    Core.object
-      (Prelude.catMaybes [Prelude.Just ("id" Core..= id)])
+    Data.object
+      (Prelude.catMaybes [Prelude.Just ("id" Data..= id)])
 
-instance Core.ToPath DeleteWorker where
+instance Data.ToPath DeleteWorker where
   toPath = Prelude.const "/deleteWorker"
 
-instance Core.ToQuery DeleteWorker where
+instance Data.ToQuery DeleteWorker where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteWorkerResponse' smart constructor.

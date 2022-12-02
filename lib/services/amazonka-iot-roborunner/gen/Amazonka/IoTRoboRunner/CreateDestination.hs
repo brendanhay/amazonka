@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTRoboRunner.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,11 +129,11 @@ instance Core.AWSRequest CreateDestination where
       ( \s h x ->
           CreateDestinationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "arn")
-            Prelude.<*> (x Core..:> "id")
-            Prelude.<*> (x Core..:> "createdAt")
-            Prelude.<*> (x Core..:> "updatedAt")
-            Prelude.<*> (x Core..:> "state")
+            Prelude.<*> (x Data..:> "arn")
+            Prelude.<*> (x Data..:> "id")
+            Prelude.<*> (x Data..:> "createdAt")
+            Prelude.<*> (x Data..:> "updatedAt")
+            Prelude.<*> (x Data..:> "state")
       )
 
 instance Prelude.Hashable CreateDestination where
@@ -151,34 +152,34 @@ instance Prelude.NFData CreateDestination where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf site
 
-instance Core.ToHeaders CreateDestination where
+instance Data.ToHeaders CreateDestination where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDestination where
+instance Data.ToJSON CreateDestination where
   toJSON CreateDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("state" Core..=) Prelude.<$> state,
-            ("additionalFixedProperties" Core..=)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("state" Data..=) Prelude.<$> state,
+            ("additionalFixedProperties" Data..=)
               Prelude.<$> additionalFixedProperties,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("site" Core..= site)
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("site" Data..= site)
           ]
       )
 
-instance Core.ToPath CreateDestination where
+instance Data.ToPath CreateDestination where
   toPath = Prelude.const "/createDestination"
 
-instance Core.ToQuery CreateDestination where
+instance Data.ToQuery CreateDestination where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDestinationResponse' smart constructor.
@@ -187,8 +188,8 @@ data CreateDestinationResponse = CreateDestinationResponse'
     httpStatus :: Prelude.Int,
     arn :: Prelude.Text,
     id :: Prelude.Text,
-    createdAt :: Core.POSIX,
-    updatedAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
+    updatedAt :: Data.POSIX,
     state :: DestinationState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -238,8 +239,8 @@ newCreateDestinationResponse
           pHttpStatus_,
         arn = pArn_,
         id = pId_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        updatedAt = Data._Time Lens.# pUpdatedAt_,
         state = pState_
       }
 
@@ -257,11 +258,11 @@ createDestinationResponse_id = Lens.lens (\CreateDestinationResponse' {id} -> id
 
 -- | Undocumented member.
 createDestinationResponse_createdAt :: Lens.Lens' CreateDestinationResponse Prelude.UTCTime
-createDestinationResponse_createdAt = Lens.lens (\CreateDestinationResponse' {createdAt} -> createdAt) (\s@CreateDestinationResponse' {} a -> s {createdAt = a} :: CreateDestinationResponse) Prelude.. Core._Time
+createDestinationResponse_createdAt = Lens.lens (\CreateDestinationResponse' {createdAt} -> createdAt) (\s@CreateDestinationResponse' {} a -> s {createdAt = a} :: CreateDestinationResponse) Prelude.. Data._Time
 
 -- | Undocumented member.
 createDestinationResponse_updatedAt :: Lens.Lens' CreateDestinationResponse Prelude.UTCTime
-createDestinationResponse_updatedAt = Lens.lens (\CreateDestinationResponse' {updatedAt} -> updatedAt) (\s@CreateDestinationResponse' {} a -> s {updatedAt = a} :: CreateDestinationResponse) Prelude.. Core._Time
+createDestinationResponse_updatedAt = Lens.lens (\CreateDestinationResponse' {updatedAt} -> updatedAt) (\s@CreateDestinationResponse' {} a -> s {updatedAt = a} :: CreateDestinationResponse) Prelude.. Data._Time
 
 -- | Undocumented member.
 createDestinationResponse_state :: Lens.Lens' CreateDestinationResponse DestinationState

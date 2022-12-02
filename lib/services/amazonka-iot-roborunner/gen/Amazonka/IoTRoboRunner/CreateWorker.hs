@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTRoboRunner.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -152,11 +153,11 @@ instance Core.AWSRequest CreateWorker where
       ( \s h x ->
           CreateWorkerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "arn")
-            Prelude.<*> (x Core..:> "id")
-            Prelude.<*> (x Core..:> "createdAt")
-            Prelude.<*> (x Core..:> "updatedAt")
-            Prelude.<*> (x Core..:> "site")
+            Prelude.<*> (x Data..:> "arn")
+            Prelude.<*> (x Data..:> "id")
+            Prelude.<*> (x Data..:> "createdAt")
+            Prelude.<*> (x Data..:> "updatedAt")
+            Prelude.<*> (x Data..:> "site")
       )
 
 instance Prelude.Hashable CreateWorker where
@@ -181,39 +182,39 @@ instance Prelude.NFData CreateWorker where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf fleet
 
-instance Core.ToHeaders CreateWorker where
+instance Data.ToHeaders CreateWorker where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWorker where
+instance Data.ToJSON CreateWorker where
   toJSON CreateWorker' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("additionalTransientProperties" Core..=)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("additionalTransientProperties" Data..=)
               Prelude.<$> additionalTransientProperties,
-            ("orientation" Core..=) Prelude.<$> orientation,
-            ("vendorProperties" Core..=)
+            ("orientation" Data..=) Prelude.<$> orientation,
+            ("vendorProperties" Data..=)
               Prelude.<$> vendorProperties,
-            ("position" Core..=) Prelude.<$> position,
-            ("additionalFixedProperties" Core..=)
+            ("position" Data..=) Prelude.<$> position,
+            ("additionalFixedProperties" Data..=)
               Prelude.<$> additionalFixedProperties,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("fleet" Core..= fleet)
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("fleet" Data..= fleet)
           ]
       )
 
-instance Core.ToPath CreateWorker where
+instance Data.ToPath CreateWorker where
   toPath = Prelude.const "/createWorker"
 
-instance Core.ToQuery CreateWorker where
+instance Data.ToQuery CreateWorker where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWorkerResponse' smart constructor.
@@ -222,8 +223,8 @@ data CreateWorkerResponse = CreateWorkerResponse'
     httpStatus :: Prelude.Int,
     arn :: Prelude.Text,
     id :: Prelude.Text,
-    createdAt :: Core.POSIX,
-    updatedAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
+    updatedAt :: Data.POSIX,
     site :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -272,8 +273,8 @@ newCreateWorkerResponse
       { httpStatus = pHttpStatus_,
         arn = pArn_,
         id = pId_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        updatedAt = Data._Time Lens.# pUpdatedAt_,
         site = pSite_
       }
 
@@ -291,11 +292,11 @@ createWorkerResponse_id = Lens.lens (\CreateWorkerResponse' {id} -> id) (\s@Crea
 
 -- | Undocumented member.
 createWorkerResponse_createdAt :: Lens.Lens' CreateWorkerResponse Prelude.UTCTime
-createWorkerResponse_createdAt = Lens.lens (\CreateWorkerResponse' {createdAt} -> createdAt) (\s@CreateWorkerResponse' {} a -> s {createdAt = a} :: CreateWorkerResponse) Prelude.. Core._Time
+createWorkerResponse_createdAt = Lens.lens (\CreateWorkerResponse' {createdAt} -> createdAt) (\s@CreateWorkerResponse' {} a -> s {createdAt = a} :: CreateWorkerResponse) Prelude.. Data._Time
 
 -- | Undocumented member.
 createWorkerResponse_updatedAt :: Lens.Lens' CreateWorkerResponse Prelude.UTCTime
-createWorkerResponse_updatedAt = Lens.lens (\CreateWorkerResponse' {updatedAt} -> updatedAt) (\s@CreateWorkerResponse' {} a -> s {updatedAt = a} :: CreateWorkerResponse) Prelude.. Core._Time
+createWorkerResponse_updatedAt = Lens.lens (\CreateWorkerResponse' {updatedAt} -> updatedAt) (\s@CreateWorkerResponse' {} a -> s {updatedAt = a} :: CreateWorkerResponse) Prelude.. Data._Time
 
 -- | Undocumented member.
 createWorkerResponse_site :: Lens.Lens' CreateWorkerResponse Prelude.Text

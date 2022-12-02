@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTRoboRunner.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,13 +115,13 @@ instance Core.AWSRequest UpdateSite where
     Response.receiveJSON
       ( \s h x ->
           UpdateSiteResponse'
-            Prelude.<$> (x Core..?> "countryCode")
-            Prelude.<*> (x Core..?> "description")
+            Prelude.<$> (x Data..?> "countryCode")
+            Prelude.<*> (x Data..?> "description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "arn")
-            Prelude.<*> (x Core..:> "id")
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "updatedAt")
+            Prelude.<*> (x Data..:> "arn")
+            Prelude.<*> (x Data..:> "id")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "updatedAt")
       )
 
 instance Prelude.Hashable UpdateSite where
@@ -137,32 +138,32 @@ instance Prelude.NFData UpdateSite where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders UpdateSite where
+instance Data.ToHeaders UpdateSite where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSite where
+instance Data.ToJSON UpdateSite where
   toJSON UpdateSite' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("countryCode" Core..=) Prelude.<$> countryCode,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("id" Core..= id)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("countryCode" Data..=) Prelude.<$> countryCode,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("id" Data..= id)
           ]
       )
 
-instance Core.ToPath UpdateSite where
+instance Data.ToPath UpdateSite where
   toPath = Prelude.const "/updateSite"
 
-instance Core.ToQuery UpdateSite where
+instance Data.ToQuery UpdateSite where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSiteResponse' smart constructor.
@@ -174,7 +175,7 @@ data UpdateSiteResponse = UpdateSiteResponse'
     arn :: Prelude.Text,
     id :: Prelude.Text,
     name :: Prelude.Text,
-    updatedAt :: Core.POSIX
+    updatedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -224,7 +225,7 @@ newUpdateSiteResponse
         arn = pArn_,
         id = pId_,
         name = pName_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_
+        updatedAt = Data._Time Lens.# pUpdatedAt_
       }
 
 -- | Undocumented member.
@@ -253,7 +254,7 @@ updateSiteResponse_name = Lens.lens (\UpdateSiteResponse' {name} -> name) (\s@Up
 
 -- | Undocumented member.
 updateSiteResponse_updatedAt :: Lens.Lens' UpdateSiteResponse Prelude.UTCTime
-updateSiteResponse_updatedAt = Lens.lens (\UpdateSiteResponse' {updatedAt} -> updatedAt) (\s@UpdateSiteResponse' {} a -> s {updatedAt = a} :: UpdateSiteResponse) Prelude.. Core._Time
+updateSiteResponse_updatedAt = Lens.lens (\UpdateSiteResponse' {updatedAt} -> updatedAt) (\s@UpdateSiteResponse' {} a -> s {updatedAt = a} :: UpdateSiteResponse) Prelude.. Data._Time
 
 instance Prelude.NFData UpdateSiteResponse where
   rnf UpdateSiteResponse' {..} =

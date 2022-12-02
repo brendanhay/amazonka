@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTRoboRunner.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,10 +116,10 @@ instance Core.AWSRequest CreateSite where
       ( \s h x ->
           CreateSiteResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "arn")
-            Prelude.<*> (x Core..:> "id")
-            Prelude.<*> (x Core..:> "createdAt")
-            Prelude.<*> (x Core..:> "updatedAt")
+            Prelude.<*> (x Data..:> "arn")
+            Prelude.<*> (x Data..:> "id")
+            Prelude.<*> (x Data..:> "createdAt")
+            Prelude.<*> (x Data..:> "updatedAt")
       )
 
 instance Prelude.Hashable CreateSite where
@@ -135,32 +136,32 @@ instance Prelude.NFData CreateSite where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf countryCode
 
-instance Core.ToHeaders CreateSite where
+instance Data.ToHeaders CreateSite where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSite where
+instance Data.ToJSON CreateSite where
   toJSON CreateSite' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("countryCode" Core..= countryCode)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("countryCode" Data..= countryCode)
           ]
       )
 
-instance Core.ToPath CreateSite where
+instance Data.ToPath CreateSite where
   toPath = Prelude.const "/createSite"
 
-instance Core.ToQuery CreateSite where
+instance Data.ToQuery CreateSite where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSiteResponse' smart constructor.
@@ -169,8 +170,8 @@ data CreateSiteResponse = CreateSiteResponse'
     httpStatus :: Prelude.Int,
     arn :: Prelude.Text,
     id :: Prelude.Text,
-    createdAt :: Core.POSIX,
-    updatedAt :: Core.POSIX
+    createdAt :: Data.POSIX,
+    updatedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -213,8 +214,8 @@ newCreateSiteResponse
       { httpStatus = pHttpStatus_,
         arn = pArn_,
         id = pId_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        updatedAt = Data._Time Lens.# pUpdatedAt_
       }
 
 -- | The response's http status code.
@@ -231,11 +232,11 @@ createSiteResponse_id = Lens.lens (\CreateSiteResponse' {id} -> id) (\s@CreateSi
 
 -- | Undocumented member.
 createSiteResponse_createdAt :: Lens.Lens' CreateSiteResponse Prelude.UTCTime
-createSiteResponse_createdAt = Lens.lens (\CreateSiteResponse' {createdAt} -> createdAt) (\s@CreateSiteResponse' {} a -> s {createdAt = a} :: CreateSiteResponse) Prelude.. Core._Time
+createSiteResponse_createdAt = Lens.lens (\CreateSiteResponse' {createdAt} -> createdAt) (\s@CreateSiteResponse' {} a -> s {createdAt = a} :: CreateSiteResponse) Prelude.. Data._Time
 
 -- | Undocumented member.
 createSiteResponse_updatedAt :: Lens.Lens' CreateSiteResponse Prelude.UTCTime
-createSiteResponse_updatedAt = Lens.lens (\CreateSiteResponse' {updatedAt} -> updatedAt) (\s@CreateSiteResponse' {} a -> s {updatedAt = a} :: CreateSiteResponse) Prelude.. Core._Time
+createSiteResponse_updatedAt = Lens.lens (\CreateSiteResponse' {updatedAt} -> updatedAt) (\s@CreateSiteResponse' {} a -> s {updatedAt = a} :: CreateSiteResponse) Prelude.. Data._Time
 
 instance Prelude.NFData CreateSiteResponse where
   rnf CreateSiteResponse' {..} =

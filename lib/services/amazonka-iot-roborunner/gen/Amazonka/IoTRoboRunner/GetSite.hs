@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTRoboRunner.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -85,14 +86,14 @@ instance Core.AWSRequest GetSite where
     Response.receiveJSON
       ( \s h x ->
           GetSiteResponse'
-            Prelude.<$> (x Core..?> "description")
+            Prelude.<$> (x Data..?> "description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "arn")
-            Prelude.<*> (x Core..:> "id")
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "countryCode")
-            Prelude.<*> (x Core..:> "createdAt")
-            Prelude.<*> (x Core..:> "updatedAt")
+            Prelude.<*> (x Data..:> "arn")
+            Prelude.<*> (x Data..:> "id")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "countryCode")
+            Prelude.<*> (x Data..:> "createdAt")
+            Prelude.<*> (x Data..:> "updatedAt")
       )
 
 instance Prelude.Hashable GetSite where
@@ -102,23 +103,23 @@ instance Prelude.Hashable GetSite where
 instance Prelude.NFData GetSite where
   rnf GetSite' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetSite where
+instance Data.ToHeaders GetSite where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSite where
+instance Data.ToPath GetSite where
   toPath = Prelude.const "/getSite"
 
-instance Core.ToQuery GetSite where
+instance Data.ToQuery GetSite where
   toQuery GetSite' {..} =
-    Prelude.mconcat ["id" Core.=: id]
+    Prelude.mconcat ["id" Data.=: id]
 
 -- | /See:/ 'newGetSiteResponse' smart constructor.
 data GetSiteResponse = GetSiteResponse'
@@ -129,8 +130,8 @@ data GetSiteResponse = GetSiteResponse'
     id :: Prelude.Text,
     name :: Prelude.Text,
     countryCode :: Prelude.Text,
-    createdAt :: Core.POSIX,
-    updatedAt :: Core.POSIX
+    createdAt :: Data.POSIX,
+    updatedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -188,8 +189,8 @@ newGetSiteResponse
         id = pId_,
         name = pName_,
         countryCode = pCountryCode_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        updatedAt = Data._Time Lens.# pUpdatedAt_
       }
 
 -- | Undocumented member.
@@ -218,11 +219,11 @@ getSiteResponse_countryCode = Lens.lens (\GetSiteResponse' {countryCode} -> coun
 
 -- | Undocumented member.
 getSiteResponse_createdAt :: Lens.Lens' GetSiteResponse Prelude.UTCTime
-getSiteResponse_createdAt = Lens.lens (\GetSiteResponse' {createdAt} -> createdAt) (\s@GetSiteResponse' {} a -> s {createdAt = a} :: GetSiteResponse) Prelude.. Core._Time
+getSiteResponse_createdAt = Lens.lens (\GetSiteResponse' {createdAt} -> createdAt) (\s@GetSiteResponse' {} a -> s {createdAt = a} :: GetSiteResponse) Prelude.. Data._Time
 
 -- | Undocumented member.
 getSiteResponse_updatedAt :: Lens.Lens' GetSiteResponse Prelude.UTCTime
-getSiteResponse_updatedAt = Lens.lens (\GetSiteResponse' {updatedAt} -> updatedAt) (\s@GetSiteResponse' {} a -> s {updatedAt = a} :: GetSiteResponse) Prelude.. Core._Time
+getSiteResponse_updatedAt = Lens.lens (\GetSiteResponse' {updatedAt} -> updatedAt) (\s@GetSiteResponse' {} a -> s {updatedAt = a} :: GetSiteResponse) Prelude.. Data._Time
 
 instance Prelude.NFData GetSiteResponse where
   rnf GetSiteResponse' {..} =

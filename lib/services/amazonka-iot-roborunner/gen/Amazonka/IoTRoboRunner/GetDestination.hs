@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTRoboRunner.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,15 +89,15 @@ instance Core.AWSRequest GetDestination where
     Response.receiveJSON
       ( \s h x ->
           GetDestinationResponse'
-            Prelude.<$> (x Core..?> "additionalFixedProperties")
+            Prelude.<$> (x Data..?> "additionalFixedProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "arn")
-            Prelude.<*> (x Core..:> "id")
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "site")
-            Prelude.<*> (x Core..:> "createdAt")
-            Prelude.<*> (x Core..:> "updatedAt")
-            Prelude.<*> (x Core..:> "state")
+            Prelude.<*> (x Data..:> "arn")
+            Prelude.<*> (x Data..:> "id")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "site")
+            Prelude.<*> (x Data..:> "createdAt")
+            Prelude.<*> (x Data..:> "updatedAt")
+            Prelude.<*> (x Data..:> "state")
       )
 
 instance Prelude.Hashable GetDestination where
@@ -106,23 +107,23 @@ instance Prelude.Hashable GetDestination where
 instance Prelude.NFData GetDestination where
   rnf GetDestination' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetDestination where
+instance Data.ToHeaders GetDestination where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDestination where
+instance Data.ToPath GetDestination where
   toPath = Prelude.const "/getDestination"
 
-instance Core.ToQuery GetDestination where
+instance Data.ToQuery GetDestination where
   toQuery GetDestination' {..} =
-    Prelude.mconcat ["id" Core.=: id]
+    Prelude.mconcat ["id" Data.=: id]
 
 -- | /See:/ 'newGetDestinationResponse' smart constructor.
 data GetDestinationResponse = GetDestinationResponse'
@@ -133,8 +134,8 @@ data GetDestinationResponse = GetDestinationResponse'
     id :: Prelude.Text,
     name :: Prelude.Text,
     site :: Prelude.Text,
-    createdAt :: Core.POSIX,
-    updatedAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
+    updatedAt :: Data.POSIX,
     state :: DestinationState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -199,8 +200,8 @@ newGetDestinationResponse
         id = pId_,
         name = pName_,
         site = pSite_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        updatedAt = Data._Time Lens.# pUpdatedAt_,
         state = pState_
       }
 
@@ -230,11 +231,11 @@ getDestinationResponse_site = Lens.lens (\GetDestinationResponse' {site} -> site
 
 -- | Undocumented member.
 getDestinationResponse_createdAt :: Lens.Lens' GetDestinationResponse Prelude.UTCTime
-getDestinationResponse_createdAt = Lens.lens (\GetDestinationResponse' {createdAt} -> createdAt) (\s@GetDestinationResponse' {} a -> s {createdAt = a} :: GetDestinationResponse) Prelude.. Core._Time
+getDestinationResponse_createdAt = Lens.lens (\GetDestinationResponse' {createdAt} -> createdAt) (\s@GetDestinationResponse' {} a -> s {createdAt = a} :: GetDestinationResponse) Prelude.. Data._Time
 
 -- | Undocumented member.
 getDestinationResponse_updatedAt :: Lens.Lens' GetDestinationResponse Prelude.UTCTime
-getDestinationResponse_updatedAt = Lens.lens (\GetDestinationResponse' {updatedAt} -> updatedAt) (\s@GetDestinationResponse' {} a -> s {updatedAt = a} :: GetDestinationResponse) Prelude.. Core._Time
+getDestinationResponse_updatedAt = Lens.lens (\GetDestinationResponse' {updatedAt} -> updatedAt) (\s@GetDestinationResponse' {} a -> s {updatedAt = a} :: GetDestinationResponse) Prelude.. Data._Time
 
 -- | Undocumented member.
 getDestinationResponse_state :: Lens.Lens' GetDestinationResponse DestinationState

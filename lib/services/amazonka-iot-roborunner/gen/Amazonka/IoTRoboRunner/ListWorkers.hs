@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTRoboRunner.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,8 +132,8 @@ instance Core.AWSRequest ListWorkers where
     Response.receiveJSON
       ( \s h x ->
           ListWorkersResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "workers" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "workers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,27 +151,27 @@ instance Prelude.NFData ListWorkers where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf site
 
-instance Core.ToHeaders ListWorkers where
+instance Data.ToHeaders ListWorkers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListWorkers where
+instance Data.ToPath ListWorkers where
   toPath = Prelude.const "/listWorkers"
 
-instance Core.ToQuery ListWorkers where
+instance Data.ToQuery ListWorkers where
   toQuery ListWorkers' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "fleet" Core.=: fleet,
-        "maxResults" Core.=: maxResults,
-        "site" Core.=: site
+      [ "nextToken" Data.=: nextToken,
+        "fleet" Data.=: fleet,
+        "maxResults" Data.=: maxResults,
+        "site" Data.=: site
       ]
 
 -- | /See:/ 'newListWorkersResponse' smart constructor.

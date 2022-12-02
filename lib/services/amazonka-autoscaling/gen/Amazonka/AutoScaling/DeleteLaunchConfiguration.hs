@@ -42,6 +42,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,21 +97,21 @@ instance Prelude.NFData DeleteLaunchConfiguration where
   rnf DeleteLaunchConfiguration' {..} =
     Prelude.rnf launchConfigurationName
 
-instance Core.ToHeaders DeleteLaunchConfiguration where
+instance Data.ToHeaders DeleteLaunchConfiguration where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteLaunchConfiguration where
+instance Data.ToPath DeleteLaunchConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteLaunchConfiguration where
+instance Data.ToQuery DeleteLaunchConfiguration where
   toQuery DeleteLaunchConfiguration' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteLaunchConfiguration" :: Prelude.ByteString),
+          Data.=: ("DeleteLaunchConfiguration" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
         "LaunchConfigurationName"
-          Core.=: launchConfigurationName
+          Data.=: launchConfigurationName
       ]
 
 -- | /See:/ 'newDeleteLaunchConfigurationResponse' smart constructor.

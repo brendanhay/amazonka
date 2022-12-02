@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.InstanceRefreshLivePoolProgress where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Reports the progress of an instance refresh on instances that are in the
@@ -78,11 +79,11 @@ instanceRefreshLivePoolProgress_percentageComplete = Lens.lens (\InstanceRefresh
 instanceRefreshLivePoolProgress_instancesToUpdate :: Lens.Lens' InstanceRefreshLivePoolProgress (Prelude.Maybe Prelude.Natural)
 instanceRefreshLivePoolProgress_instancesToUpdate = Lens.lens (\InstanceRefreshLivePoolProgress' {instancesToUpdate} -> instancesToUpdate) (\s@InstanceRefreshLivePoolProgress' {} a -> s {instancesToUpdate = a} :: InstanceRefreshLivePoolProgress)
 
-instance Core.FromXML InstanceRefreshLivePoolProgress where
+instance Data.FromXML InstanceRefreshLivePoolProgress where
   parseXML x =
     InstanceRefreshLivePoolProgress'
-      Prelude.<$> (x Core..@? "PercentageComplete")
-      Prelude.<*> (x Core..@? "InstancesToUpdate")
+      Prelude.<$> (x Data..@? "PercentageComplete")
+      Prelude.<*> (x Data..@? "InstancesToUpdate")
 
 instance
   Prelude.Hashable

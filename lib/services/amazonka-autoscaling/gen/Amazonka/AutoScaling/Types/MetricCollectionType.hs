@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.MetricCollectionType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a metric.
@@ -170,10 +171,10 @@ newMetricCollectionType =
 metricCollectionType_metric :: Lens.Lens' MetricCollectionType (Prelude.Maybe Prelude.Text)
 metricCollectionType_metric = Lens.lens (\MetricCollectionType' {metric} -> metric) (\s@MetricCollectionType' {} a -> s {metric = a} :: MetricCollectionType)
 
-instance Core.FromXML MetricCollectionType where
+instance Data.FromXML MetricCollectionType where
   parseXML x =
     MetricCollectionType'
-      Prelude.<$> (x Core..@? "Metric")
+      Prelude.<$> (x Data..@? "Metric")
 
 instance Prelude.Hashable MetricCollectionType where
   hashWithSalt _salt MetricCollectionType' {..} =

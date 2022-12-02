@@ -76,6 +76,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -154,10 +155,10 @@ instance Core.AWSRequest DescribeInstanceRefreshes where
       "DescribeInstanceRefreshesResult"
       ( \s h x ->
           DescribeInstanceRefreshesResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "InstanceRefreshes"
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "InstanceRefreshes"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -176,27 +177,27 @@ instance Prelude.NFData DescribeInstanceRefreshes where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf autoScalingGroupName
 
-instance Core.ToHeaders DescribeInstanceRefreshes where
+instance Data.ToHeaders DescribeInstanceRefreshes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeInstanceRefreshes where
+instance Data.ToPath DescribeInstanceRefreshes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeInstanceRefreshes where
+instance Data.ToQuery DescribeInstanceRefreshes where
   toQuery DescribeInstanceRefreshes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeInstanceRefreshes" :: Prelude.ByteString),
+          Data.=: ("DescribeInstanceRefreshes" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
         "InstanceRefreshIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> instanceRefreshIds
             ),
-        "MaxRecords" Core.=: maxRecords,
-        "AutoScalingGroupName" Core.=: autoScalingGroupName
+        "MaxRecords" Data.=: maxRecords,
+        "AutoScalingGroupName" Data.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newDescribeInstanceRefreshesResponse' smart constructor.

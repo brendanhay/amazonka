@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.InstancesDistribution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use this structure to specify the distribution of On-Demand Instances
@@ -371,15 +372,15 @@ instancesDistribution_spotMaxPrice = Lens.lens (\InstancesDistribution' {spotMax
 instancesDistribution_spotAllocationStrategy :: Lens.Lens' InstancesDistribution (Prelude.Maybe Prelude.Text)
 instancesDistribution_spotAllocationStrategy = Lens.lens (\InstancesDistribution' {spotAllocationStrategy} -> spotAllocationStrategy) (\s@InstancesDistribution' {} a -> s {spotAllocationStrategy = a} :: InstancesDistribution)
 
-instance Core.FromXML InstancesDistribution where
+instance Data.FromXML InstancesDistribution where
   parseXML x =
     InstancesDistribution'
-      Prelude.<$> (x Core..@? "OnDemandBaseCapacity")
-      Prelude.<*> (x Core..@? "OnDemandPercentageAboveBaseCapacity")
-      Prelude.<*> (x Core..@? "OnDemandAllocationStrategy")
-      Prelude.<*> (x Core..@? "SpotInstancePools")
-      Prelude.<*> (x Core..@? "SpotMaxPrice")
-      Prelude.<*> (x Core..@? "SpotAllocationStrategy")
+      Prelude.<$> (x Data..@? "OnDemandBaseCapacity")
+      Prelude.<*> (x Data..@? "OnDemandPercentageAboveBaseCapacity")
+      Prelude.<*> (x Data..@? "OnDemandAllocationStrategy")
+      Prelude.<*> (x Data..@? "SpotInstancePools")
+      Prelude.<*> (x Data..@? "SpotMaxPrice")
+      Prelude.<*> (x Data..@? "SpotAllocationStrategy")
 
 instance Prelude.Hashable InstancesDistribution where
   hashWithSalt _salt InstancesDistribution' {..} =
@@ -399,16 +400,16 @@ instance Prelude.NFData InstancesDistribution where
       `Prelude.seq` Prelude.rnf spotMaxPrice
       `Prelude.seq` Prelude.rnf spotAllocationStrategy
 
-instance Core.ToQuery InstancesDistribution where
+instance Data.ToQuery InstancesDistribution where
   toQuery InstancesDistribution' {..} =
     Prelude.mconcat
-      [ "OnDemandBaseCapacity" Core.=: onDemandBaseCapacity,
+      [ "OnDemandBaseCapacity" Data.=: onDemandBaseCapacity,
         "OnDemandPercentageAboveBaseCapacity"
-          Core.=: onDemandPercentageAboveBaseCapacity,
+          Data.=: onDemandPercentageAboveBaseCapacity,
         "OnDemandAllocationStrategy"
-          Core.=: onDemandAllocationStrategy,
-        "SpotInstancePools" Core.=: spotInstancePools,
-        "SpotMaxPrice" Core.=: spotMaxPrice,
+          Data.=: onDemandAllocationStrategy,
+        "SpotInstancePools" Data.=: spotInstancePools,
+        "SpotMaxPrice" Data.=: spotMaxPrice,
         "SpotAllocationStrategy"
-          Core.=: spotAllocationStrategy
+          Data.=: spotAllocationStrategy
       ]

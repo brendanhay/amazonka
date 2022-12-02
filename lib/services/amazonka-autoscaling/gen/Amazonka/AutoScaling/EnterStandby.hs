@@ -57,6 +57,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -125,8 +126,8 @@ instance Core.AWSRequest EnterStandby where
       "EnterStandbyResult"
       ( \s h x ->
           EnterStandbyResponse'
-            Prelude.<$> ( x Core..@? "Activities" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Activities" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -143,25 +144,25 @@ instance Prelude.NFData EnterStandby where
       `Prelude.seq` Prelude.rnf autoScalingGroupName
       `Prelude.seq` Prelude.rnf shouldDecrementDesiredCapacity
 
-instance Core.ToHeaders EnterStandby where
+instance Data.ToHeaders EnterStandby where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath EnterStandby where
+instance Data.ToPath EnterStandby where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery EnterStandby where
+instance Data.ToQuery EnterStandby where
   toQuery EnterStandby' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("EnterStandby" :: Prelude.ByteString),
+          Data.=: ("EnterStandby" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
         "InstanceIds"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> instanceIds),
-        "AutoScalingGroupName" Core.=: autoScalingGroupName,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> instanceIds),
+        "AutoScalingGroupName" Data.=: autoScalingGroupName,
         "ShouldDecrementDesiredCapacity"
-          Core.=: shouldDecrementDesiredCapacity
+          Data.=: shouldDecrementDesiredCapacity
       ]
 
 -- | /See:/ 'newEnterStandbyResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.LifecycleHookSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes information used to specify a lifecycle hook for an Auto
@@ -210,15 +211,15 @@ instance Prelude.NFData LifecycleHookSpecification where
       `Prelude.seq` Prelude.rnf lifecycleHookName
       `Prelude.seq` Prelude.rnf lifecycleTransition
 
-instance Core.ToQuery LifecycleHookSpecification where
+instance Data.ToQuery LifecycleHookSpecification where
   toQuery LifecycleHookSpecification' {..} =
     Prelude.mconcat
-      [ "RoleARN" Core.=: roleARN,
-        "NotificationMetadata" Core.=: notificationMetadata,
-        "DefaultResult" Core.=: defaultResult,
+      [ "RoleARN" Data.=: roleARN,
+        "NotificationMetadata" Data.=: notificationMetadata,
+        "DefaultResult" Data.=: defaultResult,
         "NotificationTargetARN"
-          Core.=: notificationTargetARN,
-        "HeartbeatTimeout" Core.=: heartbeatTimeout,
-        "LifecycleHookName" Core.=: lifecycleHookName,
-        "LifecycleTransition" Core.=: lifecycleTransition
+          Data.=: notificationTargetARN,
+        "HeartbeatTimeout" Data.=: heartbeatTimeout,
+        "LifecycleHookName" Data.=: lifecycleHookName,
+        "LifecycleTransition" Data.=: lifecycleTransition
       ]

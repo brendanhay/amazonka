@@ -23,6 +23,7 @@ import Amazonka.AutoScaling.Types.InstancesDistribution
 import Amazonka.AutoScaling.Types.LaunchTemplate
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use this structure to launch multiple instance types and On-Demand
@@ -74,11 +75,11 @@ mixedInstancesPolicy_instancesDistribution = Lens.lens (\MixedInstancesPolicy' {
 mixedInstancesPolicy_launchTemplate :: Lens.Lens' MixedInstancesPolicy (Prelude.Maybe LaunchTemplate)
 mixedInstancesPolicy_launchTemplate = Lens.lens (\MixedInstancesPolicy' {launchTemplate} -> launchTemplate) (\s@MixedInstancesPolicy' {} a -> s {launchTemplate = a} :: MixedInstancesPolicy)
 
-instance Core.FromXML MixedInstancesPolicy where
+instance Data.FromXML MixedInstancesPolicy where
   parseXML x =
     MixedInstancesPolicy'
-      Prelude.<$> (x Core..@? "InstancesDistribution")
-      Prelude.<*> (x Core..@? "LaunchTemplate")
+      Prelude.<$> (x Data..@? "InstancesDistribution")
+      Prelude.<*> (x Data..@? "LaunchTemplate")
 
 instance Prelude.Hashable MixedInstancesPolicy where
   hashWithSalt _salt MixedInstancesPolicy' {..} =
@@ -90,10 +91,10 @@ instance Prelude.NFData MixedInstancesPolicy where
     Prelude.rnf instancesDistribution
       `Prelude.seq` Prelude.rnf launchTemplate
 
-instance Core.ToQuery MixedInstancesPolicy where
+instance Data.ToQuery MixedInstancesPolicy where
   toQuery MixedInstancesPolicy' {..} =
     Prelude.mconcat
       [ "InstancesDistribution"
-          Core.=: instancesDistribution,
-        "LaunchTemplate" Core.=: launchTemplate
+          Data.=: instancesDistribution,
+        "LaunchTemplate" Data.=: launchTemplate
       ]

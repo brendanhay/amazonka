@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.AcceleratorCountRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the minimum and maximum for the @AcceleratorCount@ object when
@@ -62,10 +63,10 @@ acceleratorCountRequest_max = Lens.lens (\AcceleratorCountRequest' {max} -> max)
 acceleratorCountRequest_min :: Lens.Lens' AcceleratorCountRequest (Prelude.Maybe Prelude.Natural)
 acceleratorCountRequest_min = Lens.lens (\AcceleratorCountRequest' {min} -> min) (\s@AcceleratorCountRequest' {} a -> s {min = a} :: AcceleratorCountRequest)
 
-instance Core.FromXML AcceleratorCountRequest where
+instance Data.FromXML AcceleratorCountRequest where
   parseXML x =
     AcceleratorCountRequest'
-      Prelude.<$> (x Core..@? "Max") Prelude.<*> (x Core..@? "Min")
+      Prelude.<$> (x Data..@? "Max") Prelude.<*> (x Data..@? "Min")
 
 instance Prelude.Hashable AcceleratorCountRequest where
   hashWithSalt _salt AcceleratorCountRequest' {..} =
@@ -76,7 +77,7 @@ instance Prelude.NFData AcceleratorCountRequest where
   rnf AcceleratorCountRequest' {..} =
     Prelude.rnf max `Prelude.seq` Prelude.rnf min
 
-instance Core.ToQuery AcceleratorCountRequest where
+instance Data.ToQuery AcceleratorCountRequest where
   toQuery AcceleratorCountRequest' {..} =
     Prelude.mconcat
-      ["Max" Core.=: max, "Min" Core.=: min]
+      ["Max" Data.=: max, "Min" Data.=: min]

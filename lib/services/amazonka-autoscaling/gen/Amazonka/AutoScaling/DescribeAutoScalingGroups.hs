@@ -59,6 +59,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -168,11 +169,11 @@ instance Core.AWSRequest DescribeAutoScalingGroups where
       "DescribeAutoScalingGroupsResult"
       ( \s h x ->
           DescribeAutoScalingGroupsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<$> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "AutoScalingGroups"
+            Prelude.<*> ( x Data..@? "AutoScalingGroups"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -190,29 +191,29 @@ instance Prelude.NFData DescribeAutoScalingGroups where
       `Prelude.seq` Prelude.rnf autoScalingGroupNames
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeAutoScalingGroups where
+instance Data.ToHeaders DescribeAutoScalingGroups where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAutoScalingGroups where
+instance Data.ToPath DescribeAutoScalingGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAutoScalingGroups where
+instance Data.ToQuery DescribeAutoScalingGroups where
   toQuery DescribeAutoScalingGroups' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeAutoScalingGroups" :: Prelude.ByteString),
+          Data.=: ("DescribeAutoScalingGroups" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> filters),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> filters),
         "AutoScalingGroupNames"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> autoScalingGroupNames
             ),
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- | /See:/ 'newDescribeAutoScalingGroupsResponse' smart constructor.

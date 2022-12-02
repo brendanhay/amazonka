@@ -40,6 +40,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -73,11 +74,11 @@ instance
       "DescribeMetricCollectionTypesResult"
       ( \s h x ->
           DescribeMetricCollectionTypesResponse'
-            Prelude.<$> ( x Core..@? "Metrics" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Metrics" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Core..@? "Granularities" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<*> ( x Data..@? "Granularities" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -92,22 +93,22 @@ instance
 instance Prelude.NFData DescribeMetricCollectionTypes where
   rnf _ = ()
 
-instance Core.ToHeaders DescribeMetricCollectionTypes where
+instance Data.ToHeaders DescribeMetricCollectionTypes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeMetricCollectionTypes where
+instance Data.ToPath DescribeMetricCollectionTypes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeMetricCollectionTypes where
+instance Data.ToQuery DescribeMetricCollectionTypes where
   toQuery =
     Prelude.const
       ( Prelude.mconcat
           [ "Action"
-              Core.=: ( "DescribeMetricCollectionTypes" ::
+              Data.=: ( "DescribeMetricCollectionTypes" ::
                           Prelude.ByteString
                       ),
             "Version"
-              Core.=: ("2011-01-01" :: Prelude.ByteString)
+              Data.=: ("2011-01-01" :: Prelude.ByteString)
           ]
       )
 

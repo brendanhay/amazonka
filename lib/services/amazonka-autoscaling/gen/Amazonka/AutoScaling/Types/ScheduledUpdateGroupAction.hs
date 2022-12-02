@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.ScheduledUpdateGroupAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a scheduled scaling action.
@@ -30,10 +31,10 @@ data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction'
   { -- | The time zone for the cron expression.
     timeZone :: Prelude.Maybe Prelude.Text,
     -- | This property is no longer used.
-    time :: Prelude.Maybe Core.ISO8601,
+    time :: Prelude.Maybe Data.ISO8601,
     -- | The date and time in UTC for the recurring schedule to end. For example,
     -- @\"2019-06-01T00:00:00Z\"@.
-    endTime :: Prelude.Maybe Core.ISO8601,
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | The Amazon Resource Name (ARN) of the scheduled action.
     scheduledActionARN :: Prelude.Maybe Prelude.Text,
     -- | The name of the Auto Scaling group.
@@ -55,7 +56,7 @@ data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction'
     desiredCapacity :: Prelude.Maybe Prelude.Int,
     -- | The date and time in UTC for this action to start. For example,
     -- @\"2019-06-01T00:00:00Z\"@.
-    startTime :: Prelude.Maybe Core.ISO8601
+    startTime :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -119,12 +120,12 @@ scheduledUpdateGroupAction_timeZone = Lens.lens (\ScheduledUpdateGroupAction' {t
 
 -- | This property is no longer used.
 scheduledUpdateGroupAction_time :: Lens.Lens' ScheduledUpdateGroupAction (Prelude.Maybe Prelude.UTCTime)
-scheduledUpdateGroupAction_time = Lens.lens (\ScheduledUpdateGroupAction' {time} -> time) (\s@ScheduledUpdateGroupAction' {} a -> s {time = a} :: ScheduledUpdateGroupAction) Prelude.. Lens.mapping Core._Time
+scheduledUpdateGroupAction_time = Lens.lens (\ScheduledUpdateGroupAction' {time} -> time) (\s@ScheduledUpdateGroupAction' {} a -> s {time = a} :: ScheduledUpdateGroupAction) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time in UTC for the recurring schedule to end. For example,
 -- @\"2019-06-01T00:00:00Z\"@.
 scheduledUpdateGroupAction_endTime :: Lens.Lens' ScheduledUpdateGroupAction (Prelude.Maybe Prelude.UTCTime)
-scheduledUpdateGroupAction_endTime = Lens.lens (\ScheduledUpdateGroupAction' {endTime} -> endTime) (\s@ScheduledUpdateGroupAction' {} a -> s {endTime = a} :: ScheduledUpdateGroupAction) Prelude.. Lens.mapping Core._Time
+scheduledUpdateGroupAction_endTime = Lens.lens (\ScheduledUpdateGroupAction' {endTime} -> endTime) (\s@ScheduledUpdateGroupAction' {} a -> s {endTime = a} :: ScheduledUpdateGroupAction) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the scheduled action.
 scheduledUpdateGroupAction_scheduledActionARN :: Lens.Lens' ScheduledUpdateGroupAction (Prelude.Maybe Prelude.Text)
@@ -162,22 +163,22 @@ scheduledUpdateGroupAction_desiredCapacity = Lens.lens (\ScheduledUpdateGroupAct
 -- | The date and time in UTC for this action to start. For example,
 -- @\"2019-06-01T00:00:00Z\"@.
 scheduledUpdateGroupAction_startTime :: Lens.Lens' ScheduledUpdateGroupAction (Prelude.Maybe Prelude.UTCTime)
-scheduledUpdateGroupAction_startTime = Lens.lens (\ScheduledUpdateGroupAction' {startTime} -> startTime) (\s@ScheduledUpdateGroupAction' {} a -> s {startTime = a} :: ScheduledUpdateGroupAction) Prelude.. Lens.mapping Core._Time
+scheduledUpdateGroupAction_startTime = Lens.lens (\ScheduledUpdateGroupAction' {startTime} -> startTime) (\s@ScheduledUpdateGroupAction' {} a -> s {startTime = a} :: ScheduledUpdateGroupAction) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML ScheduledUpdateGroupAction where
+instance Data.FromXML ScheduledUpdateGroupAction where
   parseXML x =
     ScheduledUpdateGroupAction'
-      Prelude.<$> (x Core..@? "TimeZone")
-      Prelude.<*> (x Core..@? "Time")
-      Prelude.<*> (x Core..@? "EndTime")
-      Prelude.<*> (x Core..@? "ScheduledActionARN")
-      Prelude.<*> (x Core..@? "AutoScalingGroupName")
-      Prelude.<*> (x Core..@? "MinSize")
-      Prelude.<*> (x Core..@? "Recurrence")
-      Prelude.<*> (x Core..@? "MaxSize")
-      Prelude.<*> (x Core..@? "ScheduledActionName")
-      Prelude.<*> (x Core..@? "DesiredCapacity")
-      Prelude.<*> (x Core..@? "StartTime")
+      Prelude.<$> (x Data..@? "TimeZone")
+      Prelude.<*> (x Data..@? "Time")
+      Prelude.<*> (x Data..@? "EndTime")
+      Prelude.<*> (x Data..@? "ScheduledActionARN")
+      Prelude.<*> (x Data..@? "AutoScalingGroupName")
+      Prelude.<*> (x Data..@? "MinSize")
+      Prelude.<*> (x Data..@? "Recurrence")
+      Prelude.<*> (x Data..@? "MaxSize")
+      Prelude.<*> (x Data..@? "ScheduledActionName")
+      Prelude.<*> (x Data..@? "DesiredCapacity")
+      Prelude.<*> (x Data..@? "StartTime")
 
 instance Prelude.Hashable ScheduledUpdateGroupAction where
   hashWithSalt _salt ScheduledUpdateGroupAction' {..} =

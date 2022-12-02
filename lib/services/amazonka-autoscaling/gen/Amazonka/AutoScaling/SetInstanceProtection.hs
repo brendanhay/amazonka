@@ -52,6 +52,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -137,23 +138,23 @@ instance Prelude.NFData SetInstanceProtection where
       `Prelude.seq` Prelude.rnf autoScalingGroupName
       `Prelude.seq` Prelude.rnf protectedFromScaleIn
 
-instance Core.ToHeaders SetInstanceProtection where
+instance Data.ToHeaders SetInstanceProtection where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SetInstanceProtection where
+instance Data.ToPath SetInstanceProtection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetInstanceProtection where
+instance Data.ToQuery SetInstanceProtection where
   toQuery SetInstanceProtection' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SetInstanceProtection" :: Prelude.ByteString),
+          Data.=: ("SetInstanceProtection" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
         "InstanceIds"
-          Core.=: Core.toQueryList "member" instanceIds,
-        "AutoScalingGroupName" Core.=: autoScalingGroupName,
-        "ProtectedFromScaleIn" Core.=: protectedFromScaleIn
+          Data.=: Data.toQueryList "member" instanceIds,
+        "AutoScalingGroupName" Data.=: autoScalingGroupName,
+        "ProtectedFromScaleIn" Data.=: protectedFromScaleIn
       ]
 
 -- | /See:/ 'newSetInstanceProtectionResponse' smart constructor.

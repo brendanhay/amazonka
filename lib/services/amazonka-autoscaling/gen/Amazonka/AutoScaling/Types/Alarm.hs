@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.Alarm where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an alarm.
@@ -61,11 +62,11 @@ alarm_alarmARN = Lens.lens (\Alarm' {alarmARN} -> alarmARN) (\s@Alarm' {} a -> s
 alarm_alarmName :: Lens.Lens' Alarm (Prelude.Maybe Prelude.Text)
 alarm_alarmName = Lens.lens (\Alarm' {alarmName} -> alarmName) (\s@Alarm' {} a -> s {alarmName = a} :: Alarm)
 
-instance Core.FromXML Alarm where
+instance Data.FromXML Alarm where
   parseXML x =
     Alarm'
-      Prelude.<$> (x Core..@? "AlarmARN")
-      Prelude.<*> (x Core..@? "AlarmName")
+      Prelude.<$> (x Data..@? "AlarmARN")
+      Prelude.<*> (x Data..@? "AlarmName")
 
 instance Prelude.Hashable Alarm where
   hashWithSalt _salt Alarm' {..} =

@@ -60,6 +60,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -232,25 +233,25 @@ instance Prelude.NFData PutWarmPool where
       `Prelude.seq` Prelude.rnf maxGroupPreparedCapacity
       `Prelude.seq` Prelude.rnf autoScalingGroupName
 
-instance Core.ToHeaders PutWarmPool where
+instance Data.ToHeaders PutWarmPool where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath PutWarmPool where
+instance Data.ToPath PutWarmPool where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutWarmPool where
+instance Data.ToQuery PutWarmPool where
   toQuery PutWarmPool' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("PutWarmPool" :: Prelude.ByteString),
+          Data.=: ("PutWarmPool" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "PoolState" Core.=: poolState,
-        "MinSize" Core.=: minSize,
-        "InstanceReusePolicy" Core.=: instanceReusePolicy,
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "PoolState" Data.=: poolState,
+        "MinSize" Data.=: minSize,
+        "InstanceReusePolicy" Data.=: instanceReusePolicy,
         "MaxGroupPreparedCapacity"
-          Core.=: maxGroupPreparedCapacity,
-        "AutoScalingGroupName" Core.=: autoScalingGroupName
+          Data.=: maxGroupPreparedCapacity,
+        "AutoScalingGroupName" Data.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newPutWarmPoolResponse' smart constructor.

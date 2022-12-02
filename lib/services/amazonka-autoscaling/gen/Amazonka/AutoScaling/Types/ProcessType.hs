@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.ProcessType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a process type.
@@ -110,9 +111,9 @@ newProcessType pProcessName_ =
 processType_processName :: Lens.Lens' ProcessType Prelude.Text
 processType_processName = Lens.lens (\ProcessType' {processName} -> processName) (\s@ProcessType' {} a -> s {processName = a} :: ProcessType)
 
-instance Core.FromXML ProcessType where
+instance Data.FromXML ProcessType where
   parseXML x =
-    ProcessType' Prelude.<$> (x Core..@ "ProcessName")
+    ProcessType' Prelude.<$> (x Data..@ "ProcessName")
 
 instance Prelude.Hashable ProcessType where
   hashWithSalt _salt ProcessType' {..} =

@@ -39,6 +39,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -246,23 +247,23 @@ instance Prelude.NFData DisableMetricsCollection where
     Prelude.rnf metrics
       `Prelude.seq` Prelude.rnf autoScalingGroupName
 
-instance Core.ToHeaders DisableMetricsCollection where
+instance Data.ToHeaders DisableMetricsCollection where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DisableMetricsCollection where
+instance Data.ToPath DisableMetricsCollection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisableMetricsCollection where
+instance Data.ToQuery DisableMetricsCollection where
   toQuery DisableMetricsCollection' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DisableMetricsCollection" :: Prelude.ByteString),
+          Data.=: ("DisableMetricsCollection" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
         "Metrics"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> metrics),
-        "AutoScalingGroupName" Core.=: autoScalingGroupName
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> metrics),
+        "AutoScalingGroupName" Data.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newDisableMetricsCollectionResponse' smart constructor.

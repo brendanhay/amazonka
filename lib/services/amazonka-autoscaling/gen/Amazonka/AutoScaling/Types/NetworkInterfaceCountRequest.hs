@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.NetworkInterfaceCountRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the minimum and maximum for the @NetworkInterfaceCount@ object
@@ -63,10 +64,10 @@ networkInterfaceCountRequest_max = Lens.lens (\NetworkInterfaceCountRequest' {ma
 networkInterfaceCountRequest_min :: Lens.Lens' NetworkInterfaceCountRequest (Prelude.Maybe Prelude.Natural)
 networkInterfaceCountRequest_min = Lens.lens (\NetworkInterfaceCountRequest' {min} -> min) (\s@NetworkInterfaceCountRequest' {} a -> s {min = a} :: NetworkInterfaceCountRequest)
 
-instance Core.FromXML NetworkInterfaceCountRequest where
+instance Data.FromXML NetworkInterfaceCountRequest where
   parseXML x =
     NetworkInterfaceCountRequest'
-      Prelude.<$> (x Core..@? "Max") Prelude.<*> (x Core..@? "Min")
+      Prelude.<$> (x Data..@? "Max") Prelude.<*> (x Data..@? "Min")
 
 instance
   Prelude.Hashable
@@ -80,7 +81,7 @@ instance Prelude.NFData NetworkInterfaceCountRequest where
   rnf NetworkInterfaceCountRequest' {..} =
     Prelude.rnf max `Prelude.seq` Prelude.rnf min
 
-instance Core.ToQuery NetworkInterfaceCountRequest where
+instance Data.ToQuery NetworkInterfaceCountRequest where
   toQuery NetworkInterfaceCountRequest' {..} =
     Prelude.mconcat
-      ["Max" Core.=: max, "Min" Core.=: min]
+      ["Max" Data.=: max, "Min" Data.=: min]

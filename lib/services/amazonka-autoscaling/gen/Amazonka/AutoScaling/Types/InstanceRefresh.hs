@@ -25,6 +25,7 @@ import Amazonka.AutoScaling.Types.InstanceRefreshStatus
 import Amazonka.AutoScaling.Types.RefreshPreferences
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an instance refresh for an Auto Scaling group.
@@ -58,7 +59,7 @@ data InstanceRefresh = InstanceRefresh'
     -- -   @Cancelled@ - The operation is cancelled.
     status :: Prelude.Maybe InstanceRefreshStatus,
     -- | The date and time at which the instance refresh ended.
-    endTime :: Prelude.Maybe Core.ISO8601,
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Maybe Prelude.Text,
     -- | Describes the specific update you want to deploy.
@@ -70,7 +71,7 @@ data InstanceRefresh = InstanceRefresh'
     -- is considered updated and is added to the percentage complete.
     percentageComplete :: Prelude.Maybe Prelude.Natural,
     -- | The date and time at which the instance refresh began.
-    startTime :: Prelude.Maybe Core.ISO8601,
+    startTime :: Prelude.Maybe Data.ISO8601,
     -- | The number of instances remaining to update before the instance refresh
     -- is complete.
     instancesToUpdate :: Prelude.Maybe Prelude.Natural
@@ -184,7 +185,7 @@ instanceRefresh_status = Lens.lens (\InstanceRefresh' {status} -> status) (\s@In
 
 -- | The date and time at which the instance refresh ended.
 instanceRefresh_endTime :: Lens.Lens' InstanceRefresh (Prelude.Maybe Prelude.UTCTime)
-instanceRefresh_endTime = Lens.lens (\InstanceRefresh' {endTime} -> endTime) (\s@InstanceRefresh' {} a -> s {endTime = a} :: InstanceRefresh) Prelude.. Lens.mapping Core._Time
+instanceRefresh_endTime = Lens.lens (\InstanceRefresh' {endTime} -> endTime) (\s@InstanceRefresh' {} a -> s {endTime = a} :: InstanceRefresh) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the Auto Scaling group.
 instanceRefresh_autoScalingGroupName :: Lens.Lens' InstanceRefresh (Prelude.Maybe Prelude.Text)
@@ -204,27 +205,27 @@ instanceRefresh_percentageComplete = Lens.lens (\InstanceRefresh' {percentageCom
 
 -- | The date and time at which the instance refresh began.
 instanceRefresh_startTime :: Lens.Lens' InstanceRefresh (Prelude.Maybe Prelude.UTCTime)
-instanceRefresh_startTime = Lens.lens (\InstanceRefresh' {startTime} -> startTime) (\s@InstanceRefresh' {} a -> s {startTime = a} :: InstanceRefresh) Prelude.. Lens.mapping Core._Time
+instanceRefresh_startTime = Lens.lens (\InstanceRefresh' {startTime} -> startTime) (\s@InstanceRefresh' {} a -> s {startTime = a} :: InstanceRefresh) Prelude.. Lens.mapping Data._Time
 
 -- | The number of instances remaining to update before the instance refresh
 -- is complete.
 instanceRefresh_instancesToUpdate :: Lens.Lens' InstanceRefresh (Prelude.Maybe Prelude.Natural)
 instanceRefresh_instancesToUpdate = Lens.lens (\InstanceRefresh' {instancesToUpdate} -> instancesToUpdate) (\s@InstanceRefresh' {} a -> s {instancesToUpdate = a} :: InstanceRefresh)
 
-instance Core.FromXML InstanceRefresh where
+instance Data.FromXML InstanceRefresh where
   parseXML x =
     InstanceRefresh'
-      Prelude.<$> (x Core..@? "Preferences")
-      Prelude.<*> (x Core..@? "ProgressDetails")
-      Prelude.<*> (x Core..@? "InstanceRefreshId")
-      Prelude.<*> (x Core..@? "StatusReason")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "EndTime")
-      Prelude.<*> (x Core..@? "AutoScalingGroupName")
-      Prelude.<*> (x Core..@? "DesiredConfiguration")
-      Prelude.<*> (x Core..@? "PercentageComplete")
-      Prelude.<*> (x Core..@? "StartTime")
-      Prelude.<*> (x Core..@? "InstancesToUpdate")
+      Prelude.<$> (x Data..@? "Preferences")
+      Prelude.<*> (x Data..@? "ProgressDetails")
+      Prelude.<*> (x Data..@? "InstanceRefreshId")
+      Prelude.<*> (x Data..@? "StatusReason")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "EndTime")
+      Prelude.<*> (x Data..@? "AutoScalingGroupName")
+      Prelude.<*> (x Data..@? "DesiredConfiguration")
+      Prelude.<*> (x Data..@? "PercentageComplete")
+      Prelude.<*> (x Data..@? "StartTime")
+      Prelude.<*> (x Data..@? "InstancesToUpdate")
 
 instance Prelude.Hashable InstanceRefresh where
   hashWithSalt _salt InstanceRefresh' {..} =

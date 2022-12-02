@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.LifecycleHook where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a lifecycle hook. A lifecycle hook lets you create solutions
@@ -169,18 +170,18 @@ lifecycleHook_lifecycleTransition = Lens.lens (\LifecycleHook' {lifecycleTransit
 lifecycleHook_heartbeatTimeout :: Lens.Lens' LifecycleHook (Prelude.Maybe Prelude.Int)
 lifecycleHook_heartbeatTimeout = Lens.lens (\LifecycleHook' {heartbeatTimeout} -> heartbeatTimeout) (\s@LifecycleHook' {} a -> s {heartbeatTimeout = a} :: LifecycleHook)
 
-instance Core.FromXML LifecycleHook where
+instance Data.FromXML LifecycleHook where
   parseXML x =
     LifecycleHook'
-      Prelude.<$> (x Core..@? "LifecycleHookName")
-      Prelude.<*> (x Core..@? "RoleARN")
-      Prelude.<*> (x Core..@? "NotificationMetadata")
-      Prelude.<*> (x Core..@? "DefaultResult")
-      Prelude.<*> (x Core..@? "NotificationTargetARN")
-      Prelude.<*> (x Core..@? "GlobalTimeout")
-      Prelude.<*> (x Core..@? "AutoScalingGroupName")
-      Prelude.<*> (x Core..@? "LifecycleTransition")
-      Prelude.<*> (x Core..@? "HeartbeatTimeout")
+      Prelude.<$> (x Data..@? "LifecycleHookName")
+      Prelude.<*> (x Data..@? "RoleARN")
+      Prelude.<*> (x Data..@? "NotificationMetadata")
+      Prelude.<*> (x Data..@? "DefaultResult")
+      Prelude.<*> (x Data..@? "NotificationTargetARN")
+      Prelude.<*> (x Data..@? "GlobalTimeout")
+      Prelude.<*> (x Data..@? "AutoScalingGroupName")
+      Prelude.<*> (x Data..@? "LifecycleTransition")
+      Prelude.<*> (x Data..@? "HeartbeatTimeout")
 
 instance Prelude.Hashable LifecycleHook where
   hashWithSalt _salt LifecycleHook' {..} =

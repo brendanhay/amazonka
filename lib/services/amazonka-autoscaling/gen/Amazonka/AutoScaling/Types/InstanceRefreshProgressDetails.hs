@@ -23,6 +23,7 @@ import Amazonka.AutoScaling.Types.InstanceRefreshLivePoolProgress
 import Amazonka.AutoScaling.Types.InstanceRefreshWarmPoolProgress
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Reports the progress of an instance refresh on an Auto Scaling group
@@ -72,11 +73,11 @@ instanceRefreshProgressDetails_warmPoolProgress = Lens.lens (\InstanceRefreshPro
 instanceRefreshProgressDetails_livePoolProgress :: Lens.Lens' InstanceRefreshProgressDetails (Prelude.Maybe InstanceRefreshLivePoolProgress)
 instanceRefreshProgressDetails_livePoolProgress = Lens.lens (\InstanceRefreshProgressDetails' {livePoolProgress} -> livePoolProgress) (\s@InstanceRefreshProgressDetails' {} a -> s {livePoolProgress = a} :: InstanceRefreshProgressDetails)
 
-instance Core.FromXML InstanceRefreshProgressDetails where
+instance Data.FromXML InstanceRefreshProgressDetails where
   parseXML x =
     InstanceRefreshProgressDetails'
-      Prelude.<$> (x Core..@? "WarmPoolProgress")
-      Prelude.<*> (x Core..@? "LivePoolProgress")
+      Prelude.<$> (x Data..@? "WarmPoolProgress")
+      Prelude.<*> (x Data..@? "LivePoolProgress")
 
 instance
   Prelude.Hashable

@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.LoadBalancerTargetGroupState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the state of a target group.
@@ -113,11 +114,11 @@ loadBalancerTargetGroupState_state = Lens.lens (\LoadBalancerTargetGroupState' {
 loadBalancerTargetGroupState_loadBalancerTargetGroupARN :: Lens.Lens' LoadBalancerTargetGroupState (Prelude.Maybe Prelude.Text)
 loadBalancerTargetGroupState_loadBalancerTargetGroupARN = Lens.lens (\LoadBalancerTargetGroupState' {loadBalancerTargetGroupARN} -> loadBalancerTargetGroupARN) (\s@LoadBalancerTargetGroupState' {} a -> s {loadBalancerTargetGroupARN = a} :: LoadBalancerTargetGroupState)
 
-instance Core.FromXML LoadBalancerTargetGroupState where
+instance Data.FromXML LoadBalancerTargetGroupState where
   parseXML x =
     LoadBalancerTargetGroupState'
-      Prelude.<$> (x Core..@? "State")
-      Prelude.<*> (x Core..@? "LoadBalancerTargetGroupARN")
+      Prelude.<$> (x Data..@? "State")
+      Prelude.<*> (x Data..@? "LoadBalancerTargetGroupARN")
 
 instance
   Prelude.Hashable

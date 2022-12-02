@@ -22,6 +22,7 @@ module Amazonka.AutoScaling.Types.PredictiveScalingPredefinedScalingMetric where
 import Amazonka.AutoScaling.Types.PredefinedScalingMetricType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a scaling metric for a predictive scaling policy.
@@ -144,13 +145,13 @@ predictiveScalingPredefinedScalingMetric_predefinedMetricType :: Lens.Lens' Pred
 predictiveScalingPredefinedScalingMetric_predefinedMetricType = Lens.lens (\PredictiveScalingPredefinedScalingMetric' {predefinedMetricType} -> predefinedMetricType) (\s@PredictiveScalingPredefinedScalingMetric' {} a -> s {predefinedMetricType = a} :: PredictiveScalingPredefinedScalingMetric)
 
 instance
-  Core.FromXML
+  Data.FromXML
     PredictiveScalingPredefinedScalingMetric
   where
   parseXML x =
     PredictiveScalingPredefinedScalingMetric'
-      Prelude.<$> (x Core..@? "ResourceLabel")
-        Prelude.<*> (x Core..@ "PredefinedMetricType")
+      Prelude.<$> (x Data..@? "ResourceLabel")
+        Prelude.<*> (x Data..@ "PredefinedMetricType")
 
 instance
   Prelude.Hashable
@@ -171,11 +172,11 @@ instance
       `Prelude.seq` Prelude.rnf predefinedMetricType
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PredictiveScalingPredefinedScalingMetric
   where
   toQuery PredictiveScalingPredefinedScalingMetric' {..} =
     Prelude.mconcat
-      [ "ResourceLabel" Core.=: resourceLabel,
-        "PredefinedMetricType" Core.=: predefinedMetricType
+      [ "ResourceLabel" Data.=: resourceLabel,
+        "PredefinedMetricType" Data.=: predefinedMetricType
       ]

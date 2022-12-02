@@ -47,6 +47,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -274,24 +275,24 @@ instance Prelude.NFData EnableMetricsCollection where
       `Prelude.seq` Prelude.rnf autoScalingGroupName
       `Prelude.seq` Prelude.rnf granularity
 
-instance Core.ToHeaders EnableMetricsCollection where
+instance Data.ToHeaders EnableMetricsCollection where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath EnableMetricsCollection where
+instance Data.ToPath EnableMetricsCollection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery EnableMetricsCollection where
+instance Data.ToQuery EnableMetricsCollection where
   toQuery EnableMetricsCollection' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("EnableMetricsCollection" :: Prelude.ByteString),
+          Data.=: ("EnableMetricsCollection" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
         "Metrics"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> metrics),
-        "AutoScalingGroupName" Core.=: autoScalingGroupName,
-        "Granularity" Core.=: granularity
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> metrics),
+        "AutoScalingGroupName" Data.=: autoScalingGroupName,
+        "Granularity" Data.=: granularity
       ]
 
 -- | /See:/ 'newEnableMetricsCollectionResponse' smart constructor.

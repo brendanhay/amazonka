@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.TagDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a tag for an Auto Scaling group.
@@ -106,14 +107,14 @@ tagDescription_propagateAtLaunch = Lens.lens (\TagDescription' {propagateAtLaunc
 tagDescription_value :: Lens.Lens' TagDescription Prelude.Text
 tagDescription_value = Lens.lens (\TagDescription' {value} -> value) (\s@TagDescription' {} a -> s {value = a} :: TagDescription)
 
-instance Core.FromXML TagDescription where
+instance Data.FromXML TagDescription where
   parseXML x =
     TagDescription'
-      Prelude.<$> (x Core..@ "ResourceId")
-      Prelude.<*> (x Core..@ "ResourceType")
-      Prelude.<*> (x Core..@ "Key")
-      Prelude.<*> (x Core..@ "PropagateAtLaunch")
-      Prelude.<*> (x Core..@ "Value")
+      Prelude.<$> (x Data..@ "ResourceId")
+      Prelude.<*> (x Data..@ "ResourceType")
+      Prelude.<*> (x Data..@ "Key")
+      Prelude.<*> (x Data..@ "PropagateAtLaunch")
+      Prelude.<*> (x Data..@ "Value")
 
 instance Prelude.Hashable TagDescription where
   hashWithSalt _salt TagDescription' {..} =

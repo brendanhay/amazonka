@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.SuspendedProcess where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an auto scaling process that has been suspended.
@@ -66,11 +67,11 @@ suspendedProcess_suspensionReason = Lens.lens (\SuspendedProcess' {suspensionRea
 suspendedProcess_processName :: Lens.Lens' SuspendedProcess (Prelude.Maybe Prelude.Text)
 suspendedProcess_processName = Lens.lens (\SuspendedProcess' {processName} -> processName) (\s@SuspendedProcess' {} a -> s {processName = a} :: SuspendedProcess)
 
-instance Core.FromXML SuspendedProcess where
+instance Data.FromXML SuspendedProcess where
   parseXML x =
     SuspendedProcess'
-      Prelude.<$> (x Core..@? "SuspensionReason")
-      Prelude.<*> (x Core..@? "ProcessName")
+      Prelude.<$> (x Data..@? "SuspensionReason")
+      Prelude.<*> (x Data..@? "ProcessName")
 
 instance Prelude.Hashable SuspendedProcess where
   hashWithSalt _salt SuspendedProcess' {..} =

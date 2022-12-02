@@ -48,6 +48,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -77,8 +78,8 @@ instance Core.AWSRequest DescribeAdjustmentTypes where
       "DescribeAdjustmentTypesResult"
       ( \s h x ->
           DescribeAdjustmentTypesResponse'
-            Prelude.<$> ( x Core..@? "AdjustmentTypes" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "AdjustmentTypes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -90,20 +91,20 @@ instance Prelude.Hashable DescribeAdjustmentTypes where
 instance Prelude.NFData DescribeAdjustmentTypes where
   rnf _ = ()
 
-instance Core.ToHeaders DescribeAdjustmentTypes where
+instance Data.ToHeaders DescribeAdjustmentTypes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAdjustmentTypes where
+instance Data.ToPath DescribeAdjustmentTypes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAdjustmentTypes where
+instance Data.ToQuery DescribeAdjustmentTypes where
   toQuery =
     Prelude.const
       ( Prelude.mconcat
           [ "Action"
-              Core.=: ("DescribeAdjustmentTypes" :: Prelude.ByteString),
+              Data.=: ("DescribeAdjustmentTypes" :: Prelude.ByteString),
             "Version"
-              Core.=: ("2011-01-01" :: Prelude.ByteString)
+              Data.=: ("2011-01-01" :: Prelude.ByteString)
           ]
       )
 

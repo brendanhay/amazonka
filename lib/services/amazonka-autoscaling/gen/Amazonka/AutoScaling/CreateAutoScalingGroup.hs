@@ -88,6 +88,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -895,71 +896,71 @@ instance Prelude.NFData CreateAutoScalingGroup where
       `Prelude.seq` Prelude.rnf
         maxSize
 
-instance Core.ToHeaders CreateAutoScalingGroup where
+instance Data.ToHeaders CreateAutoScalingGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateAutoScalingGroup where
+instance Data.ToPath CreateAutoScalingGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateAutoScalingGroup where
+instance Data.ToQuery CreateAutoScalingGroup where
   toQuery CreateAutoScalingGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateAutoScalingGroup" :: Prelude.ByteString),
+          Data.=: ("CreateAutoScalingGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
         "LoadBalancerNames"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> loadBalancerNames
             ),
         "AvailabilityZones"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> availabilityZones
             ),
         "HealthCheckGracePeriod"
-          Core.=: healthCheckGracePeriod,
-        "LaunchTemplate" Core.=: launchTemplate,
+          Data.=: healthCheckGracePeriod,
+        "LaunchTemplate" Data.=: launchTemplate,
         "LifecycleHookSpecificationList"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> lifecycleHookSpecificationList
             ),
-        "ServiceLinkedRoleARN" Core.=: serviceLinkedRoleARN,
-        "Context" Core.=: context,
-        "MaxInstanceLifetime" Core.=: maxInstanceLifetime,
-        "VPCZoneIdentifier" Core.=: vPCZoneIdentifier,
+        "ServiceLinkedRoleARN" Data.=: serviceLinkedRoleARN,
+        "Context" Data.=: context,
+        "MaxInstanceLifetime" Data.=: maxInstanceLifetime,
+        "VPCZoneIdentifier" Data.=: vPCZoneIdentifier,
         "LaunchConfigurationName"
-          Core.=: launchConfigurationName,
+          Data.=: launchConfigurationName,
         "TargetGroupARNs"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> targetGroupARNs
             ),
         "DefaultInstanceWarmup"
-          Core.=: defaultInstanceWarmup,
-        "InstanceId" Core.=: instanceId,
-        "MixedInstancesPolicy" Core.=: mixedInstancesPolicy,
-        "HealthCheckType" Core.=: healthCheckType,
-        "PlacementGroup" Core.=: placementGroup,
-        "DesiredCapacityType" Core.=: desiredCapacityType,
+          Data.=: defaultInstanceWarmup,
+        "InstanceId" Data.=: instanceId,
+        "MixedInstancesPolicy" Data.=: mixedInstancesPolicy,
+        "HealthCheckType" Data.=: healthCheckType,
+        "PlacementGroup" Data.=: placementGroup,
+        "DesiredCapacityType" Data.=: desiredCapacityType,
         "NewInstancesProtectedFromScaleIn"
-          Core.=: newInstancesProtectedFromScaleIn',
-        "DefaultCooldown" Core.=: defaultCooldown,
+          Data.=: newInstancesProtectedFromScaleIn',
+        "DefaultCooldown" Data.=: defaultCooldown,
         "TerminationPolicies"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> terminationPolicies
             ),
-        "DesiredCapacity" Core.=: desiredCapacity,
-        "CapacityRebalance" Core.=: capacityRebalance,
-        "AutoScalingGroupName" Core.=: autoScalingGroupName,
-        "MinSize" Core.=: minSize,
-        "MaxSize" Core.=: maxSize
+        "DesiredCapacity" Data.=: desiredCapacity,
+        "CapacityRebalance" Data.=: capacityRebalance,
+        "AutoScalingGroupName" Data.=: autoScalingGroupName,
+        "MinSize" Data.=: minSize,
+        "MaxSize" Data.=: maxSize
       ]
 
 -- | /See:/ 'newCreateAutoScalingGroupResponse' smart constructor.

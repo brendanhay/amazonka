@@ -39,6 +39,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,25 +119,25 @@ instance
       `Prelude.seq` Prelude.rnf topicARN
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteNotificationConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteNotificationConfiguration where
+instance Data.ToPath DeleteNotificationConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteNotificationConfiguration where
+instance Data.ToQuery DeleteNotificationConfiguration where
   toQuery DeleteNotificationConfiguration' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DeleteNotificationConfiguration" ::
+          Data.=: ( "DeleteNotificationConfiguration" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "AutoScalingGroupName" Core.=: autoScalingGroupName,
-        "TopicARN" Core.=: topicARN
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "AutoScalingGroupName" Data.=: autoScalingGroupName,
+        "TopicARN" Data.=: topicARN
       ]
 
 -- | /See:/ 'newDeleteNotificationConfigurationResponse' smart constructor.

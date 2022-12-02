@@ -51,6 +51,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,25 +139,25 @@ instance Prelude.NFData PutNotificationConfiguration where
       `Prelude.seq` Prelude.rnf topicARN
       `Prelude.seq` Prelude.rnf notificationTypes
 
-instance Core.ToHeaders PutNotificationConfiguration where
+instance Data.ToHeaders PutNotificationConfiguration where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath PutNotificationConfiguration where
+instance Data.ToPath PutNotificationConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutNotificationConfiguration where
+instance Data.ToQuery PutNotificationConfiguration where
   toQuery PutNotificationConfiguration' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "PutNotificationConfiguration" ::
+          Data.=: ( "PutNotificationConfiguration" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "AutoScalingGroupName" Core.=: autoScalingGroupName,
-        "TopicARN" Core.=: topicARN,
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "AutoScalingGroupName" Data.=: autoScalingGroupName,
+        "TopicARN" Data.=: topicARN,
         "NotificationTypes"
-          Core.=: Core.toQueryList "member" notificationTypes
+          Data.=: Data.toQueryList "member" notificationTypes
       ]
 
 -- | /See:/ 'newPutNotificationConfigurationResponse' smart constructor.

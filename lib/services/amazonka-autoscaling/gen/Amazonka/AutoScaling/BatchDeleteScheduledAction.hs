@@ -44,6 +44,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,9 +102,9 @@ instance Core.AWSRequest BatchDeleteScheduledAction where
       "BatchDeleteScheduledActionResult"
       ( \s h x ->
           BatchDeleteScheduledActionResponse'
-            Prelude.<$> ( x Core..@? "FailedScheduledActions"
+            Prelude.<$> ( x Data..@? "FailedScheduledActions"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -118,22 +119,22 @@ instance Prelude.NFData BatchDeleteScheduledAction where
     Prelude.rnf autoScalingGroupName
       `Prelude.seq` Prelude.rnf scheduledActionNames
 
-instance Core.ToHeaders BatchDeleteScheduledAction where
+instance Data.ToHeaders BatchDeleteScheduledAction where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath BatchDeleteScheduledAction where
+instance Data.ToPath BatchDeleteScheduledAction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchDeleteScheduledAction where
+instance Data.ToQuery BatchDeleteScheduledAction where
   toQuery BatchDeleteScheduledAction' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("BatchDeleteScheduledAction" :: Prelude.ByteString),
+          Data.=: ("BatchDeleteScheduledAction" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "AutoScalingGroupName" Core.=: autoScalingGroupName,
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "AutoScalingGroupName" Data.=: autoScalingGroupName,
         "ScheduledActionNames"
-          Core.=: Core.toQueryList "member" scheduledActionNames
+          Data.=: Data.toQueryList "member" scheduledActionNames
       ]
 
 -- | /See:/ 'newBatchDeleteScheduledActionResponse' smart constructor.

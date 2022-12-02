@@ -61,6 +61,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -74,7 +75,7 @@ data GetPredictiveScalingForecast = GetPredictiveScalingForecast'
     -- | The inclusive start time of the time range for the forecast data to get.
     -- At most, the date and time can be one year before the current date and
     -- time.
-    startTime :: Core.ISO8601,
+    startTime :: Data.ISO8601,
     -- | The exclusive end time of the time range for the forecast data to get.
     -- The maximum time duration between the start and end time is 30 days.
     --
@@ -82,7 +83,7 @@ data GetPredictiveScalingForecast = GetPredictiveScalingForecast'
     -- days in the future, the availability of forecast data has limits. Amazon
     -- EC2 Auto Scaling only issues forecasts for periods of two days in
     -- advance.
-    endTime :: Core.ISO8601
+    endTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -128,8 +129,8 @@ newGetPredictiveScalingForecast
       { autoScalingGroupName =
           pAutoScalingGroupName_,
         policyName = pPolicyName_,
-        startTime = Core._Time Lens.# pStartTime_,
-        endTime = Core._Time Lens.# pEndTime_
+        startTime = Data._Time Lens.# pStartTime_,
+        endTime = Data._Time Lens.# pEndTime_
       }
 
 -- | The name of the Auto Scaling group.
@@ -144,7 +145,7 @@ getPredictiveScalingForecast_policyName = Lens.lens (\GetPredictiveScalingForeca
 -- At most, the date and time can be one year before the current date and
 -- time.
 getPredictiveScalingForecast_startTime :: Lens.Lens' GetPredictiveScalingForecast Prelude.UTCTime
-getPredictiveScalingForecast_startTime = Lens.lens (\GetPredictiveScalingForecast' {startTime} -> startTime) (\s@GetPredictiveScalingForecast' {} a -> s {startTime = a} :: GetPredictiveScalingForecast) Prelude.. Core._Time
+getPredictiveScalingForecast_startTime = Lens.lens (\GetPredictiveScalingForecast' {startTime} -> startTime) (\s@GetPredictiveScalingForecast' {} a -> s {startTime = a} :: GetPredictiveScalingForecast) Prelude.. Data._Time
 
 -- | The exclusive end time of the time range for the forecast data to get.
 -- The maximum time duration between the start and end time is 30 days.
@@ -154,7 +155,7 @@ getPredictiveScalingForecast_startTime = Lens.lens (\GetPredictiveScalingForecas
 -- EC2 Auto Scaling only issues forecasts for periods of two days in
 -- advance.
 getPredictiveScalingForecast_endTime :: Lens.Lens' GetPredictiveScalingForecast Prelude.UTCTime
-getPredictiveScalingForecast_endTime = Lens.lens (\GetPredictiveScalingForecast' {endTime} -> endTime) (\s@GetPredictiveScalingForecast' {} a -> s {endTime = a} :: GetPredictiveScalingForecast) Prelude.. Core._Time
+getPredictiveScalingForecast_endTime = Lens.lens (\GetPredictiveScalingForecast' {endTime} -> endTime) (\s@GetPredictiveScalingForecast' {} a -> s {endTime = a} :: GetPredictiveScalingForecast) Prelude.. Data._Time
 
 instance Core.AWSRequest GetPredictiveScalingForecast where
   type
@@ -168,11 +169,11 @@ instance Core.AWSRequest GetPredictiveScalingForecast where
       ( \s h x ->
           GetPredictiveScalingForecastResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "LoadForecast" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+            Prelude.<*> ( x Data..@? "LoadForecast" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "member"
                         )
-            Prelude.<*> (x Core..@ "CapacityForecast")
-            Prelude.<*> (x Core..@ "UpdateTime")
+            Prelude.<*> (x Data..@ "CapacityForecast")
+            Prelude.<*> (x Data..@ "UpdateTime")
       )
 
 instance
@@ -192,25 +193,25 @@ instance Prelude.NFData GetPredictiveScalingForecast where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf endTime
 
-instance Core.ToHeaders GetPredictiveScalingForecast where
+instance Data.ToHeaders GetPredictiveScalingForecast where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetPredictiveScalingForecast where
+instance Data.ToPath GetPredictiveScalingForecast where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetPredictiveScalingForecast where
+instance Data.ToQuery GetPredictiveScalingForecast where
   toQuery GetPredictiveScalingForecast' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "GetPredictiveScalingForecast" ::
+          Data.=: ( "GetPredictiveScalingForecast" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "AutoScalingGroupName" Core.=: autoScalingGroupName,
-        "PolicyName" Core.=: policyName,
-        "StartTime" Core.=: startTime,
-        "EndTime" Core.=: endTime
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "AutoScalingGroupName" Data.=: autoScalingGroupName,
+        "PolicyName" Data.=: policyName,
+        "StartTime" Data.=: startTime,
+        "EndTime" Data.=: endTime
       ]
 
 -- | /See:/ 'newGetPredictiveScalingForecastResponse' smart constructor.
@@ -222,7 +223,7 @@ data GetPredictiveScalingForecastResponse = GetPredictiveScalingForecastResponse
     -- | The capacity forecast.
     capacityForecast :: CapacityForecast,
     -- | The time the forecast was made.
-    updateTime :: Core.ISO8601
+    updateTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -259,7 +260,7 @@ newGetPredictiveScalingForecastResponse
         loadForecast = Prelude.mempty,
         capacityForecast = pCapacityForecast_,
         updateTime =
-          Core._Time Lens.# pUpdateTime_
+          Data._Time Lens.# pUpdateTime_
       }
 
 -- | The response's http status code.
@@ -276,7 +277,7 @@ getPredictiveScalingForecastResponse_capacityForecast = Lens.lens (\GetPredictiv
 
 -- | The time the forecast was made.
 getPredictiveScalingForecastResponse_updateTime :: Lens.Lens' GetPredictiveScalingForecastResponse Prelude.UTCTime
-getPredictiveScalingForecastResponse_updateTime = Lens.lens (\GetPredictiveScalingForecastResponse' {updateTime} -> updateTime) (\s@GetPredictiveScalingForecastResponse' {} a -> s {updateTime = a} :: GetPredictiveScalingForecastResponse) Prelude.. Core._Time
+getPredictiveScalingForecastResponse_updateTime = Lens.lens (\GetPredictiveScalingForecastResponse' {updateTime} -> updateTime) (\s@GetPredictiveScalingForecastResponse' {} a -> s {updateTime = a} :: GetPredictiveScalingForecastResponse) Prelude.. Data._Time
 
 instance
   Prelude.NFData

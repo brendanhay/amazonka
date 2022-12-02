@@ -22,6 +22,7 @@ module Amazonka.AutoScaling.Types.Activity where
 import Amazonka.AutoScaling.Types.ScalingActivityStatusCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes scaling activity, which is a long-running process that
@@ -38,7 +39,7 @@ data Activity = Activity'
     -- @Deleted@.
     autoScalingGroupState :: Prelude.Maybe Prelude.Text,
     -- | The end time of the activity.
-    endTime :: Prelude.Maybe Core.ISO8601,
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | A friendly, more verbose description of the activity.
     description :: Prelude.Maybe Prelude.Text,
     -- | The details about the activity.
@@ -52,7 +53,7 @@ data Activity = Activity'
     -- | The reason the activity began.
     cause :: Prelude.Text,
     -- | The start time of the activity.
-    startTime :: Core.ISO8601,
+    startTime :: Data.ISO8601,
     -- | The current status of the activity.
     statusCode :: ScalingActivityStatusCode
   }
@@ -119,7 +120,7 @@ newActivity
         activityId = pActivityId_,
         autoScalingGroupName = pAutoScalingGroupName_,
         cause = pCause_,
-        startTime = Core._Time Lens.# pStartTime_,
+        startTime = Data._Time Lens.# pStartTime_,
         statusCode = pStatusCode_
       }
 
@@ -138,7 +139,7 @@ activity_autoScalingGroupState = Lens.lens (\Activity' {autoScalingGroupState} -
 
 -- | The end time of the activity.
 activity_endTime :: Lens.Lens' Activity (Prelude.Maybe Prelude.UTCTime)
-activity_endTime = Lens.lens (\Activity' {endTime} -> endTime) (\s@Activity' {} a -> s {endTime = a} :: Activity) Prelude.. Lens.mapping Core._Time
+activity_endTime = Lens.lens (\Activity' {endTime} -> endTime) (\s@Activity' {} a -> s {endTime = a} :: Activity) Prelude.. Lens.mapping Data._Time
 
 -- | A friendly, more verbose description of the activity.
 activity_description :: Lens.Lens' Activity (Prelude.Maybe Prelude.Text)
@@ -166,27 +167,27 @@ activity_cause = Lens.lens (\Activity' {cause} -> cause) (\s@Activity' {} a -> s
 
 -- | The start time of the activity.
 activity_startTime :: Lens.Lens' Activity Prelude.UTCTime
-activity_startTime = Lens.lens (\Activity' {startTime} -> startTime) (\s@Activity' {} a -> s {startTime = a} :: Activity) Prelude.. Core._Time
+activity_startTime = Lens.lens (\Activity' {startTime} -> startTime) (\s@Activity' {} a -> s {startTime = a} :: Activity) Prelude.. Data._Time
 
 -- | The current status of the activity.
 activity_statusCode :: Lens.Lens' Activity ScalingActivityStatusCode
 activity_statusCode = Lens.lens (\Activity' {statusCode} -> statusCode) (\s@Activity' {} a -> s {statusCode = a} :: Activity)
 
-instance Core.FromXML Activity where
+instance Data.FromXML Activity where
   parseXML x =
     Activity'
-      Prelude.<$> (x Core..@? "Progress")
-      Prelude.<*> (x Core..@? "AutoScalingGroupARN")
-      Prelude.<*> (x Core..@? "AutoScalingGroupState")
-      Prelude.<*> (x Core..@? "EndTime")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "Details")
-      Prelude.<*> (x Core..@? "StatusMessage")
-      Prelude.<*> (x Core..@ "ActivityId")
-      Prelude.<*> (x Core..@ "AutoScalingGroupName")
-      Prelude.<*> (x Core..@ "Cause")
-      Prelude.<*> (x Core..@ "StartTime")
-      Prelude.<*> (x Core..@ "StatusCode")
+      Prelude.<$> (x Data..@? "Progress")
+      Prelude.<*> (x Data..@? "AutoScalingGroupARN")
+      Prelude.<*> (x Data..@? "AutoScalingGroupState")
+      Prelude.<*> (x Data..@? "EndTime")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "Details")
+      Prelude.<*> (x Data..@? "StatusMessage")
+      Prelude.<*> (x Data..@ "ActivityId")
+      Prelude.<*> (x Data..@ "AutoScalingGroupName")
+      Prelude.<*> (x Data..@ "Cause")
+      Prelude.<*> (x Data..@ "StartTime")
+      Prelude.<*> (x Data..@ "StatusCode")
 
 instance Prelude.Hashable Activity where
   hashWithSalt _salt Activity' {..} =

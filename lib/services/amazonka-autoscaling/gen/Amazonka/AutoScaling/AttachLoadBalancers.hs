@@ -59,6 +59,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -129,22 +130,22 @@ instance Prelude.NFData AttachLoadBalancers where
     Prelude.rnf autoScalingGroupName
       `Prelude.seq` Prelude.rnf loadBalancerNames
 
-instance Core.ToHeaders AttachLoadBalancers where
+instance Data.ToHeaders AttachLoadBalancers where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AttachLoadBalancers where
+instance Data.ToPath AttachLoadBalancers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AttachLoadBalancers where
+instance Data.ToQuery AttachLoadBalancers where
   toQuery AttachLoadBalancers' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AttachLoadBalancers" :: Prelude.ByteString),
+          Data.=: ("AttachLoadBalancers" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "AutoScalingGroupName" Core.=: autoScalingGroupName,
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "AutoScalingGroupName" Data.=: autoScalingGroupName,
         "LoadBalancerNames"
-          Core.=: Core.toQueryList "member" loadBalancerNames
+          Data.=: Data.toQueryList "member" loadBalancerNames
       ]
 
 -- | /See:/ 'newAttachLoadBalancersResponse' smart constructor.

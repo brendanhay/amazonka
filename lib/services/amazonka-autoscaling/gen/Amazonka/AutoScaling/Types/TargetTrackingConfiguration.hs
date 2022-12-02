@@ -23,6 +23,7 @@ import Amazonka.AutoScaling.Types.CustomizedMetricSpecification
 import Amazonka.AutoScaling.Types.PredefinedMetricSpecification
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a target tracking scaling policy configuration to use with
@@ -123,13 +124,13 @@ targetTrackingConfiguration_predefinedMetricSpecification = Lens.lens (\TargetTr
 targetTrackingConfiguration_targetValue :: Lens.Lens' TargetTrackingConfiguration Prelude.Double
 targetTrackingConfiguration_targetValue = Lens.lens (\TargetTrackingConfiguration' {targetValue} -> targetValue) (\s@TargetTrackingConfiguration' {} a -> s {targetValue = a} :: TargetTrackingConfiguration)
 
-instance Core.FromXML TargetTrackingConfiguration where
+instance Data.FromXML TargetTrackingConfiguration where
   parseXML x =
     TargetTrackingConfiguration'
-      Prelude.<$> (x Core..@? "DisableScaleIn")
-      Prelude.<*> (x Core..@? "CustomizedMetricSpecification")
-      Prelude.<*> (x Core..@? "PredefinedMetricSpecification")
-      Prelude.<*> (x Core..@ "TargetValue")
+      Prelude.<$> (x Data..@? "DisableScaleIn")
+      Prelude.<*> (x Data..@? "CustomizedMetricSpecification")
+      Prelude.<*> (x Data..@? "PredefinedMetricSpecification")
+      Prelude.<*> (x Data..@ "TargetValue")
 
 instance Prelude.Hashable TargetTrackingConfiguration where
   hashWithSalt _salt TargetTrackingConfiguration' {..} =
@@ -145,13 +146,13 @@ instance Prelude.NFData TargetTrackingConfiguration where
       `Prelude.seq` Prelude.rnf predefinedMetricSpecification
       `Prelude.seq` Prelude.rnf targetValue
 
-instance Core.ToQuery TargetTrackingConfiguration where
+instance Data.ToQuery TargetTrackingConfiguration where
   toQuery TargetTrackingConfiguration' {..} =
     Prelude.mconcat
-      [ "DisableScaleIn" Core.=: disableScaleIn,
+      [ "DisableScaleIn" Data.=: disableScaleIn,
         "CustomizedMetricSpecification"
-          Core.=: customizedMetricSpecification,
+          Data.=: customizedMetricSpecification,
         "PredefinedMetricSpecification"
-          Core.=: predefinedMetricSpecification,
-        "TargetValue" Core.=: targetValue
+          Data.=: predefinedMetricSpecification,
+        "TargetValue" Data.=: targetValue
       ]

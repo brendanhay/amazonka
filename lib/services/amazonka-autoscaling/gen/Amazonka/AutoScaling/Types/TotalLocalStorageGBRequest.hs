@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.TotalLocalStorageGBRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the minimum and maximum for the @TotalLocalStorageGB@ object
@@ -62,10 +63,10 @@ totalLocalStorageGBRequest_max = Lens.lens (\TotalLocalStorageGBRequest' {max} -
 totalLocalStorageGBRequest_min :: Lens.Lens' TotalLocalStorageGBRequest (Prelude.Maybe Prelude.Double)
 totalLocalStorageGBRequest_min = Lens.lens (\TotalLocalStorageGBRequest' {min} -> min) (\s@TotalLocalStorageGBRequest' {} a -> s {min = a} :: TotalLocalStorageGBRequest)
 
-instance Core.FromXML TotalLocalStorageGBRequest where
+instance Data.FromXML TotalLocalStorageGBRequest where
   parseXML x =
     TotalLocalStorageGBRequest'
-      Prelude.<$> (x Core..@? "Max") Prelude.<*> (x Core..@? "Min")
+      Prelude.<$> (x Data..@? "Max") Prelude.<*> (x Data..@? "Min")
 
 instance Prelude.Hashable TotalLocalStorageGBRequest where
   hashWithSalt _salt TotalLocalStorageGBRequest' {..} =
@@ -76,7 +77,7 @@ instance Prelude.NFData TotalLocalStorageGBRequest where
   rnf TotalLocalStorageGBRequest' {..} =
     Prelude.rnf max `Prelude.seq` Prelude.rnf min
 
-instance Core.ToQuery TotalLocalStorageGBRequest where
+instance Data.ToQuery TotalLocalStorageGBRequest where
   toQuery TotalLocalStorageGBRequest' {..} =
     Prelude.mconcat
-      ["Max" Core.=: max, "Min" Core.=: min]
+      ["Max" Data.=: max, "Min" Data.=: min]

@@ -39,6 +39,7 @@ import Amazonka.AutoScaling.Types.TotalLocalStorageGBRequest
 import Amazonka.AutoScaling.Types.VCpuCountRequest
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The attributes for the instance types for a mixed instances policy.
@@ -809,58 +810,58 @@ instanceRequirements_vCpuCount = Lens.lens (\InstanceRequirements' {vCpuCount} -
 instanceRequirements_memoryMiB :: Lens.Lens' InstanceRequirements MemoryMiBRequest
 instanceRequirements_memoryMiB = Lens.lens (\InstanceRequirements' {memoryMiB} -> memoryMiB) (\s@InstanceRequirements' {} a -> s {memoryMiB = a} :: InstanceRequirements)
 
-instance Core.FromXML InstanceRequirements where
+instance Data.FromXML InstanceRequirements where
   parseXML x =
     InstanceRequirements'
-      Prelude.<$> ( x Core..@? "InstanceGenerations"
+      Prelude.<$> ( x Data..@? "InstanceGenerations"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "BaselineEbsBandwidthMbps")
-      Prelude.<*> (x Core..@? "BareMetal")
-      Prelude.<*> (x Core..@? "SpotMaxPricePercentageOverLowestPrice")
-      Prelude.<*> ( x Core..@? "AcceleratorTypes"
+      Prelude.<*> (x Data..@? "BaselineEbsBandwidthMbps")
+      Prelude.<*> (x Data..@? "BareMetal")
+      Prelude.<*> (x Data..@? "SpotMaxPricePercentageOverLowestPrice")
+      Prelude.<*> ( x Data..@? "AcceleratorTypes"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "TotalLocalStorageGB")
-      Prelude.<*> ( x Core..@? "LocalStorageTypes"
+      Prelude.<*> (x Data..@? "TotalLocalStorageGB")
+      Prelude.<*> ( x Data..@? "LocalStorageTypes"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> ( x
-                      Core..@? "OnDemandMaxPricePercentageOverLowestPrice"
+                      Data..@? "OnDemandMaxPricePercentageOverLowestPrice"
                   )
-      Prelude.<*> ( x Core..@? "AllowedInstanceTypes"
+      Prelude.<*> ( x Data..@? "AllowedInstanceTypes"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "AcceleratorNames"
+      Prelude.<*> ( x Data..@? "AcceleratorNames"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "NetworkBandwidthGbps")
-      Prelude.<*> ( x Core..@? "AcceleratorManufacturers"
+      Prelude.<*> (x Data..@? "NetworkBandwidthGbps")
+      Prelude.<*> ( x Data..@? "AcceleratorManufacturers"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "ExcludedInstanceTypes"
+      Prelude.<*> ( x Data..@? "ExcludedInstanceTypes"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "NetworkInterfaceCount")
-      Prelude.<*> (x Core..@? "RequireHibernateSupport")
-      Prelude.<*> (x Core..@? "AcceleratorTotalMemoryMiB")
-      Prelude.<*> (x Core..@? "AcceleratorCount")
-      Prelude.<*> (x Core..@? "BurstablePerformance")
-      Prelude.<*> ( x Core..@? "CpuManufacturers"
+      Prelude.<*> (x Data..@? "NetworkInterfaceCount")
+      Prelude.<*> (x Data..@? "RequireHibernateSupport")
+      Prelude.<*> (x Data..@? "AcceleratorTotalMemoryMiB")
+      Prelude.<*> (x Data..@? "AcceleratorCount")
+      Prelude.<*> (x Data..@? "BurstablePerformance")
+      Prelude.<*> ( x Data..@? "CpuManufacturers"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "MemoryGiBPerVCpu")
-      Prelude.<*> (x Core..@? "LocalStorage")
-      Prelude.<*> (x Core..@ "VCpuCount")
-      Prelude.<*> (x Core..@ "MemoryMiB")
+      Prelude.<*> (x Data..@? "MemoryGiBPerVCpu")
+      Prelude.<*> (x Data..@? "LocalStorage")
+      Prelude.<*> (x Data..@ "VCpuCount")
+      Prelude.<*> (x Data..@ "MemoryMiB")
 
 instance Prelude.Hashable InstanceRequirements where
   hashWithSalt _salt InstanceRequirements' {..} =
@@ -914,68 +915,68 @@ instance Prelude.NFData InstanceRequirements where
       `Prelude.seq` Prelude.rnf vCpuCount
       `Prelude.seq` Prelude.rnf memoryMiB
 
-instance Core.ToQuery InstanceRequirements where
+instance Data.ToQuery InstanceRequirements where
   toQuery InstanceRequirements' {..} =
     Prelude.mconcat
       [ "InstanceGenerations"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> instanceGenerations
             ),
         "BaselineEbsBandwidthMbps"
-          Core.=: baselineEbsBandwidthMbps,
-        "BareMetal" Core.=: bareMetal,
+          Data.=: baselineEbsBandwidthMbps,
+        "BareMetal" Data.=: bareMetal,
         "SpotMaxPricePercentageOverLowestPrice"
-          Core.=: spotMaxPricePercentageOverLowestPrice,
+          Data.=: spotMaxPricePercentageOverLowestPrice,
         "AcceleratorTypes"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> acceleratorTypes
             ),
-        "TotalLocalStorageGB" Core.=: totalLocalStorageGB,
+        "TotalLocalStorageGB" Data.=: totalLocalStorageGB,
         "LocalStorageTypes"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> localStorageTypes
             ),
         "OnDemandMaxPricePercentageOverLowestPrice"
-          Core.=: onDemandMaxPricePercentageOverLowestPrice,
+          Data.=: onDemandMaxPricePercentageOverLowestPrice,
         "AllowedInstanceTypes"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> allowedInstanceTypes
             ),
         "AcceleratorNames"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> acceleratorNames
             ),
-        "NetworkBandwidthGbps" Core.=: networkBandwidthGbps,
+        "NetworkBandwidthGbps" Data.=: networkBandwidthGbps,
         "AcceleratorManufacturers"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> acceleratorManufacturers
             ),
         "ExcludedInstanceTypes"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> excludedInstanceTypes
             ),
         "NetworkInterfaceCount"
-          Core.=: networkInterfaceCount,
+          Data.=: networkInterfaceCount,
         "RequireHibernateSupport"
-          Core.=: requireHibernateSupport,
+          Data.=: requireHibernateSupport,
         "AcceleratorTotalMemoryMiB"
-          Core.=: acceleratorTotalMemoryMiB,
-        "AcceleratorCount" Core.=: acceleratorCount,
-        "BurstablePerformance" Core.=: burstablePerformance,
+          Data.=: acceleratorTotalMemoryMiB,
+        "AcceleratorCount" Data.=: acceleratorCount,
+        "BurstablePerformance" Data.=: burstablePerformance,
         "CpuManufacturers"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> cpuManufacturers
             ),
-        "MemoryGiBPerVCpu" Core.=: memoryGiBPerVCpu,
-        "LocalStorage" Core.=: localStorage,
-        "VCpuCount" Core.=: vCpuCount,
-        "MemoryMiB" Core.=: memoryMiB
+        "MemoryGiBPerVCpu" Data.=: memoryGiBPerVCpu,
+        "LocalStorage" Data.=: localStorage,
+        "VCpuCount" Data.=: vCpuCount,
+        "MemoryMiB" Data.=: memoryMiB
       ]

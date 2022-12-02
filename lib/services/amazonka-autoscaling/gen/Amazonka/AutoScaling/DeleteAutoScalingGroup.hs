@@ -62,6 +62,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -134,21 +135,21 @@ instance Prelude.NFData DeleteAutoScalingGroup where
     Prelude.rnf forceDelete
       `Prelude.seq` Prelude.rnf autoScalingGroupName
 
-instance Core.ToHeaders DeleteAutoScalingGroup where
+instance Data.ToHeaders DeleteAutoScalingGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteAutoScalingGroup where
+instance Data.ToPath DeleteAutoScalingGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAutoScalingGroup where
+instance Data.ToQuery DeleteAutoScalingGroup where
   toQuery DeleteAutoScalingGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteAutoScalingGroup" :: Prelude.ByteString),
+          Data.=: ("DeleteAutoScalingGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "ForceDelete" Core.=: forceDelete,
-        "AutoScalingGroupName" Core.=: autoScalingGroupName
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "ForceDelete" Data.=: forceDelete,
+        "AutoScalingGroupName" Data.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newDeleteAutoScalingGroupResponse' smart constructor.

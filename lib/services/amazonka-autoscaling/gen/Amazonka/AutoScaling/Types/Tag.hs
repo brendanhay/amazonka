@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.Tag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a tag for an Auto Scaling group.
@@ -122,12 +123,12 @@ instance Prelude.NFData Tag where
       `Prelude.seq` Prelude.rnf propagateAtLaunch
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToQuery Tag where
+instance Data.ToQuery Tag where
   toQuery Tag' {..} =
     Prelude.mconcat
-      [ "Key" Core.=: key,
-        "ResourceId" Core.=: resourceId,
-        "ResourceType" Core.=: resourceType,
-        "PropagateAtLaunch" Core.=: propagateAtLaunch,
-        "Value" Core.=: value
+      [ "Key" Data.=: key,
+        "ResourceId" Data.=: resourceId,
+        "ResourceType" Data.=: resourceType,
+        "PropagateAtLaunch" Data.=: propagateAtLaunch,
+        "Value" Data.=: value
       ]

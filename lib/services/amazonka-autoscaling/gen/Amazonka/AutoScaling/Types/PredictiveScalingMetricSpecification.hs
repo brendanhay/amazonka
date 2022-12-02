@@ -27,6 +27,7 @@ import Amazonka.AutoScaling.Types.PredictiveScalingPredefinedMetricPair
 import Amazonka.AutoScaling.Types.PredictiveScalingPredefinedScalingMetric
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure specifies the metrics and target utilization settings for
@@ -187,18 +188,18 @@ predictiveScalingMetricSpecification_targetValue :: Lens.Lens' PredictiveScaling
 predictiveScalingMetricSpecification_targetValue = Lens.lens (\PredictiveScalingMetricSpecification' {targetValue} -> targetValue) (\s@PredictiveScalingMetricSpecification' {} a -> s {targetValue = a} :: PredictiveScalingMetricSpecification)
 
 instance
-  Core.FromXML
+  Data.FromXML
     PredictiveScalingMetricSpecification
   where
   parseXML x =
     PredictiveScalingMetricSpecification'
-      Prelude.<$> (x Core..@? "CustomizedScalingMetricSpecification")
-      Prelude.<*> (x Core..@? "PredefinedLoadMetricSpecification")
-      Prelude.<*> (x Core..@? "CustomizedLoadMetricSpecification")
-      Prelude.<*> (x Core..@? "CustomizedCapacityMetricSpecification")
-      Prelude.<*> (x Core..@? "PredefinedScalingMetricSpecification")
-      Prelude.<*> (x Core..@? "PredefinedMetricPairSpecification")
-      Prelude.<*> (x Core..@ "TargetValue")
+      Prelude.<$> (x Data..@? "CustomizedScalingMetricSpecification")
+      Prelude.<*> (x Data..@? "PredefinedLoadMetricSpecification")
+      Prelude.<*> (x Data..@? "CustomizedLoadMetricSpecification")
+      Prelude.<*> (x Data..@? "CustomizedCapacityMetricSpecification")
+      Prelude.<*> (x Data..@? "PredefinedScalingMetricSpecification")
+      Prelude.<*> (x Data..@? "PredefinedMetricPairSpecification")
+      Prelude.<*> (x Data..@ "TargetValue")
 
 instance
   Prelude.Hashable
@@ -230,22 +231,22 @@ instance
       `Prelude.seq` Prelude.rnf targetValue
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PredictiveScalingMetricSpecification
   where
   toQuery PredictiveScalingMetricSpecification' {..} =
     Prelude.mconcat
       [ "CustomizedScalingMetricSpecification"
-          Core.=: customizedScalingMetricSpecification,
+          Data.=: customizedScalingMetricSpecification,
         "PredefinedLoadMetricSpecification"
-          Core.=: predefinedLoadMetricSpecification,
+          Data.=: predefinedLoadMetricSpecification,
         "CustomizedLoadMetricSpecification"
-          Core.=: customizedLoadMetricSpecification,
+          Data.=: customizedLoadMetricSpecification,
         "CustomizedCapacityMetricSpecification"
-          Core.=: customizedCapacityMetricSpecification,
+          Data.=: customizedCapacityMetricSpecification,
         "PredefinedScalingMetricSpecification"
-          Core.=: predefinedScalingMetricSpecification,
+          Data.=: predefinedScalingMetricSpecification,
         "PredefinedMetricPairSpecification"
-          Core.=: predefinedMetricPairSpecification,
-        "TargetValue" Core.=: targetValue
+          Data.=: predefinedMetricPairSpecification,
+        "TargetValue" Data.=: targetValue
       ]

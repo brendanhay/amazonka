@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.AcceleratorTotalMemoryMiBRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the minimum and maximum for the @AcceleratorTotalMemoryMiB@
@@ -64,12 +65,12 @@ acceleratorTotalMemoryMiBRequest_min :: Lens.Lens' AcceleratorTotalMemoryMiBRequ
 acceleratorTotalMemoryMiBRequest_min = Lens.lens (\AcceleratorTotalMemoryMiBRequest' {min} -> min) (\s@AcceleratorTotalMemoryMiBRequest' {} a -> s {min = a} :: AcceleratorTotalMemoryMiBRequest)
 
 instance
-  Core.FromXML
+  Data.FromXML
     AcceleratorTotalMemoryMiBRequest
   where
   parseXML x =
     AcceleratorTotalMemoryMiBRequest'
-      Prelude.<$> (x Core..@? "Max") Prelude.<*> (x Core..@? "Min")
+      Prelude.<$> (x Data..@? "Max") Prelude.<*> (x Data..@? "Min")
 
 instance
   Prelude.Hashable
@@ -89,9 +90,9 @@ instance
     Prelude.rnf max `Prelude.seq` Prelude.rnf min
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     AcceleratorTotalMemoryMiBRequest
   where
   toQuery AcceleratorTotalMemoryMiBRequest' {..} =
     Prelude.mconcat
-      ["Max" Core.=: max, "Min" Core.=: min]
+      ["Max" Data.=: max, "Min" Data.=: min]

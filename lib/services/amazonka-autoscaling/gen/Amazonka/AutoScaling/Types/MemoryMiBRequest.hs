@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.MemoryMiBRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the minimum and maximum for the @MemoryMiB@ object when you
@@ -64,10 +65,10 @@ memoryMiBRequest_max = Lens.lens (\MemoryMiBRequest' {max} -> max) (\s@MemoryMiB
 memoryMiBRequest_min :: Lens.Lens' MemoryMiBRequest Prelude.Natural
 memoryMiBRequest_min = Lens.lens (\MemoryMiBRequest' {min} -> min) (\s@MemoryMiBRequest' {} a -> s {min = a} :: MemoryMiBRequest)
 
-instance Core.FromXML MemoryMiBRequest where
+instance Data.FromXML MemoryMiBRequest where
   parseXML x =
     MemoryMiBRequest'
-      Prelude.<$> (x Core..@? "Max") Prelude.<*> (x Core..@ "Min")
+      Prelude.<$> (x Data..@? "Max") Prelude.<*> (x Data..@ "Min")
 
 instance Prelude.Hashable MemoryMiBRequest where
   hashWithSalt _salt MemoryMiBRequest' {..} =
@@ -78,7 +79,7 @@ instance Prelude.NFData MemoryMiBRequest where
   rnf MemoryMiBRequest' {..} =
     Prelude.rnf max `Prelude.seq` Prelude.rnf min
 
-instance Core.ToQuery MemoryMiBRequest where
+instance Data.ToQuery MemoryMiBRequest where
   toQuery MemoryMiBRequest' {..} =
     Prelude.mconcat
-      ["Max" Core.=: max, "Min" Core.=: min]
+      ["Max" Data.=: max, "Min" Data.=: min]

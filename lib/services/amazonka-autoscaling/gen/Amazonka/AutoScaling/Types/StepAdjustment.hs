@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.StepAdjustment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes information used to create a step adjustment for a step
@@ -161,12 +162,12 @@ stepAdjustment_metricIntervalLowerBound = Lens.lens (\StepAdjustment' {metricInt
 stepAdjustment_scalingAdjustment :: Lens.Lens' StepAdjustment Prelude.Int
 stepAdjustment_scalingAdjustment = Lens.lens (\StepAdjustment' {scalingAdjustment} -> scalingAdjustment) (\s@StepAdjustment' {} a -> s {scalingAdjustment = a} :: StepAdjustment)
 
-instance Core.FromXML StepAdjustment where
+instance Data.FromXML StepAdjustment where
   parseXML x =
     StepAdjustment'
-      Prelude.<$> (x Core..@? "MetricIntervalUpperBound")
-      Prelude.<*> (x Core..@? "MetricIntervalLowerBound")
-      Prelude.<*> (x Core..@ "ScalingAdjustment")
+      Prelude.<$> (x Data..@? "MetricIntervalUpperBound")
+      Prelude.<*> (x Data..@? "MetricIntervalLowerBound")
+      Prelude.<*> (x Data..@ "ScalingAdjustment")
 
 instance Prelude.Hashable StepAdjustment where
   hashWithSalt _salt StepAdjustment' {..} =
@@ -181,12 +182,12 @@ instance Prelude.NFData StepAdjustment where
       `Prelude.seq` Prelude.rnf metricIntervalLowerBound
       `Prelude.seq` Prelude.rnf scalingAdjustment
 
-instance Core.ToQuery StepAdjustment where
+instance Data.ToQuery StepAdjustment where
   toQuery StepAdjustment' {..} =
     Prelude.mconcat
       [ "MetricIntervalUpperBound"
-          Core.=: metricIntervalUpperBound,
+          Data.=: metricIntervalUpperBound,
         "MetricIntervalLowerBound"
-          Core.=: metricIntervalLowerBound,
-        "ScalingAdjustment" Core.=: scalingAdjustment
+          Data.=: metricIntervalLowerBound,
+        "ScalingAdjustment" Data.=: scalingAdjustment
       ]

@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.LoadBalancerState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the state of a Classic Load Balancer.
@@ -113,11 +114,11 @@ loadBalancerState_loadBalancerName = Lens.lens (\LoadBalancerState' {loadBalance
 loadBalancerState_state :: Lens.Lens' LoadBalancerState (Prelude.Maybe Prelude.Text)
 loadBalancerState_state = Lens.lens (\LoadBalancerState' {state} -> state) (\s@LoadBalancerState' {} a -> s {state = a} :: LoadBalancerState)
 
-instance Core.FromXML LoadBalancerState where
+instance Data.FromXML LoadBalancerState where
   parseXML x =
     LoadBalancerState'
-      Prelude.<$> (x Core..@? "LoadBalancerName")
-      Prelude.<*> (x Core..@? "State")
+      Prelude.<$> (x Data..@? "LoadBalancerName")
+      Prelude.<*> (x Data..@? "State")
 
 instance Prelude.Hashable LoadBalancerState where
   hashWithSalt _salt LoadBalancerState' {..} =

@@ -23,6 +23,7 @@ import Amazonka.AutoScaling.Types.InstanceMetadataEndpointState
 import Amazonka.AutoScaling.Types.InstanceMetadataHttpTokensState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata options for the instances. For more information, see
@@ -141,12 +142,12 @@ instanceMetadataOptions_httpTokens = Lens.lens (\InstanceMetadataOptions' {httpT
 instanceMetadataOptions_httpEndpoint :: Lens.Lens' InstanceMetadataOptions (Prelude.Maybe InstanceMetadataEndpointState)
 instanceMetadataOptions_httpEndpoint = Lens.lens (\InstanceMetadataOptions' {httpEndpoint} -> httpEndpoint) (\s@InstanceMetadataOptions' {} a -> s {httpEndpoint = a} :: InstanceMetadataOptions)
 
-instance Core.FromXML InstanceMetadataOptions where
+instance Data.FromXML InstanceMetadataOptions where
   parseXML x =
     InstanceMetadataOptions'
-      Prelude.<$> (x Core..@? "HttpPutResponseHopLimit")
-      Prelude.<*> (x Core..@? "HttpTokens")
-      Prelude.<*> (x Core..@? "HttpEndpoint")
+      Prelude.<$> (x Data..@? "HttpPutResponseHopLimit")
+      Prelude.<*> (x Data..@? "HttpTokens")
+      Prelude.<*> (x Data..@? "HttpEndpoint")
 
 instance Prelude.Hashable InstanceMetadataOptions where
   hashWithSalt _salt InstanceMetadataOptions' {..} =
@@ -161,11 +162,11 @@ instance Prelude.NFData InstanceMetadataOptions where
       `Prelude.seq` Prelude.rnf httpTokens
       `Prelude.seq` Prelude.rnf httpEndpoint
 
-instance Core.ToQuery InstanceMetadataOptions where
+instance Data.ToQuery InstanceMetadataOptions where
   toQuery InstanceMetadataOptions' {..} =
     Prelude.mconcat
       [ "HttpPutResponseHopLimit"
-          Core.=: httpPutResponseHopLimit,
-        "HttpTokens" Core.=: httpTokens,
-        "HttpEndpoint" Core.=: httpEndpoint
+          Data.=: httpPutResponseHopLimit,
+        "HttpTokens" Data.=: httpTokens,
+        "HttpEndpoint" Data.=: httpEndpoint
       ]

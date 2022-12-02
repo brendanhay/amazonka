@@ -38,6 +38,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -79,20 +80,20 @@ instance Prelude.Hashable DeleteTags where
 instance Prelude.NFData DeleteTags where
   rnf DeleteTags' {..} = Prelude.rnf tags
 
-instance Core.ToHeaders DeleteTags where
+instance Data.ToHeaders DeleteTags where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteTags where
+instance Data.ToPath DeleteTags where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteTags where
+instance Data.ToQuery DeleteTags where
   toQuery DeleteTags' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteTags" :: Prelude.ByteString),
+          Data.=: ("DeleteTags" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "Tags" Core.=: Core.toQueryList "member" tags
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "Tags" Data.=: Data.toQueryList "member" tags
       ]
 
 -- | /See:/ 'newDeleteTagsResponse' smart constructor.

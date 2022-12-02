@@ -43,6 +43,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -194,24 +195,24 @@ instance Prelude.NFData ExecutePolicy where
       `Prelude.seq` Prelude.rnf autoScalingGroupName
       `Prelude.seq` Prelude.rnf policyName
 
-instance Core.ToHeaders ExecutePolicy where
+instance Data.ToHeaders ExecutePolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ExecutePolicy where
+instance Data.ToPath ExecutePolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ExecutePolicy where
+instance Data.ToQuery ExecutePolicy where
   toQuery ExecutePolicy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ExecutePolicy" :: Prelude.ByteString),
+          Data.=: ("ExecutePolicy" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "HonorCooldown" Core.=: honorCooldown,
-        "BreachThreshold" Core.=: breachThreshold,
-        "MetricValue" Core.=: metricValue,
-        "AutoScalingGroupName" Core.=: autoScalingGroupName,
-        "PolicyName" Core.=: policyName
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "HonorCooldown" Data.=: honorCooldown,
+        "BreachThreshold" Data.=: breachThreshold,
+        "MetricValue" Data.=: metricValue,
+        "AutoScalingGroupName" Data.=: autoScalingGroupName,
+        "PolicyName" Data.=: policyName
       ]
 
 -- | /See:/ 'newExecutePolicyResponse' smart constructor.

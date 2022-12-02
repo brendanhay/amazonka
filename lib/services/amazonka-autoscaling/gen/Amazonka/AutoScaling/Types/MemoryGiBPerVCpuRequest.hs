@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.MemoryGiBPerVCpuRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the minimum and maximum for the @MemoryGiBPerVCpu@ object when
@@ -62,10 +63,10 @@ memoryGiBPerVCpuRequest_max = Lens.lens (\MemoryGiBPerVCpuRequest' {max} -> max)
 memoryGiBPerVCpuRequest_min :: Lens.Lens' MemoryGiBPerVCpuRequest (Prelude.Maybe Prelude.Double)
 memoryGiBPerVCpuRequest_min = Lens.lens (\MemoryGiBPerVCpuRequest' {min} -> min) (\s@MemoryGiBPerVCpuRequest' {} a -> s {min = a} :: MemoryGiBPerVCpuRequest)
 
-instance Core.FromXML MemoryGiBPerVCpuRequest where
+instance Data.FromXML MemoryGiBPerVCpuRequest where
   parseXML x =
     MemoryGiBPerVCpuRequest'
-      Prelude.<$> (x Core..@? "Max") Prelude.<*> (x Core..@? "Min")
+      Prelude.<$> (x Data..@? "Max") Prelude.<*> (x Data..@? "Min")
 
 instance Prelude.Hashable MemoryGiBPerVCpuRequest where
   hashWithSalt _salt MemoryGiBPerVCpuRequest' {..} =
@@ -76,7 +77,7 @@ instance Prelude.NFData MemoryGiBPerVCpuRequest where
   rnf MemoryGiBPerVCpuRequest' {..} =
     Prelude.rnf max `Prelude.seq` Prelude.rnf min
 
-instance Core.ToQuery MemoryGiBPerVCpuRequest where
+instance Data.ToQuery MemoryGiBPerVCpuRequest where
   toQuery MemoryGiBPerVCpuRequest' {..} =
     Prelude.mconcat
-      ["Max" Core.=: max, "Min" Core.=: min]
+      ["Max" Data.=: max, "Min" Data.=: min]

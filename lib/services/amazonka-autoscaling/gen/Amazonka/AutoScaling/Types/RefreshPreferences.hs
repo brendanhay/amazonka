@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.RefreshPreferences where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the preferences for an instance refresh.
@@ -170,17 +171,17 @@ refreshPreferences_instanceWarmup = Lens.lens (\RefreshPreferences' {instanceWar
 refreshPreferences_checkpointDelay :: Lens.Lens' RefreshPreferences (Prelude.Maybe Prelude.Natural)
 refreshPreferences_checkpointDelay = Lens.lens (\RefreshPreferences' {checkpointDelay} -> checkpointDelay) (\s@RefreshPreferences' {} a -> s {checkpointDelay = a} :: RefreshPreferences)
 
-instance Core.FromXML RefreshPreferences where
+instance Data.FromXML RefreshPreferences where
   parseXML x =
     RefreshPreferences'
-      Prelude.<$> ( x Core..@? "CheckpointPercentages"
+      Prelude.<$> ( x Data..@? "CheckpointPercentages"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "SkipMatching")
-      Prelude.<*> (x Core..@? "MinHealthyPercentage")
-      Prelude.<*> (x Core..@? "InstanceWarmup")
-      Prelude.<*> (x Core..@? "CheckpointDelay")
+      Prelude.<*> (x Data..@? "SkipMatching")
+      Prelude.<*> (x Data..@? "MinHealthyPercentage")
+      Prelude.<*> (x Data..@? "InstanceWarmup")
+      Prelude.<*> (x Data..@? "CheckpointDelay")
 
 instance Prelude.Hashable RefreshPreferences where
   hashWithSalt _salt RefreshPreferences' {..} =
@@ -198,16 +199,16 @@ instance Prelude.NFData RefreshPreferences where
       `Prelude.seq` Prelude.rnf instanceWarmup
       `Prelude.seq` Prelude.rnf checkpointDelay
 
-instance Core.ToQuery RefreshPreferences where
+instance Data.ToQuery RefreshPreferences where
   toQuery RefreshPreferences' {..} =
     Prelude.mconcat
       [ "CheckpointPercentages"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> checkpointPercentages
             ),
-        "SkipMatching" Core.=: skipMatching,
-        "MinHealthyPercentage" Core.=: minHealthyPercentage,
-        "InstanceWarmup" Core.=: instanceWarmup,
-        "CheckpointDelay" Core.=: checkpointDelay
+        "SkipMatching" Data.=: skipMatching,
+        "MinHealthyPercentage" Data.=: minHealthyPercentage,
+        "InstanceWarmup" Data.=: instanceWarmup,
+        "CheckpointDelay" Data.=: checkpointDelay
       ]

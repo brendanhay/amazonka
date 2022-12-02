@@ -72,6 +72,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -171,10 +172,10 @@ instance
       "DescribeLoadBalancerTargetGroupsResult"
       ( \s h x ->
           DescribeLoadBalancerTargetGroupsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "LoadBalancerTargetGroups"
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "LoadBalancerTargetGroups"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -200,29 +201,29 @@ instance
       `Prelude.seq` Prelude.rnf autoScalingGroupName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeLoadBalancerTargetGroups
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeLoadBalancerTargetGroups where
+instance Data.ToPath DescribeLoadBalancerTargetGroups where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeLoadBalancerTargetGroups
   where
   toQuery DescribeLoadBalancerTargetGroups' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeLoadBalancerTargetGroups" ::
+          Data.=: ( "DescribeLoadBalancerTargetGroups" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxRecords" Core.=: maxRecords,
-        "AutoScalingGroupName" Core.=: autoScalingGroupName
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "MaxRecords" Data.=: maxRecords,
+        "AutoScalingGroupName" Data.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newDescribeLoadBalancerTargetGroupsResponse' smart constructor.

@@ -76,6 +76,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -166,9 +167,9 @@ instance Core.AWSRequest DescribeLoadBalancers where
       "DescribeLoadBalancersResult"
       ( \s h x ->
           DescribeLoadBalancersResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "LoadBalancers" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "LoadBalancers" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -185,22 +186,22 @@ instance Prelude.NFData DescribeLoadBalancers where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf autoScalingGroupName
 
-instance Core.ToHeaders DescribeLoadBalancers where
+instance Data.ToHeaders DescribeLoadBalancers where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeLoadBalancers where
+instance Data.ToPath DescribeLoadBalancers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLoadBalancers where
+instance Data.ToQuery DescribeLoadBalancers where
   toQuery DescribeLoadBalancers' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeLoadBalancers" :: Prelude.ByteString),
+          Data.=: ("DescribeLoadBalancers" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxRecords" Core.=: maxRecords,
-        "AutoScalingGroupName" Core.=: autoScalingGroupName
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "MaxRecords" Data.=: maxRecords,
+        "AutoScalingGroupName" Data.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newDescribeLoadBalancersResponse' smart constructor.

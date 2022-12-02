@@ -22,6 +22,7 @@ module Amazonka.AutoScaling.Types.LoadForecast where
 import Amazonka.AutoScaling.Types.PredictiveScalingMetricSpecification
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A @GetPredictiveScalingForecast@ call returns the load forecast for a
@@ -32,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newLoadForecast' smart constructor.
 data LoadForecast = LoadForecast'
   { -- | The timestamps for the data points, in UTC format.
-    timestamps :: [Core.ISO8601],
+    timestamps :: [Data.ISO8601],
     -- | The values of the data points.
     values :: [Prelude.Double],
     -- | The metric specification for the load forecast.
@@ -76,16 +77,16 @@ loadForecast_values = Lens.lens (\LoadForecast' {values} -> values) (\s@LoadFore
 loadForecast_metricSpecification :: Lens.Lens' LoadForecast PredictiveScalingMetricSpecification
 loadForecast_metricSpecification = Lens.lens (\LoadForecast' {metricSpecification} -> metricSpecification) (\s@LoadForecast' {} a -> s {metricSpecification = a} :: LoadForecast)
 
-instance Core.FromXML LoadForecast where
+instance Data.FromXML LoadForecast where
   parseXML x =
     LoadForecast'
-      Prelude.<$> ( x Core..@? "Timestamps" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.parseXMLList "member"
+      Prelude.<$> ( x Data..@? "Timestamps" Core..!@ Prelude.mempty
+                      Prelude.>>= Data.parseXMLList "member"
                   )
-      Prelude.<*> ( x Core..@? "Values" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.parseXMLList "member"
+      Prelude.<*> ( x Data..@? "Values" Core..!@ Prelude.mempty
+                      Prelude.>>= Data.parseXMLList "member"
                   )
-      Prelude.<*> (x Core..@ "MetricSpecification")
+      Prelude.<*> (x Data..@ "MetricSpecification")
 
 instance Prelude.Hashable LoadForecast where
   hashWithSalt _salt LoadForecast' {..} =

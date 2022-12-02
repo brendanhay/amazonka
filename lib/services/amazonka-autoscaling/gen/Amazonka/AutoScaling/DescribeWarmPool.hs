@@ -50,6 +50,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,11 +119,11 @@ instance Core.AWSRequest DescribeWarmPool where
       "DescribeWarmPoolResult"
       ( \s h x ->
           DescribeWarmPoolResponse'
-            Prelude.<$> ( x Core..@? "Instances" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Instances" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "WarmPoolConfiguration")
-            Prelude.<*> (x Core..@? "NextToken")
+            Prelude.<*> (x Data..@? "WarmPoolConfiguration")
+            Prelude.<*> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,22 +139,22 @@ instance Prelude.NFData DescribeWarmPool where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf autoScalingGroupName
 
-instance Core.ToHeaders DescribeWarmPool where
+instance Data.ToHeaders DescribeWarmPool where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeWarmPool where
+instance Data.ToPath DescribeWarmPool where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeWarmPool where
+instance Data.ToQuery DescribeWarmPool where
   toQuery DescribeWarmPool' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeWarmPool" :: Prelude.ByteString),
+          Data.=: ("DescribeWarmPool" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxRecords" Core.=: maxRecords,
-        "AutoScalingGroupName" Core.=: autoScalingGroupName
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "MaxRecords" Data.=: maxRecords,
+        "AutoScalingGroupName" Data.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newDescribeWarmPoolResponse' smart constructor.

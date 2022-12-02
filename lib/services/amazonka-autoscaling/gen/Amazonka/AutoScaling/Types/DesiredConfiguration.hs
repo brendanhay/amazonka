@@ -23,6 +23,7 @@ import Amazonka.AutoScaling.Types.LaunchTemplateSpecification
 import Amazonka.AutoScaling.Types.MixedInstancesPolicy
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the desired configuration for an instance refresh.
@@ -65,11 +66,11 @@ desiredConfiguration_launchTemplate = Lens.lens (\DesiredConfiguration' {launchT
 desiredConfiguration_mixedInstancesPolicy :: Lens.Lens' DesiredConfiguration (Prelude.Maybe MixedInstancesPolicy)
 desiredConfiguration_mixedInstancesPolicy = Lens.lens (\DesiredConfiguration' {mixedInstancesPolicy} -> mixedInstancesPolicy) (\s@DesiredConfiguration' {} a -> s {mixedInstancesPolicy = a} :: DesiredConfiguration)
 
-instance Core.FromXML DesiredConfiguration where
+instance Data.FromXML DesiredConfiguration where
   parseXML x =
     DesiredConfiguration'
-      Prelude.<$> (x Core..@? "LaunchTemplate")
-      Prelude.<*> (x Core..@? "MixedInstancesPolicy")
+      Prelude.<$> (x Data..@? "LaunchTemplate")
+      Prelude.<*> (x Data..@? "MixedInstancesPolicy")
 
 instance Prelude.Hashable DesiredConfiguration where
   hashWithSalt _salt DesiredConfiguration' {..} =
@@ -81,9 +82,9 @@ instance Prelude.NFData DesiredConfiguration where
     Prelude.rnf launchTemplate
       `Prelude.seq` Prelude.rnf mixedInstancesPolicy
 
-instance Core.ToQuery DesiredConfiguration where
+instance Data.ToQuery DesiredConfiguration where
   toQuery DesiredConfiguration' {..} =
     Prelude.mconcat
-      [ "LaunchTemplate" Core.=: launchTemplate,
-        "MixedInstancesPolicy" Core.=: mixedInstancesPolicy
+      [ "LaunchTemplate" Data.=: launchTemplate,
+        "MixedInstancesPolicy" Data.=: mixedInstancesPolicy
       ]

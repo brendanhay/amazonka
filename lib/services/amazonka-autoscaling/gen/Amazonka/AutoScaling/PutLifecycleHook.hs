@@ -90,6 +90,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -331,28 +332,28 @@ instance Prelude.NFData PutLifecycleHook where
       `Prelude.seq` Prelude.rnf lifecycleHookName
       `Prelude.seq` Prelude.rnf autoScalingGroupName
 
-instance Core.ToHeaders PutLifecycleHook where
+instance Data.ToHeaders PutLifecycleHook where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath PutLifecycleHook where
+instance Data.ToPath PutLifecycleHook where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutLifecycleHook where
+instance Data.ToQuery PutLifecycleHook where
   toQuery PutLifecycleHook' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("PutLifecycleHook" :: Prelude.ByteString),
+          Data.=: ("PutLifecycleHook" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "RoleARN" Core.=: roleARN,
-        "NotificationMetadata" Core.=: notificationMetadata,
-        "DefaultResult" Core.=: defaultResult,
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "RoleARN" Data.=: roleARN,
+        "NotificationMetadata" Data.=: notificationMetadata,
+        "DefaultResult" Data.=: defaultResult,
         "NotificationTargetARN"
-          Core.=: notificationTargetARN,
-        "LifecycleTransition" Core.=: lifecycleTransition,
-        "HeartbeatTimeout" Core.=: heartbeatTimeout,
-        "LifecycleHookName" Core.=: lifecycleHookName,
-        "AutoScalingGroupName" Core.=: autoScalingGroupName
+          Data.=: notificationTargetARN,
+        "LifecycleTransition" Data.=: lifecycleTransition,
+        "HeartbeatTimeout" Data.=: heartbeatTimeout,
+        "LifecycleHookName" Data.=: lifecycleHookName,
+        "AutoScalingGroupName" Data.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newPutLifecycleHookResponse' smart constructor.

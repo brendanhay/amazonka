@@ -21,6 +21,7 @@ module Amazonka.MediaStore.Types.CorsRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaStore.Types.MethodName
 import qualified Amazonka.Prelude as Prelude
 
@@ -166,18 +167,18 @@ corsRule_allowedOrigins = Lens.lens (\CorsRule' {allowedOrigins} -> allowedOrigi
 corsRule_allowedHeaders :: Lens.Lens' CorsRule [Prelude.Text]
 corsRule_allowedHeaders = Lens.lens (\CorsRule' {allowedHeaders} -> allowedHeaders) (\s@CorsRule' {} a -> s {allowedHeaders = a} :: CorsRule) Prelude.. Lens.coerced
 
-instance Core.FromJSON CorsRule where
+instance Data.FromJSON CorsRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CorsRule"
       ( \x ->
           CorsRule'
-            Prelude.<$> (x Core..:? "AllowedMethods")
-            Prelude.<*> (x Core..:? "ExposeHeaders" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MaxAgeSeconds")
-            Prelude.<*> (x Core..: "AllowedOrigins")
-            Prelude.<*> ( x Core..:? "AllowedHeaders"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "AllowedMethods")
+            Prelude.<*> (x Data..:? "ExposeHeaders" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MaxAgeSeconds")
+            Prelude.<*> (x Data..: "AllowedOrigins")
+            Prelude.<*> ( x Data..:? "AllowedHeaders"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -197,17 +198,17 @@ instance Prelude.NFData CorsRule where
       `Prelude.seq` Prelude.rnf allowedOrigins
       `Prelude.seq` Prelude.rnf allowedHeaders
 
-instance Core.ToJSON CorsRule where
+instance Data.ToJSON CorsRule where
   toJSON CorsRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AllowedMethods" Core..=)
+          [ ("AllowedMethods" Data..=)
               Prelude.<$> allowedMethods,
-            ("ExposeHeaders" Core..=) Prelude.<$> exposeHeaders,
-            ("MaxAgeSeconds" Core..=) Prelude.<$> maxAgeSeconds,
+            ("ExposeHeaders" Data..=) Prelude.<$> exposeHeaders,
+            ("MaxAgeSeconds" Data..=) Prelude.<$> maxAgeSeconds,
             Prelude.Just
-              ("AllowedOrigins" Core..= allowedOrigins),
+              ("AllowedOrigins" Data..= allowedOrigins),
             Prelude.Just
-              ("AllowedHeaders" Core..= allowedHeaders)
+              ("AllowedHeaders" Data..= allowedHeaders)
           ]
       )

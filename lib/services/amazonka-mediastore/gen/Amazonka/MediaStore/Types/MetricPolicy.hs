@@ -21,6 +21,7 @@ module Amazonka.MediaStore.Types.MetricPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaStore.Types.ContainerLevelMetrics
 import Amazonka.MediaStore.Types.MetricPolicyRule
 import qualified Amazonka.Prelude as Prelude
@@ -88,14 +89,14 @@ metricPolicy_metricPolicyRules = Lens.lens (\MetricPolicy' {metricPolicyRules} -
 metricPolicy_containerLevelMetrics :: Lens.Lens' MetricPolicy ContainerLevelMetrics
 metricPolicy_containerLevelMetrics = Lens.lens (\MetricPolicy' {containerLevelMetrics} -> containerLevelMetrics) (\s@MetricPolicy' {} a -> s {containerLevelMetrics = a} :: MetricPolicy)
 
-instance Core.FromJSON MetricPolicy where
+instance Data.FromJSON MetricPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricPolicy"
       ( \x ->
           MetricPolicy'
-            Prelude.<$> (x Core..:? "MetricPolicyRules")
-            Prelude.<*> (x Core..: "ContainerLevelMetrics")
+            Prelude.<$> (x Data..:? "MetricPolicyRules")
+            Prelude.<*> (x Data..: "ContainerLevelMetrics")
       )
 
 instance Prelude.Hashable MetricPolicy where
@@ -108,15 +109,15 @@ instance Prelude.NFData MetricPolicy where
     Prelude.rnf metricPolicyRules
       `Prelude.seq` Prelude.rnf containerLevelMetrics
 
-instance Core.ToJSON MetricPolicy where
+instance Data.ToJSON MetricPolicy where
   toJSON MetricPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MetricPolicyRules" Core..=)
+          [ ("MetricPolicyRules" Data..=)
               Prelude.<$> metricPolicyRules,
             Prelude.Just
               ( "ContainerLevelMetrics"
-                  Core..= containerLevelMetrics
+                  Data..= containerLevelMetrics
               )
           ]
       )

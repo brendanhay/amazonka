@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaStore.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,9 +137,9 @@ instance Core.AWSRequest ListContainers where
     Response.receiveJSON
       ( \s h x ->
           ListContainersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Containers" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Containers" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListContainers where
@@ -151,34 +152,34 @@ instance Prelude.NFData ListContainers where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListContainers where
+instance Data.ToHeaders ListContainers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MediaStore_20170901.ListContainers" ::
+              Data.=# ( "MediaStore_20170901.ListContainers" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListContainers where
+instance Data.ToJSON ListContainers where
   toJSON ListContainers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListContainers where
+instance Data.ToPath ListContainers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListContainers where
+instance Data.ToQuery ListContainers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListContainersResponse' smart constructor.

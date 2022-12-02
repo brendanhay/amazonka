@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaStore.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,7 +90,7 @@ instance Core.AWSRequest GetContainerPolicy where
       ( \s h x ->
           GetContainerPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Policy")
+            Prelude.<*> (x Data..:> "Policy")
       )
 
 instance Prelude.Hashable GetContainerPolicy where
@@ -100,34 +101,34 @@ instance Prelude.NFData GetContainerPolicy where
   rnf GetContainerPolicy' {..} =
     Prelude.rnf containerName
 
-instance Core.ToHeaders GetContainerPolicy where
+instance Data.ToHeaders GetContainerPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MediaStore_20170901.GetContainerPolicy" ::
+              Data.=# ( "MediaStore_20170901.GetContainerPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetContainerPolicy where
+instance Data.ToJSON GetContainerPolicy where
   toJSON GetContainerPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ContainerName" Core..= containerName)
+              ("ContainerName" Data..= containerName)
           ]
       )
 
-instance Core.ToPath GetContainerPolicy where
+instance Data.ToPath GetContainerPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetContainerPolicy where
+instance Data.ToQuery GetContainerPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetContainerPolicyResponse' smart constructor.

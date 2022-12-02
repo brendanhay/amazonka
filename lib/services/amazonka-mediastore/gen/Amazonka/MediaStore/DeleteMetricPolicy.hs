@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaStore.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,34 +102,34 @@ instance Prelude.NFData DeleteMetricPolicy where
   rnf DeleteMetricPolicy' {..} =
     Prelude.rnf containerName
 
-instance Core.ToHeaders DeleteMetricPolicy where
+instance Data.ToHeaders DeleteMetricPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MediaStore_20170901.DeleteMetricPolicy" ::
+              Data.=# ( "MediaStore_20170901.DeleteMetricPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteMetricPolicy where
+instance Data.ToJSON DeleteMetricPolicy where
   toJSON DeleteMetricPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ContainerName" Core..= containerName)
+              ("ContainerName" Data..= containerName)
           ]
       )
 
-instance Core.ToPath DeleteMetricPolicy where
+instance Data.ToPath DeleteMetricPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteMetricPolicy where
+instance Data.ToQuery DeleteMetricPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMetricPolicyResponse' smart constructor.

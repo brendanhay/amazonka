@@ -21,6 +21,7 @@ module Amazonka.MediaStore.Types.MetricPolicyRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A setting that enables metrics at the object level. Each rule contains
@@ -73,14 +74,14 @@ metricPolicyRule_objectGroup = Lens.lens (\MetricPolicyRule' {objectGroup} -> ob
 metricPolicyRule_objectGroupName :: Lens.Lens' MetricPolicyRule Prelude.Text
 metricPolicyRule_objectGroupName = Lens.lens (\MetricPolicyRule' {objectGroupName} -> objectGroupName) (\s@MetricPolicyRule' {} a -> s {objectGroupName = a} :: MetricPolicyRule)
 
-instance Core.FromJSON MetricPolicyRule where
+instance Data.FromJSON MetricPolicyRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricPolicyRule"
       ( \x ->
           MetricPolicyRule'
-            Prelude.<$> (x Core..: "ObjectGroup")
-            Prelude.<*> (x Core..: "ObjectGroupName")
+            Prelude.<$> (x Data..: "ObjectGroup")
+            Prelude.<*> (x Data..: "ObjectGroupName")
       )
 
 instance Prelude.Hashable MetricPolicyRule where
@@ -93,12 +94,12 @@ instance Prelude.NFData MetricPolicyRule where
     Prelude.rnf objectGroup
       `Prelude.seq` Prelude.rnf objectGroupName
 
-instance Core.ToJSON MetricPolicyRule where
+instance Data.ToJSON MetricPolicyRule where
   toJSON MetricPolicyRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ObjectGroup" Core..= objectGroup),
+          [ Prelude.Just ("ObjectGroup" Data..= objectGroup),
             Prelude.Just
-              ("ObjectGroupName" Core..= objectGroupName)
+              ("ObjectGroupName" Data..= objectGroupName)
           ]
       )

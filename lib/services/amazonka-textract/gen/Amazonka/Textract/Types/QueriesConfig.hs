@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.QueriesConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Textract.Types.Query
 
@@ -62,9 +63,9 @@ instance Prelude.Hashable QueriesConfig where
 instance Prelude.NFData QueriesConfig where
   rnf QueriesConfig' {..} = Prelude.rnf queries
 
-instance Core.ToJSON QueriesConfig where
+instance Data.ToJSON QueriesConfig where
   toJSON QueriesConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Queries" Core..= queries)]
+          [Prelude.Just ("Queries" Data..= queries)]
       )

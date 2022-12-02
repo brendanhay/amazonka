@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.HumanLoopConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Textract.Types.HumanLoopDataAttributes
 
@@ -94,14 +95,14 @@ instance Prelude.NFData HumanLoopConfig where
       `Prelude.seq` Prelude.rnf humanLoopName
       `Prelude.seq` Prelude.rnf flowDefinitionArn
 
-instance Core.ToJSON HumanLoopConfig where
+instance Data.ToJSON HumanLoopConfig where
   toJSON HumanLoopConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataAttributes" Core..=)
+          [ ("DataAttributes" Data..=)
               Prelude.<$> dataAttributes,
-            Prelude.Just ("HumanLoopName" Core..= humanLoopName),
+            Prelude.Just ("HumanLoopName" Data..= humanLoopName),
             Prelude.Just
-              ("FlowDefinitionArn" Core..= flowDefinitionArn)
+              ("FlowDefinitionArn" Data..= flowDefinitionArn)
           ]
       )

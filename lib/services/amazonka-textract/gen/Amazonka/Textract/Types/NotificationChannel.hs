@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.NotificationChannel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic to which
@@ -83,11 +84,11 @@ instance Prelude.NFData NotificationChannel where
     Prelude.rnf sNSTopicArn
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToJSON NotificationChannel where
+instance Data.ToJSON NotificationChannel where
   toJSON NotificationChannel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SNSTopicArn" Core..= sNSTopicArn),
-            Prelude.Just ("RoleArn" Core..= roleArn)
+          [ Prelude.Just ("SNSTopicArn" Data..= sNSTopicArn),
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.HumanLoopActivationOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Shows the results of the human in the loop evaluation. If there is no
@@ -75,17 +76,17 @@ humanLoopActivationOutput_humanLoopArn = Lens.lens (\HumanLoopActivationOutput' 
 humanLoopActivationOutput_humanLoopActivationReasons :: Lens.Lens' HumanLoopActivationOutput (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 humanLoopActivationOutput_humanLoopActivationReasons = Lens.lens (\HumanLoopActivationOutput' {humanLoopActivationReasons} -> humanLoopActivationReasons) (\s@HumanLoopActivationOutput' {} a -> s {humanLoopActivationReasons = a} :: HumanLoopActivationOutput) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON HumanLoopActivationOutput where
+instance Data.FromJSON HumanLoopActivationOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HumanLoopActivationOutput"
       ( \x ->
           HumanLoopActivationOutput'
             Prelude.<$> ( x
-                            Core..:? "HumanLoopActivationConditionsEvaluationResults"
+                            Data..:? "HumanLoopActivationConditionsEvaluationResults"
                         )
-            Prelude.<*> (x Core..:? "HumanLoopArn")
-            Prelude.<*> (x Core..:? "HumanLoopActivationReasons")
+            Prelude.<*> (x Data..:? "HumanLoopArn")
+            Prelude.<*> (x Data..:? "HumanLoopActivationReasons")
       )
 
 instance Prelude.Hashable HumanLoopActivationOutput where

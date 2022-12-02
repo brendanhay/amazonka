@@ -81,6 +81,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -168,13 +169,13 @@ instance Core.AWSRequest GetDocumentTextDetection where
     Response.receiveJSON
       ( \s h x ->
           GetDocumentTextDetectionResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "JobStatus")
-            Prelude.<*> (x Core..?> "DocumentMetadata")
-            Prelude.<*> (x Core..?> "Warnings" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "DetectDocumentTextModelVersion")
-            Prelude.<*> (x Core..?> "StatusMessage")
-            Prelude.<*> (x Core..?> "Blocks" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "JobStatus")
+            Prelude.<*> (x Data..?> "DocumentMetadata")
+            Prelude.<*> (x Data..?> "Warnings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "DetectDocumentTextModelVersion")
+            Prelude.<*> (x Data..?> "StatusMessage")
+            Prelude.<*> (x Data..?> "Blocks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,35 +191,35 @@ instance Prelude.NFData GetDocumentTextDetection where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders GetDocumentTextDetection where
+instance Data.ToHeaders GetDocumentTextDetection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Textract.GetDocumentTextDetection" ::
+              Data.=# ( "Textract.GetDocumentTextDetection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDocumentTextDetection where
+instance Data.ToJSON GetDocumentTextDetection where
   toJSON GetDocumentTextDetection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("JobId" Core..= jobId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("JobId" Data..= jobId)
           ]
       )
 
-instance Core.ToPath GetDocumentTextDetection where
+instance Data.ToPath GetDocumentTextDetection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDocumentTextDetection where
+instance Data.ToQuery GetDocumentTextDetection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDocumentTextDetectionResponse' smart constructor.

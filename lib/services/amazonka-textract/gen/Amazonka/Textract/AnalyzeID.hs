@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,11 +91,11 @@ instance Core.AWSRequest AnalyzeID where
     Response.receiveJSON
       ( \s h x ->
           AnalyzeIDResponse'
-            Prelude.<$> ( x Core..?> "IdentityDocuments"
+            Prelude.<$> ( x Data..?> "IdentityDocuments"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "DocumentMetadata")
-            Prelude.<*> (x Core..?> "AnalyzeIDModelVersion")
+            Prelude.<*> (x Data..?> "DocumentMetadata")
+            Prelude.<*> (x Data..?> "AnalyzeIDModelVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -105,32 +106,32 @@ instance Prelude.Hashable AnalyzeID where
 instance Prelude.NFData AnalyzeID where
   rnf AnalyzeID' {..} = Prelude.rnf documentPages
 
-instance Core.ToHeaders AnalyzeID where
+instance Data.ToHeaders AnalyzeID where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("Textract.AnalyzeID" :: Prelude.ByteString),
+              Data.=# ("Textract.AnalyzeID" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AnalyzeID where
+instance Data.ToJSON AnalyzeID where
   toJSON AnalyzeID' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("DocumentPages" Core..= documentPages)
+              ("DocumentPages" Data..= documentPages)
           ]
       )
 
-instance Core.ToPath AnalyzeID where
+instance Data.ToPath AnalyzeID where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AnalyzeID where
+instance Data.ToQuery AnalyzeID where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAnalyzeIDResponse' smart constructor.

@@ -107,6 +107,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -190,13 +191,13 @@ instance Core.AWSRequest GetDocumentAnalysis where
     Response.receiveJSON
       ( \s h x ->
           GetDocumentAnalysisResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "JobStatus")
-            Prelude.<*> (x Core..?> "DocumentMetadata")
-            Prelude.<*> (x Core..?> "Warnings" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "AnalyzeDocumentModelVersion")
-            Prelude.<*> (x Core..?> "StatusMessage")
-            Prelude.<*> (x Core..?> "Blocks" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "JobStatus")
+            Prelude.<*> (x Data..?> "DocumentMetadata")
+            Prelude.<*> (x Data..?> "Warnings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "AnalyzeDocumentModelVersion")
+            Prelude.<*> (x Data..?> "StatusMessage")
+            Prelude.<*> (x Data..?> "Blocks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -212,35 +213,35 @@ instance Prelude.NFData GetDocumentAnalysis where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders GetDocumentAnalysis where
+instance Data.ToHeaders GetDocumentAnalysis where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Textract.GetDocumentAnalysis" ::
+              Data.=# ( "Textract.GetDocumentAnalysis" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDocumentAnalysis where
+instance Data.ToJSON GetDocumentAnalysis where
   toJSON GetDocumentAnalysis' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("JobId" Core..= jobId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("JobId" Data..= jobId)
           ]
       )
 
-instance Core.ToPath GetDocumentAnalysis where
+instance Data.ToPath GetDocumentAnalysis where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDocumentAnalysis where
+instance Data.ToQuery GetDocumentAnalysis where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDocumentAnalysisResponse' smart constructor.

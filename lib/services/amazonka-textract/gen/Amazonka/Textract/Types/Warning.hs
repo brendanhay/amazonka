@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.Warning where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A warning about an issue that occurred during asynchronous text analysis
@@ -63,14 +64,14 @@ warning_errorCode = Lens.lens (\Warning' {errorCode} -> errorCode) (\s@Warning' 
 warning_pages :: Lens.Lens' Warning (Prelude.Maybe [Prelude.Natural])
 warning_pages = Lens.lens (\Warning' {pages} -> pages) (\s@Warning' {} a -> s {pages = a} :: Warning) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Warning where
+instance Data.FromJSON Warning where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Warning"
       ( \x ->
           Warning'
-            Prelude.<$> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "Pages" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "Pages" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Warning where

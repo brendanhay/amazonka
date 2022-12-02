@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.ExpenseDocument where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Textract.Types.Block
 import Amazonka.Textract.Types.ExpenseField
@@ -91,16 +92,16 @@ expenseDocument_expenseIndex = Lens.lens (\ExpenseDocument' {expenseIndex} -> ex
 expenseDocument_blocks :: Lens.Lens' ExpenseDocument (Prelude.Maybe [Block])
 expenseDocument_blocks = Lens.lens (\ExpenseDocument' {blocks} -> blocks) (\s@ExpenseDocument' {} a -> s {blocks = a} :: ExpenseDocument) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ExpenseDocument where
+instance Data.FromJSON ExpenseDocument where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExpenseDocument"
       ( \x ->
           ExpenseDocument'
-            Prelude.<$> (x Core..:? "LineItemGroups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SummaryFields" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ExpenseIndex")
-            Prelude.<*> (x Core..:? "Blocks" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "LineItemGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SummaryFields" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ExpenseIndex")
+            Prelude.<*> (x Data..:? "Blocks" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ExpenseDocument where

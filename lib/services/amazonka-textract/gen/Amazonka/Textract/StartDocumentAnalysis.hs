@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -234,7 +235,7 @@ instance Core.AWSRequest StartDocumentAnalysis where
     Response.receiveJSON
       ( \s h x ->
           StartDocumentAnalysisResponse'
-            Prelude.<$> (x Core..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -260,43 +261,43 @@ instance Prelude.NFData StartDocumentAnalysis where
       `Prelude.seq` Prelude.rnf documentLocation
       `Prelude.seq` Prelude.rnf featureTypes
 
-instance Core.ToHeaders StartDocumentAnalysis where
+instance Data.ToHeaders StartDocumentAnalysis where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Textract.StartDocumentAnalysis" ::
+              Data.=# ( "Textract.StartDocumentAnalysis" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartDocumentAnalysis where
+instance Data.ToJSON StartDocumentAnalysis where
   toJSON StartDocumentAnalysis' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("QueriesConfig" Core..=) Prelude.<$> queriesConfig,
-            ("KMSKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("JobTag" Core..=) Prelude.<$> jobTag,
-            ("OutputConfig" Core..=) Prelude.<$> outputConfig,
-            ("NotificationChannel" Core..=)
+            ("QueriesConfig" Data..=) Prelude.<$> queriesConfig,
+            ("KMSKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("JobTag" Data..=) Prelude.<$> jobTag,
+            ("OutputConfig" Data..=) Prelude.<$> outputConfig,
+            ("NotificationChannel" Data..=)
               Prelude.<$> notificationChannel,
             Prelude.Just
-              ("DocumentLocation" Core..= documentLocation),
-            Prelude.Just ("FeatureTypes" Core..= featureTypes)
+              ("DocumentLocation" Data..= documentLocation),
+            Prelude.Just ("FeatureTypes" Data..= featureTypes)
           ]
       )
 
-instance Core.ToPath StartDocumentAnalysis where
+instance Data.ToPath StartDocumentAnalysis where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartDocumentAnalysis where
+instance Data.ToQuery StartDocumentAnalysis where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartDocumentAnalysisResponse' smart constructor.

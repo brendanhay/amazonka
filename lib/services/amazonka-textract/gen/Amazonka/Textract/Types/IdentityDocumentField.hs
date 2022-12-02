@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.IdentityDocumentField where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Textract.Types.AnalyzeIDDetections
 
@@ -62,14 +63,14 @@ identityDocumentField_type = Lens.lens (\IdentityDocumentField' {type'} -> type'
 identityDocumentField_valueDetection :: Lens.Lens' IdentityDocumentField (Prelude.Maybe AnalyzeIDDetections)
 identityDocumentField_valueDetection = Lens.lens (\IdentityDocumentField' {valueDetection} -> valueDetection) (\s@IdentityDocumentField' {} a -> s {valueDetection = a} :: IdentityDocumentField)
 
-instance Core.FromJSON IdentityDocumentField where
+instance Data.FromJSON IdentityDocumentField where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IdentityDocumentField"
       ( \x ->
           IdentityDocumentField'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "ValueDetection")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "ValueDetection")
       )
 
 instance Prelude.Hashable IdentityDocumentField where

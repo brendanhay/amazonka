@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.Query where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Each query contains the question you want to ask in the Text and the
@@ -124,15 +125,15 @@ query_pages = Lens.lens (\Query' {pages} -> pages) (\s@Query' {} a -> s {pages =
 query_text :: Lens.Lens' Query Prelude.Text
 query_text = Lens.lens (\Query' {text} -> text) (\s@Query' {} a -> s {text = a} :: Query)
 
-instance Core.FromJSON Query where
+instance Data.FromJSON Query where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Query"
       ( \x ->
           Query'
-            Prelude.<$> (x Core..:? "Alias")
-            Prelude.<*> (x Core..:? "Pages")
-            Prelude.<*> (x Core..: "Text")
+            Prelude.<$> (x Data..:? "Alias")
+            Prelude.<*> (x Data..:? "Pages")
+            Prelude.<*> (x Data..: "Text")
       )
 
 instance Prelude.Hashable Query where
@@ -147,12 +148,12 @@ instance Prelude.NFData Query where
       `Prelude.seq` Prelude.rnf pages
       `Prelude.seq` Prelude.rnf text
 
-instance Core.ToJSON Query where
+instance Data.ToJSON Query where
   toJSON Query' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Alias" Core..=) Prelude.<$> alias,
-            ("Pages" Core..=) Prelude.<$> pages,
-            Prelude.Just ("Text" Core..= text)
+          [ ("Alias" Data..=) Prelude.<$> alias,
+            ("Pages" Data..=) Prelude.<$> pages,
+            Prelude.Just ("Text" Data..= text)
           ]
       )

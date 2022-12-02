@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.Block where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Textract.Types.BlockType
 import Amazonka.Textract.Types.EntityType
@@ -469,27 +470,27 @@ block_text = Lens.lens (\Block' {text} -> text) (\s@Block' {} a -> s {text = a} 
 block_geometry :: Lens.Lens' Block (Prelude.Maybe Geometry)
 block_geometry = Lens.lens (\Block' {geometry} -> geometry) (\s@Block' {} a -> s {geometry = a} :: Block)
 
-instance Core.FromJSON Block where
+instance Data.FromJSON Block where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Block"
       ( \x ->
           Block'
-            Prelude.<$> (x Core..:? "BlockType")
-            Prelude.<*> (x Core..:? "RowSpan")
-            Prelude.<*> (x Core..:? "ColumnIndex")
-            Prelude.<*> (x Core..:? "EntityTypes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ColumnSpan")
-            Prelude.<*> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "RowIndex")
-            Prelude.<*> (x Core..:? "SelectionStatus")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Query")
-            Prelude.<*> (x Core..:? "Page")
-            Prelude.<*> (x Core..:? "TextType")
-            Prelude.<*> (x Core..:? "Relationships" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Text")
-            Prelude.<*> (x Core..:? "Geometry")
+            Prelude.<$> (x Data..:? "BlockType")
+            Prelude.<*> (x Data..:? "RowSpan")
+            Prelude.<*> (x Data..:? "ColumnIndex")
+            Prelude.<*> (x Data..:? "EntityTypes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ColumnSpan")
+            Prelude.<*> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "RowIndex")
+            Prelude.<*> (x Data..:? "SelectionStatus")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Query")
+            Prelude.<*> (x Data..:? "Page")
+            Prelude.<*> (x Data..:? "TextType")
+            Prelude.<*> (x Data..:? "Relationships" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Text")
+            Prelude.<*> (x Data..:? "Geometry")
       )
 
 instance Prelude.Hashable Block where

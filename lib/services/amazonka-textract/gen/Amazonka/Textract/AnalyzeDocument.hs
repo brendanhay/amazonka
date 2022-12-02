@@ -92,6 +92,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -211,10 +212,10 @@ instance Core.AWSRequest AnalyzeDocument where
     Response.receiveJSON
       ( \s h x ->
           AnalyzeDocumentResponse'
-            Prelude.<$> (x Core..?> "HumanLoopActivationOutput")
-            Prelude.<*> (x Core..?> "DocumentMetadata")
-            Prelude.<*> (x Core..?> "AnalyzeDocumentModelVersion")
-            Prelude.<*> (x Core..?> "Blocks" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "HumanLoopActivationOutput")
+            Prelude.<*> (x Data..?> "DocumentMetadata")
+            Prelude.<*> (x Data..?> "AnalyzeDocumentModelVersion")
+            Prelude.<*> (x Data..?> "Blocks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -232,35 +233,35 @@ instance Prelude.NFData AnalyzeDocument where
       `Prelude.seq` Prelude.rnf document
       `Prelude.seq` Prelude.rnf featureTypes
 
-instance Core.ToHeaders AnalyzeDocument where
+instance Data.ToHeaders AnalyzeDocument where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("Textract.AnalyzeDocument" :: Prelude.ByteString),
+              Data.=# ("Textract.AnalyzeDocument" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AnalyzeDocument where
+instance Data.ToJSON AnalyzeDocument where
   toJSON AnalyzeDocument' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HumanLoopConfig" Core..=)
+          [ ("HumanLoopConfig" Data..=)
               Prelude.<$> humanLoopConfig,
-            ("QueriesConfig" Core..=) Prelude.<$> queriesConfig,
-            Prelude.Just ("Document" Core..= document),
-            Prelude.Just ("FeatureTypes" Core..= featureTypes)
+            ("QueriesConfig" Data..=) Prelude.<$> queriesConfig,
+            Prelude.Just ("Document" Data..= document),
+            Prelude.Just ("FeatureTypes" Data..= featureTypes)
           ]
       )
 
-instance Core.ToPath AnalyzeDocument where
+instance Data.ToPath AnalyzeDocument where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AnalyzeDocument where
+instance Data.ToQuery AnalyzeDocument where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAnalyzeDocumentResponse' smart constructor.

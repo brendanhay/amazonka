@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -201,7 +202,7 @@ instance Core.AWSRequest StartExpenseAnalysis where
     Response.receiveJSON
       ( \s h x ->
           StartExpenseAnalysisResponse'
-            Prelude.<$> (x Core..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -223,41 +224,41 @@ instance Prelude.NFData StartExpenseAnalysis where
       `Prelude.seq` Prelude.rnf notificationChannel
       `Prelude.seq` Prelude.rnf documentLocation
 
-instance Core.ToHeaders StartExpenseAnalysis where
+instance Data.ToHeaders StartExpenseAnalysis where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Textract.StartExpenseAnalysis" ::
+              Data.=# ( "Textract.StartExpenseAnalysis" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartExpenseAnalysis where
+instance Data.ToJSON StartExpenseAnalysis where
   toJSON StartExpenseAnalysis' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("KMSKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("JobTag" Core..=) Prelude.<$> jobTag,
-            ("OutputConfig" Core..=) Prelude.<$> outputConfig,
-            ("NotificationChannel" Core..=)
+            ("KMSKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("JobTag" Data..=) Prelude.<$> jobTag,
+            ("OutputConfig" Data..=) Prelude.<$> outputConfig,
+            ("NotificationChannel" Data..=)
               Prelude.<$> notificationChannel,
             Prelude.Just
-              ("DocumentLocation" Core..= documentLocation)
+              ("DocumentLocation" Data..= documentLocation)
           ]
       )
 
-instance Core.ToPath StartExpenseAnalysis where
+instance Data.ToPath StartExpenseAnalysis where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartExpenseAnalysis where
+instance Data.ToQuery StartExpenseAnalysis where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartExpenseAnalysisResponse' smart constructor.

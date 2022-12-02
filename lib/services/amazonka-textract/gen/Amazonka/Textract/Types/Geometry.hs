@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.Geometry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Textract.Types.BoundingBox
 import Amazonka.Textract.Types.Point
@@ -71,14 +72,14 @@ geometry_polygon = Lens.lens (\Geometry' {polygon} -> polygon) (\s@Geometry' {} 
 geometry_boundingBox :: Lens.Lens' Geometry (Prelude.Maybe BoundingBox)
 geometry_boundingBox = Lens.lens (\Geometry' {boundingBox} -> boundingBox) (\s@Geometry' {} a -> s {boundingBox = a} :: Geometry)
 
-instance Core.FromJSON Geometry where
+instance Data.FromJSON Geometry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Geometry"
       ( \x ->
           Geometry'
-            Prelude.<$> (x Core..:? "Polygon" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "BoundingBox")
+            Prelude.<$> (x Data..:? "Polygon" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "BoundingBox")
       )
 
 instance Prelude.Hashable Geometry where

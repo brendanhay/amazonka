@@ -21,6 +21,7 @@ module Amazonka.Polly.Types.LexiconDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Polly.Types.LexiconAttributes
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ lexiconDescription_name = Lens.lens (\LexiconDescription' {name} -> name) (\s@Le
 lexiconDescription_attributes :: Lens.Lens' LexiconDescription (Prelude.Maybe LexiconAttributes)
 lexiconDescription_attributes = Lens.lens (\LexiconDescription' {attributes} -> attributes) (\s@LexiconDescription' {} a -> s {attributes = a} :: LexiconDescription)
 
-instance Core.FromJSON LexiconDescription where
+instance Data.FromJSON LexiconDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LexiconDescription"
       ( \x ->
           LexiconDescription'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Attributes")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Attributes")
       )
 
 instance Prelude.Hashable LexiconDescription where

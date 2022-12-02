@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Polly.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,8 +135,8 @@ instance Core.AWSRequest ListSpeechSynthesisTasks where
     Response.receiveJSON
       ( \s h x ->
           ListSpeechSynthesisTasksResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "SynthesisTasks" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "SynthesisTasks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,18 +152,18 @@ instance Prelude.NFData ListSpeechSynthesisTasks where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListSpeechSynthesisTasks where
+instance Data.ToHeaders ListSpeechSynthesisTasks where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListSpeechSynthesisTasks where
+instance Data.ToPath ListSpeechSynthesisTasks where
   toPath = Prelude.const "/v1/synthesisTasks"
 
-instance Core.ToQuery ListSpeechSynthesisTasks where
+instance Data.ToQuery ListSpeechSynthesisTasks where
   toQuery ListSpeechSynthesisTasks' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "Status" Core.=: status,
-        "MaxResults" Core.=: maxResults
+      [ "NextToken" Data.=: nextToken,
+        "Status" Data.=: status,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListSpeechSynthesisTasksResponse' smart constructor.

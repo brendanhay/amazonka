@@ -21,6 +21,7 @@ module Amazonka.Polly.Types.LexiconAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Polly.Types.LanguageCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -42,7 +43,7 @@ data LexiconAttributes = LexiconAttributes'
     -- en-US, en-AUS, en-WLS, and so on.
     languageCode :: Prelude.Maybe LanguageCode,
     -- | Date lexicon was last modified (a timestamp value).
-    lastModified :: Prelude.Maybe Core.POSIX,
+    lastModified :: Prelude.Maybe Data.POSIX,
     -- | Number of lexemes in the lexicon.
     lexemesCount :: Prelude.Maybe Prelude.Int
   }
@@ -103,24 +104,24 @@ lexiconAttributes_languageCode = Lens.lens (\LexiconAttributes' {languageCode} -
 
 -- | Date lexicon was last modified (a timestamp value).
 lexiconAttributes_lastModified :: Lens.Lens' LexiconAttributes (Prelude.Maybe Prelude.UTCTime)
-lexiconAttributes_lastModified = Lens.lens (\LexiconAttributes' {lastModified} -> lastModified) (\s@LexiconAttributes' {} a -> s {lastModified = a} :: LexiconAttributes) Prelude.. Lens.mapping Core._Time
+lexiconAttributes_lastModified = Lens.lens (\LexiconAttributes' {lastModified} -> lastModified) (\s@LexiconAttributes' {} a -> s {lastModified = a} :: LexiconAttributes) Prelude.. Lens.mapping Data._Time
 
 -- | Number of lexemes in the lexicon.
 lexiconAttributes_lexemesCount :: Lens.Lens' LexiconAttributes (Prelude.Maybe Prelude.Int)
 lexiconAttributes_lexemesCount = Lens.lens (\LexiconAttributes' {lexemesCount} -> lexemesCount) (\s@LexiconAttributes' {} a -> s {lexemesCount = a} :: LexiconAttributes)
 
-instance Core.FromJSON LexiconAttributes where
+instance Data.FromJSON LexiconAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LexiconAttributes"
       ( \x ->
           LexiconAttributes'
-            Prelude.<$> (x Core..:? "Alphabet")
-            Prelude.<*> (x Core..:? "LexiconArn")
-            Prelude.<*> (x Core..:? "Size")
-            Prelude.<*> (x Core..:? "LanguageCode")
-            Prelude.<*> (x Core..:? "LastModified")
-            Prelude.<*> (x Core..:? "LexemesCount")
+            Prelude.<$> (x Data..:? "Alphabet")
+            Prelude.<*> (x Data..:? "LexiconArn")
+            Prelude.<*> (x Data..:? "Size")
+            Prelude.<*> (x Data..:? "LanguageCode")
+            Prelude.<*> (x Data..:? "LastModified")
+            Prelude.<*> (x Data..:? "LexemesCount")
       )
 
 instance Prelude.Hashable LexiconAttributes where

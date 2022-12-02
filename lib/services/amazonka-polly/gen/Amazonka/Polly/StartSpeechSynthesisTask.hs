@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Polly.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -289,7 +290,7 @@ instance Core.AWSRequest StartSpeechSynthesisTask where
     Response.receiveJSON
       ( \s h x ->
           StartSpeechSynthesisTaskResponse'
-            Prelude.<$> (x Core..?> "SynthesisTask")
+            Prelude.<$> (x Data..?> "SynthesisTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -323,35 +324,35 @@ instance Prelude.NFData StartSpeechSynthesisTask where
       `Prelude.seq` Prelude.rnf text
       `Prelude.seq` Prelude.rnf voiceId
 
-instance Core.ToHeaders StartSpeechSynthesisTask where
+instance Data.ToHeaders StartSpeechSynthesisTask where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON StartSpeechSynthesisTask where
+instance Data.ToJSON StartSpeechSynthesisTask where
   toJSON StartSpeechSynthesisTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SampleRate" Core..=) Prelude.<$> sampleRate,
-            ("SpeechMarkTypes" Core..=)
+          [ ("SampleRate" Data..=) Prelude.<$> sampleRate,
+            ("SpeechMarkTypes" Data..=)
               Prelude.<$> speechMarkTypes,
-            ("SnsTopicArn" Core..=) Prelude.<$> snsTopicArn,
-            ("LanguageCode" Core..=) Prelude.<$> languageCode,
-            ("LexiconNames" Core..=) Prelude.<$> lexiconNames,
-            ("Engine" Core..=) Prelude.<$> engine,
-            ("TextType" Core..=) Prelude.<$> textType,
-            ("OutputS3KeyPrefix" Core..=)
+            ("SnsTopicArn" Data..=) Prelude.<$> snsTopicArn,
+            ("LanguageCode" Data..=) Prelude.<$> languageCode,
+            ("LexiconNames" Data..=) Prelude.<$> lexiconNames,
+            ("Engine" Data..=) Prelude.<$> engine,
+            ("TextType" Data..=) Prelude.<$> textType,
+            ("OutputS3KeyPrefix" Data..=)
               Prelude.<$> outputS3KeyPrefix,
-            Prelude.Just ("OutputFormat" Core..= outputFormat),
+            Prelude.Just ("OutputFormat" Data..= outputFormat),
             Prelude.Just
-              ("OutputS3BucketName" Core..= outputS3BucketName),
-            Prelude.Just ("Text" Core..= text),
-            Prelude.Just ("VoiceId" Core..= voiceId)
+              ("OutputS3BucketName" Data..= outputS3BucketName),
+            Prelude.Just ("Text" Data..= text),
+            Prelude.Just ("VoiceId" Data..= voiceId)
           ]
       )
 
-instance Core.ToPath StartSpeechSynthesisTask where
+instance Data.ToPath StartSpeechSynthesisTask where
   toPath = Prelude.const "/v1/synthesisTasks"
 
-instance Core.ToQuery StartSpeechSynthesisTask where
+instance Data.ToQuery StartSpeechSynthesisTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartSpeechSynthesisTaskResponse' smart constructor.

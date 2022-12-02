@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Polly.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -60,7 +61,7 @@ data PutLexicon = PutLexicon'
     -- string up to 20 characters long.
     name :: Prelude.Text,
     -- | Content of the PLS lexicon as string data.
-    content :: Core.Sensitive Prelude.Text
+    content :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -86,7 +87,7 @@ newPutLexicon ::
 newPutLexicon pName_ pContent_ =
   PutLexicon'
     { name = pName_,
-      content = Core._Sensitive Lens.# pContent_
+      content = Data._Sensitive Lens.# pContent_
     }
 
 -- | Name of the lexicon. The name must follow the regular express format
@@ -97,7 +98,7 @@ putLexicon_name = Lens.lens (\PutLexicon' {name} -> name) (\s@PutLexicon' {} a -
 
 -- | Content of the PLS lexicon as string data.
 putLexicon_content :: Lens.Lens' PutLexicon Prelude.Text
-putLexicon_content = Lens.lens (\PutLexicon' {content} -> content) (\s@PutLexicon' {} a -> s {content = a} :: PutLexicon) Prelude.. Core._Sensitive
+putLexicon_content = Lens.lens (\PutLexicon' {content} -> content) (\s@PutLexicon' {} a -> s {content = a} :: PutLexicon) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest PutLexicon where
   type AWSResponse PutLexicon = PutLexiconResponse
@@ -119,21 +120,21 @@ instance Prelude.NFData PutLexicon where
   rnf PutLexicon' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf content
 
-instance Core.ToHeaders PutLexicon where
+instance Data.ToHeaders PutLexicon where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON PutLexicon where
+instance Data.ToJSON PutLexicon where
   toJSON PutLexicon' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Content" Core..= content)]
+          [Prelude.Just ("Content" Data..= content)]
       )
 
-instance Core.ToPath PutLexicon where
+instance Data.ToPath PutLexicon where
   toPath PutLexicon' {..} =
-    Prelude.mconcat ["/v1/lexicons/", Core.toBS name]
+    Prelude.mconcat ["/v1/lexicons/", Data.toBS name]
 
-instance Core.ToQuery PutLexicon where
+instance Data.ToQuery PutLexicon where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutLexiconResponse' smart constructor.

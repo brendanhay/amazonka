@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Polly.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,8 +107,8 @@ instance Core.AWSRequest ListLexicons where
     Response.receiveJSON
       ( \s h x ->
           ListLexiconsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Lexicons" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Lexicons" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,15 +119,15 @@ instance Prelude.Hashable ListLexicons where
 instance Prelude.NFData ListLexicons where
   rnf ListLexicons' {..} = Prelude.rnf nextToken
 
-instance Core.ToHeaders ListLexicons where
+instance Data.ToHeaders ListLexicons where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListLexicons where
+instance Data.ToPath ListLexicons where
   toPath = Prelude.const "/v1/lexicons"
 
-instance Core.ToQuery ListLexicons where
+instance Data.ToQuery ListLexicons where
   toQuery ListLexicons' {..} =
-    Prelude.mconcat ["NextToken" Core.=: nextToken]
+    Prelude.mconcat ["NextToken" Data.=: nextToken]
 
 -- | /See:/ 'newListLexiconsResponse' smart constructor.
 data ListLexiconsResponse = ListLexiconsResponse'

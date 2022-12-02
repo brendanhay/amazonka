@@ -21,6 +21,7 @@ module Amazonka.Polly.Types.SynthesisTask where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Polly.Types.Engine
 import Amazonka.Polly.Types.LanguageCode
 import Amazonka.Polly.Types.OutputFormat
@@ -86,7 +87,7 @@ data SynthesisTask = SynthesisTask'
     -- not supported for the engine selected will result in an error.
     engine :: Prelude.Maybe Engine,
     -- | Timestamp for the time the synthesis task was started.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether the input text is plain text or SSML. The default
     -- value is plain text.
     textType :: Prelude.Maybe TextType
@@ -254,36 +255,36 @@ synthesisTask_engine = Lens.lens (\SynthesisTask' {engine} -> engine) (\s@Synthe
 
 -- | Timestamp for the time the synthesis task was started.
 synthesisTask_creationTime :: Lens.Lens' SynthesisTask (Prelude.Maybe Prelude.UTCTime)
-synthesisTask_creationTime = Lens.lens (\SynthesisTask' {creationTime} -> creationTime) (\s@SynthesisTask' {} a -> s {creationTime = a} :: SynthesisTask) Prelude.. Lens.mapping Core._Time
+synthesisTask_creationTime = Lens.lens (\SynthesisTask' {creationTime} -> creationTime) (\s@SynthesisTask' {} a -> s {creationTime = a} :: SynthesisTask) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies whether the input text is plain text or SSML. The default
 -- value is plain text.
 synthesisTask_textType :: Lens.Lens' SynthesisTask (Prelude.Maybe TextType)
 synthesisTask_textType = Lens.lens (\SynthesisTask' {textType} -> textType) (\s@SynthesisTask' {} a -> s {textType = a} :: SynthesisTask)
 
-instance Core.FromJSON SynthesisTask where
+instance Data.FromJSON SynthesisTask where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SynthesisTask"
       ( \x ->
           SynthesisTask'
-            Prelude.<$> (x Core..:? "VoiceId")
-            Prelude.<*> (x Core..:? "TaskStatusReason")
-            Prelude.<*> (x Core..:? "TaskId")
-            Prelude.<*> (x Core..:? "SampleRate")
-            Prelude.<*> (x Core..:? "TaskStatus")
-            Prelude.<*> ( x Core..:? "SpeechMarkTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "VoiceId")
+            Prelude.<*> (x Data..:? "TaskStatusReason")
+            Prelude.<*> (x Data..:? "TaskId")
+            Prelude.<*> (x Data..:? "SampleRate")
+            Prelude.<*> (x Data..:? "TaskStatus")
+            Prelude.<*> ( x Data..:? "SpeechMarkTypes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "OutputFormat")
-            Prelude.<*> (x Core..:? "OutputUri")
-            Prelude.<*> (x Core..:? "SnsTopicArn")
-            Prelude.<*> (x Core..:? "LanguageCode")
-            Prelude.<*> (x Core..:? "RequestCharacters")
-            Prelude.<*> (x Core..:? "LexiconNames" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Engine")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "TextType")
+            Prelude.<*> (x Data..:? "OutputFormat")
+            Prelude.<*> (x Data..:? "OutputUri")
+            Prelude.<*> (x Data..:? "SnsTopicArn")
+            Prelude.<*> (x Data..:? "LanguageCode")
+            Prelude.<*> (x Data..:? "RequestCharacters")
+            Prelude.<*> (x Data..:? "LexiconNames" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Engine")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "TextType")
       )
 
 instance Prelude.Hashable SynthesisTask where

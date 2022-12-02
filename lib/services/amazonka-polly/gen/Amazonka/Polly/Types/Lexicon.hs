@@ -21,6 +21,7 @@ module Amazonka.Polly.Types.Lexicon where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides lexicon name and lexicon content in string format. For more
@@ -33,7 +34,7 @@ data Lexicon = Lexicon'
     name :: Prelude.Maybe Prelude.Text,
     -- | Lexicon content in string format. The content of a lexicon must be in
     -- PLS format.
-    content :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    content :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -64,16 +65,16 @@ lexicon_name = Lens.lens (\Lexicon' {name} -> name) (\s@Lexicon' {} a -> s {name
 -- | Lexicon content in string format. The content of a lexicon must be in
 -- PLS format.
 lexicon_content :: Lens.Lens' Lexicon (Prelude.Maybe Prelude.Text)
-lexicon_content = Lens.lens (\Lexicon' {content} -> content) (\s@Lexicon' {} a -> s {content = a} :: Lexicon) Prelude.. Lens.mapping Core._Sensitive
+lexicon_content = Lens.lens (\Lexicon' {content} -> content) (\s@Lexicon' {} a -> s {content = a} :: Lexicon) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON Lexicon where
+instance Data.FromJSON Lexicon where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Lexicon"
       ( \x ->
           Lexicon'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Content")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Content")
       )
 
 instance Prelude.Hashable Lexicon where

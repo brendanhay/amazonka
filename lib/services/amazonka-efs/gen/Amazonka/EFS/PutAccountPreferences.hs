@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,7 +119,7 @@ instance Core.AWSRequest PutAccountPreferences where
     Response.receiveJSON
       ( \s h x ->
           PutAccountPreferencesResponse'
-            Prelude.<$> (x Core..?> "ResourceIdPreference")
+            Prelude.<$> (x Data..?> "ResourceIdPreference")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,23 +131,23 @@ instance Prelude.NFData PutAccountPreferences where
   rnf PutAccountPreferences' {..} =
     Prelude.rnf resourceIdType
 
-instance Core.ToHeaders PutAccountPreferences where
+instance Data.ToHeaders PutAccountPreferences where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON PutAccountPreferences where
+instance Data.ToJSON PutAccountPreferences where
   toJSON PutAccountPreferences' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ResourceIdType" Core..= resourceIdType)
+              ("ResourceIdType" Data..= resourceIdType)
           ]
       )
 
-instance Core.ToPath PutAccountPreferences where
+instance Data.ToPath PutAccountPreferences where
   toPath =
     Prelude.const "/2015-02-01/account-preferences"
 
-instance Core.ToQuery PutAccountPreferences where
+instance Data.ToQuery PutAccountPreferences where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutAccountPreferencesResponse' smart constructor.

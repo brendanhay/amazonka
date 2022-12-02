@@ -21,6 +21,7 @@ module Amazonka.EFS.Types.DestinationToCreate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the destination file system to create in the replication
@@ -138,13 +139,13 @@ instance Prelude.NFData DestinationToCreate where
       `Prelude.seq` Prelude.rnf region
       `Prelude.seq` Prelude.rnf kmsKeyId
 
-instance Core.ToJSON DestinationToCreate where
+instance Data.ToJSON DestinationToCreate where
   toJSON DestinationToCreate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AvailabilityZoneName" Core..=)
+          [ ("AvailabilityZoneName" Data..=)
               Prelude.<$> availabilityZoneName,
-            ("Region" Core..=) Prelude.<$> region,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId
+            ("Region" Data..=) Prelude.<$> region,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId
           ]
       )

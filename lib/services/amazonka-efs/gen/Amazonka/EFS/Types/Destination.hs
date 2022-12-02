@@ -21,6 +21,7 @@ module Amazonka.EFS.Types.Destination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types.ReplicationStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,7 +34,7 @@ data Destination = Destination'
     -- that occurred before this time have been successfully replicated to the
     -- destination file system. Any changes that occurred after this time might
     -- not be fully replicated.
-    lastReplicatedTimestamp :: Prelude.Maybe Core.POSIX,
+    lastReplicatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | Describes the status of the destination Amazon EFS file system. If the
     -- status is @ERROR@, the destination file system in the replication
     -- configuration is in a failed state and is unrecoverable. To access the
@@ -95,7 +96,7 @@ newDestination pStatus_ pFileSystemId_ pRegion_ =
 -- destination file system. Any changes that occurred after this time might
 -- not be fully replicated.
 destination_lastReplicatedTimestamp :: Lens.Lens' Destination (Prelude.Maybe Prelude.UTCTime)
-destination_lastReplicatedTimestamp = Lens.lens (\Destination' {lastReplicatedTimestamp} -> lastReplicatedTimestamp) (\s@Destination' {} a -> s {lastReplicatedTimestamp = a} :: Destination) Prelude.. Lens.mapping Core._Time
+destination_lastReplicatedTimestamp = Lens.lens (\Destination' {lastReplicatedTimestamp} -> lastReplicatedTimestamp) (\s@Destination' {} a -> s {lastReplicatedTimestamp = a} :: Destination) Prelude.. Lens.mapping Data._Time
 
 -- | Describes the status of the destination Amazon EFS file system. If the
 -- status is @ERROR@, the destination file system in the replication
@@ -114,16 +115,16 @@ destination_fileSystemId = Lens.lens (\Destination' {fileSystemId} -> fileSystem
 destination_region :: Lens.Lens' Destination Prelude.Text
 destination_region = Lens.lens (\Destination' {region} -> region) (\s@Destination' {} a -> s {region = a} :: Destination)
 
-instance Core.FromJSON Destination where
+instance Data.FromJSON Destination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Destination"
       ( \x ->
           Destination'
-            Prelude.<$> (x Core..:? "LastReplicatedTimestamp")
-            Prelude.<*> (x Core..: "Status")
-            Prelude.<*> (x Core..: "FileSystemId")
-            Prelude.<*> (x Core..: "Region")
+            Prelude.<$> (x Data..:? "LastReplicatedTimestamp")
+            Prelude.<*> (x Data..: "Status")
+            Prelude.<*> (x Data..: "FileSystemId")
+            Prelude.<*> (x Data..: "Region")
       )
 
 instance Prelude.Hashable Destination where

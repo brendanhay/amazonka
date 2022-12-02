@@ -109,6 +109,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -174,7 +175,7 @@ instance
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance
   Prelude.Hashable
@@ -195,25 +196,25 @@ instance
       `Prelude.seq` Prelude.rnf destinations
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateReplicationConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateReplicationConfiguration where
+instance Data.ToJSON CreateReplicationConfiguration where
   toJSON CreateReplicationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Destinations" Core..= destinations)]
+          [Prelude.Just ("Destinations" Data..= destinations)]
       )
 
-instance Core.ToPath CreateReplicationConfiguration where
+instance Data.ToPath CreateReplicationConfiguration where
   toPath CreateReplicationConfiguration' {..} =
     Prelude.mconcat
       [ "/2015-02-01/file-systems/",
-        Core.toBS sourceFileSystemId,
+        Data.toBS sourceFileSystemId,
         "/replication-configuration"
       ]
 
-instance Core.ToQuery CreateReplicationConfiguration where
+instance Data.ToQuery CreateReplicationConfiguration where
   toQuery = Prelude.const Prelude.mempty

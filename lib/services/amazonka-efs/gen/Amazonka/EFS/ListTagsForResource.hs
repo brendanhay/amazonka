@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,8 +126,8 @@ instance Core.AWSRequest ListTagsForResource where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForResourceResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,19 +143,19 @@ instance Prelude.NFData ListTagsForResource where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf resourceId
 
-instance Core.ToHeaders ListTagsForResource where
+instance Data.ToHeaders ListTagsForResource where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListTagsForResource where
+instance Data.ToPath ListTagsForResource where
   toPath ListTagsForResource' {..} =
     Prelude.mconcat
-      ["/2015-02-01/resource-tags/", Core.toBS resourceId]
+      ["/2015-02-01/resource-tags/", Data.toBS resourceId]
 
-instance Core.ToQuery ListTagsForResource where
+instance Data.ToQuery ListTagsForResource where
   toQuery ListTagsForResource' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults
+      [ "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListTagsForResourceResponse' smart constructor.

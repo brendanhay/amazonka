@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,17 +93,17 @@ instance Prelude.NFData DeleteAccessPoint where
   rnf DeleteAccessPoint' {..} =
     Prelude.rnf accessPointId
 
-instance Core.ToHeaders DeleteAccessPoint where
+instance Data.ToHeaders DeleteAccessPoint where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteAccessPoint where
+instance Data.ToPath DeleteAccessPoint where
   toPath DeleteAccessPoint' {..} =
     Prelude.mconcat
       [ "/2015-02-01/access-points/",
-        Core.toBS accessPointId
+        Data.toBS accessPointId
       ]
 
-instance Core.ToQuery DeleteAccessPoint where
+instance Data.ToQuery DeleteAccessPoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAccessPointResponse' smart constructor.

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,20 +110,20 @@ instance
     Prelude.rnf sourceFileSystemId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteReplicationConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteReplicationConfiguration where
+instance Data.ToPath DeleteReplicationConfiguration where
   toPath DeleteReplicationConfiguration' {..} =
     Prelude.mconcat
       [ "/2015-02-01/file-systems/",
-        Core.toBS sourceFileSystemId,
+        Data.toBS sourceFileSystemId,
         "/replication-configuration"
       ]
 
-instance Core.ToQuery DeleteReplicationConfiguration where
+instance Data.ToQuery DeleteReplicationConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteReplicationConfigurationResponse' smart constructor.

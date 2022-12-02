@@ -21,6 +21,7 @@ module Amazonka.EFS.Types.BackupPolicyDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types.BackupPolicy
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,13 +56,13 @@ newBackupPolicyDescription =
 backupPolicyDescription_backupPolicy :: Lens.Lens' BackupPolicyDescription (Prelude.Maybe BackupPolicy)
 backupPolicyDescription_backupPolicy = Lens.lens (\BackupPolicyDescription' {backupPolicy} -> backupPolicy) (\s@BackupPolicyDescription' {} a -> s {backupPolicy = a} :: BackupPolicyDescription)
 
-instance Core.FromJSON BackupPolicyDescription where
+instance Data.FromJSON BackupPolicyDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackupPolicyDescription"
       ( \x ->
           BackupPolicyDescription'
-            Prelude.<$> (x Core..:? "BackupPolicy")
+            Prelude.<$> (x Data..:? "BackupPolicy")
       )
 
 instance Prelude.Hashable BackupPolicyDescription where

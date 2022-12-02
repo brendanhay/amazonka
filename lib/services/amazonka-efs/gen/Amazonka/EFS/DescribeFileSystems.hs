@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -190,9 +191,9 @@ instance Core.AWSRequest DescribeFileSystems where
     Response.receiveJSON
       ( \s h x ->
           DescribeFileSystemsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "FileSystems" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "FileSystems" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -210,19 +211,19 @@ instance Prelude.NFData DescribeFileSystems where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf fileSystemId
 
-instance Core.ToHeaders DescribeFileSystems where
+instance Data.ToHeaders DescribeFileSystems where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeFileSystems where
+instance Data.ToPath DescribeFileSystems where
   toPath = Prelude.const "/2015-02-01/file-systems"
 
-instance Core.ToQuery DescribeFileSystems where
+instance Data.ToQuery DescribeFileSystems where
   toQuery DescribeFileSystems' {..} =
     Prelude.mconcat
-      [ "Marker" Core.=: marker,
-        "CreationToken" Core.=: creationToken,
-        "MaxItems" Core.=: maxItems,
-        "FileSystemId" Core.=: fileSystemId
+      [ "Marker" Data.=: marker,
+        "CreationToken" Data.=: creationToken,
+        "MaxItems" Data.=: maxItems,
+        "FileSystemId" Data.=: fileSystemId
       ]
 
 -- | /See:/ 'newDescribeFileSystemsResponse' smart constructor.

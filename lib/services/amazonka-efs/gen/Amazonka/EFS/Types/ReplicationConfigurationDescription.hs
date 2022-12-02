@@ -21,6 +21,7 @@ module Amazonka.EFS.Types.ReplicationConfigurationDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types.Destination
 import qualified Amazonka.Prelude as Prelude
 
@@ -38,7 +39,7 @@ data ReplicationConfigurationDescription = ReplicationConfigurationDescription'
     -- system in the replication configuration.
     originalSourceFileSystemArn :: Prelude.Text,
     -- | Describes when the replication configuration was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | An array of destination objects. Only one destination object is
     -- supported.
     destinations :: [Destination]
@@ -96,7 +97,7 @@ newReplicationConfigurationDescription
         originalSourceFileSystemArn =
           pOriginalSourceFileSystemArn_,
         creationTime =
-          Core._Time Lens.# pCreationTime_,
+          Data._Time Lens.# pCreationTime_,
         destinations = Prelude.mempty
       }
 
@@ -121,7 +122,7 @@ replicationConfigurationDescription_originalSourceFileSystemArn = Lens.lens (\Re
 
 -- | Describes when the replication configuration was created.
 replicationConfigurationDescription_creationTime :: Lens.Lens' ReplicationConfigurationDescription Prelude.UTCTime
-replicationConfigurationDescription_creationTime = Lens.lens (\ReplicationConfigurationDescription' {creationTime} -> creationTime) (\s@ReplicationConfigurationDescription' {} a -> s {creationTime = a} :: ReplicationConfigurationDescription) Prelude.. Core._Time
+replicationConfigurationDescription_creationTime = Lens.lens (\ReplicationConfigurationDescription' {creationTime} -> creationTime) (\s@ReplicationConfigurationDescription' {} a -> s {creationTime = a} :: ReplicationConfigurationDescription) Prelude.. Data._Time
 
 -- | An array of destination objects. Only one destination object is
 -- supported.
@@ -129,20 +130,20 @@ replicationConfigurationDescription_destinations :: Lens.Lens' ReplicationConfig
 replicationConfigurationDescription_destinations = Lens.lens (\ReplicationConfigurationDescription' {destinations} -> destinations) (\s@ReplicationConfigurationDescription' {} a -> s {destinations = a} :: ReplicationConfigurationDescription) Prelude.. Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ReplicationConfigurationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicationConfigurationDescription"
       ( \x ->
           ReplicationConfigurationDescription'
-            Prelude.<$> (x Core..: "SourceFileSystemId")
-            Prelude.<*> (x Core..: "SourceFileSystemRegion")
-            Prelude.<*> (x Core..: "SourceFileSystemArn")
-            Prelude.<*> (x Core..: "OriginalSourceFileSystemArn")
-            Prelude.<*> (x Core..: "CreationTime")
-            Prelude.<*> (x Core..:? "Destinations" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "SourceFileSystemId")
+            Prelude.<*> (x Data..: "SourceFileSystemRegion")
+            Prelude.<*> (x Data..: "SourceFileSystemArn")
+            Prelude.<*> (x Data..: "OriginalSourceFileSystemArn")
+            Prelude.<*> (x Data..: "CreationTime")
+            Prelude.<*> (x Data..:? "Destinations" Data..!= Prelude.mempty)
       )
 
 instance

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,8 +111,8 @@ instance Core.AWSRequest DescribeAccountPreferences where
     Response.receiveJSON
       ( \s h x ->
           DescribeAccountPreferencesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ResourceIdPreference")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ResourceIdPreference")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,14 +126,14 @@ instance Prelude.NFData DescribeAccountPreferences where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeAccountPreferences where
+instance Data.ToHeaders DescribeAccountPreferences where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAccountPreferences where
+instance Data.ToPath DescribeAccountPreferences where
   toPath =
     Prelude.const "/2015-02-01/account-preferences"
 
-instance Core.ToQuery DescribeAccountPreferences where
+instance Data.ToQuery DescribeAccountPreferences where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAccountPreferencesResponse' smart constructor.

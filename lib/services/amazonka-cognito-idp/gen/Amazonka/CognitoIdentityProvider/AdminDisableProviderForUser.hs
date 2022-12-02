@@ -75,6 +75,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,34 +144,34 @@ instance Prelude.NFData AdminDisableProviderForUser where
     Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf user
 
-instance Core.ToHeaders AdminDisableProviderForUser where
+instance Data.ToHeaders AdminDisableProviderForUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.AdminDisableProviderForUser" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.AdminDisableProviderForUser" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AdminDisableProviderForUser where
+instance Data.ToJSON AdminDisableProviderForUser where
   toJSON AdminDisableProviderForUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("User" Core..= user)
+          [ Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("User" Data..= user)
           ]
       )
 
-instance Core.ToPath AdminDisableProviderForUser where
+instance Data.ToPath AdminDisableProviderForUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AdminDisableProviderForUser where
+instance Data.ToQuery AdminDisableProviderForUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAdminDisableProviderForUserResponse' smart constructor.

@@ -62,6 +62,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -257,36 +258,36 @@ instance Prelude.NFData AdminLinkProviderForUser where
       `Prelude.seq` Prelude.rnf destinationUser
       `Prelude.seq` Prelude.rnf sourceUser
 
-instance Core.ToHeaders AdminLinkProviderForUser where
+instance Data.ToHeaders AdminLinkProviderForUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.AdminLinkProviderForUser" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.AdminLinkProviderForUser" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AdminLinkProviderForUser where
+instance Data.ToJSON AdminLinkProviderForUser where
   toJSON AdminLinkProviderForUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
+          [ Prelude.Just ("UserPoolId" Data..= userPoolId),
             Prelude.Just
-              ("DestinationUser" Core..= destinationUser),
-            Prelude.Just ("SourceUser" Core..= sourceUser)
+              ("DestinationUser" Data..= destinationUser),
+            Prelude.Just ("SourceUser" Data..= sourceUser)
           ]
       )
 
-instance Core.ToPath AdminLinkProviderForUser where
+instance Data.ToPath AdminLinkProviderForUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AdminLinkProviderForUser where
+instance Data.ToQuery AdminLinkProviderForUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAdminLinkProviderForUserResponse' smart constructor.

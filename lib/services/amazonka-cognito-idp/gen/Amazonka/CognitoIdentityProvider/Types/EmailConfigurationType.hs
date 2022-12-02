@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.EmailConfigurationType where
 import Amazonka.CognitoIdentityProvider.Types.EmailSendingAccountType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The email configuration of your user pool. The email configuration type
@@ -334,17 +335,17 @@ emailConfigurationType_emailSendingAccount = Lens.lens (\EmailConfigurationType'
 emailConfigurationType_configurationSet :: Lens.Lens' EmailConfigurationType (Prelude.Maybe Prelude.Text)
 emailConfigurationType_configurationSet = Lens.lens (\EmailConfigurationType' {configurationSet} -> configurationSet) (\s@EmailConfigurationType' {} a -> s {configurationSet = a} :: EmailConfigurationType)
 
-instance Core.FromJSON EmailConfigurationType where
+instance Data.FromJSON EmailConfigurationType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EmailConfigurationType"
       ( \x ->
           EmailConfigurationType'
-            Prelude.<$> (x Core..:? "From")
-            Prelude.<*> (x Core..:? "ReplyToEmailAddress")
-            Prelude.<*> (x Core..:? "SourceArn")
-            Prelude.<*> (x Core..:? "EmailSendingAccount")
-            Prelude.<*> (x Core..:? "ConfigurationSet")
+            Prelude.<$> (x Data..:? "From")
+            Prelude.<*> (x Data..:? "ReplyToEmailAddress")
+            Prelude.<*> (x Data..:? "SourceArn")
+            Prelude.<*> (x Data..:? "EmailSendingAccount")
+            Prelude.<*> (x Data..:? "ConfigurationSet")
       )
 
 instance Prelude.Hashable EmailConfigurationType where
@@ -363,17 +364,17 @@ instance Prelude.NFData EmailConfigurationType where
       `Prelude.seq` Prelude.rnf emailSendingAccount
       `Prelude.seq` Prelude.rnf configurationSet
 
-instance Core.ToJSON EmailConfigurationType where
+instance Data.ToJSON EmailConfigurationType where
   toJSON EmailConfigurationType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("From" Core..=) Prelude.<$> from,
-            ("ReplyToEmailAddress" Core..=)
+          [ ("From" Data..=) Prelude.<$> from,
+            ("ReplyToEmailAddress" Data..=)
               Prelude.<$> replyToEmailAddress,
-            ("SourceArn" Core..=) Prelude.<$> sourceArn,
-            ("EmailSendingAccount" Core..=)
+            ("SourceArn" Data..=) Prelude.<$> sourceArn,
+            ("EmailSendingAccount" Data..=)
               Prelude.<$> emailSendingAccount,
-            ("ConfigurationSet" Core..=)
+            ("ConfigurationSet" Data..=)
               Prelude.<$> configurationSet
           ]
       )

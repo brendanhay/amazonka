@@ -75,6 +75,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,17 +121,17 @@ data ForgotPassword = ForgotPassword'
     -- | A keyed-hash message authentication code (HMAC) calculated using the
     -- secret key of a user pool client and username plus the client ID in the
     -- message.
-    secretHash :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    secretHash :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Contextual data about your user session, such as the device fingerprint,
     -- IP address, or location. Amazon Cognito advanced security evaluates the
     -- risk of an authentication event based on the context that your app
     -- generates and passes to Amazon Cognito when it makes API requests.
     userContextData :: Prelude.Maybe UserContextDataType,
     -- | The ID of the client associated with the user pool.
-    clientId :: Core.Sensitive Prelude.Text,
+    clientId :: Data.Sensitive Prelude.Text,
     -- | The user name of the user for whom you want to enter a code to reset a
     -- forgotten password.
-    username :: Core.Sensitive Prelude.Text
+    username :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -202,8 +203,8 @@ newForgotPassword pClientId_ pUsername_ =
       clientMetadata = Prelude.Nothing,
       secretHash = Prelude.Nothing,
       userContextData = Prelude.Nothing,
-      clientId = Core._Sensitive Lens.# pClientId_,
-      username = Core._Sensitive Lens.# pUsername_
+      clientId = Data._Sensitive Lens.# pClientId_,
+      username = Data._Sensitive Lens.# pUsername_
     }
 
 -- | The Amazon Pinpoint analytics metadata that contributes to your metrics
@@ -248,7 +249,7 @@ forgotPassword_clientMetadata = Lens.lens (\ForgotPassword' {clientMetadata} -> 
 -- secret key of a user pool client and username plus the client ID in the
 -- message.
 forgotPassword_secretHash :: Lens.Lens' ForgotPassword (Prelude.Maybe Prelude.Text)
-forgotPassword_secretHash = Lens.lens (\ForgotPassword' {secretHash} -> secretHash) (\s@ForgotPassword' {} a -> s {secretHash = a} :: ForgotPassword) Prelude.. Lens.mapping Core._Sensitive
+forgotPassword_secretHash = Lens.lens (\ForgotPassword' {secretHash} -> secretHash) (\s@ForgotPassword' {} a -> s {secretHash = a} :: ForgotPassword) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Contextual data about your user session, such as the device fingerprint,
 -- IP address, or location. Amazon Cognito advanced security evaluates the
@@ -259,12 +260,12 @@ forgotPassword_userContextData = Lens.lens (\ForgotPassword' {userContextData} -
 
 -- | The ID of the client associated with the user pool.
 forgotPassword_clientId :: Lens.Lens' ForgotPassword Prelude.Text
-forgotPassword_clientId = Lens.lens (\ForgotPassword' {clientId} -> clientId) (\s@ForgotPassword' {} a -> s {clientId = a} :: ForgotPassword) Prelude.. Core._Sensitive
+forgotPassword_clientId = Lens.lens (\ForgotPassword' {clientId} -> clientId) (\s@ForgotPassword' {} a -> s {clientId = a} :: ForgotPassword) Prelude.. Data._Sensitive
 
 -- | The user name of the user for whom you want to enter a code to reset a
 -- forgotten password.
 forgotPassword_username :: Lens.Lens' ForgotPassword Prelude.Text
-forgotPassword_username = Lens.lens (\ForgotPassword' {username} -> username) (\s@ForgotPassword' {} a -> s {username = a} :: ForgotPassword) Prelude.. Core._Sensitive
+forgotPassword_username = Lens.lens (\ForgotPassword' {username} -> username) (\s@ForgotPassword' {} a -> s {username = a} :: ForgotPassword) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest ForgotPassword where
   type
@@ -276,7 +277,7 @@ instance Core.AWSRequest ForgotPassword where
     Response.receiveJSON
       ( \s h x ->
           ForgotPasswordResponse'
-            Prelude.<$> (x Core..?> "CodeDeliveryDetails")
+            Prelude.<$> (x Data..?> "CodeDeliveryDetails")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -298,41 +299,41 @@ instance Prelude.NFData ForgotPassword where
       `Prelude.seq` Prelude.rnf clientId
       `Prelude.seq` Prelude.rnf username
 
-instance Core.ToHeaders ForgotPassword where
+instance Data.ToHeaders ForgotPassword where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.ForgotPassword" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.ForgotPassword" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ForgotPassword where
+instance Data.ToJSON ForgotPassword where
   toJSON ForgotPassword' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AnalyticsMetadata" Core..=)
+          [ ("AnalyticsMetadata" Data..=)
               Prelude.<$> analyticsMetadata,
-            ("ClientMetadata" Core..=)
+            ("ClientMetadata" Data..=)
               Prelude.<$> clientMetadata,
-            ("SecretHash" Core..=) Prelude.<$> secretHash,
-            ("UserContextData" Core..=)
+            ("SecretHash" Data..=) Prelude.<$> secretHash,
+            ("UserContextData" Data..=)
               Prelude.<$> userContextData,
-            Prelude.Just ("ClientId" Core..= clientId),
-            Prelude.Just ("Username" Core..= username)
+            Prelude.Just ("ClientId" Data..= clientId),
+            Prelude.Just ("Username" Data..= username)
           ]
       )
 
-instance Core.ToPath ForgotPassword where
+instance Data.ToPath ForgotPassword where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ForgotPassword where
+instance Data.ToQuery ForgotPassword where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response from Amazon Cognito to a request to reset a password.

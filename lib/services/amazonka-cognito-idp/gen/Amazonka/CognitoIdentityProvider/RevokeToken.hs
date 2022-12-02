@@ -46,6 +46,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -54,11 +55,11 @@ import qualified Amazonka.Response as Response
 data RevokeToken = RevokeToken'
   { -- | The secret for the client ID. This is required only if the client ID has
     -- a secret.
-    clientSecret :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    clientSecret :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The refresh token that you want to revoke.
-    token :: Core.Sensitive Prelude.Text,
+    token :: Data.Sensitive Prelude.Text,
     -- | The client ID for the token that you want to revoke.
-    clientId :: Core.Sensitive Prelude.Text
+    clientId :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -85,22 +86,22 @@ newRevokeToken ::
 newRevokeToken pToken_ pClientId_ =
   RevokeToken'
     { clientSecret = Prelude.Nothing,
-      token = Core._Sensitive Lens.# pToken_,
-      clientId = Core._Sensitive Lens.# pClientId_
+      token = Data._Sensitive Lens.# pToken_,
+      clientId = Data._Sensitive Lens.# pClientId_
     }
 
 -- | The secret for the client ID. This is required only if the client ID has
 -- a secret.
 revokeToken_clientSecret :: Lens.Lens' RevokeToken (Prelude.Maybe Prelude.Text)
-revokeToken_clientSecret = Lens.lens (\RevokeToken' {clientSecret} -> clientSecret) (\s@RevokeToken' {} a -> s {clientSecret = a} :: RevokeToken) Prelude.. Lens.mapping Core._Sensitive
+revokeToken_clientSecret = Lens.lens (\RevokeToken' {clientSecret} -> clientSecret) (\s@RevokeToken' {} a -> s {clientSecret = a} :: RevokeToken) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The refresh token that you want to revoke.
 revokeToken_token :: Lens.Lens' RevokeToken Prelude.Text
-revokeToken_token = Lens.lens (\RevokeToken' {token} -> token) (\s@RevokeToken' {} a -> s {token = a} :: RevokeToken) Prelude.. Core._Sensitive
+revokeToken_token = Lens.lens (\RevokeToken' {token} -> token) (\s@RevokeToken' {} a -> s {token = a} :: RevokeToken) Prelude.. Data._Sensitive
 
 -- | The client ID for the token that you want to revoke.
 revokeToken_clientId :: Lens.Lens' RevokeToken Prelude.Text
-revokeToken_clientId = Lens.lens (\RevokeToken' {clientId} -> clientId) (\s@RevokeToken' {} a -> s {clientId = a} :: RevokeToken) Prelude.. Core._Sensitive
+revokeToken_clientId = Lens.lens (\RevokeToken' {clientId} -> clientId) (\s@RevokeToken' {} a -> s {clientId = a} :: RevokeToken) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest RevokeToken where
   type AWSResponse RevokeToken = RevokeTokenResponse
@@ -125,35 +126,35 @@ instance Prelude.NFData RevokeToken where
       `Prelude.seq` Prelude.rnf token
       `Prelude.seq` Prelude.rnf clientId
 
-instance Core.ToHeaders RevokeToken where
+instance Data.ToHeaders RevokeToken where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.RevokeToken" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.RevokeToken" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RevokeToken where
+instance Data.ToJSON RevokeToken where
   toJSON RevokeToken' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientSecret" Core..=) Prelude.<$> clientSecret,
-            Prelude.Just ("Token" Core..= token),
-            Prelude.Just ("ClientId" Core..= clientId)
+          [ ("ClientSecret" Data..=) Prelude.<$> clientSecret,
+            Prelude.Just ("Token" Data..= token),
+            Prelude.Just ("ClientId" Data..= clientId)
           ]
       )
 
-instance Core.ToPath RevokeToken where
+instance Data.ToPath RevokeToken where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RevokeToken where
+instance Data.ToQuery RevokeToken where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRevokeTokenResponse' smart constructor.

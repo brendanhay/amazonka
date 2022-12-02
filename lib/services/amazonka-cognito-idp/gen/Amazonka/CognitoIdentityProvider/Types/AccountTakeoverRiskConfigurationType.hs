@@ -23,6 +23,7 @@ import Amazonka.CognitoIdentityProvider.Types.AccountTakeoverActionsType
 import Amazonka.CognitoIdentityProvider.Types.NotifyConfigurationType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration for mitigation actions and notification for different
@@ -68,16 +69,16 @@ accountTakeoverRiskConfigurationType_actions :: Lens.Lens' AccountTakeoverRiskCo
 accountTakeoverRiskConfigurationType_actions = Lens.lens (\AccountTakeoverRiskConfigurationType' {actions} -> actions) (\s@AccountTakeoverRiskConfigurationType' {} a -> s {actions = a} :: AccountTakeoverRiskConfigurationType)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AccountTakeoverRiskConfigurationType
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountTakeoverRiskConfigurationType"
       ( \x ->
           AccountTakeoverRiskConfigurationType'
-            Prelude.<$> (x Core..:? "NotifyConfiguration")
-            Prelude.<*> (x Core..: "Actions")
+            Prelude.<$> (x Data..:? "NotifyConfiguration")
+            Prelude.<*> (x Data..: "Actions")
       )
 
 instance
@@ -99,14 +100,14 @@ instance
       `Prelude.seq` Prelude.rnf actions
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AccountTakeoverRiskConfigurationType
   where
   toJSON AccountTakeoverRiskConfigurationType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NotifyConfiguration" Core..=)
+          [ ("NotifyConfiguration" Data..=)
               Prelude.<$> notifyConfiguration,
-            Prelude.Just ("Actions" Core..= actions)
+            Prelude.Just ("Actions" Data..= actions)
           ]
       )

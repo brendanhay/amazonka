@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.UserPoolPolicyType where
 import Amazonka.CognitoIdentityProvider.Types.PasswordPolicyType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The policy associated with a user pool.
@@ -54,13 +55,13 @@ newUserPoolPolicyType =
 userPoolPolicyType_passwordPolicy :: Lens.Lens' UserPoolPolicyType (Prelude.Maybe PasswordPolicyType)
 userPoolPolicyType_passwordPolicy = Lens.lens (\UserPoolPolicyType' {passwordPolicy} -> passwordPolicy) (\s@UserPoolPolicyType' {} a -> s {passwordPolicy = a} :: UserPoolPolicyType)
 
-instance Core.FromJSON UserPoolPolicyType where
+instance Data.FromJSON UserPoolPolicyType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserPoolPolicyType"
       ( \x ->
           UserPoolPolicyType'
-            Prelude.<$> (x Core..:? "PasswordPolicy")
+            Prelude.<$> (x Data..:? "PasswordPolicy")
       )
 
 instance Prelude.Hashable UserPoolPolicyType where
@@ -71,11 +72,11 @@ instance Prelude.NFData UserPoolPolicyType where
   rnf UserPoolPolicyType' {..} =
     Prelude.rnf passwordPolicy
 
-instance Core.ToJSON UserPoolPolicyType where
+instance Data.ToJSON UserPoolPolicyType where
   toJSON UserPoolPolicyType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PasswordPolicy" Core..=)
+          [ ("PasswordPolicy" Data..=)
               Prelude.<$> passwordPolicy
           ]
       )

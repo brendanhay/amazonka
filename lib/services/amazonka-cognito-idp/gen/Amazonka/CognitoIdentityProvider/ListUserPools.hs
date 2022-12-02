@@ -46,6 +46,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,8 +129,8 @@ instance Core.AWSRequest ListUserPools where
     Response.receiveJSON
       ( \s h x ->
           ListUserPoolsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "UserPools" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "UserPools" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,34 +144,34 @@ instance Prelude.NFData ListUserPools where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListUserPools where
+instance Data.ToHeaders ListUserPools where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.ListUserPools" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.ListUserPools" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListUserPools where
+instance Data.ToJSON ListUserPools where
   toJSON ListUserPools' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            Prelude.Just ("MaxResults" Core..= maxResults)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            Prelude.Just ("MaxResults" Data..= maxResults)
           ]
       )
 
-instance Core.ToPath ListUserPools where
+instance Data.ToPath ListUserPools where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListUserPools where
+instance Data.ToQuery ListUserPools where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response to list user pools.

@@ -23,6 +23,7 @@ import Amazonka.CognitoIdentityProvider.Types.ChallengeName
 import Amazonka.CognitoIdentityProvider.Types.ChallengeResponse
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The challenge response type.
@@ -64,14 +65,14 @@ challengeResponseType_challengeResponse = Lens.lens (\ChallengeResponseType' {ch
 challengeResponseType_challengeName :: Lens.Lens' ChallengeResponseType (Prelude.Maybe ChallengeName)
 challengeResponseType_challengeName = Lens.lens (\ChallengeResponseType' {challengeName} -> challengeName) (\s@ChallengeResponseType' {} a -> s {challengeName = a} :: ChallengeResponseType)
 
-instance Core.FromJSON ChallengeResponseType where
+instance Data.FromJSON ChallengeResponseType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChallengeResponseType"
       ( \x ->
           ChallengeResponseType'
-            Prelude.<$> (x Core..:? "ChallengeResponse")
-            Prelude.<*> (x Core..:? "ChallengeName")
+            Prelude.<$> (x Data..:? "ChallengeResponse")
+            Prelude.<*> (x Data..:? "ChallengeName")
       )
 
 instance Prelude.Hashable ChallengeResponseType where

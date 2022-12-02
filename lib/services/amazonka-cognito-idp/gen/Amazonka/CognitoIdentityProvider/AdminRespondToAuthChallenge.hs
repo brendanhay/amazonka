@@ -73,6 +73,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -187,7 +188,7 @@ data AdminRespondToAuthChallenge = AdminRespondToAuthChallenge'
     -- | The ID of the Amazon Cognito user pool.
     userPoolId :: Prelude.Text,
     -- | The app client ID.
-    clientId :: Core.Sensitive Prelude.Text,
+    clientId :: Data.Sensitive Prelude.Text,
     -- | The challenge name. For more information, see
     -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html AdminInitiateAuth>.
     challengeName :: ChallengeNameType
@@ -330,7 +331,7 @@ newAdminRespondToAuthChallenge
         contextData = Prelude.Nothing,
         challengeResponses = Prelude.Nothing,
         userPoolId = pUserPoolId_,
-        clientId = Core._Sensitive Lens.# pClientId_,
+        clientId = Data._Sensitive Lens.# pClientId_,
         challengeName = pChallengeName_
       }
 
@@ -452,7 +453,7 @@ adminRespondToAuthChallenge_userPoolId = Lens.lens (\AdminRespondToAuthChallenge
 
 -- | The app client ID.
 adminRespondToAuthChallenge_clientId :: Lens.Lens' AdminRespondToAuthChallenge Prelude.Text
-adminRespondToAuthChallenge_clientId = Lens.lens (\AdminRespondToAuthChallenge' {clientId} -> clientId) (\s@AdminRespondToAuthChallenge' {} a -> s {clientId = a} :: AdminRespondToAuthChallenge) Prelude.. Core._Sensitive
+adminRespondToAuthChallenge_clientId = Lens.lens (\AdminRespondToAuthChallenge' {clientId} -> clientId) (\s@AdminRespondToAuthChallenge' {} a -> s {clientId = a} :: AdminRespondToAuthChallenge) Prelude.. Data._Sensitive
 
 -- | The challenge name. For more information, see
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html AdminInitiateAuth>.
@@ -469,10 +470,10 @@ instance Core.AWSRequest AdminRespondToAuthChallenge where
     Response.receiveJSON
       ( \s h x ->
           AdminRespondToAuthChallengeResponse'
-            Prelude.<$> (x Core..?> "AuthenticationResult")
-            Prelude.<*> (x Core..?> "Session")
-            Prelude.<*> (x Core..?> "ChallengeName")
-            Prelude.<*> ( x Core..?> "ChallengeParameters"
+            Prelude.<$> (x Data..?> "AuthenticationResult")
+            Prelude.<*> (x Data..?> "Session")
+            Prelude.<*> (x Data..?> "ChallengeName")
+            Prelude.<*> ( x Data..?> "ChallengeParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -500,44 +501,44 @@ instance Prelude.NFData AdminRespondToAuthChallenge where
       `Prelude.seq` Prelude.rnf clientId
       `Prelude.seq` Prelude.rnf challengeName
 
-instance Core.ToHeaders AdminRespondToAuthChallenge where
+instance Data.ToHeaders AdminRespondToAuthChallenge where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.AdminRespondToAuthChallenge" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.AdminRespondToAuthChallenge" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AdminRespondToAuthChallenge where
+instance Data.ToJSON AdminRespondToAuthChallenge where
   toJSON AdminRespondToAuthChallenge' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AnalyticsMetadata" Core..=)
+          [ ("AnalyticsMetadata" Data..=)
               Prelude.<$> analyticsMetadata,
-            ("ClientMetadata" Core..=)
+            ("ClientMetadata" Data..=)
               Prelude.<$> clientMetadata,
-            ("Session" Core..=) Prelude.<$> session,
-            ("ContextData" Core..=) Prelude.<$> contextData,
-            ("ChallengeResponses" Core..=)
+            ("Session" Data..=) Prelude.<$> session,
+            ("ContextData" Data..=) Prelude.<$> contextData,
+            ("ChallengeResponses" Data..=)
               Prelude.<$> challengeResponses,
-            Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("ClientId" Core..= clientId),
+            Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("ClientId" Data..= clientId),
             Prelude.Just
-              ("ChallengeName" Core..= challengeName)
+              ("ChallengeName" Data..= challengeName)
           ]
       )
 
-instance Core.ToPath AdminRespondToAuthChallenge where
+instance Data.ToPath AdminRespondToAuthChallenge where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AdminRespondToAuthChallenge where
+instance Data.ToQuery AdminRespondToAuthChallenge where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Responds to the authentication challenge, as an administrator.

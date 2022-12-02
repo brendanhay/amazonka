@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.AccountTakeoverActionType where
 import Amazonka.CognitoIdentityProvider.Types.AccountTakeoverEventActionType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Account takeover action type.
@@ -99,14 +100,14 @@ accountTakeoverActionType_notify = Lens.lens (\AccountTakeoverActionType' {notif
 accountTakeoverActionType_eventAction :: Lens.Lens' AccountTakeoverActionType AccountTakeoverEventActionType
 accountTakeoverActionType_eventAction = Lens.lens (\AccountTakeoverActionType' {eventAction} -> eventAction) (\s@AccountTakeoverActionType' {} a -> s {eventAction = a} :: AccountTakeoverActionType)
 
-instance Core.FromJSON AccountTakeoverActionType where
+instance Data.FromJSON AccountTakeoverActionType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountTakeoverActionType"
       ( \x ->
           AccountTakeoverActionType'
-            Prelude.<$> (x Core..: "Notify")
-            Prelude.<*> (x Core..: "EventAction")
+            Prelude.<$> (x Data..: "Notify")
+            Prelude.<*> (x Data..: "EventAction")
       )
 
 instance Prelude.Hashable AccountTakeoverActionType where
@@ -119,11 +120,11 @@ instance Prelude.NFData AccountTakeoverActionType where
     Prelude.rnf notify
       `Prelude.seq` Prelude.rnf eventAction
 
-instance Core.ToJSON AccountTakeoverActionType where
+instance Data.ToJSON AccountTakeoverActionType where
   toJSON AccountTakeoverActionType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Notify" Core..= notify),
-            Prelude.Just ("EventAction" Core..= eventAction)
+          [ Prelude.Just ("Notify" Data..= notify),
+            Prelude.Just ("EventAction" Data..= eventAction)
           ]
       )

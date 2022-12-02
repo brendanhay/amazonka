@@ -44,6 +44,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -55,7 +56,7 @@ data AdminEnableUser = AdminEnableUser'
   { -- | The user pool ID for the user pool where you want to enable the user.
     userPoolId :: Prelude.Text,
     -- | The user name of the user you want to enable.
-    username :: Core.Sensitive Prelude.Text
+    username :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -79,7 +80,7 @@ newAdminEnableUser ::
 newAdminEnableUser pUserPoolId_ pUsername_ =
   AdminEnableUser'
     { userPoolId = pUserPoolId_,
-      username = Core._Sensitive Lens.# pUsername_
+      username = Data._Sensitive Lens.# pUsername_
     }
 
 -- | The user pool ID for the user pool where you want to enable the user.
@@ -88,7 +89,7 @@ adminEnableUser_userPoolId = Lens.lens (\AdminEnableUser' {userPoolId} -> userPo
 
 -- | The user name of the user you want to enable.
 adminEnableUser_username :: Lens.Lens' AdminEnableUser Prelude.Text
-adminEnableUser_username = Lens.lens (\AdminEnableUser' {username} -> username) (\s@AdminEnableUser' {} a -> s {username = a} :: AdminEnableUser) Prelude.. Core._Sensitive
+adminEnableUser_username = Lens.lens (\AdminEnableUser' {username} -> username) (\s@AdminEnableUser' {} a -> s {username = a} :: AdminEnableUser) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest AdminEnableUser where
   type
@@ -113,34 +114,34 @@ instance Prelude.NFData AdminEnableUser where
     Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf username
 
-instance Core.ToHeaders AdminEnableUser where
+instance Data.ToHeaders AdminEnableUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.AdminEnableUser" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.AdminEnableUser" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AdminEnableUser where
+instance Data.ToJSON AdminEnableUser where
   toJSON AdminEnableUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("Username" Core..= username)
+          [ Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("Username" Data..= username)
           ]
       )
 
-instance Core.ToPath AdminEnableUser where
+instance Data.ToPath AdminEnableUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AdminEnableUser where
+instance Data.ToQuery AdminEnableUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server for the request to enable a user

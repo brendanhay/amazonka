@@ -72,6 +72,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -159,7 +160,7 @@ data InitiateAuth = InitiateAuth'
     --     client is configured with client secret), @DEVICE_KEY@. To start the
     --     authentication flow with password verification, include
     --     @ChallengeName: SRP_A@ and @SRP_A: (The SRP_A Value)@.
-    authParameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    authParameters :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The authentication flow for this call to run. The API action will depend
     -- on this value. For example:
     --
@@ -191,7 +192,7 @@ data InitiateAuth = InitiateAuth'
     -- @ADMIN_NO_SRP_AUTH@ isn\'t a valid value.
     authFlow :: AuthFlowType,
     -- | The app client ID.
-    clientId :: Core.Sensitive Prelude.Text
+    clientId :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -327,7 +328,7 @@ newInitiateAuth pAuthFlow_ pClientId_ =
       userContextData = Prelude.Nothing,
       authParameters = Prelude.Nothing,
       authFlow = pAuthFlow_,
-      clientId = Core._Sensitive Lens.# pClientId_
+      clientId = Data._Sensitive Lens.# pClientId_
     }
 
 -- | The Amazon Pinpoint analytics metadata that contributes to your metrics
@@ -416,7 +417,7 @@ initiateAuth_userContextData = Lens.lens (\InitiateAuth' {userContextData} -> us
 --     authentication flow with password verification, include
 --     @ChallengeName: SRP_A@ and @SRP_A: (The SRP_A Value)@.
 initiateAuth_authParameters :: Lens.Lens' InitiateAuth (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-initiateAuth_authParameters = Lens.lens (\InitiateAuth' {authParameters} -> authParameters) (\s@InitiateAuth' {} a -> s {authParameters = a} :: InitiateAuth) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+initiateAuth_authParameters = Lens.lens (\InitiateAuth' {authParameters} -> authParameters) (\s@InitiateAuth' {} a -> s {authParameters = a} :: InitiateAuth) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The authentication flow for this call to run. The API action will depend
 -- on this value. For example:
@@ -452,7 +453,7 @@ initiateAuth_authFlow = Lens.lens (\InitiateAuth' {authFlow} -> authFlow) (\s@In
 
 -- | The app client ID.
 initiateAuth_clientId :: Lens.Lens' InitiateAuth Prelude.Text
-initiateAuth_clientId = Lens.lens (\InitiateAuth' {clientId} -> clientId) (\s@InitiateAuth' {} a -> s {clientId = a} :: InitiateAuth) Prelude.. Core._Sensitive
+initiateAuth_clientId = Lens.lens (\InitiateAuth' {clientId} -> clientId) (\s@InitiateAuth' {} a -> s {clientId = a} :: InitiateAuth) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest InitiateAuth where
   type AWSResponse InitiateAuth = InitiateAuthResponse
@@ -462,10 +463,10 @@ instance Core.AWSRequest InitiateAuth where
     Response.receiveJSON
       ( \s h x ->
           InitiateAuthResponse'
-            Prelude.<$> (x Core..?> "AuthenticationResult")
-            Prelude.<*> (x Core..?> "Session")
-            Prelude.<*> (x Core..?> "ChallengeName")
-            Prelude.<*> ( x Core..?> "ChallengeParameters"
+            Prelude.<$> (x Data..?> "AuthenticationResult")
+            Prelude.<*> (x Data..?> "Session")
+            Prelude.<*> (x Data..?> "ChallengeName")
+            Prelude.<*> ( x Data..?> "ChallengeParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -489,42 +490,42 @@ instance Prelude.NFData InitiateAuth where
       `Prelude.seq` Prelude.rnf authFlow
       `Prelude.seq` Prelude.rnf clientId
 
-instance Core.ToHeaders InitiateAuth where
+instance Data.ToHeaders InitiateAuth where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.InitiateAuth" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.InitiateAuth" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON InitiateAuth where
+instance Data.ToJSON InitiateAuth where
   toJSON InitiateAuth' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AnalyticsMetadata" Core..=)
+          [ ("AnalyticsMetadata" Data..=)
               Prelude.<$> analyticsMetadata,
-            ("ClientMetadata" Core..=)
+            ("ClientMetadata" Data..=)
               Prelude.<$> clientMetadata,
-            ("UserContextData" Core..=)
+            ("UserContextData" Data..=)
               Prelude.<$> userContextData,
-            ("AuthParameters" Core..=)
+            ("AuthParameters" Data..=)
               Prelude.<$> authParameters,
-            Prelude.Just ("AuthFlow" Core..= authFlow),
-            Prelude.Just ("ClientId" Core..= clientId)
+            Prelude.Just ("AuthFlow" Data..= authFlow),
+            Prelude.Just ("ClientId" Data..= clientId)
           ]
       )
 
-instance Core.ToPath InitiateAuth where
+instance Data.ToPath InitiateAuth where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery InitiateAuth where
+instance Data.ToQuery InitiateAuth where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Initiates the authentication response.

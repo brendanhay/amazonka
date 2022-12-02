@@ -72,6 +72,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -158,7 +159,7 @@ data AdminInitiateAuth = AdminInitiateAuth'
     --     client is configured with client secret), @DEVICE_KEY@. To start the
     --     authentication flow with password verification, include
     --     @ChallengeName: SRP_A@ and @SRP_A: (The SRP_A Value)@.
-    authParameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    authParameters :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Contextual data about your user session, such as the device fingerprint,
     -- IP address, or location. Amazon Cognito advanced security evaluates the
     -- risk of an authentication event based on the context that your app
@@ -167,7 +168,7 @@ data AdminInitiateAuth = AdminInitiateAuth'
     -- | The ID of the Amazon Cognito user pool.
     userPoolId :: Prelude.Text,
     -- | The app client ID.
-    clientId :: Core.Sensitive Prelude.Text,
+    clientId :: Data.Sensitive Prelude.Text,
     -- | The authentication flow for this call to run. The API action will depend
     -- on this value. For example:
     --
@@ -351,7 +352,7 @@ newAdminInitiateAuth
         authParameters = Prelude.Nothing,
         contextData = Prelude.Nothing,
         userPoolId = pUserPoolId_,
-        clientId = Core._Sensitive Lens.# pClientId_,
+        clientId = Data._Sensitive Lens.# pClientId_,
         authFlow = pAuthFlow_
       }
 
@@ -438,7 +439,7 @@ adminInitiateAuth_clientMetadata = Lens.lens (\AdminInitiateAuth' {clientMetadat
 --     authentication flow with password verification, include
 --     @ChallengeName: SRP_A@ and @SRP_A: (The SRP_A Value)@.
 adminInitiateAuth_authParameters :: Lens.Lens' AdminInitiateAuth (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-adminInitiateAuth_authParameters = Lens.lens (\AdminInitiateAuth' {authParameters} -> authParameters) (\s@AdminInitiateAuth' {} a -> s {authParameters = a} :: AdminInitiateAuth) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+adminInitiateAuth_authParameters = Lens.lens (\AdminInitiateAuth' {authParameters} -> authParameters) (\s@AdminInitiateAuth' {} a -> s {authParameters = a} :: AdminInitiateAuth) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Contextual data about your user session, such as the device fingerprint,
 -- IP address, or location. Amazon Cognito advanced security evaluates the
@@ -453,7 +454,7 @@ adminInitiateAuth_userPoolId = Lens.lens (\AdminInitiateAuth' {userPoolId} -> us
 
 -- | The app client ID.
 adminInitiateAuth_clientId :: Lens.Lens' AdminInitiateAuth Prelude.Text
-adminInitiateAuth_clientId = Lens.lens (\AdminInitiateAuth' {clientId} -> clientId) (\s@AdminInitiateAuth' {} a -> s {clientId = a} :: AdminInitiateAuth) Prelude.. Core._Sensitive
+adminInitiateAuth_clientId = Lens.lens (\AdminInitiateAuth' {clientId} -> clientId) (\s@AdminInitiateAuth' {} a -> s {clientId = a} :: AdminInitiateAuth) Prelude.. Data._Sensitive
 
 -- | The authentication flow for this call to run. The API action will depend
 -- on this value. For example:
@@ -500,10 +501,10 @@ instance Core.AWSRequest AdminInitiateAuth where
     Response.receiveJSON
       ( \s h x ->
           AdminInitiateAuthResponse'
-            Prelude.<$> (x Core..?> "AuthenticationResult")
-            Prelude.<*> (x Core..?> "Session")
-            Prelude.<*> (x Core..?> "ChallengeName")
-            Prelude.<*> ( x Core..?> "ChallengeParameters"
+            Prelude.<$> (x Data..?> "AuthenticationResult")
+            Prelude.<*> (x Data..?> "Session")
+            Prelude.<*> (x Data..?> "ChallengeName")
+            Prelude.<*> ( x Data..?> "ChallengeParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -529,42 +530,42 @@ instance Prelude.NFData AdminInitiateAuth where
       `Prelude.seq` Prelude.rnf clientId
       `Prelude.seq` Prelude.rnf authFlow
 
-instance Core.ToHeaders AdminInitiateAuth where
+instance Data.ToHeaders AdminInitiateAuth where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.AdminInitiateAuth" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.AdminInitiateAuth" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AdminInitiateAuth where
+instance Data.ToJSON AdminInitiateAuth where
   toJSON AdminInitiateAuth' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AnalyticsMetadata" Core..=)
+          [ ("AnalyticsMetadata" Data..=)
               Prelude.<$> analyticsMetadata,
-            ("ClientMetadata" Core..=)
+            ("ClientMetadata" Data..=)
               Prelude.<$> clientMetadata,
-            ("AuthParameters" Core..=)
+            ("AuthParameters" Data..=)
               Prelude.<$> authParameters,
-            ("ContextData" Core..=) Prelude.<$> contextData,
-            Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("ClientId" Core..= clientId),
-            Prelude.Just ("AuthFlow" Core..= authFlow)
+            ("ContextData" Data..=) Prelude.<$> contextData,
+            Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("ClientId" Data..= clientId),
+            Prelude.Just ("AuthFlow" Data..= authFlow)
           ]
       )
 
-instance Core.ToPath AdminInitiateAuth where
+instance Data.ToPath AdminInitiateAuth where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AdminInitiateAuth where
+instance Data.ToQuery AdminInitiateAuth where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Initiates the authentication response, as an administrator.

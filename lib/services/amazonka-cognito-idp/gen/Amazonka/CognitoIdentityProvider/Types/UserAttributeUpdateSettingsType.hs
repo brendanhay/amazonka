@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.UserAttributeUpdateSettingsType wh
 import Amazonka.CognitoIdentityProvider.Types.VerifiedAttributeType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The settings for updates to user attributes. These settings include the
@@ -120,17 +121,17 @@ userAttributeUpdateSettingsType_attributesRequireVerificationBeforeUpdate :: Len
 userAttributeUpdateSettingsType_attributesRequireVerificationBeforeUpdate = Lens.lens (\UserAttributeUpdateSettingsType' {attributesRequireVerificationBeforeUpdate} -> attributesRequireVerificationBeforeUpdate) (\s@UserAttributeUpdateSettingsType' {} a -> s {attributesRequireVerificationBeforeUpdate = a} :: UserAttributeUpdateSettingsType) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     UserAttributeUpdateSettingsType
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserAttributeUpdateSettingsType"
       ( \x ->
           UserAttributeUpdateSettingsType'
             Prelude.<$> ( x
-                            Core..:? "AttributesRequireVerificationBeforeUpdate"
-                            Core..!= Prelude.mempty
+                            Data..:? "AttributesRequireVerificationBeforeUpdate"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -152,12 +153,12 @@ instance
     Prelude.rnf
       attributesRequireVerificationBeforeUpdate
 
-instance Core.ToJSON UserAttributeUpdateSettingsType where
+instance Data.ToJSON UserAttributeUpdateSettingsType where
   toJSON UserAttributeUpdateSettingsType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ ( "AttributesRequireVerificationBeforeUpdate"
-                Core..=
+                Data..=
             )
               Prelude.<$> attributesRequireVerificationBeforeUpdate
           ]

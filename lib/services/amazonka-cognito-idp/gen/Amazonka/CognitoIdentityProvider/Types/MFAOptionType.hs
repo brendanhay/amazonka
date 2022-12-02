@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.MFAOptionType where
 import Amazonka.CognitoIdentityProvider.Types.DeliveryMediumType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /This data type is no longer supported./ Applies only to SMS
@@ -70,14 +71,14 @@ mfaOptionType_deliveryMedium = Lens.lens (\MFAOptionType' {deliveryMedium} -> de
 mfaOptionType_attributeName :: Lens.Lens' MFAOptionType (Prelude.Maybe Prelude.Text)
 mfaOptionType_attributeName = Lens.lens (\MFAOptionType' {attributeName} -> attributeName) (\s@MFAOptionType' {} a -> s {attributeName = a} :: MFAOptionType)
 
-instance Core.FromJSON MFAOptionType where
+instance Data.FromJSON MFAOptionType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MFAOptionType"
       ( \x ->
           MFAOptionType'
-            Prelude.<$> (x Core..:? "DeliveryMedium")
-            Prelude.<*> (x Core..:? "AttributeName")
+            Prelude.<$> (x Data..:? "DeliveryMedium")
+            Prelude.<*> (x Data..:? "AttributeName")
       )
 
 instance Prelude.Hashable MFAOptionType where
@@ -90,12 +91,12 @@ instance Prelude.NFData MFAOptionType where
     Prelude.rnf deliveryMedium
       `Prelude.seq` Prelude.rnf attributeName
 
-instance Core.ToJSON MFAOptionType where
+instance Data.ToJSON MFAOptionType where
   toJSON MFAOptionType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeliveryMedium" Core..=)
+          [ ("DeliveryMedium" Data..=)
               Prelude.<$> deliveryMedium,
-            ("AttributeName" Core..=) Prelude.<$> attributeName
+            ("AttributeName" Data..=) Prelude.<$> attributeName
           ]
       )

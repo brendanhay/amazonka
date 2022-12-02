@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.PasswordPolicyType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The password policy type.
@@ -131,18 +132,18 @@ passwordPolicyType_minimumLength = Lens.lens (\PasswordPolicyType' {minimumLengt
 passwordPolicyType_temporaryPasswordValidityDays :: Lens.Lens' PasswordPolicyType (Prelude.Maybe Prelude.Natural)
 passwordPolicyType_temporaryPasswordValidityDays = Lens.lens (\PasswordPolicyType' {temporaryPasswordValidityDays} -> temporaryPasswordValidityDays) (\s@PasswordPolicyType' {} a -> s {temporaryPasswordValidityDays = a} :: PasswordPolicyType)
 
-instance Core.FromJSON PasswordPolicyType where
+instance Data.FromJSON PasswordPolicyType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PasswordPolicyType"
       ( \x ->
           PasswordPolicyType'
-            Prelude.<$> (x Core..:? "RequireLowercase")
-            Prelude.<*> (x Core..:? "RequireNumbers")
-            Prelude.<*> (x Core..:? "RequireSymbols")
-            Prelude.<*> (x Core..:? "RequireUppercase")
-            Prelude.<*> (x Core..:? "MinimumLength")
-            Prelude.<*> (x Core..:? "TemporaryPasswordValidityDays")
+            Prelude.<$> (x Data..:? "RequireLowercase")
+            Prelude.<*> (x Data..:? "RequireNumbers")
+            Prelude.<*> (x Data..:? "RequireSymbols")
+            Prelude.<*> (x Data..:? "RequireUppercase")
+            Prelude.<*> (x Data..:? "MinimumLength")
+            Prelude.<*> (x Data..:? "TemporaryPasswordValidityDays")
       )
 
 instance Prelude.Hashable PasswordPolicyType where
@@ -163,20 +164,20 @@ instance Prelude.NFData PasswordPolicyType where
       `Prelude.seq` Prelude.rnf minimumLength
       `Prelude.seq` Prelude.rnf temporaryPasswordValidityDays
 
-instance Core.ToJSON PasswordPolicyType where
+instance Data.ToJSON PasswordPolicyType where
   toJSON PasswordPolicyType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RequireLowercase" Core..=)
+          [ ("RequireLowercase" Data..=)
               Prelude.<$> requireLowercase,
-            ("RequireNumbers" Core..=)
+            ("RequireNumbers" Data..=)
               Prelude.<$> requireNumbers,
-            ("RequireSymbols" Core..=)
+            ("RequireSymbols" Data..=)
               Prelude.<$> requireSymbols,
-            ("RequireUppercase" Core..=)
+            ("RequireUppercase" Data..=)
               Prelude.<$> requireUppercase,
-            ("MinimumLength" Core..=) Prelude.<$> minimumLength,
-            ("TemporaryPasswordValidityDays" Core..=)
+            ("MinimumLength" Data..=) Prelude.<$> minimumLength,
+            ("TemporaryPasswordValidityDays" Data..=)
               Prelude.<$> temporaryPasswordValidityDays
           ]
       )

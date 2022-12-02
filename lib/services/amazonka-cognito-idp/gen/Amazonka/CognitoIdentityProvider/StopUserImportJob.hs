@@ -43,6 +43,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,7 +103,7 @@ instance Core.AWSRequest StopUserImportJob where
     Response.receiveJSON
       ( \s h x ->
           StopUserImportJobResponse'
-            Prelude.<$> (x Core..?> "UserImportJob")
+            Prelude.<$> (x Data..?> "UserImportJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,34 +117,34 @@ instance Prelude.NFData StopUserImportJob where
     Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders StopUserImportJob where
+instance Data.ToHeaders StopUserImportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.StopUserImportJob" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.StopUserImportJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopUserImportJob where
+instance Data.ToJSON StopUserImportJob where
   toJSON StopUserImportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("JobId" Core..= jobId)
+          [ Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("JobId" Data..= jobId)
           ]
       )
 
-instance Core.ToPath StopUserImportJob where
+instance Data.ToPath StopUserImportJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopUserImportJob where
+instance Data.ToQuery StopUserImportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server to the request to stop the user

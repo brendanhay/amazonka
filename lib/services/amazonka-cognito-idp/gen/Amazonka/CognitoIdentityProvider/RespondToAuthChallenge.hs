@@ -70,6 +70,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -166,7 +167,7 @@ data RespondToAuthChallenge = RespondToAuthChallenge'
     --     returned by @VerifySoftwareToken@ in the @Session@ parameter.
     challengeResponses :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The app client ID.
-    clientId :: Core.Sensitive Prelude.Text,
+    clientId :: Data.Sensitive Prelude.Text,
     -- | The challenge name. For more information, see
     -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html InitiateAuth>.
     --
@@ -290,7 +291,7 @@ newRespondToAuthChallenge pClientId_ pChallengeName_ =
       session = Prelude.Nothing,
       userContextData = Prelude.Nothing,
       challengeResponses = Prelude.Nothing,
-      clientId = Core._Sensitive Lens.# pClientId_,
+      clientId = Data._Sensitive Lens.# pClientId_,
       challengeName = pChallengeName_
     }
 
@@ -393,7 +394,7 @@ respondToAuthChallenge_challengeResponses = Lens.lens (\RespondToAuthChallenge' 
 
 -- | The app client ID.
 respondToAuthChallenge_clientId :: Lens.Lens' RespondToAuthChallenge Prelude.Text
-respondToAuthChallenge_clientId = Lens.lens (\RespondToAuthChallenge' {clientId} -> clientId) (\s@RespondToAuthChallenge' {} a -> s {clientId = a} :: RespondToAuthChallenge) Prelude.. Core._Sensitive
+respondToAuthChallenge_clientId = Lens.lens (\RespondToAuthChallenge' {clientId} -> clientId) (\s@RespondToAuthChallenge' {} a -> s {clientId = a} :: RespondToAuthChallenge) Prelude.. Data._Sensitive
 
 -- | The challenge name. For more information, see
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html InitiateAuth>.
@@ -412,10 +413,10 @@ instance Core.AWSRequest RespondToAuthChallenge where
     Response.receiveJSON
       ( \s h x ->
           RespondToAuthChallengeResponse'
-            Prelude.<$> (x Core..?> "AuthenticationResult")
-            Prelude.<*> (x Core..?> "Session")
-            Prelude.<*> (x Core..?> "ChallengeName")
-            Prelude.<*> ( x Core..?> "ChallengeParameters"
+            Prelude.<$> (x Data..?> "AuthenticationResult")
+            Prelude.<*> (x Data..?> "Session")
+            Prelude.<*> (x Data..?> "ChallengeName")
+            Prelude.<*> ( x Data..?> "ChallengeParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -441,44 +442,44 @@ instance Prelude.NFData RespondToAuthChallenge where
       `Prelude.seq` Prelude.rnf clientId
       `Prelude.seq` Prelude.rnf challengeName
 
-instance Core.ToHeaders RespondToAuthChallenge where
+instance Data.ToHeaders RespondToAuthChallenge where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.RespondToAuthChallenge" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.RespondToAuthChallenge" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RespondToAuthChallenge where
+instance Data.ToJSON RespondToAuthChallenge where
   toJSON RespondToAuthChallenge' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AnalyticsMetadata" Core..=)
+          [ ("AnalyticsMetadata" Data..=)
               Prelude.<$> analyticsMetadata,
-            ("ClientMetadata" Core..=)
+            ("ClientMetadata" Data..=)
               Prelude.<$> clientMetadata,
-            ("Session" Core..=) Prelude.<$> session,
-            ("UserContextData" Core..=)
+            ("Session" Data..=) Prelude.<$> session,
+            ("UserContextData" Data..=)
               Prelude.<$> userContextData,
-            ("ChallengeResponses" Core..=)
+            ("ChallengeResponses" Data..=)
               Prelude.<$> challengeResponses,
-            Prelude.Just ("ClientId" Core..= clientId),
+            Prelude.Just ("ClientId" Data..= clientId),
             Prelude.Just
-              ("ChallengeName" Core..= challengeName)
+              ("ChallengeName" Data..= challengeName)
           ]
       )
 
-instance Core.ToPath RespondToAuthChallenge where
+instance Data.ToPath RespondToAuthChallenge where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RespondToAuthChallenge where
+instance Data.ToQuery RespondToAuthChallenge where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response to respond to the authentication challenge.

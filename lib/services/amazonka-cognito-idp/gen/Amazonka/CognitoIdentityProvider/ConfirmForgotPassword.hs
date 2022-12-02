@@ -49,6 +49,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,23 +94,23 @@ data ConfirmForgotPassword = ConfirmForgotPassword'
     -- | A keyed-hash message authentication code (HMAC) calculated using the
     -- secret key of a user pool client and username plus the client ID in the
     -- message.
-    secretHash :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    secretHash :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Contextual data about your user session, such as the device fingerprint,
     -- IP address, or location. Amazon Cognito advanced security evaluates the
     -- risk of an authentication event based on the context that your app
     -- generates and passes to Amazon Cognito when it makes API requests.
     userContextData :: Prelude.Maybe UserContextDataType,
     -- | The app client ID of the app associated with the user pool.
-    clientId :: Core.Sensitive Prelude.Text,
+    clientId :: Data.Sensitive Prelude.Text,
     -- | The user name of the user for whom you want to enter a code to retrieve
     -- a forgotten password.
-    username :: Core.Sensitive Prelude.Text,
+    username :: Data.Sensitive Prelude.Text,
     -- | The confirmation code from your user\'s request to reset their password.
     -- For more information, see
     -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ForgotPassword.html ForgotPassword>.
     confirmationCode :: Prelude.Text,
     -- | The new password that your user wants to set.
-    password :: Core.Sensitive Prelude.Text
+    password :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -194,10 +195,10 @@ newConfirmForgotPassword
         clientMetadata = Prelude.Nothing,
         secretHash = Prelude.Nothing,
         userContextData = Prelude.Nothing,
-        clientId = Core._Sensitive Lens.# pClientId_,
-        username = Core._Sensitive Lens.# pUsername_,
+        clientId = Data._Sensitive Lens.# pClientId_,
+        username = Data._Sensitive Lens.# pUsername_,
         confirmationCode = pConfirmationCode_,
-        password = Core._Sensitive Lens.# pPassword_
+        password = Data._Sensitive Lens.# pPassword_
       }
 
 -- | The Amazon Pinpoint analytics metadata for collecting metrics for
@@ -241,7 +242,7 @@ confirmForgotPassword_clientMetadata = Lens.lens (\ConfirmForgotPassword' {clien
 -- secret key of a user pool client and username plus the client ID in the
 -- message.
 confirmForgotPassword_secretHash :: Lens.Lens' ConfirmForgotPassword (Prelude.Maybe Prelude.Text)
-confirmForgotPassword_secretHash = Lens.lens (\ConfirmForgotPassword' {secretHash} -> secretHash) (\s@ConfirmForgotPassword' {} a -> s {secretHash = a} :: ConfirmForgotPassword) Prelude.. Lens.mapping Core._Sensitive
+confirmForgotPassword_secretHash = Lens.lens (\ConfirmForgotPassword' {secretHash} -> secretHash) (\s@ConfirmForgotPassword' {} a -> s {secretHash = a} :: ConfirmForgotPassword) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Contextual data about your user session, such as the device fingerprint,
 -- IP address, or location. Amazon Cognito advanced security evaluates the
@@ -252,12 +253,12 @@ confirmForgotPassword_userContextData = Lens.lens (\ConfirmForgotPassword' {user
 
 -- | The app client ID of the app associated with the user pool.
 confirmForgotPassword_clientId :: Lens.Lens' ConfirmForgotPassword Prelude.Text
-confirmForgotPassword_clientId = Lens.lens (\ConfirmForgotPassword' {clientId} -> clientId) (\s@ConfirmForgotPassword' {} a -> s {clientId = a} :: ConfirmForgotPassword) Prelude.. Core._Sensitive
+confirmForgotPassword_clientId = Lens.lens (\ConfirmForgotPassword' {clientId} -> clientId) (\s@ConfirmForgotPassword' {} a -> s {clientId = a} :: ConfirmForgotPassword) Prelude.. Data._Sensitive
 
 -- | The user name of the user for whom you want to enter a code to retrieve
 -- a forgotten password.
 confirmForgotPassword_username :: Lens.Lens' ConfirmForgotPassword Prelude.Text
-confirmForgotPassword_username = Lens.lens (\ConfirmForgotPassword' {username} -> username) (\s@ConfirmForgotPassword' {} a -> s {username = a} :: ConfirmForgotPassword) Prelude.. Core._Sensitive
+confirmForgotPassword_username = Lens.lens (\ConfirmForgotPassword' {username} -> username) (\s@ConfirmForgotPassword' {} a -> s {username = a} :: ConfirmForgotPassword) Prelude.. Data._Sensitive
 
 -- | The confirmation code from your user\'s request to reset their password.
 -- For more information, see
@@ -267,7 +268,7 @@ confirmForgotPassword_confirmationCode = Lens.lens (\ConfirmForgotPassword' {con
 
 -- | The new password that your user wants to set.
 confirmForgotPassword_password :: Lens.Lens' ConfirmForgotPassword Prelude.Text
-confirmForgotPassword_password = Lens.lens (\ConfirmForgotPassword' {password} -> password) (\s@ConfirmForgotPassword' {} a -> s {password = a} :: ConfirmForgotPassword) Prelude.. Core._Sensitive
+confirmForgotPassword_password = Lens.lens (\ConfirmForgotPassword' {password} -> password) (\s@ConfirmForgotPassword' {} a -> s {password = a} :: ConfirmForgotPassword) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest ConfirmForgotPassword where
   type
@@ -304,44 +305,44 @@ instance Prelude.NFData ConfirmForgotPassword where
       `Prelude.seq` Prelude.rnf confirmationCode
       `Prelude.seq` Prelude.rnf password
 
-instance Core.ToHeaders ConfirmForgotPassword where
+instance Data.ToHeaders ConfirmForgotPassword where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.ConfirmForgotPassword" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.ConfirmForgotPassword" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ConfirmForgotPassword where
+instance Data.ToJSON ConfirmForgotPassword where
   toJSON ConfirmForgotPassword' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AnalyticsMetadata" Core..=)
+          [ ("AnalyticsMetadata" Data..=)
               Prelude.<$> analyticsMetadata,
-            ("ClientMetadata" Core..=)
+            ("ClientMetadata" Data..=)
               Prelude.<$> clientMetadata,
-            ("SecretHash" Core..=) Prelude.<$> secretHash,
-            ("UserContextData" Core..=)
+            ("SecretHash" Data..=) Prelude.<$> secretHash,
+            ("UserContextData" Data..=)
               Prelude.<$> userContextData,
-            Prelude.Just ("ClientId" Core..= clientId),
-            Prelude.Just ("Username" Core..= username),
+            Prelude.Just ("ClientId" Data..= clientId),
+            Prelude.Just ("Username" Data..= username),
             Prelude.Just
-              ("ConfirmationCode" Core..= confirmationCode),
-            Prelude.Just ("Password" Core..= password)
+              ("ConfirmationCode" Data..= confirmationCode),
+            Prelude.Just ("Password" Data..= password)
           ]
       )
 
-instance Core.ToPath ConfirmForgotPassword where
+instance Data.ToPath ConfirmForgotPassword where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ConfirmForgotPassword where
+instance Data.ToQuery ConfirmForgotPassword where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response from the server that results from a user\'s request to

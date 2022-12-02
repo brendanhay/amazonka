@@ -24,6 +24,7 @@ import Amazonka.CognitoIdentityProvider.Types.NumberAttributeConstraintsType
 import Amazonka.CognitoIdentityProvider.Types.StringAttributeConstraintsType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the schema attribute.
@@ -164,19 +165,19 @@ schemaAttributeType_mutable = Lens.lens (\SchemaAttributeType' {mutable} -> muta
 schemaAttributeType_developerOnlyAttribute :: Lens.Lens' SchemaAttributeType (Prelude.Maybe Prelude.Bool)
 schemaAttributeType_developerOnlyAttribute = Lens.lens (\SchemaAttributeType' {developerOnlyAttribute} -> developerOnlyAttribute) (\s@SchemaAttributeType' {} a -> s {developerOnlyAttribute = a} :: SchemaAttributeType)
 
-instance Core.FromJSON SchemaAttributeType where
+instance Data.FromJSON SchemaAttributeType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SchemaAttributeType"
       ( \x ->
           SchemaAttributeType'
-            Prelude.<$> (x Core..:? "NumberAttributeConstraints")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Required")
-            Prelude.<*> (x Core..:? "AttributeDataType")
-            Prelude.<*> (x Core..:? "StringAttributeConstraints")
-            Prelude.<*> (x Core..:? "Mutable")
-            Prelude.<*> (x Core..:? "DeveloperOnlyAttribute")
+            Prelude.<$> (x Data..:? "NumberAttributeConstraints")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Required")
+            Prelude.<*> (x Data..:? "AttributeDataType")
+            Prelude.<*> (x Data..:? "StringAttributeConstraints")
+            Prelude.<*> (x Data..:? "Mutable")
+            Prelude.<*> (x Data..:? "DeveloperOnlyAttribute")
       )
 
 instance Prelude.Hashable SchemaAttributeType where
@@ -200,20 +201,20 @@ instance Prelude.NFData SchemaAttributeType where
       `Prelude.seq` Prelude.rnf mutable
       `Prelude.seq` Prelude.rnf developerOnlyAttribute
 
-instance Core.ToJSON SchemaAttributeType where
+instance Data.ToJSON SchemaAttributeType where
   toJSON SchemaAttributeType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NumberAttributeConstraints" Core..=)
+          [ ("NumberAttributeConstraints" Data..=)
               Prelude.<$> numberAttributeConstraints,
-            ("Name" Core..=) Prelude.<$> name,
-            ("Required" Core..=) Prelude.<$> required,
-            ("AttributeDataType" Core..=)
+            ("Name" Data..=) Prelude.<$> name,
+            ("Required" Data..=) Prelude.<$> required,
+            ("AttributeDataType" Data..=)
               Prelude.<$> attributeDataType,
-            ("StringAttributeConstraints" Core..=)
+            ("StringAttributeConstraints" Data..=)
               Prelude.<$> stringAttributeConstraints,
-            ("Mutable" Core..=) Prelude.<$> mutable,
-            ("DeveloperOnlyAttribute" Core..=)
+            ("Mutable" Data..=) Prelude.<$> mutable,
+            ("DeveloperOnlyAttribute" Data..=)
               Prelude.<$> developerOnlyAttribute
           ]
       )

@@ -43,6 +43,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,7 +99,7 @@ instance Core.AWSRequest DescribeResourceServer where
       ( \s h x ->
           DescribeResourceServerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ResourceServer")
+            Prelude.<*> (x Data..:> "ResourceServer")
       )
 
 instance Prelude.Hashable DescribeResourceServer where
@@ -111,34 +112,34 @@ instance Prelude.NFData DescribeResourceServer where
     Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf identifier
 
-instance Core.ToHeaders DescribeResourceServer where
+instance Data.ToHeaders DescribeResourceServer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.DescribeResourceServer" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.DescribeResourceServer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeResourceServer where
+instance Data.ToJSON DescribeResourceServer where
   toJSON DescribeResourceServer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("Identifier" Core..= identifier)
+          [ Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("Identifier" Data..= identifier)
           ]
       )
 
-instance Core.ToPath DescribeResourceServer where
+instance Data.ToPath DescribeResourceServer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeResourceServer where
+instance Data.ToQuery DescribeResourceServer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeResourceServerResponse' smart constructor.

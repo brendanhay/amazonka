@@ -39,6 +39,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,34 +104,34 @@ instance Prelude.NFData DeleteIdentityProvider where
     Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf providerName
 
-instance Core.ToHeaders DeleteIdentityProvider where
+instance Data.ToHeaders DeleteIdentityProvider where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.DeleteIdentityProvider" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.DeleteIdentityProvider" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteIdentityProvider where
+instance Data.ToJSON DeleteIdentityProvider where
   toJSON DeleteIdentityProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("ProviderName" Core..= providerName)
+          [ Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("ProviderName" Data..= providerName)
           ]
       )
 
-instance Core.ToPath DeleteIdentityProvider where
+instance Data.ToPath DeleteIdentityProvider where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteIdentityProvider where
+instance Data.ToQuery DeleteIdentityProvider where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteIdentityProviderResponse' smart constructor.

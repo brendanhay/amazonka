@@ -65,6 +65,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,7 +107,7 @@ data GetUserAttributeVerificationCode = GetUserAttributeVerificationCode'
     clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A non-expired access token for the user whose attribute verification
     -- code you want to generate.
-    accessToken :: Core.Sensitive Prelude.Text,
+    accessToken :: Data.Sensitive Prelude.Text,
     -- | The attribute name returned by the server response to get the user
     -- attribute verification code.
     attributeName :: Prelude.Text
@@ -170,7 +171,7 @@ newGetUserAttributeVerificationCode
       { clientMetadata =
           Prelude.Nothing,
         accessToken =
-          Core._Sensitive Lens.# pAccessToken_,
+          Data._Sensitive Lens.# pAccessToken_,
         attributeName = pAttributeName_
       }
 
@@ -210,7 +211,7 @@ getUserAttributeVerificationCode_clientMetadata = Lens.lens (\GetUserAttributeVe
 -- | A non-expired access token for the user whose attribute verification
 -- code you want to generate.
 getUserAttributeVerificationCode_accessToken :: Lens.Lens' GetUserAttributeVerificationCode Prelude.Text
-getUserAttributeVerificationCode_accessToken = Lens.lens (\GetUserAttributeVerificationCode' {accessToken} -> accessToken) (\s@GetUserAttributeVerificationCode' {} a -> s {accessToken = a} :: GetUserAttributeVerificationCode) Prelude.. Core._Sensitive
+getUserAttributeVerificationCode_accessToken = Lens.lens (\GetUserAttributeVerificationCode' {accessToken} -> accessToken) (\s@GetUserAttributeVerificationCode' {} a -> s {accessToken = a} :: GetUserAttributeVerificationCode) Prelude.. Data._Sensitive
 
 -- | The attribute name returned by the server response to get the user
 -- attribute verification code.
@@ -230,7 +231,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetUserAttributeVerificationCodeResponse'
-            Prelude.<$> (x Core..?> "CodeDeliveryDetails")
+            Prelude.<$> (x Data..?> "CodeDeliveryDetails")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -255,40 +256,40 @@ instance
       `Prelude.seq` Prelude.rnf attributeName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetUserAttributeVerificationCode
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.GetUserAttributeVerificationCode" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.GetUserAttributeVerificationCode" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetUserAttributeVerificationCode where
+instance Data.ToJSON GetUserAttributeVerificationCode where
   toJSON GetUserAttributeVerificationCode' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientMetadata" Core..=)
+          [ ("ClientMetadata" Data..=)
               Prelude.<$> clientMetadata,
-            Prelude.Just ("AccessToken" Core..= accessToken),
+            Prelude.Just ("AccessToken" Data..= accessToken),
             Prelude.Just
-              ("AttributeName" Core..= attributeName)
+              ("AttributeName" Data..= attributeName)
           ]
       )
 
-instance Core.ToPath GetUserAttributeVerificationCode where
+instance Data.ToPath GetUserAttributeVerificationCode where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetUserAttributeVerificationCode
   where
   toQuery = Prelude.const Prelude.mempty

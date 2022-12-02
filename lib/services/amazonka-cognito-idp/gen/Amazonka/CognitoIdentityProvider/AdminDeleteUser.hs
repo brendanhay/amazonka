@@ -41,6 +41,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -52,7 +53,7 @@ data AdminDeleteUser = AdminDeleteUser'
   { -- | The user pool ID for the user pool where you want to delete the user.
     userPoolId :: Prelude.Text,
     -- | The user name of the user you want to delete.
-    username :: Core.Sensitive Prelude.Text
+    username :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -76,7 +77,7 @@ newAdminDeleteUser ::
 newAdminDeleteUser pUserPoolId_ pUsername_ =
   AdminDeleteUser'
     { userPoolId = pUserPoolId_,
-      username = Core._Sensitive Lens.# pUsername_
+      username = Data._Sensitive Lens.# pUsername_
     }
 
 -- | The user pool ID for the user pool where you want to delete the user.
@@ -85,7 +86,7 @@ adminDeleteUser_userPoolId = Lens.lens (\AdminDeleteUser' {userPoolId} -> userPo
 
 -- | The user name of the user you want to delete.
 adminDeleteUser_username :: Lens.Lens' AdminDeleteUser Prelude.Text
-adminDeleteUser_username = Lens.lens (\AdminDeleteUser' {username} -> username) (\s@AdminDeleteUser' {} a -> s {username = a} :: AdminDeleteUser) Prelude.. Core._Sensitive
+adminDeleteUser_username = Lens.lens (\AdminDeleteUser' {username} -> username) (\s@AdminDeleteUser' {} a -> s {username = a} :: AdminDeleteUser) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest AdminDeleteUser where
   type
@@ -106,34 +107,34 @@ instance Prelude.NFData AdminDeleteUser where
     Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf username
 
-instance Core.ToHeaders AdminDeleteUser where
+instance Data.ToHeaders AdminDeleteUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.AdminDeleteUser" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.AdminDeleteUser" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AdminDeleteUser where
+instance Data.ToJSON AdminDeleteUser where
   toJSON AdminDeleteUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("Username" Core..= username)
+          [ Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("Username" Data..= username)
           ]
       )
 
-instance Core.ToPath AdminDeleteUser where
+instance Data.ToPath AdminDeleteUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AdminDeleteUser where
+instance Data.ToQuery AdminDeleteUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAdminDeleteUserResponse' smart constructor.

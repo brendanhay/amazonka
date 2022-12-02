@@ -55,6 +55,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -67,9 +68,9 @@ data AdminSetUserPassword = AdminSetUserPassword'
     -- password.
     userPoolId :: Prelude.Text,
     -- | The user name of the user whose password you want to set.
-    username :: Core.Sensitive Prelude.Text,
+    username :: Data.Sensitive Prelude.Text,
     -- | The password for the user.
-    password :: Core.Sensitive Prelude.Text
+    password :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -104,8 +105,8 @@ newAdminSetUserPassword
     AdminSetUserPassword'
       { permanent = Prelude.Nothing,
         userPoolId = pUserPoolId_,
-        username = Core._Sensitive Lens.# pUsername_,
-        password = Core._Sensitive Lens.# pPassword_
+        username = Data._Sensitive Lens.# pUsername_,
+        password = Data._Sensitive Lens.# pPassword_
       }
 
 -- | @True@ if the password is permanent, @False@ if it is temporary.
@@ -119,11 +120,11 @@ adminSetUserPassword_userPoolId = Lens.lens (\AdminSetUserPassword' {userPoolId}
 
 -- | The user name of the user whose password you want to set.
 adminSetUserPassword_username :: Lens.Lens' AdminSetUserPassword Prelude.Text
-adminSetUserPassword_username = Lens.lens (\AdminSetUserPassword' {username} -> username) (\s@AdminSetUserPassword' {} a -> s {username = a} :: AdminSetUserPassword) Prelude.. Core._Sensitive
+adminSetUserPassword_username = Lens.lens (\AdminSetUserPassword' {username} -> username) (\s@AdminSetUserPassword' {} a -> s {username = a} :: AdminSetUserPassword) Prelude.. Data._Sensitive
 
 -- | The password for the user.
 adminSetUserPassword_password :: Lens.Lens' AdminSetUserPassword Prelude.Text
-adminSetUserPassword_password = Lens.lens (\AdminSetUserPassword' {password} -> password) (\s@AdminSetUserPassword' {} a -> s {password = a} :: AdminSetUserPassword) Prelude.. Core._Sensitive
+adminSetUserPassword_password = Lens.lens (\AdminSetUserPassword' {password} -> password) (\s@AdminSetUserPassword' {} a -> s {password = a} :: AdminSetUserPassword) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest AdminSetUserPassword where
   type
@@ -152,36 +153,36 @@ instance Prelude.NFData AdminSetUserPassword where
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf password
 
-instance Core.ToHeaders AdminSetUserPassword where
+instance Data.ToHeaders AdminSetUserPassword where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.AdminSetUserPassword" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.AdminSetUserPassword" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AdminSetUserPassword where
+instance Data.ToJSON AdminSetUserPassword where
   toJSON AdminSetUserPassword' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Permanent" Core..=) Prelude.<$> permanent,
-            Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("Username" Core..= username),
-            Prelude.Just ("Password" Core..= password)
+          [ ("Permanent" Data..=) Prelude.<$> permanent,
+            Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("Username" Data..= username),
+            Prelude.Just ("Password" Data..= password)
           ]
       )
 
-instance Core.ToPath AdminSetUserPassword where
+instance Data.ToPath AdminSetUserPassword where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AdminSetUserPassword where
+instance Data.ToQuery AdminSetUserPassword where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAdminSetUserPasswordResponse' smart constructor.

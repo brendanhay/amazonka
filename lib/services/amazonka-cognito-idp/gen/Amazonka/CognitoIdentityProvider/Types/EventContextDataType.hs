@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.EventContextDataType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the user context data captured at the time of an event
@@ -89,17 +90,17 @@ eventContextDataType_city = Lens.lens (\EventContextDataType' {city} -> city) (\
 eventContextDataType_ipAddress :: Lens.Lens' EventContextDataType (Prelude.Maybe Prelude.Text)
 eventContextDataType_ipAddress = Lens.lens (\EventContextDataType' {ipAddress} -> ipAddress) (\s@EventContextDataType' {} a -> s {ipAddress = a} :: EventContextDataType)
 
-instance Core.FromJSON EventContextDataType where
+instance Data.FromJSON EventContextDataType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventContextDataType"
       ( \x ->
           EventContextDataType'
-            Prelude.<$> (x Core..:? "Country")
-            Prelude.<*> (x Core..:? "DeviceName")
-            Prelude.<*> (x Core..:? "Timezone")
-            Prelude.<*> (x Core..:? "City")
-            Prelude.<*> (x Core..:? "IpAddress")
+            Prelude.<$> (x Data..:? "Country")
+            Prelude.<*> (x Data..:? "DeviceName")
+            Prelude.<*> (x Data..:? "Timezone")
+            Prelude.<*> (x Data..:? "City")
+            Prelude.<*> (x Data..:? "IpAddress")
       )
 
 instance Prelude.Hashable EventContextDataType where

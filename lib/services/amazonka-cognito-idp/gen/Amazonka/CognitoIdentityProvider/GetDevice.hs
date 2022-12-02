@@ -43,6 +43,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -53,7 +54,7 @@ import qualified Amazonka.Response as Response
 data GetDevice = GetDevice'
   { -- | A valid access token that Amazon Cognito issued to the user whose device
     -- information you want to request.
-    accessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    accessToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The device key.
     deviceKey :: Prelude.Text
   }
@@ -84,7 +85,7 @@ newGetDevice pDeviceKey_ =
 -- | A valid access token that Amazon Cognito issued to the user whose device
 -- information you want to request.
 getDevice_accessToken :: Lens.Lens' GetDevice (Prelude.Maybe Prelude.Text)
-getDevice_accessToken = Lens.lens (\GetDevice' {accessToken} -> accessToken) (\s@GetDevice' {} a -> s {accessToken = a} :: GetDevice) Prelude.. Lens.mapping Core._Sensitive
+getDevice_accessToken = Lens.lens (\GetDevice' {accessToken} -> accessToken) (\s@GetDevice' {} a -> s {accessToken = a} :: GetDevice) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The device key.
 getDevice_deviceKey :: Lens.Lens' GetDevice Prelude.Text
@@ -99,7 +100,7 @@ instance Core.AWSRequest GetDevice where
       ( \s h x ->
           GetDeviceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Device")
+            Prelude.<*> (x Data..:> "Device")
       )
 
 instance Prelude.Hashable GetDevice where
@@ -112,34 +113,34 @@ instance Prelude.NFData GetDevice where
     Prelude.rnf accessToken
       `Prelude.seq` Prelude.rnf deviceKey
 
-instance Core.ToHeaders GetDevice where
+instance Data.ToHeaders GetDevice where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.GetDevice" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.GetDevice" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDevice where
+instance Data.ToJSON GetDevice where
   toJSON GetDevice' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccessToken" Core..=) Prelude.<$> accessToken,
-            Prelude.Just ("DeviceKey" Core..= deviceKey)
+          [ ("AccessToken" Data..=) Prelude.<$> accessToken,
+            Prelude.Just ("DeviceKey" Data..= deviceKey)
           ]
       )
 
-instance Core.ToPath GetDevice where
+instance Data.ToPath GetDevice where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDevice where
+instance Data.ToQuery GetDevice where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Gets the device response.

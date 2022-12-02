@@ -46,6 +46,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -59,7 +60,7 @@ data AdminGetDevice = AdminGetDevice'
     -- | The user pool ID.
     userPoolId :: Prelude.Text,
     -- | The user name.
-    username :: Core.Sensitive Prelude.Text
+    username :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -88,7 +89,7 @@ newAdminGetDevice pDeviceKey_ pUserPoolId_ pUsername_ =
   AdminGetDevice'
     { deviceKey = pDeviceKey_,
       userPoolId = pUserPoolId_,
-      username = Core._Sensitive Lens.# pUsername_
+      username = Data._Sensitive Lens.# pUsername_
     }
 
 -- | The device key.
@@ -101,7 +102,7 @@ adminGetDevice_userPoolId = Lens.lens (\AdminGetDevice' {userPoolId} -> userPool
 
 -- | The user name.
 adminGetDevice_username :: Lens.Lens' AdminGetDevice Prelude.Text
-adminGetDevice_username = Lens.lens (\AdminGetDevice' {username} -> username) (\s@AdminGetDevice' {} a -> s {username = a} :: AdminGetDevice) Prelude.. Core._Sensitive
+adminGetDevice_username = Lens.lens (\AdminGetDevice' {username} -> username) (\s@AdminGetDevice' {} a -> s {username = a} :: AdminGetDevice) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest AdminGetDevice where
   type
@@ -114,7 +115,7 @@ instance Core.AWSRequest AdminGetDevice where
       ( \s h x ->
           AdminGetDeviceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Device")
+            Prelude.<*> (x Data..:> "Device")
       )
 
 instance Prelude.Hashable AdminGetDevice where
@@ -129,35 +130,35 @@ instance Prelude.NFData AdminGetDevice where
       `Prelude.seq` Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf username
 
-instance Core.ToHeaders AdminGetDevice where
+instance Data.ToHeaders AdminGetDevice where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.AdminGetDevice" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.AdminGetDevice" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AdminGetDevice where
+instance Data.ToJSON AdminGetDevice where
   toJSON AdminGetDevice' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DeviceKey" Core..= deviceKey),
-            Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("Username" Core..= username)
+          [ Prelude.Just ("DeviceKey" Data..= deviceKey),
+            Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("Username" Data..= username)
           ]
       )
 
-instance Core.ToPath AdminGetDevice where
+instance Data.ToPath AdminGetDevice where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AdminGetDevice where
+instance Data.ToQuery AdminGetDevice where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Gets the device response, as an administrator.

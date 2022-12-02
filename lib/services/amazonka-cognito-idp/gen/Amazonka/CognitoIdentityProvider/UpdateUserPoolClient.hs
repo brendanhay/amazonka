@@ -73,6 +73,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -288,7 +289,7 @@ data UpdateUserPoolClient = UpdateUserPoolClient'
     -- pool client.
     userPoolId :: Prelude.Text,
     -- | The ID of the client associated with the user pool.
-    clientId :: Core.Sensitive Prelude.Text
+    clientId :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -538,7 +539,7 @@ newUpdateUserPoolClient pUserPoolId_ pClientId_ =
       supportedIdentityProviders = Prelude.Nothing,
       readAttributes = Prelude.Nothing,
       userPoolId = pUserPoolId_,
-      clientId = Core._Sensitive Lens.# pClientId_
+      clientId = Data._Sensitive Lens.# pClientId_
     }
 
 -- | Amazon Cognito creates a session token for each API request in an
@@ -791,7 +792,7 @@ updateUserPoolClient_userPoolId = Lens.lens (\UpdateUserPoolClient' {userPoolId}
 
 -- | The ID of the client associated with the user pool.
 updateUserPoolClient_clientId :: Lens.Lens' UpdateUserPoolClient Prelude.Text
-updateUserPoolClient_clientId = Lens.lens (\UpdateUserPoolClient' {clientId} -> clientId) (\s@UpdateUserPoolClient' {} a -> s {clientId = a} :: UpdateUserPoolClient) Prelude.. Core._Sensitive
+updateUserPoolClient_clientId = Lens.lens (\UpdateUserPoolClient' {clientId} -> clientId) (\s@UpdateUserPoolClient' {} a -> s {clientId = a} :: UpdateUserPoolClient) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest UpdateUserPoolClient where
   type
@@ -803,7 +804,7 @@ instance Core.AWSRequest UpdateUserPoolClient where
     Response.receiveJSON
       ( \s h x ->
           UpdateUserPoolClientResponse'
-            Prelude.<$> (x Core..?> "UserPoolClient")
+            Prelude.<$> (x Data..?> "UserPoolClient")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -859,71 +860,71 @@ instance Prelude.NFData UpdateUserPoolClient where
       `Prelude.seq` Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf clientId
 
-instance Core.ToHeaders UpdateUserPoolClient where
+instance Data.ToHeaders UpdateUserPoolClient where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.UpdateUserPoolClient" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.UpdateUserPoolClient" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateUserPoolClient where
+instance Data.ToJSON UpdateUserPoolClient where
   toJSON UpdateUserPoolClient' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AuthSessionValidity" Core..=)
+          [ ("AuthSessionValidity" Data..=)
               Prelude.<$> authSessionValidity,
-            ("DefaultRedirectURI" Core..=)
+            ("DefaultRedirectURI" Data..=)
               Prelude.<$> defaultRedirectURI,
-            ("AccessTokenValidity" Core..=)
+            ("AccessTokenValidity" Data..=)
               Prelude.<$> accessTokenValidity,
-            ("ExplicitAuthFlows" Core..=)
+            ("ExplicitAuthFlows" Data..=)
               Prelude.<$> explicitAuthFlows,
-            ("CallbackURLs" Core..=) Prelude.<$> callbackURLs,
-            ("AllowedOAuthScopes" Core..=)
+            ("CallbackURLs" Data..=) Prelude.<$> callbackURLs,
+            ("AllowedOAuthScopes" Data..=)
               Prelude.<$> allowedOAuthScopes,
-            ("IdTokenValidity" Core..=)
+            ("IdTokenValidity" Data..=)
               Prelude.<$> idTokenValidity,
-            ("AllowedOAuthFlowsUserPoolClient" Core..=)
+            ("AllowedOAuthFlowsUserPoolClient" Data..=)
               Prelude.<$> allowedOAuthFlowsUserPoolClient,
-            ("RefreshTokenValidity" Core..=)
+            ("RefreshTokenValidity" Data..=)
               Prelude.<$> refreshTokenValidity,
-            ("AnalyticsConfiguration" Core..=)
+            ("AnalyticsConfiguration" Data..=)
               Prelude.<$> analyticsConfiguration,
-            ("PreventUserExistenceErrors" Core..=)
+            ("PreventUserExistenceErrors" Data..=)
               Prelude.<$> preventUserExistenceErrors,
-            ("EnablePropagateAdditionalUserContextData" Core..=)
+            ("EnablePropagateAdditionalUserContextData" Data..=)
               Prelude.<$> enablePropagateAdditionalUserContextData,
-            ("TokenValidityUnits" Core..=)
+            ("TokenValidityUnits" Data..=)
               Prelude.<$> tokenValidityUnits,
-            ("ClientName" Core..=) Prelude.<$> clientName,
-            ("EnableTokenRevocation" Core..=)
+            ("ClientName" Data..=) Prelude.<$> clientName,
+            ("EnableTokenRevocation" Data..=)
               Prelude.<$> enableTokenRevocation,
-            ("AllowedOAuthFlows" Core..=)
+            ("AllowedOAuthFlows" Data..=)
               Prelude.<$> allowedOAuthFlows,
-            ("WriteAttributes" Core..=)
+            ("WriteAttributes" Data..=)
               Prelude.<$> writeAttributes,
-            ("LogoutURLs" Core..=) Prelude.<$> logoutURLs,
-            ("SupportedIdentityProviders" Core..=)
+            ("LogoutURLs" Data..=) Prelude.<$> logoutURLs,
+            ("SupportedIdentityProviders" Data..=)
               Prelude.<$> supportedIdentityProviders,
-            ("ReadAttributes" Core..=)
+            ("ReadAttributes" Data..=)
               Prelude.<$> readAttributes,
-            Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("ClientId" Core..= clientId)
+            Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("ClientId" Data..= clientId)
           ]
       )
 
-instance Core.ToPath UpdateUserPoolClient where
+instance Data.ToPath UpdateUserPoolClient where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateUserPoolClient where
+instance Data.ToQuery UpdateUserPoolClient where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server to the request to update the

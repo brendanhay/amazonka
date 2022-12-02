@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.RiskExceptionConfigurationType whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The type of the configuration to override the risk decision.
@@ -71,17 +72,17 @@ riskExceptionConfigurationType_skippedIPRangeList = Lens.lens (\RiskExceptionCon
 riskExceptionConfigurationType_blockedIPRangeList :: Lens.Lens' RiskExceptionConfigurationType (Prelude.Maybe [Prelude.Text])
 riskExceptionConfigurationType_blockedIPRangeList = Lens.lens (\RiskExceptionConfigurationType' {blockedIPRangeList} -> blockedIPRangeList) (\s@RiskExceptionConfigurationType' {} a -> s {blockedIPRangeList = a} :: RiskExceptionConfigurationType) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON RiskExceptionConfigurationType where
+instance Data.FromJSON RiskExceptionConfigurationType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RiskExceptionConfigurationType"
       ( \x ->
           RiskExceptionConfigurationType'
-            Prelude.<$> ( x Core..:? "SkippedIPRangeList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "SkippedIPRangeList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "BlockedIPRangeList"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "BlockedIPRangeList"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -103,13 +104,13 @@ instance
     Prelude.rnf skippedIPRangeList
       `Prelude.seq` Prelude.rnf blockedIPRangeList
 
-instance Core.ToJSON RiskExceptionConfigurationType where
+instance Data.ToJSON RiskExceptionConfigurationType where
   toJSON RiskExceptionConfigurationType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SkippedIPRangeList" Core..=)
+          [ ("SkippedIPRangeList" Data..=)
               Prelude.<$> skippedIPRangeList,
-            ("BlockedIPRangeList" Core..=)
+            ("BlockedIPRangeList" Data..=)
               Prelude.<$> blockedIPRangeList
           ]
       )

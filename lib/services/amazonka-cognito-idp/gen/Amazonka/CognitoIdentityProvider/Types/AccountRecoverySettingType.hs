@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.AccountRecoverySettingType where
 import Amazonka.CognitoIdentityProvider.Types.RecoveryOptionType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The data type for @AccountRecoverySetting@.
@@ -54,13 +55,13 @@ newAccountRecoverySettingType =
 accountRecoverySettingType_recoveryMechanisms :: Lens.Lens' AccountRecoverySettingType (Prelude.Maybe (Prelude.NonEmpty RecoveryOptionType))
 accountRecoverySettingType_recoveryMechanisms = Lens.lens (\AccountRecoverySettingType' {recoveryMechanisms} -> recoveryMechanisms) (\s@AccountRecoverySettingType' {} a -> s {recoveryMechanisms = a} :: AccountRecoverySettingType) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AccountRecoverySettingType where
+instance Data.FromJSON AccountRecoverySettingType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountRecoverySettingType"
       ( \x ->
           AccountRecoverySettingType'
-            Prelude.<$> (x Core..:? "RecoveryMechanisms")
+            Prelude.<$> (x Data..:? "RecoveryMechanisms")
       )
 
 instance Prelude.Hashable AccountRecoverySettingType where
@@ -71,11 +72,11 @@ instance Prelude.NFData AccountRecoverySettingType where
   rnf AccountRecoverySettingType' {..} =
     Prelude.rnf recoveryMechanisms
 
-instance Core.ToJSON AccountRecoverySettingType where
+instance Data.ToJSON AccountRecoverySettingType where
   toJSON AccountRecoverySettingType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RecoveryMechanisms" Core..=)
+          [ ("RecoveryMechanisms" Data..=)
               Prelude.<$> recoveryMechanisms
           ]
       )

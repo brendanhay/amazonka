@@ -84,6 +84,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,7 +112,7 @@ data AdminCreateUser = AdminCreateUser'
     -- expiration limit that you specified when you created the user pool. To
     -- reset the account after that time limit, you must call @AdminCreateUser@
     -- again, specifying @\"RESEND\"@ for the @MessageAction@ parameter.
-    temporaryPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    temporaryPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A map of custom key-value pairs that you can provide as input for any
     -- custom workflows that this action triggers.
     --
@@ -208,7 +209,7 @@ data AdminCreateUser = AdminCreateUser'
     -- | The username for the user. Must be unique within the user pool. Must be
     -- a UTF-8 string between 1 and 128 characters. After the user is created,
     -- the username can\'t be changed.
-    username :: Core.Sensitive Prelude.Text
+    username :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -352,7 +353,7 @@ newAdminCreateUser pUserPoolId_ pUsername_ =
       validationData = Prelude.Nothing,
       desiredDeliveryMediums = Prelude.Nothing,
       userPoolId = pUserPoolId_,
-      username = Core._Sensitive Lens.# pUsername_
+      username = Data._Sensitive Lens.# pUsername_
     }
 
 -- | Set to @RESEND@ to resend the invitation message to a user that already
@@ -377,7 +378,7 @@ adminCreateUser_messageAction = Lens.lens (\AdminCreateUser' {messageAction} -> 
 -- reset the account after that time limit, you must call @AdminCreateUser@
 -- again, specifying @\"RESEND\"@ for the @MessageAction@ parameter.
 adminCreateUser_temporaryPassword :: Lens.Lens' AdminCreateUser (Prelude.Maybe Prelude.Text)
-adminCreateUser_temporaryPassword = Lens.lens (\AdminCreateUser' {temporaryPassword} -> temporaryPassword) (\s@AdminCreateUser' {} a -> s {temporaryPassword = a} :: AdminCreateUser) Prelude.. Lens.mapping Core._Sensitive
+adminCreateUser_temporaryPassword = Lens.lens (\AdminCreateUser' {temporaryPassword} -> temporaryPassword) (\s@AdminCreateUser' {} a -> s {temporaryPassword = a} :: AdminCreateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A map of custom key-value pairs that you can provide as input for any
 -- custom workflows that this action triggers.
@@ -488,7 +489,7 @@ adminCreateUser_userPoolId = Lens.lens (\AdminCreateUser' {userPoolId} -> userPo
 -- a UTF-8 string between 1 and 128 characters. After the user is created,
 -- the username can\'t be changed.
 adminCreateUser_username :: Lens.Lens' AdminCreateUser Prelude.Text
-adminCreateUser_username = Lens.lens (\AdminCreateUser' {username} -> username) (\s@AdminCreateUser' {} a -> s {username = a} :: AdminCreateUser) Prelude.. Core._Sensitive
+adminCreateUser_username = Lens.lens (\AdminCreateUser' {username} -> username) (\s@AdminCreateUser' {} a -> s {username = a} :: AdminCreateUser) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest AdminCreateUser where
   type
@@ -500,7 +501,7 @@ instance Core.AWSRequest AdminCreateUser where
     Response.receiveJSON
       ( \s h x ->
           AdminCreateUserResponse'
-            Prelude.<$> (x Core..?> "User")
+            Prelude.<$> (x Data..?> "User")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -528,47 +529,47 @@ instance Prelude.NFData AdminCreateUser where
       `Prelude.seq` Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf username
 
-instance Core.ToHeaders AdminCreateUser where
+instance Data.ToHeaders AdminCreateUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.AdminCreateUser" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.AdminCreateUser" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AdminCreateUser where
+instance Data.ToJSON AdminCreateUser where
   toJSON AdminCreateUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MessageAction" Core..=) Prelude.<$> messageAction,
-            ("TemporaryPassword" Core..=)
+          [ ("MessageAction" Data..=) Prelude.<$> messageAction,
+            ("TemporaryPassword" Data..=)
               Prelude.<$> temporaryPassword,
-            ("ClientMetadata" Core..=)
+            ("ClientMetadata" Data..=)
               Prelude.<$> clientMetadata,
-            ("UserAttributes" Core..=)
+            ("UserAttributes" Data..=)
               Prelude.<$> userAttributes,
-            ("ForceAliasCreation" Core..=)
+            ("ForceAliasCreation" Data..=)
               Prelude.<$> forceAliasCreation,
-            ("ValidationData" Core..=)
+            ("ValidationData" Data..=)
               Prelude.<$> validationData,
-            ("DesiredDeliveryMediums" Core..=)
+            ("DesiredDeliveryMediums" Data..=)
               Prelude.<$> desiredDeliveryMediums,
-            Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("Username" Core..= username)
+            Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("Username" Data..= username)
           ]
       )
 
-instance Core.ToPath AdminCreateUser where
+instance Data.ToPath AdminCreateUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AdminCreateUser where
+instance Data.ToQuery AdminCreateUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server to the request to create the

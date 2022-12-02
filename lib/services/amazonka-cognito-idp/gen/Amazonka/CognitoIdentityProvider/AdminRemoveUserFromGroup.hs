@@ -42,6 +42,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -51,7 +52,7 @@ data AdminRemoveUserFromGroup = AdminRemoveUserFromGroup'
   { -- | The user pool ID for the user pool.
     userPoolId :: Prelude.Text,
     -- | The username for the user.
-    username :: Core.Sensitive Prelude.Text,
+    username :: Data.Sensitive Prelude.Text,
     -- | The group name.
     groupName :: Prelude.Text
   }
@@ -85,7 +86,7 @@ newAdminRemoveUserFromGroup
     AdminRemoveUserFromGroup'
       { userPoolId =
           pUserPoolId_,
-        username = Core._Sensitive Lens.# pUsername_,
+        username = Data._Sensitive Lens.# pUsername_,
         groupName = pGroupName_
       }
 
@@ -95,7 +96,7 @@ adminRemoveUserFromGroup_userPoolId = Lens.lens (\AdminRemoveUserFromGroup' {use
 
 -- | The username for the user.
 adminRemoveUserFromGroup_username :: Lens.Lens' AdminRemoveUserFromGroup Prelude.Text
-adminRemoveUserFromGroup_username = Lens.lens (\AdminRemoveUserFromGroup' {username} -> username) (\s@AdminRemoveUserFromGroup' {} a -> s {username = a} :: AdminRemoveUserFromGroup) Prelude.. Core._Sensitive
+adminRemoveUserFromGroup_username = Lens.lens (\AdminRemoveUserFromGroup' {username} -> username) (\s@AdminRemoveUserFromGroup' {} a -> s {username = a} :: AdminRemoveUserFromGroup) Prelude.. Data._Sensitive
 
 -- | The group name.
 adminRemoveUserFromGroup_groupName :: Lens.Lens' AdminRemoveUserFromGroup Prelude.Text
@@ -123,35 +124,35 @@ instance Prelude.NFData AdminRemoveUserFromGroup where
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf groupName
 
-instance Core.ToHeaders AdminRemoveUserFromGroup where
+instance Data.ToHeaders AdminRemoveUserFromGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.AdminRemoveUserFromGroup" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.AdminRemoveUserFromGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AdminRemoveUserFromGroup where
+instance Data.ToJSON AdminRemoveUserFromGroup where
   toJSON AdminRemoveUserFromGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("Username" Core..= username),
-            Prelude.Just ("GroupName" Core..= groupName)
+          [ Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("Username" Data..= username),
+            Prelude.Just ("GroupName" Data..= groupName)
           ]
       )
 
-instance Core.ToPath AdminRemoveUserFromGroup where
+instance Data.ToPath AdminRemoveUserFromGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AdminRemoveUserFromGroup where
+instance Data.ToQuery AdminRemoveUserFromGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAdminRemoveUserFromGroupResponse' smart constructor.

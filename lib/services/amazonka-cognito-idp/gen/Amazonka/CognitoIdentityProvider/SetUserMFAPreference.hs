@@ -53,6 +53,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -65,7 +66,7 @@ data SetUserMFAPreference = SetUserMFAPreference'
     sMSMfaSettings :: Prelude.Maybe SMSMfaSettingsType,
     -- | A valid access token that Amazon Cognito issued to the user whose MFA
     -- preference you want to set.
-    accessToken :: Core.Sensitive Prelude.Text
+    accessToken :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -92,7 +93,7 @@ newSetUserMFAPreference pAccessToken_ =
     { softwareTokenMfaSettings =
         Prelude.Nothing,
       sMSMfaSettings = Prelude.Nothing,
-      accessToken = Core._Sensitive Lens.# pAccessToken_
+      accessToken = Data._Sensitive Lens.# pAccessToken_
     }
 
 -- | The time-based one-time password (TOTP) software token MFA settings.
@@ -106,7 +107,7 @@ setUserMFAPreference_sMSMfaSettings = Lens.lens (\SetUserMFAPreference' {sMSMfaS
 -- | A valid access token that Amazon Cognito issued to the user whose MFA
 -- preference you want to set.
 setUserMFAPreference_accessToken :: Lens.Lens' SetUserMFAPreference Prelude.Text
-setUserMFAPreference_accessToken = Lens.lens (\SetUserMFAPreference' {accessToken} -> accessToken) (\s@SetUserMFAPreference' {} a -> s {accessToken = a} :: SetUserMFAPreference) Prelude.. Core._Sensitive
+setUserMFAPreference_accessToken = Lens.lens (\SetUserMFAPreference' {accessToken} -> accessToken) (\s@SetUserMFAPreference' {} a -> s {accessToken = a} :: SetUserMFAPreference) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest SetUserMFAPreference where
   type
@@ -134,37 +135,37 @@ instance Prelude.NFData SetUserMFAPreference where
       `Prelude.seq` Prelude.rnf sMSMfaSettings
       `Prelude.seq` Prelude.rnf accessToken
 
-instance Core.ToHeaders SetUserMFAPreference where
+instance Data.ToHeaders SetUserMFAPreference where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.SetUserMFAPreference" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.SetUserMFAPreference" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SetUserMFAPreference where
+instance Data.ToJSON SetUserMFAPreference where
   toJSON SetUserMFAPreference' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SoftwareTokenMfaSettings" Core..=)
+          [ ("SoftwareTokenMfaSettings" Data..=)
               Prelude.<$> softwareTokenMfaSettings,
-            ("SMSMfaSettings" Core..=)
+            ("SMSMfaSettings" Data..=)
               Prelude.<$> sMSMfaSettings,
-            Prelude.Just ("AccessToken" Core..= accessToken)
+            Prelude.Just ("AccessToken" Data..= accessToken)
           ]
       )
 
-instance Core.ToPath SetUserMFAPreference where
+instance Data.ToPath SetUserMFAPreference where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetUserMFAPreference where
+instance Data.ToQuery SetUserMFAPreference where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetUserMFAPreferenceResponse' smart constructor.

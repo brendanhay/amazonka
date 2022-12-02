@@ -49,6 +49,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -60,7 +61,7 @@ data AdminSetUserMFAPreference = AdminSetUserMFAPreference'
     -- | The SMS text message MFA settings.
     sMSMfaSettings :: Prelude.Maybe SMSMfaSettingsType,
     -- | The user pool username or alias.
-    username :: Core.Sensitive Prelude.Text,
+    username :: Data.Sensitive Prelude.Text,
     -- | The user pool ID.
     userPoolId :: Prelude.Text
   }
@@ -92,7 +93,7 @@ newAdminSetUserMFAPreference pUsername_ pUserPoolId_ =
     { softwareTokenMfaSettings =
         Prelude.Nothing,
       sMSMfaSettings = Prelude.Nothing,
-      username = Core._Sensitive Lens.# pUsername_,
+      username = Data._Sensitive Lens.# pUsername_,
       userPoolId = pUserPoolId_
     }
 
@@ -106,7 +107,7 @@ adminSetUserMFAPreference_sMSMfaSettings = Lens.lens (\AdminSetUserMFAPreference
 
 -- | The user pool username or alias.
 adminSetUserMFAPreference_username :: Lens.Lens' AdminSetUserMFAPreference Prelude.Text
-adminSetUserMFAPreference_username = Lens.lens (\AdminSetUserMFAPreference' {username} -> username) (\s@AdminSetUserMFAPreference' {} a -> s {username = a} :: AdminSetUserMFAPreference) Prelude.. Core._Sensitive
+adminSetUserMFAPreference_username = Lens.lens (\AdminSetUserMFAPreference' {username} -> username) (\s@AdminSetUserMFAPreference' {} a -> s {username = a} :: AdminSetUserMFAPreference) Prelude.. Data._Sensitive
 
 -- | The user pool ID.
 adminSetUserMFAPreference_userPoolId :: Lens.Lens' AdminSetUserMFAPreference Prelude.Text
@@ -140,38 +141,38 @@ instance Prelude.NFData AdminSetUserMFAPreference where
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf userPoolId
 
-instance Core.ToHeaders AdminSetUserMFAPreference where
+instance Data.ToHeaders AdminSetUserMFAPreference where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.AdminSetUserMFAPreference" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.AdminSetUserMFAPreference" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AdminSetUserMFAPreference where
+instance Data.ToJSON AdminSetUserMFAPreference where
   toJSON AdminSetUserMFAPreference' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SoftwareTokenMfaSettings" Core..=)
+          [ ("SoftwareTokenMfaSettings" Data..=)
               Prelude.<$> softwareTokenMfaSettings,
-            ("SMSMfaSettings" Core..=)
+            ("SMSMfaSettings" Data..=)
               Prelude.<$> sMSMfaSettings,
-            Prelude.Just ("Username" Core..= username),
-            Prelude.Just ("UserPoolId" Core..= userPoolId)
+            Prelude.Just ("Username" Data..= username),
+            Prelude.Just ("UserPoolId" Data..= userPoolId)
           ]
       )
 
-instance Core.ToPath AdminSetUserMFAPreference where
+instance Data.ToPath AdminSetUserMFAPreference where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AdminSetUserMFAPreference where
+instance Data.ToQuery AdminSetUserMFAPreference where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAdminSetUserMFAPreferenceResponse' smart constructor.

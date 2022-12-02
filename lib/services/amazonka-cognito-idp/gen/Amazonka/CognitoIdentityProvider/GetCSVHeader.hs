@@ -44,6 +44,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,8 +90,8 @@ instance Core.AWSRequest GetCSVHeader where
     Response.receiveJSON
       ( \s h x ->
           GetCSVHeaderResponse'
-            Prelude.<$> (x Core..?> "CSVHeader" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "UserPoolId")
+            Prelude.<$> (x Data..?> "CSVHeader" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "UserPoolId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -101,32 +102,32 @@ instance Prelude.Hashable GetCSVHeader where
 instance Prelude.NFData GetCSVHeader where
   rnf GetCSVHeader' {..} = Prelude.rnf userPoolId
 
-instance Core.ToHeaders GetCSVHeader where
+instance Data.ToHeaders GetCSVHeader where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.GetCSVHeader" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.GetCSVHeader" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCSVHeader where
+instance Data.ToJSON GetCSVHeader where
   toJSON GetCSVHeader' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("UserPoolId" Core..= userPoolId)]
+          [Prelude.Just ("UserPoolId" Data..= userPoolId)]
       )
 
-instance Core.ToPath GetCSVHeader where
+instance Data.ToPath GetCSVHeader where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCSVHeader where
+instance Data.ToQuery GetCSVHeader where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server to the request to get the header

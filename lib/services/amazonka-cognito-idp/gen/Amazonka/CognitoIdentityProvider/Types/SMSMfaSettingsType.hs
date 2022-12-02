@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.SMSMfaSettingsType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The type used for enabling SMS multi-factor authentication (MFA) at the
@@ -87,11 +88,11 @@ instance Prelude.NFData SMSMfaSettingsType where
     Prelude.rnf preferredMfa
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON SMSMfaSettingsType where
+instance Data.ToJSON SMSMfaSettingsType where
   toJSON SMSMfaSettingsType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PreferredMfa" Core..=) Prelude.<$> preferredMfa,
-            ("Enabled" Core..=) Prelude.<$> enabled
+          [ ("PreferredMfa" Data..=) Prelude.<$> preferredMfa,
+            ("Enabled" Data..=) Prelude.<$> enabled
           ]
       )

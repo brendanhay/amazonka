@@ -24,6 +24,7 @@ import Amazonka.CognitoIdentityProvider.Types.MFAOptionType
 import Amazonka.CognitoIdentityProvider.Types.UserStatusType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A user profile in a Amazon Cognito user pool.
@@ -31,11 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newUserType' smart constructor.
 data UserType = UserType'
   { -- | The user name of the user you want to describe.
-    username :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    username :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The last modified date of the user.
-    userLastModifiedDate :: Prelude.Maybe Core.POSIX,
+    userLastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The creation date of the user.
-    userCreateDate :: Prelude.Maybe Core.POSIX,
+    userCreateDate :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether the user is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | A container with information about the user type attributes.
@@ -117,15 +118,15 @@ newUserType =
 
 -- | The user name of the user you want to describe.
 userType_username :: Lens.Lens' UserType (Prelude.Maybe Prelude.Text)
-userType_username = Lens.lens (\UserType' {username} -> username) (\s@UserType' {} a -> s {username = a} :: UserType) Prelude.. Lens.mapping Core._Sensitive
+userType_username = Lens.lens (\UserType' {username} -> username) (\s@UserType' {} a -> s {username = a} :: UserType) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The last modified date of the user.
 userType_userLastModifiedDate :: Lens.Lens' UserType (Prelude.Maybe Prelude.UTCTime)
-userType_userLastModifiedDate = Lens.lens (\UserType' {userLastModifiedDate} -> userLastModifiedDate) (\s@UserType' {} a -> s {userLastModifiedDate = a} :: UserType) Prelude.. Lens.mapping Core._Time
+userType_userLastModifiedDate = Lens.lens (\UserType' {userLastModifiedDate} -> userLastModifiedDate) (\s@UserType' {} a -> s {userLastModifiedDate = a} :: UserType) Prelude.. Lens.mapping Data._Time
 
 -- | The creation date of the user.
 userType_userCreateDate :: Lens.Lens' UserType (Prelude.Maybe Prelude.UTCTime)
-userType_userCreateDate = Lens.lens (\UserType' {userCreateDate} -> userCreateDate) (\s@UserType' {} a -> s {userCreateDate = a} :: UserType) Prelude.. Lens.mapping Core._Time
+userType_userCreateDate = Lens.lens (\UserType' {userCreateDate} -> userCreateDate) (\s@UserType' {} a -> s {userCreateDate = a} :: UserType) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies whether the user is enabled.
 userType_enabled :: Lens.Lens' UserType (Prelude.Maybe Prelude.Bool)
@@ -160,19 +161,19 @@ userType_userStatus = Lens.lens (\UserType' {userStatus} -> userStatus) (\s@User
 userType_mfaOptions :: Lens.Lens' UserType (Prelude.Maybe [MFAOptionType])
 userType_mfaOptions = Lens.lens (\UserType' {mfaOptions} -> mfaOptions) (\s@UserType' {} a -> s {mfaOptions = a} :: UserType) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON UserType where
+instance Data.FromJSON UserType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserType"
       ( \x ->
           UserType'
-            Prelude.<$> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "UserLastModifiedDate")
-            Prelude.<*> (x Core..:? "UserCreateDate")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "UserStatus")
-            Prelude.<*> (x Core..:? "MFAOptions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Username")
+            Prelude.<*> (x Data..:? "UserLastModifiedDate")
+            Prelude.<*> (x Data..:? "UserCreateDate")
+            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "UserStatus")
+            Prelude.<*> (x Data..:? "MFAOptions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable UserType where

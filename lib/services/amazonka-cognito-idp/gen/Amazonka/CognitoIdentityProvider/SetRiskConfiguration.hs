@@ -51,6 +51,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -64,7 +65,7 @@ data SetRiskConfiguration = SetRiskConfiguration'
     -- Otherwise, @ClientId@ is mapped to the client. When the client ID isn\'t
     -- null, the user pool configuration is overridden and the risk
     -- configuration for the client is used instead.
-    clientId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    clientId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The account takeover risk configuration.
     accountTakeoverRiskConfiguration :: Prelude.Maybe AccountTakeoverRiskConfigurationType,
     -- | The configuration to override the risk decision.
@@ -121,7 +122,7 @@ newSetRiskConfiguration pUserPoolId_ =
 -- null, the user pool configuration is overridden and the risk
 -- configuration for the client is used instead.
 setRiskConfiguration_clientId :: Lens.Lens' SetRiskConfiguration (Prelude.Maybe Prelude.Text)
-setRiskConfiguration_clientId = Lens.lens (\SetRiskConfiguration' {clientId} -> clientId) (\s@SetRiskConfiguration' {} a -> s {clientId = a} :: SetRiskConfiguration) Prelude.. Lens.mapping Core._Sensitive
+setRiskConfiguration_clientId = Lens.lens (\SetRiskConfiguration' {clientId} -> clientId) (\s@SetRiskConfiguration' {} a -> s {clientId = a} :: SetRiskConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The account takeover risk configuration.
 setRiskConfiguration_accountTakeoverRiskConfiguration :: Lens.Lens' SetRiskConfiguration (Prelude.Maybe AccountTakeoverRiskConfigurationType)
@@ -150,7 +151,7 @@ instance Core.AWSRequest SetRiskConfiguration where
       ( \s h x ->
           SetRiskConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "RiskConfiguration")
+            Prelude.<*> (x Data..:> "RiskConfiguration")
       )
 
 instance Prelude.Hashable SetRiskConfiguration where
@@ -169,40 +170,40 @@ instance Prelude.NFData SetRiskConfiguration where
       `Prelude.seq` Prelude.rnf compromisedCredentialsRiskConfiguration
       `Prelude.seq` Prelude.rnf userPoolId
 
-instance Core.ToHeaders SetRiskConfiguration where
+instance Data.ToHeaders SetRiskConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.SetRiskConfiguration" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.SetRiskConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SetRiskConfiguration where
+instance Data.ToJSON SetRiskConfiguration where
   toJSON SetRiskConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientId" Core..=) Prelude.<$> clientId,
-            ("AccountTakeoverRiskConfiguration" Core..=)
+          [ ("ClientId" Data..=) Prelude.<$> clientId,
+            ("AccountTakeoverRiskConfiguration" Data..=)
               Prelude.<$> accountTakeoverRiskConfiguration,
-            ("RiskExceptionConfiguration" Core..=)
+            ("RiskExceptionConfiguration" Data..=)
               Prelude.<$> riskExceptionConfiguration,
-            ("CompromisedCredentialsRiskConfiguration" Core..=)
+            ("CompromisedCredentialsRiskConfiguration" Data..=)
               Prelude.<$> compromisedCredentialsRiskConfiguration,
-            Prelude.Just ("UserPoolId" Core..= userPoolId)
+            Prelude.Just ("UserPoolId" Data..= userPoolId)
           ]
       )
 
-instance Core.ToPath SetRiskConfiguration where
+instance Data.ToPath SetRiskConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetRiskConfiguration where
+instance Data.ToQuery SetRiskConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetRiskConfigurationResponse' smart constructor.

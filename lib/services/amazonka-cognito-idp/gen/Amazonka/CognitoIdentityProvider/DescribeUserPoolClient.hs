@@ -44,6 +44,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -55,7 +56,7 @@ data DescribeUserPoolClient = DescribeUserPoolClient'
   { -- | The user pool ID for the user pool you want to describe.
     userPoolId :: Prelude.Text,
     -- | The app client ID of the app associated with the user pool.
-    clientId :: Core.Sensitive Prelude.Text
+    clientId :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -79,7 +80,7 @@ newDescribeUserPoolClient ::
 newDescribeUserPoolClient pUserPoolId_ pClientId_ =
   DescribeUserPoolClient'
     { userPoolId = pUserPoolId_,
-      clientId = Core._Sensitive Lens.# pClientId_
+      clientId = Data._Sensitive Lens.# pClientId_
     }
 
 -- | The user pool ID for the user pool you want to describe.
@@ -88,7 +89,7 @@ describeUserPoolClient_userPoolId = Lens.lens (\DescribeUserPoolClient' {userPoo
 
 -- | The app client ID of the app associated with the user pool.
 describeUserPoolClient_clientId :: Lens.Lens' DescribeUserPoolClient Prelude.Text
-describeUserPoolClient_clientId = Lens.lens (\DescribeUserPoolClient' {clientId} -> clientId) (\s@DescribeUserPoolClient' {} a -> s {clientId = a} :: DescribeUserPoolClient) Prelude.. Core._Sensitive
+describeUserPoolClient_clientId = Lens.lens (\DescribeUserPoolClient' {clientId} -> clientId) (\s@DescribeUserPoolClient' {} a -> s {clientId = a} :: DescribeUserPoolClient) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest DescribeUserPoolClient where
   type
@@ -100,7 +101,7 @@ instance Core.AWSRequest DescribeUserPoolClient where
     Response.receiveJSON
       ( \s h x ->
           DescribeUserPoolClientResponse'
-            Prelude.<$> (x Core..?> "UserPoolClient")
+            Prelude.<$> (x Data..?> "UserPoolClient")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,34 +115,34 @@ instance Prelude.NFData DescribeUserPoolClient where
     Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf clientId
 
-instance Core.ToHeaders DescribeUserPoolClient where
+instance Data.ToHeaders DescribeUserPoolClient where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.DescribeUserPoolClient" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.DescribeUserPoolClient" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeUserPoolClient where
+instance Data.ToJSON DescribeUserPoolClient where
   toJSON DescribeUserPoolClient' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("ClientId" Core..= clientId)
+          [ Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("ClientId" Data..= clientId)
           ]
       )
 
-instance Core.ToPath DescribeUserPoolClient where
+instance Data.ToPath DescribeUserPoolClient where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeUserPoolClient where
+instance Data.ToQuery DescribeUserPoolClient where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server from a request to describe the

@@ -23,6 +23,7 @@ import Amazonka.CognitoIdentityProvider.Types.CompromisedCredentialsActionsType
 import Amazonka.CognitoIdentityProvider.Types.EventFilterType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The compromised credentials risk configuration type.
@@ -71,16 +72,16 @@ compromisedCredentialsRiskConfigurationType_actions :: Lens.Lens' CompromisedCre
 compromisedCredentialsRiskConfigurationType_actions = Lens.lens (\CompromisedCredentialsRiskConfigurationType' {actions} -> actions) (\s@CompromisedCredentialsRiskConfigurationType' {} a -> s {actions = a} :: CompromisedCredentialsRiskConfigurationType)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CompromisedCredentialsRiskConfigurationType
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CompromisedCredentialsRiskConfigurationType"
       ( \x ->
           CompromisedCredentialsRiskConfigurationType'
-            Prelude.<$> (x Core..:? "EventFilter" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..: "Actions")
+            Prelude.<$> (x Data..:? "EventFilter" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..: "Actions")
       )
 
 instance
@@ -102,14 +103,14 @@ instance
       `Prelude.seq` Prelude.rnf actions
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CompromisedCredentialsRiskConfigurationType
   where
   toJSON
     CompromisedCredentialsRiskConfigurationType' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("EventFilter" Core..=) Prelude.<$> eventFilter,
-              Prelude.Just ("Actions" Core..= actions)
+            [ ("EventFilter" Data..=) Prelude.<$> eventFilter,
+              Prelude.Just ("Actions" Data..= actions)
             ]
         )

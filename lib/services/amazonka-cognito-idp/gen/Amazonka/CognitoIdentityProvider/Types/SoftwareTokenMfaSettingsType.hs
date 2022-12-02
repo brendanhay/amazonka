@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.SoftwareTokenMfaSettingsType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The type used for enabling software token MFA at the user level. If an
@@ -89,11 +90,11 @@ instance Prelude.NFData SoftwareTokenMfaSettingsType where
     Prelude.rnf preferredMfa
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON SoftwareTokenMfaSettingsType where
+instance Data.ToJSON SoftwareTokenMfaSettingsType where
   toJSON SoftwareTokenMfaSettingsType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PreferredMfa" Core..=) Prelude.<$> preferredMfa,
-            ("Enabled" Core..=) Prelude.<$> enabled
+          [ ("PreferredMfa" Data..=) Prelude.<$> preferredMfa,
+            ("Enabled" Data..=) Prelude.<$> enabled
           ]
       )

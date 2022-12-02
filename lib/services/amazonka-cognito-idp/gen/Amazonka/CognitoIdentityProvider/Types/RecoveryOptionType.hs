@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.RecoveryOptionType where
 import Amazonka.CognitoIdentityProvider.Types.RecoveryOptionNameType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A map containing a priority as a key, and recovery method name as a
@@ -70,14 +71,14 @@ recoveryOptionType_priority = Lens.lens (\RecoveryOptionType' {priority} -> prio
 recoveryOptionType_name :: Lens.Lens' RecoveryOptionType RecoveryOptionNameType
 recoveryOptionType_name = Lens.lens (\RecoveryOptionType' {name} -> name) (\s@RecoveryOptionType' {} a -> s {name = a} :: RecoveryOptionType)
 
-instance Core.FromJSON RecoveryOptionType where
+instance Data.FromJSON RecoveryOptionType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecoveryOptionType"
       ( \x ->
           RecoveryOptionType'
-            Prelude.<$> (x Core..: "Priority")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..: "Priority")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable RecoveryOptionType where
@@ -89,11 +90,11 @@ instance Prelude.NFData RecoveryOptionType where
   rnf RecoveryOptionType' {..} =
     Prelude.rnf priority `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON RecoveryOptionType where
+instance Data.ToJSON RecoveryOptionType where
   toJSON RecoveryOptionType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Priority" Core..= priority),
-            Prelude.Just ("Name" Core..= name)
+          [ Prelude.Just ("Priority" Data..= priority),
+            Prelude.Just ("Name" Data..= name)
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.ResourceServerType where
 import Amazonka.CognitoIdentityProvider.Types.ResourceServerScopeType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A container for information about a resource server for a user pool.
@@ -80,16 +81,16 @@ resourceServerType_userPoolId = Lens.lens (\ResourceServerType' {userPoolId} -> 
 resourceServerType_scopes :: Lens.Lens' ResourceServerType (Prelude.Maybe [ResourceServerScopeType])
 resourceServerType_scopes = Lens.lens (\ResourceServerType' {scopes} -> scopes) (\s@ResourceServerType' {} a -> s {scopes = a} :: ResourceServerType) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ResourceServerType where
+instance Data.FromJSON ResourceServerType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceServerType"
       ( \x ->
           ResourceServerType'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Identifier")
-            Prelude.<*> (x Core..:? "UserPoolId")
-            Prelude.<*> (x Core..:? "Scopes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Identifier")
+            Prelude.<*> (x Data..:? "UserPoolId")
+            Prelude.<*> (x Data..:? "Scopes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ResourceServerType where

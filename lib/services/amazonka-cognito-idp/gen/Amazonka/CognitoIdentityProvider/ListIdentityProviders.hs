@@ -47,6 +47,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,9 +128,9 @@ instance Core.AWSRequest ListIdentityProviders where
     Response.receiveJSON
       ( \s h x ->
           ListIdentityProvidersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Providers" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Providers" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListIdentityProviders where
@@ -144,35 +145,35 @@ instance Prelude.NFData ListIdentityProviders where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf userPoolId
 
-instance Core.ToHeaders ListIdentityProviders where
+instance Data.ToHeaders ListIdentityProviders where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.ListIdentityProviders" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.ListIdentityProviders" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListIdentityProviders where
+instance Data.ToJSON ListIdentityProviders where
   toJSON ListIdentityProviders' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("UserPoolId" Core..= userPoolId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("UserPoolId" Data..= userPoolId)
           ]
       )
 
-instance Core.ToPath ListIdentityProviders where
+instance Data.ToPath ListIdentityProviders where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListIdentityProviders where
+instance Data.ToQuery ListIdentityProviders where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListIdentityProvidersResponse' smart constructor.

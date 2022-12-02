@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.DeviceType where
 import Amazonka.CognitoIdentityProvider.Types.AttributeType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The device type.
@@ -31,13 +32,13 @@ data DeviceType = DeviceType'
   { -- | The device key.
     deviceKey :: Prelude.Maybe Prelude.Text,
     -- | The date when the device was last authenticated.
-    deviceLastAuthenticatedDate :: Prelude.Maybe Core.POSIX,
+    deviceLastAuthenticatedDate :: Prelude.Maybe Data.POSIX,
     -- | The device attributes.
     deviceAttributes :: Prelude.Maybe [AttributeType],
     -- | The last modified date of the device.
-    deviceLastModifiedDate :: Prelude.Maybe Core.POSIX,
+    deviceLastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The creation date of the device.
-    deviceCreateDate :: Prelude.Maybe Core.POSIX
+    deviceCreateDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -75,7 +76,7 @@ deviceType_deviceKey = Lens.lens (\DeviceType' {deviceKey} -> deviceKey) (\s@Dev
 
 -- | The date when the device was last authenticated.
 deviceType_deviceLastAuthenticatedDate :: Lens.Lens' DeviceType (Prelude.Maybe Prelude.UTCTime)
-deviceType_deviceLastAuthenticatedDate = Lens.lens (\DeviceType' {deviceLastAuthenticatedDate} -> deviceLastAuthenticatedDate) (\s@DeviceType' {} a -> s {deviceLastAuthenticatedDate = a} :: DeviceType) Prelude.. Lens.mapping Core._Time
+deviceType_deviceLastAuthenticatedDate = Lens.lens (\DeviceType' {deviceLastAuthenticatedDate} -> deviceLastAuthenticatedDate) (\s@DeviceType' {} a -> s {deviceLastAuthenticatedDate = a} :: DeviceType) Prelude.. Lens.mapping Data._Time
 
 -- | The device attributes.
 deviceType_deviceAttributes :: Lens.Lens' DeviceType (Prelude.Maybe [AttributeType])
@@ -83,25 +84,25 @@ deviceType_deviceAttributes = Lens.lens (\DeviceType' {deviceAttributes} -> devi
 
 -- | The last modified date of the device.
 deviceType_deviceLastModifiedDate :: Lens.Lens' DeviceType (Prelude.Maybe Prelude.UTCTime)
-deviceType_deviceLastModifiedDate = Lens.lens (\DeviceType' {deviceLastModifiedDate} -> deviceLastModifiedDate) (\s@DeviceType' {} a -> s {deviceLastModifiedDate = a} :: DeviceType) Prelude.. Lens.mapping Core._Time
+deviceType_deviceLastModifiedDate = Lens.lens (\DeviceType' {deviceLastModifiedDate} -> deviceLastModifiedDate) (\s@DeviceType' {} a -> s {deviceLastModifiedDate = a} :: DeviceType) Prelude.. Lens.mapping Data._Time
 
 -- | The creation date of the device.
 deviceType_deviceCreateDate :: Lens.Lens' DeviceType (Prelude.Maybe Prelude.UTCTime)
-deviceType_deviceCreateDate = Lens.lens (\DeviceType' {deviceCreateDate} -> deviceCreateDate) (\s@DeviceType' {} a -> s {deviceCreateDate = a} :: DeviceType) Prelude.. Lens.mapping Core._Time
+deviceType_deviceCreateDate = Lens.lens (\DeviceType' {deviceCreateDate} -> deviceCreateDate) (\s@DeviceType' {} a -> s {deviceCreateDate = a} :: DeviceType) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON DeviceType where
+instance Data.FromJSON DeviceType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceType"
       ( \x ->
           DeviceType'
-            Prelude.<$> (x Core..:? "DeviceKey")
-            Prelude.<*> (x Core..:? "DeviceLastAuthenticatedDate")
-            Prelude.<*> ( x Core..:? "DeviceAttributes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "DeviceKey")
+            Prelude.<*> (x Data..:? "DeviceLastAuthenticatedDate")
+            Prelude.<*> ( x Data..:? "DeviceAttributes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DeviceLastModifiedDate")
-            Prelude.<*> (x Core..:? "DeviceCreateDate")
+            Prelude.<*> (x Data..:? "DeviceLastModifiedDate")
+            Prelude.<*> (x Data..:? "DeviceCreateDate")
       )
 
 instance Prelude.Hashable DeviceType where

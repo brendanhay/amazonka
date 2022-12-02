@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.DeviceSecretVerifierConfigType whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The device verifier against which it is authenticated.
@@ -80,12 +81,12 @@ instance
     Prelude.rnf salt
       `Prelude.seq` Prelude.rnf passwordVerifier
 
-instance Core.ToJSON DeviceSecretVerifierConfigType where
+instance Data.ToJSON DeviceSecretVerifierConfigType where
   toJSON DeviceSecretVerifierConfigType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Salt" Core..=) Prelude.<$> salt,
-            ("PasswordVerifier" Core..=)
+          [ ("Salt" Data..=) Prelude.<$> salt,
+            ("PasswordVerifier" Data..=)
               Prelude.<$> passwordVerifier
           ]
       )

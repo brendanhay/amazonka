@@ -49,6 +49,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -57,7 +58,7 @@ import qualified Amazonka.Response as Response
 data VerifySoftwareToken = VerifySoftwareToken'
   { -- | A valid access token that Amazon Cognito issued to the user whose
     -- software token you want to verify.
-    accessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    accessToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The session that should be passed both ways in challenge-response calls
     -- to the service.
     session :: Prelude.Maybe Prelude.Text,
@@ -102,7 +103,7 @@ newVerifySoftwareToken pUserCode_ =
 -- | A valid access token that Amazon Cognito issued to the user whose
 -- software token you want to verify.
 verifySoftwareToken_accessToken :: Lens.Lens' VerifySoftwareToken (Prelude.Maybe Prelude.Text)
-verifySoftwareToken_accessToken = Lens.lens (\VerifySoftwareToken' {accessToken} -> accessToken) (\s@VerifySoftwareToken' {} a -> s {accessToken = a} :: VerifySoftwareToken) Prelude.. Lens.mapping Core._Sensitive
+verifySoftwareToken_accessToken = Lens.lens (\VerifySoftwareToken' {accessToken} -> accessToken) (\s@VerifySoftwareToken' {} a -> s {accessToken = a} :: VerifySoftwareToken) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The session that should be passed both ways in challenge-response calls
 -- to the service.
@@ -128,8 +129,8 @@ instance Core.AWSRequest VerifySoftwareToken where
     Response.receiveJSON
       ( \s h x ->
           VerifySoftwareTokenResponse'
-            Prelude.<$> (x Core..?> "Session")
-            Prelude.<*> (x Core..?> "Status")
+            Prelude.<$> (x Data..?> "Session")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,37 +148,37 @@ instance Prelude.NFData VerifySoftwareToken where
       `Prelude.seq` Prelude.rnf friendlyDeviceName
       `Prelude.seq` Prelude.rnf userCode
 
-instance Core.ToHeaders VerifySoftwareToken where
+instance Data.ToHeaders VerifySoftwareToken where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.VerifySoftwareToken" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.VerifySoftwareToken" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON VerifySoftwareToken where
+instance Data.ToJSON VerifySoftwareToken where
   toJSON VerifySoftwareToken' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccessToken" Core..=) Prelude.<$> accessToken,
-            ("Session" Core..=) Prelude.<$> session,
-            ("FriendlyDeviceName" Core..=)
+          [ ("AccessToken" Data..=) Prelude.<$> accessToken,
+            ("Session" Data..=) Prelude.<$> session,
+            ("FriendlyDeviceName" Data..=)
               Prelude.<$> friendlyDeviceName,
-            Prelude.Just ("UserCode" Core..= userCode)
+            Prelude.Just ("UserCode" Data..= userCode)
           ]
       )
 
-instance Core.ToPath VerifySoftwareToken where
+instance Data.ToPath VerifySoftwareToken where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery VerifySoftwareToken where
+instance Data.ToQuery VerifySoftwareToken where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newVerifySoftwareTokenResponse' smart constructor.

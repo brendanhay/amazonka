@@ -42,6 +42,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,7 +90,7 @@ instance Core.AWSRequest DescribeUserPoolDomain where
     Response.receiveJSON
       ( \s h x ->
           DescribeUserPoolDomainResponse'
-            Prelude.<$> (x Core..?> "DomainDescription")
+            Prelude.<$> (x Data..?> "DomainDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,32 +101,32 @@ instance Prelude.Hashable DescribeUserPoolDomain where
 instance Prelude.NFData DescribeUserPoolDomain where
   rnf DescribeUserPoolDomain' {..} = Prelude.rnf domain
 
-instance Core.ToHeaders DescribeUserPoolDomain where
+instance Data.ToHeaders DescribeUserPoolDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.DescribeUserPoolDomain" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.DescribeUserPoolDomain" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeUserPoolDomain where
+instance Data.ToJSON DescribeUserPoolDomain where
   toJSON DescribeUserPoolDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Domain" Core..= domain)]
+          [Prelude.Just ("Domain" Data..= domain)]
       )
 
-instance Core.ToPath DescribeUserPoolDomain where
+instance Data.ToPath DescribeUserPoolDomain where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeUserPoolDomain where
+instance Data.ToQuery DescribeUserPoolDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeUserPoolDomainResponse' smart constructor.

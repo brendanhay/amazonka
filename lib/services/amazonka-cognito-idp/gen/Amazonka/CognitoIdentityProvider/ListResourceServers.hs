@@ -47,6 +47,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -129,9 +130,9 @@ instance Core.AWSRequest ListResourceServers where
     Response.receiveJSON
       ( \s h x ->
           ListResourceServersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "ResourceServers"
+            Prelude.<*> ( x Data..?> "ResourceServers"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -148,35 +149,35 @@ instance Prelude.NFData ListResourceServers where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf userPoolId
 
-instance Core.ToHeaders ListResourceServers where
+instance Data.ToHeaders ListResourceServers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.ListResourceServers" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.ListResourceServers" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListResourceServers where
+instance Data.ToJSON ListResourceServers where
   toJSON ListResourceServers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("UserPoolId" Core..= userPoolId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("UserPoolId" Data..= userPoolId)
           ]
       )
 
-instance Core.ToPath ListResourceServers where
+instance Data.ToPath ListResourceServers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListResourceServers where
+instance Data.ToQuery ListResourceServers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListResourceServersResponse' smart constructor.

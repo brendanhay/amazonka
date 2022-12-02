@@ -48,6 +48,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -63,7 +64,7 @@ data AdminListDevices = AdminListDevices'
     -- | The user pool ID.
     userPoolId :: Prelude.Text,
     -- | The user name.
-    username :: Core.Sensitive Prelude.Text
+    username :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -94,7 +95,7 @@ newAdminListDevices pUserPoolId_ pUsername_ =
         Prelude.Nothing,
       limit = Prelude.Nothing,
       userPoolId = pUserPoolId_,
-      username = Core._Sensitive Lens.# pUsername_
+      username = Data._Sensitive Lens.# pUsername_
     }
 
 -- | The pagination token.
@@ -111,7 +112,7 @@ adminListDevices_userPoolId = Lens.lens (\AdminListDevices' {userPoolId} -> user
 
 -- | The user name.
 adminListDevices_username :: Lens.Lens' AdminListDevices Prelude.Text
-adminListDevices_username = Lens.lens (\AdminListDevices' {username} -> username) (\s@AdminListDevices' {} a -> s {username = a} :: AdminListDevices) Prelude.. Core._Sensitive
+adminListDevices_username = Lens.lens (\AdminListDevices' {username} -> username) (\s@AdminListDevices' {} a -> s {username = a} :: AdminListDevices) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest AdminListDevices where
   type
@@ -123,8 +124,8 @@ instance Core.AWSRequest AdminListDevices where
     Response.receiveJSON
       ( \s h x ->
           AdminListDevicesResponse'
-            Prelude.<$> (x Core..?> "Devices" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "PaginationToken")
+            Prelude.<$> (x Data..?> "Devices" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "PaginationToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,37 +143,37 @@ instance Prelude.NFData AdminListDevices where
       `Prelude.seq` Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf username
 
-instance Core.ToHeaders AdminListDevices where
+instance Data.ToHeaders AdminListDevices where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.AdminListDevices" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.AdminListDevices" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AdminListDevices where
+instance Data.ToJSON AdminListDevices where
   toJSON AdminListDevices' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PaginationToken" Core..=)
+          [ ("PaginationToken" Data..=)
               Prelude.<$> paginationToken,
-            ("Limit" Core..=) Prelude.<$> limit,
-            Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("Username" Core..= username)
+            ("Limit" Data..=) Prelude.<$> limit,
+            Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("Username" Data..= username)
           ]
       )
 
-instance Core.ToPath AdminListDevices where
+instance Data.ToPath AdminListDevices where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AdminListDevices where
+instance Data.ToQuery AdminListDevices where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Lists the device\'s response, as an administrator.

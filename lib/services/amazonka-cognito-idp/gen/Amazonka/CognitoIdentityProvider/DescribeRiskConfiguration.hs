@@ -43,6 +43,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -50,7 +51,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDescribeRiskConfiguration' smart constructor.
 data DescribeRiskConfiguration = DescribeRiskConfiguration'
   { -- | The app client ID.
-    clientId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    clientId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The user pool ID.
     userPoolId :: Prelude.Text
   }
@@ -80,7 +81,7 @@ newDescribeRiskConfiguration pUserPoolId_ =
 
 -- | The app client ID.
 describeRiskConfiguration_clientId :: Lens.Lens' DescribeRiskConfiguration (Prelude.Maybe Prelude.Text)
-describeRiskConfiguration_clientId = Lens.lens (\DescribeRiskConfiguration' {clientId} -> clientId) (\s@DescribeRiskConfiguration' {} a -> s {clientId = a} :: DescribeRiskConfiguration) Prelude.. Lens.mapping Core._Sensitive
+describeRiskConfiguration_clientId = Lens.lens (\DescribeRiskConfiguration' {clientId} -> clientId) (\s@DescribeRiskConfiguration' {} a -> s {clientId = a} :: DescribeRiskConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The user pool ID.
 describeRiskConfiguration_userPoolId :: Lens.Lens' DescribeRiskConfiguration Prelude.Text
@@ -97,7 +98,7 @@ instance Core.AWSRequest DescribeRiskConfiguration where
       ( \s h x ->
           DescribeRiskConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "RiskConfiguration")
+            Prelude.<*> (x Data..:> "RiskConfiguration")
       )
 
 instance Prelude.Hashable DescribeRiskConfiguration where
@@ -110,34 +111,34 @@ instance Prelude.NFData DescribeRiskConfiguration where
     Prelude.rnf clientId
       `Prelude.seq` Prelude.rnf userPoolId
 
-instance Core.ToHeaders DescribeRiskConfiguration where
+instance Data.ToHeaders DescribeRiskConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.DescribeRiskConfiguration" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.DescribeRiskConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeRiskConfiguration where
+instance Data.ToJSON DescribeRiskConfiguration where
   toJSON DescribeRiskConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientId" Core..=) Prelude.<$> clientId,
-            Prelude.Just ("UserPoolId" Core..= userPoolId)
+          [ ("ClientId" Data..=) Prelude.<$> clientId,
+            Prelude.Just ("UserPoolId" Data..= userPoolId)
           ]
       )
 
-instance Core.ToPath DescribeRiskConfiguration where
+instance Data.ToPath DescribeRiskConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeRiskConfiguration where
+instance Data.ToQuery DescribeRiskConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRiskConfigurationResponse' smart constructor.

@@ -49,6 +49,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -347,8 +348,8 @@ instance Core.AWSRequest ListUsers where
     Response.receiveJSON
       ( \s h x ->
           ListUsersResponse'
-            Prelude.<$> (x Core..?> "PaginationToken")
-            Prelude.<*> (x Core..?> "Users" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "PaginationToken")
+            Prelude.<*> (x Data..?> "Users" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -368,39 +369,39 @@ instance Prelude.NFData ListUsers where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf userPoolId
 
-instance Core.ToHeaders ListUsers where
+instance Data.ToHeaders ListUsers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.ListUsers" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.ListUsers" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListUsers where
+instance Data.ToJSON ListUsers where
   toJSON ListUsers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PaginationToken" Core..=)
+          [ ("PaginationToken" Data..=)
               Prelude.<$> paginationToken,
-            ("AttributesToGet" Core..=)
+            ("AttributesToGet" Data..=)
               Prelude.<$> attributesToGet,
-            ("Filter" Core..=) Prelude.<$> filter',
-            ("Limit" Core..=) Prelude.<$> limit,
-            Prelude.Just ("UserPoolId" Core..= userPoolId)
+            ("Filter" Data..=) Prelude.<$> filter',
+            ("Limit" Data..=) Prelude.<$> limit,
+            Prelude.Just ("UserPoolId" Data..= userPoolId)
           ]
       )
 
-instance Core.ToPath ListUsers where
+instance Data.ToPath ListUsers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListUsers where
+instance Data.ToQuery ListUsers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response from the request to list users.

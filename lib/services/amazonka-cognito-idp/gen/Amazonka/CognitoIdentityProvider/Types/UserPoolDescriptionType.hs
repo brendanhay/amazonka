@@ -23,6 +23,7 @@ import Amazonka.CognitoIdentityProvider.Types.LambdaConfigType
 import Amazonka.CognitoIdentityProvider.Types.StatusType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A user pool description.
@@ -32,9 +33,9 @@ data UserPoolDescriptionType = UserPoolDescriptionType'
   { -- | The name in a user pool description.
     name :: Prelude.Maybe Prelude.Text,
     -- | The date the user pool description was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The date the user pool description was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The user pool status in a user pool description.
     status :: Prelude.Maybe StatusType,
     -- | The ID in a user pool description.
@@ -81,11 +82,11 @@ userPoolDescriptionType_name = Lens.lens (\UserPoolDescriptionType' {name} -> na
 
 -- | The date the user pool description was last modified.
 userPoolDescriptionType_lastModifiedDate :: Lens.Lens' UserPoolDescriptionType (Prelude.Maybe Prelude.UTCTime)
-userPoolDescriptionType_lastModifiedDate = Lens.lens (\UserPoolDescriptionType' {lastModifiedDate} -> lastModifiedDate) (\s@UserPoolDescriptionType' {} a -> s {lastModifiedDate = a} :: UserPoolDescriptionType) Prelude.. Lens.mapping Core._Time
+userPoolDescriptionType_lastModifiedDate = Lens.lens (\UserPoolDescriptionType' {lastModifiedDate} -> lastModifiedDate) (\s@UserPoolDescriptionType' {} a -> s {lastModifiedDate = a} :: UserPoolDescriptionType) Prelude.. Lens.mapping Data._Time
 
 -- | The date the user pool description was created.
 userPoolDescriptionType_creationDate :: Lens.Lens' UserPoolDescriptionType (Prelude.Maybe Prelude.UTCTime)
-userPoolDescriptionType_creationDate = Lens.lens (\UserPoolDescriptionType' {creationDate} -> creationDate) (\s@UserPoolDescriptionType' {} a -> s {creationDate = a} :: UserPoolDescriptionType) Prelude.. Lens.mapping Core._Time
+userPoolDescriptionType_creationDate = Lens.lens (\UserPoolDescriptionType' {creationDate} -> creationDate) (\s@UserPoolDescriptionType' {} a -> s {creationDate = a} :: UserPoolDescriptionType) Prelude.. Lens.mapping Data._Time
 
 -- | The user pool status in a user pool description.
 userPoolDescriptionType_status :: Lens.Lens' UserPoolDescriptionType (Prelude.Maybe StatusType)
@@ -99,18 +100,18 @@ userPoolDescriptionType_id = Lens.lens (\UserPoolDescriptionType' {id} -> id) (\
 userPoolDescriptionType_lambdaConfig :: Lens.Lens' UserPoolDescriptionType (Prelude.Maybe LambdaConfigType)
 userPoolDescriptionType_lambdaConfig = Lens.lens (\UserPoolDescriptionType' {lambdaConfig} -> lambdaConfig) (\s@UserPoolDescriptionType' {} a -> s {lambdaConfig = a} :: UserPoolDescriptionType)
 
-instance Core.FromJSON UserPoolDescriptionType where
+instance Data.FromJSON UserPoolDescriptionType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserPoolDescriptionType"
       ( \x ->
           UserPoolDescriptionType'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "LambdaConfig")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "LambdaConfig")
       )
 
 instance Prelude.Hashable UserPoolDescriptionType where

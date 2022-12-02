@@ -54,6 +54,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -66,7 +67,7 @@ data AdminGetUser = AdminGetUser'
     -- about the user.
     userPoolId :: Prelude.Text,
     -- | The user name of the user you want to retrieve.
-    username :: Core.Sensitive Prelude.Text
+    username :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -91,7 +92,7 @@ newAdminGetUser ::
 newAdminGetUser pUserPoolId_ pUsername_ =
   AdminGetUser'
     { userPoolId = pUserPoolId_,
-      username = Core._Sensitive Lens.# pUsername_
+      username = Data._Sensitive Lens.# pUsername_
     }
 
 -- | The user pool ID for the user pool where you want to get information
@@ -101,7 +102,7 @@ adminGetUser_userPoolId = Lens.lens (\AdminGetUser' {userPoolId} -> userPoolId) 
 
 -- | The user name of the user you want to retrieve.
 adminGetUser_username :: Lens.Lens' AdminGetUser Prelude.Text
-adminGetUser_username = Lens.lens (\AdminGetUser' {username} -> username) (\s@AdminGetUser' {} a -> s {username = a} :: AdminGetUser) Prelude.. Core._Sensitive
+adminGetUser_username = Lens.lens (\AdminGetUser' {username} -> username) (\s@AdminGetUser' {} a -> s {username = a} :: AdminGetUser) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest AdminGetUser where
   type AWSResponse AdminGetUser = AdminGetUserResponse
@@ -111,18 +112,18 @@ instance Core.AWSRequest AdminGetUser where
     Response.receiveJSON
       ( \s h x ->
           AdminGetUserResponse'
-            Prelude.<$> ( x Core..?> "UserMFASettingList"
+            Prelude.<$> ( x Data..?> "UserMFASettingList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "PreferredMfaSetting")
-            Prelude.<*> (x Core..?> "UserLastModifiedDate")
-            Prelude.<*> (x Core..?> "UserCreateDate")
-            Prelude.<*> (x Core..?> "UserAttributes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Enabled")
-            Prelude.<*> (x Core..?> "UserStatus")
-            Prelude.<*> (x Core..?> "MFAOptions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "PreferredMfaSetting")
+            Prelude.<*> (x Data..?> "UserLastModifiedDate")
+            Prelude.<*> (x Data..?> "UserCreateDate")
+            Prelude.<*> (x Data..?> "UserAttributes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Enabled")
+            Prelude.<*> (x Data..?> "UserStatus")
+            Prelude.<*> (x Data..?> "MFAOptions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Username")
+            Prelude.<*> (x Data..:> "Username")
       )
 
 instance Prelude.Hashable AdminGetUser where
@@ -135,34 +136,34 @@ instance Prelude.NFData AdminGetUser where
     Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf username
 
-instance Core.ToHeaders AdminGetUser where
+instance Data.ToHeaders AdminGetUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.AdminGetUser" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.AdminGetUser" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AdminGetUser where
+instance Data.ToJSON AdminGetUser where
   toJSON AdminGetUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("Username" Core..= username)
+          [ Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("Username" Data..= username)
           ]
       )
 
-instance Core.ToPath AdminGetUser where
+instance Data.ToPath AdminGetUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AdminGetUser where
+instance Data.ToQuery AdminGetUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server from the request to get the
@@ -176,9 +177,9 @@ data AdminGetUserResponse = AdminGetUserResponse'
     -- | The user\'s preferred MFA setting.
     preferredMfaSetting :: Prelude.Maybe Prelude.Text,
     -- | The date the user was last modified.
-    userLastModifiedDate :: Prelude.Maybe Core.POSIX,
+    userLastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The date the user was created.
-    userCreateDate :: Prelude.Maybe Core.POSIX,
+    userCreateDate :: Prelude.Maybe Data.POSIX,
     -- | An array of name-value pairs representing user attributes.
     userAttributes :: Prelude.Maybe [AttributeType],
     -- | Indicates that the status is @enabled@.
@@ -209,7 +210,7 @@ data AdminGetUserResponse = AdminGetUserResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The user name of the user about whom you\'re receiving information.
-    username :: Core.Sensitive Prelude.Text
+    username :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -278,7 +279,7 @@ newAdminGetUserResponse pHttpStatus_ pUsername_ =
       userStatus = Prelude.Nothing,
       mfaOptions = Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      username = Core._Sensitive Lens.# pUsername_
+      username = Data._Sensitive Lens.# pUsername_
     }
 
 -- | The MFA options that are activated for the user. The possible values in
@@ -292,11 +293,11 @@ adminGetUserResponse_preferredMfaSetting = Lens.lens (\AdminGetUserResponse' {pr
 
 -- | The date the user was last modified.
 adminGetUserResponse_userLastModifiedDate :: Lens.Lens' AdminGetUserResponse (Prelude.Maybe Prelude.UTCTime)
-adminGetUserResponse_userLastModifiedDate = Lens.lens (\AdminGetUserResponse' {userLastModifiedDate} -> userLastModifiedDate) (\s@AdminGetUserResponse' {} a -> s {userLastModifiedDate = a} :: AdminGetUserResponse) Prelude.. Lens.mapping Core._Time
+adminGetUserResponse_userLastModifiedDate = Lens.lens (\AdminGetUserResponse' {userLastModifiedDate} -> userLastModifiedDate) (\s@AdminGetUserResponse' {} a -> s {userLastModifiedDate = a} :: AdminGetUserResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date the user was created.
 adminGetUserResponse_userCreateDate :: Lens.Lens' AdminGetUserResponse (Prelude.Maybe Prelude.UTCTime)
-adminGetUserResponse_userCreateDate = Lens.lens (\AdminGetUserResponse' {userCreateDate} -> userCreateDate) (\s@AdminGetUserResponse' {} a -> s {userCreateDate = a} :: AdminGetUserResponse) Prelude.. Lens.mapping Core._Time
+adminGetUserResponse_userCreateDate = Lens.lens (\AdminGetUserResponse' {userCreateDate} -> userCreateDate) (\s@AdminGetUserResponse' {} a -> s {userCreateDate = a} :: AdminGetUserResponse) Prelude.. Lens.mapping Data._Time
 
 -- | An array of name-value pairs representing user attributes.
 adminGetUserResponse_userAttributes :: Lens.Lens' AdminGetUserResponse (Prelude.Maybe [AttributeType])
@@ -339,7 +340,7 @@ adminGetUserResponse_httpStatus = Lens.lens (\AdminGetUserResponse' {httpStatus}
 
 -- | The user name of the user about whom you\'re receiving information.
 adminGetUserResponse_username :: Lens.Lens' AdminGetUserResponse Prelude.Text
-adminGetUserResponse_username = Lens.lens (\AdminGetUserResponse' {username} -> username) (\s@AdminGetUserResponse' {} a -> s {username = a} :: AdminGetUserResponse) Prelude.. Core._Sensitive
+adminGetUserResponse_username = Lens.lens (\AdminGetUserResponse' {username} -> username) (\s@AdminGetUserResponse' {} a -> s {username = a} :: AdminGetUserResponse) Prelude.. Data._Sensitive
 
 instance Prelude.NFData AdminGetUserResponse where
   rnf AdminGetUserResponse' {..} =

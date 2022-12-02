@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.CompromisedCredentialsActionsType 
 import Amazonka.CognitoIdentityProvider.Types.CompromisedCredentialsEventActionType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The compromised credentials actions type.
@@ -57,15 +58,15 @@ compromisedCredentialsActionsType_eventAction :: Lens.Lens' CompromisedCredentia
 compromisedCredentialsActionsType_eventAction = Lens.lens (\CompromisedCredentialsActionsType' {eventAction} -> eventAction) (\s@CompromisedCredentialsActionsType' {} a -> s {eventAction = a} :: CompromisedCredentialsActionsType)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CompromisedCredentialsActionsType
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CompromisedCredentialsActionsType"
       ( \x ->
           CompromisedCredentialsActionsType'
-            Prelude.<$> (x Core..: "EventAction")
+            Prelude.<$> (x Data..: "EventAction")
       )
 
 instance
@@ -85,11 +86,11 @@ instance
     Prelude.rnf eventAction
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CompromisedCredentialsActionsType
   where
   toJSON CompromisedCredentialsActionsType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("EventAction" Core..= eventAction)]
+          [Prelude.Just ("EventAction" Data..= eventAction)]
       )

@@ -57,6 +57,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -64,9 +65,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newSetUICustomization' smart constructor.
 data SetUICustomization = SetUICustomization'
   { -- | The client ID for the client app.
-    clientId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    clientId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The uploaded logo image for the UI customization.
-    imageFile :: Prelude.Maybe Core.Base64,
+    imageFile :: Prelude.Maybe Data.Base64,
     -- | The CSS values in the UI customization.
     css :: Prelude.Maybe Prelude.Text,
     -- | The user pool ID for the user pool.
@@ -107,7 +108,7 @@ newSetUICustomization pUserPoolId_ =
 
 -- | The client ID for the client app.
 setUICustomization_clientId :: Lens.Lens' SetUICustomization (Prelude.Maybe Prelude.Text)
-setUICustomization_clientId = Lens.lens (\SetUICustomization' {clientId} -> clientId) (\s@SetUICustomization' {} a -> s {clientId = a} :: SetUICustomization) Prelude.. Lens.mapping Core._Sensitive
+setUICustomization_clientId = Lens.lens (\SetUICustomization' {clientId} -> clientId) (\s@SetUICustomization' {} a -> s {clientId = a} :: SetUICustomization) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The uploaded logo image for the UI customization.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -115,7 +116,7 @@ setUICustomization_clientId = Lens.lens (\SetUICustomization' {clientId} -> clie
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 setUICustomization_imageFile :: Lens.Lens' SetUICustomization (Prelude.Maybe Prelude.ByteString)
-setUICustomization_imageFile = Lens.lens (\SetUICustomization' {imageFile} -> imageFile) (\s@SetUICustomization' {} a -> s {imageFile = a} :: SetUICustomization) Prelude.. Lens.mapping Core._Base64
+setUICustomization_imageFile = Lens.lens (\SetUICustomization' {imageFile} -> imageFile) (\s@SetUICustomization' {} a -> s {imageFile = a} :: SetUICustomization) Prelude.. Lens.mapping Data._Base64
 
 -- | The CSS values in the UI customization.
 setUICustomization_css :: Lens.Lens' SetUICustomization (Prelude.Maybe Prelude.Text)
@@ -136,7 +137,7 @@ instance Core.AWSRequest SetUICustomization where
       ( \s h x ->
           SetUICustomizationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "UICustomization")
+            Prelude.<*> (x Data..:> "UICustomization")
       )
 
 instance Prelude.Hashable SetUICustomization where
@@ -153,36 +154,36 @@ instance Prelude.NFData SetUICustomization where
       `Prelude.seq` Prelude.rnf css
       `Prelude.seq` Prelude.rnf userPoolId
 
-instance Core.ToHeaders SetUICustomization where
+instance Data.ToHeaders SetUICustomization where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.SetUICustomization" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.SetUICustomization" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SetUICustomization where
+instance Data.ToJSON SetUICustomization where
   toJSON SetUICustomization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientId" Core..=) Prelude.<$> clientId,
-            ("ImageFile" Core..=) Prelude.<$> imageFile,
-            ("CSS" Core..=) Prelude.<$> css,
-            Prelude.Just ("UserPoolId" Core..= userPoolId)
+          [ ("ClientId" Data..=) Prelude.<$> clientId,
+            ("ImageFile" Data..=) Prelude.<$> imageFile,
+            ("CSS" Data..=) Prelude.<$> css,
+            Prelude.Just ("UserPoolId" Data..= userPoolId)
           ]
       )
 
-instance Core.ToPath SetUICustomization where
+instance Data.ToPath SetUICustomization where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetUICustomization where
+instance Data.ToQuery SetUICustomization where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetUICustomizationResponse' smart constructor.

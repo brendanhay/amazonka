@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.DeviceConfigurationType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The device-remembering configuration for a user pool. A
@@ -136,14 +137,14 @@ deviceConfigurationType_deviceOnlyRememberedOnUserPrompt = Lens.lens (\DeviceCon
 deviceConfigurationType_challengeRequiredOnNewDevice :: Lens.Lens' DeviceConfigurationType (Prelude.Maybe Prelude.Bool)
 deviceConfigurationType_challengeRequiredOnNewDevice = Lens.lens (\DeviceConfigurationType' {challengeRequiredOnNewDevice} -> challengeRequiredOnNewDevice) (\s@DeviceConfigurationType' {} a -> s {challengeRequiredOnNewDevice = a} :: DeviceConfigurationType)
 
-instance Core.FromJSON DeviceConfigurationType where
+instance Data.FromJSON DeviceConfigurationType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceConfigurationType"
       ( \x ->
           DeviceConfigurationType'
-            Prelude.<$> (x Core..:? "DeviceOnlyRememberedOnUserPrompt")
-            Prelude.<*> (x Core..:? "ChallengeRequiredOnNewDevice")
+            Prelude.<$> (x Data..:? "DeviceOnlyRememberedOnUserPrompt")
+            Prelude.<*> (x Data..:? "ChallengeRequiredOnNewDevice")
       )
 
 instance Prelude.Hashable DeviceConfigurationType where
@@ -157,13 +158,13 @@ instance Prelude.NFData DeviceConfigurationType where
     Prelude.rnf deviceOnlyRememberedOnUserPrompt
       `Prelude.seq` Prelude.rnf challengeRequiredOnNewDevice
 
-instance Core.ToJSON DeviceConfigurationType where
+instance Data.ToJSON DeviceConfigurationType where
   toJSON DeviceConfigurationType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeviceOnlyRememberedOnUserPrompt" Core..=)
+          [ ("DeviceOnlyRememberedOnUserPrompt" Data..=)
               Prelude.<$> deviceOnlyRememberedOnUserPrompt,
-            ("ChallengeRequiredOnNewDevice" Core..=)
+            ("ChallengeRequiredOnNewDevice" Data..=)
               Prelude.<$> challengeRequiredOnNewDevice
           ]
       )

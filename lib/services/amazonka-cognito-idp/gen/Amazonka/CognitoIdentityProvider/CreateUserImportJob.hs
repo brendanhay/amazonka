@@ -44,6 +44,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,7 +121,7 @@ instance Core.AWSRequest CreateUserImportJob where
     Response.receiveJSON
       ( \s h x ->
           CreateUserImportJobResponse'
-            Prelude.<$> (x Core..?> "UserImportJob")
+            Prelude.<$> (x Data..?> "UserImportJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,38 +137,38 @@ instance Prelude.NFData CreateUserImportJob where
       `Prelude.seq` Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf cloudWatchLogsRoleArn
 
-instance Core.ToHeaders CreateUserImportJob where
+instance Data.ToHeaders CreateUserImportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.CreateUserImportJob" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.CreateUserImportJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateUserImportJob where
+instance Data.ToJSON CreateUserImportJob where
   toJSON CreateUserImportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("JobName" Core..= jobName),
-            Prelude.Just ("UserPoolId" Core..= userPoolId),
+          [ Prelude.Just ("JobName" Data..= jobName),
+            Prelude.Just ("UserPoolId" Data..= userPoolId),
             Prelude.Just
               ( "CloudWatchLogsRoleArn"
-                  Core..= cloudWatchLogsRoleArn
+                  Data..= cloudWatchLogsRoleArn
               )
           ]
       )
 
-instance Core.ToPath CreateUserImportJob where
+instance Data.ToPath CreateUserImportJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateUserImportJob where
+instance Data.ToQuery CreateUserImportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server to the request to create the

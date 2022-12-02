@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.UserContextDataType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contextual data, such as the user\'s device fingerprint, IP address, or
@@ -82,11 +83,11 @@ instance Prelude.NFData UserContextDataType where
     Prelude.rnf encodedData
       `Prelude.seq` Prelude.rnf ipAddress
 
-instance Core.ToJSON UserContextDataType where
+instance Data.ToJSON UserContextDataType where
   toJSON UserContextDataType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EncodedData" Core..=) Prelude.<$> encodedData,
-            ("IpAddress" Core..=) Prelude.<$> ipAddress
+          [ ("EncodedData" Data..=) Prelude.<$> encodedData,
+            ("IpAddress" Data..=) Prelude.<$> ipAddress
           ]
       )

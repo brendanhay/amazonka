@@ -47,6 +47,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -339,7 +340,7 @@ instance Core.AWSRequest CreateIdentityProvider where
       ( \s h x ->
           CreateIdentityProviderResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "IdentityProvider")
+            Prelude.<*> (x Data..:> "IdentityProvider")
       )
 
 instance Prelude.Hashable CreateIdentityProvider where
@@ -360,41 +361,41 @@ instance Prelude.NFData CreateIdentityProvider where
       `Prelude.seq` Prelude.rnf providerType
       `Prelude.seq` Prelude.rnf providerDetails
 
-instance Core.ToHeaders CreateIdentityProvider where
+instance Data.ToHeaders CreateIdentityProvider where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.CreateIdentityProvider" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.CreateIdentityProvider" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateIdentityProvider where
+instance Data.ToJSON CreateIdentityProvider where
   toJSON CreateIdentityProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AttributeMapping" Core..=)
+          [ ("AttributeMapping" Data..=)
               Prelude.<$> attributeMapping,
-            ("IdpIdentifiers" Core..=)
+            ("IdpIdentifiers" Data..=)
               Prelude.<$> idpIdentifiers,
-            Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("ProviderName" Core..= providerName),
-            Prelude.Just ("ProviderType" Core..= providerType),
+            Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("ProviderName" Data..= providerName),
+            Prelude.Just ("ProviderType" Data..= providerType),
             Prelude.Just
-              ("ProviderDetails" Core..= providerDetails)
+              ("ProviderDetails" Data..= providerDetails)
           ]
       )
 
-instance Core.ToPath CreateIdentityProvider where
+instance Data.ToPath CreateIdentityProvider where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateIdentityProvider where
+instance Data.ToQuery CreateIdentityProvider where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateIdentityProviderResponse' smart constructor.

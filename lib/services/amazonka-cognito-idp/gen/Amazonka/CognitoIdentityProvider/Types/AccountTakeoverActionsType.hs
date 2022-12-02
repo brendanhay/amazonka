@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.AccountTakeoverActionsType where
 import Amazonka.CognitoIdentityProvider.Types.AccountTakeoverActionType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Account takeover actions type.
@@ -72,15 +73,15 @@ accountTakeoverActionsType_mediumAction = Lens.lens (\AccountTakeoverActionsType
 accountTakeoverActionsType_highAction :: Lens.Lens' AccountTakeoverActionsType (Prelude.Maybe AccountTakeoverActionType)
 accountTakeoverActionsType_highAction = Lens.lens (\AccountTakeoverActionsType' {highAction} -> highAction) (\s@AccountTakeoverActionsType' {} a -> s {highAction = a} :: AccountTakeoverActionsType)
 
-instance Core.FromJSON AccountTakeoverActionsType where
+instance Data.FromJSON AccountTakeoverActionsType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountTakeoverActionsType"
       ( \x ->
           AccountTakeoverActionsType'
-            Prelude.<$> (x Core..:? "LowAction")
-            Prelude.<*> (x Core..:? "MediumAction")
-            Prelude.<*> (x Core..:? "HighAction")
+            Prelude.<$> (x Data..:? "LowAction")
+            Prelude.<*> (x Data..:? "MediumAction")
+            Prelude.<*> (x Data..:? "HighAction")
       )
 
 instance Prelude.Hashable AccountTakeoverActionsType where
@@ -95,12 +96,12 @@ instance Prelude.NFData AccountTakeoverActionsType where
       `Prelude.seq` Prelude.rnf mediumAction
       `Prelude.seq` Prelude.rnf highAction
 
-instance Core.ToJSON AccountTakeoverActionsType where
+instance Data.ToJSON AccountTakeoverActionsType where
   toJSON AccountTakeoverActionsType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LowAction" Core..=) Prelude.<$> lowAction,
-            ("MediumAction" Core..=) Prelude.<$> mediumAction,
-            ("HighAction" Core..=) Prelude.<$> highAction
+          [ ("LowAction" Data..=) Prelude.<$> lowAction,
+            ("MediumAction" Data..=) Prelude.<$> mediumAction,
+            ("HighAction" Data..=) Prelude.<$> highAction
           ]
       )

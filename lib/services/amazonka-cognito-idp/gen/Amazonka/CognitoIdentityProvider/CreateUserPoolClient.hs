@@ -67,6 +67,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -836,7 +837,7 @@ instance Core.AWSRequest CreateUserPoolClient where
     Response.receiveJSON
       ( \s h x ->
           CreateUserPoolClientResponse'
-            Prelude.<$> (x Core..?> "UserPoolClient")
+            Prelude.<$> (x Data..?> "UserPoolClient")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -892,72 +893,72 @@ instance Prelude.NFData CreateUserPoolClient where
       `Prelude.seq` Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf clientName
 
-instance Core.ToHeaders CreateUserPoolClient where
+instance Data.ToHeaders CreateUserPoolClient where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.CreateUserPoolClient" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.CreateUserPoolClient" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateUserPoolClient where
+instance Data.ToJSON CreateUserPoolClient where
   toJSON CreateUserPoolClient' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AuthSessionValidity" Core..=)
+          [ ("AuthSessionValidity" Data..=)
               Prelude.<$> authSessionValidity,
-            ("DefaultRedirectURI" Core..=)
+            ("DefaultRedirectURI" Data..=)
               Prelude.<$> defaultRedirectURI,
-            ("AccessTokenValidity" Core..=)
+            ("AccessTokenValidity" Data..=)
               Prelude.<$> accessTokenValidity,
-            ("ExplicitAuthFlows" Core..=)
+            ("ExplicitAuthFlows" Data..=)
               Prelude.<$> explicitAuthFlows,
-            ("CallbackURLs" Core..=) Prelude.<$> callbackURLs,
-            ("AllowedOAuthScopes" Core..=)
+            ("CallbackURLs" Data..=) Prelude.<$> callbackURLs,
+            ("AllowedOAuthScopes" Data..=)
               Prelude.<$> allowedOAuthScopes,
-            ("IdTokenValidity" Core..=)
+            ("IdTokenValidity" Data..=)
               Prelude.<$> idTokenValidity,
-            ("AllowedOAuthFlowsUserPoolClient" Core..=)
+            ("AllowedOAuthFlowsUserPoolClient" Data..=)
               Prelude.<$> allowedOAuthFlowsUserPoolClient,
-            ("RefreshTokenValidity" Core..=)
+            ("RefreshTokenValidity" Data..=)
               Prelude.<$> refreshTokenValidity,
-            ("AnalyticsConfiguration" Core..=)
+            ("AnalyticsConfiguration" Data..=)
               Prelude.<$> analyticsConfiguration,
-            ("PreventUserExistenceErrors" Core..=)
+            ("PreventUserExistenceErrors" Data..=)
               Prelude.<$> preventUserExistenceErrors,
-            ("EnablePropagateAdditionalUserContextData" Core..=)
+            ("EnablePropagateAdditionalUserContextData" Data..=)
               Prelude.<$> enablePropagateAdditionalUserContextData,
-            ("TokenValidityUnits" Core..=)
+            ("TokenValidityUnits" Data..=)
               Prelude.<$> tokenValidityUnits,
-            ("GenerateSecret" Core..=)
+            ("GenerateSecret" Data..=)
               Prelude.<$> generateSecret,
-            ("EnableTokenRevocation" Core..=)
+            ("EnableTokenRevocation" Data..=)
               Prelude.<$> enableTokenRevocation,
-            ("AllowedOAuthFlows" Core..=)
+            ("AllowedOAuthFlows" Data..=)
               Prelude.<$> allowedOAuthFlows,
-            ("WriteAttributes" Core..=)
+            ("WriteAttributes" Data..=)
               Prelude.<$> writeAttributes,
-            ("LogoutURLs" Core..=) Prelude.<$> logoutURLs,
-            ("SupportedIdentityProviders" Core..=)
+            ("LogoutURLs" Data..=) Prelude.<$> logoutURLs,
+            ("SupportedIdentityProviders" Data..=)
               Prelude.<$> supportedIdentityProviders,
-            ("ReadAttributes" Core..=)
+            ("ReadAttributes" Data..=)
               Prelude.<$> readAttributes,
-            Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("ClientName" Core..= clientName)
+            Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("ClientName" Data..= clientName)
           ]
       )
 
-instance Core.ToPath CreateUserPoolClient where
+instance Data.ToPath CreateUserPoolClient where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateUserPoolClient where
+instance Data.ToQuery CreateUserPoolClient where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server to create a user pool client.

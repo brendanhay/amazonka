@@ -45,6 +45,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,7 +98,7 @@ instance Core.AWSRequest GetGroup where
     Response.receiveJSON
       ( \s h x ->
           GetGroupResponse'
-            Prelude.<$> (x Core..?> "Group")
+            Prelude.<$> (x Data..?> "Group")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,34 +112,34 @@ instance Prelude.NFData GetGroup where
     Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf userPoolId
 
-instance Core.ToHeaders GetGroup where
+instance Data.ToHeaders GetGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.GetGroup" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.GetGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetGroup where
+instance Data.ToJSON GetGroup where
   toJSON GetGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("GroupName" Core..= groupName),
-            Prelude.Just ("UserPoolId" Core..= userPoolId)
+          [ Prelude.Just ("GroupName" Data..= groupName),
+            Prelude.Just ("UserPoolId" Data..= userPoolId)
           ]
       )
 
-instance Core.ToPath GetGroup where
+instance Data.ToPath GetGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetGroup where
+instance Data.ToQuery GetGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetGroupResponse' smart constructor.

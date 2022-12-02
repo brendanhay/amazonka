@@ -48,6 +48,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,7 +93,7 @@ data ConfirmSignUp = ConfirmSignUp'
     -- | A keyed-hash message authentication code (HMAC) calculated using the
     -- secret key of a user pool client and username plus the client ID in the
     -- message.
-    secretHash :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    secretHash :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Contextual data about your user session, such as the device fingerprint,
     -- IP address, or location. Amazon Cognito advanced security evaluates the
     -- risk of an authentication event based on the context that your app
@@ -106,9 +107,9 @@ data ConfirmSignUp = ConfirmSignUp'
     -- If set to @False@, the API will throw an __AliasExistsException__ error.
     forceAliasCreation :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the app client associated with the user pool.
-    clientId :: Core.Sensitive Prelude.Text,
+    clientId :: Data.Sensitive Prelude.Text,
     -- | The user name of the user whose registration you want to confirm.
-    username :: Core.Sensitive Prelude.Text,
+    username :: Data.Sensitive Prelude.Text,
     -- | The confirmation code sent by a user\'s request to confirm registration.
     confirmationCode :: Prelude.Text
   }
@@ -194,8 +195,8 @@ newConfirmSignUp
         secretHash = Prelude.Nothing,
         userContextData = Prelude.Nothing,
         forceAliasCreation = Prelude.Nothing,
-        clientId = Core._Sensitive Lens.# pClientId_,
-        username = Core._Sensitive Lens.# pUsername_,
+        clientId = Data._Sensitive Lens.# pClientId_,
+        username = Data._Sensitive Lens.# pUsername_,
         confirmationCode = pConfirmationCode_
       }
 
@@ -240,7 +241,7 @@ confirmSignUp_clientMetadata = Lens.lens (\ConfirmSignUp' {clientMetadata} -> cl
 -- secret key of a user pool client and username plus the client ID in the
 -- message.
 confirmSignUp_secretHash :: Lens.Lens' ConfirmSignUp (Prelude.Maybe Prelude.Text)
-confirmSignUp_secretHash = Lens.lens (\ConfirmSignUp' {secretHash} -> secretHash) (\s@ConfirmSignUp' {} a -> s {secretHash = a} :: ConfirmSignUp) Prelude.. Lens.mapping Core._Sensitive
+confirmSignUp_secretHash = Lens.lens (\ConfirmSignUp' {secretHash} -> secretHash) (\s@ConfirmSignUp' {} a -> s {secretHash = a} :: ConfirmSignUp) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Contextual data about your user session, such as the device fingerprint,
 -- IP address, or location. Amazon Cognito advanced security evaluates the
@@ -260,11 +261,11 @@ confirmSignUp_forceAliasCreation = Lens.lens (\ConfirmSignUp' {forceAliasCreatio
 
 -- | The ID of the app client associated with the user pool.
 confirmSignUp_clientId :: Lens.Lens' ConfirmSignUp Prelude.Text
-confirmSignUp_clientId = Lens.lens (\ConfirmSignUp' {clientId} -> clientId) (\s@ConfirmSignUp' {} a -> s {clientId = a} :: ConfirmSignUp) Prelude.. Core._Sensitive
+confirmSignUp_clientId = Lens.lens (\ConfirmSignUp' {clientId} -> clientId) (\s@ConfirmSignUp' {} a -> s {clientId = a} :: ConfirmSignUp) Prelude.. Data._Sensitive
 
 -- | The user name of the user whose registration you want to confirm.
 confirmSignUp_username :: Lens.Lens' ConfirmSignUp Prelude.Text
-confirmSignUp_username = Lens.lens (\ConfirmSignUp' {username} -> username) (\s@ConfirmSignUp' {} a -> s {username = a} :: ConfirmSignUp) Prelude.. Core._Sensitive
+confirmSignUp_username = Lens.lens (\ConfirmSignUp' {username} -> username) (\s@ConfirmSignUp' {} a -> s {username = a} :: ConfirmSignUp) Prelude.. Data._Sensitive
 
 -- | The confirmation code sent by a user\'s request to confirm registration.
 confirmSignUp_confirmationCode :: Lens.Lens' ConfirmSignUp Prelude.Text
@@ -305,45 +306,45 @@ instance Prelude.NFData ConfirmSignUp where
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf confirmationCode
 
-instance Core.ToHeaders ConfirmSignUp where
+instance Data.ToHeaders ConfirmSignUp where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.ConfirmSignUp" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.ConfirmSignUp" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ConfirmSignUp where
+instance Data.ToJSON ConfirmSignUp where
   toJSON ConfirmSignUp' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AnalyticsMetadata" Core..=)
+          [ ("AnalyticsMetadata" Data..=)
               Prelude.<$> analyticsMetadata,
-            ("ClientMetadata" Core..=)
+            ("ClientMetadata" Data..=)
               Prelude.<$> clientMetadata,
-            ("SecretHash" Core..=) Prelude.<$> secretHash,
-            ("UserContextData" Core..=)
+            ("SecretHash" Data..=) Prelude.<$> secretHash,
+            ("UserContextData" Data..=)
               Prelude.<$> userContextData,
-            ("ForceAliasCreation" Core..=)
+            ("ForceAliasCreation" Data..=)
               Prelude.<$> forceAliasCreation,
-            Prelude.Just ("ClientId" Core..= clientId),
-            Prelude.Just ("Username" Core..= username),
+            Prelude.Just ("ClientId" Data..= clientId),
+            Prelude.Just ("Username" Data..= username),
             Prelude.Just
-              ("ConfirmationCode" Core..= confirmationCode)
+              ("ConfirmationCode" Data..= confirmationCode)
           ]
       )
 
-instance Core.ToPath ConfirmSignUp where
+instance Data.ToPath ConfirmSignUp where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ConfirmSignUp where
+instance Data.ToQuery ConfirmSignUp where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server for the registration

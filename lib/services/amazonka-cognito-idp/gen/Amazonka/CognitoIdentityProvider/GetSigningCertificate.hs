@@ -48,6 +48,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,7 +92,7 @@ instance Core.AWSRequest GetSigningCertificate where
     Response.receiveJSON
       ( \s h x ->
           GetSigningCertificateResponse'
-            Prelude.<$> (x Core..?> "Certificate")
+            Prelude.<$> (x Data..?> "Certificate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,32 +104,32 @@ instance Prelude.NFData GetSigningCertificate where
   rnf GetSigningCertificate' {..} =
     Prelude.rnf userPoolId
 
-instance Core.ToHeaders GetSigningCertificate where
+instance Data.ToHeaders GetSigningCertificate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.GetSigningCertificate" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.GetSigningCertificate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetSigningCertificate where
+instance Data.ToJSON GetSigningCertificate where
   toJSON GetSigningCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("UserPoolId" Core..= userPoolId)]
+          [Prelude.Just ("UserPoolId" Data..= userPoolId)]
       )
 
-instance Core.ToPath GetSigningCertificate where
+instance Data.ToPath GetSigningCertificate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetSigningCertificate where
+instance Data.ToQuery GetSigningCertificate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Response from Amazon Cognito for a signing certificate request.

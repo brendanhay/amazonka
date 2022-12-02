@@ -46,6 +46,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -56,7 +57,7 @@ import qualified Amazonka.Response as Response
 data SetUserSettings = SetUserSettings'
   { -- | A valid access token that Amazon Cognito issued to the user whose user
     -- settings you want to configure.
-    accessToken :: Core.Sensitive Prelude.Text,
+    accessToken :: Data.Sensitive Prelude.Text,
     -- | You can use this parameter only to set an SMS configuration that uses
     -- SMS for delivery.
     mfaOptions :: [MFAOptionType]
@@ -83,14 +84,14 @@ newSetUserSettings ::
 newSetUserSettings pAccessToken_ =
   SetUserSettings'
     { accessToken =
-        Core._Sensitive Lens.# pAccessToken_,
+        Data._Sensitive Lens.# pAccessToken_,
       mfaOptions = Prelude.mempty
     }
 
 -- | A valid access token that Amazon Cognito issued to the user whose user
 -- settings you want to configure.
 setUserSettings_accessToken :: Lens.Lens' SetUserSettings Prelude.Text
-setUserSettings_accessToken = Lens.lens (\SetUserSettings' {accessToken} -> accessToken) (\s@SetUserSettings' {} a -> s {accessToken = a} :: SetUserSettings) Prelude.. Core._Sensitive
+setUserSettings_accessToken = Lens.lens (\SetUserSettings' {accessToken} -> accessToken) (\s@SetUserSettings' {} a -> s {accessToken = a} :: SetUserSettings) Prelude.. Data._Sensitive
 
 -- | You can use this parameter only to set an SMS configuration that uses
 -- SMS for delivery.
@@ -120,34 +121,34 @@ instance Prelude.NFData SetUserSettings where
     Prelude.rnf accessToken
       `Prelude.seq` Prelude.rnf mfaOptions
 
-instance Core.ToHeaders SetUserSettings where
+instance Data.ToHeaders SetUserSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.SetUserSettings" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.SetUserSettings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SetUserSettings where
+instance Data.ToJSON SetUserSettings where
   toJSON SetUserSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AccessToken" Core..= accessToken),
-            Prelude.Just ("MFAOptions" Core..= mfaOptions)
+          [ Prelude.Just ("AccessToken" Data..= accessToken),
+            Prelude.Just ("MFAOptions" Data..= mfaOptions)
           ]
       )
 
-instance Core.ToPath SetUserSettings where
+instance Data.ToPath SetUserSettings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetUserSettings where
+instance Data.ToQuery SetUserSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response from the server for a set user settings request.

@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.Encryption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The encryption settings, if any, that are used for decrypting your input
@@ -236,16 +237,16 @@ encryption_mode = Lens.lens (\Encryption' {mode} -> mode) (\s@Encryption' {} a -
 encryption_keyMd5 :: Lens.Lens' Encryption (Prelude.Maybe Prelude.Text)
 encryption_keyMd5 = Lens.lens (\Encryption' {keyMd5} -> keyMd5) (\s@Encryption' {} a -> s {keyMd5 = a} :: Encryption)
 
-instance Core.FromJSON Encryption where
+instance Data.FromJSON Encryption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Encryption"
       ( \x ->
           Encryption'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "InitializationVector")
-            Prelude.<*> (x Core..:? "Mode")
-            Prelude.<*> (x Core..:? "KeyMd5")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "InitializationVector")
+            Prelude.<*> (x Data..:? "Mode")
+            Prelude.<*> (x Data..:? "KeyMd5")
       )
 
 instance Prelude.Hashable Encryption where
@@ -262,14 +263,14 @@ instance Prelude.NFData Encryption where
       `Prelude.seq` Prelude.rnf mode
       `Prelude.seq` Prelude.rnf keyMd5
 
-instance Core.ToJSON Encryption where
+instance Data.ToJSON Encryption where
   toJSON Encryption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("InitializationVector" Core..=)
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("InitializationVector" Data..=)
               Prelude.<$> initializationVector,
-            ("Mode" Core..=) Prelude.<$> mode,
-            ("KeyMd5" Core..=) Prelude.<$> keyMd5
+            ("Mode" Data..=) Prelude.<$> mode,
+            ("KeyMd5" Data..=) Prelude.<$> keyMd5
           ]
       )

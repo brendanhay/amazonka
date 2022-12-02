@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.HlsContentProtection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The HLS content protection settings, if any, that you want Elastic
@@ -189,18 +190,18 @@ hlsContentProtection_initializationVector = Lens.lens (\HlsContentProtection' {i
 hlsContentProtection_keyMd5 :: Lens.Lens' HlsContentProtection (Prelude.Maybe Prelude.Text)
 hlsContentProtection_keyMd5 = Lens.lens (\HlsContentProtection' {keyMd5} -> keyMd5) (\s@HlsContentProtection' {} a -> s {keyMd5 = a} :: HlsContentProtection)
 
-instance Core.FromJSON HlsContentProtection where
+instance Data.FromJSON HlsContentProtection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HlsContentProtection"
       ( \x ->
           HlsContentProtection'
-            Prelude.<$> (x Core..:? "KeyStoragePolicy")
-            Prelude.<*> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "Method")
-            Prelude.<*> (x Core..:? "LicenseAcquisitionUrl")
-            Prelude.<*> (x Core..:? "InitializationVector")
-            Prelude.<*> (x Core..:? "KeyMd5")
+            Prelude.<$> (x Data..:? "KeyStoragePolicy")
+            Prelude.<*> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "Method")
+            Prelude.<*> (x Data..:? "LicenseAcquisitionUrl")
+            Prelude.<*> (x Data..:? "InitializationVector")
+            Prelude.<*> (x Data..:? "KeyMd5")
       )
 
 instance Prelude.Hashable HlsContentProtection where
@@ -221,18 +222,18 @@ instance Prelude.NFData HlsContentProtection where
       `Prelude.seq` Prelude.rnf initializationVector
       `Prelude.seq` Prelude.rnf keyMd5
 
-instance Core.ToJSON HlsContentProtection where
+instance Data.ToJSON HlsContentProtection where
   toJSON HlsContentProtection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KeyStoragePolicy" Core..=)
+          [ ("KeyStoragePolicy" Data..=)
               Prelude.<$> keyStoragePolicy,
-            ("Key" Core..=) Prelude.<$> key,
-            ("Method" Core..=) Prelude.<$> method,
-            ("LicenseAcquisitionUrl" Core..=)
+            ("Key" Data..=) Prelude.<$> key,
+            ("Method" Data..=) Prelude.<$> method,
+            ("LicenseAcquisitionUrl" Data..=)
               Prelude.<$> licenseAcquisitionUrl,
-            ("InitializationVector" Core..=)
+            ("InitializationVector" Data..=)
               Prelude.<$> initializationVector,
-            ("KeyMd5" Core..=) Prelude.<$> keyMd5
+            ("KeyMd5" Data..=) Prelude.<$> keyMd5
           ]
       )

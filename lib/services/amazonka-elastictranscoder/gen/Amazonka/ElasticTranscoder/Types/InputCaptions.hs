@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.InputCaptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types.CaptionSource
 import qualified Amazonka.Prelude as Prelude
 
@@ -122,14 +123,14 @@ inputCaptions_captionSources = Lens.lens (\InputCaptions' {captionSources} -> ca
 inputCaptions_mergePolicy :: Lens.Lens' InputCaptions (Prelude.Maybe Prelude.Text)
 inputCaptions_mergePolicy = Lens.lens (\InputCaptions' {mergePolicy} -> mergePolicy) (\s@InputCaptions' {} a -> s {mergePolicy = a} :: InputCaptions)
 
-instance Core.FromJSON InputCaptions where
+instance Data.FromJSON InputCaptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputCaptions"
       ( \x ->
           InputCaptions'
-            Prelude.<$> (x Core..:? "CaptionSources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MergePolicy")
+            Prelude.<$> (x Data..:? "CaptionSources" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MergePolicy")
       )
 
 instance Prelude.Hashable InputCaptions where
@@ -142,12 +143,12 @@ instance Prelude.NFData InputCaptions where
     Prelude.rnf captionSources
       `Prelude.seq` Prelude.rnf mergePolicy
 
-instance Core.ToJSON InputCaptions where
+instance Data.ToJSON InputCaptions where
   toJSON InputCaptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CaptionSources" Core..=)
+          [ ("CaptionSources" Data..=)
               Prelude.<$> captionSources,
-            ("MergePolicy" Core..=) Prelude.<$> mergePolicy
+            ("MergePolicy" Data..=) Prelude.<$> mergePolicy
           ]
       )

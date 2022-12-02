@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.Thumbnails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Thumbnails for videos.
@@ -304,20 +305,20 @@ thumbnails_maxHeight = Lens.lens (\Thumbnails' {maxHeight} -> maxHeight) (\s@Thu
 thumbnails_maxWidth :: Lens.Lens' Thumbnails (Prelude.Maybe Prelude.Text)
 thumbnails_maxWidth = Lens.lens (\Thumbnails' {maxWidth} -> maxWidth) (\s@Thumbnails' {} a -> s {maxWidth = a} :: Thumbnails)
 
-instance Core.FromJSON Thumbnails where
+instance Data.FromJSON Thumbnails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Thumbnails"
       ( \x ->
           Thumbnails'
-            Prelude.<$> (x Core..:? "SizingPolicy")
-            Prelude.<*> (x Core..:? "PaddingPolicy")
-            Prelude.<*> (x Core..:? "Interval")
-            Prelude.<*> (x Core..:? "AspectRatio")
-            Prelude.<*> (x Core..:? "Format")
-            Prelude.<*> (x Core..:? "Resolution")
-            Prelude.<*> (x Core..:? "MaxHeight")
-            Prelude.<*> (x Core..:? "MaxWidth")
+            Prelude.<$> (x Data..:? "SizingPolicy")
+            Prelude.<*> (x Data..:? "PaddingPolicy")
+            Prelude.<*> (x Data..:? "Interval")
+            Prelude.<*> (x Data..:? "AspectRatio")
+            Prelude.<*> (x Data..:? "Format")
+            Prelude.<*> (x Data..:? "Resolution")
+            Prelude.<*> (x Data..:? "MaxHeight")
+            Prelude.<*> (x Data..:? "MaxWidth")
       )
 
 instance Prelude.Hashable Thumbnails where
@@ -342,17 +343,17 @@ instance Prelude.NFData Thumbnails where
       `Prelude.seq` Prelude.rnf maxHeight
       `Prelude.seq` Prelude.rnf maxWidth
 
-instance Core.ToJSON Thumbnails where
+instance Data.ToJSON Thumbnails where
   toJSON Thumbnails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SizingPolicy" Core..=) Prelude.<$> sizingPolicy,
-            ("PaddingPolicy" Core..=) Prelude.<$> paddingPolicy,
-            ("Interval" Core..=) Prelude.<$> interval,
-            ("AspectRatio" Core..=) Prelude.<$> aspectRatio,
-            ("Format" Core..=) Prelude.<$> format,
-            ("Resolution" Core..=) Prelude.<$> resolution,
-            ("MaxHeight" Core..=) Prelude.<$> maxHeight,
-            ("MaxWidth" Core..=) Prelude.<$> maxWidth
+          [ ("SizingPolicy" Data..=) Prelude.<$> sizingPolicy,
+            ("PaddingPolicy" Data..=) Prelude.<$> paddingPolicy,
+            ("Interval" Data..=) Prelude.<$> interval,
+            ("AspectRatio" Data..=) Prelude.<$> aspectRatio,
+            ("Format" Data..=) Prelude.<$> format,
+            ("Resolution" Data..=) Prelude.<$> resolution,
+            ("MaxHeight" Data..=) Prelude.<$> maxHeight,
+            ("MaxWidth" Data..=) Prelude.<$> maxWidth
           ]
       )

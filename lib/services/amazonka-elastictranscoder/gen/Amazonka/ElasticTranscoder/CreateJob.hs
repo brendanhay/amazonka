@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -222,7 +223,7 @@ instance Core.AWSRequest CreateJob where
     Response.receiveJSON
       ( \s h x ->
           CreateJobResponse'
-            Prelude.<$> (x Core..?> "Job")
+            Prelude.<$> (x Data..?> "Job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -248,29 +249,29 @@ instance Prelude.NFData CreateJob where
       `Prelude.seq` Prelude.rnf userMetadata
       `Prelude.seq` Prelude.rnf pipelineId
 
-instance Core.ToHeaders CreateJob where
+instance Data.ToHeaders CreateJob where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateJob where
+instance Data.ToJSON CreateJob where
   toJSON CreateJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Input" Core..=) Prelude.<$> input,
-            ("Outputs" Core..=) Prelude.<$> outputs,
-            ("Output" Core..=) Prelude.<$> output,
-            ("Playlists" Core..=) Prelude.<$> playlists,
-            ("OutputKeyPrefix" Core..=)
+          [ ("Input" Data..=) Prelude.<$> input,
+            ("Outputs" Data..=) Prelude.<$> outputs,
+            ("Output" Data..=) Prelude.<$> output,
+            ("Playlists" Data..=) Prelude.<$> playlists,
+            ("OutputKeyPrefix" Data..=)
               Prelude.<$> outputKeyPrefix,
-            ("Inputs" Core..=) Prelude.<$> inputs,
-            ("UserMetadata" Core..=) Prelude.<$> userMetadata,
-            Prelude.Just ("PipelineId" Core..= pipelineId)
+            ("Inputs" Data..=) Prelude.<$> inputs,
+            ("UserMetadata" Data..=) Prelude.<$> userMetadata,
+            Prelude.Just ("PipelineId" Data..= pipelineId)
           ]
       )
 
-instance Core.ToPath CreateJob where
+instance Data.ToPath CreateJob where
   toPath = Prelude.const "/2012-09-25/jobs"
 
-instance Core.ToQuery CreateJob where
+instance Data.ToQuery CreateJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The CreateJobResponse structure.

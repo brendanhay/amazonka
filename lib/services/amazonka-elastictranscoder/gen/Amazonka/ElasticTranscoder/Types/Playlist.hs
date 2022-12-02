@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.Playlist where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types.HlsContentProtection
 import Amazonka.ElasticTranscoder.Types.PlayReadyDrm
 import qualified Amazonka.Prelude as Prelude
@@ -266,19 +267,19 @@ playlist_status = Lens.lens (\Playlist' {status} -> status) (\s@Playlist' {} a -
 playlist_outputKeys :: Lens.Lens' Playlist (Prelude.Maybe [Prelude.Text])
 playlist_outputKeys = Lens.lens (\Playlist' {outputKeys} -> outputKeys) (\s@Playlist' {} a -> s {outputKeys = a} :: Playlist) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Playlist where
+instance Data.FromJSON Playlist where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Playlist"
       ( \x ->
           Playlist'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "HlsContentProtection")
-            Prelude.<*> (x Core..:? "PlayReadyDrm")
-            Prelude.<*> (x Core..:? "Format")
-            Prelude.<*> (x Core..:? "StatusDetail")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "OutputKeys" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "HlsContentProtection")
+            Prelude.<*> (x Data..:? "PlayReadyDrm")
+            Prelude.<*> (x Data..:? "Format")
+            Prelude.<*> (x Data..:? "StatusDetail")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "OutputKeys" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Playlist where

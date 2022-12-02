@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.Captions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types.CaptionFormat
 import Amazonka.ElasticTranscoder.Types.CaptionSource
 import qualified Amazonka.Prelude as Prelude
@@ -135,16 +136,16 @@ captions_mergePolicy = Lens.lens (\Captions' {mergePolicy} -> mergePolicy) (\s@C
 captions_captionFormats :: Lens.Lens' Captions (Prelude.Maybe [CaptionFormat])
 captions_captionFormats = Lens.lens (\Captions' {captionFormats} -> captionFormats) (\s@Captions' {} a -> s {captionFormats = a} :: Captions) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Captions where
+instance Data.FromJSON Captions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Captions"
       ( \x ->
           Captions'
-            Prelude.<$> (x Core..:? "CaptionSources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MergePolicy")
-            Prelude.<*> ( x Core..:? "CaptionFormats"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "CaptionSources" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MergePolicy")
+            Prelude.<*> ( x Data..:? "CaptionFormats"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -160,14 +161,14 @@ instance Prelude.NFData Captions where
       `Prelude.seq` Prelude.rnf mergePolicy
       `Prelude.seq` Prelude.rnf captionFormats
 
-instance Core.ToJSON Captions where
+instance Data.ToJSON Captions where
   toJSON Captions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CaptionSources" Core..=)
+          [ ("CaptionSources" Data..=)
               Prelude.<$> captionSources,
-            ("MergePolicy" Core..=) Prelude.<$> mergePolicy,
-            ("CaptionFormats" Core..=)
+            ("MergePolicy" Data..=) Prelude.<$> mergePolicy,
+            ("CaptionFormats" Data..=)
               Prelude.<$> captionFormats
           ]
       )

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,15 +98,15 @@ instance Prelude.Hashable DeletePipeline where
 instance Prelude.NFData DeletePipeline where
   rnf DeletePipeline' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DeletePipeline where
+instance Data.ToHeaders DeletePipeline where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeletePipeline where
+instance Data.ToPath DeletePipeline where
   toPath DeletePipeline' {..} =
     Prelude.mconcat
-      ["/2012-09-25/pipelines/", Core.toBS id]
+      ["/2012-09-25/pipelines/", Data.toBS id]
 
-instance Core.ToQuery DeletePipeline where
+instance Data.ToQuery DeletePipeline where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The @DeletePipelineResponse@ structure.

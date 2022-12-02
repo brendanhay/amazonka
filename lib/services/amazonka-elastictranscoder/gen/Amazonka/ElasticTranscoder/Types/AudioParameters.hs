@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.AudioParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types.AudioCodecOptions
 import qualified Amazonka.Prelude as Prelude
 
@@ -555,18 +556,18 @@ audioParameters_sampleRate = Lens.lens (\AudioParameters' {sampleRate} -> sample
 audioParameters_codec :: Lens.Lens' AudioParameters (Prelude.Maybe Prelude.Text)
 audioParameters_codec = Lens.lens (\AudioParameters' {codec} -> codec) (\s@AudioParameters' {} a -> s {codec = a} :: AudioParameters)
 
-instance Core.FromJSON AudioParameters where
+instance Data.FromJSON AudioParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioParameters"
       ( \x ->
           AudioParameters'
-            Prelude.<$> (x Core..:? "AudioPackingMode")
-            Prelude.<*> (x Core..:? "CodecOptions")
-            Prelude.<*> (x Core..:? "Channels")
-            Prelude.<*> (x Core..:? "BitRate")
-            Prelude.<*> (x Core..:? "SampleRate")
-            Prelude.<*> (x Core..:? "Codec")
+            Prelude.<$> (x Data..:? "AudioPackingMode")
+            Prelude.<*> (x Data..:? "CodecOptions")
+            Prelude.<*> (x Data..:? "Channels")
+            Prelude.<*> (x Data..:? "BitRate")
+            Prelude.<*> (x Data..:? "SampleRate")
+            Prelude.<*> (x Data..:? "Codec")
       )
 
 instance Prelude.Hashable AudioParameters where
@@ -587,16 +588,16 @@ instance Prelude.NFData AudioParameters where
       `Prelude.seq` Prelude.rnf sampleRate
       `Prelude.seq` Prelude.rnf codec
 
-instance Core.ToJSON AudioParameters where
+instance Data.ToJSON AudioParameters where
   toJSON AudioParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AudioPackingMode" Core..=)
+          [ ("AudioPackingMode" Data..=)
               Prelude.<$> audioPackingMode,
-            ("CodecOptions" Core..=) Prelude.<$> codecOptions,
-            ("Channels" Core..=) Prelude.<$> channels,
-            ("BitRate" Core..=) Prelude.<$> bitRate,
-            ("SampleRate" Core..=) Prelude.<$> sampleRate,
-            ("Codec" Core..=) Prelude.<$> codec
+            ("CodecOptions" Data..=) Prelude.<$> codecOptions,
+            ("Channels" Data..=) Prelude.<$> channels,
+            ("BitRate" Data..=) Prelude.<$> bitRate,
+            ("SampleRate" Data..=) Prelude.<$> sampleRate,
+            ("Codec" Data..=) Prelude.<$> codec
           ]
       )

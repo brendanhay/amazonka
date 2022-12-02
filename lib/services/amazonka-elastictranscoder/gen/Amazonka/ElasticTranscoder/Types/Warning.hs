@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.Warning where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Elastic Transcoder returns a warning if the resources used by your
@@ -75,14 +76,14 @@ warning_message = Lens.lens (\Warning' {message} -> message) (\s@Warning' {} a -
 warning_code :: Lens.Lens' Warning (Prelude.Maybe Prelude.Text)
 warning_code = Lens.lens (\Warning' {code} -> code) (\s@Warning' {} a -> s {code = a} :: Warning)
 
-instance Core.FromJSON Warning where
+instance Data.FromJSON Warning where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Warning"
       ( \x ->
           Warning'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Code")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Code")
       )
 
 instance Prelude.Hashable Warning where

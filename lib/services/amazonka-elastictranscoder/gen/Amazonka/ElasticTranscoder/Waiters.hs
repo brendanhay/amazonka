@@ -18,6 +18,7 @@ module Amazonka.ElasticTranscoder.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Lens
 import Amazonka.ElasticTranscoder.ReadJob
 import Amazonka.ElasticTranscoder.Types
@@ -37,7 +38,7 @@ newJobComplete =
             ( readJobResponse_job
                 Prelude.. job_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Canceled"
@@ -45,7 +46,7 @@ newJobComplete =
             ( readJobResponse_job
                 Prelude.. job_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Error"
@@ -53,7 +54,7 @@ newJobComplete =
             ( readJobResponse_job
                 Prelude.. job_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

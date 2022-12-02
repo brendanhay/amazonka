@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -172,7 +173,7 @@ instance Core.AWSRequest UpdatePipelineNotifications where
     Response.receiveJSON
       ( \s h x ->
           UpdatePipelineNotificationsResponse'
-            Prelude.<$> (x Core..?> "Pipeline")
+            Prelude.<$> (x Data..?> "Pipeline")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -186,27 +187,27 @@ instance Prelude.NFData UpdatePipelineNotifications where
     Prelude.rnf id
       `Prelude.seq` Prelude.rnf notifications
 
-instance Core.ToHeaders UpdatePipelineNotifications where
+instance Data.ToHeaders UpdatePipelineNotifications where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdatePipelineNotifications where
+instance Data.ToJSON UpdatePipelineNotifications where
   toJSON UpdatePipelineNotifications' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("Notifications" Core..= notifications)
+              ("Notifications" Data..= notifications)
           ]
       )
 
-instance Core.ToPath UpdatePipelineNotifications where
+instance Data.ToPath UpdatePipelineNotifications where
   toPath UpdatePipelineNotifications' {..} =
     Prelude.mconcat
       [ "/2012-09-25/pipelines/",
-        Core.toBS id,
+        Data.toBS id,
         "/notifications"
       ]
 
-instance Core.ToQuery UpdatePipelineNotifications where
+instance Data.ToQuery UpdatePipelineNotifications where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The @UpdatePipelineNotificationsResponse@ structure.

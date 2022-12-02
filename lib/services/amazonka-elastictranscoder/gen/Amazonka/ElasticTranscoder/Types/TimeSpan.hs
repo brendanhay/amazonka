@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.TimeSpan where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings that determine when a clip begins and how long it lasts.
@@ -91,14 +92,14 @@ timeSpan_duration = Lens.lens (\TimeSpan' {duration} -> duration) (\s@TimeSpan' 
 timeSpan_startTime :: Lens.Lens' TimeSpan (Prelude.Maybe Prelude.Text)
 timeSpan_startTime = Lens.lens (\TimeSpan' {startTime} -> startTime) (\s@TimeSpan' {} a -> s {startTime = a} :: TimeSpan)
 
-instance Core.FromJSON TimeSpan where
+instance Data.FromJSON TimeSpan where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimeSpan"
       ( \x ->
           TimeSpan'
-            Prelude.<$> (x Core..:? "Duration")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<$> (x Data..:? "Duration")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable TimeSpan where
@@ -111,11 +112,11 @@ instance Prelude.NFData TimeSpan where
     Prelude.rnf duration
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToJSON TimeSpan where
+instance Data.ToJSON TimeSpan where
   toJSON TimeSpan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Duration" Core..=) Prelude.<$> duration,
-            ("StartTime" Core..=) Prelude.<$> startTime
+          [ ("Duration" Data..=) Prelude.<$> duration,
+            ("StartTime" Data..=) Prelude.<$> startTime
           ]
       )

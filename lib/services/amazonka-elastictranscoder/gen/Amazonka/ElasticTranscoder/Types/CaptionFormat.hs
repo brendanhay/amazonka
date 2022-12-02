@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.CaptionFormat where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types.Encryption
 import qualified Amazonka.Prelude as Prelude
 
@@ -201,15 +202,15 @@ captionFormat_pattern = Lens.lens (\CaptionFormat' {pattern'} -> pattern') (\s@C
 captionFormat_encryption :: Lens.Lens' CaptionFormat (Prelude.Maybe Encryption)
 captionFormat_encryption = Lens.lens (\CaptionFormat' {encryption} -> encryption) (\s@CaptionFormat' {} a -> s {encryption = a} :: CaptionFormat)
 
-instance Core.FromJSON CaptionFormat where
+instance Data.FromJSON CaptionFormat where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CaptionFormat"
       ( \x ->
           CaptionFormat'
-            Prelude.<$> (x Core..:? "Format")
-            Prelude.<*> (x Core..:? "Pattern")
-            Prelude.<*> (x Core..:? "Encryption")
+            Prelude.<$> (x Data..:? "Format")
+            Prelude.<*> (x Data..:? "Pattern")
+            Prelude.<*> (x Data..:? "Encryption")
       )
 
 instance Prelude.Hashable CaptionFormat where
@@ -224,12 +225,12 @@ instance Prelude.NFData CaptionFormat where
       `Prelude.seq` Prelude.rnf pattern'
       `Prelude.seq` Prelude.rnf encryption
 
-instance Core.ToJSON CaptionFormat where
+instance Data.ToJSON CaptionFormat where
   toJSON CaptionFormat' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Format" Core..=) Prelude.<$> format,
-            ("Pattern" Core..=) Prelude.<$> pattern',
-            ("Encryption" Core..=) Prelude.<$> encryption
+          [ ("Format" Data..=) Prelude.<$> format,
+            ("Pattern" Data..=) Prelude.<$> pattern',
+            ("Encryption" Data..=) Prelude.<$> encryption
           ]
       )

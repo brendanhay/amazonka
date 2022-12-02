@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.RemoteAccessSession where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.BillingMethod
 import Amazonka.DeviceFarm.Types.Device
 import Amazonka.DeviceFarm.Types.DeviceMinutes
@@ -45,7 +46,7 @@ data RemoteAccessSession = RemoteAccessSession'
     -- | The name of the remote access session.
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time the remote access session was started.
-    started :: Prelude.Maybe Core.POSIX,
+    started :: Prelude.Maybe Data.POSIX,
     -- | Unique identifier of your client for the remote access session. Only
     -- returned if remote debugging is enabled for the remote access session.
     --
@@ -63,7 +64,7 @@ data RemoteAccessSession = RemoteAccessSession'
     -- | The VPC security groups and subnets that are attached to a project.
     vpcConfig :: Prelude.Maybe VpcConfig,
     -- | The date and time the remote access session was created.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | This flag is set to @true@ if remote recording is enabled for the remote
     -- access session.
     remoteRecordEnabled :: Prelude.Maybe Prelude.Bool,
@@ -134,7 +135,7 @@ data RemoteAccessSession = RemoteAccessSession'
     --     this mode.
     interactionMode :: Prelude.Maybe InteractionMode,
     -- | The date and time the remote access session was stopped.
-    stopped :: Prelude.Maybe Core.POSIX,
+    stopped :: Prelude.Maybe Data.POSIX,
     -- | IP address of the EC2 host where you need to connect to remotely debug
     -- devices. Only returned if remote debugging is enabled for the remote
     -- access session.
@@ -320,7 +321,7 @@ remoteAccessSession_name = Lens.lens (\RemoteAccessSession' {name} -> name) (\s@
 
 -- | The date and time the remote access session was started.
 remoteAccessSession_started :: Lens.Lens' RemoteAccessSession (Prelude.Maybe Prelude.UTCTime)
-remoteAccessSession_started = Lens.lens (\RemoteAccessSession' {started} -> started) (\s@RemoteAccessSession' {} a -> s {started = a} :: RemoteAccessSession) Prelude.. Lens.mapping Core._Time
+remoteAccessSession_started = Lens.lens (\RemoteAccessSession' {started} -> started) (\s@RemoteAccessSession' {} a -> s {started = a} :: RemoteAccessSession) Prelude.. Lens.mapping Data._Time
 
 -- | Unique identifier of your client for the remote access session. Only
 -- returned if remote debugging is enabled for the remote access session.
@@ -348,7 +349,7 @@ remoteAccessSession_vpcConfig = Lens.lens (\RemoteAccessSession' {vpcConfig} -> 
 
 -- | The date and time the remote access session was created.
 remoteAccessSession_created :: Lens.Lens' RemoteAccessSession (Prelude.Maybe Prelude.UTCTime)
-remoteAccessSession_created = Lens.lens (\RemoteAccessSession' {created} -> created) (\s@RemoteAccessSession' {} a -> s {created = a} :: RemoteAccessSession) Prelude.. Lens.mapping Core._Time
+remoteAccessSession_created = Lens.lens (\RemoteAccessSession' {created} -> created) (\s@RemoteAccessSession' {} a -> s {created = a} :: RemoteAccessSession) Prelude.. Lens.mapping Data._Time
 
 -- | This flag is set to @true@ if remote recording is enabled for the remote
 -- access session.
@@ -441,7 +442,7 @@ remoteAccessSession_interactionMode = Lens.lens (\RemoteAccessSession' {interact
 
 -- | The date and time the remote access session was stopped.
 remoteAccessSession_stopped :: Lens.Lens' RemoteAccessSession (Prelude.Maybe Prelude.UTCTime)
-remoteAccessSession_stopped = Lens.lens (\RemoteAccessSession' {stopped} -> stopped) (\s@RemoteAccessSession' {} a -> s {stopped = a} :: RemoteAccessSession) Prelude.. Lens.mapping Core._Time
+remoteAccessSession_stopped = Lens.lens (\RemoteAccessSession' {stopped} -> stopped) (\s@RemoteAccessSession' {} a -> s {stopped = a} :: RemoteAccessSession) Prelude.. Lens.mapping Data._Time
 
 -- | IP address of the EC2 host where you need to connect to remotely debug
 -- devices. Only returned if remote debugging is enabled for the remote
@@ -461,34 +462,34 @@ remoteAccessSession_hostAddress = Lens.lens (\RemoteAccessSession' {hostAddress}
 remoteAccessSession_skipAppResign :: Lens.Lens' RemoteAccessSession (Prelude.Maybe Prelude.Bool)
 remoteAccessSession_skipAppResign = Lens.lens (\RemoteAccessSession' {skipAppResign} -> skipAppResign) (\s@RemoteAccessSession' {} a -> s {skipAppResign = a} :: RemoteAccessSession)
 
-instance Core.FromJSON RemoteAccessSession where
+instance Data.FromJSON RemoteAccessSession where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RemoteAccessSession"
       ( \x ->
           RemoteAccessSession'
-            Prelude.<$> (x Core..:? "deviceUdid")
-            Prelude.<*> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "started")
-            Prelude.<*> (x Core..:? "clientId")
-            Prelude.<*> (x Core..:? "remoteDebugEnabled")
-            Prelude.<*> (x Core..:? "remoteRecordAppArn")
-            Prelude.<*> (x Core..:? "vpcConfig")
-            Prelude.<*> (x Core..:? "created")
-            Prelude.<*> (x Core..:? "remoteRecordEnabled")
-            Prelude.<*> (x Core..:? "deviceMinutes")
-            Prelude.<*> (x Core..:? "device")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "billingMethod")
-            Prelude.<*> (x Core..:? "instanceArn")
-            Prelude.<*> (x Core..:? "result")
-            Prelude.<*> (x Core..:? "endpoint")
-            Prelude.<*> (x Core..:? "interactionMode")
-            Prelude.<*> (x Core..:? "stopped")
-            Prelude.<*> (x Core..:? "hostAddress")
-            Prelude.<*> (x Core..:? "skipAppResign")
+            Prelude.<$> (x Data..:? "deviceUdid")
+            Prelude.<*> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "started")
+            Prelude.<*> (x Data..:? "clientId")
+            Prelude.<*> (x Data..:? "remoteDebugEnabled")
+            Prelude.<*> (x Data..:? "remoteRecordAppArn")
+            Prelude.<*> (x Data..:? "vpcConfig")
+            Prelude.<*> (x Data..:? "created")
+            Prelude.<*> (x Data..:? "remoteRecordEnabled")
+            Prelude.<*> (x Data..:? "deviceMinutes")
+            Prelude.<*> (x Data..:? "device")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "billingMethod")
+            Prelude.<*> (x Data..:? "instanceArn")
+            Prelude.<*> (x Data..:? "result")
+            Prelude.<*> (x Data..:? "endpoint")
+            Prelude.<*> (x Data..:? "interactionMode")
+            Prelude.<*> (x Data..:? "stopped")
+            Prelude.<*> (x Data..:? "hostAddress")
+            Prelude.<*> (x Data..:? "skipAppResign")
       )
 
 instance Prelude.Hashable RemoteAccessSession where

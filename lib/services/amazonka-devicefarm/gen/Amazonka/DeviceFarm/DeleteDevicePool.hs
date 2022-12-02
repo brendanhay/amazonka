@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,32 +99,32 @@ instance Prelude.Hashable DeleteDevicePool where
 instance Prelude.NFData DeleteDevicePool where
   rnf DeleteDevicePool' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders DeleteDevicePool where
+instance Data.ToHeaders DeleteDevicePool where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.DeleteDevicePool" ::
+              Data.=# ( "DeviceFarm_20150623.DeleteDevicePool" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteDevicePool where
+instance Data.ToJSON DeleteDevicePool where
   toJSON DeleteDevicePool' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arn" Core..= arn)]
+          [Prelude.Just ("arn" Data..= arn)]
       )
 
-instance Core.ToPath DeleteDevicePool where
+instance Data.ToPath DeleteDevicePool where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDevicePool where
+instance Data.ToQuery DeleteDevicePool where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a delete device pool request.

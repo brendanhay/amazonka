@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.NetworkProfile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.NetworkProfileType
 import qualified Amazonka.Prelude as Prelude
 
@@ -177,24 +178,24 @@ networkProfile_downlinkDelayMs = Lens.lens (\NetworkProfile' {downlinkDelayMs} -
 networkProfile_downlinkJitterMs :: Lens.Lens' NetworkProfile (Prelude.Maybe Prelude.Integer)
 networkProfile_downlinkJitterMs = Lens.lens (\NetworkProfile' {downlinkJitterMs} -> downlinkJitterMs) (\s@NetworkProfile' {} a -> s {downlinkJitterMs = a} :: NetworkProfile)
 
-instance Core.FromJSON NetworkProfile where
+instance Data.FromJSON NetworkProfile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkProfile"
       ( \x ->
           NetworkProfile'
-            Prelude.<$> (x Core..:? "uplinkDelayMs")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "uplinkJitterMs")
-            Prelude.<*> (x Core..:? "downlinkBandwidthBits")
-            Prelude.<*> (x Core..:? "uplinkLossPercent")
-            Prelude.<*> (x Core..:? "uplinkBandwidthBits")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "downlinkLossPercent")
-            Prelude.<*> (x Core..:? "downlinkDelayMs")
-            Prelude.<*> (x Core..:? "downlinkJitterMs")
+            Prelude.<$> (x Data..:? "uplinkDelayMs")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "uplinkJitterMs")
+            Prelude.<*> (x Data..:? "downlinkBandwidthBits")
+            Prelude.<*> (x Data..:? "uplinkLossPercent")
+            Prelude.<*> (x Data..:? "uplinkBandwidthBits")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "downlinkLossPercent")
+            Prelude.<*> (x Data..:? "downlinkDelayMs")
+            Prelude.<*> (x Data..:? "downlinkJitterMs")
       )
 
 instance Prelude.Hashable NetworkProfile where

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,8 +130,8 @@ instance Core.AWSRequest ListVPCEConfigurations where
     Response.receiveJSON
       ( \s h x ->
           ListVPCEConfigurationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "vpceConfigurations"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "vpceConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -146,34 +147,34 @@ instance Prelude.NFData ListVPCEConfigurations where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListVPCEConfigurations where
+instance Data.ToHeaders ListVPCEConfigurations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.ListVPCEConfigurations" ::
+              Data.=# ( "DeviceFarm_20150623.ListVPCEConfigurations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListVPCEConfigurations where
+instance Data.ToJSON ListVPCEConfigurations where
   toJSON ListVPCEConfigurations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListVPCEConfigurations where
+instance Data.ToPath ListVPCEConfigurations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListVPCEConfigurations where
+instance Data.ToQuery ListVPCEConfigurations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListVPCEConfigurationsResponse' smart constructor.

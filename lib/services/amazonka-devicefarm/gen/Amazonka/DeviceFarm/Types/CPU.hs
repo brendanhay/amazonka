@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.CPU where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the amount of CPU that an app is using on a physical device.
@@ -74,15 +75,15 @@ cpu_clock = Lens.lens (\CPU' {clock} -> clock) (\s@CPU' {} a -> s {clock = a} ::
 cpu_architecture :: Lens.Lens' CPU (Prelude.Maybe Prelude.Text)
 cpu_architecture = Lens.lens (\CPU' {architecture} -> architecture) (\s@CPU' {} a -> s {architecture = a} :: CPU)
 
-instance Core.FromJSON CPU where
+instance Data.FromJSON CPU where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CPU"
       ( \x ->
           CPU'
-            Prelude.<$> (x Core..:? "frequency")
-            Prelude.<*> (x Core..:? "clock")
-            Prelude.<*> (x Core..:? "architecture")
+            Prelude.<$> (x Data..:? "frequency")
+            Prelude.<*> (x Data..:? "clock")
+            Prelude.<*> (x Data..:? "architecture")
       )
 
 instance Prelude.Hashable CPU where

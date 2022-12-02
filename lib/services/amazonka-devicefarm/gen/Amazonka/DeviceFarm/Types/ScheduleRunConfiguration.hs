@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.ScheduleRunConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.BillingMethod
 import Amazonka.DeviceFarm.Types.CustomerArtifactPaths
 import Amazonka.DeviceFarm.Types.Location
@@ -178,22 +179,22 @@ instance Prelude.NFData ScheduleRunConfiguration where
       `Prelude.seq` Prelude.rnf auxiliaryApps
       `Prelude.seq` Prelude.rnf networkProfileArn
 
-instance Core.ToJSON ScheduleRunConfiguration where
+instance Data.ToJSON ScheduleRunConfiguration where
   toJSON ScheduleRunConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("customerArtifactPaths" Core..=)
+          [ ("customerArtifactPaths" Data..=)
               Prelude.<$> customerArtifactPaths,
-            ("vpceConfigurationArns" Core..=)
+            ("vpceConfigurationArns" Data..=)
               Prelude.<$> vpceConfigurationArns,
-            ("locale" Core..=) Prelude.<$> locale,
-            ("radios" Core..=) Prelude.<$> radios,
-            ("billingMethod" Core..=) Prelude.<$> billingMethod,
-            ("location" Core..=) Prelude.<$> location,
-            ("extraDataPackageArn" Core..=)
+            ("locale" Data..=) Prelude.<$> locale,
+            ("radios" Data..=) Prelude.<$> radios,
+            ("billingMethod" Data..=) Prelude.<$> billingMethod,
+            ("location" Data..=) Prelude.<$> location,
+            ("extraDataPackageArn" Data..=)
               Prelude.<$> extraDataPackageArn,
-            ("auxiliaryApps" Core..=) Prelude.<$> auxiliaryApps,
-            ("networkProfileArn" Core..=)
+            ("auxiliaryApps" Data..=) Prelude.<$> auxiliaryApps,
+            ("networkProfileArn" Data..=)
               Prelude.<$> networkProfileArn
           ]
       )

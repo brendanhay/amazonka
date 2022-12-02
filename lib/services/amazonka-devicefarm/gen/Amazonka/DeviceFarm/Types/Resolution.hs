@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.Resolution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the screen resolution of a device in height and width,
@@ -62,14 +63,14 @@ resolution_width = Lens.lens (\Resolution' {width} -> width) (\s@Resolution' {} 
 resolution_height :: Lens.Lens' Resolution (Prelude.Maybe Prelude.Int)
 resolution_height = Lens.lens (\Resolution' {height} -> height) (\s@Resolution' {} a -> s {height = a} :: Resolution)
 
-instance Core.FromJSON Resolution where
+instance Data.FromJSON Resolution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Resolution"
       ( \x ->
           Resolution'
-            Prelude.<$> (x Core..:? "width")
-            Prelude.<*> (x Core..:? "height")
+            Prelude.<$> (x Data..:? "width")
+            Prelude.<*> (x Data..:? "height")
       )
 
 instance Prelude.Hashable Resolution where

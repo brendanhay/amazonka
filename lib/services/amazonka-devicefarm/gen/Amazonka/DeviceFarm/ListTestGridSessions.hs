@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -63,13 +64,13 @@ data ListTestGridSessions = ListTestGridSessions'
     -- | Return only sessions in this state.
     status :: Prelude.Maybe TestGridSessionStatus,
     -- | Return only sessions created before this time.
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | Return only sessions that ended before this time.
-    endTimeBefore :: Prelude.Maybe Core.POSIX,
+    endTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | Return only sessions that ended after this time.
-    endTimeAfter :: Prelude.Maybe Core.POSIX,
+    endTimeAfter :: Prelude.Maybe Data.POSIX,
     -- | Return only sessions created after this time.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX,
+    creationTimeAfter :: Prelude.Maybe Data.POSIX,
     -- | ARN of a TestGridProject.
     projectArn :: Prelude.Text
   }
@@ -128,19 +129,19 @@ listTestGridSessions_status = Lens.lens (\ListTestGridSessions' {status} -> stat
 
 -- | Return only sessions created before this time.
 listTestGridSessions_creationTimeBefore :: Lens.Lens' ListTestGridSessions (Prelude.Maybe Prelude.UTCTime)
-listTestGridSessions_creationTimeBefore = Lens.lens (\ListTestGridSessions' {creationTimeBefore} -> creationTimeBefore) (\s@ListTestGridSessions' {} a -> s {creationTimeBefore = a} :: ListTestGridSessions) Prelude.. Lens.mapping Core._Time
+listTestGridSessions_creationTimeBefore = Lens.lens (\ListTestGridSessions' {creationTimeBefore} -> creationTimeBefore) (\s@ListTestGridSessions' {} a -> s {creationTimeBefore = a} :: ListTestGridSessions) Prelude.. Lens.mapping Data._Time
 
 -- | Return only sessions that ended before this time.
 listTestGridSessions_endTimeBefore :: Lens.Lens' ListTestGridSessions (Prelude.Maybe Prelude.UTCTime)
-listTestGridSessions_endTimeBefore = Lens.lens (\ListTestGridSessions' {endTimeBefore} -> endTimeBefore) (\s@ListTestGridSessions' {} a -> s {endTimeBefore = a} :: ListTestGridSessions) Prelude.. Lens.mapping Core._Time
+listTestGridSessions_endTimeBefore = Lens.lens (\ListTestGridSessions' {endTimeBefore} -> endTimeBefore) (\s@ListTestGridSessions' {} a -> s {endTimeBefore = a} :: ListTestGridSessions) Prelude.. Lens.mapping Data._Time
 
 -- | Return only sessions that ended after this time.
 listTestGridSessions_endTimeAfter :: Lens.Lens' ListTestGridSessions (Prelude.Maybe Prelude.UTCTime)
-listTestGridSessions_endTimeAfter = Lens.lens (\ListTestGridSessions' {endTimeAfter} -> endTimeAfter) (\s@ListTestGridSessions' {} a -> s {endTimeAfter = a} :: ListTestGridSessions) Prelude.. Lens.mapping Core._Time
+listTestGridSessions_endTimeAfter = Lens.lens (\ListTestGridSessions' {endTimeAfter} -> endTimeAfter) (\s@ListTestGridSessions' {} a -> s {endTimeAfter = a} :: ListTestGridSessions) Prelude.. Lens.mapping Data._Time
 
 -- | Return only sessions created after this time.
 listTestGridSessions_creationTimeAfter :: Lens.Lens' ListTestGridSessions (Prelude.Maybe Prelude.UTCTime)
-listTestGridSessions_creationTimeAfter = Lens.lens (\ListTestGridSessions' {creationTimeAfter} -> creationTimeAfter) (\s@ListTestGridSessions' {} a -> s {creationTimeAfter = a} :: ListTestGridSessions) Prelude.. Lens.mapping Core._Time
+listTestGridSessions_creationTimeAfter = Lens.lens (\ListTestGridSessions' {creationTimeAfter} -> creationTimeAfter) (\s@ListTestGridSessions' {} a -> s {creationTimeAfter = a} :: ListTestGridSessions) Prelude.. Lens.mapping Data._Time
 
 -- | ARN of a TestGridProject.
 listTestGridSessions_projectArn :: Lens.Lens' ListTestGridSessions Prelude.Text
@@ -156,8 +157,8 @@ instance Core.AWSRequest ListTestGridSessions where
     Response.receiveJSON
       ( \s h x ->
           ListTestGridSessionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "testGridSessions"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "testGridSessions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -185,42 +186,42 @@ instance Prelude.NFData ListTestGridSessions where
       `Prelude.seq` Prelude.rnf creationTimeAfter
       `Prelude.seq` Prelude.rnf projectArn
 
-instance Core.ToHeaders ListTestGridSessions where
+instance Data.ToHeaders ListTestGridSessions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.ListTestGridSessions" ::
+              Data.=# ( "DeviceFarm_20150623.ListTestGridSessions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListTestGridSessions where
+instance Data.ToJSON ListTestGridSessions where
   toJSON ListTestGridSessions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResult" Core..=) Prelude.<$> maxResult,
-            ("status" Core..=) Prelude.<$> status,
-            ("creationTimeBefore" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResult" Data..=) Prelude.<$> maxResult,
+            ("status" Data..=) Prelude.<$> status,
+            ("creationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("endTimeBefore" Core..=) Prelude.<$> endTimeBefore,
-            ("endTimeAfter" Core..=) Prelude.<$> endTimeAfter,
-            ("creationTimeAfter" Core..=)
+            ("endTimeBefore" Data..=) Prelude.<$> endTimeBefore,
+            ("endTimeAfter" Data..=) Prelude.<$> endTimeAfter,
+            ("creationTimeAfter" Data..=)
               Prelude.<$> creationTimeAfter,
-            Prelude.Just ("projectArn" Core..= projectArn)
+            Prelude.Just ("projectArn" Data..= projectArn)
           ]
       )
 
-instance Core.ToPath ListTestGridSessions where
+instance Data.ToPath ListTestGridSessions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTestGridSessions where
+instance Data.ToQuery ListTestGridSessions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTestGridSessionsResponse' smart constructor.

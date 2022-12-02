@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,8 +134,8 @@ instance Core.AWSRequest ListRemoteAccessSessions where
     Response.receiveJSON
       ( \s h x ->
           ListRemoteAccessSessionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "remoteAccessSessions"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "remoteAccessSessions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -149,34 +150,34 @@ instance Prelude.NFData ListRemoteAccessSessions where
   rnf ListRemoteAccessSessions' {..} =
     Prelude.rnf nextToken `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToHeaders ListRemoteAccessSessions where
+instance Data.ToHeaders ListRemoteAccessSessions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.ListRemoteAccessSessions" ::
+              Data.=# ( "DeviceFarm_20150623.ListRemoteAccessSessions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListRemoteAccessSessions where
+instance Data.ToJSON ListRemoteAccessSessions where
   toJSON ListRemoteAccessSessions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            Prelude.Just ("arn" Core..= arn)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            Prelude.Just ("arn" Data..= arn)
           ]
       )
 
-instance Core.ToPath ListRemoteAccessSessions where
+instance Data.ToPath ListRemoteAccessSessions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListRemoteAccessSessions where
+instance Data.ToQuery ListRemoteAccessSessions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server after AWS Device Farm makes a

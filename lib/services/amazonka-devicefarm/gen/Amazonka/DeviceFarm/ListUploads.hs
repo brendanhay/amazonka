@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -334,8 +335,8 @@ instance Core.AWSRequest ListUploads where
     Response.receiveJSON
       ( \s h x ->
           ListUploadsResponse'
-            Prelude.<$> (x Core..?> "uploads" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "uploads" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -351,35 +352,35 @@ instance Prelude.NFData ListUploads where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToHeaders ListUploads where
+instance Data.ToHeaders ListUploads where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.ListUploads" ::
+              Data.=# ( "DeviceFarm_20150623.ListUploads" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListUploads where
+instance Data.ToJSON ListUploads where
   toJSON ListUploads' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("type" Core..=) Prelude.<$> type',
-            Prelude.Just ("arn" Core..= arn)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("type" Data..=) Prelude.<$> type',
+            Prelude.Just ("arn" Data..= arn)
           ]
       )
 
-instance Core.ToPath ListUploads where
+instance Data.ToPath ListUploads where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListUploads where
+instance Data.ToQuery ListUploads where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a list uploads request.

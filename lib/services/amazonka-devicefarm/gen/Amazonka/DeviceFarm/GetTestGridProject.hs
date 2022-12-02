@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,7 +87,7 @@ instance Core.AWSRequest GetTestGridProject where
     Response.receiveJSON
       ( \s h x ->
           GetTestGridProjectResponse'
-            Prelude.<$> (x Core..?> "testGridProject")
+            Prelude.<$> (x Data..?> "testGridProject")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -97,32 +98,32 @@ instance Prelude.Hashable GetTestGridProject where
 instance Prelude.NFData GetTestGridProject where
   rnf GetTestGridProject' {..} = Prelude.rnf projectArn
 
-instance Core.ToHeaders GetTestGridProject where
+instance Data.ToHeaders GetTestGridProject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.GetTestGridProject" ::
+              Data.=# ( "DeviceFarm_20150623.GetTestGridProject" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetTestGridProject where
+instance Data.ToJSON GetTestGridProject where
   toJSON GetTestGridProject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("projectArn" Core..= projectArn)]
+          [Prelude.Just ("projectArn" Data..= projectArn)]
       )
 
-instance Core.ToPath GetTestGridProject where
+instance Data.ToPath GetTestGridProject where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetTestGridProject where
+instance Data.ToQuery GetTestGridProject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTestGridProjectResponse' smart constructor.

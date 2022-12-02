@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.DeviceMinutes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the total (metered or unmetered) minutes used by the resource
@@ -80,15 +81,15 @@ deviceMinutes_total = Lens.lens (\DeviceMinutes' {total} -> total) (\s@DeviceMin
 deviceMinutes_metered :: Lens.Lens' DeviceMinutes (Prelude.Maybe Prelude.Double)
 deviceMinutes_metered = Lens.lens (\DeviceMinutes' {metered} -> metered) (\s@DeviceMinutes' {} a -> s {metered = a} :: DeviceMinutes)
 
-instance Core.FromJSON DeviceMinutes where
+instance Data.FromJSON DeviceMinutes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceMinutes"
       ( \x ->
           DeviceMinutes'
-            Prelude.<$> (x Core..:? "unmetered")
-            Prelude.<*> (x Core..:? "total")
-            Prelude.<*> (x Core..:? "metered")
+            Prelude.<$> (x Data..:? "unmetered")
+            Prelude.<*> (x Data..:? "total")
+            Prelude.<*> (x Data..:? "metered")
       )
 
 instance Prelude.Hashable DeviceMinutes where

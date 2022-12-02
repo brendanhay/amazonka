@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.TrialMinutes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about free trial device minutes for an AWS
@@ -62,14 +63,14 @@ trialMinutes_total = Lens.lens (\TrialMinutes' {total} -> total) (\s@TrialMinute
 trialMinutes_remaining :: Lens.Lens' TrialMinutes (Prelude.Maybe Prelude.Double)
 trialMinutes_remaining = Lens.lens (\TrialMinutes' {remaining} -> remaining) (\s@TrialMinutes' {} a -> s {remaining = a} :: TrialMinutes)
 
-instance Core.FromJSON TrialMinutes where
+instance Data.FromJSON TrialMinutes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrialMinutes"
       ( \x ->
           TrialMinutes'
-            Prelude.<$> (x Core..:? "total")
-            Prelude.<*> (x Core..:? "remaining")
+            Prelude.<$> (x Data..:? "total")
+            Prelude.<*> (x Data..:? "remaining")
       )
 
 instance Prelude.Hashable TrialMinutes where

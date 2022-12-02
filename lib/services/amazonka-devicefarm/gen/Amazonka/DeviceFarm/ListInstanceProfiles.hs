@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,8 +128,8 @@ instance Core.AWSRequest ListInstanceProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListInstanceProfilesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "instanceProfiles"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "instanceProfiles"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -144,34 +145,34 @@ instance Prelude.NFData ListInstanceProfiles where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListInstanceProfiles where
+instance Data.ToHeaders ListInstanceProfiles where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.ListInstanceProfiles" ::
+              Data.=# ( "DeviceFarm_20150623.ListInstanceProfiles" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListInstanceProfiles where
+instance Data.ToJSON ListInstanceProfiles where
   toJSON ListInstanceProfiles' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListInstanceProfiles where
+instance Data.ToPath ListInstanceProfiles where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListInstanceProfiles where
+instance Data.ToQuery ListInstanceProfiles where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListInstanceProfilesResponse' smart constructor.

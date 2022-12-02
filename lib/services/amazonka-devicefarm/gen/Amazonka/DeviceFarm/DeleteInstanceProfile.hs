@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,32 +97,32 @@ instance Prelude.Hashable DeleteInstanceProfile where
 instance Prelude.NFData DeleteInstanceProfile where
   rnf DeleteInstanceProfile' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders DeleteInstanceProfile where
+instance Data.ToHeaders DeleteInstanceProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.DeleteInstanceProfile" ::
+              Data.=# ( "DeviceFarm_20150623.DeleteInstanceProfile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteInstanceProfile where
+instance Data.ToJSON DeleteInstanceProfile where
   toJSON DeleteInstanceProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arn" Core..= arn)]
+          [Prelude.Just ("arn" Data..= arn)]
       )
 
-instance Core.ToPath DeleteInstanceProfile where
+instance Data.ToPath DeleteInstanceProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteInstanceProfile where
+instance Data.ToQuery DeleteInstanceProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteInstanceProfileResponse' smart constructor.

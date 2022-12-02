@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.UniqueProblem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.Problem
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ uniqueProblem_message = Lens.lens (\UniqueProblem' {message} -> message) (\s@Uni
 uniqueProblem_problems :: Lens.Lens' UniqueProblem (Prelude.Maybe [Problem])
 uniqueProblem_problems = Lens.lens (\UniqueProblem' {problems} -> problems) (\s@UniqueProblem' {} a -> s {problems = a} :: UniqueProblem) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON UniqueProblem where
+instance Data.FromJSON UniqueProblem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UniqueProblem"
       ( \x ->
           UniqueProblem'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "problems" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "problems" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable UniqueProblem where

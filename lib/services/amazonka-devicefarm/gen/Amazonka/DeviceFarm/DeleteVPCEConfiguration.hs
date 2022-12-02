@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,32 +97,32 @@ instance Prelude.Hashable DeleteVPCEConfiguration where
 instance Prelude.NFData DeleteVPCEConfiguration where
   rnf DeleteVPCEConfiguration' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders DeleteVPCEConfiguration where
+instance Data.ToHeaders DeleteVPCEConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.DeleteVPCEConfiguration" ::
+              Data.=# ( "DeviceFarm_20150623.DeleteVPCEConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteVPCEConfiguration where
+instance Data.ToJSON DeleteVPCEConfiguration where
   toJSON DeleteVPCEConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arn" Core..= arn)]
+          [Prelude.Just ("arn" Data..= arn)]
       )
 
-instance Core.ToPath DeleteVPCEConfiguration where
+instance Data.ToPath DeleteVPCEConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteVPCEConfiguration where
+instance Data.ToQuery DeleteVPCEConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteVPCEConfigurationResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.IncompatibilityMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.DeviceAttribute
 import qualified Amazonka.Prelude as Prelude
 
@@ -104,14 +105,14 @@ incompatibilityMessage_message = Lens.lens (\IncompatibilityMessage' {message} -
 incompatibilityMessage_type :: Lens.Lens' IncompatibilityMessage (Prelude.Maybe DeviceAttribute)
 incompatibilityMessage_type = Lens.lens (\IncompatibilityMessage' {type'} -> type') (\s@IncompatibilityMessage' {} a -> s {type' = a} :: IncompatibilityMessage)
 
-instance Core.FromJSON IncompatibilityMessage where
+instance Data.FromJSON IncompatibilityMessage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IncompatibilityMessage"
       ( \x ->
           IncompatibilityMessage'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "type")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "type")
       )
 
 instance Prelude.Hashable IncompatibilityMessage where

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,8 +95,8 @@ instance Core.AWSRequest ListTestGridProjects where
     Response.receiveJSON
       ( \s h x ->
           ListTestGridProjectsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "testGridProjects"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "testGridProjects"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -111,34 +112,34 @@ instance Prelude.NFData ListTestGridProjects where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResult
 
-instance Core.ToHeaders ListTestGridProjects where
+instance Data.ToHeaders ListTestGridProjects where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.ListTestGridProjects" ::
+              Data.=# ( "DeviceFarm_20150623.ListTestGridProjects" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListTestGridProjects where
+instance Data.ToJSON ListTestGridProjects where
   toJSON ListTestGridProjects' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResult" Core..=) Prelude.<$> maxResult
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResult" Data..=) Prelude.<$> maxResult
           ]
       )
 
-instance Core.ToPath ListTestGridProjects where
+instance Data.ToPath ListTestGridProjects where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTestGridProjects where
+instance Data.ToQuery ListTestGridProjects where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTestGridProjectsResponse' smart constructor.

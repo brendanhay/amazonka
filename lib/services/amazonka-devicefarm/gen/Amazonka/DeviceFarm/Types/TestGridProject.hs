@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.TestGridProject where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.TestGridVpcConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -34,7 +35,7 @@ data TestGridProject = TestGridProject'
     -- | The VPC security groups and subnets that are attached to a project.
     vpcConfig :: Prelude.Maybe TestGridVpcConfig,
     -- | When the project was created.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | The ARN for the project.
     arn :: Prelude.Maybe Prelude.Text,
     -- | A human-readable description for the project.
@@ -80,7 +81,7 @@ testGridProject_vpcConfig = Lens.lens (\TestGridProject' {vpcConfig} -> vpcConfi
 
 -- | When the project was created.
 testGridProject_created :: Lens.Lens' TestGridProject (Prelude.Maybe Prelude.UTCTime)
-testGridProject_created = Lens.lens (\TestGridProject' {created} -> created) (\s@TestGridProject' {} a -> s {created = a} :: TestGridProject) Prelude.. Lens.mapping Core._Time
+testGridProject_created = Lens.lens (\TestGridProject' {created} -> created) (\s@TestGridProject' {} a -> s {created = a} :: TestGridProject) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN for the project.
 testGridProject_arn :: Lens.Lens' TestGridProject (Prelude.Maybe Prelude.Text)
@@ -90,17 +91,17 @@ testGridProject_arn = Lens.lens (\TestGridProject' {arn} -> arn) (\s@TestGridPro
 testGridProject_description :: Lens.Lens' TestGridProject (Prelude.Maybe Prelude.Text)
 testGridProject_description = Lens.lens (\TestGridProject' {description} -> description) (\s@TestGridProject' {} a -> s {description = a} :: TestGridProject)
 
-instance Core.FromJSON TestGridProject where
+instance Data.FromJSON TestGridProject where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TestGridProject"
       ( \x ->
           TestGridProject'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "vpcConfig")
-            Prelude.<*> (x Core..:? "created")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "vpcConfig")
+            Prelude.<*> (x Data..:? "created")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
       )
 
 instance Prelude.Hashable TestGridProject where

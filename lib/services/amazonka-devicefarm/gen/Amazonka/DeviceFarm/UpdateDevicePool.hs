@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -196,7 +197,7 @@ instance Core.AWSRequest UpdateDevicePool where
     Response.receiveJSON
       ( \s h x ->
           UpdateDevicePoolResponse'
-            Prelude.<$> (x Core..?> "devicePool")
+            Prelude.<$> (x Data..?> "devicePool")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -218,39 +219,39 @@ instance Prelude.NFData UpdateDevicePool where
       `Prelude.seq` Prelude.rnf maxDevices
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToHeaders UpdateDevicePool where
+instance Data.ToHeaders UpdateDevicePool where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.UpdateDevicePool" ::
+              Data.=# ( "DeviceFarm_20150623.UpdateDevicePool" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDevicePool where
+instance Data.ToJSON UpdateDevicePool where
   toJSON UpdateDevicePool' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("rules" Core..=) Prelude.<$> rules,
-            ("clearMaxDevices" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("rules" Data..=) Prelude.<$> rules,
+            ("clearMaxDevices" Data..=)
               Prelude.<$> clearMaxDevices,
-            ("description" Core..=) Prelude.<$> description,
-            ("maxDevices" Core..=) Prelude.<$> maxDevices,
-            Prelude.Just ("arn" Core..= arn)
+            ("description" Data..=) Prelude.<$> description,
+            ("maxDevices" Data..=) Prelude.<$> maxDevices,
+            Prelude.Just ("arn" Data..= arn)
           ]
       )
 
-instance Core.ToPath UpdateDevicePool where
+instance Data.ToPath UpdateDevicePool where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDevicePool where
+instance Data.ToQuery UpdateDevicePool where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of an update device pool request.

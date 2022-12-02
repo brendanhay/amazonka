@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.OfferingStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.Offering
 import Amazonka.DeviceFarm.Types.OfferingTransactionType
 import qualified Amazonka.Prelude as Prelude
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newOfferingStatus' smart constructor.
 data OfferingStatus = OfferingStatus'
   { -- | The date on which the offering is effective.
-    effectiveOn :: Prelude.Maybe Core.POSIX,
+    effectiveOn :: Prelude.Maybe Data.POSIX,
     -- | The number of available devices in the offering.
     quantity :: Prelude.Maybe Prelude.Int,
     -- | The type specified for the offering status.
@@ -67,7 +68,7 @@ newOfferingStatus =
 
 -- | The date on which the offering is effective.
 offeringStatus_effectiveOn :: Lens.Lens' OfferingStatus (Prelude.Maybe Prelude.UTCTime)
-offeringStatus_effectiveOn = Lens.lens (\OfferingStatus' {effectiveOn} -> effectiveOn) (\s@OfferingStatus' {} a -> s {effectiveOn = a} :: OfferingStatus) Prelude.. Lens.mapping Core._Time
+offeringStatus_effectiveOn = Lens.lens (\OfferingStatus' {effectiveOn} -> effectiveOn) (\s@OfferingStatus' {} a -> s {effectiveOn = a} :: OfferingStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The number of available devices in the offering.
 offeringStatus_quantity :: Lens.Lens' OfferingStatus (Prelude.Maybe Prelude.Int)
@@ -81,16 +82,16 @@ offeringStatus_type = Lens.lens (\OfferingStatus' {type'} -> type') (\s@Offering
 offeringStatus_offering :: Lens.Lens' OfferingStatus (Prelude.Maybe Offering)
 offeringStatus_offering = Lens.lens (\OfferingStatus' {offering} -> offering) (\s@OfferingStatus' {} a -> s {offering = a} :: OfferingStatus)
 
-instance Core.FromJSON OfferingStatus where
+instance Data.FromJSON OfferingStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OfferingStatus"
       ( \x ->
           OfferingStatus'
-            Prelude.<$> (x Core..:? "effectiveOn")
-            Prelude.<*> (x Core..:? "quantity")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "offering")
+            Prelude.<$> (x Data..:? "effectiveOn")
+            Prelude.<*> (x Data..:? "quantity")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "offering")
       )
 
 instance Prelude.Hashable OfferingStatus where

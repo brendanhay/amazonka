@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -175,7 +176,7 @@ instance Core.AWSRequest ScheduleRun where
     Response.receiveJSON
       ( \s h x ->
           ScheduleRunResponse'
-            Prelude.<$> (x Core..?> "run")
+            Prelude.<$> (x Data..?> "run")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,42 +202,42 @@ instance Prelude.NFData ScheduleRun where
       `Prelude.seq` Prelude.rnf projectArn
       `Prelude.seq` Prelude.rnf test
 
-instance Core.ToHeaders ScheduleRun where
+instance Data.ToHeaders ScheduleRun where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.ScheduleRun" ::
+              Data.=# ( "DeviceFarm_20150623.ScheduleRun" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ScheduleRun where
+instance Data.ToJSON ScheduleRun where
   toJSON ScheduleRun' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("deviceSelectionConfiguration" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("deviceSelectionConfiguration" Data..=)
               Prelude.<$> deviceSelectionConfiguration,
-            ("configuration" Core..=) Prelude.<$> configuration,
-            ("executionConfiguration" Core..=)
+            ("configuration" Data..=) Prelude.<$> configuration,
+            ("executionConfiguration" Data..=)
               Prelude.<$> executionConfiguration,
-            ("appArn" Core..=) Prelude.<$> appArn,
-            ("devicePoolArn" Core..=) Prelude.<$> devicePoolArn,
-            Prelude.Just ("projectArn" Core..= projectArn),
-            Prelude.Just ("test" Core..= test)
+            ("appArn" Data..=) Prelude.<$> appArn,
+            ("devicePoolArn" Data..=) Prelude.<$> devicePoolArn,
+            Prelude.Just ("projectArn" Data..= projectArn),
+            Prelude.Just ("test" Data..= test)
           ]
       )
 
-instance Core.ToPath ScheduleRun where
+instance Data.ToPath ScheduleRun where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ScheduleRun where
+instance Data.ToQuery ScheduleRun where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a schedule run request.

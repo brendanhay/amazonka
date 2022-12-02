@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,8 +108,8 @@ instance Core.AWSRequest ListTestGridSessionActions where
     Response.receiveJSON
       ( \s h x ->
           ListTestGridSessionActionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "actions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "actions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,35 +125,35 @@ instance Prelude.NFData ListTestGridSessionActions where
       `Prelude.seq` Prelude.rnf maxResult
       `Prelude.seq` Prelude.rnf sessionArn
 
-instance Core.ToHeaders ListTestGridSessionActions where
+instance Data.ToHeaders ListTestGridSessionActions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.ListTestGridSessionActions" ::
+              Data.=# ( "DeviceFarm_20150623.ListTestGridSessionActions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListTestGridSessionActions where
+instance Data.ToJSON ListTestGridSessionActions where
   toJSON ListTestGridSessionActions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResult" Core..=) Prelude.<$> maxResult,
-            Prelude.Just ("sessionArn" Core..= sessionArn)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResult" Data..=) Prelude.<$> maxResult,
+            Prelude.Just ("sessionArn" Data..= sessionArn)
           ]
       )
 
-instance Core.ToPath ListTestGridSessionActions where
+instance Data.ToPath ListTestGridSessionActions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTestGridSessionActions where
+instance Data.ToQuery ListTestGridSessionActions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTestGridSessionActionsResponse' smart constructor.

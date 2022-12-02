@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.Problem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.Device
 import Amazonka.DeviceFarm.Types.ExecutionResult
 import Amazonka.DeviceFarm.Types.ProblemDetail
@@ -157,19 +158,19 @@ problem_test = Lens.lens (\Problem' {test} -> test) (\s@Problem' {} a -> s {test
 problem_result :: Lens.Lens' Problem (Prelude.Maybe ExecutionResult)
 problem_result = Lens.lens (\Problem' {result} -> result) (\s@Problem' {} a -> s {result = a} :: Problem)
 
-instance Core.FromJSON Problem where
+instance Data.FromJSON Problem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Problem"
       ( \x ->
           Problem'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "suite")
-            Prelude.<*> (x Core..:? "device")
-            Prelude.<*> (x Core..:? "run")
-            Prelude.<*> (x Core..:? "job")
-            Prelude.<*> (x Core..:? "test")
-            Prelude.<*> (x Core..:? "result")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "suite")
+            Prelude.<*> (x Data..:? "device")
+            Prelude.<*> (x Data..:? "run")
+            Prelude.<*> (x Data..:? "job")
+            Prelude.<*> (x Data..:? "test")
+            Prelude.<*> (x Data..:? "result")
       )
 
 instance Prelude.Hashable Problem where

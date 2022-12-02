@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,32 +98,32 @@ instance Prelude.Hashable DeleteRemoteAccessSession where
 instance Prelude.NFData DeleteRemoteAccessSession where
   rnf DeleteRemoteAccessSession' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders DeleteRemoteAccessSession where
+instance Data.ToHeaders DeleteRemoteAccessSession where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.DeleteRemoteAccessSession" ::
+              Data.=# ( "DeviceFarm_20150623.DeleteRemoteAccessSession" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteRemoteAccessSession where
+instance Data.ToJSON DeleteRemoteAccessSession where
   toJSON DeleteRemoteAccessSession' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arn" Core..= arn)]
+          [Prelude.Just ("arn" Data..= arn)]
       )
 
-instance Core.ToPath DeleteRemoteAccessSession where
+instance Data.ToPath DeleteRemoteAccessSession where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteRemoteAccessSession where
+instance Data.ToQuery DeleteRemoteAccessSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response from the server when a request is made to delete the remote

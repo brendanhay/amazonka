@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.AccountSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.DevicePlatform
 import Amazonka.DeviceFarm.Types.TrialMinutes
 import qualified Amazonka.Prelude as Prelude
@@ -148,24 +149,24 @@ accountSettings_maxJobTimeoutMinutes = Lens.lens (\AccountSettings' {maxJobTimeo
 accountSettings_skipAppResign :: Lens.Lens' AccountSettings (Prelude.Maybe Prelude.Bool)
 accountSettings_skipAppResign = Lens.lens (\AccountSettings' {skipAppResign} -> skipAppResign) (\s@AccountSettings' {} a -> s {skipAppResign = a} :: AccountSettings)
 
-instance Core.FromJSON AccountSettings where
+instance Data.FromJSON AccountSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountSettings"
       ( \x ->
           AccountSettings'
-            Prelude.<$> ( x Core..:? "unmeteredRemoteAccessDevices"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "unmeteredRemoteAccessDevices"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "trialMinutes")
-            Prelude.<*> (x Core..:? "defaultJobTimeoutMinutes")
-            Prelude.<*> (x Core..:? "maxSlots" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "unmeteredDevices"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "trialMinutes")
+            Prelude.<*> (x Data..:? "defaultJobTimeoutMinutes")
+            Prelude.<*> (x Data..:? "maxSlots" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "unmeteredDevices"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "awsAccountNumber")
-            Prelude.<*> (x Core..:? "maxJobTimeoutMinutes")
-            Prelude.<*> (x Core..:? "skipAppResign")
+            Prelude.<*> (x Data..:? "awsAccountNumber")
+            Prelude.<*> (x Data..:? "maxJobTimeoutMinutes")
+            Prelude.<*> (x Data..:? "skipAppResign")
       )
 
 instance Prelude.Hashable AccountSettings where

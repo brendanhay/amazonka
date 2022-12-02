@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.ProblemDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a problem detail.
@@ -61,13 +62,13 @@ problemDetail_name = Lens.lens (\ProblemDetail' {name} -> name) (\s@ProblemDetai
 problemDetail_arn :: Lens.Lens' ProblemDetail (Prelude.Maybe Prelude.Text)
 problemDetail_arn = Lens.lens (\ProblemDetail' {arn} -> arn) (\s@ProblemDetail' {} a -> s {arn = a} :: ProblemDetail)
 
-instance Core.FromJSON ProblemDetail where
+instance Data.FromJSON ProblemDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProblemDetail"
       ( \x ->
           ProblemDetail'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "arn")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "arn")
       )
 
 instance Prelude.Hashable ProblemDetail where

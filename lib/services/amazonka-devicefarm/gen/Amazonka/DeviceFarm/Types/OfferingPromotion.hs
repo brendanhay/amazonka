@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.OfferingPromotion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about an offering promotion.
@@ -61,14 +62,14 @@ offeringPromotion_description = Lens.lens (\OfferingPromotion' {description} -> 
 offeringPromotion_id :: Lens.Lens' OfferingPromotion (Prelude.Maybe Prelude.Text)
 offeringPromotion_id = Lens.lens (\OfferingPromotion' {id} -> id) (\s@OfferingPromotion' {} a -> s {id = a} :: OfferingPromotion)
 
-instance Core.FromJSON OfferingPromotion where
+instance Data.FromJSON OfferingPromotion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OfferingPromotion"
       ( \x ->
           OfferingPromotion'
-            Prelude.<$> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
       )
 
 instance Prelude.Hashable OfferingPromotion where

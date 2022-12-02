@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -82,7 +83,7 @@ instance Core.AWSRequest GetTest where
     Response.receiveJSON
       ( \s h x ->
           GetTestResponse'
-            Prelude.<$> (x Core..?> "test")
+            Prelude.<$> (x Data..?> "test")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -93,32 +94,32 @@ instance Prelude.Hashable GetTest where
 instance Prelude.NFData GetTest where
   rnf GetTest' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders GetTest where
+instance Data.ToHeaders GetTest where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.GetTest" ::
+              Data.=# ( "DeviceFarm_20150623.GetTest" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetTest where
+instance Data.ToJSON GetTest where
   toJSON GetTest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arn" Core..= arn)]
+          [Prelude.Just ("arn" Data..= arn)]
       )
 
-instance Core.ToPath GetTest where
+instance Data.ToPath GetTest where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetTest where
+instance Data.ToQuery GetTest where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a get test request.

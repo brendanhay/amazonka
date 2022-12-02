@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.TestGridVpcConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The VPC security groups and subnets that are attached to a project.
@@ -80,15 +81,15 @@ testGridVpcConfig_subnetIds = Lens.lens (\TestGridVpcConfig' {subnetIds} -> subn
 testGridVpcConfig_vpcId :: Lens.Lens' TestGridVpcConfig Prelude.Text
 testGridVpcConfig_vpcId = Lens.lens (\TestGridVpcConfig' {vpcId} -> vpcId) (\s@TestGridVpcConfig' {} a -> s {vpcId = a} :: TestGridVpcConfig)
 
-instance Core.FromJSON TestGridVpcConfig where
+instance Data.FromJSON TestGridVpcConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TestGridVpcConfig"
       ( \x ->
           TestGridVpcConfig'
-            Prelude.<$> (x Core..: "securityGroupIds")
-            Prelude.<*> (x Core..: "subnetIds")
-            Prelude.<*> (x Core..: "vpcId")
+            Prelude.<$> (x Data..: "securityGroupIds")
+            Prelude.<*> (x Data..: "subnetIds")
+            Prelude.<*> (x Data..: "vpcId")
       )
 
 instance Prelude.Hashable TestGridVpcConfig where
@@ -103,13 +104,13 @@ instance Prelude.NFData TestGridVpcConfig where
       `Prelude.seq` Prelude.rnf subnetIds
       `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToJSON TestGridVpcConfig where
+instance Data.ToJSON TestGridVpcConfig where
   toJSON TestGridVpcConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("securityGroupIds" Core..= securityGroupIds),
-            Prelude.Just ("subnetIds" Core..= subnetIds),
-            Prelude.Just ("vpcId" Core..= vpcId)
+              ("securityGroupIds" Data..= securityGroupIds),
+            Prelude.Just ("subnetIds" Data..= subnetIds),
+            Prelude.Just ("vpcId" Data..= vpcId)
           ]
       )

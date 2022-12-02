@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -145,7 +146,7 @@ instance Core.AWSRequest CreateInstanceProfile where
     Response.receiveJSON
       ( \s h x ->
           CreateInstanceProfileResponse'
-            Prelude.<$> (x Core..?> "instanceProfile")
+            Prelude.<$> (x Data..?> "instanceProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,40 +167,40 @@ instance Prelude.NFData CreateInstanceProfile where
       `Prelude.seq` Prelude.rnf rebootAfterUse
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateInstanceProfile where
+instance Data.ToHeaders CreateInstanceProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.CreateInstanceProfile" ::
+              Data.=# ( "DeviceFarm_20150623.CreateInstanceProfile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateInstanceProfile where
+instance Data.ToJSON CreateInstanceProfile where
   toJSON CreateInstanceProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("excludeAppPackagesFromCleanup" Core..=)
+          [ ("excludeAppPackagesFromCleanup" Data..=)
               Prelude.<$> excludeAppPackagesFromCleanup,
-            ("description" Core..=) Prelude.<$> description,
-            ("packageCleanup" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("packageCleanup" Data..=)
               Prelude.<$> packageCleanup,
-            ("rebootAfterUse" Core..=)
+            ("rebootAfterUse" Data..=)
               Prelude.<$> rebootAfterUse,
-            Prelude.Just ("name" Core..= name)
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateInstanceProfile where
+instance Data.ToPath CreateInstanceProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateInstanceProfile where
+instance Data.ToQuery CreateInstanceProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateInstanceProfileResponse' smart constructor.

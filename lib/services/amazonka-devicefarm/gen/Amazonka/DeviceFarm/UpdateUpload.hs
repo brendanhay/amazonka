@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,7 +123,7 @@ instance Core.AWSRequest UpdateUpload where
     Response.receiveJSON
       ( \s h x ->
           UpdateUploadResponse'
-            Prelude.<$> (x Core..?> "upload")
+            Prelude.<$> (x Data..?> "upload")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,36 +141,36 @@ instance Prelude.NFData UpdateUpload where
       `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToHeaders UpdateUpload where
+instance Data.ToHeaders UpdateUpload where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.UpdateUpload" ::
+              Data.=# ( "DeviceFarm_20150623.UpdateUpload" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateUpload where
+instance Data.ToJSON UpdateUpload where
   toJSON UpdateUpload' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("editContent" Core..=) Prelude.<$> editContent,
-            ("contentType" Core..=) Prelude.<$> contentType,
-            Prelude.Just ("arn" Core..= arn)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("editContent" Data..=) Prelude.<$> editContent,
+            ("contentType" Data..=) Prelude.<$> contentType,
+            Prelude.Just ("arn" Data..= arn)
           ]
       )
 
-instance Core.ToPath UpdateUpload where
+instance Data.ToPath UpdateUpload where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateUpload where
+instance Data.ToQuery UpdateUpload where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateUploadResponse' smart constructor.

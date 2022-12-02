@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.InstanceProfile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the instance profile.
@@ -115,20 +116,20 @@ instanceProfile_packageCleanup = Lens.lens (\InstanceProfile' {packageCleanup} -
 instanceProfile_rebootAfterUse :: Lens.Lens' InstanceProfile (Prelude.Maybe Prelude.Bool)
 instanceProfile_rebootAfterUse = Lens.lens (\InstanceProfile' {rebootAfterUse} -> rebootAfterUse) (\s@InstanceProfile' {} a -> s {rebootAfterUse = a} :: InstanceProfile)
 
-instance Core.FromJSON InstanceProfile where
+instance Data.FromJSON InstanceProfile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceProfile"
       ( \x ->
           InstanceProfile'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> ( x Core..:? "excludeAppPackagesFromCleanup"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> ( x Data..:? "excludeAppPackagesFromCleanup"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "packageCleanup")
-            Prelude.<*> (x Core..:? "rebootAfterUse")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "packageCleanup")
+            Prelude.<*> (x Data..:? "rebootAfterUse")
       )
 
 instance Prelude.Hashable InstanceProfile where

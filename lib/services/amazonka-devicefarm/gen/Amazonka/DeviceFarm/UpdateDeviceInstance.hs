@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,7 +109,7 @@ instance Core.AWSRequest UpdateDeviceInstance where
     Response.receiveJSON
       ( \s h x ->
           UpdateDeviceInstanceResponse'
-            Prelude.<$> (x Core..?> "deviceInstance")
+            Prelude.<$> (x Data..?> "deviceInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,35 +125,35 @@ instance Prelude.NFData UpdateDeviceInstance where
       `Prelude.seq` Prelude.rnf labels
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToHeaders UpdateDeviceInstance where
+instance Data.ToHeaders UpdateDeviceInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.UpdateDeviceInstance" ::
+              Data.=# ( "DeviceFarm_20150623.UpdateDeviceInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDeviceInstance where
+instance Data.ToJSON UpdateDeviceInstance where
   toJSON UpdateDeviceInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("profileArn" Core..=) Prelude.<$> profileArn,
-            ("labels" Core..=) Prelude.<$> labels,
-            Prelude.Just ("arn" Core..= arn)
+          [ ("profileArn" Data..=) Prelude.<$> profileArn,
+            ("labels" Data..=) Prelude.<$> labels,
+            Prelude.Just ("arn" Data..= arn)
           ]
       )
 
-instance Core.ToPath UpdateDeviceInstance where
+instance Data.ToPath UpdateDeviceInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDeviceInstance where
+instance Data.ToQuery UpdateDeviceInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDeviceInstanceResponse' smart constructor.

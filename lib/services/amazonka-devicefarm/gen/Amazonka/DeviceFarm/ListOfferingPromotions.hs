@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,8 +121,8 @@ instance Core.AWSRequest ListOfferingPromotions where
     Response.receiveJSON
       ( \s h x ->
           ListOfferingPromotionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "offeringPromotions"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "offeringPromotions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -135,32 +136,32 @@ instance Prelude.NFData ListOfferingPromotions where
   rnf ListOfferingPromotions' {..} =
     Prelude.rnf nextToken
 
-instance Core.ToHeaders ListOfferingPromotions where
+instance Data.ToHeaders ListOfferingPromotions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.ListOfferingPromotions" ::
+              Data.=# ( "DeviceFarm_20150623.ListOfferingPromotions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListOfferingPromotions where
+instance Data.ToJSON ListOfferingPromotions where
   toJSON ListOfferingPromotions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("nextToken" Core..=) Prelude.<$> nextToken]
+          [("nextToken" Data..=) Prelude.<$> nextToken]
       )
 
-instance Core.ToPath ListOfferingPromotions where
+instance Data.ToPath ListOfferingPromotions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListOfferingPromotions where
+instance Data.ToQuery ListOfferingPromotions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListOfferingPromotionsResponse' smart constructor.

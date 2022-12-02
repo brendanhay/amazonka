@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.TestGridSession where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.TestGridSessionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,9 +34,9 @@ data TestGridSession = TestGridSession'
     -- WebDriver.
     seleniumProperties :: Prelude.Maybe Prelude.Text,
     -- | The time the session ended.
-    ended :: Prelude.Maybe Core.POSIX,
+    ended :: Prelude.Maybe Data.POSIX,
     -- | The time that the session was started.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the session.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The state of the session.
@@ -85,11 +86,11 @@ testGridSession_seleniumProperties = Lens.lens (\TestGridSession' {seleniumPrope
 
 -- | The time the session ended.
 testGridSession_ended :: Lens.Lens' TestGridSession (Prelude.Maybe Prelude.UTCTime)
-testGridSession_ended = Lens.lens (\TestGridSession' {ended} -> ended) (\s@TestGridSession' {} a -> s {ended = a} :: TestGridSession) Prelude.. Lens.mapping Core._Time
+testGridSession_ended = Lens.lens (\TestGridSession' {ended} -> ended) (\s@TestGridSession' {} a -> s {ended = a} :: TestGridSession) Prelude.. Lens.mapping Data._Time
 
 -- | The time that the session was started.
 testGridSession_created :: Lens.Lens' TestGridSession (Prelude.Maybe Prelude.UTCTime)
-testGridSession_created = Lens.lens (\TestGridSession' {created} -> created) (\s@TestGridSession' {} a -> s {created = a} :: TestGridSession) Prelude.. Lens.mapping Core._Time
+testGridSession_created = Lens.lens (\TestGridSession' {created} -> created) (\s@TestGridSession' {} a -> s {created = a} :: TestGridSession) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the session.
 testGridSession_arn :: Lens.Lens' TestGridSession (Prelude.Maybe Prelude.Text)
@@ -103,18 +104,18 @@ testGridSession_status = Lens.lens (\TestGridSession' {status} -> status) (\s@Te
 testGridSession_billingMinutes :: Lens.Lens' TestGridSession (Prelude.Maybe Prelude.Double)
 testGridSession_billingMinutes = Lens.lens (\TestGridSession' {billingMinutes} -> billingMinutes) (\s@TestGridSession' {} a -> s {billingMinutes = a} :: TestGridSession)
 
-instance Core.FromJSON TestGridSession where
+instance Data.FromJSON TestGridSession where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TestGridSession"
       ( \x ->
           TestGridSession'
-            Prelude.<$> (x Core..:? "seleniumProperties")
-            Prelude.<*> (x Core..:? "ended")
-            Prelude.<*> (x Core..:? "created")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "billingMinutes")
+            Prelude.<$> (x Data..:? "seleniumProperties")
+            Prelude.<*> (x Data..:? "ended")
+            Prelude.<*> (x Data..:? "created")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "billingMinutes")
       )
 
 instance Prelude.Hashable TestGridSession where

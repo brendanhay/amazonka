@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,32 +94,32 @@ instance Prelude.Hashable DeleteRun where
 instance Prelude.NFData DeleteRun where
   rnf DeleteRun' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders DeleteRun where
+instance Data.ToHeaders DeleteRun where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.DeleteRun" ::
+              Data.=# ( "DeviceFarm_20150623.DeleteRun" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteRun where
+instance Data.ToJSON DeleteRun where
   toJSON DeleteRun' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arn" Core..= arn)]
+          [Prelude.Just ("arn" Data..= arn)]
       )
 
-instance Core.ToPath DeleteRun where
+instance Data.ToPath DeleteRun where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteRun where
+instance Data.ToQuery DeleteRun where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a delete run request.

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,7 +115,7 @@ instance Core.AWSRequest GetTestGridSession where
     Response.receiveJSON
       ( \s h x ->
           GetTestGridSessionResponse'
-            Prelude.<$> (x Core..?> "testGridSession")
+            Prelude.<$> (x Data..?> "testGridSession")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,35 +131,35 @@ instance Prelude.NFData GetTestGridSession where
       `Prelude.seq` Prelude.rnf sessionId
       `Prelude.seq` Prelude.rnf projectArn
 
-instance Core.ToHeaders GetTestGridSession where
+instance Data.ToHeaders GetTestGridSession where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.GetTestGridSession" ::
+              Data.=# ( "DeviceFarm_20150623.GetTestGridSession" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetTestGridSession where
+instance Data.ToJSON GetTestGridSession where
   toJSON GetTestGridSession' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sessionArn" Core..=) Prelude.<$> sessionArn,
-            ("sessionId" Core..=) Prelude.<$> sessionId,
-            ("projectArn" Core..=) Prelude.<$> projectArn
+          [ ("sessionArn" Data..=) Prelude.<$> sessionArn,
+            ("sessionId" Data..=) Prelude.<$> sessionId,
+            ("projectArn" Data..=) Prelude.<$> projectArn
           ]
       )
 
-instance Core.ToPath GetTestGridSession where
+instance Data.ToPath GetTestGridSession where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetTestGridSession where
+instance Data.ToQuery GetTestGridSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTestGridSessionResponse' smart constructor.

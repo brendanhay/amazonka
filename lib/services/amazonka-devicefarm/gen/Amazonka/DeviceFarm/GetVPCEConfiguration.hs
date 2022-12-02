@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,7 +88,7 @@ instance Core.AWSRequest GetVPCEConfiguration where
     Response.receiveJSON
       ( \s h x ->
           GetVPCEConfigurationResponse'
-            Prelude.<$> (x Core..?> "vpceConfiguration")
+            Prelude.<$> (x Data..?> "vpceConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,32 +99,32 @@ instance Prelude.Hashable GetVPCEConfiguration where
 instance Prelude.NFData GetVPCEConfiguration where
   rnf GetVPCEConfiguration' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders GetVPCEConfiguration where
+instance Data.ToHeaders GetVPCEConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.GetVPCEConfiguration" ::
+              Data.=# ( "DeviceFarm_20150623.GetVPCEConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetVPCEConfiguration where
+instance Data.ToJSON GetVPCEConfiguration where
   toJSON GetVPCEConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arn" Core..= arn)]
+          [Prelude.Just ("arn" Data..= arn)]
       )
 
-instance Core.ToPath GetVPCEConfiguration where
+instance Data.ToPath GetVPCEConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetVPCEConfiguration where
+instance Data.ToQuery GetVPCEConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetVPCEConfigurationResponse' smart constructor.

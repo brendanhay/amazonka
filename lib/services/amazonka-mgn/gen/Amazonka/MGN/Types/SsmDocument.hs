@@ -21,6 +21,7 @@ module Amazonka.MGN.Types.SsmDocument where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types.SsmParameterStoreParameter
 import qualified Amazonka.Prelude as Prelude
 
@@ -93,17 +94,17 @@ ssmDocument_actionName = Lens.lens (\SsmDocument' {actionName} -> actionName) (\
 ssmDocument_ssmDocumentName :: Lens.Lens' SsmDocument Prelude.Text
 ssmDocument_ssmDocumentName = Lens.lens (\SsmDocument' {ssmDocumentName} -> ssmDocumentName) (\s@SsmDocument' {} a -> s {ssmDocumentName = a} :: SsmDocument)
 
-instance Core.FromJSON SsmDocument where
+instance Data.FromJSON SsmDocument where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SsmDocument"
       ( \x ->
           SsmDocument'
-            Prelude.<$> (x Core..:? "timeoutSeconds")
-            Prelude.<*> (x Core..:? "mustSucceedForCutover")
-            Prelude.<*> (x Core..:? "parameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "actionName")
-            Prelude.<*> (x Core..: "ssmDocumentName")
+            Prelude.<$> (x Data..:? "timeoutSeconds")
+            Prelude.<*> (x Data..:? "mustSucceedForCutover")
+            Prelude.<*> (x Data..:? "parameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "actionName")
+            Prelude.<*> (x Data..: "ssmDocumentName")
       )
 
 instance Prelude.Hashable SsmDocument where
@@ -122,17 +123,17 @@ instance Prelude.NFData SsmDocument where
       `Prelude.seq` Prelude.rnf actionName
       `Prelude.seq` Prelude.rnf ssmDocumentName
 
-instance Core.ToJSON SsmDocument where
+instance Data.ToJSON SsmDocument where
   toJSON SsmDocument' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("timeoutSeconds" Core..=)
+          [ ("timeoutSeconds" Data..=)
               Prelude.<$> timeoutSeconds,
-            ("mustSucceedForCutover" Core..=)
+            ("mustSucceedForCutover" Data..=)
               Prelude.<$> mustSucceedForCutover,
-            ("parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("actionName" Core..= actionName),
+            ("parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("actionName" Data..= actionName),
             Prelude.Just
-              ("ssmDocumentName" Core..= ssmDocumentName)
+              ("ssmDocumentName" Data..= ssmDocumentName)
           ]
       )

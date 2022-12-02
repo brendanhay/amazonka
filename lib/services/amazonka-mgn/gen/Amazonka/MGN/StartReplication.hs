@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,7 +91,7 @@ instance Core.AWSRequest StartReplication where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable StartReplication where
   hashWithSalt _salt StartReplication' {..} =
@@ -100,28 +101,28 @@ instance Prelude.NFData StartReplication where
   rnf StartReplication' {..} =
     Prelude.rnf sourceServerID
 
-instance Core.ToHeaders StartReplication where
+instance Data.ToHeaders StartReplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartReplication where
+instance Data.ToJSON StartReplication where
   toJSON StartReplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("sourceServerID" Core..= sourceServerID)
+              ("sourceServerID" Data..= sourceServerID)
           ]
       )
 
-instance Core.ToPath StartReplication where
+instance Data.ToPath StartReplication where
   toPath = Prelude.const "/StartReplication"
 
-instance Core.ToQuery StartReplication where
+instance Data.ToQuery StartReplication where
   toQuery = Prelude.const Prelude.mempty

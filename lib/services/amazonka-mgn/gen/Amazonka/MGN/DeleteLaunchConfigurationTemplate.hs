@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,42 +111,42 @@ instance
     Prelude.rnf launchConfigurationTemplateID
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteLaunchConfigurationTemplate
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DeleteLaunchConfigurationTemplate
   where
   toJSON DeleteLaunchConfigurationTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "launchConfigurationTemplateID"
-                  Core..= launchConfigurationTemplateID
+                  Data..= launchConfigurationTemplateID
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeleteLaunchConfigurationTemplate
   where
   toPath =
     Prelude.const "/DeleteLaunchConfigurationTemplate"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteLaunchConfigurationTemplate
   where
   toQuery = Prelude.const Prelude.mempty

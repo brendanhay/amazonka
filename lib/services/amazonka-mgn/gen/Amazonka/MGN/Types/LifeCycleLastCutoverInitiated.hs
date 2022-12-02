@@ -21,6 +21,7 @@ module Amazonka.MGN.Types.LifeCycleLastCutoverInitiated where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Lifecycle last Cutover initiated.
@@ -61,14 +62,14 @@ lifeCycleLastCutoverInitiated_apiCallDateTime = Lens.lens (\LifeCycleLastCutover
 lifeCycleLastCutoverInitiated_jobID :: Lens.Lens' LifeCycleLastCutoverInitiated (Prelude.Maybe Prelude.Text)
 lifeCycleLastCutoverInitiated_jobID = Lens.lens (\LifeCycleLastCutoverInitiated' {jobID} -> jobID) (\s@LifeCycleLastCutoverInitiated' {} a -> s {jobID = a} :: LifeCycleLastCutoverInitiated)
 
-instance Core.FromJSON LifeCycleLastCutoverInitiated where
+instance Data.FromJSON LifeCycleLastCutoverInitiated where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LifeCycleLastCutoverInitiated"
       ( \x ->
           LifeCycleLastCutoverInitiated'
-            Prelude.<$> (x Core..:? "apiCallDateTime")
-            Prelude.<*> (x Core..:? "jobID")
+            Prelude.<$> (x Data..:? "apiCallDateTime")
+            Prelude.<*> (x Data..:? "jobID")
       )
 
 instance

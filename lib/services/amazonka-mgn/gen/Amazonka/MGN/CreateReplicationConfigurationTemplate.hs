@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -74,7 +75,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateReplicationConfigurationTemplate' smart constructor.
 data CreateReplicationConfigurationTemplate = CreateReplicationConfigurationTemplate'
   { -- | Request to configure tags during Replication Settings template creation.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Request to configure an EBS encryption key during Replication Settings
     -- template creation.
     ebsEncryptionKeyArn :: Prelude.Maybe Prelude.Text,
@@ -107,7 +108,7 @@ data CreateReplicationConfigurationTemplate = CreateReplicationConfigurationTemp
     stagingAreaSubnetId :: Prelude.Text,
     -- | Request to configure Staging Area tags during Replication Settings
     -- template creation.
-    stagingAreaTags :: Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text),
+    stagingAreaTags :: Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Request to use Dedicated Replication Servers during Replication Settings
     -- template creation.
     useDedicatedReplicationServer :: Prelude.Bool
@@ -217,7 +218,7 @@ newCreateReplicationConfigurationTemplate
 
 -- | Request to configure tags during Replication Settings template creation.
 createReplicationConfigurationTemplate_tags :: Lens.Lens' CreateReplicationConfigurationTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createReplicationConfigurationTemplate_tags = Lens.lens (\CreateReplicationConfigurationTemplate' {tags} -> tags) (\s@CreateReplicationConfigurationTemplate' {} a -> s {tags = a} :: CreateReplicationConfigurationTemplate) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createReplicationConfigurationTemplate_tags = Lens.lens (\CreateReplicationConfigurationTemplate' {tags} -> tags) (\s@CreateReplicationConfigurationTemplate' {} a -> s {tags = a} :: CreateReplicationConfigurationTemplate) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Request to configure an EBS encryption key during Replication Settings
 -- template creation.
@@ -272,7 +273,7 @@ createReplicationConfigurationTemplate_stagingAreaSubnetId = Lens.lens (\CreateR
 -- | Request to configure Staging Area tags during Replication Settings
 -- template creation.
 createReplicationConfigurationTemplate_stagingAreaTags :: Lens.Lens' CreateReplicationConfigurationTemplate (Prelude.HashMap Prelude.Text Prelude.Text)
-createReplicationConfigurationTemplate_stagingAreaTags = Lens.lens (\CreateReplicationConfigurationTemplate' {stagingAreaTags} -> stagingAreaTags) (\s@CreateReplicationConfigurationTemplate' {} a -> s {stagingAreaTags = a} :: CreateReplicationConfigurationTemplate) Prelude.. Core._Sensitive Prelude.. Lens.coerced
+createReplicationConfigurationTemplate_stagingAreaTags = Lens.lens (\CreateReplicationConfigurationTemplate' {stagingAreaTags} -> stagingAreaTags) (\s@CreateReplicationConfigurationTemplate' {} a -> s {stagingAreaTags = a} :: CreateReplicationConfigurationTemplate) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
 -- | Request to use Dedicated Replication Servers during Replication Settings
 -- template creation.
@@ -291,7 +292,7 @@ instance
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance
   Prelude.Hashable
@@ -334,65 +335,65 @@ instance
       `Prelude.seq` Prelude.rnf useDedicatedReplicationServer
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateReplicationConfigurationTemplate
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateReplicationConfigurationTemplate
   where
   toJSON CreateReplicationConfigurationTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("ebsEncryptionKeyArn" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("ebsEncryptionKeyArn" Data..=)
               Prelude.<$> ebsEncryptionKeyArn,
             Prelude.Just
               ( "associateDefaultSecurityGroup"
-                  Core..= associateDefaultSecurityGroup
+                  Data..= associateDefaultSecurityGroup
               ),
             Prelude.Just
-              ("bandwidthThrottling" Core..= bandwidthThrottling),
+              ("bandwidthThrottling" Data..= bandwidthThrottling),
             Prelude.Just
-              ("createPublicIP" Core..= createPublicIP),
+              ("createPublicIP" Data..= createPublicIP),
             Prelude.Just
-              ("dataPlaneRouting" Core..= dataPlaneRouting),
+              ("dataPlaneRouting" Data..= dataPlaneRouting),
             Prelude.Just
               ( "defaultLargeStagingDiskType"
-                  Core..= defaultLargeStagingDiskType
+                  Data..= defaultLargeStagingDiskType
               ),
-            Prelude.Just ("ebsEncryption" Core..= ebsEncryption),
+            Prelude.Just ("ebsEncryption" Data..= ebsEncryption),
             Prelude.Just
               ( "replicationServerInstanceType"
-                  Core..= replicationServerInstanceType
+                  Data..= replicationServerInstanceType
               ),
             Prelude.Just
               ( "replicationServersSecurityGroupsIDs"
-                  Core..= replicationServersSecurityGroupsIDs
+                  Data..= replicationServersSecurityGroupsIDs
               ),
             Prelude.Just
-              ("stagingAreaSubnetId" Core..= stagingAreaSubnetId),
+              ("stagingAreaSubnetId" Data..= stagingAreaSubnetId),
             Prelude.Just
-              ("stagingAreaTags" Core..= stagingAreaTags),
+              ("stagingAreaTags" Data..= stagingAreaTags),
             Prelude.Just
               ( "useDedicatedReplicationServer"
-                  Core..= useDedicatedReplicationServer
+                  Data..= useDedicatedReplicationServer
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateReplicationConfigurationTemplate
   where
   toPath =
@@ -400,7 +401,7 @@ instance
       "/CreateReplicationConfigurationTemplate"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateReplicationConfigurationTemplate
   where
   toQuery = Prelude.const Prelude.mempty

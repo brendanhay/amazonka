@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,8 +131,8 @@ instance Core.AWSRequest DescribeJobLogItems where
     Response.receiveJSON
       ( \s h x ->
           DescribeJobLogItemsResponse'
-            Prelude.<$> (x Core..?> "items" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "items" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,31 +148,31 @@ instance Prelude.NFData DescribeJobLogItems where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf jobID
 
-instance Core.ToHeaders DescribeJobLogItems where
+instance Data.ToHeaders DescribeJobLogItems where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeJobLogItems where
+instance Data.ToJSON DescribeJobLogItems where
   toJSON DescribeJobLogItems' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("jobID" Core..= jobID)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("jobID" Data..= jobID)
           ]
       )
 
-instance Core.ToPath DescribeJobLogItems where
+instance Data.ToPath DescribeJobLogItems where
   toPath = Prelude.const "/DescribeJobLogItems"
 
-instance Core.ToQuery DescribeJobLogItems where
+instance Data.ToQuery DescribeJobLogItems where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeJobLogItemsResponse' smart constructor.

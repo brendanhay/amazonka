@@ -21,6 +21,7 @@ module Amazonka.MGN.Types.LifeCycle where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types.LifeCycleLastCutover
 import Amazonka.MGN.Types.LifeCycleLastTest
 import Amazonka.MGN.Types.LifeCycleState
@@ -109,19 +110,19 @@ lifeCycle_firstByteDateTime = Lens.lens (\LifeCycle' {firstByteDateTime} -> firs
 lifeCycle_lastCutover :: Lens.Lens' LifeCycle (Prelude.Maybe LifeCycleLastCutover)
 lifeCycle_lastCutover = Lens.lens (\LifeCycle' {lastCutover} -> lastCutover) (\s@LifeCycle' {} a -> s {lastCutover = a} :: LifeCycle)
 
-instance Core.FromJSON LifeCycle where
+instance Data.FromJSON LifeCycle where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LifeCycle"
       ( \x ->
           LifeCycle'
-            Prelude.<$> (x Core..:? "lastTest")
-            Prelude.<*> (x Core..:? "addedToServiceDateTime")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "elapsedReplicationDuration")
-            Prelude.<*> (x Core..:? "lastSeenByServiceDateTime")
-            Prelude.<*> (x Core..:? "firstByteDateTime")
-            Prelude.<*> (x Core..:? "lastCutover")
+            Prelude.<$> (x Data..:? "lastTest")
+            Prelude.<*> (x Data..:? "addedToServiceDateTime")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "elapsedReplicationDuration")
+            Prelude.<*> (x Data..:? "lastSeenByServiceDateTime")
+            Prelude.<*> (x Data..:? "firstByteDateTime")
+            Prelude.<*> (x Data..:? "lastCutover")
       )
 
 instance Prelude.Hashable LifeCycle where

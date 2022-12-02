@@ -21,6 +21,7 @@ module Amazonka.MGN.Types.SsmParameterStoreParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types.SsmParameterStoreParameterType
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,14 +70,14 @@ ssmParameterStoreParameter_parameterName = Lens.lens (\SsmParameterStoreParamete
 ssmParameterStoreParameter_parameterType :: Lens.Lens' SsmParameterStoreParameter SsmParameterStoreParameterType
 ssmParameterStoreParameter_parameterType = Lens.lens (\SsmParameterStoreParameter' {parameterType} -> parameterType) (\s@SsmParameterStoreParameter' {} a -> s {parameterType = a} :: SsmParameterStoreParameter)
 
-instance Core.FromJSON SsmParameterStoreParameter where
+instance Data.FromJSON SsmParameterStoreParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SsmParameterStoreParameter"
       ( \x ->
           SsmParameterStoreParameter'
-            Prelude.<$> (x Core..: "parameterName")
-            Prelude.<*> (x Core..: "parameterType")
+            Prelude.<$> (x Data..: "parameterName")
+            Prelude.<*> (x Data..: "parameterType")
       )
 
 instance Prelude.Hashable SsmParameterStoreParameter where
@@ -89,13 +90,13 @@ instance Prelude.NFData SsmParameterStoreParameter where
     Prelude.rnf parameterName
       `Prelude.seq` Prelude.rnf parameterType
 
-instance Core.ToJSON SsmParameterStoreParameter where
+instance Data.ToJSON SsmParameterStoreParameter where
   toJSON SsmParameterStoreParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("parameterName" Core..= parameterName),
+              ("parameterName" Data..= parameterName),
             Prelude.Just
-              ("parameterType" Core..= parameterType)
+              ("parameterType" Data..= parameterType)
           ]
       )

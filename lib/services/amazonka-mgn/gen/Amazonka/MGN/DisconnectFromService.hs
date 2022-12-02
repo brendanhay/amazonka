@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,7 +104,7 @@ instance Core.AWSRequest DisconnectFromService where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable DisconnectFromService where
   hashWithSalt _salt DisconnectFromService' {..} =
@@ -113,28 +114,28 @@ instance Prelude.NFData DisconnectFromService where
   rnf DisconnectFromService' {..} =
     Prelude.rnf sourceServerID
 
-instance Core.ToHeaders DisconnectFromService where
+instance Data.ToHeaders DisconnectFromService where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisconnectFromService where
+instance Data.ToJSON DisconnectFromService where
   toJSON DisconnectFromService' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("sourceServerID" Core..= sourceServerID)
+              ("sourceServerID" Data..= sourceServerID)
           ]
       )
 
-instance Core.ToPath DisconnectFromService where
+instance Data.ToPath DisconnectFromService where
   toPath = Prelude.const "/DisconnectFromService"
 
-instance Core.ToQuery DisconnectFromService where
+instance Data.ToQuery DisconnectFromService where
   toQuery = Prelude.const Prelude.mempty

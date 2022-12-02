@@ -21,6 +21,7 @@ module Amazonka.MGN.Types.PostLaunchActions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types.PostLaunchActionsDeploymentType
 import Amazonka.MGN.Types.SsmDocument
 import qualified Amazonka.Prelude as Prelude
@@ -90,17 +91,17 @@ postLaunchActions_s3LogBucket = Lens.lens (\PostLaunchActions' {s3LogBucket} -> 
 postLaunchActions_cloudWatchLogGroupName :: Lens.Lens' PostLaunchActions (Prelude.Maybe Prelude.Text)
 postLaunchActions_cloudWatchLogGroupName = Lens.lens (\PostLaunchActions' {cloudWatchLogGroupName} -> cloudWatchLogGroupName) (\s@PostLaunchActions' {} a -> s {cloudWatchLogGroupName = a} :: PostLaunchActions)
 
-instance Core.FromJSON PostLaunchActions where
+instance Data.FromJSON PostLaunchActions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PostLaunchActions"
       ( \x ->
           PostLaunchActions'
-            Prelude.<$> (x Core..:? "ssmDocuments" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "deployment")
-            Prelude.<*> (x Core..:? "s3OutputKeyPrefix")
-            Prelude.<*> (x Core..:? "s3LogBucket")
-            Prelude.<*> (x Core..:? "cloudWatchLogGroupName")
+            Prelude.<$> (x Data..:? "ssmDocuments" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "deployment")
+            Prelude.<*> (x Data..:? "s3OutputKeyPrefix")
+            Prelude.<*> (x Data..:? "s3LogBucket")
+            Prelude.<*> (x Data..:? "cloudWatchLogGroupName")
       )
 
 instance Prelude.Hashable PostLaunchActions where
@@ -119,16 +120,16 @@ instance Prelude.NFData PostLaunchActions where
       `Prelude.seq` Prelude.rnf s3LogBucket
       `Prelude.seq` Prelude.rnf cloudWatchLogGroupName
 
-instance Core.ToJSON PostLaunchActions where
+instance Data.ToJSON PostLaunchActions where
   toJSON PostLaunchActions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ssmDocuments" Core..=) Prelude.<$> ssmDocuments,
-            ("deployment" Core..=) Prelude.<$> deployment,
-            ("s3OutputKeyPrefix" Core..=)
+          [ ("ssmDocuments" Data..=) Prelude.<$> ssmDocuments,
+            ("deployment" Data..=) Prelude.<$> deployment,
+            ("s3OutputKeyPrefix" Data..=)
               Prelude.<$> s3OutputKeyPrefix,
-            ("s3LogBucket" Core..=) Prelude.<$> s3LogBucket,
-            ("cloudWatchLogGroupName" Core..=)
+            ("s3LogBucket" Data..=) Prelude.<$> s3LogBucket,
+            ("cloudWatchLogGroupName" Data..=)
               Prelude.<$> cloudWatchLogGroupName
           ]
       )

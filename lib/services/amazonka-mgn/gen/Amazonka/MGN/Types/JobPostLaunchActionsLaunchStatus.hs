@@ -21,6 +21,7 @@ module Amazonka.MGN.Types.JobPostLaunchActionsLaunchStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types.PostLaunchActionExecutionStatus
 import Amazonka.MGN.Types.SsmDocument
 import Amazonka.MGN.Types.SsmDocumentType
@@ -93,19 +94,19 @@ jobPostLaunchActionsLaunchStatus_failureReason :: Lens.Lens' JobPostLaunchAction
 jobPostLaunchActionsLaunchStatus_failureReason = Lens.lens (\JobPostLaunchActionsLaunchStatus' {failureReason} -> failureReason) (\s@JobPostLaunchActionsLaunchStatus' {} a -> s {failureReason = a} :: JobPostLaunchActionsLaunchStatus)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     JobPostLaunchActionsLaunchStatus
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobPostLaunchActionsLaunchStatus"
       ( \x ->
           JobPostLaunchActionsLaunchStatus'
-            Prelude.<$> (x Core..:? "executionID")
-            Prelude.<*> (x Core..:? "ssmDocument")
-            Prelude.<*> (x Core..:? "ssmDocumentType")
-            Prelude.<*> (x Core..:? "executionStatus")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<$> (x Data..:? "executionID")
+            Prelude.<*> (x Data..:? "ssmDocument")
+            Prelude.<*> (x Data..:? "ssmDocumentType")
+            Prelude.<*> (x Data..:? "executionStatus")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance

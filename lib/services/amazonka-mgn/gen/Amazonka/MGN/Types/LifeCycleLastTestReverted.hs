@@ -21,6 +21,7 @@ module Amazonka.MGN.Types.LifeCycleLastTestReverted where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Lifecycle last Test reverted.
@@ -53,13 +54,13 @@ newLifeCycleLastTestReverted =
 lifeCycleLastTestReverted_apiCallDateTime :: Lens.Lens' LifeCycleLastTestReverted (Prelude.Maybe Prelude.Text)
 lifeCycleLastTestReverted_apiCallDateTime = Lens.lens (\LifeCycleLastTestReverted' {apiCallDateTime} -> apiCallDateTime) (\s@LifeCycleLastTestReverted' {} a -> s {apiCallDateTime = a} :: LifeCycleLastTestReverted)
 
-instance Core.FromJSON LifeCycleLastTestReverted where
+instance Data.FromJSON LifeCycleLastTestReverted where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LifeCycleLastTestReverted"
       ( \x ->
           LifeCycleLastTestReverted'
-            Prelude.<$> (x Core..:? "apiCallDateTime")
+            Prelude.<$> (x Data..:? "apiCallDateTime")
       )
 
 instance Prelude.Hashable LifeCycleLastTestReverted where

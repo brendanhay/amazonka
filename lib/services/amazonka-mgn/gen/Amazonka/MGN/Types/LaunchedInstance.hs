@@ -21,6 +21,7 @@ module Amazonka.MGN.Types.LaunchedInstance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types.FirstBoot
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,15 +72,15 @@ launchedInstance_jobID = Lens.lens (\LaunchedInstance' {jobID} -> jobID) (\s@Lau
 launchedInstance_firstBoot :: Lens.Lens' LaunchedInstance (Prelude.Maybe FirstBoot)
 launchedInstance_firstBoot = Lens.lens (\LaunchedInstance' {firstBoot} -> firstBoot) (\s@LaunchedInstance' {} a -> s {firstBoot = a} :: LaunchedInstance)
 
-instance Core.FromJSON LaunchedInstance where
+instance Data.FromJSON LaunchedInstance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LaunchedInstance"
       ( \x ->
           LaunchedInstance'
-            Prelude.<$> (x Core..:? "ec2InstanceID")
-            Prelude.<*> (x Core..:? "jobID")
-            Prelude.<*> (x Core..:? "firstBoot")
+            Prelude.<$> (x Data..:? "ec2InstanceID")
+            Prelude.<*> (x Data..:? "jobID")
+            Prelude.<*> (x Data..:? "firstBoot")
       )
 
 instance Prelude.Hashable LaunchedInstance where

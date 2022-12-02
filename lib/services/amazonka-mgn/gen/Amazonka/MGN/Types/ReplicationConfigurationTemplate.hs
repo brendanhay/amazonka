@@ -21,6 +21,7 @@ module Amazonka.MGN.Types.ReplicationConfigurationTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types.ReplicationConfigurationDataPlaneRouting
 import Amazonka.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType
 import Amazonka.MGN.Types.ReplicationConfigurationEbsEncryption
@@ -29,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 -- | /See:/ 'newReplicationConfigurationTemplate' smart constructor.
 data ReplicationConfigurationTemplate = ReplicationConfigurationTemplate'
   { -- | Replication Configuration template Tags.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Replication Configuration template bandwidth throttling.
     bandwidthThrottling :: Prelude.Maybe Prelude.Natural,
     -- | Replication Configuration template server instance type.
     replicationServerInstanceType :: Prelude.Maybe Prelude.Text,
     -- | Replication Configuration template Staging Area Tags.
-    stagingAreaTags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    stagingAreaTags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Replication Configuration template associate default Application
     -- Migration Service Security group.
     associateDefaultSecurityGroup :: Prelude.Maybe Prelude.Bool,
@@ -133,7 +134,7 @@ newReplicationConfigurationTemplate
 
 -- | Replication Configuration template Tags.
 replicationConfigurationTemplate_tags :: Lens.Lens' ReplicationConfigurationTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-replicationConfigurationTemplate_tags = Lens.lens (\ReplicationConfigurationTemplate' {tags} -> tags) (\s@ReplicationConfigurationTemplate' {} a -> s {tags = a} :: ReplicationConfigurationTemplate) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+replicationConfigurationTemplate_tags = Lens.lens (\ReplicationConfigurationTemplate' {tags} -> tags) (\s@ReplicationConfigurationTemplate' {} a -> s {tags = a} :: ReplicationConfigurationTemplate) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Replication Configuration template bandwidth throttling.
 replicationConfigurationTemplate_bandwidthThrottling :: Lens.Lens' ReplicationConfigurationTemplate (Prelude.Maybe Prelude.Natural)
@@ -145,7 +146,7 @@ replicationConfigurationTemplate_replicationServerInstanceType = Lens.lens (\Rep
 
 -- | Replication Configuration template Staging Area Tags.
 replicationConfigurationTemplate_stagingAreaTags :: Lens.Lens' ReplicationConfigurationTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-replicationConfigurationTemplate_stagingAreaTags = Lens.lens (\ReplicationConfigurationTemplate' {stagingAreaTags} -> stagingAreaTags) (\s@ReplicationConfigurationTemplate' {} a -> s {stagingAreaTags = a} :: ReplicationConfigurationTemplate) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+replicationConfigurationTemplate_stagingAreaTags = Lens.lens (\ReplicationConfigurationTemplate' {stagingAreaTags} -> stagingAreaTags) (\s@ReplicationConfigurationTemplate' {} a -> s {stagingAreaTags = a} :: ReplicationConfigurationTemplate) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Replication Configuration template associate default Application
 -- Migration Service Security group.
@@ -193,33 +194,33 @@ replicationConfigurationTemplate_replicationConfigurationTemplateID :: Lens.Lens
 replicationConfigurationTemplate_replicationConfigurationTemplateID = Lens.lens (\ReplicationConfigurationTemplate' {replicationConfigurationTemplateID} -> replicationConfigurationTemplateID) (\s@ReplicationConfigurationTemplate' {} a -> s {replicationConfigurationTemplateID = a} :: ReplicationConfigurationTemplate)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ReplicationConfigurationTemplate
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicationConfigurationTemplate"
       ( \x ->
           ReplicationConfigurationTemplate'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "bandwidthThrottling")
-            Prelude.<*> (x Core..:? "replicationServerInstanceType")
-            Prelude.<*> ( x Core..:? "stagingAreaTags"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "bandwidthThrottling")
+            Prelude.<*> (x Data..:? "replicationServerInstanceType")
+            Prelude.<*> ( x Data..:? "stagingAreaTags"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "associateDefaultSecurityGroup")
-            Prelude.<*> (x Core..:? "defaultLargeStagingDiskType")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "stagingAreaSubnetId")
-            Prelude.<*> (x Core..:? "createPublicIP")
-            Prelude.<*> (x Core..:? "dataPlaneRouting")
-            Prelude.<*> (x Core..:? "ebsEncryption")
-            Prelude.<*> (x Core..:? "useDedicatedReplicationServer")
-            Prelude.<*> ( x Core..:? "replicationServersSecurityGroupsIDs"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "associateDefaultSecurityGroup")
+            Prelude.<*> (x Data..:? "defaultLargeStagingDiskType")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "stagingAreaSubnetId")
+            Prelude.<*> (x Data..:? "createPublicIP")
+            Prelude.<*> (x Data..:? "dataPlaneRouting")
+            Prelude.<*> (x Data..:? "ebsEncryption")
+            Prelude.<*> (x Data..:? "useDedicatedReplicationServer")
+            Prelude.<*> ( x Data..:? "replicationServersSecurityGroupsIDs"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ebsEncryptionKeyArn")
-            Prelude.<*> (x Core..: "replicationConfigurationTemplateID")
+            Prelude.<*> (x Data..:? "ebsEncryptionKeyArn")
+            Prelude.<*> (x Data..: "replicationConfigurationTemplateID")
       )
 
 instance

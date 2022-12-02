@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,28 +90,28 @@ instance Prelude.Hashable DeleteJob where
 instance Prelude.NFData DeleteJob where
   rnf DeleteJob' {..} = Prelude.rnf jobID
 
-instance Core.ToHeaders DeleteJob where
+instance Data.ToHeaders DeleteJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteJob where
+instance Data.ToJSON DeleteJob where
   toJSON DeleteJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("jobID" Core..= jobID)]
+          [Prelude.Just ("jobID" Data..= jobID)]
       )
 
-instance Core.ToPath DeleteJob where
+instance Data.ToPath DeleteJob where
   toPath = Prelude.const "/DeleteJob"
 
-instance Core.ToQuery DeleteJob where
+instance Data.ToQuery DeleteJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteJobResponse' smart constructor.

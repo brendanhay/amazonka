@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -52,7 +53,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newStartCutover' smart constructor.
 data StartCutover = StartCutover'
   { -- | Start Cutover by Tags.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Start Cutover by Source Server IDs.
     sourceServerIDs :: Prelude.NonEmpty Prelude.Text
   }
@@ -82,7 +83,7 @@ newStartCutover pSourceServerIDs_ =
 
 -- | Start Cutover by Tags.
 startCutover_tags :: Lens.Lens' StartCutover (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-startCutover_tags = Lens.lens (\StartCutover' {tags} -> tags) (\s@StartCutover' {} a -> s {tags = a} :: StartCutover) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+startCutover_tags = Lens.lens (\StartCutover' {tags} -> tags) (\s@StartCutover' {} a -> s {tags = a} :: StartCutover) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Start Cutover by Source Server IDs.
 startCutover_sourceServerIDs :: Lens.Lens' StartCutover (Prelude.NonEmpty Prelude.Text)
@@ -96,7 +97,7 @@ instance Core.AWSRequest StartCutover where
     Response.receiveJSON
       ( \s h x ->
           StartCutoverResponse'
-            Prelude.<$> (x Core..?> "job")
+            Prelude.<$> (x Data..?> "job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,31 +111,31 @@ instance Prelude.NFData StartCutover where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf sourceServerIDs
 
-instance Core.ToHeaders StartCutover where
+instance Data.ToHeaders StartCutover where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartCutover where
+instance Data.ToJSON StartCutover where
   toJSON StartCutover' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
-              ("sourceServerIDs" Core..= sourceServerIDs)
+              ("sourceServerIDs" Data..= sourceServerIDs)
           ]
       )
 
-instance Core.ToPath StartCutover where
+instance Data.ToPath StartCutover where
   toPath = Prelude.const "/StartCutover"
 
-instance Core.ToQuery StartCutover where
+instance Data.ToQuery StartCutover where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartCutoverResponse' smart constructor.

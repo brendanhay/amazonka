@@ -21,6 +21,7 @@ module Amazonka.MGN.Types.Licensing where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configure Licensing.
@@ -49,11 +50,11 @@ newLicensing = Licensing' {osByol = Prelude.Nothing}
 licensing_osByol :: Lens.Lens' Licensing (Prelude.Maybe Prelude.Bool)
 licensing_osByol = Lens.lens (\Licensing' {osByol} -> osByol) (\s@Licensing' {} a -> s {osByol = a} :: Licensing)
 
-instance Core.FromJSON Licensing where
+instance Data.FromJSON Licensing where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Licensing"
-      (\x -> Licensing' Prelude.<$> (x Core..:? "osByol"))
+      (\x -> Licensing' Prelude.<$> (x Data..:? "osByol"))
 
 instance Prelude.Hashable Licensing where
   hashWithSalt _salt Licensing' {..} =
@@ -62,9 +63,9 @@ instance Prelude.Hashable Licensing where
 instance Prelude.NFData Licensing where
   rnf Licensing' {..} = Prelude.rnf osByol
 
-instance Core.ToJSON Licensing where
+instance Data.ToJSON Licensing where
   toJSON Licensing' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("osByol" Core..=) Prelude.<$> osByol]
+          [("osByol" Data..=) Prelude.<$> osByol]
       )

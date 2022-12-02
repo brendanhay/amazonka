@@ -32,6 +32,7 @@ import Amazonka.CertificateManager.Types.RenewalSummary
 import Amazonka.CertificateManager.Types.RevocationReason
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains metadata about an ACM certificate. This structure is returned
@@ -113,9 +114,9 @@ data CertificateDetail = CertificateDetail'
     certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the certificate was imported. This value exists
     -- only when the certificate type is @IMPORTED@.
-    importedAt :: Prelude.Maybe Core.POSIX,
+    importedAt :: Prelude.Maybe Data.POSIX,
     -- | The time before which the certificate is not valid.
-    notBefore :: Prelude.Maybe Core.POSIX,
+    notBefore :: Prelude.Maybe Data.POSIX,
     -- | The reason the certificate was revoked. This value exists only when the
     -- certificate status is @REVOKED@.
     revocationReason :: Prelude.Maybe RevocationReason,
@@ -123,18 +124,18 @@ data CertificateDetail = CertificateDetail'
     signatureAlgorithm :: Prelude.Maybe Prelude.Text,
     -- | The time at which the certificate was revoked. This value exists only
     -- when the certificate status is @REVOKED@.
-    revokedAt :: Prelude.Maybe Core.POSIX,
+    revokedAt :: Prelude.Maybe Data.POSIX,
     -- | The name of the entity that is associated with the public key contained
     -- in the certificate.
     subject :: Prelude.Maybe Prelude.Text,
     -- | The time after which the certificate is not valid.
-    notAfter :: Prelude.Maybe Core.POSIX,
+    notAfter :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether the certificate is eligible for renewal. At this time,
     -- only exported private certificates can be renewed with the
     -- RenewCertificate command.
     renewalEligibility :: Prelude.Maybe RenewalEligibility,
     -- | The time at which the certificate was requested.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | One or more domain names (subject alternative names) included in the
     -- certificate. This list contains the domain names that are bound to the
     -- public key that is contained in the certificate. The subject alternative
@@ -148,7 +149,7 @@ data CertificateDetail = CertificateDetail'
     failureReason :: Prelude.Maybe FailureReason,
     -- | The time at which the certificate was issued. This value exists only
     -- when the certificate type is @AMAZON_ISSUED@.
-    issuedAt :: Prelude.Maybe Core.POSIX
+    issuedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -404,11 +405,11 @@ certificateDetail_certificateArn = Lens.lens (\CertificateDetail' {certificateAr
 -- | The date and time when the certificate was imported. This value exists
 -- only when the certificate type is @IMPORTED@.
 certificateDetail_importedAt :: Lens.Lens' CertificateDetail (Prelude.Maybe Prelude.UTCTime)
-certificateDetail_importedAt = Lens.lens (\CertificateDetail' {importedAt} -> importedAt) (\s@CertificateDetail' {} a -> s {importedAt = a} :: CertificateDetail) Prelude.. Lens.mapping Core._Time
+certificateDetail_importedAt = Lens.lens (\CertificateDetail' {importedAt} -> importedAt) (\s@CertificateDetail' {} a -> s {importedAt = a} :: CertificateDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The time before which the certificate is not valid.
 certificateDetail_notBefore :: Lens.Lens' CertificateDetail (Prelude.Maybe Prelude.UTCTime)
-certificateDetail_notBefore = Lens.lens (\CertificateDetail' {notBefore} -> notBefore) (\s@CertificateDetail' {} a -> s {notBefore = a} :: CertificateDetail) Prelude.. Lens.mapping Core._Time
+certificateDetail_notBefore = Lens.lens (\CertificateDetail' {notBefore} -> notBefore) (\s@CertificateDetail' {} a -> s {notBefore = a} :: CertificateDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The reason the certificate was revoked. This value exists only when the
 -- certificate status is @REVOKED@.
@@ -422,7 +423,7 @@ certificateDetail_signatureAlgorithm = Lens.lens (\CertificateDetail' {signature
 -- | The time at which the certificate was revoked. This value exists only
 -- when the certificate status is @REVOKED@.
 certificateDetail_revokedAt :: Lens.Lens' CertificateDetail (Prelude.Maybe Prelude.UTCTime)
-certificateDetail_revokedAt = Lens.lens (\CertificateDetail' {revokedAt} -> revokedAt) (\s@CertificateDetail' {} a -> s {revokedAt = a} :: CertificateDetail) Prelude.. Lens.mapping Core._Time
+certificateDetail_revokedAt = Lens.lens (\CertificateDetail' {revokedAt} -> revokedAt) (\s@CertificateDetail' {} a -> s {revokedAt = a} :: CertificateDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the entity that is associated with the public key contained
 -- in the certificate.
@@ -431,7 +432,7 @@ certificateDetail_subject = Lens.lens (\CertificateDetail' {subject} -> subject)
 
 -- | The time after which the certificate is not valid.
 certificateDetail_notAfter :: Lens.Lens' CertificateDetail (Prelude.Maybe Prelude.UTCTime)
-certificateDetail_notAfter = Lens.lens (\CertificateDetail' {notAfter} -> notAfter) (\s@CertificateDetail' {} a -> s {notAfter = a} :: CertificateDetail) Prelude.. Lens.mapping Core._Time
+certificateDetail_notAfter = Lens.lens (\CertificateDetail' {notAfter} -> notAfter) (\s@CertificateDetail' {} a -> s {notAfter = a} :: CertificateDetail) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies whether the certificate is eligible for renewal. At this time,
 -- only exported private certificates can be renewed with the
@@ -441,7 +442,7 @@ certificateDetail_renewalEligibility = Lens.lens (\CertificateDetail' {renewalEl
 
 -- | The time at which the certificate was requested.
 certificateDetail_createdAt :: Lens.Lens' CertificateDetail (Prelude.Maybe Prelude.UTCTime)
-certificateDetail_createdAt = Lens.lens (\CertificateDetail' {createdAt} -> createdAt) (\s@CertificateDetail' {} a -> s {createdAt = a} :: CertificateDetail) Prelude.. Lens.mapping Core._Time
+certificateDetail_createdAt = Lens.lens (\CertificateDetail' {createdAt} -> createdAt) (\s@CertificateDetail' {} a -> s {createdAt = a} :: CertificateDetail) Prelude.. Lens.mapping Data._Time
 
 -- | One or more domain names (subject alternative names) included in the
 -- certificate. This list contains the domain names that are bound to the
@@ -461,42 +462,42 @@ certificateDetail_failureReason = Lens.lens (\CertificateDetail' {failureReason}
 -- | The time at which the certificate was issued. This value exists only
 -- when the certificate type is @AMAZON_ISSUED@.
 certificateDetail_issuedAt :: Lens.Lens' CertificateDetail (Prelude.Maybe Prelude.UTCTime)
-certificateDetail_issuedAt = Lens.lens (\CertificateDetail' {issuedAt} -> issuedAt) (\s@CertificateDetail' {} a -> s {issuedAt = a} :: CertificateDetail) Prelude.. Lens.mapping Core._Time
+certificateDetail_issuedAt = Lens.lens (\CertificateDetail' {issuedAt} -> issuedAt) (\s@CertificateDetail' {} a -> s {issuedAt = a} :: CertificateDetail) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON CertificateDetail where
+instance Data.FromJSON CertificateDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CertificateDetail"
       ( \x ->
           CertificateDetail'
-            Prelude.<$> (x Core..:? "Issuer")
-            Prelude.<*> (x Core..:? "DomainValidationOptions")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "CertificateAuthorityArn")
-            Prelude.<*> (x Core..:? "DomainName")
-            Prelude.<*> (x Core..:? "Serial")
-            Prelude.<*> (x Core..:? "KeyUsages" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "RenewalSummary")
-            Prelude.<*> (x Core..:? "KeyAlgorithm")
-            Prelude.<*> ( x Core..:? "ExtendedKeyUsages"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Issuer")
+            Prelude.<*> (x Data..:? "DomainValidationOptions")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "CertificateAuthorityArn")
+            Prelude.<*> (x Data..:? "DomainName")
+            Prelude.<*> (x Data..:? "Serial")
+            Prelude.<*> (x Data..:? "KeyUsages" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RenewalSummary")
+            Prelude.<*> (x Data..:? "KeyAlgorithm")
+            Prelude.<*> ( x Data..:? "ExtendedKeyUsages"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "InUseBy" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Options")
-            Prelude.<*> (x Core..:? "CertificateArn")
-            Prelude.<*> (x Core..:? "ImportedAt")
-            Prelude.<*> (x Core..:? "NotBefore")
-            Prelude.<*> (x Core..:? "RevocationReason")
-            Prelude.<*> (x Core..:? "SignatureAlgorithm")
-            Prelude.<*> (x Core..:? "RevokedAt")
-            Prelude.<*> (x Core..:? "Subject")
-            Prelude.<*> (x Core..:? "NotAfter")
-            Prelude.<*> (x Core..:? "RenewalEligibility")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "SubjectAlternativeNames")
-            Prelude.<*> (x Core..:? "FailureReason")
-            Prelude.<*> (x Core..:? "IssuedAt")
+            Prelude.<*> (x Data..:? "InUseBy" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Options")
+            Prelude.<*> (x Data..:? "CertificateArn")
+            Prelude.<*> (x Data..:? "ImportedAt")
+            Prelude.<*> (x Data..:? "NotBefore")
+            Prelude.<*> (x Data..:? "RevocationReason")
+            Prelude.<*> (x Data..:? "SignatureAlgorithm")
+            Prelude.<*> (x Data..:? "RevokedAt")
+            Prelude.<*> (x Data..:? "Subject")
+            Prelude.<*> (x Data..:? "NotAfter")
+            Prelude.<*> (x Data..:? "RenewalEligibility")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "SubjectAlternativeNames")
+            Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..:? "IssuedAt")
       )
 
 instance Prelude.Hashable CertificateDetail where

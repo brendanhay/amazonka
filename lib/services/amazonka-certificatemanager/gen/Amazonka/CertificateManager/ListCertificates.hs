@@ -53,6 +53,7 @@ where
 import Amazonka.CertificateManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -188,8 +189,8 @@ instance Core.AWSRequest ListCertificates where
     Response.receiveJSON
       ( \s h x ->
           ListCertificatesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "CertificateSummaryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "CertificateSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -213,39 +214,39 @@ instance Prelude.NFData ListCertificates where
       `Prelude.seq` Prelude.rnf includes
       `Prelude.seq` Prelude.rnf certificateStatuses
 
-instance Core.ToHeaders ListCertificates where
+instance Data.ToHeaders ListCertificates where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CertificateManager.ListCertificates" ::
+              Data.=# ( "CertificateManager.ListCertificates" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListCertificates where
+instance Data.ToJSON ListCertificates where
   toJSON ListCertificates' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxItems" Core..=) Prelude.<$> maxItems,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("Includes" Core..=) Prelude.<$> includes,
-            ("CertificateStatuses" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxItems" Data..=) Prelude.<$> maxItems,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("Includes" Data..=) Prelude.<$> includes,
+            ("CertificateStatuses" Data..=)
               Prelude.<$> certificateStatuses
           ]
       )
 
-instance Core.ToPath ListCertificates where
+instance Data.ToPath ListCertificates where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListCertificates where
+instance Data.ToQuery ListCertificates where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCertificatesResponse' smart constructor.

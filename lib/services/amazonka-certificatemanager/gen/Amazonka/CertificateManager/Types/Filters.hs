@@ -24,6 +24,7 @@ import Amazonka.CertificateManager.Types.KeyAlgorithm
 import Amazonka.CertificateManager.Types.KeyUsageName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure can be used in the ListCertificates action to filter the
@@ -104,13 +105,13 @@ instance Prelude.NFData Filters where
       `Prelude.seq` Prelude.rnf keyTypes
       `Prelude.seq` Prelude.rnf keyUsage
 
-instance Core.ToJSON Filters where
+instance Data.ToJSON Filters where
   toJSON Filters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("extendedKeyUsage" Core..=)
+          [ ("extendedKeyUsage" Data..=)
               Prelude.<$> extendedKeyUsage,
-            ("keyTypes" Core..=) Prelude.<$> keyTypes,
-            ("keyUsage" Core..=) Prelude.<$> keyUsage
+            ("keyTypes" Data..=) Prelude.<$> keyTypes,
+            ("keyUsage" Data..=) Prelude.<$> keyUsage
           ]
       )

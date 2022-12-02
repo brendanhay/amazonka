@@ -22,6 +22,7 @@ module Amazonka.CertificateManager.Types.CertificateOptions where
 import Amazonka.CertificateManager.Types.CertificateTransparencyLoggingPreference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Structure that contains options for your certificate. Currently, you can
@@ -65,14 +66,14 @@ newCertificateOptions =
 certificateOptions_certificateTransparencyLoggingPreference :: Lens.Lens' CertificateOptions (Prelude.Maybe CertificateTransparencyLoggingPreference)
 certificateOptions_certificateTransparencyLoggingPreference = Lens.lens (\CertificateOptions' {certificateTransparencyLoggingPreference} -> certificateTransparencyLoggingPreference) (\s@CertificateOptions' {} a -> s {certificateTransparencyLoggingPreference = a} :: CertificateOptions)
 
-instance Core.FromJSON CertificateOptions where
+instance Data.FromJSON CertificateOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CertificateOptions"
       ( \x ->
           CertificateOptions'
             Prelude.<$> ( x
-                            Core..:? "CertificateTransparencyLoggingPreference"
+                            Data..:? "CertificateTransparencyLoggingPreference"
                         )
       )
 
@@ -86,11 +87,11 @@ instance Prelude.NFData CertificateOptions where
     Prelude.rnf
       certificateTransparencyLoggingPreference
 
-instance Core.ToJSON CertificateOptions where
+instance Data.ToJSON CertificateOptions where
   toJSON CertificateOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CertificateTransparencyLoggingPreference" Core..=)
+          [ ("CertificateTransparencyLoggingPreference" Data..=)
               Prelude.<$> certificateTransparencyLoggingPreference
           ]
       )

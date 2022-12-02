@@ -22,6 +22,7 @@ module Amazonka.CertificateManager.Types.ResourceRecord where
 import Amazonka.CertificateManager.Types.RecordType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a DNS record value that you can use to validate ownership or
@@ -84,15 +85,15 @@ resourceRecord_type = Lens.lens (\ResourceRecord' {type'} -> type') (\s@Resource
 resourceRecord_value :: Lens.Lens' ResourceRecord Prelude.Text
 resourceRecord_value = Lens.lens (\ResourceRecord' {value} -> value) (\s@ResourceRecord' {} a -> s {value = a} :: ResourceRecord)
 
-instance Core.FromJSON ResourceRecord where
+instance Data.FromJSON ResourceRecord where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceRecord"
       ( \x ->
           ResourceRecord'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Type")
-            Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Type")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable ResourceRecord where

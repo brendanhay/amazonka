@@ -51,6 +51,7 @@ where
 import Amazonka.CertificateManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -200,37 +201,37 @@ instance Prelude.NFData ResendValidationEmail where
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf validationDomain
 
-instance Core.ToHeaders ResendValidationEmail where
+instance Data.ToHeaders ResendValidationEmail where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CertificateManager.ResendValidationEmail" ::
+              Data.=# ( "CertificateManager.ResendValidationEmail" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ResendValidationEmail where
+instance Data.ToJSON ResendValidationEmail where
   toJSON ResendValidationEmail' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("CertificateArn" Core..= certificateArn),
-            Prelude.Just ("Domain" Core..= domain),
+              ("CertificateArn" Data..= certificateArn),
+            Prelude.Just ("Domain" Data..= domain),
             Prelude.Just
-              ("ValidationDomain" Core..= validationDomain)
+              ("ValidationDomain" Data..= validationDomain)
           ]
       )
 
-instance Core.ToPath ResendValidationEmail where
+instance Data.ToPath ResendValidationEmail where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResendValidationEmail where
+instance Data.ToQuery ResendValidationEmail where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newResendValidationEmailResponse' smart constructor.

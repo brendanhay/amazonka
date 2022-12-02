@@ -27,6 +27,7 @@ import Amazonka.CertificateManager.Types.KeyUsageName
 import Amazonka.CertificateManager.Types.RenewalEligibility
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure is returned in the response object of ListCertificates
@@ -107,26 +108,26 @@ data CertificateSummary = CertificateSummary'
     certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the certificate was imported. This value exists
     -- only when the certificate type is @IMPORTED@.
-    importedAt :: Prelude.Maybe Core.POSIX,
+    importedAt :: Prelude.Maybe Data.POSIX,
     -- | The time before which the certificate is not valid.
-    notBefore :: Prelude.Maybe Core.POSIX,
+    notBefore :: Prelude.Maybe Data.POSIX,
     -- | Indicates whether the certificate is currently in use by any Amazon Web
     -- Services resources.
     inUse :: Prelude.Maybe Prelude.Bool,
     -- | The time at which the certificate was revoked. This value exists only
     -- when the certificate status is @REVOKED@.
-    revokedAt :: Prelude.Maybe Core.POSIX,
+    revokedAt :: Prelude.Maybe Data.POSIX,
     -- | The time after which the certificate is not valid.
-    notAfter :: Prelude.Maybe Core.POSIX,
+    notAfter :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether the certificate is eligible for renewal. At this time,
     -- only exported private certificates can be renewed with the
     -- RenewCertificate command.
     renewalEligibility :: Prelude.Maybe RenewalEligibility,
     -- | The time at which the certificate was requested.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The time at which the certificate was issued. This value exists only
     -- when the certificate type is @AMAZON_ISSUED@.
-    issuedAt :: Prelude.Maybe Core.POSIX
+    issuedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -350,11 +351,11 @@ certificateSummary_certificateArn = Lens.lens (\CertificateSummary' {certificate
 -- | The date and time when the certificate was imported. This value exists
 -- only when the certificate type is @IMPORTED@.
 certificateSummary_importedAt :: Lens.Lens' CertificateSummary (Prelude.Maybe Prelude.UTCTime)
-certificateSummary_importedAt = Lens.lens (\CertificateSummary' {importedAt} -> importedAt) (\s@CertificateSummary' {} a -> s {importedAt = a} :: CertificateSummary) Prelude.. Lens.mapping Core._Time
+certificateSummary_importedAt = Lens.lens (\CertificateSummary' {importedAt} -> importedAt) (\s@CertificateSummary' {} a -> s {importedAt = a} :: CertificateSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The time before which the certificate is not valid.
 certificateSummary_notBefore :: Lens.Lens' CertificateSummary (Prelude.Maybe Prelude.UTCTime)
-certificateSummary_notBefore = Lens.lens (\CertificateSummary' {notBefore} -> notBefore) (\s@CertificateSummary' {} a -> s {notBefore = a} :: CertificateSummary) Prelude.. Lens.mapping Core._Time
+certificateSummary_notBefore = Lens.lens (\CertificateSummary' {notBefore} -> notBefore) (\s@CertificateSummary' {} a -> s {notBefore = a} :: CertificateSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates whether the certificate is currently in use by any Amazon Web
 -- Services resources.
@@ -364,11 +365,11 @@ certificateSummary_inUse = Lens.lens (\CertificateSummary' {inUse} -> inUse) (\s
 -- | The time at which the certificate was revoked. This value exists only
 -- when the certificate status is @REVOKED@.
 certificateSummary_revokedAt :: Lens.Lens' CertificateSummary (Prelude.Maybe Prelude.UTCTime)
-certificateSummary_revokedAt = Lens.lens (\CertificateSummary' {revokedAt} -> revokedAt) (\s@CertificateSummary' {} a -> s {revokedAt = a} :: CertificateSummary) Prelude.. Lens.mapping Core._Time
+certificateSummary_revokedAt = Lens.lens (\CertificateSummary' {revokedAt} -> revokedAt) (\s@CertificateSummary' {} a -> s {revokedAt = a} :: CertificateSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The time after which the certificate is not valid.
 certificateSummary_notAfter :: Lens.Lens' CertificateSummary (Prelude.Maybe Prelude.UTCTime)
-certificateSummary_notAfter = Lens.lens (\CertificateSummary' {notAfter} -> notAfter) (\s@CertificateSummary' {} a -> s {notAfter = a} :: CertificateSummary) Prelude.. Lens.mapping Core._Time
+certificateSummary_notAfter = Lens.lens (\CertificateSummary' {notAfter} -> notAfter) (\s@CertificateSummary' {} a -> s {notAfter = a} :: CertificateSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies whether the certificate is eligible for renewal. At this time,
 -- only exported private certificates can be renewed with the
@@ -378,39 +379,39 @@ certificateSummary_renewalEligibility = Lens.lens (\CertificateSummary' {renewal
 
 -- | The time at which the certificate was requested.
 certificateSummary_createdAt :: Lens.Lens' CertificateSummary (Prelude.Maybe Prelude.UTCTime)
-certificateSummary_createdAt = Lens.lens (\CertificateSummary' {createdAt} -> createdAt) (\s@CertificateSummary' {} a -> s {createdAt = a} :: CertificateSummary) Prelude.. Lens.mapping Core._Time
+certificateSummary_createdAt = Lens.lens (\CertificateSummary' {createdAt} -> createdAt) (\s@CertificateSummary' {} a -> s {createdAt = a} :: CertificateSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The time at which the certificate was issued. This value exists only
 -- when the certificate type is @AMAZON_ISSUED@.
 certificateSummary_issuedAt :: Lens.Lens' CertificateSummary (Prelude.Maybe Prelude.UTCTime)
-certificateSummary_issuedAt = Lens.lens (\CertificateSummary' {issuedAt} -> issuedAt) (\s@CertificateSummary' {} a -> s {issuedAt = a} :: CertificateSummary) Prelude.. Lens.mapping Core._Time
+certificateSummary_issuedAt = Lens.lens (\CertificateSummary' {issuedAt} -> issuedAt) (\s@CertificateSummary' {} a -> s {issuedAt = a} :: CertificateSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON CertificateSummary where
+instance Data.FromJSON CertificateSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CertificateSummary"
       ( \x ->
           CertificateSummary'
-            Prelude.<$> (x Core..:? "SubjectAlternativeNameSummaries")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "DomainName")
-            Prelude.<*> (x Core..:? "Exported")
-            Prelude.<*> (x Core..:? "KeyUsages" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "KeyAlgorithm")
-            Prelude.<*> ( x Core..:? "ExtendedKeyUsages"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "SubjectAlternativeNameSummaries")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "DomainName")
+            Prelude.<*> (x Data..:? "Exported")
+            Prelude.<*> (x Data..:? "KeyUsages" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "KeyAlgorithm")
+            Prelude.<*> ( x Data..:? "ExtendedKeyUsages"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "HasAdditionalSubjectAlternativeNames")
-            Prelude.<*> (x Core..:? "CertificateArn")
-            Prelude.<*> (x Core..:? "ImportedAt")
-            Prelude.<*> (x Core..:? "NotBefore")
-            Prelude.<*> (x Core..:? "InUse")
-            Prelude.<*> (x Core..:? "RevokedAt")
-            Prelude.<*> (x Core..:? "NotAfter")
-            Prelude.<*> (x Core..:? "RenewalEligibility")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "IssuedAt")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "HasAdditionalSubjectAlternativeNames")
+            Prelude.<*> (x Data..:? "CertificateArn")
+            Prelude.<*> (x Data..:? "ImportedAt")
+            Prelude.<*> (x Data..:? "NotBefore")
+            Prelude.<*> (x Data..:? "InUse")
+            Prelude.<*> (x Data..:? "RevokedAt")
+            Prelude.<*> (x Data..:? "NotAfter")
+            Prelude.<*> (x Data..:? "RenewalEligibility")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "IssuedAt")
       )
 
 instance Prelude.Hashable CertificateSummary where

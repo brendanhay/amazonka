@@ -21,6 +21,7 @@ module Amazonka.CertificateManager.Types.DomainValidationOption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the domain names that you want ACM to use to
@@ -126,12 +127,12 @@ instance Prelude.NFData DomainValidationOption where
     Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf validationDomain
 
-instance Core.ToJSON DomainValidationOption where
+instance Data.ToJSON DomainValidationOption where
   toJSON DomainValidationOption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DomainName" Core..= domainName),
+          [ Prelude.Just ("DomainName" Data..= domainName),
             Prelude.Just
-              ("ValidationDomain" Core..= validationDomain)
+              ("ValidationDomain" Data..= validationDomain)
           ]
       )

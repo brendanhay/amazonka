@@ -42,6 +42,7 @@ where
 import Amazonka.CertificateManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,35 +131,35 @@ instance Prelude.NFData UpdateCertificateOptions where
     Prelude.rnf certificateArn
       `Prelude.seq` Prelude.rnf options
 
-instance Core.ToHeaders UpdateCertificateOptions where
+instance Data.ToHeaders UpdateCertificateOptions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CertificateManager.UpdateCertificateOptions" ::
+              Data.=# ( "CertificateManager.UpdateCertificateOptions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateCertificateOptions where
+instance Data.ToJSON UpdateCertificateOptions where
   toJSON UpdateCertificateOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("CertificateArn" Core..= certificateArn),
-            Prelude.Just ("Options" Core..= options)
+              ("CertificateArn" Data..= certificateArn),
+            Prelude.Just ("Options" Data..= options)
           ]
       )
 
-instance Core.ToPath UpdateCertificateOptions where
+instance Data.ToPath UpdateCertificateOptions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateCertificateOptions where
+instance Data.ToQuery UpdateCertificateOptions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCertificateOptionsResponse' smart constructor.

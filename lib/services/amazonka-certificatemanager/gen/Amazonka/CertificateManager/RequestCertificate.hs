@@ -73,6 +73,7 @@ where
 import Amazonka.CertificateManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -404,7 +405,7 @@ instance Core.AWSRequest RequestCertificate where
     Response.receiveJSON
       ( \s h x ->
           RequestCertificateResponse'
-            Prelude.<$> (x Core..?> "CertificateArn")
+            Prelude.<$> (x Data..?> "CertificateArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -432,46 +433,46 @@ instance Prelude.NFData RequestCertificate where
       `Prelude.seq` Prelude.rnf subjectAlternativeNames
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders RequestCertificate where
+instance Data.ToHeaders RequestCertificate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CertificateManager.RequestCertificate" ::
+              Data.=# ( "CertificateManager.RequestCertificate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RequestCertificate where
+instance Data.ToJSON RequestCertificate where
   toJSON RequestCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("DomainValidationOptions" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("DomainValidationOptions" Data..=)
               Prelude.<$> domainValidationOptions,
-            ("CertificateAuthorityArn" Core..=)
+            ("CertificateAuthorityArn" Data..=)
               Prelude.<$> certificateAuthorityArn,
-            ("IdempotencyToken" Core..=)
+            ("IdempotencyToken" Data..=)
               Prelude.<$> idempotencyToken,
-            ("KeyAlgorithm" Core..=) Prelude.<$> keyAlgorithm,
-            ("Options" Core..=) Prelude.<$> options,
-            ("ValidationMethod" Core..=)
+            ("KeyAlgorithm" Data..=) Prelude.<$> keyAlgorithm,
+            ("Options" Data..=) Prelude.<$> options,
+            ("ValidationMethod" Data..=)
               Prelude.<$> validationMethod,
-            ("SubjectAlternativeNames" Core..=)
+            ("SubjectAlternativeNames" Data..=)
               Prelude.<$> subjectAlternativeNames,
-            Prelude.Just ("DomainName" Core..= domainName)
+            Prelude.Just ("DomainName" Data..= domainName)
           ]
       )
 
-instance Core.ToPath RequestCertificate where
+instance Data.ToPath RequestCertificate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RequestCertificate where
+instance Data.ToQuery RequestCertificate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRequestCertificateResponse' smart constructor.

@@ -21,6 +21,7 @@ import Amazonka.CertificateManager.Lens
 import Amazonka.CertificateManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.CertificateManager.DescribeCertificate' every 60 seconds until a successful state is reached. An error is returned after 40 failed checks.
@@ -45,7 +46,7 @@ newCertificateValidated =
                   )
                 Prelude.. domainValidation_validationStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "PENDING_VALIDATION"
@@ -61,7 +62,7 @@ newCertificateValidated =
                   )
                 Prelude.. domainValidation_validationStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "FAILED"
@@ -70,7 +71,7 @@ newCertificateValidated =
                 Prelude.. Lens._Just
                 Prelude.. certificateDetail_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "ResourceNotFoundException"

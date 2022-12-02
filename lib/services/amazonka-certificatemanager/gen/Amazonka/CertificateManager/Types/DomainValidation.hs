@@ -24,6 +24,7 @@ import Amazonka.CertificateManager.Types.ResourceRecord
 import Amazonka.CertificateManager.Types.ValidationMethod
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the validation of each domain name in the
@@ -155,20 +156,20 @@ domainValidation_validationMethod = Lens.lens (\DomainValidation' {validationMet
 domainValidation_domainName :: Lens.Lens' DomainValidation Prelude.Text
 domainValidation_domainName = Lens.lens (\DomainValidation' {domainName} -> domainName) (\s@DomainValidation' {} a -> s {domainName = a} :: DomainValidation)
 
-instance Core.FromJSON DomainValidation where
+instance Data.FromJSON DomainValidation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainValidation"
       ( \x ->
           DomainValidation'
-            Prelude.<$> (x Core..:? "ValidationStatus")
-            Prelude.<*> (x Core..:? "ValidationDomain")
-            Prelude.<*> (x Core..:? "ResourceRecord")
-            Prelude.<*> ( x Core..:? "ValidationEmails"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ValidationStatus")
+            Prelude.<*> (x Data..:? "ValidationDomain")
+            Prelude.<*> (x Data..:? "ResourceRecord")
+            Prelude.<*> ( x Data..:? "ValidationEmails"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ValidationMethod")
-            Prelude.<*> (x Core..: "DomainName")
+            Prelude.<*> (x Data..:? "ValidationMethod")
+            Prelude.<*> (x Data..: "DomainName")
       )
 
 instance Prelude.Hashable DomainValidation where

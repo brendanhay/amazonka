@@ -46,6 +46,7 @@ where
 import Amazonka.CertificateManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,34 +116,34 @@ instance Prelude.NFData DeleteCertificate where
   rnf DeleteCertificate' {..} =
     Prelude.rnf certificateArn
 
-instance Core.ToHeaders DeleteCertificate where
+instance Data.ToHeaders DeleteCertificate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CertificateManager.DeleteCertificate" ::
+              Data.=# ( "CertificateManager.DeleteCertificate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteCertificate where
+instance Data.ToJSON DeleteCertificate where
   toJSON DeleteCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("CertificateArn" Core..= certificateArn)
+              ("CertificateArn" Data..= certificateArn)
           ]
       )
 
-instance Core.ToPath DeleteCertificate where
+instance Data.ToPath DeleteCertificate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteCertificate where
+instance Data.ToQuery DeleteCertificate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCertificateResponse' smart constructor.

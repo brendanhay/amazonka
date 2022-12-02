@@ -21,6 +21,7 @@ module Amazonka.SageMakerEdge.Types.Definition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerEdge.Types.Checksum
 import Amazonka.SageMakerEdge.Types.ModelState
@@ -81,16 +82,16 @@ definition_s3Url = Lens.lens (\Definition' {s3Url} -> s3Url) (\s@Definition' {} 
 definition_modelHandle :: Lens.Lens' Definition (Prelude.Maybe Prelude.Text)
 definition_modelHandle = Lens.lens (\Definition' {modelHandle} -> modelHandle) (\s@Definition' {} a -> s {modelHandle = a} :: Definition)
 
-instance Core.FromJSON Definition where
+instance Data.FromJSON Definition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Definition"
       ( \x ->
           Definition'
-            Prelude.<$> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Checksum")
-            Prelude.<*> (x Core..:? "S3Url")
-            Prelude.<*> (x Core..:? "ModelHandle")
+            Prelude.<$> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Checksum")
+            Prelude.<*> (x Data..:? "S3Url")
+            Prelude.<*> (x Data..:? "ModelHandle")
       )
 
 instance Prelude.Hashable Definition where

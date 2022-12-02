@@ -21,6 +21,7 @@ module Amazonka.SageMakerEdge.Types.Model where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerEdge.Types.EdgeMetric
 
@@ -30,7 +31,7 @@ import Amazonka.SageMakerEdge.Types.EdgeMetric
 -- /See:/ 'newModel' smart constructor.
 data Model = Model'
   { -- | The timestamp of the last data sample taken.
-    latestSampleTime :: Prelude.Maybe Core.POSIX,
+    latestSampleTime :: Prelude.Maybe Data.POSIX,
     -- | The version of the model.
     modelVersion :: Prelude.Maybe Prelude.Text,
     -- | Information required for model metrics.
@@ -38,7 +39,7 @@ data Model = Model'
     -- | The name of the model.
     modelName :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of the last inference that was made.
-    latestInference :: Prelude.Maybe Core.POSIX
+    latestInference :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,7 +73,7 @@ newModel =
 
 -- | The timestamp of the last data sample taken.
 model_latestSampleTime :: Lens.Lens' Model (Prelude.Maybe Prelude.UTCTime)
-model_latestSampleTime = Lens.lens (\Model' {latestSampleTime} -> latestSampleTime) (\s@Model' {} a -> s {latestSampleTime = a} :: Model) Prelude.. Lens.mapping Core._Time
+model_latestSampleTime = Lens.lens (\Model' {latestSampleTime} -> latestSampleTime) (\s@Model' {} a -> s {latestSampleTime = a} :: Model) Prelude.. Lens.mapping Data._Time
 
 -- | The version of the model.
 model_modelVersion :: Lens.Lens' Model (Prelude.Maybe Prelude.Text)
@@ -88,7 +89,7 @@ model_modelName = Lens.lens (\Model' {modelName} -> modelName) (\s@Model' {} a -
 
 -- | The timestamp of the last inference that was made.
 model_latestInference :: Lens.Lens' Model (Prelude.Maybe Prelude.UTCTime)
-model_latestInference = Lens.lens (\Model' {latestInference} -> latestInference) (\s@Model' {} a -> s {latestInference = a} :: Model) Prelude.. Lens.mapping Core._Time
+model_latestInference = Lens.lens (\Model' {latestInference} -> latestInference) (\s@Model' {} a -> s {latestInference = a} :: Model) Prelude.. Lens.mapping Data._Time
 
 instance Prelude.Hashable Model where
   hashWithSalt _salt Model' {..} =
@@ -106,16 +107,16 @@ instance Prelude.NFData Model where
       `Prelude.seq` Prelude.rnf modelName
       `Prelude.seq` Prelude.rnf latestInference
 
-instance Core.ToJSON Model where
+instance Data.ToJSON Model where
   toJSON Model' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LatestSampleTime" Core..=)
+          [ ("LatestSampleTime" Data..=)
               Prelude.<$> latestSampleTime,
-            ("ModelVersion" Core..=) Prelude.<$> modelVersion,
-            ("ModelMetrics" Core..=) Prelude.<$> modelMetrics,
-            ("ModelName" Core..=) Prelude.<$> modelName,
-            ("LatestInference" Core..=)
+            ("ModelVersion" Data..=) Prelude.<$> modelVersion,
+            ("ModelMetrics" Data..=) Prelude.<$> modelMetrics,
+            ("ModelName" Data..=) Prelude.<$> modelName,
+            ("LatestInference" Data..=)
               Prelude.<$> latestInference
           ]
       )

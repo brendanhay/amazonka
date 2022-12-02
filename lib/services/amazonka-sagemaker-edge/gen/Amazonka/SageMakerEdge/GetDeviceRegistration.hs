@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,8 +104,8 @@ instance Core.AWSRequest GetDeviceRegistration where
     Response.receiveJSON
       ( \s h x ->
           GetDeviceRegistrationResponse'
-            Prelude.<$> (x Core..?> "DeviceRegistration")
-            Prelude.<*> (x Core..?> "CacheTTL")
+            Prelude.<$> (x Data..?> "DeviceRegistration")
+            Prelude.<*> (x Data..?> "CacheTTL")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,31 +119,31 @@ instance Prelude.NFData GetDeviceRegistration where
     Prelude.rnf deviceName
       `Prelude.seq` Prelude.rnf deviceFleetName
 
-instance Core.ToHeaders GetDeviceRegistration where
+instance Data.ToHeaders GetDeviceRegistration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDeviceRegistration where
+instance Data.ToJSON GetDeviceRegistration where
   toJSON GetDeviceRegistration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DeviceName" Core..= deviceName),
+          [ Prelude.Just ("DeviceName" Data..= deviceName),
             Prelude.Just
-              ("DeviceFleetName" Core..= deviceFleetName)
+              ("DeviceFleetName" Data..= deviceFleetName)
           ]
       )
 
-instance Core.ToPath GetDeviceRegistration where
+instance Data.ToPath GetDeviceRegistration where
   toPath = Prelude.const "/GetDeviceRegistration"
 
-instance Core.ToQuery GetDeviceRegistration where
+instance Data.ToQuery GetDeviceRegistration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDeviceRegistrationResponse' smart constructor.

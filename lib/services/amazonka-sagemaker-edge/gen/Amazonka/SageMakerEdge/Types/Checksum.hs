@@ -21,6 +21,7 @@ module Amazonka.SageMakerEdge.Types.Checksum where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerEdge.Types.ChecksumType
 
@@ -62,13 +63,13 @@ checksum_type = Lens.lens (\Checksum' {type'} -> type') (\s@Checksum' {} a -> s 
 checksum_sum :: Lens.Lens' Checksum (Prelude.Maybe Prelude.Text)
 checksum_sum = Lens.lens (\Checksum' {sum} -> sum) (\s@Checksum' {} a -> s {sum = a} :: Checksum)
 
-instance Core.FromJSON Checksum where
+instance Data.FromJSON Checksum where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Checksum"
       ( \x ->
           Checksum'
-            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "Sum")
+            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..:? "Sum")
       )
 
 instance Prelude.Hashable Checksum where

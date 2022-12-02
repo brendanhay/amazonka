@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,7 +101,7 @@ instance Core.AWSRequest GetDeployments where
     Response.receiveJSON
       ( \s h x ->
           GetDeploymentsResponse'
-            Prelude.<$> (x Core..?> "Deployments" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Deployments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,31 +115,31 @@ instance Prelude.NFData GetDeployments where
     Prelude.rnf deviceName
       `Prelude.seq` Prelude.rnf deviceFleetName
 
-instance Core.ToHeaders GetDeployments where
+instance Data.ToHeaders GetDeployments where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDeployments where
+instance Data.ToJSON GetDeployments where
   toJSON GetDeployments' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DeviceName" Core..= deviceName),
+          [ Prelude.Just ("DeviceName" Data..= deviceName),
             Prelude.Just
-              ("DeviceFleetName" Core..= deviceFleetName)
+              ("DeviceFleetName" Data..= deviceFleetName)
           ]
       )
 
-instance Core.ToPath GetDeployments where
+instance Data.ToPath GetDeployments where
   toPath = Prelude.const "/GetDeployments"
 
-instance Core.ToQuery GetDeployments where
+instance Data.ToQuery GetDeployments where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDeploymentsResponse' smart constructor.

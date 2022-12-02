@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.DatasetContentDeliveryDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.IotEventsDestinationConfiguration
 import Amazonka.IoTAnalytics.Types.S3DestinationConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -69,16 +70,16 @@ datasetContentDeliveryDestination_iotEventsDestinationConfiguration :: Lens.Lens
 datasetContentDeliveryDestination_iotEventsDestinationConfiguration = Lens.lens (\DatasetContentDeliveryDestination' {iotEventsDestinationConfiguration} -> iotEventsDestinationConfiguration) (\s@DatasetContentDeliveryDestination' {} a -> s {iotEventsDestinationConfiguration = a} :: DatasetContentDeliveryDestination)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DatasetContentDeliveryDestination
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetContentDeliveryDestination"
       ( \x ->
           DatasetContentDeliveryDestination'
-            Prelude.<$> (x Core..:? "s3DestinationConfiguration")
-            Prelude.<*> (x Core..:? "iotEventsDestinationConfiguration")
+            Prelude.<$> (x Data..:? "s3DestinationConfiguration")
+            Prelude.<*> (x Data..:? "iotEventsDestinationConfiguration")
       )
 
 instance
@@ -101,15 +102,15 @@ instance
       `Prelude.seq` Prelude.rnf iotEventsDestinationConfiguration
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DatasetContentDeliveryDestination
   where
   toJSON DatasetContentDeliveryDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("s3DestinationConfiguration" Core..=)
+          [ ("s3DestinationConfiguration" Data..=)
               Prelude.<$> s3DestinationConfiguration,
-            ("iotEventsDestinationConfiguration" Core..=)
+            ("iotEventsDestinationConfiguration" Data..=)
               Prelude.<$> iotEventsDestinationConfiguration
           ]
       )

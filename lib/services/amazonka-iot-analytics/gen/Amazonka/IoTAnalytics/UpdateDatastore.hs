@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -156,28 +157,28 @@ instance Prelude.NFData UpdateDatastore where
       `Prelude.seq` Prelude.rnf datastoreStorage
       `Prelude.seq` Prelude.rnf datastoreName
 
-instance Core.ToHeaders UpdateDatastore where
+instance Data.ToHeaders UpdateDatastore where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateDatastore where
+instance Data.ToJSON UpdateDatastore where
   toJSON UpdateDatastore' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("fileFormatConfiguration" Core..=)
+          [ ("fileFormatConfiguration" Data..=)
               Prelude.<$> fileFormatConfiguration,
-            ("retentionPeriod" Core..=)
+            ("retentionPeriod" Data..=)
               Prelude.<$> retentionPeriod,
-            ("datastoreStorage" Core..=)
+            ("datastoreStorage" Data..=)
               Prelude.<$> datastoreStorage
           ]
       )
 
-instance Core.ToPath UpdateDatastore where
+instance Data.ToPath UpdateDatastore where
   toPath UpdateDatastore' {..} =
     Prelude.mconcat
-      ["/datastores/", Core.toBS datastoreName]
+      ["/datastores/", Data.toBS datastoreName]
 
-instance Core.ToQuery UpdateDatastore where
+instance Data.ToQuery UpdateDatastore where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDatastoreResponse' smart constructor.

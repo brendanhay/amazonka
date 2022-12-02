@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.AddAttributesActivity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An activity that adds other attributes based on existing attributes in
@@ -85,15 +86,15 @@ addAttributesActivity_name = Lens.lens (\AddAttributesActivity' {name} -> name) 
 addAttributesActivity_attributes :: Lens.Lens' AddAttributesActivity (Prelude.HashMap Prelude.Text Prelude.Text)
 addAttributesActivity_attributes = Lens.lens (\AddAttributesActivity' {attributes} -> attributes) (\s@AddAttributesActivity' {} a -> s {attributes = a} :: AddAttributesActivity) Prelude.. Lens.coerced
 
-instance Core.FromJSON AddAttributesActivity where
+instance Data.FromJSON AddAttributesActivity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AddAttributesActivity"
       ( \x ->
           AddAttributesActivity'
-            Prelude.<$> (x Core..:? "next")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "next")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..:? "attributes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AddAttributesActivity where
@@ -108,12 +109,12 @@ instance Prelude.NFData AddAttributesActivity where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf attributes
 
-instance Core.ToJSON AddAttributesActivity where
+instance Data.ToJSON AddAttributesActivity where
   toJSON AddAttributesActivity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("next" Core..=) Prelude.<$> next,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("attributes" Core..= attributes)
+          [ ("next" Data..=) Prelude.<$> next,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("attributes" Data..= attributes)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.ChannelMessages where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies one or more sets of channel messages.
@@ -75,9 +76,9 @@ instance Prelude.Hashable ChannelMessages where
 instance Prelude.NFData ChannelMessages where
   rnf ChannelMessages' {..} = Prelude.rnf s3Paths
 
-instance Core.ToJSON ChannelMessages where
+instance Data.ToJSON ChannelMessages where
   toJSON ChannelMessages' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("s3Paths" Core..=) Prelude.<$> s3Paths]
+          [("s3Paths" Data..=) Prelude.<$> s3Paths]
       )

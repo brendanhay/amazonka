@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,9 +132,9 @@ instance Core.AWSRequest CreateChannel where
     Response.receiveJSON
       ( \s h x ->
           CreateChannelResponse'
-            Prelude.<$> (x Core..?> "channelName")
-            Prelude.<*> (x Core..?> "channelArn")
-            Prelude.<*> (x Core..?> "retentionPeriod")
+            Prelude.<$> (x Data..?> "channelName")
+            Prelude.<*> (x Data..?> "channelArn")
+            Prelude.<*> (x Data..?> "retentionPeriod")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,26 +152,26 @@ instance Prelude.NFData CreateChannel where
       `Prelude.seq` Prelude.rnf retentionPeriod
       `Prelude.seq` Prelude.rnf channelName
 
-instance Core.ToHeaders CreateChannel where
+instance Data.ToHeaders CreateChannel where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateChannel where
+instance Data.ToJSON CreateChannel where
   toJSON CreateChannel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("channelStorage" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("channelStorage" Data..=)
               Prelude.<$> channelStorage,
-            ("retentionPeriod" Core..=)
+            ("retentionPeriod" Data..=)
               Prelude.<$> retentionPeriod,
-            Prelude.Just ("channelName" Core..= channelName)
+            Prelude.Just ("channelName" Data..= channelName)
           ]
       )
 
-instance Core.ToPath CreateChannel where
+instance Data.ToPath CreateChannel where
   toPath = Prelude.const "/channels"
 
-instance Core.ToQuery CreateChannel where
+instance Data.ToQuery CreateChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateChannelResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.Partition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A partition dimension defined by an attribute.
@@ -52,12 +53,12 @@ newPartition pAttributeName_ =
 partition_attributeName :: Lens.Lens' Partition Prelude.Text
 partition_attributeName = Lens.lens (\Partition' {attributeName} -> attributeName) (\s@Partition' {} a -> s {attributeName = a} :: Partition)
 
-instance Core.FromJSON Partition where
+instance Data.FromJSON Partition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Partition"
       ( \x ->
-          Partition' Prelude.<$> (x Core..: "attributeName")
+          Partition' Prelude.<$> (x Data..: "attributeName")
       )
 
 instance Prelude.Hashable Partition where
@@ -67,11 +68,11 @@ instance Prelude.Hashable Partition where
 instance Prelude.NFData Partition where
   rnf Partition' {..} = Prelude.rnf attributeName
 
-instance Core.ToJSON Partition where
+instance Data.ToJSON Partition where
   toJSON Partition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("attributeName" Core..= attributeName)
+              ("attributeName" Data..= attributeName)
           ]
       )

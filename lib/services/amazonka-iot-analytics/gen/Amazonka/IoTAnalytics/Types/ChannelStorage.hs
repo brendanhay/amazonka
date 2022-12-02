@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.ChannelStorage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.CustomerManagedChannelS3Storage
 import Amazonka.IoTAnalytics.Types.ServiceManagedChannelS3Storage
 import qualified Amazonka.Prelude as Prelude
@@ -79,14 +80,14 @@ channelStorage_customerManagedS3 = Lens.lens (\ChannelStorage' {customerManagedS
 channelStorage_serviceManagedS3 :: Lens.Lens' ChannelStorage (Prelude.Maybe ServiceManagedChannelS3Storage)
 channelStorage_serviceManagedS3 = Lens.lens (\ChannelStorage' {serviceManagedS3} -> serviceManagedS3) (\s@ChannelStorage' {} a -> s {serviceManagedS3 = a} :: ChannelStorage)
 
-instance Core.FromJSON ChannelStorage where
+instance Data.FromJSON ChannelStorage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelStorage"
       ( \x ->
           ChannelStorage'
-            Prelude.<$> (x Core..:? "customerManagedS3")
-            Prelude.<*> (x Core..:? "serviceManagedS3")
+            Prelude.<$> (x Data..:? "customerManagedS3")
+            Prelude.<*> (x Data..:? "serviceManagedS3")
       )
 
 instance Prelude.Hashable ChannelStorage where
@@ -99,13 +100,13 @@ instance Prelude.NFData ChannelStorage where
     Prelude.rnf customerManagedS3
       `Prelude.seq` Prelude.rnf serviceManagedS3
 
-instance Core.ToJSON ChannelStorage where
+instance Data.ToJSON ChannelStorage where
   toJSON ChannelStorage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("customerManagedS3" Core..=)
+          [ ("customerManagedS3" Data..=)
               Prelude.<$> customerManagedS3,
-            ("serviceManagedS3" Core..=)
+            ("serviceManagedS3" Data..=)
               Prelude.<$> serviceManagedS3
           ]
       )

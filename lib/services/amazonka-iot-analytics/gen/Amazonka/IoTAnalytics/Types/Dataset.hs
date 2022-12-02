@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.Dataset where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.DatasetAction
 import Amazonka.IoTAnalytics.Types.DatasetContentDeliveryRule
 import Amazonka.IoTAnalytics.Types.DatasetStatus
@@ -61,9 +62,9 @@ data Dataset = Dataset'
     -- | Optional. How long, in days, message data is kept for the dataset.
     retentionPeriod :: Prelude.Maybe RetentionPeriod,
     -- | When the dataset was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The last time the dataset was updated.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The @DatasetAction@ objects that automatically create the dataset
     -- contents.
     actions :: Prelude.Maybe (Prelude.NonEmpty DatasetAction)
@@ -171,36 +172,36 @@ dataset_retentionPeriod = Lens.lens (\Dataset' {retentionPeriod} -> retentionPer
 
 -- | When the dataset was created.
 dataset_creationTime :: Lens.Lens' Dataset (Prelude.Maybe Prelude.UTCTime)
-dataset_creationTime = Lens.lens (\Dataset' {creationTime} -> creationTime) (\s@Dataset' {} a -> s {creationTime = a} :: Dataset) Prelude.. Lens.mapping Core._Time
+dataset_creationTime = Lens.lens (\Dataset' {creationTime} -> creationTime) (\s@Dataset' {} a -> s {creationTime = a} :: Dataset) Prelude.. Lens.mapping Data._Time
 
 -- | The last time the dataset was updated.
 dataset_lastUpdateTime :: Lens.Lens' Dataset (Prelude.Maybe Prelude.UTCTime)
-dataset_lastUpdateTime = Lens.lens (\Dataset' {lastUpdateTime} -> lastUpdateTime) (\s@Dataset' {} a -> s {lastUpdateTime = a} :: Dataset) Prelude.. Lens.mapping Core._Time
+dataset_lastUpdateTime = Lens.lens (\Dataset' {lastUpdateTime} -> lastUpdateTime) (\s@Dataset' {} a -> s {lastUpdateTime = a} :: Dataset) Prelude.. Lens.mapping Data._Time
 
 -- | The @DatasetAction@ objects that automatically create the dataset
 -- contents.
 dataset_actions :: Lens.Lens' Dataset (Prelude.Maybe (Prelude.NonEmpty DatasetAction))
 dataset_actions = Lens.lens (\Dataset' {actions} -> actions) (\s@Dataset' {} a -> s {actions = a} :: Dataset) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Dataset where
+instance Data.FromJSON Dataset where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Dataset"
       ( \x ->
           Dataset'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "lateDataRules")
-            Prelude.<*> (x Core..:? "versioningConfiguration")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "triggers" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "contentDeliveryRules"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "lateDataRules")
+            Prelude.<*> (x Data..:? "versioningConfiguration")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "triggers" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "contentDeliveryRules"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "retentionPeriod")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "lastUpdateTime")
-            Prelude.<*> (x Core..:? "actions")
+            Prelude.<*> (x Data..:? "retentionPeriod")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
+            Prelude.<*> (x Data..:? "actions")
       )
 
 instance Prelude.Hashable Dataset where

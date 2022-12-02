@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,22 +96,22 @@ instance Prelude.NFData PutLoggingOptions where
   rnf PutLoggingOptions' {..} =
     Prelude.rnf loggingOptions
 
-instance Core.ToHeaders PutLoggingOptions where
+instance Data.ToHeaders PutLoggingOptions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON PutLoggingOptions where
+instance Data.ToJSON PutLoggingOptions where
   toJSON PutLoggingOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("loggingOptions" Core..= loggingOptions)
+              ("loggingOptions" Data..= loggingOptions)
           ]
       )
 
-instance Core.ToPath PutLoggingOptions where
+instance Data.ToPath PutLoggingOptions where
   toPath = Prelude.const "/logging"
 
-instance Core.ToQuery PutLoggingOptions where
+instance Data.ToQuery PutLoggingOptions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutLoggingOptionsResponse' smart constructor.

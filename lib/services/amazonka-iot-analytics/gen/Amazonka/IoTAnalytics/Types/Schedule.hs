@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.Schedule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The schedule for when to trigger an update.
@@ -58,12 +59,12 @@ newSchedule = Schedule' {expression = Prelude.Nothing}
 schedule_expression :: Lens.Lens' Schedule (Prelude.Maybe Prelude.Text)
 schedule_expression = Lens.lens (\Schedule' {expression} -> expression) (\s@Schedule' {} a -> s {expression = a} :: Schedule)
 
-instance Core.FromJSON Schedule where
+instance Data.FromJSON Schedule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Schedule"
       ( \x ->
-          Schedule' Prelude.<$> (x Core..:? "expression")
+          Schedule' Prelude.<$> (x Data..:? "expression")
       )
 
 instance Prelude.Hashable Schedule where
@@ -73,9 +74,9 @@ instance Prelude.Hashable Schedule where
 instance Prelude.NFData Schedule where
   rnf Schedule' {..} = Prelude.rnf expression
 
-instance Core.ToJSON Schedule where
+instance Data.ToJSON Schedule where
   toJSON Schedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("expression" Core..=) Prelude.<$> expression]
+          [("expression" Data..=) Prelude.<$> expression]
       )

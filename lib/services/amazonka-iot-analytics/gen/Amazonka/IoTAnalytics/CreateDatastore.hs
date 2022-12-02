@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -164,9 +165,9 @@ instance Core.AWSRequest CreateDatastore where
     Response.receiveJSON
       ( \s h x ->
           CreateDatastoreResponse'
-            Prelude.<$> (x Core..?> "datastoreArn")
-            Prelude.<*> (x Core..?> "datastoreName")
-            Prelude.<*> (x Core..?> "retentionPeriod")
+            Prelude.<$> (x Data..?> "datastoreArn")
+            Prelude.<*> (x Data..?> "datastoreName")
+            Prelude.<*> (x Data..?> "retentionPeriod")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -188,31 +189,31 @@ instance Prelude.NFData CreateDatastore where
       `Prelude.seq` Prelude.rnf datastorePartitions
       `Prelude.seq` Prelude.rnf datastoreName
 
-instance Core.ToHeaders CreateDatastore where
+instance Data.ToHeaders CreateDatastore where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateDatastore where
+instance Data.ToJSON CreateDatastore where
   toJSON CreateDatastore' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("fileFormatConfiguration" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("fileFormatConfiguration" Data..=)
               Prelude.<$> fileFormatConfiguration,
-            ("retentionPeriod" Core..=)
+            ("retentionPeriod" Data..=)
               Prelude.<$> retentionPeriod,
-            ("datastoreStorage" Core..=)
+            ("datastoreStorage" Data..=)
               Prelude.<$> datastoreStorage,
-            ("datastorePartitions" Core..=)
+            ("datastorePartitions" Data..=)
               Prelude.<$> datastorePartitions,
             Prelude.Just
-              ("datastoreName" Core..= datastoreName)
+              ("datastoreName" Data..= datastoreName)
           ]
       )
 
-instance Core.ToPath CreateDatastore where
+instance Data.ToPath CreateDatastore where
   toPath = Prelude.const "/datastores"
 
-instance Core.ToQuery CreateDatastore where
+instance Data.ToQuery CreateDatastore where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDatastoreResponse' smart constructor.

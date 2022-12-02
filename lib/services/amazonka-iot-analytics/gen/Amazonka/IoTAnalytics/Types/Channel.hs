@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.Channel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.ChannelStatus
 import Amazonka.IoTAnalytics.Types.ChannelStorage
 import Amazonka.IoTAnalytics.Types.RetentionPeriod
@@ -45,9 +46,9 @@ data Channel = Channel'
     -- | How long, in days, message data is kept for the channel.
     retentionPeriod :: Prelude.Maybe RetentionPeriod,
     -- | When the channel was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | When the channel was last updated.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The last time when a new message arrived in the channel.
     --
     -- IoT Analytics updates this value at most once per minute for one
@@ -55,7 +56,7 @@ data Channel = Channel'
     --
     -- This feature only applies to messages that arrived in the data store
     -- after October 23, 2020.
-    lastMessageArrivalTime :: Prelude.Maybe Core.POSIX
+    lastMessageArrivalTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -130,11 +131,11 @@ channel_retentionPeriod = Lens.lens (\Channel' {retentionPeriod} -> retentionPer
 
 -- | When the channel was created.
 channel_creationTime :: Lens.Lens' Channel (Prelude.Maybe Prelude.UTCTime)
-channel_creationTime = Lens.lens (\Channel' {creationTime} -> creationTime) (\s@Channel' {} a -> s {creationTime = a} :: Channel) Prelude.. Lens.mapping Core._Time
+channel_creationTime = Lens.lens (\Channel' {creationTime} -> creationTime) (\s@Channel' {} a -> s {creationTime = a} :: Channel) Prelude.. Lens.mapping Data._Time
 
 -- | When the channel was last updated.
 channel_lastUpdateTime :: Lens.Lens' Channel (Prelude.Maybe Prelude.UTCTime)
-channel_lastUpdateTime = Lens.lens (\Channel' {lastUpdateTime} -> lastUpdateTime) (\s@Channel' {} a -> s {lastUpdateTime = a} :: Channel) Prelude.. Lens.mapping Core._Time
+channel_lastUpdateTime = Lens.lens (\Channel' {lastUpdateTime} -> lastUpdateTime) (\s@Channel' {} a -> s {lastUpdateTime = a} :: Channel) Prelude.. Lens.mapping Data._Time
 
 -- | The last time when a new message arrived in the channel.
 --
@@ -144,22 +145,22 @@ channel_lastUpdateTime = Lens.lens (\Channel' {lastUpdateTime} -> lastUpdateTime
 -- This feature only applies to messages that arrived in the data store
 -- after October 23, 2020.
 channel_lastMessageArrivalTime :: Lens.Lens' Channel (Prelude.Maybe Prelude.UTCTime)
-channel_lastMessageArrivalTime = Lens.lens (\Channel' {lastMessageArrivalTime} -> lastMessageArrivalTime) (\s@Channel' {} a -> s {lastMessageArrivalTime = a} :: Channel) Prelude.. Lens.mapping Core._Time
+channel_lastMessageArrivalTime = Lens.lens (\Channel' {lastMessageArrivalTime} -> lastMessageArrivalTime) (\s@Channel' {} a -> s {lastMessageArrivalTime = a} :: Channel) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Channel where
+instance Data.FromJSON Channel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Channel"
       ( \x ->
           Channel'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "storage")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "retentionPeriod")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "lastUpdateTime")
-            Prelude.<*> (x Core..:? "lastMessageArrivalTime")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "storage")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "retentionPeriod")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
+            Prelude.<*> (x Data..:? "lastMessageArrivalTime")
       )
 
 instance Prelude.Hashable Channel where

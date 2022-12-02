@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.Datastore where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.DatastorePartitions
 import Amazonka.IoTAnalytics.Types.DatastoreStatus
 import Amazonka.IoTAnalytics.Types.DatastoreStorage
@@ -63,9 +64,9 @@ data Datastore = Datastore'
     -- @customerManagedS3@ storage is selected, this parameter is ignored.
     retentionPeriod :: Prelude.Maybe RetentionPeriod,
     -- | When the data store was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The last time the data store was updated.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The last time when a new message arrived in the data store.
     --
     -- IoT Analytics updates this value at most once per minute for Amazon
@@ -74,7 +75,7 @@ data Datastore = Datastore'
     --
     -- This feature only applies to messages that arrived in the data store
     -- after October 23, 2020.
-    lastMessageArrivalTime :: Prelude.Maybe Core.POSIX,
+    lastMessageArrivalTime :: Prelude.Maybe Data.POSIX,
     -- | Contains information about the partition dimensions in a data store.
     datastorePartitions :: Prelude.Maybe DatastorePartitions
   }
@@ -192,11 +193,11 @@ datastore_retentionPeriod = Lens.lens (\Datastore' {retentionPeriod} -> retentio
 
 -- | When the data store was created.
 datastore_creationTime :: Lens.Lens' Datastore (Prelude.Maybe Prelude.UTCTime)
-datastore_creationTime = Lens.lens (\Datastore' {creationTime} -> creationTime) (\s@Datastore' {} a -> s {creationTime = a} :: Datastore) Prelude.. Lens.mapping Core._Time
+datastore_creationTime = Lens.lens (\Datastore' {creationTime} -> creationTime) (\s@Datastore' {} a -> s {creationTime = a} :: Datastore) Prelude.. Lens.mapping Data._Time
 
 -- | The last time the data store was updated.
 datastore_lastUpdateTime :: Lens.Lens' Datastore (Prelude.Maybe Prelude.UTCTime)
-datastore_lastUpdateTime = Lens.lens (\Datastore' {lastUpdateTime} -> lastUpdateTime) (\s@Datastore' {} a -> s {lastUpdateTime = a} :: Datastore) Prelude.. Lens.mapping Core._Time
+datastore_lastUpdateTime = Lens.lens (\Datastore' {lastUpdateTime} -> lastUpdateTime) (\s@Datastore' {} a -> s {lastUpdateTime = a} :: Datastore) Prelude.. Lens.mapping Data._Time
 
 -- | The last time when a new message arrived in the data store.
 --
@@ -207,28 +208,28 @@ datastore_lastUpdateTime = Lens.lens (\Datastore' {lastUpdateTime} -> lastUpdate
 -- This feature only applies to messages that arrived in the data store
 -- after October 23, 2020.
 datastore_lastMessageArrivalTime :: Lens.Lens' Datastore (Prelude.Maybe Prelude.UTCTime)
-datastore_lastMessageArrivalTime = Lens.lens (\Datastore' {lastMessageArrivalTime} -> lastMessageArrivalTime) (\s@Datastore' {} a -> s {lastMessageArrivalTime = a} :: Datastore) Prelude.. Lens.mapping Core._Time
+datastore_lastMessageArrivalTime = Lens.lens (\Datastore' {lastMessageArrivalTime} -> lastMessageArrivalTime) (\s@Datastore' {} a -> s {lastMessageArrivalTime = a} :: Datastore) Prelude.. Lens.mapping Data._Time
 
 -- | Contains information about the partition dimensions in a data store.
 datastore_datastorePartitions :: Lens.Lens' Datastore (Prelude.Maybe DatastorePartitions)
 datastore_datastorePartitions = Lens.lens (\Datastore' {datastorePartitions} -> datastorePartitions) (\s@Datastore' {} a -> s {datastorePartitions = a} :: Datastore)
 
-instance Core.FromJSON Datastore where
+instance Data.FromJSON Datastore where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Datastore"
       ( \x ->
           Datastore'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "storage")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "fileFormatConfiguration")
-            Prelude.<*> (x Core..:? "retentionPeriod")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "lastUpdateTime")
-            Prelude.<*> (x Core..:? "lastMessageArrivalTime")
-            Prelude.<*> (x Core..:? "datastorePartitions")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "storage")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "fileFormatConfiguration")
+            Prelude.<*> (x Data..:? "retentionPeriod")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
+            Prelude.<*> (x Data..:? "lastMessageArrivalTime")
+            Prelude.<*> (x Data..:? "datastorePartitions")
       )
 
 instance Prelude.Hashable Datastore where

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,8 +104,8 @@ instance Core.AWSRequest DescribeChannel where
     Response.receiveJSON
       ( \s h x ->
           DescribeChannelResponse'
-            Prelude.<$> (x Core..?> "statistics")
-            Prelude.<*> (x Core..?> "channel")
+            Prelude.<$> (x Data..?> "statistics")
+            Prelude.<*> (x Data..?> "channel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,18 +119,18 @@ instance Prelude.NFData DescribeChannel where
     Prelude.rnf includeStatistics
       `Prelude.seq` Prelude.rnf channelName
 
-instance Core.ToHeaders DescribeChannel where
+instance Data.ToHeaders DescribeChannel where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeChannel where
+instance Data.ToPath DescribeChannel where
   toPath DescribeChannel' {..} =
     Prelude.mconcat
-      ["/channels/", Core.toBS channelName]
+      ["/channels/", Data.toBS channelName]
 
-instance Core.ToQuery DescribeChannel where
+instance Data.ToQuery DescribeChannel where
   toQuery DescribeChannel' {..} =
     Prelude.mconcat
-      ["includeStatistics" Core.=: includeStatistics]
+      ["includeStatistics" Data.=: includeStatistics]
 
 -- | /See:/ 'newDescribeChannelResponse' smart constructor.
 data DescribeChannelResponse = DescribeChannelResponse'

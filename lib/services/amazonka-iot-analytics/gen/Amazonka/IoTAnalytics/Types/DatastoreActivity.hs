@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.DatastoreActivity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The datastore activity that specifies where to store the processed data.
@@ -65,14 +66,14 @@ datastoreActivity_name = Lens.lens (\DatastoreActivity' {name} -> name) (\s@Data
 datastoreActivity_datastoreName :: Lens.Lens' DatastoreActivity Prelude.Text
 datastoreActivity_datastoreName = Lens.lens (\DatastoreActivity' {datastoreName} -> datastoreName) (\s@DatastoreActivity' {} a -> s {datastoreName = a} :: DatastoreActivity)
 
-instance Core.FromJSON DatastoreActivity where
+instance Data.FromJSON DatastoreActivity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatastoreActivity"
       ( \x ->
           DatastoreActivity'
-            Prelude.<$> (x Core..: "name")
-            Prelude.<*> (x Core..: "datastoreName")
+            Prelude.<$> (x Data..: "name")
+            Prelude.<*> (x Data..: "datastoreName")
       )
 
 instance Prelude.Hashable DatastoreActivity where
@@ -85,12 +86,12 @@ instance Prelude.NFData DatastoreActivity where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf datastoreName
 
-instance Core.ToJSON DatastoreActivity where
+instance Data.ToJSON DatastoreActivity where
   toJSON DatastoreActivity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
+          [ Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("datastoreName" Core..= datastoreName)
+              ("datastoreName" Data..= datastoreName)
           ]
       )

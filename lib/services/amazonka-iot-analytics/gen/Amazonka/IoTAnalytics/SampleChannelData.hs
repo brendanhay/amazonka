@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -53,12 +54,12 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newSampleChannelData' smart constructor.
 data SampleChannelData = SampleChannelData'
   { -- | The end of the time window from which sample messages are retrieved.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The number of sample messages to be retrieved. The limit is 10. The
     -- default is also 10.
     maxMessages :: Prelude.Maybe Prelude.Natural,
     -- | The start of the time window from which sample messages are retrieved.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the channel whose message samples are retrieved.
     channelName :: Prelude.Text
   }
@@ -94,7 +95,7 @@ newSampleChannelData pChannelName_ =
 
 -- | The end of the time window from which sample messages are retrieved.
 sampleChannelData_endTime :: Lens.Lens' SampleChannelData (Prelude.Maybe Prelude.UTCTime)
-sampleChannelData_endTime = Lens.lens (\SampleChannelData' {endTime} -> endTime) (\s@SampleChannelData' {} a -> s {endTime = a} :: SampleChannelData) Prelude.. Lens.mapping Core._Time
+sampleChannelData_endTime = Lens.lens (\SampleChannelData' {endTime} -> endTime) (\s@SampleChannelData' {} a -> s {endTime = a} :: SampleChannelData) Prelude.. Lens.mapping Data._Time
 
 -- | The number of sample messages to be retrieved. The limit is 10. The
 -- default is also 10.
@@ -103,7 +104,7 @@ sampleChannelData_maxMessages = Lens.lens (\SampleChannelData' {maxMessages} -> 
 
 -- | The start of the time window from which sample messages are retrieved.
 sampleChannelData_startTime :: Lens.Lens' SampleChannelData (Prelude.Maybe Prelude.UTCTime)
-sampleChannelData_startTime = Lens.lens (\SampleChannelData' {startTime} -> startTime) (\s@SampleChannelData' {} a -> s {startTime = a} :: SampleChannelData) Prelude.. Lens.mapping Core._Time
+sampleChannelData_startTime = Lens.lens (\SampleChannelData' {startTime} -> startTime) (\s@SampleChannelData' {} a -> s {startTime = a} :: SampleChannelData) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the channel whose message samples are retrieved.
 sampleChannelData_channelName :: Lens.Lens' SampleChannelData Prelude.Text
@@ -119,7 +120,7 @@ instance Core.AWSRequest SampleChannelData where
     Response.receiveJSON
       ( \s h x ->
           SampleChannelDataResponse'
-            Prelude.<$> (x Core..?> "payloads")
+            Prelude.<$> (x Data..?> "payloads")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,27 +138,27 @@ instance Prelude.NFData SampleChannelData where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf channelName
 
-instance Core.ToHeaders SampleChannelData where
+instance Data.ToHeaders SampleChannelData where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SampleChannelData where
+instance Data.ToPath SampleChannelData where
   toPath SampleChannelData' {..} =
     Prelude.mconcat
-      ["/channels/", Core.toBS channelName, "/sample"]
+      ["/channels/", Data.toBS channelName, "/sample"]
 
-instance Core.ToQuery SampleChannelData where
+instance Data.ToQuery SampleChannelData where
   toQuery SampleChannelData' {..} =
     Prelude.mconcat
-      [ "endTime" Core.=: endTime,
-        "maxMessages" Core.=: maxMessages,
-        "startTime" Core.=: startTime
+      [ "endTime" Data.=: endTime,
+        "maxMessages" Data.=: maxMessages,
+        "startTime" Data.=: startTime
       ]
 
 -- | /See:/ 'newSampleChannelDataResponse' smart constructor.
 data SampleChannelDataResponse = SampleChannelDataResponse'
   { -- | The list of message samples. Each sample message is returned as a
     -- base64-encoded string.
-    payloads :: Prelude.Maybe (Prelude.NonEmpty Core.Base64),
+    payloads :: Prelude.Maybe (Prelude.NonEmpty Data.Base64),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }

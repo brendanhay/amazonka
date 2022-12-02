@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.GlueConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information for coordination with Glue, a fully managed
@@ -75,14 +76,14 @@ glueConfiguration_tableName = Lens.lens (\GlueConfiguration' {tableName} -> tabl
 glueConfiguration_databaseName :: Lens.Lens' GlueConfiguration Prelude.Text
 glueConfiguration_databaseName = Lens.lens (\GlueConfiguration' {databaseName} -> databaseName) (\s@GlueConfiguration' {} a -> s {databaseName = a} :: GlueConfiguration)
 
-instance Core.FromJSON GlueConfiguration where
+instance Data.FromJSON GlueConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GlueConfiguration"
       ( \x ->
           GlueConfiguration'
-            Prelude.<$> (x Core..: "tableName")
-            Prelude.<*> (x Core..: "databaseName")
+            Prelude.<$> (x Data..: "tableName")
+            Prelude.<*> (x Data..: "databaseName")
       )
 
 instance Prelude.Hashable GlueConfiguration where
@@ -95,11 +96,11 @@ instance Prelude.NFData GlueConfiguration where
     Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf databaseName
 
-instance Core.ToJSON GlueConfiguration where
+instance Data.ToJSON GlueConfiguration where
   toJSON GlueConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("tableName" Core..= tableName),
-            Prelude.Just ("databaseName" Core..= databaseName)
+          [ Prelude.Just ("tableName" Data..= tableName),
+            Prelude.Just ("databaseName" Data..= databaseName)
           ]
       )

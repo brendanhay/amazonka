@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.DatasetActionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.DatasetActionType
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,14 +70,14 @@ datasetActionSummary_actionName = Lens.lens (\DatasetActionSummary' {actionName}
 datasetActionSummary_actionType :: Lens.Lens' DatasetActionSummary (Prelude.Maybe DatasetActionType)
 datasetActionSummary_actionType = Lens.lens (\DatasetActionSummary' {actionType} -> actionType) (\s@DatasetActionSummary' {} a -> s {actionType = a} :: DatasetActionSummary)
 
-instance Core.FromJSON DatasetActionSummary where
+instance Data.FromJSON DatasetActionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetActionSummary"
       ( \x ->
           DatasetActionSummary'
-            Prelude.<$> (x Core..:? "actionName")
-            Prelude.<*> (x Core..:? "actionType")
+            Prelude.<$> (x Data..:? "actionName")
+            Prelude.<*> (x Data..:? "actionType")
       )
 
 instance Prelude.Hashable DatasetActionSummary where

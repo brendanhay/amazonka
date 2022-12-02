@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.DatasetAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.ContainerDatasetAction
 import Amazonka.IoTAnalytics.Types.SqlQueryDatasetAction
 import qualified Amazonka.Prelude as Prelude
@@ -85,15 +86,15 @@ datasetAction_actionName = Lens.lens (\DatasetAction' {actionName} -> actionName
 datasetAction_containerAction :: Lens.Lens' DatasetAction (Prelude.Maybe ContainerDatasetAction)
 datasetAction_containerAction = Lens.lens (\DatasetAction' {containerAction} -> containerAction) (\s@DatasetAction' {} a -> s {containerAction = a} :: DatasetAction)
 
-instance Core.FromJSON DatasetAction where
+instance Data.FromJSON DatasetAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetAction"
       ( \x ->
           DatasetAction'
-            Prelude.<$> (x Core..:? "queryAction")
-            Prelude.<*> (x Core..:? "actionName")
-            Prelude.<*> (x Core..:? "containerAction")
+            Prelude.<$> (x Data..:? "queryAction")
+            Prelude.<*> (x Data..:? "actionName")
+            Prelude.<*> (x Data..:? "containerAction")
       )
 
 instance Prelude.Hashable DatasetAction where
@@ -108,13 +109,13 @@ instance Prelude.NFData DatasetAction where
       `Prelude.seq` Prelude.rnf actionName
       `Prelude.seq` Prelude.rnf containerAction
 
-instance Core.ToJSON DatasetAction where
+instance Data.ToJSON DatasetAction where
   toJSON DatasetAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("queryAction" Core..=) Prelude.<$> queryAction,
-            ("actionName" Core..=) Prelude.<$> actionName,
-            ("containerAction" Core..=)
+          [ ("queryAction" Data..=) Prelude.<$> queryAction,
+            ("actionName" Data..=) Prelude.<$> actionName,
+            ("containerAction" Data..=)
               Prelude.<$> containerAction
           ]
       )

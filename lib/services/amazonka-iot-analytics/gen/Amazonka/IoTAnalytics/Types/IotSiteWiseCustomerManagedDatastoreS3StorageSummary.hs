@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.IotSiteWiseCustomerManagedDatastoreS3StorageS
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the data store that you manage, which stores
@@ -74,16 +75,16 @@ iotSiteWiseCustomerManagedDatastoreS3StorageSummary_keyPrefix :: Lens.Lens' IotS
 iotSiteWiseCustomerManagedDatastoreS3StorageSummary_keyPrefix = Lens.lens (\IotSiteWiseCustomerManagedDatastoreS3StorageSummary' {keyPrefix} -> keyPrefix) (\s@IotSiteWiseCustomerManagedDatastoreS3StorageSummary' {} a -> s {keyPrefix = a} :: IotSiteWiseCustomerManagedDatastoreS3StorageSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     IotSiteWiseCustomerManagedDatastoreS3StorageSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IotSiteWiseCustomerManagedDatastoreS3StorageSummary"
       ( \x ->
           IotSiteWiseCustomerManagedDatastoreS3StorageSummary'
-            Prelude.<$> (x Core..:? "bucket")
-              Prelude.<*> (x Core..:? "keyPrefix")
+            Prelude.<$> (x Data..:? "bucket")
+              Prelude.<*> (x Data..:? "keyPrefix")
       )
 
 instance

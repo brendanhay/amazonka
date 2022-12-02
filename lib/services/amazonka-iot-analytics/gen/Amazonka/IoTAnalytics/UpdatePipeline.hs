@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,24 +136,24 @@ instance Prelude.NFData UpdatePipeline where
     Prelude.rnf pipelineName
       `Prelude.seq` Prelude.rnf pipelineActivities
 
-instance Core.ToHeaders UpdatePipeline where
+instance Data.ToHeaders UpdatePipeline where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdatePipeline where
+instance Data.ToJSON UpdatePipeline where
   toJSON UpdatePipeline' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("pipelineActivities" Core..= pipelineActivities)
+              ("pipelineActivities" Data..= pipelineActivities)
           ]
       )
 
-instance Core.ToPath UpdatePipeline where
+instance Data.ToPath UpdatePipeline where
   toPath UpdatePipeline' {..} =
     Prelude.mconcat
-      ["/pipelines/", Core.toBS pipelineName]
+      ["/pipelines/", Data.toBS pipelineName]
 
-instance Core.ToQuery UpdatePipeline where
+instance Data.ToQuery UpdatePipeline where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePipelineResponse' smart constructor.

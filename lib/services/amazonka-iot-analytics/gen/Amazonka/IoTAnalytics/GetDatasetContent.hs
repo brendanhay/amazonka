@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,9 +107,9 @@ instance Core.AWSRequest GetDatasetContent where
     Response.receiveJSON
       ( \s h x ->
           GetDatasetContentResponse'
-            Prelude.<$> (x Core..?> "timestamp")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "entries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "timestamp")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "entries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,22 +123,22 @@ instance Prelude.NFData GetDatasetContent where
     Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf datasetName
 
-instance Core.ToHeaders GetDatasetContent where
+instance Data.ToHeaders GetDatasetContent where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetDatasetContent where
+instance Data.ToPath GetDatasetContent where
   toPath GetDatasetContent' {..} =
     Prelude.mconcat
-      ["/datasets/", Core.toBS datasetName, "/content"]
+      ["/datasets/", Data.toBS datasetName, "/content"]
 
-instance Core.ToQuery GetDatasetContent where
+instance Data.ToQuery GetDatasetContent where
   toQuery GetDatasetContent' {..} =
-    Prelude.mconcat ["versionId" Core.=: versionId]
+    Prelude.mconcat ["versionId" Data.=: versionId]
 
 -- | /See:/ 'newGetDatasetContentResponse' smart constructor.
 data GetDatasetContentResponse = GetDatasetContentResponse'
   { -- | The time when the request was made.
-    timestamp :: Prelude.Maybe Core.POSIX,
+    timestamp :: Prelude.Maybe Data.POSIX,
     -- | The status of the dataset content.
     status :: Prelude.Maybe DatasetContentStatus,
     -- | A list of @DatasetEntry@ objects.
@@ -177,7 +178,7 @@ newGetDatasetContentResponse pHttpStatus_ =
 
 -- | The time when the request was made.
 getDatasetContentResponse_timestamp :: Lens.Lens' GetDatasetContentResponse (Prelude.Maybe Prelude.UTCTime)
-getDatasetContentResponse_timestamp = Lens.lens (\GetDatasetContentResponse' {timestamp} -> timestamp) (\s@GetDatasetContentResponse' {} a -> s {timestamp = a} :: GetDatasetContentResponse) Prelude.. Lens.mapping Core._Time
+getDatasetContentResponse_timestamp = Lens.lens (\GetDatasetContentResponse' {timestamp} -> timestamp) (\s@GetDatasetContentResponse' {} a -> s {timestamp = a} :: GetDatasetContentResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the dataset content.
 getDatasetContentResponse_status :: Lens.Lens' GetDatasetContentResponse (Prelude.Maybe DatasetContentStatus)

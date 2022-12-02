@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.SelectAttributesActivity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used to create a new message using only the specified attributes from
@@ -75,15 +76,15 @@ selectAttributesActivity_name = Lens.lens (\SelectAttributesActivity' {name} -> 
 selectAttributesActivity_attributes :: Lens.Lens' SelectAttributesActivity (Prelude.NonEmpty Prelude.Text)
 selectAttributesActivity_attributes = Lens.lens (\SelectAttributesActivity' {attributes} -> attributes) (\s@SelectAttributesActivity' {} a -> s {attributes = a} :: SelectAttributesActivity) Prelude.. Lens.coerced
 
-instance Core.FromJSON SelectAttributesActivity where
+instance Data.FromJSON SelectAttributesActivity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SelectAttributesActivity"
       ( \x ->
           SelectAttributesActivity'
-            Prelude.<$> (x Core..:? "next")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "attributes")
+            Prelude.<$> (x Data..:? "next")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "attributes")
       )
 
 instance Prelude.Hashable SelectAttributesActivity where
@@ -98,12 +99,12 @@ instance Prelude.NFData SelectAttributesActivity where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf attributes
 
-instance Core.ToJSON SelectAttributesActivity where
+instance Data.ToJSON SelectAttributesActivity where
   toJSON SelectAttributesActivity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("next" Core..=) Prelude.<$> next,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("attributes" Core..= attributes)
+          [ ("next" Data..=) Prelude.<$> next,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("attributes" Data..= attributes)
           ]
       )

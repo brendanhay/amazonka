@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.QueryFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.DeltaTime
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,12 +56,12 @@ newQueryFilter =
 queryFilter_deltaTime :: Lens.Lens' QueryFilter (Prelude.Maybe DeltaTime)
 queryFilter_deltaTime = Lens.lens (\QueryFilter' {deltaTime} -> deltaTime) (\s@QueryFilter' {} a -> s {deltaTime = a} :: QueryFilter)
 
-instance Core.FromJSON QueryFilter where
+instance Data.FromJSON QueryFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueryFilter"
       ( \x ->
-          QueryFilter' Prelude.<$> (x Core..:? "deltaTime")
+          QueryFilter' Prelude.<$> (x Data..:? "deltaTime")
       )
 
 instance Prelude.Hashable QueryFilter where
@@ -70,9 +71,9 @@ instance Prelude.Hashable QueryFilter where
 instance Prelude.NFData QueryFilter where
   rnf QueryFilter' {..} = Prelude.rnf deltaTime
 
-instance Core.ToJSON QueryFilter where
+instance Data.ToJSON QueryFilter where
   toJSON QueryFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("deltaTime" Core..=) Prelude.<$> deltaTime]
+          [("deltaTime" Data..=) Prelude.<$> deltaTime]
       )

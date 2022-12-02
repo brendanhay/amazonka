@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.ChannelStorageSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.CustomerManagedChannelS3StorageSummary
 import Amazonka.IoTAnalytics.Types.ServiceManagedChannelS3StorageSummary
 import qualified Amazonka.Prelude as Prelude
@@ -64,14 +65,14 @@ channelStorageSummary_customerManagedS3 = Lens.lens (\ChannelStorageSummary' {cu
 channelStorageSummary_serviceManagedS3 :: Lens.Lens' ChannelStorageSummary (Prelude.Maybe ServiceManagedChannelS3StorageSummary)
 channelStorageSummary_serviceManagedS3 = Lens.lens (\ChannelStorageSummary' {serviceManagedS3} -> serviceManagedS3) (\s@ChannelStorageSummary' {} a -> s {serviceManagedS3 = a} :: ChannelStorageSummary)
 
-instance Core.FromJSON ChannelStorageSummary where
+instance Data.FromJSON ChannelStorageSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelStorageSummary"
       ( \x ->
           ChannelStorageSummary'
-            Prelude.<$> (x Core..:? "customerManagedS3")
-            Prelude.<*> (x Core..:? "serviceManagedS3")
+            Prelude.<$> (x Data..:? "customerManagedS3")
+            Prelude.<*> (x Data..:? "serviceManagedS3")
       )
 
 instance Prelude.Hashable ChannelStorageSummary where

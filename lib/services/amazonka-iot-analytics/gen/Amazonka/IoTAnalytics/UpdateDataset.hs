@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -192,31 +193,31 @@ instance Prelude.NFData UpdateDataset where
       `Prelude.seq` Prelude.rnf datasetName
       `Prelude.seq` Prelude.rnf actions
 
-instance Core.ToHeaders UpdateDataset where
+instance Data.ToHeaders UpdateDataset where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateDataset where
+instance Data.ToJSON UpdateDataset where
   toJSON UpdateDataset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("lateDataRules" Core..=) Prelude.<$> lateDataRules,
-            ("versioningConfiguration" Core..=)
+          [ ("lateDataRules" Data..=) Prelude.<$> lateDataRules,
+            ("versioningConfiguration" Data..=)
               Prelude.<$> versioningConfiguration,
-            ("triggers" Core..=) Prelude.<$> triggers,
-            ("contentDeliveryRules" Core..=)
+            ("triggers" Data..=) Prelude.<$> triggers,
+            ("contentDeliveryRules" Data..=)
               Prelude.<$> contentDeliveryRules,
-            ("retentionPeriod" Core..=)
+            ("retentionPeriod" Data..=)
               Prelude.<$> retentionPeriod,
-            Prelude.Just ("actions" Core..= actions)
+            Prelude.Just ("actions" Data..= actions)
           ]
       )
 
-instance Core.ToPath UpdateDataset where
+instance Data.ToPath UpdateDataset where
   toPath UpdateDataset' {..} =
     Prelude.mconcat
-      ["/datasets/", Core.toBS datasetName]
+      ["/datasets/", Data.toBS datasetName]
 
-instance Core.ToQuery UpdateDataset where
+instance Data.ToQuery UpdateDataset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDatasetResponse' smart constructor.

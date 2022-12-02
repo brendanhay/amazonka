@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.CustomerManagedChannelS3StorageSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used to store channel data in an S3 bucket that you manage.
@@ -84,17 +85,17 @@ customerManagedChannelS3StorageSummary_keyPrefix :: Lens.Lens' CustomerManagedCh
 customerManagedChannelS3StorageSummary_keyPrefix = Lens.lens (\CustomerManagedChannelS3StorageSummary' {keyPrefix} -> keyPrefix) (\s@CustomerManagedChannelS3StorageSummary' {} a -> s {keyPrefix = a} :: CustomerManagedChannelS3StorageSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CustomerManagedChannelS3StorageSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomerManagedChannelS3StorageSummary"
       ( \x ->
           CustomerManagedChannelS3StorageSummary'
-            Prelude.<$> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "bucket")
-            Prelude.<*> (x Core..:? "keyPrefix")
+            Prelude.<$> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "bucket")
+            Prelude.<*> (x Data..:? "keyPrefix")
       )
 
 instance

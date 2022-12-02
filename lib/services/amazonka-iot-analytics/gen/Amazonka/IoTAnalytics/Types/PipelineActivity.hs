@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.PipelineActivity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.AddAttributesActivity
 import Amazonka.IoTAnalytics.Types.ChannelActivity
 import Amazonka.IoTAnalytics.Types.DatastoreActivity
@@ -150,22 +151,22 @@ pipelineActivity_math = Lens.lens (\PipelineActivity' {math} -> math) (\s@Pipeli
 pipelineActivity_lambda :: Lens.Lens' PipelineActivity (Prelude.Maybe LambdaActivity)
 pipelineActivity_lambda = Lens.lens (\PipelineActivity' {lambda} -> lambda) (\s@PipelineActivity' {} a -> s {lambda = a} :: PipelineActivity)
 
-instance Core.FromJSON PipelineActivity where
+instance Data.FromJSON PipelineActivity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PipelineActivity"
       ( \x ->
           PipelineActivity'
-            Prelude.<$> (x Core..:? "deviceRegistryEnrich")
-            Prelude.<*> (x Core..:? "selectAttributes")
-            Prelude.<*> (x Core..:? "datastore")
-            Prelude.<*> (x Core..:? "addAttributes")
-            Prelude.<*> (x Core..:? "channel")
-            Prelude.<*> (x Core..:? "removeAttributes")
-            Prelude.<*> (x Core..:? "deviceShadowEnrich")
-            Prelude.<*> (x Core..:? "filter")
-            Prelude.<*> (x Core..:? "math")
-            Prelude.<*> (x Core..:? "lambda")
+            Prelude.<$> (x Data..:? "deviceRegistryEnrich")
+            Prelude.<*> (x Data..:? "selectAttributes")
+            Prelude.<*> (x Data..:? "datastore")
+            Prelude.<*> (x Data..:? "addAttributes")
+            Prelude.<*> (x Data..:? "channel")
+            Prelude.<*> (x Data..:? "removeAttributes")
+            Prelude.<*> (x Data..:? "deviceShadowEnrich")
+            Prelude.<*> (x Data..:? "filter")
+            Prelude.<*> (x Data..:? "math")
+            Prelude.<*> (x Data..:? "lambda")
       )
 
 instance Prelude.Hashable PipelineActivity where
@@ -194,23 +195,23 @@ instance Prelude.NFData PipelineActivity where
       `Prelude.seq` Prelude.rnf math
       `Prelude.seq` Prelude.rnf lambda
 
-instance Core.ToJSON PipelineActivity where
+instance Data.ToJSON PipelineActivity where
   toJSON PipelineActivity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("deviceRegistryEnrich" Core..=)
+          [ ("deviceRegistryEnrich" Data..=)
               Prelude.<$> deviceRegistryEnrich,
-            ("selectAttributes" Core..=)
+            ("selectAttributes" Data..=)
               Prelude.<$> selectAttributes,
-            ("datastore" Core..=) Prelude.<$> datastore,
-            ("addAttributes" Core..=) Prelude.<$> addAttributes,
-            ("channel" Core..=) Prelude.<$> channel,
-            ("removeAttributes" Core..=)
+            ("datastore" Data..=) Prelude.<$> datastore,
+            ("addAttributes" Data..=) Prelude.<$> addAttributes,
+            ("channel" Data..=) Prelude.<$> channel,
+            ("removeAttributes" Data..=)
               Prelude.<$> removeAttributes,
-            ("deviceShadowEnrich" Core..=)
+            ("deviceShadowEnrich" Data..=)
               Prelude.<$> deviceShadowEnrich,
-            ("filter" Core..=) Prelude.<$> filter',
-            ("math" Core..=) Prelude.<$> math,
-            ("lambda" Core..=) Prelude.<$> lambda
+            ("filter" Data..=) Prelude.<$> filter',
+            ("math" Data..=) Prelude.<$> math,
+            ("lambda" Data..=) Prelude.<$> lambda
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.PipelineSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.ReprocessingSummary
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,9 +34,9 @@ data PipelineSummary = PipelineSummary'
     -- | The name of the pipeline.
     pipelineName :: Prelude.Maybe Prelude.Text,
     -- | When the pipeline was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | When the pipeline was last updated.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX
+    lastUpdateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,24 +76,24 @@ pipelineSummary_pipelineName = Lens.lens (\PipelineSummary' {pipelineName} -> pi
 
 -- | When the pipeline was created.
 pipelineSummary_creationTime :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.UTCTime)
-pipelineSummary_creationTime = Lens.lens (\PipelineSummary' {creationTime} -> creationTime) (\s@PipelineSummary' {} a -> s {creationTime = a} :: PipelineSummary) Prelude.. Lens.mapping Core._Time
+pipelineSummary_creationTime = Lens.lens (\PipelineSummary' {creationTime} -> creationTime) (\s@PipelineSummary' {} a -> s {creationTime = a} :: PipelineSummary) Prelude.. Lens.mapping Data._Time
 
 -- | When the pipeline was last updated.
 pipelineSummary_lastUpdateTime :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.UTCTime)
-pipelineSummary_lastUpdateTime = Lens.lens (\PipelineSummary' {lastUpdateTime} -> lastUpdateTime) (\s@PipelineSummary' {} a -> s {lastUpdateTime = a} :: PipelineSummary) Prelude.. Lens.mapping Core._Time
+pipelineSummary_lastUpdateTime = Lens.lens (\PipelineSummary' {lastUpdateTime} -> lastUpdateTime) (\s@PipelineSummary' {} a -> s {lastUpdateTime = a} :: PipelineSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON PipelineSummary where
+instance Data.FromJSON PipelineSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PipelineSummary"
       ( \x ->
           PipelineSummary'
-            Prelude.<$> ( x Core..:? "reprocessingSummaries"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "reprocessingSummaries"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "pipelineName")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "lastUpdateTime")
+            Prelude.<*> (x Data..:? "pipelineName")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
       )
 
 instance Prelude.Hashable PipelineSummary where

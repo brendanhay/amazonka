@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.TriggeringDataset where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the dataset whose content generation triggers the new
@@ -56,12 +57,12 @@ newTriggeringDataset pName_ =
 triggeringDataset_name :: Lens.Lens' TriggeringDataset Prelude.Text
 triggeringDataset_name = Lens.lens (\TriggeringDataset' {name} -> name) (\s@TriggeringDataset' {} a -> s {name = a} :: TriggeringDataset)
 
-instance Core.FromJSON TriggeringDataset where
+instance Data.FromJSON TriggeringDataset where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TriggeringDataset"
       ( \x ->
-          TriggeringDataset' Prelude.<$> (x Core..: "name")
+          TriggeringDataset' Prelude.<$> (x Data..: "name")
       )
 
 instance Prelude.Hashable TriggeringDataset where
@@ -71,9 +72,9 @@ instance Prelude.Hashable TriggeringDataset where
 instance Prelude.NFData TriggeringDataset where
   rnf TriggeringDataset' {..} = Prelude.rnf name
 
-instance Core.ToJSON TriggeringDataset where
+instance Data.ToJSON TriggeringDataset where
   toJSON TriggeringDataset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -143,8 +144,8 @@ instance Core.AWSRequest CreatePipeline where
     Response.receiveJSON
       ( \s h x ->
           CreatePipelineResponse'
-            Prelude.<$> (x Core..?> "pipelineArn")
-            Prelude.<*> (x Core..?> "pipelineName")
+            Prelude.<$> (x Data..?> "pipelineArn")
+            Prelude.<*> (x Data..?> "pipelineName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,24 +161,24 @@ instance Prelude.NFData CreatePipeline where
       `Prelude.seq` Prelude.rnf pipelineName
       `Prelude.seq` Prelude.rnf pipelineActivities
 
-instance Core.ToHeaders CreatePipeline where
+instance Data.ToHeaders CreatePipeline where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreatePipeline where
+instance Data.ToJSON CreatePipeline where
   toJSON CreatePipeline' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("pipelineName" Core..= pipelineName),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("pipelineName" Data..= pipelineName),
             Prelude.Just
-              ("pipelineActivities" Core..= pipelineActivities)
+              ("pipelineActivities" Data..= pipelineActivities)
           ]
       )
 
-instance Core.ToPath CreatePipeline where
+instance Data.ToPath CreatePipeline where
   toPath = Prelude.const "/pipelines"
 
-instance Core.ToQuery CreatePipeline where
+instance Data.ToQuery CreatePipeline where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePipelineResponse' smart constructor.

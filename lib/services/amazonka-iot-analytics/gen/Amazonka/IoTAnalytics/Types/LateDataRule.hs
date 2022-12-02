@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.LateDataRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.LateDataRuleConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,14 +66,14 @@ lateDataRule_ruleName = Lens.lens (\LateDataRule' {ruleName} -> ruleName) (\s@La
 lateDataRule_ruleConfiguration :: Lens.Lens' LateDataRule LateDataRuleConfiguration
 lateDataRule_ruleConfiguration = Lens.lens (\LateDataRule' {ruleConfiguration} -> ruleConfiguration) (\s@LateDataRule' {} a -> s {ruleConfiguration = a} :: LateDataRule)
 
-instance Core.FromJSON LateDataRule where
+instance Data.FromJSON LateDataRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LateDataRule"
       ( \x ->
           LateDataRule'
-            Prelude.<$> (x Core..:? "ruleName")
-            Prelude.<*> (x Core..: "ruleConfiguration")
+            Prelude.<$> (x Data..:? "ruleName")
+            Prelude.<*> (x Data..: "ruleConfiguration")
       )
 
 instance Prelude.Hashable LateDataRule where
@@ -85,12 +86,12 @@ instance Prelude.NFData LateDataRule where
     Prelude.rnf ruleName
       `Prelude.seq` Prelude.rnf ruleConfiguration
 
-instance Core.ToJSON LateDataRule where
+instance Data.ToJSON LateDataRule where
   toJSON LateDataRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ruleName" Core..=) Prelude.<$> ruleName,
+          [ ("ruleName" Data..=) Prelude.<$> ruleName,
             Prelude.Just
-              ("ruleConfiguration" Core..= ruleConfiguration)
+              ("ruleConfiguration" Data..= ruleConfiguration)
           ]
       )

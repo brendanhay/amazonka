@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.DeltaTimeSessionWindowConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains the configuration information of a delta time
@@ -86,15 +87,15 @@ deltaTimeSessionWindowConfiguration_timeoutInMinutes :: Lens.Lens' DeltaTimeSess
 deltaTimeSessionWindowConfiguration_timeoutInMinutes = Lens.lens (\DeltaTimeSessionWindowConfiguration' {timeoutInMinutes} -> timeoutInMinutes) (\s@DeltaTimeSessionWindowConfiguration' {} a -> s {timeoutInMinutes = a} :: DeltaTimeSessionWindowConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DeltaTimeSessionWindowConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeltaTimeSessionWindowConfiguration"
       ( \x ->
           DeltaTimeSessionWindowConfiguration'
-            Prelude.<$> (x Core..: "timeoutInMinutes")
+            Prelude.<$> (x Data..: "timeoutInMinutes")
       )
 
 instance
@@ -114,13 +115,13 @@ instance
     Prelude.rnf timeoutInMinutes
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DeltaTimeSessionWindowConfiguration
   where
   toJSON DeltaTimeSessionWindowConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("timeoutInMinutes" Core..= timeoutInMinutes)
+              ("timeoutInMinutes" Data..= timeoutInMinutes)
           ]
       )

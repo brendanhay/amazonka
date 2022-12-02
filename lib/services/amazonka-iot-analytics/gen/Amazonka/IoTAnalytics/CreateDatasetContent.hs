@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,7 +106,7 @@ instance Core.AWSRequest CreateDatasetContent where
     Response.receiveJSON
       ( \s h x ->
           CreateDatasetContentResponse'
-            Prelude.<$> (x Core..?> "versionId")
+            Prelude.<$> (x Data..?> "versionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,22 +120,22 @@ instance Prelude.NFData CreateDatasetContent where
     Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf datasetName
 
-instance Core.ToHeaders CreateDatasetContent where
+instance Data.ToHeaders CreateDatasetContent where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateDatasetContent where
+instance Data.ToJSON CreateDatasetContent where
   toJSON CreateDatasetContent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("versionId" Core..=) Prelude.<$> versionId]
+          [("versionId" Data..=) Prelude.<$> versionId]
       )
 
-instance Core.ToPath CreateDatasetContent where
+instance Data.ToPath CreateDatasetContent where
   toPath CreateDatasetContent' {..} =
     Prelude.mconcat
-      ["/datasets/", Core.toBS datasetName, "/content"]
+      ["/datasets/", Data.toBS datasetName, "/content"]
 
-instance Core.ToQuery CreateDatasetContent where
+instance Data.ToQuery CreateDatasetContent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDatasetContentResponse' smart constructor.

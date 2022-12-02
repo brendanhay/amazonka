@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.ChannelActivity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The activity that determines the source of the messages to be processed.
@@ -74,15 +75,15 @@ channelActivity_name = Lens.lens (\ChannelActivity' {name} -> name) (\s@ChannelA
 channelActivity_channelName :: Lens.Lens' ChannelActivity Prelude.Text
 channelActivity_channelName = Lens.lens (\ChannelActivity' {channelName} -> channelName) (\s@ChannelActivity' {} a -> s {channelName = a} :: ChannelActivity)
 
-instance Core.FromJSON ChannelActivity where
+instance Data.FromJSON ChannelActivity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelActivity"
       ( \x ->
           ChannelActivity'
-            Prelude.<$> (x Core..:? "next")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "channelName")
+            Prelude.<$> (x Data..:? "next")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "channelName")
       )
 
 instance Prelude.Hashable ChannelActivity where
@@ -97,12 +98,12 @@ instance Prelude.NFData ChannelActivity where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf channelName
 
-instance Core.ToJSON ChannelActivity where
+instance Data.ToJSON ChannelActivity where
   toJSON ChannelActivity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("next" Core..=) Prelude.<$> next,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("channelName" Core..= channelName)
+          [ ("next" Data..=) Prelude.<$> next,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("channelName" Data..= channelName)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.VersioningConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the versioning of dataset contents.
@@ -65,14 +66,14 @@ versioningConfiguration_maxVersions = Lens.lens (\VersioningConfiguration' {maxV
 versioningConfiguration_unlimited :: Lens.Lens' VersioningConfiguration (Prelude.Maybe Prelude.Bool)
 versioningConfiguration_unlimited = Lens.lens (\VersioningConfiguration' {unlimited} -> unlimited) (\s@VersioningConfiguration' {} a -> s {unlimited = a} :: VersioningConfiguration)
 
-instance Core.FromJSON VersioningConfiguration where
+instance Data.FromJSON VersioningConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VersioningConfiguration"
       ( \x ->
           VersioningConfiguration'
-            Prelude.<$> (x Core..:? "maxVersions")
-            Prelude.<*> (x Core..:? "unlimited")
+            Prelude.<$> (x Data..:? "maxVersions")
+            Prelude.<*> (x Data..:? "unlimited")
       )
 
 instance Prelude.Hashable VersioningConfiguration where
@@ -85,11 +86,11 @@ instance Prelude.NFData VersioningConfiguration where
     Prelude.rnf maxVersions
       `Prelude.seq` Prelude.rnf unlimited
 
-instance Core.ToJSON VersioningConfiguration where
+instance Data.ToJSON VersioningConfiguration where
   toJSON VersioningConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("maxVersions" Core..=) Prelude.<$> maxVersions,
-            ("unlimited" Core..=) Prelude.<$> unlimited
+          [ ("maxVersions" Data..=) Prelude.<$> maxVersions,
+            ("unlimited" Data..=) Prelude.<$> unlimited
           ]
       )

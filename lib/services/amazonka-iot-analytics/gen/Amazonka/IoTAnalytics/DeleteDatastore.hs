@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -85,15 +86,15 @@ instance Prelude.Hashable DeleteDatastore where
 instance Prelude.NFData DeleteDatastore where
   rnf DeleteDatastore' {..} = Prelude.rnf datastoreName
 
-instance Core.ToHeaders DeleteDatastore where
+instance Data.ToHeaders DeleteDatastore where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteDatastore where
+instance Data.ToPath DeleteDatastore where
   toPath DeleteDatastore' {..} =
     Prelude.mconcat
-      ["/datastores/", Core.toBS datastoreName]
+      ["/datastores/", Data.toBS datastoreName]
 
-instance Core.ToQuery DeleteDatastore where
+instance Data.ToQuery DeleteDatastore where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDatastoreResponse' smart constructor.

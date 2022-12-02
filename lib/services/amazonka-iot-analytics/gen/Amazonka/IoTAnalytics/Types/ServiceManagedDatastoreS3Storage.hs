@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.ServiceManagedDatastoreS3Storage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used to store data in an Amazon S3 bucket managed by IoT Analytics. You
@@ -43,11 +44,11 @@ newServiceManagedDatastoreS3Storage =
   ServiceManagedDatastoreS3Storage'
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ServiceManagedDatastoreS3Storage
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceManagedDatastoreS3Storage"
       ( \x ->
           Prelude.pure ServiceManagedDatastoreS3Storage'
@@ -66,5 +67,5 @@ instance
   where
   rnf _ = ()
 
-instance Core.ToJSON ServiceManagedDatastoreS3Storage where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON ServiceManagedDatastoreS3Storage where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

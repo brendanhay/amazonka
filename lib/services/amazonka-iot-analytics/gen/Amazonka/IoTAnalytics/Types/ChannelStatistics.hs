@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.ChannelStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.EstimatedResourceSize
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,12 +52,12 @@ newChannelStatistics =
 channelStatistics_size :: Lens.Lens' ChannelStatistics (Prelude.Maybe EstimatedResourceSize)
 channelStatistics_size = Lens.lens (\ChannelStatistics' {size} -> size) (\s@ChannelStatistics' {} a -> s {size = a} :: ChannelStatistics)
 
-instance Core.FromJSON ChannelStatistics where
+instance Data.FromJSON ChannelStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelStatistics"
       ( \x ->
-          ChannelStatistics' Prelude.<$> (x Core..:? "size")
+          ChannelStatistics' Prelude.<$> (x Data..:? "size")
       )
 
 instance Prelude.Hashable ChannelStatistics where

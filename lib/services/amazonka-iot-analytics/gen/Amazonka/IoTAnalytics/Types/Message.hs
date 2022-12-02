@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.Message where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a message.
@@ -33,7 +34,7 @@ data Message = Message'
     -- | The payload of the message. This can be a JSON string or a
     -- base64-encoded string representing binary data, in which case you must
     -- decode it by means of a pipeline activity.
-    payload :: Core.Base64
+    payload :: Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,7 +65,7 @@ newMessage ::
 newMessage pMessageId_ pPayload_ =
   Message'
     { messageId = pMessageId_,
-      payload = Core._Base64 Lens.# pPayload_
+      payload = Data._Base64 Lens.# pPayload_
     }
 
 -- | The ID you want to assign to the message. Each @messageId@ must be
@@ -80,7 +81,7 @@ message_messageId = Lens.lens (\Message' {messageId} -> messageId) (\s@Message' 
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 message_payload :: Lens.Lens' Message Prelude.ByteString
-message_payload = Lens.lens (\Message' {payload} -> payload) (\s@Message' {} a -> s {payload = a} :: Message) Prelude.. Core._Base64
+message_payload = Lens.lens (\Message' {payload} -> payload) (\s@Message' {} a -> s {payload = a} :: Message) Prelude.. Data._Base64
 
 instance Prelude.Hashable Message where
   hashWithSalt _salt Message' {..} =
@@ -92,11 +93,11 @@ instance Prelude.NFData Message where
     Prelude.rnf messageId
       `Prelude.seq` Prelude.rnf payload
 
-instance Core.ToJSON Message where
+instance Data.ToJSON Message where
   toJSON Message' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("messageId" Core..= messageId),
-            Prelude.Just ("payload" Core..= payload)
+          [ Prelude.Just ("messageId" Data..= messageId),
+            Prelude.Just ("payload" Data..= payload)
           ]
       )

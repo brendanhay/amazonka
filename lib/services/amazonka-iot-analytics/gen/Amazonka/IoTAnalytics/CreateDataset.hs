@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -218,9 +219,9 @@ instance Core.AWSRequest CreateDataset where
     Response.receiveJSON
       ( \s h x ->
           CreateDatasetResponse'
-            Prelude.<$> (x Core..?> "datasetName")
-            Prelude.<*> (x Core..?> "datasetArn")
-            Prelude.<*> (x Core..?> "retentionPeriod")
+            Prelude.<$> (x Data..?> "datasetName")
+            Prelude.<*> (x Data..?> "datasetArn")
+            Prelude.<*> (x Data..?> "retentionPeriod")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -246,31 +247,31 @@ instance Prelude.NFData CreateDataset where
       `Prelude.seq` Prelude.rnf datasetName
       `Prelude.seq` Prelude.rnf actions
 
-instance Core.ToHeaders CreateDataset where
+instance Data.ToHeaders CreateDataset where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateDataset where
+instance Data.ToJSON CreateDataset where
   toJSON CreateDataset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("lateDataRules" Core..=) Prelude.<$> lateDataRules,
-            ("versioningConfiguration" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("lateDataRules" Data..=) Prelude.<$> lateDataRules,
+            ("versioningConfiguration" Data..=)
               Prelude.<$> versioningConfiguration,
-            ("triggers" Core..=) Prelude.<$> triggers,
-            ("contentDeliveryRules" Core..=)
+            ("triggers" Data..=) Prelude.<$> triggers,
+            ("contentDeliveryRules" Data..=)
               Prelude.<$> contentDeliveryRules,
-            ("retentionPeriod" Core..=)
+            ("retentionPeriod" Data..=)
               Prelude.<$> retentionPeriod,
-            Prelude.Just ("datasetName" Core..= datasetName),
-            Prelude.Just ("actions" Core..= actions)
+            Prelude.Just ("datasetName" Data..= datasetName),
+            Prelude.Just ("actions" Data..= actions)
           ]
       )
 
-instance Core.ToPath CreateDataset where
+instance Data.ToPath CreateDataset where
   toPath = Prelude.const "/datasets"
 
-instance Core.ToQuery CreateDataset where
+instance Data.ToQuery CreateDataset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDatasetResponse' smart constructor.

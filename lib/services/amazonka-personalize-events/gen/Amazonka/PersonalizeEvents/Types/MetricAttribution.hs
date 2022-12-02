@@ -21,6 +21,7 @@ module Amazonka.PersonalizeEvents.Types.MetricAttribution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a metric attribution associated with an
@@ -65,13 +66,13 @@ instance Prelude.NFData MetricAttribution where
   rnf MetricAttribution' {..} =
     Prelude.rnf eventAttributionSource
 
-instance Core.ToJSON MetricAttribution where
+instance Data.ToJSON MetricAttribution where
   toJSON MetricAttribution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "eventAttributionSource"
-                  Core..= eventAttributionSource
+                  Data..= eventAttributionSource
               )
           ]
       )

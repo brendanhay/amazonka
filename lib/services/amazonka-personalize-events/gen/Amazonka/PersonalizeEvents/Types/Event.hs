@@ -21,6 +21,7 @@ module Amazonka.PersonalizeEvents.Types.Event where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PersonalizeEvents.Types.MetricAttribution
 import qualified Amazonka.Prelude as Prelude
 
@@ -41,7 +42,7 @@ data Event = Event'
     -- The keys use camel case names that match the fields in the Interactions
     -- schema. In the above example, the @numberOfRatings@ would match the
     -- \'NUMBER_OF_RATINGS\' field defined in the Interactions schema.
-    properties :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    properties :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the list of recommendations that contains the item the user
     -- interacted with. Provide a @recommendationId@ to have Amazon Personalize
     -- implicitly record the recommendations you show your user as impressions
@@ -67,20 +68,20 @@ data Event = Event'
     -- Provide a list of items to manually record impressions data for an
     -- event. For more information on recording impressions data, see
     -- <https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html#putevents-including-impressions-data Recording impressions data>.
-    impression :: Prelude.Maybe (Prelude.NonEmpty (Core.Sensitive Prelude.Text)),
+    impression :: Prelude.Maybe (Prelude.NonEmpty (Data.Sensitive Prelude.Text)),
     -- | Contains information about the metric attribution associated with an
     -- event. For more information about metric attributions, see
     -- <https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html Measuring impact of recommendations>.
     metricAttribution :: Prelude.Maybe MetricAttribution,
     -- | The item ID key that corresponds to the @ITEM_ID@ field of the
     -- Interactions schema.
-    itemId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    itemId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The type of event, such as click or download. This property corresponds
     -- to the @EVENT_TYPE@ field of your Interactions schema and depends on the
     -- types of events you are tracking.
     eventType :: Prelude.Text,
     -- | The timestamp (in Unix time) on the client side when the event occurred.
-    sentAt :: Core.POSIX
+    sentAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -159,7 +160,7 @@ newEvent pEventType_ pSentAt_ =
       metricAttribution = Prelude.Nothing,
       itemId = Prelude.Nothing,
       eventType = pEventType_,
-      sentAt = Core._Time Lens.# pSentAt_
+      sentAt = Data._Time Lens.# pSentAt_
     }
 
 -- | A string map of event-specific data that you might choose to record. For
@@ -175,7 +176,7 @@ newEvent pEventType_ pSentAt_ =
 -- schema. In the above example, the @numberOfRatings@ would match the
 -- \'NUMBER_OF_RATINGS\' field defined in the Interactions schema.
 event_properties :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
-event_properties = Lens.lens (\Event' {properties} -> properties) (\s@Event' {} a -> s {properties = a} :: Event) Prelude.. Lens.mapping Core._Sensitive
+event_properties = Lens.lens (\Event' {properties} -> properties) (\s@Event' {} a -> s {properties = a} :: Event) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the list of recommendations that contains the item the user
 -- interacted with. Provide a @recommendationId@ to have Amazon Personalize
@@ -220,7 +221,7 @@ event_metricAttribution = Lens.lens (\Event' {metricAttribution} -> metricAttrib
 -- | The item ID key that corresponds to the @ITEM_ID@ field of the
 -- Interactions schema.
 event_itemId :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
-event_itemId = Lens.lens (\Event' {itemId} -> itemId) (\s@Event' {} a -> s {itemId = a} :: Event) Prelude.. Lens.mapping Core._Sensitive
+event_itemId = Lens.lens (\Event' {itemId} -> itemId) (\s@Event' {} a -> s {itemId = a} :: Event) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The type of event, such as click or download. This property corresponds
 -- to the @EVENT_TYPE@ field of your Interactions schema and depends on the
@@ -230,7 +231,7 @@ event_eventType = Lens.lens (\Event' {eventType} -> eventType) (\s@Event' {} a -
 
 -- | The timestamp (in Unix time) on the client side when the event occurred.
 event_sentAt :: Lens.Lens' Event Prelude.UTCTime
-event_sentAt = Lens.lens (\Event' {sentAt} -> sentAt) (\s@Event' {} a -> s {sentAt = a} :: Event) Prelude.. Core._Time
+event_sentAt = Lens.lens (\Event' {sentAt} -> sentAt) (\s@Event' {} a -> s {sentAt = a} :: Event) Prelude.. Data._Time
 
 instance Prelude.Hashable Event where
   hashWithSalt _salt Event' {..} =
@@ -256,20 +257,20 @@ instance Prelude.NFData Event where
       `Prelude.seq` Prelude.rnf eventType
       `Prelude.seq` Prelude.rnf sentAt
 
-instance Core.ToJSON Event where
+instance Data.ToJSON Event where
   toJSON Event' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("properties" Core..=) Prelude.<$> properties,
-            ("recommendationId" Core..=)
+          [ ("properties" Data..=) Prelude.<$> properties,
+            ("recommendationId" Data..=)
               Prelude.<$> recommendationId,
-            ("eventValue" Core..=) Prelude.<$> eventValue,
-            ("eventId" Core..=) Prelude.<$> eventId,
-            ("impression" Core..=) Prelude.<$> impression,
-            ("metricAttribution" Core..=)
+            ("eventValue" Data..=) Prelude.<$> eventValue,
+            ("eventId" Data..=) Prelude.<$> eventId,
+            ("impression" Data..=) Prelude.<$> impression,
+            ("metricAttribution" Data..=)
               Prelude.<$> metricAttribution,
-            ("itemId" Core..=) Prelude.<$> itemId,
-            Prelude.Just ("eventType" Core..= eventType),
-            Prelude.Just ("sentAt" Core..= sentAt)
+            ("itemId" Data..=) Prelude.<$> itemId,
+            Prelude.Just ("eventType" Data..= eventType),
+            Prelude.Just ("sentAt" Data..= sentAt)
           ]
       )

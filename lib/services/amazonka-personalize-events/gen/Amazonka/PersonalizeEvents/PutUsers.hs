@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PersonalizeEvents.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,30 +104,30 @@ instance Prelude.NFData PutUsers where
     Prelude.rnf datasetArn
       `Prelude.seq` Prelude.rnf users
 
-instance Core.ToHeaders PutUsers where
+instance Data.ToHeaders PutUsers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutUsers where
+instance Data.ToJSON PutUsers where
   toJSON PutUsers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("datasetArn" Core..= datasetArn),
-            Prelude.Just ("users" Core..= users)
+          [ Prelude.Just ("datasetArn" Data..= datasetArn),
+            Prelude.Just ("users" Data..= users)
           ]
       )
 
-instance Core.ToPath PutUsers where
+instance Data.ToPath PutUsers where
   toPath = Prelude.const "/users"
 
-instance Core.ToQuery PutUsers where
+instance Data.ToQuery PutUsers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutUsersResponse' smart constructor.

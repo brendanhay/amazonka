@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,7 +99,7 @@ instance Core.AWSRequest GetFeature where
       ( \s h x ->
           GetFeatureResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "feature")
+            Prelude.<*> (x Data..:> "feature")
       )
 
 instance Prelude.Hashable GetFeature where
@@ -111,27 +112,27 @@ instance Prelude.NFData GetFeature where
     Prelude.rnf feature
       `Prelude.seq` Prelude.rnf project
 
-instance Core.ToHeaders GetFeature where
+instance Data.ToHeaders GetFeature where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetFeature where
+instance Data.ToPath GetFeature where
   toPath GetFeature' {..} =
     Prelude.mconcat
       [ "/projects/",
-        Core.toBS project,
+        Data.toBS project,
         "/features/",
-        Core.toBS feature
+        Data.toBS feature
       ]
 
-instance Core.ToQuery GetFeature where
+instance Data.ToQuery GetFeature where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFeatureResponse' smart constructor.

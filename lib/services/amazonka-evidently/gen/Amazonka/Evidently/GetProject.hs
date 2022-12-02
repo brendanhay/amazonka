@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest GetProject where
       ( \s h x ->
           GetProjectResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "project")
+            Prelude.<*> (x Data..:> "project")
       )
 
 instance Prelude.Hashable GetProject where
@@ -94,22 +95,22 @@ instance Prelude.Hashable GetProject where
 instance Prelude.NFData GetProject where
   rnf GetProject' {..} = Prelude.rnf project
 
-instance Core.ToHeaders GetProject where
+instance Data.ToHeaders GetProject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetProject where
+instance Data.ToPath GetProject where
   toPath GetProject' {..} =
-    Prelude.mconcat ["/projects/", Core.toBS project]
+    Prelude.mconcat ["/projects/", Data.toBS project]
 
-instance Core.ToQuery GetProject where
+instance Data.ToQuery GetProject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetProjectResponse' smart constructor.

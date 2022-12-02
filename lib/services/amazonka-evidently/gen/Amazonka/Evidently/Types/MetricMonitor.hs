@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.MetricMonitor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types.MetricDefinition
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newMetricMonitor pMetricDefinition_ =
 metricMonitor_metricDefinition :: Lens.Lens' MetricMonitor MetricDefinition
 metricMonitor_metricDefinition = Lens.lens (\MetricMonitor' {metricDefinition} -> metricDefinition) (\s@MetricMonitor' {} a -> s {metricDefinition = a} :: MetricMonitor)
 
-instance Core.FromJSON MetricMonitor where
+instance Data.FromJSON MetricMonitor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricMonitor"
       ( \x ->
           MetricMonitor'
-            Prelude.<$> (x Core..: "metricDefinition")
+            Prelude.<$> (x Data..: "metricDefinition")
       )
 
 instance Prelude.Hashable MetricMonitor where

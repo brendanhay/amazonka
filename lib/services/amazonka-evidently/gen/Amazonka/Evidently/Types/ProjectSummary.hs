@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.ProjectSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types.ProjectStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -47,9 +48,9 @@ data ProjectSummary = ProjectSummary'
     -- | The name or ARN of the project.
     arn :: Prelude.Text,
     -- | The date and time that the project is created.
-    createdTime :: Core.POSIX,
+    createdTime :: Data.POSIX,
     -- | The date and time that the project was most recently updated.
-    lastUpdatedTime :: Core.POSIX,
+    lastUpdatedTime :: Data.POSIX,
     -- | The name of the project.
     name :: Prelude.Text,
     -- | The current state of the project.
@@ -116,9 +117,9 @@ newProjectSummary
         experimentCount = Prelude.Nothing,
         activeExperimentCount = Prelude.Nothing,
         arn = pArn_,
-        createdTime = Core._Time Lens.# pCreatedTime_,
+        createdTime = Data._Time Lens.# pCreatedTime_,
         lastUpdatedTime =
-          Core._Time Lens.# pLastUpdatedTime_,
+          Data._Time Lens.# pLastUpdatedTime_,
         name = pName_,
         status = pStatus_
       }
@@ -158,11 +159,11 @@ projectSummary_arn = Lens.lens (\ProjectSummary' {arn} -> arn) (\s@ProjectSummar
 
 -- | The date and time that the project is created.
 projectSummary_createdTime :: Lens.Lens' ProjectSummary Prelude.UTCTime
-projectSummary_createdTime = Lens.lens (\ProjectSummary' {createdTime} -> createdTime) (\s@ProjectSummary' {} a -> s {createdTime = a} :: ProjectSummary) Prelude.. Core._Time
+projectSummary_createdTime = Lens.lens (\ProjectSummary' {createdTime} -> createdTime) (\s@ProjectSummary' {} a -> s {createdTime = a} :: ProjectSummary) Prelude.. Data._Time
 
 -- | The date and time that the project was most recently updated.
 projectSummary_lastUpdatedTime :: Lens.Lens' ProjectSummary Prelude.UTCTime
-projectSummary_lastUpdatedTime = Lens.lens (\ProjectSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@ProjectSummary' {} a -> s {lastUpdatedTime = a} :: ProjectSummary) Prelude.. Core._Time
+projectSummary_lastUpdatedTime = Lens.lens (\ProjectSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@ProjectSummary' {} a -> s {lastUpdatedTime = a} :: ProjectSummary) Prelude.. Data._Time
 
 -- | The name of the project.
 projectSummary_name :: Lens.Lens' ProjectSummary Prelude.Text
@@ -172,24 +173,24 @@ projectSummary_name = Lens.lens (\ProjectSummary' {name} -> name) (\s@ProjectSum
 projectSummary_status :: Lens.Lens' ProjectSummary ProjectStatus
 projectSummary_status = Lens.lens (\ProjectSummary' {status} -> status) (\s@ProjectSummary' {} a -> s {status = a} :: ProjectSummary)
 
-instance Core.FromJSON ProjectSummary where
+instance Data.FromJSON ProjectSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectSummary"
       ( \x ->
           ProjectSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "activeLaunchCount")
-            Prelude.<*> (x Core..:? "featureCount")
-            Prelude.<*> (x Core..:? "launchCount")
-            Prelude.<*> (x Core..:? "experimentCount")
-            Prelude.<*> (x Core..:? "activeExperimentCount")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdTime")
-            Prelude.<*> (x Core..: "lastUpdatedTime")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "activeLaunchCount")
+            Prelude.<*> (x Data..:? "featureCount")
+            Prelude.<*> (x Data..:? "launchCount")
+            Prelude.<*> (x Data..:? "experimentCount")
+            Prelude.<*> (x Data..:? "activeExperimentCount")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdTime")
+            Prelude.<*> (x Data..: "lastUpdatedTime")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable ProjectSummary where

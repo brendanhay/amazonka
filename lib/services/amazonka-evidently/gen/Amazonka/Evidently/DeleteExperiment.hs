@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,27 +114,27 @@ instance Prelude.NFData DeleteExperiment where
     Prelude.rnf experiment
       `Prelude.seq` Prelude.rnf project
 
-instance Core.ToHeaders DeleteExperiment where
+instance Data.ToHeaders DeleteExperiment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteExperiment where
+instance Data.ToPath DeleteExperiment where
   toPath DeleteExperiment' {..} =
     Prelude.mconcat
       [ "/projects/",
-        Core.toBS project,
+        Data.toBS project,
         "/experiments/",
-        Core.toBS experiment
+        Data.toBS experiment
       ]
 
-instance Core.ToQuery DeleteExperiment where
+instance Data.ToQuery DeleteExperiment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteExperimentResponse' smart constructor.

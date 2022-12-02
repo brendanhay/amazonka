@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.ProjectAppConfigResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This is a structure that defines the configuration of how your
@@ -87,15 +88,15 @@ projectAppConfigResource_configurationProfileId = Lens.lens (\ProjectAppConfigRe
 projectAppConfigResource_environmentId :: Lens.Lens' ProjectAppConfigResource Prelude.Text
 projectAppConfigResource_environmentId = Lens.lens (\ProjectAppConfigResource' {environmentId} -> environmentId) (\s@ProjectAppConfigResource' {} a -> s {environmentId = a} :: ProjectAppConfigResource)
 
-instance Core.FromJSON ProjectAppConfigResource where
+instance Data.FromJSON ProjectAppConfigResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectAppConfigResource"
       ( \x ->
           ProjectAppConfigResource'
-            Prelude.<$> (x Core..: "applicationId")
-            Prelude.<*> (x Core..: "configurationProfileId")
-            Prelude.<*> (x Core..: "environmentId")
+            Prelude.<$> (x Data..: "applicationId")
+            Prelude.<*> (x Data..: "configurationProfileId")
+            Prelude.<*> (x Data..: "environmentId")
       )
 
 instance Prelude.Hashable ProjectAppConfigResource where

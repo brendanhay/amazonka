@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.SegmentOverride where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure specifies a segment that you have already created, and
@@ -94,15 +95,15 @@ segmentOverride_segment = Lens.lens (\SegmentOverride' {segment} -> segment) (\s
 segmentOverride_weights :: Lens.Lens' SegmentOverride (Prelude.HashMap Prelude.Text Prelude.Natural)
 segmentOverride_weights = Lens.lens (\SegmentOverride' {weights} -> weights) (\s@SegmentOverride' {} a -> s {weights = a} :: SegmentOverride) Prelude.. Lens.coerced
 
-instance Core.FromJSON SegmentOverride where
+instance Data.FromJSON SegmentOverride where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SegmentOverride"
       ( \x ->
           SegmentOverride'
-            Prelude.<$> (x Core..: "evaluationOrder")
-            Prelude.<*> (x Core..: "segment")
-            Prelude.<*> (x Core..:? "weights" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "evaluationOrder")
+            Prelude.<*> (x Data..: "segment")
+            Prelude.<*> (x Data..:? "weights" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SegmentOverride where
@@ -117,13 +118,13 @@ instance Prelude.NFData SegmentOverride where
       `Prelude.seq` Prelude.rnf segment
       `Prelude.seq` Prelude.rnf weights
 
-instance Core.ToJSON SegmentOverride where
+instance Data.ToJSON SegmentOverride where
   toJSON SegmentOverride' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("evaluationOrder" Core..= evaluationOrder),
-            Prelude.Just ("segment" Core..= segment),
-            Prelude.Just ("weights" Core..= weights)
+              ("evaluationOrder" Data..= evaluationOrder),
+            Prelude.Just ("segment" Data..= segment),
+            Prelude.Just ("weights" Data..= weights)
           ]
       )

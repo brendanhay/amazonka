@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.MetricGoal where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types.ChangeDirectionEnum
 import Amazonka.Evidently.Types.MetricDefinition
 import qualified Amazonka.Prelude as Prelude
@@ -78,14 +79,14 @@ metricGoal_desiredChange = Lens.lens (\MetricGoal' {desiredChange} -> desiredCha
 metricGoal_metricDefinition :: Lens.Lens' MetricGoal MetricDefinition
 metricGoal_metricDefinition = Lens.lens (\MetricGoal' {metricDefinition} -> metricDefinition) (\s@MetricGoal' {} a -> s {metricDefinition = a} :: MetricGoal)
 
-instance Core.FromJSON MetricGoal where
+instance Data.FromJSON MetricGoal where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricGoal"
       ( \x ->
           MetricGoal'
-            Prelude.<$> (x Core..:? "desiredChange")
-            Prelude.<*> (x Core..: "metricDefinition")
+            Prelude.<$> (x Data..:? "desiredChange")
+            Prelude.<*> (x Data..: "metricDefinition")
       )
 
 instance Prelude.Hashable MetricGoal where

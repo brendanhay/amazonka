@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,22 +95,22 @@ instance Prelude.Hashable DeleteSegment where
 instance Prelude.NFData DeleteSegment where
   rnf DeleteSegment' {..} = Prelude.rnf segment
 
-instance Core.ToHeaders DeleteSegment where
+instance Data.ToHeaders DeleteSegment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteSegment where
+instance Data.ToPath DeleteSegment where
   toPath DeleteSegment' {..} =
-    Prelude.mconcat ["/segments/", Core.toBS segment]
+    Prelude.mconcat ["/segments/", Data.toBS segment]
 
-instance Core.ToQuery DeleteSegment where
+instance Data.ToQuery DeleteSegment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSegmentResponse' smart constructor.

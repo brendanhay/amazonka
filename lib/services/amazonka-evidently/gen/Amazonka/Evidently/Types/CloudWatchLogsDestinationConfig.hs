@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.CloudWatchLogsDestinationConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing the CloudWatch Logs log group where the project
@@ -70,9 +71,9 @@ instance
   rnf CloudWatchLogsDestinationConfig' {..} =
     Prelude.rnf logGroup
 
-instance Core.ToJSON CloudWatchLogsDestinationConfig where
+instance Data.ToJSON CloudWatchLogsDestinationConfig where
   toJSON CloudWatchLogsDestinationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("logGroup" Core..=) Prelude.<$> logGroup]
+          [("logGroup" Data..=) Prelude.<$> logGroup]
       )

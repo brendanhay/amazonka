@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.Treatment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that defines one treatment in an experiment. A treatment is
@@ -76,17 +77,17 @@ treatment_featureVariations = Lens.lens (\Treatment' {featureVariations} -> feat
 treatment_name :: Lens.Lens' Treatment Prelude.Text
 treatment_name = Lens.lens (\Treatment' {name} -> name) (\s@Treatment' {} a -> s {name = a} :: Treatment)
 
-instance Core.FromJSON Treatment where
+instance Data.FromJSON Treatment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Treatment"
       ( \x ->
           Treatment'
-            Prelude.<$> (x Core..:? "description")
-            Prelude.<*> ( x Core..:? "featureVariations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> ( x Data..:? "featureVariations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "name")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable Treatment where

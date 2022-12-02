@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.S3DestinationConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | If the project stores evaluation events in an Amazon S3 bucket, this
@@ -71,11 +72,11 @@ instance Prelude.NFData S3DestinationConfig where
   rnf S3DestinationConfig' {..} =
     Prelude.rnf bucket `Prelude.seq` Prelude.rnf prefix
 
-instance Core.ToJSON S3DestinationConfig where
+instance Data.ToJSON S3DestinationConfig where
   toJSON S3DestinationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bucket" Core..=) Prelude.<$> bucket,
-            ("prefix" Core..=) Prelude.<$> prefix
+          [ ("bucket" Data..=) Prelude.<$> bucket,
+            ("prefix" Data..=) Prelude.<$> prefix
           ]
       )

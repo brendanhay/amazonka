@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -155,10 +156,10 @@ instance Core.AWSRequest EvaluateFeature where
     Response.receiveJSON
       ( \s h x ->
           EvaluateFeatureResponse'
-            Prelude.<$> (x Core..?> "variation")
-            Prelude.<*> (x Core..?> "details")
-            Prelude.<*> (x Core..?> "reason")
-            Prelude.<*> (x Core..?> "value")
+            Prelude.<$> (x Data..?> "variation")
+            Prelude.<*> (x Data..?> "details")
+            Prelude.<*> (x Data..?> "reason")
+            Prelude.<*> (x Data..?> "value")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,37 +177,37 @@ instance Prelude.NFData EvaluateFeature where
       `Prelude.seq` Prelude.rnf feature
       `Prelude.seq` Prelude.rnf project
 
-instance Core.ToHeaders EvaluateFeature where
+instance Data.ToHeaders EvaluateFeature where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON EvaluateFeature where
+instance Data.ToJSON EvaluateFeature where
   toJSON EvaluateFeature' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("evaluationContext" Core..=)
+          [ ("evaluationContext" Data..=)
               Prelude.<$> evaluationContext,
-            Prelude.Just ("entityId" Core..= entityId)
+            Prelude.Just ("entityId" Data..= entityId)
           ]
       )
 
-instance Core.ToPath EvaluateFeature where
+instance Data.ToPath EvaluateFeature where
   toPath EvaluateFeature' {..} =
     Prelude.mconcat
       [ "/projects/",
-        Core.toBS project,
+        Data.toBS project,
         "/evaluations/",
-        Core.toBS feature
+        Data.toBS feature
       ]
 
-instance Core.ToQuery EvaluateFeature where
+instance Data.ToQuery EvaluateFeature where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEvaluateFeatureResponse' smart constructor.

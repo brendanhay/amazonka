@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,7 +98,7 @@ instance Core.AWSRequest StartLaunch where
       ( \s h x ->
           StartLaunchResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "launch")
+            Prelude.<*> (x Data..:> "launch")
       )
 
 instance Prelude.Hashable StartLaunch where
@@ -110,31 +111,31 @@ instance Prelude.NFData StartLaunch where
     Prelude.rnf launch
       `Prelude.seq` Prelude.rnf project
 
-instance Core.ToHeaders StartLaunch where
+instance Data.ToHeaders StartLaunch where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartLaunch where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON StartLaunch where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath StartLaunch where
+instance Data.ToPath StartLaunch where
   toPath StartLaunch' {..} =
     Prelude.mconcat
       [ "/projects/",
-        Core.toBS project,
+        Data.toBS project,
         "/launches/",
-        Core.toBS launch,
+        Data.toBS launch,
         "/start"
       ]
 
-instance Core.ToQuery StartLaunch where
+instance Data.ToQuery StartLaunch where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartLaunchResponse' smart constructor.

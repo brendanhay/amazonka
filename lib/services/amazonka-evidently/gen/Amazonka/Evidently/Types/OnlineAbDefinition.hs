@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.OnlineAbDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains the configuration of which variation to use as
@@ -80,15 +81,15 @@ onlineAbDefinition_controlTreatmentName = Lens.lens (\OnlineAbDefinition' {contr
 onlineAbDefinition_treatmentWeights :: Lens.Lens' OnlineAbDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Natural))
 onlineAbDefinition_treatmentWeights = Lens.lens (\OnlineAbDefinition' {treatmentWeights} -> treatmentWeights) (\s@OnlineAbDefinition' {} a -> s {treatmentWeights = a} :: OnlineAbDefinition) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON OnlineAbDefinition where
+instance Data.FromJSON OnlineAbDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OnlineAbDefinition"
       ( \x ->
           OnlineAbDefinition'
-            Prelude.<$> (x Core..:? "controlTreatmentName")
-            Prelude.<*> ( x Core..:? "treatmentWeights"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "controlTreatmentName")
+            Prelude.<*> ( x Data..:? "treatmentWeights"
+                            Data..!= Prelude.mempty
                         )
       )
 

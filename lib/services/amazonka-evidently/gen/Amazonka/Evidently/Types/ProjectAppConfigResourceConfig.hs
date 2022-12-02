@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.ProjectAppConfigResourceConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use this parameter to configure client-side evaluation for your project.
@@ -95,11 +96,11 @@ instance
     Prelude.rnf environmentId
       `Prelude.seq` Prelude.rnf applicationId
 
-instance Core.ToJSON ProjectAppConfigResourceConfig where
+instance Data.ToJSON ProjectAppConfigResourceConfig where
   toJSON ProjectAppConfigResourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("environmentId" Core..=) Prelude.<$> environmentId,
-            ("applicationId" Core..=) Prelude.<$> applicationId
+          [ ("environmentId" Data..=) Prelude.<$> environmentId,
+            ("applicationId" Data..=) Prelude.<$> applicationId
           ]
       )

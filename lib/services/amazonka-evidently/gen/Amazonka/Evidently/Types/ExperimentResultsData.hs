@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.ExperimentResultsData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types.ExperimentResultResponseType
 import qualified Amazonka.Prelude as Prelude
 
@@ -85,16 +86,16 @@ experimentResultsData_values = Lens.lens (\ExperimentResultsData' {values} -> va
 experimentResultsData_resultStat :: Lens.Lens' ExperimentResultsData (Prelude.Maybe ExperimentResultResponseType)
 experimentResultsData_resultStat = Lens.lens (\ExperimentResultsData' {resultStat} -> resultStat) (\s@ExperimentResultsData' {} a -> s {resultStat = a} :: ExperimentResultsData)
 
-instance Core.FromJSON ExperimentResultsData where
+instance Data.FromJSON ExperimentResultsData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExperimentResultsData"
       ( \x ->
           ExperimentResultsData'
-            Prelude.<$> (x Core..:? "treatmentName")
-            Prelude.<*> (x Core..:? "metricName")
-            Prelude.<*> (x Core..:? "values" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "resultStat")
+            Prelude.<$> (x Data..:? "treatmentName")
+            Prelude.<*> (x Data..:? "metricName")
+            Prelude.<*> (x Data..:? "values" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "resultStat")
       )
 
 instance Prelude.Hashable ExperimentResultsData where

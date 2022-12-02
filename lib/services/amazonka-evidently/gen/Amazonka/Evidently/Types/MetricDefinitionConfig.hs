@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.MetricDefinitionConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure defines a metric that you want to use to evaluate the
@@ -127,14 +128,14 @@ instance Prelude.NFData MetricDefinitionConfig where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf valueKey
 
-instance Core.ToJSON MetricDefinitionConfig where
+instance Data.ToJSON MetricDefinitionConfig where
   toJSON MetricDefinitionConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("unitLabel" Core..=) Prelude.<$> unitLabel,
-            ("eventPattern" Core..=) Prelude.<$> eventPattern,
-            Prelude.Just ("entityIdKey" Core..= entityIdKey),
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("valueKey" Core..= valueKey)
+          [ ("unitLabel" Data..=) Prelude.<$> unitLabel,
+            ("eventPattern" Data..=) Prelude.<$> eventPattern,
+            Prelude.Just ("entityIdKey" Data..= entityIdKey),
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("valueKey" Data..= valueKey)
           ]
       )

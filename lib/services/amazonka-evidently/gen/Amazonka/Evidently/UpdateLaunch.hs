@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -174,7 +175,7 @@ instance Core.AWSRequest UpdateLaunch where
       ( \s h x ->
           UpdateLaunchResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "launch")
+            Prelude.<*> (x Data..:> "launch")
       )
 
 instance Prelude.Hashable UpdateLaunch where
@@ -197,42 +198,42 @@ instance Prelude.NFData UpdateLaunch where
       `Prelude.seq` Prelude.rnf launch
       `Prelude.seq` Prelude.rnf project
 
-instance Core.ToHeaders UpdateLaunch where
+instance Data.ToHeaders UpdateLaunch where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateLaunch where
+instance Data.ToJSON UpdateLaunch where
   toJSON UpdateLaunch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("scheduledSplitsConfig" Core..=)
+          [ ("description" Data..=) Prelude.<$> description,
+            ("scheduledSplitsConfig" Data..=)
               Prelude.<$> scheduledSplitsConfig,
-            ("metricMonitors" Core..=)
+            ("metricMonitors" Data..=)
               Prelude.<$> metricMonitors,
-            ("groups" Core..=) Prelude.<$> groups,
-            ("randomizationSalt" Core..=)
+            ("groups" Data..=) Prelude.<$> groups,
+            ("randomizationSalt" Data..=)
               Prelude.<$> randomizationSalt
           ]
       )
 
-instance Core.ToPath UpdateLaunch where
+instance Data.ToPath UpdateLaunch where
   toPath UpdateLaunch' {..} =
     Prelude.mconcat
       [ "/projects/",
-        Core.toBS project,
+        Data.toBS project,
         "/launches/",
-        Core.toBS launch
+        Data.toBS launch
       ]
 
-instance Core.ToQuery UpdateLaunch where
+instance Data.ToQuery UpdateLaunch where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLaunchResponse' smart constructor.

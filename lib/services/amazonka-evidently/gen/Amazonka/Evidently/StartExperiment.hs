@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -53,7 +54,7 @@ import qualified Amazonka.Response as Response
 data StartExperiment = StartExperiment'
   { -- | The date and time to end the experiment. This must be no more than 30
     -- days after the experiment starts.
-    analysisCompleteTime :: Core.POSIX,
+    analysisCompleteTime :: Data.POSIX,
     -- | The name of the experiment to start.
     experiment :: Prelude.Text,
     -- | The name or ARN of the project that contains the experiment to start.
@@ -89,7 +90,7 @@ newStartExperiment
   pProject_ =
     StartExperiment'
       { analysisCompleteTime =
-          Core._Time Lens.# pAnalysisCompleteTime_,
+          Data._Time Lens.# pAnalysisCompleteTime_,
         experiment = pExperiment_,
         project = pProject_
       }
@@ -97,7 +98,7 @@ newStartExperiment
 -- | The date and time to end the experiment. This must be no more than 30
 -- days after the experiment starts.
 startExperiment_analysisCompleteTime :: Lens.Lens' StartExperiment Prelude.UTCTime
-startExperiment_analysisCompleteTime = Lens.lens (\StartExperiment' {analysisCompleteTime} -> analysisCompleteTime) (\s@StartExperiment' {} a -> s {analysisCompleteTime = a} :: StartExperiment) Prelude.. Core._Time
+startExperiment_analysisCompleteTime = Lens.lens (\StartExperiment' {analysisCompleteTime} -> analysisCompleteTime) (\s@StartExperiment' {} a -> s {analysisCompleteTime = a} :: StartExperiment) Prelude.. Data._Time
 
 -- | The name of the experiment to start.
 startExperiment_experiment :: Lens.Lens' StartExperiment Prelude.Text
@@ -117,7 +118,7 @@ instance Core.AWSRequest StartExperiment where
     Response.receiveJSON
       ( \s h x ->
           StartExperimentResponse'
-            Prelude.<$> (x Core..?> "startedTime")
+            Prelude.<$> (x Data..?> "startedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,45 +134,45 @@ instance Prelude.NFData StartExperiment where
       `Prelude.seq` Prelude.rnf experiment
       `Prelude.seq` Prelude.rnf project
 
-instance Core.ToHeaders StartExperiment where
+instance Data.ToHeaders StartExperiment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartExperiment where
+instance Data.ToJSON StartExperiment where
   toJSON StartExperiment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "analysisCompleteTime"
-                  Core..= analysisCompleteTime
+                  Data..= analysisCompleteTime
               )
           ]
       )
 
-instance Core.ToPath StartExperiment where
+instance Data.ToPath StartExperiment where
   toPath StartExperiment' {..} =
     Prelude.mconcat
       [ "/projects/",
-        Core.toBS project,
+        Data.toBS project,
         "/experiments/",
-        Core.toBS experiment,
+        Data.toBS experiment,
         "/start"
       ]
 
-instance Core.ToQuery StartExperiment where
+instance Data.ToQuery StartExperiment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartExperimentResponse' smart constructor.
 data StartExperimentResponse = StartExperimentResponse'
   { -- | A timestamp that indicates when the experiment started.
-    startedTime :: Prelude.Maybe Core.POSIX,
+    startedTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -201,7 +202,7 @@ newStartExperimentResponse pHttpStatus_ =
 
 -- | A timestamp that indicates when the experiment started.
 startExperimentResponse_startedTime :: Lens.Lens' StartExperimentResponse (Prelude.Maybe Prelude.UTCTime)
-startExperimentResponse_startedTime = Lens.lens (\StartExperimentResponse' {startedTime} -> startedTime) (\s@StartExperimentResponse' {} a -> s {startedTime = a} :: StartExperimentResponse) Prelude.. Lens.mapping Core._Time
+startExperimentResponse_startedTime = Lens.lens (\StartExperimentResponse' {startedTime} -> startedTime) (\s@StartExperimentResponse' {} a -> s {startedTime = a} :: StartExperimentResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 startExperimentResponse_httpStatus :: Lens.Lens' StartExperimentResponse Prelude.Int

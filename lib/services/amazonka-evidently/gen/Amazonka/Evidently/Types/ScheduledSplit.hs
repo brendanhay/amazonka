@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.ScheduledSplit where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types.SegmentOverride
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,7 +55,7 @@ data ScheduledSplit = ScheduledSplit'
     -- defines the traffic split for that segment.
     segmentOverrides :: Prelude.Maybe [SegmentOverride],
     -- | The date and time that this step of the launch starts.
-    startTime :: Core.POSIX
+    startTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -98,7 +99,7 @@ newScheduledSplit pStartTime_ =
   ScheduledSplit'
     { groupWeights = Prelude.Nothing,
       segmentOverrides = Prelude.Nothing,
-      startTime = Core._Time Lens.# pStartTime_
+      startTime = Data._Time Lens.# pStartTime_
     }
 
 -- | The traffic allocation percentages among the feature variations during
@@ -130,19 +131,19 @@ scheduledSplit_segmentOverrides = Lens.lens (\ScheduledSplit' {segmentOverrides}
 
 -- | The date and time that this step of the launch starts.
 scheduledSplit_startTime :: Lens.Lens' ScheduledSplit Prelude.UTCTime
-scheduledSplit_startTime = Lens.lens (\ScheduledSplit' {startTime} -> startTime) (\s@ScheduledSplit' {} a -> s {startTime = a} :: ScheduledSplit) Prelude.. Core._Time
+scheduledSplit_startTime = Lens.lens (\ScheduledSplit' {startTime} -> startTime) (\s@ScheduledSplit' {} a -> s {startTime = a} :: ScheduledSplit) Prelude.. Data._Time
 
-instance Core.FromJSON ScheduledSplit where
+instance Data.FromJSON ScheduledSplit where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScheduledSplit"
       ( \x ->
           ScheduledSplit'
-            Prelude.<$> (x Core..:? "groupWeights" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "segmentOverrides"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "groupWeights" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "segmentOverrides"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "startTime")
+            Prelude.<*> (x Data..: "startTime")
       )
 
 instance Prelude.Hashable ScheduledSplit where

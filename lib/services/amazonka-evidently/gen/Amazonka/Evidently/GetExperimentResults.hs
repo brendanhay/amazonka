@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,12 +103,12 @@ data GetExperimentResults = GetExperimentResults'
     resultStats :: Prelude.Maybe [ExperimentResultRequestType],
     -- | The date and time that the experiment ended, if it is completed. This
     -- must be no longer than 30 days after the experiment start time.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The names of the report types that you want to see. Currently,
     -- @BayesianInference@ is the only valid value.
     reportNames :: Prelude.Maybe [ExperimentReportName],
     -- | The date and time that the experiment started.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the experiment to retrieve the results of.
     experiment :: Prelude.Text,
     -- | The names of the experiment metrics that you want to see the results of.
@@ -242,7 +243,7 @@ getExperimentResults_resultStats = Lens.lens (\GetExperimentResults' {resultStat
 -- | The date and time that the experiment ended, if it is completed. This
 -- must be no longer than 30 days after the experiment start time.
 getExperimentResults_endTime :: Lens.Lens' GetExperimentResults (Prelude.Maybe Prelude.UTCTime)
-getExperimentResults_endTime = Lens.lens (\GetExperimentResults' {endTime} -> endTime) (\s@GetExperimentResults' {} a -> s {endTime = a} :: GetExperimentResults) Prelude.. Lens.mapping Core._Time
+getExperimentResults_endTime = Lens.lens (\GetExperimentResults' {endTime} -> endTime) (\s@GetExperimentResults' {} a -> s {endTime = a} :: GetExperimentResults) Prelude.. Lens.mapping Data._Time
 
 -- | The names of the report types that you want to see. Currently,
 -- @BayesianInference@ is the only valid value.
@@ -251,7 +252,7 @@ getExperimentResults_reportNames = Lens.lens (\GetExperimentResults' {reportName
 
 -- | The date and time that the experiment started.
 getExperimentResults_startTime :: Lens.Lens' GetExperimentResults (Prelude.Maybe Prelude.UTCTime)
-getExperimentResults_startTime = Lens.lens (\GetExperimentResults' {startTime} -> startTime) (\s@GetExperimentResults' {} a -> s {startTime = a} :: GetExperimentResults) Prelude.. Lens.mapping Core._Time
+getExperimentResults_startTime = Lens.lens (\GetExperimentResults' {startTime} -> startTime) (\s@GetExperimentResults' {} a -> s {startTime = a} :: GetExperimentResults) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the experiment to retrieve the results of.
 getExperimentResults_experiment :: Lens.Lens' GetExperimentResults Prelude.Text
@@ -281,10 +282,10 @@ instance Core.AWSRequest GetExperimentResults where
     Response.receiveJSON
       ( \s h x ->
           GetExperimentResultsResponse'
-            Prelude.<$> (x Core..?> "timestamps" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "details")
-            Prelude.<*> (x Core..?> "reports" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "resultsData" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "timestamps" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "details")
+            Prelude.<*> (x Data..?> "reports" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "resultsData" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -314,50 +315,50 @@ instance Prelude.NFData GetExperimentResults where
       `Prelude.seq` Prelude.rnf project
       `Prelude.seq` Prelude.rnf treatmentNames
 
-instance Core.ToHeaders GetExperimentResults where
+instance Data.ToHeaders GetExperimentResults where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetExperimentResults where
+instance Data.ToJSON GetExperimentResults where
   toJSON GetExperimentResults' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("baseStat" Core..=) Prelude.<$> baseStat,
-            ("period" Core..=) Prelude.<$> period,
-            ("resultStats" Core..=) Prelude.<$> resultStats,
-            ("endTime" Core..=) Prelude.<$> endTime,
-            ("reportNames" Core..=) Prelude.<$> reportNames,
-            ("startTime" Core..=) Prelude.<$> startTime,
-            Prelude.Just ("metricNames" Core..= metricNames),
+          [ ("baseStat" Data..=) Prelude.<$> baseStat,
+            ("period" Data..=) Prelude.<$> period,
+            ("resultStats" Data..=) Prelude.<$> resultStats,
+            ("endTime" Data..=) Prelude.<$> endTime,
+            ("reportNames" Data..=) Prelude.<$> reportNames,
+            ("startTime" Data..=) Prelude.<$> startTime,
+            Prelude.Just ("metricNames" Data..= metricNames),
             Prelude.Just
-              ("treatmentNames" Core..= treatmentNames)
+              ("treatmentNames" Data..= treatmentNames)
           ]
       )
 
-instance Core.ToPath GetExperimentResults where
+instance Data.ToPath GetExperimentResults where
   toPath GetExperimentResults' {..} =
     Prelude.mconcat
       [ "/projects/",
-        Core.toBS project,
+        Data.toBS project,
         "/experiments/",
-        Core.toBS experiment,
+        Data.toBS experiment,
         "/results"
       ]
 
-instance Core.ToQuery GetExperimentResults where
+instance Data.ToQuery GetExperimentResults where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetExperimentResultsResponse' smart constructor.
 data GetExperimentResultsResponse = GetExperimentResultsResponse'
   { -- | The timestamps of each result returned.
-    timestamps :: Prelude.Maybe [Core.POSIX],
+    timestamps :: Prelude.Maybe [Data.POSIX],
     -- | If the experiment doesn\'t yet have enough events to provide valid
     -- results, this field is returned with the message
     -- @Not enough events to generate results@. If there are enough events to

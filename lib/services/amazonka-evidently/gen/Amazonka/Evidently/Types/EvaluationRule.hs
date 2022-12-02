@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.EvaluationRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains the information about an evaluation rule for
@@ -70,13 +71,13 @@ evaluationRule_name = Lens.lens (\EvaluationRule' {name} -> name) (\s@Evaluation
 evaluationRule_type :: Lens.Lens' EvaluationRule Prelude.Text
 evaluationRule_type = Lens.lens (\EvaluationRule' {type'} -> type') (\s@EvaluationRule' {} a -> s {type' = a} :: EvaluationRule)
 
-instance Core.FromJSON EvaluationRule where
+instance Data.FromJSON EvaluationRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EvaluationRule"
       ( \x ->
           EvaluationRule'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable EvaluationRule where

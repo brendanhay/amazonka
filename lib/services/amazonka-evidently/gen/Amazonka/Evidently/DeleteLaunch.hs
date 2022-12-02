@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,27 +112,27 @@ instance Prelude.NFData DeleteLaunch where
     Prelude.rnf launch
       `Prelude.seq` Prelude.rnf project
 
-instance Core.ToHeaders DeleteLaunch where
+instance Data.ToHeaders DeleteLaunch where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteLaunch where
+instance Data.ToPath DeleteLaunch where
   toPath DeleteLaunch' {..} =
     Prelude.mconcat
       [ "/projects/",
-        Core.toBS project,
+        Data.toBS project,
         "/launches/",
-        Core.toBS launch
+        Data.toBS launch
       ]
 
-instance Core.ToQuery DeleteLaunch where
+instance Data.ToQuery DeleteLaunch where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLaunchResponse' smart constructor.

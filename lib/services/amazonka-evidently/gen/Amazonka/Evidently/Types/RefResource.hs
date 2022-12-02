@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.RefResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains information about one experiment or launch
@@ -117,19 +118,19 @@ refResource_name = Lens.lens (\RefResource' {name} -> name) (\s@RefResource' {} 
 refResource_type :: Lens.Lens' RefResource Prelude.Text
 refResource_type = Lens.lens (\RefResource' {type'} -> type') (\s@RefResource' {} a -> s {type' = a} :: RefResource)
 
-instance Core.FromJSON RefResource where
+instance Data.FromJSON RefResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RefResource"
       ( \x ->
           RefResource'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "lastUpdatedOn")
-            Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "lastUpdatedOn")
+            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable RefResource where

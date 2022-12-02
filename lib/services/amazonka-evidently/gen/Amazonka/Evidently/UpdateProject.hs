@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,7 +141,7 @@ instance Core.AWSRequest UpdateProject where
       ( \s h x ->
           UpdateProjectResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "project")
+            Prelude.<*> (x Data..:> "project")
       )
 
 instance Prelude.Hashable UpdateProject where
@@ -155,32 +156,32 @@ instance Prelude.NFData UpdateProject where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf project
 
-instance Core.ToHeaders UpdateProject where
+instance Data.ToHeaders UpdateProject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateProject where
+instance Data.ToJSON UpdateProject where
   toJSON UpdateProject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("appConfigResource" Core..=)
+          [ ("appConfigResource" Data..=)
               Prelude.<$> appConfigResource,
-            ("description" Core..=) Prelude.<$> description
+            ("description" Data..=) Prelude.<$> description
           ]
       )
 
-instance Core.ToPath UpdateProject where
+instance Data.ToPath UpdateProject where
   toPath UpdateProject' {..} =
-    Prelude.mconcat ["/projects/", Core.toBS project]
+    Prelude.mconcat ["/projects/", Data.toBS project]
 
-instance Core.ToQuery UpdateProject where
+instance Data.ToQuery UpdateProject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateProjectResponse' smart constructor.

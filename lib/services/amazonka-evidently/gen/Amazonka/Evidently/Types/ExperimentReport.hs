@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.ExperimentReport where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types.ExperimentReportName
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,16 +81,16 @@ experimentReport_metricName = Lens.lens (\ExperimentReport' {metricName} -> metr
 experimentReport_content :: Lens.Lens' ExperimentReport (Prelude.Maybe Prelude.Text)
 experimentReport_content = Lens.lens (\ExperimentReport' {content} -> content) (\s@ExperimentReport' {} a -> s {content = a} :: ExperimentReport)
 
-instance Core.FromJSON ExperimentReport where
+instance Data.FromJSON ExperimentReport where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExperimentReport"
       ( \x ->
           ExperimentReport'
-            Prelude.<$> (x Core..:? "reportName")
-            Prelude.<*> (x Core..:? "treatmentName")
-            Prelude.<*> (x Core..:? "metricName")
-            Prelude.<*> (x Core..:? "content")
+            Prelude.<$> (x Data..:? "reportName")
+            Prelude.<*> (x Data..:? "treatmentName")
+            Prelude.<*> (x Data..:? "metricName")
+            Prelude.<*> (x Data..:? "content")
       )
 
 instance Prelude.Hashable ExperimentReport where

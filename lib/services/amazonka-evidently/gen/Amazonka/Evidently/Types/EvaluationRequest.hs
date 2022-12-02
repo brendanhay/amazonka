@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.EvaluationRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure assigns a feature variation to one user session.
@@ -99,13 +100,13 @@ instance Prelude.NFData EvaluationRequest where
       `Prelude.seq` Prelude.rnf entityId
       `Prelude.seq` Prelude.rnf feature
 
-instance Core.ToJSON EvaluationRequest where
+instance Data.ToJSON EvaluationRequest where
   toJSON EvaluationRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("evaluationContext" Core..=)
+          [ ("evaluationContext" Data..=)
               Prelude.<$> evaluationContext,
-            Prelude.Just ("entityId" Core..= entityId),
-            Prelude.Just ("feature" Core..= feature)
+            Prelude.Just ("entityId" Data..= entityId),
+            Prelude.Just ("feature" Data..= feature)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.ScheduledSplitConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types.SegmentOverride
 import qualified Amazonka.Prelude as Prelude
 
@@ -48,7 +49,7 @@ data ScheduledSplitConfig = ScheduledSplitConfig'
     -- >  <p>The values is expressed in thousandths of a percent, so assigning a weight of 50000 assigns 50% of traffic to that variation.</p> <p>If the sum of the weights for all the variations in a segment override does not add up to 100,000, then the remaining traffic that matches this segment is not assigned by this segment override, and instead moves on to the next segment override or the default traffic split.</p>
     groupWeights :: Prelude.HashMap Prelude.Text Prelude.Natural,
     -- | The date and time that this step of the launch starts.
-    startTime :: Core.POSIX
+    startTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,7 +88,7 @@ newScheduledSplitConfig pStartTime_ =
     { segmentOverrides =
         Prelude.Nothing,
       groupWeights = Prelude.mempty,
-      startTime = Core._Time Lens.# pStartTime_
+      startTime = Data._Time Lens.# pStartTime_
     }
 
 -- | Use this parameter to specify different traffic splits for one or more
@@ -113,7 +114,7 @@ scheduledSplitConfig_groupWeights = Lens.lens (\ScheduledSplitConfig' {groupWeig
 
 -- | The date and time that this step of the launch starts.
 scheduledSplitConfig_startTime :: Lens.Lens' ScheduledSplitConfig Prelude.UTCTime
-scheduledSplitConfig_startTime = Lens.lens (\ScheduledSplitConfig' {startTime} -> startTime) (\s@ScheduledSplitConfig' {} a -> s {startTime = a} :: ScheduledSplitConfig) Prelude.. Core._Time
+scheduledSplitConfig_startTime = Lens.lens (\ScheduledSplitConfig' {startTime} -> startTime) (\s@ScheduledSplitConfig' {} a -> s {startTime = a} :: ScheduledSplitConfig) Prelude.. Data._Time
 
 instance Prelude.Hashable ScheduledSplitConfig where
   hashWithSalt _salt ScheduledSplitConfig' {..} =
@@ -127,13 +128,13 @@ instance Prelude.NFData ScheduledSplitConfig where
       `Prelude.seq` Prelude.rnf groupWeights
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToJSON ScheduledSplitConfig where
+instance Data.ToJSON ScheduledSplitConfig where
   toJSON ScheduledSplitConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("segmentOverrides" Core..=)
+          [ ("segmentOverrides" Data..=)
               Prelude.<$> segmentOverrides,
-            Prelude.Just ("groupWeights" Core..= groupWeights),
-            Prelude.Just ("startTime" Core..= startTime)
+            Prelude.Just ("groupWeights" Data..= groupWeights),
+            Prelude.Just ("startTime" Data..= startTime)
           ]
       )

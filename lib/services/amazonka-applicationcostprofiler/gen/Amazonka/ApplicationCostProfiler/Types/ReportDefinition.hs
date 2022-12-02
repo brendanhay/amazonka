@@ -24,6 +24,7 @@ import Amazonka.ApplicationCostProfiler.Types.ReportFrequency
 import Amazonka.ApplicationCostProfiler.Types.S3Location
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration of a report in AWS Application Cost Profiler.
@@ -31,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newReportDefinition' smart constructor.
 data ReportDefinition = ReportDefinition'
   { -- | Timestamp (milliseconds) when this report definition was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The location in Amazon Simple Storage Service (Amazon S3) the reports
     -- should be saved to.
     destinationS3Location :: Prelude.Maybe S3Location,
@@ -44,7 +45,7 @@ data ReportDefinition = ReportDefinition'
     -- | The ID of the report.
     reportId :: Prelude.Maybe Prelude.Text,
     -- | Timestamp (milliseconds) when this report definition was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,7 +86,7 @@ newReportDefinition =
 
 -- | Timestamp (milliseconds) when this report definition was last updated.
 reportDefinition_lastUpdatedAt :: Lens.Lens' ReportDefinition (Prelude.Maybe Prelude.UTCTime)
-reportDefinition_lastUpdatedAt = Lens.lens (\ReportDefinition' {lastUpdatedAt} -> lastUpdatedAt) (\s@ReportDefinition' {} a -> s {lastUpdatedAt = a} :: ReportDefinition) Prelude.. Lens.mapping Core._Time
+reportDefinition_lastUpdatedAt = Lens.lens (\ReportDefinition' {lastUpdatedAt} -> lastUpdatedAt) (\s@ReportDefinition' {} a -> s {lastUpdatedAt = a} :: ReportDefinition) Prelude.. Lens.mapping Data._Time
 
 -- | The location in Amazon Simple Storage Service (Amazon S3) the reports
 -- should be saved to.
@@ -110,21 +111,21 @@ reportDefinition_reportId = Lens.lens (\ReportDefinition' {reportId} -> reportId
 
 -- | Timestamp (milliseconds) when this report definition was created.
 reportDefinition_createdAt :: Lens.Lens' ReportDefinition (Prelude.Maybe Prelude.UTCTime)
-reportDefinition_createdAt = Lens.lens (\ReportDefinition' {createdAt} -> createdAt) (\s@ReportDefinition' {} a -> s {createdAt = a} :: ReportDefinition) Prelude.. Lens.mapping Core._Time
+reportDefinition_createdAt = Lens.lens (\ReportDefinition' {createdAt} -> createdAt) (\s@ReportDefinition' {} a -> s {createdAt = a} :: ReportDefinition) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ReportDefinition where
+instance Data.FromJSON ReportDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReportDefinition"
       ( \x ->
           ReportDefinition'
-            Prelude.<$> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "destinationS3Location")
-            Prelude.<*> (x Core..:? "reportFrequency")
-            Prelude.<*> (x Core..:? "reportDescription")
-            Prelude.<*> (x Core..:? "format")
-            Prelude.<*> (x Core..:? "reportId")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "destinationS3Location")
+            Prelude.<*> (x Data..:? "reportFrequency")
+            Prelude.<*> (x Data..:? "reportDescription")
+            Prelude.<*> (x Data..:? "format")
+            Prelude.<*> (x Data..:? "reportId")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable ReportDefinition where

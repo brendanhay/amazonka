@@ -22,6 +22,7 @@ module Amazonka.ApplicationCostProfiler.Types.SourceS3Location where
 import Amazonka.ApplicationCostProfiler.Types.S3BucketRegion
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the Amazon Simple Storage Service (Amazon S3) location where
@@ -100,12 +101,12 @@ instance Prelude.NFData SourceS3Location where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
 
-instance Core.ToJSON SourceS3Location where
+instance Data.ToJSON SourceS3Location where
   toJSON SourceS3Location' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("region" Core..=) Prelude.<$> region,
-            Prelude.Just ("bucket" Core..= bucket),
-            Prelude.Just ("key" Core..= key)
+          [ ("region" Data..=) Prelude.<$> region,
+            Prelude.Just ("bucket" Data..= bucket),
+            Prelude.Just ("key" Data..= key)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.StepFunctions.Types.ActivityListItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about an activity.
@@ -47,7 +48,7 @@ data ActivityListItem = ActivityListItem'
     -- 0-9, A-Z, a-z, - and _.
     name :: Prelude.Text,
     -- | The date the activity is created.
-    creationDate :: Core.POSIX
+    creationDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,7 +95,7 @@ newActivityListItem
     ActivityListItem'
       { activityArn = pActivityArn_,
         name = pName_,
-        creationDate = Core._Time Lens.# pCreationDate_
+        creationDate = Data._Time Lens.# pCreationDate_
       }
 
 -- | The Amazon Resource Name (ARN) that identifies the activity.
@@ -122,17 +123,17 @@ activityListItem_name = Lens.lens (\ActivityListItem' {name} -> name) (\s@Activi
 
 -- | The date the activity is created.
 activityListItem_creationDate :: Lens.Lens' ActivityListItem Prelude.UTCTime
-activityListItem_creationDate = Lens.lens (\ActivityListItem' {creationDate} -> creationDate) (\s@ActivityListItem' {} a -> s {creationDate = a} :: ActivityListItem) Prelude.. Core._Time
+activityListItem_creationDate = Lens.lens (\ActivityListItem' {creationDate} -> creationDate) (\s@ActivityListItem' {} a -> s {creationDate = a} :: ActivityListItem) Prelude.. Data._Time
 
-instance Core.FromJSON ActivityListItem where
+instance Data.FromJSON ActivityListItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActivityListItem"
       ( \x ->
           ActivityListItem'
-            Prelude.<$> (x Core..: "activityArn")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "creationDate")
+            Prelude.<$> (x Data..: "activityArn")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "creationDate")
       )
 
 instance Prelude.Hashable ActivityListItem where

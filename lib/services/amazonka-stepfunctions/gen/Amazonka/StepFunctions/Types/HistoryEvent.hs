@@ -21,6 +21,7 @@ module Amazonka.StepFunctions.Types.HistoryEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StepFunctions.Types.ActivityFailedEventDetails
 import Amazonka.StepFunctions.Types.ActivityScheduleFailedEventDetails
@@ -111,7 +112,7 @@ data HistoryEvent = HistoryEvent'
     stateEnteredEventDetails :: Prelude.Maybe StateEnteredEventDetails,
     activityTimedOutEventDetails :: Prelude.Maybe ActivityTimedOutEventDetails,
     -- | The date and time the event occurred.
-    timestamp :: Core.POSIX,
+    timestamp :: Data.POSIX,
     -- | The type of the event.
     type' :: HistoryEventType,
     -- | The id of the event. Events are numbered sequentially, starting at one.
@@ -249,7 +250,7 @@ newHistoryEvent pTimestamp_ pType_ pId_ =
       activityFailedEventDetails = Prelude.Nothing,
       stateEnteredEventDetails = Prelude.Nothing,
       activityTimedOutEventDetails = Prelude.Nothing,
-      timestamp = Core._Time Lens.# pTimestamp_,
+      timestamp = Data._Time Lens.# pTimestamp_,
       type' = pType_,
       id = pId_
     }
@@ -391,7 +392,7 @@ historyEvent_activityTimedOutEventDetails = Lens.lens (\HistoryEvent' {activityT
 
 -- | The date and time the event occurred.
 historyEvent_timestamp :: Lens.Lens' HistoryEvent Prelude.UTCTime
-historyEvent_timestamp = Lens.lens (\HistoryEvent' {timestamp} -> timestamp) (\s@HistoryEvent' {} a -> s {timestamp = a} :: HistoryEvent) Prelude.. Core._Time
+historyEvent_timestamp = Lens.lens (\HistoryEvent' {timestamp} -> timestamp) (\s@HistoryEvent' {} a -> s {timestamp = a} :: HistoryEvent) Prelude.. Data._Time
 
 -- | The type of the event.
 historyEvent_type :: Lens.Lens' HistoryEvent HistoryEventType
@@ -401,50 +402,50 @@ historyEvent_type = Lens.lens (\HistoryEvent' {type'} -> type') (\s@HistoryEvent
 historyEvent_id :: Lens.Lens' HistoryEvent Prelude.Integer
 historyEvent_id = Lens.lens (\HistoryEvent' {id} -> id) (\s@HistoryEvent' {} a -> s {id = a} :: HistoryEvent)
 
-instance Core.FromJSON HistoryEvent where
+instance Data.FromJSON HistoryEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HistoryEvent"
       ( \x ->
           HistoryEvent'
-            Prelude.<$> (x Core..:? "lambdaFunctionTimedOutEventDetails")
-            Prelude.<*> (x Core..:? "activitySucceededEventDetails")
-            Prelude.<*> (x Core..:? "taskStartedEventDetails")
-            Prelude.<*> (x Core..:? "taskSubmitFailedEventDetails")
-            Prelude.<*> (x Core..:? "taskSubmittedEventDetails")
-            Prelude.<*> (x Core..:? "stateExitedEventDetails")
-            Prelude.<*> (x Core..:? "previousEventId")
-            Prelude.<*> (x Core..:? "executionAbortedEventDetails")
-            Prelude.<*> (x Core..:? "mapIterationAbortedEventDetails")
-            Prelude.<*> (x Core..:? "taskTimedOutEventDetails")
-            Prelude.<*> (x Core..:? "mapIterationStartedEventDetails")
-            Prelude.<*> (x Core..:? "executionStartedEventDetails")
-            Prelude.<*> (x Core..:? "lambdaFunctionSucceededEventDetails")
-            Prelude.<*> (x Core..:? "activityScheduleFailedEventDetails")
-            Prelude.<*> (x Core..:? "executionTimedOutEventDetails")
-            Prelude.<*> (x Core..:? "mapStateStartedEventDetails")
-            Prelude.<*> (x Core..:? "taskScheduledEventDetails")
-            Prelude.<*> (x Core..:? "taskFailedEventDetails")
-            Prelude.<*> (x Core..:? "activityStartedEventDetails")
-            Prelude.<*> (x Core..:? "lambdaFunctionScheduledEventDetails")
-            Prelude.<*> (x Core..:? "taskStartFailedEventDetails")
-            Prelude.<*> (x Core..:? "taskSucceededEventDetails")
-            Prelude.<*> (x Core..:? "lambdaFunctionFailedEventDetails")
-            Prelude.<*> (x Core..:? "mapIterationFailedEventDetails")
+            Prelude.<$> (x Data..:? "lambdaFunctionTimedOutEventDetails")
+            Prelude.<*> (x Data..:? "activitySucceededEventDetails")
+            Prelude.<*> (x Data..:? "taskStartedEventDetails")
+            Prelude.<*> (x Data..:? "taskSubmitFailedEventDetails")
+            Prelude.<*> (x Data..:? "taskSubmittedEventDetails")
+            Prelude.<*> (x Data..:? "stateExitedEventDetails")
+            Prelude.<*> (x Data..:? "previousEventId")
+            Prelude.<*> (x Data..:? "executionAbortedEventDetails")
+            Prelude.<*> (x Data..:? "mapIterationAbortedEventDetails")
+            Prelude.<*> (x Data..:? "taskTimedOutEventDetails")
+            Prelude.<*> (x Data..:? "mapIterationStartedEventDetails")
+            Prelude.<*> (x Data..:? "executionStartedEventDetails")
+            Prelude.<*> (x Data..:? "lambdaFunctionSucceededEventDetails")
+            Prelude.<*> (x Data..:? "activityScheduleFailedEventDetails")
+            Prelude.<*> (x Data..:? "executionTimedOutEventDetails")
+            Prelude.<*> (x Data..:? "mapStateStartedEventDetails")
+            Prelude.<*> (x Data..:? "taskScheduledEventDetails")
+            Prelude.<*> (x Data..:? "taskFailedEventDetails")
+            Prelude.<*> (x Data..:? "activityStartedEventDetails")
+            Prelude.<*> (x Data..:? "lambdaFunctionScheduledEventDetails")
+            Prelude.<*> (x Data..:? "taskStartFailedEventDetails")
+            Prelude.<*> (x Data..:? "taskSucceededEventDetails")
+            Prelude.<*> (x Data..:? "lambdaFunctionFailedEventDetails")
+            Prelude.<*> (x Data..:? "mapIterationFailedEventDetails")
             Prelude.<*> ( x
-                            Core..:? "lambdaFunctionScheduleFailedEventDetails"
+                            Data..:? "lambdaFunctionScheduleFailedEventDetails"
                         )
-            Prelude.<*> (x Core..:? "executionFailedEventDetails")
-            Prelude.<*> (x Core..:? "lambdaFunctionStartFailedEventDetails")
-            Prelude.<*> (x Core..:? "executionSucceededEventDetails")
-            Prelude.<*> (x Core..:? "activityScheduledEventDetails")
-            Prelude.<*> (x Core..:? "mapIterationSucceededEventDetails")
-            Prelude.<*> (x Core..:? "activityFailedEventDetails")
-            Prelude.<*> (x Core..:? "stateEnteredEventDetails")
-            Prelude.<*> (x Core..:? "activityTimedOutEventDetails")
-            Prelude.<*> (x Core..: "timestamp")
-            Prelude.<*> (x Core..: "type")
-            Prelude.<*> (x Core..: "id")
+            Prelude.<*> (x Data..:? "executionFailedEventDetails")
+            Prelude.<*> (x Data..:? "lambdaFunctionStartFailedEventDetails")
+            Prelude.<*> (x Data..:? "executionSucceededEventDetails")
+            Prelude.<*> (x Data..:? "activityScheduledEventDetails")
+            Prelude.<*> (x Data..:? "mapIterationSucceededEventDetails")
+            Prelude.<*> (x Data..:? "activityFailedEventDetails")
+            Prelude.<*> (x Data..:? "stateEnteredEventDetails")
+            Prelude.<*> (x Data..:? "activityTimedOutEventDetails")
+            Prelude.<*> (x Data..: "timestamp")
+            Prelude.<*> (x Data..: "type")
+            Prelude.<*> (x Data..: "id")
       )
 
 instance Prelude.Hashable HistoryEvent where

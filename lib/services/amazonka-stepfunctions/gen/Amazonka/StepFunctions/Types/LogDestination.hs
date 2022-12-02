@@ -21,6 +21,7 @@ module Amazonka.StepFunctions.Types.LogDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StepFunctions.Types.CloudWatchLogsLogGroup
 
@@ -60,13 +61,13 @@ newLogDestination =
 logDestination_cloudWatchLogsLogGroup :: Lens.Lens' LogDestination (Prelude.Maybe CloudWatchLogsLogGroup)
 logDestination_cloudWatchLogsLogGroup = Lens.lens (\LogDestination' {cloudWatchLogsLogGroup} -> cloudWatchLogsLogGroup) (\s@LogDestination' {} a -> s {cloudWatchLogsLogGroup = a} :: LogDestination)
 
-instance Core.FromJSON LogDestination where
+instance Data.FromJSON LogDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogDestination"
       ( \x ->
           LogDestination'
-            Prelude.<$> (x Core..:? "cloudWatchLogsLogGroup")
+            Prelude.<$> (x Data..:? "cloudWatchLogsLogGroup")
       )
 
 instance Prelude.Hashable LogDestination where
@@ -77,11 +78,11 @@ instance Prelude.NFData LogDestination where
   rnf LogDestination' {..} =
     Prelude.rnf cloudWatchLogsLogGroup
 
-instance Core.ToJSON LogDestination where
+instance Data.ToJSON LogDestination where
   toJSON LogDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cloudWatchLogsLogGroup" Core..=)
+          [ ("cloudWatchLogsLogGroup" Data..=)
               Prelude.<$> cloudWatchLogsLogGroup
           ]
       )

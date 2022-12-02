@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -67,7 +68,7 @@ data UpdateStateMachine = UpdateStateMachine'
     tracingConfiguration :: Prelude.Maybe TracingConfiguration,
     -- | The Amazon States Language definition of the state machine. See
     -- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language>.
-    definition :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    definition :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The @LoggingConfiguration@ data type is used to set CloudWatch Logs
     -- options.
     loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
@@ -119,7 +120,7 @@ updateStateMachine_tracingConfiguration = Lens.lens (\UpdateStateMachine' {traci
 -- | The Amazon States Language definition of the state machine. See
 -- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language>.
 updateStateMachine_definition :: Lens.Lens' UpdateStateMachine (Prelude.Maybe Prelude.Text)
-updateStateMachine_definition = Lens.lens (\UpdateStateMachine' {definition} -> definition) (\s@UpdateStateMachine' {} a -> s {definition = a} :: UpdateStateMachine) Prelude.. Lens.mapping Core._Sensitive
+updateStateMachine_definition = Lens.lens (\UpdateStateMachine' {definition} -> definition) (\s@UpdateStateMachine' {} a -> s {definition = a} :: UpdateStateMachine) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The @LoggingConfiguration@ data type is used to set CloudWatch Logs
 -- options.
@@ -141,7 +142,7 @@ instance Core.AWSRequest UpdateStateMachine where
       ( \s h x ->
           UpdateStateMachineResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "updateDate")
+            Prelude.<*> (x Data..:> "updateDate")
       )
 
 instance Prelude.Hashable UpdateStateMachine where
@@ -160,40 +161,40 @@ instance Prelude.NFData UpdateStateMachine where
       `Prelude.seq` Prelude.rnf loggingConfiguration
       `Prelude.seq` Prelude.rnf stateMachineArn
 
-instance Core.ToHeaders UpdateStateMachine where
+instance Data.ToHeaders UpdateStateMachine where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSStepFunctions.UpdateStateMachine" ::
+              Data.=# ( "AWSStepFunctions.UpdateStateMachine" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateStateMachine where
+instance Data.ToJSON UpdateStateMachine where
   toJSON UpdateStateMachine' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("tracingConfiguration" Core..=)
+          [ ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("tracingConfiguration" Data..=)
               Prelude.<$> tracingConfiguration,
-            ("definition" Core..=) Prelude.<$> definition,
-            ("loggingConfiguration" Core..=)
+            ("definition" Data..=) Prelude.<$> definition,
+            ("loggingConfiguration" Data..=)
               Prelude.<$> loggingConfiguration,
             Prelude.Just
-              ("stateMachineArn" Core..= stateMachineArn)
+              ("stateMachineArn" Data..= stateMachineArn)
           ]
       )
 
-instance Core.ToPath UpdateStateMachine where
+instance Data.ToPath UpdateStateMachine where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateStateMachine where
+instance Data.ToQuery UpdateStateMachine where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateStateMachineResponse' smart constructor.
@@ -201,7 +202,7 @@ data UpdateStateMachineResponse = UpdateStateMachineResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The date and time the state machine was updated.
-    updateDate :: Core.POSIX
+    updateDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -228,7 +229,7 @@ newUpdateStateMachineResponse
     UpdateStateMachineResponse'
       { httpStatus =
           pHttpStatus_,
-        updateDate = Core._Time Lens.# pUpdateDate_
+        updateDate = Data._Time Lens.# pUpdateDate_
       }
 
 -- | The response's http status code.
@@ -237,7 +238,7 @@ updateStateMachineResponse_httpStatus = Lens.lens (\UpdateStateMachineResponse' 
 
 -- | The date and time the state machine was updated.
 updateStateMachineResponse_updateDate :: Lens.Lens' UpdateStateMachineResponse Prelude.UTCTime
-updateStateMachineResponse_updateDate = Lens.lens (\UpdateStateMachineResponse' {updateDate} -> updateDate) (\s@UpdateStateMachineResponse' {} a -> s {updateDate = a} :: UpdateStateMachineResponse) Prelude.. Core._Time
+updateStateMachineResponse_updateDate = Lens.lens (\UpdateStateMachineResponse' {updateDate} -> updateDate) (\s@UpdateStateMachineResponse' {} a -> s {updateDate = a} :: UpdateStateMachineResponse) Prelude.. Data._Time
 
 instance Prelude.NFData UpdateStateMachineResponse where
   rnf UpdateStateMachineResponse' {..} =

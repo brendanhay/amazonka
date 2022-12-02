@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,7 +93,7 @@ data StartExecution = StartExecution'
     --
     -- Length constraints apply to the payload size, and are expressed as bytes
     -- in UTF-8 encoding.
-    input :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    input :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Passes the X-Ray trace header. The trace header can also be passed in
     -- the request payload.
     traceHeader :: Prelude.Maybe Prelude.Text,
@@ -191,7 +192,7 @@ startExecution_name = Lens.lens (\StartExecution' {name} -> name) (\s@StartExecu
 -- Length constraints apply to the payload size, and are expressed as bytes
 -- in UTF-8 encoding.
 startExecution_input :: Lens.Lens' StartExecution (Prelude.Maybe Prelude.Text)
-startExecution_input = Lens.lens (\StartExecution' {input} -> input) (\s@StartExecution' {} a -> s {input = a} :: StartExecution) Prelude.. Lens.mapping Core._Sensitive
+startExecution_input = Lens.lens (\StartExecution' {input} -> input) (\s@StartExecution' {} a -> s {input = a} :: StartExecution) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Passes the X-Ray trace header. The trace header can also be passed in
 -- the request payload.
@@ -213,8 +214,8 @@ instance Core.AWSRequest StartExecution where
       ( \s h x ->
           StartExecutionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "executionArn")
-            Prelude.<*> (x Core..:> "startDate")
+            Prelude.<*> (x Data..:> "executionArn")
+            Prelude.<*> (x Data..:> "startDate")
       )
 
 instance Prelude.Hashable StartExecution where
@@ -231,37 +232,37 @@ instance Prelude.NFData StartExecution where
       `Prelude.seq` Prelude.rnf traceHeader
       `Prelude.seq` Prelude.rnf stateMachineArn
 
-instance Core.ToHeaders StartExecution where
+instance Data.ToHeaders StartExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSStepFunctions.StartExecution" ::
+              Data.=# ( "AWSStepFunctions.StartExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartExecution where
+instance Data.ToJSON StartExecution where
   toJSON StartExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("input" Core..=) Prelude.<$> input,
-            ("traceHeader" Core..=) Prelude.<$> traceHeader,
+          [ ("name" Data..=) Prelude.<$> name,
+            ("input" Data..=) Prelude.<$> input,
+            ("traceHeader" Data..=) Prelude.<$> traceHeader,
             Prelude.Just
-              ("stateMachineArn" Core..= stateMachineArn)
+              ("stateMachineArn" Data..= stateMachineArn)
           ]
       )
 
-instance Core.ToPath StartExecution where
+instance Data.ToPath StartExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartExecution where
+instance Data.ToQuery StartExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartExecutionResponse' smart constructor.
@@ -271,7 +272,7 @@ data StartExecutionResponse = StartExecutionResponse'
     -- | The Amazon Resource Name (ARN) that identifies the execution.
     executionArn :: Prelude.Text,
     -- | The date the execution is started.
-    startDate :: Core.POSIX
+    startDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -303,7 +304,7 @@ newStartExecutionResponse
     StartExecutionResponse'
       { httpStatus = pHttpStatus_,
         executionArn = pExecutionArn_,
-        startDate = Core._Time Lens.# pStartDate_
+        startDate = Data._Time Lens.# pStartDate_
       }
 
 -- | The response's http status code.
@@ -316,7 +317,7 @@ startExecutionResponse_executionArn = Lens.lens (\StartExecutionResponse' {execu
 
 -- | The date the execution is started.
 startExecutionResponse_startDate :: Lens.Lens' StartExecutionResponse Prelude.UTCTime
-startExecutionResponse_startDate = Lens.lens (\StartExecutionResponse' {startDate} -> startDate) (\s@StartExecutionResponse' {} a -> s {startDate = a} :: StartExecutionResponse) Prelude.. Core._Time
+startExecutionResponse_startDate = Lens.lens (\StartExecutionResponse' {startDate} -> startDate) (\s@StartExecutionResponse' {} a -> s {startDate = a} :: StartExecutionResponse) Prelude.. Data._Time
 
 instance Prelude.NFData StartExecutionResponse where
   rnf StartExecutionResponse' {..} =

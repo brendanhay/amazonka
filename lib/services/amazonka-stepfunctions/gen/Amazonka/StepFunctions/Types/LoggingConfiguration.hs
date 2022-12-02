@@ -21,6 +21,7 @@ module Amazonka.StepFunctions.Types.LoggingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StepFunctions.Types.LogDestination
 import Amazonka.StepFunctions.Types.LogLevel
@@ -83,15 +84,15 @@ loggingConfiguration_level = Lens.lens (\LoggingConfiguration' {level} -> level)
 loggingConfiguration_destinations :: Lens.Lens' LoggingConfiguration (Prelude.Maybe [LogDestination])
 loggingConfiguration_destinations = Lens.lens (\LoggingConfiguration' {destinations} -> destinations) (\s@LoggingConfiguration' {} a -> s {destinations = a} :: LoggingConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON LoggingConfiguration where
+instance Data.FromJSON LoggingConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoggingConfiguration"
       ( \x ->
           LoggingConfiguration'
-            Prelude.<$> (x Core..:? "includeExecutionData")
-            Prelude.<*> (x Core..:? "level")
-            Prelude.<*> (x Core..:? "destinations" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "includeExecutionData")
+            Prelude.<*> (x Data..:? "level")
+            Prelude.<*> (x Data..:? "destinations" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable LoggingConfiguration where
@@ -106,13 +107,13 @@ instance Prelude.NFData LoggingConfiguration where
       `Prelude.seq` Prelude.rnf level
       `Prelude.seq` Prelude.rnf destinations
 
-instance Core.ToJSON LoggingConfiguration where
+instance Data.ToJSON LoggingConfiguration where
   toJSON LoggingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("includeExecutionData" Core..=)
+          [ ("includeExecutionData" Data..=)
               Prelude.<$> includeExecutionData,
-            ("level" Core..=) Prelude.<$> level,
-            ("destinations" Core..=) Prelude.<$> destinations
+            ("level" Data..=) Prelude.<$> level,
+            ("destinations" Data..=) Prelude.<$> destinations
           ]
       )

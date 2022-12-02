@@ -21,6 +21,7 @@ module Amazonka.StepFunctions.Types.StateEnteredEventDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails
 
@@ -33,7 +34,7 @@ data StateEnteredEventDetails = StateEnteredEventDetails'
     -- | The string that contains the JSON input data for the state. Length
     -- constraints apply to the payload size, and are expressed as bytes in
     -- UTF-8 encoding.
-    input :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    input :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the state.
     name :: Prelude.Text
   }
@@ -74,21 +75,21 @@ stateEnteredEventDetails_inputDetails = Lens.lens (\StateEnteredEventDetails' {i
 -- constraints apply to the payload size, and are expressed as bytes in
 -- UTF-8 encoding.
 stateEnteredEventDetails_input :: Lens.Lens' StateEnteredEventDetails (Prelude.Maybe Prelude.Text)
-stateEnteredEventDetails_input = Lens.lens (\StateEnteredEventDetails' {input} -> input) (\s@StateEnteredEventDetails' {} a -> s {input = a} :: StateEnteredEventDetails) Prelude.. Lens.mapping Core._Sensitive
+stateEnteredEventDetails_input = Lens.lens (\StateEnteredEventDetails' {input} -> input) (\s@StateEnteredEventDetails' {} a -> s {input = a} :: StateEnteredEventDetails) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the state.
 stateEnteredEventDetails_name :: Lens.Lens' StateEnteredEventDetails Prelude.Text
 stateEnteredEventDetails_name = Lens.lens (\StateEnteredEventDetails' {name} -> name) (\s@StateEnteredEventDetails' {} a -> s {name = a} :: StateEnteredEventDetails)
 
-instance Core.FromJSON StateEnteredEventDetails where
+instance Data.FromJSON StateEnteredEventDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StateEnteredEventDetails"
       ( \x ->
           StateEnteredEventDetails'
-            Prelude.<$> (x Core..:? "inputDetails")
-            Prelude.<*> (x Core..:? "input")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "inputDetails")
+            Prelude.<*> (x Data..:? "input")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable StateEnteredEventDetails where

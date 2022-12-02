@@ -21,6 +21,7 @@ module Amazonka.StepFunctions.Types.ExecutionListItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StepFunctions.Types.ExecutionStatus
 
@@ -29,7 +30,7 @@ import Amazonka.StepFunctions.Types.ExecutionStatus
 -- /See:/ 'newExecutionListItem' smart constructor.
 data ExecutionListItem = ExecutionListItem'
   { -- | If the execution already ended, the date the execution stopped.
-    stopDate :: Prelude.Maybe Core.POSIX,
+    stopDate :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) that identifies the execution.
     executionArn :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the executed state machine.
@@ -54,7 +55,7 @@ data ExecutionListItem = ExecutionListItem'
     -- | The current status of the execution.
     status :: ExecutionStatus,
     -- | The date the execution started.
-    startDate :: Core.POSIX
+    startDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -116,12 +117,12 @@ newExecutionListItem
         stateMachineArn = pStateMachineArn_,
         name = pName_,
         status = pStatus_,
-        startDate = Core._Time Lens.# pStartDate_
+        startDate = Data._Time Lens.# pStartDate_
       }
 
 -- | If the execution already ended, the date the execution stopped.
 executionListItem_stopDate :: Lens.Lens' ExecutionListItem (Prelude.Maybe Prelude.UTCTime)
-executionListItem_stopDate = Lens.lens (\ExecutionListItem' {stopDate} -> stopDate) (\s@ExecutionListItem' {} a -> s {stopDate = a} :: ExecutionListItem) Prelude.. Lens.mapping Core._Time
+executionListItem_stopDate = Lens.lens (\ExecutionListItem' {stopDate} -> stopDate) (\s@ExecutionListItem' {} a -> s {stopDate = a} :: ExecutionListItem) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) that identifies the execution.
 executionListItem_executionArn :: Lens.Lens' ExecutionListItem Prelude.Text
@@ -156,20 +157,20 @@ executionListItem_status = Lens.lens (\ExecutionListItem' {status} -> status) (\
 
 -- | The date the execution started.
 executionListItem_startDate :: Lens.Lens' ExecutionListItem Prelude.UTCTime
-executionListItem_startDate = Lens.lens (\ExecutionListItem' {startDate} -> startDate) (\s@ExecutionListItem' {} a -> s {startDate = a} :: ExecutionListItem) Prelude.. Core._Time
+executionListItem_startDate = Lens.lens (\ExecutionListItem' {startDate} -> startDate) (\s@ExecutionListItem' {} a -> s {startDate = a} :: ExecutionListItem) Prelude.. Data._Time
 
-instance Core.FromJSON ExecutionListItem where
+instance Data.FromJSON ExecutionListItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExecutionListItem"
       ( \x ->
           ExecutionListItem'
-            Prelude.<$> (x Core..:? "stopDate")
-            Prelude.<*> (x Core..: "executionArn")
-            Prelude.<*> (x Core..: "stateMachineArn")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "startDate")
+            Prelude.<$> (x Data..:? "stopDate")
+            Prelude.<*> (x Data..: "executionArn")
+            Prelude.<*> (x Data..: "stateMachineArn")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "startDate")
       )
 
 instance Prelude.Hashable ExecutionListItem where

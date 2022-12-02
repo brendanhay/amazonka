@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -192,9 +193,9 @@ instance Core.AWSRequest GetExecutionHistory where
     Response.receiveJSON
       ( \s h x ->
           GetExecutionHistoryResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "events" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "events" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable GetExecutionHistory where
@@ -213,38 +214,38 @@ instance Prelude.NFData GetExecutionHistory where
       `Prelude.seq` Prelude.rnf reverseOrder
       `Prelude.seq` Prelude.rnf executionArn
 
-instance Core.ToHeaders GetExecutionHistory where
+instance Data.ToHeaders GetExecutionHistory where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSStepFunctions.GetExecutionHistory" ::
+              Data.=# ( "AWSStepFunctions.GetExecutionHistory" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetExecutionHistory where
+instance Data.ToJSON GetExecutionHistory where
   toJSON GetExecutionHistory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("includeExecutionData" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("includeExecutionData" Data..=)
               Prelude.<$> includeExecutionData,
-            ("reverseOrder" Core..=) Prelude.<$> reverseOrder,
-            Prelude.Just ("executionArn" Core..= executionArn)
+            ("reverseOrder" Data..=) Prelude.<$> reverseOrder,
+            Prelude.Just ("executionArn" Data..= executionArn)
           ]
       )
 
-instance Core.ToPath GetExecutionHistory where
+instance Data.ToPath GetExecutionHistory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetExecutionHistory where
+instance Data.ToQuery GetExecutionHistory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetExecutionHistoryResponse' smart constructor.

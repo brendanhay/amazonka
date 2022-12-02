@@ -21,6 +21,7 @@ module Amazonka.StepFunctions.Types.TaskStartedEventDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about the start of a task during an execution.
@@ -66,14 +67,14 @@ taskStartedEventDetails_resourceType = Lens.lens (\TaskStartedEventDetails' {res
 taskStartedEventDetails_resource :: Lens.Lens' TaskStartedEventDetails Prelude.Text
 taskStartedEventDetails_resource = Lens.lens (\TaskStartedEventDetails' {resource} -> resource) (\s@TaskStartedEventDetails' {} a -> s {resource = a} :: TaskStartedEventDetails)
 
-instance Core.FromJSON TaskStartedEventDetails where
+instance Data.FromJSON TaskStartedEventDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaskStartedEventDetails"
       ( \x ->
           TaskStartedEventDetails'
-            Prelude.<$> (x Core..: "resourceType")
-            Prelude.<*> (x Core..: "resource")
+            Prelude.<$> (x Data..: "resourceType")
+            Prelude.<*> (x Data..: "resource")
       )
 
 instance Prelude.Hashable TaskStartedEventDetails where

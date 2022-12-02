@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -194,8 +195,8 @@ instance Core.AWSRequest CreateActivity where
       ( \s h x ->
           CreateActivityResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "activityArn")
-            Prelude.<*> (x Core..:> "creationDate")
+            Prelude.<*> (x Data..:> "activityArn")
+            Prelude.<*> (x Data..:> "creationDate")
       )
 
 instance Prelude.Hashable CreateActivity where
@@ -207,34 +208,34 @@ instance Prelude.NFData CreateActivity where
   rnf CreateActivity' {..} =
     Prelude.rnf tags `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateActivity where
+instance Data.ToHeaders CreateActivity where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSStepFunctions.CreateActivity" ::
+              Data.=# ( "AWSStepFunctions.CreateActivity" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateActivity where
+instance Data.ToJSON CreateActivity where
   toJSON CreateActivity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("name" Core..= name)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateActivity where
+instance Data.ToPath CreateActivity where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateActivity where
+instance Data.ToQuery CreateActivity where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateActivityResponse' smart constructor.
@@ -244,7 +245,7 @@ data CreateActivityResponse = CreateActivityResponse'
     -- | The Amazon Resource Name (ARN) that identifies the created activity.
     activityArn :: Prelude.Text,
     -- | The date the activity is created.
-    creationDate :: Core.POSIX
+    creationDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -276,7 +277,7 @@ newCreateActivityResponse
     CreateActivityResponse'
       { httpStatus = pHttpStatus_,
         activityArn = pActivityArn_,
-        creationDate = Core._Time Lens.# pCreationDate_
+        creationDate = Data._Time Lens.# pCreationDate_
       }
 
 -- | The response's http status code.
@@ -289,7 +290,7 @@ createActivityResponse_activityArn = Lens.lens (\CreateActivityResponse' {activi
 
 -- | The date the activity is created.
 createActivityResponse_creationDate :: Lens.Lens' CreateActivityResponse Prelude.UTCTime
-createActivityResponse_creationDate = Lens.lens (\CreateActivityResponse' {creationDate} -> creationDate) (\s@CreateActivityResponse' {} a -> s {creationDate = a} :: CreateActivityResponse) Prelude.. Core._Time
+createActivityResponse_creationDate = Lens.lens (\CreateActivityResponse' {creationDate} -> creationDate) (\s@CreateActivityResponse' {} a -> s {creationDate = a} :: CreateActivityResponse) Prelude.. Data._Time
 
 instance Prelude.NFData CreateActivityResponse where
   rnf CreateActivityResponse' {..} =

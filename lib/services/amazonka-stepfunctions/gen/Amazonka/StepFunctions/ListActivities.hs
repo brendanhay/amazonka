@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -154,9 +155,9 @@ instance Core.AWSRequest ListActivities where
     Response.receiveJSON
       ( \s h x ->
           ListActivitiesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "activities" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "activities" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListActivities where
@@ -169,34 +170,34 @@ instance Prelude.NFData ListActivities where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListActivities where
+instance Data.ToHeaders ListActivities where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSStepFunctions.ListActivities" ::
+              Data.=# ( "AWSStepFunctions.ListActivities" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListActivities where
+instance Data.ToJSON ListActivities where
   toJSON ListActivities' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListActivities where
+instance Data.ToPath ListActivities where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListActivities where
+instance Data.ToQuery ListActivities where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListActivitiesResponse' smart constructor.

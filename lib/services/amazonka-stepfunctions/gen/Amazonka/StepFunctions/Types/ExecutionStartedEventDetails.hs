@@ -21,6 +21,7 @@ module Amazonka.StepFunctions.Types.ExecutionStartedEventDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails
 
@@ -35,7 +36,7 @@ data ExecutionStartedEventDetails = ExecutionStartedEventDetails'
     inputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails,
     -- | The JSON data input to the execution. Length constraints apply to the
     -- payload size, and are expressed as bytes in UTF-8 encoding.
-    input :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    input :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -76,17 +77,17 @@ executionStartedEventDetails_inputDetails = Lens.lens (\ExecutionStartedEventDet
 -- | The JSON data input to the execution. Length constraints apply to the
 -- payload size, and are expressed as bytes in UTF-8 encoding.
 executionStartedEventDetails_input :: Lens.Lens' ExecutionStartedEventDetails (Prelude.Maybe Prelude.Text)
-executionStartedEventDetails_input = Lens.lens (\ExecutionStartedEventDetails' {input} -> input) (\s@ExecutionStartedEventDetails' {} a -> s {input = a} :: ExecutionStartedEventDetails) Prelude.. Lens.mapping Core._Sensitive
+executionStartedEventDetails_input = Lens.lens (\ExecutionStartedEventDetails' {input} -> input) (\s@ExecutionStartedEventDetails' {} a -> s {input = a} :: ExecutionStartedEventDetails) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON ExecutionStartedEventDetails where
+instance Data.FromJSON ExecutionStartedEventDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExecutionStartedEventDetails"
       ( \x ->
           ExecutionStartedEventDetails'
-            Prelude.<$> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "inputDetails")
-            Prelude.<*> (x Core..:? "input")
+            Prelude.<$> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "inputDetails")
+            Prelude.<*> (x Data..:? "input")
       )
 
 instance

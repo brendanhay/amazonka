@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,7 +86,7 @@ data StartSyncExecution = StartSyncExecution'
     --
     -- Length constraints apply to the payload size, and are expressed as bytes
     -- in UTF-8 encoding.
-    input :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    input :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Passes the X-Ray trace header. The trace header can also be passed in
     -- the request payload.
     traceHeader :: Prelude.Maybe Prelude.Text,
@@ -146,7 +147,7 @@ startSyncExecution_name = Lens.lens (\StartSyncExecution' {name} -> name) (\s@St
 -- Length constraints apply to the payload size, and are expressed as bytes
 -- in UTF-8 encoding.
 startSyncExecution_input :: Lens.Lens' StartSyncExecution (Prelude.Maybe Prelude.Text)
-startSyncExecution_input = Lens.lens (\StartSyncExecution' {input} -> input) (\s@StartSyncExecution' {} a -> s {input = a} :: StartSyncExecution) Prelude.. Lens.mapping Core._Sensitive
+startSyncExecution_input = Lens.lens (\StartSyncExecution' {input} -> input) (\s@StartSyncExecution' {} a -> s {input = a} :: StartSyncExecution) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Passes the X-Ray trace header. The trace header can also be passed in
 -- the request payload.
@@ -167,21 +168,21 @@ instance Core.AWSRequest StartSyncExecution where
     Response.receiveJSON
       ( \s h x ->
           StartSyncExecutionResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "billingDetails")
-            Prelude.<*> (x Core..?> "inputDetails")
-            Prelude.<*> (x Core..?> "outputDetails")
-            Prelude.<*> (x Core..?> "stateMachineArn")
-            Prelude.<*> (x Core..?> "input")
-            Prelude.<*> (x Core..?> "output")
-            Prelude.<*> (x Core..?> "error")
-            Prelude.<*> (x Core..?> "cause")
-            Prelude.<*> (x Core..?> "traceHeader")
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "billingDetails")
+            Prelude.<*> (x Data..?> "inputDetails")
+            Prelude.<*> (x Data..?> "outputDetails")
+            Prelude.<*> (x Data..?> "stateMachineArn")
+            Prelude.<*> (x Data..?> "input")
+            Prelude.<*> (x Data..?> "output")
+            Prelude.<*> (x Data..?> "error")
+            Prelude.<*> (x Data..?> "cause")
+            Prelude.<*> (x Data..?> "traceHeader")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "executionArn")
-            Prelude.<*> (x Core..:> "startDate")
-            Prelude.<*> (x Core..:> "stopDate")
-            Prelude.<*> (x Core..:> "status")
+            Prelude.<*> (x Data..:> "executionArn")
+            Prelude.<*> (x Data..:> "startDate")
+            Prelude.<*> (x Data..:> "stopDate")
+            Prelude.<*> (x Data..:> "status")
       )
 
 instance Prelude.Hashable StartSyncExecution where
@@ -198,37 +199,37 @@ instance Prelude.NFData StartSyncExecution where
       `Prelude.seq` Prelude.rnf traceHeader
       `Prelude.seq` Prelude.rnf stateMachineArn
 
-instance Core.ToHeaders StartSyncExecution where
+instance Data.ToHeaders StartSyncExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSStepFunctions.StartSyncExecution" ::
+              Data.=# ( "AWSStepFunctions.StartSyncExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartSyncExecution where
+instance Data.ToJSON StartSyncExecution where
   toJSON StartSyncExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("input" Core..=) Prelude.<$> input,
-            ("traceHeader" Core..=) Prelude.<$> traceHeader,
+          [ ("name" Data..=) Prelude.<$> name,
+            ("input" Data..=) Prelude.<$> input,
+            ("traceHeader" Data..=) Prelude.<$> traceHeader,
             Prelude.Just
-              ("stateMachineArn" Core..= stateMachineArn)
+              ("stateMachineArn" Data..= stateMachineArn)
           ]
       )
 
-instance Core.ToPath StartSyncExecution where
+instance Data.ToPath StartSyncExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartSyncExecution where
+instance Data.ToQuery StartSyncExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartSyncExecutionResponse' smart constructor.
@@ -245,17 +246,17 @@ data StartSyncExecutionResponse = StartSyncExecutionResponse'
     -- | The string that contains the JSON input data of the execution. Length
     -- constraints apply to the payload size, and are expressed as bytes in
     -- UTF-8 encoding.
-    input :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    input :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The JSON output data of the execution. Length constraints apply to the
     -- payload size, and are expressed as bytes in UTF-8 encoding.
     --
     -- This field is set only if the execution succeeds. If the execution
     -- fails, this field is null.
-    output :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    output :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The error code of the failure.
-    error :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    error :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A more detailed explanation of the cause of the failure.
-    cause :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    cause :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The X-Ray trace header that was passed to the execution.
     traceHeader :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -263,9 +264,9 @@ data StartSyncExecutionResponse = StartSyncExecutionResponse'
     -- | The Amazon Resource Name (ARN) that identifies the execution.
     executionArn :: Prelude.Text,
     -- | The date the execution is started.
-    startDate :: Core.POSIX,
+    startDate :: Data.POSIX,
     -- | If the execution has already ended, the date the execution stopped.
-    stopDate :: Core.POSIX,
+    stopDate :: Data.POSIX,
     -- | The current status of the execution.
     status :: SyncExecutionStatus
   }
@@ -346,8 +347,8 @@ newStartSyncExecutionResponse
         traceHeader = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         executionArn = pExecutionArn_,
-        startDate = Core._Time Lens.# pStartDate_,
-        stopDate = Core._Time Lens.# pStopDate_,
+        startDate = Data._Time Lens.# pStartDate_,
+        stopDate = Data._Time Lens.# pStopDate_,
         status = pStatus_
       }
 
@@ -376,7 +377,7 @@ startSyncExecutionResponse_stateMachineArn = Lens.lens (\StartSyncExecutionRespo
 -- constraints apply to the payload size, and are expressed as bytes in
 -- UTF-8 encoding.
 startSyncExecutionResponse_input :: Lens.Lens' StartSyncExecutionResponse (Prelude.Maybe Prelude.Text)
-startSyncExecutionResponse_input = Lens.lens (\StartSyncExecutionResponse' {input} -> input) (\s@StartSyncExecutionResponse' {} a -> s {input = a} :: StartSyncExecutionResponse) Prelude.. Lens.mapping Core._Sensitive
+startSyncExecutionResponse_input = Lens.lens (\StartSyncExecutionResponse' {input} -> input) (\s@StartSyncExecutionResponse' {} a -> s {input = a} :: StartSyncExecutionResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The JSON output data of the execution. Length constraints apply to the
 -- payload size, and are expressed as bytes in UTF-8 encoding.
@@ -384,15 +385,15 @@ startSyncExecutionResponse_input = Lens.lens (\StartSyncExecutionResponse' {inpu
 -- This field is set only if the execution succeeds. If the execution
 -- fails, this field is null.
 startSyncExecutionResponse_output :: Lens.Lens' StartSyncExecutionResponse (Prelude.Maybe Prelude.Text)
-startSyncExecutionResponse_output = Lens.lens (\StartSyncExecutionResponse' {output} -> output) (\s@StartSyncExecutionResponse' {} a -> s {output = a} :: StartSyncExecutionResponse) Prelude.. Lens.mapping Core._Sensitive
+startSyncExecutionResponse_output = Lens.lens (\StartSyncExecutionResponse' {output} -> output) (\s@StartSyncExecutionResponse' {} a -> s {output = a} :: StartSyncExecutionResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The error code of the failure.
 startSyncExecutionResponse_error :: Lens.Lens' StartSyncExecutionResponse (Prelude.Maybe Prelude.Text)
-startSyncExecutionResponse_error = Lens.lens (\StartSyncExecutionResponse' {error} -> error) (\s@StartSyncExecutionResponse' {} a -> s {error = a} :: StartSyncExecutionResponse) Prelude.. Lens.mapping Core._Sensitive
+startSyncExecutionResponse_error = Lens.lens (\StartSyncExecutionResponse' {error} -> error) (\s@StartSyncExecutionResponse' {} a -> s {error = a} :: StartSyncExecutionResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A more detailed explanation of the cause of the failure.
 startSyncExecutionResponse_cause :: Lens.Lens' StartSyncExecutionResponse (Prelude.Maybe Prelude.Text)
-startSyncExecutionResponse_cause = Lens.lens (\StartSyncExecutionResponse' {cause} -> cause) (\s@StartSyncExecutionResponse' {} a -> s {cause = a} :: StartSyncExecutionResponse) Prelude.. Lens.mapping Core._Sensitive
+startSyncExecutionResponse_cause = Lens.lens (\StartSyncExecutionResponse' {cause} -> cause) (\s@StartSyncExecutionResponse' {} a -> s {cause = a} :: StartSyncExecutionResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The X-Ray trace header that was passed to the execution.
 startSyncExecutionResponse_traceHeader :: Lens.Lens' StartSyncExecutionResponse (Prelude.Maybe Prelude.Text)
@@ -408,11 +409,11 @@ startSyncExecutionResponse_executionArn = Lens.lens (\StartSyncExecutionResponse
 
 -- | The date the execution is started.
 startSyncExecutionResponse_startDate :: Lens.Lens' StartSyncExecutionResponse Prelude.UTCTime
-startSyncExecutionResponse_startDate = Lens.lens (\StartSyncExecutionResponse' {startDate} -> startDate) (\s@StartSyncExecutionResponse' {} a -> s {startDate = a} :: StartSyncExecutionResponse) Prelude.. Core._Time
+startSyncExecutionResponse_startDate = Lens.lens (\StartSyncExecutionResponse' {startDate} -> startDate) (\s@StartSyncExecutionResponse' {} a -> s {startDate = a} :: StartSyncExecutionResponse) Prelude.. Data._Time
 
 -- | If the execution has already ended, the date the execution stopped.
 startSyncExecutionResponse_stopDate :: Lens.Lens' StartSyncExecutionResponse Prelude.UTCTime
-startSyncExecutionResponse_stopDate = Lens.lens (\StartSyncExecutionResponse' {stopDate} -> stopDate) (\s@StartSyncExecutionResponse' {} a -> s {stopDate = a} :: StartSyncExecutionResponse) Prelude.. Core._Time
+startSyncExecutionResponse_stopDate = Lens.lens (\StartSyncExecutionResponse' {stopDate} -> stopDate) (\s@StartSyncExecutionResponse' {} a -> s {stopDate = a} :: StartSyncExecutionResponse) Prelude.. Data._Time
 
 -- | The current status of the execution.
 startSyncExecutionResponse_status :: Lens.Lens' StartSyncExecutionResponse SyncExecutionStatus

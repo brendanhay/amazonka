@@ -21,6 +21,7 @@ module Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails
 import Amazonka.StepFunctions.Types.TaskCredentials
@@ -37,7 +38,7 @@ data LambdaFunctionScheduledEventDetails = LambdaFunctionScheduledEventDetails'
     timeoutInSeconds :: Prelude.Maybe Prelude.Integer,
     -- | The JSON data input to the Lambda function. Length constraints apply to
     -- the payload size, and are expressed as bytes in UTF-8 encoding.
-    input :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    input :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the scheduled Lambda function.
     resource :: Prelude.Text
   }
@@ -90,26 +91,26 @@ lambdaFunctionScheduledEventDetails_timeoutInSeconds = Lens.lens (\LambdaFunctio
 -- | The JSON data input to the Lambda function. Length constraints apply to
 -- the payload size, and are expressed as bytes in UTF-8 encoding.
 lambdaFunctionScheduledEventDetails_input :: Lens.Lens' LambdaFunctionScheduledEventDetails (Prelude.Maybe Prelude.Text)
-lambdaFunctionScheduledEventDetails_input = Lens.lens (\LambdaFunctionScheduledEventDetails' {input} -> input) (\s@LambdaFunctionScheduledEventDetails' {} a -> s {input = a} :: LambdaFunctionScheduledEventDetails) Prelude.. Lens.mapping Core._Sensitive
+lambdaFunctionScheduledEventDetails_input = Lens.lens (\LambdaFunctionScheduledEventDetails' {input} -> input) (\s@LambdaFunctionScheduledEventDetails' {} a -> s {input = a} :: LambdaFunctionScheduledEventDetails) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the scheduled Lambda function.
 lambdaFunctionScheduledEventDetails_resource :: Lens.Lens' LambdaFunctionScheduledEventDetails Prelude.Text
 lambdaFunctionScheduledEventDetails_resource = Lens.lens (\LambdaFunctionScheduledEventDetails' {resource} -> resource) (\s@LambdaFunctionScheduledEventDetails' {} a -> s {resource = a} :: LambdaFunctionScheduledEventDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LambdaFunctionScheduledEventDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaFunctionScheduledEventDetails"
       ( \x ->
           LambdaFunctionScheduledEventDetails'
-            Prelude.<$> (x Core..:? "taskCredentials")
-            Prelude.<*> (x Core..:? "inputDetails")
-            Prelude.<*> (x Core..:? "timeoutInSeconds")
-            Prelude.<*> (x Core..:? "input")
-            Prelude.<*> (x Core..: "resource")
+            Prelude.<$> (x Data..:? "taskCredentials")
+            Prelude.<*> (x Data..:? "inputDetails")
+            Prelude.<*> (x Data..:? "timeoutInSeconds")
+            Prelude.<*> (x Data..:? "input")
+            Prelude.<*> (x Data..: "resource")
       )
 
 instance

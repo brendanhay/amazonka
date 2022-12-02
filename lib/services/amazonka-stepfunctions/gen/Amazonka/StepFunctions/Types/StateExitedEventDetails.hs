@@ -21,6 +21,7 @@ module Amazonka.StepFunctions.Types.StateExitedEventDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails
 
@@ -32,7 +33,7 @@ data StateExitedEventDetails = StateExitedEventDetails'
     outputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails,
     -- | The JSON output data of the state. Length constraints apply to the
     -- payload size, and are expressed as bytes in UTF-8 encoding.
-    output :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    output :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the state.
     --
     -- A name must /not/ contain:
@@ -101,7 +102,7 @@ stateExitedEventDetails_outputDetails = Lens.lens (\StateExitedEventDetails' {ou
 -- | The JSON output data of the state. Length constraints apply to the
 -- payload size, and are expressed as bytes in UTF-8 encoding.
 stateExitedEventDetails_output :: Lens.Lens' StateExitedEventDetails (Prelude.Maybe Prelude.Text)
-stateExitedEventDetails_output = Lens.lens (\StateExitedEventDetails' {output} -> output) (\s@StateExitedEventDetails' {} a -> s {output = a} :: StateExitedEventDetails) Prelude.. Lens.mapping Core._Sensitive
+stateExitedEventDetails_output = Lens.lens (\StateExitedEventDetails' {output} -> output) (\s@StateExitedEventDetails' {} a -> s {output = a} :: StateExitedEventDetails) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the state.
 --
@@ -122,15 +123,15 @@ stateExitedEventDetails_output = Lens.lens (\StateExitedEventDetails' {output} -
 stateExitedEventDetails_name :: Lens.Lens' StateExitedEventDetails Prelude.Text
 stateExitedEventDetails_name = Lens.lens (\StateExitedEventDetails' {name} -> name) (\s@StateExitedEventDetails' {} a -> s {name = a} :: StateExitedEventDetails)
 
-instance Core.FromJSON StateExitedEventDetails where
+instance Data.FromJSON StateExitedEventDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StateExitedEventDetails"
       ( \x ->
           StateExitedEventDetails'
-            Prelude.<$> (x Core..:? "outputDetails")
-            Prelude.<*> (x Core..:? "output")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "outputDetails")
+            Prelude.<*> (x Data..:? "output")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable StateExitedEventDetails where

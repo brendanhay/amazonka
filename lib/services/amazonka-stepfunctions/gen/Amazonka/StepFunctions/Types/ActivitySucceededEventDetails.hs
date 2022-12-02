@@ -21,6 +21,7 @@ module Amazonka.StepFunctions.Types.ActivitySucceededEventDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails
 
@@ -33,7 +34,7 @@ data ActivitySucceededEventDetails = ActivitySucceededEventDetails'
     outputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails,
     -- | The JSON data output by the activity task. Length constraints apply to
     -- the payload size, and are expressed as bytes in UTF-8 encoding.
-    output :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    output :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -65,16 +66,16 @@ activitySucceededEventDetails_outputDetails = Lens.lens (\ActivitySucceededEvent
 -- | The JSON data output by the activity task. Length constraints apply to
 -- the payload size, and are expressed as bytes in UTF-8 encoding.
 activitySucceededEventDetails_output :: Lens.Lens' ActivitySucceededEventDetails (Prelude.Maybe Prelude.Text)
-activitySucceededEventDetails_output = Lens.lens (\ActivitySucceededEventDetails' {output} -> output) (\s@ActivitySucceededEventDetails' {} a -> s {output = a} :: ActivitySucceededEventDetails) Prelude.. Lens.mapping Core._Sensitive
+activitySucceededEventDetails_output = Lens.lens (\ActivitySucceededEventDetails' {output} -> output) (\s@ActivitySucceededEventDetails' {} a -> s {output = a} :: ActivitySucceededEventDetails) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON ActivitySucceededEventDetails where
+instance Data.FromJSON ActivitySucceededEventDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActivitySucceededEventDetails"
       ( \x ->
           ActivitySucceededEventDetails'
-            Prelude.<$> (x Core..:? "outputDetails")
-            Prelude.<*> (x Core..:? "output")
+            Prelude.<$> (x Data..:? "outputDetails")
+            Prelude.<*> (x Data..:? "output")
       )
 
 instance

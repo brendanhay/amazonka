@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorksCM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -183,8 +184,8 @@ instance Core.AWSRequest ExportServerEngineAttribute where
     Response.receiveJSON
       ( \s h x ->
           ExportServerEngineAttributeResponse'
-            Prelude.<$> (x Core..?> "EngineAttribute")
-            Prelude.<*> (x Core..?> "ServerName")
+            Prelude.<$> (x Data..?> "EngineAttribute")
+            Prelude.<*> (x Data..?> "ServerName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -200,37 +201,37 @@ instance Prelude.NFData ExportServerEngineAttribute where
       `Prelude.seq` Prelude.rnf exportAttributeName
       `Prelude.seq` Prelude.rnf serverName
 
-instance Core.ToHeaders ExportServerEngineAttribute where
+instance Data.ToHeaders ExportServerEngineAttribute where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorksCM_V2016_11_01.ExportServerEngineAttribute" ::
+              Data.=# ( "OpsWorksCM_V2016_11_01.ExportServerEngineAttribute" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ExportServerEngineAttribute where
+instance Data.ToJSON ExportServerEngineAttribute where
   toJSON ExportServerEngineAttribute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InputAttributes" Core..=)
+          [ ("InputAttributes" Data..=)
               Prelude.<$> inputAttributes,
             Prelude.Just
-              ("ExportAttributeName" Core..= exportAttributeName),
-            Prelude.Just ("ServerName" Core..= serverName)
+              ("ExportAttributeName" Data..= exportAttributeName),
+            Prelude.Just ("ServerName" Data..= serverName)
           ]
       )
 
-instance Core.ToPath ExportServerEngineAttribute where
+instance Data.ToPath ExportServerEngineAttribute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ExportServerEngineAttribute where
+instance Data.ToQuery ExportServerEngineAttribute where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newExportServerEngineAttributeResponse' smart constructor.

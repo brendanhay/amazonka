@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorksCM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -169,7 +170,7 @@ instance Core.AWSRequest CreateBackup where
     Response.receiveJSON
       ( \s h x ->
           CreateBackupResponse'
-            Prelude.<$> (x Core..?> "Backup")
+            Prelude.<$> (x Data..?> "Backup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,35 +186,35 @@ instance Prelude.NFData CreateBackup where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf serverName
 
-instance Core.ToHeaders CreateBackup where
+instance Data.ToHeaders CreateBackup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorksCM_V2016_11_01.CreateBackup" ::
+              Data.=# ( "OpsWorksCM_V2016_11_01.CreateBackup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBackup where
+instance Data.ToJSON CreateBackup where
   toJSON CreateBackup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("ServerName" Core..= serverName)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("ServerName" Data..= serverName)
           ]
       )
 
-instance Core.ToPath CreateBackup where
+instance Data.ToPath CreateBackup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateBackup where
+instance Data.ToQuery CreateBackup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBackupResponse' smart constructor.

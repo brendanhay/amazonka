@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorksCM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,8 +136,8 @@ instance Core.AWSRequest DescribeServers where
     Response.receiveJSON
       ( \s h x ->
           DescribeServersResponse'
-            Prelude.<$> (x Core..?> "Servers" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Servers" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,35 +153,35 @@ instance Prelude.NFData DescribeServers where
       `Prelude.seq` Prelude.rnf serverName
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeServers where
+instance Data.ToHeaders DescribeServers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorksCM_V2016_11_01.DescribeServers" ::
+              Data.=# ( "OpsWorksCM_V2016_11_01.DescribeServers" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeServers where
+instance Data.ToJSON DescribeServers where
   toJSON DescribeServers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ServerName" Core..=) Prelude.<$> serverName,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ServerName" Data..=) Prelude.<$> serverName,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeServers where
+instance Data.ToPath DescribeServers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeServers where
+instance Data.ToQuery DescribeServers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeServersResponse' smart constructor.

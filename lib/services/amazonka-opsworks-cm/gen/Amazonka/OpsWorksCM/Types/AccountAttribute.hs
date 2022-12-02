@@ -21,6 +21,7 @@ module Amazonka.OpsWorksCM.Types.AccountAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Stores account attributes.
@@ -94,15 +95,15 @@ accountAttribute_used = Lens.lens (\AccountAttribute' {used} -> used) (\s@Accoun
 accountAttribute_maximum :: Lens.Lens' AccountAttribute (Prelude.Maybe Prelude.Int)
 accountAttribute_maximum = Lens.lens (\AccountAttribute' {maximum} -> maximum) (\s@AccountAttribute' {} a -> s {maximum = a} :: AccountAttribute)
 
-instance Core.FromJSON AccountAttribute where
+instance Data.FromJSON AccountAttribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountAttribute"
       ( \x ->
           AccountAttribute'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Used")
-            Prelude.<*> (x Core..:? "Maximum")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Used")
+            Prelude.<*> (x Data..:? "Maximum")
       )
 
 instance Prelude.Hashable AccountAttribute where

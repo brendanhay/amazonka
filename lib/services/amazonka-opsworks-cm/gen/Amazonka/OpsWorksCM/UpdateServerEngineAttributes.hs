@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorksCM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,7 +123,7 @@ instance Core.AWSRequest UpdateServerEngineAttributes where
     Response.receiveJSON
       ( \s h x ->
           UpdateServerEngineAttributesResponse'
-            Prelude.<$> (x Core..?> "Server")
+            Prelude.<$> (x Data..?> "Server")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,37 +142,37 @@ instance Prelude.NFData UpdateServerEngineAttributes where
       `Prelude.seq` Prelude.rnf serverName
       `Prelude.seq` Prelude.rnf attributeName
 
-instance Core.ToHeaders UpdateServerEngineAttributes where
+instance Data.ToHeaders UpdateServerEngineAttributes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorksCM_V2016_11_01.UpdateServerEngineAttributes" ::
+              Data.=# ( "OpsWorksCM_V2016_11_01.UpdateServerEngineAttributes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateServerEngineAttributes where
+instance Data.ToJSON UpdateServerEngineAttributes where
   toJSON UpdateServerEngineAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AttributeValue" Core..=)
+          [ ("AttributeValue" Data..=)
               Prelude.<$> attributeValue,
-            Prelude.Just ("ServerName" Core..= serverName),
+            Prelude.Just ("ServerName" Data..= serverName),
             Prelude.Just
-              ("AttributeName" Core..= attributeName)
+              ("AttributeName" Data..= attributeName)
           ]
       )
 
-instance Core.ToPath UpdateServerEngineAttributes where
+instance Data.ToPath UpdateServerEngineAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateServerEngineAttributes where
+instance Data.ToQuery UpdateServerEngineAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateServerEngineAttributesResponse' smart constructor.

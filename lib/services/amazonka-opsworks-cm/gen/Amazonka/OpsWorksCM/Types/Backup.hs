@@ -21,6 +21,7 @@ module Amazonka.OpsWorksCM.Types.Backup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorksCM.Types.BackupStatus
 import Amazonka.OpsWorksCM.Types.BackupType
 import qualified Amazonka.Prelude as Prelude
@@ -90,7 +91,7 @@ data Backup = Backup'
     subnetIds :: Prelude.Maybe [Prelude.Text],
     -- | The time stamp when the backup was created in the database. Example:
     -- @2016-07-29T13:38:47.520Z@
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The engine version that is obtained from the server when the backup is
     -- created.
     engineVersion :: Prelude.Maybe Prelude.Text
@@ -305,45 +306,45 @@ backup_subnetIds = Lens.lens (\Backup' {subnetIds} -> subnetIds) (\s@Backup' {} 
 -- | The time stamp when the backup was created in the database. Example:
 -- @2016-07-29T13:38:47.520Z@
 backup_createdAt :: Lens.Lens' Backup (Prelude.Maybe Prelude.UTCTime)
-backup_createdAt = Lens.lens (\Backup' {createdAt} -> createdAt) (\s@Backup' {} a -> s {createdAt = a} :: Backup) Prelude.. Lens.mapping Core._Time
+backup_createdAt = Lens.lens (\Backup' {createdAt} -> createdAt) (\s@Backup' {} a -> s {createdAt = a} :: Backup) Prelude.. Lens.mapping Data._Time
 
 -- | The engine version that is obtained from the server when the backup is
 -- created.
 backup_engineVersion :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_engineVersion = Lens.lens (\Backup' {engineVersion} -> engineVersion) (\s@Backup' {} a -> s {engineVersion = a} :: Backup)
 
-instance Core.FromJSON Backup where
+instance Data.FromJSON Backup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Backup"
       ( \x ->
           Backup'
-            Prelude.<$> (x Core..:? "StatusDescription")
-            Prelude.<*> (x Core..:? "BackupId")
-            Prelude.<*> (x Core..:? "PreferredBackupWindow")
-            Prelude.<*> (x Core..:? "S3DataUrl")
-            Prelude.<*> (x Core..:? "ServiceRoleArn")
-            Prelude.<*> ( x Core..:? "SecurityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "StatusDescription")
+            Prelude.<*> (x Data..:? "BackupId")
+            Prelude.<*> (x Data..:? "PreferredBackupWindow")
+            Prelude.<*> (x Data..:? "S3DataUrl")
+            Prelude.<*> (x Data..:? "ServiceRoleArn")
+            Prelude.<*> ( x Data..:? "SecurityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "S3LogUrl")
-            Prelude.<*> (x Core..:? "ServerName")
-            Prelude.<*> (x Core..:? "EngineModel")
-            Prelude.<*> (x Core..:? "ToolsVersion")
-            Prelude.<*> (x Core..:? "InstanceProfileArn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "KeyPair")
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "BackupType")
-            Prelude.<*> (x Core..:? "BackupArn")
-            Prelude.<*> (x Core..:? "UserArn")
-            Prelude.<*> (x Core..:? "S3DataSize")
-            Prelude.<*> (x Core..:? "Engine")
-            Prelude.<*> (x Core..:? "PreferredMaintenanceWindow")
-            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "EngineVersion")
+            Prelude.<*> (x Data..:? "S3LogUrl")
+            Prelude.<*> (x Data..:? "ServerName")
+            Prelude.<*> (x Data..:? "EngineModel")
+            Prelude.<*> (x Data..:? "ToolsVersion")
+            Prelude.<*> (x Data..:? "InstanceProfileArn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "KeyPair")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "BackupType")
+            Prelude.<*> (x Data..:? "BackupArn")
+            Prelude.<*> (x Data..:? "UserArn")
+            Prelude.<*> (x Data..:? "S3DataSize")
+            Prelude.<*> (x Data..:? "Engine")
+            Prelude.<*> (x Data..:? "PreferredMaintenanceWindow")
+            Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "EngineVersion")
       )
 
 instance Prelude.Hashable Backup where

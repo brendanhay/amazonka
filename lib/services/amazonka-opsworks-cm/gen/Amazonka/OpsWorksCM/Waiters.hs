@@ -18,6 +18,7 @@ module Amazonka.OpsWorksCM.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorksCM.DescribeNodeAssociationStatus
 import Amazonka.OpsWorksCM.Lens
 import Amazonka.OpsWorksCM.Types
@@ -35,13 +36,13 @@ newNodeAssociated =
             "SUCCESS"
             Core.AcceptSuccess
             ( describeNodeAssociationStatusResponse_nodeAssociationStatus
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
             ( describeNodeAssociationStatusResponse_nodeAssociationStatus
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

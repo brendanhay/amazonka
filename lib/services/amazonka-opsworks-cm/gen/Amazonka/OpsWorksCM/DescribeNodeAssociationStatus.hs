@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorksCM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,11 +114,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeNodeAssociationStatusResponse'
-            Prelude.<$> ( x Core..?> "EngineAttributes"
+            Prelude.<$> ( x Data..?> "EngineAttributes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "NodeAssociationStatus")
+            Prelude.<*> (x Data..:> "NodeAssociationStatus")
       )
 
 instance
@@ -134,37 +135,37 @@ instance Prelude.NFData DescribeNodeAssociationStatus where
     Prelude.rnf nodeAssociationStatusToken
       `Prelude.seq` Prelude.rnf serverName
 
-instance Core.ToHeaders DescribeNodeAssociationStatus where
+instance Data.ToHeaders DescribeNodeAssociationStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorksCM_V2016_11_01.DescribeNodeAssociationStatus" ::
+              Data.=# ( "OpsWorksCM_V2016_11_01.DescribeNodeAssociationStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeNodeAssociationStatus where
+instance Data.ToJSON DescribeNodeAssociationStatus where
   toJSON DescribeNodeAssociationStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "NodeAssociationStatusToken"
-                  Core..= nodeAssociationStatusToken
+                  Data..= nodeAssociationStatusToken
               ),
-            Prelude.Just ("ServerName" Core..= serverName)
+            Prelude.Just ("ServerName" Data..= serverName)
           ]
       )
 
-instance Core.ToPath DescribeNodeAssociationStatus where
+instance Data.ToPath DescribeNodeAssociationStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeNodeAssociationStatus where
+instance Data.ToQuery DescribeNodeAssociationStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeNodeAssociationStatusResponse' smart constructor.

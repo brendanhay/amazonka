@@ -93,6 +93,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorksCM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -228,7 +229,7 @@ data CreateServer = CreateServer'
     -- The private key must not be encrypted; it cannot be protected by a
     -- password or passphrase. If you specify a custom private key, you must
     -- also specify values for @CustomDomain@ and @CustomCertificate@.
-    customPrivateKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    customPrivateKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The IDs of subnets in which to launch the server EC2 instance.
     --
     -- Amazon EC2-Classic customers: This field is required. All servers must
@@ -673,7 +674,7 @@ createServer_preferredMaintenanceWindow = Lens.lens (\CreateServer' {preferredMa
 -- password or passphrase. If you specify a custom private key, you must
 -- also specify values for @CustomDomain@ and @CustomCertificate@.
 createServer_customPrivateKey :: Lens.Lens' CreateServer (Prelude.Maybe Prelude.Text)
-createServer_customPrivateKey = Lens.lens (\CreateServer' {customPrivateKey} -> customPrivateKey) (\s@CreateServer' {} a -> s {customPrivateKey = a} :: CreateServer) Prelude.. Lens.mapping Core._Sensitive
+createServer_customPrivateKey = Lens.lens (\CreateServer' {customPrivateKey} -> customPrivateKey) (\s@CreateServer' {} a -> s {customPrivateKey = a} :: CreateServer) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The IDs of subnets in which to launch the server EC2 instance.
 --
@@ -757,7 +758,7 @@ instance Core.AWSRequest CreateServer where
     Response.receiveJSON
       ( \s h x ->
           CreateServerResponse'
-            Prelude.<$> (x Core..?> "Server")
+            Prelude.<$> (x Data..?> "Server")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -809,64 +810,64 @@ instance Prelude.NFData CreateServer where
       `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf serviceRoleArn
 
-instance Core.ToHeaders CreateServer where
+instance Data.ToHeaders CreateServer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorksCM_V2016_11_01.CreateServer" ::
+              Data.=# ( "OpsWorksCM_V2016_11_01.CreateServer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateServer where
+instance Data.ToJSON CreateServer where
   toJSON CreateServer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("BackupId" Core..=) Prelude.<$> backupId,
-            ("PreferredBackupWindow" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("BackupId" Data..=) Prelude.<$> backupId,
+            ("PreferredBackupWindow" Data..=)
               Prelude.<$> preferredBackupWindow,
-            ("AssociatePublicIpAddress" Core..=)
+            ("AssociatePublicIpAddress" Data..=)
               Prelude.<$> associatePublicIpAddress,
-            ("SecurityGroupIds" Core..=)
+            ("SecurityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("EngineModel" Core..=) Prelude.<$> engineModel,
-            ("EngineAttributes" Core..=)
+            ("EngineModel" Data..=) Prelude.<$> engineModel,
+            ("EngineAttributes" Data..=)
               Prelude.<$> engineAttributes,
-            ("KeyPair" Core..=) Prelude.<$> keyPair,
-            ("BackupRetentionCount" Core..=)
+            ("KeyPair" Data..=) Prelude.<$> keyPair,
+            ("BackupRetentionCount" Data..=)
               Prelude.<$> backupRetentionCount,
-            ("CustomCertificate" Core..=)
+            ("CustomCertificate" Data..=)
               Prelude.<$> customCertificate,
-            ("PreferredMaintenanceWindow" Core..=)
+            ("PreferredMaintenanceWindow" Data..=)
               Prelude.<$> preferredMaintenanceWindow,
-            ("CustomPrivateKey" Core..=)
+            ("CustomPrivateKey" Data..=)
               Prelude.<$> customPrivateKey,
-            ("SubnetIds" Core..=) Prelude.<$> subnetIds,
-            ("DisableAutomatedBackup" Core..=)
+            ("SubnetIds" Data..=) Prelude.<$> subnetIds,
+            ("DisableAutomatedBackup" Data..=)
               Prelude.<$> disableAutomatedBackup,
-            ("EngineVersion" Core..=) Prelude.<$> engineVersion,
-            ("CustomDomain" Core..=) Prelude.<$> customDomain,
-            Prelude.Just ("Engine" Core..= engine),
-            Prelude.Just ("ServerName" Core..= serverName),
+            ("EngineVersion" Data..=) Prelude.<$> engineVersion,
+            ("CustomDomain" Data..=) Prelude.<$> customDomain,
+            Prelude.Just ("Engine" Data..= engine),
+            Prelude.Just ("ServerName" Data..= serverName),
             Prelude.Just
-              ("InstanceProfileArn" Core..= instanceProfileArn),
-            Prelude.Just ("InstanceType" Core..= instanceType),
+              ("InstanceProfileArn" Data..= instanceProfileArn),
+            Prelude.Just ("InstanceType" Data..= instanceType),
             Prelude.Just
-              ("ServiceRoleArn" Core..= serviceRoleArn)
+              ("ServiceRoleArn" Data..= serviceRoleArn)
           ]
       )
 
-instance Core.ToPath CreateServer where
+instance Data.ToPath CreateServer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateServer where
+instance Data.ToQuery CreateServer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateServerResponse' smart constructor.

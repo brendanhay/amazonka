@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorksCM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -169,7 +170,7 @@ instance Core.AWSRequest AssociateNode where
     Response.receiveJSON
       ( \s h x ->
           AssociateNodeResponse'
-            Prelude.<$> (x Core..?> "NodeAssociationStatusToken")
+            Prelude.<$> (x Data..?> "NodeAssociationStatusToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,36 +186,36 @@ instance Prelude.NFData AssociateNode where
       `Prelude.seq` Prelude.rnf nodeName
       `Prelude.seq` Prelude.rnf engineAttributes
 
-instance Core.ToHeaders AssociateNode where
+instance Data.ToHeaders AssociateNode where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorksCM_V2016_11_01.AssociateNode" ::
+              Data.=# ( "OpsWorksCM_V2016_11_01.AssociateNode" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateNode where
+instance Data.ToJSON AssociateNode where
   toJSON AssociateNode' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ServerName" Core..= serverName),
-            Prelude.Just ("NodeName" Core..= nodeName),
+          [ Prelude.Just ("ServerName" Data..= serverName),
+            Prelude.Just ("NodeName" Data..= nodeName),
             Prelude.Just
-              ("EngineAttributes" Core..= engineAttributes)
+              ("EngineAttributes" Data..= engineAttributes)
           ]
       )
 
-instance Core.ToPath AssociateNode where
+instance Data.ToPath AssociateNode where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateNode where
+instance Data.ToQuery AssociateNode where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateNodeResponse' smart constructor.

@@ -43,6 +43,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -54,7 +55,7 @@ data AssociatePhoneNumberWithUser = AssociatePhoneNumberWithUser'
     -- | The user ID.
     userId :: Prelude.Text,
     -- | The phone number, in E.164 format.
-    e164PhoneNumber :: Core.Sensitive Prelude.Text
+    e164PhoneNumber :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -88,7 +89,7 @@ newAssociatePhoneNumberWithUser
           pAccountId_,
         userId = pUserId_,
         e164PhoneNumber =
-          Core._Sensitive Lens.# pE164PhoneNumber_
+          Data._Sensitive Lens.# pE164PhoneNumber_
       }
 
 -- | The Amazon Chime account ID.
@@ -101,7 +102,7 @@ associatePhoneNumberWithUser_userId = Lens.lens (\AssociatePhoneNumberWithUser' 
 
 -- | The phone number, in E.164 format.
 associatePhoneNumberWithUser_e164PhoneNumber :: Lens.Lens' AssociatePhoneNumberWithUser Prelude.Text
-associatePhoneNumberWithUser_e164PhoneNumber = Lens.lens (\AssociatePhoneNumberWithUser' {e164PhoneNumber} -> e164PhoneNumber) (\s@AssociatePhoneNumberWithUser' {} a -> s {e164PhoneNumber = a} :: AssociatePhoneNumberWithUser) Prelude.. Core._Sensitive
+associatePhoneNumberWithUser_e164PhoneNumber = Lens.lens (\AssociatePhoneNumberWithUser' {e164PhoneNumber} -> e164PhoneNumber) (\s@AssociatePhoneNumberWithUser' {} a -> s {e164PhoneNumber = a} :: AssociatePhoneNumberWithUser) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest AssociatePhoneNumberWithUser where
   type
@@ -131,28 +132,28 @@ instance Prelude.NFData AssociatePhoneNumberWithUser where
       `Prelude.seq` Prelude.rnf userId
       `Prelude.seq` Prelude.rnf e164PhoneNumber
 
-instance Core.ToHeaders AssociatePhoneNumberWithUser where
+instance Data.ToHeaders AssociatePhoneNumberWithUser where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON AssociatePhoneNumberWithUser where
+instance Data.ToJSON AssociatePhoneNumberWithUser where
   toJSON AssociatePhoneNumberWithUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("E164PhoneNumber" Core..= e164PhoneNumber)
+              ("E164PhoneNumber" Data..= e164PhoneNumber)
           ]
       )
 
-instance Core.ToPath AssociatePhoneNumberWithUser where
+instance Data.ToPath AssociatePhoneNumberWithUser where
   toPath AssociatePhoneNumberWithUser' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/users/",
-        Core.toBS userId
+        Data.toBS userId
       ]
 
-instance Core.ToQuery AssociatePhoneNumberWithUser where
+instance Data.ToQuery AssociatePhoneNumberWithUser where
   toQuery =
     Prelude.const
       ( Prelude.mconcat

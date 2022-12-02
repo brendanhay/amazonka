@@ -59,6 +59,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,7 +112,7 @@ instance Core.AWSRequest BatchSuspendUser where
     Response.receiveJSON
       ( \s h x ->
           BatchSuspendUserResponse'
-            Prelude.<$> (x Core..?> "UserErrors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "UserErrors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,22 +126,22 @@ instance Prelude.NFData BatchSuspendUser where
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf userIdList
 
-instance Core.ToHeaders BatchSuspendUser where
+instance Data.ToHeaders BatchSuspendUser where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON BatchSuspendUser where
+instance Data.ToJSON BatchSuspendUser where
   toJSON BatchSuspendUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("UserIdList" Core..= userIdList)]
+          [Prelude.Just ("UserIdList" Data..= userIdList)]
       )
 
-instance Core.ToPath BatchSuspendUser where
+instance Data.ToPath BatchSuspendUser where
   toPath BatchSuspendUser' {..} =
     Prelude.mconcat
-      ["/accounts/", Core.toBS accountId, "/users"]
+      ["/accounts/", Data.toBS accountId, "/users"]
 
-instance Core.ToQuery BatchSuspendUser where
+instance Data.ToQuery BatchSuspendUser where
   toQuery =
     Prelude.const
       (Prelude.mconcat ["operation=suspend"])

@@ -44,6 +44,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -51,11 +52,11 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdateAppInstance' smart constructor.
 data UpdateAppInstance = UpdateAppInstance'
   { -- | The metadata that you want to change.
-    metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    metadata :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the @AppInstance@.
     appInstanceArn :: Prelude.Text,
     -- | The name that you want to change.
-    name :: Core.Sensitive Prelude.Text
+    name :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -82,12 +83,12 @@ newUpdateAppInstance pAppInstanceArn_ pName_ =
   UpdateAppInstance'
     { metadata = Prelude.Nothing,
       appInstanceArn = pAppInstanceArn_,
-      name = Core._Sensitive Lens.# pName_
+      name = Data._Sensitive Lens.# pName_
     }
 
 -- | The metadata that you want to change.
 updateAppInstance_metadata :: Lens.Lens' UpdateAppInstance (Prelude.Maybe Prelude.Text)
-updateAppInstance_metadata = Lens.lens (\UpdateAppInstance' {metadata} -> metadata) (\s@UpdateAppInstance' {} a -> s {metadata = a} :: UpdateAppInstance) Prelude.. Lens.mapping Core._Sensitive
+updateAppInstance_metadata = Lens.lens (\UpdateAppInstance' {metadata} -> metadata) (\s@UpdateAppInstance' {} a -> s {metadata = a} :: UpdateAppInstance) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARN of the @AppInstance@.
 updateAppInstance_appInstanceArn :: Lens.Lens' UpdateAppInstance Prelude.Text
@@ -95,7 +96,7 @@ updateAppInstance_appInstanceArn = Lens.lens (\UpdateAppInstance' {appInstanceAr
 
 -- | The name that you want to change.
 updateAppInstance_name :: Lens.Lens' UpdateAppInstance Prelude.Text
-updateAppInstance_name = Lens.lens (\UpdateAppInstance' {name} -> name) (\s@UpdateAppInstance' {} a -> s {name = a} :: UpdateAppInstance) Prelude.. Core._Sensitive
+updateAppInstance_name = Lens.lens (\UpdateAppInstance' {name} -> name) (\s@UpdateAppInstance' {} a -> s {name = a} :: UpdateAppInstance) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest UpdateAppInstance where
   type
@@ -107,7 +108,7 @@ instance Core.AWSRequest UpdateAppInstance where
     Response.receiveJSON
       ( \s h x ->
           UpdateAppInstanceResponse'
-            Prelude.<$> (x Core..?> "AppInstanceArn")
+            Prelude.<$> (x Data..?> "AppInstanceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,24 +124,24 @@ instance Prelude.NFData UpdateAppInstance where
       `Prelude.seq` Prelude.rnf appInstanceArn
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateAppInstance where
+instance Data.ToHeaders UpdateAppInstance where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateAppInstance where
+instance Data.ToJSON UpdateAppInstance where
   toJSON UpdateAppInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Metadata" Core..=) Prelude.<$> metadata,
-            Prelude.Just ("Name" Core..= name)
+          [ ("Metadata" Data..=) Prelude.<$> metadata,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateAppInstance where
+instance Data.ToPath UpdateAppInstance where
   toPath UpdateAppInstance' {..} =
     Prelude.mconcat
-      ["/app-instances/", Core.toBS appInstanceArn]
+      ["/app-instances/", Data.toBS appInstanceArn]
 
-instance Core.ToQuery UpdateAppInstance where
+instance Data.ToQuery UpdateAppInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAppInstanceResponse' smart constructor.

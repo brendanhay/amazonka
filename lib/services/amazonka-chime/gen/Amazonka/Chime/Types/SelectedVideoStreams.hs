@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.SelectedVideoStreams where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The video streams to capture for a specified media capture pipeline. The
@@ -32,7 +33,7 @@ data SelectedVideoStreams = SelectedVideoStreams'
     attendeeIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The external user IDs of the streams selected for a media capture
     -- pipeline.
-    externalUserIds :: Prelude.Maybe (Prelude.NonEmpty (Core.Sensitive Prelude.Text))
+    externalUserIds :: Prelude.Maybe (Prelude.NonEmpty (Data.Sensitive Prelude.Text))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -66,14 +67,14 @@ selectedVideoStreams_attendeeIds = Lens.lens (\SelectedVideoStreams' {attendeeId
 selectedVideoStreams_externalUserIds :: Lens.Lens' SelectedVideoStreams (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 selectedVideoStreams_externalUserIds = Lens.lens (\SelectedVideoStreams' {externalUserIds} -> externalUserIds) (\s@SelectedVideoStreams' {} a -> s {externalUserIds = a} :: SelectedVideoStreams) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SelectedVideoStreams where
+instance Data.FromJSON SelectedVideoStreams where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SelectedVideoStreams"
       ( \x ->
           SelectedVideoStreams'
-            Prelude.<$> (x Core..:? "AttendeeIds")
-            Prelude.<*> (x Core..:? "ExternalUserIds")
+            Prelude.<$> (x Data..:? "AttendeeIds")
+            Prelude.<*> (x Data..:? "ExternalUserIds")
       )
 
 instance Prelude.Hashable SelectedVideoStreams where
@@ -86,12 +87,12 @@ instance Prelude.NFData SelectedVideoStreams where
     Prelude.rnf attendeeIds
       `Prelude.seq` Prelude.rnf externalUserIds
 
-instance Core.ToJSON SelectedVideoStreams where
+instance Data.ToJSON SelectedVideoStreams where
   toJSON SelectedVideoStreams' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AttendeeIds" Core..=) Prelude.<$> attendeeIds,
-            ("ExternalUserIds" Core..=)
+          [ ("AttendeeIds" Data..=) Prelude.<$> attendeeIds,
+            ("ExternalUserIds" Data..=)
               Prelude.<$> externalUserIds
           ]
       )

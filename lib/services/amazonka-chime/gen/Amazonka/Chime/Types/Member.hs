@@ -22,6 +22,7 @@ module Amazonka.Chime.Types.Member where
 import Amazonka.Chime.Types.MemberType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The member details, such as email address, name, member ID, and member
@@ -34,11 +35,11 @@ data Member = Member'
     -- | The member type.
     memberType :: Prelude.Maybe MemberType,
     -- | The member email address.
-    email :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    email :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Chime account ID.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The member name.
-    fullName :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    fullName :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -80,7 +81,7 @@ member_memberType = Lens.lens (\Member' {memberType} -> memberType) (\s@Member' 
 
 -- | The member email address.
 member_email :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
-member_email = Lens.lens (\Member' {email} -> email) (\s@Member' {} a -> s {email = a} :: Member) Prelude.. Lens.mapping Core._Sensitive
+member_email = Lens.lens (\Member' {email} -> email) (\s@Member' {} a -> s {email = a} :: Member) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Chime account ID.
 member_accountId :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
@@ -88,19 +89,19 @@ member_accountId = Lens.lens (\Member' {accountId} -> accountId) (\s@Member' {} 
 
 -- | The member name.
 member_fullName :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
-member_fullName = Lens.lens (\Member' {fullName} -> fullName) (\s@Member' {} a -> s {fullName = a} :: Member) Prelude.. Lens.mapping Core._Sensitive
+member_fullName = Lens.lens (\Member' {fullName} -> fullName) (\s@Member' {} a -> s {fullName = a} :: Member) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON Member where
+instance Data.FromJSON Member where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Member"
       ( \x ->
           Member'
-            Prelude.<$> (x Core..:? "MemberId")
-            Prelude.<*> (x Core..:? "MemberType")
-            Prelude.<*> (x Core..:? "Email")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "FullName")
+            Prelude.<$> (x Data..:? "MemberId")
+            Prelude.<*> (x Data..:? "MemberType")
+            Prelude.<*> (x Data..:? "Email")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "FullName")
       )
 
 instance Prelude.Hashable Member where

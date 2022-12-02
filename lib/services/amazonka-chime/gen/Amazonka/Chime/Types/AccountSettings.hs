@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.AccountSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings related to the Amazon Chime account. This includes settings
@@ -76,14 +77,14 @@ accountSettings_disableRemoteControl = Lens.lens (\AccountSettings' {disableRemo
 accountSettings_enableDialOut :: Lens.Lens' AccountSettings (Prelude.Maybe Prelude.Bool)
 accountSettings_enableDialOut = Lens.lens (\AccountSettings' {enableDialOut} -> enableDialOut) (\s@AccountSettings' {} a -> s {enableDialOut = a} :: AccountSettings)
 
-instance Core.FromJSON AccountSettings where
+instance Data.FromJSON AccountSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountSettings"
       ( \x ->
           AccountSettings'
-            Prelude.<$> (x Core..:? "DisableRemoteControl")
-            Prelude.<*> (x Core..:? "EnableDialOut")
+            Prelude.<$> (x Data..:? "DisableRemoteControl")
+            Prelude.<*> (x Data..:? "EnableDialOut")
       )
 
 instance Prelude.Hashable AccountSettings where
@@ -96,12 +97,12 @@ instance Prelude.NFData AccountSettings where
     Prelude.rnf disableRemoteControl
       `Prelude.seq` Prelude.rnf enableDialOut
 
-instance Core.ToJSON AccountSettings where
+instance Data.ToJSON AccountSettings where
   toJSON AccountSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DisableRemoteControl" Core..=)
+          [ ("DisableRemoteControl" Data..=)
               Prelude.<$> disableRemoteControl,
-            ("EnableDialOut" Core..=) Prelude.<$> enableDialOut
+            ("EnableDialOut" Data..=) Prelude.<$> enableDialOut
           ]
       )

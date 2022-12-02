@@ -25,6 +25,7 @@ import Amazonka.Chime.Types.License
 import Amazonka.Chime.Types.SigninDelegateGroup
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Chime account details. An AWS account can have multiple
@@ -35,7 +36,7 @@ data Account = Account'
   { -- | Supported licenses for the Amazon Chime account.
     supportedLicenses :: Prelude.Maybe [License],
     -- | The Amazon Chime account creation timestamp, in ISO 8601 format.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The sign-in delegate groups associated with the account.
     signinDelegateGroups :: Prelude.Maybe [SigninDelegateGroup],
     -- | The Amazon Chime account type. For more information about different
@@ -111,7 +112,7 @@ account_supportedLicenses = Lens.lens (\Account' {supportedLicenses} -> supporte
 
 -- | The Amazon Chime account creation timestamp, in ISO 8601 format.
 account_createdTimestamp :: Lens.Lens' Account (Prelude.Maybe Prelude.UTCTime)
-account_createdTimestamp = Lens.lens (\Account' {createdTimestamp} -> createdTimestamp) (\s@Account' {} a -> s {createdTimestamp = a} :: Account) Prelude.. Lens.mapping Core._Time
+account_createdTimestamp = Lens.lens (\Account' {createdTimestamp} -> createdTimestamp) (\s@Account' {} a -> s {createdTimestamp = a} :: Account) Prelude.. Lens.mapping Data._Time
 
 -- | The sign-in delegate groups associated with the account.
 account_signinDelegateGroups :: Lens.Lens' Account (Prelude.Maybe [SigninDelegateGroup])
@@ -144,25 +145,25 @@ account_accountId = Lens.lens (\Account' {accountId} -> accountId) (\s@Account' 
 account_name :: Lens.Lens' Account Prelude.Text
 account_name = Lens.lens (\Account' {name} -> name) (\s@Account' {} a -> s {name = a} :: Account)
 
-instance Core.FromJSON Account where
+instance Data.FromJSON Account where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Account"
       ( \x ->
           Account'
-            Prelude.<$> ( x Core..:? "SupportedLicenses"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "SupportedLicenses"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> ( x Core..:? "SigninDelegateGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> ( x Data..:? "SigninDelegateGroups"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "AccountType")
-            Prelude.<*> (x Core..:? "AccountStatus")
-            Prelude.<*> (x Core..:? "DefaultLicense")
-            Prelude.<*> (x Core..: "AwsAccountId")
-            Prelude.<*> (x Core..: "AccountId")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<*> (x Data..:? "AccountType")
+            Prelude.<*> (x Data..:? "AccountStatus")
+            Prelude.<*> (x Data..:? "DefaultLicense")
+            Prelude.<*> (x Data..: "AwsAccountId")
+            Prelude.<*> (x Data..: "AccountId")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable Account where

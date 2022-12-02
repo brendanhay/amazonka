@@ -24,6 +24,7 @@ import Amazonka.Chime.Types.License
 import Amazonka.Chime.Types.UserType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The user ID and user fields to update, used with the BatchUpdateUser
@@ -100,14 +101,14 @@ instance Prelude.NFData UpdateUserRequestItem where
       `Prelude.seq` Prelude.rnf userType
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToJSON UpdateUserRequestItem where
+instance Data.ToJSON UpdateUserRequestItem where
   toJSON UpdateUserRequestItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LicenseType" Core..=) Prelude.<$> licenseType,
-            ("AlexaForBusinessMetadata" Core..=)
+          [ ("LicenseType" Data..=) Prelude.<$> licenseType,
+            ("AlexaForBusinessMetadata" Data..=)
               Prelude.<$> alexaForBusinessMetadata,
-            ("UserType" Core..=) Prelude.<$> userType,
-            Prelude.Just ("UserId" Core..= userId)
+            ("UserType" Data..=) Prelude.<$> userType,
+            Prelude.Just ("UserId" Data..= userId)
           ]
       )

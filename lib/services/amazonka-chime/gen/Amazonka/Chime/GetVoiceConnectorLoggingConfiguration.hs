@@ -44,6 +44,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,7 +94,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetVoiceConnectorLoggingConfigurationResponse'
-            Prelude.<$> (x Core..?> "LoggingConfiguration")
+            Prelude.<$> (x Data..?> "LoggingConfiguration")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,24 +115,24 @@ instance
     Prelude.rnf voiceConnectorId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetVoiceConnectorLoggingConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetVoiceConnectorLoggingConfiguration
   where
   toPath GetVoiceConnectorLoggingConfiguration' {..} =
     Prelude.mconcat
       [ "/voice-connectors/",
-        Core.toBS voiceConnectorId,
+        Data.toBS voiceConnectorId,
         "/logging-configuration"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetVoiceConnectorLoggingConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

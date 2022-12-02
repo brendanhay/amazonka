@@ -22,6 +22,7 @@ module Amazonka.Chime.Types.PhoneNumberError where
 import Amazonka.Chime.Types.ErrorCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | If the phone number action fails for one or more of the phone numbers in
@@ -73,15 +74,15 @@ phoneNumberError_phoneNumberId = Lens.lens (\PhoneNumberError' {phoneNumberId} -
 phoneNumberError_errorCode :: Lens.Lens' PhoneNumberError (Prelude.Maybe ErrorCode)
 phoneNumberError_errorCode = Lens.lens (\PhoneNumberError' {errorCode} -> errorCode) (\s@PhoneNumberError' {} a -> s {errorCode = a} :: PhoneNumberError)
 
-instance Core.FromJSON PhoneNumberError where
+instance Data.FromJSON PhoneNumberError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PhoneNumberError"
       ( \x ->
           PhoneNumberError'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "PhoneNumberId")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "PhoneNumberId")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable PhoneNumberError where

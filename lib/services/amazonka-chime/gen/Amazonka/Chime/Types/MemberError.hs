@@ -22,6 +22,7 @@ module Amazonka.Chime.Types.MemberError where
 import Amazonka.Chime.Types.ErrorCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The list of errors returned when a member action results in an error.
@@ -71,15 +72,15 @@ memberError_errorMessage = Lens.lens (\MemberError' {errorMessage} -> errorMessa
 memberError_errorCode :: Lens.Lens' MemberError (Prelude.Maybe ErrorCode)
 memberError_errorCode = Lens.lens (\MemberError' {errorCode} -> errorCode) (\s@MemberError' {} a -> s {errorCode = a} :: MemberError)
 
-instance Core.FromJSON MemberError where
+instance Data.FromJSON MemberError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MemberError"
       ( \x ->
           MemberError'
-            Prelude.<$> (x Core..:? "MemberId")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "MemberId")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable MemberError where

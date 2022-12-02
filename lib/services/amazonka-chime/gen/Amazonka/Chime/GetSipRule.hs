@@ -43,6 +43,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -82,7 +83,7 @@ instance Core.AWSRequest GetSipRule where
     Response.receiveJSON
       ( \s h x ->
           GetSipRuleResponse'
-            Prelude.<$> (x Core..?> "SipRule")
+            Prelude.<$> (x Data..?> "SipRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -93,15 +94,15 @@ instance Prelude.Hashable GetSipRule where
 instance Prelude.NFData GetSipRule where
   rnf GetSipRule' {..} = Prelude.rnf sipRuleId
 
-instance Core.ToHeaders GetSipRule where
+instance Data.ToHeaders GetSipRule where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetSipRule where
+instance Data.ToPath GetSipRule where
   toPath GetSipRule' {..} =
     Prelude.mconcat
-      ["/sip-rules/", Core.toBS sipRuleId]
+      ["/sip-rules/", Data.toBS sipRuleId]
 
-instance Core.ToQuery GetSipRule where
+instance Data.ToQuery GetSipRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSipRuleResponse' smart constructor.

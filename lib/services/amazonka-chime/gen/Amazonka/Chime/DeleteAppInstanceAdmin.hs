@@ -40,6 +40,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,19 +108,19 @@ instance Prelude.NFData DeleteAppInstanceAdmin where
     Prelude.rnf appInstanceAdminArn
       `Prelude.seq` Prelude.rnf appInstanceArn
 
-instance Core.ToHeaders DeleteAppInstanceAdmin where
+instance Data.ToHeaders DeleteAppInstanceAdmin where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteAppInstanceAdmin where
+instance Data.ToPath DeleteAppInstanceAdmin where
   toPath DeleteAppInstanceAdmin' {..} =
     Prelude.mconcat
       [ "/app-instances/",
-        Core.toBS appInstanceArn,
+        Data.toBS appInstanceArn,
         "/admins/",
-        Core.toBS appInstanceAdminArn
+        Data.toBS appInstanceAdminArn
       ]
 
-instance Core.ToQuery DeleteAppInstanceAdmin where
+instance Data.ToQuery DeleteAppInstanceAdmin where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAppInstanceAdminResponse' smart constructor.

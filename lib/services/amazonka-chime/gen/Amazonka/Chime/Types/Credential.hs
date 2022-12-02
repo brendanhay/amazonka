@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.Credential where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The SIP credentials used to authenticate requests to your Amazon Chime
@@ -30,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 data Credential = Credential'
   { -- | The RFC2617 compliant password associated with the SIP credentials, in
     -- US-ASCII format.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The RFC2617 compliant user name associated with the SIP credentials, in
     -- US-ASCII format.
-    username :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    username :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -61,12 +62,12 @@ newCredential =
 -- | The RFC2617 compliant password associated with the SIP credentials, in
 -- US-ASCII format.
 credential_password :: Lens.Lens' Credential (Prelude.Maybe Prelude.Text)
-credential_password = Lens.lens (\Credential' {password} -> password) (\s@Credential' {} a -> s {password = a} :: Credential) Prelude.. Lens.mapping Core._Sensitive
+credential_password = Lens.lens (\Credential' {password} -> password) (\s@Credential' {} a -> s {password = a} :: Credential) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The RFC2617 compliant user name associated with the SIP credentials, in
 -- US-ASCII format.
 credential_username :: Lens.Lens' Credential (Prelude.Maybe Prelude.Text)
-credential_username = Lens.lens (\Credential' {username} -> username) (\s@Credential' {} a -> s {username = a} :: Credential) Prelude.. Lens.mapping Core._Sensitive
+credential_username = Lens.lens (\Credential' {username} -> username) (\s@Credential' {} a -> s {username = a} :: Credential) Prelude.. Lens.mapping Data._Sensitive
 
 instance Prelude.Hashable Credential where
   hashWithSalt _salt Credential' {..} =
@@ -78,11 +79,11 @@ instance Prelude.NFData Credential where
     Prelude.rnf password
       `Prelude.seq` Prelude.rnf username
 
-instance Core.ToJSON Credential where
+instance Data.ToJSON Credential where
   toJSON Credential' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Password" Core..=) Prelude.<$> password,
-            ("Username" Core..=) Prelude.<$> username
+          [ ("Password" Data..=) Prelude.<$> password,
+            ("Username" Data..=) Prelude.<$> username
           ]
       )

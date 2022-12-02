@@ -22,6 +22,7 @@ module Amazonka.Chime.Types.AudioArtifactsConfiguration where
 import Amazonka.Chime.Types.AudioMuxType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The audio artifact configuration object.
@@ -53,13 +54,13 @@ newAudioArtifactsConfiguration pMuxType_ =
 audioArtifactsConfiguration_muxType :: Lens.Lens' AudioArtifactsConfiguration AudioMuxType
 audioArtifactsConfiguration_muxType = Lens.lens (\AudioArtifactsConfiguration' {muxType} -> muxType) (\s@AudioArtifactsConfiguration' {} a -> s {muxType = a} :: AudioArtifactsConfiguration)
 
-instance Core.FromJSON AudioArtifactsConfiguration where
+instance Data.FromJSON AudioArtifactsConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioArtifactsConfiguration"
       ( \x ->
           AudioArtifactsConfiguration'
-            Prelude.<$> (x Core..: "MuxType")
+            Prelude.<$> (x Data..: "MuxType")
       )
 
 instance Prelude.Hashable AudioArtifactsConfiguration where
@@ -70,9 +71,9 @@ instance Prelude.NFData AudioArtifactsConfiguration where
   rnf AudioArtifactsConfiguration' {..} =
     Prelude.rnf muxType
 
-instance Core.ToJSON AudioArtifactsConfiguration where
+instance Data.ToJSON AudioArtifactsConfiguration where
   toJSON AudioArtifactsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("MuxType" Core..= muxType)]
+          [Prelude.Just ("MuxType" Data..= muxType)]
       )

@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.VoiceConnectorSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Chime Voice Connector settings. Includes any Amazon S3
@@ -54,13 +55,13 @@ newVoiceConnectorSettings =
 voiceConnectorSettings_cdrBucket :: Lens.Lens' VoiceConnectorSettings (Prelude.Maybe Prelude.Text)
 voiceConnectorSettings_cdrBucket = Lens.lens (\VoiceConnectorSettings' {cdrBucket} -> cdrBucket) (\s@VoiceConnectorSettings' {} a -> s {cdrBucket = a} :: VoiceConnectorSettings)
 
-instance Core.FromJSON VoiceConnectorSettings where
+instance Data.FromJSON VoiceConnectorSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VoiceConnectorSettings"
       ( \x ->
           VoiceConnectorSettings'
-            Prelude.<$> (x Core..:? "CdrBucket")
+            Prelude.<$> (x Data..:? "CdrBucket")
       )
 
 instance Prelude.Hashable VoiceConnectorSettings where
@@ -71,9 +72,9 @@ instance Prelude.NFData VoiceConnectorSettings where
   rnf VoiceConnectorSettings' {..} =
     Prelude.rnf cdrBucket
 
-instance Core.ToJSON VoiceConnectorSettings where
+instance Data.ToJSON VoiceConnectorSettings where
   toJSON VoiceConnectorSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("CdrBucket" Core..=) Prelude.<$> cdrBucket]
+          [("CdrBucket" Data..=) Prelude.<$> cdrBucket]
       )

@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.SipMediaApplicationLoggingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Logging configuration of the SIP media application.
@@ -54,15 +55,15 @@ sipMediaApplicationLoggingConfiguration_enableSipMediaApplicationMessageLogs :: 
 sipMediaApplicationLoggingConfiguration_enableSipMediaApplicationMessageLogs = Lens.lens (\SipMediaApplicationLoggingConfiguration' {enableSipMediaApplicationMessageLogs} -> enableSipMediaApplicationMessageLogs) (\s@SipMediaApplicationLoggingConfiguration' {} a -> s {enableSipMediaApplicationMessageLogs = a} :: SipMediaApplicationLoggingConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SipMediaApplicationLoggingConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SipMediaApplicationLoggingConfiguration"
       ( \x ->
           SipMediaApplicationLoggingConfiguration'
-            Prelude.<$> (x Core..:? "EnableSipMediaApplicationMessageLogs")
+            Prelude.<$> (x Data..:? "EnableSipMediaApplicationMessageLogs")
       )
 
 instance
@@ -83,13 +84,13 @@ instance
     Prelude.rnf enableSipMediaApplicationMessageLogs
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SipMediaApplicationLoggingConfiguration
   where
   toJSON SipMediaApplicationLoggingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EnableSipMediaApplicationMessageLogs" Core..=)
+          [ ("EnableSipMediaApplicationMessageLogs" Data..=)
               Prelude.<$> enableSipMediaApplicationMessageLogs
           ]
       )

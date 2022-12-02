@@ -22,6 +22,7 @@ module Amazonka.Chime.Types.VoiceConnectorGroup where
 import Amazonka.Chime.Types.VoiceConnectorItem
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Chime Voice Connector group configuration, including
@@ -37,10 +38,10 @@ data VoiceConnectorGroup = VoiceConnectorGroup'
     voiceConnectorGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Chime Voice Connector group creation time stamp, in ISO 8601
     -- format.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The updated Amazon Chime Voice Connector group time stamp, in ISO 8601
     -- format.
-    updatedTimestamp :: Prelude.Maybe Core.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Chime Voice Connector group ID.
     voiceConnectorGroupId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Chime Voice Connectors to which to route inbound calls.
@@ -92,12 +93,12 @@ voiceConnectorGroup_voiceConnectorGroupArn = Lens.lens (\VoiceConnectorGroup' {v
 -- | The Amazon Chime Voice Connector group creation time stamp, in ISO 8601
 -- format.
 voiceConnectorGroup_createdTimestamp :: Lens.Lens' VoiceConnectorGroup (Prelude.Maybe Prelude.UTCTime)
-voiceConnectorGroup_createdTimestamp = Lens.lens (\VoiceConnectorGroup' {createdTimestamp} -> createdTimestamp) (\s@VoiceConnectorGroup' {} a -> s {createdTimestamp = a} :: VoiceConnectorGroup) Prelude.. Lens.mapping Core._Time
+voiceConnectorGroup_createdTimestamp = Lens.lens (\VoiceConnectorGroup' {createdTimestamp} -> createdTimestamp) (\s@VoiceConnectorGroup' {} a -> s {createdTimestamp = a} :: VoiceConnectorGroup) Prelude.. Lens.mapping Data._Time
 
 -- | The updated Amazon Chime Voice Connector group time stamp, in ISO 8601
 -- format.
 voiceConnectorGroup_updatedTimestamp :: Lens.Lens' VoiceConnectorGroup (Prelude.Maybe Prelude.UTCTime)
-voiceConnectorGroup_updatedTimestamp = Lens.lens (\VoiceConnectorGroup' {updatedTimestamp} -> updatedTimestamp) (\s@VoiceConnectorGroup' {} a -> s {updatedTimestamp = a} :: VoiceConnectorGroup) Prelude.. Lens.mapping Core._Time
+voiceConnectorGroup_updatedTimestamp = Lens.lens (\VoiceConnectorGroup' {updatedTimestamp} -> updatedTimestamp) (\s@VoiceConnectorGroup' {} a -> s {updatedTimestamp = a} :: VoiceConnectorGroup) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Chime Voice Connector group ID.
 voiceConnectorGroup_voiceConnectorGroupId :: Lens.Lens' VoiceConnectorGroup (Prelude.Maybe Prelude.Text)
@@ -107,19 +108,19 @@ voiceConnectorGroup_voiceConnectorGroupId = Lens.lens (\VoiceConnectorGroup' {vo
 voiceConnectorGroup_voiceConnectorItems :: Lens.Lens' VoiceConnectorGroup (Prelude.Maybe [VoiceConnectorItem])
 voiceConnectorGroup_voiceConnectorItems = Lens.lens (\VoiceConnectorGroup' {voiceConnectorItems} -> voiceConnectorItems) (\s@VoiceConnectorGroup' {} a -> s {voiceConnectorItems = a} :: VoiceConnectorGroup) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON VoiceConnectorGroup where
+instance Data.FromJSON VoiceConnectorGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VoiceConnectorGroup"
       ( \x ->
           VoiceConnectorGroup'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "VoiceConnectorGroupArn")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "UpdatedTimestamp")
-            Prelude.<*> (x Core..:? "VoiceConnectorGroupId")
-            Prelude.<*> ( x Core..:? "VoiceConnectorItems"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "VoiceConnectorGroupArn")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "UpdatedTimestamp")
+            Prelude.<*> (x Data..:? "VoiceConnectorGroupId")
+            Prelude.<*> ( x Data..:? "VoiceConnectorItems"
+                            Data..!= Prelude.mempty
                         )
       )
 

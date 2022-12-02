@@ -40,6 +40,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,20 +105,20 @@ instance Prelude.NFData DeleteEventsConfiguration where
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf botId
 
-instance Core.ToHeaders DeleteEventsConfiguration where
+instance Data.ToHeaders DeleteEventsConfiguration where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteEventsConfiguration where
+instance Data.ToPath DeleteEventsConfiguration where
   toPath DeleteEventsConfiguration' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/events-configuration"
       ]
 
-instance Core.ToQuery DeleteEventsConfiguration where
+instance Data.ToQuery DeleteEventsConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteEventsConfigurationResponse' smart constructor.

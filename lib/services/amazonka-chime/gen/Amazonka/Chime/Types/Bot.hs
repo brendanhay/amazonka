@@ -22,6 +22,7 @@ module Amazonka.Chime.Types.Bot where
 import Amazonka.Chime.Types.BotType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A resource that allows Enterprise account administrators to configure an
@@ -30,18 +31,18 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newBot' smart constructor.
 data Bot = Bot'
   { -- | The bot email address.
-    botEmail :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    botEmail :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The bot creation timestamp, in ISO 8601 format.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The updated bot timestamp, in ISO 8601 format.
-    updatedTimestamp :: Prelude.Maybe Core.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The bot display name.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The bot ID.
     botId :: Prelude.Maybe Prelude.Text,
     -- | The security token used to authenticate Amazon Chime with the outgoing
     -- event endpoint.
-    securityToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    securityToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The bot type.
     botType :: Prelude.Maybe BotType,
     -- | The unique ID for the bot user.
@@ -94,19 +95,19 @@ newBot =
 
 -- | The bot email address.
 bot_botEmail :: Lens.Lens' Bot (Prelude.Maybe Prelude.Text)
-bot_botEmail = Lens.lens (\Bot' {botEmail} -> botEmail) (\s@Bot' {} a -> s {botEmail = a} :: Bot) Prelude.. Lens.mapping Core._Sensitive
+bot_botEmail = Lens.lens (\Bot' {botEmail} -> botEmail) (\s@Bot' {} a -> s {botEmail = a} :: Bot) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The bot creation timestamp, in ISO 8601 format.
 bot_createdTimestamp :: Lens.Lens' Bot (Prelude.Maybe Prelude.UTCTime)
-bot_createdTimestamp = Lens.lens (\Bot' {createdTimestamp} -> createdTimestamp) (\s@Bot' {} a -> s {createdTimestamp = a} :: Bot) Prelude.. Lens.mapping Core._Time
+bot_createdTimestamp = Lens.lens (\Bot' {createdTimestamp} -> createdTimestamp) (\s@Bot' {} a -> s {createdTimestamp = a} :: Bot) Prelude.. Lens.mapping Data._Time
 
 -- | The updated bot timestamp, in ISO 8601 format.
 bot_updatedTimestamp :: Lens.Lens' Bot (Prelude.Maybe Prelude.UTCTime)
-bot_updatedTimestamp = Lens.lens (\Bot' {updatedTimestamp} -> updatedTimestamp) (\s@Bot' {} a -> s {updatedTimestamp = a} :: Bot) Prelude.. Lens.mapping Core._Time
+bot_updatedTimestamp = Lens.lens (\Bot' {updatedTimestamp} -> updatedTimestamp) (\s@Bot' {} a -> s {updatedTimestamp = a} :: Bot) Prelude.. Lens.mapping Data._Time
 
 -- | The bot display name.
 bot_displayName :: Lens.Lens' Bot (Prelude.Maybe Prelude.Text)
-bot_displayName = Lens.lens (\Bot' {displayName} -> displayName) (\s@Bot' {} a -> s {displayName = a} :: Bot) Prelude.. Lens.mapping Core._Sensitive
+bot_displayName = Lens.lens (\Bot' {displayName} -> displayName) (\s@Bot' {} a -> s {displayName = a} :: Bot) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The bot ID.
 bot_botId :: Lens.Lens' Bot (Prelude.Maybe Prelude.Text)
@@ -115,7 +116,7 @@ bot_botId = Lens.lens (\Bot' {botId} -> botId) (\s@Bot' {} a -> s {botId = a} ::
 -- | The security token used to authenticate Amazon Chime with the outgoing
 -- event endpoint.
 bot_securityToken :: Lens.Lens' Bot (Prelude.Maybe Prelude.Text)
-bot_securityToken = Lens.lens (\Bot' {securityToken} -> securityToken) (\s@Bot' {} a -> s {securityToken = a} :: Bot) Prelude.. Lens.mapping Core._Sensitive
+bot_securityToken = Lens.lens (\Bot' {securityToken} -> securityToken) (\s@Bot' {} a -> s {securityToken = a} :: Bot) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The bot type.
 bot_botType :: Lens.Lens' Bot (Prelude.Maybe BotType)
@@ -129,21 +130,21 @@ bot_userId = Lens.lens (\Bot' {userId} -> userId) (\s@Bot' {} a -> s {userId = a
 bot_disabled :: Lens.Lens' Bot (Prelude.Maybe Prelude.Bool)
 bot_disabled = Lens.lens (\Bot' {disabled} -> disabled) (\s@Bot' {} a -> s {disabled = a} :: Bot)
 
-instance Core.FromJSON Bot where
+instance Data.FromJSON Bot where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Bot"
       ( \x ->
           Bot'
-            Prelude.<$> (x Core..:? "BotEmail")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "UpdatedTimestamp")
-            Prelude.<*> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..:? "BotId")
-            Prelude.<*> (x Core..:? "SecurityToken")
-            Prelude.<*> (x Core..:? "BotType")
-            Prelude.<*> (x Core..:? "UserId")
-            Prelude.<*> (x Core..:? "Disabled")
+            Prelude.<$> (x Data..:? "BotEmail")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "UpdatedTimestamp")
+            Prelude.<*> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..:? "BotId")
+            Prelude.<*> (x Data..:? "SecurityToken")
+            Prelude.<*> (x Data..:? "BotType")
+            Prelude.<*> (x Data..:? "UserId")
+            Prelude.<*> (x Data..:? "Disabled")
       )
 
 instance Prelude.Hashable Bot where

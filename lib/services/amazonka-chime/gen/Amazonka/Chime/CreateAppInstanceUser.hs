@@ -48,6 +48,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -57,15 +58,15 @@ data CreateAppInstanceUser = CreateAppInstanceUser'
   { -- | Tags assigned to the @AppInstanceUser@.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The request\'s metadata. Limited to a 1KB string in UTF-8.
-    metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    metadata :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the @AppInstance@ request.
     appInstanceArn :: Prelude.Text,
     -- | The user ID of the @AppInstance@.
-    appInstanceUserId :: Core.Sensitive Prelude.Text,
+    appInstanceUserId :: Data.Sensitive Prelude.Text,
     -- | The user\'s name.
-    name :: Core.Sensitive Prelude.Text,
+    name :: Data.Sensitive Prelude.Text,
     -- | The token assigned to the user requesting an @AppInstance@.
-    clientRequestToken :: Core.Sensitive Prelude.Text
+    clientRequestToken :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -108,10 +109,10 @@ newCreateAppInstanceUser
         metadata = Prelude.Nothing,
         appInstanceArn = pAppInstanceArn_,
         appInstanceUserId =
-          Core._Sensitive Lens.# pAppInstanceUserId_,
-        name = Core._Sensitive Lens.# pName_,
+          Data._Sensitive Lens.# pAppInstanceUserId_,
+        name = Data._Sensitive Lens.# pName_,
         clientRequestToken =
-          Core._Sensitive Lens.# pClientRequestToken_
+          Data._Sensitive Lens.# pClientRequestToken_
       }
 
 -- | Tags assigned to the @AppInstanceUser@.
@@ -120,7 +121,7 @@ createAppInstanceUser_tags = Lens.lens (\CreateAppInstanceUser' {tags} -> tags) 
 
 -- | The request\'s metadata. Limited to a 1KB string in UTF-8.
 createAppInstanceUser_metadata :: Lens.Lens' CreateAppInstanceUser (Prelude.Maybe Prelude.Text)
-createAppInstanceUser_metadata = Lens.lens (\CreateAppInstanceUser' {metadata} -> metadata) (\s@CreateAppInstanceUser' {} a -> s {metadata = a} :: CreateAppInstanceUser) Prelude.. Lens.mapping Core._Sensitive
+createAppInstanceUser_metadata = Lens.lens (\CreateAppInstanceUser' {metadata} -> metadata) (\s@CreateAppInstanceUser' {} a -> s {metadata = a} :: CreateAppInstanceUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARN of the @AppInstance@ request.
 createAppInstanceUser_appInstanceArn :: Lens.Lens' CreateAppInstanceUser Prelude.Text
@@ -128,15 +129,15 @@ createAppInstanceUser_appInstanceArn = Lens.lens (\CreateAppInstanceUser' {appIn
 
 -- | The user ID of the @AppInstance@.
 createAppInstanceUser_appInstanceUserId :: Lens.Lens' CreateAppInstanceUser Prelude.Text
-createAppInstanceUser_appInstanceUserId = Lens.lens (\CreateAppInstanceUser' {appInstanceUserId} -> appInstanceUserId) (\s@CreateAppInstanceUser' {} a -> s {appInstanceUserId = a} :: CreateAppInstanceUser) Prelude.. Core._Sensitive
+createAppInstanceUser_appInstanceUserId = Lens.lens (\CreateAppInstanceUser' {appInstanceUserId} -> appInstanceUserId) (\s@CreateAppInstanceUser' {} a -> s {appInstanceUserId = a} :: CreateAppInstanceUser) Prelude.. Data._Sensitive
 
 -- | The user\'s name.
 createAppInstanceUser_name :: Lens.Lens' CreateAppInstanceUser Prelude.Text
-createAppInstanceUser_name = Lens.lens (\CreateAppInstanceUser' {name} -> name) (\s@CreateAppInstanceUser' {} a -> s {name = a} :: CreateAppInstanceUser) Prelude.. Core._Sensitive
+createAppInstanceUser_name = Lens.lens (\CreateAppInstanceUser' {name} -> name) (\s@CreateAppInstanceUser' {} a -> s {name = a} :: CreateAppInstanceUser) Prelude.. Data._Sensitive
 
 -- | The token assigned to the user requesting an @AppInstance@.
 createAppInstanceUser_clientRequestToken :: Lens.Lens' CreateAppInstanceUser Prelude.Text
-createAppInstanceUser_clientRequestToken = Lens.lens (\CreateAppInstanceUser' {clientRequestToken} -> clientRequestToken) (\s@CreateAppInstanceUser' {} a -> s {clientRequestToken = a} :: CreateAppInstanceUser) Prelude.. Core._Sensitive
+createAppInstanceUser_clientRequestToken = Lens.lens (\CreateAppInstanceUser' {clientRequestToken} -> clientRequestToken) (\s@CreateAppInstanceUser' {} a -> s {clientRequestToken = a} :: CreateAppInstanceUser) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest CreateAppInstanceUser where
   type
@@ -148,7 +149,7 @@ instance Core.AWSRequest CreateAppInstanceUser where
     Response.receiveJSON
       ( \s h x ->
           CreateAppInstanceUserResponse'
-            Prelude.<$> (x Core..?> "AppInstanceUserArn")
+            Prelude.<$> (x Data..?> "AppInstanceUserArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,29 +171,29 @@ instance Prelude.NFData CreateAppInstanceUser where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf clientRequestToken
 
-instance Core.ToHeaders CreateAppInstanceUser where
+instance Data.ToHeaders CreateAppInstanceUser where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateAppInstanceUser where
+instance Data.ToJSON CreateAppInstanceUser where
   toJSON CreateAppInstanceUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Metadata" Core..=) Prelude.<$> metadata,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Metadata" Data..=) Prelude.<$> metadata,
             Prelude.Just
-              ("AppInstanceArn" Core..= appInstanceArn),
+              ("AppInstanceArn" Data..= appInstanceArn),
             Prelude.Just
-              ("AppInstanceUserId" Core..= appInstanceUserId),
-            Prelude.Just ("Name" Core..= name),
+              ("AppInstanceUserId" Data..= appInstanceUserId),
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("ClientRequestToken" Core..= clientRequestToken)
+              ("ClientRequestToken" Data..= clientRequestToken)
           ]
       )
 
-instance Core.ToPath CreateAppInstanceUser where
+instance Data.ToPath CreateAppInstanceUser where
   toPath = Prelude.const "/app-instance-users"
 
-instance Core.ToQuery CreateAppInstanceUser where
+instance Data.ToQuery CreateAppInstanceUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAppInstanceUserResponse' smart constructor.

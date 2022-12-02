@@ -41,6 +41,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -69,8 +70,8 @@ instance Core.AWSRequest GetGlobalSettings where
     Response.receiveJSON
       ( \s h x ->
           GetGlobalSettingsResponse'
-            Prelude.<$> (x Core..?> "VoiceConnector")
-            Prelude.<*> (x Core..?> "BusinessCalling")
+            Prelude.<$> (x Data..?> "VoiceConnector")
+            Prelude.<*> (x Data..?> "BusinessCalling")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -81,13 +82,13 @@ instance Prelude.Hashable GetGlobalSettings where
 instance Prelude.NFData GetGlobalSettings where
   rnf _ = ()
 
-instance Core.ToHeaders GetGlobalSettings where
+instance Data.ToHeaders GetGlobalSettings where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetGlobalSettings where
+instance Data.ToPath GetGlobalSettings where
   toPath = Prelude.const "/settings"
 
-instance Core.ToQuery GetGlobalSettings where
+instance Data.ToQuery GetGlobalSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetGlobalSettingsResponse' smart constructor.

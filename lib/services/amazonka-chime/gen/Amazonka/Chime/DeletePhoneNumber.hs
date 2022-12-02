@@ -43,6 +43,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,15 +92,15 @@ instance Prelude.NFData DeletePhoneNumber where
   rnf DeletePhoneNumber' {..} =
     Prelude.rnf phoneNumberId
 
-instance Core.ToHeaders DeletePhoneNumber where
+instance Data.ToHeaders DeletePhoneNumber where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeletePhoneNumber where
+instance Data.ToPath DeletePhoneNumber where
   toPath DeletePhoneNumber' {..} =
     Prelude.mconcat
-      ["/phone-numbers/", Core.toBS phoneNumberId]
+      ["/phone-numbers/", Data.toBS phoneNumberId]
 
-instance Core.ToQuery DeletePhoneNumber where
+instance Data.ToQuery DeletePhoneNumber where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePhoneNumberResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.SigninDelegateGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Active Directory (AD) group whose members are granted permission to
@@ -51,13 +52,13 @@ newSigninDelegateGroup =
 signinDelegateGroup_groupName :: Lens.Lens' SigninDelegateGroup (Prelude.Maybe Prelude.Text)
 signinDelegateGroup_groupName = Lens.lens (\SigninDelegateGroup' {groupName} -> groupName) (\s@SigninDelegateGroup' {} a -> s {groupName = a} :: SigninDelegateGroup)
 
-instance Core.FromJSON SigninDelegateGroup where
+instance Data.FromJSON SigninDelegateGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SigninDelegateGroup"
       ( \x ->
           SigninDelegateGroup'
-            Prelude.<$> (x Core..:? "GroupName")
+            Prelude.<$> (x Data..:? "GroupName")
       )
 
 instance Prelude.Hashable SigninDelegateGroup where
@@ -67,9 +68,9 @@ instance Prelude.Hashable SigninDelegateGroup where
 instance Prelude.NFData SigninDelegateGroup where
   rnf SigninDelegateGroup' {..} = Prelude.rnf groupName
 
-instance Core.ToJSON SigninDelegateGroup where
+instance Data.ToJSON SigninDelegateGroup where
   toJSON SigninDelegateGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("GroupName" Core..=) Prelude.<$> groupName]
+          [("GroupName" Data..=) Prelude.<$> groupName]
       )

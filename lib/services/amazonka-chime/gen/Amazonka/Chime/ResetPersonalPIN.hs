@@ -45,6 +45,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,7 +100,7 @@ instance Core.AWSRequest ResetPersonalPIN where
     Response.receiveJSON
       ( \s h x ->
           ResetPersonalPINResponse'
-            Prelude.<$> (x Core..?> "User")
+            Prelude.<$> (x Data..?> "User")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,22 +114,22 @@ instance Prelude.NFData ResetPersonalPIN where
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToHeaders ResetPersonalPIN where
+instance Data.ToHeaders ResetPersonalPIN where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON ResetPersonalPIN where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON ResetPersonalPIN where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath ResetPersonalPIN where
+instance Data.ToPath ResetPersonalPIN where
   toPath ResetPersonalPIN' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/users/",
-        Core.toBS userId
+        Data.toBS userId
       ]
 
-instance Core.ToQuery ResetPersonalPIN where
+instance Data.ToQuery ResetPersonalPIN where
   toQuery =
     Prelude.const
       (Prelude.mconcat ["operation=reset-personal-pin"])

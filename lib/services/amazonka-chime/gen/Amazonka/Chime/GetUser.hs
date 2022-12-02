@@ -47,6 +47,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,7 +100,7 @@ instance Core.AWSRequest GetUser where
     Response.receiveJSON
       ( \s h x ->
           GetUserResponse'
-            Prelude.<$> (x Core..?> "User")
+            Prelude.<$> (x Data..?> "User")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,19 +114,19 @@ instance Prelude.NFData GetUser where
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToHeaders GetUser where
+instance Data.ToHeaders GetUser where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetUser where
+instance Data.ToPath GetUser where
   toPath GetUser' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/users/",
-        Core.toBS userId
+        Data.toBS userId
       ]
 
-instance Core.ToQuery GetUser where
+instance Data.ToQuery GetUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetUserResponse' smart constructor.

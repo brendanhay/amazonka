@@ -23,6 +23,7 @@ import Amazonka.Chime.Types.ConversationRetentionSettings
 import Amazonka.Chime.Types.RoomRetentionSettings
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The retention settings for an Amazon Chime Enterprise account that
@@ -66,14 +67,14 @@ retentionSettings_roomRetentionSettings = Lens.lens (\RetentionSettings' {roomRe
 retentionSettings_conversationRetentionSettings :: Lens.Lens' RetentionSettings (Prelude.Maybe ConversationRetentionSettings)
 retentionSettings_conversationRetentionSettings = Lens.lens (\RetentionSettings' {conversationRetentionSettings} -> conversationRetentionSettings) (\s@RetentionSettings' {} a -> s {conversationRetentionSettings = a} :: RetentionSettings)
 
-instance Core.FromJSON RetentionSettings where
+instance Data.FromJSON RetentionSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RetentionSettings"
       ( \x ->
           RetentionSettings'
-            Prelude.<$> (x Core..:? "RoomRetentionSettings")
-            Prelude.<*> (x Core..:? "ConversationRetentionSettings")
+            Prelude.<$> (x Data..:? "RoomRetentionSettings")
+            Prelude.<*> (x Data..:? "ConversationRetentionSettings")
       )
 
 instance Prelude.Hashable RetentionSettings where
@@ -86,13 +87,13 @@ instance Prelude.NFData RetentionSettings where
     Prelude.rnf roomRetentionSettings
       `Prelude.seq` Prelude.rnf conversationRetentionSettings
 
-instance Core.ToJSON RetentionSettings where
+instance Data.ToJSON RetentionSettings where
   toJSON RetentionSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoomRetentionSettings" Core..=)
+          [ ("RoomRetentionSettings" Data..=)
               Prelude.<$> roomRetentionSettings,
-            ("ConversationRetentionSettings" Core..=)
+            ("ConversationRetentionSettings" Data..=)
               Prelude.<$> conversationRetentionSettings
           ]
       )

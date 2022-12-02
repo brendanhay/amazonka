@@ -68,6 +68,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -158,8 +159,8 @@ instance Core.AWSRequest CreateChannelMembership where
     Response.receiveJSON
       ( \s h x ->
           CreateChannelMembershipResponse'
-            Prelude.<$> (x Core..?> "Member")
-            Prelude.<*> (x Core..?> "ChannelArn")
+            Prelude.<$> (x Data..?> "Member")
+            Prelude.<*> (x Data..?> "ChannelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,26 +178,26 @@ instance Prelude.NFData CreateChannelMembership where
       `Prelude.seq` Prelude.rnf memberArn
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders CreateChannelMembership where
+instance Data.ToHeaders CreateChannelMembership where
   toHeaders CreateChannelMembership' {..} =
     Prelude.mconcat
-      ["x-amz-chime-bearer" Core.=# chimeBearer]
+      ["x-amz-chime-bearer" Data.=# chimeBearer]
 
-instance Core.ToJSON CreateChannelMembership where
+instance Data.ToJSON CreateChannelMembership where
   toJSON CreateChannelMembership' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("MemberArn" Core..= memberArn),
-            Prelude.Just ("Type" Core..= type')
+          [ Prelude.Just ("MemberArn" Data..= memberArn),
+            Prelude.Just ("Type" Data..= type')
           ]
       )
 
-instance Core.ToPath CreateChannelMembership where
+instance Data.ToPath CreateChannelMembership where
   toPath CreateChannelMembership' {..} =
     Prelude.mconcat
-      ["/channels/", Core.toBS channelArn, "/memberships"]
+      ["/channels/", Data.toBS channelArn, "/memberships"]
 
-instance Core.ToQuery CreateChannelMembership where
+instance Data.ToQuery CreateChannelMembership where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateChannelMembershipResponse' smart constructor.

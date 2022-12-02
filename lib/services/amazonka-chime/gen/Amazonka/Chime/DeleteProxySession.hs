@@ -40,6 +40,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,19 +107,19 @@ instance Prelude.NFData DeleteProxySession where
     Prelude.rnf voiceConnectorId
       `Prelude.seq` Prelude.rnf proxySessionId
 
-instance Core.ToHeaders DeleteProxySession where
+instance Data.ToHeaders DeleteProxySession where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteProxySession where
+instance Data.ToPath DeleteProxySession where
   toPath DeleteProxySession' {..} =
     Prelude.mconcat
       [ "/voice-connectors/",
-        Core.toBS voiceConnectorId,
+        Data.toBS voiceConnectorId,
         "/proxy-sessions/",
-        Core.toBS proxySessionId
+        Data.toBS proxySessionId
       ]
 
-instance Core.ToQuery DeleteProxySession where
+instance Data.ToQuery DeleteProxySession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteProxySessionResponse' smart constructor.

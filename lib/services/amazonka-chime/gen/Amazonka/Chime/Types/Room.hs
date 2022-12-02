@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.Room where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Chime chat room details.
@@ -28,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newRoom' smart constructor.
 data Room = Room'
   { -- | The room name.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The room ID.
     roomId :: Prelude.Maybe Prelude.Text,
     -- | The room creation timestamp, in ISO 8601 format.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The room update timestamp, in ISO 8601 format.
-    updatedTimestamp :: Prelude.Maybe Core.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Chime account ID.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the room creator.
@@ -75,7 +76,7 @@ newRoom =
 
 -- | The room name.
 room_name :: Lens.Lens' Room (Prelude.Maybe Prelude.Text)
-room_name = Lens.lens (\Room' {name} -> name) (\s@Room' {} a -> s {name = a} :: Room) Prelude.. Lens.mapping Core._Sensitive
+room_name = Lens.lens (\Room' {name} -> name) (\s@Room' {} a -> s {name = a} :: Room) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The room ID.
 room_roomId :: Lens.Lens' Room (Prelude.Maybe Prelude.Text)
@@ -83,11 +84,11 @@ room_roomId = Lens.lens (\Room' {roomId} -> roomId) (\s@Room' {} a -> s {roomId 
 
 -- | The room creation timestamp, in ISO 8601 format.
 room_createdTimestamp :: Lens.Lens' Room (Prelude.Maybe Prelude.UTCTime)
-room_createdTimestamp = Lens.lens (\Room' {createdTimestamp} -> createdTimestamp) (\s@Room' {} a -> s {createdTimestamp = a} :: Room) Prelude.. Lens.mapping Core._Time
+room_createdTimestamp = Lens.lens (\Room' {createdTimestamp} -> createdTimestamp) (\s@Room' {} a -> s {createdTimestamp = a} :: Room) Prelude.. Lens.mapping Data._Time
 
 -- | The room update timestamp, in ISO 8601 format.
 room_updatedTimestamp :: Lens.Lens' Room (Prelude.Maybe Prelude.UTCTime)
-room_updatedTimestamp = Lens.lens (\Room' {updatedTimestamp} -> updatedTimestamp) (\s@Room' {} a -> s {updatedTimestamp = a} :: Room) Prelude.. Lens.mapping Core._Time
+room_updatedTimestamp = Lens.lens (\Room' {updatedTimestamp} -> updatedTimestamp) (\s@Room' {} a -> s {updatedTimestamp = a} :: Room) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Chime account ID.
 room_accountId :: Lens.Lens' Room (Prelude.Maybe Prelude.Text)
@@ -97,18 +98,18 @@ room_accountId = Lens.lens (\Room' {accountId} -> accountId) (\s@Room' {} a -> s
 room_createdBy :: Lens.Lens' Room (Prelude.Maybe Prelude.Text)
 room_createdBy = Lens.lens (\Room' {createdBy} -> createdBy) (\s@Room' {} a -> s {createdBy = a} :: Room)
 
-instance Core.FromJSON Room where
+instance Data.FromJSON Room where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Room"
       ( \x ->
           Room'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "RoomId")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "UpdatedTimestamp")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "CreatedBy")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "RoomId")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "UpdatedTimestamp")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "CreatedBy")
       )
 
 instance Prelude.Hashable Room where

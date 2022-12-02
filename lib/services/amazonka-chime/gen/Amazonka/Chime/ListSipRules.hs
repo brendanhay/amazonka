@@ -45,6 +45,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,8 +106,8 @@ instance Core.AWSRequest ListSipRules where
     Response.receiveJSON
       ( \s h x ->
           ListSipRulesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "SipRules" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "SipRules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,19 +123,19 @@ instance Prelude.NFData ListSipRules where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf sipMediaApplicationId
 
-instance Core.ToHeaders ListSipRules where
+instance Data.ToHeaders ListSipRules where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListSipRules where
+instance Data.ToPath ListSipRules where
   toPath = Prelude.const "/sip-rules"
 
-instance Core.ToQuery ListSipRules where
+instance Data.ToQuery ListSipRules where
   toQuery ListSipRules' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults,
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults,
         "sip-media-application"
-          Core.=: sipMediaApplicationId
+          Data.=: sipMediaApplicationId
       ]
 
 -- | /See:/ 'newListSipRulesResponse' smart constructor.

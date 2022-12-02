@@ -43,6 +43,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,7 +107,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           PutAppInstanceStreamingConfigurationsResponse'
-            Prelude.<$> (x Core..?> "AppInstanceStreamingConfigurations")
+            Prelude.<$> (x Data..?> "AppInstanceStreamingConfigurations")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,38 +130,38 @@ instance
       `Prelude.seq` Prelude.rnf appInstanceStreamingConfigurations
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutAppInstanceStreamingConfigurations
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     PutAppInstanceStreamingConfigurations
   where
   toJSON PutAppInstanceStreamingConfigurations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "AppInstanceStreamingConfigurations"
-                  Core..= appInstanceStreamingConfigurations
+                  Data..= appInstanceStreamingConfigurations
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     PutAppInstanceStreamingConfigurations
   where
   toPath PutAppInstanceStreamingConfigurations' {..} =
     Prelude.mconcat
       [ "/app-instances/",
-        Core.toBS appInstanceArn,
+        Data.toBS appInstanceArn,
         "/streaming-configurations"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PutAppInstanceStreamingConfigurations
   where
   toQuery = Prelude.const Prelude.mempty

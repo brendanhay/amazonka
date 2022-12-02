@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.EventsConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration that allows a bot to receive outgoing events. Can be
@@ -29,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEventsConfiguration' smart constructor.
 data EventsConfiguration = EventsConfiguration'
   { -- | HTTPS endpoint that allows a bot to receive outgoing events.
-    outboundEventsHTTPSEndpoint :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    outboundEventsHTTPSEndpoint :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The bot ID.
     botId :: Prelude.Maybe Prelude.Text,
     -- | Lambda function ARN that allows a bot to receive outgoing events.
-    lambdaFunctionArn :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    lambdaFunctionArn :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -62,7 +63,7 @@ newEventsConfiguration =
 
 -- | HTTPS endpoint that allows a bot to receive outgoing events.
 eventsConfiguration_outboundEventsHTTPSEndpoint :: Lens.Lens' EventsConfiguration (Prelude.Maybe Prelude.Text)
-eventsConfiguration_outboundEventsHTTPSEndpoint = Lens.lens (\EventsConfiguration' {outboundEventsHTTPSEndpoint} -> outboundEventsHTTPSEndpoint) (\s@EventsConfiguration' {} a -> s {outboundEventsHTTPSEndpoint = a} :: EventsConfiguration) Prelude.. Lens.mapping Core._Sensitive
+eventsConfiguration_outboundEventsHTTPSEndpoint = Lens.lens (\EventsConfiguration' {outboundEventsHTTPSEndpoint} -> outboundEventsHTTPSEndpoint) (\s@EventsConfiguration' {} a -> s {outboundEventsHTTPSEndpoint = a} :: EventsConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The bot ID.
 eventsConfiguration_botId :: Lens.Lens' EventsConfiguration (Prelude.Maybe Prelude.Text)
@@ -70,17 +71,17 @@ eventsConfiguration_botId = Lens.lens (\EventsConfiguration' {botId} -> botId) (
 
 -- | Lambda function ARN that allows a bot to receive outgoing events.
 eventsConfiguration_lambdaFunctionArn :: Lens.Lens' EventsConfiguration (Prelude.Maybe Prelude.Text)
-eventsConfiguration_lambdaFunctionArn = Lens.lens (\EventsConfiguration' {lambdaFunctionArn} -> lambdaFunctionArn) (\s@EventsConfiguration' {} a -> s {lambdaFunctionArn = a} :: EventsConfiguration) Prelude.. Lens.mapping Core._Sensitive
+eventsConfiguration_lambdaFunctionArn = Lens.lens (\EventsConfiguration' {lambdaFunctionArn} -> lambdaFunctionArn) (\s@EventsConfiguration' {} a -> s {lambdaFunctionArn = a} :: EventsConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON EventsConfiguration where
+instance Data.FromJSON EventsConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventsConfiguration"
       ( \x ->
           EventsConfiguration'
-            Prelude.<$> (x Core..:? "OutboundEventsHTTPSEndpoint")
-            Prelude.<*> (x Core..:? "BotId")
-            Prelude.<*> (x Core..:? "LambdaFunctionArn")
+            Prelude.<$> (x Data..:? "OutboundEventsHTTPSEndpoint")
+            Prelude.<*> (x Data..:? "BotId")
+            Prelude.<*> (x Data..:? "LambdaFunctionArn")
       )
 
 instance Prelude.Hashable EventsConfiguration where

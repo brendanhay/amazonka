@@ -40,6 +40,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,17 +93,17 @@ instance Prelude.NFData DeleteVoiceConnectorGroup where
   rnf DeleteVoiceConnectorGroup' {..} =
     Prelude.rnf voiceConnectorGroupId
 
-instance Core.ToHeaders DeleteVoiceConnectorGroup where
+instance Data.ToHeaders DeleteVoiceConnectorGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteVoiceConnectorGroup where
+instance Data.ToPath DeleteVoiceConnectorGroup where
   toPath DeleteVoiceConnectorGroup' {..} =
     Prelude.mconcat
       [ "/voice-connector-groups/",
-        Core.toBS voiceConnectorGroupId
+        Data.toBS voiceConnectorGroupId
       ]
 
-instance Core.ToQuery DeleteVoiceConnectorGroup where
+instance Data.ToQuery DeleteVoiceConnectorGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteVoiceConnectorGroupResponse' smart constructor.

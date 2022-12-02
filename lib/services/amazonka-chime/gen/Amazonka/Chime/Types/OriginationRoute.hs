@@ -22,6 +22,7 @@ module Amazonka.Chime.Types.OriginationRoute where
 import Amazonka.Chime.Types.OriginationRouteProtocol
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Origination routes define call distribution properties for your SIP
@@ -103,17 +104,17 @@ originationRoute_weight = Lens.lens (\OriginationRoute' {weight} -> weight) (\s@
 originationRoute_protocol :: Lens.Lens' OriginationRoute (Prelude.Maybe OriginationRouteProtocol)
 originationRoute_protocol = Lens.lens (\OriginationRoute' {protocol} -> protocol) (\s@OriginationRoute' {} a -> s {protocol = a} :: OriginationRoute)
 
-instance Core.FromJSON OriginationRoute where
+instance Data.FromJSON OriginationRoute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OriginationRoute"
       ( \x ->
           OriginationRoute'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "Host")
-            Prelude.<*> (x Core..:? "Priority")
-            Prelude.<*> (x Core..:? "Weight")
-            Prelude.<*> (x Core..:? "Protocol")
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "Host")
+            Prelude.<*> (x Data..:? "Priority")
+            Prelude.<*> (x Data..:? "Weight")
+            Prelude.<*> (x Data..:? "Protocol")
       )
 
 instance Prelude.Hashable OriginationRoute where
@@ -132,14 +133,14 @@ instance Prelude.NFData OriginationRoute where
       `Prelude.seq` Prelude.rnf weight
       `Prelude.seq` Prelude.rnf protocol
 
-instance Core.ToJSON OriginationRoute where
+instance Data.ToJSON OriginationRoute where
   toJSON OriginationRoute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Port" Core..=) Prelude.<$> port,
-            ("Host" Core..=) Prelude.<$> host,
-            ("Priority" Core..=) Prelude.<$> priority,
-            ("Weight" Core..=) Prelude.<$> weight,
-            ("Protocol" Core..=) Prelude.<$> protocol
+          [ ("Port" Data..=) Prelude.<$> port,
+            ("Host" Data..=) Prelude.<$> host,
+            ("Priority" Data..=) Prelude.<$> priority,
+            ("Weight" Data..=) Prelude.<$> weight,
+            ("Protocol" Data..=) Prelude.<$> protocol
           ]
       )

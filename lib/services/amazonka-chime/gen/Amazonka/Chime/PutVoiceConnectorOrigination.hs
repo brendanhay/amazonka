@@ -47,6 +47,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,7 +105,7 @@ instance Core.AWSRequest PutVoiceConnectorOrigination where
     Response.receiveJSON
       ( \s h x ->
           PutVoiceConnectorOriginationResponse'
-            Prelude.<$> (x Core..?> "Origination")
+            Prelude.<$> (x Data..?> "Origination")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,25 +122,25 @@ instance Prelude.NFData PutVoiceConnectorOrigination where
     Prelude.rnf voiceConnectorId
       `Prelude.seq` Prelude.rnf origination
 
-instance Core.ToHeaders PutVoiceConnectorOrigination where
+instance Data.ToHeaders PutVoiceConnectorOrigination where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON PutVoiceConnectorOrigination where
+instance Data.ToJSON PutVoiceConnectorOrigination where
   toJSON PutVoiceConnectorOrigination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Origination" Core..= origination)]
+          [Prelude.Just ("Origination" Data..= origination)]
       )
 
-instance Core.ToPath PutVoiceConnectorOrigination where
+instance Data.ToPath PutVoiceConnectorOrigination where
   toPath PutVoiceConnectorOrigination' {..} =
     Prelude.mconcat
       [ "/voice-connectors/",
-        Core.toBS voiceConnectorId,
+        Data.toBS voiceConnectorId,
         "/origination"
       ]
 
-instance Core.ToQuery PutVoiceConnectorOrigination where
+instance Data.ToQuery PutVoiceConnectorOrigination where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutVoiceConnectorOriginationResponse' smart constructor.

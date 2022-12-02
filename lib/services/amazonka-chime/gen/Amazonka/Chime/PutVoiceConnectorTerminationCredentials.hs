@@ -40,6 +40,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,34 +119,34 @@ instance
       `Prelude.seq` Prelude.rnf voiceConnectorId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutVoiceConnectorTerminationCredentials
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     PutVoiceConnectorTerminationCredentials
   where
   toJSON PutVoiceConnectorTerminationCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Credentials" Core..=) Prelude.<$> credentials]
+          [("Credentials" Data..=) Prelude.<$> credentials]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     PutVoiceConnectorTerminationCredentials
   where
   toPath PutVoiceConnectorTerminationCredentials' {..} =
     Prelude.mconcat
       [ "/voice-connectors/",
-        Core.toBS voiceConnectorId,
+        Data.toBS voiceConnectorId,
         "/termination/credentials"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PutVoiceConnectorTerminationCredentials
   where
   toQuery =

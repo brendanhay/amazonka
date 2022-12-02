@@ -41,6 +41,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,27 +121,27 @@ instance Prelude.NFData UpdateUserSettings where
       `Prelude.seq` Prelude.rnf userId
       `Prelude.seq` Prelude.rnf userSettings
 
-instance Core.ToHeaders UpdateUserSettings where
+instance Data.ToHeaders UpdateUserSettings where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateUserSettings where
+instance Data.ToJSON UpdateUserSettings where
   toJSON UpdateUserSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("UserSettings" Core..= userSettings)]
+          [Prelude.Just ("UserSettings" Data..= userSettings)]
       )
 
-instance Core.ToPath UpdateUserSettings where
+instance Data.ToPath UpdateUserSettings where
   toPath UpdateUserSettings' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/users/",
-        Core.toBS userId,
+        Data.toBS userId,
         "/settings"
       ]
 
-instance Core.ToQuery UpdateUserSettings where
+instance Data.ToQuery UpdateUserSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateUserSettingsResponse' smart constructor.

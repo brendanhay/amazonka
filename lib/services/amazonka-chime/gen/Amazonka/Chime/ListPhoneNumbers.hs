@@ -50,6 +50,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,8 +137,8 @@ instance Core.AWSRequest ListPhoneNumbers where
     Response.receiveJSON
       ( \s h x ->
           ListPhoneNumbersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "PhoneNumbers" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "PhoneNumbers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,21 +160,21 @@ instance Prelude.NFData ListPhoneNumbers where
       `Prelude.seq` Prelude.rnf filterName
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListPhoneNumbers where
+instance Data.ToHeaders ListPhoneNumbers where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListPhoneNumbers where
+instance Data.ToPath ListPhoneNumbers where
   toPath = Prelude.const "/phone-numbers"
 
-instance Core.ToQuery ListPhoneNumbers where
+instance Data.ToQuery ListPhoneNumbers where
   toQuery ListPhoneNumbers' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "product-type" Core.=: productType,
-        "filter-value" Core.=: filterValue,
-        "status" Core.=: status,
-        "filter-name" Core.=: filterName,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "product-type" Data.=: productType,
+        "filter-value" Data.=: filterValue,
+        "status" Data.=: status,
+        "filter-name" Data.=: filterName,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListPhoneNumbersResponse' smart constructor.

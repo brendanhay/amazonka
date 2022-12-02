@@ -46,6 +46,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -55,7 +56,7 @@ data CreatePhoneNumberOrder = CreatePhoneNumberOrder'
   { -- | The phone number product type.
     productType :: PhoneNumberProductType,
     -- | List of phone numbers, in E.164 format.
-    e164PhoneNumbers :: [Core.Sensitive Prelude.Text]
+    e164PhoneNumbers :: [Data.Sensitive Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -99,7 +100,7 @@ instance Core.AWSRequest CreatePhoneNumberOrder where
     Response.receiveJSON
       ( \s h x ->
           CreatePhoneNumberOrderResponse'
-            Prelude.<$> (x Core..?> "PhoneNumberOrder")
+            Prelude.<$> (x Data..?> "PhoneNumberOrder")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,23 +114,23 @@ instance Prelude.NFData CreatePhoneNumberOrder where
     Prelude.rnf productType
       `Prelude.seq` Prelude.rnf e164PhoneNumbers
 
-instance Core.ToHeaders CreatePhoneNumberOrder where
+instance Data.ToHeaders CreatePhoneNumberOrder where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreatePhoneNumberOrder where
+instance Data.ToJSON CreatePhoneNumberOrder where
   toJSON CreatePhoneNumberOrder' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ProductType" Core..= productType),
+          [ Prelude.Just ("ProductType" Data..= productType),
             Prelude.Just
-              ("E164PhoneNumbers" Core..= e164PhoneNumbers)
+              ("E164PhoneNumbers" Data..= e164PhoneNumbers)
           ]
       )
 
-instance Core.ToPath CreatePhoneNumberOrder where
+instance Data.ToPath CreatePhoneNumberOrder where
   toPath = Prelude.const "/phone-number-orders"
 
-instance Core.ToQuery CreatePhoneNumberOrder where
+instance Data.ToQuery CreatePhoneNumberOrder where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePhoneNumberOrderResponse' smart constructor.

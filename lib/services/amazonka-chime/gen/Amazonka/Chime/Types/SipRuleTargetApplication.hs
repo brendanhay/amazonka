@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.SipRuleTargetApplication where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Target SIP media application and other details, such as priority and AWS
@@ -73,15 +74,15 @@ sipRuleTargetApplication_awsRegion = Lens.lens (\SipRuleTargetApplication' {awsR
 sipRuleTargetApplication_sipMediaApplicationId :: Lens.Lens' SipRuleTargetApplication (Prelude.Maybe Prelude.Text)
 sipRuleTargetApplication_sipMediaApplicationId = Lens.lens (\SipRuleTargetApplication' {sipMediaApplicationId} -> sipMediaApplicationId) (\s@SipRuleTargetApplication' {} a -> s {sipMediaApplicationId = a} :: SipRuleTargetApplication)
 
-instance Core.FromJSON SipRuleTargetApplication where
+instance Data.FromJSON SipRuleTargetApplication where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SipRuleTargetApplication"
       ( \x ->
           SipRuleTargetApplication'
-            Prelude.<$> (x Core..:? "Priority")
-            Prelude.<*> (x Core..:? "AwsRegion")
-            Prelude.<*> (x Core..:? "SipMediaApplicationId")
+            Prelude.<$> (x Data..:? "Priority")
+            Prelude.<*> (x Data..:? "AwsRegion")
+            Prelude.<*> (x Data..:? "SipMediaApplicationId")
       )
 
 instance Prelude.Hashable SipRuleTargetApplication where
@@ -96,13 +97,13 @@ instance Prelude.NFData SipRuleTargetApplication where
       `Prelude.seq` Prelude.rnf awsRegion
       `Prelude.seq` Prelude.rnf sipMediaApplicationId
 
-instance Core.ToJSON SipRuleTargetApplication where
+instance Data.ToJSON SipRuleTargetApplication where
   toJSON SipRuleTargetApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Priority" Core..=) Prelude.<$> priority,
-            ("AwsRegion" Core..=) Prelude.<$> awsRegion,
-            ("SipMediaApplicationId" Core..=)
+          [ ("Priority" Data..=) Prelude.<$> priority,
+            ("AwsRegion" Data..=) Prelude.<$> awsRegion,
+            ("SipMediaApplicationId" Data..=)
               Prelude.<$> sipMediaApplicationId
           ]
       )

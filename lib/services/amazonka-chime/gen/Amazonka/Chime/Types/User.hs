@@ -26,6 +26,7 @@ import Amazonka.Chime.Types.RegistrationStatus
 import Amazonka.Chime.Types.UserType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The user on the Amazon Chime account.
@@ -36,25 +37,25 @@ data User = User'
     personalPIN :: Prelude.Maybe Prelude.Text,
     -- | Date and time when the user is invited to the Amazon Chime account, in
     -- ISO 8601 format.
-    invitedOn :: Prelude.Maybe Core.POSIX,
+    invitedOn :: Prelude.Maybe Data.POSIX,
     -- | The license type for the user.
     licenseType :: Prelude.Maybe License,
     -- | The display name of the user.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Alexa for Business metadata.
     alexaForBusinessMetadata :: Prelude.Maybe AlexaForBusinessMetadata,
     -- | The user type.
     userType :: Prelude.Maybe UserType,
     -- | Date and time when the user is registered, in ISO 8601 format.
-    registeredOn :: Prelude.Maybe Core.POSIX,
+    registeredOn :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Chime account ID.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The user registration status.
     userRegistrationStatus :: Prelude.Maybe RegistrationStatus,
     -- | The primary email address of the user.
-    primaryEmail :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    primaryEmail :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The primary phone number associated with the user.
-    primaryProvisionedNumber :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    primaryProvisionedNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The user invite status.
     userInvitationStatus :: Prelude.Maybe InviteStatus,
     -- | The user ID.
@@ -124,7 +125,7 @@ user_personalPIN = Lens.lens (\User' {personalPIN} -> personalPIN) (\s@User' {} 
 -- | Date and time when the user is invited to the Amazon Chime account, in
 -- ISO 8601 format.
 user_invitedOn :: Lens.Lens' User (Prelude.Maybe Prelude.UTCTime)
-user_invitedOn = Lens.lens (\User' {invitedOn} -> invitedOn) (\s@User' {} a -> s {invitedOn = a} :: User) Prelude.. Lens.mapping Core._Time
+user_invitedOn = Lens.lens (\User' {invitedOn} -> invitedOn) (\s@User' {} a -> s {invitedOn = a} :: User) Prelude.. Lens.mapping Data._Time
 
 -- | The license type for the user.
 user_licenseType :: Lens.Lens' User (Prelude.Maybe License)
@@ -132,7 +133,7 @@ user_licenseType = Lens.lens (\User' {licenseType} -> licenseType) (\s@User' {} 
 
 -- | The display name of the user.
 user_displayName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_displayName = Lens.lens (\User' {displayName} -> displayName) (\s@User' {} a -> s {displayName = a} :: User) Prelude.. Lens.mapping Core._Sensitive
+user_displayName = Lens.lens (\User' {displayName} -> displayName) (\s@User' {} a -> s {displayName = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Alexa for Business metadata.
 user_alexaForBusinessMetadata :: Lens.Lens' User (Prelude.Maybe AlexaForBusinessMetadata)
@@ -144,7 +145,7 @@ user_userType = Lens.lens (\User' {userType} -> userType) (\s@User' {} a -> s {u
 
 -- | Date and time when the user is registered, in ISO 8601 format.
 user_registeredOn :: Lens.Lens' User (Prelude.Maybe Prelude.UTCTime)
-user_registeredOn = Lens.lens (\User' {registeredOn} -> registeredOn) (\s@User' {} a -> s {registeredOn = a} :: User) Prelude.. Lens.mapping Core._Time
+user_registeredOn = Lens.lens (\User' {registeredOn} -> registeredOn) (\s@User' {} a -> s {registeredOn = a} :: User) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Chime account ID.
 user_accountId :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
@@ -156,11 +157,11 @@ user_userRegistrationStatus = Lens.lens (\User' {userRegistrationStatus} -> user
 
 -- | The primary email address of the user.
 user_primaryEmail :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_primaryEmail = Lens.lens (\User' {primaryEmail} -> primaryEmail) (\s@User' {} a -> s {primaryEmail = a} :: User) Prelude.. Lens.mapping Core._Sensitive
+user_primaryEmail = Lens.lens (\User' {primaryEmail} -> primaryEmail) (\s@User' {} a -> s {primaryEmail = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The primary phone number associated with the user.
 user_primaryProvisionedNumber :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_primaryProvisionedNumber = Lens.lens (\User' {primaryProvisionedNumber} -> primaryProvisionedNumber) (\s@User' {} a -> s {primaryProvisionedNumber = a} :: User) Prelude.. Lens.mapping Core._Sensitive
+user_primaryProvisionedNumber = Lens.lens (\User' {primaryProvisionedNumber} -> primaryProvisionedNumber) (\s@User' {} a -> s {primaryProvisionedNumber = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The user invite status.
 user_userInvitationStatus :: Lens.Lens' User (Prelude.Maybe InviteStatus)
@@ -170,25 +171,25 @@ user_userInvitationStatus = Lens.lens (\User' {userInvitationStatus} -> userInvi
 user_userId :: Lens.Lens' User Prelude.Text
 user_userId = Lens.lens (\User' {userId} -> userId) (\s@User' {} a -> s {userId = a} :: User)
 
-instance Core.FromJSON User where
+instance Data.FromJSON User where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "User"
       ( \x ->
           User'
-            Prelude.<$> (x Core..:? "PersonalPIN")
-            Prelude.<*> (x Core..:? "InvitedOn")
-            Prelude.<*> (x Core..:? "LicenseType")
-            Prelude.<*> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..:? "AlexaForBusinessMetadata")
-            Prelude.<*> (x Core..:? "UserType")
-            Prelude.<*> (x Core..:? "RegisteredOn")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "UserRegistrationStatus")
-            Prelude.<*> (x Core..:? "PrimaryEmail")
-            Prelude.<*> (x Core..:? "PrimaryProvisionedNumber")
-            Prelude.<*> (x Core..:? "UserInvitationStatus")
-            Prelude.<*> (x Core..: "UserId")
+            Prelude.<$> (x Data..:? "PersonalPIN")
+            Prelude.<*> (x Data..:? "InvitedOn")
+            Prelude.<*> (x Data..:? "LicenseType")
+            Prelude.<*> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..:? "AlexaForBusinessMetadata")
+            Prelude.<*> (x Data..:? "UserType")
+            Prelude.<*> (x Data..:? "RegisteredOn")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "UserRegistrationStatus")
+            Prelude.<*> (x Data..:? "PrimaryEmail")
+            Prelude.<*> (x Data..:? "PrimaryProvisionedNumber")
+            Prelude.<*> (x Data..:? "UserInvitationStatus")
+            Prelude.<*> (x Data..: "UserId")
       )
 
 instance Prelude.Hashable User where

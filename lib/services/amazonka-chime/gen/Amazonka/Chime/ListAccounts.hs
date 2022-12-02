@@ -51,6 +51,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -62,7 +63,7 @@ data ListAccounts = ListAccounts'
     -- | The token to use to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | User email address with which to filter results.
-    userEmail :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    userEmail :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The maximum number of results to return in a single call. Defaults to
     -- 100.
     maxResults :: Prelude.Maybe Prelude.Natural
@@ -105,7 +106,7 @@ listAccounts_nextToken = Lens.lens (\ListAccounts' {nextToken} -> nextToken) (\s
 
 -- | User email address with which to filter results.
 listAccounts_userEmail :: Lens.Lens' ListAccounts (Prelude.Maybe Prelude.Text)
-listAccounts_userEmail = Lens.lens (\ListAccounts' {userEmail} -> userEmail) (\s@ListAccounts' {} a -> s {userEmail = a} :: ListAccounts) Prelude.. Lens.mapping Core._Sensitive
+listAccounts_userEmail = Lens.lens (\ListAccounts' {userEmail} -> userEmail) (\s@ListAccounts' {} a -> s {userEmail = a} :: ListAccounts) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The maximum number of results to return in a single call. Defaults to
 -- 100.
@@ -139,8 +140,8 @@ instance Core.AWSRequest ListAccounts where
     Response.receiveJSON
       ( \s h x ->
           ListAccountsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Accounts" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Accounts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,19 +159,19 @@ instance Prelude.NFData ListAccounts where
       `Prelude.seq` Prelude.rnf userEmail
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListAccounts where
+instance Data.ToHeaders ListAccounts where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListAccounts where
+instance Data.ToPath ListAccounts where
   toPath = Prelude.const "/accounts"
 
-instance Core.ToQuery ListAccounts where
+instance Data.ToQuery ListAccounts where
   toQuery ListAccounts' {..} =
     Prelude.mconcat
-      [ "name" Core.=: name,
-        "next-token" Core.=: nextToken,
-        "user-email" Core.=: userEmail,
-        "max-results" Core.=: maxResults
+      [ "name" Data.=: name,
+        "next-token" Data.=: nextToken,
+        "user-email" Data.=: userEmail,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListAccountsResponse' smart constructor.

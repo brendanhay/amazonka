@@ -22,6 +22,7 @@ module Amazonka.Chime.Types.VoiceConnector where
 import Amazonka.Chime.Types.VoiceConnectorAwsRegion
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Chime Voice Connector configuration, including outbound host
@@ -37,9 +38,9 @@ data VoiceConnector = VoiceConnector'
     -- Connector.
     requireEncryption :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Chime Voice Connector creation timestamp, in ISO 8601 format.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The updated Amazon Chime Voice Connector timestamp, in ISO 8601 format.
-    updatedTimestamp :: Prelude.Maybe Core.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The AWS Region in which the Amazon Chime Voice Connector is created.
     -- Default: @us-east-1@.
     awsRegion :: Prelude.Maybe VoiceConnectorAwsRegion,
@@ -104,11 +105,11 @@ voiceConnector_requireEncryption = Lens.lens (\VoiceConnector' {requireEncryptio
 
 -- | The Amazon Chime Voice Connector creation timestamp, in ISO 8601 format.
 voiceConnector_createdTimestamp :: Lens.Lens' VoiceConnector (Prelude.Maybe Prelude.UTCTime)
-voiceConnector_createdTimestamp = Lens.lens (\VoiceConnector' {createdTimestamp} -> createdTimestamp) (\s@VoiceConnector' {} a -> s {createdTimestamp = a} :: VoiceConnector) Prelude.. Lens.mapping Core._Time
+voiceConnector_createdTimestamp = Lens.lens (\VoiceConnector' {createdTimestamp} -> createdTimestamp) (\s@VoiceConnector' {} a -> s {createdTimestamp = a} :: VoiceConnector) Prelude.. Lens.mapping Data._Time
 
 -- | The updated Amazon Chime Voice Connector timestamp, in ISO 8601 format.
 voiceConnector_updatedTimestamp :: Lens.Lens' VoiceConnector (Prelude.Maybe Prelude.UTCTime)
-voiceConnector_updatedTimestamp = Lens.lens (\VoiceConnector' {updatedTimestamp} -> updatedTimestamp) (\s@VoiceConnector' {} a -> s {updatedTimestamp = a} :: VoiceConnector) Prelude.. Lens.mapping Core._Time
+voiceConnector_updatedTimestamp = Lens.lens (\VoiceConnector' {updatedTimestamp} -> updatedTimestamp) (\s@VoiceConnector' {} a -> s {updatedTimestamp = a} :: VoiceConnector) Prelude.. Lens.mapping Data._Time
 
 -- | The AWS Region in which the Amazon Chime Voice Connector is created.
 -- Default: @us-east-1@.
@@ -123,20 +124,20 @@ voiceConnector_voiceConnectorArn = Lens.lens (\VoiceConnector' {voiceConnectorAr
 voiceConnector_outboundHostName :: Lens.Lens' VoiceConnector (Prelude.Maybe Prelude.Text)
 voiceConnector_outboundHostName = Lens.lens (\VoiceConnector' {outboundHostName} -> outboundHostName) (\s@VoiceConnector' {} a -> s {outboundHostName = a} :: VoiceConnector)
 
-instance Core.FromJSON VoiceConnector where
+instance Data.FromJSON VoiceConnector where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VoiceConnector"
       ( \x ->
           VoiceConnector'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "VoiceConnectorId")
-            Prelude.<*> (x Core..:? "RequireEncryption")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "UpdatedTimestamp")
-            Prelude.<*> (x Core..:? "AwsRegion")
-            Prelude.<*> (x Core..:? "VoiceConnectorArn")
-            Prelude.<*> (x Core..:? "OutboundHostName")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "VoiceConnectorId")
+            Prelude.<*> (x Data..:? "RequireEncryption")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "UpdatedTimestamp")
+            Prelude.<*> (x Data..:? "AwsRegion")
+            Prelude.<*> (x Data..:? "VoiceConnectorArn")
+            Prelude.<*> (x Data..:? "OutboundHostName")
       )
 
 instance Prelude.Hashable VoiceConnector where

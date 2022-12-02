@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.Attendee where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Amazon Chime SDK meeting attendee. Includes a unique @AttendeeId@ and
@@ -37,11 +38,11 @@ import qualified Amazonka.Prelude as Prelude
 data Attendee = Attendee'
   { -- | The Amazon Chime SDK external user ID. An idempotency token. Links the
     -- attendee to an identity managed by a builder application.
-    externalUserId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    externalUserId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Chime SDK attendee ID.
     attendeeId :: Prelude.Maybe Prelude.Text,
     -- | The join token used by the Amazon Chime SDK attendee.
-    joinToken :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    joinToken :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -71,7 +72,7 @@ newAttendee =
 -- | The Amazon Chime SDK external user ID. An idempotency token. Links the
 -- attendee to an identity managed by a builder application.
 attendee_externalUserId :: Lens.Lens' Attendee (Prelude.Maybe Prelude.Text)
-attendee_externalUserId = Lens.lens (\Attendee' {externalUserId} -> externalUserId) (\s@Attendee' {} a -> s {externalUserId = a} :: Attendee) Prelude.. Lens.mapping Core._Sensitive
+attendee_externalUserId = Lens.lens (\Attendee' {externalUserId} -> externalUserId) (\s@Attendee' {} a -> s {externalUserId = a} :: Attendee) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Chime SDK attendee ID.
 attendee_attendeeId :: Lens.Lens' Attendee (Prelude.Maybe Prelude.Text)
@@ -79,17 +80,17 @@ attendee_attendeeId = Lens.lens (\Attendee' {attendeeId} -> attendeeId) (\s@Atte
 
 -- | The join token used by the Amazon Chime SDK attendee.
 attendee_joinToken :: Lens.Lens' Attendee (Prelude.Maybe Prelude.Text)
-attendee_joinToken = Lens.lens (\Attendee' {joinToken} -> joinToken) (\s@Attendee' {} a -> s {joinToken = a} :: Attendee) Prelude.. Lens.mapping Core._Sensitive
+attendee_joinToken = Lens.lens (\Attendee' {joinToken} -> joinToken) (\s@Attendee' {} a -> s {joinToken = a} :: Attendee) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON Attendee where
+instance Data.FromJSON Attendee where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Attendee"
       ( \x ->
           Attendee'
-            Prelude.<$> (x Core..:? "ExternalUserId")
-            Prelude.<*> (x Core..:? "AttendeeId")
-            Prelude.<*> (x Core..:? "JoinToken")
+            Prelude.<$> (x Data..:? "ExternalUserId")
+            Prelude.<*> (x Data..:? "AttendeeId")
+            Prelude.<*> (x Data..:? "JoinToken")
       )
 
 instance Prelude.Hashable Attendee where

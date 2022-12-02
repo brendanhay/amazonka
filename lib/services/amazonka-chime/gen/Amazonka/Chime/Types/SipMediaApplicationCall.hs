@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.SipMediaApplicationCall where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A @Call@ instance for a SIP media application.
@@ -53,13 +54,13 @@ newSipMediaApplicationCall =
 sipMediaApplicationCall_transactionId :: Lens.Lens' SipMediaApplicationCall (Prelude.Maybe Prelude.Text)
 sipMediaApplicationCall_transactionId = Lens.lens (\SipMediaApplicationCall' {transactionId} -> transactionId) (\s@SipMediaApplicationCall' {} a -> s {transactionId = a} :: SipMediaApplicationCall)
 
-instance Core.FromJSON SipMediaApplicationCall where
+instance Data.FromJSON SipMediaApplicationCall where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SipMediaApplicationCall"
       ( \x ->
           SipMediaApplicationCall'
-            Prelude.<$> (x Core..:? "TransactionId")
+            Prelude.<$> (x Data..:? "TransactionId")
       )
 
 instance Prelude.Hashable SipMediaApplicationCall where

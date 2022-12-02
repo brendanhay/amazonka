@@ -40,6 +40,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -48,7 +49,7 @@ import qualified Amazonka.Response as Response
 data DeleteVoiceConnectorTerminationCredentials = DeleteVoiceConnectorTerminationCredentials'
   { -- | The RFC2617 compliant username associated with the SIP credentials, in
     -- US-ASCII format.
-    usernames :: [Core.Sensitive Prelude.Text],
+    usernames :: [Data.Sensitive Prelude.Text],
     -- | The Amazon Chime Voice Connector ID.
     voiceConnectorId :: Prelude.Text
   }
@@ -121,36 +122,36 @@ instance
       `Prelude.seq` Prelude.rnf voiceConnectorId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteVoiceConnectorTerminationCredentials
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DeleteVoiceConnectorTerminationCredentials
   where
   toJSON
     DeleteVoiceConnectorTerminationCredentials' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [Prelude.Just ("Usernames" Core..= usernames)]
+            [Prelude.Just ("Usernames" Data..= usernames)]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeleteVoiceConnectorTerminationCredentials
   where
   toPath
     DeleteVoiceConnectorTerminationCredentials' {..} =
       Prelude.mconcat
         [ "/voice-connectors/",
-          Core.toBS voiceConnectorId,
+          Data.toBS voiceConnectorId,
           "/termination/credentials"
         ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteVoiceConnectorTerminationCredentials
   where
   toQuery =

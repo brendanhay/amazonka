@@ -23,6 +23,7 @@ import Amazonka.Chime.Types.EmailStatus
 import Amazonka.Chime.Types.InviteStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Invitation object returned after emailing users to invite them to join
@@ -35,7 +36,7 @@ data Invite = Invite'
     -- | The status of the invite.
     status :: Prelude.Maybe InviteStatus,
     -- | The email address to which the invite is sent.
-    emailAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    emailAddress :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The invite ID.
     inviteId :: Prelude.Maybe Prelude.Text
   }
@@ -76,22 +77,22 @@ invite_status = Lens.lens (\Invite' {status} -> status) (\s@Invite' {} a -> s {s
 
 -- | The email address to which the invite is sent.
 invite_emailAddress :: Lens.Lens' Invite (Prelude.Maybe Prelude.Text)
-invite_emailAddress = Lens.lens (\Invite' {emailAddress} -> emailAddress) (\s@Invite' {} a -> s {emailAddress = a} :: Invite) Prelude.. Lens.mapping Core._Sensitive
+invite_emailAddress = Lens.lens (\Invite' {emailAddress} -> emailAddress) (\s@Invite' {} a -> s {emailAddress = a} :: Invite) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The invite ID.
 invite_inviteId :: Lens.Lens' Invite (Prelude.Maybe Prelude.Text)
 invite_inviteId = Lens.lens (\Invite' {inviteId} -> inviteId) (\s@Invite' {} a -> s {inviteId = a} :: Invite)
 
-instance Core.FromJSON Invite where
+instance Data.FromJSON Invite where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Invite"
       ( \x ->
           Invite'
-            Prelude.<$> (x Core..:? "EmailStatus")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "EmailAddress")
-            Prelude.<*> (x Core..:? "InviteId")
+            Prelude.<$> (x Data..:? "EmailStatus")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "EmailAddress")
+            Prelude.<*> (x Data..:? "InviteId")
       )
 
 instance Prelude.Hashable Invite where

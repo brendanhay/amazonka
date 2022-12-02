@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.Proxy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The proxy configuration for an Amazon Chime Voice Connector.
@@ -32,7 +33,7 @@ data Proxy = Proxy'
     -- | The default number of minutes allowed for proxy sessions.
     defaultSessionExpiryMinutes :: Prelude.Maybe Prelude.Int,
     -- | The phone number to route calls to after a proxy session expires.
-    fallBackPhoneNumber :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    fallBackPhoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | When true, stops proxy sessions from being created on the specified
     -- Amazon Chime Voice Connector.
     disabled :: Prelude.Maybe Prelude.Bool
@@ -75,25 +76,25 @@ proxy_defaultSessionExpiryMinutes = Lens.lens (\Proxy' {defaultSessionExpiryMinu
 
 -- | The phone number to route calls to after a proxy session expires.
 proxy_fallBackPhoneNumber :: Lens.Lens' Proxy (Prelude.Maybe Prelude.Text)
-proxy_fallBackPhoneNumber = Lens.lens (\Proxy' {fallBackPhoneNumber} -> fallBackPhoneNumber) (\s@Proxy' {} a -> s {fallBackPhoneNumber = a} :: Proxy) Prelude.. Lens.mapping Core._Sensitive
+proxy_fallBackPhoneNumber = Lens.lens (\Proxy' {fallBackPhoneNumber} -> fallBackPhoneNumber) (\s@Proxy' {} a -> s {fallBackPhoneNumber = a} :: Proxy) Prelude.. Lens.mapping Data._Sensitive
 
 -- | When true, stops proxy sessions from being created on the specified
 -- Amazon Chime Voice Connector.
 proxy_disabled :: Lens.Lens' Proxy (Prelude.Maybe Prelude.Bool)
 proxy_disabled = Lens.lens (\Proxy' {disabled} -> disabled) (\s@Proxy' {} a -> s {disabled = a} :: Proxy)
 
-instance Core.FromJSON Proxy where
+instance Data.FromJSON Proxy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Proxy"
       ( \x ->
           Proxy'
-            Prelude.<$> ( x Core..:? "PhoneNumberCountries"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "PhoneNumberCountries"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DefaultSessionExpiryMinutes")
-            Prelude.<*> (x Core..:? "FallBackPhoneNumber")
-            Prelude.<*> (x Core..:? "Disabled")
+            Prelude.<*> (x Data..:? "DefaultSessionExpiryMinutes")
+            Prelude.<*> (x Data..:? "FallBackPhoneNumber")
+            Prelude.<*> (x Data..:? "Disabled")
       )
 
 instance Prelude.Hashable Proxy where

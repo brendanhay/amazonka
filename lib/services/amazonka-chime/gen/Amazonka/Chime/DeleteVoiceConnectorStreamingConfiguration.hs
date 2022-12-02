@@ -39,6 +39,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,25 +106,25 @@ instance
     Prelude.rnf voiceConnectorId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteVoiceConnectorStreamingConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeleteVoiceConnectorStreamingConfiguration
   where
   toPath
     DeleteVoiceConnectorStreamingConfiguration' {..} =
       Prelude.mconcat
         [ "/voice-connectors/",
-          Core.toBS voiceConnectorId,
+          Data.toBS voiceConnectorId,
           "/streaming-configuration"
         ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteVoiceConnectorStreamingConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

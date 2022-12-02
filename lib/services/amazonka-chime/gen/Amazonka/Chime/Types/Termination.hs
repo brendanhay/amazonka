@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.Termination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Termination settings enable your SIP hosts to make outbound calls using
@@ -34,7 +35,7 @@ data Termination = Termination'
     -- Default value of 1.
     cpsLimit :: Prelude.Maybe Prelude.Natural,
     -- | The default caller ID phone number.
-    defaultPhoneNumber :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    defaultPhoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | When termination settings are disabled, outbound calls can not be made.
     disabled :: Prelude.Maybe Prelude.Bool,
     -- | The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
@@ -84,7 +85,7 @@ termination_cpsLimit = Lens.lens (\Termination' {cpsLimit} -> cpsLimit) (\s@Term
 
 -- | The default caller ID phone number.
 termination_defaultPhoneNumber :: Lens.Lens' Termination (Prelude.Maybe Prelude.Text)
-termination_defaultPhoneNumber = Lens.lens (\Termination' {defaultPhoneNumber} -> defaultPhoneNumber) (\s@Termination' {} a -> s {defaultPhoneNumber = a} :: Termination) Prelude.. Lens.mapping Core._Sensitive
+termination_defaultPhoneNumber = Lens.lens (\Termination' {defaultPhoneNumber} -> defaultPhoneNumber) (\s@Termination' {} a -> s {defaultPhoneNumber = a} :: Termination) Prelude.. Lens.mapping Data._Sensitive
 
 -- | When termination settings are disabled, outbound calls can not be made.
 termination_disabled :: Lens.Lens' Termination (Prelude.Maybe Prelude.Bool)
@@ -95,20 +96,20 @@ termination_disabled = Lens.lens (\Termination' {disabled} -> disabled) (\s@Term
 termination_callingRegions :: Lens.Lens' Termination (Prelude.Maybe [Prelude.Text])
 termination_callingRegions = Lens.lens (\Termination' {callingRegions} -> callingRegions) (\s@Termination' {} a -> s {callingRegions = a} :: Termination) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Termination where
+instance Data.FromJSON Termination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Termination"
       ( \x ->
           Termination'
-            Prelude.<$> ( x Core..:? "CidrAllowedList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "CidrAllowedList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CpsLimit")
-            Prelude.<*> (x Core..:? "DefaultPhoneNumber")
-            Prelude.<*> (x Core..:? "Disabled")
-            Prelude.<*> ( x Core..:? "CallingRegions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "CpsLimit")
+            Prelude.<*> (x Data..:? "DefaultPhoneNumber")
+            Prelude.<*> (x Data..:? "Disabled")
+            Prelude.<*> ( x Data..:? "CallingRegions"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -128,17 +129,17 @@ instance Prelude.NFData Termination where
       `Prelude.seq` Prelude.rnf disabled
       `Prelude.seq` Prelude.rnf callingRegions
 
-instance Core.ToJSON Termination where
+instance Data.ToJSON Termination where
   toJSON Termination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CidrAllowedList" Core..=)
+          [ ("CidrAllowedList" Data..=)
               Prelude.<$> cidrAllowedList,
-            ("CpsLimit" Core..=) Prelude.<$> cpsLimit,
-            ("DefaultPhoneNumber" Core..=)
+            ("CpsLimit" Data..=) Prelude.<$> cpsLimit,
+            ("DefaultPhoneNumber" Data..=)
               Prelude.<$> defaultPhoneNumber,
-            ("Disabled" Core..=) Prelude.<$> disabled,
-            ("CallingRegions" Core..=)
+            ("Disabled" Data..=) Prelude.<$> disabled,
+            ("CallingRegions" Data..=)
               Prelude.<$> callingRegions
           ]
       )

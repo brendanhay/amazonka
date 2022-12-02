@@ -44,6 +44,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,7 +106,7 @@ instance Core.AWSRequest UpdateSipMediaApplication where
     Response.receiveJSON
       ( \s h x ->
           UpdateSipMediaApplicationResponse'
-            Prelude.<$> (x Core..?> "SipMediaApplication")
+            Prelude.<$> (x Data..?> "SipMediaApplication")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,26 +122,26 @@ instance Prelude.NFData UpdateSipMediaApplication where
       `Prelude.seq` Prelude.rnf endpoints
       `Prelude.seq` Prelude.rnf sipMediaApplicationId
 
-instance Core.ToHeaders UpdateSipMediaApplication where
+instance Data.ToHeaders UpdateSipMediaApplication where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateSipMediaApplication where
+instance Data.ToJSON UpdateSipMediaApplication where
   toJSON UpdateSipMediaApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Endpoints" Core..=) Prelude.<$> endpoints
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Endpoints" Data..=) Prelude.<$> endpoints
           ]
       )
 
-instance Core.ToPath UpdateSipMediaApplication where
+instance Data.ToPath UpdateSipMediaApplication where
   toPath UpdateSipMediaApplication' {..} =
     Prelude.mconcat
       [ "/sip-media-applications/",
-        Core.toBS sipMediaApplicationId
+        Data.toBS sipMediaApplicationId
       ]
 
-instance Core.ToQuery UpdateSipMediaApplication where
+instance Data.ToQuery UpdateSipMediaApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSipMediaApplicationResponse' smart constructor.

@@ -47,6 +47,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -129,7 +130,7 @@ instance Core.AWSRequest UpdateUser where
     Response.receiveJSON
       ( \s h x ->
           UpdateUserResponse'
-            Prelude.<$> (x Core..?> "User")
+            Prelude.<$> (x Data..?> "User")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,30 +150,30 @@ instance Prelude.NFData UpdateUser where
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToHeaders UpdateUser where
+instance Data.ToHeaders UpdateUser where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateUser where
+instance Data.ToJSON UpdateUser where
   toJSON UpdateUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LicenseType" Core..=) Prelude.<$> licenseType,
-            ("AlexaForBusinessMetadata" Core..=)
+          [ ("LicenseType" Data..=) Prelude.<$> licenseType,
+            ("AlexaForBusinessMetadata" Data..=)
               Prelude.<$> alexaForBusinessMetadata,
-            ("UserType" Core..=) Prelude.<$> userType
+            ("UserType" Data..=) Prelude.<$> userType
           ]
       )
 
-instance Core.ToPath UpdateUser where
+instance Data.ToPath UpdateUser where
   toPath UpdateUser' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/users/",
-        Core.toBS userId
+        Data.toBS userId
       ]
 
-instance Core.ToQuery UpdateUser where
+instance Data.ToQuery UpdateUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateUserResponse' smart constructor.

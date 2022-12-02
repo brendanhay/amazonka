@@ -48,6 +48,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,7 +115,7 @@ instance Core.AWSRequest DescribeChannelModerator where
     Response.receiveJSON
       ( \s h x ->
           DescribeChannelModeratorResponse'
-            Prelude.<$> (x Core..?> "ChannelModerator")
+            Prelude.<$> (x Data..?> "ChannelModerator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,21 +131,21 @@ instance Prelude.NFData DescribeChannelModerator where
       `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf channelModeratorArn
 
-instance Core.ToHeaders DescribeChannelModerator where
+instance Data.ToHeaders DescribeChannelModerator where
   toHeaders DescribeChannelModerator' {..} =
     Prelude.mconcat
-      ["x-amz-chime-bearer" Core.=# chimeBearer]
+      ["x-amz-chime-bearer" Data.=# chimeBearer]
 
-instance Core.ToPath DescribeChannelModerator where
+instance Data.ToPath DescribeChannelModerator where
   toPath DescribeChannelModerator' {..} =
     Prelude.mconcat
       [ "/channels/",
-        Core.toBS channelArn,
+        Data.toBS channelArn,
         "/moderators/",
-        Core.toBS channelModeratorArn
+        Data.toBS channelModeratorArn
       ]
 
-instance Core.ToQuery DescribeChannelModerator where
+instance Data.ToQuery DescribeChannelModerator where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeChannelModeratorResponse' smart constructor.

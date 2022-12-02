@@ -44,6 +44,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,21 +119,21 @@ instance Prelude.NFData DeleteChannelBan where
       `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf memberArn
 
-instance Core.ToHeaders DeleteChannelBan where
+instance Data.ToHeaders DeleteChannelBan where
   toHeaders DeleteChannelBan' {..} =
     Prelude.mconcat
-      ["x-amz-chime-bearer" Core.=# chimeBearer]
+      ["x-amz-chime-bearer" Data.=# chimeBearer]
 
-instance Core.ToPath DeleteChannelBan where
+instance Data.ToPath DeleteChannelBan where
   toPath DeleteChannelBan' {..} =
     Prelude.mconcat
       [ "/channels/",
-        Core.toBS channelArn,
+        Data.toBS channelArn,
         "/bans/",
-        Core.toBS memberArn
+        Data.toBS memberArn
       ]
 
-instance Core.ToQuery DeleteChannelBan where
+instance Data.ToQuery DeleteChannelBan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteChannelBanResponse' smart constructor.

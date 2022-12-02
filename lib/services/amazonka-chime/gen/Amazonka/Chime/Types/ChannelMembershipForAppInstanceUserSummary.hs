@@ -23,6 +23,7 @@ import Amazonka.Chime.Types.AppInstanceUserMembershipSummary
 import Amazonka.Chime.Types.ChannelSummary
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of the channel membership details of an @AppInstanceUser@.
@@ -64,16 +65,16 @@ channelMembershipForAppInstanceUserSummary_appInstanceUserMembershipSummary :: L
 channelMembershipForAppInstanceUserSummary_appInstanceUserMembershipSummary = Lens.lens (\ChannelMembershipForAppInstanceUserSummary' {appInstanceUserMembershipSummary} -> appInstanceUserMembershipSummary) (\s@ChannelMembershipForAppInstanceUserSummary' {} a -> s {appInstanceUserMembershipSummary = a} :: ChannelMembershipForAppInstanceUserSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ChannelMembershipForAppInstanceUserSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelMembershipForAppInstanceUserSummary"
       ( \x ->
           ChannelMembershipForAppInstanceUserSummary'
-            Prelude.<$> (x Core..:? "ChannelSummary")
-              Prelude.<*> (x Core..:? "AppInstanceUserMembershipSummary")
+            Prelude.<$> (x Data..:? "ChannelSummary")
+              Prelude.<*> (x Data..:? "AppInstanceUserMembershipSummary")
       )
 
 instance

@@ -52,6 +52,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -61,11 +62,11 @@ data UpdateChannel = UpdateChannel'
   { -- | The @AppInstanceUserArn@ of the user that makes the API call.
     chimeBearer :: Prelude.Maybe Prelude.Text,
     -- | The metadata for the update request.
-    metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    metadata :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the channel.
     channelArn :: Prelude.Text,
     -- | The name of the channel.
-    name :: Core.Sensitive Prelude.Text,
+    name :: Data.Sensitive Prelude.Text,
     -- | The mode of the update request.
     mode :: ChannelMode
   }
@@ -101,7 +102,7 @@ newUpdateChannel pChannelArn_ pName_ pMode_ =
     { chimeBearer = Prelude.Nothing,
       metadata = Prelude.Nothing,
       channelArn = pChannelArn_,
-      name = Core._Sensitive Lens.# pName_,
+      name = Data._Sensitive Lens.# pName_,
       mode = pMode_
     }
 
@@ -111,7 +112,7 @@ updateChannel_chimeBearer = Lens.lens (\UpdateChannel' {chimeBearer} -> chimeBea
 
 -- | The metadata for the update request.
 updateChannel_metadata :: Lens.Lens' UpdateChannel (Prelude.Maybe Prelude.Text)
-updateChannel_metadata = Lens.lens (\UpdateChannel' {metadata} -> metadata) (\s@UpdateChannel' {} a -> s {metadata = a} :: UpdateChannel) Prelude.. Lens.mapping Core._Sensitive
+updateChannel_metadata = Lens.lens (\UpdateChannel' {metadata} -> metadata) (\s@UpdateChannel' {} a -> s {metadata = a} :: UpdateChannel) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARN of the channel.
 updateChannel_channelArn :: Lens.Lens' UpdateChannel Prelude.Text
@@ -119,7 +120,7 @@ updateChannel_channelArn = Lens.lens (\UpdateChannel' {channelArn} -> channelArn
 
 -- | The name of the channel.
 updateChannel_name :: Lens.Lens' UpdateChannel Prelude.Text
-updateChannel_name = Lens.lens (\UpdateChannel' {name} -> name) (\s@UpdateChannel' {} a -> s {name = a} :: UpdateChannel) Prelude.. Core._Sensitive
+updateChannel_name = Lens.lens (\UpdateChannel' {name} -> name) (\s@UpdateChannel' {} a -> s {name = a} :: UpdateChannel) Prelude.. Data._Sensitive
 
 -- | The mode of the update request.
 updateChannel_mode :: Lens.Lens' UpdateChannel ChannelMode
@@ -135,7 +136,7 @@ instance Core.AWSRequest UpdateChannel where
     Response.receiveJSON
       ( \s h x ->
           UpdateChannelResponse'
-            Prelude.<$> (x Core..?> "ChannelArn")
+            Prelude.<$> (x Data..?> "ChannelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,27 +156,27 @@ instance Prelude.NFData UpdateChannel where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf mode
 
-instance Core.ToHeaders UpdateChannel where
+instance Data.ToHeaders UpdateChannel where
   toHeaders UpdateChannel' {..} =
     Prelude.mconcat
-      ["x-amz-chime-bearer" Core.=# chimeBearer]
+      ["x-amz-chime-bearer" Data.=# chimeBearer]
 
-instance Core.ToJSON UpdateChannel where
+instance Data.ToJSON UpdateChannel where
   toJSON UpdateChannel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Metadata" Core..=) Prelude.<$> metadata,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Mode" Core..= mode)
+          [ ("Metadata" Data..=) Prelude.<$> metadata,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Mode" Data..= mode)
           ]
       )
 
-instance Core.ToPath UpdateChannel where
+instance Data.ToPath UpdateChannel where
   toPath UpdateChannel' {..} =
     Prelude.mconcat
-      ["/channels/", Core.toBS channelArn]
+      ["/channels/", Data.toBS channelArn]
 
-instance Core.ToQuery UpdateChannel where
+instance Data.ToQuery UpdateChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateChannelResponse' smart constructor.

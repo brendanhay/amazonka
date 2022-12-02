@@ -27,6 +27,7 @@ import Amazonka.Chime.Types.PhoneNumberStatus
 import Amazonka.Chime.Types.PhoneNumberType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A phone number used for Amazon Chime Business Calling or an Amazon Chime
@@ -37,7 +38,7 @@ data PhoneNumber = PhoneNumber'
   { -- | The phone number type.
     type' :: Prelude.Maybe PhoneNumberType,
     -- | The phone number, in E.164 format.
-    e164PhoneNumber :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    e164PhoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The phone number product type.
     productType :: Prelude.Maybe PhoneNumberProductType,
     -- | The phone number country. Format: ISO 3166-1 alpha-2.
@@ -45,13 +46,13 @@ data PhoneNumber = PhoneNumber'
     -- | The phone number associations.
     associations :: Prelude.Maybe [PhoneNumberAssociation],
     -- | The phone number creation timestamp, in ISO 8601 format.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The updated phone number timestamp, in ISO 8601 format.
-    updatedTimestamp :: Prelude.Maybe Core.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The phone number status.
     status :: Prelude.Maybe PhoneNumberStatus,
     -- | The deleted phone number timestamp, in ISO 8601 format.
-    deletionTimestamp :: Prelude.Maybe Core.POSIX,
+    deletionTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The phone number ID.
     phoneNumberId :: Prelude.Maybe Prelude.Text,
     -- | The phone number capabilities.
@@ -59,7 +60,7 @@ data PhoneNumber = PhoneNumber'
     -- | The outbound calling name status.
     callingNameStatus :: Prelude.Maybe CallingNameStatus,
     -- | The outbound calling name associated with the phone number.
-    callingName :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    callingName :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -121,7 +122,7 @@ phoneNumber_type = Lens.lens (\PhoneNumber' {type'} -> type') (\s@PhoneNumber' {
 
 -- | The phone number, in E.164 format.
 phoneNumber_e164PhoneNumber :: Lens.Lens' PhoneNumber (Prelude.Maybe Prelude.Text)
-phoneNumber_e164PhoneNumber = Lens.lens (\PhoneNumber' {e164PhoneNumber} -> e164PhoneNumber) (\s@PhoneNumber' {} a -> s {e164PhoneNumber = a} :: PhoneNumber) Prelude.. Lens.mapping Core._Sensitive
+phoneNumber_e164PhoneNumber = Lens.lens (\PhoneNumber' {e164PhoneNumber} -> e164PhoneNumber) (\s@PhoneNumber' {} a -> s {e164PhoneNumber = a} :: PhoneNumber) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The phone number product type.
 phoneNumber_productType :: Lens.Lens' PhoneNumber (Prelude.Maybe PhoneNumberProductType)
@@ -137,11 +138,11 @@ phoneNumber_associations = Lens.lens (\PhoneNumber' {associations} -> associatio
 
 -- | The phone number creation timestamp, in ISO 8601 format.
 phoneNumber_createdTimestamp :: Lens.Lens' PhoneNumber (Prelude.Maybe Prelude.UTCTime)
-phoneNumber_createdTimestamp = Lens.lens (\PhoneNumber' {createdTimestamp} -> createdTimestamp) (\s@PhoneNumber' {} a -> s {createdTimestamp = a} :: PhoneNumber) Prelude.. Lens.mapping Core._Time
+phoneNumber_createdTimestamp = Lens.lens (\PhoneNumber' {createdTimestamp} -> createdTimestamp) (\s@PhoneNumber' {} a -> s {createdTimestamp = a} :: PhoneNumber) Prelude.. Lens.mapping Data._Time
 
 -- | The updated phone number timestamp, in ISO 8601 format.
 phoneNumber_updatedTimestamp :: Lens.Lens' PhoneNumber (Prelude.Maybe Prelude.UTCTime)
-phoneNumber_updatedTimestamp = Lens.lens (\PhoneNumber' {updatedTimestamp} -> updatedTimestamp) (\s@PhoneNumber' {} a -> s {updatedTimestamp = a} :: PhoneNumber) Prelude.. Lens.mapping Core._Time
+phoneNumber_updatedTimestamp = Lens.lens (\PhoneNumber' {updatedTimestamp} -> updatedTimestamp) (\s@PhoneNumber' {} a -> s {updatedTimestamp = a} :: PhoneNumber) Prelude.. Lens.mapping Data._Time
 
 -- | The phone number status.
 phoneNumber_status :: Lens.Lens' PhoneNumber (Prelude.Maybe PhoneNumberStatus)
@@ -149,7 +150,7 @@ phoneNumber_status = Lens.lens (\PhoneNumber' {status} -> status) (\s@PhoneNumbe
 
 -- | The deleted phone number timestamp, in ISO 8601 format.
 phoneNumber_deletionTimestamp :: Lens.Lens' PhoneNumber (Prelude.Maybe Prelude.UTCTime)
-phoneNumber_deletionTimestamp = Lens.lens (\PhoneNumber' {deletionTimestamp} -> deletionTimestamp) (\s@PhoneNumber' {} a -> s {deletionTimestamp = a} :: PhoneNumber) Prelude.. Lens.mapping Core._Time
+phoneNumber_deletionTimestamp = Lens.lens (\PhoneNumber' {deletionTimestamp} -> deletionTimestamp) (\s@PhoneNumber' {} a -> s {deletionTimestamp = a} :: PhoneNumber) Prelude.. Lens.mapping Data._Time
 
 -- | The phone number ID.
 phoneNumber_phoneNumberId :: Lens.Lens' PhoneNumber (Prelude.Maybe Prelude.Text)
@@ -165,27 +166,27 @@ phoneNumber_callingNameStatus = Lens.lens (\PhoneNumber' {callingNameStatus} -> 
 
 -- | The outbound calling name associated with the phone number.
 phoneNumber_callingName :: Lens.Lens' PhoneNumber (Prelude.Maybe Prelude.Text)
-phoneNumber_callingName = Lens.lens (\PhoneNumber' {callingName} -> callingName) (\s@PhoneNumber' {} a -> s {callingName = a} :: PhoneNumber) Prelude.. Lens.mapping Core._Sensitive
+phoneNumber_callingName = Lens.lens (\PhoneNumber' {callingName} -> callingName) (\s@PhoneNumber' {} a -> s {callingName = a} :: PhoneNumber) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON PhoneNumber where
+instance Data.FromJSON PhoneNumber where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PhoneNumber"
       ( \x ->
           PhoneNumber'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "E164PhoneNumber")
-            Prelude.<*> (x Core..:? "ProductType")
-            Prelude.<*> (x Core..:? "Country")
-            Prelude.<*> (x Core..:? "Associations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "UpdatedTimestamp")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "DeletionTimestamp")
-            Prelude.<*> (x Core..:? "PhoneNumberId")
-            Prelude.<*> (x Core..:? "Capabilities")
-            Prelude.<*> (x Core..:? "CallingNameStatus")
-            Prelude.<*> (x Core..:? "CallingName")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "E164PhoneNumber")
+            Prelude.<*> (x Data..:? "ProductType")
+            Prelude.<*> (x Data..:? "Country")
+            Prelude.<*> (x Data..:? "Associations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "UpdatedTimestamp")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "DeletionTimestamp")
+            Prelude.<*> (x Data..:? "PhoneNumberId")
+            Prelude.<*> (x Data..:? "Capabilities")
+            Prelude.<*> (x Data..:? "CallingNameStatus")
+            Prelude.<*> (x Data..:? "CallingName")
       )
 
 instance Prelude.Hashable PhoneNumber where

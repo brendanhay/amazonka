@@ -40,6 +40,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,21 +120,21 @@ instance Prelude.NFData DeleteRoomMembership where
       `Prelude.seq` Prelude.rnf roomId
       `Prelude.seq` Prelude.rnf memberId
 
-instance Core.ToHeaders DeleteRoomMembership where
+instance Data.ToHeaders DeleteRoomMembership where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteRoomMembership where
+instance Data.ToPath DeleteRoomMembership where
   toPath DeleteRoomMembership' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/rooms/",
-        Core.toBS roomId,
+        Data.toBS roomId,
         "/memberships/",
-        Core.toBS memberId
+        Data.toBS memberId
       ]
 
-instance Core.ToQuery DeleteRoomMembership where
+instance Data.ToQuery DeleteRoomMembership where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRoomMembershipResponse' smart constructor.

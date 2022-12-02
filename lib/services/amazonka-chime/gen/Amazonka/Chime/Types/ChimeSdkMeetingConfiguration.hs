@@ -23,6 +23,7 @@ import Amazonka.Chime.Types.ArtifactsConfiguration
 import Amazonka.Chime.Types.SourceConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration object of the Amazon Chime SDK meeting for a specified
@@ -65,14 +66,14 @@ chimeSdkMeetingConfiguration_sourceConfiguration = Lens.lens (\ChimeSdkMeetingCo
 chimeSdkMeetingConfiguration_artifactsConfiguration :: Lens.Lens' ChimeSdkMeetingConfiguration (Prelude.Maybe ArtifactsConfiguration)
 chimeSdkMeetingConfiguration_artifactsConfiguration = Lens.lens (\ChimeSdkMeetingConfiguration' {artifactsConfiguration} -> artifactsConfiguration) (\s@ChimeSdkMeetingConfiguration' {} a -> s {artifactsConfiguration = a} :: ChimeSdkMeetingConfiguration)
 
-instance Core.FromJSON ChimeSdkMeetingConfiguration where
+instance Data.FromJSON ChimeSdkMeetingConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChimeSdkMeetingConfiguration"
       ( \x ->
           ChimeSdkMeetingConfiguration'
-            Prelude.<$> (x Core..:? "SourceConfiguration")
-            Prelude.<*> (x Core..:? "ArtifactsConfiguration")
+            Prelude.<$> (x Data..:? "SourceConfiguration")
+            Prelude.<*> (x Data..:? "ArtifactsConfiguration")
       )
 
 instance
@@ -88,13 +89,13 @@ instance Prelude.NFData ChimeSdkMeetingConfiguration where
     Prelude.rnf sourceConfiguration
       `Prelude.seq` Prelude.rnf artifactsConfiguration
 
-instance Core.ToJSON ChimeSdkMeetingConfiguration where
+instance Data.ToJSON ChimeSdkMeetingConfiguration where
   toJSON ChimeSdkMeetingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SourceConfiguration" Core..=)
+          [ ("SourceConfiguration" Data..=)
               Prelude.<$> sourceConfiguration,
-            ("ArtifactsConfiguration" Core..=)
+            ("ArtifactsConfiguration" Data..=)
               Prelude.<$> artifactsConfiguration
           ]
       )

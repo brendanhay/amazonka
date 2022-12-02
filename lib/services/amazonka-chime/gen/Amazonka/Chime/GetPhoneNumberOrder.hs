@@ -44,6 +44,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,7 +89,7 @@ instance Core.AWSRequest GetPhoneNumberOrder where
     Response.receiveJSON
       ( \s h x ->
           GetPhoneNumberOrderResponse'
-            Prelude.<$> (x Core..?> "PhoneNumberOrder")
+            Prelude.<$> (x Data..?> "PhoneNumberOrder")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,17 +101,17 @@ instance Prelude.NFData GetPhoneNumberOrder where
   rnf GetPhoneNumberOrder' {..} =
     Prelude.rnf phoneNumberOrderId
 
-instance Core.ToHeaders GetPhoneNumberOrder where
+instance Data.ToHeaders GetPhoneNumberOrder where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetPhoneNumberOrder where
+instance Data.ToPath GetPhoneNumberOrder where
   toPath GetPhoneNumberOrder' {..} =
     Prelude.mconcat
       [ "/phone-number-orders/",
-        Core.toBS phoneNumberOrderId
+        Data.toBS phoneNumberOrderId
       ]
 
-instance Core.ToQuery GetPhoneNumberOrder where
+instance Data.ToQuery GetPhoneNumberOrder where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPhoneNumberOrderResponse' smart constructor.

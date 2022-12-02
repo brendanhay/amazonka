@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.Address where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A validated address.
@@ -28,26 +29,26 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAddress' smart constructor.
 data Address = Address'
   { -- | The postal code of an address.
-    postalCode :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    postalCode :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The address suffix, such as the @N@ in @8th Avenue N@.
-    streetSuffix :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    streetSuffix :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The country of an address.
-    country :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    country :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | An address suffix location, such as the @S. Unit A@ in
     -- @Central Park S. Unit A@.
-    postDirectional :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    postDirectional :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The state of an address.
-    state :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    state :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The address street, such as @8th Avenue@.
-    streetName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    streetName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Zip + 4 or postal code + 4 of an address.
-    postalCodePlus4 :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    postalCodePlus4 :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The city of an address.
-    city :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    city :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | An address prefix location, such as the @N@ in @N. Third St.@.
-    preDirectional :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    preDirectional :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The numeric portion of an address.
-    streetNumber :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    streetNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -97,61 +98,61 @@ newAddress =
 
 -- | The postal code of an address.
 address_postalCode :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
-address_postalCode = Lens.lens (\Address' {postalCode} -> postalCode) (\s@Address' {} a -> s {postalCode = a} :: Address) Prelude.. Lens.mapping Core._Sensitive
+address_postalCode = Lens.lens (\Address' {postalCode} -> postalCode) (\s@Address' {} a -> s {postalCode = a} :: Address) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The address suffix, such as the @N@ in @8th Avenue N@.
 address_streetSuffix :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
-address_streetSuffix = Lens.lens (\Address' {streetSuffix} -> streetSuffix) (\s@Address' {} a -> s {streetSuffix = a} :: Address) Prelude.. Lens.mapping Core._Sensitive
+address_streetSuffix = Lens.lens (\Address' {streetSuffix} -> streetSuffix) (\s@Address' {} a -> s {streetSuffix = a} :: Address) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The country of an address.
 address_country :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
-address_country = Lens.lens (\Address' {country} -> country) (\s@Address' {} a -> s {country = a} :: Address) Prelude.. Lens.mapping Core._Sensitive
+address_country = Lens.lens (\Address' {country} -> country) (\s@Address' {} a -> s {country = a} :: Address) Prelude.. Lens.mapping Data._Sensitive
 
 -- | An address suffix location, such as the @S. Unit A@ in
 -- @Central Park S. Unit A@.
 address_postDirectional :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
-address_postDirectional = Lens.lens (\Address' {postDirectional} -> postDirectional) (\s@Address' {} a -> s {postDirectional = a} :: Address) Prelude.. Lens.mapping Core._Sensitive
+address_postDirectional = Lens.lens (\Address' {postDirectional} -> postDirectional) (\s@Address' {} a -> s {postDirectional = a} :: Address) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The state of an address.
 address_state :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
-address_state = Lens.lens (\Address' {state} -> state) (\s@Address' {} a -> s {state = a} :: Address) Prelude.. Lens.mapping Core._Sensitive
+address_state = Lens.lens (\Address' {state} -> state) (\s@Address' {} a -> s {state = a} :: Address) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The address street, such as @8th Avenue@.
 address_streetName :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
-address_streetName = Lens.lens (\Address' {streetName} -> streetName) (\s@Address' {} a -> s {streetName = a} :: Address) Prelude.. Lens.mapping Core._Sensitive
+address_streetName = Lens.lens (\Address' {streetName} -> streetName) (\s@Address' {} a -> s {streetName = a} :: Address) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Zip + 4 or postal code + 4 of an address.
 address_postalCodePlus4 :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
-address_postalCodePlus4 = Lens.lens (\Address' {postalCodePlus4} -> postalCodePlus4) (\s@Address' {} a -> s {postalCodePlus4 = a} :: Address) Prelude.. Lens.mapping Core._Sensitive
+address_postalCodePlus4 = Lens.lens (\Address' {postalCodePlus4} -> postalCodePlus4) (\s@Address' {} a -> s {postalCodePlus4 = a} :: Address) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The city of an address.
 address_city :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
-address_city = Lens.lens (\Address' {city} -> city) (\s@Address' {} a -> s {city = a} :: Address) Prelude.. Lens.mapping Core._Sensitive
+address_city = Lens.lens (\Address' {city} -> city) (\s@Address' {} a -> s {city = a} :: Address) Prelude.. Lens.mapping Data._Sensitive
 
 -- | An address prefix location, such as the @N@ in @N. Third St.@.
 address_preDirectional :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
-address_preDirectional = Lens.lens (\Address' {preDirectional} -> preDirectional) (\s@Address' {} a -> s {preDirectional = a} :: Address) Prelude.. Lens.mapping Core._Sensitive
+address_preDirectional = Lens.lens (\Address' {preDirectional} -> preDirectional) (\s@Address' {} a -> s {preDirectional = a} :: Address) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The numeric portion of an address.
 address_streetNumber :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
-address_streetNumber = Lens.lens (\Address' {streetNumber} -> streetNumber) (\s@Address' {} a -> s {streetNumber = a} :: Address) Prelude.. Lens.mapping Core._Sensitive
+address_streetNumber = Lens.lens (\Address' {streetNumber} -> streetNumber) (\s@Address' {} a -> s {streetNumber = a} :: Address) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON Address where
+instance Data.FromJSON Address where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Address"
       ( \x ->
           Address'
-            Prelude.<$> (x Core..:? "postalCode")
-            Prelude.<*> (x Core..:? "streetSuffix")
-            Prelude.<*> (x Core..:? "country")
-            Prelude.<*> (x Core..:? "postDirectional")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "streetName")
-            Prelude.<*> (x Core..:? "postalCodePlus4")
-            Prelude.<*> (x Core..:? "city")
-            Prelude.<*> (x Core..:? "preDirectional")
-            Prelude.<*> (x Core..:? "streetNumber")
+            Prelude.<$> (x Data..:? "postalCode")
+            Prelude.<*> (x Data..:? "streetSuffix")
+            Prelude.<*> (x Data..:? "country")
+            Prelude.<*> (x Data..:? "postDirectional")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "streetName")
+            Prelude.<*> (x Data..:? "postalCodePlus4")
+            Prelude.<*> (x Data..:? "city")
+            Prelude.<*> (x Data..:? "preDirectional")
+            Prelude.<*> (x Data..:? "streetNumber")
       )
 
 instance Prelude.Hashable Address where

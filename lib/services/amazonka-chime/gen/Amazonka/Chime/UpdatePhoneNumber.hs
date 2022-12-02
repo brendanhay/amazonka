@@ -55,6 +55,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -64,7 +65,7 @@ data UpdatePhoneNumber = UpdatePhoneNumber'
   { -- | The product type.
     productType :: Prelude.Maybe PhoneNumberProductType,
     -- | The outbound calling name associated with the phone number.
-    callingName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    callingName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The phone number ID.
     phoneNumberId :: Prelude.Text
   }
@@ -100,7 +101,7 @@ updatePhoneNumber_productType = Lens.lens (\UpdatePhoneNumber' {productType} -> 
 
 -- | The outbound calling name associated with the phone number.
 updatePhoneNumber_callingName :: Lens.Lens' UpdatePhoneNumber (Prelude.Maybe Prelude.Text)
-updatePhoneNumber_callingName = Lens.lens (\UpdatePhoneNumber' {callingName} -> callingName) (\s@UpdatePhoneNumber' {} a -> s {callingName = a} :: UpdatePhoneNumber) Prelude.. Lens.mapping Core._Sensitive
+updatePhoneNumber_callingName = Lens.lens (\UpdatePhoneNumber' {callingName} -> callingName) (\s@UpdatePhoneNumber' {} a -> s {callingName = a} :: UpdatePhoneNumber) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The phone number ID.
 updatePhoneNumber_phoneNumberId :: Lens.Lens' UpdatePhoneNumber Prelude.Text
@@ -116,7 +117,7 @@ instance Core.AWSRequest UpdatePhoneNumber where
     Response.receiveJSON
       ( \s h x ->
           UpdatePhoneNumberResponse'
-            Prelude.<$> (x Core..?> "PhoneNumber")
+            Prelude.<$> (x Data..?> "PhoneNumber")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,24 +133,24 @@ instance Prelude.NFData UpdatePhoneNumber where
       `Prelude.seq` Prelude.rnf callingName
       `Prelude.seq` Prelude.rnf phoneNumberId
 
-instance Core.ToHeaders UpdatePhoneNumber where
+instance Data.ToHeaders UpdatePhoneNumber where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdatePhoneNumber where
+instance Data.ToJSON UpdatePhoneNumber where
   toJSON UpdatePhoneNumber' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProductType" Core..=) Prelude.<$> productType,
-            ("CallingName" Core..=) Prelude.<$> callingName
+          [ ("ProductType" Data..=) Prelude.<$> productType,
+            ("CallingName" Data..=) Prelude.<$> callingName
           ]
       )
 
-instance Core.ToPath UpdatePhoneNumber where
+instance Data.ToPath UpdatePhoneNumber where
   toPath UpdatePhoneNumber' {..} =
     Prelude.mconcat
-      ["/phone-numbers/", Core.toBS phoneNumberId]
+      ["/phone-numbers/", Data.toBS phoneNumberId]
 
-instance Core.ToQuery UpdatePhoneNumber where
+instance Data.ToQuery UpdatePhoneNumber where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePhoneNumberResponse' smart constructor.

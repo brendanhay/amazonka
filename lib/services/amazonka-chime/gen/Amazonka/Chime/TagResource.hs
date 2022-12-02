@@ -40,6 +40,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -47,7 +48,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
   { -- | The resource ARN.
-    resourceARN :: Core.Sensitive Prelude.Text,
+    resourceARN :: Data.Sensitive Prelude.Text,
     -- | The tag key-value pairs.
     tags :: Prelude.NonEmpty Tag
   }
@@ -73,13 +74,13 @@ newTagResource ::
 newTagResource pResourceARN_ pTags_ =
   TagResource'
     { resourceARN =
-        Core._Sensitive Lens.# pResourceARN_,
+        Data._Sensitive Lens.# pResourceARN_,
       tags = Lens.coerced Lens.# pTags_
     }
 
 -- | The resource ARN.
 tagResource_resourceARN :: Lens.Lens' TagResource Prelude.Text
-tagResource_resourceARN = Lens.lens (\TagResource' {resourceARN} -> resourceARN) (\s@TagResource' {} a -> s {resourceARN = a} :: TagResource) Prelude.. Core._Sensitive
+tagResource_resourceARN = Lens.lens (\TagResource' {resourceARN} -> resourceARN) (\s@TagResource' {} a -> s {resourceARN = a} :: TagResource) Prelude.. Data._Sensitive
 
 -- | The tag key-value pairs.
 tagResource_tags :: Lens.Lens' TagResource (Prelude.NonEmpty Tag)
@@ -101,22 +102,22 @@ instance Prelude.NFData TagResource where
     Prelude.rnf resourceARN
       `Prelude.seq` Prelude.rnf tags
 
-instance Core.ToHeaders TagResource where
+instance Data.ToHeaders TagResource where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON TagResource where
+instance Data.ToJSON TagResource where
   toJSON TagResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceARN" Core..= resourceARN),
-            Prelude.Just ("Tags" Core..= tags)
+          [ Prelude.Just ("ResourceARN" Data..= resourceARN),
+            Prelude.Just ("Tags" Data..= tags)
           ]
       )
 
-instance Core.ToPath TagResource where
+instance Data.ToPath TagResource where
   toPath = Prelude.const "/tags"
 
-instance Core.ToQuery TagResource where
+instance Data.ToQuery TagResource where
   toQuery =
     Prelude.const
       (Prelude.mconcat ["operation=tag-resource"])

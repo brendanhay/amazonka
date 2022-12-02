@@ -43,6 +43,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -125,24 +126,24 @@ instance
       `Prelude.seq` Prelude.rnf userId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociatePhoneNumberFromUser
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON DisassociatePhoneNumberFromUser where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DisassociatePhoneNumberFromUser where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DisassociatePhoneNumberFromUser where
+instance Data.ToPath DisassociatePhoneNumberFromUser where
   toPath DisassociatePhoneNumberFromUser' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/users/",
-        Core.toBS userId
+        Data.toBS userId
       ]
 
-instance Core.ToQuery DisassociatePhoneNumberFromUser where
+instance Data.ToQuery DisassociatePhoneNumberFromUser where
   toQuery =
     Prelude.const
       ( Prelude.mconcat

@@ -22,6 +22,7 @@ module Amazonka.Chime.Types.Origination where
 import Amazonka.Chime.Types.OriginationRoute
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Origination settings enable your SIP hosts to receive inbound calls
@@ -78,14 +79,14 @@ origination_disabled = Lens.lens (\Origination' {disabled} -> disabled) (\s@Orig
 origination_routes :: Lens.Lens' Origination (Prelude.Maybe [OriginationRoute])
 origination_routes = Lens.lens (\Origination' {routes} -> routes) (\s@Origination' {} a -> s {routes = a} :: Origination) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Origination where
+instance Data.FromJSON Origination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Origination"
       ( \x ->
           Origination'
-            Prelude.<$> (x Core..:? "Disabled")
-            Prelude.<*> (x Core..:? "Routes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Disabled")
+            Prelude.<*> (x Data..:? "Routes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Origination where
@@ -98,11 +99,11 @@ instance Prelude.NFData Origination where
     Prelude.rnf disabled
       `Prelude.seq` Prelude.rnf routes
 
-instance Core.ToJSON Origination where
+instance Data.ToJSON Origination where
   toJSON Origination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Disabled" Core..=) Prelude.<$> disabled,
-            ("Routes" Core..=) Prelude.<$> routes
+          [ ("Disabled" Data..=) Prelude.<$> disabled,
+            ("Routes" Data..=) Prelude.<$> routes
           ]
       )

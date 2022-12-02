@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.VoiceConnectorItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | For Amazon Chime Voice Connector groups, the Amazon Chime Voice
@@ -75,14 +76,14 @@ voiceConnectorItem_voiceConnectorId = Lens.lens (\VoiceConnectorItem' {voiceConn
 voiceConnectorItem_priority :: Lens.Lens' VoiceConnectorItem Prelude.Natural
 voiceConnectorItem_priority = Lens.lens (\VoiceConnectorItem' {priority} -> priority) (\s@VoiceConnectorItem' {} a -> s {priority = a} :: VoiceConnectorItem)
 
-instance Core.FromJSON VoiceConnectorItem where
+instance Data.FromJSON VoiceConnectorItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VoiceConnectorItem"
       ( \x ->
           VoiceConnectorItem'
-            Prelude.<$> (x Core..: "VoiceConnectorId")
-            Prelude.<*> (x Core..: "Priority")
+            Prelude.<$> (x Data..: "VoiceConnectorId")
+            Prelude.<*> (x Data..: "Priority")
       )
 
 instance Prelude.Hashable VoiceConnectorItem where
@@ -95,12 +96,12 @@ instance Prelude.NFData VoiceConnectorItem where
     Prelude.rnf voiceConnectorId
       `Prelude.seq` Prelude.rnf priority
 
-instance Core.ToJSON VoiceConnectorItem where
+instance Data.ToJSON VoiceConnectorItem where
   toJSON VoiceConnectorItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("VoiceConnectorId" Core..= voiceConnectorId),
-            Prelude.Just ("Priority" Core..= priority)
+              ("VoiceConnectorId" Data..= voiceConnectorId),
+            Prelude.Just ("Priority" Data..= priority)
           ]
       )

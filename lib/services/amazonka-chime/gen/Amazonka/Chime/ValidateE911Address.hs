@@ -55,6 +55,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -64,17 +65,17 @@ data ValidateE911Address = ValidateE911Address'
   { -- | The AWS account ID.
     awsAccountId :: Prelude.Text,
     -- | The address street number, such as @200@ or @2121@.
-    streetNumber :: Core.Sensitive Prelude.Text,
+    streetNumber :: Data.Sensitive Prelude.Text,
     -- | The address street information, such as @8th Avenue@.
-    streetInfo :: Core.Sensitive Prelude.Text,
+    streetInfo :: Data.Sensitive Prelude.Text,
     -- | The address city, such as @Portland@.
-    city :: Core.Sensitive Prelude.Text,
+    city :: Data.Sensitive Prelude.Text,
     -- | The address state, such as @ME@.
-    state :: Core.Sensitive Prelude.Text,
+    state :: Data.Sensitive Prelude.Text,
     -- | The address country, such as @US@.
-    country :: Core.Sensitive Prelude.Text,
+    country :: Data.Sensitive Prelude.Text,
     -- | The address postal code, such as @04352@.
-    postalCode :: Core.Sensitive Prelude.Text
+    postalCode :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -125,12 +126,12 @@ newValidateE911Address
   pPostalCode_ =
     ValidateE911Address'
       { awsAccountId = pAwsAccountId_,
-        streetNumber = Core._Sensitive Lens.# pStreetNumber_,
-        streetInfo = Core._Sensitive Lens.# pStreetInfo_,
-        city = Core._Sensitive Lens.# pCity_,
-        state = Core._Sensitive Lens.# pState_,
-        country = Core._Sensitive Lens.# pCountry_,
-        postalCode = Core._Sensitive Lens.# pPostalCode_
+        streetNumber = Data._Sensitive Lens.# pStreetNumber_,
+        streetInfo = Data._Sensitive Lens.# pStreetInfo_,
+        city = Data._Sensitive Lens.# pCity_,
+        state = Data._Sensitive Lens.# pState_,
+        country = Data._Sensitive Lens.# pCountry_,
+        postalCode = Data._Sensitive Lens.# pPostalCode_
       }
 
 -- | The AWS account ID.
@@ -139,27 +140,27 @@ validateE911Address_awsAccountId = Lens.lens (\ValidateE911Address' {awsAccountI
 
 -- | The address street number, such as @200@ or @2121@.
 validateE911Address_streetNumber :: Lens.Lens' ValidateE911Address Prelude.Text
-validateE911Address_streetNumber = Lens.lens (\ValidateE911Address' {streetNumber} -> streetNumber) (\s@ValidateE911Address' {} a -> s {streetNumber = a} :: ValidateE911Address) Prelude.. Core._Sensitive
+validateE911Address_streetNumber = Lens.lens (\ValidateE911Address' {streetNumber} -> streetNumber) (\s@ValidateE911Address' {} a -> s {streetNumber = a} :: ValidateE911Address) Prelude.. Data._Sensitive
 
 -- | The address street information, such as @8th Avenue@.
 validateE911Address_streetInfo :: Lens.Lens' ValidateE911Address Prelude.Text
-validateE911Address_streetInfo = Lens.lens (\ValidateE911Address' {streetInfo} -> streetInfo) (\s@ValidateE911Address' {} a -> s {streetInfo = a} :: ValidateE911Address) Prelude.. Core._Sensitive
+validateE911Address_streetInfo = Lens.lens (\ValidateE911Address' {streetInfo} -> streetInfo) (\s@ValidateE911Address' {} a -> s {streetInfo = a} :: ValidateE911Address) Prelude.. Data._Sensitive
 
 -- | The address city, such as @Portland@.
 validateE911Address_city :: Lens.Lens' ValidateE911Address Prelude.Text
-validateE911Address_city = Lens.lens (\ValidateE911Address' {city} -> city) (\s@ValidateE911Address' {} a -> s {city = a} :: ValidateE911Address) Prelude.. Core._Sensitive
+validateE911Address_city = Lens.lens (\ValidateE911Address' {city} -> city) (\s@ValidateE911Address' {} a -> s {city = a} :: ValidateE911Address) Prelude.. Data._Sensitive
 
 -- | The address state, such as @ME@.
 validateE911Address_state :: Lens.Lens' ValidateE911Address Prelude.Text
-validateE911Address_state = Lens.lens (\ValidateE911Address' {state} -> state) (\s@ValidateE911Address' {} a -> s {state = a} :: ValidateE911Address) Prelude.. Core._Sensitive
+validateE911Address_state = Lens.lens (\ValidateE911Address' {state} -> state) (\s@ValidateE911Address' {} a -> s {state = a} :: ValidateE911Address) Prelude.. Data._Sensitive
 
 -- | The address country, such as @US@.
 validateE911Address_country :: Lens.Lens' ValidateE911Address Prelude.Text
-validateE911Address_country = Lens.lens (\ValidateE911Address' {country} -> country) (\s@ValidateE911Address' {} a -> s {country = a} :: ValidateE911Address) Prelude.. Core._Sensitive
+validateE911Address_country = Lens.lens (\ValidateE911Address' {country} -> country) (\s@ValidateE911Address' {} a -> s {country = a} :: ValidateE911Address) Prelude.. Data._Sensitive
 
 -- | The address postal code, such as @04352@.
 validateE911Address_postalCode :: Lens.Lens' ValidateE911Address Prelude.Text
-validateE911Address_postalCode = Lens.lens (\ValidateE911Address' {postalCode} -> postalCode) (\s@ValidateE911Address' {} a -> s {postalCode = a} :: ValidateE911Address) Prelude.. Core._Sensitive
+validateE911Address_postalCode = Lens.lens (\ValidateE911Address' {postalCode} -> postalCode) (\s@ValidateE911Address' {} a -> s {postalCode = a} :: ValidateE911Address) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest ValidateE911Address where
   type
@@ -171,12 +172,12 @@ instance Core.AWSRequest ValidateE911Address where
     Response.receiveJSON
       ( \s h x ->
           ValidateE911AddressResponse'
-            Prelude.<$> (x Core..?> "ValidationResult")
-            Prelude.<*> ( x Core..?> "CandidateAddressList"
+            Prelude.<$> (x Data..?> "ValidationResult")
+            Prelude.<*> ( x Data..?> "CandidateAddressList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Address")
-            Prelude.<*> (x Core..?> "AddressExternalId")
+            Prelude.<*> (x Data..?> "Address")
+            Prelude.<*> (x Data..?> "AddressExternalId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -200,27 +201,27 @@ instance Prelude.NFData ValidateE911Address where
       `Prelude.seq` Prelude.rnf country
       `Prelude.seq` Prelude.rnf postalCode
 
-instance Core.ToHeaders ValidateE911Address where
+instance Data.ToHeaders ValidateE911Address where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON ValidateE911Address where
+instance Data.ToJSON ValidateE911Address where
   toJSON ValidateE911Address' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AwsAccountId" Core..= awsAccountId),
-            Prelude.Just ("StreetNumber" Core..= streetNumber),
-            Prelude.Just ("StreetInfo" Core..= streetInfo),
-            Prelude.Just ("City" Core..= city),
-            Prelude.Just ("State" Core..= state),
-            Prelude.Just ("Country" Core..= country),
-            Prelude.Just ("PostalCode" Core..= postalCode)
+          [ Prelude.Just ("AwsAccountId" Data..= awsAccountId),
+            Prelude.Just ("StreetNumber" Data..= streetNumber),
+            Prelude.Just ("StreetInfo" Data..= streetInfo),
+            Prelude.Just ("City" Data..= city),
+            Prelude.Just ("State" Data..= state),
+            Prelude.Just ("Country" Data..= country),
+            Prelude.Just ("PostalCode" Data..= postalCode)
           ]
       )
 
-instance Core.ToPath ValidateE911Address where
+instance Data.ToPath ValidateE911Address where
   toPath = Prelude.const "/emergency-calling/address"
 
-instance Core.ToQuery ValidateE911Address where
+instance Data.ToQuery ValidateE911Address where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newValidateE911AddressResponse' smart constructor.

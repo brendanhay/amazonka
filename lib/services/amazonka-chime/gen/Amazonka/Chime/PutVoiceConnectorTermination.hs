@@ -47,6 +47,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,7 +105,7 @@ instance Core.AWSRequest PutVoiceConnectorTermination where
     Response.receiveJSON
       ( \s h x ->
           PutVoiceConnectorTerminationResponse'
-            Prelude.<$> (x Core..?> "Termination")
+            Prelude.<$> (x Data..?> "Termination")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,25 +122,25 @@ instance Prelude.NFData PutVoiceConnectorTermination where
     Prelude.rnf voiceConnectorId
       `Prelude.seq` Prelude.rnf termination
 
-instance Core.ToHeaders PutVoiceConnectorTermination where
+instance Data.ToHeaders PutVoiceConnectorTermination where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON PutVoiceConnectorTermination where
+instance Data.ToJSON PutVoiceConnectorTermination where
   toJSON PutVoiceConnectorTermination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Termination" Core..= termination)]
+          [Prelude.Just ("Termination" Data..= termination)]
       )
 
-instance Core.ToPath PutVoiceConnectorTermination where
+instance Data.ToPath PutVoiceConnectorTermination where
   toPath PutVoiceConnectorTermination' {..} =
     Prelude.mconcat
       [ "/voice-connectors/",
-        Core.toBS voiceConnectorId,
+        Data.toBS voiceConnectorId,
         "/termination"
       ]
 
-instance Core.ToQuery PutVoiceConnectorTermination where
+instance Data.ToQuery PutVoiceConnectorTermination where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutVoiceConnectorTerminationResponse' smart constructor.

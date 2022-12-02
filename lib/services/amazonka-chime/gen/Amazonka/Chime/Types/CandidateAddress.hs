@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.CandidateAddress where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A suggested address.
@@ -28,19 +29,19 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newCandidateAddress' smart constructor.
 data CandidateAddress = CandidateAddress'
   { -- | The postal code of a candidate address.
-    postalCode :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    postalCode :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The country of a candidate address.
-    country :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    country :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The state of a candidate address.
-    state :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    state :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The street information of a candidate address
-    streetInfo :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    streetInfo :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Zip + 4 or postal code + 4 of a candidate address.
-    postalCodePlus4 :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    postalCodePlus4 :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The city of a candidate address.
-    city :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    city :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The numeric portion of a candidate address.
-    streetNumber :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    streetNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -80,45 +81,45 @@ newCandidateAddress =
 
 -- | The postal code of a candidate address.
 candidateAddress_postalCode :: Lens.Lens' CandidateAddress (Prelude.Maybe Prelude.Text)
-candidateAddress_postalCode = Lens.lens (\CandidateAddress' {postalCode} -> postalCode) (\s@CandidateAddress' {} a -> s {postalCode = a} :: CandidateAddress) Prelude.. Lens.mapping Core._Sensitive
+candidateAddress_postalCode = Lens.lens (\CandidateAddress' {postalCode} -> postalCode) (\s@CandidateAddress' {} a -> s {postalCode = a} :: CandidateAddress) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The country of a candidate address.
 candidateAddress_country :: Lens.Lens' CandidateAddress (Prelude.Maybe Prelude.Text)
-candidateAddress_country = Lens.lens (\CandidateAddress' {country} -> country) (\s@CandidateAddress' {} a -> s {country = a} :: CandidateAddress) Prelude.. Lens.mapping Core._Sensitive
+candidateAddress_country = Lens.lens (\CandidateAddress' {country} -> country) (\s@CandidateAddress' {} a -> s {country = a} :: CandidateAddress) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The state of a candidate address.
 candidateAddress_state :: Lens.Lens' CandidateAddress (Prelude.Maybe Prelude.Text)
-candidateAddress_state = Lens.lens (\CandidateAddress' {state} -> state) (\s@CandidateAddress' {} a -> s {state = a} :: CandidateAddress) Prelude.. Lens.mapping Core._Sensitive
+candidateAddress_state = Lens.lens (\CandidateAddress' {state} -> state) (\s@CandidateAddress' {} a -> s {state = a} :: CandidateAddress) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The street information of a candidate address
 candidateAddress_streetInfo :: Lens.Lens' CandidateAddress (Prelude.Maybe Prelude.Text)
-candidateAddress_streetInfo = Lens.lens (\CandidateAddress' {streetInfo} -> streetInfo) (\s@CandidateAddress' {} a -> s {streetInfo = a} :: CandidateAddress) Prelude.. Lens.mapping Core._Sensitive
+candidateAddress_streetInfo = Lens.lens (\CandidateAddress' {streetInfo} -> streetInfo) (\s@CandidateAddress' {} a -> s {streetInfo = a} :: CandidateAddress) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Zip + 4 or postal code + 4 of a candidate address.
 candidateAddress_postalCodePlus4 :: Lens.Lens' CandidateAddress (Prelude.Maybe Prelude.Text)
-candidateAddress_postalCodePlus4 = Lens.lens (\CandidateAddress' {postalCodePlus4} -> postalCodePlus4) (\s@CandidateAddress' {} a -> s {postalCodePlus4 = a} :: CandidateAddress) Prelude.. Lens.mapping Core._Sensitive
+candidateAddress_postalCodePlus4 = Lens.lens (\CandidateAddress' {postalCodePlus4} -> postalCodePlus4) (\s@CandidateAddress' {} a -> s {postalCodePlus4 = a} :: CandidateAddress) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The city of a candidate address.
 candidateAddress_city :: Lens.Lens' CandidateAddress (Prelude.Maybe Prelude.Text)
-candidateAddress_city = Lens.lens (\CandidateAddress' {city} -> city) (\s@CandidateAddress' {} a -> s {city = a} :: CandidateAddress) Prelude.. Lens.mapping Core._Sensitive
+candidateAddress_city = Lens.lens (\CandidateAddress' {city} -> city) (\s@CandidateAddress' {} a -> s {city = a} :: CandidateAddress) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The numeric portion of a candidate address.
 candidateAddress_streetNumber :: Lens.Lens' CandidateAddress (Prelude.Maybe Prelude.Text)
-candidateAddress_streetNumber = Lens.lens (\CandidateAddress' {streetNumber} -> streetNumber) (\s@CandidateAddress' {} a -> s {streetNumber = a} :: CandidateAddress) Prelude.. Lens.mapping Core._Sensitive
+candidateAddress_streetNumber = Lens.lens (\CandidateAddress' {streetNumber} -> streetNumber) (\s@CandidateAddress' {} a -> s {streetNumber = a} :: CandidateAddress) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON CandidateAddress where
+instance Data.FromJSON CandidateAddress where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CandidateAddress"
       ( \x ->
           CandidateAddress'
-            Prelude.<$> (x Core..:? "postalCode")
-            Prelude.<*> (x Core..:? "country")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "streetInfo")
-            Prelude.<*> (x Core..:? "postalCodePlus4")
-            Prelude.<*> (x Core..:? "city")
-            Prelude.<*> (x Core..:? "streetNumber")
+            Prelude.<$> (x Data..:? "postalCode")
+            Prelude.<*> (x Data..:? "country")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "streetInfo")
+            Prelude.<*> (x Data..:? "postalCodePlus4")
+            Prelude.<*> (x Data..:? "city")
+            Prelude.<*> (x Data..:? "streetNumber")
       )
 
 instance Prelude.Hashable CandidateAddress where

@@ -22,6 +22,7 @@ module Amazonka.Chime.Types.AppInstanceStreamingConfiguration where
 import Amazonka.Chime.Types.AppInstanceDataType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of the streaming configuration of an @AppInstance@.
@@ -31,7 +32,7 @@ data AppInstanceStreamingConfiguration = AppInstanceStreamingConfiguration'
   { -- | The type of data to be streamed.
     appInstanceDataType :: AppInstanceDataType,
     -- | The resource ARN.
-    resourceArn :: Core.Sensitive Prelude.Text
+    resourceArn :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -59,7 +60,7 @@ newAppInstanceStreamingConfiguration
       { appInstanceDataType =
           pAppInstanceDataType_,
         resourceArn =
-          Core._Sensitive Lens.# pResourceArn_
+          Data._Sensitive Lens.# pResourceArn_
       }
 
 -- | The type of data to be streamed.
@@ -68,19 +69,19 @@ appInstanceStreamingConfiguration_appInstanceDataType = Lens.lens (\AppInstanceS
 
 -- | The resource ARN.
 appInstanceStreamingConfiguration_resourceArn :: Lens.Lens' AppInstanceStreamingConfiguration Prelude.Text
-appInstanceStreamingConfiguration_resourceArn = Lens.lens (\AppInstanceStreamingConfiguration' {resourceArn} -> resourceArn) (\s@AppInstanceStreamingConfiguration' {} a -> s {resourceArn = a} :: AppInstanceStreamingConfiguration) Prelude.. Core._Sensitive
+appInstanceStreamingConfiguration_resourceArn = Lens.lens (\AppInstanceStreamingConfiguration' {resourceArn} -> resourceArn) (\s@AppInstanceStreamingConfiguration' {} a -> s {resourceArn = a} :: AppInstanceStreamingConfiguration) Prelude.. Data._Sensitive
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AppInstanceStreamingConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppInstanceStreamingConfiguration"
       ( \x ->
           AppInstanceStreamingConfiguration'
-            Prelude.<$> (x Core..: "AppInstanceDataType")
-            Prelude.<*> (x Core..: "ResourceArn")
+            Prelude.<$> (x Data..: "AppInstanceDataType")
+            Prelude.<*> (x Data..: "ResourceArn")
       )
 
 instance
@@ -102,14 +103,14 @@ instance
       `Prelude.seq` Prelude.rnf resourceArn
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AppInstanceStreamingConfiguration
   where
   toJSON AppInstanceStreamingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AppInstanceDataType" Core..= appInstanceDataType),
-            Prelude.Just ("ResourceArn" Core..= resourceArn)
+              ("AppInstanceDataType" Data..= appInstanceDataType),
+            Prelude.Just ("ResourceArn" Data..= resourceArn)
           ]
       )

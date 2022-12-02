@@ -38,6 +38,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,24 +105,24 @@ instance
     Prelude.rnf appInstanceArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteAppInstanceStreamingConfigurations
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeleteAppInstanceStreamingConfigurations
   where
   toPath DeleteAppInstanceStreamingConfigurations' {..} =
     Prelude.mconcat
       [ "/app-instances/",
-        Core.toBS appInstanceArn,
+        Data.toBS appInstanceArn,
         "/streaming-configurations"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteAppInstanceStreamingConfigurations
   where
   toQuery = Prelude.const Prelude.mempty

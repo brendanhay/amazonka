@@ -44,6 +44,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -53,7 +54,7 @@ data DisassociatePhoneNumbersFromVoiceConnectorGroup = DisassociatePhoneNumbersF
   { -- | The Amazon Chime Voice Connector group ID.
     voiceConnectorGroupId :: Prelude.Text,
     -- | List of phone numbers, in E.164 format.
-    e164PhoneNumbers :: [Core.Sensitive Prelude.Text]
+    e164PhoneNumbers :: [Data.Sensitive Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -103,7 +104,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DisassociatePhoneNumbersFromVoiceConnectorGroupResponse'
-            Prelude.<$> ( x Core..?> "PhoneNumberErrors"
+            Prelude.<$> ( x Data..?> "PhoneNumberErrors"
                             Core..!@ Prelude.mempty
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -129,37 +130,37 @@ instance
         `Prelude.seq` Prelude.rnf e164PhoneNumbers
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociatePhoneNumbersFromVoiceConnectorGroup
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DisassociatePhoneNumbersFromVoiceConnectorGroup
   where
   toJSON
     DisassociatePhoneNumbersFromVoiceConnectorGroup' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
             [ Prelude.Just
-                ("E164PhoneNumbers" Core..= e164PhoneNumbers)
+                ("E164PhoneNumbers" Data..= e164PhoneNumbers)
             ]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DisassociatePhoneNumbersFromVoiceConnectorGroup
   where
   toPath
     DisassociatePhoneNumbersFromVoiceConnectorGroup' {..} =
       Prelude.mconcat
         [ "/voice-connector-groups/",
-          Core.toBS voiceConnectorGroupId
+          Data.toBS voiceConnectorGroupId
         ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisassociatePhoneNumbersFromVoiceConnectorGroup
   where
   toQuery =

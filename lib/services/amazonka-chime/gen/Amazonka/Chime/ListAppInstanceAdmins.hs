@@ -46,6 +46,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -54,7 +55,7 @@ import qualified Amazonka.Response as Response
 data ListAppInstanceAdmins = ListAppInstanceAdmins'
   { -- | The token returned from previous API requests until the number of
     -- administrators is reached.
-    nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The maximum number of administrators that you want to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the @AppInstance@.
@@ -90,7 +91,7 @@ newListAppInstanceAdmins pAppInstanceArn_ =
 -- | The token returned from previous API requests until the number of
 -- administrators is reached.
 listAppInstanceAdmins_nextToken :: Lens.Lens' ListAppInstanceAdmins (Prelude.Maybe Prelude.Text)
-listAppInstanceAdmins_nextToken = Lens.lens (\ListAppInstanceAdmins' {nextToken} -> nextToken) (\s@ListAppInstanceAdmins' {} a -> s {nextToken = a} :: ListAppInstanceAdmins) Prelude.. Lens.mapping Core._Sensitive
+listAppInstanceAdmins_nextToken = Lens.lens (\ListAppInstanceAdmins' {nextToken} -> nextToken) (\s@ListAppInstanceAdmins' {} a -> s {nextToken = a} :: ListAppInstanceAdmins) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The maximum number of administrators that you want to return.
 listAppInstanceAdmins_maxResults :: Lens.Lens' ListAppInstanceAdmins (Prelude.Maybe Prelude.Natural)
@@ -110,9 +111,9 @@ instance Core.AWSRequest ListAppInstanceAdmins where
     Response.receiveJSON
       ( \s h x ->
           ListAppInstanceAdminsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "AppInstanceArn")
-            Prelude.<*> ( x Core..?> "AppInstanceAdmins"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "AppInstanceArn")
+            Prelude.<*> ( x Data..?> "AppInstanceAdmins"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -130,29 +131,29 @@ instance Prelude.NFData ListAppInstanceAdmins where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf appInstanceArn
 
-instance Core.ToHeaders ListAppInstanceAdmins where
+instance Data.ToHeaders ListAppInstanceAdmins where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListAppInstanceAdmins where
+instance Data.ToPath ListAppInstanceAdmins where
   toPath ListAppInstanceAdmins' {..} =
     Prelude.mconcat
       [ "/app-instances/",
-        Core.toBS appInstanceArn,
+        Data.toBS appInstanceArn,
         "/admins"
       ]
 
-instance Core.ToQuery ListAppInstanceAdmins where
+instance Data.ToQuery ListAppInstanceAdmins where
   toQuery ListAppInstanceAdmins' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListAppInstanceAdminsResponse' smart constructor.
 data ListAppInstanceAdminsResponse = ListAppInstanceAdminsResponse'
   { -- | The token returned from previous API requests until the number of
     -- administrators is reached.
-    nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the @AppInstance@.
     appInstanceArn :: Prelude.Maybe Prelude.Text,
     -- | The information for each administrator.
@@ -194,7 +195,7 @@ newListAppInstanceAdminsResponse pHttpStatus_ =
 -- | The token returned from previous API requests until the number of
 -- administrators is reached.
 listAppInstanceAdminsResponse_nextToken :: Lens.Lens' ListAppInstanceAdminsResponse (Prelude.Maybe Prelude.Text)
-listAppInstanceAdminsResponse_nextToken = Lens.lens (\ListAppInstanceAdminsResponse' {nextToken} -> nextToken) (\s@ListAppInstanceAdminsResponse' {} a -> s {nextToken = a} :: ListAppInstanceAdminsResponse) Prelude.. Lens.mapping Core._Sensitive
+listAppInstanceAdminsResponse_nextToken = Lens.lens (\ListAppInstanceAdminsResponse' {nextToken} -> nextToken) (\s@ListAppInstanceAdminsResponse' {} a -> s {nextToken = a} :: ListAppInstanceAdminsResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARN of the @AppInstance@.
 listAppInstanceAdminsResponse_appInstanceArn :: Lens.Lens' ListAppInstanceAdminsResponse (Prelude.Maybe Prelude.Text)

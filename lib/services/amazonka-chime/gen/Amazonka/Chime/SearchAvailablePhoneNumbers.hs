@@ -54,6 +54,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -171,8 +172,8 @@ instance Core.AWSRequest SearchAvailablePhoneNumbers where
     Response.receiveJSON
       ( \s h x ->
           SearchAvailablePhoneNumbersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "E164PhoneNumbers"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "E164PhoneNumbers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -200,23 +201,23 @@ instance Prelude.NFData SearchAvailablePhoneNumbers where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf areaCode
 
-instance Core.ToHeaders SearchAvailablePhoneNumbers where
+instance Data.ToHeaders SearchAvailablePhoneNumbers where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SearchAvailablePhoneNumbers where
+instance Data.ToPath SearchAvailablePhoneNumbers where
   toPath = Prelude.const "/search"
 
-instance Core.ToQuery SearchAvailablePhoneNumbers where
+instance Data.ToQuery SearchAvailablePhoneNumbers where
   toQuery SearchAvailablePhoneNumbers' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "toll-free-prefix" Core.=: tollFreePrefix,
-        "phone-number-type" Core.=: phoneNumberType,
-        "country" Core.=: country,
-        "state" Core.=: state,
-        "city" Core.=: city,
-        "max-results" Core.=: maxResults,
-        "area-code" Core.=: areaCode,
+      [ "next-token" Data.=: nextToken,
+        "toll-free-prefix" Data.=: tollFreePrefix,
+        "phone-number-type" Data.=: phoneNumberType,
+        "country" Data.=: country,
+        "state" Data.=: state,
+        "city" Data.=: city,
+        "max-results" Data.=: maxResults,
+        "area-code" Data.=: areaCode,
         "type=phone-numbers"
       ]
 
@@ -225,7 +226,7 @@ data SearchAvailablePhoneNumbersResponse = SearchAvailablePhoneNumbersResponse'
   { -- | The token used to retrieve the next page of search results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | List of phone numbers, in E.164 format.
-    e164PhoneNumbers :: Prelude.Maybe [Core.Sensitive Prelude.Text],
+    e164PhoneNumbers :: Prelude.Maybe [Data.Sensitive Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }

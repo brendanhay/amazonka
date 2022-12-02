@@ -23,6 +23,7 @@ import Amazonka.Chime.Types.SipRuleTargetApplication
 import Amazonka.Chime.Types.SipRuleTriggerType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The SIP rule details, including name, triggers, and target applications.
@@ -35,9 +36,9 @@ data SipRule = SipRule'
     -- | The name of the SIP rule.
     name :: Prelude.Maybe Prelude.Text,
     -- | The time at which the SIP rule was created, in ISO 8601 format.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The time at which the SIP rule was last updated, in ISO 8601 format.
-    updatedTimestamp :: Prelude.Maybe Core.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | Target SIP media application and other details, such as priority and AWS
     -- Region, to be specified in the SIP rule. Only one SIP rule per AWS
     -- Region can be provided.
@@ -112,11 +113,11 @@ sipRule_name = Lens.lens (\SipRule' {name} -> name) (\s@SipRule' {} a -> s {name
 
 -- | The time at which the SIP rule was created, in ISO 8601 format.
 sipRule_createdTimestamp :: Lens.Lens' SipRule (Prelude.Maybe Prelude.UTCTime)
-sipRule_createdTimestamp = Lens.lens (\SipRule' {createdTimestamp} -> createdTimestamp) (\s@SipRule' {} a -> s {createdTimestamp = a} :: SipRule) Prelude.. Lens.mapping Core._Time
+sipRule_createdTimestamp = Lens.lens (\SipRule' {createdTimestamp} -> createdTimestamp) (\s@SipRule' {} a -> s {createdTimestamp = a} :: SipRule) Prelude.. Lens.mapping Data._Time
 
 -- | The time at which the SIP rule was last updated, in ISO 8601 format.
 sipRule_updatedTimestamp :: Lens.Lens' SipRule (Prelude.Maybe Prelude.UTCTime)
-sipRule_updatedTimestamp = Lens.lens (\SipRule' {updatedTimestamp} -> updatedTimestamp) (\s@SipRule' {} a -> s {updatedTimestamp = a} :: SipRule) Prelude.. Lens.mapping Core._Time
+sipRule_updatedTimestamp = Lens.lens (\SipRule' {updatedTimestamp} -> updatedTimestamp) (\s@SipRule' {} a -> s {updatedTimestamp = a} :: SipRule) Prelude.. Lens.mapping Data._Time
 
 -- | Target SIP media application and other details, such as priority and AWS
 -- Region, to be specified in the SIP rule. Only one SIP rule per AWS
@@ -142,20 +143,20 @@ sipRule_triggerValue = Lens.lens (\SipRule' {triggerValue} -> triggerValue) (\s@
 sipRule_disabled :: Lens.Lens' SipRule (Prelude.Maybe Prelude.Bool)
 sipRule_disabled = Lens.lens (\SipRule' {disabled} -> disabled) (\s@SipRule' {} a -> s {disabled = a} :: SipRule)
 
-instance Core.FromJSON SipRule where
+instance Data.FromJSON SipRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SipRule"
       ( \x ->
           SipRule'
-            Prelude.<$> (x Core..:? "SipRuleId")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "UpdatedTimestamp")
-            Prelude.<*> (x Core..:? "TargetApplications")
-            Prelude.<*> (x Core..:? "TriggerType")
-            Prelude.<*> (x Core..:? "TriggerValue")
-            Prelude.<*> (x Core..:? "Disabled")
+            Prelude.<$> (x Data..:? "SipRuleId")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "UpdatedTimestamp")
+            Prelude.<*> (x Data..:? "TargetApplications")
+            Prelude.<*> (x Data..:? "TriggerType")
+            Prelude.<*> (x Data..:? "TriggerValue")
+            Prelude.<*> (x Data..:? "Disabled")
       )
 
 instance Prelude.Hashable SipRule where

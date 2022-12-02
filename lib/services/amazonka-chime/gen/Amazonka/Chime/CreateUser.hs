@@ -45,6 +45,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -52,7 +53,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateUser' smart constructor.
 data CreateUser = CreateUser'
   { -- | The user\'s email address.
-    email :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    email :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The user name.
     username :: Prelude.Maybe Prelude.Text,
     -- | The user type.
@@ -91,7 +92,7 @@ newCreateUser pAccountId_ =
 
 -- | The user\'s email address.
 createUser_email :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_email = Lens.lens (\CreateUser' {email} -> email) (\s@CreateUser' {} a -> s {email = a} :: CreateUser) Prelude.. Lens.mapping Core._Sensitive
+createUser_email = Lens.lens (\CreateUser' {email} -> email) (\s@CreateUser' {} a -> s {email = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The user name.
 createUser_username :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
@@ -113,7 +114,7 @@ instance Core.AWSRequest CreateUser where
     Response.receiveJSON
       ( \s h x ->
           CreateUserResponse'
-            Prelude.<$> (x Core..?> "User")
+            Prelude.<$> (x Data..?> "User")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,25 +132,25 @@ instance Prelude.NFData CreateUser where
       `Prelude.seq` Prelude.rnf userType
       `Prelude.seq` Prelude.rnf accountId
 
-instance Core.ToHeaders CreateUser where
+instance Data.ToHeaders CreateUser where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateUser where
+instance Data.ToJSON CreateUser where
   toJSON CreateUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Email" Core..=) Prelude.<$> email,
-            ("Username" Core..=) Prelude.<$> username,
-            ("UserType" Core..=) Prelude.<$> userType
+          [ ("Email" Data..=) Prelude.<$> email,
+            ("Username" Data..=) Prelude.<$> username,
+            ("UserType" Data..=) Prelude.<$> userType
           ]
       )
 
-instance Core.ToPath CreateUser where
+instance Data.ToPath CreateUser where
   toPath CreateUser' {..} =
     Prelude.mconcat
-      ["/accounts/", Core.toBS accountId, "/users"]
+      ["/accounts/", Data.toBS accountId, "/users"]
 
-instance Core.ToQuery CreateUser where
+instance Data.ToQuery CreateUser where
   toQuery =
     Prelude.const
       (Prelude.mconcat ["operation=create"])

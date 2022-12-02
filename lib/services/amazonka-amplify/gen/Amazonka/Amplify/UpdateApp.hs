@@ -60,6 +60,7 @@ where
 import Amazonka.Amplify.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ data UpdateApp = UpdateApp'
     -- migrate these apps to use the GitHub App. For more information, see
     -- <https://docs.aws.amazon.com/amplify/latest/UserGuide/setting-up-GitHub-access.html#migrating-to-github-app-auth Migrating an existing OAuth app to the Amplify GitHub App>
     -- in the /Amplify User Guide/ .
-    accessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    accessToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name for an Amplify app.
     name :: Prelude.Maybe Prelude.Text,
     -- | Describes the automated branch creation glob patterns for an Amplify
@@ -104,7 +105,7 @@ data UpdateApp = UpdateApp'
     -- | The basic authorization credentials for an Amplify app. You must
     -- base64-encode the authorization credentials and provide them in the
     -- format @user:password@.
-    basicAuthCredentials :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    basicAuthCredentials :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The description for an Amplify app.
     description :: Prelude.Maybe Prelude.Text,
     -- | The platform for the Amplify app. For a static app, set the platform
@@ -130,7 +131,7 @@ data UpdateApp = UpdateApp'
     -- migrate these apps to use the GitHub App. For more information, see
     -- <https://docs.aws.amazon.com/amplify/latest/UserGuide/setting-up-GitHub-access.html#migrating-to-github-app-auth Migrating an existing OAuth app to the Amplify GitHub App>
     -- in the /Amplify User Guide/ .
-    oauthToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    oauthToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The environment variables for an Amplify app.
     environmentVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The custom redirect and rewrite rules for an Amplify app.
@@ -140,7 +141,7 @@ data UpdateApp = UpdateApp'
     -- | Enables automated branch creation for an Amplify app.
     enableAutoBranchCreation :: Prelude.Maybe Prelude.Bool,
     -- | The build specification (build spec) for an Amplify app.
-    buildSpec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    buildSpec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The automated branch creation configuration for an Amplify app.
     autoBranchCreationConfig :: Prelude.Maybe AutoBranchCreationConfig,
     -- | The unique ID for an Amplify app.
@@ -280,7 +281,7 @@ updateApp_iamServiceRoleArn = Lens.lens (\UpdateApp' {iamServiceRoleArn} -> iamS
 -- <https://docs.aws.amazon.com/amplify/latest/UserGuide/setting-up-GitHub-access.html#migrating-to-github-app-auth Migrating an existing OAuth app to the Amplify GitHub App>
 -- in the /Amplify User Guide/ .
 updateApp_accessToken :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
-updateApp_accessToken = Lens.lens (\UpdateApp' {accessToken} -> accessToken) (\s@UpdateApp' {} a -> s {accessToken = a} :: UpdateApp) Prelude.. Lens.mapping Core._Sensitive
+updateApp_accessToken = Lens.lens (\UpdateApp' {accessToken} -> accessToken) (\s@UpdateApp' {} a -> s {accessToken = a} :: UpdateApp) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name for an Amplify app.
 updateApp_name :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
@@ -312,7 +313,7 @@ updateApp_enableBranchAutoDeletion = Lens.lens (\UpdateApp' {enableBranchAutoDel
 -- base64-encode the authorization credentials and provide them in the
 -- format @user:password@.
 updateApp_basicAuthCredentials :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
-updateApp_basicAuthCredentials = Lens.lens (\UpdateApp' {basicAuthCredentials} -> basicAuthCredentials) (\s@UpdateApp' {} a -> s {basicAuthCredentials = a} :: UpdateApp) Prelude.. Lens.mapping Core._Sensitive
+updateApp_basicAuthCredentials = Lens.lens (\UpdateApp' {basicAuthCredentials} -> basicAuthCredentials) (\s@UpdateApp' {} a -> s {basicAuthCredentials = a} :: UpdateApp) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The description for an Amplify app.
 updateApp_description :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
@@ -344,7 +345,7 @@ updateApp_platform = Lens.lens (\UpdateApp' {platform} -> platform) (\s@UpdateAp
 -- <https://docs.aws.amazon.com/amplify/latest/UserGuide/setting-up-GitHub-access.html#migrating-to-github-app-auth Migrating an existing OAuth app to the Amplify GitHub App>
 -- in the /Amplify User Guide/ .
 updateApp_oauthToken :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
-updateApp_oauthToken = Lens.lens (\UpdateApp' {oauthToken} -> oauthToken) (\s@UpdateApp' {} a -> s {oauthToken = a} :: UpdateApp) Prelude.. Lens.mapping Core._Sensitive
+updateApp_oauthToken = Lens.lens (\UpdateApp' {oauthToken} -> oauthToken) (\s@UpdateApp' {} a -> s {oauthToken = a} :: UpdateApp) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The environment variables for an Amplify app.
 updateApp_environmentVariables :: Lens.Lens' UpdateApp (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -364,7 +365,7 @@ updateApp_enableAutoBranchCreation = Lens.lens (\UpdateApp' {enableAutoBranchCre
 
 -- | The build specification (build spec) for an Amplify app.
 updateApp_buildSpec :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
-updateApp_buildSpec = Lens.lens (\UpdateApp' {buildSpec} -> buildSpec) (\s@UpdateApp' {} a -> s {buildSpec = a} :: UpdateApp) Prelude.. Lens.mapping Core._Sensitive
+updateApp_buildSpec = Lens.lens (\UpdateApp' {buildSpec} -> buildSpec) (\s@UpdateApp' {} a -> s {buildSpec = a} :: UpdateApp) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The automated branch creation configuration for an Amplify app.
 updateApp_autoBranchCreationConfig :: Lens.Lens' UpdateApp (Prelude.Maybe AutoBranchCreationConfig)
@@ -383,7 +384,7 @@ instance Core.AWSRequest UpdateApp where
       ( \s h x ->
           UpdateAppResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "app")
+            Prelude.<*> (x Data..:> "app")
       )
 
 instance Prelude.Hashable UpdateApp where
@@ -431,56 +432,56 @@ instance Prelude.NFData UpdateApp where
         autoBranchCreationConfig
       `Prelude.seq` Prelude.rnf appId
 
-instance Core.ToHeaders UpdateApp where
+instance Data.ToHeaders UpdateApp where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateApp where
+instance Data.ToJSON UpdateApp where
   toJSON UpdateApp' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("iamServiceRoleArn" Core..=)
+          [ ("iamServiceRoleArn" Data..=)
               Prelude.<$> iamServiceRoleArn,
-            ("accessToken" Core..=) Prelude.<$> accessToken,
-            ("name" Core..=) Prelude.<$> name,
-            ("autoBranchCreationPatterns" Core..=)
+            ("accessToken" Data..=) Prelude.<$> accessToken,
+            ("name" Data..=) Prelude.<$> name,
+            ("autoBranchCreationPatterns" Data..=)
               Prelude.<$> autoBranchCreationPatterns,
-            ("customHeaders" Core..=) Prelude.<$> customHeaders,
-            ("enableBranchAutoBuild" Core..=)
+            ("customHeaders" Data..=) Prelude.<$> customHeaders,
+            ("enableBranchAutoBuild" Data..=)
               Prelude.<$> enableBranchAutoBuild,
-            ("repository" Core..=) Prelude.<$> repository,
-            ("enableBranchAutoDeletion" Core..=)
+            ("repository" Data..=) Prelude.<$> repository,
+            ("enableBranchAutoDeletion" Data..=)
               Prelude.<$> enableBranchAutoDeletion,
-            ("basicAuthCredentials" Core..=)
+            ("basicAuthCredentials" Data..=)
               Prelude.<$> basicAuthCredentials,
-            ("description" Core..=) Prelude.<$> description,
-            ("platform" Core..=) Prelude.<$> platform,
-            ("oauthToken" Core..=) Prelude.<$> oauthToken,
-            ("environmentVariables" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("platform" Data..=) Prelude.<$> platform,
+            ("oauthToken" Data..=) Prelude.<$> oauthToken,
+            ("environmentVariables" Data..=)
               Prelude.<$> environmentVariables,
-            ("customRules" Core..=) Prelude.<$> customRules,
-            ("enableBasicAuth" Core..=)
+            ("customRules" Data..=) Prelude.<$> customRules,
+            ("enableBasicAuth" Data..=)
               Prelude.<$> enableBasicAuth,
-            ("enableAutoBranchCreation" Core..=)
+            ("enableAutoBranchCreation" Data..=)
               Prelude.<$> enableAutoBranchCreation,
-            ("buildSpec" Core..=) Prelude.<$> buildSpec,
-            ("autoBranchCreationConfig" Core..=)
+            ("buildSpec" Data..=) Prelude.<$> buildSpec,
+            ("autoBranchCreationConfig" Data..=)
               Prelude.<$> autoBranchCreationConfig
           ]
       )
 
-instance Core.ToPath UpdateApp where
+instance Data.ToPath UpdateApp where
   toPath UpdateApp' {..} =
-    Prelude.mconcat ["/apps/", Core.toBS appId]
+    Prelude.mconcat ["/apps/", Data.toBS appId]
 
-instance Core.ToQuery UpdateApp where
+instance Data.ToQuery UpdateApp where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result structure for an Amplify app update request.

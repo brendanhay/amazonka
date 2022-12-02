@@ -22,6 +22,7 @@ module Amazonka.Amplify.Types.Step where
 import Amazonka.Amplify.Types.JobStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an execution step, for an execution job, for an Amplify app.
@@ -46,11 +47,11 @@ data Step = Step'
     -- | The name of the execution step.
     stepName :: Prelude.Text,
     -- | The start date and time of the execution step.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The status of the execution step.
     status :: JobStatus,
     -- | The end date and time of the execution step.
-    endTime :: Core.POSIX
+    endTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -104,9 +105,9 @@ newStep pStepName_ pStartTime_ pStatus_ pEndTime_ =
       testConfigUrl = Prelude.Nothing,
       testArtifactsUrl = Prelude.Nothing,
       stepName = pStepName_,
-      startTime = Core._Time Lens.# pStartTime_,
+      startTime = Data._Time Lens.# pStartTime_,
       status = pStatus_,
-      endTime = Core._Time Lens.# pEndTime_
+      endTime = Data._Time Lens.# pEndTime_
     }
 
 -- | The list of screenshot URLs for the execution step, if relevant.
@@ -144,7 +145,7 @@ step_stepName = Lens.lens (\Step' {stepName} -> stepName) (\s@Step' {} a -> s {s
 
 -- | The start date and time of the execution step.
 step_startTime :: Lens.Lens' Step Prelude.UTCTime
-step_startTime = Lens.lens (\Step' {startTime} -> startTime) (\s@Step' {} a -> s {startTime = a} :: Step) Prelude.. Core._Time
+step_startTime = Lens.lens (\Step' {startTime} -> startTime) (\s@Step' {} a -> s {startTime = a} :: Step) Prelude.. Data._Time
 
 -- | The status of the execution step.
 step_status :: Lens.Lens' Step JobStatus
@@ -152,25 +153,25 @@ step_status = Lens.lens (\Step' {status} -> status) (\s@Step' {} a -> s {status 
 
 -- | The end date and time of the execution step.
 step_endTime :: Lens.Lens' Step Prelude.UTCTime
-step_endTime = Lens.lens (\Step' {endTime} -> endTime) (\s@Step' {} a -> s {endTime = a} :: Step) Prelude.. Core._Time
+step_endTime = Lens.lens (\Step' {endTime} -> endTime) (\s@Step' {} a -> s {endTime = a} :: Step) Prelude.. Data._Time
 
-instance Core.FromJSON Step where
+instance Data.FromJSON Step where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Step"
       ( \x ->
           Step'
-            Prelude.<$> (x Core..:? "screenshots" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..:? "logUrl")
-            Prelude.<*> (x Core..:? "context")
-            Prelude.<*> (x Core..:? "artifactsUrl")
-            Prelude.<*> (x Core..:? "testConfigUrl")
-            Prelude.<*> (x Core..:? "testArtifactsUrl")
-            Prelude.<*> (x Core..: "stepName")
-            Prelude.<*> (x Core..: "startTime")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "endTime")
+            Prelude.<$> (x Data..:? "screenshots" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..:? "logUrl")
+            Prelude.<*> (x Data..:? "context")
+            Prelude.<*> (x Data..:? "artifactsUrl")
+            Prelude.<*> (x Data..:? "testConfigUrl")
+            Prelude.<*> (x Data..:? "testArtifactsUrl")
+            Prelude.<*> (x Data..: "stepName")
+            Prelude.<*> (x Data..: "startTime")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "endTime")
       )
 
 instance Prelude.Hashable Step where

@@ -43,6 +43,7 @@ where
 import Amazonka.Amplify.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,7 +86,7 @@ instance Core.AWSRequest GetWebhook where
       ( \s h x ->
           GetWebhookResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "webhook")
+            Prelude.<*> (x Data..:> "webhook")
       )
 
 instance Prelude.Hashable GetWebhook where
@@ -95,22 +96,22 @@ instance Prelude.Hashable GetWebhook where
 instance Prelude.NFData GetWebhook where
   rnf GetWebhook' {..} = Prelude.rnf webhookId
 
-instance Core.ToHeaders GetWebhook where
+instance Data.ToHeaders GetWebhook where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetWebhook where
+instance Data.ToPath GetWebhook where
   toPath GetWebhook' {..} =
-    Prelude.mconcat ["/webhooks/", Core.toBS webhookId]
+    Prelude.mconcat ["/webhooks/", Data.toBS webhookId]
 
-instance Core.ToQuery GetWebhook where
+instance Data.ToQuery GetWebhook where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result structure for the get webhook request.

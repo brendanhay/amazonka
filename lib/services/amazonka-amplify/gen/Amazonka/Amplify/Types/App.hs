@@ -26,6 +26,7 @@ import Amazonka.Amplify.Types.ProductionBranch
 import Amazonka.Amplify.Types.RepositoryCloneMethod
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the different branches of a repository for building,
@@ -57,7 +58,7 @@ data App = App'
     -- | The basic authorization credentials for branches for the Amplify app.
     -- You must base64-encode the authorization credentials and provide them in
     -- the format @user:password@.
-    basicAuthCredentials :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    basicAuthCredentials :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Describes the information about a production branch of the Amplify app.
     productionBranch :: Prelude.Maybe ProductionBranch,
     -- | Describes the custom redirect and rewrite rules for the Amplify app.
@@ -66,7 +67,7 @@ data App = App'
     enableAutoBranchCreation :: Prelude.Maybe Prelude.Bool,
     -- | Describes the content of the build specification (build spec) for the
     -- Amplify app.
-    buildSpec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    buildSpec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Describes the automated branch creation configuration for the Amplify
     -- app.
     autoBranchCreationConfig :: Prelude.Maybe AutoBranchCreationConfig,
@@ -86,9 +87,9 @@ data App = App'
     -- original SSR support only, set the platform type to @WEB_DYNAMIC@.
     platform :: Platform,
     -- | Creates a date and time for the Amplify app.
-    createTime :: Core.POSIX,
+    createTime :: Data.POSIX,
     -- | Updates the date and time for the Amplify app.
-    updateTime :: Core.POSIX,
+    updateTime :: Data.POSIX,
     -- | The environment variables for the Amplify app.
     environmentVariables :: Prelude.HashMap Prelude.Text Prelude.Text,
     -- | The default domain for the Amplify app.
@@ -226,8 +227,8 @@ newApp
         description = pDescription_,
         repository = pRepository_,
         platform = pPlatform_,
-        createTime = Core._Time Lens.# pCreateTime_,
-        updateTime = Core._Time Lens.# pUpdateTime_,
+        createTime = Data._Time Lens.# pCreateTime_,
+        updateTime = Data._Time Lens.# pUpdateTime_,
         environmentVariables = Prelude.mempty,
         defaultDomain = pDefaultDomain_,
         enableBranchAutoBuild = pEnableBranchAutoBuild_,
@@ -271,7 +272,7 @@ app_enableBranchAutoDeletion = Lens.lens (\App' {enableBranchAutoDeletion} -> en
 -- You must base64-encode the authorization credentials and provide them in
 -- the format @user:password@.
 app_basicAuthCredentials :: Lens.Lens' App (Prelude.Maybe Prelude.Text)
-app_basicAuthCredentials = Lens.lens (\App' {basicAuthCredentials} -> basicAuthCredentials) (\s@App' {} a -> s {basicAuthCredentials = a} :: App) Prelude.. Lens.mapping Core._Sensitive
+app_basicAuthCredentials = Lens.lens (\App' {basicAuthCredentials} -> basicAuthCredentials) (\s@App' {} a -> s {basicAuthCredentials = a} :: App) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Describes the information about a production branch of the Amplify app.
 app_productionBranch :: Lens.Lens' App (Prelude.Maybe ProductionBranch)
@@ -288,7 +289,7 @@ app_enableAutoBranchCreation = Lens.lens (\App' {enableAutoBranchCreation} -> en
 -- | Describes the content of the build specification (build spec) for the
 -- Amplify app.
 app_buildSpec :: Lens.Lens' App (Prelude.Maybe Prelude.Text)
-app_buildSpec = Lens.lens (\App' {buildSpec} -> buildSpec) (\s@App' {} a -> s {buildSpec = a} :: App) Prelude.. Lens.mapping Core._Sensitive
+app_buildSpec = Lens.lens (\App' {buildSpec} -> buildSpec) (\s@App' {} a -> s {buildSpec = a} :: App) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Describes the automated branch creation configuration for the Amplify
 -- app.
@@ -324,11 +325,11 @@ app_platform = Lens.lens (\App' {platform} -> platform) (\s@App' {} a -> s {plat
 
 -- | Creates a date and time for the Amplify app.
 app_createTime :: Lens.Lens' App Prelude.UTCTime
-app_createTime = Lens.lens (\App' {createTime} -> createTime) (\s@App' {} a -> s {createTime = a} :: App) Prelude.. Core._Time
+app_createTime = Lens.lens (\App' {createTime} -> createTime) (\s@App' {} a -> s {createTime = a} :: App) Prelude.. Data._Time
 
 -- | Updates the date and time for the Amplify app.
 app_updateTime :: Lens.Lens' App Prelude.UTCTime
-app_updateTime = Lens.lens (\App' {updateTime} -> updateTime) (\s@App' {} a -> s {updateTime = a} :: App) Prelude.. Core._Time
+app_updateTime = Lens.lens (\App' {updateTime} -> updateTime) (\s@App' {} a -> s {updateTime = a} :: App) Prelude.. Data._Time
 
 -- | The environment variables for the Amplify app.
 app_environmentVariables :: Lens.Lens' App (Prelude.HashMap Prelude.Text Prelude.Text)
@@ -346,40 +347,40 @@ app_enableBranchAutoBuild = Lens.lens (\App' {enableBranchAutoBuild} -> enableBr
 app_enableBasicAuth :: Lens.Lens' App Prelude.Bool
 app_enableBasicAuth = Lens.lens (\App' {enableBasicAuth} -> enableBasicAuth) (\s@App' {} a -> s {enableBasicAuth = a} :: App)
 
-instance Core.FromJSON App where
+instance Data.FromJSON App where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "App"
       ( \x ->
           App'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "repositoryCloneMethod")
-            Prelude.<*> (x Core..:? "iamServiceRoleArn")
-            Prelude.<*> ( x Core..:? "autoBranchCreationPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "repositoryCloneMethod")
+            Prelude.<*> (x Data..:? "iamServiceRoleArn")
+            Prelude.<*> ( x Data..:? "autoBranchCreationPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "customHeaders")
-            Prelude.<*> (x Core..:? "enableBranchAutoDeletion")
-            Prelude.<*> (x Core..:? "basicAuthCredentials")
-            Prelude.<*> (x Core..:? "productionBranch")
-            Prelude.<*> (x Core..:? "customRules" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "enableAutoBranchCreation")
-            Prelude.<*> (x Core..:? "buildSpec")
-            Prelude.<*> (x Core..:? "autoBranchCreationConfig")
-            Prelude.<*> (x Core..: "appId")
-            Prelude.<*> (x Core..: "appArn")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "description")
-            Prelude.<*> (x Core..: "repository")
-            Prelude.<*> (x Core..: "platform")
-            Prelude.<*> (x Core..: "createTime")
-            Prelude.<*> (x Core..: "updateTime")
-            Prelude.<*> ( x Core..:? "environmentVariables"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "customHeaders")
+            Prelude.<*> (x Data..:? "enableBranchAutoDeletion")
+            Prelude.<*> (x Data..:? "basicAuthCredentials")
+            Prelude.<*> (x Data..:? "productionBranch")
+            Prelude.<*> (x Data..:? "customRules" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "enableAutoBranchCreation")
+            Prelude.<*> (x Data..:? "buildSpec")
+            Prelude.<*> (x Data..:? "autoBranchCreationConfig")
+            Prelude.<*> (x Data..: "appId")
+            Prelude.<*> (x Data..: "appArn")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "description")
+            Prelude.<*> (x Data..: "repository")
+            Prelude.<*> (x Data..: "platform")
+            Prelude.<*> (x Data..: "createTime")
+            Prelude.<*> (x Data..: "updateTime")
+            Prelude.<*> ( x Data..:? "environmentVariables"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "defaultDomain")
-            Prelude.<*> (x Core..: "enableBranchAutoBuild")
-            Prelude.<*> (x Core..: "enableBasicAuth")
+            Prelude.<*> (x Data..: "defaultDomain")
+            Prelude.<*> (x Data..: "enableBranchAutoBuild")
+            Prelude.<*> (x Data..: "enableBasicAuth")
       )
 
 instance Prelude.Hashable App where

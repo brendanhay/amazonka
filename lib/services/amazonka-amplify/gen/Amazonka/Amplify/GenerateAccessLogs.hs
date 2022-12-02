@@ -46,6 +46,7 @@ where
 import Amazonka.Amplify.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -56,10 +57,10 @@ import qualified Amazonka.Response as Response
 data GenerateAccessLogs = GenerateAccessLogs'
   { -- | The time at which the logs should end. The time range specified is
     -- inclusive of the end time.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The time at which the logs should start. The time range specified is
     -- inclusive of the start time.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the domain.
     domainName :: Prelude.Text,
     -- | The unique ID for an Amplify app.
@@ -101,12 +102,12 @@ newGenerateAccessLogs pDomainName_ pAppId_ =
 -- | The time at which the logs should end. The time range specified is
 -- inclusive of the end time.
 generateAccessLogs_endTime :: Lens.Lens' GenerateAccessLogs (Prelude.Maybe Prelude.UTCTime)
-generateAccessLogs_endTime = Lens.lens (\GenerateAccessLogs' {endTime} -> endTime) (\s@GenerateAccessLogs' {} a -> s {endTime = a} :: GenerateAccessLogs) Prelude.. Lens.mapping Core._Time
+generateAccessLogs_endTime = Lens.lens (\GenerateAccessLogs' {endTime} -> endTime) (\s@GenerateAccessLogs' {} a -> s {endTime = a} :: GenerateAccessLogs) Prelude.. Lens.mapping Data._Time
 
 -- | The time at which the logs should start. The time range specified is
 -- inclusive of the start time.
 generateAccessLogs_startTime :: Lens.Lens' GenerateAccessLogs (Prelude.Maybe Prelude.UTCTime)
-generateAccessLogs_startTime = Lens.lens (\GenerateAccessLogs' {startTime} -> startTime) (\s@GenerateAccessLogs' {} a -> s {startTime = a} :: GenerateAccessLogs) Prelude.. Lens.mapping Core._Time
+generateAccessLogs_startTime = Lens.lens (\GenerateAccessLogs' {startTime} -> startTime) (\s@GenerateAccessLogs' {} a -> s {startTime = a} :: GenerateAccessLogs) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the domain.
 generateAccessLogs_domainName :: Lens.Lens' GenerateAccessLogs Prelude.Text
@@ -126,7 +127,7 @@ instance Core.AWSRequest GenerateAccessLogs where
     Response.receiveJSON
       ( \s h x ->
           GenerateAccessLogsResponse'
-            Prelude.<$> (x Core..?> "logUrl")
+            Prelude.<$> (x Data..?> "logUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,33 +145,33 @@ instance Prelude.NFData GenerateAccessLogs where
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf appId
 
-instance Core.ToHeaders GenerateAccessLogs where
+instance Data.ToHeaders GenerateAccessLogs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GenerateAccessLogs where
+instance Data.ToJSON GenerateAccessLogs where
   toJSON GenerateAccessLogs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("endTime" Core..=) Prelude.<$> endTime,
-            ("startTime" Core..=) Prelude.<$> startTime,
-            Prelude.Just ("domainName" Core..= domainName)
+          [ ("endTime" Data..=) Prelude.<$> endTime,
+            ("startTime" Data..=) Prelude.<$> startTime,
+            Prelude.Just ("domainName" Data..= domainName)
           ]
       )
 
-instance Core.ToPath GenerateAccessLogs where
+instance Data.ToPath GenerateAccessLogs where
   toPath GenerateAccessLogs' {..} =
     Prelude.mconcat
-      ["/apps/", Core.toBS appId, "/accesslogs"]
+      ["/apps/", Data.toBS appId, "/accesslogs"]
 
-instance Core.ToQuery GenerateAccessLogs where
+instance Data.ToQuery GenerateAccessLogs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result structure for the generate access logs request.

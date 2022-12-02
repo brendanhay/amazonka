@@ -43,6 +43,7 @@ where
 import Amazonka.Amplify.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,7 +99,7 @@ instance Core.AWSRequest DeleteBranch where
       ( \s h x ->
           DeleteBranchResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "branch")
+            Prelude.<*> (x Data..:> "branch")
       )
 
 instance Prelude.Hashable DeleteBranch where
@@ -111,27 +112,27 @@ instance Prelude.NFData DeleteBranch where
     Prelude.rnf appId
       `Prelude.seq` Prelude.rnf branchName
 
-instance Core.ToHeaders DeleteBranch where
+instance Data.ToHeaders DeleteBranch where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteBranch where
+instance Data.ToPath DeleteBranch where
   toPath DeleteBranch' {..} =
     Prelude.mconcat
       [ "/apps/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/branches/",
-        Core.toBS branchName
+        Data.toBS branchName
       ]
 
-instance Core.ToQuery DeleteBranch where
+instance Data.ToQuery DeleteBranch where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result structure for the delete branch request.

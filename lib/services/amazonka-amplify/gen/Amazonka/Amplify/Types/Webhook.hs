@@ -21,6 +21,7 @@ module Amazonka.Amplify.Types.Webhook where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a webhook that connects repository events to an Amplify app.
@@ -38,9 +39,9 @@ data Webhook = Webhook'
     -- | The description for a webhook.
     description :: Prelude.Text,
     -- | The create date and time for a webhook.
-    createTime :: Core.POSIX,
+    createTime :: Data.POSIX,
     -- | Updates the date and time for a webhook.
-    updateTime :: Core.POSIX
+    updateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,8 +96,8 @@ newWebhook
         webhookUrl = pWebhookUrl_,
         branchName = pBranchName_,
         description = pDescription_,
-        createTime = Core._Time Lens.# pCreateTime_,
-        updateTime = Core._Time Lens.# pUpdateTime_
+        createTime = Data._Time Lens.# pCreateTime_,
+        updateTime = Data._Time Lens.# pUpdateTime_
       }
 
 -- | The Amazon Resource Name (ARN) for the webhook.
@@ -121,25 +122,25 @@ webhook_description = Lens.lens (\Webhook' {description} -> description) (\s@Web
 
 -- | The create date and time for a webhook.
 webhook_createTime :: Lens.Lens' Webhook Prelude.UTCTime
-webhook_createTime = Lens.lens (\Webhook' {createTime} -> createTime) (\s@Webhook' {} a -> s {createTime = a} :: Webhook) Prelude.. Core._Time
+webhook_createTime = Lens.lens (\Webhook' {createTime} -> createTime) (\s@Webhook' {} a -> s {createTime = a} :: Webhook) Prelude.. Data._Time
 
 -- | Updates the date and time for a webhook.
 webhook_updateTime :: Lens.Lens' Webhook Prelude.UTCTime
-webhook_updateTime = Lens.lens (\Webhook' {updateTime} -> updateTime) (\s@Webhook' {} a -> s {updateTime = a} :: Webhook) Prelude.. Core._Time
+webhook_updateTime = Lens.lens (\Webhook' {updateTime} -> updateTime) (\s@Webhook' {} a -> s {updateTime = a} :: Webhook) Prelude.. Data._Time
 
-instance Core.FromJSON Webhook where
+instance Data.FromJSON Webhook where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Webhook"
       ( \x ->
           Webhook'
-            Prelude.<$> (x Core..: "webhookArn")
-            Prelude.<*> (x Core..: "webhookId")
-            Prelude.<*> (x Core..: "webhookUrl")
-            Prelude.<*> (x Core..: "branchName")
-            Prelude.<*> (x Core..: "description")
-            Prelude.<*> (x Core..: "createTime")
-            Prelude.<*> (x Core..: "updateTime")
+            Prelude.<$> (x Data..: "webhookArn")
+            Prelude.<*> (x Data..: "webhookId")
+            Prelude.<*> (x Data..: "webhookUrl")
+            Prelude.<*> (x Data..: "branchName")
+            Prelude.<*> (x Data..: "description")
+            Prelude.<*> (x Data..: "createTime")
+            Prelude.<*> (x Data..: "updateTime")
       )
 
 instance Prelude.Hashable Webhook where

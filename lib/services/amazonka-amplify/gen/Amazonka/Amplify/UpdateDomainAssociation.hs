@@ -47,6 +47,7 @@ where
 import Amazonka.Amplify.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -144,7 +145,7 @@ instance Core.AWSRequest UpdateDomainAssociation where
       ( \s h x ->
           UpdateDomainAssociationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "domainAssociation")
+            Prelude.<*> (x Data..:> "domainAssociation")
       )
 
 instance Prelude.Hashable UpdateDomainAssociation where
@@ -165,42 +166,42 @@ instance Prelude.NFData UpdateDomainAssociation where
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders UpdateDomainAssociation where
+instance Data.ToHeaders UpdateDomainAssociation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDomainAssociation where
+instance Data.ToJSON UpdateDomainAssociation where
   toJSON UpdateDomainAssociation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("subDomainSettings" Core..=)
+          [ ("subDomainSettings" Data..=)
               Prelude.<$> subDomainSettings,
-            ("autoSubDomainIAMRole" Core..=)
+            ("autoSubDomainIAMRole" Data..=)
               Prelude.<$> autoSubDomainIAMRole,
-            ("autoSubDomainCreationPatterns" Core..=)
+            ("autoSubDomainCreationPatterns" Data..=)
               Prelude.<$> autoSubDomainCreationPatterns,
-            ("enableAutoSubDomain" Core..=)
+            ("enableAutoSubDomain" Data..=)
               Prelude.<$> enableAutoSubDomain
           ]
       )
 
-instance Core.ToPath UpdateDomainAssociation where
+instance Data.ToPath UpdateDomainAssociation where
   toPath UpdateDomainAssociation' {..} =
     Prelude.mconcat
       [ "/apps/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/domains/",
-        Core.toBS domainName
+        Data.toBS domainName
       ]
 
-instance Core.ToQuery UpdateDomainAssociation where
+instance Data.ToQuery UpdateDomainAssociation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result structure for the update domain association request.

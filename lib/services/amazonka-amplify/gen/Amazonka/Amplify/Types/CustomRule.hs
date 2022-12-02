@@ -21,6 +21,7 @@ module Amazonka.Amplify.Types.CustomRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a custom rewrite or redirect rule.
@@ -134,16 +135,16 @@ customRule_source = Lens.lens (\CustomRule' {source} -> source) (\s@CustomRule' 
 customRule_target :: Lens.Lens' CustomRule Prelude.Text
 customRule_target = Lens.lens (\CustomRule' {target} -> target) (\s@CustomRule' {} a -> s {target = a} :: CustomRule)
 
-instance Core.FromJSON CustomRule where
+instance Data.FromJSON CustomRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomRule"
       ( \x ->
           CustomRule'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "condition")
-            Prelude.<*> (x Core..: "source")
-            Prelude.<*> (x Core..: "target")
+            Prelude.<$> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "condition")
+            Prelude.<*> (x Data..: "source")
+            Prelude.<*> (x Data..: "target")
       )
 
 instance Prelude.Hashable CustomRule where
@@ -160,13 +161,13 @@ instance Prelude.NFData CustomRule where
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf target
 
-instance Core.ToJSON CustomRule where
+instance Data.ToJSON CustomRule where
   toJSON CustomRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("status" Core..=) Prelude.<$> status,
-            ("condition" Core..=) Prelude.<$> condition,
-            Prelude.Just ("source" Core..= source),
-            Prelude.Just ("target" Core..= target)
+          [ ("status" Data..=) Prelude.<$> status,
+            ("condition" Data..=) Prelude.<$> condition,
+            Prelude.Just ("source" Data..= source),
+            Prelude.Just ("target" Data..= target)
           ]
       )

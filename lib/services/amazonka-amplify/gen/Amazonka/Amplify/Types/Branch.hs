@@ -22,6 +22,7 @@ module Amazonka.Amplify.Types.Branch where
 import Amazonka.Amplify.Types.Stage
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The branch for an Amplify app, which maps to a third-party repository
@@ -47,7 +48,7 @@ data Branch = Branch'
     -- | The basic authorization credentials for a branch of an Amplify app. You
     -- must base64-encode the authorization credentials and provide them in the
     -- format @user:password@.
-    basicAuthCredentials :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    basicAuthCredentials :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The source branch if the branch is a pull request branch.
     sourceBranch :: Prelude.Maybe Prelude.Text,
     -- | The Amplify environment name for the pull request.
@@ -57,7 +58,7 @@ data Branch = Branch'
     backendEnvironmentArn :: Prelude.Maybe Prelude.Text,
     -- | The build specification (build spec) content for the branch of an
     -- Amplify app.
-    buildSpec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    buildSpec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) for a branch that is part of an Amplify
     -- app.
     branchArn :: Prelude.Text,
@@ -73,10 +74,10 @@ data Branch = Branch'
     -- | Enables notifications for a branch that is part of an Amplify app.
     enableNotification :: Prelude.Bool,
     -- | The creation date and time for a branch that is part of an Amplify app.
-    createTime :: Core.POSIX,
+    createTime :: Data.POSIX,
     -- | The last updated date and time for a branch that is part of an Amplify
     -- app.
-    updateTime :: Core.POSIX,
+    updateTime :: Data.POSIX,
     -- | The environment variables specific to a branch of an Amplify app.
     environmentVariables :: Prelude.HashMap Prelude.Text Prelude.Text,
     -- | Enables auto-building on push for a branch of an Amplify app.
@@ -236,8 +237,8 @@ newBranch
         stage = pStage_,
         displayName = pDisplayName_,
         enableNotification = pEnableNotification_,
-        createTime = Core._Time Lens.# pCreateTime_,
-        updateTime = Core._Time Lens.# pUpdateTime_,
+        createTime = Data._Time Lens.# pCreateTime_,
+        updateTime = Data._Time Lens.# pUpdateTime_,
         environmentVariables = Prelude.mempty,
         enableAutoBuild = pEnableAutoBuild_,
         customDomains = Prelude.mempty,
@@ -279,7 +280,7 @@ branch_associatedResources = Lens.lens (\Branch' {associatedResources} -> associ
 -- must base64-encode the authorization credentials and provide them in the
 -- format @user:password@.
 branch_basicAuthCredentials :: Lens.Lens' Branch (Prelude.Maybe Prelude.Text)
-branch_basicAuthCredentials = Lens.lens (\Branch' {basicAuthCredentials} -> basicAuthCredentials) (\s@Branch' {} a -> s {basicAuthCredentials = a} :: Branch) Prelude.. Lens.mapping Core._Sensitive
+branch_basicAuthCredentials = Lens.lens (\Branch' {basicAuthCredentials} -> basicAuthCredentials) (\s@Branch' {} a -> s {basicAuthCredentials = a} :: Branch) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The source branch if the branch is a pull request branch.
 branch_sourceBranch :: Lens.Lens' Branch (Prelude.Maybe Prelude.Text)
@@ -297,7 +298,7 @@ branch_backendEnvironmentArn = Lens.lens (\Branch' {backendEnvironmentArn} -> ba
 -- | The build specification (build spec) content for the branch of an
 -- Amplify app.
 branch_buildSpec :: Lens.Lens' Branch (Prelude.Maybe Prelude.Text)
-branch_buildSpec = Lens.lens (\Branch' {buildSpec} -> buildSpec) (\s@Branch' {} a -> s {buildSpec = a} :: Branch) Prelude.. Lens.mapping Core._Sensitive
+branch_buildSpec = Lens.lens (\Branch' {buildSpec} -> buildSpec) (\s@Branch' {} a -> s {buildSpec = a} :: Branch) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) for a branch that is part of an Amplify
 -- app.
@@ -327,12 +328,12 @@ branch_enableNotification = Lens.lens (\Branch' {enableNotification} -> enableNo
 
 -- | The creation date and time for a branch that is part of an Amplify app.
 branch_createTime :: Lens.Lens' Branch Prelude.UTCTime
-branch_createTime = Lens.lens (\Branch' {createTime} -> createTime) (\s@Branch' {} a -> s {createTime = a} :: Branch) Prelude.. Core._Time
+branch_createTime = Lens.lens (\Branch' {createTime} -> createTime) (\s@Branch' {} a -> s {createTime = a} :: Branch) Prelude.. Data._Time
 
 -- | The last updated date and time for a branch that is part of an Amplify
 -- app.
 branch_updateTime :: Lens.Lens' Branch Prelude.UTCTime
-branch_updateTime = Lens.lens (\Branch' {updateTime} -> updateTime) (\s@Branch' {} a -> s {updateTime = a} :: Branch) Prelude.. Core._Time
+branch_updateTime = Lens.lens (\Branch' {updateTime} -> updateTime) (\s@Branch' {} a -> s {updateTime = a} :: Branch) Prelude.. Data._Time
 
 -- | The environment variables specific to a branch of an Amplify app.
 branch_environmentVariables :: Lens.Lens' Branch (Prelude.HashMap Prelude.Text Prelude.Text)
@@ -370,43 +371,43 @@ branch_ttl = Lens.lens (\Branch' {ttl} -> ttl) (\s@Branch' {} a -> s {ttl = a} :
 branch_enablePullRequestPreview :: Lens.Lens' Branch Prelude.Bool
 branch_enablePullRequestPreview = Lens.lens (\Branch' {enablePullRequestPreview} -> enablePullRequestPreview) (\s@Branch' {} a -> s {enablePullRequestPreview = a} :: Branch)
 
-instance Core.FromJSON Branch where
+instance Data.FromJSON Branch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Branch"
       ( \x ->
           Branch'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "thumbnailUrl")
-            Prelude.<*> (x Core..:? "enablePerformanceMode")
-            Prelude.<*> (x Core..:? "destinationBranch")
-            Prelude.<*> ( x Core..:? "associatedResources"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "thumbnailUrl")
+            Prelude.<*> (x Data..:? "enablePerformanceMode")
+            Prelude.<*> (x Data..:? "destinationBranch")
+            Prelude.<*> ( x Data..:? "associatedResources"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "basicAuthCredentials")
-            Prelude.<*> (x Core..:? "sourceBranch")
-            Prelude.<*> (x Core..:? "pullRequestEnvironmentName")
-            Prelude.<*> (x Core..:? "backendEnvironmentArn")
-            Prelude.<*> (x Core..:? "buildSpec")
-            Prelude.<*> (x Core..: "branchArn")
-            Prelude.<*> (x Core..: "branchName")
-            Prelude.<*> (x Core..: "description")
-            Prelude.<*> (x Core..: "stage")
-            Prelude.<*> (x Core..: "displayName")
-            Prelude.<*> (x Core..: "enableNotification")
-            Prelude.<*> (x Core..: "createTime")
-            Prelude.<*> (x Core..: "updateTime")
-            Prelude.<*> ( x Core..:? "environmentVariables"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "basicAuthCredentials")
+            Prelude.<*> (x Data..:? "sourceBranch")
+            Prelude.<*> (x Data..:? "pullRequestEnvironmentName")
+            Prelude.<*> (x Data..:? "backendEnvironmentArn")
+            Prelude.<*> (x Data..:? "buildSpec")
+            Prelude.<*> (x Data..: "branchArn")
+            Prelude.<*> (x Data..: "branchName")
+            Prelude.<*> (x Data..: "description")
+            Prelude.<*> (x Data..: "stage")
+            Prelude.<*> (x Data..: "displayName")
+            Prelude.<*> (x Data..: "enableNotification")
+            Prelude.<*> (x Data..: "createTime")
+            Prelude.<*> (x Data..: "updateTime")
+            Prelude.<*> ( x Data..:? "environmentVariables"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "enableAutoBuild")
-            Prelude.<*> (x Core..:? "customDomains" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "framework")
-            Prelude.<*> (x Core..: "activeJobId")
-            Prelude.<*> (x Core..: "totalNumberOfJobs")
-            Prelude.<*> (x Core..: "enableBasicAuth")
-            Prelude.<*> (x Core..: "ttl")
-            Prelude.<*> (x Core..: "enablePullRequestPreview")
+            Prelude.<*> (x Data..: "enableAutoBuild")
+            Prelude.<*> (x Data..:? "customDomains" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "framework")
+            Prelude.<*> (x Data..: "activeJobId")
+            Prelude.<*> (x Data..: "totalNumberOfJobs")
+            Prelude.<*> (x Data..: "enableBasicAuth")
+            Prelude.<*> (x Data..: "ttl")
+            Prelude.<*> (x Data..: "enablePullRequestPreview")
       )
 
 instance Prelude.Hashable Branch where

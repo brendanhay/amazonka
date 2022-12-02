@@ -46,6 +46,7 @@ where
 import Amazonka.Amplify.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,7 +131,7 @@ instance Core.AWSRequest StartDeployment where
       ( \s h x ->
           StartDeploymentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "jobSummary")
+            Prelude.<*> (x Data..:> "jobSummary")
       )
 
 instance Prelude.Hashable StartDeployment where
@@ -147,37 +148,37 @@ instance Prelude.NFData StartDeployment where
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf branchName
 
-instance Core.ToHeaders StartDeployment where
+instance Data.ToHeaders StartDeployment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartDeployment where
+instance Data.ToJSON StartDeployment where
   toJSON StartDeployment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("jobId" Core..=) Prelude.<$> jobId,
-            ("sourceUrl" Core..=) Prelude.<$> sourceUrl
+          [ ("jobId" Data..=) Prelude.<$> jobId,
+            ("sourceUrl" Data..=) Prelude.<$> sourceUrl
           ]
       )
 
-instance Core.ToPath StartDeployment where
+instance Data.ToPath StartDeployment where
   toPath StartDeployment' {..} =
     Prelude.mconcat
       [ "/apps/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/branches/",
-        Core.toBS branchName,
+        Data.toBS branchName,
         "/deployments/start"
       ]
 
-instance Core.ToQuery StartDeployment where
+instance Data.ToQuery StartDeployment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result structure for the start a deployment request.

@@ -42,6 +42,7 @@ where
 import Amazonka.Amplify.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetApp where
       ( \s h x ->
           GetAppResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "app")
+            Prelude.<*> (x Data..:> "app")
       )
 
 instance Prelude.Hashable GetApp where
@@ -93,22 +94,22 @@ instance Prelude.Hashable GetApp where
 instance Prelude.NFData GetApp where
   rnf GetApp' {..} = Prelude.rnf appId
 
-instance Core.ToHeaders GetApp where
+instance Data.ToHeaders GetApp where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetApp where
+instance Data.ToPath GetApp where
   toPath GetApp' {..} =
-    Prelude.mconcat ["/apps/", Core.toBS appId]
+    Prelude.mconcat ["/apps/", Data.toBS appId]
 
-instance Core.ToQuery GetApp where
+instance Data.ToQuery GetApp where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAppResponse' smart constructor.

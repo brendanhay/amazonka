@@ -45,6 +45,7 @@ where
 import Amazonka.Amplify.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,9 +113,9 @@ instance Core.AWSRequest ListWebhooks where
     Response.receiveJSON
       ( \s h x ->
           ListWebhooksResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "webhooks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "webhooks" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListWebhooks where
@@ -129,27 +130,27 @@ instance Prelude.NFData ListWebhooks where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf appId
 
-instance Core.ToHeaders ListWebhooks where
+instance Data.ToHeaders ListWebhooks where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListWebhooks where
+instance Data.ToPath ListWebhooks where
   toPath ListWebhooks' {..} =
     Prelude.mconcat
-      ["/apps/", Core.toBS appId, "/webhooks"]
+      ["/apps/", Data.toBS appId, "/webhooks"]
 
-instance Core.ToQuery ListWebhooks where
+instance Data.ToQuery ListWebhooks where
   toQuery ListWebhooks' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | The result structure for the list webhooks request.

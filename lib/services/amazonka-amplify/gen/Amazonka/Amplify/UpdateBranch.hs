@@ -58,6 +58,7 @@ where
 import Amazonka.Amplify.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -78,7 +79,7 @@ data UpdateBranch = UpdateBranch'
     -- | The basic authorization credentials for the branch. You must
     -- base64-encode the authorization credentials and provide them in the
     -- format @user:password@.
-    basicAuthCredentials :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    basicAuthCredentials :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The display name for a branch. This is used as the default domain
     -- prefix.
     displayName :: Prelude.Maybe Prelude.Text,
@@ -102,7 +103,7 @@ data UpdateBranch = UpdateBranch'
     -- | The framework for the branch.
     framework :: Prelude.Maybe Prelude.Text,
     -- | The build specification (build spec) for the branch.
-    buildSpec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    buildSpec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Enables pull request previews for this branch.
     enablePullRequestPreview :: Prelude.Maybe Prelude.Bool,
     -- | The unique ID for an Amplify app.
@@ -207,7 +208,7 @@ updateBranch_ttl = Lens.lens (\UpdateBranch' {ttl} -> ttl) (\s@UpdateBranch' {} 
 -- base64-encode the authorization credentials and provide them in the
 -- format @user:password@.
 updateBranch_basicAuthCredentials :: Lens.Lens' UpdateBranch (Prelude.Maybe Prelude.Text)
-updateBranch_basicAuthCredentials = Lens.lens (\UpdateBranch' {basicAuthCredentials} -> basicAuthCredentials) (\s@UpdateBranch' {} a -> s {basicAuthCredentials = a} :: UpdateBranch) Prelude.. Lens.mapping Core._Sensitive
+updateBranch_basicAuthCredentials = Lens.lens (\UpdateBranch' {basicAuthCredentials} -> basicAuthCredentials) (\s@UpdateBranch' {} a -> s {basicAuthCredentials = a} :: UpdateBranch) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The display name for a branch. This is used as the default domain
 -- prefix.
@@ -253,7 +254,7 @@ updateBranch_framework = Lens.lens (\UpdateBranch' {framework} -> framework) (\s
 
 -- | The build specification (build spec) for the branch.
 updateBranch_buildSpec :: Lens.Lens' UpdateBranch (Prelude.Maybe Prelude.Text)
-updateBranch_buildSpec = Lens.lens (\UpdateBranch' {buildSpec} -> buildSpec) (\s@UpdateBranch' {} a -> s {buildSpec = a} :: UpdateBranch) Prelude.. Lens.mapping Core._Sensitive
+updateBranch_buildSpec = Lens.lens (\UpdateBranch' {buildSpec} -> buildSpec) (\s@UpdateBranch' {} a -> s {buildSpec = a} :: UpdateBranch) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Enables pull request previews for this branch.
 updateBranch_enablePullRequestPreview :: Lens.Lens' UpdateBranch (Prelude.Maybe Prelude.Bool)
@@ -276,7 +277,7 @@ instance Core.AWSRequest UpdateBranch where
       ( \s h x ->
           UpdateBranchResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "branch")
+            Prelude.<*> (x Data..:> "branch")
       )
 
 instance Prelude.Hashable UpdateBranch where
@@ -319,58 +320,58 @@ instance Prelude.NFData UpdateBranch where
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf branchName
 
-instance Core.ToHeaders UpdateBranch where
+instance Data.ToHeaders UpdateBranch where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateBranch where
+instance Data.ToJSON UpdateBranch where
   toJSON UpdateBranch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("enablePerformanceMode" Core..=)
+          [ ("enablePerformanceMode" Data..=)
               Prelude.<$> enablePerformanceMode,
-            ("ttl" Core..=) Prelude.<$> ttl,
-            ("basicAuthCredentials" Core..=)
+            ("ttl" Data..=) Prelude.<$> ttl,
+            ("basicAuthCredentials" Data..=)
               Prelude.<$> basicAuthCredentials,
-            ("displayName" Core..=) Prelude.<$> displayName,
-            ("description" Core..=) Prelude.<$> description,
-            ("environmentVariables" Core..=)
+            ("displayName" Data..=) Prelude.<$> displayName,
+            ("description" Data..=) Prelude.<$> description,
+            ("environmentVariables" Data..=)
               Prelude.<$> environmentVariables,
-            ("pullRequestEnvironmentName" Core..=)
+            ("pullRequestEnvironmentName" Data..=)
               Prelude.<$> pullRequestEnvironmentName,
-            ("backendEnvironmentArn" Core..=)
+            ("backendEnvironmentArn" Data..=)
               Prelude.<$> backendEnvironmentArn,
-            ("stage" Core..=) Prelude.<$> stage,
-            ("enableAutoBuild" Core..=)
+            ("stage" Data..=) Prelude.<$> stage,
+            ("enableAutoBuild" Data..=)
               Prelude.<$> enableAutoBuild,
-            ("enableNotification" Core..=)
+            ("enableNotification" Data..=)
               Prelude.<$> enableNotification,
-            ("enableBasicAuth" Core..=)
+            ("enableBasicAuth" Data..=)
               Prelude.<$> enableBasicAuth,
-            ("framework" Core..=) Prelude.<$> framework,
-            ("buildSpec" Core..=) Prelude.<$> buildSpec,
-            ("enablePullRequestPreview" Core..=)
+            ("framework" Data..=) Prelude.<$> framework,
+            ("buildSpec" Data..=) Prelude.<$> buildSpec,
+            ("enablePullRequestPreview" Data..=)
               Prelude.<$> enablePullRequestPreview
           ]
       )
 
-instance Core.ToPath UpdateBranch where
+instance Data.ToPath UpdateBranch where
   toPath UpdateBranch' {..} =
     Prelude.mconcat
       [ "/apps/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/branches/",
-        Core.toBS branchName
+        Data.toBS branchName
       ]
 
-instance Core.ToQuery UpdateBranch where
+instance Data.ToQuery UpdateBranch where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result structure for the update branch request.

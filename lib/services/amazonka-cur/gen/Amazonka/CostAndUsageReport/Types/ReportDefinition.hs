@@ -28,6 +28,7 @@ import Amazonka.CostAndUsageReport.Types.ReportFormat
 import Amazonka.CostAndUsageReport.Types.ReportVersioning
 import Amazonka.CostAndUsageReport.Types.SchemaElement
 import Amazonka.CostAndUsageReport.Types.TimeUnit
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The definition of AWS Cost and Usage Report. You can specify the report
@@ -199,28 +200,28 @@ reportDefinition_s3Prefix = Lens.lens (\ReportDefinition' {s3Prefix} -> s3Prefix
 reportDefinition_s3Region :: Lens.Lens' ReportDefinition AWSRegion
 reportDefinition_s3Region = Lens.lens (\ReportDefinition' {s3Region} -> s3Region) (\s@ReportDefinition' {} a -> s {s3Region = a} :: ReportDefinition)
 
-instance Core.FromJSON ReportDefinition where
+instance Data.FromJSON ReportDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReportDefinition"
       ( \x ->
           ReportDefinition'
-            Prelude.<$> (x Core..:? "RefreshClosedReports")
-            Prelude.<*> (x Core..:? "ReportVersioning")
-            Prelude.<*> (x Core..:? "BillingViewArn")
-            Prelude.<*> ( x Core..:? "AdditionalArtifacts"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "RefreshClosedReports")
+            Prelude.<*> (x Data..:? "ReportVersioning")
+            Prelude.<*> (x Data..:? "BillingViewArn")
+            Prelude.<*> ( x Data..:? "AdditionalArtifacts"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "ReportName")
-            Prelude.<*> (x Core..: "TimeUnit")
-            Prelude.<*> (x Core..: "Format")
-            Prelude.<*> (x Core..: "Compression")
-            Prelude.<*> ( x Core..:? "AdditionalSchemaElements"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..: "ReportName")
+            Prelude.<*> (x Data..: "TimeUnit")
+            Prelude.<*> (x Data..: "Format")
+            Prelude.<*> (x Data..: "Compression")
+            Prelude.<*> ( x Data..:? "AdditionalSchemaElements"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "S3Bucket")
-            Prelude.<*> (x Core..: "S3Prefix")
-            Prelude.<*> (x Core..: "S3Region")
+            Prelude.<*> (x Data..: "S3Bucket")
+            Prelude.<*> (x Data..: "S3Prefix")
+            Prelude.<*> (x Data..: "S3Region")
       )
 
 instance Prelude.Hashable ReportDefinition where
@@ -253,28 +254,28 @@ instance Prelude.NFData ReportDefinition where
       `Prelude.seq` Prelude.rnf s3Prefix
       `Prelude.seq` Prelude.rnf s3Region
 
-instance Core.ToJSON ReportDefinition where
+instance Data.ToJSON ReportDefinition where
   toJSON ReportDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RefreshClosedReports" Core..=)
+          [ ("RefreshClosedReports" Data..=)
               Prelude.<$> refreshClosedReports,
-            ("ReportVersioning" Core..=)
+            ("ReportVersioning" Data..=)
               Prelude.<$> reportVersioning,
-            ("BillingViewArn" Core..=)
+            ("BillingViewArn" Data..=)
               Prelude.<$> billingViewArn,
-            ("AdditionalArtifacts" Core..=)
+            ("AdditionalArtifacts" Data..=)
               Prelude.<$> additionalArtifacts,
-            Prelude.Just ("ReportName" Core..= reportName),
-            Prelude.Just ("TimeUnit" Core..= timeUnit),
-            Prelude.Just ("Format" Core..= format),
-            Prelude.Just ("Compression" Core..= compression),
+            Prelude.Just ("ReportName" Data..= reportName),
+            Prelude.Just ("TimeUnit" Data..= timeUnit),
+            Prelude.Just ("Format" Data..= format),
+            Prelude.Just ("Compression" Data..= compression),
             Prelude.Just
               ( "AdditionalSchemaElements"
-                  Core..= additionalSchemaElements
+                  Data..= additionalSchemaElements
               ),
-            Prelude.Just ("S3Bucket" Core..= s3Bucket),
-            Prelude.Just ("S3Prefix" Core..= s3Prefix),
-            Prelude.Just ("S3Region" Core..= s3Region)
+            Prelude.Just ("S3Bucket" Data..= s3Bucket),
+            Prelude.Just ("S3Prefix" Data..= s3Prefix),
+            Prelude.Just ("S3Region" Data..= s3Region)
           ]
       )

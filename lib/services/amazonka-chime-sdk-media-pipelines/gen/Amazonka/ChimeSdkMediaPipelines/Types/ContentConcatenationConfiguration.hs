@@ -22,6 +22,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.ContentConcatenationConfiguration w
 import Amazonka.ChimeSdkMediaPipelines.Types.ArtifactsConcatenationState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The composited content configuration object for a specified media
@@ -55,15 +56,15 @@ contentConcatenationConfiguration_state :: Lens.Lens' ContentConcatenationConfig
 contentConcatenationConfiguration_state = Lens.lens (\ContentConcatenationConfiguration' {state} -> state) (\s@ContentConcatenationConfiguration' {} a -> s {state = a} :: ContentConcatenationConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ContentConcatenationConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContentConcatenationConfiguration"
       ( \x ->
           ContentConcatenationConfiguration'
-            Prelude.<$> (x Core..: "State")
+            Prelude.<$> (x Data..: "State")
       )
 
 instance
@@ -83,11 +84,11 @@ instance
     Prelude.rnf state
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ContentConcatenationConfiguration
   where
   toJSON ContentConcatenationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("State" Core..= state)]
+          [Prelude.Just ("State" Data..= state)]
       )

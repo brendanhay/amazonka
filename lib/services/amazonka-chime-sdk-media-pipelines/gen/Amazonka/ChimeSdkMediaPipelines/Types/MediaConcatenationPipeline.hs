@@ -24,6 +24,7 @@ import Amazonka.ChimeSdkMediaPipelines.Types.ConcatenationSource
 import Amazonka.ChimeSdkMediaPipelines.Types.MediaPipelineStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Concatenates audio and video data from one or more data streams.
@@ -33,12 +34,12 @@ data MediaConcatenationPipeline = MediaConcatenationPipeline'
   { -- | The data sources being concatnated.
     sources :: Prelude.Maybe (Prelude.NonEmpty ConcatenationSource),
     -- | The time at which the concatenation pipeline was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the media pipeline that you specify in the
     -- @SourceConfiguration@ object.
     mediaPipelineArn :: Prelude.Maybe Prelude.Text,
     -- | The time at which the concatenation pipeline was last updated.
-    updatedTimestamp :: Prelude.Maybe Core.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The status of the concatenation pipeline.
     status :: Prelude.Maybe MediaPipelineStatus,
     -- | The data sinks of the concatenation pipeline.
@@ -90,7 +91,7 @@ mediaConcatenationPipeline_sources = Lens.lens (\MediaConcatenationPipeline' {so
 
 -- | The time at which the concatenation pipeline was created.
 mediaConcatenationPipeline_createdTimestamp :: Lens.Lens' MediaConcatenationPipeline (Prelude.Maybe Prelude.UTCTime)
-mediaConcatenationPipeline_createdTimestamp = Lens.lens (\MediaConcatenationPipeline' {createdTimestamp} -> createdTimestamp) (\s@MediaConcatenationPipeline' {} a -> s {createdTimestamp = a} :: MediaConcatenationPipeline) Prelude.. Lens.mapping Core._Time
+mediaConcatenationPipeline_createdTimestamp = Lens.lens (\MediaConcatenationPipeline' {createdTimestamp} -> createdTimestamp) (\s@MediaConcatenationPipeline' {} a -> s {createdTimestamp = a} :: MediaConcatenationPipeline) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the media pipeline that you specify in the
 -- @SourceConfiguration@ object.
@@ -99,7 +100,7 @@ mediaConcatenationPipeline_mediaPipelineArn = Lens.lens (\MediaConcatenationPipe
 
 -- | The time at which the concatenation pipeline was last updated.
 mediaConcatenationPipeline_updatedTimestamp :: Lens.Lens' MediaConcatenationPipeline (Prelude.Maybe Prelude.UTCTime)
-mediaConcatenationPipeline_updatedTimestamp = Lens.lens (\MediaConcatenationPipeline' {updatedTimestamp} -> updatedTimestamp) (\s@MediaConcatenationPipeline' {} a -> s {updatedTimestamp = a} :: MediaConcatenationPipeline) Prelude.. Lens.mapping Core._Time
+mediaConcatenationPipeline_updatedTimestamp = Lens.lens (\MediaConcatenationPipeline' {updatedTimestamp} -> updatedTimestamp) (\s@MediaConcatenationPipeline' {} a -> s {updatedTimestamp = a} :: MediaConcatenationPipeline) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the concatenation pipeline.
 mediaConcatenationPipeline_status :: Lens.Lens' MediaConcatenationPipeline (Prelude.Maybe MediaPipelineStatus)
@@ -113,19 +114,19 @@ mediaConcatenationPipeline_sinks = Lens.lens (\MediaConcatenationPipeline' {sink
 mediaConcatenationPipeline_mediaPipelineId :: Lens.Lens' MediaConcatenationPipeline (Prelude.Maybe Prelude.Text)
 mediaConcatenationPipeline_mediaPipelineId = Lens.lens (\MediaConcatenationPipeline' {mediaPipelineId} -> mediaPipelineId) (\s@MediaConcatenationPipeline' {} a -> s {mediaPipelineId = a} :: MediaConcatenationPipeline)
 
-instance Core.FromJSON MediaConcatenationPipeline where
+instance Data.FromJSON MediaConcatenationPipeline where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MediaConcatenationPipeline"
       ( \x ->
           MediaConcatenationPipeline'
-            Prelude.<$> (x Core..:? "Sources")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "MediaPipelineArn")
-            Prelude.<*> (x Core..:? "UpdatedTimestamp")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Sinks")
-            Prelude.<*> (x Core..:? "MediaPipelineId")
+            Prelude.<$> (x Data..:? "Sources")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "MediaPipelineArn")
+            Prelude.<*> (x Data..:? "UpdatedTimestamp")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Sinks")
+            Prelude.<*> (x Data..:? "MediaPipelineId")
       )
 
 instance Prelude.Hashable MediaConcatenationPipeline where

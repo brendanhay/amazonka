@@ -23,6 +23,7 @@ import Amazonka.ChimeSdkMediaPipelines.Types.ArtifactsState
 import Amazonka.ChimeSdkMediaPipelines.Types.ContentMuxType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The content artifact object.
@@ -66,14 +67,14 @@ contentArtifactsConfiguration_muxType = Lens.lens (\ContentArtifactsConfiguratio
 contentArtifactsConfiguration_state :: Lens.Lens' ContentArtifactsConfiguration ArtifactsState
 contentArtifactsConfiguration_state = Lens.lens (\ContentArtifactsConfiguration' {state} -> state) (\s@ContentArtifactsConfiguration' {} a -> s {state = a} :: ContentArtifactsConfiguration)
 
-instance Core.FromJSON ContentArtifactsConfiguration where
+instance Data.FromJSON ContentArtifactsConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContentArtifactsConfiguration"
       ( \x ->
           ContentArtifactsConfiguration'
-            Prelude.<$> (x Core..:? "MuxType")
-            Prelude.<*> (x Core..: "State")
+            Prelude.<$> (x Data..:? "MuxType")
+            Prelude.<*> (x Data..: "State")
       )
 
 instance
@@ -88,11 +89,11 @@ instance Prelude.NFData ContentArtifactsConfiguration where
   rnf ContentArtifactsConfiguration' {..} =
     Prelude.rnf muxType `Prelude.seq` Prelude.rnf state
 
-instance Core.ToJSON ContentArtifactsConfiguration where
+instance Data.ToJSON ContentArtifactsConfiguration where
   toJSON ContentArtifactsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MuxType" Core..=) Prelude.<$> muxType,
-            Prelude.Just ("State" Core..= state)
+          [ ("MuxType" Data..=) Prelude.<$> muxType,
+            Prelude.Just ("State" Data..= state)
           ]
       )

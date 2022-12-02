@@ -23,6 +23,7 @@ import Amazonka.ChimeSdkMediaPipelines.Types.ConcatenationSinkType
 import Amazonka.ChimeSdkMediaPipelines.Types.S3BucketSinkConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The data sink of the configuration object.
@@ -70,14 +71,14 @@ concatenationSink_type = Lens.lens (\ConcatenationSink' {type'} -> type') (\s@Co
 concatenationSink_s3BucketSinkConfiguration :: Lens.Lens' ConcatenationSink S3BucketSinkConfiguration
 concatenationSink_s3BucketSinkConfiguration = Lens.lens (\ConcatenationSink' {s3BucketSinkConfiguration} -> s3BucketSinkConfiguration) (\s@ConcatenationSink' {} a -> s {s3BucketSinkConfiguration = a} :: ConcatenationSink)
 
-instance Core.FromJSON ConcatenationSink where
+instance Data.FromJSON ConcatenationSink where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConcatenationSink"
       ( \x ->
           ConcatenationSink'
-            Prelude.<$> (x Core..: "Type")
-            Prelude.<*> (x Core..: "S3BucketSinkConfiguration")
+            Prelude.<$> (x Data..: "Type")
+            Prelude.<*> (x Data..: "S3BucketSinkConfiguration")
       )
 
 instance Prelude.Hashable ConcatenationSink where
@@ -90,14 +91,14 @@ instance Prelude.NFData ConcatenationSink where
     Prelude.rnf type'
       `Prelude.seq` Prelude.rnf s3BucketSinkConfiguration
 
-instance Core.ToJSON ConcatenationSink where
+instance Data.ToJSON ConcatenationSink where
   toJSON ConcatenationSink' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Type" Core..= type'),
+          [ Prelude.Just ("Type" Data..= type'),
             Prelude.Just
               ( "S3BucketSinkConfiguration"
-                  Core..= s3BucketSinkConfiguration
+                  Data..= s3BucketSinkConfiguration
               )
           ]
       )

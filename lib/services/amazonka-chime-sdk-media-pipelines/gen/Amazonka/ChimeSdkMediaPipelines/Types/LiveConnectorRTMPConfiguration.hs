@@ -22,6 +22,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.LiveConnectorRTMPConfiguration wher
 import Amazonka.ChimeSdkMediaPipelines.Types.AudioChannelsOption
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The media pipeline\'s RTMP configuration object.
@@ -33,7 +34,7 @@ data LiveConnectorRTMPConfiguration = LiveConnectorRTMPConfiguration'
     -- | The audio sample rate set for the RTMP configuration. Default: 48000.
     audioSampleRate :: Prelude.Maybe Prelude.Text,
     -- | The URL of the RTMP configuration.
-    url :: Core.Sensitive Prelude.Text
+    url :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -59,7 +60,7 @@ newLiveConnectorRTMPConfiguration pUrl_ =
     { audioChannels =
         Prelude.Nothing,
       audioSampleRate = Prelude.Nothing,
-      url = Core._Sensitive Lens.# pUrl_
+      url = Data._Sensitive Lens.# pUrl_
     }
 
 -- | The audio channels set for the RTMP configuration
@@ -72,17 +73,17 @@ liveConnectorRTMPConfiguration_audioSampleRate = Lens.lens (\LiveConnectorRTMPCo
 
 -- | The URL of the RTMP configuration.
 liveConnectorRTMPConfiguration_url :: Lens.Lens' LiveConnectorRTMPConfiguration Prelude.Text
-liveConnectorRTMPConfiguration_url = Lens.lens (\LiveConnectorRTMPConfiguration' {url} -> url) (\s@LiveConnectorRTMPConfiguration' {} a -> s {url = a} :: LiveConnectorRTMPConfiguration) Prelude.. Core._Sensitive
+liveConnectorRTMPConfiguration_url = Lens.lens (\LiveConnectorRTMPConfiguration' {url} -> url) (\s@LiveConnectorRTMPConfiguration' {} a -> s {url = a} :: LiveConnectorRTMPConfiguration) Prelude.. Data._Sensitive
 
-instance Core.FromJSON LiveConnectorRTMPConfiguration where
+instance Data.FromJSON LiveConnectorRTMPConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LiveConnectorRTMPConfiguration"
       ( \x ->
           LiveConnectorRTMPConfiguration'
-            Prelude.<$> (x Core..:? "AudioChannels")
-            Prelude.<*> (x Core..:? "AudioSampleRate")
-            Prelude.<*> (x Core..: "Url")
+            Prelude.<$> (x Data..:? "AudioChannels")
+            Prelude.<*> (x Data..:? "AudioSampleRate")
+            Prelude.<*> (x Data..: "Url")
       )
 
 instance
@@ -105,13 +106,13 @@ instance
       `Prelude.seq` Prelude.rnf audioSampleRate
       `Prelude.seq` Prelude.rnf url
 
-instance Core.ToJSON LiveConnectorRTMPConfiguration where
+instance Data.ToJSON LiveConnectorRTMPConfiguration where
   toJSON LiveConnectorRTMPConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AudioChannels" Core..=) Prelude.<$> audioChannels,
-            ("AudioSampleRate" Core..=)
+          [ ("AudioChannels" Data..=) Prelude.<$> audioChannels,
+            ("AudioSampleRate" Data..=)
               Prelude.<$> audioSampleRate,
-            Prelude.Just ("Url" Core..= url)
+            Prelude.Just ("Url" Data..= url)
           ]
       )

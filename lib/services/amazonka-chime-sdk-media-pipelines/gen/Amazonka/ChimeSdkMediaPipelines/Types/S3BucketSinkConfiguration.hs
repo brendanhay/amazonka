@@ -21,6 +21,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.S3BucketSinkConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration settings for the S3 bucket.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newS3BucketSinkConfiguration' smart constructor.
 data S3BucketSinkConfiguration = S3BucketSinkConfiguration'
   { -- | The destination URL of the S3 bucket.
-    destination :: Core.Sensitive Prelude.Text
+    destination :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -48,20 +49,20 @@ newS3BucketSinkConfiguration ::
 newS3BucketSinkConfiguration pDestination_ =
   S3BucketSinkConfiguration'
     { destination =
-        Core._Sensitive Lens.# pDestination_
+        Data._Sensitive Lens.# pDestination_
     }
 
 -- | The destination URL of the S3 bucket.
 s3BucketSinkConfiguration_destination :: Lens.Lens' S3BucketSinkConfiguration Prelude.Text
-s3BucketSinkConfiguration_destination = Lens.lens (\S3BucketSinkConfiguration' {destination} -> destination) (\s@S3BucketSinkConfiguration' {} a -> s {destination = a} :: S3BucketSinkConfiguration) Prelude.. Core._Sensitive
+s3BucketSinkConfiguration_destination = Lens.lens (\S3BucketSinkConfiguration' {destination} -> destination) (\s@S3BucketSinkConfiguration' {} a -> s {destination = a} :: S3BucketSinkConfiguration) Prelude.. Data._Sensitive
 
-instance Core.FromJSON S3BucketSinkConfiguration where
+instance Data.FromJSON S3BucketSinkConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3BucketSinkConfiguration"
       ( \x ->
           S3BucketSinkConfiguration'
-            Prelude.<$> (x Core..: "Destination")
+            Prelude.<$> (x Data..: "Destination")
       )
 
 instance Prelude.Hashable S3BucketSinkConfiguration where
@@ -72,9 +73,9 @@ instance Prelude.NFData S3BucketSinkConfiguration where
   rnf S3BucketSinkConfiguration' {..} =
     Prelude.rnf destination
 
-instance Core.ToJSON S3BucketSinkConfiguration where
+instance Data.ToJSON S3BucketSinkConfiguration where
   toJSON S3BucketSinkConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Destination" Core..= destination)]
+          [Prelude.Just ("Destination" Data..= destination)]
       )

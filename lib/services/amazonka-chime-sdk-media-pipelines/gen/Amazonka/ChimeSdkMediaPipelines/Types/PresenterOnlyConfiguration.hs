@@ -22,6 +22,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.PresenterOnlyConfiguration where
 import Amazonka.ChimeSdkMediaPipelines.Types.PresenterPosition
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the configuration for a presenter only video tile.
@@ -54,13 +55,13 @@ newPresenterOnlyConfiguration =
 presenterOnlyConfiguration_presenterPosition :: Lens.Lens' PresenterOnlyConfiguration (Prelude.Maybe PresenterPosition)
 presenterOnlyConfiguration_presenterPosition = Lens.lens (\PresenterOnlyConfiguration' {presenterPosition} -> presenterPosition) (\s@PresenterOnlyConfiguration' {} a -> s {presenterPosition = a} :: PresenterOnlyConfiguration)
 
-instance Core.FromJSON PresenterOnlyConfiguration where
+instance Data.FromJSON PresenterOnlyConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PresenterOnlyConfiguration"
       ( \x ->
           PresenterOnlyConfiguration'
-            Prelude.<$> (x Core..:? "PresenterPosition")
+            Prelude.<$> (x Data..:? "PresenterPosition")
       )
 
 instance Prelude.Hashable PresenterOnlyConfiguration where
@@ -71,11 +72,11 @@ instance Prelude.NFData PresenterOnlyConfiguration where
   rnf PresenterOnlyConfiguration' {..} =
     Prelude.rnf presenterPosition
 
-instance Core.ToJSON PresenterOnlyConfiguration where
+instance Data.ToJSON PresenterOnlyConfiguration where
   toJSON PresenterOnlyConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PresenterPosition" Core..=)
+          [ ("PresenterPosition" Data..=)
               Prelude.<$> presenterPosition
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.DataChannelConcatenationConfigurati
 import Amazonka.ChimeSdkMediaPipelines.Types.ArtifactsConcatenationState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The content configuration object\'s data channel.
@@ -57,15 +58,15 @@ dataChannelConcatenationConfiguration_state :: Lens.Lens' DataChannelConcatenati
 dataChannelConcatenationConfiguration_state = Lens.lens (\DataChannelConcatenationConfiguration' {state} -> state) (\s@DataChannelConcatenationConfiguration' {} a -> s {state = a} :: DataChannelConcatenationConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DataChannelConcatenationConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataChannelConcatenationConfiguration"
       ( \x ->
           DataChannelConcatenationConfiguration'
-            Prelude.<$> (x Core..: "State")
+            Prelude.<$> (x Data..: "State")
       )
 
 instance
@@ -85,11 +86,11 @@ instance
     Prelude.rnf state
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DataChannelConcatenationConfiguration
   where
   toJSON DataChannelConcatenationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("State" Core..= state)]
+          [Prelude.Just ("State" Data..= state)]
       )

@@ -24,6 +24,7 @@ import Amazonka.ChimeSdkMediaPipelines.Types.MediaConcatenationPipeline
 import Amazonka.ChimeSdkMediaPipelines.Types.MediaLiveConnectorPipeline
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A pipeline consisting of a media capture, media concatenation, or
@@ -75,15 +76,15 @@ mediaPipeline_mediaCapturePipeline = Lens.lens (\MediaPipeline' {mediaCapturePip
 mediaPipeline_mediaLiveConnectorPipeline :: Lens.Lens' MediaPipeline (Prelude.Maybe MediaLiveConnectorPipeline)
 mediaPipeline_mediaLiveConnectorPipeline = Lens.lens (\MediaPipeline' {mediaLiveConnectorPipeline} -> mediaLiveConnectorPipeline) (\s@MediaPipeline' {} a -> s {mediaLiveConnectorPipeline = a} :: MediaPipeline)
 
-instance Core.FromJSON MediaPipeline where
+instance Data.FromJSON MediaPipeline where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MediaPipeline"
       ( \x ->
           MediaPipeline'
-            Prelude.<$> (x Core..:? "MediaConcatenationPipeline")
-            Prelude.<*> (x Core..:? "MediaCapturePipeline")
-            Prelude.<*> (x Core..:? "MediaLiveConnectorPipeline")
+            Prelude.<$> (x Data..:? "MediaConcatenationPipeline")
+            Prelude.<*> (x Data..:? "MediaCapturePipeline")
+            Prelude.<*> (x Data..:? "MediaLiveConnectorPipeline")
       )
 
 instance Prelude.Hashable MediaPipeline where

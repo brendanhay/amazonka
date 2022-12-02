@@ -28,6 +28,7 @@ import Amazonka.ChimeSdkMediaPipelines.Types.TranscriptionMessagesConcatenationC
 import Amazonka.ChimeSdkMediaPipelines.Types.VideoConcatenationConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for the artifacts concatenation.
@@ -140,21 +141,21 @@ artifactsConcatenationConfiguration_compositedVideo :: Lens.Lens' ArtifactsConca
 artifactsConcatenationConfiguration_compositedVideo = Lens.lens (\ArtifactsConcatenationConfiguration' {compositedVideo} -> compositedVideo) (\s@ArtifactsConcatenationConfiguration' {} a -> s {compositedVideo = a} :: ArtifactsConcatenationConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ArtifactsConcatenationConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ArtifactsConcatenationConfiguration"
       ( \x ->
           ArtifactsConcatenationConfiguration'
-            Prelude.<$> (x Core..: "Audio")
-            Prelude.<*> (x Core..: "Video")
-            Prelude.<*> (x Core..: "Content")
-            Prelude.<*> (x Core..: "DataChannel")
-            Prelude.<*> (x Core..: "TranscriptionMessages")
-            Prelude.<*> (x Core..: "MeetingEvents")
-            Prelude.<*> (x Core..: "CompositedVideo")
+            Prelude.<$> (x Data..: "Audio")
+            Prelude.<*> (x Data..: "Video")
+            Prelude.<*> (x Data..: "Content")
+            Prelude.<*> (x Data..: "DataChannel")
+            Prelude.<*> (x Data..: "TranscriptionMessages")
+            Prelude.<*> (x Data..: "MeetingEvents")
+            Prelude.<*> (x Data..: "CompositedVideo")
       )
 
 instance
@@ -186,22 +187,22 @@ instance
       `Prelude.seq` Prelude.rnf compositedVideo
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ArtifactsConcatenationConfiguration
   where
   toJSON ArtifactsConcatenationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Audio" Core..= audio),
-            Prelude.Just ("Video" Core..= video),
-            Prelude.Just ("Content" Core..= content),
-            Prelude.Just ("DataChannel" Core..= dataChannel),
+          [ Prelude.Just ("Audio" Data..= audio),
+            Prelude.Just ("Video" Data..= video),
+            Prelude.Just ("Content" Data..= content),
+            Prelude.Just ("DataChannel" Data..= dataChannel),
             Prelude.Just
               ( "TranscriptionMessages"
-                  Core..= transcriptionMessages
+                  Data..= transcriptionMessages
               ),
-            Prelude.Just ("MeetingEvents" Core..= meetingEvents),
+            Prelude.Just ("MeetingEvents" Data..= meetingEvents),
             Prelude.Just
-              ("CompositedVideo" Core..= compositedVideo)
+              ("CompositedVideo" Data..= compositedVideo)
           ]
       )

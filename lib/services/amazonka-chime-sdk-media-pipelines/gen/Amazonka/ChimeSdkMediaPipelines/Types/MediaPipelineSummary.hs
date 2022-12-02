@@ -21,6 +21,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.MediaPipelineSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary of the media pipeline.
@@ -62,14 +63,14 @@ mediaPipelineSummary_mediaPipelineArn = Lens.lens (\MediaPipelineSummary' {media
 mediaPipelineSummary_mediaPipelineId :: Lens.Lens' MediaPipelineSummary (Prelude.Maybe Prelude.Text)
 mediaPipelineSummary_mediaPipelineId = Lens.lens (\MediaPipelineSummary' {mediaPipelineId} -> mediaPipelineId) (\s@MediaPipelineSummary' {} a -> s {mediaPipelineId = a} :: MediaPipelineSummary)
 
-instance Core.FromJSON MediaPipelineSummary where
+instance Data.FromJSON MediaPipelineSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MediaPipelineSummary"
       ( \x ->
           MediaPipelineSummary'
-            Prelude.<$> (x Core..:? "MediaPipelineArn")
-            Prelude.<*> (x Core..:? "MediaPipelineId")
+            Prelude.<$> (x Data..:? "MediaPipelineArn")
+            Prelude.<*> (x Data..:? "MediaPipelineId")
       )
 
 instance Prelude.Hashable MediaPipelineSummary where

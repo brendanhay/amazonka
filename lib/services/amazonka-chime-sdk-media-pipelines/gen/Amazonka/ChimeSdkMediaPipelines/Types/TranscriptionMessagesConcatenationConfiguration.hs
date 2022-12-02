@@ -22,6 +22,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.TranscriptionMessagesConcatenationC
 import Amazonka.ChimeSdkMediaPipelines.Types.ArtifactsConcatenationState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration object for concatenating transcription messages.
@@ -58,15 +59,15 @@ transcriptionMessagesConcatenationConfiguration_state :: Lens.Lens' Transcriptio
 transcriptionMessagesConcatenationConfiguration_state = Lens.lens (\TranscriptionMessagesConcatenationConfiguration' {state} -> state) (\s@TranscriptionMessagesConcatenationConfiguration' {} a -> s {state = a} :: TranscriptionMessagesConcatenationConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     TranscriptionMessagesConcatenationConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TranscriptionMessagesConcatenationConfiguration"
       ( \x ->
           TranscriptionMessagesConcatenationConfiguration'
-            Prelude.<$> (x Core..: "State")
+            Prelude.<$> (x Data..: "State")
       )
 
 instance
@@ -87,12 +88,12 @@ instance
       Prelude.rnf state
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     TranscriptionMessagesConcatenationConfiguration
   where
   toJSON
     TranscriptionMessagesConcatenationConfiguration' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [Prelude.Just ("State" Core..= state)]
+            [Prelude.Just ("State" Data..= state)]
         )

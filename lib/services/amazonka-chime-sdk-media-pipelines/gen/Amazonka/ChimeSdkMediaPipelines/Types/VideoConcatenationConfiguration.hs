@@ -22,6 +22,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.VideoConcatenationConfiguration whe
 import Amazonka.ChimeSdkMediaPipelines.Types.ArtifactsConcatenationState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration object of a video contacatentation pipeline.
@@ -54,15 +55,15 @@ videoConcatenationConfiguration_state :: Lens.Lens' VideoConcatenationConfigurat
 videoConcatenationConfiguration_state = Lens.lens (\VideoConcatenationConfiguration' {state} -> state) (\s@VideoConcatenationConfiguration' {} a -> s {state = a} :: VideoConcatenationConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     VideoConcatenationConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VideoConcatenationConfiguration"
       ( \x ->
           VideoConcatenationConfiguration'
-            Prelude.<$> (x Core..: "State")
+            Prelude.<$> (x Data..: "State")
       )
 
 instance
@@ -81,9 +82,9 @@ instance
   rnf VideoConcatenationConfiguration' {..} =
     Prelude.rnf state
 
-instance Core.ToJSON VideoConcatenationConfiguration where
+instance Data.ToJSON VideoConcatenationConfiguration where
   toJSON VideoConcatenationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("State" Core..= state)]
+          [Prelude.Just ("State" Data..= state)]
       )

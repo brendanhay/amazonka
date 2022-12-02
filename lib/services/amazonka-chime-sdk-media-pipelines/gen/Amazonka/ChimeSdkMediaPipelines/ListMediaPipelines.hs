@@ -44,6 +44,7 @@ where
 import Amazonka.ChimeSdkMediaPipelines.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,8 +98,8 @@ instance Core.AWSRequest ListMediaPipelines where
     Response.receiveJSON
       ( \s h x ->
           ListMediaPipelinesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "MediaPipelines" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "MediaPipelines" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,17 +113,17 @@ instance Prelude.NFData ListMediaPipelines where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListMediaPipelines where
+instance Data.ToHeaders ListMediaPipelines where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListMediaPipelines where
+instance Data.ToPath ListMediaPipelines where
   toPath = Prelude.const "/sdk-media-pipelines"
 
-instance Core.ToQuery ListMediaPipelines where
+instance Data.ToQuery ListMediaPipelines where
   toQuery ListMediaPipelines' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListMediaPipelinesResponse' smart constructor.

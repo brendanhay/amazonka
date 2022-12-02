@@ -53,6 +53,7 @@ where
 import Amazonka.AppConfig.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -227,7 +228,7 @@ instance Core.AWSRequest UpdateDeploymentStrategy where
     Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateDeploymentStrategy where
   hashWithSalt _salt UpdateDeploymentStrategy' {..} =
@@ -247,37 +248,37 @@ instance Prelude.NFData UpdateDeploymentStrategy where
       `Prelude.seq` Prelude.rnf growthFactor
       `Prelude.seq` Prelude.rnf deploymentStrategyId
 
-instance Core.ToHeaders UpdateDeploymentStrategy where
+instance Data.ToHeaders UpdateDeploymentStrategy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDeploymentStrategy where
+instance Data.ToJSON UpdateDeploymentStrategy where
   toJSON UpdateDeploymentStrategy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GrowthType" Core..=) Prelude.<$> growthType,
-            ("DeploymentDurationInMinutes" Core..=)
+          [ ("GrowthType" Data..=) Prelude.<$> growthType,
+            ("DeploymentDurationInMinutes" Data..=)
               Prelude.<$> deploymentDurationInMinutes,
-            ("Description" Core..=) Prelude.<$> description,
-            ("FinalBakeTimeInMinutes" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("FinalBakeTimeInMinutes" Data..=)
               Prelude.<$> finalBakeTimeInMinutes,
-            ("GrowthFactor" Core..=) Prelude.<$> growthFactor
+            ("GrowthFactor" Data..=) Prelude.<$> growthFactor
           ]
       )
 
-instance Core.ToPath UpdateDeploymentStrategy where
+instance Data.ToPath UpdateDeploymentStrategy where
   toPath UpdateDeploymentStrategy' {..} =
     Prelude.mconcat
       [ "/deploymentstrategies/",
-        Core.toBS deploymentStrategyId
+        Data.toBS deploymentStrategyId
       ]
 
-instance Core.ToQuery UpdateDeploymentStrategy where
+instance Data.ToQuery UpdateDeploymentStrategy where
   toQuery = Prelude.const Prelude.mempty

@@ -23,6 +23,7 @@ import Amazonka.AppConfig.Types.DeploymentState
 import Amazonka.AppConfig.Types.GrowthType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the deployment.
@@ -42,7 +43,7 @@ data DeploymentSummary = DeploymentSummary'
     -- rollback.
     finalBakeTimeInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | Time the deployment started.
-    startedAt :: Prelude.Maybe Core.POSIX,
+    startedAt :: Prelude.Maybe Data.POSIX,
     -- | The name of the configuration.
     configurationName :: Prelude.Maybe Prelude.Text,
     -- | The percentage of targets to receive a deployed configuration during
@@ -53,7 +54,7 @@ data DeploymentSummary = DeploymentSummary'
     -- | The percentage of targets for which the deployment is available.
     percentageComplete :: Prelude.Maybe Prelude.Double,
     -- | Time the deployment completed.
-    completedAt :: Prelude.Maybe Core.POSIX
+    completedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -130,7 +131,7 @@ deploymentSummary_finalBakeTimeInMinutes = Lens.lens (\DeploymentSummary' {final
 
 -- | Time the deployment started.
 deploymentSummary_startedAt :: Lens.Lens' DeploymentSummary (Prelude.Maybe Prelude.UTCTime)
-deploymentSummary_startedAt = Lens.lens (\DeploymentSummary' {startedAt} -> startedAt) (\s@DeploymentSummary' {} a -> s {startedAt = a} :: DeploymentSummary) Prelude.. Lens.mapping Core._Time
+deploymentSummary_startedAt = Lens.lens (\DeploymentSummary' {startedAt} -> startedAt) (\s@DeploymentSummary' {} a -> s {startedAt = a} :: DeploymentSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the configuration.
 deploymentSummary_configurationName :: Lens.Lens' DeploymentSummary (Prelude.Maybe Prelude.Text)
@@ -151,25 +152,25 @@ deploymentSummary_percentageComplete = Lens.lens (\DeploymentSummary' {percentag
 
 -- | Time the deployment completed.
 deploymentSummary_completedAt :: Lens.Lens' DeploymentSummary (Prelude.Maybe Prelude.UTCTime)
-deploymentSummary_completedAt = Lens.lens (\DeploymentSummary' {completedAt} -> completedAt) (\s@DeploymentSummary' {} a -> s {completedAt = a} :: DeploymentSummary) Prelude.. Lens.mapping Core._Time
+deploymentSummary_completedAt = Lens.lens (\DeploymentSummary' {completedAt} -> completedAt) (\s@DeploymentSummary' {} a -> s {completedAt = a} :: DeploymentSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON DeploymentSummary where
+instance Data.FromJSON DeploymentSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeploymentSummary"
       ( \x ->
           DeploymentSummary'
-            Prelude.<$> (x Core..:? "GrowthType")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "DeploymentDurationInMinutes")
-            Prelude.<*> (x Core..:? "DeploymentNumber")
-            Prelude.<*> (x Core..:? "FinalBakeTimeInMinutes")
-            Prelude.<*> (x Core..:? "StartedAt")
-            Prelude.<*> (x Core..:? "ConfigurationName")
-            Prelude.<*> (x Core..:? "GrowthFactor")
-            Prelude.<*> (x Core..:? "ConfigurationVersion")
-            Prelude.<*> (x Core..:? "PercentageComplete")
-            Prelude.<*> (x Core..:? "CompletedAt")
+            Prelude.<$> (x Data..:? "GrowthType")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "DeploymentDurationInMinutes")
+            Prelude.<*> (x Data..:? "DeploymentNumber")
+            Prelude.<*> (x Data..:? "FinalBakeTimeInMinutes")
+            Prelude.<*> (x Data..:? "StartedAt")
+            Prelude.<*> (x Data..:? "ConfigurationName")
+            Prelude.<*> (x Data..:? "GrowthFactor")
+            Prelude.<*> (x Data..:? "ConfigurationVersion")
+            Prelude.<*> (x Data..:? "PercentageComplete")
+            Prelude.<*> (x Data..:? "CompletedAt")
       )
 
 instance Prelude.Hashable DeploymentSummary where

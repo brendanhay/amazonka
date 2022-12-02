@@ -63,6 +63,7 @@ where
 import Amazonka.AppConfig.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,7 +128,7 @@ instance Core.AWSRequest StopDeployment where
     Request.delete (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable StopDeployment where
   hashWithSalt _salt StopDeployment' {..} =
@@ -141,27 +142,27 @@ instance Prelude.NFData StopDeployment where
       `Prelude.seq` Prelude.rnf environmentId
       `Prelude.seq` Prelude.rnf deploymentNumber
 
-instance Core.ToHeaders StopDeployment where
+instance Data.ToHeaders StopDeployment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath StopDeployment where
+instance Data.ToPath StopDeployment where
   toPath StopDeployment' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/environments/",
-        Core.toBS environmentId,
+        Data.toBS environmentId,
         "/deployments/",
-        Core.toBS deploymentNumber
+        Data.toBS deploymentNumber
       ]
 
-instance Core.ToQuery StopDeployment where
+instance Data.ToQuery StopDeployment where
   toQuery = Prelude.const Prelude.mempty

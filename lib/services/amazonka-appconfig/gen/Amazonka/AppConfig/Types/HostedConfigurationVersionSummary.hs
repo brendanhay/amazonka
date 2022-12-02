@@ -21,6 +21,7 @@ module Amazonka.AppConfig.Types.HostedConfigurationVersionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the configuration.
@@ -96,19 +97,19 @@ hostedConfigurationVersionSummary_contentType :: Lens.Lens' HostedConfigurationV
 hostedConfigurationVersionSummary_contentType = Lens.lens (\HostedConfigurationVersionSummary' {contentType} -> contentType) (\s@HostedConfigurationVersionSummary' {} a -> s {contentType = a} :: HostedConfigurationVersionSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     HostedConfigurationVersionSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HostedConfigurationVersionSummary"
       ( \x ->
           HostedConfigurationVersionSummary'
-            Prelude.<$> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "VersionNumber")
-            Prelude.<*> (x Core..:? "ApplicationId")
-            Prelude.<*> (x Core..:? "ConfigurationProfileId")
-            Prelude.<*> (x Core..:? "ContentType")
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "VersionNumber")
+            Prelude.<*> (x Data..:? "ApplicationId")
+            Prelude.<*> (x Data..:? "ConfigurationProfileId")
+            Prelude.<*> (x Data..:? "ContentType")
       )
 
 instance

@@ -21,6 +21,7 @@ module Amazonka.AppConfig.Types.Parameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A value such as an Amazon Resource Name (ARN) or an Amazon Simple
@@ -66,14 +67,14 @@ parameter_required = Lens.lens (\Parameter' {required} -> required) (\s@Paramete
 parameter_description :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_description = Lens.lens (\Parameter' {description} -> description) (\s@Parameter' {} a -> s {description = a} :: Parameter)
 
-instance Core.FromJSON Parameter where
+instance Data.FromJSON Parameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Parameter"
       ( \x ->
           Parameter'
-            Prelude.<$> (x Core..:? "Required")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "Required")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable Parameter where
@@ -86,11 +87,11 @@ instance Prelude.NFData Parameter where
     Prelude.rnf required
       `Prelude.seq` Prelude.rnf description
 
-instance Core.ToJSON Parameter where
+instance Data.ToJSON Parameter where
   toJSON Parameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Required" Core..=) Prelude.<$> required,
-            ("Description" Core..=) Prelude.<$> description
+          [ ("Required" Data..=) Prelude.<$> required,
+            ("Description" Data..=) Prelude.<$> description
           ]
       )

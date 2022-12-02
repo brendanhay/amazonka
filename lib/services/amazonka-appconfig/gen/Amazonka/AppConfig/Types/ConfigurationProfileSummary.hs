@@ -22,6 +22,7 @@ module Amazonka.AppConfig.Types.ConfigurationProfileSummary where
 import Amazonka.AppConfig.Types.ValidatorType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of a configuration profile.
@@ -123,18 +124,18 @@ configurationProfileSummary_locationUri = Lens.lens (\ConfigurationProfileSummar
 configurationProfileSummary_applicationId :: Lens.Lens' ConfigurationProfileSummary (Prelude.Maybe Prelude.Text)
 configurationProfileSummary_applicationId = Lens.lens (\ConfigurationProfileSummary' {applicationId} -> applicationId) (\s@ConfigurationProfileSummary' {} a -> s {applicationId = a} :: ConfigurationProfileSummary)
 
-instance Core.FromJSON ConfigurationProfileSummary where
+instance Data.FromJSON ConfigurationProfileSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfigurationProfileSummary"
       ( \x ->
           ConfigurationProfileSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "ValidatorTypes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "LocationUri")
-            Prelude.<*> (x Core..:? "ApplicationId")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "ValidatorTypes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "LocationUri")
+            Prelude.<*> (x Data..:? "ApplicationId")
       )
 
 instance Prelude.Hashable ConfigurationProfileSummary where

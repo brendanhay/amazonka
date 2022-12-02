@@ -50,6 +50,7 @@ where
 import Amazonka.AppConfig.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -137,8 +138,8 @@ instance Core.AWSRequest ListExtensionAssociations where
     Response.receiveJSON
       ( \s h x ->
           ListExtensionAssociationsResponse'
-            Prelude.<$> (x Core..?> "Items" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Items" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,29 +159,29 @@ instance Prelude.NFData ListExtensionAssociations where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf extensionIdentifier
 
-instance Core.ToHeaders ListExtensionAssociations where
+instance Data.ToHeaders ListExtensionAssociations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListExtensionAssociations where
+instance Data.ToPath ListExtensionAssociations where
   toPath = Prelude.const "/extensionassociations"
 
-instance Core.ToQuery ListExtensionAssociations where
+instance Data.ToQuery ListExtensionAssociations where
   toQuery ListExtensionAssociations' {..} =
     Prelude.mconcat
       [ "extension_version_number"
-          Core.=: extensionVersionNumber,
-        "next_token" Core.=: nextToken,
-        "resource_identifier" Core.=: resourceIdentifier,
-        "max_results" Core.=: maxResults,
-        "extension_identifier" Core.=: extensionIdentifier
+          Data.=: extensionVersionNumber,
+        "next_token" Data.=: nextToken,
+        "resource_identifier" Data.=: resourceIdentifier,
+        "max_results" Data.=: maxResults,
+        "extension_identifier" Data.=: extensionIdentifier
       ]
 
 -- | /See:/ 'newListExtensionAssociationsResponse' smart constructor.

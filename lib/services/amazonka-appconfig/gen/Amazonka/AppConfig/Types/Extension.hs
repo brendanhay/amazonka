@@ -24,6 +24,7 @@ import Amazonka.AppConfig.Types.ActionPoint
 import Amazonka.AppConfig.Types.Parameter
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newExtension' smart constructor.
@@ -116,19 +117,19 @@ extension_actions = Lens.lens (\Extension' {actions} -> actions) (\s@Extension' 
 extension_parameters :: Lens.Lens' Extension (Prelude.Maybe (Prelude.HashMap Prelude.Text Parameter))
 extension_parameters = Lens.lens (\Extension' {parameters} -> parameters) (\s@Extension' {} a -> s {parameters = a} :: Extension) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Extension where
+instance Data.FromJSON Extension where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Extension"
       ( \x ->
           Extension'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "VersionNumber")
-            Prelude.<*> (x Core..:? "Actions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "VersionNumber")
+            Prelude.<*> (x Data..:? "Actions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Extension where

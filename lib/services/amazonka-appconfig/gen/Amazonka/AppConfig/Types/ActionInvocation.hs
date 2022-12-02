@@ -21,6 +21,7 @@ module Amazonka.AppConfig.Types.ActionInvocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An extension that was invoked as part of a deployment event.
@@ -121,19 +122,19 @@ actionInvocation_errorCode = Lens.lens (\ActionInvocation' {errorCode} -> errorC
 actionInvocation_extensionIdentifier :: Lens.Lens' ActionInvocation (Prelude.Maybe Prelude.Text)
 actionInvocation_extensionIdentifier = Lens.lens (\ActionInvocation' {extensionIdentifier} -> extensionIdentifier) (\s@ActionInvocation' {} a -> s {extensionIdentifier = a} :: ActionInvocation)
 
-instance Core.FromJSON ActionInvocation where
+instance Data.FromJSON ActionInvocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionInvocation"
       ( \x ->
           ActionInvocation'
-            Prelude.<$> (x Core..:? "ActionName")
-            Prelude.<*> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "InvocationId")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "Uri")
-            Prelude.<*> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "ExtensionIdentifier")
+            Prelude.<$> (x Data..:? "ActionName")
+            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "InvocationId")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "Uri")
+            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "ExtensionIdentifier")
       )
 
 instance Prelude.Hashable ActionInvocation where

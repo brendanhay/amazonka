@@ -49,6 +49,7 @@ where
 import Amazonka.AppConfig.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,7 +92,7 @@ instance Core.AWSRequest GetExtensionAssociation where
     Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GetExtensionAssociation where
   hashWithSalt _salt GetExtensionAssociation' {..} =
@@ -101,23 +102,23 @@ instance Prelude.NFData GetExtensionAssociation where
   rnf GetExtensionAssociation' {..} =
     Prelude.rnf extensionAssociationId
 
-instance Core.ToHeaders GetExtensionAssociation where
+instance Data.ToHeaders GetExtensionAssociation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetExtensionAssociation where
+instance Data.ToPath GetExtensionAssociation where
   toPath GetExtensionAssociation' {..} =
     Prelude.mconcat
       [ "/extensionassociations/",
-        Core.toBS extensionAssociationId
+        Data.toBS extensionAssociationId
       ]
 
-instance Core.ToQuery GetExtensionAssociation where
+instance Data.ToQuery GetExtensionAssociation where
   toQuery = Prelude.const Prelude.mempty

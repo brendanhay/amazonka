@@ -25,6 +25,7 @@ import Amazonka.AppConfig.Types.DeploymentState
 import Amazonka.AppConfig.Types.GrowthType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newDeployment' smart constructor.
@@ -46,7 +47,7 @@ data Deployment = Deployment'
     -- automatic rollback.
     finalBakeTimeInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | The time the deployment started.
-    startedAt :: Prelude.Maybe Core.POSIX,
+    startedAt :: Prelude.Maybe Data.POSIX,
     -- | The name of the configuration.
     configurationName :: Prelude.Maybe Prelude.Text,
     -- | The percentage of targets to receive a deployed configuration during
@@ -70,7 +71,7 @@ data Deployment = Deployment'
     -- | The ID of the application that was deployed.
     applicationId :: Prelude.Maybe Prelude.Text,
     -- | The time the deployment completed.
-    completedAt :: Prelude.Maybe Core.POSIX,
+    completedAt :: Prelude.Maybe Data.POSIX,
     -- | The ID of the configuration profile that was deployed.
     configurationProfileId :: Prelude.Maybe Prelude.Text
   }
@@ -184,7 +185,7 @@ deployment_finalBakeTimeInMinutes = Lens.lens (\Deployment' {finalBakeTimeInMinu
 
 -- | The time the deployment started.
 deployment_startedAt :: Lens.Lens' Deployment (Prelude.Maybe Prelude.UTCTime)
-deployment_startedAt = Lens.lens (\Deployment' {startedAt} -> startedAt) (\s@Deployment' {} a -> s {startedAt = a} :: Deployment) Prelude.. Lens.mapping Core._Time
+deployment_startedAt = Lens.lens (\Deployment' {startedAt} -> startedAt) (\s@Deployment' {} a -> s {startedAt = a} :: Deployment) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the configuration.
 deployment_configurationName :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
@@ -228,39 +229,39 @@ deployment_applicationId = Lens.lens (\Deployment' {applicationId} -> applicatio
 
 -- | The time the deployment completed.
 deployment_completedAt :: Lens.Lens' Deployment (Prelude.Maybe Prelude.UTCTime)
-deployment_completedAt = Lens.lens (\Deployment' {completedAt} -> completedAt) (\s@Deployment' {} a -> s {completedAt = a} :: Deployment) Prelude.. Lens.mapping Core._Time
+deployment_completedAt = Lens.lens (\Deployment' {completedAt} -> completedAt) (\s@Deployment' {} a -> s {completedAt = a} :: Deployment) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the configuration profile that was deployed.
 deployment_configurationProfileId :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_configurationProfileId = Lens.lens (\Deployment' {configurationProfileId} -> configurationProfileId) (\s@Deployment' {} a -> s {configurationProfileId = a} :: Deployment)
 
-instance Core.FromJSON Deployment where
+instance Data.FromJSON Deployment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Deployment"
       ( \x ->
           Deployment'
-            Prelude.<$> (x Core..:? "DeploymentStrategyId")
-            Prelude.<*> (x Core..:? "GrowthType")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "DeploymentDurationInMinutes")
-            Prelude.<*> (x Core..:? "DeploymentNumber")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "FinalBakeTimeInMinutes")
-            Prelude.<*> (x Core..:? "StartedAt")
-            Prelude.<*> (x Core..:? "ConfigurationName")
-            Prelude.<*> (x Core..:? "GrowthFactor")
-            Prelude.<*> ( x Core..:? "AppliedExtensions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "DeploymentStrategyId")
+            Prelude.<*> (x Data..:? "GrowthType")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "DeploymentDurationInMinutes")
+            Prelude.<*> (x Data..:? "DeploymentNumber")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "FinalBakeTimeInMinutes")
+            Prelude.<*> (x Data..:? "StartedAt")
+            Prelude.<*> (x Data..:? "ConfigurationName")
+            Prelude.<*> (x Data..:? "GrowthFactor")
+            Prelude.<*> ( x Data..:? "AppliedExtensions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EventLog" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ConfigurationVersion")
-            Prelude.<*> (x Core..:? "EnvironmentId")
-            Prelude.<*> (x Core..:? "PercentageComplete")
-            Prelude.<*> (x Core..:? "ConfigurationLocationUri")
-            Prelude.<*> (x Core..:? "ApplicationId")
-            Prelude.<*> (x Core..:? "CompletedAt")
-            Prelude.<*> (x Core..:? "ConfigurationProfileId")
+            Prelude.<*> (x Data..:? "EventLog" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ConfigurationVersion")
+            Prelude.<*> (x Data..:? "EnvironmentId")
+            Prelude.<*> (x Data..:? "PercentageComplete")
+            Prelude.<*> (x Data..:? "ConfigurationLocationUri")
+            Prelude.<*> (x Data..:? "ApplicationId")
+            Prelude.<*> (x Data..:? "CompletedAt")
+            Prelude.<*> (x Data..:? "ConfigurationProfileId")
       )
 
 instance Prelude.Hashable Deployment where

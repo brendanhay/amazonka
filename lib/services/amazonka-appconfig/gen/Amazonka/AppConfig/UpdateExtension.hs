@@ -54,6 +54,7 @@ where
 import Amazonka.AppConfig.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -129,7 +130,7 @@ instance Core.AWSRequest UpdateExtension where
     Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateExtension where
   hashWithSalt _salt UpdateExtension' {..} =
@@ -147,32 +148,32 @@ instance Prelude.NFData UpdateExtension where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf extensionIdentifier
 
-instance Core.ToHeaders UpdateExtension where
+instance Data.ToHeaders UpdateExtension where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateExtension where
+instance Data.ToJSON UpdateExtension where
   toJSON UpdateExtension' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("VersionNumber" Core..=) Prelude.<$> versionNumber,
-            ("Actions" Core..=) Prelude.<$> actions,
-            ("Parameters" Core..=) Prelude.<$> parameters
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("VersionNumber" Data..=) Prelude.<$> versionNumber,
+            ("Actions" Data..=) Prelude.<$> actions,
+            ("Parameters" Data..=) Prelude.<$> parameters
           ]
       )
 
-instance Core.ToPath UpdateExtension where
+instance Data.ToPath UpdateExtension where
   toPath UpdateExtension' {..} =
     Prelude.mconcat
-      ["/extensions/", Core.toBS extensionIdentifier]
+      ["/extensions/", Data.toBS extensionIdentifier]
 
-instance Core.ToQuery UpdateExtension where
+instance Data.ToQuery UpdateExtension where
   toQuery = Prelude.const Prelude.mempty

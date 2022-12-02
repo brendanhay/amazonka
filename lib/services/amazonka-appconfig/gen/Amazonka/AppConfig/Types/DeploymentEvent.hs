@@ -24,6 +24,7 @@ import Amazonka.AppConfig.Types.DeploymentEventType
 import Amazonka.AppConfig.Types.TriggeredBy
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that describes a deployment event.
@@ -35,7 +36,7 @@ data DeploymentEvent = DeploymentEvent'
     -- stop of a bake period; and the start or completion of a rollback.
     eventType :: Prelude.Maybe DeploymentEventType,
     -- | The date and time the event occurred.
-    occurredAt :: Prelude.Maybe Core.POSIX,
+    occurredAt :: Prelude.Maybe Data.POSIX,
     -- | The list of extensions that were invoked as part of the deployment.
     actionInvocations :: Prelude.Maybe [ActionInvocation],
     -- | A description of the deployment event. Descriptions include, but are not
@@ -93,7 +94,7 @@ deploymentEvent_eventType = Lens.lens (\DeploymentEvent' {eventType} -> eventTyp
 
 -- | The date and time the event occurred.
 deploymentEvent_occurredAt :: Lens.Lens' DeploymentEvent (Prelude.Maybe Prelude.UTCTime)
-deploymentEvent_occurredAt = Lens.lens (\DeploymentEvent' {occurredAt} -> occurredAt) (\s@DeploymentEvent' {} a -> s {occurredAt = a} :: DeploymentEvent) Prelude.. Lens.mapping Core._Time
+deploymentEvent_occurredAt = Lens.lens (\DeploymentEvent' {occurredAt} -> occurredAt) (\s@DeploymentEvent' {} a -> s {occurredAt = a} :: DeploymentEvent) Prelude.. Lens.mapping Data._Time
 
 -- | The list of extensions that were invoked as part of the deployment.
 deploymentEvent_actionInvocations :: Lens.Lens' DeploymentEvent (Prelude.Maybe [ActionInvocation])
@@ -112,19 +113,19 @@ deploymentEvent_description = Lens.lens (\DeploymentEvent' {description} -> desc
 deploymentEvent_triggeredBy :: Lens.Lens' DeploymentEvent (Prelude.Maybe TriggeredBy)
 deploymentEvent_triggeredBy = Lens.lens (\DeploymentEvent' {triggeredBy} -> triggeredBy) (\s@DeploymentEvent' {} a -> s {triggeredBy = a} :: DeploymentEvent)
 
-instance Core.FromJSON DeploymentEvent where
+instance Data.FromJSON DeploymentEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeploymentEvent"
       ( \x ->
           DeploymentEvent'
-            Prelude.<$> (x Core..:? "EventType")
-            Prelude.<*> (x Core..:? "OccurredAt")
-            Prelude.<*> ( x Core..:? "ActionInvocations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "EventType")
+            Prelude.<*> (x Data..:? "OccurredAt")
+            Prelude.<*> ( x Data..:? "ActionInvocations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "TriggeredBy")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "TriggeredBy")
       )
 
 instance Prelude.Hashable DeploymentEvent where

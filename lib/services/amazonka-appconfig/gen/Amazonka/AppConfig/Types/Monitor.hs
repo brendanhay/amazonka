@@ -21,6 +21,7 @@ module Amazonka.AppConfig.Types.Monitor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Amazon CloudWatch alarms to monitor during the deployment process.
@@ -66,14 +67,14 @@ monitor_alarmRoleArn = Lens.lens (\Monitor' {alarmRoleArn} -> alarmRoleArn) (\s@
 monitor_alarmArn :: Lens.Lens' Monitor Prelude.Text
 monitor_alarmArn = Lens.lens (\Monitor' {alarmArn} -> alarmArn) (\s@Monitor' {} a -> s {alarmArn = a} :: Monitor)
 
-instance Core.FromJSON Monitor where
+instance Data.FromJSON Monitor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Monitor"
       ( \x ->
           Monitor'
-            Prelude.<$> (x Core..:? "AlarmRoleArn")
-            Prelude.<*> (x Core..: "AlarmArn")
+            Prelude.<$> (x Data..:? "AlarmRoleArn")
+            Prelude.<*> (x Data..: "AlarmArn")
       )
 
 instance Prelude.Hashable Monitor where
@@ -86,11 +87,11 @@ instance Prelude.NFData Monitor where
     Prelude.rnf alarmRoleArn
       `Prelude.seq` Prelude.rnf alarmArn
 
-instance Core.ToJSON Monitor where
+instance Data.ToJSON Monitor where
   toJSON Monitor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AlarmRoleArn" Core..=) Prelude.<$> alarmRoleArn,
-            Prelude.Just ("AlarmArn" Core..= alarmArn)
+          [ ("AlarmRoleArn" Data..=) Prelude.<$> alarmRoleArn,
+            Prelude.Just ("AlarmArn" Data..= alarmArn)
           ]
       )

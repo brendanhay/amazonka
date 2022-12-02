@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchDetachPolicy where
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Detaches the specified policy from the specified directory inside a
@@ -84,13 +85,13 @@ instance Prelude.NFData BatchDetachPolicy where
     Prelude.rnf policyReference
       `Prelude.seq` Prelude.rnf objectReference
 
-instance Core.ToJSON BatchDetachPolicy where
+instance Data.ToJSON BatchDetachPolicy where
   toJSON BatchDetachPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("PolicyReference" Core..= policyReference),
+              ("PolicyReference" Data..= policyReference),
             Prelude.Just
-              ("ObjectReference" Core..= objectReference)
+              ("ObjectReference" Data..= objectReference)
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchAttachObject where
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of an AttachObject operation.
@@ -93,14 +94,14 @@ instance Prelude.NFData BatchAttachObject where
       `Prelude.seq` Prelude.rnf childReference
       `Prelude.seq` Prelude.rnf linkName
 
-instance Core.ToJSON BatchAttachObject where
+instance Data.ToJSON BatchAttachObject where
   toJSON BatchAttachObject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ParentReference" Core..= parentReference),
+              ("ParentReference" Data..= parentReference),
             Prelude.Just
-              ("ChildReference" Core..= childReference),
-            Prelude.Just ("LinkName" Core..= linkName)
+              ("ChildReference" Data..= childReference),
+            Prelude.Just ("LinkName" Data..= linkName)
           ]
       )

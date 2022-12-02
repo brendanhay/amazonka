@@ -24,6 +24,7 @@ import Amazonka.CloudDirectory.Types.ObjectReference
 import Amazonka.CloudDirectory.Types.TypedLinkSchemaAndFacetName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Attaches a typed link to a specified source and target object inside a
@@ -108,20 +109,20 @@ instance Prelude.NFData BatchAttachTypedLink where
       `Prelude.seq` Prelude.rnf typedLinkFacet
       `Prelude.seq` Prelude.rnf attributes
 
-instance Core.ToJSON BatchAttachTypedLink where
+instance Data.ToJSON BatchAttachTypedLink where
   toJSON BatchAttachTypedLink' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "SourceObjectReference"
-                  Core..= sourceObjectReference
+                  Data..= sourceObjectReference
               ),
             Prelude.Just
               ( "TargetObjectReference"
-                  Core..= targetObjectReference
+                  Data..= targetObjectReference
               ),
             Prelude.Just
-              ("TypedLinkFacet" Core..= typedLinkFacet),
-            Prelude.Just ("Attributes" Core..= attributes)
+              ("TypedLinkFacet" Data..= typedLinkFacet),
+            Prelude.Just ("Attributes" Data..= attributes)
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchLookupPolicyResponse where
 import Amazonka.CloudDirectory.Types.PolicyToPath
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a LookupPolicy response operation.
@@ -69,15 +70,15 @@ batchLookupPolicyResponse_nextToken = Lens.lens (\BatchLookupPolicyResponse' {ne
 batchLookupPolicyResponse_policyToPathList :: Lens.Lens' BatchLookupPolicyResponse (Prelude.Maybe [PolicyToPath])
 batchLookupPolicyResponse_policyToPathList = Lens.lens (\BatchLookupPolicyResponse' {policyToPathList} -> policyToPathList) (\s@BatchLookupPolicyResponse' {} a -> s {policyToPathList = a} :: BatchLookupPolicyResponse) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON BatchLookupPolicyResponse where
+instance Data.FromJSON BatchLookupPolicyResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchLookupPolicyResponse"
       ( \x ->
           BatchLookupPolicyResponse'
-            Prelude.<$> (x Core..:? "NextToken")
-            Prelude.<*> ( x Core..:? "PolicyToPathList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "NextToken")
+            Prelude.<*> ( x Data..:? "PolicyToPathList"
+                            Data..!= Prelude.mempty
                         )
       )
 

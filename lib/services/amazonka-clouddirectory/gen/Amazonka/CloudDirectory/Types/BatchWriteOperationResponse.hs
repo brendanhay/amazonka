@@ -36,6 +36,7 @@ import Amazonka.CloudDirectory.Types.BatchUpdateLinkAttributesResponse
 import Amazonka.CloudDirectory.Types.BatchUpdateObjectAttributesResponse
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a @BatchWrite@ response operation.
@@ -215,27 +216,27 @@ batchWriteOperationResponse_attachTypedLink = Lens.lens (\BatchWriteOperationRes
 batchWriteOperationResponse_attachObject :: Lens.Lens' BatchWriteOperationResponse (Prelude.Maybe BatchAttachObjectResponse)
 batchWriteOperationResponse_attachObject = Lens.lens (\BatchWriteOperationResponse' {attachObject} -> attachObject) (\s@BatchWriteOperationResponse' {} a -> s {attachObject = a} :: BatchWriteOperationResponse)
 
-instance Core.FromJSON BatchWriteOperationResponse where
+instance Data.FromJSON BatchWriteOperationResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchWriteOperationResponse"
       ( \x ->
           BatchWriteOperationResponse'
-            Prelude.<$> (x Core..:? "AttachToIndex")
-            Prelude.<*> (x Core..:? "UpdateObjectAttributes")
-            Prelude.<*> (x Core..:? "DeleteObject")
-            Prelude.<*> (x Core..:? "DetachObject")
-            Prelude.<*> (x Core..:? "DetachTypedLink")
-            Prelude.<*> (x Core..:? "UpdateLinkAttributes")
-            Prelude.<*> (x Core..:? "CreateObject")
-            Prelude.<*> (x Core..:? "AddFacetToObject")
-            Prelude.<*> (x Core..:? "DetachFromIndex")
-            Prelude.<*> (x Core..:? "AttachPolicy")
-            Prelude.<*> (x Core..:? "CreateIndex")
-            Prelude.<*> (x Core..:? "DetachPolicy")
-            Prelude.<*> (x Core..:? "RemoveFacetFromObject")
-            Prelude.<*> (x Core..:? "AttachTypedLink")
-            Prelude.<*> (x Core..:? "AttachObject")
+            Prelude.<$> (x Data..:? "AttachToIndex")
+            Prelude.<*> (x Data..:? "UpdateObjectAttributes")
+            Prelude.<*> (x Data..:? "DeleteObject")
+            Prelude.<*> (x Data..:? "DetachObject")
+            Prelude.<*> (x Data..:? "DetachTypedLink")
+            Prelude.<*> (x Data..:? "UpdateLinkAttributes")
+            Prelude.<*> (x Data..:? "CreateObject")
+            Prelude.<*> (x Data..:? "AddFacetToObject")
+            Prelude.<*> (x Data..:? "DetachFromIndex")
+            Prelude.<*> (x Data..:? "AttachPolicy")
+            Prelude.<*> (x Data..:? "CreateIndex")
+            Prelude.<*> (x Data..:? "DetachPolicy")
+            Prelude.<*> (x Data..:? "RemoveFacetFromObject")
+            Prelude.<*> (x Data..:? "AttachTypedLink")
+            Prelude.<*> (x Data..:? "AttachObject")
       )
 
 instance Prelude.Hashable BatchWriteOperationResponse where

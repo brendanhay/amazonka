@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchListObjectParents where
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Lists parent objects that are associated with a given object in
@@ -89,13 +90,13 @@ instance Prelude.NFData BatchListObjectParents where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf objectReference
 
-instance Core.ToJSON BatchListObjectParents where
+instance Data.ToJSON BatchListObjectParents where
   toJSON BatchListObjectParents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("ObjectReference" Core..= objectReference)
+              ("ObjectReference" Data..= objectReference)
           ]
       )

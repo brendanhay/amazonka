@@ -21,6 +21,7 @@ module Amazonka.CloudDirectory.Types.BatchAddFacetToObjectResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The result of a batch add facet to object operation.
@@ -40,9 +41,9 @@ newBatchAddFacetToObjectResponse ::
 newBatchAddFacetToObjectResponse =
   BatchAddFacetToObjectResponse'
 
-instance Core.FromJSON BatchAddFacetToObjectResponse where
+instance Data.FromJSON BatchAddFacetToObjectResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchAddFacetToObjectResponse"
       (\x -> Prelude.pure BatchAddFacetToObjectResponse')
 

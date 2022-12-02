@@ -44,6 +44,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -113,7 +114,7 @@ instance Core.AWSRequest UpdateObjectAttributes where
     Response.receiveJSON
       ( \s h x ->
           UpdateObjectAttributesResponse'
-            Prelude.<$> (x Core..?> "ObjectIdentifier")
+            Prelude.<$> (x Data..?> "ObjectIdentifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,28 +130,28 @@ instance Prelude.NFData UpdateObjectAttributes where
       `Prelude.seq` Prelude.rnf objectReference
       `Prelude.seq` Prelude.rnf attributeUpdates
 
-instance Core.ToHeaders UpdateObjectAttributes where
+instance Data.ToHeaders UpdateObjectAttributes where
   toHeaders UpdateObjectAttributes' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# directoryArn]
+      ["x-amz-data-partition" Data.=# directoryArn]
 
-instance Core.ToJSON UpdateObjectAttributes where
+instance Data.ToJSON UpdateObjectAttributes where
   toJSON UpdateObjectAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ObjectReference" Core..= objectReference),
+              ("ObjectReference" Data..= objectReference),
             Prelude.Just
-              ("AttributeUpdates" Core..= attributeUpdates)
+              ("AttributeUpdates" Data..= attributeUpdates)
           ]
       )
 
-instance Core.ToPath UpdateObjectAttributes where
+instance Data.ToPath UpdateObjectAttributes where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/object/update"
 
-instance Core.ToQuery UpdateObjectAttributes where
+instance Data.ToQuery UpdateObjectAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateObjectAttributesResponse' smart constructor.

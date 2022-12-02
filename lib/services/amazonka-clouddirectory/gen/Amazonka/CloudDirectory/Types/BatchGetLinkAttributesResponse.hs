@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchGetLinkAttributesResponse where
 import Amazonka.CloudDirectory.Types.AttributeKeyAndValue
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a GetLinkAttributes response operation.
@@ -54,13 +55,13 @@ newBatchGetLinkAttributesResponse =
 batchGetLinkAttributesResponse_attributes :: Lens.Lens' BatchGetLinkAttributesResponse (Prelude.Maybe [AttributeKeyAndValue])
 batchGetLinkAttributesResponse_attributes = Lens.lens (\BatchGetLinkAttributesResponse' {attributes} -> attributes) (\s@BatchGetLinkAttributesResponse' {} a -> s {attributes = a} :: BatchGetLinkAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON BatchGetLinkAttributesResponse where
+instance Data.FromJSON BatchGetLinkAttributesResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchGetLinkAttributesResponse"
       ( \x ->
           BatchGetLinkAttributesResponse'
-            Prelude.<$> (x Core..:? "Attributes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Attributes" Data..!= Prelude.mempty)
       )
 
 instance

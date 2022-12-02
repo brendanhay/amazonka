@@ -44,6 +44,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,7 +116,7 @@ instance Core.AWSRequest AttachToIndex where
     Response.receiveJSON
       ( \s h x ->
           AttachToIndexResponse'
-            Prelude.<$> (x Core..?> "AttachedObjectIdentifier")
+            Prelude.<$> (x Data..?> "AttachedObjectIdentifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,28 +132,28 @@ instance Prelude.NFData AttachToIndex where
       `Prelude.seq` Prelude.rnf indexReference
       `Prelude.seq` Prelude.rnf targetReference
 
-instance Core.ToHeaders AttachToIndex where
+instance Data.ToHeaders AttachToIndex where
   toHeaders AttachToIndex' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# directoryArn]
+      ["x-amz-data-partition" Data.=# directoryArn]
 
-instance Core.ToJSON AttachToIndex where
+instance Data.ToJSON AttachToIndex where
   toJSON AttachToIndex' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("IndexReference" Core..= indexReference),
+              ("IndexReference" Data..= indexReference),
             Prelude.Just
-              ("TargetReference" Core..= targetReference)
+              ("TargetReference" Data..= targetReference)
           ]
       )
 
-instance Core.ToPath AttachToIndex where
+instance Data.ToPath AttachToIndex where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/index/attach"
 
-instance Core.ToQuery AttachToIndex where
+instance Data.ToQuery AttachToIndex where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAttachToIndexResponse' smart constructor.

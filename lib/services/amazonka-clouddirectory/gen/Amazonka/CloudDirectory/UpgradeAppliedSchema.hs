@@ -51,6 +51,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -125,8 +126,8 @@ instance Core.AWSRequest UpgradeAppliedSchema where
     Response.receiveJSON
       ( \s h x ->
           UpgradeAppliedSchemaResponse'
-            Prelude.<$> (x Core..?> "DirectoryArn")
-            Prelude.<*> (x Core..?> "UpgradedSchemaArn")
+            Prelude.<$> (x Data..?> "DirectoryArn")
+            Prelude.<*> (x Data..?> "UpgradedSchemaArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,26 +143,26 @@ instance Prelude.NFData UpgradeAppliedSchema where
       `Prelude.seq` Prelude.rnf publishedSchemaArn
       `Prelude.seq` Prelude.rnf directoryArn
 
-instance Core.ToHeaders UpgradeAppliedSchema where
+instance Data.ToHeaders UpgradeAppliedSchema where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpgradeAppliedSchema where
+instance Data.ToJSON UpgradeAppliedSchema where
   toJSON UpgradeAppliedSchema' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DryRun" Core..=) Prelude.<$> dryRun,
+          [ ("DryRun" Data..=) Prelude.<$> dryRun,
             Prelude.Just
-              ("PublishedSchemaArn" Core..= publishedSchemaArn),
-            Prelude.Just ("DirectoryArn" Core..= directoryArn)
+              ("PublishedSchemaArn" Data..= publishedSchemaArn),
+            Prelude.Just ("DirectoryArn" Data..= directoryArn)
           ]
       )
 
-instance Core.ToPath UpgradeAppliedSchema where
+instance Data.ToPath UpgradeAppliedSchema where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/schema/upgradeapplied"
 
-instance Core.ToQuery UpgradeAppliedSchema where
+instance Data.ToQuery UpgradeAppliedSchema where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpgradeAppliedSchemaResponse' smart constructor.

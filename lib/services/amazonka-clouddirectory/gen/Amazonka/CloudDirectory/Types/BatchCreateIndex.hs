@@ -23,6 +23,7 @@ import Amazonka.CloudDirectory.Types.AttributeKey
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Creates an index object inside of a BatchRead operation. For more
@@ -122,19 +123,19 @@ instance Prelude.NFData BatchCreateIndex where
       `Prelude.seq` Prelude.rnf orderedIndexedAttributeList
       `Prelude.seq` Prelude.rnf isUnique
 
-instance Core.ToJSON BatchCreateIndex where
+instance Data.ToJSON BatchCreateIndex where
   toJSON BatchCreateIndex' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BatchReferenceName" Core..=)
+          [ ("BatchReferenceName" Data..=)
               Prelude.<$> batchReferenceName,
-            ("ParentReference" Core..=)
+            ("ParentReference" Data..=)
               Prelude.<$> parentReference,
-            ("LinkName" Core..=) Prelude.<$> linkName,
+            ("LinkName" Data..=) Prelude.<$> linkName,
             Prelude.Just
               ( "OrderedIndexedAttributeList"
-                  Core..= orderedIndexedAttributeList
+                  Data..= orderedIndexedAttributeList
               ),
-            Prelude.Just ("IsUnique" Core..= isUnique)
+            Prelude.Just ("IsUnique" Data..= isUnique)
           ]
       )

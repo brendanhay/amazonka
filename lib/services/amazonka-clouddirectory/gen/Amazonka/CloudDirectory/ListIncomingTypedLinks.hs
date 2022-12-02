@@ -54,6 +54,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -193,8 +194,8 @@ instance Core.AWSRequest ListIncomingTypedLinks where
     Response.receiveJSON
       ( \s h x ->
           ListIncomingTypedLinksResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "LinkSpecifiers" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "LinkSpecifiers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -218,34 +219,34 @@ instance Prelude.NFData ListIncomingTypedLinks where
       `Prelude.seq` Prelude.rnf directoryArn
       `Prelude.seq` Prelude.rnf objectReference
 
-instance Core.ToHeaders ListIncomingTypedLinks where
+instance Data.ToHeaders ListIncomingTypedLinks where
   toHeaders ListIncomingTypedLinks' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# directoryArn]
+      ["x-amz-data-partition" Data.=# directoryArn]
 
-instance Core.ToJSON ListIncomingTypedLinks where
+instance Data.ToJSON ListIncomingTypedLinks where
   toJSON ListIncomingTypedLinks' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ConsistencyLevel" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ConsistencyLevel" Data..=)
               Prelude.<$> consistencyLevel,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("FilterAttributeRanges" Core..=)
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("FilterAttributeRanges" Data..=)
               Prelude.<$> filterAttributeRanges,
-            ("FilterTypedLink" Core..=)
+            ("FilterTypedLink" Data..=)
               Prelude.<$> filterTypedLink,
             Prelude.Just
-              ("ObjectReference" Core..= objectReference)
+              ("ObjectReference" Data..= objectReference)
           ]
       )
 
-instance Core.ToPath ListIncomingTypedLinks where
+instance Data.ToPath ListIncomingTypedLinks where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/typedlink/incoming"
 
-instance Core.ToQuery ListIncomingTypedLinks where
+instance Data.ToQuery ListIncomingTypedLinks where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListIncomingTypedLinksResponse' smart constructor.

@@ -46,6 +46,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,8 +106,8 @@ instance Core.AWSRequest ApplySchema where
     Response.receiveJSON
       ( \s h x ->
           ApplySchemaResponse'
-            Prelude.<$> (x Core..?> "DirectoryArn")
-            Prelude.<*> (x Core..?> "AppliedSchemaArn")
+            Prelude.<$> (x Data..?> "DirectoryArn")
+            Prelude.<*> (x Data..?> "AppliedSchemaArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,26 +121,26 @@ instance Prelude.NFData ApplySchema where
     Prelude.rnf publishedSchemaArn
       `Prelude.seq` Prelude.rnf directoryArn
 
-instance Core.ToHeaders ApplySchema where
+instance Data.ToHeaders ApplySchema where
   toHeaders ApplySchema' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# directoryArn]
+      ["x-amz-data-partition" Data.=# directoryArn]
 
-instance Core.ToJSON ApplySchema where
+instance Data.ToJSON ApplySchema where
   toJSON ApplySchema' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("PublishedSchemaArn" Core..= publishedSchemaArn)
+              ("PublishedSchemaArn" Data..= publishedSchemaArn)
           ]
       )
 
-instance Core.ToPath ApplySchema where
+instance Data.ToPath ApplySchema where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/schema/apply"
 
-instance Core.ToQuery ApplySchema where
+instance Data.ToQuery ApplySchema where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newApplySchemaResponse' smart constructor.

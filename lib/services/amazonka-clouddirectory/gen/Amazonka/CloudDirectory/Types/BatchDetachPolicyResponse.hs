@@ -21,6 +21,7 @@ module Amazonka.CloudDirectory.Types.BatchDetachPolicyResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a DetachPolicy response operation.
@@ -40,9 +41,9 @@ newBatchDetachPolicyResponse ::
 newBatchDetachPolicyResponse =
   BatchDetachPolicyResponse'
 
-instance Core.FromJSON BatchDetachPolicyResponse where
+instance Data.FromJSON BatchDetachPolicyResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchDetachPolicyResponse"
       (\x -> Prelude.pure BatchDetachPolicyResponse')
 

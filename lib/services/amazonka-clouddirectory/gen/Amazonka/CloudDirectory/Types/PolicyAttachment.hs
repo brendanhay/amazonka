@@ -21,6 +21,7 @@ module Amazonka.CloudDirectory.Types.PolicyAttachment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the @PolicyType@, @PolicyId@, and the @ObjectIdentifier@ to
@@ -72,15 +73,15 @@ policyAttachment_objectIdentifier = Lens.lens (\PolicyAttachment' {objectIdentif
 policyAttachment_policyType :: Lens.Lens' PolicyAttachment (Prelude.Maybe Prelude.Text)
 policyAttachment_policyType = Lens.lens (\PolicyAttachment' {policyType} -> policyType) (\s@PolicyAttachment' {} a -> s {policyType = a} :: PolicyAttachment)
 
-instance Core.FromJSON PolicyAttachment where
+instance Data.FromJSON PolicyAttachment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PolicyAttachment"
       ( \x ->
           PolicyAttachment'
-            Prelude.<$> (x Core..:? "PolicyId")
-            Prelude.<*> (x Core..:? "ObjectIdentifier")
-            Prelude.<*> (x Core..:? "PolicyType")
+            Prelude.<$> (x Data..:? "PolicyId")
+            Prelude.<*> (x Data..:? "ObjectIdentifier")
+            Prelude.<*> (x Data..:? "PolicyType")
       )
 
 instance Prelude.Hashable PolicyAttachment where

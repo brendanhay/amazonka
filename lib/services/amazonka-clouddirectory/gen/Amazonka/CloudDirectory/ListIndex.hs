@@ -50,6 +50,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -164,8 +165,8 @@ instance Core.AWSRequest ListIndex where
     Response.receiveJSON
       ( \s h x ->
           ListIndexResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "IndexAttachments"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "IndexAttachments"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -189,32 +190,32 @@ instance Prelude.NFData ListIndex where
       `Prelude.seq` Prelude.rnf directoryArn
       `Prelude.seq` Prelude.rnf indexReference
 
-instance Core.ToHeaders ListIndex where
+instance Data.ToHeaders ListIndex where
   toHeaders ListIndex' {..} =
     Prelude.mconcat
-      [ "x-amz-consistency-level" Core.=# consistencyLevel,
-        "x-amz-data-partition" Core.=# directoryArn
+      [ "x-amz-consistency-level" Data.=# consistencyLevel,
+        "x-amz-data-partition" Data.=# directoryArn
       ]
 
-instance Core.ToJSON ListIndex where
+instance Data.ToJSON ListIndex where
   toJSON ListIndex' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("RangesOnIndexedValues" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("RangesOnIndexedValues" Data..=)
               Prelude.<$> rangesOnIndexedValues,
             Prelude.Just
-              ("IndexReference" Core..= indexReference)
+              ("IndexReference" Data..= indexReference)
           ]
       )
 
-instance Core.ToPath ListIndex where
+instance Data.ToPath ListIndex where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/index/targets"
 
-instance Core.ToQuery ListIndex where
+instance Data.ToQuery ListIndex where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListIndexResponse' smart constructor.

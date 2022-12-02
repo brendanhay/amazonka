@@ -36,6 +36,7 @@ import Amazonka.CloudDirectory.Types.BatchUpdateLinkAttributes
 import Amazonka.CloudDirectory.Types.BatchUpdateObjectAttributes
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a @BatchWrite@ operation.
@@ -251,31 +252,31 @@ instance Prelude.NFData BatchWriteOperation where
       `Prelude.seq` Prelude.rnf attachTypedLink
       `Prelude.seq` Prelude.rnf attachObject
 
-instance Core.ToJSON BatchWriteOperation where
+instance Data.ToJSON BatchWriteOperation where
   toJSON BatchWriteOperation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AttachToIndex" Core..=) Prelude.<$> attachToIndex,
-            ("UpdateObjectAttributes" Core..=)
+          [ ("AttachToIndex" Data..=) Prelude.<$> attachToIndex,
+            ("UpdateObjectAttributes" Data..=)
               Prelude.<$> updateObjectAttributes,
-            ("DeleteObject" Core..=) Prelude.<$> deleteObject,
-            ("DetachObject" Core..=) Prelude.<$> detachObject,
-            ("DetachTypedLink" Core..=)
+            ("DeleteObject" Data..=) Prelude.<$> deleteObject,
+            ("DetachObject" Data..=) Prelude.<$> detachObject,
+            ("DetachTypedLink" Data..=)
               Prelude.<$> detachTypedLink,
-            ("UpdateLinkAttributes" Core..=)
+            ("UpdateLinkAttributes" Data..=)
               Prelude.<$> updateLinkAttributes,
-            ("CreateObject" Core..=) Prelude.<$> createObject,
-            ("AddFacetToObject" Core..=)
+            ("CreateObject" Data..=) Prelude.<$> createObject,
+            ("AddFacetToObject" Data..=)
               Prelude.<$> addFacetToObject,
-            ("DetachFromIndex" Core..=)
+            ("DetachFromIndex" Data..=)
               Prelude.<$> detachFromIndex,
-            ("AttachPolicy" Core..=) Prelude.<$> attachPolicy,
-            ("CreateIndex" Core..=) Prelude.<$> createIndex,
-            ("DetachPolicy" Core..=) Prelude.<$> detachPolicy,
-            ("RemoveFacetFromObject" Core..=)
+            ("AttachPolicy" Data..=) Prelude.<$> attachPolicy,
+            ("CreateIndex" Data..=) Prelude.<$> createIndex,
+            ("DetachPolicy" Data..=) Prelude.<$> detachPolicy,
+            ("RemoveFacetFromObject" Data..=)
               Prelude.<$> removeFacetFromObject,
-            ("AttachTypedLink" Core..=)
+            ("AttachTypedLink" Data..=)
               Prelude.<$> attachTypedLink,
-            ("AttachObject" Core..=) Prelude.<$> attachObject
+            ("AttachObject" Data..=) Prelude.<$> attachObject
           ]
       )

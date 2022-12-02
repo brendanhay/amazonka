@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchDeleteObject where
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a DeleteObject operation.
@@ -64,11 +65,11 @@ instance Prelude.NFData BatchDeleteObject where
   rnf BatchDeleteObject' {..} =
     Prelude.rnf objectReference
 
-instance Core.ToJSON BatchDeleteObject where
+instance Data.ToJSON BatchDeleteObject where
   toJSON BatchDeleteObject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ObjectReference" Core..= objectReference)
+              ("ObjectReference" Data..= objectReference)
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchListObjectChildren where
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a ListObjectChildren operation.
@@ -89,13 +90,13 @@ instance Prelude.NFData BatchListObjectChildren where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf objectReference
 
-instance Core.ToJSON BatchListObjectChildren where
+instance Data.ToJSON BatchListObjectChildren where
   toJSON BatchListObjectChildren' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("ObjectReference" Core..= objectReference)
+              ("ObjectReference" Data..= objectReference)
           ]
       )

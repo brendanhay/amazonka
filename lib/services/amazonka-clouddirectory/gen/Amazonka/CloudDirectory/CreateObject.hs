@@ -50,6 +50,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -140,7 +141,7 @@ instance Core.AWSRequest CreateObject where
     Response.receiveJSON
       ( \s h x ->
           CreateObjectResponse'
-            Prelude.<$> (x Core..?> "ObjectIdentifier")
+            Prelude.<$> (x Data..?> "ObjectIdentifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,30 +161,30 @@ instance Prelude.NFData CreateObject where
       `Prelude.seq` Prelude.rnf directoryArn
       `Prelude.seq` Prelude.rnf schemaFacets
 
-instance Core.ToHeaders CreateObject where
+instance Data.ToHeaders CreateObject where
   toHeaders CreateObject' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# directoryArn]
+      ["x-amz-data-partition" Data.=# directoryArn]
 
-instance Core.ToJSON CreateObject where
+instance Data.ToJSON CreateObject where
   toJSON CreateObject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ObjectAttributeList" Core..=)
+          [ ("ObjectAttributeList" Data..=)
               Prelude.<$> objectAttributeList,
-            ("ParentReference" Core..=)
+            ("ParentReference" Data..=)
               Prelude.<$> parentReference,
-            ("LinkName" Core..=) Prelude.<$> linkName,
-            Prelude.Just ("SchemaFacets" Core..= schemaFacets)
+            ("LinkName" Data..=) Prelude.<$> linkName,
+            Prelude.Just ("SchemaFacets" Data..= schemaFacets)
           ]
       )
 
-instance Core.ToPath CreateObject where
+instance Data.ToPath CreateObject where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/object"
 
-instance Core.ToQuery CreateObject where
+instance Data.ToQuery CreateObject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateObjectResponse' smart constructor.

@@ -46,6 +46,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,7 +139,7 @@ instance Core.AWSRequest UpgradePublishedSchema where
     Response.receiveJSON
       ( \s h x ->
           UpgradePublishedSchemaResponse'
-            Prelude.<$> (x Core..?> "UpgradedSchemaArn")
+            Prelude.<$> (x Data..?> "UpgradedSchemaArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,30 +157,30 @@ instance Prelude.NFData UpgradePublishedSchema where
       `Prelude.seq` Prelude.rnf publishedSchemaArn
       `Prelude.seq` Prelude.rnf minorVersion
 
-instance Core.ToHeaders UpgradePublishedSchema where
+instance Data.ToHeaders UpgradePublishedSchema where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpgradePublishedSchema where
+instance Data.ToJSON UpgradePublishedSchema where
   toJSON UpgradePublishedSchema' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DryRun" Core..=) Prelude.<$> dryRun,
+          [ ("DryRun" Data..=) Prelude.<$> dryRun,
             Prelude.Just
               ( "DevelopmentSchemaArn"
-                  Core..= developmentSchemaArn
+                  Data..= developmentSchemaArn
               ),
             Prelude.Just
-              ("PublishedSchemaArn" Core..= publishedSchemaArn),
-            Prelude.Just ("MinorVersion" Core..= minorVersion)
+              ("PublishedSchemaArn" Data..= publishedSchemaArn),
+            Prelude.Just ("MinorVersion" Data..= minorVersion)
           ]
       )
 
-instance Core.ToPath UpgradePublishedSchema where
+instance Data.ToPath UpgradePublishedSchema where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/schema/upgradepublished"
 
-instance Core.ToQuery UpgradePublishedSchema where
+instance Data.ToQuery UpgradePublishedSchema where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpgradePublishedSchemaResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.CloudDirectory.Types.BatchListObjectChildrenResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a ListObjectChildren response operation.
@@ -66,16 +67,16 @@ batchListObjectChildrenResponse_children :: Lens.Lens' BatchListObjectChildrenRe
 batchListObjectChildrenResponse_children = Lens.lens (\BatchListObjectChildrenResponse' {children} -> children) (\s@BatchListObjectChildrenResponse' {} a -> s {children = a} :: BatchListObjectChildrenResponse) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchListObjectChildrenResponse
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchListObjectChildrenResponse"
       ( \x ->
           BatchListObjectChildrenResponse'
-            Prelude.<$> (x Core..:? "NextToken")
-            Prelude.<*> (x Core..:? "Children" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "NextToken")
+            Prelude.<*> (x Data..:? "Children" Data..!= Prelude.mempty)
       )
 
 instance

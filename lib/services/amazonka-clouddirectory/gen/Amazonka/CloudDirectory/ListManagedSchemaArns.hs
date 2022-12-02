@@ -49,6 +49,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,8 +134,8 @@ instance Core.AWSRequest ListManagedSchemaArns where
     Response.receiveJSON
       ( \s h x ->
           ListManagedSchemaArnsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "SchemaArns" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "SchemaArns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,25 +151,25 @@ instance Prelude.NFData ListManagedSchemaArns where
       `Prelude.seq` Prelude.rnf schemaArn
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListManagedSchemaArns where
+instance Data.ToHeaders ListManagedSchemaArns where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON ListManagedSchemaArns where
+instance Data.ToJSON ListManagedSchemaArns where
   toJSON ListManagedSchemaArns' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SchemaArn" Core..=) Prelude.<$> schemaArn,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SchemaArn" Data..=) Prelude.<$> schemaArn,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListManagedSchemaArns where
+instance Data.ToPath ListManagedSchemaArns where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/schema/managed"
 
-instance Core.ToQuery ListManagedSchemaArns where
+instance Data.ToQuery ListManagedSchemaArns where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListManagedSchemaArnsResponse' smart constructor.

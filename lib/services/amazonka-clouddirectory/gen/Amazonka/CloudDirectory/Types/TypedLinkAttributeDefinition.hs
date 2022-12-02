@@ -25,6 +25,7 @@ import Amazonka.CloudDirectory.Types.Rule
 import Amazonka.CloudDirectory.Types.TypedAttributeValue
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A typed link attribute definition.
@@ -111,18 +112,18 @@ typedLinkAttributeDefinition_type = Lens.lens (\TypedLinkAttributeDefinition' {t
 typedLinkAttributeDefinition_requiredBehavior :: Lens.Lens' TypedLinkAttributeDefinition RequiredAttributeBehavior
 typedLinkAttributeDefinition_requiredBehavior = Lens.lens (\TypedLinkAttributeDefinition' {requiredBehavior} -> requiredBehavior) (\s@TypedLinkAttributeDefinition' {} a -> s {requiredBehavior = a} :: TypedLinkAttributeDefinition)
 
-instance Core.FromJSON TypedLinkAttributeDefinition where
+instance Data.FromJSON TypedLinkAttributeDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TypedLinkAttributeDefinition"
       ( \x ->
           TypedLinkAttributeDefinition'
-            Prelude.<$> (x Core..:? "Rules" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DefaultValue")
-            Prelude.<*> (x Core..:? "IsImmutable")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Type")
-            Prelude.<*> (x Core..: "RequiredBehavior")
+            Prelude.<$> (x Data..:? "Rules" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DefaultValue")
+            Prelude.<*> (x Data..:? "IsImmutable")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Type")
+            Prelude.<*> (x Data..: "RequiredBehavior")
       )
 
 instance
@@ -146,16 +147,16 @@ instance Prelude.NFData TypedLinkAttributeDefinition where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf requiredBehavior
 
-instance Core.ToJSON TypedLinkAttributeDefinition where
+instance Data.ToJSON TypedLinkAttributeDefinition where
   toJSON TypedLinkAttributeDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Rules" Core..=) Prelude.<$> rules,
-            ("DefaultValue" Core..=) Prelude.<$> defaultValue,
-            ("IsImmutable" Core..=) Prelude.<$> isImmutable,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Type" Core..= type'),
+          [ ("Rules" Data..=) Prelude.<$> rules,
+            ("DefaultValue" Data..=) Prelude.<$> defaultValue,
+            ("IsImmutable" Data..=) Prelude.<$> isImmutable,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Type" Data..= type'),
             Prelude.Just
-              ("RequiredBehavior" Core..= requiredBehavior)
+              ("RequiredBehavior" Data..= requiredBehavior)
           ]
       )

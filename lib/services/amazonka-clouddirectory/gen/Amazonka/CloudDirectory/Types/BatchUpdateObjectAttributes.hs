@@ -23,6 +23,7 @@ import Amazonka.CloudDirectory.Types.ObjectAttributeUpdate
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a @BatchUpdate@ operation.
@@ -76,13 +77,13 @@ instance Prelude.NFData BatchUpdateObjectAttributes where
     Prelude.rnf objectReference
       `Prelude.seq` Prelude.rnf attributeUpdates
 
-instance Core.ToJSON BatchUpdateObjectAttributes where
+instance Data.ToJSON BatchUpdateObjectAttributes where
   toJSON BatchUpdateObjectAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ObjectReference" Core..= objectReference),
+              ("ObjectReference" Data..= objectReference),
             Prelude.Just
-              ("AttributeUpdates" Core..= attributeUpdates)
+              ("AttributeUpdates" Data..= attributeUpdates)
           ]
       )

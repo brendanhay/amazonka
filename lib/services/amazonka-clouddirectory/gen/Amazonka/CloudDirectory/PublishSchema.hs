@@ -46,6 +46,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,7 +134,7 @@ instance Core.AWSRequest PublishSchema where
     Response.receiveJSON
       ( \s h x ->
           PublishSchemaResponse'
-            Prelude.<$> (x Core..?> "PublishedSchemaArn")
+            Prelude.<$> (x Data..?> "PublishedSchemaArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,27 +152,27 @@ instance Prelude.NFData PublishSchema where
       `Prelude.seq` Prelude.rnf developmentSchemaArn
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToHeaders PublishSchema where
+instance Data.ToHeaders PublishSchema where
   toHeaders PublishSchema' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# developmentSchemaArn]
+      ["x-amz-data-partition" Data.=# developmentSchemaArn]
 
-instance Core.ToJSON PublishSchema where
+instance Data.ToJSON PublishSchema where
   toJSON PublishSchema' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("MinorVersion" Core..=) Prelude.<$> minorVersion,
-            Prelude.Just ("Version" Core..= version)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("MinorVersion" Data..=) Prelude.<$> minorVersion,
+            Prelude.Just ("Version" Data..= version)
           ]
       )
 
-instance Core.ToPath PublishSchema where
+instance Data.ToPath PublishSchema where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/schema/publish"
 
-instance Core.ToQuery PublishSchema where
+instance Data.ToQuery PublishSchema where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPublishSchemaResponse' smart constructor.

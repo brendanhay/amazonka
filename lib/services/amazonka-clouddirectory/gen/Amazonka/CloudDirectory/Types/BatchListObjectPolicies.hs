@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchListObjectPolicies where
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns policies attached to an object in pagination fashion inside a
@@ -91,13 +92,13 @@ instance Prelude.NFData BatchListObjectPolicies where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf objectReference
 
-instance Core.ToJSON BatchListObjectPolicies where
+instance Data.ToJSON BatchListObjectPolicies where
   toJSON BatchListObjectPolicies' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("ObjectReference" Core..= objectReference)
+              ("ObjectReference" Data..= objectReference)
           ]
       )

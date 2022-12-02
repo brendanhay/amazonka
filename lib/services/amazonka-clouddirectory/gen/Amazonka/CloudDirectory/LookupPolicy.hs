@@ -55,6 +55,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -151,8 +152,8 @@ instance Core.AWSRequest LookupPolicy where
     Response.receiveJSON
       ( \s h x ->
           LookupPolicyResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "PolicyToPathList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "PolicyToPathList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -172,28 +173,28 @@ instance Prelude.NFData LookupPolicy where
       `Prelude.seq` Prelude.rnf directoryArn
       `Prelude.seq` Prelude.rnf objectReference
 
-instance Core.ToHeaders LookupPolicy where
+instance Data.ToHeaders LookupPolicy where
   toHeaders LookupPolicy' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# directoryArn]
+      ["x-amz-data-partition" Data.=# directoryArn]
 
-instance Core.ToJSON LookupPolicy where
+instance Data.ToJSON LookupPolicy where
   toJSON LookupPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("ObjectReference" Core..= objectReference)
+              ("ObjectReference" Data..= objectReference)
           ]
       )
 
-instance Core.ToPath LookupPolicy where
+instance Data.ToPath LookupPolicy where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/policy/lookup"
 
-instance Core.ToQuery LookupPolicy where
+instance Data.ToQuery LookupPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newLookupPolicyResponse' smart constructor.

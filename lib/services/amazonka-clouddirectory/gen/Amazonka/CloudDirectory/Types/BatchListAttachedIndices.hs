@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchListAttachedIndices where
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Lists indices attached to an object inside a BatchRead operation. For
@@ -88,13 +89,13 @@ instance Prelude.NFData BatchListAttachedIndices where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf targetReference
 
-instance Core.ToJSON BatchListAttachedIndices where
+instance Data.ToJSON BatchListAttachedIndices where
   toJSON BatchListAttachedIndices' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("TargetReference" Core..= targetReference)
+              ("TargetReference" Data..= targetReference)
           ]
       )

@@ -35,6 +35,7 @@ import Amazonka.CloudDirectory.Types.BatchListPolicyAttachments
 import Amazonka.CloudDirectory.Types.BatchLookupPolicy
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a @BatchRead@ operation.
@@ -275,35 +276,35 @@ instance Prelude.NFData BatchReadOperation where
       `Prelude.seq` Prelude.rnf listAttachedIndices
       `Prelude.seq` Prelude.rnf listIndex
 
-instance Core.ToJSON BatchReadOperation where
+instance Data.ToJSON BatchReadOperation where
   toJSON BatchReadOperation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ListOutgoingTypedLinks" Core..=)
+          [ ("ListOutgoingTypedLinks" Data..=)
               Prelude.<$> listOutgoingTypedLinks,
-            ("GetObjectAttributes" Core..=)
+            ("GetObjectAttributes" Data..=)
               Prelude.<$> getObjectAttributes,
-            ("ListObjectChildren" Core..=)
+            ("ListObjectChildren" Data..=)
               Prelude.<$> listObjectChildren,
-            ("ListPolicyAttachments" Core..=)
+            ("ListPolicyAttachments" Data..=)
               Prelude.<$> listPolicyAttachments,
-            ("ListObjectPolicies" Core..=)
+            ("ListObjectPolicies" Data..=)
               Prelude.<$> listObjectPolicies,
-            ("ListIncomingTypedLinks" Core..=)
+            ("ListIncomingTypedLinks" Data..=)
               Prelude.<$> listIncomingTypedLinks,
-            ("GetObjectInformation" Core..=)
+            ("GetObjectInformation" Data..=)
               Prelude.<$> getObjectInformation,
-            ("ListObjectAttributes" Core..=)
+            ("ListObjectAttributes" Data..=)
               Prelude.<$> listObjectAttributes,
-            ("LookupPolicy" Core..=) Prelude.<$> lookupPolicy,
-            ("GetLinkAttributes" Core..=)
+            ("LookupPolicy" Data..=) Prelude.<$> lookupPolicy,
+            ("GetLinkAttributes" Data..=)
               Prelude.<$> getLinkAttributes,
-            ("ListObjectParents" Core..=)
+            ("ListObjectParents" Data..=)
               Prelude.<$> listObjectParents,
-            ("ListObjectParentPaths" Core..=)
+            ("ListObjectParentPaths" Data..=)
               Prelude.<$> listObjectParentPaths,
-            ("ListAttachedIndices" Core..=)
+            ("ListAttachedIndices" Data..=)
               Prelude.<$> listAttachedIndices,
-            ("ListIndex" Core..=) Prelude.<$> listIndex
+            ("ListIndex" Data..=) Prelude.<$> listIndex
           ]
       )

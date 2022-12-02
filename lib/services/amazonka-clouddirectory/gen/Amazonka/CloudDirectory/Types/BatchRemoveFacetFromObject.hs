@@ -23,6 +23,7 @@ import Amazonka.CloudDirectory.Types.ObjectReference
 import Amazonka.CloudDirectory.Types.SchemaFacet
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A batch operation to remove a facet from an object.
@@ -80,12 +81,12 @@ instance Prelude.NFData BatchRemoveFacetFromObject where
     Prelude.rnf schemaFacet
       `Prelude.seq` Prelude.rnf objectReference
 
-instance Core.ToJSON BatchRemoveFacetFromObject where
+instance Data.ToJSON BatchRemoveFacetFromObject where
   toJSON BatchRemoveFacetFromObject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SchemaFacet" Core..= schemaFacet),
+          [ Prelude.Just ("SchemaFacet" Data..= schemaFacet),
             Prelude.Just
-              ("ObjectReference" Core..= objectReference)
+              ("ObjectReference" Data..= objectReference)
           ]
       )

@@ -24,6 +24,7 @@ import Amazonka.CloudDirectory.Types.FacetAttributeReference
 import Amazonka.CloudDirectory.Types.RequiredAttributeBehavior
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An attribute that is associated with the Facet.
@@ -100,16 +101,16 @@ facetAttribute_attributeDefinition = Lens.lens (\FacetAttribute' {attributeDefin
 facetAttribute_name :: Lens.Lens' FacetAttribute Prelude.Text
 facetAttribute_name = Lens.lens (\FacetAttribute' {name} -> name) (\s@FacetAttribute' {} a -> s {name = a} :: FacetAttribute)
 
-instance Core.FromJSON FacetAttribute where
+instance Data.FromJSON FacetAttribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FacetAttribute"
       ( \x ->
           FacetAttribute'
-            Prelude.<$> (x Core..:? "AttributeReference")
-            Prelude.<*> (x Core..:? "RequiredBehavior")
-            Prelude.<*> (x Core..:? "AttributeDefinition")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "AttributeReference")
+            Prelude.<*> (x Data..:? "RequiredBehavior")
+            Prelude.<*> (x Data..:? "AttributeDefinition")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable FacetAttribute where
@@ -126,16 +127,16 @@ instance Prelude.NFData FacetAttribute where
       `Prelude.seq` Prelude.rnf attributeDefinition
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON FacetAttribute where
+instance Data.ToJSON FacetAttribute where
   toJSON FacetAttribute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AttributeReference" Core..=)
+          [ ("AttributeReference" Data..=)
               Prelude.<$> attributeReference,
-            ("RequiredBehavior" Core..=)
+            ("RequiredBehavior" Data..=)
               Prelude.<$> requiredBehavior,
-            ("AttributeDefinition" Core..=)
+            ("AttributeDefinition" Data..=)
               Prelude.<$> attributeDefinition,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchListObjectParentsResponse where
 import Amazonka.CloudDirectory.Types.ObjectIdentifierAndLinkNameTuple
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a ListObjectParents response operation.
@@ -63,14 +64,14 @@ batchListObjectParentsResponse_nextToken = Lens.lens (\BatchListObjectParentsRes
 batchListObjectParentsResponse_parentLinks :: Lens.Lens' BatchListObjectParentsResponse (Prelude.Maybe [ObjectIdentifierAndLinkNameTuple])
 batchListObjectParentsResponse_parentLinks = Lens.lens (\BatchListObjectParentsResponse' {parentLinks} -> parentLinks) (\s@BatchListObjectParentsResponse' {} a -> s {parentLinks = a} :: BatchListObjectParentsResponse) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON BatchListObjectParentsResponse where
+instance Data.FromJSON BatchListObjectParentsResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchListObjectParentsResponse"
       ( \x ->
           BatchListObjectParentsResponse'
-            Prelude.<$> (x Core..:? "NextToken")
-            Prelude.<*> (x Core..:? "ParentLinks" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "NextToken")
+            Prelude.<*> (x Data..:? "ParentLinks" Data..!= Prelude.mempty)
       )
 
 instance

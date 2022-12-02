@@ -49,6 +49,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -144,8 +145,8 @@ instance Core.AWSRequest ListAppliedSchemaArns where
     Response.receiveJSON
       ( \s h x ->
           ListAppliedSchemaArnsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "SchemaArns" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "SchemaArns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,26 +164,26 @@ instance Prelude.NFData ListAppliedSchemaArns where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf directoryArn
 
-instance Core.ToHeaders ListAppliedSchemaArns where
+instance Data.ToHeaders ListAppliedSchemaArns where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON ListAppliedSchemaArns where
+instance Data.ToJSON ListAppliedSchemaArns where
   toJSON ListAppliedSchemaArns' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SchemaArn" Core..=) Prelude.<$> schemaArn,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("DirectoryArn" Core..= directoryArn)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SchemaArn" Data..=) Prelude.<$> schemaArn,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("DirectoryArn" Data..= directoryArn)
           ]
       )
 
-instance Core.ToPath ListAppliedSchemaArns where
+instance Data.ToPath ListAppliedSchemaArns where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/schema/applied"
 
-instance Core.ToQuery ListAppliedSchemaArns where
+instance Data.ToQuery ListAppliedSchemaArns where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAppliedSchemaArnsResponse' smart constructor.

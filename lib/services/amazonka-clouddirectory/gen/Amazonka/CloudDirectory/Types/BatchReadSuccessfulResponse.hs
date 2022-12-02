@@ -35,6 +35,7 @@ import Amazonka.CloudDirectory.Types.BatchListPolicyAttachmentsResponse
 import Amazonka.CloudDirectory.Types.BatchLookupPolicyResponse
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a @BatchRead@ success response operation.
@@ -238,26 +239,26 @@ batchReadSuccessfulResponse_listAttachedIndices = Lens.lens (\BatchReadSuccessfu
 batchReadSuccessfulResponse_listIndex :: Lens.Lens' BatchReadSuccessfulResponse (Prelude.Maybe BatchListIndexResponse)
 batchReadSuccessfulResponse_listIndex = Lens.lens (\BatchReadSuccessfulResponse' {listIndex} -> listIndex) (\s@BatchReadSuccessfulResponse' {} a -> s {listIndex = a} :: BatchReadSuccessfulResponse)
 
-instance Core.FromJSON BatchReadSuccessfulResponse where
+instance Data.FromJSON BatchReadSuccessfulResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchReadSuccessfulResponse"
       ( \x ->
           BatchReadSuccessfulResponse'
-            Prelude.<$> (x Core..:? "ListOutgoingTypedLinks")
-            Prelude.<*> (x Core..:? "GetObjectAttributes")
-            Prelude.<*> (x Core..:? "ListObjectChildren")
-            Prelude.<*> (x Core..:? "ListPolicyAttachments")
-            Prelude.<*> (x Core..:? "ListObjectPolicies")
-            Prelude.<*> (x Core..:? "ListIncomingTypedLinks")
-            Prelude.<*> (x Core..:? "GetObjectInformation")
-            Prelude.<*> (x Core..:? "ListObjectAttributes")
-            Prelude.<*> (x Core..:? "LookupPolicy")
-            Prelude.<*> (x Core..:? "GetLinkAttributes")
-            Prelude.<*> (x Core..:? "ListObjectParents")
-            Prelude.<*> (x Core..:? "ListObjectParentPaths")
-            Prelude.<*> (x Core..:? "ListAttachedIndices")
-            Prelude.<*> (x Core..:? "ListIndex")
+            Prelude.<$> (x Data..:? "ListOutgoingTypedLinks")
+            Prelude.<*> (x Data..:? "GetObjectAttributes")
+            Prelude.<*> (x Data..:? "ListObjectChildren")
+            Prelude.<*> (x Data..:? "ListPolicyAttachments")
+            Prelude.<*> (x Data..:? "ListObjectPolicies")
+            Prelude.<*> (x Data..:? "ListIncomingTypedLinks")
+            Prelude.<*> (x Data..:? "GetObjectInformation")
+            Prelude.<*> (x Data..:? "ListObjectAttributes")
+            Prelude.<*> (x Data..:? "LookupPolicy")
+            Prelude.<*> (x Data..:? "GetLinkAttributes")
+            Prelude.<*> (x Data..:? "ListObjectParents")
+            Prelude.<*> (x Data..:? "ListObjectParentPaths")
+            Prelude.<*> (x Data..:? "ListAttachedIndices")
+            Prelude.<*> (x Data..:? "ListIndex")
       )
 
 instance Prelude.Hashable BatchReadSuccessfulResponse where

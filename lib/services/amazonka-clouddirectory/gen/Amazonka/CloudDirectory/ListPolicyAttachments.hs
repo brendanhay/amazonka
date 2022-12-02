@@ -50,6 +50,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -167,8 +168,8 @@ instance Core.AWSRequest ListPolicyAttachments where
     Response.receiveJSON
       ( \s h x ->
           ListPolicyAttachmentsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ObjectIdentifiers"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ObjectIdentifiers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -190,30 +191,30 @@ instance Prelude.NFData ListPolicyAttachments where
       `Prelude.seq` Prelude.rnf directoryArn
       `Prelude.seq` Prelude.rnf policyReference
 
-instance Core.ToHeaders ListPolicyAttachments where
+instance Data.ToHeaders ListPolicyAttachments where
   toHeaders ListPolicyAttachments' {..} =
     Prelude.mconcat
-      [ "x-amz-consistency-level" Core.=# consistencyLevel,
-        "x-amz-data-partition" Core.=# directoryArn
+      [ "x-amz-consistency-level" Data.=# consistencyLevel,
+        "x-amz-data-partition" Data.=# directoryArn
       ]
 
-instance Core.ToJSON ListPolicyAttachments where
+instance Data.ToJSON ListPolicyAttachments where
   toJSON ListPolicyAttachments' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("PolicyReference" Core..= policyReference)
+              ("PolicyReference" Data..= policyReference)
           ]
       )
 
-instance Core.ToPath ListPolicyAttachments where
+instance Data.ToPath ListPolicyAttachments where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/policy/attachment"
 
-instance Core.ToQuery ListPolicyAttachments where
+instance Data.ToQuery ListPolicyAttachments where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListPolicyAttachmentsResponse' smart constructor.

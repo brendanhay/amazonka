@@ -23,6 +23,7 @@ import Amazonka.CloudDirectory.Types.LinkAttributeUpdate
 import Amazonka.CloudDirectory.Types.TypedLinkSpecifier
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Updates a given typed link’s attributes inside a BatchRead operation.
@@ -79,13 +80,13 @@ instance Prelude.NFData BatchUpdateLinkAttributes where
     Prelude.rnf typedLinkSpecifier
       `Prelude.seq` Prelude.rnf attributeUpdates
 
-instance Core.ToJSON BatchUpdateLinkAttributes where
+instance Data.ToJSON BatchUpdateLinkAttributes where
   toJSON BatchUpdateLinkAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("TypedLinkSpecifier" Core..= typedLinkSpecifier),
+              ("TypedLinkSpecifier" Data..= typedLinkSpecifier),
             Prelude.Just
-              ("AttributeUpdates" Core..= attributeUpdates)
+              ("AttributeUpdates" Data..= attributeUpdates)
           ]
       )

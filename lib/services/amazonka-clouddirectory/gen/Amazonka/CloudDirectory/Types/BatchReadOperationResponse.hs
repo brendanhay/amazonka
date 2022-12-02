@@ -23,6 +23,7 @@ import Amazonka.CloudDirectory.Types.BatchReadException
 import Amazonka.CloudDirectory.Types.BatchReadSuccessfulResponse
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a @BatchRead@ response operation.
@@ -64,14 +65,14 @@ batchReadOperationResponse_exceptionResponse = Lens.lens (\BatchReadOperationRes
 batchReadOperationResponse_successfulResponse :: Lens.Lens' BatchReadOperationResponse (Prelude.Maybe BatchReadSuccessfulResponse)
 batchReadOperationResponse_successfulResponse = Lens.lens (\BatchReadOperationResponse' {successfulResponse} -> successfulResponse) (\s@BatchReadOperationResponse' {} a -> s {successfulResponse = a} :: BatchReadOperationResponse)
 
-instance Core.FromJSON BatchReadOperationResponse where
+instance Data.FromJSON BatchReadOperationResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchReadOperationResponse"
       ( \x ->
           BatchReadOperationResponse'
-            Prelude.<$> (x Core..:? "ExceptionResponse")
-            Prelude.<*> (x Core..:? "SuccessfulResponse")
+            Prelude.<$> (x Data..:? "ExceptionResponse")
+            Prelude.<*> (x Data..:? "SuccessfulResponse")
       )
 
 instance Prelude.Hashable BatchReadOperationResponse where

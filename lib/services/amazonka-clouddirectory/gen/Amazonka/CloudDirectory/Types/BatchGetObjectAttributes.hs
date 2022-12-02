@@ -23,6 +23,7 @@ import Amazonka.CloudDirectory.Types.ObjectReference
 import Amazonka.CloudDirectory.Types.SchemaFacet
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Retrieves attributes within a facet that are associated with an object
@@ -96,14 +97,14 @@ instance Prelude.NFData BatchGetObjectAttributes where
       `Prelude.seq` Prelude.rnf schemaFacet
       `Prelude.seq` Prelude.rnf attributeNames
 
-instance Core.ToJSON BatchGetObjectAttributes where
+instance Data.ToJSON BatchGetObjectAttributes where
   toJSON BatchGetObjectAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ObjectReference" Core..= objectReference),
-            Prelude.Just ("SchemaFacet" Core..= schemaFacet),
+              ("ObjectReference" Data..= objectReference),
+            Prelude.Just ("SchemaFacet" Data..= schemaFacet),
             Prelude.Just
-              ("AttributeNames" Core..= attributeNames)
+              ("AttributeNames" Data..= attributeNames)
           ]
       )

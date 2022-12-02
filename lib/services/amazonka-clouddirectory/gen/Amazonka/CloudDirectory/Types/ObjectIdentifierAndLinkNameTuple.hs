@@ -21,6 +21,7 @@ module Amazonka.CloudDirectory.Types.ObjectIdentifierAndLinkNameTuple where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A pair of ObjectIdentifier and LinkName.
@@ -63,16 +64,16 @@ objectIdentifierAndLinkNameTuple_linkName :: Lens.Lens' ObjectIdentifierAndLinkN
 objectIdentifierAndLinkNameTuple_linkName = Lens.lens (\ObjectIdentifierAndLinkNameTuple' {linkName} -> linkName) (\s@ObjectIdentifierAndLinkNameTuple' {} a -> s {linkName = a} :: ObjectIdentifierAndLinkNameTuple)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ObjectIdentifierAndLinkNameTuple
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ObjectIdentifierAndLinkNameTuple"
       ( \x ->
           ObjectIdentifierAndLinkNameTuple'
-            Prelude.<$> (x Core..:? "ObjectIdentifier")
-            Prelude.<*> (x Core..:? "LinkName")
+            Prelude.<$> (x Data..:? "ObjectIdentifier")
+            Prelude.<*> (x Data..:? "LinkName")
       )
 
 instance

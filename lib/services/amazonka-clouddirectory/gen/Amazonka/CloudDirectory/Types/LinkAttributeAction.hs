@@ -23,6 +23,7 @@ import Amazonka.CloudDirectory.Types.TypedAttributeValue
 import Amazonka.CloudDirectory.Types.UpdateActionType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The action to take on a typed link attribute value. Updates are only
@@ -75,13 +76,13 @@ instance Prelude.NFData LinkAttributeAction where
     Prelude.rnf attributeActionType
       `Prelude.seq` Prelude.rnf attributeUpdateValue
 
-instance Core.ToJSON LinkAttributeAction where
+instance Data.ToJSON LinkAttributeAction where
   toJSON LinkAttributeAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AttributeActionType" Core..=)
+          [ ("AttributeActionType" Data..=)
               Prelude.<$> attributeActionType,
-            ("AttributeUpdateValue" Core..=)
+            ("AttributeUpdateValue" Data..=)
               Prelude.<$> attributeUpdateValue
           ]
       )

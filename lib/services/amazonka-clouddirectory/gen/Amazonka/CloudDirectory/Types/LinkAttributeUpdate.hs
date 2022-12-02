@@ -23,6 +23,7 @@ import Amazonka.CloudDirectory.Types.AttributeKey
 import Amazonka.CloudDirectory.Types.LinkAttributeAction
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Structure that contains attribute update information.
@@ -74,12 +75,12 @@ instance Prelude.NFData LinkAttributeUpdate where
     Prelude.rnf attributeAction
       `Prelude.seq` Prelude.rnf attributeKey
 
-instance Core.ToJSON LinkAttributeUpdate where
+instance Data.ToJSON LinkAttributeUpdate where
   toJSON LinkAttributeUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AttributeAction" Core..=)
+          [ ("AttributeAction" Data..=)
               Prelude.<$> attributeAction,
-            ("AttributeKey" Core..=) Prelude.<$> attributeKey
+            ("AttributeKey" Data..=) Prelude.<$> attributeKey
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchAttachPolicy where
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Attaches a policy object to a regular object inside a BatchRead
@@ -84,13 +85,13 @@ instance Prelude.NFData BatchAttachPolicy where
     Prelude.rnf policyReference
       `Prelude.seq` Prelude.rnf objectReference
 
-instance Core.ToJSON BatchAttachPolicy where
+instance Data.ToJSON BatchAttachPolicy where
   toJSON BatchAttachPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("PolicyReference" Core..= policyReference),
+              ("PolicyReference" Data..= policyReference),
             Prelude.Just
-              ("ObjectReference" Core..= objectReference)
+              ("ObjectReference" Data..= objectReference)
           ]
       )

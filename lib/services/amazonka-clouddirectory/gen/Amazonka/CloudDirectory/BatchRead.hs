@@ -44,6 +44,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,7 +113,7 @@ instance Core.AWSRequest BatchRead where
     Response.receiveJSON
       ( \s h x ->
           BatchReadResponse'
-            Prelude.<$> (x Core..?> "Responses" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Responses" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,26 +129,26 @@ instance Prelude.NFData BatchRead where
       `Prelude.seq` Prelude.rnf directoryArn
       `Prelude.seq` Prelude.rnf operations
 
-instance Core.ToHeaders BatchRead where
+instance Data.ToHeaders BatchRead where
   toHeaders BatchRead' {..} =
     Prelude.mconcat
-      [ "x-amz-consistency-level" Core.=# consistencyLevel,
-        "x-amz-data-partition" Core.=# directoryArn
+      [ "x-amz-consistency-level" Data.=# consistencyLevel,
+        "x-amz-data-partition" Data.=# directoryArn
       ]
 
-instance Core.ToJSON BatchRead where
+instance Data.ToJSON BatchRead where
   toJSON BatchRead' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Operations" Core..= operations)]
+          [Prelude.Just ("Operations" Data..= operations)]
       )
 
-instance Core.ToPath BatchRead where
+instance Data.ToPath BatchRead where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/batchread"
 
-instance Core.ToQuery BatchRead where
+instance Data.ToQuery BatchRead where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchReadResponse' smart constructor.

@@ -23,6 +23,7 @@ import Amazonka.CloudDirectory.Types.ObjectReference
 import Amazonka.CloudDirectory.Types.SchemaFacet
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a ListObjectAttributes operation.
@@ -104,14 +105,14 @@ instance Prelude.NFData BatchListObjectAttributes where
       `Prelude.seq` Prelude.rnf facetFilter
       `Prelude.seq` Prelude.rnf objectReference
 
-instance Core.ToJSON BatchListObjectAttributes where
+instance Data.ToJSON BatchListObjectAttributes where
   toJSON BatchListObjectAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("FacetFilter" Core..=) Prelude.<$> facetFilter,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("FacetFilter" Data..=) Prelude.<$> facetFilter,
             Prelude.Just
-              ("ObjectReference" Core..= objectReference)
+              ("ObjectReference" Data..= objectReference)
           ]
       )

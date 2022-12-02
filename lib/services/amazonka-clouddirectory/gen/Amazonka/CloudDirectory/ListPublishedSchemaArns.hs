@@ -49,6 +49,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -134,8 +135,8 @@ instance Core.AWSRequest ListPublishedSchemaArns where
     Response.receiveJSON
       ( \s h x ->
           ListPublishedSchemaArnsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "SchemaArns" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "SchemaArns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,25 +152,25 @@ instance Prelude.NFData ListPublishedSchemaArns where
       `Prelude.seq` Prelude.rnf schemaArn
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListPublishedSchemaArns where
+instance Data.ToHeaders ListPublishedSchemaArns where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON ListPublishedSchemaArns where
+instance Data.ToJSON ListPublishedSchemaArns where
   toJSON ListPublishedSchemaArns' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SchemaArn" Core..=) Prelude.<$> schemaArn,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SchemaArn" Data..=) Prelude.<$> schemaArn,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListPublishedSchemaArns where
+instance Data.ToPath ListPublishedSchemaArns where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/schema/published"
 
-instance Core.ToQuery ListPublishedSchemaArns where
+instance Data.ToQuery ListPublishedSchemaArns where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListPublishedSchemaArnsResponse' smart constructor.

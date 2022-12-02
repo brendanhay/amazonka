@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.TypedLinkAttributeRange where
 import Amazonka.CloudDirectory.Types.TypedAttributeValueRange
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies the range of attributes that are used by a specified filter.
@@ -75,11 +76,11 @@ instance Prelude.NFData TypedLinkAttributeRange where
     Prelude.rnf attributeName
       `Prelude.seq` Prelude.rnf range
 
-instance Core.ToJSON TypedLinkAttributeRange where
+instance Data.ToJSON TypedLinkAttributeRange where
   toJSON TypedLinkAttributeRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AttributeName" Core..=) Prelude.<$> attributeName,
-            Prelude.Just ("Range" Core..= range)
+          [ ("AttributeName" Data..=) Prelude.<$> attributeName,
+            Prelude.Just ("Range" Data..= range)
           ]
       )

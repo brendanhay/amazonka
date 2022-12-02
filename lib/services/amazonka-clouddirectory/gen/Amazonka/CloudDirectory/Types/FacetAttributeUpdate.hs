@@ -23,6 +23,7 @@ import Amazonka.CloudDirectory.Types.FacetAttribute
 import Amazonka.CloudDirectory.Types.UpdateActionType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains information used to update an attribute.
@@ -73,11 +74,11 @@ instance Prelude.NFData FacetAttributeUpdate where
     Prelude.rnf attribute
       `Prelude.seq` Prelude.rnf action
 
-instance Core.ToJSON FacetAttributeUpdate where
+instance Data.ToJSON FacetAttributeUpdate where
   toJSON FacetAttributeUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Attribute" Core..=) Prelude.<$> attribute,
-            ("Action" Core..=) Prelude.<$> action
+          [ ("Attribute" Data..=) Prelude.<$> attribute,
+            ("Action" Data..=) Prelude.<$> action
           ]
       )

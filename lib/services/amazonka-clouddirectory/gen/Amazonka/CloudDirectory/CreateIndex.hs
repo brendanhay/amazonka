@@ -48,6 +48,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,7 +134,7 @@ instance Core.AWSRequest CreateIndex where
     Response.receiveJSON
       ( \s h x ->
           CreateIndexResponse'
-            Prelude.<$> (x Core..?> "ObjectIdentifier")
+            Prelude.<$> (x Data..?> "ObjectIdentifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,32 +154,32 @@ instance Prelude.NFData CreateIndex where
       `Prelude.seq` Prelude.rnf orderedIndexedAttributeList
       `Prelude.seq` Prelude.rnf isUnique
 
-instance Core.ToHeaders CreateIndex where
+instance Data.ToHeaders CreateIndex where
   toHeaders CreateIndex' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# directoryArn]
+      ["x-amz-data-partition" Data.=# directoryArn]
 
-instance Core.ToJSON CreateIndex where
+instance Data.ToJSON CreateIndex where
   toJSON CreateIndex' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ParentReference" Core..=)
+          [ ("ParentReference" Data..=)
               Prelude.<$> parentReference,
-            ("LinkName" Core..=) Prelude.<$> linkName,
+            ("LinkName" Data..=) Prelude.<$> linkName,
             Prelude.Just
               ( "OrderedIndexedAttributeList"
-                  Core..= orderedIndexedAttributeList
+                  Data..= orderedIndexedAttributeList
               ),
-            Prelude.Just ("IsUnique" Core..= isUnique)
+            Prelude.Just ("IsUnique" Data..= isUnique)
           ]
       )
 
-instance Core.ToPath CreateIndex where
+instance Data.ToPath CreateIndex where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/index"
 
-instance Core.ToQuery CreateIndex where
+instance Data.ToQuery CreateIndex where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateIndexResponse' smart constructor.

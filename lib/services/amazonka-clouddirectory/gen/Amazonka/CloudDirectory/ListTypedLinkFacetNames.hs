@@ -49,6 +49,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,8 +137,8 @@ instance Core.AWSRequest ListTypedLinkFacetNames where
     Response.receiveJSON
       ( \s h x ->
           ListTypedLinkFacetNamesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "FacetNames" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "FacetNames" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,26 +154,26 @@ instance Prelude.NFData ListTypedLinkFacetNames where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf schemaArn
 
-instance Core.ToHeaders ListTypedLinkFacetNames where
+instance Data.ToHeaders ListTypedLinkFacetNames where
   toHeaders ListTypedLinkFacetNames' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# schemaArn]
+      ["x-amz-data-partition" Data.=# schemaArn]
 
-instance Core.ToJSON ListTypedLinkFacetNames where
+instance Data.ToJSON ListTypedLinkFacetNames where
   toJSON ListTypedLinkFacetNames' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListTypedLinkFacetNames where
+instance Data.ToPath ListTypedLinkFacetNames where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/typedlink/facet/list"
 
-instance Core.ToQuery ListTypedLinkFacetNames where
+instance Data.ToQuery ListTypedLinkFacetNames where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTypedLinkFacetNamesResponse' smart constructor.

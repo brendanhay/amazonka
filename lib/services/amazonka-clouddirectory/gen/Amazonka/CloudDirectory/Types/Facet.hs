@@ -23,6 +23,7 @@ import Amazonka.CloudDirectory.Types.FacetStyle
 import Amazonka.CloudDirectory.Types.ObjectType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains @Name@, @ARN@, @Attributes@, @ Rules@, and
@@ -87,15 +88,15 @@ facet_facetStyle = Lens.lens (\Facet' {facetStyle} -> facetStyle) (\s@Facet' {} 
 facet_objectType :: Lens.Lens' Facet (Prelude.Maybe ObjectType)
 facet_objectType = Lens.lens (\Facet' {objectType} -> objectType) (\s@Facet' {} a -> s {objectType = a} :: Facet)
 
-instance Core.FromJSON Facet where
+instance Data.FromJSON Facet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Facet"
       ( \x ->
           Facet'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "FacetStyle")
-            Prelude.<*> (x Core..:? "ObjectType")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "FacetStyle")
+            Prelude.<*> (x Data..:? "ObjectType")
       )
 
 instance Prelude.Hashable Facet where

@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchListPolicyAttachments where
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns all of the @ObjectIdentifiers@ to which a given policy is
@@ -88,13 +89,13 @@ instance Prelude.NFData BatchListPolicyAttachments where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf policyReference
 
-instance Core.ToJSON BatchListPolicyAttachments where
+instance Data.ToJSON BatchListPolicyAttachments where
   toJSON BatchListPolicyAttachments' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("PolicyReference" Core..= policyReference)
+              ("PolicyReference" Data..= policyReference)
           ]
       )

@@ -50,6 +50,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -148,8 +149,8 @@ instance Core.AWSRequest ListTypedLinkFacetAttributes where
     Response.receiveJSON
       ( \s h x ->
           ListTypedLinkFacetAttributesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Attributes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Attributes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,27 +171,27 @@ instance Prelude.NFData ListTypedLinkFacetAttributes where
       `Prelude.seq` Prelude.rnf schemaArn
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders ListTypedLinkFacetAttributes where
+instance Data.ToHeaders ListTypedLinkFacetAttributes where
   toHeaders ListTypedLinkFacetAttributes' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# schemaArn]
+      ["x-amz-data-partition" Data.=# schemaArn]
 
-instance Core.ToJSON ListTypedLinkFacetAttributes where
+instance Data.ToJSON ListTypedLinkFacetAttributes where
   toJSON ListTypedLinkFacetAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("Name" Core..= name)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath ListTypedLinkFacetAttributes where
+instance Data.ToPath ListTypedLinkFacetAttributes where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/typedlink/facet/attributes"
 
-instance Core.ToQuery ListTypedLinkFacetAttributes where
+instance Data.ToQuery ListTypedLinkFacetAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTypedLinkFacetAttributesResponse' smart constructor.

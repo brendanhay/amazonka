@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchListObjectAttributesResponse where
 import Amazonka.CloudDirectory.Types.AttributeKeyAndValue
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a ListObjectAttributes response operation.
@@ -67,16 +68,16 @@ batchListObjectAttributesResponse_attributes :: Lens.Lens' BatchListObjectAttrib
 batchListObjectAttributesResponse_attributes = Lens.lens (\BatchListObjectAttributesResponse' {attributes} -> attributes) (\s@BatchListObjectAttributesResponse' {} a -> s {attributes = a} :: BatchListObjectAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchListObjectAttributesResponse
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchListObjectAttributesResponse"
       ( \x ->
           BatchListObjectAttributesResponse'
-            Prelude.<$> (x Core..:? "NextToken")
-            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "NextToken")
+            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
       )
 
 instance

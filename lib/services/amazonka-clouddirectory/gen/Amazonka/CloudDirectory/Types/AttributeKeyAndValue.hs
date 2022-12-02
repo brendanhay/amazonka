@@ -23,6 +23,7 @@ import Amazonka.CloudDirectory.Types.AttributeKey
 import Amazonka.CloudDirectory.Types.TypedAttributeValue
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The combination of an attribute key and an attribute value.
@@ -64,13 +65,13 @@ attributeKeyAndValue_key = Lens.lens (\AttributeKeyAndValue' {key} -> key) (\s@A
 attributeKeyAndValue_value :: Lens.Lens' AttributeKeyAndValue TypedAttributeValue
 attributeKeyAndValue_value = Lens.lens (\AttributeKeyAndValue' {value} -> value) (\s@AttributeKeyAndValue' {} a -> s {value = a} :: AttributeKeyAndValue)
 
-instance Core.FromJSON AttributeKeyAndValue where
+instance Data.FromJSON AttributeKeyAndValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AttributeKeyAndValue"
       ( \x ->
           AttributeKeyAndValue'
-            Prelude.<$> (x Core..: "Key") Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Key") Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable AttributeKeyAndValue where
@@ -82,11 +83,11 @@ instance Prelude.NFData AttributeKeyAndValue where
   rnf AttributeKeyAndValue' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON AttributeKeyAndValue where
+instance Data.ToJSON AttributeKeyAndValue where
   toJSON AttributeKeyAndValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Core..= key),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Key" Data..= key),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

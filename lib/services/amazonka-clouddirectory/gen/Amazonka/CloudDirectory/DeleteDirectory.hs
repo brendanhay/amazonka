@@ -44,6 +44,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ instance Core.AWSRequest DeleteDirectory where
       ( \s h x ->
           DeleteDirectoryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "DirectoryArn")
+            Prelude.<*> (x Data..:> "DirectoryArn")
       )
 
 instance Prelude.Hashable DeleteDirectory where
@@ -96,20 +97,20 @@ instance Prelude.Hashable DeleteDirectory where
 instance Prelude.NFData DeleteDirectory where
   rnf DeleteDirectory' {..} = Prelude.rnf directoryArn
 
-instance Core.ToHeaders DeleteDirectory where
+instance Data.ToHeaders DeleteDirectory where
   toHeaders DeleteDirectory' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# directoryArn]
+      ["x-amz-data-partition" Data.=# directoryArn]
 
-instance Core.ToJSON DeleteDirectory where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DeleteDirectory where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DeleteDirectory where
+instance Data.ToPath DeleteDirectory where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/directory"
 
-instance Core.ToQuery DeleteDirectory where
+instance Data.ToQuery DeleteDirectory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDirectoryResponse' smart constructor.

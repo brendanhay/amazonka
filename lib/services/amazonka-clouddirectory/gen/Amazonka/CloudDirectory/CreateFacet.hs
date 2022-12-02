@@ -46,6 +46,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -189,28 +190,28 @@ instance Prelude.NFData CreateFacet where
       `Prelude.seq` Prelude.rnf schemaArn
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateFacet where
+instance Data.ToHeaders CreateFacet where
   toHeaders CreateFacet' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# schemaArn]
+      ["x-amz-data-partition" Data.=# schemaArn]
 
-instance Core.ToJSON CreateFacet where
+instance Data.ToJSON CreateFacet where
   toJSON CreateFacet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FacetStyle" Core..=) Prelude.<$> facetStyle,
-            ("Attributes" Core..=) Prelude.<$> attributes,
-            ("ObjectType" Core..=) Prelude.<$> objectType,
-            Prelude.Just ("Name" Core..= name)
+          [ ("FacetStyle" Data..=) Prelude.<$> facetStyle,
+            ("Attributes" Data..=) Prelude.<$> attributes,
+            ("ObjectType" Data..=) Prelude.<$> objectType,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateFacet where
+instance Data.ToPath CreateFacet where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/facet/create"
 
-instance Core.ToQuery CreateFacet where
+instance Data.ToQuery CreateFacet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFacetResponse' smart constructor.

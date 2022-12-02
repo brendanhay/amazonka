@@ -42,6 +42,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -82,7 +83,7 @@ instance Core.AWSRequest GetDirectory where
       ( \s h x ->
           GetDirectoryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Directory")
+            Prelude.<*> (x Data..:> "Directory")
       )
 
 instance Prelude.Hashable GetDirectory where
@@ -92,20 +93,20 @@ instance Prelude.Hashable GetDirectory where
 instance Prelude.NFData GetDirectory where
   rnf GetDirectory' {..} = Prelude.rnf directoryArn
 
-instance Core.ToHeaders GetDirectory where
+instance Data.ToHeaders GetDirectory where
   toHeaders GetDirectory' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# directoryArn]
+      ["x-amz-data-partition" Data.=# directoryArn]
 
-instance Core.ToJSON GetDirectory where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetDirectory where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetDirectory where
+instance Data.ToPath GetDirectory where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/directory/get"
 
-instance Core.ToQuery GetDirectory where
+instance Data.ToQuery GetDirectory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDirectoryResponse' smart constructor.

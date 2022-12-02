@@ -21,6 +21,7 @@ module Amazonka.CloudDirectory.Types.BatchAttachPolicyResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of an AttachPolicy response operation.
@@ -40,9 +41,9 @@ newBatchAttachPolicyResponse ::
 newBatchAttachPolicyResponse =
   BatchAttachPolicyResponse'
 
-instance Core.FromJSON BatchAttachPolicyResponse where
+instance Data.FromJSON BatchAttachPolicyResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchAttachPolicyResponse"
       (\x -> Prelude.pure BatchAttachPolicyResponse')
 

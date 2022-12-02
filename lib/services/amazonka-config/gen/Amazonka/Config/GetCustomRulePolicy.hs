@@ -43,6 +43,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,7 +86,7 @@ instance Core.AWSRequest GetCustomRulePolicy where
     Response.receiveJSON
       ( \s h x ->
           GetCustomRulePolicyResponse'
-            Prelude.<$> (x Core..?> "PolicyText")
+            Prelude.<$> (x Data..?> "PolicyText")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -97,34 +98,34 @@ instance Prelude.NFData GetCustomRulePolicy where
   rnf GetCustomRulePolicy' {..} =
     Prelude.rnf configRuleName
 
-instance Core.ToHeaders GetCustomRulePolicy where
+instance Data.ToHeaders GetCustomRulePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.GetCustomRulePolicy" ::
+              Data.=# ( "StarlingDoveService.GetCustomRulePolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCustomRulePolicy where
+instance Data.ToJSON GetCustomRulePolicy where
   toJSON GetCustomRulePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConfigRuleName" Core..=)
+          [ ("ConfigRuleName" Data..=)
               Prelude.<$> configRuleName
           ]
       )
 
-instance Core.ToPath GetCustomRulePolicy where
+instance Data.ToPath GetCustomRulePolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCustomRulePolicy where
+instance Data.ToQuery GetCustomRulePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCustomRulePolicyResponse' smart constructor.

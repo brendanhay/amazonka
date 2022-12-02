@@ -21,6 +21,7 @@ module Amazonka.Config.Types.StaticValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The static value of the resource.
@@ -50,13 +51,13 @@ newStaticValue =
 staticValue_values :: Lens.Lens' StaticValue [Prelude.Text]
 staticValue_values = Lens.lens (\StaticValue' {values} -> values) (\s@StaticValue' {} a -> s {values = a} :: StaticValue) Prelude.. Lens.coerced
 
-instance Core.FromJSON StaticValue where
+instance Data.FromJSON StaticValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StaticValue"
       ( \x ->
           StaticValue'
-            Prelude.<$> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable StaticValue where
@@ -66,9 +67,9 @@ instance Prelude.Hashable StaticValue where
 instance Prelude.NFData StaticValue where
   rnf StaticValue' {..} = Prelude.rnf values
 
-instance Core.ToJSON StaticValue where
+instance Data.ToJSON StaticValue where
   toJSON StaticValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Values" Core..= values)]
+          [Prelude.Just ("Values" Data..= values)]
       )

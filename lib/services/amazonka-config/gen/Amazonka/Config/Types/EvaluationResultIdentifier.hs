@@ -22,6 +22,7 @@ module Amazonka.Config.Types.EvaluationResultIdentifier where
 import Amazonka.Config.Types.EvaluationResultQualifier
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Uniquely identifies an evaluation result.
@@ -33,7 +34,7 @@ data EvaluationResultIdentifier = EvaluationResultIdentifier'
     -- configuration item change notification, or it can indicate when Config
     -- delivered the configuration snapshot, depending on which event triggered
     -- the evaluation.
-    orderingTimestamp :: Prelude.Maybe Core.POSIX,
+    orderingTimestamp :: Prelude.Maybe Data.POSIX,
     -- | Identifies an Config rule used to evaluate an Amazon Web Services
     -- resource, and provides the type and ID of the evaluated resource.
     evaluationResultQualifier :: Prelude.Maybe EvaluationResultQualifier
@@ -71,21 +72,21 @@ newEvaluationResultIdentifier =
 -- delivered the configuration snapshot, depending on which event triggered
 -- the evaluation.
 evaluationResultIdentifier_orderingTimestamp :: Lens.Lens' EvaluationResultIdentifier (Prelude.Maybe Prelude.UTCTime)
-evaluationResultIdentifier_orderingTimestamp = Lens.lens (\EvaluationResultIdentifier' {orderingTimestamp} -> orderingTimestamp) (\s@EvaluationResultIdentifier' {} a -> s {orderingTimestamp = a} :: EvaluationResultIdentifier) Prelude.. Lens.mapping Core._Time
+evaluationResultIdentifier_orderingTimestamp = Lens.lens (\EvaluationResultIdentifier' {orderingTimestamp} -> orderingTimestamp) (\s@EvaluationResultIdentifier' {} a -> s {orderingTimestamp = a} :: EvaluationResultIdentifier) Prelude.. Lens.mapping Data._Time
 
 -- | Identifies an Config rule used to evaluate an Amazon Web Services
 -- resource, and provides the type and ID of the evaluated resource.
 evaluationResultIdentifier_evaluationResultQualifier :: Lens.Lens' EvaluationResultIdentifier (Prelude.Maybe EvaluationResultQualifier)
 evaluationResultIdentifier_evaluationResultQualifier = Lens.lens (\EvaluationResultIdentifier' {evaluationResultQualifier} -> evaluationResultQualifier) (\s@EvaluationResultIdentifier' {} a -> s {evaluationResultQualifier = a} :: EvaluationResultIdentifier)
 
-instance Core.FromJSON EvaluationResultIdentifier where
+instance Data.FromJSON EvaluationResultIdentifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EvaluationResultIdentifier"
       ( \x ->
           EvaluationResultIdentifier'
-            Prelude.<$> (x Core..:? "OrderingTimestamp")
-            Prelude.<*> (x Core..:? "EvaluationResultQualifier")
+            Prelude.<$> (x Data..:? "OrderingTimestamp")
+            Prelude.<*> (x Data..:? "EvaluationResultQualifier")
       )
 
 instance Prelude.Hashable EvaluationResultIdentifier where

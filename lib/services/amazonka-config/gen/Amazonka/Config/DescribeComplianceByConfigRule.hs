@@ -71,6 +71,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -167,8 +168,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeComplianceByConfigRuleResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ComplianceByConfigRules"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ComplianceByConfigRules"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -195,39 +196,39 @@ instance
       `Prelude.seq` Prelude.rnf configRuleNames
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeComplianceByConfigRule
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.DescribeComplianceByConfigRule" ::
+              Data.=# ( "StarlingDoveService.DescribeComplianceByConfigRule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeComplianceByConfigRule where
+instance Data.ToJSON DescribeComplianceByConfigRule where
   toJSON DescribeComplianceByConfigRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ComplianceTypes" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ComplianceTypes" Data..=)
               Prelude.<$> complianceTypes,
-            ("ConfigRuleNames" Core..=)
+            ("ConfigRuleNames" Data..=)
               Prelude.<$> configRuleNames
           ]
       )
 
-instance Core.ToPath DescribeComplianceByConfigRule where
+instance Data.ToPath DescribeComplianceByConfigRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeComplianceByConfigRule where
+instance Data.ToQuery DescribeComplianceByConfigRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

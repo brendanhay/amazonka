@@ -24,6 +24,7 @@ import Amazonka.Config.Types.RemediationExecutionStep
 import Amazonka.Config.Types.ResourceKey
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides details of the current status of the invoked remediation action
@@ -34,11 +35,11 @@ data RemediationExecutionStatus = RemediationExecutionStatus'
   { -- | Details of every step.
     stepDetails :: Prelude.Maybe [RemediationExecutionStep],
     -- | Start time when the remediation was executed.
-    invocationTime :: Prelude.Maybe Core.POSIX,
+    invocationTime :: Prelude.Maybe Data.POSIX,
     -- | ENUM of the values.
     state :: Prelude.Maybe RemediationExecutionState,
     -- | The time when the remediation execution was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     resourceKey :: Prelude.Maybe ResourceKey
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,7 +79,7 @@ remediationExecutionStatus_stepDetails = Lens.lens (\RemediationExecutionStatus'
 
 -- | Start time when the remediation was executed.
 remediationExecutionStatus_invocationTime :: Lens.Lens' RemediationExecutionStatus (Prelude.Maybe Prelude.UTCTime)
-remediationExecutionStatus_invocationTime = Lens.lens (\RemediationExecutionStatus' {invocationTime} -> invocationTime) (\s@RemediationExecutionStatus' {} a -> s {invocationTime = a} :: RemediationExecutionStatus) Prelude.. Lens.mapping Core._Time
+remediationExecutionStatus_invocationTime = Lens.lens (\RemediationExecutionStatus' {invocationTime} -> invocationTime) (\s@RemediationExecutionStatus' {} a -> s {invocationTime = a} :: RemediationExecutionStatus) Prelude.. Lens.mapping Data._Time
 
 -- | ENUM of the values.
 remediationExecutionStatus_state :: Lens.Lens' RemediationExecutionStatus (Prelude.Maybe RemediationExecutionState)
@@ -86,23 +87,23 @@ remediationExecutionStatus_state = Lens.lens (\RemediationExecutionStatus' {stat
 
 -- | The time when the remediation execution was last updated.
 remediationExecutionStatus_lastUpdatedTime :: Lens.Lens' RemediationExecutionStatus (Prelude.Maybe Prelude.UTCTime)
-remediationExecutionStatus_lastUpdatedTime = Lens.lens (\RemediationExecutionStatus' {lastUpdatedTime} -> lastUpdatedTime) (\s@RemediationExecutionStatus' {} a -> s {lastUpdatedTime = a} :: RemediationExecutionStatus) Prelude.. Lens.mapping Core._Time
+remediationExecutionStatus_lastUpdatedTime = Lens.lens (\RemediationExecutionStatus' {lastUpdatedTime} -> lastUpdatedTime) (\s@RemediationExecutionStatus' {} a -> s {lastUpdatedTime = a} :: RemediationExecutionStatus) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 remediationExecutionStatus_resourceKey :: Lens.Lens' RemediationExecutionStatus (Prelude.Maybe ResourceKey)
 remediationExecutionStatus_resourceKey = Lens.lens (\RemediationExecutionStatus' {resourceKey} -> resourceKey) (\s@RemediationExecutionStatus' {} a -> s {resourceKey = a} :: RemediationExecutionStatus)
 
-instance Core.FromJSON RemediationExecutionStatus where
+instance Data.FromJSON RemediationExecutionStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RemediationExecutionStatus"
       ( \x ->
           RemediationExecutionStatus'
-            Prelude.<$> (x Core..:? "StepDetails" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "InvocationTime")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "ResourceKey")
+            Prelude.<$> (x Data..:? "StepDetails" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "InvocationTime")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "ResourceKey")
       )
 
 instance Prelude.Hashable RemediationExecutionStatus where

@@ -23,6 +23,7 @@ import Amazonka.Config.Types.MaximumExecutionFrequency
 import Amazonka.Config.Types.OrganizationConfigRuleTriggerType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that specifies organization custom rule metadata such as
@@ -201,24 +202,24 @@ organizationCustomRuleMetadata_lambdaFunctionArn = Lens.lens (\OrganizationCusto
 organizationCustomRuleMetadata_organizationConfigRuleTriggerTypes :: Lens.Lens' OrganizationCustomRuleMetadata [OrganizationConfigRuleTriggerType]
 organizationCustomRuleMetadata_organizationConfigRuleTriggerTypes = Lens.lens (\OrganizationCustomRuleMetadata' {organizationConfigRuleTriggerTypes} -> organizationConfigRuleTriggerTypes) (\s@OrganizationCustomRuleMetadata' {} a -> s {organizationConfigRuleTriggerTypes = a} :: OrganizationCustomRuleMetadata) Prelude.. Lens.coerced
 
-instance Core.FromJSON OrganizationCustomRuleMetadata where
+instance Data.FromJSON OrganizationCustomRuleMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OrganizationCustomRuleMetadata"
       ( \x ->
           OrganizationCustomRuleMetadata'
-            Prelude.<$> (x Core..:? "MaximumExecutionFrequency")
-            Prelude.<*> ( x Core..:? "ResourceTypesScope"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "MaximumExecutionFrequency")
+            Prelude.<*> ( x Data..:? "ResourceTypesScope"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "InputParameters")
-            Prelude.<*> (x Core..:? "TagValueScope")
-            Prelude.<*> (x Core..:? "ResourceIdScope")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "TagKeyScope")
-            Prelude.<*> (x Core..: "LambdaFunctionArn")
-            Prelude.<*> ( x Core..:? "OrganizationConfigRuleTriggerTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "InputParameters")
+            Prelude.<*> (x Data..:? "TagValueScope")
+            Prelude.<*> (x Data..:? "ResourceIdScope")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "TagKeyScope")
+            Prelude.<*> (x Data..: "LambdaFunctionArn")
+            Prelude.<*> ( x Data..:? "OrganizationConfigRuleTriggerTypes"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -255,26 +256,26 @@ instance
       `Prelude.seq` Prelude.rnf lambdaFunctionArn
       `Prelude.seq` Prelude.rnf organizationConfigRuleTriggerTypes
 
-instance Core.ToJSON OrganizationCustomRuleMetadata where
+instance Data.ToJSON OrganizationCustomRuleMetadata where
   toJSON OrganizationCustomRuleMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaximumExecutionFrequency" Core..=)
+          [ ("MaximumExecutionFrequency" Data..=)
               Prelude.<$> maximumExecutionFrequency,
-            ("ResourceTypesScope" Core..=)
+            ("ResourceTypesScope" Data..=)
               Prelude.<$> resourceTypesScope,
-            ("InputParameters" Core..=)
+            ("InputParameters" Data..=)
               Prelude.<$> inputParameters,
-            ("TagValueScope" Core..=) Prelude.<$> tagValueScope,
-            ("ResourceIdScope" Core..=)
+            ("TagValueScope" Data..=) Prelude.<$> tagValueScope,
+            ("ResourceIdScope" Data..=)
               Prelude.<$> resourceIdScope,
-            ("Description" Core..=) Prelude.<$> description,
-            ("TagKeyScope" Core..=) Prelude.<$> tagKeyScope,
+            ("Description" Data..=) Prelude.<$> description,
+            ("TagKeyScope" Data..=) Prelude.<$> tagKeyScope,
             Prelude.Just
-              ("LambdaFunctionArn" Core..= lambdaFunctionArn),
+              ("LambdaFunctionArn" Data..= lambdaFunctionArn),
             Prelude.Just
               ( "OrganizationConfigRuleTriggerTypes"
-                  Core..= organizationConfigRuleTriggerTypes
+                  Data..= organizationConfigRuleTriggerTypes
               )
           ]
       )

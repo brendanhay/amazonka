@@ -74,6 +74,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -129,34 +130,34 @@ instance Prelude.NFData StartConfigRulesEvaluation where
   rnf StartConfigRulesEvaluation' {..} =
     Prelude.rnf configRuleNames
 
-instance Core.ToHeaders StartConfigRulesEvaluation where
+instance Data.ToHeaders StartConfigRulesEvaluation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.StartConfigRulesEvaluation" ::
+              Data.=# ( "StarlingDoveService.StartConfigRulesEvaluation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartConfigRulesEvaluation where
+instance Data.ToJSON StartConfigRulesEvaluation where
   toJSON StartConfigRulesEvaluation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConfigRuleNames" Core..=)
+          [ ("ConfigRuleNames" Data..=)
               Prelude.<$> configRuleNames
           ]
       )
 
-instance Core.ToPath StartConfigRulesEvaluation where
+instance Data.ToPath StartConfigRulesEvaluation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartConfigRulesEvaluation where
+instance Data.ToQuery StartConfigRulesEvaluation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output when you start the evaluation for the specified Config rule.

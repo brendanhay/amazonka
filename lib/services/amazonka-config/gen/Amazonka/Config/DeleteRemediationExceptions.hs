@@ -48,6 +48,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,7 +116,7 @@ instance Core.AWSRequest DeleteRemediationExceptions where
     Response.receiveJSON
       ( \s h x ->
           DeleteRemediationExceptionsResponse'
-            Prelude.<$> (x Core..?> "FailedBatches" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "FailedBatches" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,35 +130,35 @@ instance Prelude.NFData DeleteRemediationExceptions where
     Prelude.rnf configRuleName
       `Prelude.seq` Prelude.rnf resourceKeys
 
-instance Core.ToHeaders DeleteRemediationExceptions where
+instance Data.ToHeaders DeleteRemediationExceptions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.DeleteRemediationExceptions" ::
+              Data.=# ( "StarlingDoveService.DeleteRemediationExceptions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteRemediationExceptions where
+instance Data.ToJSON DeleteRemediationExceptions where
   toJSON DeleteRemediationExceptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ConfigRuleName" Core..= configRuleName),
-            Prelude.Just ("ResourceKeys" Core..= resourceKeys)
+              ("ConfigRuleName" Data..= configRuleName),
+            Prelude.Just ("ResourceKeys" Data..= resourceKeys)
           ]
       )
 
-instance Core.ToPath DeleteRemediationExceptions where
+instance Data.ToPath DeleteRemediationExceptions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteRemediationExceptions where
+instance Data.ToQuery DeleteRemediationExceptions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRemediationExceptionsResponse' smart constructor.

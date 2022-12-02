@@ -50,6 +50,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,8 +115,8 @@ instance Core.AWSRequest StartRemediationExecution where
     Response.receiveJSON
       ( \s h x ->
           StartRemediationExecutionResponse'
-            Prelude.<$> (x Core..?> "FailedItems")
-            Prelude.<*> (x Core..?> "FailureMessage")
+            Prelude.<$> (x Data..?> "FailedItems")
+            Prelude.<*> (x Data..?> "FailureMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,35 +130,35 @@ instance Prelude.NFData StartRemediationExecution where
     Prelude.rnf configRuleName
       `Prelude.seq` Prelude.rnf resourceKeys
 
-instance Core.ToHeaders StartRemediationExecution where
+instance Data.ToHeaders StartRemediationExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.StartRemediationExecution" ::
+              Data.=# ( "StarlingDoveService.StartRemediationExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartRemediationExecution where
+instance Data.ToJSON StartRemediationExecution where
   toJSON StartRemediationExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ConfigRuleName" Core..= configRuleName),
-            Prelude.Just ("ResourceKeys" Core..= resourceKeys)
+              ("ConfigRuleName" Data..= configRuleName),
+            Prelude.Just ("ResourceKeys" Data..= resourceKeys)
           ]
       )
 
-instance Core.ToPath StartRemediationExecution where
+instance Data.ToPath StartRemediationExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartRemediationExecution where
+instance Data.ToQuery StartRemediationExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartRemediationExecutionResponse' smart constructor.

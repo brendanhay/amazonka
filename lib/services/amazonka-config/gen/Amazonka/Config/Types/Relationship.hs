@@ -22,6 +22,7 @@ module Amazonka.Config.Types.Relationship where
 import Amazonka.Config.Types.ResourceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The relationship of the related resource to the main resource.
@@ -80,16 +81,16 @@ relationship_resourceName = Lens.lens (\Relationship' {resourceName} -> resource
 relationship_relationshipName :: Lens.Lens' Relationship (Prelude.Maybe Prelude.Text)
 relationship_relationshipName = Lens.lens (\Relationship' {relationshipName} -> relationshipName) (\s@Relationship' {} a -> s {relationshipName = a} :: Relationship)
 
-instance Core.FromJSON Relationship where
+instance Data.FromJSON Relationship where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Relationship"
       ( \x ->
           Relationship'
-            Prelude.<$> (x Core..:? "resourceId")
-            Prelude.<*> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "resourceName")
-            Prelude.<*> (x Core..:? "relationshipName")
+            Prelude.<$> (x Data..:? "resourceId")
+            Prelude.<*> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "resourceName")
+            Prelude.<*> (x Data..:? "relationshipName")
       )
 
 instance Prelude.Hashable Relationship where

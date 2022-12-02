@@ -23,6 +23,7 @@ import Amazonka.Config.Types.AccountAggregationSource
 import Amazonka.Config.Types.OrganizationAggregationSource
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details about the configuration aggregator, including information
@@ -35,13 +36,13 @@ data ConfigurationAggregator = ConfigurationAggregator'
     -- | Provides a list of source accounts and regions to be aggregated.
     accountAggregationSources :: Prelude.Maybe [AccountAggregationSource],
     -- | The time of the last update.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the aggregator.
     configurationAggregatorName :: Prelude.Maybe Prelude.Text,
     -- | Provides an organization and list of regions to be aggregated.
     organizationAggregationSource :: Prelude.Maybe OrganizationAggregationSource,
     -- | The time stamp when the configuration aggregator was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | Amazon Web Services service that created the configuration aggregator.
     createdBy :: Prelude.Maybe Prelude.Text
   }
@@ -92,7 +93,7 @@ configurationAggregator_accountAggregationSources = Lens.lens (\ConfigurationAgg
 
 -- | The time of the last update.
 configurationAggregator_lastUpdatedTime :: Lens.Lens' ConfigurationAggregator (Prelude.Maybe Prelude.UTCTime)
-configurationAggregator_lastUpdatedTime = Lens.lens (\ConfigurationAggregator' {lastUpdatedTime} -> lastUpdatedTime) (\s@ConfigurationAggregator' {} a -> s {lastUpdatedTime = a} :: ConfigurationAggregator) Prelude.. Lens.mapping Core._Time
+configurationAggregator_lastUpdatedTime = Lens.lens (\ConfigurationAggregator' {lastUpdatedTime} -> lastUpdatedTime) (\s@ConfigurationAggregator' {} a -> s {lastUpdatedTime = a} :: ConfigurationAggregator) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the aggregator.
 configurationAggregator_configurationAggregatorName :: Lens.Lens' ConfigurationAggregator (Prelude.Maybe Prelude.Text)
@@ -104,27 +105,27 @@ configurationAggregator_organizationAggregationSource = Lens.lens (\Configuratio
 
 -- | The time stamp when the configuration aggregator was created.
 configurationAggregator_creationTime :: Lens.Lens' ConfigurationAggregator (Prelude.Maybe Prelude.UTCTime)
-configurationAggregator_creationTime = Lens.lens (\ConfigurationAggregator' {creationTime} -> creationTime) (\s@ConfigurationAggregator' {} a -> s {creationTime = a} :: ConfigurationAggregator) Prelude.. Lens.mapping Core._Time
+configurationAggregator_creationTime = Lens.lens (\ConfigurationAggregator' {creationTime} -> creationTime) (\s@ConfigurationAggregator' {} a -> s {creationTime = a} :: ConfigurationAggregator) Prelude.. Lens.mapping Data._Time
 
 -- | Amazon Web Services service that created the configuration aggregator.
 configurationAggregator_createdBy :: Lens.Lens' ConfigurationAggregator (Prelude.Maybe Prelude.Text)
 configurationAggregator_createdBy = Lens.lens (\ConfigurationAggregator' {createdBy} -> createdBy) (\s@ConfigurationAggregator' {} a -> s {createdBy = a} :: ConfigurationAggregator)
 
-instance Core.FromJSON ConfigurationAggregator where
+instance Data.FromJSON ConfigurationAggregator where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfigurationAggregator"
       ( \x ->
           ConfigurationAggregator'
-            Prelude.<$> (x Core..:? "ConfigurationAggregatorArn")
-            Prelude.<*> ( x Core..:? "AccountAggregationSources"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ConfigurationAggregatorArn")
+            Prelude.<*> ( x Data..:? "AccountAggregationSources"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "ConfigurationAggregatorName")
-            Prelude.<*> (x Core..:? "OrganizationAggregationSource")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "CreatedBy")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "ConfigurationAggregatorName")
+            Prelude.<*> (x Data..:? "OrganizationAggregationSource")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "CreatedBy")
       )
 
 instance Prelude.Hashable ConfigurationAggregator where

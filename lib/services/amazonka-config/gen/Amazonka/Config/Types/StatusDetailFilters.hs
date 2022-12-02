@@ -22,6 +22,7 @@ module Amazonka.Config.Types.StatusDetailFilters where
 import Amazonka.Config.Types.MemberAccountRuleStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Status filter object to filter results based on specific member account
@@ -183,12 +184,12 @@ instance Prelude.NFData StatusDetailFilters where
     Prelude.rnf memberAccountRuleStatus
       `Prelude.seq` Prelude.rnf accountId
 
-instance Core.ToJSON StatusDetailFilters where
+instance Data.ToJSON StatusDetailFilters where
   toJSON StatusDetailFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MemberAccountRuleStatus" Core..=)
+          [ ("MemberAccountRuleStatus" Data..=)
               Prelude.<$> memberAccountRuleStatus,
-            ("AccountId" Core..=) Prelude.<$> accountId
+            ("AccountId" Data..=) Prelude.<$> accountId
           ]
       )

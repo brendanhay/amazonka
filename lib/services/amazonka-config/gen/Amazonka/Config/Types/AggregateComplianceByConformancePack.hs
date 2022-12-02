@@ -22,6 +22,7 @@ module Amazonka.Config.Types.AggregateComplianceByConformancePack where
 import Amazonka.Config.Types.AggregateConformancePackCompliance
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides aggregate compliance of the conformance pack. Indicates whether
@@ -93,18 +94,18 @@ aggregateComplianceByConformancePack_compliance :: Lens.Lens' AggregateComplianc
 aggregateComplianceByConformancePack_compliance = Lens.lens (\AggregateComplianceByConformancePack' {compliance} -> compliance) (\s@AggregateComplianceByConformancePack' {} a -> s {compliance = a} :: AggregateComplianceByConformancePack)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AggregateComplianceByConformancePack
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AggregateComplianceByConformancePack"
       ( \x ->
           AggregateComplianceByConformancePack'
-            Prelude.<$> (x Core..:? "ConformancePackName")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "AwsRegion")
-            Prelude.<*> (x Core..:? "Compliance")
+            Prelude.<$> (x Data..:? "ConformancePackName")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "AwsRegion")
+            Prelude.<*> (x Data..:? "Compliance")
       )
 
 instance

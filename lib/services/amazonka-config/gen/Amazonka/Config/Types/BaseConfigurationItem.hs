@@ -23,6 +23,7 @@ import Amazonka.Config.Types.ConfigurationItemStatus
 import Amazonka.Config.Types.ResourceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The detailed configuration of a specified resource.
@@ -36,7 +37,7 @@ data BaseConfigurationItem = BaseConfigurationItem'
     -- | The custom name of the resource, if available.
     resourceName :: Prelude.Maybe Prelude.Text,
     -- | The time stamp when the resource was created.
-    resourceCreationTime :: Prelude.Maybe Core.POSIX,
+    resourceCreationTime :: Prelude.Maybe Data.POSIX,
     -- | Configuration attributes that Config returns for certain resource types
     -- to supplement the information returned for the configuration parameter.
     supplementaryConfiguration :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -75,7 +76,7 @@ data BaseConfigurationItem = BaseConfigurationItem'
     -- | The version number of the resource configuration.
     version :: Prelude.Maybe Prelude.Text,
     -- | The time when the configuration recording was initiated.
-    configurationItemCaptureTime :: Prelude.Maybe Core.POSIX
+    configurationItemCaptureTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -168,7 +169,7 @@ baseConfigurationItem_resourceName = Lens.lens (\BaseConfigurationItem' {resourc
 
 -- | The time stamp when the resource was created.
 baseConfigurationItem_resourceCreationTime :: Lens.Lens' BaseConfigurationItem (Prelude.Maybe Prelude.UTCTime)
-baseConfigurationItem_resourceCreationTime = Lens.lens (\BaseConfigurationItem' {resourceCreationTime} -> resourceCreationTime) (\s@BaseConfigurationItem' {} a -> s {resourceCreationTime = a} :: BaseConfigurationItem) Prelude.. Lens.mapping Core._Time
+baseConfigurationItem_resourceCreationTime = Lens.lens (\BaseConfigurationItem' {resourceCreationTime} -> resourceCreationTime) (\s@BaseConfigurationItem' {} a -> s {resourceCreationTime = a} :: BaseConfigurationItem) Prelude.. Lens.mapping Data._Time
 
 -- | Configuration attributes that Config returns for certain resource types
 -- to supplement the information returned for the configuration parameter.
@@ -227,30 +228,30 @@ baseConfigurationItem_version = Lens.lens (\BaseConfigurationItem' {version} -> 
 
 -- | The time when the configuration recording was initiated.
 baseConfigurationItem_configurationItemCaptureTime :: Lens.Lens' BaseConfigurationItem (Prelude.Maybe Prelude.UTCTime)
-baseConfigurationItem_configurationItemCaptureTime = Lens.lens (\BaseConfigurationItem' {configurationItemCaptureTime} -> configurationItemCaptureTime) (\s@BaseConfigurationItem' {} a -> s {configurationItemCaptureTime = a} :: BaseConfigurationItem) Prelude.. Lens.mapping Core._Time
+baseConfigurationItem_configurationItemCaptureTime = Lens.lens (\BaseConfigurationItem' {configurationItemCaptureTime} -> configurationItemCaptureTime) (\s@BaseConfigurationItem' {} a -> s {configurationItemCaptureTime = a} :: BaseConfigurationItem) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON BaseConfigurationItem where
+instance Data.FromJSON BaseConfigurationItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BaseConfigurationItem"
       ( \x ->
           BaseConfigurationItem'
-            Prelude.<$> (x Core..:? "resourceId")
-            Prelude.<*> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "resourceName")
-            Prelude.<*> (x Core..:? "resourceCreationTime")
-            Prelude.<*> ( x Core..:? "supplementaryConfiguration"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "resourceId")
+            Prelude.<*> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "resourceName")
+            Prelude.<*> (x Data..:? "resourceCreationTime")
+            Prelude.<*> ( x Data..:? "supplementaryConfiguration"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "configurationStateId")
-            Prelude.<*> (x Core..:? "configuration")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "configurationItemStatus")
-            Prelude.<*> (x Core..:? "availabilityZone")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "awsRegion")
-            Prelude.<*> (x Core..:? "version")
-            Prelude.<*> (x Core..:? "configurationItemCaptureTime")
+            Prelude.<*> (x Data..:? "configurationStateId")
+            Prelude.<*> (x Data..:? "configuration")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "configurationItemStatus")
+            Prelude.<*> (x Data..:? "availabilityZone")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "awsRegion")
+            Prelude.<*> (x Data..:? "version")
+            Prelude.<*> (x Data..:? "configurationItemCaptureTime")
       )
 
 instance Prelude.Hashable BaseConfigurationItem where

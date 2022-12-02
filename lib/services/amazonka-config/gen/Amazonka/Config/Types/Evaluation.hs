@@ -22,6 +22,7 @@ module Amazonka.Config.Types.Evaluation where
 import Amazonka.Config.Types.ComplianceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies an Amazon Web Services resource and indicates whether it
@@ -53,7 +54,7 @@ data Evaluation = Evaluation'
     -- configuration item that triggered the evaluation. For periodic
     -- evaluations, the time indicates when Config triggered the evaluation at
     -- the frequency that you specified (for example, every 24 hours).
-    orderingTimestamp :: Core.POSIX
+    orderingTimestamp :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -110,7 +111,7 @@ newEvaluation
         complianceResourceId = pComplianceResourceId_,
         complianceType = pComplianceType_,
         orderingTimestamp =
-          Core._Time Lens.# pOrderingTimestamp_
+          Data._Time Lens.# pOrderingTimestamp_
       }
 
 -- | Supplementary information about how the evaluation determined the
@@ -146,19 +147,19 @@ evaluation_complianceType = Lens.lens (\Evaluation' {complianceType} -> complian
 -- evaluations, the time indicates when Config triggered the evaluation at
 -- the frequency that you specified (for example, every 24 hours).
 evaluation_orderingTimestamp :: Lens.Lens' Evaluation Prelude.UTCTime
-evaluation_orderingTimestamp = Lens.lens (\Evaluation' {orderingTimestamp} -> orderingTimestamp) (\s@Evaluation' {} a -> s {orderingTimestamp = a} :: Evaluation) Prelude.. Core._Time
+evaluation_orderingTimestamp = Lens.lens (\Evaluation' {orderingTimestamp} -> orderingTimestamp) (\s@Evaluation' {} a -> s {orderingTimestamp = a} :: Evaluation) Prelude.. Data._Time
 
-instance Core.FromJSON Evaluation where
+instance Data.FromJSON Evaluation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Evaluation"
       ( \x ->
           Evaluation'
-            Prelude.<$> (x Core..:? "Annotation")
-            Prelude.<*> (x Core..: "ComplianceResourceType")
-            Prelude.<*> (x Core..: "ComplianceResourceId")
-            Prelude.<*> (x Core..: "ComplianceType")
-            Prelude.<*> (x Core..: "OrderingTimestamp")
+            Prelude.<$> (x Data..:? "Annotation")
+            Prelude.<*> (x Data..: "ComplianceResourceType")
+            Prelude.<*> (x Data..: "ComplianceResourceId")
+            Prelude.<*> (x Data..: "ComplianceType")
+            Prelude.<*> (x Data..: "OrderingTimestamp")
       )
 
 instance Prelude.Hashable Evaluation where
@@ -177,22 +178,22 @@ instance Prelude.NFData Evaluation where
       `Prelude.seq` Prelude.rnf complianceType
       `Prelude.seq` Prelude.rnf orderingTimestamp
 
-instance Core.ToJSON Evaluation where
+instance Data.ToJSON Evaluation where
   toJSON Evaluation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Annotation" Core..=) Prelude.<$> annotation,
+          [ ("Annotation" Data..=) Prelude.<$> annotation,
             Prelude.Just
               ( "ComplianceResourceType"
-                  Core..= complianceResourceType
+                  Data..= complianceResourceType
               ),
             Prelude.Just
               ( "ComplianceResourceId"
-                  Core..= complianceResourceId
+                  Data..= complianceResourceId
               ),
             Prelude.Just
-              ("ComplianceType" Core..= complianceType),
+              ("ComplianceType" Data..= complianceType),
             Prelude.Just
-              ("OrderingTimestamp" Core..= orderingTimestamp)
+              ("OrderingTimestamp" Data..= orderingTimestamp)
           ]
       )

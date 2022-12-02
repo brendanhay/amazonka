@@ -21,6 +21,7 @@ module Amazonka.Config.Types.ConformancePackComplianceScore where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A compliance score is the percentage of the number of compliant
@@ -38,7 +39,7 @@ data ConformancePackComplianceScore = ConformancePackComplianceScore'
     -- | The name of the conformance pack.
     conformancePackName :: Prelude.Maybe Prelude.Text,
     -- | The time that the conformance pack compliance score was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,17 +78,17 @@ conformancePackComplianceScore_conformancePackName = Lens.lens (\ConformancePack
 
 -- | The time that the conformance pack compliance score was last updated.
 conformancePackComplianceScore_lastUpdatedTime :: Lens.Lens' ConformancePackComplianceScore (Prelude.Maybe Prelude.UTCTime)
-conformancePackComplianceScore_lastUpdatedTime = Lens.lens (\ConformancePackComplianceScore' {lastUpdatedTime} -> lastUpdatedTime) (\s@ConformancePackComplianceScore' {} a -> s {lastUpdatedTime = a} :: ConformancePackComplianceScore) Prelude.. Lens.mapping Core._Time
+conformancePackComplianceScore_lastUpdatedTime = Lens.lens (\ConformancePackComplianceScore' {lastUpdatedTime} -> lastUpdatedTime) (\s@ConformancePackComplianceScore' {} a -> s {lastUpdatedTime = a} :: ConformancePackComplianceScore) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ConformancePackComplianceScore where
+instance Data.FromJSON ConformancePackComplianceScore where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConformancePackComplianceScore"
       ( \x ->
           ConformancePackComplianceScore'
-            Prelude.<$> (x Core..:? "Score")
-            Prelude.<*> (x Core..:? "ConformancePackName")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
+            Prelude.<$> (x Data..:? "Score")
+            Prelude.<*> (x Data..:? "ConformancePackName")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
       )
 
 instance

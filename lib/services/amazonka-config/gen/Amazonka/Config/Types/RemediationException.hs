@@ -21,6 +21,7 @@ module Amazonka.Config.Types.RemediationException where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the details about the remediation exception.
@@ -33,7 +34,7 @@ data RemediationException = RemediationException'
   { -- | An explanation of an remediation exception.
     message :: Prelude.Maybe Prelude.Text,
     -- | The time when the remediation exception will be deleted.
-    expirationTime :: Prelude.Maybe Core.POSIX,
+    expirationTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the Config rule.
     configRuleName :: Prelude.Text,
     -- | The type of a resource.
@@ -86,7 +87,7 @@ remediationException_message = Lens.lens (\RemediationException' {message} -> me
 
 -- | The time when the remediation exception will be deleted.
 remediationException_expirationTime :: Lens.Lens' RemediationException (Prelude.Maybe Prelude.UTCTime)
-remediationException_expirationTime = Lens.lens (\RemediationException' {expirationTime} -> expirationTime) (\s@RemediationException' {} a -> s {expirationTime = a} :: RemediationException) Prelude.. Lens.mapping Core._Time
+remediationException_expirationTime = Lens.lens (\RemediationException' {expirationTime} -> expirationTime) (\s@RemediationException' {} a -> s {expirationTime = a} :: RemediationException) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the Config rule.
 remediationException_configRuleName :: Lens.Lens' RemediationException Prelude.Text
@@ -100,17 +101,17 @@ remediationException_resourceType = Lens.lens (\RemediationException' {resourceT
 remediationException_resourceId :: Lens.Lens' RemediationException Prelude.Text
 remediationException_resourceId = Lens.lens (\RemediationException' {resourceId} -> resourceId) (\s@RemediationException' {} a -> s {resourceId = a} :: RemediationException)
 
-instance Core.FromJSON RemediationException where
+instance Data.FromJSON RemediationException where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RemediationException"
       ( \x ->
           RemediationException'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "ExpirationTime")
-            Prelude.<*> (x Core..: "ConfigRuleName")
-            Prelude.<*> (x Core..: "ResourceType")
-            Prelude.<*> (x Core..: "ResourceId")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "ExpirationTime")
+            Prelude.<*> (x Data..: "ConfigRuleName")
+            Prelude.<*> (x Data..: "ResourceType")
+            Prelude.<*> (x Data..: "ResourceId")
       )
 
 instance Prelude.Hashable RemediationException where

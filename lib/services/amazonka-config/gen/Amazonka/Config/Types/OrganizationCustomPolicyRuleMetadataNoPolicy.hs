@@ -23,6 +23,7 @@ import Amazonka.Config.Types.MaximumExecutionFrequency
 import Amazonka.Config.Types.OrganizationConfigRuleTriggerTypeNoSN
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that specifies metadata for your organization Config Custom
@@ -221,30 +222,30 @@ organizationCustomPolicyRuleMetadataNoPolicy_tagKeyScope :: Lens.Lens' Organizat
 organizationCustomPolicyRuleMetadataNoPolicy_tagKeyScope = Lens.lens (\OrganizationCustomPolicyRuleMetadataNoPolicy' {tagKeyScope} -> tagKeyScope) (\s@OrganizationCustomPolicyRuleMetadataNoPolicy' {} a -> s {tagKeyScope = a} :: OrganizationCustomPolicyRuleMetadataNoPolicy)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     OrganizationCustomPolicyRuleMetadataNoPolicy
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OrganizationCustomPolicyRuleMetadataNoPolicy"
       ( \x ->
           OrganizationCustomPolicyRuleMetadataNoPolicy'
-            Prelude.<$> (x Core..:? "MaximumExecutionFrequency")
-              Prelude.<*> ( x Core..:? "ResourceTypesScope"
-                              Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "MaximumExecutionFrequency")
+              Prelude.<*> ( x Data..:? "ResourceTypesScope"
+                              Data..!= Prelude.mempty
                           )
-              Prelude.<*> (x Core..:? "InputParameters")
-              Prelude.<*> (x Core..:? "TagValueScope")
-              Prelude.<*> (x Core..:? "ResourceIdScope")
-              Prelude.<*> ( x Core..:? "DebugLogDeliveryAccounts"
-                              Core..!= Prelude.mempty
+              Prelude.<*> (x Data..:? "InputParameters")
+              Prelude.<*> (x Data..:? "TagValueScope")
+              Prelude.<*> (x Data..:? "ResourceIdScope")
+              Prelude.<*> ( x Data..:? "DebugLogDeliveryAccounts"
+                              Data..!= Prelude.mempty
                           )
-              Prelude.<*> (x Core..:? "Description")
-              Prelude.<*> ( x Core..:? "OrganizationConfigRuleTriggerTypes"
-                              Core..!= Prelude.mempty
+              Prelude.<*> (x Data..:? "Description")
+              Prelude.<*> ( x Data..:? "OrganizationConfigRuleTriggerTypes"
+                              Data..!= Prelude.mempty
                           )
-              Prelude.<*> (x Core..:? "PolicyRuntime")
-              Prelude.<*> (x Core..:? "TagKeyScope")
+              Prelude.<*> (x Data..:? "PolicyRuntime")
+              Prelude.<*> (x Data..:? "TagKeyScope")
       )
 
 instance

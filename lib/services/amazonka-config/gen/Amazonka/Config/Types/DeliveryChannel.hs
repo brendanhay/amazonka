@@ -22,6 +22,7 @@ module Amazonka.Config.Types.DeliveryChannel where
 import Amazonka.Config.Types.ConfigSnapshotDeliveryProperties
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The channel through which Config delivers notifications and updated
@@ -162,18 +163,18 @@ deliveryChannel_configSnapshotDeliveryProperties = Lens.lens (\DeliveryChannel' 
 deliveryChannel_s3KmsKeyArn :: Lens.Lens' DeliveryChannel (Prelude.Maybe Prelude.Text)
 deliveryChannel_s3KmsKeyArn = Lens.lens (\DeliveryChannel' {s3KmsKeyArn} -> s3KmsKeyArn) (\s@DeliveryChannel' {} a -> s {s3KmsKeyArn = a} :: DeliveryChannel)
 
-instance Core.FromJSON DeliveryChannel where
+instance Data.FromJSON DeliveryChannel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeliveryChannel"
       ( \x ->
           DeliveryChannel'
-            Prelude.<$> (x Core..:? "s3KeyPrefix")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "s3BucketName")
-            Prelude.<*> (x Core..:? "snsTopicARN")
-            Prelude.<*> (x Core..:? "configSnapshotDeliveryProperties")
-            Prelude.<*> (x Core..:? "s3KmsKeyArn")
+            Prelude.<$> (x Data..:? "s3KeyPrefix")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "s3BucketName")
+            Prelude.<*> (x Data..:? "snsTopicARN")
+            Prelude.<*> (x Data..:? "configSnapshotDeliveryProperties")
+            Prelude.<*> (x Data..:? "s3KmsKeyArn")
       )
 
 instance Prelude.Hashable DeliveryChannel where
@@ -194,16 +195,16 @@ instance Prelude.NFData DeliveryChannel where
       `Prelude.seq` Prelude.rnf configSnapshotDeliveryProperties
       `Prelude.seq` Prelude.rnf s3KmsKeyArn
 
-instance Core.ToJSON DeliveryChannel where
+instance Data.ToJSON DeliveryChannel where
   toJSON DeliveryChannel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("s3KeyPrefix" Core..=) Prelude.<$> s3KeyPrefix,
-            ("name" Core..=) Prelude.<$> name,
-            ("s3BucketName" Core..=) Prelude.<$> s3BucketName,
-            ("snsTopicARN" Core..=) Prelude.<$> snsTopicARN,
-            ("configSnapshotDeliveryProperties" Core..=)
+          [ ("s3KeyPrefix" Data..=) Prelude.<$> s3KeyPrefix,
+            ("name" Data..=) Prelude.<$> name,
+            ("s3BucketName" Data..=) Prelude.<$> s3BucketName,
+            ("snsTopicARN" Data..=) Prelude.<$> snsTopicARN,
+            ("configSnapshotDeliveryProperties" Data..=)
               Prelude.<$> configSnapshotDeliveryProperties,
-            ("s3KmsKeyArn" Core..=) Prelude.<$> s3KmsKeyArn
+            ("s3KmsKeyArn" Data..=) Prelude.<$> s3KmsKeyArn
           ]
       )

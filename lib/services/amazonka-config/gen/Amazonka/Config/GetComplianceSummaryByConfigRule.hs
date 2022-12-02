@@ -40,6 +40,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -72,7 +73,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetComplianceSummaryByConfigRuleResponse'
-            Prelude.<$> (x Core..?> "ComplianceSummary")
+            Prelude.<$> (x Data..?> "ComplianceSummary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -90,31 +91,31 @@ instance
   rnf _ = ()
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetComplianceSummaryByConfigRule
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.GetComplianceSummaryByConfigRule" ::
+              Data.=# ( "StarlingDoveService.GetComplianceSummaryByConfigRule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetComplianceSummaryByConfigRule where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetComplianceSummaryByConfigRule where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetComplianceSummaryByConfigRule where
+instance Data.ToPath GetComplianceSummaryByConfigRule where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetComplianceSummaryByConfigRule
   where
   toQuery = Prelude.const Prelude.mempty

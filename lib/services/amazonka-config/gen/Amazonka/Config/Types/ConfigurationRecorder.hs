@@ -22,6 +22,7 @@ module Amazonka.Config.Types.ConfigurationRecorder where
 import Amazonka.Config.Types.RecordingGroup
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the recording of configuration changes of an
@@ -93,15 +94,15 @@ configurationRecorder_roleARN = Lens.lens (\ConfigurationRecorder' {roleARN} -> 
 configurationRecorder_recordingGroup :: Lens.Lens' ConfigurationRecorder (Prelude.Maybe RecordingGroup)
 configurationRecorder_recordingGroup = Lens.lens (\ConfigurationRecorder' {recordingGroup} -> recordingGroup) (\s@ConfigurationRecorder' {} a -> s {recordingGroup = a} :: ConfigurationRecorder)
 
-instance Core.FromJSON ConfigurationRecorder where
+instance Data.FromJSON ConfigurationRecorder where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfigurationRecorder"
       ( \x ->
           ConfigurationRecorder'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "roleARN")
-            Prelude.<*> (x Core..:? "recordingGroup")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "roleARN")
+            Prelude.<*> (x Data..:? "recordingGroup")
       )
 
 instance Prelude.Hashable ConfigurationRecorder where
@@ -116,13 +117,13 @@ instance Prelude.NFData ConfigurationRecorder where
       `Prelude.seq` Prelude.rnf roleARN
       `Prelude.seq` Prelude.rnf recordingGroup
 
-instance Core.ToJSON ConfigurationRecorder where
+instance Data.ToJSON ConfigurationRecorder where
   toJSON ConfigurationRecorder' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("roleARN" Core..=) Prelude.<$> roleARN,
-            ("recordingGroup" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("roleARN" Data..=) Prelude.<$> roleARN,
+            ("recordingGroup" Data..=)
               Prelude.<$> recordingGroup
           ]
       )

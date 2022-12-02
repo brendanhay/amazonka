@@ -74,6 +74,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -209,8 +210,8 @@ instance Core.AWSRequest DescribeComplianceByResource where
     Response.receiveJSON
       ( \s h x ->
           DescribeComplianceByResourceResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ComplianceByResources"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ComplianceByResources"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -235,38 +236,38 @@ instance Prelude.NFData DescribeComplianceByResource where
       `Prelude.seq` Prelude.rnf complianceTypes
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders DescribeComplianceByResource where
+instance Data.ToHeaders DescribeComplianceByResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.DescribeComplianceByResource" ::
+              Data.=# ( "StarlingDoveService.DescribeComplianceByResource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeComplianceByResource where
+instance Data.ToJSON DescribeComplianceByResource where
   toJSON DescribeComplianceByResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceId" Core..=) Prelude.<$> resourceId,
-            ("ResourceType" Core..=) Prelude.<$> resourceType,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ComplianceTypes" Core..=)
+          [ ("ResourceId" Data..=) Prelude.<$> resourceId,
+            ("ResourceType" Data..=) Prelude.<$> resourceType,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ComplianceTypes" Data..=)
               Prelude.<$> complianceTypes,
-            ("Limit" Core..=) Prelude.<$> limit
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
-instance Core.ToPath DescribeComplianceByResource where
+instance Data.ToPath DescribeComplianceByResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeComplianceByResource where
+instance Data.ToQuery DescribeComplianceByResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

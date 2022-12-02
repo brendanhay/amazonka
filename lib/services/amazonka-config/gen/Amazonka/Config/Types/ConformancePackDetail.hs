@@ -23,6 +23,7 @@ import Amazonka.Config.Types.ConformancePackInputParameter
 import Amazonka.Config.Types.TemplateSSMDocumentDetails
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns details of a conformance pack. A conformance pack is a
@@ -32,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newConformancePackDetail' smart constructor.
 data ConformancePackDetail = ConformancePackDetail'
   { -- | The last time a conformation pack update was requested.
-    lastUpdateRequestedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateRequestedTime :: Prelude.Maybe Data.POSIX,
     -- | A list of @ConformancePackInputParameter@ objects.
     conformancePackInputParameters :: Prelude.Maybe [ConformancePackInputParameter],
     -- | The name of the Amazon S3 bucket where Config stores conformance pack
@@ -118,7 +119,7 @@ newConformancePackDetail
 
 -- | The last time a conformation pack update was requested.
 conformancePackDetail_lastUpdateRequestedTime :: Lens.Lens' ConformancePackDetail (Prelude.Maybe Prelude.UTCTime)
-conformancePackDetail_lastUpdateRequestedTime = Lens.lens (\ConformancePackDetail' {lastUpdateRequestedTime} -> lastUpdateRequestedTime) (\s@ConformancePackDetail' {} a -> s {lastUpdateRequestedTime = a} :: ConformancePackDetail) Prelude.. Lens.mapping Core._Time
+conformancePackDetail_lastUpdateRequestedTime = Lens.lens (\ConformancePackDetail' {lastUpdateRequestedTime} -> lastUpdateRequestedTime) (\s@ConformancePackDetail' {} a -> s {lastUpdateRequestedTime = a} :: ConformancePackDetail) Prelude.. Lens.mapping Data._Time
 
 -- | A list of @ConformancePackInputParameter@ objects.
 conformancePackDetail_conformancePackInputParameters :: Lens.Lens' ConformancePackDetail (Prelude.Maybe [ConformancePackInputParameter])
@@ -159,23 +160,23 @@ conformancePackDetail_conformancePackArn = Lens.lens (\ConformancePackDetail' {c
 conformancePackDetail_conformancePackId :: Lens.Lens' ConformancePackDetail Prelude.Text
 conformancePackDetail_conformancePackId = Lens.lens (\ConformancePackDetail' {conformancePackId} -> conformancePackId) (\s@ConformancePackDetail' {} a -> s {conformancePackId = a} :: ConformancePackDetail)
 
-instance Core.FromJSON ConformancePackDetail where
+instance Data.FromJSON ConformancePackDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConformancePackDetail"
       ( \x ->
           ConformancePackDetail'
-            Prelude.<$> (x Core..:? "LastUpdateRequestedTime")
-            Prelude.<*> ( x Core..:? "ConformancePackInputParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "LastUpdateRequestedTime")
+            Prelude.<*> ( x Data..:? "ConformancePackInputParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DeliveryS3Bucket")
-            Prelude.<*> (x Core..:? "TemplateSSMDocumentDetails")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..:? "DeliveryS3KeyPrefix")
-            Prelude.<*> (x Core..: "ConformancePackName")
-            Prelude.<*> (x Core..: "ConformancePackArn")
-            Prelude.<*> (x Core..: "ConformancePackId")
+            Prelude.<*> (x Data..:? "DeliveryS3Bucket")
+            Prelude.<*> (x Data..:? "TemplateSSMDocumentDetails")
+            Prelude.<*> (x Data..:? "CreatedBy")
+            Prelude.<*> (x Data..:? "DeliveryS3KeyPrefix")
+            Prelude.<*> (x Data..: "ConformancePackName")
+            Prelude.<*> (x Data..: "ConformancePackArn")
+            Prelude.<*> (x Data..: "ConformancePackId")
       )
 
 instance Prelude.Hashable ConformancePackDetail where

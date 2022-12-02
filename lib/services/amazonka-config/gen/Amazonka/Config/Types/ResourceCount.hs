@@ -22,6 +22,7 @@ module Amazonka.Config.Types.ResourceCount where
 import Amazonka.Config.Types.ResourceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains the resource type and the number of resources.
@@ -62,14 +63,14 @@ resourceCount_resourceType = Lens.lens (\ResourceCount' {resourceType} -> resour
 resourceCount_count :: Lens.Lens' ResourceCount (Prelude.Maybe Prelude.Integer)
 resourceCount_count = Lens.lens (\ResourceCount' {count} -> count) (\s@ResourceCount' {} a -> s {count = a} :: ResourceCount)
 
-instance Core.FromJSON ResourceCount where
+instance Data.FromJSON ResourceCount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceCount"
       ( \x ->
           ResourceCount'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "count")
+            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "count")
       )
 
 instance Prelude.Hashable ResourceCount where

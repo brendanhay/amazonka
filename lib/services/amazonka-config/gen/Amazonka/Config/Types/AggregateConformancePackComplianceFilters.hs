@@ -22,6 +22,7 @@ module Amazonka.Config.Types.AggregateConformancePackComplianceFilters where
 import Amazonka.Config.Types.ConformancePackComplianceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filters the conformance packs based on an account ID, region, compliance
@@ -105,17 +106,17 @@ instance
       `Prelude.seq` Prelude.rnf complianceType
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AggregateConformancePackComplianceFilters
   where
   toJSON AggregateConformancePackComplianceFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConformancePackName" Core..=)
+          [ ("ConformancePackName" Data..=)
               Prelude.<$> conformancePackName,
-            ("AccountId" Core..=) Prelude.<$> accountId,
-            ("AwsRegion" Core..=) Prelude.<$> awsRegion,
-            ("ComplianceType" Core..=)
+            ("AccountId" Data..=) Prelude.<$> accountId,
+            ("AwsRegion" Data..=) Prelude.<$> awsRegion,
+            ("ComplianceType" Data..=)
               Prelude.<$> complianceType
           ]
       )

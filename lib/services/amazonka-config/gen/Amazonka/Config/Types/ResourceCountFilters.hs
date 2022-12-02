@@ -22,6 +22,7 @@ module Amazonka.Config.Types.ResourceCountFilters where
 import Amazonka.Config.Types.ResourceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filters the resource count based on account ID, region, and resource
@@ -85,12 +86,12 @@ instance Prelude.NFData ResourceCountFilters where
       `Prelude.seq` Prelude.rnf region
       `Prelude.seq` Prelude.rnf accountId
 
-instance Core.ToJSON ResourceCountFilters where
+instance Data.ToJSON ResourceCountFilters where
   toJSON ResourceCountFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceType" Core..=) Prelude.<$> resourceType,
-            ("Region" Core..=) Prelude.<$> region,
-            ("AccountId" Core..=) Prelude.<$> accountId
+          [ ("ResourceType" Data..=) Prelude.<$> resourceType,
+            ("Region" Data..=) Prelude.<$> region,
+            ("AccountId" Data..=) Prelude.<$> accountId
           ]
       )

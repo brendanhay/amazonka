@@ -50,6 +50,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -170,8 +171,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeConfigRuleEvaluationStatusResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> ( x Core..?> "ConfigRulesEvaluationStatus"
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> ( x Data..?> "ConfigRulesEvaluationStatus"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -198,45 +199,45 @@ instance
       `Prelude.seq` Prelude.rnf limit
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeConfigRuleEvaluationStatus
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.DescribeConfigRuleEvaluationStatus" ::
+              Data.=# ( "StarlingDoveService.DescribeConfigRuleEvaluationStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeConfigRuleEvaluationStatus
   where
   toJSON DescribeConfigRuleEvaluationStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ConfigRuleNames" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ConfigRuleNames" Data..=)
               Prelude.<$> configRuleNames,
-            ("Limit" Core..=) Prelude.<$> limit
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeConfigRuleEvaluationStatus
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeConfigRuleEvaluationStatus
   where
   toQuery = Prelude.const Prelude.mempty

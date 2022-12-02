@@ -51,6 +51,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,8 +150,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeRetentionConfigurationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "RetentionConfigurations"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "RetentionConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -175,37 +176,37 @@ instance
       `Prelude.seq` Prelude.rnf retentionConfigurationNames
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeRetentionConfigurations
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.DescribeRetentionConfigurations" ::
+              Data.=# ( "StarlingDoveService.DescribeRetentionConfigurations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeRetentionConfigurations where
+instance Data.ToJSON DescribeRetentionConfigurations where
   toJSON DescribeRetentionConfigurations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("RetentionConfigurationNames" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("RetentionConfigurationNames" Data..=)
               Prelude.<$> retentionConfigurationNames
           ]
       )
 
-instance Core.ToPath DescribeRetentionConfigurations where
+instance Data.ToPath DescribeRetentionConfigurations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeRetentionConfigurations where
+instance Data.ToQuery DescribeRetentionConfigurations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRetentionConfigurationsResponse' smart constructor.

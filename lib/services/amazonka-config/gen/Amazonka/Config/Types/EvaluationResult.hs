@@ -23,6 +23,7 @@ import Amazonka.Config.Types.ComplianceType
 import Amazonka.Config.Types.EvaluationResultIdentifier
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of an Config evaluation. Provides the Amazon Web Services
@@ -35,13 +36,13 @@ data EvaluationResult = EvaluationResult'
     evaluationResultIdentifier :: Prelude.Maybe EvaluationResultIdentifier,
     -- | The time when the Config rule evaluated the Amazon Web Services
     -- resource.
-    configRuleInvokedTime :: Prelude.Maybe Core.POSIX,
+    configRuleInvokedTime :: Prelude.Maybe Data.POSIX,
     -- | An encrypted token that associates an evaluation with an Config rule.
     -- The token identifies the rule, the Amazon Web Services resource being
     -- evaluated, and the event that triggered the evaluation.
     resultToken :: Prelude.Maybe Prelude.Text,
     -- | The time when Config recorded the evaluation result.
-    resultRecordedTime :: Prelude.Maybe Core.POSIX,
+    resultRecordedTime :: Prelude.Maybe Data.POSIX,
     -- | Supplementary information about how the evaluation determined the
     -- compliance.
     annotation :: Prelude.Maybe Prelude.Text,
@@ -105,7 +106,7 @@ evaluationResult_evaluationResultIdentifier = Lens.lens (\EvaluationResult' {eva
 -- | The time when the Config rule evaluated the Amazon Web Services
 -- resource.
 evaluationResult_configRuleInvokedTime :: Lens.Lens' EvaluationResult (Prelude.Maybe Prelude.UTCTime)
-evaluationResult_configRuleInvokedTime = Lens.lens (\EvaluationResult' {configRuleInvokedTime} -> configRuleInvokedTime) (\s@EvaluationResult' {} a -> s {configRuleInvokedTime = a} :: EvaluationResult) Prelude.. Lens.mapping Core._Time
+evaluationResult_configRuleInvokedTime = Lens.lens (\EvaluationResult' {configRuleInvokedTime} -> configRuleInvokedTime) (\s@EvaluationResult' {} a -> s {configRuleInvokedTime = a} :: EvaluationResult) Prelude.. Lens.mapping Data._Time
 
 -- | An encrypted token that associates an evaluation with an Config rule.
 -- The token identifies the rule, the Amazon Web Services resource being
@@ -115,7 +116,7 @@ evaluationResult_resultToken = Lens.lens (\EvaluationResult' {resultToken} -> re
 
 -- | The time when Config recorded the evaluation result.
 evaluationResult_resultRecordedTime :: Lens.Lens' EvaluationResult (Prelude.Maybe Prelude.UTCTime)
-evaluationResult_resultRecordedTime = Lens.lens (\EvaluationResult' {resultRecordedTime} -> resultRecordedTime) (\s@EvaluationResult' {} a -> s {resultRecordedTime = a} :: EvaluationResult) Prelude.. Lens.mapping Core._Time
+evaluationResult_resultRecordedTime = Lens.lens (\EvaluationResult' {resultRecordedTime} -> resultRecordedTime) (\s@EvaluationResult' {} a -> s {resultRecordedTime = a} :: EvaluationResult) Prelude.. Lens.mapping Data._Time
 
 -- | Supplementary information about how the evaluation determined the
 -- compliance.
@@ -132,18 +133,18 @@ evaluationResult_annotation = Lens.lens (\EvaluationResult' {annotation} -> anno
 evaluationResult_complianceType :: Lens.Lens' EvaluationResult (Prelude.Maybe ComplianceType)
 evaluationResult_complianceType = Lens.lens (\EvaluationResult' {complianceType} -> complianceType) (\s@EvaluationResult' {} a -> s {complianceType = a} :: EvaluationResult)
 
-instance Core.FromJSON EvaluationResult where
+instance Data.FromJSON EvaluationResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EvaluationResult"
       ( \x ->
           EvaluationResult'
-            Prelude.<$> (x Core..:? "EvaluationResultIdentifier")
-            Prelude.<*> (x Core..:? "ConfigRuleInvokedTime")
-            Prelude.<*> (x Core..:? "ResultToken")
-            Prelude.<*> (x Core..:? "ResultRecordedTime")
-            Prelude.<*> (x Core..:? "Annotation")
-            Prelude.<*> (x Core..:? "ComplianceType")
+            Prelude.<$> (x Data..:? "EvaluationResultIdentifier")
+            Prelude.<*> (x Data..:? "ConfigRuleInvokedTime")
+            Prelude.<*> (x Data..:? "ResultToken")
+            Prelude.<*> (x Data..:? "ResultRecordedTime")
+            Prelude.<*> (x Data..:? "Annotation")
+            Prelude.<*> (x Data..:? "ComplianceType")
       )
 
 instance Prelude.Hashable EvaluationResult where

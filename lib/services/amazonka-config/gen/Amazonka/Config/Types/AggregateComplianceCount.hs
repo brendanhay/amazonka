@@ -22,6 +22,7 @@ module Amazonka.Config.Types.AggregateComplianceCount where
 import Amazonka.Config.Types.ComplianceSummary
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns the number of compliant and noncompliant rules for one or more
@@ -64,14 +65,14 @@ aggregateComplianceCount_groupName = Lens.lens (\AggregateComplianceCount' {grou
 aggregateComplianceCount_complianceSummary :: Lens.Lens' AggregateComplianceCount (Prelude.Maybe ComplianceSummary)
 aggregateComplianceCount_complianceSummary = Lens.lens (\AggregateComplianceCount' {complianceSummary} -> complianceSummary) (\s@AggregateComplianceCount' {} a -> s {complianceSummary = a} :: AggregateComplianceCount)
 
-instance Core.FromJSON AggregateComplianceCount where
+instance Data.FromJSON AggregateComplianceCount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AggregateComplianceCount"
       ( \x ->
           AggregateComplianceCount'
-            Prelude.<$> (x Core..:? "GroupName")
-            Prelude.<*> (x Core..:? "ComplianceSummary")
+            Prelude.<$> (x Data..:? "GroupName")
+            Prelude.<*> (x Data..:? "ComplianceSummary")
       )
 
 instance Prelude.Hashable AggregateComplianceCount where

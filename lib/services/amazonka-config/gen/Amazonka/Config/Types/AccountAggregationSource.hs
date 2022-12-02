@@ -21,6 +21,7 @@ module Amazonka.Config.Types.AccountAggregationSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A collection of accounts and regions.
@@ -73,15 +74,15 @@ accountAggregationSource_allAwsRegions = Lens.lens (\AccountAggregationSource' {
 accountAggregationSource_accountIds :: Lens.Lens' AccountAggregationSource (Prelude.NonEmpty Prelude.Text)
 accountAggregationSource_accountIds = Lens.lens (\AccountAggregationSource' {accountIds} -> accountIds) (\s@AccountAggregationSource' {} a -> s {accountIds = a} :: AccountAggregationSource) Prelude.. Lens.coerced
 
-instance Core.FromJSON AccountAggregationSource where
+instance Data.FromJSON AccountAggregationSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountAggregationSource"
       ( \x ->
           AccountAggregationSource'
-            Prelude.<$> (x Core..:? "AwsRegions")
-            Prelude.<*> (x Core..:? "AllAwsRegions")
-            Prelude.<*> (x Core..: "AccountIds")
+            Prelude.<$> (x Data..:? "AwsRegions")
+            Prelude.<*> (x Data..:? "AllAwsRegions")
+            Prelude.<*> (x Data..: "AccountIds")
       )
 
 instance Prelude.Hashable AccountAggregationSource where
@@ -96,12 +97,12 @@ instance Prelude.NFData AccountAggregationSource where
       `Prelude.seq` Prelude.rnf allAwsRegions
       `Prelude.seq` Prelude.rnf accountIds
 
-instance Core.ToJSON AccountAggregationSource where
+instance Data.ToJSON AccountAggregationSource where
   toJSON AccountAggregationSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AwsRegions" Core..=) Prelude.<$> awsRegions,
-            ("AllAwsRegions" Core..=) Prelude.<$> allAwsRegions,
-            Prelude.Just ("AccountIds" Core..= accountIds)
+          [ ("AwsRegions" Data..=) Prelude.<$> awsRegions,
+            ("AllAwsRegions" Data..=) Prelude.<$> allAwsRegions,
+            Prelude.Just ("AccountIds" Data..= accountIds)
           ]
       )

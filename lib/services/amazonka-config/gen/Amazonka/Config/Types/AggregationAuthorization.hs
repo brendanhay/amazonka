@@ -21,6 +21,7 @@ module Amazonka.Config.Types.AggregationAuthorization where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the authorizations granted to aggregator
@@ -35,7 +36,7 @@ data AggregationAuthorization = AggregationAuthorization'
     -- | The Amazon Resource Name (ARN) of the aggregation object.
     aggregationAuthorizationArn :: Prelude.Maybe Prelude.Text,
     -- | The time stamp when the aggregation authorization was created.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,18 +80,18 @@ aggregationAuthorization_aggregationAuthorizationArn = Lens.lens (\AggregationAu
 
 -- | The time stamp when the aggregation authorization was created.
 aggregationAuthorization_creationTime :: Lens.Lens' AggregationAuthorization (Prelude.Maybe Prelude.UTCTime)
-aggregationAuthorization_creationTime = Lens.lens (\AggregationAuthorization' {creationTime} -> creationTime) (\s@AggregationAuthorization' {} a -> s {creationTime = a} :: AggregationAuthorization) Prelude.. Lens.mapping Core._Time
+aggregationAuthorization_creationTime = Lens.lens (\AggregationAuthorization' {creationTime} -> creationTime) (\s@AggregationAuthorization' {} a -> s {creationTime = a} :: AggregationAuthorization) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AggregationAuthorization where
+instance Data.FromJSON AggregationAuthorization where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AggregationAuthorization"
       ( \x ->
           AggregationAuthorization'
-            Prelude.<$> (x Core..:? "AuthorizedAwsRegion")
-            Prelude.<*> (x Core..:? "AuthorizedAccountId")
-            Prelude.<*> (x Core..:? "AggregationAuthorizationArn")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Data..:? "AuthorizedAwsRegion")
+            Prelude.<*> (x Data..:? "AuthorizedAccountId")
+            Prelude.<*> (x Data..:? "AggregationAuthorizationArn")
+            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance Prelude.Hashable AggregationAuthorization where

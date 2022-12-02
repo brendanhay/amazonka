@@ -67,6 +67,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -81,14 +82,14 @@ data GetResourceConfigHistory = GetResourceConfigHistory'
     -- | The time stamp that indicates an earlier time. If not specified, the
     -- action returns paginated results that contain configuration items that
     -- start when the first configuration item was recorded.
-    earlierTime :: Prelude.Maybe Core.POSIX,
+    earlierTime :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of configuration items returned on each page. The
     -- default is 10. You cannot specify a number greater than 100. If you
     -- specify 0, Config uses the default.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | The time stamp that indicates a later time. If not specified, current
     -- time is taken.
-    laterTime :: Prelude.Maybe Core.POSIX,
+    laterTime :: Prelude.Maybe Data.POSIX,
     -- | The chronological order for configuration items listed. By default, the
     -- results are listed in reverse chronological order.
     chronologicalOrder :: Prelude.Maybe ChronologicalOrder,
@@ -156,7 +157,7 @@ getResourceConfigHistory_nextToken = Lens.lens (\GetResourceConfigHistory' {next
 -- action returns paginated results that contain configuration items that
 -- start when the first configuration item was recorded.
 getResourceConfigHistory_earlierTime :: Lens.Lens' GetResourceConfigHistory (Prelude.Maybe Prelude.UTCTime)
-getResourceConfigHistory_earlierTime = Lens.lens (\GetResourceConfigHistory' {earlierTime} -> earlierTime) (\s@GetResourceConfigHistory' {} a -> s {earlierTime = a} :: GetResourceConfigHistory) Prelude.. Lens.mapping Core._Time
+getResourceConfigHistory_earlierTime = Lens.lens (\GetResourceConfigHistory' {earlierTime} -> earlierTime) (\s@GetResourceConfigHistory' {} a -> s {earlierTime = a} :: GetResourceConfigHistory) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of configuration items returned on each page. The
 -- default is 10. You cannot specify a number greater than 100. If you
@@ -167,7 +168,7 @@ getResourceConfigHistory_limit = Lens.lens (\GetResourceConfigHistory' {limit} -
 -- | The time stamp that indicates a later time. If not specified, current
 -- time is taken.
 getResourceConfigHistory_laterTime :: Lens.Lens' GetResourceConfigHistory (Prelude.Maybe Prelude.UTCTime)
-getResourceConfigHistory_laterTime = Lens.lens (\GetResourceConfigHistory' {laterTime} -> laterTime) (\s@GetResourceConfigHistory' {} a -> s {laterTime = a} :: GetResourceConfigHistory) Prelude.. Lens.mapping Core._Time
+getResourceConfigHistory_laterTime = Lens.lens (\GetResourceConfigHistory' {laterTime} -> laterTime) (\s@GetResourceConfigHistory' {} a -> s {laterTime = a} :: GetResourceConfigHistory) Prelude.. Lens.mapping Data._Time
 
 -- | The chronological order for configuration items listed. By default, the
 -- results are listed in reverse chronological order.
@@ -214,8 +215,8 @@ instance Core.AWSRequest GetResourceConfigHistory where
     Response.receiveJSON
       ( \s h x ->
           GetResourceConfigHistoryResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "configurationItems"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "configurationItems"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -241,40 +242,40 @@ instance Prelude.NFData GetResourceConfigHistory where
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf resourceId
 
-instance Core.ToHeaders GetResourceConfigHistory where
+instance Data.ToHeaders GetResourceConfigHistory where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.GetResourceConfigHistory" ::
+              Data.=# ( "StarlingDoveService.GetResourceConfigHistory" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetResourceConfigHistory where
+instance Data.ToJSON GetResourceConfigHistory where
   toJSON GetResourceConfigHistory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("earlierTime" Core..=) Prelude.<$> earlierTime,
-            ("limit" Core..=) Prelude.<$> limit,
-            ("laterTime" Core..=) Prelude.<$> laterTime,
-            ("chronologicalOrder" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("earlierTime" Data..=) Prelude.<$> earlierTime,
+            ("limit" Data..=) Prelude.<$> limit,
+            ("laterTime" Data..=) Prelude.<$> laterTime,
+            ("chronologicalOrder" Data..=)
               Prelude.<$> chronologicalOrder,
-            Prelude.Just ("resourceType" Core..= resourceType),
-            Prelude.Just ("resourceId" Core..= resourceId)
+            Prelude.Just ("resourceType" Data..= resourceType),
+            Prelude.Just ("resourceId" Data..= resourceId)
           ]
       )
 
-instance Core.ToPath GetResourceConfigHistory where
+instance Data.ToPath GetResourceConfigHistory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetResourceConfigHistory where
+instance Data.ToQuery GetResourceConfigHistory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output for the GetResourceConfigHistory action.

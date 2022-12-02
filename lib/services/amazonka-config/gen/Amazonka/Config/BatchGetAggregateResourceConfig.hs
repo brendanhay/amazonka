@@ -52,6 +52,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,10 +115,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchGetAggregateResourceConfigResponse'
-            Prelude.<$> ( x Core..?> "BaseConfigurationItems"
+            Prelude.<$> ( x Data..?> "BaseConfigurationItems"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "UnprocessedResourceIdentifiers"
+            Prelude.<*> ( x Data..?> "UnprocessedResourceIdentifiers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -143,40 +144,40 @@ instance
       `Prelude.seq` Prelude.rnf resourceIdentifiers
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     BatchGetAggregateResourceConfig
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.BatchGetAggregateResourceConfig" ::
+              Data.=# ( "StarlingDoveService.BatchGetAggregateResourceConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetAggregateResourceConfig where
+instance Data.ToJSON BatchGetAggregateResourceConfig where
   toJSON BatchGetAggregateResourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ConfigurationAggregatorName"
-                  Core..= configurationAggregatorName
+                  Data..= configurationAggregatorName
               ),
             Prelude.Just
-              ("ResourceIdentifiers" Core..= resourceIdentifiers)
+              ("ResourceIdentifiers" Data..= resourceIdentifiers)
           ]
       )
 
-instance Core.ToPath BatchGetAggregateResourceConfig where
+instance Data.ToPath BatchGetAggregateResourceConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetAggregateResourceConfig where
+instance Data.ToQuery BatchGetAggregateResourceConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetAggregateResourceConfigResponse' smart constructor.

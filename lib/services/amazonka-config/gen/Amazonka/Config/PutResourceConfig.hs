@@ -57,6 +57,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -211,40 +212,40 @@ instance Prelude.NFData PutResourceConfig where
       `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf configuration
 
-instance Core.ToHeaders PutResourceConfig where
+instance Data.ToHeaders PutResourceConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.PutResourceConfig" ::
+              Data.=# ( "StarlingDoveService.PutResourceConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutResourceConfig where
+instance Data.ToJSON PutResourceConfig where
   toJSON PutResourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ResourceName" Core..=) Prelude.<$> resourceName,
-            Prelude.Just ("ResourceType" Core..= resourceType),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ResourceName" Data..=) Prelude.<$> resourceName,
+            Prelude.Just ("ResourceType" Data..= resourceType),
             Prelude.Just
-              ("SchemaVersionId" Core..= schemaVersionId),
-            Prelude.Just ("ResourceId" Core..= resourceId),
+              ("SchemaVersionId" Data..= schemaVersionId),
+            Prelude.Just ("ResourceId" Data..= resourceId),
             Prelude.Just
-              ("Configuration" Core..= configuration)
+              ("Configuration" Data..= configuration)
           ]
       )
 
-instance Core.ToPath PutResourceConfig where
+instance Data.ToPath PutResourceConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutResourceConfig where
+instance Data.ToQuery PutResourceConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutResourceConfigResponse' smart constructor.

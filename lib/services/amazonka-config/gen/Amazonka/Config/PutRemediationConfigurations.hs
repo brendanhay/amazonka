@@ -63,6 +63,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,7 +106,7 @@ instance Core.AWSRequest PutRemediationConfigurations where
     Response.receiveJSON
       ( \s h x ->
           PutRemediationConfigurationsResponse'
-            Prelude.<$> (x Core..?> "FailedBatches" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "FailedBatches" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,36 +122,36 @@ instance Prelude.NFData PutRemediationConfigurations where
   rnf PutRemediationConfigurations' {..} =
     Prelude.rnf remediationConfigurations
 
-instance Core.ToHeaders PutRemediationConfigurations where
+instance Data.ToHeaders PutRemediationConfigurations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.PutRemediationConfigurations" ::
+              Data.=# ( "StarlingDoveService.PutRemediationConfigurations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutRemediationConfigurations where
+instance Data.ToJSON PutRemediationConfigurations where
   toJSON PutRemediationConfigurations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "RemediationConfigurations"
-                  Core..= remediationConfigurations
+                  Data..= remediationConfigurations
               )
           ]
       )
 
-instance Core.ToPath PutRemediationConfigurations where
+instance Data.ToPath PutRemediationConfigurations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutRemediationConfigurations where
+instance Data.ToQuery PutRemediationConfigurations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutRemediationConfigurationsResponse' smart constructor.

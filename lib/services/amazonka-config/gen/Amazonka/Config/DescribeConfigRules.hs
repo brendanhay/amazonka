@@ -46,6 +46,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,8 +127,8 @@ instance Core.AWSRequest DescribeConfigRules where
     Response.receiveJSON
       ( \s h x ->
           DescribeConfigRulesResponse'
-            Prelude.<$> (x Core..?> "ConfigRules" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "ConfigRules" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,35 +142,35 @@ instance Prelude.NFData DescribeConfigRules where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf configRuleNames
 
-instance Core.ToHeaders DescribeConfigRules where
+instance Data.ToHeaders DescribeConfigRules where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.DescribeConfigRules" ::
+              Data.=# ( "StarlingDoveService.DescribeConfigRules" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeConfigRules where
+instance Data.ToJSON DescribeConfigRules where
   toJSON DescribeConfigRules' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ConfigRuleNames" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ConfigRuleNames" Data..=)
               Prelude.<$> configRuleNames
           ]
       )
 
-instance Core.ToPath DescribeConfigRules where
+instance Data.ToPath DescribeConfigRules where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeConfigRules where
+instance Data.ToQuery DescribeConfigRules where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

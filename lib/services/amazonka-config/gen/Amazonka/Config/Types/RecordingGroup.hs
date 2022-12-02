@@ -22,6 +22,7 @@ module Amazonka.Config.Types.RecordingGroup where
 import Amazonka.Config.Types.ResourceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the types of Amazon Web Services resource for which Config
@@ -206,15 +207,15 @@ recordingGroup_resourceTypes = Lens.lens (\RecordingGroup' {resourceTypes} -> re
 recordingGroup_allSupported :: Lens.Lens' RecordingGroup (Prelude.Maybe Prelude.Bool)
 recordingGroup_allSupported = Lens.lens (\RecordingGroup' {allSupported} -> allSupported) (\s@RecordingGroup' {} a -> s {allSupported = a} :: RecordingGroup)
 
-instance Core.FromJSON RecordingGroup where
+instance Data.FromJSON RecordingGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecordingGroup"
       ( \x ->
           RecordingGroup'
-            Prelude.<$> (x Core..:? "includeGlobalResourceTypes")
-            Prelude.<*> (x Core..:? "resourceTypes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "allSupported")
+            Prelude.<$> (x Data..:? "includeGlobalResourceTypes")
+            Prelude.<*> (x Data..:? "resourceTypes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "allSupported")
       )
 
 instance Prelude.Hashable RecordingGroup where
@@ -230,13 +231,13 @@ instance Prelude.NFData RecordingGroup where
       `Prelude.seq` Prelude.rnf resourceTypes
       `Prelude.seq` Prelude.rnf allSupported
 
-instance Core.ToJSON RecordingGroup where
+instance Data.ToJSON RecordingGroup where
   toJSON RecordingGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("includeGlobalResourceTypes" Core..=)
+          [ ("includeGlobalResourceTypes" Data..=)
               Prelude.<$> includeGlobalResourceTypes,
-            ("resourceTypes" Core..=) Prelude.<$> resourceTypes,
-            ("allSupported" Core..=) Prelude.<$> allSupported
+            ("resourceTypes" Data..=) Prelude.<$> resourceTypes,
+            ("allSupported" Data..=) Prelude.<$> allSupported
           ]
       )

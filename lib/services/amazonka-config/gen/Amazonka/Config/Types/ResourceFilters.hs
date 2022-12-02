@@ -21,6 +21,7 @@ module Amazonka.Config.Types.ResourceFilters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filters the results by resource account ID, region, resource ID, and
@@ -94,13 +95,13 @@ instance Prelude.NFData ResourceFilters where
       `Prelude.seq` Prelude.rnf region
       `Prelude.seq` Prelude.rnf accountId
 
-instance Core.ToJSON ResourceFilters where
+instance Data.ToJSON ResourceFilters where
   toJSON ResourceFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceId" Core..=) Prelude.<$> resourceId,
-            ("ResourceName" Core..=) Prelude.<$> resourceName,
-            ("Region" Core..=) Prelude.<$> region,
-            ("AccountId" Core..=) Prelude.<$> accountId
+          [ ("ResourceId" Data..=) Prelude.<$> resourceId,
+            ("ResourceName" Data..=) Prelude.<$> resourceName,
+            ("Region" Data..=) Prelude.<$> region,
+            ("AccountId" Data..=) Prelude.<$> accountId
           ]
       )

@@ -54,6 +54,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -152,10 +153,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetAggregateConformancePackComplianceSummaryResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> (x Core..?> "GroupByKey")
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> (x Data..?> "GroupByKey")
               Prelude.<*> ( x
-                              Core..?> "AggregateConformancePackComplianceSummaries"
+                              Data..?> "AggregateConformancePackComplianceSummaries"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -186,50 +187,50 @@ instance
       `Prelude.seq` Prelude.rnf configurationAggregatorName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetAggregateConformancePackComplianceSummary
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.GetAggregateConformancePackComplianceSummary" ::
+              Data.=# ( "StarlingDoveService.GetAggregateConformancePackComplianceSummary" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     GetAggregateConformancePackComplianceSummary
   where
   toJSON
     GetAggregateConformancePackComplianceSummary' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("NextToken" Core..=) Prelude.<$> nextToken,
-              ("Filters" Core..=) Prelude.<$> filters,
-              ("GroupByKey" Core..=) Prelude.<$> groupByKey,
-              ("Limit" Core..=) Prelude.<$> limit,
+            [ ("NextToken" Data..=) Prelude.<$> nextToken,
+              ("Filters" Data..=) Prelude.<$> filters,
+              ("GroupByKey" Data..=) Prelude.<$> groupByKey,
+              ("Limit" Data..=) Prelude.<$> limit,
               Prelude.Just
                 ( "ConfigurationAggregatorName"
-                    Core..= configurationAggregatorName
+                    Data..= configurationAggregatorName
                 )
             ]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetAggregateConformancePackComplianceSummary
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetAggregateConformancePackComplianceSummary
   where
   toQuery = Prelude.const Prelude.mempty

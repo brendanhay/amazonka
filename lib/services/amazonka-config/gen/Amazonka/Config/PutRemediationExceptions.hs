@@ -52,6 +52,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -61,7 +62,7 @@ data PutRemediationExceptions = PutRemediationExceptions'
   { -- | The message contains an explanation of the exception.
     message :: Prelude.Maybe Prelude.Text,
     -- | The exception is automatically deleted after the expiration date.
-    expirationTime :: Prelude.Maybe Core.POSIX,
+    expirationTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the Config rule for which you want to create remediation
     -- exception.
     configRuleName :: Prelude.Text,
@@ -113,7 +114,7 @@ putRemediationExceptions_message = Lens.lens (\PutRemediationExceptions' {messag
 
 -- | The exception is automatically deleted after the expiration date.
 putRemediationExceptions_expirationTime :: Lens.Lens' PutRemediationExceptions (Prelude.Maybe Prelude.UTCTime)
-putRemediationExceptions_expirationTime = Lens.lens (\PutRemediationExceptions' {expirationTime} -> expirationTime) (\s@PutRemediationExceptions' {} a -> s {expirationTime = a} :: PutRemediationExceptions) Prelude.. Lens.mapping Core._Time
+putRemediationExceptions_expirationTime = Lens.lens (\PutRemediationExceptions' {expirationTime} -> expirationTime) (\s@PutRemediationExceptions' {} a -> s {expirationTime = a} :: PutRemediationExceptions) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the Config rule for which you want to create remediation
 -- exception.
@@ -136,7 +137,7 @@ instance Core.AWSRequest PutRemediationExceptions where
     Response.receiveJSON
       ( \s h x ->
           PutRemediationExceptionsResponse'
-            Prelude.<$> (x Core..?> "FailedBatches" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "FailedBatches" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,38 +155,38 @@ instance Prelude.NFData PutRemediationExceptions where
       `Prelude.seq` Prelude.rnf configRuleName
       `Prelude.seq` Prelude.rnf resourceKeys
 
-instance Core.ToHeaders PutRemediationExceptions where
+instance Data.ToHeaders PutRemediationExceptions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.PutRemediationExceptions" ::
+              Data.=# ( "StarlingDoveService.PutRemediationExceptions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutRemediationExceptions where
+instance Data.ToJSON PutRemediationExceptions where
   toJSON PutRemediationExceptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Message" Core..=) Prelude.<$> message,
-            ("ExpirationTime" Core..=)
+          [ ("Message" Data..=) Prelude.<$> message,
+            ("ExpirationTime" Data..=)
               Prelude.<$> expirationTime,
             Prelude.Just
-              ("ConfigRuleName" Core..= configRuleName),
-            Prelude.Just ("ResourceKeys" Core..= resourceKeys)
+              ("ConfigRuleName" Data..= configRuleName),
+            Prelude.Just ("ResourceKeys" Data..= resourceKeys)
           ]
       )
 
-instance Core.ToPath PutRemediationExceptions where
+instance Data.ToPath PutRemediationExceptions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutRemediationExceptions where
+instance Data.ToQuery PutRemediationExceptions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutRemediationExceptionsResponse' smart constructor.

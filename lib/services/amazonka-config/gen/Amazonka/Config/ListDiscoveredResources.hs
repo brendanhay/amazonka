@@ -64,6 +64,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -201,10 +202,10 @@ instance Core.AWSRequest ListDiscoveredResources where
     Response.receiveJSON
       ( \s h x ->
           ListDiscoveredResourcesResponse'
-            Prelude.<$> ( x Core..?> "resourceIdentifiers"
+            Prelude.<$> ( x Data..?> "resourceIdentifiers"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -226,39 +227,39 @@ instance Prelude.NFData ListDiscoveredResources where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf resourceType
 
-instance Core.ToHeaders ListDiscoveredResources where
+instance Data.ToHeaders ListDiscoveredResources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.ListDiscoveredResources" ::
+              Data.=# ( "StarlingDoveService.ListDiscoveredResources" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDiscoveredResources where
+instance Data.ToJSON ListDiscoveredResources where
   toJSON ListDiscoveredResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("resourceName" Core..=) Prelude.<$> resourceName,
-            ("includeDeletedResources" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("resourceName" Data..=) Prelude.<$> resourceName,
+            ("includeDeletedResources" Data..=)
               Prelude.<$> includeDeletedResources,
-            ("resourceIds" Core..=) Prelude.<$> resourceIds,
-            ("limit" Core..=) Prelude.<$> limit,
-            Prelude.Just ("resourceType" Core..= resourceType)
+            ("resourceIds" Data..=) Prelude.<$> resourceIds,
+            ("limit" Data..=) Prelude.<$> limit,
+            Prelude.Just ("resourceType" Data..= resourceType)
           ]
       )
 
-instance Core.ToPath ListDiscoveredResources where
+instance Data.ToPath ListDiscoveredResources where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDiscoveredResources where
+instance Data.ToQuery ListDiscoveredResources where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

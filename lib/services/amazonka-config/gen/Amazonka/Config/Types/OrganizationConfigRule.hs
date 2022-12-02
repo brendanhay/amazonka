@@ -24,6 +24,7 @@ import Amazonka.Config.Types.OrganizationCustomRuleMetadata
 import Amazonka.Config.Types.OrganizationManagedRuleMetadata
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An organization Config rule that has information about Config rules that
@@ -42,7 +43,7 @@ data OrganizationConfigRule = OrganizationConfigRule'
     -- rule.
     excludedAccounts :: Prelude.Maybe [Prelude.Text],
     -- | The timestamp of the last update.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | An @OrganizationManagedRuleMetadata@ object.
     organizationManagedRuleMetadata :: Prelude.Maybe OrganizationManagedRuleMetadata,
     -- | An @OrganizationCustomRuleMetadata@ object.
@@ -119,7 +120,7 @@ organizationConfigRule_excludedAccounts = Lens.lens (\OrganizationConfigRule' {e
 
 -- | The timestamp of the last update.
 organizationConfigRule_lastUpdateTime :: Lens.Lens' OrganizationConfigRule (Prelude.Maybe Prelude.UTCTime)
-organizationConfigRule_lastUpdateTime = Lens.lens (\OrganizationConfigRule' {lastUpdateTime} -> lastUpdateTime) (\s@OrganizationConfigRule' {} a -> s {lastUpdateTime = a} :: OrganizationConfigRule) Prelude.. Lens.mapping Core._Time
+organizationConfigRule_lastUpdateTime = Lens.lens (\OrganizationConfigRule' {lastUpdateTime} -> lastUpdateTime) (\s@OrganizationConfigRule' {} a -> s {lastUpdateTime = a} :: OrganizationConfigRule) Prelude.. Lens.mapping Data._Time
 
 -- | An @OrganizationManagedRuleMetadata@ object.
 organizationConfigRule_organizationManagedRuleMetadata :: Lens.Lens' OrganizationConfigRule (Prelude.Maybe OrganizationManagedRuleMetadata)
@@ -137,21 +138,21 @@ organizationConfigRule_organizationConfigRuleName = Lens.lens (\OrganizationConf
 organizationConfigRule_organizationConfigRuleArn :: Lens.Lens' OrganizationConfigRule Prelude.Text
 organizationConfigRule_organizationConfigRuleArn = Lens.lens (\OrganizationConfigRule' {organizationConfigRuleArn} -> organizationConfigRuleArn) (\s@OrganizationConfigRule' {} a -> s {organizationConfigRuleArn = a} :: OrganizationConfigRule)
 
-instance Core.FromJSON OrganizationConfigRule where
+instance Data.FromJSON OrganizationConfigRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OrganizationConfigRule"
       ( \x ->
           OrganizationConfigRule'
-            Prelude.<$> (x Core..:? "OrganizationCustomPolicyRuleMetadata")
-            Prelude.<*> ( x Core..:? "ExcludedAccounts"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "OrganizationCustomPolicyRuleMetadata")
+            Prelude.<*> ( x Data..:? "ExcludedAccounts"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LastUpdateTime")
-            Prelude.<*> (x Core..:? "OrganizationManagedRuleMetadata")
-            Prelude.<*> (x Core..:? "OrganizationCustomRuleMetadata")
-            Prelude.<*> (x Core..: "OrganizationConfigRuleName")
-            Prelude.<*> (x Core..: "OrganizationConfigRuleArn")
+            Prelude.<*> (x Data..:? "LastUpdateTime")
+            Prelude.<*> (x Data..:? "OrganizationManagedRuleMetadata")
+            Prelude.<*> (x Data..:? "OrganizationCustomRuleMetadata")
+            Prelude.<*> (x Data..: "OrganizationConfigRuleName")
+            Prelude.<*> (x Data..: "OrganizationConfigRuleArn")
       )
 
 instance Prelude.Hashable OrganizationConfigRule where

@@ -24,6 +24,7 @@ import Amazonka.Config.Types.RemediationParameterValue
 import Amazonka.Config.Types.RemediationTargetType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the details about the remediation
@@ -214,24 +215,24 @@ remediationConfiguration_targetType = Lens.lens (\RemediationConfiguration' {tar
 remediationConfiguration_targetId :: Lens.Lens' RemediationConfiguration Prelude.Text
 remediationConfiguration_targetId = Lens.lens (\RemediationConfiguration' {targetId} -> targetId) (\s@RemediationConfiguration' {} a -> s {targetId = a} :: RemediationConfiguration)
 
-instance Core.FromJSON RemediationConfiguration where
+instance Data.FromJSON RemediationConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RemediationConfiguration"
       ( \x ->
           RemediationConfiguration'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "MaximumAutomaticAttempts")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "ExecutionControls")
-            Prelude.<*> (x Core..:? "Automatic")
-            Prelude.<*> (x Core..:? "TargetVersion")
-            Prelude.<*> (x Core..:? "CreatedByService")
-            Prelude.<*> (x Core..:? "RetryAttemptSeconds")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "ConfigRuleName")
-            Prelude.<*> (x Core..: "TargetType")
-            Prelude.<*> (x Core..: "TargetId")
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "MaximumAutomaticAttempts")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "ExecutionControls")
+            Prelude.<*> (x Data..:? "Automatic")
+            Prelude.<*> (x Data..:? "TargetVersion")
+            Prelude.<*> (x Data..:? "CreatedByService")
+            Prelude.<*> (x Data..:? "RetryAttemptSeconds")
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "ConfigRuleName")
+            Prelude.<*> (x Data..: "TargetType")
+            Prelude.<*> (x Data..: "TargetId")
       )
 
 instance Prelude.Hashable RemediationConfiguration where
@@ -264,26 +265,26 @@ instance Prelude.NFData RemediationConfiguration where
       `Prelude.seq` Prelude.rnf targetType
       `Prelude.seq` Prelude.rnf targetId
 
-instance Core.ToJSON RemediationConfiguration where
+instance Data.ToJSON RemediationConfiguration where
   toJSON RemediationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceType" Core..=) Prelude.<$> resourceType,
-            ("MaximumAutomaticAttempts" Core..=)
+          [ ("ResourceType" Data..=) Prelude.<$> resourceType,
+            ("MaximumAutomaticAttempts" Data..=)
               Prelude.<$> maximumAutomaticAttempts,
-            ("Arn" Core..=) Prelude.<$> arn,
-            ("ExecutionControls" Core..=)
+            ("Arn" Data..=) Prelude.<$> arn,
+            ("ExecutionControls" Data..=)
               Prelude.<$> executionControls,
-            ("Automatic" Core..=) Prelude.<$> automatic,
-            ("TargetVersion" Core..=) Prelude.<$> targetVersion,
-            ("CreatedByService" Core..=)
+            ("Automatic" Data..=) Prelude.<$> automatic,
+            ("TargetVersion" Data..=) Prelude.<$> targetVersion,
+            ("CreatedByService" Data..=)
               Prelude.<$> createdByService,
-            ("RetryAttemptSeconds" Core..=)
+            ("RetryAttemptSeconds" Data..=)
               Prelude.<$> retryAttemptSeconds,
-            ("Parameters" Core..=) Prelude.<$> parameters,
+            ("Parameters" Data..=) Prelude.<$> parameters,
             Prelude.Just
-              ("ConfigRuleName" Core..= configRuleName),
-            Prelude.Just ("TargetType" Core..= targetType),
-            Prelude.Just ("TargetId" Core..= targetId)
+              ("ConfigRuleName" Data..= configRuleName),
+            Prelude.Just ("TargetType" Data..= targetType),
+            Prelude.Just ("TargetId" Data..= targetId)
           ]
       )

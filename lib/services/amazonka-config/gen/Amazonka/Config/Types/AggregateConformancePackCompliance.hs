@@ -22,6 +22,7 @@ module Amazonka.Config.Types.AggregateConformancePackCompliance where
 import Amazonka.Config.Types.ConformancePackComplianceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the number of compliant and noncompliant rules within a
@@ -101,18 +102,18 @@ aggregateConformancePackCompliance_complianceType :: Lens.Lens' AggregateConform
 aggregateConformancePackCompliance_complianceType = Lens.lens (\AggregateConformancePackCompliance' {complianceType} -> complianceType) (\s@AggregateConformancePackCompliance' {} a -> s {complianceType = a} :: AggregateConformancePackCompliance)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AggregateConformancePackCompliance
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AggregateConformancePackCompliance"
       ( \x ->
           AggregateConformancePackCompliance'
-            Prelude.<$> (x Core..:? "NonCompliantRuleCount")
-            Prelude.<*> (x Core..:? "TotalRuleCount")
-            Prelude.<*> (x Core..:? "CompliantRuleCount")
-            Prelude.<*> (x Core..:? "ComplianceType")
+            Prelude.<$> (x Data..:? "NonCompliantRuleCount")
+            Prelude.<*> (x Data..:? "TotalRuleCount")
+            Prelude.<*> (x Data..:? "CompliantRuleCount")
+            Prelude.<*> (x Data..:? "ComplianceType")
       )
 
 instance

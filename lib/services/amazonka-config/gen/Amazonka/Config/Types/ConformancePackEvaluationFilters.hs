@@ -22,6 +22,7 @@ module Amazonka.Config.Types.ConformancePackEvaluationFilters where
 import Amazonka.Config.Types.ConformancePackComplianceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filters a conformance pack by Config rule names, compliance types,
@@ -125,15 +126,15 @@ instance
       `Prelude.seq` Prelude.rnf configRuleNames
       `Prelude.seq` Prelude.rnf complianceType
 
-instance Core.ToJSON ConformancePackEvaluationFilters where
+instance Data.ToJSON ConformancePackEvaluationFilters where
   toJSON ConformancePackEvaluationFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceType" Core..=) Prelude.<$> resourceType,
-            ("ResourceIds" Core..=) Prelude.<$> resourceIds,
-            ("ConfigRuleNames" Core..=)
+          [ ("ResourceType" Data..=) Prelude.<$> resourceType,
+            ("ResourceIds" Data..=) Prelude.<$> resourceIds,
+            ("ConfigRuleNames" Data..=)
               Prelude.<$> configRuleNames,
-            ("ComplianceType" Core..=)
+            ("ComplianceType" Data..=)
               Prelude.<$> complianceType
           ]
       )

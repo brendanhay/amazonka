@@ -24,6 +24,7 @@ import Amazonka.Config.Types.Owner
 import Amazonka.Config.Types.SourceDetail
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the CustomPolicyDetails, the rule owner (@Amazon Web Services@
@@ -174,16 +175,16 @@ source_sourceIdentifier = Lens.lens (\Source' {sourceIdentifier} -> sourceIdenti
 source_owner :: Lens.Lens' Source Owner
 source_owner = Lens.lens (\Source' {owner} -> owner) (\s@Source' {} a -> s {owner = a} :: Source)
 
-instance Core.FromJSON Source where
+instance Data.FromJSON Source where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Source"
       ( \x ->
           Source'
-            Prelude.<$> (x Core..:? "CustomPolicyDetails")
-            Prelude.<*> (x Core..:? "SourceDetails" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SourceIdentifier")
-            Prelude.<*> (x Core..: "Owner")
+            Prelude.<$> (x Data..:? "CustomPolicyDetails")
+            Prelude.<*> (x Data..:? "SourceDetails" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SourceIdentifier")
+            Prelude.<*> (x Data..: "Owner")
       )
 
 instance Prelude.Hashable Source where
@@ -200,15 +201,15 @@ instance Prelude.NFData Source where
       `Prelude.seq` Prelude.rnf sourceIdentifier
       `Prelude.seq` Prelude.rnf owner
 
-instance Core.ToJSON Source where
+instance Data.ToJSON Source where
   toJSON Source' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CustomPolicyDetails" Core..=)
+          [ ("CustomPolicyDetails" Data..=)
               Prelude.<$> customPolicyDetails,
-            ("SourceDetails" Core..=) Prelude.<$> sourceDetails,
-            ("SourceIdentifier" Core..=)
+            ("SourceDetails" Data..=) Prelude.<$> sourceDetails,
+            ("SourceIdentifier" Data..=)
               Prelude.<$> sourceIdentifier,
-            Prelude.Just ("Owner" Core..= owner)
+            Prelude.Just ("Owner" Data..= owner)
           ]
       )

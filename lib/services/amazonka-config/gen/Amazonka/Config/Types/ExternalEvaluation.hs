@@ -22,6 +22,7 @@ module Amazonka.Config.Types.ExternalEvaluation where
 import Amazonka.Config.Types.ComplianceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies an Amazon Web Services resource and indicates whether it
@@ -42,7 +43,7 @@ data ExternalEvaluation = ExternalEvaluation'
     -- @COMPLIANT, NON_COMPLIANT, @ and @NOT_APPLICABLE@.
     complianceType :: ComplianceType,
     -- | The time when the compliance was recorded.
-    orderingTimestamp :: Core.POSIX
+    orderingTimestamp :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,7 +89,7 @@ newExternalEvaluation
         complianceResourceId = pComplianceResourceId_,
         complianceType = pComplianceType_,
         orderingTimestamp =
-          Core._Time Lens.# pOrderingTimestamp_
+          Data._Time Lens.# pOrderingTimestamp_
       }
 
 -- | Supplementary information about the reason of compliance. For example,
@@ -113,7 +114,7 @@ externalEvaluation_complianceType = Lens.lens (\ExternalEvaluation' {complianceT
 
 -- | The time when the compliance was recorded.
 externalEvaluation_orderingTimestamp :: Lens.Lens' ExternalEvaluation Prelude.UTCTime
-externalEvaluation_orderingTimestamp = Lens.lens (\ExternalEvaluation' {orderingTimestamp} -> orderingTimestamp) (\s@ExternalEvaluation' {} a -> s {orderingTimestamp = a} :: ExternalEvaluation) Prelude.. Core._Time
+externalEvaluation_orderingTimestamp = Lens.lens (\ExternalEvaluation' {orderingTimestamp} -> orderingTimestamp) (\s@ExternalEvaluation' {} a -> s {orderingTimestamp = a} :: ExternalEvaluation) Prelude.. Data._Time
 
 instance Prelude.Hashable ExternalEvaluation where
   hashWithSalt _salt ExternalEvaluation' {..} =
@@ -131,22 +132,22 @@ instance Prelude.NFData ExternalEvaluation where
       `Prelude.seq` Prelude.rnf complianceType
       `Prelude.seq` Prelude.rnf orderingTimestamp
 
-instance Core.ToJSON ExternalEvaluation where
+instance Data.ToJSON ExternalEvaluation where
   toJSON ExternalEvaluation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Annotation" Core..=) Prelude.<$> annotation,
+          [ ("Annotation" Data..=) Prelude.<$> annotation,
             Prelude.Just
               ( "ComplianceResourceType"
-                  Core..= complianceResourceType
+                  Data..= complianceResourceType
               ),
             Prelude.Just
               ( "ComplianceResourceId"
-                  Core..= complianceResourceId
+                  Data..= complianceResourceId
               ),
             Prelude.Just
-              ("ComplianceType" Core..= complianceType),
+              ("ComplianceType" Data..= complianceType),
             Prelude.Just
-              ("OrderingTimestamp" Core..= orderingTimestamp)
+              ("OrderingTimestamp" Data..= orderingTimestamp)
           ]
       )

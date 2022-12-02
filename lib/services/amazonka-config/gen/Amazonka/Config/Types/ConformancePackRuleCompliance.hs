@@ -22,6 +22,7 @@ module Amazonka.Config.Types.ConformancePackRuleCompliance where
 import Amazonka.Config.Types.ConformancePackComplianceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Compliance information of one or more Config rules within a conformance
@@ -91,15 +92,15 @@ conformancePackRuleCompliance_controls = Lens.lens (\ConformancePackRuleComplian
 conformancePackRuleCompliance_complianceType :: Lens.Lens' ConformancePackRuleCompliance (Prelude.Maybe ConformancePackComplianceType)
 conformancePackRuleCompliance_complianceType = Lens.lens (\ConformancePackRuleCompliance' {complianceType} -> complianceType) (\s@ConformancePackRuleCompliance' {} a -> s {complianceType = a} :: ConformancePackRuleCompliance)
 
-instance Core.FromJSON ConformancePackRuleCompliance where
+instance Data.FromJSON ConformancePackRuleCompliance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConformancePackRuleCompliance"
       ( \x ->
           ConformancePackRuleCompliance'
-            Prelude.<$> (x Core..:? "ConfigRuleName")
-            Prelude.<*> (x Core..:? "Controls" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ComplianceType")
+            Prelude.<$> (x Data..:? "ConfigRuleName")
+            Prelude.<*> (x Data..:? "Controls" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ComplianceType")
       )
 
 instance

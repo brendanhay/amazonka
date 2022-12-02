@@ -41,6 +41,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,34 +96,34 @@ instance Prelude.NFData DeleteDeliveryChannel where
   rnf DeleteDeliveryChannel' {..} =
     Prelude.rnf deliveryChannelName
 
-instance Core.ToHeaders DeleteDeliveryChannel where
+instance Data.ToHeaders DeleteDeliveryChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.DeleteDeliveryChannel" ::
+              Data.=# ( "StarlingDoveService.DeleteDeliveryChannel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteDeliveryChannel where
+instance Data.ToJSON DeleteDeliveryChannel where
   toJSON DeleteDeliveryChannel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("DeliveryChannelName" Core..= deliveryChannelName)
+              ("DeliveryChannelName" Data..= deliveryChannelName)
           ]
       )
 
-instance Core.ToPath DeleteDeliveryChannel where
+instance Data.ToPath DeleteDeliveryChannel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDeliveryChannel where
+instance Data.ToQuery DeleteDeliveryChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDeliveryChannelResponse' smart constructor.

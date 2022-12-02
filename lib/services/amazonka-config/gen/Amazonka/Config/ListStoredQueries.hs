@@ -45,6 +45,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,8 +99,8 @@ instance Core.AWSRequest ListStoredQueries where
     Response.receiveJSON
       ( \s h x ->
           ListStoredQueriesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "StoredQueryMetadata"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "StoredQueryMetadata"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -115,34 +116,34 @@ instance Prelude.NFData ListStoredQueries where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListStoredQueries where
+instance Data.ToHeaders ListStoredQueries where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.ListStoredQueries" ::
+              Data.=# ( "StarlingDoveService.ListStoredQueries" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListStoredQueries where
+instance Data.ToJSON ListStoredQueries where
   toJSON ListStoredQueries' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListStoredQueries where
+instance Data.ToPath ListStoredQueries where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListStoredQueries where
+instance Data.ToQuery ListStoredQueries where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListStoredQueriesResponse' smart constructor.

@@ -151,6 +151,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -253,7 +254,7 @@ data ReEncrypt = ReEncrypt'
     -- in the /Key Management Service Developer Guide/.
     sourceEncryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Ciphertext of the data to reencrypt.
-    ciphertextBlob :: Core.Base64,
+    ciphertextBlob :: Data.Base64,
     -- | A unique identifier for the KMS key that is used to reencrypt the data.
     -- Specify a symmetric encryption KMS key or an asymmetric KMS key with a
     -- @KeyUsage@ value of @ENCRYPT_DECRYPT@. To find the @KeyUsage@ value of a
@@ -427,7 +428,7 @@ newReEncrypt pCiphertextBlob_ pDestinationKeyId_ =
       destinationEncryptionAlgorithm = Prelude.Nothing,
       sourceEncryptionContext = Prelude.Nothing,
       ciphertextBlob =
-        Core._Base64 Lens.# pCiphertextBlob_,
+        Data._Base64 Lens.# pCiphertextBlob_,
       destinationKeyId = pDestinationKeyId_
     }
 
@@ -543,7 +544,7 @@ reEncrypt_sourceEncryptionContext = Lens.lens (\ReEncrypt' {sourceEncryptionCont
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 reEncrypt_ciphertextBlob :: Lens.Lens' ReEncrypt Prelude.ByteString
-reEncrypt_ciphertextBlob = Lens.lens (\ReEncrypt' {ciphertextBlob} -> ciphertextBlob) (\s@ReEncrypt' {} a -> s {ciphertextBlob = a} :: ReEncrypt) Prelude.. Core._Base64
+reEncrypt_ciphertextBlob = Lens.lens (\ReEncrypt' {ciphertextBlob} -> ciphertextBlob) (\s@ReEncrypt' {} a -> s {ciphertextBlob = a} :: ReEncrypt) Prelude.. Data._Base64
 
 -- | A unique identifier for the KMS key that is used to reencrypt the data.
 -- Specify a symmetric encryption KMS key or an asymmetric KMS key with a
@@ -579,11 +580,11 @@ instance Core.AWSRequest ReEncrypt where
     Response.receiveJSON
       ( \s h x ->
           ReEncryptResponse'
-            Prelude.<$> (x Core..?> "SourceKeyId")
-            Prelude.<*> (x Core..?> "SourceEncryptionAlgorithm")
-            Prelude.<*> (x Core..?> "CiphertextBlob")
-            Prelude.<*> (x Core..?> "KeyId")
-            Prelude.<*> (x Core..?> "DestinationEncryptionAlgorithm")
+            Prelude.<$> (x Data..?> "SourceKeyId")
+            Prelude.<*> (x Data..?> "SourceEncryptionAlgorithm")
+            Prelude.<*> (x Data..?> "CiphertextBlob")
+            Prelude.<*> (x Data..?> "KeyId")
+            Prelude.<*> (x Data..?> "DestinationEncryptionAlgorithm")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -609,44 +610,44 @@ instance Prelude.NFData ReEncrypt where
       `Prelude.seq` Prelude.rnf ciphertextBlob
       `Prelude.seq` Prelude.rnf destinationKeyId
 
-instance Core.ToHeaders ReEncrypt where
+instance Data.ToHeaders ReEncrypt where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.ReEncrypt" :: Prelude.ByteString),
+              Data.=# ("TrentService.ReEncrypt" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ReEncrypt where
+instance Data.ToJSON ReEncrypt where
   toJSON ReEncrypt' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SourceKeyId" Core..=) Prelude.<$> sourceKeyId,
-            ("SourceEncryptionAlgorithm" Core..=)
+          [ ("SourceKeyId" Data..=) Prelude.<$> sourceKeyId,
+            ("SourceEncryptionAlgorithm" Data..=)
               Prelude.<$> sourceEncryptionAlgorithm,
-            ("GrantTokens" Core..=) Prelude.<$> grantTokens,
-            ("DestinationEncryptionContext" Core..=)
+            ("GrantTokens" Data..=) Prelude.<$> grantTokens,
+            ("DestinationEncryptionContext" Data..=)
               Prelude.<$> destinationEncryptionContext,
-            ("DestinationEncryptionAlgorithm" Core..=)
+            ("DestinationEncryptionAlgorithm" Data..=)
               Prelude.<$> destinationEncryptionAlgorithm,
-            ("SourceEncryptionContext" Core..=)
+            ("SourceEncryptionContext" Data..=)
               Prelude.<$> sourceEncryptionContext,
             Prelude.Just
-              ("CiphertextBlob" Core..= ciphertextBlob),
+              ("CiphertextBlob" Data..= ciphertextBlob),
             Prelude.Just
-              ("DestinationKeyId" Core..= destinationKeyId)
+              ("DestinationKeyId" Data..= destinationKeyId)
           ]
       )
 
-instance Core.ToPath ReEncrypt where
+instance Data.ToPath ReEncrypt where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ReEncrypt where
+instance Data.ToQuery ReEncrypt where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newReEncryptResponse' smart constructor.
@@ -659,7 +660,7 @@ data ReEncryptResponse = ReEncryptResponse'
     -- | The reencrypted data. When you use the HTTP API or the Amazon Web
     -- Services CLI, the value is Base64-encoded. Otherwise, it is not
     -- Base64-encoded.
-    ciphertextBlob :: Prelude.Maybe Core.Base64,
+    ciphertextBlob :: Prelude.Maybe Data.Base64,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
     -- of the KMS key that was used to reencrypt the data.
@@ -730,7 +731,7 @@ reEncryptResponse_sourceEncryptionAlgorithm = Lens.lens (\ReEncryptResponse' {so
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 reEncryptResponse_ciphertextBlob :: Lens.Lens' ReEncryptResponse (Prelude.Maybe Prelude.ByteString)
-reEncryptResponse_ciphertextBlob = Lens.lens (\ReEncryptResponse' {ciphertextBlob} -> ciphertextBlob) (\s@ReEncryptResponse' {} a -> s {ciphertextBlob = a} :: ReEncryptResponse) Prelude.. Lens.mapping Core._Base64
+reEncryptResponse_ciphertextBlob = Lens.lens (\ReEncryptResponse' {ciphertextBlob} -> ciphertextBlob) (\s@ReEncryptResponse' {} a -> s {ciphertextBlob = a} :: ReEncryptResponse) Prelude.. Lens.mapping Data._Base64
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)

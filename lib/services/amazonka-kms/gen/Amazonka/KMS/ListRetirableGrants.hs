@@ -79,6 +79,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -212,7 +213,7 @@ instance Core.AWSRequest ListRetirableGrants where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable ListRetirableGrants where
   hashWithSalt _salt ListRetirableGrants' {..} =
@@ -226,34 +227,34 @@ instance Prelude.NFData ListRetirableGrants where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf retiringPrincipal
 
-instance Core.ToHeaders ListRetirableGrants where
+instance Data.ToHeaders ListRetirableGrants where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TrentService.ListRetirableGrants" ::
+              Data.=# ( "TrentService.ListRetirableGrants" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListRetirableGrants where
+instance Data.ToJSON ListRetirableGrants where
   toJSON ListRetirableGrants' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("Limit" Core..=) Prelude.<$> limit,
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("Limit" Data..=) Prelude.<$> limit,
             Prelude.Just
-              ("RetiringPrincipal" Core..= retiringPrincipal)
+              ("RetiringPrincipal" Data..= retiringPrincipal)
           ]
       )
 
-instance Core.ToPath ListRetirableGrants where
+instance Data.ToPath ListRetirableGrants where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListRetirableGrants where
+instance Data.ToQuery ListRetirableGrants where
   toQuery = Prelude.const Prelude.mempty

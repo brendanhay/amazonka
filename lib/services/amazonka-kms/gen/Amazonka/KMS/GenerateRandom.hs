@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,7 +131,7 @@ instance Core.AWSRequest GenerateRandom where
     Response.receiveJSON
       ( \s h x ->
           GenerateRandomResponse'
-            Prelude.<$> (x Core..?> "Plaintext")
+            Prelude.<$> (x Data..?> "Plaintext")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,35 +145,35 @@ instance Prelude.NFData GenerateRandom where
     Prelude.rnf customKeyStoreId
       `Prelude.seq` Prelude.rnf numberOfBytes
 
-instance Core.ToHeaders GenerateRandom where
+instance Data.ToHeaders GenerateRandom where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TrentService.GenerateRandom" ::
+              Data.=# ( "TrentService.GenerateRandom" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GenerateRandom where
+instance Data.ToJSON GenerateRandom where
   toJSON GenerateRandom' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CustomKeyStoreId" Core..=)
+          [ ("CustomKeyStoreId" Data..=)
               Prelude.<$> customKeyStoreId,
-            ("NumberOfBytes" Core..=) Prelude.<$> numberOfBytes
+            ("NumberOfBytes" Data..=) Prelude.<$> numberOfBytes
           ]
       )
 
-instance Core.ToPath GenerateRandom where
+instance Data.ToPath GenerateRandom where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GenerateRandom where
+instance Data.ToQuery GenerateRandom where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGenerateRandomResponse' smart constructor.
@@ -180,7 +181,7 @@ data GenerateRandomResponse = GenerateRandomResponse'
   { -- | The random byte string. When you use the HTTP API or the Amazon Web
     -- Services CLI, the value is Base64-encoded. Otherwise, it is not
     -- Base64-encoded.
-    plaintext :: Prelude.Maybe (Core.Sensitive Core.Base64),
+    plaintext :: Prelude.Maybe (Data.Sensitive Data.Base64),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -222,7 +223,7 @@ newGenerateRandomResponse pHttpStatus_ =
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 generateRandomResponse_plaintext :: Lens.Lens' GenerateRandomResponse (Prelude.Maybe Prelude.ByteString)
-generateRandomResponse_plaintext = Lens.lens (\GenerateRandomResponse' {plaintext} -> plaintext) (\s@GenerateRandomResponse' {} a -> s {plaintext = a} :: GenerateRandomResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
+generateRandomResponse_plaintext = Lens.lens (\GenerateRandomResponse' {plaintext} -> plaintext) (\s@GenerateRandomResponse' {} a -> s {plaintext = a} :: GenerateRandomResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Data._Base64)
 
 -- | The response's http status code.
 generateRandomResponse_httpStatus :: Lens.Lens' GenerateRandomResponse Prelude.Int

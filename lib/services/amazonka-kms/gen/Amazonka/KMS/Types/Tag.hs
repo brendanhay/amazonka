@@ -21,6 +21,7 @@ module Amazonka.KMS.Types.Tag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A key-value pair. A tag consists of a tag key and a tag value. Tag keys
@@ -69,14 +70,14 @@ tag_tagKey = Lens.lens (\Tag' {tagKey} -> tagKey) (\s@Tag' {} a -> s {tagKey = a
 tag_tagValue :: Lens.Lens' Tag Prelude.Text
 tag_tagValue = Lens.lens (\Tag' {tagValue} -> tagValue) (\s@Tag' {} a -> s {tagValue = a} :: Tag)
 
-instance Core.FromJSON Tag where
+instance Data.FromJSON Tag where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Core..: "TagKey")
-            Prelude.<*> (x Core..: "TagValue")
+            Prelude.<$> (x Data..: "TagKey")
+            Prelude.<*> (x Data..: "TagValue")
       )
 
 instance Prelude.Hashable Tag where
@@ -89,11 +90,11 @@ instance Prelude.NFData Tag where
     Prelude.rnf tagKey
       `Prelude.seq` Prelude.rnf tagValue
 
-instance Core.ToJSON Tag where
+instance Data.ToJSON Tag where
   toJSON Tag' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("TagKey" Core..= tagKey),
-            Prelude.Just ("TagValue" Core..= tagValue)
+          [ Prelude.Just ("TagKey" Data..= tagKey),
+            Prelude.Just ("TagValue" Data..= tagValue)
           ]
       )

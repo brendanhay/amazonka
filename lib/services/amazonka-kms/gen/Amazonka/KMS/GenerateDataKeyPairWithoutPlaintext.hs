@@ -110,6 +110,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -339,10 +340,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GenerateDataKeyPairWithoutPlaintextResponse'
-            Prelude.<$> (x Core..?> "PublicKey")
-              Prelude.<*> (x Core..?> "PrivateKeyCiphertextBlob")
-              Prelude.<*> (x Core..?> "KeyPairSpec")
-              Prelude.<*> (x Core..?> "KeyId")
+            Prelude.<$> (x Data..?> "PublicKey")
+              Prelude.<*> (x Data..?> "PrivateKeyCiphertextBlob")
+              Prelude.<*> (x Data..?> "KeyPairSpec")
+              Prelude.<*> (x Data..?> "KeyId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -369,46 +370,46 @@ instance
       `Prelude.seq` Prelude.rnf keyPairSpec
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GenerateDataKeyPairWithoutPlaintext
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TrentService.GenerateDataKeyPairWithoutPlaintext" ::
+              Data.=# ( "TrentService.GenerateDataKeyPairWithoutPlaintext" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     GenerateDataKeyPairWithoutPlaintext
   where
   toJSON GenerateDataKeyPairWithoutPlaintext' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GrantTokens" Core..=) Prelude.<$> grantTokens,
-            ("EncryptionContext" Core..=)
+          [ ("GrantTokens" Data..=) Prelude.<$> grantTokens,
+            ("EncryptionContext" Data..=)
               Prelude.<$> encryptionContext,
-            Prelude.Just ("KeyId" Core..= keyId),
-            Prelude.Just ("KeyPairSpec" Core..= keyPairSpec)
+            Prelude.Just ("KeyId" Data..= keyId),
+            Prelude.Just ("KeyPairSpec" Data..= keyPairSpec)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GenerateDataKeyPairWithoutPlaintext
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GenerateDataKeyPairWithoutPlaintext
   where
   toQuery = Prelude.const Prelude.mempty
@@ -418,11 +419,11 @@ data GenerateDataKeyPairWithoutPlaintextResponse = GenerateDataKeyPairWithoutPla
   { -- | The public key (in plaintext). When you use the HTTP API or the Amazon
     -- Web Services CLI, the value is Base64-encoded. Otherwise, it is not
     -- Base64-encoded.
-    publicKey :: Prelude.Maybe Core.Base64,
+    publicKey :: Prelude.Maybe Data.Base64,
     -- | The encrypted copy of the private key. When you use the HTTP API or the
     -- Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is
     -- not Base64-encoded.
-    privateKeyCiphertextBlob :: Prelude.Maybe Core.Base64,
+    privateKeyCiphertextBlob :: Prelude.Maybe Data.Base64,
     -- | The type of data key pair that was generated.
     keyPairSpec :: Prelude.Maybe DataKeyPairSpec,
     -- | The Amazon Resource Name
@@ -489,7 +490,7 @@ newGenerateDataKeyPairWithoutPlaintextResponse
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 generateDataKeyPairWithoutPlaintextResponse_publicKey :: Lens.Lens' GenerateDataKeyPairWithoutPlaintextResponse (Prelude.Maybe Prelude.ByteString)
-generateDataKeyPairWithoutPlaintextResponse_publicKey = Lens.lens (\GenerateDataKeyPairWithoutPlaintextResponse' {publicKey} -> publicKey) (\s@GenerateDataKeyPairWithoutPlaintextResponse' {} a -> s {publicKey = a} :: GenerateDataKeyPairWithoutPlaintextResponse) Prelude.. Lens.mapping Core._Base64
+generateDataKeyPairWithoutPlaintextResponse_publicKey = Lens.lens (\GenerateDataKeyPairWithoutPlaintextResponse' {publicKey} -> publicKey) (\s@GenerateDataKeyPairWithoutPlaintextResponse' {} a -> s {publicKey = a} :: GenerateDataKeyPairWithoutPlaintextResponse) Prelude.. Lens.mapping Data._Base64
 
 -- | The encrypted copy of the private key. When you use the HTTP API or the
 -- Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is
@@ -499,7 +500,7 @@ generateDataKeyPairWithoutPlaintextResponse_publicKey = Lens.lens (\GenerateData
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 generateDataKeyPairWithoutPlaintextResponse_privateKeyCiphertextBlob :: Lens.Lens' GenerateDataKeyPairWithoutPlaintextResponse (Prelude.Maybe Prelude.ByteString)
-generateDataKeyPairWithoutPlaintextResponse_privateKeyCiphertextBlob = Lens.lens (\GenerateDataKeyPairWithoutPlaintextResponse' {privateKeyCiphertextBlob} -> privateKeyCiphertextBlob) (\s@GenerateDataKeyPairWithoutPlaintextResponse' {} a -> s {privateKeyCiphertextBlob = a} :: GenerateDataKeyPairWithoutPlaintextResponse) Prelude.. Lens.mapping Core._Base64
+generateDataKeyPairWithoutPlaintextResponse_privateKeyCiphertextBlob = Lens.lens (\GenerateDataKeyPairWithoutPlaintextResponse' {privateKeyCiphertextBlob} -> privateKeyCiphertextBlob) (\s@GenerateDataKeyPairWithoutPlaintextResponse' {} a -> s {privateKeyCiphertextBlob = a} :: GenerateDataKeyPairWithoutPlaintextResponse) Prelude.. Lens.mapping Data._Base64
 
 -- | The type of data key pair that was generated.
 generateDataKeyPairWithoutPlaintextResponse_keyPairSpec :: Lens.Lens' GenerateDataKeyPairWithoutPlaintextResponse (Prelude.Maybe DataKeyPairSpec)

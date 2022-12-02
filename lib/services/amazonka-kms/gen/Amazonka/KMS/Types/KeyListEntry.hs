@@ -21,6 +21,7 @@ module Amazonka.KMS.Types.KeyListEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about each entry in the key list.
@@ -61,14 +62,14 @@ keyListEntry_keyArn = Lens.lens (\KeyListEntry' {keyArn} -> keyArn) (\s@KeyListE
 keyListEntry_keyId :: Lens.Lens' KeyListEntry (Prelude.Maybe Prelude.Text)
 keyListEntry_keyId = Lens.lens (\KeyListEntry' {keyId} -> keyId) (\s@KeyListEntry' {} a -> s {keyId = a} :: KeyListEntry)
 
-instance Core.FromJSON KeyListEntry where
+instance Data.FromJSON KeyListEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KeyListEntry"
       ( \x ->
           KeyListEntry'
-            Prelude.<$> (x Core..:? "KeyArn")
-            Prelude.<*> (x Core..:? "KeyId")
+            Prelude.<$> (x Data..:? "KeyArn")
+            Prelude.<*> (x Data..:? "KeyId")
       )
 
 instance Prelude.Hashable KeyListEntry where

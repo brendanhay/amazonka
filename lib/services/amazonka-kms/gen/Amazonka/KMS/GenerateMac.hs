@@ -79,6 +79,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,7 +102,7 @@ data GenerateMac = GenerateMac'
     -- @GenerateMac@ and VerifyMac do not provide special handling for message
     -- digests. If you generate an HMAC for a hash digest of a message, you
     -- must verify the HMAC of the same hash digest.
-    message :: Core.Sensitive Core.Base64,
+    message :: Data.Sensitive Data.Base64,
     -- | The HMAC KMS key to use in the operation. The MAC algorithm computes the
     -- HMAC for the message and the key as described in
     -- <https://datatracker.ietf.org/doc/html/rfc2104 RFC 2104>.
@@ -172,7 +173,7 @@ newGenerateMac pMessage_ pKeyId_ pMacAlgorithm_ =
   GenerateMac'
     { grantTokens = Prelude.Nothing,
       message =
-        Core._Sensitive Prelude.. Core._Base64
+        Data._Sensitive Prelude.. Data._Base64
           Lens.# pMessage_,
       keyId = pKeyId_,
       macAlgorithm = pMacAlgorithm_
@@ -200,7 +201,7 @@ generateMac_grantTokens = Lens.lens (\GenerateMac' {grantTokens} -> grantTokens)
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 generateMac_message :: Lens.Lens' GenerateMac Prelude.ByteString
-generateMac_message = Lens.lens (\GenerateMac' {message} -> message) (\s@GenerateMac' {} a -> s {message = a} :: GenerateMac) Prelude.. Core._Sensitive Prelude.. Core._Base64
+generateMac_message = Lens.lens (\GenerateMac' {message} -> message) (\s@GenerateMac' {} a -> s {message = a} :: GenerateMac) Prelude.. Data._Sensitive Prelude.. Data._Base64
 
 -- | The HMAC KMS key to use in the operation. The MAC algorithm computes the
 -- HMAC for the message and the key as described in
@@ -228,9 +229,9 @@ instance Core.AWSRequest GenerateMac where
     Response.receiveJSON
       ( \s h x ->
           GenerateMacResponse'
-            Prelude.<$> (x Core..?> "MacAlgorithm")
-            Prelude.<*> (x Core..?> "Mac")
-            Prelude.<*> (x Core..?> "KeyId")
+            Prelude.<$> (x Data..?> "MacAlgorithm")
+            Prelude.<*> (x Data..?> "Mac")
+            Prelude.<*> (x Data..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -248,34 +249,34 @@ instance Prelude.NFData GenerateMac where
       `Prelude.seq` Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf macAlgorithm
 
-instance Core.ToHeaders GenerateMac where
+instance Data.ToHeaders GenerateMac where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.GenerateMac" :: Prelude.ByteString),
+              Data.=# ("TrentService.GenerateMac" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GenerateMac where
+instance Data.ToJSON GenerateMac where
   toJSON GenerateMac' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GrantTokens" Core..=) Prelude.<$> grantTokens,
-            Prelude.Just ("Message" Core..= message),
-            Prelude.Just ("KeyId" Core..= keyId),
-            Prelude.Just ("MacAlgorithm" Core..= macAlgorithm)
+          [ ("GrantTokens" Data..=) Prelude.<$> grantTokens,
+            Prelude.Just ("Message" Data..= message),
+            Prelude.Just ("KeyId" Data..= keyId),
+            Prelude.Just ("MacAlgorithm" Data..= macAlgorithm)
           ]
       )
 
-instance Core.ToPath GenerateMac where
+instance Data.ToPath GenerateMac where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GenerateMac where
+instance Data.ToQuery GenerateMac where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGenerateMacResponse' smart constructor.
@@ -284,7 +285,7 @@ data GenerateMacResponse = GenerateMacResponse'
     macAlgorithm :: Prelude.Maybe MacAlgorithmSpec,
     -- | The hash-based message authentication code (HMAC) for the given message,
     -- key, and MAC algorithm.
-    mac :: Prelude.Maybe Core.Base64,
+    mac :: Prelude.Maybe Data.Base64,
     -- | The HMAC KMS key used in the operation.
     keyId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -336,7 +337,7 @@ generateMacResponse_macAlgorithm = Lens.lens (\GenerateMacResponse' {macAlgorith
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 generateMacResponse_mac :: Lens.Lens' GenerateMacResponse (Prelude.Maybe Prelude.ByteString)
-generateMacResponse_mac = Lens.lens (\GenerateMacResponse' {mac} -> mac) (\s@GenerateMacResponse' {} a -> s {mac = a} :: GenerateMacResponse) Prelude.. Lens.mapping Core._Base64
+generateMacResponse_mac = Lens.lens (\GenerateMacResponse' {mac} -> mac) (\s@GenerateMacResponse' {} a -> s {mac = a} :: GenerateMacResponse) Prelude.. Lens.mapping Data._Base64
 
 -- | The HMAC KMS key used in the operation.
 generateMacResponse_keyId :: Lens.Lens' GenerateMacResponse (Prelude.Maybe Prelude.Text)

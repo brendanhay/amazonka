@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -155,32 +156,32 @@ instance Prelude.NFData DeleteImportedKeyMaterial where
   rnf DeleteImportedKeyMaterial' {..} =
     Prelude.rnf keyId
 
-instance Core.ToHeaders DeleteImportedKeyMaterial where
+instance Data.ToHeaders DeleteImportedKeyMaterial where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TrentService.DeleteImportedKeyMaterial" ::
+              Data.=# ( "TrentService.DeleteImportedKeyMaterial" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteImportedKeyMaterial where
+instance Data.ToJSON DeleteImportedKeyMaterial where
   toJSON DeleteImportedKeyMaterial' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("KeyId" Core..= keyId)]
+          [Prelude.Just ("KeyId" Data..= keyId)]
       )
 
-instance Core.ToPath DeleteImportedKeyMaterial where
+instance Data.ToPath DeleteImportedKeyMaterial where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteImportedKeyMaterial where
+instance Data.ToQuery DeleteImportedKeyMaterial where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteImportedKeyMaterialResponse' smart constructor.

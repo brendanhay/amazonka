@@ -75,6 +75,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -188,33 +189,33 @@ instance Prelude.NFData RetireGrant where
       `Prelude.seq` Prelude.rnf grantId
       `Prelude.seq` Prelude.rnf keyId
 
-instance Core.ToHeaders RetireGrant where
+instance Data.ToHeaders RetireGrant where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.RetireGrant" :: Prelude.ByteString),
+              Data.=# ("TrentService.RetireGrant" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RetireGrant where
+instance Data.ToJSON RetireGrant where
   toJSON RetireGrant' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GrantToken" Core..=) Prelude.<$> grantToken,
-            ("GrantId" Core..=) Prelude.<$> grantId,
-            ("KeyId" Core..=) Prelude.<$> keyId
+          [ ("GrantToken" Data..=) Prelude.<$> grantToken,
+            ("GrantId" Data..=) Prelude.<$> grantId,
+            ("KeyId" Data..=) Prelude.<$> keyId
           ]
       )
 
-instance Core.ToPath RetireGrant where
+instance Data.ToPath RetireGrant where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RetireGrant where
+instance Data.ToQuery RetireGrant where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRetireGrantResponse' smart constructor.

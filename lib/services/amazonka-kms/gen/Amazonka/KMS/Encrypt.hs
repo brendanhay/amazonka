@@ -127,6 +127,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -196,7 +197,7 @@ data Encrypt = Encrypt'
     -- DescribeKey. To get the alias name and alias ARN, use ListAliases.
     keyId :: Prelude.Text,
     -- | Data to be encrypted.
-    plaintext :: Core.Sensitive Core.Base64
+    plaintext :: Data.Sensitive Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -287,7 +288,7 @@ newEncrypt pKeyId_ pPlaintext_ =
       encryptionContext = Prelude.Nothing,
       keyId = pKeyId_,
       plaintext =
-        Core._Sensitive Prelude.. Core._Base64
+        Data._Sensitive Prelude.. Data._Base64
           Lens.# pPlaintext_
     }
 
@@ -366,7 +367,7 @@ encrypt_keyId = Lens.lens (\Encrypt' {keyId} -> keyId) (\s@Encrypt' {} a -> s {k
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 encrypt_plaintext :: Lens.Lens' Encrypt Prelude.ByteString
-encrypt_plaintext = Lens.lens (\Encrypt' {plaintext} -> plaintext) (\s@Encrypt' {} a -> s {plaintext = a} :: Encrypt) Prelude.. Core._Sensitive Prelude.. Core._Base64
+encrypt_plaintext = Lens.lens (\Encrypt' {plaintext} -> plaintext) (\s@Encrypt' {} a -> s {plaintext = a} :: Encrypt) Prelude.. Data._Sensitive Prelude.. Data._Base64
 
 instance Core.AWSRequest Encrypt where
   type AWSResponse Encrypt = EncryptResponse
@@ -376,9 +377,9 @@ instance Core.AWSRequest Encrypt where
     Response.receiveJSON
       ( \s h x ->
           EncryptResponse'
-            Prelude.<$> (x Core..?> "EncryptionAlgorithm")
-            Prelude.<*> (x Core..?> "CiphertextBlob")
-            Prelude.<*> (x Core..?> "KeyId")
+            Prelude.<$> (x Data..?> "EncryptionAlgorithm")
+            Prelude.<*> (x Data..?> "CiphertextBlob")
+            Prelude.<*> (x Data..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -398,37 +399,37 @@ instance Prelude.NFData Encrypt where
       `Prelude.seq` Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf plaintext
 
-instance Core.ToHeaders Encrypt where
+instance Data.ToHeaders Encrypt where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.Encrypt" :: Prelude.ByteString),
+              Data.=# ("TrentService.Encrypt" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON Encrypt where
+instance Data.ToJSON Encrypt where
   toJSON Encrypt' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EncryptionAlgorithm" Core..=)
+          [ ("EncryptionAlgorithm" Data..=)
               Prelude.<$> encryptionAlgorithm,
-            ("GrantTokens" Core..=) Prelude.<$> grantTokens,
-            ("EncryptionContext" Core..=)
+            ("GrantTokens" Data..=) Prelude.<$> grantTokens,
+            ("EncryptionContext" Data..=)
               Prelude.<$> encryptionContext,
-            Prelude.Just ("KeyId" Core..= keyId),
-            Prelude.Just ("Plaintext" Core..= plaintext)
+            Prelude.Just ("KeyId" Data..= keyId),
+            Prelude.Just ("Plaintext" Data..= plaintext)
           ]
       )
 
-instance Core.ToPath Encrypt where
+instance Data.ToPath Encrypt where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery Encrypt where
+instance Data.ToQuery Encrypt where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEncryptResponse' smart constructor.
@@ -438,7 +439,7 @@ data EncryptResponse = EncryptResponse'
     -- | The encrypted plaintext. When you use the HTTP API or the Amazon Web
     -- Services CLI, the value is Base64-encoded. Otherwise, it is not
     -- Base64-encoded.
-    ciphertextBlob :: Prelude.Maybe Core.Base64,
+    ciphertextBlob :: Prelude.Maybe Data.Base64,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
     -- of the KMS key that was used to encrypt the plaintext.
@@ -496,7 +497,7 @@ encryptResponse_encryptionAlgorithm = Lens.lens (\EncryptResponse' {encryptionAl
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 encryptResponse_ciphertextBlob :: Lens.Lens' EncryptResponse (Prelude.Maybe Prelude.ByteString)
-encryptResponse_ciphertextBlob = Lens.lens (\EncryptResponse' {ciphertextBlob} -> ciphertextBlob) (\s@EncryptResponse' {} a -> s {ciphertextBlob = a} :: EncryptResponse) Prelude.. Lens.mapping Core._Base64
+encryptResponse_ciphertextBlob = Lens.lens (\EncryptResponse' {ciphertextBlob} -> ciphertextBlob) (\s@EncryptResponse' {} a -> s {ciphertextBlob = a} :: EncryptResponse) Prelude.. Lens.mapping Data._Base64
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)

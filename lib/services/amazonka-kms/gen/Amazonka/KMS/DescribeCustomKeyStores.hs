@@ -97,6 +97,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -236,11 +237,11 @@ instance Core.AWSRequest DescribeCustomKeyStores where
     Response.receiveJSON
       ( \s h x ->
           DescribeCustomKeyStoresResponse'
-            Prelude.<$> (x Core..?> "Truncated")
-            Prelude.<*> ( x Core..?> "CustomKeyStores"
+            Prelude.<$> (x Data..?> "Truncated")
+            Prelude.<*> ( x Data..?> "CustomKeyStores"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -258,38 +259,38 @@ instance Prelude.NFData DescribeCustomKeyStores where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf customKeyStoreName
 
-instance Core.ToHeaders DescribeCustomKeyStores where
+instance Data.ToHeaders DescribeCustomKeyStores where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TrentService.DescribeCustomKeyStores" ::
+              Data.=# ( "TrentService.DescribeCustomKeyStores" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeCustomKeyStores where
+instance Data.ToJSON DescribeCustomKeyStores where
   toJSON DescribeCustomKeyStores' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("CustomKeyStoreId" Core..=)
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("CustomKeyStoreId" Data..=)
               Prelude.<$> customKeyStoreId,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("CustomKeyStoreName" Core..=)
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("CustomKeyStoreName" Data..=)
               Prelude.<$> customKeyStoreName
           ]
       )
 
-instance Core.ToPath DescribeCustomKeyStores where
+instance Data.ToPath DescribeCustomKeyStores where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCustomKeyStores where
+instance Data.ToQuery DescribeCustomKeyStores where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeCustomKeyStoresResponse' smart constructor.

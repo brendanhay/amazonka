@@ -143,6 +143,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -634,9 +635,9 @@ instance Core.AWSRequest ReplicateKey where
     Response.receiveJSON
       ( \s h x ->
           ReplicateKeyResponse'
-            Prelude.<$> (x Core..?> "ReplicaKeyMetadata")
-            Prelude.<*> (x Core..?> "ReplicaTags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ReplicaPolicy")
+            Prelude.<$> (x Data..?> "ReplicaKeyMetadata")
+            Prelude.<*> (x Data..?> "ReplicaTags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ReplicaPolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -658,38 +659,38 @@ instance Prelude.NFData ReplicateKey where
       `Prelude.seq` Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf replicaRegion
 
-instance Core.ToHeaders ReplicateKey where
+instance Data.ToHeaders ReplicateKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.ReplicateKey" :: Prelude.ByteString),
+              Data.=# ("TrentService.ReplicateKey" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ReplicateKey where
+instance Data.ToJSON ReplicateKey where
   toJSON ReplicateKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Policy" Core..=) Prelude.<$> policy,
-            ("Description" Core..=) Prelude.<$> description,
-            ("BypassPolicyLockoutSafetyCheck" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Policy" Data..=) Prelude.<$> policy,
+            ("Description" Data..=) Prelude.<$> description,
+            ("BypassPolicyLockoutSafetyCheck" Data..=)
               Prelude.<$> bypassPolicyLockoutSafetyCheck,
-            Prelude.Just ("KeyId" Core..= keyId),
+            Prelude.Just ("KeyId" Data..= keyId),
             Prelude.Just
-              ("ReplicaRegion" Core..= replicaRegion)
+              ("ReplicaRegion" Data..= replicaRegion)
           ]
       )
 
-instance Core.ToPath ReplicateKey where
+instance Data.ToPath ReplicateKey where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ReplicateKey where
+instance Data.ToQuery ReplicateKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newReplicateKeyResponse' smart constructor.

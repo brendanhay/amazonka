@@ -92,6 +92,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -151,34 +152,34 @@ instance Prelude.NFData DeleteCustomKeyStore where
   rnf DeleteCustomKeyStore' {..} =
     Prelude.rnf customKeyStoreId
 
-instance Core.ToHeaders DeleteCustomKeyStore where
+instance Data.ToHeaders DeleteCustomKeyStore where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TrentService.DeleteCustomKeyStore" ::
+              Data.=# ( "TrentService.DeleteCustomKeyStore" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteCustomKeyStore where
+instance Data.ToJSON DeleteCustomKeyStore where
   toJSON DeleteCustomKeyStore' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("CustomKeyStoreId" Core..= customKeyStoreId)
+              ("CustomKeyStoreId" Data..= customKeyStoreId)
           ]
       )
 
-instance Core.ToPath DeleteCustomKeyStore where
+instance Data.ToPath DeleteCustomKeyStore where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteCustomKeyStore where
+instance Data.ToQuery DeleteCustomKeyStore where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCustomKeyStoreResponse' smart constructor.

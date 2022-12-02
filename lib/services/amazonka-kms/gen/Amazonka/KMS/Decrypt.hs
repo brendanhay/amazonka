@@ -128,6 +128,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -206,7 +207,7 @@ data Decrypt = Decrypt'
     -- in the /Key Management Service Developer Guide/.
     encryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Ciphertext to be decrypted. The blob includes metadata.
-    ciphertextBlob :: Core.Base64
+    ciphertextBlob :: Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -304,7 +305,7 @@ newDecrypt pCiphertextBlob_ =
       keyId = Prelude.Nothing,
       encryptionContext = Prelude.Nothing,
       ciphertextBlob =
-        Core._Base64 Lens.# pCiphertextBlob_
+        Data._Base64 Lens.# pCiphertextBlob_
     }
 
 -- | Specifies the encryption algorithm that will be used to decrypt the
@@ -391,7 +392,7 @@ decrypt_encryptionContext = Lens.lens (\Decrypt' {encryptionContext} -> encrypti
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 decrypt_ciphertextBlob :: Lens.Lens' Decrypt Prelude.ByteString
-decrypt_ciphertextBlob = Lens.lens (\Decrypt' {ciphertextBlob} -> ciphertextBlob) (\s@Decrypt' {} a -> s {ciphertextBlob = a} :: Decrypt) Prelude.. Core._Base64
+decrypt_ciphertextBlob = Lens.lens (\Decrypt' {ciphertextBlob} -> ciphertextBlob) (\s@Decrypt' {} a -> s {ciphertextBlob = a} :: Decrypt) Prelude.. Data._Base64
 
 instance Core.AWSRequest Decrypt where
   type AWSResponse Decrypt = DecryptResponse
@@ -401,9 +402,9 @@ instance Core.AWSRequest Decrypt where
     Response.receiveJSON
       ( \s h x ->
           DecryptResponse'
-            Prelude.<$> (x Core..?> "EncryptionAlgorithm")
-            Prelude.<*> (x Core..?> "Plaintext")
-            Prelude.<*> (x Core..?> "KeyId")
+            Prelude.<$> (x Data..?> "EncryptionAlgorithm")
+            Prelude.<*> (x Data..?> "Plaintext")
+            Prelude.<*> (x Data..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -423,38 +424,38 @@ instance Prelude.NFData Decrypt where
       `Prelude.seq` Prelude.rnf encryptionContext
       `Prelude.seq` Prelude.rnf ciphertextBlob
 
-instance Core.ToHeaders Decrypt where
+instance Data.ToHeaders Decrypt where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.Decrypt" :: Prelude.ByteString),
+              Data.=# ("TrentService.Decrypt" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON Decrypt where
+instance Data.ToJSON Decrypt where
   toJSON Decrypt' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EncryptionAlgorithm" Core..=)
+          [ ("EncryptionAlgorithm" Data..=)
               Prelude.<$> encryptionAlgorithm,
-            ("GrantTokens" Core..=) Prelude.<$> grantTokens,
-            ("KeyId" Core..=) Prelude.<$> keyId,
-            ("EncryptionContext" Core..=)
+            ("GrantTokens" Data..=) Prelude.<$> grantTokens,
+            ("KeyId" Data..=) Prelude.<$> keyId,
+            ("EncryptionContext" Data..=)
               Prelude.<$> encryptionContext,
             Prelude.Just
-              ("CiphertextBlob" Core..= ciphertextBlob)
+              ("CiphertextBlob" Data..= ciphertextBlob)
           ]
       )
 
-instance Core.ToPath Decrypt where
+instance Data.ToPath Decrypt where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery Decrypt where
+instance Data.ToQuery Decrypt where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDecryptResponse' smart constructor.
@@ -464,7 +465,7 @@ data DecryptResponse = DecryptResponse'
     -- | Decrypted plaintext data. When you use the HTTP API or the Amazon Web
     -- Services CLI, the value is Base64-encoded. Otherwise, it is not
     -- Base64-encoded.
-    plaintext :: Prelude.Maybe (Core.Sensitive Core.Base64),
+    plaintext :: Prelude.Maybe (Data.Sensitive Data.Base64),
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
     -- of the KMS key that was used to decrypt the ciphertext.
@@ -522,7 +523,7 @@ decryptResponse_encryptionAlgorithm = Lens.lens (\DecryptResponse' {encryptionAl
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 decryptResponse_plaintext :: Lens.Lens' DecryptResponse (Prelude.Maybe Prelude.ByteString)
-decryptResponse_plaintext = Lens.lens (\DecryptResponse' {plaintext} -> plaintext) (\s@DecryptResponse' {} a -> s {plaintext = a} :: DecryptResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
+decryptResponse_plaintext = Lens.lens (\DecryptResponse' {plaintext} -> plaintext) (\s@DecryptResponse' {} a -> s {plaintext = a} :: DecryptResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Data._Base64)
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)

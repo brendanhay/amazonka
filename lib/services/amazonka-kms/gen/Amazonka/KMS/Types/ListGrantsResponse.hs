@@ -21,6 +21,7 @@ module Amazonka.KMS.Types.ListGrantsResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types.GrantListEntry
 import qualified Amazonka.Prelude as Prelude
 
@@ -81,15 +82,15 @@ listGrantsResponse_grants = Lens.lens (\ListGrantsResponse' {grants} -> grants) 
 listGrantsResponse_nextMarker :: Lens.Lens' ListGrantsResponse (Prelude.Maybe Prelude.Text)
 listGrantsResponse_nextMarker = Lens.lens (\ListGrantsResponse' {nextMarker} -> nextMarker) (\s@ListGrantsResponse' {} a -> s {nextMarker = a} :: ListGrantsResponse)
 
-instance Core.FromJSON ListGrantsResponse where
+instance Data.FromJSON ListGrantsResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListGrantsResponse"
       ( \x ->
           ListGrantsResponse'
-            Prelude.<$> (x Core..:? "Truncated")
-            Prelude.<*> (x Core..:? "Grants" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "NextMarker")
+            Prelude.<$> (x Data..:? "Truncated")
+            Prelude.<*> (x Data..:? "Grants" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "NextMarker")
       )
 
 instance Prelude.Hashable ListGrantsResponse where

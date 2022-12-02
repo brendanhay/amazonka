@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -157,34 +158,34 @@ instance Prelude.NFData UpdateKeyDescription where
     Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf description
 
-instance Core.ToHeaders UpdateKeyDescription where
+instance Data.ToHeaders UpdateKeyDescription where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TrentService.UpdateKeyDescription" ::
+              Data.=# ( "TrentService.UpdateKeyDescription" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateKeyDescription where
+instance Data.ToJSON UpdateKeyDescription where
   toJSON UpdateKeyDescription' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("KeyId" Core..= keyId),
-            Prelude.Just ("Description" Core..= description)
+          [ Prelude.Just ("KeyId" Data..= keyId),
+            Prelude.Just ("Description" Data..= description)
           ]
       )
 
-instance Core.ToPath UpdateKeyDescription where
+instance Data.ToPath UpdateKeyDescription where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateKeyDescription where
+instance Data.ToQuery UpdateKeyDescription where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateKeyDescriptionResponse' smart constructor.

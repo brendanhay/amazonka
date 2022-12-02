@@ -94,6 +94,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -236,32 +237,32 @@ instance Prelude.NFData UpdateAlias where
     Prelude.rnf aliasName
       `Prelude.seq` Prelude.rnf targetKeyId
 
-instance Core.ToHeaders UpdateAlias where
+instance Data.ToHeaders UpdateAlias where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.UpdateAlias" :: Prelude.ByteString),
+              Data.=# ("TrentService.UpdateAlias" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAlias where
+instance Data.ToJSON UpdateAlias where
   toJSON UpdateAlias' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AliasName" Core..= aliasName),
-            Prelude.Just ("TargetKeyId" Core..= targetKeyId)
+          [ Prelude.Just ("AliasName" Data..= aliasName),
+            Prelude.Just ("TargetKeyId" Data..= targetKeyId)
           ]
       )
 
-instance Core.ToPath UpdateAlias where
+instance Data.ToPath UpdateAlias where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateAlias where
+instance Data.ToQuery UpdateAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAliasResponse' smart constructor.

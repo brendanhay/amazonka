@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -153,9 +154,9 @@ instance Core.AWSRequest ListKeys where
     Response.receiveJSON
       ( \s h x ->
           ListKeysResponse'
-            Prelude.<$> (x Core..?> "Truncated")
-            Prelude.<*> (x Core..?> "NextMarker")
-            Prelude.<*> (x Core..?> "Keys" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Truncated")
+            Prelude.<*> (x Data..?> "NextMarker")
+            Prelude.<*> (x Data..?> "Keys" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,32 +169,32 @@ instance Prelude.NFData ListKeys where
   rnf ListKeys' {..} =
     Prelude.rnf marker `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders ListKeys where
+instance Data.ToHeaders ListKeys where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.ListKeys" :: Prelude.ByteString),
+              Data.=# ("TrentService.ListKeys" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListKeys where
+instance Data.ToJSON ListKeys where
   toJSON ListKeys' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
-instance Core.ToPath ListKeys where
+instance Data.ToPath ListKeys where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListKeys where
+instance Data.ToQuery ListKeys where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListKeysResponse' smart constructor.

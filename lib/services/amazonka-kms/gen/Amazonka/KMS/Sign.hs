@@ -106,6 +106,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -156,7 +157,7 @@ data Sign = Sign'
     --
     -- If you provide a message, KMS generates a hash digest of the message and
     -- then signs it.
-    message :: Core.Sensitive Core.Base64,
+    message :: Data.Sensitive Data.Base64,
     -- | Specifies the signing algorithm to use when signing the message.
     --
     -- Choose an algorithm that is compatible with the type and size of the
@@ -239,7 +240,7 @@ newSign pKeyId_ pMessage_ pSigningAlgorithm_ =
       grantTokens = Prelude.Nothing,
       keyId = pKeyId_,
       message =
-        Core._Sensitive Prelude.. Core._Base64
+        Data._Sensitive Prelude.. Data._Base64
           Lens.# pMessage_,
       signingAlgorithm = pSigningAlgorithm_
     }
@@ -298,7 +299,7 @@ sign_keyId = Lens.lens (\Sign' {keyId} -> keyId) (\s@Sign' {} a -> s {keyId = a}
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 sign_message :: Lens.Lens' Sign Prelude.ByteString
-sign_message = Lens.lens (\Sign' {message} -> message) (\s@Sign' {} a -> s {message = a} :: Sign) Prelude.. Core._Sensitive Prelude.. Core._Base64
+sign_message = Lens.lens (\Sign' {message} -> message) (\s@Sign' {} a -> s {message = a} :: Sign) Prelude.. Data._Sensitive Prelude.. Data._Base64
 
 -- | Specifies the signing algorithm to use when signing the message.
 --
@@ -315,9 +316,9 @@ instance Core.AWSRequest Sign where
     Response.receiveJSON
       ( \s h x ->
           SignResponse'
-            Prelude.<$> (x Core..?> "Signature")
-            Prelude.<*> (x Core..?> "SigningAlgorithm")
-            Prelude.<*> (x Core..?> "KeyId")
+            Prelude.<$> (x Data..?> "Signature")
+            Prelude.<*> (x Data..?> "SigningAlgorithm")
+            Prelude.<*> (x Data..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -337,36 +338,36 @@ instance Prelude.NFData Sign where
       `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf signingAlgorithm
 
-instance Core.ToHeaders Sign where
+instance Data.ToHeaders Sign where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.Sign" :: Prelude.ByteString),
+              Data.=# ("TrentService.Sign" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON Sign where
+instance Data.ToJSON Sign where
   toJSON Sign' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MessageType" Core..=) Prelude.<$> messageType,
-            ("GrantTokens" Core..=) Prelude.<$> grantTokens,
-            Prelude.Just ("KeyId" Core..= keyId),
-            Prelude.Just ("Message" Core..= message),
+          [ ("MessageType" Data..=) Prelude.<$> messageType,
+            ("GrantTokens" Data..=) Prelude.<$> grantTokens,
+            Prelude.Just ("KeyId" Data..= keyId),
+            Prelude.Just ("Message" Data..= message),
             Prelude.Just
-              ("SigningAlgorithm" Core..= signingAlgorithm)
+              ("SigningAlgorithm" Data..= signingAlgorithm)
           ]
       )
 
-instance Core.ToPath Sign where
+instance Data.ToPath Sign where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery Sign where
+instance Data.ToQuery Sign where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSignResponse' smart constructor.
@@ -386,7 +387,7 @@ data SignResponse = SignResponse'
     --
     -- When you use the HTTP API or the Amazon Web Services CLI, the value is
     -- Base64-encoded. Otherwise, it is not Base64-encoded.
-    signature :: Prelude.Maybe Core.Base64,
+    signature :: Prelude.Maybe Data.Base64,
     -- | The signing algorithm that was used to sign the message.
     signingAlgorithm :: Prelude.Maybe SigningAlgorithmSpec,
     -- | The Amazon Resource Name
@@ -465,7 +466,7 @@ newSignResponse pHttpStatus_ =
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 signResponse_signature :: Lens.Lens' SignResponse (Prelude.Maybe Prelude.ByteString)
-signResponse_signature = Lens.lens (\SignResponse' {signature} -> signature) (\s@SignResponse' {} a -> s {signature = a} :: SignResponse) Prelude.. Lens.mapping Core._Base64
+signResponse_signature = Lens.lens (\SignResponse' {signature} -> signature) (\s@SignResponse' {} a -> s {signature = a} :: SignResponse) Prelude.. Lens.mapping Data._Base64
 
 -- | The signing algorithm that was used to sign the message.
 signResponse_signingAlgorithm :: Lens.Lens' SignResponse (Prelude.Maybe SigningAlgorithmSpec)

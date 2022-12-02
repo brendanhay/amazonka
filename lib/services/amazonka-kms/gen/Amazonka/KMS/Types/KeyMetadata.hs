@@ -21,6 +21,7 @@ module Amazonka.KMS.Types.KeyMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types.CustomerMasterKeySpec
 import Amazonka.KMS.Types.EncryptionAlgorithmSpec
 import Amazonka.KMS.Types.ExpirationModelType
@@ -97,7 +98,7 @@ data KeyMetadata = KeyMetadata'
     --     This field includes the current KMS key if it is a replica key.
     multiRegionConfiguration :: Prelude.Maybe MultiRegionConfiguration,
     -- | The date and time when the KMS key was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | Instead, use the @KeySpec@ field.
     --
     -- The @KeySpec@ and @CustomerMasterKeySpec@ fields have the same value. We
@@ -151,7 +152,7 @@ data KeyMetadata = KeyMetadata'
     -- still has replica keys, its key state is @PendingReplicaDeletion@ and
     -- the length of its waiting period is displayed in the
     -- @PendingDeletionWindowInDays@ field.
-    deletionDate :: Prelude.Maybe Core.POSIX,
+    deletionDate :: Prelude.Maybe Data.POSIX,
     -- | The source of the key material for the KMS key. When this value is
     -- @AWS_KMS@, KMS created the key material. When this value is @EXTERNAL@,
     -- the key material was imported or the KMS key doesn\'t have any key
@@ -175,7 +176,7 @@ data KeyMetadata = KeyMetadata'
     -- unusable. This value is present only for KMS keys whose @Origin@ is
     -- @EXTERNAL@ and whose @ExpirationModel@ is @KEY_MATERIAL_EXPIRES@,
     -- otherwise this value is omitted.
-    validTo :: Prelude.Maybe Core.POSIX,
+    validTo :: Prelude.Maybe Data.POSIX,
     -- | The globally unique identifier for the KMS key.
     keyId :: Prelude.Text
   }
@@ -427,7 +428,7 @@ keyMetadata_multiRegionConfiguration = Lens.lens (\KeyMetadata' {multiRegionConf
 
 -- | The date and time when the KMS key was created.
 keyMetadata_creationDate :: Lens.Lens' KeyMetadata (Prelude.Maybe Prelude.UTCTime)
-keyMetadata_creationDate = Lens.lens (\KeyMetadata' {creationDate} -> creationDate) (\s@KeyMetadata' {} a -> s {creationDate = a} :: KeyMetadata) Prelude.. Lens.mapping Core._Time
+keyMetadata_creationDate = Lens.lens (\KeyMetadata' {creationDate} -> creationDate) (\s@KeyMetadata' {} a -> s {creationDate = a} :: KeyMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | Instead, use the @KeySpec@ field.
 --
@@ -501,7 +502,7 @@ keyMetadata_keyState = Lens.lens (\KeyMetadata' {keyState} -> keyState) (\s@KeyM
 -- the length of its waiting period is displayed in the
 -- @PendingDeletionWindowInDays@ field.
 keyMetadata_deletionDate :: Lens.Lens' KeyMetadata (Prelude.Maybe Prelude.UTCTime)
-keyMetadata_deletionDate = Lens.lens (\KeyMetadata' {deletionDate} -> deletionDate) (\s@KeyMetadata' {} a -> s {deletionDate = a} :: KeyMetadata) Prelude.. Lens.mapping Core._Time
+keyMetadata_deletionDate = Lens.lens (\KeyMetadata' {deletionDate} -> deletionDate) (\s@KeyMetadata' {} a -> s {deletionDate = a} :: KeyMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The source of the key material for the KMS key. When this value is
 -- @AWS_KMS@, KMS created the key material. When this value is @EXTERNAL@,
@@ -533,45 +534,45 @@ keyMetadata_signingAlgorithms = Lens.lens (\KeyMetadata' {signingAlgorithms} -> 
 -- @EXTERNAL@ and whose @ExpirationModel@ is @KEY_MATERIAL_EXPIRES@,
 -- otherwise this value is omitted.
 keyMetadata_validTo :: Lens.Lens' KeyMetadata (Prelude.Maybe Prelude.UTCTime)
-keyMetadata_validTo = Lens.lens (\KeyMetadata' {validTo} -> validTo) (\s@KeyMetadata' {} a -> s {validTo = a} :: KeyMetadata) Prelude.. Lens.mapping Core._Time
+keyMetadata_validTo = Lens.lens (\KeyMetadata' {validTo} -> validTo) (\s@KeyMetadata' {} a -> s {validTo = a} :: KeyMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The globally unique identifier for the KMS key.
 keyMetadata_keyId :: Lens.Lens' KeyMetadata Prelude.Text
 keyMetadata_keyId = Lens.lens (\KeyMetadata' {keyId} -> keyId) (\s@KeyMetadata' {} a -> s {keyId = a} :: KeyMetadata)
 
-instance Core.FromJSON KeyMetadata where
+instance Data.FromJSON KeyMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KeyMetadata"
       ( \x ->
           KeyMetadata'
-            Prelude.<$> (x Core..:? "AWSAccountId")
-            Prelude.<*> (x Core..:? "ExpirationModel")
-            Prelude.<*> ( x Core..:? "EncryptionAlgorithms"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "AWSAccountId")
+            Prelude.<*> (x Data..:? "ExpirationModel")
+            Prelude.<*> ( x Data..:? "EncryptionAlgorithms"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CustomKeyStoreId")
-            Prelude.<*> (x Core..:? "PendingDeletionWindowInDays")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "MultiRegionConfiguration")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "CustomerMasterKeySpec")
-            Prelude.<*> (x Core..:? "KeyUsage")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "MultiRegion")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "KeyManager")
-            Prelude.<*> (x Core..:? "CloudHsmClusterId")
-            Prelude.<*> (x Core..:? "KeySpec")
-            Prelude.<*> (x Core..:? "KeyState")
-            Prelude.<*> (x Core..:? "DeletionDate")
-            Prelude.<*> (x Core..:? "Origin")
-            Prelude.<*> (x Core..:? "MacAlgorithms" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "SigningAlgorithms"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "CustomKeyStoreId")
+            Prelude.<*> (x Data..:? "PendingDeletionWindowInDays")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "MultiRegionConfiguration")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "CustomerMasterKeySpec")
+            Prelude.<*> (x Data..:? "KeyUsage")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "MultiRegion")
+            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "KeyManager")
+            Prelude.<*> (x Data..:? "CloudHsmClusterId")
+            Prelude.<*> (x Data..:? "KeySpec")
+            Prelude.<*> (x Data..:? "KeyState")
+            Prelude.<*> (x Data..:? "DeletionDate")
+            Prelude.<*> (x Data..:? "Origin")
+            Prelude.<*> (x Data..:? "MacAlgorithms" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "SigningAlgorithms"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ValidTo")
-            Prelude.<*> (x Core..: "KeyId")
+            Prelude.<*> (x Data..:? "ValidTo")
+            Prelude.<*> (x Data..: "KeyId")
       )
 
 instance Prelude.Hashable KeyMetadata where

@@ -85,6 +85,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -231,9 +232,9 @@ instance Core.AWSRequest ListAliases where
     Response.receiveJSON
       ( \s h x ->
           ListAliasesResponse'
-            Prelude.<$> (x Core..?> "Truncated")
-            Prelude.<*> (x Core..?> "Aliases" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<$> (x Data..?> "Truncated")
+            Prelude.<*> (x Data..?> "Aliases" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -249,33 +250,33 @@ instance Prelude.NFData ListAliases where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf keyId
 
-instance Core.ToHeaders ListAliases where
+instance Data.ToHeaders ListAliases where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.ListAliases" :: Prelude.ByteString),
+              Data.=# ("TrentService.ListAliases" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAliases where
+instance Data.ToJSON ListAliases where
   toJSON ListAliases' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("KeyId" Core..=) Prelude.<$> keyId
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("KeyId" Data..=) Prelude.<$> keyId
           ]
       )
 
-instance Core.ToPath ListAliases where
+instance Data.ToPath ListAliases where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAliases where
+instance Data.ToQuery ListAliases where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAliasesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.LambdaStepMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.OutputParameter
 
@@ -66,16 +67,16 @@ lambdaStepMetadata_outputParameters = Lens.lens (\LambdaStepMetadata' {outputPar
 lambdaStepMetadata_arn :: Lens.Lens' LambdaStepMetadata (Prelude.Maybe Prelude.Text)
 lambdaStepMetadata_arn = Lens.lens (\LambdaStepMetadata' {arn} -> arn) (\s@LambdaStepMetadata' {} a -> s {arn = a} :: LambdaStepMetadata)
 
-instance Core.FromJSON LambdaStepMetadata where
+instance Data.FromJSON LambdaStepMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaStepMetadata"
       ( \x ->
           LambdaStepMetadata'
-            Prelude.<$> ( x Core..:? "OutputParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "OutputParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Data..:? "Arn")
       )
 
 instance Prelude.Hashable LambdaStepMetadata where

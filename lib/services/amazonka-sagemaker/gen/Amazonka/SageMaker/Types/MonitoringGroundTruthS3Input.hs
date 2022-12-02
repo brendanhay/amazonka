@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MonitoringGroundTruthS3Input where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The ground truth labels for the dataset used for the monitoring job.
@@ -53,13 +54,13 @@ newMonitoringGroundTruthS3Input =
 monitoringGroundTruthS3Input_s3Uri :: Lens.Lens' MonitoringGroundTruthS3Input (Prelude.Maybe Prelude.Text)
 monitoringGroundTruthS3Input_s3Uri = Lens.lens (\MonitoringGroundTruthS3Input' {s3Uri} -> s3Uri) (\s@MonitoringGroundTruthS3Input' {} a -> s {s3Uri = a} :: MonitoringGroundTruthS3Input)
 
-instance Core.FromJSON MonitoringGroundTruthS3Input where
+instance Data.FromJSON MonitoringGroundTruthS3Input where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitoringGroundTruthS3Input"
       ( \x ->
           MonitoringGroundTruthS3Input'
-            Prelude.<$> (x Core..:? "S3Uri")
+            Prelude.<$> (x Data..:? "S3Uri")
       )
 
 instance
@@ -73,9 +74,9 @@ instance Prelude.NFData MonitoringGroundTruthS3Input where
   rnf MonitoringGroundTruthS3Input' {..} =
     Prelude.rnf s3Uri
 
-instance Core.ToJSON MonitoringGroundTruthS3Input where
+instance Data.ToJSON MonitoringGroundTruthS3Input where
   toJSON MonitoringGroundTruthS3Input' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("S3Uri" Core..=) Prelude.<$> s3Uri]
+          [("S3Uri" Data..=) Prelude.<$> s3Uri]
       )

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ProcessingJobStepMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata for a processing job step.
@@ -50,13 +51,13 @@ newProcessingJobStepMetadata =
 processingJobStepMetadata_arn :: Lens.Lens' ProcessingJobStepMetadata (Prelude.Maybe Prelude.Text)
 processingJobStepMetadata_arn = Lens.lens (\ProcessingJobStepMetadata' {arn} -> arn) (\s@ProcessingJobStepMetadata' {} a -> s {arn = a} :: ProcessingJobStepMetadata)
 
-instance Core.FromJSON ProcessingJobStepMetadata where
+instance Data.FromJSON ProcessingJobStepMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProcessingJobStepMetadata"
       ( \x ->
           ProcessingJobStepMetadata'
-            Prelude.<$> (x Core..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
       )
 
 instance Prelude.Hashable ProcessingJobStepMetadata where

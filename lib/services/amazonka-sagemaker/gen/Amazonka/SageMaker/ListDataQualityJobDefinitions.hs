@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -73,7 +74,7 @@ data ListDataQualityJobDefinitions = ListDataQualityJobDefinitions'
     nameContains :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only data quality monitoring job definitions
     -- created before the specified time.
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | The field to sort results by. The default is @CreationTime@.
     sortBy :: Prelude.Maybe MonitoringJobDefinitionSortKey,
     -- | The maximum number of data quality monitoring job definitions to return
@@ -81,7 +82,7 @@ data ListDataQualityJobDefinitions = ListDataQualityJobDefinitions'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns only data quality monitoring job definitions
     -- created after the specified time.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX
+    creationTimeAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -155,7 +156,7 @@ listDataQualityJobDefinitions_nameContains = Lens.lens (\ListDataQualityJobDefin
 -- | A filter that returns only data quality monitoring job definitions
 -- created before the specified time.
 listDataQualityJobDefinitions_creationTimeBefore :: Lens.Lens' ListDataQualityJobDefinitions (Prelude.Maybe Prelude.UTCTime)
-listDataQualityJobDefinitions_creationTimeBefore = Lens.lens (\ListDataQualityJobDefinitions' {creationTimeBefore} -> creationTimeBefore) (\s@ListDataQualityJobDefinitions' {} a -> s {creationTimeBefore = a} :: ListDataQualityJobDefinitions) Prelude.. Lens.mapping Core._Time
+listDataQualityJobDefinitions_creationTimeBefore = Lens.lens (\ListDataQualityJobDefinitions' {creationTimeBefore} -> creationTimeBefore) (\s@ListDataQualityJobDefinitions' {} a -> s {creationTimeBefore = a} :: ListDataQualityJobDefinitions) Prelude.. Lens.mapping Data._Time
 
 -- | The field to sort results by. The default is @CreationTime@.
 listDataQualityJobDefinitions_sortBy :: Lens.Lens' ListDataQualityJobDefinitions (Prelude.Maybe MonitoringJobDefinitionSortKey)
@@ -169,7 +170,7 @@ listDataQualityJobDefinitions_maxResults = Lens.lens (\ListDataQualityJobDefinit
 -- | A filter that returns only data quality monitoring job definitions
 -- created after the specified time.
 listDataQualityJobDefinitions_creationTimeAfter :: Lens.Lens' ListDataQualityJobDefinitions (Prelude.Maybe Prelude.UTCTime)
-listDataQualityJobDefinitions_creationTimeAfter = Lens.lens (\ListDataQualityJobDefinitions' {creationTimeAfter} -> creationTimeAfter) (\s@ListDataQualityJobDefinitions' {} a -> s {creationTimeAfter = a} :: ListDataQualityJobDefinitions) Prelude.. Lens.mapping Core._Time
+listDataQualityJobDefinitions_creationTimeAfter = Lens.lens (\ListDataQualityJobDefinitions' {creationTimeAfter} -> creationTimeAfter) (\s@ListDataQualityJobDefinitions' {} a -> s {creationTimeAfter = a} :: ListDataQualityJobDefinitions) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListDataQualityJobDefinitions where
   page rq rs
@@ -205,9 +206,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListDataQualityJobDefinitionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "JobDefinitionSummaries"
+            Prelude.<*> ( x Data..?> "JobDefinitionSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -237,42 +238,42 @@ instance Prelude.NFData ListDataQualityJobDefinitions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf creationTimeAfter
 
-instance Core.ToHeaders ListDataQualityJobDefinitions where
+instance Data.ToHeaders ListDataQualityJobDefinitions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.ListDataQualityJobDefinitions" ::
+              Data.=# ( "SageMaker.ListDataQualityJobDefinitions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDataQualityJobDefinitions where
+instance Data.ToJSON ListDataQualityJobDefinitions where
   toJSON ListDataQualityJobDefinitions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("EndpointName" Core..=) Prelude.<$> endpointName,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("CreationTimeBefore" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("EndpointName" Data..=) Prelude.<$> endpointName,
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CreationTimeAfter" Core..=)
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CreationTimeAfter" Data..=)
               Prelude.<$> creationTimeAfter
           ]
       )
 
-instance Core.ToPath ListDataQualityJobDefinitions where
+instance Data.ToPath ListDataQualityJobDefinitions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDataQualityJobDefinitions where
+instance Data.ToQuery ListDataQualityJobDefinitions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDataQualityJobDefinitionsResponse' smart constructor.

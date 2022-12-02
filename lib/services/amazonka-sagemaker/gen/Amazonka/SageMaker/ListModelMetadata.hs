@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -146,9 +147,9 @@ instance Core.AWSRequest ListModelMetadata where
     Response.receiveJSON
       ( \s h x ->
           ListModelMetadataResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "ModelMetadataSummaries"
+            Prelude.<*> ( x Data..?> "ModelMetadataSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -165,36 +166,36 @@ instance Prelude.NFData ListModelMetadata where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf searchExpression
 
-instance Core.ToHeaders ListModelMetadata where
+instance Data.ToHeaders ListModelMetadata where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.ListModelMetadata" ::
+              Data.=# ( "SageMaker.ListModelMetadata" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListModelMetadata where
+instance Data.ToJSON ListModelMetadata where
   toJSON ListModelMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("SearchExpression" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("SearchExpression" Data..=)
               Prelude.<$> searchExpression
           ]
       )
 
-instance Core.ToPath ListModelMetadata where
+instance Data.ToPath ListModelMetadata where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListModelMetadata where
+instance Data.ToQuery ListModelMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListModelMetadataResponse' smart constructor.

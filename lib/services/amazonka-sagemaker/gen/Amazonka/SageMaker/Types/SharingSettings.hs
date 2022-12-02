@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.SharingSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.NotebookOutputOption
 
@@ -87,15 +88,15 @@ sharingSettings_notebookOutputOption = Lens.lens (\SharingSettings' {notebookOut
 sharingSettings_s3KmsKeyId :: Lens.Lens' SharingSettings (Prelude.Maybe Prelude.Text)
 sharingSettings_s3KmsKeyId = Lens.lens (\SharingSettings' {s3KmsKeyId} -> s3KmsKeyId) (\s@SharingSettings' {} a -> s {s3KmsKeyId = a} :: SharingSettings)
 
-instance Core.FromJSON SharingSettings where
+instance Data.FromJSON SharingSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SharingSettings"
       ( \x ->
           SharingSettings'
-            Prelude.<$> (x Core..:? "S3OutputPath")
-            Prelude.<*> (x Core..:? "NotebookOutputOption")
-            Prelude.<*> (x Core..:? "S3KmsKeyId")
+            Prelude.<$> (x Data..:? "S3OutputPath")
+            Prelude.<*> (x Data..:? "NotebookOutputOption")
+            Prelude.<*> (x Data..:? "S3KmsKeyId")
       )
 
 instance Prelude.Hashable SharingSettings where
@@ -110,13 +111,13 @@ instance Prelude.NFData SharingSettings where
       `Prelude.seq` Prelude.rnf notebookOutputOption
       `Prelude.seq` Prelude.rnf s3KmsKeyId
 
-instance Core.ToJSON SharingSettings where
+instance Data.ToJSON SharingSettings where
   toJSON SharingSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3OutputPath" Core..=) Prelude.<$> s3OutputPath,
-            ("NotebookOutputOption" Core..=)
+          [ ("S3OutputPath" Data..=) Prelude.<$> s3OutputPath,
+            ("NotebookOutputOption" Data..=)
               Prelude.<$> notebookOutputOption,
-            ("S3KmsKeyId" Core..=) Prelude.<$> s3KmsKeyId
+            ("S3KmsKeyId" Data..=) Prelude.<$> s3KmsKeyId
           ]
       )

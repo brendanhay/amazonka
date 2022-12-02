@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ActionSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure describing the source of an action.
@@ -72,15 +73,15 @@ actionSource_sourceType = Lens.lens (\ActionSource' {sourceType} -> sourceType) 
 actionSource_sourceUri :: Lens.Lens' ActionSource Prelude.Text
 actionSource_sourceUri = Lens.lens (\ActionSource' {sourceUri} -> sourceUri) (\s@ActionSource' {} a -> s {sourceUri = a} :: ActionSource)
 
-instance Core.FromJSON ActionSource where
+instance Data.FromJSON ActionSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionSource"
       ( \x ->
           ActionSource'
-            Prelude.<$> (x Core..:? "SourceId")
-            Prelude.<*> (x Core..:? "SourceType")
-            Prelude.<*> (x Core..: "SourceUri")
+            Prelude.<$> (x Data..:? "SourceId")
+            Prelude.<*> (x Data..:? "SourceType")
+            Prelude.<*> (x Data..: "SourceUri")
       )
 
 instance Prelude.Hashable ActionSource where
@@ -95,12 +96,12 @@ instance Prelude.NFData ActionSource where
       `Prelude.seq` Prelude.rnf sourceType
       `Prelude.seq` Prelude.rnf sourceUri
 
-instance Core.ToJSON ActionSource where
+instance Data.ToJSON ActionSource where
   toJSON ActionSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SourceId" Core..=) Prelude.<$> sourceId,
-            ("SourceType" Core..=) Prelude.<$> sourceType,
-            Prelude.Just ("SourceUri" Core..= sourceUri)
+          [ ("SourceId" Data..=) Prelude.<$> sourceId,
+            ("SourceType" Data..=) Prelude.<$> sourceType,
+            Prelude.Just ("SourceUri" Data..= sourceUri)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.QualityCheckStepMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Container for the metadata for a Quality check step. For more
@@ -169,22 +170,22 @@ qualityCheckStepMetadata_calculatedBaselineConstraints = Lens.lens (\QualityChec
 qualityCheckStepMetadata_violationReport :: Lens.Lens' QualityCheckStepMetadata (Prelude.Maybe Prelude.Text)
 qualityCheckStepMetadata_violationReport = Lens.lens (\QualityCheckStepMetadata' {violationReport} -> violationReport) (\s@QualityCheckStepMetadata' {} a -> s {violationReport = a} :: QualityCheckStepMetadata)
 
-instance Core.FromJSON QualityCheckStepMetadata where
+instance Data.FromJSON QualityCheckStepMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QualityCheckStepMetadata"
       ( \x ->
           QualityCheckStepMetadata'
-            Prelude.<$> (x Core..:? "ModelPackageGroupName")
-            Prelude.<*> (x Core..:? "BaselineUsedForDriftCheckStatistics")
-            Prelude.<*> (x Core..:? "CheckJobArn")
-            Prelude.<*> (x Core..:? "CheckType")
-            Prelude.<*> (x Core..:? "RegisterNewBaseline")
-            Prelude.<*> (x Core..:? "SkipCheck")
-            Prelude.<*> (x Core..:? "BaselineUsedForDriftCheckConstraints")
-            Prelude.<*> (x Core..:? "CalculatedBaselineStatistics")
-            Prelude.<*> (x Core..:? "CalculatedBaselineConstraints")
-            Prelude.<*> (x Core..:? "ViolationReport")
+            Prelude.<$> (x Data..:? "ModelPackageGroupName")
+            Prelude.<*> (x Data..:? "BaselineUsedForDriftCheckStatistics")
+            Prelude.<*> (x Data..:? "CheckJobArn")
+            Prelude.<*> (x Data..:? "CheckType")
+            Prelude.<*> (x Data..:? "RegisterNewBaseline")
+            Prelude.<*> (x Data..:? "SkipCheck")
+            Prelude.<*> (x Data..:? "BaselineUsedForDriftCheckConstraints")
+            Prelude.<*> (x Data..:? "CalculatedBaselineStatistics")
+            Prelude.<*> (x Data..:? "CalculatedBaselineConstraints")
+            Prelude.<*> (x Data..:? "ViolationReport")
       )
 
 instance Prelude.Hashable QualityCheckStepMetadata where

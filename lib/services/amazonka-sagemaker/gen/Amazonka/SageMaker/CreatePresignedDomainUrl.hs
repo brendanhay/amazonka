@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -150,7 +151,7 @@ instance Core.AWSRequest CreatePresignedDomainUrl where
     Response.receiveJSON
       ( \s h x ->
           CreatePresignedDomainUrlResponse'
-            Prelude.<$> (x Core..?> "AuthorizedUrl")
+            Prelude.<$> (x Data..?> "AuthorizedUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,39 +169,39 @@ instance Prelude.NFData CreatePresignedDomainUrl where
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf userProfileName
 
-instance Core.ToHeaders CreatePresignedDomainUrl where
+instance Data.ToHeaders CreatePresignedDomainUrl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.CreatePresignedDomainUrl" ::
+              Data.=# ( "SageMaker.CreatePresignedDomainUrl" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePresignedDomainUrl where
+instance Data.ToJSON CreatePresignedDomainUrl where
   toJSON CreatePresignedDomainUrl' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExpiresInSeconds" Core..=)
+          [ ("ExpiresInSeconds" Data..=)
               Prelude.<$> expiresInSeconds,
-            ("SessionExpirationDurationInSeconds" Core..=)
+            ("SessionExpirationDurationInSeconds" Data..=)
               Prelude.<$> sessionExpirationDurationInSeconds,
-            Prelude.Just ("DomainId" Core..= domainId),
+            Prelude.Just ("DomainId" Data..= domainId),
             Prelude.Just
-              ("UserProfileName" Core..= userProfileName)
+              ("UserProfileName" Data..= userProfileName)
           ]
       )
 
-instance Core.ToPath CreatePresignedDomainUrl where
+instance Data.ToPath CreatePresignedDomainUrl where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreatePresignedDomainUrl where
+instance Data.ToQuery CreatePresignedDomainUrl where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePresignedDomainUrlResponse' smart constructor.

@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -76,7 +77,7 @@ data ListAssociations = ListAssociations'
     destinationType :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only associations created on or before the
     -- specified time.
-    createdBefore :: Prelude.Maybe Core.POSIX,
+    createdBefore :: Prelude.Maybe Data.POSIX,
     -- | A filter that returns only associations with the specified source type.
     sourceType :: Prelude.Maybe Prelude.Text,
     -- | The property used to sort results. The default value is @CreationTime@.
@@ -86,7 +87,7 @@ data ListAssociations = ListAssociations'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns only associations created on or after the
     -- specified time.
-    createdAfter :: Prelude.Maybe Core.POSIX,
+    createdAfter :: Prelude.Maybe Data.POSIX,
     -- | A filter that returns only associations with the specified destination
     -- Amazon Resource Name (ARN).
     destinationArn :: Prelude.Maybe Prelude.Text
@@ -172,7 +173,7 @@ listAssociations_destinationType = Lens.lens (\ListAssociations' {destinationTyp
 -- | A filter that returns only associations created on or before the
 -- specified time.
 listAssociations_createdBefore :: Lens.Lens' ListAssociations (Prelude.Maybe Prelude.UTCTime)
-listAssociations_createdBefore = Lens.lens (\ListAssociations' {createdBefore} -> createdBefore) (\s@ListAssociations' {} a -> s {createdBefore = a} :: ListAssociations) Prelude.. Lens.mapping Core._Time
+listAssociations_createdBefore = Lens.lens (\ListAssociations' {createdBefore} -> createdBefore) (\s@ListAssociations' {} a -> s {createdBefore = a} :: ListAssociations) Prelude.. Lens.mapping Data._Time
 
 -- | A filter that returns only associations with the specified source type.
 listAssociations_sourceType :: Lens.Lens' ListAssociations (Prelude.Maybe Prelude.Text)
@@ -190,7 +191,7 @@ listAssociations_maxResults = Lens.lens (\ListAssociations' {maxResults} -> maxR
 -- | A filter that returns only associations created on or after the
 -- specified time.
 listAssociations_createdAfter :: Lens.Lens' ListAssociations (Prelude.Maybe Prelude.UTCTime)
-listAssociations_createdAfter = Lens.lens (\ListAssociations' {createdAfter} -> createdAfter) (\s@ListAssociations' {} a -> s {createdAfter = a} :: ListAssociations) Prelude.. Lens.mapping Core._Time
+listAssociations_createdAfter = Lens.lens (\ListAssociations' {createdAfter} -> createdAfter) (\s@ListAssociations' {} a -> s {createdAfter = a} :: ListAssociations) Prelude.. Lens.mapping Data._Time
 
 -- | A filter that returns only associations with the specified destination
 -- Amazon Resource Name (ARN).
@@ -229,8 +230,8 @@ instance Core.AWSRequest ListAssociations where
     Response.receiveJSON
       ( \s h x ->
           ListAssociationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "AssociationSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "AssociationSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -264,44 +265,44 @@ instance Prelude.NFData ListAssociations where
       `Prelude.seq` Prelude.rnf createdAfter
       `Prelude.seq` Prelude.rnf destinationArn
 
-instance Core.ToHeaders ListAssociations where
+instance Data.ToHeaders ListAssociations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.ListAssociations" :: Prelude.ByteString),
+              Data.=# ("SageMaker.ListAssociations" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAssociations where
+instance Data.ToJSON ListAssociations where
   toJSON ListAssociations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("AssociationType" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("AssociationType" Data..=)
               Prelude.<$> associationType,
-            ("SourceArn" Core..=) Prelude.<$> sourceArn,
-            ("DestinationType" Core..=)
+            ("SourceArn" Data..=) Prelude.<$> sourceArn,
+            ("DestinationType" Data..=)
               Prelude.<$> destinationType,
-            ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
-            ("SourceType" Core..=) Prelude.<$> sourceType,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
-            ("DestinationArn" Core..=)
+            ("CreatedBefore" Data..=) Prelude.<$> createdBefore,
+            ("SourceType" Data..=) Prelude.<$> sourceType,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CreatedAfter" Data..=) Prelude.<$> createdAfter,
+            ("DestinationArn" Data..=)
               Prelude.<$> destinationArn
           ]
       )
 
-instance Core.ToPath ListAssociations where
+instance Data.ToPath ListAssociations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAssociations where
+instance Data.ToQuery ListAssociations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAssociationsResponse' smart constructor.

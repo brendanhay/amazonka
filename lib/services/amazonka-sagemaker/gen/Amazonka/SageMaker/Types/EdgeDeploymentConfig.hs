@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.EdgeDeploymentConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.FailureHandlingPolicy
 
@@ -62,13 +63,13 @@ newEdgeDeploymentConfig pFailureHandlingPolicy_ =
 edgeDeploymentConfig_failureHandlingPolicy :: Lens.Lens' EdgeDeploymentConfig FailureHandlingPolicy
 edgeDeploymentConfig_failureHandlingPolicy = Lens.lens (\EdgeDeploymentConfig' {failureHandlingPolicy} -> failureHandlingPolicy) (\s@EdgeDeploymentConfig' {} a -> s {failureHandlingPolicy = a} :: EdgeDeploymentConfig)
 
-instance Core.FromJSON EdgeDeploymentConfig where
+instance Data.FromJSON EdgeDeploymentConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EdgeDeploymentConfig"
       ( \x ->
           EdgeDeploymentConfig'
-            Prelude.<$> (x Core..: "FailureHandlingPolicy")
+            Prelude.<$> (x Data..: "FailureHandlingPolicy")
       )
 
 instance Prelude.Hashable EdgeDeploymentConfig where
@@ -79,13 +80,13 @@ instance Prelude.NFData EdgeDeploymentConfig where
   rnf EdgeDeploymentConfig' {..} =
     Prelude.rnf failureHandlingPolicy
 
-instance Core.ToJSON EdgeDeploymentConfig where
+instance Data.ToJSON EdgeDeploymentConfig where
   toJSON EdgeDeploymentConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "FailureHandlingPolicy"
-                  Core..= failureHandlingPolicy
+                  Data..= failureHandlingPolicy
               )
           ]
       )

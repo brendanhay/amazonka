@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.FailStepMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The container for the metadata for Fail step.
@@ -53,13 +54,13 @@ newFailStepMetadata =
 failStepMetadata_errorMessage :: Lens.Lens' FailStepMetadata (Prelude.Maybe Prelude.Text)
 failStepMetadata_errorMessage = Lens.lens (\FailStepMetadata' {errorMessage} -> errorMessage) (\s@FailStepMetadata' {} a -> s {errorMessage = a} :: FailStepMetadata)
 
-instance Core.FromJSON FailStepMetadata where
+instance Data.FromJSON FailStepMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailStepMetadata"
       ( \x ->
           FailStepMetadata'
-            Prelude.<$> (x Core..:? "ErrorMessage")
+            Prelude.<$> (x Data..:? "ErrorMessage")
       )
 
 instance Prelude.Hashable FailStepMetadata where

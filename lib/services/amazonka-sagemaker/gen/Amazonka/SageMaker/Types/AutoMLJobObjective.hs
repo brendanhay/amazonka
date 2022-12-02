@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AutoMLJobObjective where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AutoMLMetricEnum
 
@@ -269,13 +270,13 @@ newAutoMLJobObjective pMetricName_ =
 autoMLJobObjective_metricName :: Lens.Lens' AutoMLJobObjective AutoMLMetricEnum
 autoMLJobObjective_metricName = Lens.lens (\AutoMLJobObjective' {metricName} -> metricName) (\s@AutoMLJobObjective' {} a -> s {metricName = a} :: AutoMLJobObjective)
 
-instance Core.FromJSON AutoMLJobObjective where
+instance Data.FromJSON AutoMLJobObjective where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoMLJobObjective"
       ( \x ->
           AutoMLJobObjective'
-            Prelude.<$> (x Core..: "MetricName")
+            Prelude.<$> (x Data..: "MetricName")
       )
 
 instance Prelude.Hashable AutoMLJobObjective where
@@ -285,9 +286,9 @@ instance Prelude.Hashable AutoMLJobObjective where
 instance Prelude.NFData AutoMLJobObjective where
   rnf AutoMLJobObjective' {..} = Prelude.rnf metricName
 
-instance Core.ToJSON AutoMLJobObjective where
+instance Data.ToJSON AutoMLJobObjective where
   toJSON AutoMLJobObjective' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("MetricName" Core..= metricName)]
+          [Prelude.Just ("MetricName" Data..= metricName)]
       )

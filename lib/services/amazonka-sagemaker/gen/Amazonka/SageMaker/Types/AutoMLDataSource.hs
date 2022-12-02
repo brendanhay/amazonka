@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AutoMLDataSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AutoMLS3DataSource
 
@@ -53,13 +54,13 @@ newAutoMLDataSource pS3DataSource_ =
 autoMLDataSource_s3DataSource :: Lens.Lens' AutoMLDataSource AutoMLS3DataSource
 autoMLDataSource_s3DataSource = Lens.lens (\AutoMLDataSource' {s3DataSource} -> s3DataSource) (\s@AutoMLDataSource' {} a -> s {s3DataSource = a} :: AutoMLDataSource)
 
-instance Core.FromJSON AutoMLDataSource where
+instance Data.FromJSON AutoMLDataSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoMLDataSource"
       ( \x ->
           AutoMLDataSource'
-            Prelude.<$> (x Core..: "S3DataSource")
+            Prelude.<$> (x Data..: "S3DataSource")
       )
 
 instance Prelude.Hashable AutoMLDataSource where
@@ -69,9 +70,9 @@ instance Prelude.Hashable AutoMLDataSource where
 instance Prelude.NFData AutoMLDataSource where
   rnf AutoMLDataSource' {..} = Prelude.rnf s3DataSource
 
-instance Core.ToJSON AutoMLDataSource where
+instance Data.ToJSON AutoMLDataSource where
   toJSON AutoMLDataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("S3DataSource" Core..= s3DataSource)]
+          [Prelude.Just ("S3DataSource" Data..= s3DataSource)]
       )

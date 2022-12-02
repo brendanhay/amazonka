@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TransformJobStepMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata for a transform job step.
@@ -53,13 +54,13 @@ newTransformJobStepMetadata =
 transformJobStepMetadata_arn :: Lens.Lens' TransformJobStepMetadata (Prelude.Maybe Prelude.Text)
 transformJobStepMetadata_arn = Lens.lens (\TransformJobStepMetadata' {arn} -> arn) (\s@TransformJobStepMetadata' {} a -> s {arn = a} :: TransformJobStepMetadata)
 
-instance Core.FromJSON TransformJobStepMetadata where
+instance Data.FromJSON TransformJobStepMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TransformJobStepMetadata"
       ( \x ->
           TransformJobStepMetadata'
-            Prelude.<$> (x Core..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
       )
 
 instance Prelude.Hashable TransformJobStepMetadata where

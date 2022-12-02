@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MetricDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a metric that the training algorithm writes to @stderr@ or
@@ -74,13 +75,13 @@ metricDefinition_name = Lens.lens (\MetricDefinition' {name} -> name) (\s@Metric
 metricDefinition_regex :: Lens.Lens' MetricDefinition Prelude.Text
 metricDefinition_regex = Lens.lens (\MetricDefinition' {regex} -> regex) (\s@MetricDefinition' {} a -> s {regex = a} :: MetricDefinition)
 
-instance Core.FromJSON MetricDefinition where
+instance Data.FromJSON MetricDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricDefinition"
       ( \x ->
           MetricDefinition'
-            Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "Regex")
+            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Regex")
       )
 
 instance Prelude.Hashable MetricDefinition where
@@ -92,11 +93,11 @@ instance Prelude.NFData MetricDefinition where
   rnf MetricDefinition' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf regex
 
-instance Core.ToJSON MetricDefinition where
+instance Data.ToJSON MetricDefinition where
   toJSON MetricDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Regex" Core..= regex)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Regex" Data..= regex)
           ]
       )

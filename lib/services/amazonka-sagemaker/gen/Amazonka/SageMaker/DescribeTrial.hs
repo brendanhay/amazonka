@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,16 +93,16 @@ instance Core.AWSRequest DescribeTrial where
     Response.receiveJSON
       ( \s h x ->
           DescribeTrialResponse'
-            Prelude.<$> (x Core..?> "MetadataProperties")
-            Prelude.<*> (x Core..?> "DisplayName")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "Source")
-            Prelude.<*> (x Core..?> "TrialName")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "LastModifiedBy")
-            Prelude.<*> (x Core..?> "CreatedBy")
-            Prelude.<*> (x Core..?> "TrialArn")
-            Prelude.<*> (x Core..?> "ExperimentName")
+            Prelude.<$> (x Data..?> "MetadataProperties")
+            Prelude.<*> (x Data..?> "DisplayName")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "Source")
+            Prelude.<*> (x Data..?> "TrialName")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "LastModifiedBy")
+            Prelude.<*> (x Data..?> "CreatedBy")
+            Prelude.<*> (x Data..?> "TrialArn")
+            Prelude.<*> (x Data..?> "ExperimentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,30 +113,30 @@ instance Prelude.Hashable DescribeTrial where
 instance Prelude.NFData DescribeTrial where
   rnf DescribeTrial' {..} = Prelude.rnf trialName
 
-instance Core.ToHeaders DescribeTrial where
+instance Data.ToHeaders DescribeTrial where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DescribeTrial" :: Prelude.ByteString),
+              Data.=# ("SageMaker.DescribeTrial" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeTrial where
+instance Data.ToJSON DescribeTrial where
   toJSON DescribeTrial' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TrialName" Core..= trialName)]
+          [Prelude.Just ("TrialName" Data..= trialName)]
       )
 
-instance Core.ToPath DescribeTrial where
+instance Data.ToPath DescribeTrial where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeTrial where
+instance Data.ToQuery DescribeTrial where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeTrialResponse' smart constructor.
@@ -145,14 +146,14 @@ data DescribeTrialResponse = DescribeTrialResponse'
     -- @TrialName@ is displayed.
     displayName :: Prelude.Maybe Prelude.Text,
     -- | When the trial was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the source and, optionally, the job
     -- type.
     source :: Prelude.Maybe TrialSource,
     -- | The name of the trial.
     trialName :: Prelude.Maybe Prelude.Text,
     -- | When the trial was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | Who last modified the trial.
     lastModifiedBy :: Prelude.Maybe UserContext,
     -- | Who created the trial.
@@ -228,7 +229,7 @@ describeTrialResponse_displayName = Lens.lens (\DescribeTrialResponse' {displayN
 
 -- | When the trial was last modified.
 describeTrialResponse_lastModifiedTime :: Lens.Lens' DescribeTrialResponse (Prelude.Maybe Prelude.UTCTime)
-describeTrialResponse_lastModifiedTime = Lens.lens (\DescribeTrialResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeTrialResponse' {} a -> s {lastModifiedTime = a} :: DescribeTrialResponse) Prelude.. Lens.mapping Core._Time
+describeTrialResponse_lastModifiedTime = Lens.lens (\DescribeTrialResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeTrialResponse' {} a -> s {lastModifiedTime = a} :: DescribeTrialResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the source and, optionally, the job
 -- type.
@@ -241,7 +242,7 @@ describeTrialResponse_trialName = Lens.lens (\DescribeTrialResponse' {trialName}
 
 -- | When the trial was created.
 describeTrialResponse_creationTime :: Lens.Lens' DescribeTrialResponse (Prelude.Maybe Prelude.UTCTime)
-describeTrialResponse_creationTime = Lens.lens (\DescribeTrialResponse' {creationTime} -> creationTime) (\s@DescribeTrialResponse' {} a -> s {creationTime = a} :: DescribeTrialResponse) Prelude.. Lens.mapping Core._Time
+describeTrialResponse_creationTime = Lens.lens (\DescribeTrialResponse' {creationTime} -> creationTime) (\s@DescribeTrialResponse' {} a -> s {creationTime = a} :: DescribeTrialResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Who last modified the trial.
 describeTrialResponse_lastModifiedBy :: Lens.Lens' DescribeTrialResponse (Prelude.Maybe UserContext)

@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,25 +104,25 @@ instance Core.AWSRequest DescribeLabelingJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeLabelingJobResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "LabelingJobAlgorithmsConfig")
-            Prelude.<*> (x Core..?> "StoppingConditions")
-            Prelude.<*> (x Core..?> "LabelAttributeName")
-            Prelude.<*> (x Core..?> "LabelingJobOutput")
-            Prelude.<*> (x Core..?> "LabelCategoryConfigS3Uri")
-            Prelude.<*> (x Core..?> "FailureReason")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "LabelingJobAlgorithmsConfig")
+            Prelude.<*> (x Data..?> "StoppingConditions")
+            Prelude.<*> (x Data..?> "LabelAttributeName")
+            Prelude.<*> (x Data..?> "LabelingJobOutput")
+            Prelude.<*> (x Data..?> "LabelCategoryConfigS3Uri")
+            Prelude.<*> (x Data..?> "FailureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "LabelingJobStatus")
-            Prelude.<*> (x Core..:> "LabelCounters")
-            Prelude.<*> (x Core..:> "CreationTime")
-            Prelude.<*> (x Core..:> "LastModifiedTime")
-            Prelude.<*> (x Core..:> "JobReferenceCode")
-            Prelude.<*> (x Core..:> "LabelingJobName")
-            Prelude.<*> (x Core..:> "LabelingJobArn")
-            Prelude.<*> (x Core..:> "InputConfig")
-            Prelude.<*> (x Core..:> "OutputConfig")
-            Prelude.<*> (x Core..:> "RoleArn")
-            Prelude.<*> (x Core..:> "HumanTaskConfig")
+            Prelude.<*> (x Data..:> "LabelingJobStatus")
+            Prelude.<*> (x Data..:> "LabelCounters")
+            Prelude.<*> (x Data..:> "CreationTime")
+            Prelude.<*> (x Data..:> "LastModifiedTime")
+            Prelude.<*> (x Data..:> "JobReferenceCode")
+            Prelude.<*> (x Data..:> "LabelingJobName")
+            Prelude.<*> (x Data..:> "LabelingJobArn")
+            Prelude.<*> (x Data..:> "InputConfig")
+            Prelude.<*> (x Data..:> "OutputConfig")
+            Prelude.<*> (x Data..:> "RoleArn")
+            Prelude.<*> (x Data..:> "HumanTaskConfig")
       )
 
 instance Prelude.Hashable DescribeLabelingJob where
@@ -132,34 +133,34 @@ instance Prelude.NFData DescribeLabelingJob where
   rnf DescribeLabelingJob' {..} =
     Prelude.rnf labelingJobName
 
-instance Core.ToHeaders DescribeLabelingJob where
+instance Data.ToHeaders DescribeLabelingJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeLabelingJob" ::
+              Data.=# ( "SageMaker.DescribeLabelingJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeLabelingJob where
+instance Data.ToJSON DescribeLabelingJob where
   toJSON DescribeLabelingJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("LabelingJobName" Core..= labelingJobName)
+              ("LabelingJobName" Data..= labelingJobName)
           ]
       )
 
-instance Core.ToPath DescribeLabelingJob where
+instance Data.ToPath DescribeLabelingJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLabelingJob where
+instance Data.ToQuery DescribeLabelingJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeLabelingJobResponse' smart constructor.
@@ -229,9 +230,9 @@ data DescribeLabelingJobResponse = DescribeLabelingJobResponse'
     -- couldn\'t be labeled, and the total number of objects labeled.
     labelCounters :: LabelCounters,
     -- | The date and time that the labeling job was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The date and time that the labeling job was last updated.
-    lastModifiedTime :: Core.POSIX,
+    lastModifiedTime :: Data.POSIX,
     -- | A unique identifier for work done as part of a labeling job.
     jobReferenceCode :: Prelude.Text,
     -- | The name assigned to the labeling job when it was created.
@@ -402,9 +403,9 @@ newDescribeLabelingJobResponse
         labelingJobStatus = pLabelingJobStatus_,
         labelCounters = pLabelCounters_,
         creationTime =
-          Core._Time Lens.# pCreationTime_,
+          Data._Time Lens.# pCreationTime_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_,
+          Data._Time Lens.# pLastModifiedTime_,
         jobReferenceCode = pJobReferenceCode_,
         labelingJobName = pLabelingJobName_,
         labelingJobArn = pLabelingJobArn_,
@@ -500,11 +501,11 @@ describeLabelingJobResponse_labelCounters = Lens.lens (\DescribeLabelingJobRespo
 
 -- | The date and time that the labeling job was created.
 describeLabelingJobResponse_creationTime :: Lens.Lens' DescribeLabelingJobResponse Prelude.UTCTime
-describeLabelingJobResponse_creationTime = Lens.lens (\DescribeLabelingJobResponse' {creationTime} -> creationTime) (\s@DescribeLabelingJobResponse' {} a -> s {creationTime = a} :: DescribeLabelingJobResponse) Prelude.. Core._Time
+describeLabelingJobResponse_creationTime = Lens.lens (\DescribeLabelingJobResponse' {creationTime} -> creationTime) (\s@DescribeLabelingJobResponse' {} a -> s {creationTime = a} :: DescribeLabelingJobResponse) Prelude.. Data._Time
 
 -- | The date and time that the labeling job was last updated.
 describeLabelingJobResponse_lastModifiedTime :: Lens.Lens' DescribeLabelingJobResponse Prelude.UTCTime
-describeLabelingJobResponse_lastModifiedTime = Lens.lens (\DescribeLabelingJobResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeLabelingJobResponse' {} a -> s {lastModifiedTime = a} :: DescribeLabelingJobResponse) Prelude.. Core._Time
+describeLabelingJobResponse_lastModifiedTime = Lens.lens (\DescribeLabelingJobResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeLabelingJobResponse' {} a -> s {lastModifiedTime = a} :: DescribeLabelingJobResponse) Prelude.. Data._Time
 
 -- | A unique identifier for work done as part of a labeling job.
 describeLabelingJobResponse_jobReferenceCode :: Lens.Lens' DescribeLabelingJobResponse Prelude.Text

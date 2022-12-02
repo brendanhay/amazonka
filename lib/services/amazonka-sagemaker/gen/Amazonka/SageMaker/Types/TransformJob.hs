@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TransformJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.BatchStrategy
 import Amazonka.SageMaker.Types.DataProcessing
@@ -81,7 +82,7 @@ data TransformJob = TransformJob'
     -- | Indicates when the transform job has been completed, or has stopped or
     -- failed. You are billed for the time interval between this time and the
     -- value of @TransformStartTime@.
-    transformEndTime :: Prelude.Maybe Core.POSIX,
+    transformEndTime :: Prelude.Maybe Data.POSIX,
     -- | The maximum allowed size of the payload, in MB. A payload is the data
     -- portion of a record (without metadata). The value in @MaxPayloadInMB@
     -- must be greater than, or equal to, the size of a single record. To
@@ -105,12 +106,12 @@ data TransformJob = TransformJob'
     modelName :: Prelude.Maybe Prelude.Text,
     transformResources :: Prelude.Maybe TransformResources,
     -- | A timestamp that shows when the transform Job was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     dataProcessing :: Prelude.Maybe DataProcessing,
     -- | Indicates when the transform job starts on ML instances. You are billed
     -- for the time interval between this time and the value of
     -- @TransformEndTime@.
-    transformStartTime :: Prelude.Maybe Core.POSIX,
+    transformStartTime :: Prelude.Maybe Data.POSIX,
     -- | If the transform job failed, the reason it failed.
     failureReason :: Prelude.Maybe Prelude.Text
   }
@@ -301,7 +302,7 @@ transformJob_transformJobStatus = Lens.lens (\TransformJob' {transformJobStatus}
 -- failed. You are billed for the time interval between this time and the
 -- value of @TransformStartTime@.
 transformJob_transformEndTime :: Lens.Lens' TransformJob (Prelude.Maybe Prelude.UTCTime)
-transformJob_transformEndTime = Lens.lens (\TransformJob' {transformEndTime} -> transformEndTime) (\s@TransformJob' {} a -> s {transformEndTime = a} :: TransformJob) Prelude.. Lens.mapping Core._Time
+transformJob_transformEndTime = Lens.lens (\TransformJob' {transformEndTime} -> transformEndTime) (\s@TransformJob' {} a -> s {transformEndTime = a} :: TransformJob) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum allowed size of the payload, in MB. A payload is the data
 -- portion of a record (without metadata). The value in @MaxPayloadInMB@
@@ -338,7 +339,7 @@ transformJob_transformResources = Lens.lens (\TransformJob' {transformResources}
 
 -- | A timestamp that shows when the transform Job was created.
 transformJob_creationTime :: Lens.Lens' TransformJob (Prelude.Maybe Prelude.UTCTime)
-transformJob_creationTime = Lens.lens (\TransformJob' {creationTime} -> creationTime) (\s@TransformJob' {} a -> s {creationTime = a} :: TransformJob) Prelude.. Lens.mapping Core._Time
+transformJob_creationTime = Lens.lens (\TransformJob' {creationTime} -> creationTime) (\s@TransformJob' {} a -> s {creationTime = a} :: TransformJob) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 transformJob_dataProcessing :: Lens.Lens' TransformJob (Prelude.Maybe DataProcessing)
@@ -348,39 +349,39 @@ transformJob_dataProcessing = Lens.lens (\TransformJob' {dataProcessing} -> data
 -- for the time interval between this time and the value of
 -- @TransformEndTime@.
 transformJob_transformStartTime :: Lens.Lens' TransformJob (Prelude.Maybe Prelude.UTCTime)
-transformJob_transformStartTime = Lens.lens (\TransformJob' {transformStartTime} -> transformStartTime) (\s@TransformJob' {} a -> s {transformStartTime = a} :: TransformJob) Prelude.. Lens.mapping Core._Time
+transformJob_transformStartTime = Lens.lens (\TransformJob' {transformStartTime} -> transformStartTime) (\s@TransformJob' {} a -> s {transformStartTime = a} :: TransformJob) Prelude.. Lens.mapping Data._Time
 
 -- | If the transform job failed, the reason it failed.
 transformJob_failureReason :: Lens.Lens' TransformJob (Prelude.Maybe Prelude.Text)
 transformJob_failureReason = Lens.lens (\TransformJob' {failureReason} -> failureReason) (\s@TransformJob' {} a -> s {failureReason = a} :: TransformJob)
 
-instance Core.FromJSON TransformJob where
+instance Data.FromJSON TransformJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TransformJob"
       ( \x ->
           TransformJob'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MaxConcurrentTransforms")
-            Prelude.<*> (x Core..:? "TransformJobArn")
-            Prelude.<*> (x Core..:? "ModelClientConfig")
-            Prelude.<*> (x Core..:? "Environment" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "TransformOutput")
-            Prelude.<*> (x Core..:? "ExperimentConfig")
-            Prelude.<*> (x Core..:? "TransformInput")
-            Prelude.<*> (x Core..:? "TransformJobName")
-            Prelude.<*> (x Core..:? "AutoMLJobArn")
-            Prelude.<*> (x Core..:? "TransformJobStatus")
-            Prelude.<*> (x Core..:? "TransformEndTime")
-            Prelude.<*> (x Core..:? "MaxPayloadInMB")
-            Prelude.<*> (x Core..:? "BatchStrategy")
-            Prelude.<*> (x Core..:? "LabelingJobArn")
-            Prelude.<*> (x Core..:? "ModelName")
-            Prelude.<*> (x Core..:? "TransformResources")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "DataProcessing")
-            Prelude.<*> (x Core..:? "TransformStartTime")
-            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MaxConcurrentTransforms")
+            Prelude.<*> (x Data..:? "TransformJobArn")
+            Prelude.<*> (x Data..:? "ModelClientConfig")
+            Prelude.<*> (x Data..:? "Environment" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "TransformOutput")
+            Prelude.<*> (x Data..:? "ExperimentConfig")
+            Prelude.<*> (x Data..:? "TransformInput")
+            Prelude.<*> (x Data..:? "TransformJobName")
+            Prelude.<*> (x Data..:? "AutoMLJobArn")
+            Prelude.<*> (x Data..:? "TransformJobStatus")
+            Prelude.<*> (x Data..:? "TransformEndTime")
+            Prelude.<*> (x Data..:? "MaxPayloadInMB")
+            Prelude.<*> (x Data..:? "BatchStrategy")
+            Prelude.<*> (x Data..:? "LabelingJobArn")
+            Prelude.<*> (x Data..:? "ModelName")
+            Prelude.<*> (x Data..:? "TransformResources")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "DataProcessing")
+            Prelude.<*> (x Data..:? "TransformStartTime")
+            Prelude.<*> (x Data..:? "FailureReason")
       )
 
 instance Prelude.Hashable TransformJob where

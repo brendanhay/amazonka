@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.PropertyNameQuery where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Part of the @SuggestionQuery@ type. Specifies a hint for retrieving
@@ -64,11 +65,11 @@ instance Prelude.NFData PropertyNameQuery where
   rnf PropertyNameQuery' {..} =
     Prelude.rnf propertyNameHint
 
-instance Core.ToJSON PropertyNameQuery where
+instance Data.ToJSON PropertyNameQuery where
   toJSON PropertyNameQuery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("PropertyNameHint" Core..= propertyNameHint)
+              ("PropertyNameHint" Data..= propertyNameHint)
           ]
       )

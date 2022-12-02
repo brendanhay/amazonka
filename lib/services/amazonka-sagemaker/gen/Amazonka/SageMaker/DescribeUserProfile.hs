@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,17 +108,17 @@ instance Core.AWSRequest DescribeUserProfile where
     Response.receiveJSON
       ( \s h x ->
           DescribeUserProfileResponse'
-            Prelude.<$> (x Core..?> "UserProfileArn")
-            Prelude.<*> (x Core..?> "SingleSignOnUserValue")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "UserSettings")
-            Prelude.<*> (x Core..?> "HomeEfsFileSystemUid")
-            Prelude.<*> (x Core..?> "UserProfileName")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "DomainId")
-            Prelude.<*> (x Core..?> "FailureReason")
-            Prelude.<*> (x Core..?> "SingleSignOnUserIdentifier")
+            Prelude.<$> (x Data..?> "UserProfileArn")
+            Prelude.<*> (x Data..?> "SingleSignOnUserValue")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "UserSettings")
+            Prelude.<*> (x Data..?> "HomeEfsFileSystemUid")
+            Prelude.<*> (x Data..?> "UserProfileName")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "DomainId")
+            Prelude.<*> (x Data..?> "FailureReason")
+            Prelude.<*> (x Data..?> "SingleSignOnUserIdentifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,35 +132,35 @@ instance Prelude.NFData DescribeUserProfile where
     Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf userProfileName
 
-instance Core.ToHeaders DescribeUserProfile where
+instance Data.ToHeaders DescribeUserProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeUserProfile" ::
+              Data.=# ( "SageMaker.DescribeUserProfile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeUserProfile where
+instance Data.ToJSON DescribeUserProfile where
   toJSON DescribeUserProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DomainId" Core..= domainId),
+          [ Prelude.Just ("DomainId" Data..= domainId),
             Prelude.Just
-              ("UserProfileName" Core..= userProfileName)
+              ("UserProfileName" Data..= userProfileName)
           ]
       )
 
-instance Core.ToPath DescribeUserProfile where
+instance Data.ToPath DescribeUserProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeUserProfile where
+instance Data.ToQuery DescribeUserProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeUserProfileResponse' smart constructor.
@@ -171,7 +172,7 @@ data DescribeUserProfileResponse = DescribeUserProfileResponse'
     -- | The status.
     status :: Prelude.Maybe UserProfileStatus,
     -- | The last modified time.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | A collection of settings.
     userSettings :: Prelude.Maybe UserSettings,
     -- | The ID of the user\'s profile in the Amazon Elastic File System (EFS)
@@ -180,7 +181,7 @@ data DescribeUserProfileResponse = DescribeUserProfileResponse'
     -- | The user profile name.
     userProfileName :: Prelude.Maybe Prelude.Text,
     -- | The creation time.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the domain that contains the profile.
     domainId :: Prelude.Maybe Prelude.Text,
     -- | The failure reason.
@@ -259,7 +260,7 @@ describeUserProfileResponse_status = Lens.lens (\DescribeUserProfileResponse' {s
 
 -- | The last modified time.
 describeUserProfileResponse_lastModifiedTime :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.UTCTime)
-describeUserProfileResponse_lastModifiedTime = Lens.lens (\DescribeUserProfileResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeUserProfileResponse' {} a -> s {lastModifiedTime = a} :: DescribeUserProfileResponse) Prelude.. Lens.mapping Core._Time
+describeUserProfileResponse_lastModifiedTime = Lens.lens (\DescribeUserProfileResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeUserProfileResponse' {} a -> s {lastModifiedTime = a} :: DescribeUserProfileResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A collection of settings.
 describeUserProfileResponse_userSettings :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe UserSettings)
@@ -276,7 +277,7 @@ describeUserProfileResponse_userProfileName = Lens.lens (\DescribeUserProfileRes
 
 -- | The creation time.
 describeUserProfileResponse_creationTime :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.UTCTime)
-describeUserProfileResponse_creationTime = Lens.lens (\DescribeUserProfileResponse' {creationTime} -> creationTime) (\s@DescribeUserProfileResponse' {} a -> s {creationTime = a} :: DescribeUserProfileResponse) Prelude.. Lens.mapping Core._Time
+describeUserProfileResponse_creationTime = Lens.lens (\DescribeUserProfileResponse' {creationTime} -> creationTime) (\s@DescribeUserProfileResponse' {} a -> s {creationTime = a} :: DescribeUserProfileResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the domain that contains the profile.
 describeUserProfileResponse_domainId :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)

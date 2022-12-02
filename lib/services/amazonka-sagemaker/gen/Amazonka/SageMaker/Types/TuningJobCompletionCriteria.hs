@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TuningJobCompletionCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The job completion criteria.
@@ -56,13 +57,13 @@ newTuningJobCompletionCriteria
 tuningJobCompletionCriteria_targetObjectiveMetricValue :: Lens.Lens' TuningJobCompletionCriteria Prelude.Double
 tuningJobCompletionCriteria_targetObjectiveMetricValue = Lens.lens (\TuningJobCompletionCriteria' {targetObjectiveMetricValue} -> targetObjectiveMetricValue) (\s@TuningJobCompletionCriteria' {} a -> s {targetObjectiveMetricValue = a} :: TuningJobCompletionCriteria)
 
-instance Core.FromJSON TuningJobCompletionCriteria where
+instance Data.FromJSON TuningJobCompletionCriteria where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TuningJobCompletionCriteria"
       ( \x ->
           TuningJobCompletionCriteria'
-            Prelude.<$> (x Core..: "TargetObjectiveMetricValue")
+            Prelude.<$> (x Data..: "TargetObjectiveMetricValue")
       )
 
 instance Prelude.Hashable TuningJobCompletionCriteria where
@@ -74,13 +75,13 @@ instance Prelude.NFData TuningJobCompletionCriteria where
   rnf TuningJobCompletionCriteria' {..} =
     Prelude.rnf targetObjectiveMetricValue
 
-instance Core.ToJSON TuningJobCompletionCriteria where
+instance Data.ToJSON TuningJobCompletionCriteria where
   toJSON TuningJobCompletionCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "TargetObjectiveMetricValue"
-                  Core..= targetObjectiveMetricValue
+                  Data..= targetObjectiveMetricValue
               )
           ]
       )

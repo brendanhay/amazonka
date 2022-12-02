@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.EnvironmentParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of environment parameters suggested by the Amazon SageMaker
@@ -80,15 +81,15 @@ environmentParameter_valueType = Lens.lens (\EnvironmentParameter' {valueType} -
 environmentParameter_value :: Lens.Lens' EnvironmentParameter Prelude.Text
 environmentParameter_value = Lens.lens (\EnvironmentParameter' {value} -> value) (\s@EnvironmentParameter' {} a -> s {value = a} :: EnvironmentParameter)
 
-instance Core.FromJSON EnvironmentParameter where
+instance Data.FromJSON EnvironmentParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnvironmentParameter"
       ( \x ->
           EnvironmentParameter'
-            Prelude.<$> (x Core..: "Key")
-            Prelude.<*> (x Core..: "ValueType")
-            Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Key")
+            Prelude.<*> (x Data..: "ValueType")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable EnvironmentParameter where

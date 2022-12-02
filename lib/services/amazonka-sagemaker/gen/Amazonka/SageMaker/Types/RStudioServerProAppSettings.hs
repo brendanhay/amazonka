@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.RStudioServerProAppSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.RStudioServerProAccessStatus
 import Amazonka.SageMaker.Types.RStudioServerProUserGroup
@@ -76,14 +77,14 @@ rStudioServerProAppSettings_accessStatus = Lens.lens (\RStudioServerProAppSettin
 rStudioServerProAppSettings_userGroup :: Lens.Lens' RStudioServerProAppSettings (Prelude.Maybe RStudioServerProUserGroup)
 rStudioServerProAppSettings_userGroup = Lens.lens (\RStudioServerProAppSettings' {userGroup} -> userGroup) (\s@RStudioServerProAppSettings' {} a -> s {userGroup = a} :: RStudioServerProAppSettings)
 
-instance Core.FromJSON RStudioServerProAppSettings where
+instance Data.FromJSON RStudioServerProAppSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RStudioServerProAppSettings"
       ( \x ->
           RStudioServerProAppSettings'
-            Prelude.<$> (x Core..:? "AccessStatus")
-            Prelude.<*> (x Core..:? "UserGroup")
+            Prelude.<$> (x Data..:? "AccessStatus")
+            Prelude.<*> (x Data..:? "UserGroup")
       )
 
 instance Prelude.Hashable RStudioServerProAppSettings where
@@ -96,11 +97,11 @@ instance Prelude.NFData RStudioServerProAppSettings where
     Prelude.rnf accessStatus
       `Prelude.seq` Prelude.rnf userGroup
 
-instance Core.ToJSON RStudioServerProAppSettings where
+instance Data.ToJSON RStudioServerProAppSettings where
   toJSON RStudioServerProAppSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccessStatus" Core..=) Prelude.<$> accessStatus,
-            ("UserGroup" Core..=) Prelude.<$> userGroup
+          [ ("AccessStatus" Data..=) Prelude.<$> accessStatus,
+            ("UserGroup" Data..=) Prelude.<$> userGroup
           ]
       )

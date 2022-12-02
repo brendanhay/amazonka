@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.HyperbandStrategyConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for @Hyperband@, a multi-fidelity based hyperparameter
@@ -161,14 +162,14 @@ hyperbandStrategyConfig_minResource = Lens.lens (\HyperbandStrategyConfig' {minR
 hyperbandStrategyConfig_maxResource :: Lens.Lens' HyperbandStrategyConfig (Prelude.Maybe Prelude.Natural)
 hyperbandStrategyConfig_maxResource = Lens.lens (\HyperbandStrategyConfig' {maxResource} -> maxResource) (\s@HyperbandStrategyConfig' {} a -> s {maxResource = a} :: HyperbandStrategyConfig)
 
-instance Core.FromJSON HyperbandStrategyConfig where
+instance Data.FromJSON HyperbandStrategyConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HyperbandStrategyConfig"
       ( \x ->
           HyperbandStrategyConfig'
-            Prelude.<$> (x Core..:? "MinResource")
-            Prelude.<*> (x Core..:? "MaxResource")
+            Prelude.<$> (x Data..:? "MinResource")
+            Prelude.<*> (x Data..:? "MaxResource")
       )
 
 instance Prelude.Hashable HyperbandStrategyConfig where
@@ -181,11 +182,11 @@ instance Prelude.NFData HyperbandStrategyConfig where
     Prelude.rnf minResource
       `Prelude.seq` Prelude.rnf maxResource
 
-instance Core.ToJSON HyperbandStrategyConfig where
+instance Data.ToJSON HyperbandStrategyConfig where
   toJSON HyperbandStrategyConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MinResource" Core..=) Prelude.<$> minResource,
-            ("MaxResource" Core..=) Prelude.<$> maxResource
+          [ ("MinResource" Data..=) Prelude.<$> minResource,
+            ("MaxResource" Data..=) Prelude.<$> maxResource
           ]
       )

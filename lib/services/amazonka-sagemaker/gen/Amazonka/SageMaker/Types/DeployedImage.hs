@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DeployedImage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Gets the Amazon EC2 Container Registry path of the docker image of the
@@ -44,7 +45,7 @@ data DeployedImage = DeployedImage'
     resolvedImage :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the image path for the model resolved to the
     -- @ResolvedImage@
-    resolutionTime :: Prelude.Maybe Core.POSIX
+    resolutionTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,17 +85,17 @@ deployedImage_resolvedImage = Lens.lens (\DeployedImage' {resolvedImage} -> reso
 -- | The date and time when the image path for the model resolved to the
 -- @ResolvedImage@
 deployedImage_resolutionTime :: Lens.Lens' DeployedImage (Prelude.Maybe Prelude.UTCTime)
-deployedImage_resolutionTime = Lens.lens (\DeployedImage' {resolutionTime} -> resolutionTime) (\s@DeployedImage' {} a -> s {resolutionTime = a} :: DeployedImage) Prelude.. Lens.mapping Core._Time
+deployedImage_resolutionTime = Lens.lens (\DeployedImage' {resolutionTime} -> resolutionTime) (\s@DeployedImage' {} a -> s {resolutionTime = a} :: DeployedImage) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON DeployedImage where
+instance Data.FromJSON DeployedImage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeployedImage"
       ( \x ->
           DeployedImage'
-            Prelude.<$> (x Core..:? "SpecifiedImage")
-            Prelude.<*> (x Core..:? "ResolvedImage")
-            Prelude.<*> (x Core..:? "ResolutionTime")
+            Prelude.<$> (x Data..:? "SpecifiedImage")
+            Prelude.<*> (x Data..:? "ResolvedImage")
+            Prelude.<*> (x Data..:? "ResolutionTime")
       )
 
 instance Prelude.Hashable DeployedImage where

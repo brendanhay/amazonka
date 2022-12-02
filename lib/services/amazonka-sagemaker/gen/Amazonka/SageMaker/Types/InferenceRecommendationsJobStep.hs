@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.InferenceRecommendationsJobStep where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.RecommendationJobInferenceBenchmark
 import Amazonka.SageMaker.Types.RecommendationJobStatus
@@ -104,18 +105,18 @@ inferenceRecommendationsJobStep_status :: Lens.Lens' InferenceRecommendationsJob
 inferenceRecommendationsJobStep_status = Lens.lens (\InferenceRecommendationsJobStep' {status} -> status) (\s@InferenceRecommendationsJobStep' {} a -> s {status = a} :: InferenceRecommendationsJobStep)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     InferenceRecommendationsJobStep
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InferenceRecommendationsJobStep"
       ( \x ->
           InferenceRecommendationsJobStep'
-            Prelude.<$> (x Core..:? "InferenceBenchmark")
-            Prelude.<*> (x Core..: "StepType")
-            Prelude.<*> (x Core..: "JobName")
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..:? "InferenceBenchmark")
+            Prelude.<*> (x Data..: "StepType")
+            Prelude.<*> (x Data..: "JobName")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance

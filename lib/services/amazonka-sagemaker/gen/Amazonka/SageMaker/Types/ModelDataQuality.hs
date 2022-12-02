@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelDataQuality where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MetricsSource
 
@@ -62,14 +63,14 @@ modelDataQuality_constraints = Lens.lens (\ModelDataQuality' {constraints} -> co
 modelDataQuality_statistics :: Lens.Lens' ModelDataQuality (Prelude.Maybe MetricsSource)
 modelDataQuality_statistics = Lens.lens (\ModelDataQuality' {statistics} -> statistics) (\s@ModelDataQuality' {} a -> s {statistics = a} :: ModelDataQuality)
 
-instance Core.FromJSON ModelDataQuality where
+instance Data.FromJSON ModelDataQuality where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelDataQuality"
       ( \x ->
           ModelDataQuality'
-            Prelude.<$> (x Core..:? "Constraints")
-            Prelude.<*> (x Core..:? "Statistics")
+            Prelude.<$> (x Data..:? "Constraints")
+            Prelude.<*> (x Data..:? "Statistics")
       )
 
 instance Prelude.Hashable ModelDataQuality where
@@ -82,11 +83,11 @@ instance Prelude.NFData ModelDataQuality where
     Prelude.rnf constraints
       `Prelude.seq` Prelude.rnf statistics
 
-instance Core.ToJSON ModelDataQuality where
+instance Data.ToJSON ModelDataQuality where
   toJSON ModelDataQuality' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Constraints" Core..=) Prelude.<$> constraints,
-            ("Statistics" Core..=) Prelude.<$> statistics
+          [ ("Constraints" Data..=) Prelude.<$> constraints,
+            ("Statistics" Data..=) Prelude.<$> statistics
           ]
       )

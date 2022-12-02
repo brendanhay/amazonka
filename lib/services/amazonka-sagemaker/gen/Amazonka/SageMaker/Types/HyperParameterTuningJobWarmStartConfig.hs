@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.HyperParameterTuningJobWarmStartConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.HyperParameterTuningJobWarmStartType
 import Amazonka.SageMaker.Types.ParentHyperParameterTuningJob
@@ -182,16 +183,16 @@ hyperParameterTuningJobWarmStartConfig_warmStartType :: Lens.Lens' HyperParamete
 hyperParameterTuningJobWarmStartConfig_warmStartType = Lens.lens (\HyperParameterTuningJobWarmStartConfig' {warmStartType} -> warmStartType) (\s@HyperParameterTuningJobWarmStartConfig' {} a -> s {warmStartType = a} :: HyperParameterTuningJobWarmStartConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     HyperParameterTuningJobWarmStartConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HyperParameterTuningJobWarmStartConfig"
       ( \x ->
           HyperParameterTuningJobWarmStartConfig'
-            Prelude.<$> (x Core..: "ParentHyperParameterTuningJobs")
-            Prelude.<*> (x Core..: "WarmStartType")
+            Prelude.<$> (x Data..: "ParentHyperParameterTuningJobs")
+            Prelude.<*> (x Data..: "WarmStartType")
       )
 
 instance
@@ -214,17 +215,17 @@ instance
       `Prelude.seq` Prelude.rnf warmStartType
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     HyperParameterTuningJobWarmStartConfig
   where
   toJSON HyperParameterTuningJobWarmStartConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ParentHyperParameterTuningJobs"
-                  Core..= parentHyperParameterTuningJobs
+                  Data..= parentHyperParameterTuningJobs
               ),
             Prelude.Just
-              ("WarmStartType" Core..= warmStartType)
+              ("WarmStartType" Data..= warmStartType)
           ]
       )

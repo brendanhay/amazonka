@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AsyncInferenceConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AsyncInferenceClientConfig
 import Amazonka.SageMaker.Types.AsyncInferenceOutputConfig
@@ -73,14 +74,14 @@ asyncInferenceConfig_clientConfig = Lens.lens (\AsyncInferenceConfig' {clientCon
 asyncInferenceConfig_outputConfig :: Lens.Lens' AsyncInferenceConfig AsyncInferenceOutputConfig
 asyncInferenceConfig_outputConfig = Lens.lens (\AsyncInferenceConfig' {outputConfig} -> outputConfig) (\s@AsyncInferenceConfig' {} a -> s {outputConfig = a} :: AsyncInferenceConfig)
 
-instance Core.FromJSON AsyncInferenceConfig where
+instance Data.FromJSON AsyncInferenceConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AsyncInferenceConfig"
       ( \x ->
           AsyncInferenceConfig'
-            Prelude.<$> (x Core..:? "ClientConfig")
-            Prelude.<*> (x Core..: "OutputConfig")
+            Prelude.<$> (x Data..:? "ClientConfig")
+            Prelude.<*> (x Data..: "OutputConfig")
       )
 
 instance Prelude.Hashable AsyncInferenceConfig where
@@ -93,11 +94,11 @@ instance Prelude.NFData AsyncInferenceConfig where
     Prelude.rnf clientConfig
       `Prelude.seq` Prelude.rnf outputConfig
 
-instance Core.ToJSON AsyncInferenceConfig where
+instance Data.ToJSON AsyncInferenceConfig where
   toJSON AsyncInferenceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientConfig" Core..=) Prelude.<$> clientConfig,
-            Prelude.Just ("OutputConfig" Core..= outputConfig)
+          [ ("ClientConfig" Data..=) Prelude.<$> clientConfig,
+            Prelude.Just ("OutputConfig" Data..= outputConfig)
           ]
       )

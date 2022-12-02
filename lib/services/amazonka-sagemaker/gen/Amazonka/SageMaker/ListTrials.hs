@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -72,14 +73,14 @@ data ListTrials = ListTrials'
     -- trial component.
     trialComponentName :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only trials created before the specified time.
-    createdBefore :: Prelude.Maybe Core.POSIX,
+    createdBefore :: Prelude.Maybe Data.POSIX,
     -- | The property used to sort results. The default value is @CreationTime@.
     sortBy :: Prelude.Maybe SortTrialsBy,
     -- | The maximum number of trials to return in the response. The default
     -- value is 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns only trials created after the specified time.
-    createdAfter :: Prelude.Maybe Core.POSIX,
+    createdAfter :: Prelude.Maybe Data.POSIX,
     -- | A filter that returns only trials that are part of the specified
     -- experiment.
     experimentName :: Prelude.Maybe Prelude.Text
@@ -143,7 +144,7 @@ listTrials_trialComponentName = Lens.lens (\ListTrials' {trialComponentName} -> 
 
 -- | A filter that returns only trials created before the specified time.
 listTrials_createdBefore :: Lens.Lens' ListTrials (Prelude.Maybe Prelude.UTCTime)
-listTrials_createdBefore = Lens.lens (\ListTrials' {createdBefore} -> createdBefore) (\s@ListTrials' {} a -> s {createdBefore = a} :: ListTrials) Prelude.. Lens.mapping Core._Time
+listTrials_createdBefore = Lens.lens (\ListTrials' {createdBefore} -> createdBefore) (\s@ListTrials' {} a -> s {createdBefore = a} :: ListTrials) Prelude.. Lens.mapping Data._Time
 
 -- | The property used to sort results. The default value is @CreationTime@.
 listTrials_sortBy :: Lens.Lens' ListTrials (Prelude.Maybe SortTrialsBy)
@@ -156,7 +157,7 @@ listTrials_maxResults = Lens.lens (\ListTrials' {maxResults} -> maxResults) (\s@
 
 -- | A filter that returns only trials created after the specified time.
 listTrials_createdAfter :: Lens.Lens' ListTrials (Prelude.Maybe Prelude.UTCTime)
-listTrials_createdAfter = Lens.lens (\ListTrials' {createdAfter} -> createdAfter) (\s@ListTrials' {} a -> s {createdAfter = a} :: ListTrials) Prelude.. Lens.mapping Core._Time
+listTrials_createdAfter = Lens.lens (\ListTrials' {createdAfter} -> createdAfter) (\s@ListTrials' {} a -> s {createdAfter = a} :: ListTrials) Prelude.. Lens.mapping Data._Time
 
 -- | A filter that returns only trials that are part of the specified
 -- experiment.
@@ -191,8 +192,8 @@ instance Core.AWSRequest ListTrials where
     Response.receiveJSON
       ( \s h x ->
           ListTrialsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "TrialSummaries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "TrialSummaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -218,40 +219,40 @@ instance Prelude.NFData ListTrials where
       `Prelude.seq` Prelude.rnf createdAfter
       `Prelude.seq` Prelude.rnf experimentName
 
-instance Core.ToHeaders ListTrials where
+instance Data.ToHeaders ListTrials where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.ListTrials" :: Prelude.ByteString),
+              Data.=# ("SageMaker.ListTrials" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListTrials where
+instance Data.ToJSON ListTrials where
   toJSON ListTrials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("TrialComponentName" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("TrialComponentName" Data..=)
               Prelude.<$> trialComponentName,
-            ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
-            ("ExperimentName" Core..=)
+            ("CreatedBefore" Data..=) Prelude.<$> createdBefore,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CreatedAfter" Data..=) Prelude.<$> createdAfter,
+            ("ExperimentName" Data..=)
               Prelude.<$> experimentName
           ]
       )
 
-instance Core.ToPath ListTrials where
+instance Data.ToPath ListTrials where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTrials where
+instance Data.ToQuery ListTrials where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTrialsResponse' smart constructor.

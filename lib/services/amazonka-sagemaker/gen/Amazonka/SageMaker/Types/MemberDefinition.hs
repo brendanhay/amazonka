@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MemberDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CognitoMemberDefinition
 import Amazonka.SageMaker.Types.OidcMemberDefinition
@@ -77,14 +78,14 @@ memberDefinition_cognitoMemberDefinition = Lens.lens (\MemberDefinition' {cognit
 memberDefinition_oidcMemberDefinition :: Lens.Lens' MemberDefinition (Prelude.Maybe OidcMemberDefinition)
 memberDefinition_oidcMemberDefinition = Lens.lens (\MemberDefinition' {oidcMemberDefinition} -> oidcMemberDefinition) (\s@MemberDefinition' {} a -> s {oidcMemberDefinition = a} :: MemberDefinition)
 
-instance Core.FromJSON MemberDefinition where
+instance Data.FromJSON MemberDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MemberDefinition"
       ( \x ->
           MemberDefinition'
-            Prelude.<$> (x Core..:? "CognitoMemberDefinition")
-            Prelude.<*> (x Core..:? "OidcMemberDefinition")
+            Prelude.<$> (x Data..:? "CognitoMemberDefinition")
+            Prelude.<*> (x Data..:? "OidcMemberDefinition")
       )
 
 instance Prelude.Hashable MemberDefinition where
@@ -98,13 +99,13 @@ instance Prelude.NFData MemberDefinition where
     Prelude.rnf cognitoMemberDefinition
       `Prelude.seq` Prelude.rnf oidcMemberDefinition
 
-instance Core.ToJSON MemberDefinition where
+instance Data.ToJSON MemberDefinition where
   toJSON MemberDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CognitoMemberDefinition" Core..=)
+          [ ("CognitoMemberDefinition" Data..=)
               Prelude.<$> cognitoMemberDefinition,
-            ("OidcMemberDefinition" Core..=)
+            ("OidcMemberDefinition" Data..=)
               Prelude.<$> oidcMemberDefinition
           ]
       )

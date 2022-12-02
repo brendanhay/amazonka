@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -153,39 +154,39 @@ instance Prelude.NFData UpdateDeviceFleet where
       `Prelude.seq` Prelude.rnf deviceFleetName
       `Prelude.seq` Prelude.rnf outputConfig
 
-instance Core.ToHeaders UpdateDeviceFleet where
+instance Data.ToHeaders UpdateDeviceFleet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.UpdateDeviceFleet" ::
+              Data.=# ( "SageMaker.UpdateDeviceFleet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDeviceFleet where
+instance Data.ToJSON UpdateDeviceFleet where
   toJSON UpdateDeviceFleet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("Description" Core..=) Prelude.<$> description,
-            ("EnableIotRoleAlias" Core..=)
+          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("Description" Data..=) Prelude.<$> description,
+            ("EnableIotRoleAlias" Data..=)
               Prelude.<$> enableIotRoleAlias,
             Prelude.Just
-              ("DeviceFleetName" Core..= deviceFleetName),
-            Prelude.Just ("OutputConfig" Core..= outputConfig)
+              ("DeviceFleetName" Data..= deviceFleetName),
+            Prelude.Just ("OutputConfig" Data..= outputConfig)
           ]
       )
 
-instance Core.ToPath UpdateDeviceFleet where
+instance Data.ToPath UpdateDeviceFleet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDeviceFleet where
+instance Data.ToQuery UpdateDeviceFleet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDeviceFleetResponse' smart constructor.

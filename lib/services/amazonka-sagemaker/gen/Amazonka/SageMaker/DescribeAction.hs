@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,19 +96,19 @@ instance Core.AWSRequest DescribeAction where
     Response.receiveJSON
       ( \s h x ->
           DescribeActionResponse'
-            Prelude.<$> (x Core..?> "ActionName")
-            Prelude.<*> (x Core..?> "ActionType")
-            Prelude.<*> (x Core..?> "MetadataProperties")
-            Prelude.<*> (x Core..?> "Properties" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "Source")
-            Prelude.<*> (x Core..?> "ActionArn")
-            Prelude.<*> (x Core..?> "LineageGroupArn")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "LastModifiedBy")
-            Prelude.<*> (x Core..?> "CreatedBy")
+            Prelude.<$> (x Data..?> "ActionName")
+            Prelude.<*> (x Data..?> "ActionType")
+            Prelude.<*> (x Data..?> "MetadataProperties")
+            Prelude.<*> (x Data..?> "Properties" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "Source")
+            Prelude.<*> (x Data..?> "ActionArn")
+            Prelude.<*> (x Data..?> "LineageGroupArn")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "LastModifiedBy")
+            Prelude.<*> (x Data..?> "CreatedBy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,30 +119,30 @@ instance Prelude.Hashable DescribeAction where
 instance Prelude.NFData DescribeAction where
   rnf DescribeAction' {..} = Prelude.rnf actionName
 
-instance Core.ToHeaders DescribeAction where
+instance Data.ToHeaders DescribeAction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DescribeAction" :: Prelude.ByteString),
+              Data.=# ("SageMaker.DescribeAction" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAction where
+instance Data.ToJSON DescribeAction where
   toJSON DescribeAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ActionName" Core..= actionName)]
+          [Prelude.Just ("ActionName" Data..= actionName)]
       )
 
-instance Core.ToPath DescribeAction where
+instance Data.ToPath DescribeAction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAction where
+instance Data.ToQuery DescribeAction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeActionResponse' smart constructor.
@@ -158,7 +159,7 @@ data DescribeActionResponse = DescribeActionResponse'
     -- | The description of the action.
     description :: Prelude.Maybe Prelude.Text,
     -- | When the action was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The source of the action.
     source :: Prelude.Maybe ActionSource,
     -- | The Amazon Resource Name (ARN) of the action.
@@ -166,7 +167,7 @@ data DescribeActionResponse = DescribeActionResponse'
     -- | The Amazon Resource Name (ARN) of the lineage group.
     lineageGroupArn :: Prelude.Maybe Prelude.Text,
     -- | When the action was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     lastModifiedBy :: Prelude.Maybe UserContext,
     createdBy :: Prelude.Maybe UserContext,
     -- | The response's http status code.
@@ -258,7 +259,7 @@ describeActionResponse_description = Lens.lens (\DescribeActionResponse' {descri
 
 -- | When the action was last modified.
 describeActionResponse_lastModifiedTime :: Lens.Lens' DescribeActionResponse (Prelude.Maybe Prelude.UTCTime)
-describeActionResponse_lastModifiedTime = Lens.lens (\DescribeActionResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeActionResponse' {} a -> s {lastModifiedTime = a} :: DescribeActionResponse) Prelude.. Lens.mapping Core._Time
+describeActionResponse_lastModifiedTime = Lens.lens (\DescribeActionResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeActionResponse' {} a -> s {lastModifiedTime = a} :: DescribeActionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The source of the action.
 describeActionResponse_source :: Lens.Lens' DescribeActionResponse (Prelude.Maybe ActionSource)
@@ -274,7 +275,7 @@ describeActionResponse_lineageGroupArn = Lens.lens (\DescribeActionResponse' {li
 
 -- | When the action was created.
 describeActionResponse_creationTime :: Lens.Lens' DescribeActionResponse (Prelude.Maybe Prelude.UTCTime)
-describeActionResponse_creationTime = Lens.lens (\DescribeActionResponse' {creationTime} -> creationTime) (\s@DescribeActionResponse' {} a -> s {creationTime = a} :: DescribeActionResponse) Prelude.. Lens.mapping Core._Time
+describeActionResponse_creationTime = Lens.lens (\DescribeActionResponse' {creationTime} -> creationTime) (\s@DescribeActionResponse' {} a -> s {creationTime = a} :: DescribeActionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 describeActionResponse_lastModifiedBy :: Lens.Lens' DescribeActionResponse (Prelude.Maybe UserContext)

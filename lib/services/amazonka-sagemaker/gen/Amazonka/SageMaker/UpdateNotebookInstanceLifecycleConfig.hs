@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -145,47 +146,47 @@ instance
       `Prelude.seq` Prelude.rnf notebookInstanceLifecycleConfigName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateNotebookInstanceLifecycleConfig
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.UpdateNotebookInstanceLifecycleConfig" ::
+              Data.=# ( "SageMaker.UpdateNotebookInstanceLifecycleConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateNotebookInstanceLifecycleConfig
   where
   toJSON UpdateNotebookInstanceLifecycleConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OnCreate" Core..=) Prelude.<$> onCreate,
-            ("OnStart" Core..=) Prelude.<$> onStart,
+          [ ("OnCreate" Data..=) Prelude.<$> onCreate,
+            ("OnStart" Data..=) Prelude.<$> onStart,
             Prelude.Just
               ( "NotebookInstanceLifecycleConfigName"
-                  Core..= notebookInstanceLifecycleConfigName
+                  Data..= notebookInstanceLifecycleConfigName
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateNotebookInstanceLifecycleConfig
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateNotebookInstanceLifecycleConfig
   where
   toQuery = Prelude.const Prelude.mempty

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelMetadataSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of the model metadata.
@@ -103,17 +104,17 @@ modelMetadataSummary_model = Lens.lens (\ModelMetadataSummary' {model} -> model)
 modelMetadataSummary_frameworkVersion :: Lens.Lens' ModelMetadataSummary Prelude.Text
 modelMetadataSummary_frameworkVersion = Lens.lens (\ModelMetadataSummary' {frameworkVersion} -> frameworkVersion) (\s@ModelMetadataSummary' {} a -> s {frameworkVersion = a} :: ModelMetadataSummary)
 
-instance Core.FromJSON ModelMetadataSummary where
+instance Data.FromJSON ModelMetadataSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelMetadataSummary"
       ( \x ->
           ModelMetadataSummary'
-            Prelude.<$> (x Core..: "Domain")
-            Prelude.<*> (x Core..: "Framework")
-            Prelude.<*> (x Core..: "Task")
-            Prelude.<*> (x Core..: "Model")
-            Prelude.<*> (x Core..: "FrameworkVersion")
+            Prelude.<$> (x Data..: "Domain")
+            Prelude.<*> (x Data..: "Framework")
+            Prelude.<*> (x Data..: "Task")
+            Prelude.<*> (x Data..: "Model")
+            Prelude.<*> (x Data..: "FrameworkVersion")
       )
 
 instance Prelude.Hashable ModelMetadataSummary where

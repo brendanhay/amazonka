@@ -75,6 +75,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -420,7 +421,7 @@ instance Core.AWSRequest CreateModelPackage where
       ( \s h x ->
           CreateModelPackageResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ModelPackageArn")
+            Prelude.<*> (x Data..:> "ModelPackageArn")
       )
 
 instance Prelude.Hashable CreateModelPackage where
@@ -467,63 +468,63 @@ instance Prelude.NFData CreateModelPackage where
         customerMetadataProperties
       `Prelude.seq` Prelude.rnf modelPackageName
 
-instance Core.ToHeaders CreateModelPackage where
+instance Data.ToHeaders CreateModelPackage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.CreateModelPackage" ::
+              Data.=# ( "SageMaker.CreateModelPackage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateModelPackage where
+instance Data.ToJSON CreateModelPackage where
   toJSON CreateModelPackage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ModelPackageGroupName" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ModelPackageGroupName" Data..=)
               Prelude.<$> modelPackageGroupName,
-            ("SourceAlgorithmSpecification" Core..=)
+            ("SourceAlgorithmSpecification" Data..=)
               Prelude.<$> sourceAlgorithmSpecification,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("ValidationSpecification" Core..=)
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("ValidationSpecification" Data..=)
               Prelude.<$> validationSpecification,
-            ("SamplePayloadUrl" Core..=)
+            ("SamplePayloadUrl" Data..=)
               Prelude.<$> samplePayloadUrl,
-            ("Task" Core..=) Prelude.<$> task,
-            ("CertifyForMarketplace" Core..=)
+            ("Task" Data..=) Prelude.<$> task,
+            ("CertifyForMarketplace" Data..=)
               Prelude.<$> certifyForMarketplace,
-            ("InferenceSpecification" Core..=)
+            ("InferenceSpecification" Data..=)
               Prelude.<$> inferenceSpecification,
-            ("ModelApprovalStatus" Core..=)
+            ("ModelApprovalStatus" Data..=)
               Prelude.<$> modelApprovalStatus,
-            ("MetadataProperties" Core..=)
+            ("MetadataProperties" Data..=)
               Prelude.<$> metadataProperties,
-            ("Domain" Core..=) Prelude.<$> domain,
-            ("ModelPackageDescription" Core..=)
+            ("Domain" Data..=) Prelude.<$> domain,
+            ("ModelPackageDescription" Data..=)
               Prelude.<$> modelPackageDescription,
-            ("DriftCheckBaselines" Core..=)
+            ("DriftCheckBaselines" Data..=)
               Prelude.<$> driftCheckBaselines,
-            ("ModelMetrics" Core..=) Prelude.<$> modelMetrics,
-            ("AdditionalInferenceSpecifications" Core..=)
+            ("ModelMetrics" Data..=) Prelude.<$> modelMetrics,
+            ("AdditionalInferenceSpecifications" Data..=)
               Prelude.<$> additionalInferenceSpecifications,
-            ("CustomerMetadataProperties" Core..=)
+            ("CustomerMetadataProperties" Data..=)
               Prelude.<$> customerMetadataProperties,
-            ("ModelPackageName" Core..=)
+            ("ModelPackageName" Data..=)
               Prelude.<$> modelPackageName
           ]
       )
 
-instance Core.ToPath CreateModelPackage where
+instance Data.ToPath CreateModelPackage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateModelPackage where
+instance Data.ToQuery CreateModelPackage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateModelPackageResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ContainerDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ContainerMode
 import Amazonka.SageMaker.Types.ImageConfig
@@ -268,21 +269,21 @@ containerDefinition_image = Lens.lens (\ContainerDefinition' {image} -> image) (
 containerDefinition_modelPackageName :: Lens.Lens' ContainerDefinition (Prelude.Maybe Prelude.Text)
 containerDefinition_modelPackageName = Lens.lens (\ContainerDefinition' {modelPackageName} -> modelPackageName) (\s@ContainerDefinition' {} a -> s {modelPackageName = a} :: ContainerDefinition)
 
-instance Core.FromJSON ContainerDefinition where
+instance Data.FromJSON ContainerDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerDefinition"
       ( \x ->
           ContainerDefinition'
-            Prelude.<$> (x Core..:? "ImageConfig")
-            Prelude.<*> (x Core..:? "Environment" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ContainerHostname")
-            Prelude.<*> (x Core..:? "ModelDataUrl")
-            Prelude.<*> (x Core..:? "MultiModelConfig")
-            Prelude.<*> (x Core..:? "InferenceSpecificationName")
-            Prelude.<*> (x Core..:? "Mode")
-            Prelude.<*> (x Core..:? "Image")
-            Prelude.<*> (x Core..:? "ModelPackageName")
+            Prelude.<$> (x Data..:? "ImageConfig")
+            Prelude.<*> (x Data..:? "Environment" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ContainerHostname")
+            Prelude.<*> (x Data..:? "ModelDataUrl")
+            Prelude.<*> (x Data..:? "MultiModelConfig")
+            Prelude.<*> (x Data..:? "InferenceSpecificationName")
+            Prelude.<*> (x Data..:? "Mode")
+            Prelude.<*> (x Data..:? "Image")
+            Prelude.<*> (x Data..:? "ModelPackageName")
       )
 
 instance Prelude.Hashable ContainerDefinition where
@@ -309,22 +310,22 @@ instance Prelude.NFData ContainerDefinition where
       `Prelude.seq` Prelude.rnf image
       `Prelude.seq` Prelude.rnf modelPackageName
 
-instance Core.ToJSON ContainerDefinition where
+instance Data.ToJSON ContainerDefinition where
   toJSON ContainerDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ImageConfig" Core..=) Prelude.<$> imageConfig,
-            ("Environment" Core..=) Prelude.<$> environment,
-            ("ContainerHostname" Core..=)
+          [ ("ImageConfig" Data..=) Prelude.<$> imageConfig,
+            ("Environment" Data..=) Prelude.<$> environment,
+            ("ContainerHostname" Data..=)
               Prelude.<$> containerHostname,
-            ("ModelDataUrl" Core..=) Prelude.<$> modelDataUrl,
-            ("MultiModelConfig" Core..=)
+            ("ModelDataUrl" Data..=) Prelude.<$> modelDataUrl,
+            ("MultiModelConfig" Data..=)
               Prelude.<$> multiModelConfig,
-            ("InferenceSpecificationName" Core..=)
+            ("InferenceSpecificationName" Data..=)
               Prelude.<$> inferenceSpecificationName,
-            ("Mode" Core..=) Prelude.<$> mode,
-            ("Image" Core..=) Prelude.<$> image,
-            ("ModelPackageName" Core..=)
+            ("Mode" Data..=) Prelude.<$> mode,
+            ("Image" Data..=) Prelude.<$> image,
+            ("ModelPackageName" Data..=)
               Prelude.<$> modelPackageName
           ]
       )

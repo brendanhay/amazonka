@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DebugRuleConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ProcessingInstanceType
 
@@ -132,19 +133,19 @@ debugRuleConfiguration_ruleConfigurationName = Lens.lens (\DebugRuleConfiguratio
 debugRuleConfiguration_ruleEvaluatorImage :: Lens.Lens' DebugRuleConfiguration Prelude.Text
 debugRuleConfiguration_ruleEvaluatorImage = Lens.lens (\DebugRuleConfiguration' {ruleEvaluatorImage} -> ruleEvaluatorImage) (\s@DebugRuleConfiguration' {} a -> s {ruleEvaluatorImage = a} :: DebugRuleConfiguration)
 
-instance Core.FromJSON DebugRuleConfiguration where
+instance Data.FromJSON DebugRuleConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DebugRuleConfiguration"
       ( \x ->
           DebugRuleConfiguration'
-            Prelude.<$> (x Core..:? "S3OutputPath")
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "RuleParameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LocalPath")
-            Prelude.<*> (x Core..:? "VolumeSizeInGB")
-            Prelude.<*> (x Core..: "RuleConfigurationName")
-            Prelude.<*> (x Core..: "RuleEvaluatorImage")
+            Prelude.<$> (x Data..:? "S3OutputPath")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "RuleParameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LocalPath")
+            Prelude.<*> (x Data..:? "VolumeSizeInGB")
+            Prelude.<*> (x Data..: "RuleConfigurationName")
+            Prelude.<*> (x Data..: "RuleEvaluatorImage")
       )
 
 instance Prelude.Hashable DebugRuleConfiguration where
@@ -167,22 +168,22 @@ instance Prelude.NFData DebugRuleConfiguration where
       `Prelude.seq` Prelude.rnf ruleConfigurationName
       `Prelude.seq` Prelude.rnf ruleEvaluatorImage
 
-instance Core.ToJSON DebugRuleConfiguration where
+instance Data.ToJSON DebugRuleConfiguration where
   toJSON DebugRuleConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3OutputPath" Core..=) Prelude.<$> s3OutputPath,
-            ("InstanceType" Core..=) Prelude.<$> instanceType,
-            ("RuleParameters" Core..=)
+          [ ("S3OutputPath" Data..=) Prelude.<$> s3OutputPath,
+            ("InstanceType" Data..=) Prelude.<$> instanceType,
+            ("RuleParameters" Data..=)
               Prelude.<$> ruleParameters,
-            ("LocalPath" Core..=) Prelude.<$> localPath,
-            ("VolumeSizeInGB" Core..=)
+            ("LocalPath" Data..=) Prelude.<$> localPath,
+            ("VolumeSizeInGB" Data..=)
               Prelude.<$> volumeSizeInGB,
             Prelude.Just
               ( "RuleConfigurationName"
-                  Core..= ruleConfigurationName
+                  Data..= ruleConfigurationName
               ),
             Prelude.Just
-              ("RuleEvaluatorImage" Core..= ruleEvaluatorImage)
+              ("RuleEvaluatorImage" Data..= ruleEvaluatorImage)
           ]
       )

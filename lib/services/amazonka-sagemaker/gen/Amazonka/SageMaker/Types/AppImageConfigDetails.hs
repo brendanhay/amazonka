@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AppImageConfigDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.KernelGatewayImageConfig
 
@@ -36,9 +37,9 @@ data AppImageConfigDetails = AppImageConfigDetails'
     -- image.
     kernelGatewayImageConfig :: Prelude.Maybe KernelGatewayImageConfig,
     -- | When the AppImageConfig was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | When the AppImageConfig was created.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,23 +88,23 @@ appImageConfigDetails_kernelGatewayImageConfig = Lens.lens (\AppImageConfigDetai
 
 -- | When the AppImageConfig was last modified.
 appImageConfigDetails_lastModifiedTime :: Lens.Lens' AppImageConfigDetails (Prelude.Maybe Prelude.UTCTime)
-appImageConfigDetails_lastModifiedTime = Lens.lens (\AppImageConfigDetails' {lastModifiedTime} -> lastModifiedTime) (\s@AppImageConfigDetails' {} a -> s {lastModifiedTime = a} :: AppImageConfigDetails) Prelude.. Lens.mapping Core._Time
+appImageConfigDetails_lastModifiedTime = Lens.lens (\AppImageConfigDetails' {lastModifiedTime} -> lastModifiedTime) (\s@AppImageConfigDetails' {} a -> s {lastModifiedTime = a} :: AppImageConfigDetails) Prelude.. Lens.mapping Data._Time
 
 -- | When the AppImageConfig was created.
 appImageConfigDetails_creationTime :: Lens.Lens' AppImageConfigDetails (Prelude.Maybe Prelude.UTCTime)
-appImageConfigDetails_creationTime = Lens.lens (\AppImageConfigDetails' {creationTime} -> creationTime) (\s@AppImageConfigDetails' {} a -> s {creationTime = a} :: AppImageConfigDetails) Prelude.. Lens.mapping Core._Time
+appImageConfigDetails_creationTime = Lens.lens (\AppImageConfigDetails' {creationTime} -> creationTime) (\s@AppImageConfigDetails' {} a -> s {creationTime = a} :: AppImageConfigDetails) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AppImageConfigDetails where
+instance Data.FromJSON AppImageConfigDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppImageConfigDetails"
       ( \x ->
           AppImageConfigDetails'
-            Prelude.<$> (x Core..:? "AppImageConfigArn")
-            Prelude.<*> (x Core..:? "AppImageConfigName")
-            Prelude.<*> (x Core..:? "KernelGatewayImageConfig")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Data..:? "AppImageConfigArn")
+            Prelude.<*> (x Data..:? "AppImageConfigName")
+            Prelude.<*> (x Data..:? "KernelGatewayImageConfig")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance Prelude.Hashable AppImageConfigDetails where

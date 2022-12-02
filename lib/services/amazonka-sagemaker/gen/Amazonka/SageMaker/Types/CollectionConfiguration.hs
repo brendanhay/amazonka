@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.CollectionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information for the Debugger output tensor collections.
@@ -71,15 +72,15 @@ collectionConfiguration_collectionName = Lens.lens (\CollectionConfiguration' {c
 collectionConfiguration_collectionParameters :: Lens.Lens' CollectionConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 collectionConfiguration_collectionParameters = Lens.lens (\CollectionConfiguration' {collectionParameters} -> collectionParameters) (\s@CollectionConfiguration' {} a -> s {collectionParameters = a} :: CollectionConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CollectionConfiguration where
+instance Data.FromJSON CollectionConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CollectionConfiguration"
       ( \x ->
           CollectionConfiguration'
-            Prelude.<$> (x Core..:? "CollectionName")
-            Prelude.<*> ( x Core..:? "CollectionParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "CollectionName")
+            Prelude.<*> ( x Data..:? "CollectionParameters"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -93,13 +94,13 @@ instance Prelude.NFData CollectionConfiguration where
     Prelude.rnf collectionName
       `Prelude.seq` Prelude.rnf collectionParameters
 
-instance Core.ToJSON CollectionConfiguration where
+instance Data.ToJSON CollectionConfiguration where
   toJSON CollectionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CollectionName" Core..=)
+          [ ("CollectionName" Data..=)
               Prelude.<$> collectionName,
-            ("CollectionParameters" Core..=)
+            ("CollectionParameters" Data..=)
               Prelude.<$> collectionParameters
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelExplainabilityJobInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.BatchTransformInput
 import Amazonka.SageMaker.Types.EndpointInput
@@ -63,14 +64,14 @@ modelExplainabilityJobInput_endpointInput = Lens.lens (\ModelExplainabilityJobIn
 modelExplainabilityJobInput_batchTransformInput :: Lens.Lens' ModelExplainabilityJobInput (Prelude.Maybe BatchTransformInput)
 modelExplainabilityJobInput_batchTransformInput = Lens.lens (\ModelExplainabilityJobInput' {batchTransformInput} -> batchTransformInput) (\s@ModelExplainabilityJobInput' {} a -> s {batchTransformInput = a} :: ModelExplainabilityJobInput)
 
-instance Core.FromJSON ModelExplainabilityJobInput where
+instance Data.FromJSON ModelExplainabilityJobInput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelExplainabilityJobInput"
       ( \x ->
           ModelExplainabilityJobInput'
-            Prelude.<$> (x Core..:? "EndpointInput")
-            Prelude.<*> (x Core..:? "BatchTransformInput")
+            Prelude.<$> (x Data..:? "EndpointInput")
+            Prelude.<*> (x Data..:? "BatchTransformInput")
       )
 
 instance Prelude.Hashable ModelExplainabilityJobInput where
@@ -83,12 +84,12 @@ instance Prelude.NFData ModelExplainabilityJobInput where
     Prelude.rnf endpointInput
       `Prelude.seq` Prelude.rnf batchTransformInput
 
-instance Core.ToJSON ModelExplainabilityJobInput where
+instance Data.ToJSON ModelExplainabilityJobInput where
   toJSON ModelExplainabilityJobInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EndpointInput" Core..=) Prelude.<$> endpointInput,
-            ("BatchTransformInput" Core..=)
+          [ ("EndpointInput" Data..=) Prelude.<$> endpointInput,
+            ("BatchTransformInput" Data..=)
               Prelude.<$> batchTransformInput
           ]
       )

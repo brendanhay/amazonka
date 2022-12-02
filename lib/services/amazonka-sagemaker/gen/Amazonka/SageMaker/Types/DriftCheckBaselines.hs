@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DriftCheckBaselines where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.DriftCheckBias
 import Amazonka.SageMaker.Types.DriftCheckExplainability
@@ -97,16 +98,16 @@ driftCheckBaselines_bias = Lens.lens (\DriftCheckBaselines' {bias} -> bias) (\s@
 driftCheckBaselines_explainability :: Lens.Lens' DriftCheckBaselines (Prelude.Maybe DriftCheckExplainability)
 driftCheckBaselines_explainability = Lens.lens (\DriftCheckBaselines' {explainability} -> explainability) (\s@DriftCheckBaselines' {} a -> s {explainability = a} :: DriftCheckBaselines)
 
-instance Core.FromJSON DriftCheckBaselines where
+instance Data.FromJSON DriftCheckBaselines where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DriftCheckBaselines"
       ( \x ->
           DriftCheckBaselines'
-            Prelude.<$> (x Core..:? "ModelDataQuality")
-            Prelude.<*> (x Core..:? "ModelQuality")
-            Prelude.<*> (x Core..:? "Bias")
-            Prelude.<*> (x Core..:? "Explainability")
+            Prelude.<$> (x Data..:? "ModelDataQuality")
+            Prelude.<*> (x Data..:? "ModelQuality")
+            Prelude.<*> (x Data..:? "Bias")
+            Prelude.<*> (x Data..:? "Explainability")
       )
 
 instance Prelude.Hashable DriftCheckBaselines where
@@ -123,15 +124,15 @@ instance Prelude.NFData DriftCheckBaselines where
       `Prelude.seq` Prelude.rnf bias
       `Prelude.seq` Prelude.rnf explainability
 
-instance Core.ToJSON DriftCheckBaselines where
+instance Data.ToJSON DriftCheckBaselines where
   toJSON DriftCheckBaselines' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ModelDataQuality" Core..=)
+          [ ("ModelDataQuality" Data..=)
               Prelude.<$> modelDataQuality,
-            ("ModelQuality" Core..=) Prelude.<$> modelQuality,
-            ("Bias" Core..=) Prelude.<$> bias,
-            ("Explainability" Core..=)
+            ("ModelQuality" Data..=) Prelude.<$> modelQuality,
+            ("Bias" Data..=) Prelude.<$> bias,
+            ("Explainability" Data..=)
               Prelude.<$> explainability
           ]
       )

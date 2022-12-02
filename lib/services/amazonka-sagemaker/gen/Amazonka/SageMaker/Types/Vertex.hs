@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.Vertex where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.LineageType
 
@@ -74,15 +75,15 @@ vertex_arn = Lens.lens (\Vertex' {arn} -> arn) (\s@Vertex' {} a -> s {arn = a} :
 vertex_lineageType :: Lens.Lens' Vertex (Prelude.Maybe LineageType)
 vertex_lineageType = Lens.lens (\Vertex' {lineageType} -> lineageType) (\s@Vertex' {} a -> s {lineageType = a} :: Vertex)
 
-instance Core.FromJSON Vertex where
+instance Data.FromJSON Vertex where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Vertex"
       ( \x ->
           Vertex'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "LineageType")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "LineageType")
       )
 
 instance Prelude.Hashable Vertex where

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ImageConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.RepositoryAccessMode
 import Amazonka.SageMaker.Types.RepositoryAuthConfig
@@ -94,14 +95,14 @@ imageConfig_repositoryAuthConfig = Lens.lens (\ImageConfig' {repositoryAuthConfi
 imageConfig_repositoryAccessMode :: Lens.Lens' ImageConfig RepositoryAccessMode
 imageConfig_repositoryAccessMode = Lens.lens (\ImageConfig' {repositoryAccessMode} -> repositoryAccessMode) (\s@ImageConfig' {} a -> s {repositoryAccessMode = a} :: ImageConfig)
 
-instance Core.FromJSON ImageConfig where
+instance Data.FromJSON ImageConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageConfig"
       ( \x ->
           ImageConfig'
-            Prelude.<$> (x Core..:? "RepositoryAuthConfig")
-            Prelude.<*> (x Core..: "RepositoryAccessMode")
+            Prelude.<$> (x Data..:? "RepositoryAuthConfig")
+            Prelude.<*> (x Data..: "RepositoryAccessMode")
       )
 
 instance Prelude.Hashable ImageConfig where
@@ -114,15 +115,15 @@ instance Prelude.NFData ImageConfig where
     Prelude.rnf repositoryAuthConfig
       `Prelude.seq` Prelude.rnf repositoryAccessMode
 
-instance Core.ToJSON ImageConfig where
+instance Data.ToJSON ImageConfig where
   toJSON ImageConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RepositoryAuthConfig" Core..=)
+          [ ("RepositoryAuthConfig" Data..=)
               Prelude.<$> repositoryAuthConfig,
             Prelude.Just
               ( "RepositoryAccessMode"
-                  Core..= repositoryAccessMode
+                  Data..= repositoryAccessMode
               )
           ]
       )

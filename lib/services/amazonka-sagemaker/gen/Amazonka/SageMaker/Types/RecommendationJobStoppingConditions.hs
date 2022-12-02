@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.RecommendationJobStoppingConditions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ModelLatencyThreshold
 
@@ -75,16 +76,16 @@ recommendationJobStoppingConditions_modelLatencyThresholds :: Lens.Lens' Recomme
 recommendationJobStoppingConditions_modelLatencyThresholds = Lens.lens (\RecommendationJobStoppingConditions' {modelLatencyThresholds} -> modelLatencyThresholds) (\s@RecommendationJobStoppingConditions' {} a -> s {modelLatencyThresholds = a} :: RecommendationJobStoppingConditions) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RecommendationJobStoppingConditions
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationJobStoppingConditions"
       ( \x ->
           RecommendationJobStoppingConditions'
-            Prelude.<$> (x Core..:? "MaxInvocations")
-            Prelude.<*> (x Core..:? "ModelLatencyThresholds")
+            Prelude.<$> (x Data..:? "MaxInvocations")
+            Prelude.<*> (x Data..:? "ModelLatencyThresholds")
       )
 
 instance
@@ -106,15 +107,15 @@ instance
       `Prelude.seq` Prelude.rnf modelLatencyThresholds
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RecommendationJobStoppingConditions
   where
   toJSON RecommendationJobStoppingConditions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxInvocations" Core..=)
+          [ ("MaxInvocations" Data..=)
               Prelude.<$> maxInvocations,
-            ("ModelLatencyThresholds" Core..=)
+            ("ModelLatencyThresholds" Data..=)
               Prelude.<$> modelLatencyThresholds
           ]
       )

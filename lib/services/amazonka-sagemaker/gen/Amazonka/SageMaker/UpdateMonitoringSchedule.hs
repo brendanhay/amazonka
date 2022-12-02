@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,7 +109,7 @@ instance Core.AWSRequest UpdateMonitoringSchedule where
       ( \s h x ->
           UpdateMonitoringScheduleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "MonitoringScheduleArn")
+            Prelude.<*> (x Data..:> "MonitoringScheduleArn")
       )
 
 instance Prelude.Hashable UpdateMonitoringSchedule where
@@ -121,40 +122,40 @@ instance Prelude.NFData UpdateMonitoringSchedule where
     Prelude.rnf monitoringScheduleName
       `Prelude.seq` Prelude.rnf monitoringScheduleConfig
 
-instance Core.ToHeaders UpdateMonitoringSchedule where
+instance Data.ToHeaders UpdateMonitoringSchedule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.UpdateMonitoringSchedule" ::
+              Data.=# ( "SageMaker.UpdateMonitoringSchedule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateMonitoringSchedule where
+instance Data.ToJSON UpdateMonitoringSchedule where
   toJSON UpdateMonitoringSchedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "MonitoringScheduleName"
-                  Core..= monitoringScheduleName
+                  Data..= monitoringScheduleName
               ),
             Prelude.Just
               ( "MonitoringScheduleConfig"
-                  Core..= monitoringScheduleConfig
+                  Data..= monitoringScheduleConfig
               )
           ]
       )
 
-instance Core.ToPath UpdateMonitoringSchedule where
+instance Data.ToPath UpdateMonitoringSchedule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateMonitoringSchedule where
+instance Data.ToQuery UpdateMonitoringSchedule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateMonitoringScheduleResponse' smart constructor.

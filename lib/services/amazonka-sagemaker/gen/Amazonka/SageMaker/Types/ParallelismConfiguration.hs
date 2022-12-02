@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ParallelismConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration that controls the parallelism of the pipeline. By default,
@@ -58,13 +59,13 @@ newParallelismConfiguration
 parallelismConfiguration_maxParallelExecutionSteps :: Lens.Lens' ParallelismConfiguration Prelude.Natural
 parallelismConfiguration_maxParallelExecutionSteps = Lens.lens (\ParallelismConfiguration' {maxParallelExecutionSteps} -> maxParallelExecutionSteps) (\s@ParallelismConfiguration' {} a -> s {maxParallelExecutionSteps = a} :: ParallelismConfiguration)
 
-instance Core.FromJSON ParallelismConfiguration where
+instance Data.FromJSON ParallelismConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParallelismConfiguration"
       ( \x ->
           ParallelismConfiguration'
-            Prelude.<$> (x Core..: "MaxParallelExecutionSteps")
+            Prelude.<$> (x Data..: "MaxParallelExecutionSteps")
       )
 
 instance Prelude.Hashable ParallelismConfiguration where
@@ -76,13 +77,13 @@ instance Prelude.NFData ParallelismConfiguration where
   rnf ParallelismConfiguration' {..} =
     Prelude.rnf maxParallelExecutionSteps
 
-instance Core.ToJSON ParallelismConfiguration where
+instance Data.ToJSON ParallelismConfiguration where
   toJSON ParallelismConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "MaxParallelExecutionSteps"
-                  Core..= maxParallelExecutionSteps
+                  Data..= maxParallelExecutionSteps
               )
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ShuffleConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A configuration for a shuffle option for input data in a channel. If you
@@ -67,12 +68,12 @@ newShuffleConfig pSeed_ =
 shuffleConfig_seed :: Lens.Lens' ShuffleConfig Prelude.Integer
 shuffleConfig_seed = Lens.lens (\ShuffleConfig' {seed} -> seed) (\s@ShuffleConfig' {} a -> s {seed = a} :: ShuffleConfig)
 
-instance Core.FromJSON ShuffleConfig where
+instance Data.FromJSON ShuffleConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ShuffleConfig"
       ( \x ->
-          ShuffleConfig' Prelude.<$> (x Core..: "Seed")
+          ShuffleConfig' Prelude.<$> (x Data..: "Seed")
       )
 
 instance Prelude.Hashable ShuffleConfig where
@@ -82,9 +83,9 @@ instance Prelude.Hashable ShuffleConfig where
 instance Prelude.NFData ShuffleConfig where
   rnf ShuffleConfig' {..} = Prelude.rnf seed
 
-instance Core.ToJSON ShuffleConfig where
+instance Data.ToJSON ShuffleConfig where
   toJSON ShuffleConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Seed" Core..= seed)]
+          [Prelude.Just ("Seed" Data..= seed)]
       )

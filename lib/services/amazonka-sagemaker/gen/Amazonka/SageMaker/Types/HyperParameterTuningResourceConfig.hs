@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.HyperParameterTuningResourceConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.HyperParameterTuningAllocationStrategy
 import Amazonka.SageMaker.Types.HyperParameterTuningInstanceConfig
@@ -265,20 +266,20 @@ hyperParameterTuningResourceConfig_volumeSizeInGB :: Lens.Lens' HyperParameterTu
 hyperParameterTuningResourceConfig_volumeSizeInGB = Lens.lens (\HyperParameterTuningResourceConfig' {volumeSizeInGB} -> volumeSizeInGB) (\s@HyperParameterTuningResourceConfig' {} a -> s {volumeSizeInGB = a} :: HyperParameterTuningResourceConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     HyperParameterTuningResourceConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HyperParameterTuningResourceConfig"
       ( \x ->
           HyperParameterTuningResourceConfig'
-            Prelude.<$> (x Core..:? "VolumeKmsKeyId")
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "AllocationStrategy")
-            Prelude.<*> (x Core..:? "InstanceCount")
-            Prelude.<*> (x Core..:? "InstanceConfigs")
-            Prelude.<*> (x Core..:? "VolumeSizeInGB")
+            Prelude.<$> (x Data..:? "VolumeKmsKeyId")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "AllocationStrategy")
+            Prelude.<*> (x Data..:? "InstanceCount")
+            Prelude.<*> (x Data..:? "InstanceConfigs")
+            Prelude.<*> (x Data..:? "VolumeSizeInGB")
       )
 
 instance
@@ -308,21 +309,21 @@ instance
       `Prelude.seq` Prelude.rnf volumeSizeInGB
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     HyperParameterTuningResourceConfig
   where
   toJSON HyperParameterTuningResourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VolumeKmsKeyId" Core..=)
+          [ ("VolumeKmsKeyId" Data..=)
               Prelude.<$> volumeKmsKeyId,
-            ("InstanceType" Core..=) Prelude.<$> instanceType,
-            ("AllocationStrategy" Core..=)
+            ("InstanceType" Data..=) Prelude.<$> instanceType,
+            ("AllocationStrategy" Data..=)
               Prelude.<$> allocationStrategy,
-            ("InstanceCount" Core..=) Prelude.<$> instanceCount,
-            ("InstanceConfigs" Core..=)
+            ("InstanceCount" Data..=) Prelude.<$> instanceCount,
+            ("InstanceConfigs" Data..=)
               Prelude.<$> instanceConfigs,
-            ("VolumeSizeInGB" Core..=)
+            ("VolumeSizeInGB" Data..=)
               Prelude.<$> volumeSizeInGB
           ]
       )

@@ -87,6 +87,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -132,62 +133,62 @@ instance Core.AWSRequest DescribeTrainingJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeTrainingJobResponse'
-            Prelude.<$> (x Core..?> "ProfilerConfig")
-            Prelude.<*> ( x Core..?> "ProfilerRuleEvaluationStatuses"
+            Prelude.<$> (x Data..?> "ProfilerConfig")
+            Prelude.<*> ( x Data..?> "ProfilerRuleEvaluationStatuses"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "OutputDataConfig")
-            Prelude.<*> (x Core..?> "EnableManagedSpotTraining")
-            Prelude.<*> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "Environment" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "TrainingTimeInSeconds")
-            Prelude.<*> ( x Core..?> "DebugRuleEvaluationStatuses"
+            Prelude.<*> (x Data..?> "OutputDataConfig")
+            Prelude.<*> (x Data..?> "EnableManagedSpotTraining")
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "Environment" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "TrainingTimeInSeconds")
+            Prelude.<*> ( x Data..?> "DebugRuleEvaluationStatuses"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "WarmPoolStatus")
-            Prelude.<*> (x Core..?> "RetryStrategy")
-            Prelude.<*> (x Core..?> "VpcConfig")
-            Prelude.<*> ( x Core..?> "SecondaryStatusTransitions"
+            Prelude.<*> (x Data..?> "WarmPoolStatus")
+            Prelude.<*> (x Data..?> "RetryStrategy")
+            Prelude.<*> (x Data..?> "VpcConfig")
+            Prelude.<*> ( x Data..?> "SecondaryStatusTransitions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "EnableNetworkIsolation")
-            Prelude.<*> ( x Core..?> "ProfilerRuleConfigurations"
+            Prelude.<*> (x Data..?> "EnableNetworkIsolation")
+            Prelude.<*> ( x Data..?> "ProfilerRuleConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ExperimentConfig")
-            Prelude.<*> (x Core..?> "TuningJobArn")
-            Prelude.<*> (x Core..?> "TrainingStartTime")
-            Prelude.<*> (x Core..?> "CheckpointConfig")
-            Prelude.<*> (x Core..?> "AutoMLJobArn")
-            Prelude.<*> (x Core..?> "DebugHookConfig")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "EnableInterContainerTrafficEncryption")
-            Prelude.<*> ( x Core..?> "FinalMetricDataList"
+            Prelude.<*> (x Data..?> "ExperimentConfig")
+            Prelude.<*> (x Data..?> "TuningJobArn")
+            Prelude.<*> (x Data..?> "TrainingStartTime")
+            Prelude.<*> (x Data..?> "CheckpointConfig")
+            Prelude.<*> (x Data..?> "AutoMLJobArn")
+            Prelude.<*> (x Data..?> "DebugHookConfig")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "EnableInterContainerTrafficEncryption")
+            Prelude.<*> ( x Data..?> "FinalMetricDataList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "DebugRuleConfigurations"
+            Prelude.<*> ( x Data..?> "DebugRuleConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "LabelingJobArn")
-            Prelude.<*> (x Core..?> "ProfilingStatus")
-            Prelude.<*> (x Core..?> "TensorBoardOutputConfig")
-            Prelude.<*> (x Core..?> "BillableTimeInSeconds")
-            Prelude.<*> (x Core..?> "InputDataConfig")
-            Prelude.<*> ( x Core..?> "HyperParameters"
+            Prelude.<*> (x Data..?> "LabelingJobArn")
+            Prelude.<*> (x Data..?> "ProfilingStatus")
+            Prelude.<*> (x Data..?> "TensorBoardOutputConfig")
+            Prelude.<*> (x Data..?> "BillableTimeInSeconds")
+            Prelude.<*> (x Data..?> "InputDataConfig")
+            Prelude.<*> ( x Data..?> "HyperParameters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "FailureReason")
-            Prelude.<*> (x Core..?> "TrainingEndTime")
+            Prelude.<*> (x Data..?> "FailureReason")
+            Prelude.<*> (x Data..?> "TrainingEndTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "TrainingJobName")
-            Prelude.<*> (x Core..:> "TrainingJobArn")
-            Prelude.<*> (x Core..:> "ModelArtifacts")
-            Prelude.<*> (x Core..:> "TrainingJobStatus")
-            Prelude.<*> (x Core..:> "SecondaryStatus")
-            Prelude.<*> (x Core..:> "AlgorithmSpecification")
-            Prelude.<*> (x Core..:> "ResourceConfig")
-            Prelude.<*> (x Core..:> "StoppingCondition")
-            Prelude.<*> (x Core..:> "CreationTime")
+            Prelude.<*> (x Data..:> "TrainingJobName")
+            Prelude.<*> (x Data..:> "TrainingJobArn")
+            Prelude.<*> (x Data..:> "ModelArtifacts")
+            Prelude.<*> (x Data..:> "TrainingJobStatus")
+            Prelude.<*> (x Data..:> "SecondaryStatus")
+            Prelude.<*> (x Data..:> "AlgorithmSpecification")
+            Prelude.<*> (x Data..:> "ResourceConfig")
+            Prelude.<*> (x Data..:> "StoppingCondition")
+            Prelude.<*> (x Data..:> "CreationTime")
       )
 
 instance Prelude.Hashable DescribeTrainingJob where
@@ -198,34 +199,34 @@ instance Prelude.NFData DescribeTrainingJob where
   rnf DescribeTrainingJob' {..} =
     Prelude.rnf trainingJobName
 
-instance Core.ToHeaders DescribeTrainingJob where
+instance Data.ToHeaders DescribeTrainingJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeTrainingJob" ::
+              Data.=# ( "SageMaker.DescribeTrainingJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeTrainingJob where
+instance Data.ToJSON DescribeTrainingJob where
   toJSON DescribeTrainingJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("TrainingJobName" Core..= trainingJobName)
+              ("TrainingJobName" Data..= trainingJobName)
           ]
       )
 
-instance Core.ToPath DescribeTrainingJob where
+instance Data.ToPath DescribeTrainingJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeTrainingJob where
+instance Data.ToQuery DescribeTrainingJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeTrainingJobResponse' smart constructor.
@@ -279,14 +280,14 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
     -- @TrainingEndTime@. The start time in CloudWatch Logs might be later than
     -- this time. The difference is due to the time it takes to download the
     -- training data and to the size of the training container.
-    trainingStartTime :: Prelude.Maybe Core.POSIX,
+    trainingStartTime :: Prelude.Maybe Data.POSIX,
     checkpointConfig :: Prelude.Maybe CheckpointConfig,
     -- | The Amazon Resource Name (ARN) of an AutoML job.
     autoMLJobArn :: Prelude.Maybe Prelude.Text,
     debugHookConfig :: Prelude.Maybe DebugHookConfig,
     -- | A timestamp that indicates when the status of the training job was last
     -- modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | To encrypt all communications between ML compute instances in
     -- distributed training, choose @True@. Encryption provides greater
     -- security for distributed training, but training might take longer. How
@@ -331,7 +332,7 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
     -- @TrainingStartTime@ and this time. For successful jobs and stopped jobs,
     -- this is the time after model artifacts are uploaded. For failed jobs,
     -- this is the time when SageMaker detects a job failure.
-    trainingEndTime :: Prelude.Maybe Core.POSIX,
+    trainingEndTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | Name of the model training job.
@@ -428,7 +429,7 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
     -- training are not lost.
     stoppingCondition :: StoppingCondition,
     -- | A timestamp that indicates when the training job was created.
-    creationTime :: Core.POSIX
+    creationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -723,7 +724,7 @@ newDescribeTrainingJobResponse
         resourceConfig = pResourceConfig_,
         stoppingCondition = pStoppingCondition_,
         creationTime =
-          Core._Time Lens.# pCreationTime_
+          Data._Time Lens.# pCreationTime_
       }
 
 -- | Undocumented member.
@@ -810,7 +811,7 @@ describeTrainingJobResponse_tuningJobArn = Lens.lens (\DescribeTrainingJobRespon
 -- this time. The difference is due to the time it takes to download the
 -- training data and to the size of the training container.
 describeTrainingJobResponse_trainingStartTime :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeTrainingJobResponse_trainingStartTime = Lens.lens (\DescribeTrainingJobResponse' {trainingStartTime} -> trainingStartTime) (\s@DescribeTrainingJobResponse' {} a -> s {trainingStartTime = a} :: DescribeTrainingJobResponse) Prelude.. Lens.mapping Core._Time
+describeTrainingJobResponse_trainingStartTime = Lens.lens (\DescribeTrainingJobResponse' {trainingStartTime} -> trainingStartTime) (\s@DescribeTrainingJobResponse' {} a -> s {trainingStartTime = a} :: DescribeTrainingJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 describeTrainingJobResponse_checkpointConfig :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe CheckpointConfig)
@@ -827,7 +828,7 @@ describeTrainingJobResponse_debugHookConfig = Lens.lens (\DescribeTrainingJobRes
 -- | A timestamp that indicates when the status of the training job was last
 -- modified.
 describeTrainingJobResponse_lastModifiedTime :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeTrainingJobResponse_lastModifiedTime = Lens.lens (\DescribeTrainingJobResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeTrainingJobResponse' {} a -> s {lastModifiedTime = a} :: DescribeTrainingJobResponse) Prelude.. Lens.mapping Core._Time
+describeTrainingJobResponse_lastModifiedTime = Lens.lens (\DescribeTrainingJobResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeTrainingJobResponse' {} a -> s {lastModifiedTime = a} :: DescribeTrainingJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | To encrypt all communications between ML compute instances in
 -- distributed training, choose @True@. Encryption provides greater
@@ -895,7 +896,7 @@ describeTrainingJobResponse_failureReason = Lens.lens (\DescribeTrainingJobRespo
 -- this is the time after model artifacts are uploaded. For failed jobs,
 -- this is the time when SageMaker detects a job failure.
 describeTrainingJobResponse_trainingEndTime :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeTrainingJobResponse_trainingEndTime = Lens.lens (\DescribeTrainingJobResponse' {trainingEndTime} -> trainingEndTime) (\s@DescribeTrainingJobResponse' {} a -> s {trainingEndTime = a} :: DescribeTrainingJobResponse) Prelude.. Lens.mapping Core._Time
+describeTrainingJobResponse_trainingEndTime = Lens.lens (\DescribeTrainingJobResponse' {trainingEndTime} -> trainingEndTime) (\s@DescribeTrainingJobResponse' {} a -> s {trainingEndTime = a} :: DescribeTrainingJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeTrainingJobResponse_httpStatus :: Lens.Lens' DescribeTrainingJobResponse Prelude.Int
@@ -1012,7 +1013,7 @@ describeTrainingJobResponse_stoppingCondition = Lens.lens (\DescribeTrainingJobR
 
 -- | A timestamp that indicates when the training job was created.
 describeTrainingJobResponse_creationTime :: Lens.Lens' DescribeTrainingJobResponse Prelude.UTCTime
-describeTrainingJobResponse_creationTime = Lens.lens (\DescribeTrainingJobResponse' {creationTime} -> creationTime) (\s@DescribeTrainingJobResponse' {} a -> s {creationTime = a} :: DescribeTrainingJobResponse) Prelude.. Core._Time
+describeTrainingJobResponse_creationTime = Lens.lens (\DescribeTrainingJobResponse' {creationTime} -> creationTime) (\s@DescribeTrainingJobResponse' {} a -> s {creationTime = a} :: DescribeTrainingJobResponse) Prelude.. Data._Time
 
 instance Prelude.NFData DescribeTrainingJobResponse where
   rnf DescribeTrainingJobResponse' {..} =

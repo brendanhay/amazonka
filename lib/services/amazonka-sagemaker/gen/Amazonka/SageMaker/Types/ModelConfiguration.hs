@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.EnvironmentParameter
 
@@ -67,14 +68,14 @@ modelConfiguration_inferenceSpecificationName = Lens.lens (\ModelConfiguration' 
 modelConfiguration_environmentParameters :: Lens.Lens' ModelConfiguration (Prelude.Maybe (Prelude.NonEmpty EnvironmentParameter))
 modelConfiguration_environmentParameters = Lens.lens (\ModelConfiguration' {environmentParameters} -> environmentParameters) (\s@ModelConfiguration' {} a -> s {environmentParameters = a} :: ModelConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ModelConfiguration where
+instance Data.FromJSON ModelConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelConfiguration"
       ( \x ->
           ModelConfiguration'
-            Prelude.<$> (x Core..:? "InferenceSpecificationName")
-            Prelude.<*> (x Core..:? "EnvironmentParameters")
+            Prelude.<$> (x Data..:? "InferenceSpecificationName")
+            Prelude.<*> (x Data..:? "EnvironmentParameters")
       )
 
 instance Prelude.Hashable ModelConfiguration where

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.HyperParameterTrainingJobDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.Channel
 import Amazonka.SageMaker.Types.CheckpointConfig
@@ -348,33 +349,33 @@ hyperParameterTrainingJobDefinition_stoppingCondition :: Lens.Lens' HyperParamet
 hyperParameterTrainingJobDefinition_stoppingCondition = Lens.lens (\HyperParameterTrainingJobDefinition' {stoppingCondition} -> stoppingCondition) (\s@HyperParameterTrainingJobDefinition' {} a -> s {stoppingCondition = a} :: HyperParameterTrainingJobDefinition)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     HyperParameterTrainingJobDefinition
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HyperParameterTrainingJobDefinition"
       ( \x ->
           HyperParameterTrainingJobDefinition'
-            Prelude.<$> (x Core..:? "TuningObjective")
-            Prelude.<*> (x Core..:? "EnableManagedSpotTraining")
-            Prelude.<*> (x Core..:? "HyperParameterTuningResourceConfig")
-            Prelude.<*> (x Core..:? "HyperParameterRanges")
-            Prelude.<*> (x Core..:? "RetryStrategy")
-            Prelude.<*> (x Core..:? "VpcConfig")
-            Prelude.<*> (x Core..:? "EnableNetworkIsolation")
-            Prelude.<*> (x Core..:? "ResourceConfig")
-            Prelude.<*> (x Core..:? "DefinitionName")
-            Prelude.<*> ( x Core..:? "StaticHyperParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "TuningObjective")
+            Prelude.<*> (x Data..:? "EnableManagedSpotTraining")
+            Prelude.<*> (x Data..:? "HyperParameterTuningResourceConfig")
+            Prelude.<*> (x Data..:? "HyperParameterRanges")
+            Prelude.<*> (x Data..:? "RetryStrategy")
+            Prelude.<*> (x Data..:? "VpcConfig")
+            Prelude.<*> (x Data..:? "EnableNetworkIsolation")
+            Prelude.<*> (x Data..:? "ResourceConfig")
+            Prelude.<*> (x Data..:? "DefinitionName")
+            Prelude.<*> ( x Data..:? "StaticHyperParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CheckpointConfig")
-            Prelude.<*> (x Core..:? "EnableInterContainerTrafficEncryption")
-            Prelude.<*> (x Core..:? "InputDataConfig")
-            Prelude.<*> (x Core..: "AlgorithmSpecification")
-            Prelude.<*> (x Core..: "RoleArn")
-            Prelude.<*> (x Core..: "OutputDataConfig")
-            Prelude.<*> (x Core..: "StoppingCondition")
+            Prelude.<*> (x Data..:? "CheckpointConfig")
+            Prelude.<*> (x Data..:? "EnableInterContainerTrafficEncryption")
+            Prelude.<*> (x Data..:? "InputDataConfig")
+            Prelude.<*> (x Data..: "AlgorithmSpecification")
+            Prelude.<*> (x Data..: "RoleArn")
+            Prelude.<*> (x Data..: "OutputDataConfig")
+            Prelude.<*> (x Data..: "StoppingCondition")
       )
 
 instance
@@ -427,44 +428,44 @@ instance
       `Prelude.seq` Prelude.rnf stoppingCondition
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     HyperParameterTrainingJobDefinition
   where
   toJSON HyperParameterTrainingJobDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TuningObjective" Core..=)
+          [ ("TuningObjective" Data..=)
               Prelude.<$> tuningObjective,
-            ("EnableManagedSpotTraining" Core..=)
+            ("EnableManagedSpotTraining" Data..=)
               Prelude.<$> enableManagedSpotTraining,
-            ("HyperParameterTuningResourceConfig" Core..=)
+            ("HyperParameterTuningResourceConfig" Data..=)
               Prelude.<$> hyperParameterTuningResourceConfig,
-            ("HyperParameterRanges" Core..=)
+            ("HyperParameterRanges" Data..=)
               Prelude.<$> hyperParameterRanges,
-            ("RetryStrategy" Core..=) Prelude.<$> retryStrategy,
-            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("EnableNetworkIsolation" Core..=)
+            ("RetryStrategy" Data..=) Prelude.<$> retryStrategy,
+            ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("EnableNetworkIsolation" Data..=)
               Prelude.<$> enableNetworkIsolation,
-            ("ResourceConfig" Core..=)
+            ("ResourceConfig" Data..=)
               Prelude.<$> resourceConfig,
-            ("DefinitionName" Core..=)
+            ("DefinitionName" Data..=)
               Prelude.<$> definitionName,
-            ("StaticHyperParameters" Core..=)
+            ("StaticHyperParameters" Data..=)
               Prelude.<$> staticHyperParameters,
-            ("CheckpointConfig" Core..=)
+            ("CheckpointConfig" Data..=)
               Prelude.<$> checkpointConfig,
-            ("EnableInterContainerTrafficEncryption" Core..=)
+            ("EnableInterContainerTrafficEncryption" Data..=)
               Prelude.<$> enableInterContainerTrafficEncryption,
-            ("InputDataConfig" Core..=)
+            ("InputDataConfig" Data..=)
               Prelude.<$> inputDataConfig,
             Prelude.Just
               ( "AlgorithmSpecification"
-                  Core..= algorithmSpecification
+                  Data..= algorithmSpecification
               ),
-            Prelude.Just ("RoleArn" Core..= roleArn),
+            Prelude.Just ("RoleArn" Data..= roleArn),
             Prelude.Just
-              ("OutputDataConfig" Core..= outputDataConfig),
+              ("OutputDataConfig" Data..= outputDataConfig),
             Prelude.Just
-              ("StoppingCondition" Core..= stoppingCondition)
+              ("StoppingCondition" Data..= stoppingCondition)
           ]
       )

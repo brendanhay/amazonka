@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.InstanceGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.TrainingInstanceType
 
@@ -83,15 +84,15 @@ instanceGroup_instanceCount = Lens.lens (\InstanceGroup' {instanceCount} -> inst
 instanceGroup_instanceGroupName :: Lens.Lens' InstanceGroup Prelude.Text
 instanceGroup_instanceGroupName = Lens.lens (\InstanceGroup' {instanceGroupName} -> instanceGroupName) (\s@InstanceGroup' {} a -> s {instanceGroupName = a} :: InstanceGroup)
 
-instance Core.FromJSON InstanceGroup where
+instance Data.FromJSON InstanceGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceGroup"
       ( \x ->
           InstanceGroup'
-            Prelude.<$> (x Core..: "InstanceType")
-            Prelude.<*> (x Core..: "InstanceCount")
-            Prelude.<*> (x Core..: "InstanceGroupName")
+            Prelude.<$> (x Data..: "InstanceType")
+            Prelude.<*> (x Data..: "InstanceCount")
+            Prelude.<*> (x Data..: "InstanceGroupName")
       )
 
 instance Prelude.Hashable InstanceGroup where
@@ -106,13 +107,13 @@ instance Prelude.NFData InstanceGroup where
       `Prelude.seq` Prelude.rnf instanceCount
       `Prelude.seq` Prelude.rnf instanceGroupName
 
-instance Core.ToJSON InstanceGroup where
+instance Data.ToJSON InstanceGroup where
   toJSON InstanceGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("InstanceType" Core..= instanceType),
-            Prelude.Just ("InstanceCount" Core..= instanceCount),
+          [ Prelude.Just ("InstanceType" Data..= instanceType),
+            Prelude.Just ("InstanceCount" Data..= instanceCount),
             Prelude.Just
-              ("InstanceGroupName" Core..= instanceGroupName)
+              ("InstanceGroupName" Data..= instanceGroupName)
           ]
       )

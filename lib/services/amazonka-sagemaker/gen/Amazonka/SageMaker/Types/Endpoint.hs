@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.Endpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.DataCaptureConfigSummary
 import Amazonka.SageMaker.Types.EndpointStatus
@@ -56,9 +57,9 @@ data Endpoint = Endpoint'
     -- | The status of the endpoint.
     endpointStatus :: EndpointStatus,
     -- | The time that the endpoint was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The last time the endpoint was modified.
-    lastModifiedTime :: Core.POSIX
+    lastModifiedTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -128,9 +129,9 @@ newEndpoint
         endpointArn = pEndpointArn_,
         endpointConfigName = pEndpointConfigName_,
         endpointStatus = pEndpointStatus_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_
+          Data._Time Lens.# pLastModifiedTime_
       }
 
 -- | A list of the tags associated with the endpoint. For more information,
@@ -177,31 +178,31 @@ endpoint_endpointStatus = Lens.lens (\Endpoint' {endpointStatus} -> endpointStat
 
 -- | The time that the endpoint was created.
 endpoint_creationTime :: Lens.Lens' Endpoint Prelude.UTCTime
-endpoint_creationTime = Lens.lens (\Endpoint' {creationTime} -> creationTime) (\s@Endpoint' {} a -> s {creationTime = a} :: Endpoint) Prelude.. Core._Time
+endpoint_creationTime = Lens.lens (\Endpoint' {creationTime} -> creationTime) (\s@Endpoint' {} a -> s {creationTime = a} :: Endpoint) Prelude.. Data._Time
 
 -- | The last time the endpoint was modified.
 endpoint_lastModifiedTime :: Lens.Lens' Endpoint Prelude.UTCTime
-endpoint_lastModifiedTime = Lens.lens (\Endpoint' {lastModifiedTime} -> lastModifiedTime) (\s@Endpoint' {} a -> s {lastModifiedTime = a} :: Endpoint) Prelude.. Core._Time
+endpoint_lastModifiedTime = Lens.lens (\Endpoint' {lastModifiedTime} -> lastModifiedTime) (\s@Endpoint' {} a -> s {lastModifiedTime = a} :: Endpoint) Prelude.. Data._Time
 
-instance Core.FromJSON Endpoint where
+instance Data.FromJSON Endpoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Endpoint"
       ( \x ->
           Endpoint'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "MonitoringSchedules"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "MonitoringSchedules"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DataCaptureConfig")
-            Prelude.<*> (x Core..:? "ProductionVariants")
-            Prelude.<*> (x Core..:? "FailureReason")
-            Prelude.<*> (x Core..: "EndpointName")
-            Prelude.<*> (x Core..: "EndpointArn")
-            Prelude.<*> (x Core..: "EndpointConfigName")
-            Prelude.<*> (x Core..: "EndpointStatus")
-            Prelude.<*> (x Core..: "CreationTime")
-            Prelude.<*> (x Core..: "LastModifiedTime")
+            Prelude.<*> (x Data..:? "DataCaptureConfig")
+            Prelude.<*> (x Data..:? "ProductionVariants")
+            Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..: "EndpointName")
+            Prelude.<*> (x Data..: "EndpointArn")
+            Prelude.<*> (x Data..: "EndpointConfigName")
+            Prelude.<*> (x Data..: "EndpointStatus")
+            Prelude.<*> (x Data..: "CreationTime")
+            Prelude.<*> (x Data..: "LastModifiedTime")
       )
 
 instance Prelude.Hashable Endpoint where

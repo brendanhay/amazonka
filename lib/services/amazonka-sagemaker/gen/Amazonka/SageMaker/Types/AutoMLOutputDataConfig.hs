@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AutoMLOutputDataConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The output data configuration.
@@ -63,14 +64,14 @@ autoMLOutputDataConfig_kmsKeyId = Lens.lens (\AutoMLOutputDataConfig' {kmsKeyId}
 autoMLOutputDataConfig_s3OutputPath :: Lens.Lens' AutoMLOutputDataConfig Prelude.Text
 autoMLOutputDataConfig_s3OutputPath = Lens.lens (\AutoMLOutputDataConfig' {s3OutputPath} -> s3OutputPath) (\s@AutoMLOutputDataConfig' {} a -> s {s3OutputPath = a} :: AutoMLOutputDataConfig)
 
-instance Core.FromJSON AutoMLOutputDataConfig where
+instance Data.FromJSON AutoMLOutputDataConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoMLOutputDataConfig"
       ( \x ->
           AutoMLOutputDataConfig'
-            Prelude.<$> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..: "S3OutputPath")
+            Prelude.<$> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..: "S3OutputPath")
       )
 
 instance Prelude.Hashable AutoMLOutputDataConfig where
@@ -83,11 +84,11 @@ instance Prelude.NFData AutoMLOutputDataConfig where
     Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf s3OutputPath
 
-instance Core.ToJSON AutoMLOutputDataConfig where
+instance Data.ToJSON AutoMLOutputDataConfig where
   toJSON AutoMLOutputDataConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            Prelude.Just ("S3OutputPath" Core..= s3OutputPath)
+          [ ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            Prelude.Just ("S3OutputPath" Data..= s3OutputPath)
           ]
       )

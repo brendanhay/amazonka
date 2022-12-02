@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MonitoringJobDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MonitoringAppSpecification
 import Amazonka.SageMaker.Types.MonitoringBaselineConfig
@@ -170,21 +171,21 @@ monitoringJobDefinition_monitoringAppSpecification = Lens.lens (\MonitoringJobDe
 monitoringJobDefinition_roleArn :: Lens.Lens' MonitoringJobDefinition Prelude.Text
 monitoringJobDefinition_roleArn = Lens.lens (\MonitoringJobDefinition' {roleArn} -> roleArn) (\s@MonitoringJobDefinition' {} a -> s {roleArn = a} :: MonitoringJobDefinition)
 
-instance Core.FromJSON MonitoringJobDefinition where
+instance Data.FromJSON MonitoringJobDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitoringJobDefinition"
       ( \x ->
           MonitoringJobDefinition'
-            Prelude.<$> (x Core..:? "Environment" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "BaselineConfig")
-            Prelude.<*> (x Core..:? "NetworkConfig")
-            Prelude.<*> (x Core..:? "StoppingCondition")
-            Prelude.<*> (x Core..: "MonitoringInputs")
-            Prelude.<*> (x Core..: "MonitoringOutputConfig")
-            Prelude.<*> (x Core..: "MonitoringResources")
-            Prelude.<*> (x Core..: "MonitoringAppSpecification")
-            Prelude.<*> (x Core..: "RoleArn")
+            Prelude.<$> (x Data..:? "Environment" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "BaselineConfig")
+            Prelude.<*> (x Data..:? "NetworkConfig")
+            Prelude.<*> (x Data..:? "StoppingCondition")
+            Prelude.<*> (x Data..: "MonitoringInputs")
+            Prelude.<*> (x Data..: "MonitoringOutputConfig")
+            Prelude.<*> (x Data..: "MonitoringResources")
+            Prelude.<*> (x Data..: "MonitoringAppSpecification")
+            Prelude.<*> (x Data..: "RoleArn")
       )
 
 instance Prelude.Hashable MonitoringJobDefinition where
@@ -211,28 +212,28 @@ instance Prelude.NFData MonitoringJobDefinition where
       `Prelude.seq` Prelude.rnf monitoringAppSpecification
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToJSON MonitoringJobDefinition where
+instance Data.ToJSON MonitoringJobDefinition where
   toJSON MonitoringJobDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Environment" Core..=) Prelude.<$> environment,
-            ("BaselineConfig" Core..=)
+          [ ("Environment" Data..=) Prelude.<$> environment,
+            ("BaselineConfig" Data..=)
               Prelude.<$> baselineConfig,
-            ("NetworkConfig" Core..=) Prelude.<$> networkConfig,
-            ("StoppingCondition" Core..=)
+            ("NetworkConfig" Data..=) Prelude.<$> networkConfig,
+            ("StoppingCondition" Data..=)
               Prelude.<$> stoppingCondition,
             Prelude.Just
-              ("MonitoringInputs" Core..= monitoringInputs),
+              ("MonitoringInputs" Data..= monitoringInputs),
             Prelude.Just
               ( "MonitoringOutputConfig"
-                  Core..= monitoringOutputConfig
+                  Data..= monitoringOutputConfig
               ),
             Prelude.Just
-              ("MonitoringResources" Core..= monitoringResources),
+              ("MonitoringResources" Data..= monitoringResources),
             Prelude.Just
               ( "MonitoringAppSpecification"
-                  Core..= monitoringAppSpecification
+                  Data..= monitoringAppSpecification
               ),
-            Prelude.Just ("RoleArn" Core..= roleArn)
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )

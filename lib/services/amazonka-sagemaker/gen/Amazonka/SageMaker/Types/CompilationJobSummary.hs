@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.CompilationJobSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CompilationJobStatus
 import Amazonka.SageMaker.Types.TargetDevice
@@ -33,7 +34,7 @@ import Amazonka.SageMaker.Types.TargetPlatformOs
 -- /See:/ 'newCompilationJobSummary' smart constructor.
 data CompilationJobSummary = CompilationJobSummary'
   { -- | The time when the model compilation job completed.
-    compilationEndTime :: Prelude.Maybe Core.POSIX,
+    compilationEndTime :: Prelude.Maybe Data.POSIX,
     -- | The type of device that the model will run on after the compilation job
     -- has completed.
     compilationTargetDevice :: Prelude.Maybe TargetDevice,
@@ -41,9 +42,9 @@ data CompilationJobSummary = CompilationJobSummary'
     -- completed.
     compilationTargetPlatformOs :: Prelude.Maybe TargetPlatformOs,
     -- | The time when the model compilation job started.
-    compilationStartTime :: Prelude.Maybe Core.POSIX,
+    compilationStartTime :: Prelude.Maybe Data.POSIX,
     -- | The time when the model compilation job was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The type of architecture that the model will run on after the
     -- compilation job has completed.
     compilationTargetPlatformArch :: Prelude.Maybe TargetPlatformArch,
@@ -55,7 +56,7 @@ data CompilationJobSummary = CompilationJobSummary'
     -- | The Amazon Resource Name (ARN) of the model compilation job.
     compilationJobArn :: Prelude.Text,
     -- | The time when the model compilation job was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The status of the model compilation job.
     compilationJobStatus :: CompilationJobStatus
   }
@@ -121,13 +122,13 @@ newCompilationJobSummary
           Prelude.Nothing,
         compilationJobName = pCompilationJobName_,
         compilationJobArn = pCompilationJobArn_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         compilationJobStatus = pCompilationJobStatus_
       }
 
 -- | The time when the model compilation job completed.
 compilationJobSummary_compilationEndTime :: Lens.Lens' CompilationJobSummary (Prelude.Maybe Prelude.UTCTime)
-compilationJobSummary_compilationEndTime = Lens.lens (\CompilationJobSummary' {compilationEndTime} -> compilationEndTime) (\s@CompilationJobSummary' {} a -> s {compilationEndTime = a} :: CompilationJobSummary) Prelude.. Lens.mapping Core._Time
+compilationJobSummary_compilationEndTime = Lens.lens (\CompilationJobSummary' {compilationEndTime} -> compilationEndTime) (\s@CompilationJobSummary' {} a -> s {compilationEndTime = a} :: CompilationJobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The type of device that the model will run on after the compilation job
 -- has completed.
@@ -141,11 +142,11 @@ compilationJobSummary_compilationTargetPlatformOs = Lens.lens (\CompilationJobSu
 
 -- | The time when the model compilation job started.
 compilationJobSummary_compilationStartTime :: Lens.Lens' CompilationJobSummary (Prelude.Maybe Prelude.UTCTime)
-compilationJobSummary_compilationStartTime = Lens.lens (\CompilationJobSummary' {compilationStartTime} -> compilationStartTime) (\s@CompilationJobSummary' {} a -> s {compilationStartTime = a} :: CompilationJobSummary) Prelude.. Lens.mapping Core._Time
+compilationJobSummary_compilationStartTime = Lens.lens (\CompilationJobSummary' {compilationStartTime} -> compilationStartTime) (\s@CompilationJobSummary' {} a -> s {compilationStartTime = a} :: CompilationJobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The time when the model compilation job was last modified.
 compilationJobSummary_lastModifiedTime :: Lens.Lens' CompilationJobSummary (Prelude.Maybe Prelude.UTCTime)
-compilationJobSummary_lastModifiedTime = Lens.lens (\CompilationJobSummary' {lastModifiedTime} -> lastModifiedTime) (\s@CompilationJobSummary' {} a -> s {lastModifiedTime = a} :: CompilationJobSummary) Prelude.. Lens.mapping Core._Time
+compilationJobSummary_lastModifiedTime = Lens.lens (\CompilationJobSummary' {lastModifiedTime} -> lastModifiedTime) (\s@CompilationJobSummary' {} a -> s {lastModifiedTime = a} :: CompilationJobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The type of architecture that the model will run on after the
 -- compilation job has completed.
@@ -167,29 +168,29 @@ compilationJobSummary_compilationJobArn = Lens.lens (\CompilationJobSummary' {co
 
 -- | The time when the model compilation job was created.
 compilationJobSummary_creationTime :: Lens.Lens' CompilationJobSummary Prelude.UTCTime
-compilationJobSummary_creationTime = Lens.lens (\CompilationJobSummary' {creationTime} -> creationTime) (\s@CompilationJobSummary' {} a -> s {creationTime = a} :: CompilationJobSummary) Prelude.. Core._Time
+compilationJobSummary_creationTime = Lens.lens (\CompilationJobSummary' {creationTime} -> creationTime) (\s@CompilationJobSummary' {} a -> s {creationTime = a} :: CompilationJobSummary) Prelude.. Data._Time
 
 -- | The status of the model compilation job.
 compilationJobSummary_compilationJobStatus :: Lens.Lens' CompilationJobSummary CompilationJobStatus
 compilationJobSummary_compilationJobStatus = Lens.lens (\CompilationJobSummary' {compilationJobStatus} -> compilationJobStatus) (\s@CompilationJobSummary' {} a -> s {compilationJobStatus = a} :: CompilationJobSummary)
 
-instance Core.FromJSON CompilationJobSummary where
+instance Data.FromJSON CompilationJobSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CompilationJobSummary"
       ( \x ->
           CompilationJobSummary'
-            Prelude.<$> (x Core..:? "CompilationEndTime")
-            Prelude.<*> (x Core..:? "CompilationTargetDevice")
-            Prelude.<*> (x Core..:? "CompilationTargetPlatformOs")
-            Prelude.<*> (x Core..:? "CompilationStartTime")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "CompilationTargetPlatformArch")
-            Prelude.<*> (x Core..:? "CompilationTargetPlatformAccelerator")
-            Prelude.<*> (x Core..: "CompilationJobName")
-            Prelude.<*> (x Core..: "CompilationJobArn")
-            Prelude.<*> (x Core..: "CreationTime")
-            Prelude.<*> (x Core..: "CompilationJobStatus")
+            Prelude.<$> (x Data..:? "CompilationEndTime")
+            Prelude.<*> (x Data..:? "CompilationTargetDevice")
+            Prelude.<*> (x Data..:? "CompilationTargetPlatformOs")
+            Prelude.<*> (x Data..:? "CompilationStartTime")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "CompilationTargetPlatformArch")
+            Prelude.<*> (x Data..:? "CompilationTargetPlatformAccelerator")
+            Prelude.<*> (x Data..: "CompilationJobName")
+            Prelude.<*> (x Data..: "CompilationJobArn")
+            Prelude.<*> (x Data..: "CreationTime")
+            Prelude.<*> (x Data..: "CompilationJobStatus")
       )
 
 instance Prelude.Hashable CompilationJobSummary where

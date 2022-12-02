@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.EndpointConfigSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides summary information for an endpoint configuration.
@@ -32,7 +33,7 @@ data EndpointConfigSummary = EndpointConfigSummary'
     -- | The Amazon Resource Name (ARN) of the endpoint configuration.
     endpointConfigArn :: Prelude.Text,
     -- | A timestamp that shows when the endpoint configuration was created.
-    creationTime :: Core.POSIX
+    creationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,7 +66,7 @@ newEndpointConfigSummary
       { endpointConfigName =
           pEndpointConfigName_,
         endpointConfigArn = pEndpointConfigArn_,
-        creationTime = Core._Time Lens.# pCreationTime_
+        creationTime = Data._Time Lens.# pCreationTime_
       }
 
 -- | The name of the endpoint configuration.
@@ -78,17 +79,17 @@ endpointConfigSummary_endpointConfigArn = Lens.lens (\EndpointConfigSummary' {en
 
 -- | A timestamp that shows when the endpoint configuration was created.
 endpointConfigSummary_creationTime :: Lens.Lens' EndpointConfigSummary Prelude.UTCTime
-endpointConfigSummary_creationTime = Lens.lens (\EndpointConfigSummary' {creationTime} -> creationTime) (\s@EndpointConfigSummary' {} a -> s {creationTime = a} :: EndpointConfigSummary) Prelude.. Core._Time
+endpointConfigSummary_creationTime = Lens.lens (\EndpointConfigSummary' {creationTime} -> creationTime) (\s@EndpointConfigSummary' {} a -> s {creationTime = a} :: EndpointConfigSummary) Prelude.. Data._Time
 
-instance Core.FromJSON EndpointConfigSummary where
+instance Data.FromJSON EndpointConfigSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointConfigSummary"
       ( \x ->
           EndpointConfigSummary'
-            Prelude.<$> (x Core..: "EndpointConfigName")
-            Prelude.<*> (x Core..: "EndpointConfigArn")
-            Prelude.<*> (x Core..: "CreationTime")
+            Prelude.<$> (x Data..: "EndpointConfigName")
+            Prelude.<*> (x Data..: "EndpointConfigArn")
+            Prelude.<*> (x Data..: "CreationTime")
       )
 
 instance Prelude.Hashable EndpointConfigSummary where

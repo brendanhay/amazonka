@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -68,7 +69,7 @@ data ListAlgorithms = ListAlgorithms'
     nameContains :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only algorithms created before the specified time
     -- (timestamp).
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | The parameter by which to sort the results. The default is
     -- @CreationTime@.
     sortBy :: Prelude.Maybe AlgorithmSortBy,
@@ -76,7 +77,7 @@ data ListAlgorithms = ListAlgorithms'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns only algorithms created after the specified time
     -- (timestamp).
-    creationTimeAfter :: Prelude.Maybe Core.POSIX
+    creationTimeAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -138,7 +139,7 @@ listAlgorithms_nameContains = Lens.lens (\ListAlgorithms' {nameContains} -> name
 -- | A filter that returns only algorithms created before the specified time
 -- (timestamp).
 listAlgorithms_creationTimeBefore :: Lens.Lens' ListAlgorithms (Prelude.Maybe Prelude.UTCTime)
-listAlgorithms_creationTimeBefore = Lens.lens (\ListAlgorithms' {creationTimeBefore} -> creationTimeBefore) (\s@ListAlgorithms' {} a -> s {creationTimeBefore = a} :: ListAlgorithms) Prelude.. Lens.mapping Core._Time
+listAlgorithms_creationTimeBefore = Lens.lens (\ListAlgorithms' {creationTimeBefore} -> creationTimeBefore) (\s@ListAlgorithms' {} a -> s {creationTimeBefore = a} :: ListAlgorithms) Prelude.. Lens.mapping Data._Time
 
 -- | The parameter by which to sort the results. The default is
 -- @CreationTime@.
@@ -152,7 +153,7 @@ listAlgorithms_maxResults = Lens.lens (\ListAlgorithms' {maxResults} -> maxResul
 -- | A filter that returns only algorithms created after the specified time
 -- (timestamp).
 listAlgorithms_creationTimeAfter :: Lens.Lens' ListAlgorithms (Prelude.Maybe Prelude.UTCTime)
-listAlgorithms_creationTimeAfter = Lens.lens (\ListAlgorithms' {creationTimeAfter} -> creationTimeAfter) (\s@ListAlgorithms' {} a -> s {creationTimeAfter = a} :: ListAlgorithms) Prelude.. Lens.mapping Core._Time
+listAlgorithms_creationTimeAfter = Lens.lens (\ListAlgorithms' {creationTimeAfter} -> creationTimeAfter) (\s@ListAlgorithms' {} a -> s {creationTimeAfter = a} :: ListAlgorithms) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListAlgorithms where
   page rq rs
@@ -184,9 +185,9 @@ instance Core.AWSRequest ListAlgorithms where
     Response.receiveJSON
       ( \s h x ->
           ListAlgorithmsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "AlgorithmSummaryList"
+            Prelude.<*> ( x Data..?> "AlgorithmSummaryList"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -211,39 +212,39 @@ instance Prelude.NFData ListAlgorithms where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf creationTimeAfter
 
-instance Core.ToHeaders ListAlgorithms where
+instance Data.ToHeaders ListAlgorithms where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.ListAlgorithms" :: Prelude.ByteString),
+              Data.=# ("SageMaker.ListAlgorithms" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAlgorithms where
+instance Data.ToJSON ListAlgorithms where
   toJSON ListAlgorithms' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("CreationTimeBefore" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CreationTimeAfter" Core..=)
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CreationTimeAfter" Data..=)
               Prelude.<$> creationTimeAfter
           ]
       )
 
-instance Core.ToPath ListAlgorithms where
+instance Data.ToPath ListAlgorithms where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAlgorithms where
+instance Data.ToQuery ListAlgorithms where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAlgorithmsResponse' smart constructor.

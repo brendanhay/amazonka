@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,19 +96,19 @@ instance Core.AWSRequest DescribePipeline where
     Response.receiveJSON
       ( \s h x ->
           DescribePipelineResponse'
-            Prelude.<$> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "PipelineArn")
-            Prelude.<*> (x Core..?> "PipelineDisplayName")
-            Prelude.<*> (x Core..?> "PipelineDefinition")
-            Prelude.<*> (x Core..?> "PipelineDescription")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "ParallelismConfiguration")
-            Prelude.<*> (x Core..?> "PipelineName")
-            Prelude.<*> (x Core..?> "LastRunTime")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "LastModifiedBy")
-            Prelude.<*> (x Core..?> "CreatedBy")
-            Prelude.<*> (x Core..?> "PipelineStatus")
+            Prelude.<$> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "PipelineArn")
+            Prelude.<*> (x Data..?> "PipelineDisplayName")
+            Prelude.<*> (x Data..?> "PipelineDefinition")
+            Prelude.<*> (x Data..?> "PipelineDescription")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "ParallelismConfiguration")
+            Prelude.<*> (x Data..?> "PipelineName")
+            Prelude.<*> (x Data..?> "LastRunTime")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "LastModifiedBy")
+            Prelude.<*> (x Data..?> "CreatedBy")
+            Prelude.<*> (x Data..?> "PipelineStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,30 +119,30 @@ instance Prelude.Hashable DescribePipeline where
 instance Prelude.NFData DescribePipeline where
   rnf DescribePipeline' {..} = Prelude.rnf pipelineName
 
-instance Core.ToHeaders DescribePipeline where
+instance Data.ToHeaders DescribePipeline where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DescribePipeline" :: Prelude.ByteString),
+              Data.=# ("SageMaker.DescribePipeline" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribePipeline where
+instance Data.ToJSON DescribePipeline where
   toJSON DescribePipeline' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("PipelineName" Core..= pipelineName)]
+          [Prelude.Just ("PipelineName" Data..= pipelineName)]
       )
 
-instance Core.ToPath DescribePipeline where
+instance Data.ToPath DescribePipeline where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribePipeline where
+instance Data.ToQuery DescribePipeline where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePipelineResponse' smart constructor.
@@ -157,15 +158,15 @@ data DescribePipelineResponse = DescribePipelineResponse'
     -- | The description of the pipeline.
     pipelineDescription :: Prelude.Maybe Prelude.Text,
     -- | The time when the pipeline was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | Lists the parallelism configuration applied to the pipeline.
     parallelismConfiguration :: Prelude.Maybe ParallelismConfiguration,
     -- | The name of the pipeline.
     pipelineName :: Prelude.Maybe Prelude.Text,
     -- | The time when the pipeline was last run.
-    lastRunTime :: Prelude.Maybe Core.POSIX,
+    lastRunTime :: Prelude.Maybe Data.POSIX,
     -- | The time when the pipeline was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     lastModifiedBy :: Prelude.Maybe UserContext,
     createdBy :: Prelude.Maybe UserContext,
     -- | The status of the pipeline execution.
@@ -255,7 +256,7 @@ describePipelineResponse_pipelineDescription = Lens.lens (\DescribePipelineRespo
 
 -- | The time when the pipeline was last modified.
 describePipelineResponse_lastModifiedTime :: Lens.Lens' DescribePipelineResponse (Prelude.Maybe Prelude.UTCTime)
-describePipelineResponse_lastModifiedTime = Lens.lens (\DescribePipelineResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribePipelineResponse' {} a -> s {lastModifiedTime = a} :: DescribePipelineResponse) Prelude.. Lens.mapping Core._Time
+describePipelineResponse_lastModifiedTime = Lens.lens (\DescribePipelineResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribePipelineResponse' {} a -> s {lastModifiedTime = a} :: DescribePipelineResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Lists the parallelism configuration applied to the pipeline.
 describePipelineResponse_parallelismConfiguration :: Lens.Lens' DescribePipelineResponse (Prelude.Maybe ParallelismConfiguration)
@@ -267,11 +268,11 @@ describePipelineResponse_pipelineName = Lens.lens (\DescribePipelineResponse' {p
 
 -- | The time when the pipeline was last run.
 describePipelineResponse_lastRunTime :: Lens.Lens' DescribePipelineResponse (Prelude.Maybe Prelude.UTCTime)
-describePipelineResponse_lastRunTime = Lens.lens (\DescribePipelineResponse' {lastRunTime} -> lastRunTime) (\s@DescribePipelineResponse' {} a -> s {lastRunTime = a} :: DescribePipelineResponse) Prelude.. Lens.mapping Core._Time
+describePipelineResponse_lastRunTime = Lens.lens (\DescribePipelineResponse' {lastRunTime} -> lastRunTime) (\s@DescribePipelineResponse' {} a -> s {lastRunTime = a} :: DescribePipelineResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The time when the pipeline was created.
 describePipelineResponse_creationTime :: Lens.Lens' DescribePipelineResponse (Prelude.Maybe Prelude.UTCTime)
-describePipelineResponse_creationTime = Lens.lens (\DescribePipelineResponse' {creationTime} -> creationTime) (\s@DescribePipelineResponse' {} a -> s {creationTime = a} :: DescribePipelineResponse) Prelude.. Lens.mapping Core._Time
+describePipelineResponse_creationTime = Lens.lens (\DescribePipelineResponse' {creationTime} -> creationTime) (\s@DescribePipelineResponse' {} a -> s {creationTime = a} :: DescribePipelineResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 describePipelineResponse_lastModifiedBy :: Lens.Lens' DescribePipelineResponse (Prelude.Maybe UserContext)

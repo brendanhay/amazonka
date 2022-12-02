@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,7 +120,7 @@ instance Core.AWSRequest RetryPipelineExecution where
     Response.receiveJSON
       ( \s h x ->
           RetryPipelineExecutionResponse'
-            Prelude.<$> (x Core..?> "PipelineExecutionArn")
+            Prelude.<$> (x Data..?> "PipelineExecutionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,40 +137,40 @@ instance Prelude.NFData RetryPipelineExecution where
       `Prelude.seq` Prelude.rnf pipelineExecutionArn
       `Prelude.seq` Prelude.rnf clientRequestToken
 
-instance Core.ToHeaders RetryPipelineExecution where
+instance Data.ToHeaders RetryPipelineExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.RetryPipelineExecution" ::
+              Data.=# ( "SageMaker.RetryPipelineExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RetryPipelineExecution where
+instance Data.ToJSON RetryPipelineExecution where
   toJSON RetryPipelineExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ParallelismConfiguration" Core..=)
+          [ ("ParallelismConfiguration" Data..=)
               Prelude.<$> parallelismConfiguration,
             Prelude.Just
               ( "PipelineExecutionArn"
-                  Core..= pipelineExecutionArn
+                  Data..= pipelineExecutionArn
               ),
             Prelude.Just
-              ("ClientRequestToken" Core..= clientRequestToken)
+              ("ClientRequestToken" Data..= clientRequestToken)
           ]
       )
 
-instance Core.ToPath RetryPipelineExecution where
+instance Data.ToPath RetryPipelineExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RetryPipelineExecution where
+instance Data.ToQuery RetryPipelineExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRetryPipelineExecutionResponse' smart constructor.

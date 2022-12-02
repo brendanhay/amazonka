@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -217,7 +218,7 @@ instance
       ( \s h x ->
           CreateModelExplainabilityJobDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "JobDefinitionArn")
+              Prelude.<*> (x Data..:> "JobDefinitionArn")
       )
 
 instance
@@ -255,63 +256,63 @@ instance
       `Prelude.seq` Prelude.rnf roleArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateModelExplainabilityJobDefinition
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.CreateModelExplainabilityJobDefinition" ::
+              Data.=# ( "SageMaker.CreateModelExplainabilityJobDefinition" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateModelExplainabilityJobDefinition
   where
   toJSON CreateModelExplainabilityJobDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("NetworkConfig" Core..=) Prelude.<$> networkConfig,
-            ("ModelExplainabilityBaselineConfig" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("NetworkConfig" Data..=) Prelude.<$> networkConfig,
+            ("ModelExplainabilityBaselineConfig" Data..=)
               Prelude.<$> modelExplainabilityBaselineConfig,
-            ("StoppingCondition" Core..=)
+            ("StoppingCondition" Data..=)
               Prelude.<$> stoppingCondition,
             Prelude.Just
-              ("JobDefinitionName" Core..= jobDefinitionName),
+              ("JobDefinitionName" Data..= jobDefinitionName),
             Prelude.Just
               ( "ModelExplainabilityAppSpecification"
-                  Core..= modelExplainabilityAppSpecification
+                  Data..= modelExplainabilityAppSpecification
               ),
             Prelude.Just
               ( "ModelExplainabilityJobInput"
-                  Core..= modelExplainabilityJobInput
+                  Data..= modelExplainabilityJobInput
               ),
             Prelude.Just
               ( "ModelExplainabilityJobOutputConfig"
-                  Core..= modelExplainabilityJobOutputConfig
+                  Data..= modelExplainabilityJobOutputConfig
               ),
-            Prelude.Just ("JobResources" Core..= jobResources),
-            Prelude.Just ("RoleArn" Core..= roleArn)
+            Prelude.Just ("JobResources" Data..= jobResources),
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateModelExplainabilityJobDefinition
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateModelExplainabilityJobDefinition
   where
   toQuery = Prelude.const Prelude.mempty

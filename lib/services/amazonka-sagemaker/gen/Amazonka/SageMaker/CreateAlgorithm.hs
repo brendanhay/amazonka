@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -259,7 +260,7 @@ instance Core.AWSRequest CreateAlgorithm where
       ( \s h x ->
           CreateAlgorithmResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "AlgorithmArn")
+            Prelude.<*> (x Data..:> "AlgorithmArn")
       )
 
 instance Prelude.Hashable CreateAlgorithm where
@@ -282,44 +283,44 @@ instance Prelude.NFData CreateAlgorithm where
       `Prelude.seq` Prelude.rnf algorithmName
       `Prelude.seq` Prelude.rnf trainingSpecification
 
-instance Core.ToHeaders CreateAlgorithm where
+instance Data.ToHeaders CreateAlgorithm where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.CreateAlgorithm" :: Prelude.ByteString),
+              Data.=# ("SageMaker.CreateAlgorithm" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAlgorithm where
+instance Data.ToJSON CreateAlgorithm where
   toJSON CreateAlgorithm' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ValidationSpecification" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ValidationSpecification" Data..=)
               Prelude.<$> validationSpecification,
-            ("CertifyForMarketplace" Core..=)
+            ("CertifyForMarketplace" Data..=)
               Prelude.<$> certifyForMarketplace,
-            ("InferenceSpecification" Core..=)
+            ("InferenceSpecification" Data..=)
               Prelude.<$> inferenceSpecification,
-            ("AlgorithmDescription" Core..=)
+            ("AlgorithmDescription" Data..=)
               Prelude.<$> algorithmDescription,
-            Prelude.Just ("AlgorithmName" Core..= algorithmName),
+            Prelude.Just ("AlgorithmName" Data..= algorithmName),
             Prelude.Just
               ( "TrainingSpecification"
-                  Core..= trainingSpecification
+                  Data..= trainingSpecification
               )
           ]
       )
 
-instance Core.ToPath CreateAlgorithm where
+instance Data.ToPath CreateAlgorithm where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateAlgorithm where
+instance Data.ToQuery CreateAlgorithm where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAlgorithmResponse' smart constructor.

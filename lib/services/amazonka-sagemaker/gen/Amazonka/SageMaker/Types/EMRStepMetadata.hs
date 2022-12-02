@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.EMRStepMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configurations and outcomes of an Amazon EMR step execution.
@@ -82,16 +83,16 @@ eMRStepMetadata_clusterId = Lens.lens (\EMRStepMetadata' {clusterId} -> clusterI
 eMRStepMetadata_stepId :: Lens.Lens' EMRStepMetadata (Prelude.Maybe Prelude.Text)
 eMRStepMetadata_stepId = Lens.lens (\EMRStepMetadata' {stepId} -> stepId) (\s@EMRStepMetadata' {} a -> s {stepId = a} :: EMRStepMetadata)
 
-instance Core.FromJSON EMRStepMetadata where
+instance Data.FromJSON EMRStepMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EMRStepMetadata"
       ( \x ->
           EMRStepMetadata'
-            Prelude.<$> (x Core..:? "LogFilePath")
-            Prelude.<*> (x Core..:? "StepName")
-            Prelude.<*> (x Core..:? "ClusterId")
-            Prelude.<*> (x Core..:? "StepId")
+            Prelude.<$> (x Data..:? "LogFilePath")
+            Prelude.<*> (x Data..:? "StepName")
+            Prelude.<*> (x Data..:? "ClusterId")
+            Prelude.<*> (x Data..:? "StepId")
       )
 
 instance Prelude.Hashable EMRStepMetadata where

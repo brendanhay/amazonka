@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ResourceSpec where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AppInstanceType
 
@@ -102,16 +103,16 @@ resourceSpec_instanceType = Lens.lens (\ResourceSpec' {instanceType} -> instance
 resourceSpec_sageMakerImageArn :: Lens.Lens' ResourceSpec (Prelude.Maybe Prelude.Text)
 resourceSpec_sageMakerImageArn = Lens.lens (\ResourceSpec' {sageMakerImageArn} -> sageMakerImageArn) (\s@ResourceSpec' {} a -> s {sageMakerImageArn = a} :: ResourceSpec)
 
-instance Core.FromJSON ResourceSpec where
+instance Data.FromJSON ResourceSpec where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceSpec"
       ( \x ->
           ResourceSpec'
-            Prelude.<$> (x Core..:? "LifecycleConfigArn")
-            Prelude.<*> (x Core..:? "SageMakerImageVersionArn")
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "SageMakerImageArn")
+            Prelude.<$> (x Data..:? "LifecycleConfigArn")
+            Prelude.<*> (x Data..:? "SageMakerImageVersionArn")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "SageMakerImageArn")
       )
 
 instance Prelude.Hashable ResourceSpec where
@@ -128,16 +129,16 @@ instance Prelude.NFData ResourceSpec where
       `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf sageMakerImageArn
 
-instance Core.ToJSON ResourceSpec where
+instance Data.ToJSON ResourceSpec where
   toJSON ResourceSpec' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LifecycleConfigArn" Core..=)
+          [ ("LifecycleConfigArn" Data..=)
               Prelude.<$> lifecycleConfigArn,
-            ("SageMakerImageVersionArn" Core..=)
+            ("SageMakerImageVersionArn" Data..=)
               Prelude.<$> sageMakerImageVersionArn,
-            ("InstanceType" Core..=) Prelude.<$> instanceType,
-            ("SageMakerImageArn" Core..=)
+            ("InstanceType" Data..=) Prelude.<$> instanceType,
+            ("SageMakerImageArn" Data..=)
               Prelude.<$> sageMakerImageArn
           ]
       )

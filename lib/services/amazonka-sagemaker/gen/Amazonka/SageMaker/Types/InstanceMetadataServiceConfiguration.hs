@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.InstanceMetadataServiceConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information on the IMDS configuration of the notebook instance
@@ -69,15 +70,15 @@ instanceMetadataServiceConfiguration_minimumInstanceMetadataServiceVersion :: Le
 instanceMetadataServiceConfiguration_minimumInstanceMetadataServiceVersion = Lens.lens (\InstanceMetadataServiceConfiguration' {minimumInstanceMetadataServiceVersion} -> minimumInstanceMetadataServiceVersion) (\s@InstanceMetadataServiceConfiguration' {} a -> s {minimumInstanceMetadataServiceVersion = a} :: InstanceMetadataServiceConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     InstanceMetadataServiceConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceMetadataServiceConfiguration"
       ( \x ->
           InstanceMetadataServiceConfiguration'
-            Prelude.<$> (x Core..: "MinimumInstanceMetadataServiceVersion")
+            Prelude.<$> (x Data..: "MinimumInstanceMetadataServiceVersion")
       )
 
 instance
@@ -98,15 +99,15 @@ instance
     Prelude.rnf minimumInstanceMetadataServiceVersion
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     InstanceMetadataServiceConfiguration
   where
   toJSON InstanceMetadataServiceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "MinimumInstanceMetadataServiceVersion"
-                  Core..= minimumInstanceMetadataServiceVersion
+                  Data..= minimumInstanceMetadataServiceVersion
               )
           ]
       )

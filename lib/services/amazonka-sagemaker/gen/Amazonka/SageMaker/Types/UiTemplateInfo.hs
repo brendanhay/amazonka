@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.UiTemplateInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Container for user interface template information.
@@ -61,14 +62,14 @@ uiTemplateInfo_url = Lens.lens (\UiTemplateInfo' {url} -> url) (\s@UiTemplateInf
 uiTemplateInfo_contentSha256 :: Lens.Lens' UiTemplateInfo (Prelude.Maybe Prelude.Text)
 uiTemplateInfo_contentSha256 = Lens.lens (\UiTemplateInfo' {contentSha256} -> contentSha256) (\s@UiTemplateInfo' {} a -> s {contentSha256 = a} :: UiTemplateInfo)
 
-instance Core.FromJSON UiTemplateInfo where
+instance Data.FromJSON UiTemplateInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UiTemplateInfo"
       ( \x ->
           UiTemplateInfo'
-            Prelude.<$> (x Core..:? "Url")
-            Prelude.<*> (x Core..:? "ContentSha256")
+            Prelude.<$> (x Data..:? "Url")
+            Prelude.<*> (x Data..:? "ContentSha256")
       )
 
 instance Prelude.Hashable UiTemplateInfo where

@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,32 +86,32 @@ instance Prelude.Hashable StopAutoMLJob where
 instance Prelude.NFData StopAutoMLJob where
   rnf StopAutoMLJob' {..} = Prelude.rnf autoMLJobName
 
-instance Core.ToHeaders StopAutoMLJob where
+instance Data.ToHeaders StopAutoMLJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.StopAutoMLJob" :: Prelude.ByteString),
+              Data.=# ("SageMaker.StopAutoMLJob" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopAutoMLJob where
+instance Data.ToJSON StopAutoMLJob where
   toJSON StopAutoMLJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AutoMLJobName" Core..= autoMLJobName)
+              ("AutoMLJobName" Data..= autoMLJobName)
           ]
       )
 
-instance Core.ToPath StopAutoMLJob where
+instance Data.ToPath StopAutoMLJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopAutoMLJob where
+instance Data.ToQuery StopAutoMLJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopAutoMLJobResponse' smart constructor.

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,19 +95,19 @@ instance Core.AWSRequest DescribeProject where
       ( \s h x ->
           DescribeProjectResponse'
             Prelude.<$> ( x
-                            Core..?> "ServiceCatalogProvisionedProductDetails"
+                            Data..?> "ServiceCatalogProvisionedProductDetails"
                         )
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "ProjectDescription")
-            Prelude.<*> (x Core..?> "LastModifiedBy")
-            Prelude.<*> (x Core..?> "CreatedBy")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "ProjectDescription")
+            Prelude.<*> (x Data..?> "LastModifiedBy")
+            Prelude.<*> (x Data..?> "CreatedBy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ProjectArn")
-            Prelude.<*> (x Core..:> "ProjectName")
-            Prelude.<*> (x Core..:> "ProjectId")
-            Prelude.<*> (x Core..:> "ServiceCatalogProvisioningDetails")
-            Prelude.<*> (x Core..:> "ProjectStatus")
-            Prelude.<*> (x Core..:> "CreationTime")
+            Prelude.<*> (x Data..:> "ProjectArn")
+            Prelude.<*> (x Data..:> "ProjectName")
+            Prelude.<*> (x Data..:> "ProjectId")
+            Prelude.<*> (x Data..:> "ServiceCatalogProvisioningDetails")
+            Prelude.<*> (x Data..:> "ProjectStatus")
+            Prelude.<*> (x Data..:> "CreationTime")
       )
 
 instance Prelude.Hashable DescribeProject where
@@ -116,30 +117,30 @@ instance Prelude.Hashable DescribeProject where
 instance Prelude.NFData DescribeProject where
   rnf DescribeProject' {..} = Prelude.rnf projectName
 
-instance Core.ToHeaders DescribeProject where
+instance Data.ToHeaders DescribeProject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DescribeProject" :: Prelude.ByteString),
+              Data.=# ("SageMaker.DescribeProject" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeProject where
+instance Data.ToJSON DescribeProject where
   toJSON DescribeProject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ProjectName" Core..= projectName)]
+          [Prelude.Just ("ProjectName" Data..= projectName)]
       )
 
-instance Core.ToPath DescribeProject where
+instance Data.ToPath DescribeProject where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeProject where
+instance Data.ToQuery DescribeProject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeProjectResponse' smart constructor.
@@ -147,7 +148,7 @@ data DescribeProjectResponse = DescribeProjectResponse'
   { -- | Information about a provisioned service catalog product.
     serviceCatalogProvisionedProductDetails :: Prelude.Maybe ServiceCatalogProvisionedProductDetails,
     -- | The timestamp when project was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the project.
     projectDescription :: Prelude.Maybe Prelude.Text,
     lastModifiedBy :: Prelude.Maybe UserContext,
@@ -167,7 +168,7 @@ data DescribeProjectResponse = DescribeProjectResponse'
     -- | The status of the project.
     projectStatus :: ProjectStatus,
     -- | The time when the project was created.
-    creationTime :: Core.POSIX
+    creationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -242,7 +243,7 @@ newDescribeProjectResponse
         serviceCatalogProvisioningDetails =
           pServiceCatalogProvisioningDetails_,
         projectStatus = pProjectStatus_,
-        creationTime = Core._Time Lens.# pCreationTime_
+        creationTime = Data._Time Lens.# pCreationTime_
       }
 
 -- | Information about a provisioned service catalog product.
@@ -251,7 +252,7 @@ describeProjectResponse_serviceCatalogProvisionedProductDetails = Lens.lens (\De
 
 -- | The timestamp when project was last modified.
 describeProjectResponse_lastModifiedTime :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.UTCTime)
-describeProjectResponse_lastModifiedTime = Lens.lens (\DescribeProjectResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeProjectResponse' {} a -> s {lastModifiedTime = a} :: DescribeProjectResponse) Prelude.. Lens.mapping Core._Time
+describeProjectResponse_lastModifiedTime = Lens.lens (\DescribeProjectResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeProjectResponse' {} a -> s {lastModifiedTime = a} :: DescribeProjectResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the project.
 describeProjectResponse_projectDescription :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
@@ -293,7 +294,7 @@ describeProjectResponse_projectStatus = Lens.lens (\DescribeProjectResponse' {pr
 
 -- | The time when the project was created.
 describeProjectResponse_creationTime :: Lens.Lens' DescribeProjectResponse Prelude.UTCTime
-describeProjectResponse_creationTime = Lens.lens (\DescribeProjectResponse' {creationTime} -> creationTime) (\s@DescribeProjectResponse' {} a -> s {creationTime = a} :: DescribeProjectResponse) Prelude.. Core._Time
+describeProjectResponse_creationTime = Lens.lens (\DescribeProjectResponse' {creationTime} -> creationTime) (\s@DescribeProjectResponse' {} a -> s {creationTime = a} :: DescribeProjectResponse) Prelude.. Data._Time
 
 instance Prelude.NFData DescribeProjectResponse where
   rnf DescribeProjectResponse' {..} =

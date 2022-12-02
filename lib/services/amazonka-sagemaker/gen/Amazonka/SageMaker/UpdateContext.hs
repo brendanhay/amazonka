@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,7 +117,7 @@ instance Core.AWSRequest UpdateContext where
     Response.receiveJSON
       ( \s h x ->
           UpdateContextResponse'
-            Prelude.<$> (x Core..?> "ContextArn")
+            Prelude.<$> (x Data..?> "ContextArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,35 +135,35 @@ instance Prelude.NFData UpdateContext where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf contextName
 
-instance Core.ToHeaders UpdateContext where
+instance Data.ToHeaders UpdateContext where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.UpdateContext" :: Prelude.ByteString),
+              Data.=# ("SageMaker.UpdateContext" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateContext where
+instance Data.ToJSON UpdateContext where
   toJSON UpdateContext' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PropertiesToRemove" Core..=)
+          [ ("PropertiesToRemove" Data..=)
               Prelude.<$> propertiesToRemove,
-            ("Properties" Core..=) Prelude.<$> properties,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("ContextName" Core..= contextName)
+            ("Properties" Data..=) Prelude.<$> properties,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("ContextName" Data..= contextName)
           ]
       )
 
-instance Core.ToPath UpdateContext where
+instance Data.ToPath UpdateContext where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateContext where
+instance Data.ToQuery UpdateContext where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateContextResponse' smart constructor.

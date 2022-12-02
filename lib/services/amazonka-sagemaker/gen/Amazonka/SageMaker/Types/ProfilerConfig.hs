@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ProfilerConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information for Debugger system monitoring, framework
@@ -105,18 +106,18 @@ profilerConfig_profilingParameters = Lens.lens (\ProfilerConfig' {profilingParam
 profilerConfig_disableProfiler :: Lens.Lens' ProfilerConfig (Prelude.Maybe Prelude.Bool)
 profilerConfig_disableProfiler = Lens.lens (\ProfilerConfig' {disableProfiler} -> disableProfiler) (\s@ProfilerConfig' {} a -> s {disableProfiler = a} :: ProfilerConfig)
 
-instance Core.FromJSON ProfilerConfig where
+instance Data.FromJSON ProfilerConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProfilerConfig"
       ( \x ->
           ProfilerConfig'
-            Prelude.<$> (x Core..:? "ProfilingIntervalInMilliseconds")
-            Prelude.<*> (x Core..:? "S3OutputPath")
-            Prelude.<*> ( x Core..:? "ProfilingParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ProfilingIntervalInMilliseconds")
+            Prelude.<*> (x Data..:? "S3OutputPath")
+            Prelude.<*> ( x Data..:? "ProfilingParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DisableProfiler")
+            Prelude.<*> (x Data..:? "DisableProfiler")
       )
 
 instance Prelude.Hashable ProfilerConfig where
@@ -134,16 +135,16 @@ instance Prelude.NFData ProfilerConfig where
       `Prelude.seq` Prelude.rnf profilingParameters
       `Prelude.seq` Prelude.rnf disableProfiler
 
-instance Core.ToJSON ProfilerConfig where
+instance Data.ToJSON ProfilerConfig where
   toJSON ProfilerConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProfilingIntervalInMilliseconds" Core..=)
+          [ ("ProfilingIntervalInMilliseconds" Data..=)
               Prelude.<$> profilingIntervalInMilliseconds,
-            ("S3OutputPath" Core..=) Prelude.<$> s3OutputPath,
-            ("ProfilingParameters" Core..=)
+            ("S3OutputPath" Data..=) Prelude.<$> s3OutputPath,
+            ("ProfilingParameters" Data..=)
               Prelude.<$> profilingParameters,
-            ("DisableProfiler" Core..=)
+            ("DisableProfiler" Data..=)
               Prelude.<$> disableProfiler
           ]
       )

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -81,7 +82,7 @@ instance Core.AWSRequest DeleteAction where
     Response.receiveJSON
       ( \s h x ->
           DeleteActionResponse'
-            Prelude.<$> (x Core..?> "ActionArn")
+            Prelude.<$> (x Data..?> "ActionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -92,30 +93,30 @@ instance Prelude.Hashable DeleteAction where
 instance Prelude.NFData DeleteAction where
   rnf DeleteAction' {..} = Prelude.rnf actionName
 
-instance Core.ToHeaders DeleteAction where
+instance Data.ToHeaders DeleteAction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DeleteAction" :: Prelude.ByteString),
+              Data.=# ("SageMaker.DeleteAction" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAction where
+instance Data.ToJSON DeleteAction where
   toJSON DeleteAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ActionName" Core..= actionName)]
+          [Prelude.Just ("ActionName" Data..= actionName)]
       )
 
-instance Core.ToPath DeleteAction where
+instance Data.ToPath DeleteAction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAction where
+instance Data.ToQuery DeleteAction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteActionResponse' smart constructor.

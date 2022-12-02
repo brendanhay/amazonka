@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,32 +96,32 @@ instance Prelude.NFData StopTransformJob where
   rnf StopTransformJob' {..} =
     Prelude.rnf transformJobName
 
-instance Core.ToHeaders StopTransformJob where
+instance Data.ToHeaders StopTransformJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.StopTransformJob" :: Prelude.ByteString),
+              Data.=# ("SageMaker.StopTransformJob" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopTransformJob where
+instance Data.ToJSON StopTransformJob where
   toJSON StopTransformJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("TransformJobName" Core..= transformJobName)
+              ("TransformJobName" Data..= transformJobName)
           ]
       )
 
-instance Core.ToPath StopTransformJob where
+instance Data.ToPath StopTransformJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopTransformJob where
+instance Data.ToQuery StopTransformJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopTransformJobResponse' smart constructor.

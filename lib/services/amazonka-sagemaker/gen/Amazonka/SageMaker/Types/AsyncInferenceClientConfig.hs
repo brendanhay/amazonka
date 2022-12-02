@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AsyncInferenceClientConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configures the behavior of the client used by SageMaker to interact with
@@ -60,13 +61,13 @@ newAsyncInferenceClientConfig =
 asyncInferenceClientConfig_maxConcurrentInvocationsPerInstance :: Lens.Lens' AsyncInferenceClientConfig (Prelude.Maybe Prelude.Natural)
 asyncInferenceClientConfig_maxConcurrentInvocationsPerInstance = Lens.lens (\AsyncInferenceClientConfig' {maxConcurrentInvocationsPerInstance} -> maxConcurrentInvocationsPerInstance) (\s@AsyncInferenceClientConfig' {} a -> s {maxConcurrentInvocationsPerInstance = a} :: AsyncInferenceClientConfig)
 
-instance Core.FromJSON AsyncInferenceClientConfig where
+instance Data.FromJSON AsyncInferenceClientConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AsyncInferenceClientConfig"
       ( \x ->
           AsyncInferenceClientConfig'
-            Prelude.<$> (x Core..:? "MaxConcurrentInvocationsPerInstance")
+            Prelude.<$> (x Data..:? "MaxConcurrentInvocationsPerInstance")
       )
 
 instance Prelude.Hashable AsyncInferenceClientConfig where
@@ -78,11 +79,11 @@ instance Prelude.NFData AsyncInferenceClientConfig where
   rnf AsyncInferenceClientConfig' {..} =
     Prelude.rnf maxConcurrentInvocationsPerInstance
 
-instance Core.ToJSON AsyncInferenceClientConfig where
+instance Data.ToJSON AsyncInferenceClientConfig where
   toJSON AsyncInferenceClientConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxConcurrentInvocationsPerInstance" Core..=)
+          [ ("MaxConcurrentInvocationsPerInstance" Data..=)
               Prelude.<$> maxConcurrentInvocationsPerInstance
           ]
       )

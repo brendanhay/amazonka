@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.Phase where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the traffic pattern.
@@ -70,15 +71,15 @@ phase_initialNumberOfUsers = Lens.lens (\Phase' {initialNumberOfUsers} -> initia
 phase_durationInSeconds :: Lens.Lens' Phase (Prelude.Maybe Prelude.Natural)
 phase_durationInSeconds = Lens.lens (\Phase' {durationInSeconds} -> durationInSeconds) (\s@Phase' {} a -> s {durationInSeconds = a} :: Phase)
 
-instance Core.FromJSON Phase where
+instance Data.FromJSON Phase where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Phase"
       ( \x ->
           Phase'
-            Prelude.<$> (x Core..:? "SpawnRate")
-            Prelude.<*> (x Core..:? "InitialNumberOfUsers")
-            Prelude.<*> (x Core..:? "DurationInSeconds")
+            Prelude.<$> (x Data..:? "SpawnRate")
+            Prelude.<*> (x Data..:? "InitialNumberOfUsers")
+            Prelude.<*> (x Data..:? "DurationInSeconds")
       )
 
 instance Prelude.Hashable Phase where
@@ -93,14 +94,14 @@ instance Prelude.NFData Phase where
       `Prelude.seq` Prelude.rnf initialNumberOfUsers
       `Prelude.seq` Prelude.rnf durationInSeconds
 
-instance Core.ToJSON Phase where
+instance Data.ToJSON Phase where
   toJSON Phase' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SpawnRate" Core..=) Prelude.<$> spawnRate,
-            ("InitialNumberOfUsers" Core..=)
+          [ ("SpawnRate" Data..=) Prelude.<$> spawnRate,
+            ("InitialNumberOfUsers" Data..=)
               Prelude.<$> initialNumberOfUsers,
-            ("DurationInSeconds" Core..=)
+            ("DurationInSeconds" Data..=)
               Prelude.<$> durationInSeconds
           ]
       )

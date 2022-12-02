@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.PipelineExecutionStep where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CacheHitResult
 import Amazonka.SageMaker.Types.PipelineExecutionStepMetadata
@@ -36,7 +37,7 @@ data PipelineExecutionStep = PipelineExecutionStep'
     -- | Metadata for the step execution.
     metadata :: Prelude.Maybe PipelineExecutionStepMetadata,
     -- | The time that the step stopped executing.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the step that is executed.
     stepName :: Prelude.Maybe Prelude.Text,
     -- | The display name of the step.
@@ -48,7 +49,7 @@ data PipelineExecutionStep = PipelineExecutionStep'
     -- | The description of the step.
     stepDescription :: Prelude.Maybe Prelude.Text,
     -- | The time that the step started executing.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The reason why the step failed execution. This is only returned if the
     -- step failed its execution.
     failureReason :: Prelude.Maybe Prelude.Text
@@ -112,7 +113,7 @@ pipelineExecutionStep_metadata = Lens.lens (\PipelineExecutionStep' {metadata} -
 
 -- | The time that the step stopped executing.
 pipelineExecutionStep_endTime :: Lens.Lens' PipelineExecutionStep (Prelude.Maybe Prelude.UTCTime)
-pipelineExecutionStep_endTime = Lens.lens (\PipelineExecutionStep' {endTime} -> endTime) (\s@PipelineExecutionStep' {} a -> s {endTime = a} :: PipelineExecutionStep) Prelude.. Lens.mapping Core._Time
+pipelineExecutionStep_endTime = Lens.lens (\PipelineExecutionStep' {endTime} -> endTime) (\s@PipelineExecutionStep' {} a -> s {endTime = a} :: PipelineExecutionStep) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the step that is executed.
 pipelineExecutionStep_stepName :: Lens.Lens' PipelineExecutionStep (Prelude.Maybe Prelude.Text)
@@ -136,29 +137,29 @@ pipelineExecutionStep_stepDescription = Lens.lens (\PipelineExecutionStep' {step
 
 -- | The time that the step started executing.
 pipelineExecutionStep_startTime :: Lens.Lens' PipelineExecutionStep (Prelude.Maybe Prelude.UTCTime)
-pipelineExecutionStep_startTime = Lens.lens (\PipelineExecutionStep' {startTime} -> startTime) (\s@PipelineExecutionStep' {} a -> s {startTime = a} :: PipelineExecutionStep) Prelude.. Lens.mapping Core._Time
+pipelineExecutionStep_startTime = Lens.lens (\PipelineExecutionStep' {startTime} -> startTime) (\s@PipelineExecutionStep' {} a -> s {startTime = a} :: PipelineExecutionStep) Prelude.. Lens.mapping Data._Time
 
 -- | The reason why the step failed execution. This is only returned if the
 -- step failed its execution.
 pipelineExecutionStep_failureReason :: Lens.Lens' PipelineExecutionStep (Prelude.Maybe Prelude.Text)
 pipelineExecutionStep_failureReason = Lens.lens (\PipelineExecutionStep' {failureReason} -> failureReason) (\s@PipelineExecutionStep' {} a -> s {failureReason = a} :: PipelineExecutionStep)
 
-instance Core.FromJSON PipelineExecutionStep where
+instance Data.FromJSON PipelineExecutionStep where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PipelineExecutionStep"
       ( \x ->
           PipelineExecutionStep'
-            Prelude.<$> (x Core..:? "AttemptCount")
-            Prelude.<*> (x Core..:? "Metadata")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "StepName")
-            Prelude.<*> (x Core..:? "StepDisplayName")
-            Prelude.<*> (x Core..:? "CacheHitResult")
-            Prelude.<*> (x Core..:? "StepStatus")
-            Prelude.<*> (x Core..:? "StepDescription")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<$> (x Data..:? "AttemptCount")
+            Prelude.<*> (x Data..:? "Metadata")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "StepName")
+            Prelude.<*> (x Data..:? "StepDisplayName")
+            Prelude.<*> (x Data..:? "CacheHitResult")
+            Prelude.<*> (x Data..:? "StepStatus")
+            Prelude.<*> (x Data..:? "StepDescription")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "FailureReason")
       )
 
 instance Prelude.Hashable PipelineExecutionStep where

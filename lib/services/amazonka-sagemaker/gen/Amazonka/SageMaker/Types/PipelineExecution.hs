@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.PipelineExecution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ParallelismConfiguration
 import Amazonka.SageMaker.Types.Parameter
@@ -38,13 +39,13 @@ data PipelineExecution = PipelineExecution'
     -- | Contains a list of pipeline parameters. This list can be empty.
     pipelineParameters :: Prelude.Maybe [Parameter],
     -- | The time that the pipeline execution was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The parallelism configuration applied to the pipeline execution.
     parallelismConfiguration :: Prelude.Maybe ParallelismConfiguration,
     -- | The description of the pipeline execution.
     pipelineExecutionDescription :: Prelude.Maybe Prelude.Text,
     -- | The creation time of the pipeline execution.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     lastModifiedBy :: Prelude.Maybe UserContext,
     createdBy :: Prelude.Maybe UserContext,
     -- | The status of the pipeline status.
@@ -124,7 +125,7 @@ pipelineExecution_pipelineParameters = Lens.lens (\PipelineExecution' {pipelineP
 
 -- | The time that the pipeline execution was last modified.
 pipelineExecution_lastModifiedTime :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.UTCTime)
-pipelineExecution_lastModifiedTime = Lens.lens (\PipelineExecution' {lastModifiedTime} -> lastModifiedTime) (\s@PipelineExecution' {} a -> s {lastModifiedTime = a} :: PipelineExecution) Prelude.. Lens.mapping Core._Time
+pipelineExecution_lastModifiedTime = Lens.lens (\PipelineExecution' {lastModifiedTime} -> lastModifiedTime) (\s@PipelineExecution' {} a -> s {lastModifiedTime = a} :: PipelineExecution) Prelude.. Lens.mapping Data._Time
 
 -- | The parallelism configuration applied to the pipeline execution.
 pipelineExecution_parallelismConfiguration :: Lens.Lens' PipelineExecution (Prelude.Maybe ParallelismConfiguration)
@@ -136,7 +137,7 @@ pipelineExecution_pipelineExecutionDescription = Lens.lens (\PipelineExecution' 
 
 -- | The creation time of the pipeline execution.
 pipelineExecution_creationTime :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.UTCTime)
-pipelineExecution_creationTime = Lens.lens (\PipelineExecution' {creationTime} -> creationTime) (\s@PipelineExecution' {} a -> s {creationTime = a} :: PipelineExecution) Prelude.. Lens.mapping Core._Time
+pipelineExecution_creationTime = Lens.lens (\PipelineExecution' {creationTime} -> creationTime) (\s@PipelineExecution' {} a -> s {creationTime = a} :: PipelineExecution) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 pipelineExecution_lastModifiedBy :: Lens.Lens' PipelineExecution (Prelude.Maybe UserContext)
@@ -162,27 +163,27 @@ pipelineExecution_pipelineExecutionArn = Lens.lens (\PipelineExecution' {pipelin
 pipelineExecution_failureReason :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.Text)
 pipelineExecution_failureReason = Lens.lens (\PipelineExecution' {failureReason} -> failureReason) (\s@PipelineExecution' {} a -> s {failureReason = a} :: PipelineExecution)
 
-instance Core.FromJSON PipelineExecution where
+instance Data.FromJSON PipelineExecution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PipelineExecution"
       ( \x ->
           PipelineExecution'
-            Prelude.<$> (x Core..:? "PipelineArn")
-            Prelude.<*> (x Core..:? "PipelineExperimentConfig")
-            Prelude.<*> ( x Core..:? "PipelineParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "PipelineArn")
+            Prelude.<*> (x Data..:? "PipelineExperimentConfig")
+            Prelude.<*> ( x Data..:? "PipelineParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "ParallelismConfiguration")
-            Prelude.<*> (x Core..:? "PipelineExecutionDescription")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "LastModifiedBy")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..:? "PipelineExecutionStatus")
-            Prelude.<*> (x Core..:? "PipelineExecutionDisplayName")
-            Prelude.<*> (x Core..:? "PipelineExecutionArn")
-            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "ParallelismConfiguration")
+            Prelude.<*> (x Data..:? "PipelineExecutionDescription")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "LastModifiedBy")
+            Prelude.<*> (x Data..:? "CreatedBy")
+            Prelude.<*> (x Data..:? "PipelineExecutionStatus")
+            Prelude.<*> (x Data..:? "PipelineExecutionDisplayName")
+            Prelude.<*> (x Data..:? "PipelineExecutionArn")
+            Prelude.<*> (x Data..:? "FailureReason")
       )
 
 instance Prelude.Hashable PipelineExecution where

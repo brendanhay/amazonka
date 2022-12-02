@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ProcessingJobSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ProcessingJobStatus
 
@@ -30,9 +31,9 @@ import Amazonka.SageMaker.Types.ProcessingJobStatus
 data ProcessingJobSummary = ProcessingJobSummary'
   { -- | A timestamp that indicates the last time the processing job was
     -- modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The time at which the processing job completed.
-    processingEndTime :: Prelude.Maybe Core.POSIX,
+    processingEndTime :: Prelude.Maybe Data.POSIX,
     -- | An optional string, up to one KB in size, that contains metadata from
     -- the processing container when the processing job exits.
     exitMessage :: Prelude.Maybe Prelude.Text,
@@ -44,7 +45,7 @@ data ProcessingJobSummary = ProcessingJobSummary'
     -- | The Amazon Resource Name (ARN) of the processing job..
     processingJobArn :: Prelude.Text,
     -- | The time at which the processing job was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The status of the processing job.
     processingJobStatus :: ProcessingJobStatus
   }
@@ -99,18 +100,18 @@ newProcessingJobSummary
         failureReason = Prelude.Nothing,
         processingJobName = pProcessingJobName_,
         processingJobArn = pProcessingJobArn_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         processingJobStatus = pProcessingJobStatus_
       }
 
 -- | A timestamp that indicates the last time the processing job was
 -- modified.
 processingJobSummary_lastModifiedTime :: Lens.Lens' ProcessingJobSummary (Prelude.Maybe Prelude.UTCTime)
-processingJobSummary_lastModifiedTime = Lens.lens (\ProcessingJobSummary' {lastModifiedTime} -> lastModifiedTime) (\s@ProcessingJobSummary' {} a -> s {lastModifiedTime = a} :: ProcessingJobSummary) Prelude.. Lens.mapping Core._Time
+processingJobSummary_lastModifiedTime = Lens.lens (\ProcessingJobSummary' {lastModifiedTime} -> lastModifiedTime) (\s@ProcessingJobSummary' {} a -> s {lastModifiedTime = a} :: ProcessingJobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The time at which the processing job completed.
 processingJobSummary_processingEndTime :: Lens.Lens' ProcessingJobSummary (Prelude.Maybe Prelude.UTCTime)
-processingJobSummary_processingEndTime = Lens.lens (\ProcessingJobSummary' {processingEndTime} -> processingEndTime) (\s@ProcessingJobSummary' {} a -> s {processingEndTime = a} :: ProcessingJobSummary) Prelude.. Lens.mapping Core._Time
+processingJobSummary_processingEndTime = Lens.lens (\ProcessingJobSummary' {processingEndTime} -> processingEndTime) (\s@ProcessingJobSummary' {} a -> s {processingEndTime = a} :: ProcessingJobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | An optional string, up to one KB in size, that contains metadata from
 -- the processing container when the processing job exits.
@@ -132,26 +133,26 @@ processingJobSummary_processingJobArn = Lens.lens (\ProcessingJobSummary' {proce
 
 -- | The time at which the processing job was created.
 processingJobSummary_creationTime :: Lens.Lens' ProcessingJobSummary Prelude.UTCTime
-processingJobSummary_creationTime = Lens.lens (\ProcessingJobSummary' {creationTime} -> creationTime) (\s@ProcessingJobSummary' {} a -> s {creationTime = a} :: ProcessingJobSummary) Prelude.. Core._Time
+processingJobSummary_creationTime = Lens.lens (\ProcessingJobSummary' {creationTime} -> creationTime) (\s@ProcessingJobSummary' {} a -> s {creationTime = a} :: ProcessingJobSummary) Prelude.. Data._Time
 
 -- | The status of the processing job.
 processingJobSummary_processingJobStatus :: Lens.Lens' ProcessingJobSummary ProcessingJobStatus
 processingJobSummary_processingJobStatus = Lens.lens (\ProcessingJobSummary' {processingJobStatus} -> processingJobStatus) (\s@ProcessingJobSummary' {} a -> s {processingJobStatus = a} :: ProcessingJobSummary)
 
-instance Core.FromJSON ProcessingJobSummary where
+instance Data.FromJSON ProcessingJobSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProcessingJobSummary"
       ( \x ->
           ProcessingJobSummary'
-            Prelude.<$> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "ProcessingEndTime")
-            Prelude.<*> (x Core..:? "ExitMessage")
-            Prelude.<*> (x Core..:? "FailureReason")
-            Prelude.<*> (x Core..: "ProcessingJobName")
-            Prelude.<*> (x Core..: "ProcessingJobArn")
-            Prelude.<*> (x Core..: "CreationTime")
-            Prelude.<*> (x Core..: "ProcessingJobStatus")
+            Prelude.<$> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "ProcessingEndTime")
+            Prelude.<*> (x Data..:? "ExitMessage")
+            Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..: "ProcessingJobName")
+            Prelude.<*> (x Data..: "ProcessingJobArn")
+            Prelude.<*> (x Data..: "CreationTime")
+            Prelude.<*> (x Data..: "ProcessingJobStatus")
       )
 
 instance Prelude.Hashable ProcessingJobSummary where

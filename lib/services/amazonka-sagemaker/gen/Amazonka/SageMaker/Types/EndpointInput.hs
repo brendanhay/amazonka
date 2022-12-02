@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.EndpointInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ProcessingS3DataDistributionType
 import Amazonka.SageMaker.Types.ProcessingS3InputMode
@@ -176,22 +177,22 @@ endpointInput_endpointName = Lens.lens (\EndpointInput' {endpointName} -> endpoi
 endpointInput_localPath :: Lens.Lens' EndpointInput Prelude.Text
 endpointInput_localPath = Lens.lens (\EndpointInput' {localPath} -> localPath) (\s@EndpointInput' {} a -> s {localPath = a} :: EndpointInput)
 
-instance Core.FromJSON EndpointInput where
+instance Data.FromJSON EndpointInput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointInput"
       ( \x ->
           EndpointInput'
-            Prelude.<$> (x Core..:? "ProbabilityThresholdAttribute")
-            Prelude.<*> (x Core..:? "S3InputMode")
-            Prelude.<*> (x Core..:? "S3DataDistributionType")
-            Prelude.<*> (x Core..:? "ProbabilityAttribute")
-            Prelude.<*> (x Core..:? "StartTimeOffset")
-            Prelude.<*> (x Core..:? "FeaturesAttribute")
-            Prelude.<*> (x Core..:? "InferenceAttribute")
-            Prelude.<*> (x Core..:? "EndTimeOffset")
-            Prelude.<*> (x Core..: "EndpointName")
-            Prelude.<*> (x Core..: "LocalPath")
+            Prelude.<$> (x Data..:? "ProbabilityThresholdAttribute")
+            Prelude.<*> (x Data..:? "S3InputMode")
+            Prelude.<*> (x Data..:? "S3DataDistributionType")
+            Prelude.<*> (x Data..:? "ProbabilityAttribute")
+            Prelude.<*> (x Data..:? "StartTimeOffset")
+            Prelude.<*> (x Data..:? "FeaturesAttribute")
+            Prelude.<*> (x Data..:? "InferenceAttribute")
+            Prelude.<*> (x Data..:? "EndTimeOffset")
+            Prelude.<*> (x Data..: "EndpointName")
+            Prelude.<*> (x Data..: "LocalPath")
       )
 
 instance Prelude.Hashable EndpointInput where
@@ -221,25 +222,25 @@ instance Prelude.NFData EndpointInput where
       `Prelude.seq` Prelude.rnf endpointName
       `Prelude.seq` Prelude.rnf localPath
 
-instance Core.ToJSON EndpointInput where
+instance Data.ToJSON EndpointInput where
   toJSON EndpointInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProbabilityThresholdAttribute" Core..=)
+          [ ("ProbabilityThresholdAttribute" Data..=)
               Prelude.<$> probabilityThresholdAttribute,
-            ("S3InputMode" Core..=) Prelude.<$> s3InputMode,
-            ("S3DataDistributionType" Core..=)
+            ("S3InputMode" Data..=) Prelude.<$> s3InputMode,
+            ("S3DataDistributionType" Data..=)
               Prelude.<$> s3DataDistributionType,
-            ("ProbabilityAttribute" Core..=)
+            ("ProbabilityAttribute" Data..=)
               Prelude.<$> probabilityAttribute,
-            ("StartTimeOffset" Core..=)
+            ("StartTimeOffset" Data..=)
               Prelude.<$> startTimeOffset,
-            ("FeaturesAttribute" Core..=)
+            ("FeaturesAttribute" Data..=)
               Prelude.<$> featuresAttribute,
-            ("InferenceAttribute" Core..=)
+            ("InferenceAttribute" Data..=)
               Prelude.<$> inferenceAttribute,
-            ("EndTimeOffset" Core..=) Prelude.<$> endTimeOffset,
-            Prelude.Just ("EndpointName" Core..= endpointName),
-            Prelude.Just ("LocalPath" Core..= localPath)
+            ("EndTimeOffset" Data..=) Prelude.<$> endTimeOffset,
+            Prelude.Just ("EndpointName" Data..= endpointName),
+            Prelude.Just ("LocalPath" Data..= localPath)
           ]
       )

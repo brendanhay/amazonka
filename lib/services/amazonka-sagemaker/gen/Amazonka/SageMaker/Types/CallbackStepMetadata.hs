@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.CallbackStepMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.OutputParameter
 
@@ -75,17 +76,17 @@ callbackStepMetadata_callbackToken = Lens.lens (\CallbackStepMetadata' {callback
 callbackStepMetadata_sqsQueueUrl :: Lens.Lens' CallbackStepMetadata (Prelude.Maybe Prelude.Text)
 callbackStepMetadata_sqsQueueUrl = Lens.lens (\CallbackStepMetadata' {sqsQueueUrl} -> sqsQueueUrl) (\s@CallbackStepMetadata' {} a -> s {sqsQueueUrl = a} :: CallbackStepMetadata)
 
-instance Core.FromJSON CallbackStepMetadata where
+instance Data.FromJSON CallbackStepMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CallbackStepMetadata"
       ( \x ->
           CallbackStepMetadata'
-            Prelude.<$> ( x Core..:? "OutputParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "OutputParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CallbackToken")
-            Prelude.<*> (x Core..:? "SqsQueueUrl")
+            Prelude.<*> (x Data..:? "CallbackToken")
+            Prelude.<*> (x Data..:? "SqsQueueUrl")
       )
 
 instance Prelude.Hashable CallbackStepMetadata where

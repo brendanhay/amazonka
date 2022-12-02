@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,8 +88,8 @@ instance Core.AWSRequest GetLineageGroupPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetLineageGroupPolicyResponse'
-            Prelude.<$> (x Core..?> "ResourcePolicy")
-            Prelude.<*> (x Core..?> "LineageGroupArn")
+            Prelude.<$> (x Data..?> "ResourcePolicy")
+            Prelude.<*> (x Data..?> "LineageGroupArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,34 +101,34 @@ instance Prelude.NFData GetLineageGroupPolicy where
   rnf GetLineageGroupPolicy' {..} =
     Prelude.rnf lineageGroupName
 
-instance Core.ToHeaders GetLineageGroupPolicy where
+instance Data.ToHeaders GetLineageGroupPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.GetLineageGroupPolicy" ::
+              Data.=# ( "SageMaker.GetLineageGroupPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetLineageGroupPolicy where
+instance Data.ToJSON GetLineageGroupPolicy where
   toJSON GetLineageGroupPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("LineageGroupName" Core..= lineageGroupName)
+              ("LineageGroupName" Data..= lineageGroupName)
           ]
       )
 
-instance Core.ToPath GetLineageGroupPolicy where
+instance Data.ToPath GetLineageGroupPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetLineageGroupPolicy where
+instance Data.ToQuery GetLineageGroupPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLineageGroupPolicyResponse' smart constructor.

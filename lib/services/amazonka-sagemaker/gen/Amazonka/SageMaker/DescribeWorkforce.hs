@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,7 +97,7 @@ instance Core.AWSRequest DescribeWorkforce where
       ( \s h x ->
           DescribeWorkforceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Workforce")
+            Prelude.<*> (x Data..:> "Workforce")
       )
 
 instance Prelude.Hashable DescribeWorkforce where
@@ -107,34 +108,34 @@ instance Prelude.NFData DescribeWorkforce where
   rnf DescribeWorkforce' {..} =
     Prelude.rnf workforceName
 
-instance Core.ToHeaders DescribeWorkforce where
+instance Data.ToHeaders DescribeWorkforce where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeWorkforce" ::
+              Data.=# ( "SageMaker.DescribeWorkforce" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeWorkforce where
+instance Data.ToJSON DescribeWorkforce where
   toJSON DescribeWorkforce' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("WorkforceName" Core..= workforceName)
+              ("WorkforceName" Data..= workforceName)
           ]
       )
 
-instance Core.ToPath DescribeWorkforce where
+instance Data.ToPath DescribeWorkforce where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeWorkforce where
+instance Data.ToQuery DescribeWorkforce where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeWorkforceResponse' smart constructor.

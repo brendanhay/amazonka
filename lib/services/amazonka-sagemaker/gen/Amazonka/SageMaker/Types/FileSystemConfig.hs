@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.FileSystemConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Elastic File System (EFS) storage configuration for a
@@ -77,15 +78,15 @@ fileSystemConfig_defaultUid = Lens.lens (\FileSystemConfig' {defaultUid} -> defa
 fileSystemConfig_mountPath :: Lens.Lens' FileSystemConfig (Prelude.Maybe Prelude.Text)
 fileSystemConfig_mountPath = Lens.lens (\FileSystemConfig' {mountPath} -> mountPath) (\s@FileSystemConfig' {} a -> s {mountPath = a} :: FileSystemConfig)
 
-instance Core.FromJSON FileSystemConfig where
+instance Data.FromJSON FileSystemConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileSystemConfig"
       ( \x ->
           FileSystemConfig'
-            Prelude.<$> (x Core..:? "DefaultGid")
-            Prelude.<*> (x Core..:? "DefaultUid")
-            Prelude.<*> (x Core..:? "MountPath")
+            Prelude.<$> (x Data..:? "DefaultGid")
+            Prelude.<*> (x Data..:? "DefaultUid")
+            Prelude.<*> (x Data..:? "MountPath")
       )
 
 instance Prelude.Hashable FileSystemConfig where
@@ -100,12 +101,12 @@ instance Prelude.NFData FileSystemConfig where
       `Prelude.seq` Prelude.rnf defaultUid
       `Prelude.seq` Prelude.rnf mountPath
 
-instance Core.ToJSON FileSystemConfig where
+instance Data.ToJSON FileSystemConfig where
   toJSON FileSystemConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DefaultGid" Core..=) Prelude.<$> defaultGid,
-            ("DefaultUid" Core..=) Prelude.<$> defaultUid,
-            ("MountPath" Core..=) Prelude.<$> mountPath
+          [ ("DefaultGid" Data..=) Prelude.<$> defaultGid,
+            ("DefaultUid" Data..=) Prelude.<$> defaultUid,
+            ("MountPath" Data..=) Prelude.<$> mountPath
           ]
       )

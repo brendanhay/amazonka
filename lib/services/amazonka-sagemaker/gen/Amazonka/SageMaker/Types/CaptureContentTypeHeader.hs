@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.CaptureContentTypeHeader where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration specifying how to treat different headers. If no headers
@@ -70,14 +71,14 @@ captureContentTypeHeader_csvContentTypes = Lens.lens (\CaptureContentTypeHeader'
 captureContentTypeHeader_jsonContentTypes :: Lens.Lens' CaptureContentTypeHeader (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 captureContentTypeHeader_jsonContentTypes = Lens.lens (\CaptureContentTypeHeader' {jsonContentTypes} -> jsonContentTypes) (\s@CaptureContentTypeHeader' {} a -> s {jsonContentTypes = a} :: CaptureContentTypeHeader) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CaptureContentTypeHeader where
+instance Data.FromJSON CaptureContentTypeHeader where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CaptureContentTypeHeader"
       ( \x ->
           CaptureContentTypeHeader'
-            Prelude.<$> (x Core..:? "CsvContentTypes")
-            Prelude.<*> (x Core..:? "JsonContentTypes")
+            Prelude.<$> (x Data..:? "CsvContentTypes")
+            Prelude.<*> (x Data..:? "JsonContentTypes")
       )
 
 instance Prelude.Hashable CaptureContentTypeHeader where
@@ -90,13 +91,13 @@ instance Prelude.NFData CaptureContentTypeHeader where
     Prelude.rnf csvContentTypes
       `Prelude.seq` Prelude.rnf jsonContentTypes
 
-instance Core.ToJSON CaptureContentTypeHeader where
+instance Data.ToJSON CaptureContentTypeHeader where
   toJSON CaptureContentTypeHeader' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CsvContentTypes" Core..=)
+          [ ("CsvContentTypes" Data..=)
               Prelude.<$> csvContentTypes,
-            ("JsonContentTypes" Core..=)
+            ("JsonContentTypes" Data..=)
               Prelude.<$> jsonContentTypes
           ]
       )

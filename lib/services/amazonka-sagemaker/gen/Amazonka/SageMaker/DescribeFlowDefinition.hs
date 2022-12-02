@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,17 +96,17 @@ instance Core.AWSRequest DescribeFlowDefinition where
     Response.receiveJSON
       ( \s h x ->
           DescribeFlowDefinitionResponse'
-            Prelude.<$> (x Core..?> "HumanLoopActivationConfig")
-            Prelude.<*> (x Core..?> "HumanLoopRequestSource")
-            Prelude.<*> (x Core..?> "FailureReason")
+            Prelude.<$> (x Data..?> "HumanLoopActivationConfig")
+            Prelude.<*> (x Data..?> "HumanLoopRequestSource")
+            Prelude.<*> (x Data..?> "FailureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "FlowDefinitionArn")
-            Prelude.<*> (x Core..:> "FlowDefinitionName")
-            Prelude.<*> (x Core..:> "FlowDefinitionStatus")
-            Prelude.<*> (x Core..:> "CreationTime")
-            Prelude.<*> (x Core..:> "HumanLoopConfig")
-            Prelude.<*> (x Core..:> "OutputConfig")
-            Prelude.<*> (x Core..:> "RoleArn")
+            Prelude.<*> (x Data..:> "FlowDefinitionArn")
+            Prelude.<*> (x Data..:> "FlowDefinitionName")
+            Prelude.<*> (x Data..:> "FlowDefinitionStatus")
+            Prelude.<*> (x Data..:> "CreationTime")
+            Prelude.<*> (x Data..:> "HumanLoopConfig")
+            Prelude.<*> (x Data..:> "OutputConfig")
+            Prelude.<*> (x Data..:> "RoleArn")
       )
 
 instance Prelude.Hashable DescribeFlowDefinition where
@@ -116,34 +117,34 @@ instance Prelude.NFData DescribeFlowDefinition where
   rnf DescribeFlowDefinition' {..} =
     Prelude.rnf flowDefinitionName
 
-instance Core.ToHeaders DescribeFlowDefinition where
+instance Data.ToHeaders DescribeFlowDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeFlowDefinition" ::
+              Data.=# ( "SageMaker.DescribeFlowDefinition" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFlowDefinition where
+instance Data.ToJSON DescribeFlowDefinition where
   toJSON DescribeFlowDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("FlowDefinitionName" Core..= flowDefinitionName)
+              ("FlowDefinitionName" Data..= flowDefinitionName)
           ]
       )
 
-instance Core.ToPath DescribeFlowDefinition where
+instance Data.ToPath DescribeFlowDefinition where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFlowDefinition where
+instance Data.ToQuery DescribeFlowDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeFlowDefinitionResponse' smart constructor.
@@ -166,7 +167,7 @@ data DescribeFlowDefinitionResponse = DescribeFlowDefinitionResponse'
     -- | The status of the flow definition. Valid values are listed below.
     flowDefinitionStatus :: FlowDefinitionStatus,
     -- | The timestamp when the flow definition was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | An object containing information about who works on the task, the
     -- workforce task price, and other task details.
     humanLoopConfig :: HumanLoopConfig,
@@ -250,7 +251,7 @@ newDescribeFlowDefinitionResponse
         flowDefinitionStatus =
           pFlowDefinitionStatus_,
         creationTime =
-          Core._Time Lens.# pCreationTime_,
+          Data._Time Lens.# pCreationTime_,
         humanLoopConfig = pHumanLoopConfig_,
         outputConfig = pOutputConfig_,
         roleArn = pRoleArn_
@@ -289,7 +290,7 @@ describeFlowDefinitionResponse_flowDefinitionStatus = Lens.lens (\DescribeFlowDe
 
 -- | The timestamp when the flow definition was created.
 describeFlowDefinitionResponse_creationTime :: Lens.Lens' DescribeFlowDefinitionResponse Prelude.UTCTime
-describeFlowDefinitionResponse_creationTime = Lens.lens (\DescribeFlowDefinitionResponse' {creationTime} -> creationTime) (\s@DescribeFlowDefinitionResponse' {} a -> s {creationTime = a} :: DescribeFlowDefinitionResponse) Prelude.. Core._Time
+describeFlowDefinitionResponse_creationTime = Lens.lens (\DescribeFlowDefinitionResponse' {creationTime} -> creationTime) (\s@DescribeFlowDefinitionResponse' {} a -> s {creationTime = a} :: DescribeFlowDefinitionResponse) Prelude.. Data._Time
 
 -- | An object containing information about who works on the task, the
 -- workforce task price, and other task details.

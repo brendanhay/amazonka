@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.RStudioServerProDomainSettingsForUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ResourceSpec
 
@@ -86,17 +87,17 @@ instance
       `Prelude.seq` Prelude.rnf domainExecutionRoleArn
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RStudioServerProDomainSettingsForUpdate
   where
   toJSON RStudioServerProDomainSettingsForUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DefaultResourceSpec" Core..=)
+          [ ("DefaultResourceSpec" Data..=)
               Prelude.<$> defaultResourceSpec,
             Prelude.Just
               ( "DomainExecutionRoleArn"
-                  Core..= domainExecutionRoleArn
+                  Data..= domainExecutionRoleArn
               )
           ]
       )

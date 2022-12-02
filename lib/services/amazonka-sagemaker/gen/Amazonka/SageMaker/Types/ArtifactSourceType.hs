@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ArtifactSourceType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ArtifactSourceIdType
 
@@ -66,14 +67,14 @@ artifactSourceType_sourceIdType = Lens.lens (\ArtifactSourceType' {sourceIdType}
 artifactSourceType_value :: Lens.Lens' ArtifactSourceType Prelude.Text
 artifactSourceType_value = Lens.lens (\ArtifactSourceType' {value} -> value) (\s@ArtifactSourceType' {} a -> s {value = a} :: ArtifactSourceType)
 
-instance Core.FromJSON ArtifactSourceType where
+instance Data.FromJSON ArtifactSourceType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ArtifactSourceType"
       ( \x ->
           ArtifactSourceType'
-            Prelude.<$> (x Core..: "SourceIdType")
-            Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "SourceIdType")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable ArtifactSourceType where
@@ -86,11 +87,11 @@ instance Prelude.NFData ArtifactSourceType where
     Prelude.rnf sourceIdType
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ArtifactSourceType where
+instance Data.ToJSON ArtifactSourceType where
   toJSON ArtifactSourceType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SourceIdType" Core..= sourceIdType),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("SourceIdType" Data..= sourceIdType),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

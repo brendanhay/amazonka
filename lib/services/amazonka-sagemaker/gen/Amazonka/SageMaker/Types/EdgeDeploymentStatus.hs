@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.EdgeDeploymentStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.StageStatus
 
@@ -31,7 +32,7 @@ data EdgeDeploymentStatus = EdgeDeploymentStatus'
   { -- | A detailed message about deployment status in current stage.
     edgeDeploymentStatusMessage :: Prelude.Maybe Prelude.Text,
     -- | The time when the deployment API started.
-    edgeDeploymentStageStartTime :: Prelude.Maybe Core.POSIX,
+    edgeDeploymentStageStartTime :: Prelude.Maybe Data.POSIX,
     -- | The general status of the current stage.
     stageStatus :: StageStatus,
     -- | The number of edge devices with the successful deployment in the current
@@ -100,7 +101,7 @@ edgeDeploymentStatus_edgeDeploymentStatusMessage = Lens.lens (\EdgeDeploymentSta
 
 -- | The time when the deployment API started.
 edgeDeploymentStatus_edgeDeploymentStageStartTime :: Lens.Lens' EdgeDeploymentStatus (Prelude.Maybe Prelude.UTCTime)
-edgeDeploymentStatus_edgeDeploymentStageStartTime = Lens.lens (\EdgeDeploymentStatus' {edgeDeploymentStageStartTime} -> edgeDeploymentStageStartTime) (\s@EdgeDeploymentStatus' {} a -> s {edgeDeploymentStageStartTime = a} :: EdgeDeploymentStatus) Prelude.. Lens.mapping Core._Time
+edgeDeploymentStatus_edgeDeploymentStageStartTime = Lens.lens (\EdgeDeploymentStatus' {edgeDeploymentStageStartTime} -> edgeDeploymentStageStartTime) (\s@EdgeDeploymentStatus' {} a -> s {edgeDeploymentStageStartTime = a} :: EdgeDeploymentStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The general status of the current stage.
 edgeDeploymentStatus_stageStatus :: Lens.Lens' EdgeDeploymentStatus StageStatus
@@ -120,18 +121,18 @@ edgeDeploymentStatus_edgeDeploymentPendingInStage = Lens.lens (\EdgeDeploymentSt
 edgeDeploymentStatus_edgeDeploymentFailedInStage :: Lens.Lens' EdgeDeploymentStatus Prelude.Int
 edgeDeploymentStatus_edgeDeploymentFailedInStage = Lens.lens (\EdgeDeploymentStatus' {edgeDeploymentFailedInStage} -> edgeDeploymentFailedInStage) (\s@EdgeDeploymentStatus' {} a -> s {edgeDeploymentFailedInStage = a} :: EdgeDeploymentStatus)
 
-instance Core.FromJSON EdgeDeploymentStatus where
+instance Data.FromJSON EdgeDeploymentStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EdgeDeploymentStatus"
       ( \x ->
           EdgeDeploymentStatus'
-            Prelude.<$> (x Core..:? "EdgeDeploymentStatusMessage")
-            Prelude.<*> (x Core..:? "EdgeDeploymentStageStartTime")
-            Prelude.<*> (x Core..: "StageStatus")
-            Prelude.<*> (x Core..: "EdgeDeploymentSuccessInStage")
-            Prelude.<*> (x Core..: "EdgeDeploymentPendingInStage")
-            Prelude.<*> (x Core..: "EdgeDeploymentFailedInStage")
+            Prelude.<$> (x Data..:? "EdgeDeploymentStatusMessage")
+            Prelude.<*> (x Data..:? "EdgeDeploymentStageStartTime")
+            Prelude.<*> (x Data..: "StageStatus")
+            Prelude.<*> (x Data..: "EdgeDeploymentSuccessInStage")
+            Prelude.<*> (x Data..: "EdgeDeploymentPendingInStage")
+            Prelude.<*> (x Data..: "EdgeDeploymentFailedInStage")
       )
 
 instance Prelude.Hashable EdgeDeploymentStatus where

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ProductionVariantCoreDumpConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies configuration for a core dump from the model container when
@@ -177,16 +178,16 @@ productionVariantCoreDumpConfig_destinationS3Uri :: Lens.Lens' ProductionVariant
 productionVariantCoreDumpConfig_destinationS3Uri = Lens.lens (\ProductionVariantCoreDumpConfig' {destinationS3Uri} -> destinationS3Uri) (\s@ProductionVariantCoreDumpConfig' {} a -> s {destinationS3Uri = a} :: ProductionVariantCoreDumpConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ProductionVariantCoreDumpConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProductionVariantCoreDumpConfig"
       ( \x ->
           ProductionVariantCoreDumpConfig'
-            Prelude.<$> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..: "DestinationS3Uri")
+            Prelude.<$> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..: "DestinationS3Uri")
       )
 
 instance
@@ -207,12 +208,12 @@ instance
     Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf destinationS3Uri
 
-instance Core.ToJSON ProductionVariantCoreDumpConfig where
+instance Data.ToJSON ProductionVariantCoreDumpConfig where
   toJSON ProductionVariantCoreDumpConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+          [ ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             Prelude.Just
-              ("DestinationS3Uri" Core..= destinationS3Uri)
+              ("DestinationS3Uri" Data..= destinationS3Uri)
           ]
       )

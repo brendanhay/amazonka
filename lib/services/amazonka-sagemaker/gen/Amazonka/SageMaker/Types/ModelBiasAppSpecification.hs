@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelBiasAppSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Docker container image configuration object for the model bias job.
@@ -81,15 +82,15 @@ modelBiasAppSpecification_imageUri = Lens.lens (\ModelBiasAppSpecification' {ima
 modelBiasAppSpecification_configUri :: Lens.Lens' ModelBiasAppSpecification Prelude.Text
 modelBiasAppSpecification_configUri = Lens.lens (\ModelBiasAppSpecification' {configUri} -> configUri) (\s@ModelBiasAppSpecification' {} a -> s {configUri = a} :: ModelBiasAppSpecification)
 
-instance Core.FromJSON ModelBiasAppSpecification where
+instance Data.FromJSON ModelBiasAppSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelBiasAppSpecification"
       ( \x ->
           ModelBiasAppSpecification'
-            Prelude.<$> (x Core..:? "Environment" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "ImageUri")
-            Prelude.<*> (x Core..: "ConfigUri")
+            Prelude.<$> (x Data..:? "Environment" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "ImageUri")
+            Prelude.<*> (x Data..: "ConfigUri")
       )
 
 instance Prelude.Hashable ModelBiasAppSpecification where
@@ -104,12 +105,12 @@ instance Prelude.NFData ModelBiasAppSpecification where
       `Prelude.seq` Prelude.rnf imageUri
       `Prelude.seq` Prelude.rnf configUri
 
-instance Core.ToJSON ModelBiasAppSpecification where
+instance Data.ToJSON ModelBiasAppSpecification where
   toJSON ModelBiasAppSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Environment" Core..=) Prelude.<$> environment,
-            Prelude.Just ("ImageUri" Core..= imageUri),
-            Prelude.Just ("ConfigUri" Core..= configUri)
+          [ ("Environment" Data..=) Prelude.<$> environment,
+            Prelude.Just ("ImageUri" Data..= imageUri),
+            Prelude.Just ("ConfigUri" Data..= configUri)
           ]
       )

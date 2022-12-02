@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ContextSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ContextSource
 
@@ -32,11 +33,11 @@ data ContextSummary = ContextSummary'
   { -- | The name of the context.
     contextName :: Prelude.Maybe Prelude.Text,
     -- | When the context was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The source of the context.
     source :: Prelude.Maybe ContextSource,
     -- | When the context was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The type of the context.
     contextType :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the context.
@@ -81,7 +82,7 @@ contextSummary_contextName = Lens.lens (\ContextSummary' {contextName} -> contex
 
 -- | When the context was last modified.
 contextSummary_lastModifiedTime :: Lens.Lens' ContextSummary (Prelude.Maybe Prelude.UTCTime)
-contextSummary_lastModifiedTime = Lens.lens (\ContextSummary' {lastModifiedTime} -> lastModifiedTime) (\s@ContextSummary' {} a -> s {lastModifiedTime = a} :: ContextSummary) Prelude.. Lens.mapping Core._Time
+contextSummary_lastModifiedTime = Lens.lens (\ContextSummary' {lastModifiedTime} -> lastModifiedTime) (\s@ContextSummary' {} a -> s {lastModifiedTime = a} :: ContextSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The source of the context.
 contextSummary_source :: Lens.Lens' ContextSummary (Prelude.Maybe ContextSource)
@@ -89,7 +90,7 @@ contextSummary_source = Lens.lens (\ContextSummary' {source} -> source) (\s@Cont
 
 -- | When the context was created.
 contextSummary_creationTime :: Lens.Lens' ContextSummary (Prelude.Maybe Prelude.UTCTime)
-contextSummary_creationTime = Lens.lens (\ContextSummary' {creationTime} -> creationTime) (\s@ContextSummary' {} a -> s {creationTime = a} :: ContextSummary) Prelude.. Lens.mapping Core._Time
+contextSummary_creationTime = Lens.lens (\ContextSummary' {creationTime} -> creationTime) (\s@ContextSummary' {} a -> s {creationTime = a} :: ContextSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The type of the context.
 contextSummary_contextType :: Lens.Lens' ContextSummary (Prelude.Maybe Prelude.Text)
@@ -99,18 +100,18 @@ contextSummary_contextType = Lens.lens (\ContextSummary' {contextType} -> contex
 contextSummary_contextArn :: Lens.Lens' ContextSummary (Prelude.Maybe Prelude.Text)
 contextSummary_contextArn = Lens.lens (\ContextSummary' {contextArn} -> contextArn) (\s@ContextSummary' {} a -> s {contextArn = a} :: ContextSummary)
 
-instance Core.FromJSON ContextSummary where
+instance Data.FromJSON ContextSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContextSummary"
       ( \x ->
           ContextSummary'
-            Prelude.<$> (x Core..:? "ContextName")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "Source")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "ContextType")
-            Prelude.<*> (x Core..:? "ContextArn")
+            Prelude.<$> (x Data..:? "ContextName")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "Source")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "ContextType")
+            Prelude.<*> (x Data..:? "ContextArn")
       )
 
 instance Prelude.Hashable ContextSummary where

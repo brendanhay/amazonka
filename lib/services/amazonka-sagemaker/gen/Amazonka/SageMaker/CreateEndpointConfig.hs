@@ -78,6 +78,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -310,7 +311,7 @@ instance Core.AWSRequest CreateEndpointConfig where
       ( \s h x ->
           CreateEndpointConfigResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "EndpointConfigArn")
+            Prelude.<*> (x Data..:> "EndpointConfigArn")
       )
 
 instance Prelude.Hashable CreateEndpointConfig where
@@ -333,44 +334,44 @@ instance Prelude.NFData CreateEndpointConfig where
       `Prelude.seq` Prelude.rnf endpointConfigName
       `Prelude.seq` Prelude.rnf productionVariants
 
-instance Core.ToHeaders CreateEndpointConfig where
+instance Data.ToHeaders CreateEndpointConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.CreateEndpointConfig" ::
+              Data.=# ( "SageMaker.CreateEndpointConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEndpointConfig where
+instance Data.ToJSON CreateEndpointConfig where
   toJSON CreateEndpointConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("AsyncInferenceConfig" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("AsyncInferenceConfig" Data..=)
               Prelude.<$> asyncInferenceConfig,
-            ("DataCaptureConfig" Core..=)
+            ("DataCaptureConfig" Data..=)
               Prelude.<$> dataCaptureConfig,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("ExplainerConfig" Core..=)
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("ExplainerConfig" Data..=)
               Prelude.<$> explainerConfig,
             Prelude.Just
-              ("EndpointConfigName" Core..= endpointConfigName),
+              ("EndpointConfigName" Data..= endpointConfigName),
             Prelude.Just
-              ("ProductionVariants" Core..= productionVariants)
+              ("ProductionVariants" Data..= productionVariants)
           ]
       )
 
-instance Core.ToPath CreateEndpointConfig where
+instance Data.ToPath CreateEndpointConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateEndpointConfig where
+instance Data.ToQuery CreateEndpointConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEndpointConfigResponse' smart constructor.

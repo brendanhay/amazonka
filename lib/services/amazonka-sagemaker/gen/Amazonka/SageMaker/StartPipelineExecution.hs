@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,7 +150,7 @@ instance Core.AWSRequest StartPipelineExecution where
     Response.receiveJSON
       ( \s h x ->
           StartPipelineExecutionResponse'
-            Prelude.<$> (x Core..?> "PipelineExecutionArn")
+            Prelude.<$> (x Data..?> "PipelineExecutionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,43 +172,43 @@ instance Prelude.NFData StartPipelineExecution where
       `Prelude.seq` Prelude.rnf pipelineName
       `Prelude.seq` Prelude.rnf clientRequestToken
 
-instance Core.ToHeaders StartPipelineExecution where
+instance Data.ToHeaders StartPipelineExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.StartPipelineExecution" ::
+              Data.=# ( "SageMaker.StartPipelineExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartPipelineExecution where
+instance Data.ToJSON StartPipelineExecution where
   toJSON StartPipelineExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PipelineParameters" Core..=)
+          [ ("PipelineParameters" Data..=)
               Prelude.<$> pipelineParameters,
-            ("ParallelismConfiguration" Core..=)
+            ("ParallelismConfiguration" Data..=)
               Prelude.<$> parallelismConfiguration,
-            ("PipelineExecutionDescription" Core..=)
+            ("PipelineExecutionDescription" Data..=)
               Prelude.<$> pipelineExecutionDescription,
-            ("PipelineExecutionDisplayName" Core..=)
+            ("PipelineExecutionDisplayName" Data..=)
               Prelude.<$> pipelineExecutionDisplayName,
-            Prelude.Just ("PipelineName" Core..= pipelineName),
+            Prelude.Just ("PipelineName" Data..= pipelineName),
             Prelude.Just
-              ("ClientRequestToken" Core..= clientRequestToken)
+              ("ClientRequestToken" Data..= clientRequestToken)
           ]
       )
 
-instance Core.ToPath StartPipelineExecution where
+instance Data.ToPath StartPipelineExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartPipelineExecution where
+instance Data.ToQuery StartPipelineExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartPipelineExecutionResponse' smart constructor.

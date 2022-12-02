@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -215,9 +216,9 @@ instance Core.AWSRequest QueryLineage where
     Response.receiveJSON
       ( \s h x ->
           QueryLineageResponse'
-            Prelude.<$> (x Core..?> "Edges" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Vertices" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Edges" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Vertices" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -241,37 +242,37 @@ instance Prelude.NFData QueryLineage where
       `Prelude.seq` Prelude.rnf direction
       `Prelude.seq` Prelude.rnf includeEdges
 
-instance Core.ToHeaders QueryLineage where
+instance Data.ToHeaders QueryLineage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.QueryLineage" :: Prelude.ByteString),
+              Data.=# ("SageMaker.QueryLineage" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON QueryLineage where
+instance Data.ToJSON QueryLineage where
   toJSON QueryLineage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxDepth" Core..=) Prelude.<$> maxDepth,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("StartArns" Core..=) Prelude.<$> startArns,
-            ("Direction" Core..=) Prelude.<$> direction,
-            ("IncludeEdges" Core..=) Prelude.<$> includeEdges
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxDepth" Data..=) Prelude.<$> maxDepth,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("StartArns" Data..=) Prelude.<$> startArns,
+            ("Direction" Data..=) Prelude.<$> direction,
+            ("IncludeEdges" Data..=) Prelude.<$> includeEdges
           ]
       )
 
-instance Core.ToPath QueryLineage where
+instance Data.ToPath QueryLineage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery QueryLineage where
+instance Data.ToQuery QueryLineage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newQueryLineageResponse' smart constructor.

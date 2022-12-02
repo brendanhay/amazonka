@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -66,7 +67,7 @@ data ListLabelingJobsForWorkteam = ListLabelingJobsForWorkteam'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only labeling jobs created before the specified
     -- time (timestamp).
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | The field to sort results by. The default is @CreationTime@.
     sortBy :: Prelude.Maybe ListLabelingJobsForWorkteamSortByOptions,
     -- | The maximum number of labeling jobs to return in each page of the
@@ -77,7 +78,7 @@ data ListLabelingJobsForWorkteam = ListLabelingJobsForWorkteam'
     jobReferenceCodeContains :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only labeling jobs created after the specified
     -- time (timestamp).
-    creationTimeAfter :: Prelude.Maybe Core.POSIX,
+    creationTimeAfter :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the work team for which you want to
     -- see labeling jobs for.
     workteamArn :: Prelude.Text
@@ -144,7 +145,7 @@ listLabelingJobsForWorkteam_nextToken = Lens.lens (\ListLabelingJobsForWorkteam'
 -- | A filter that returns only labeling jobs created before the specified
 -- time (timestamp).
 listLabelingJobsForWorkteam_creationTimeBefore :: Lens.Lens' ListLabelingJobsForWorkteam (Prelude.Maybe Prelude.UTCTime)
-listLabelingJobsForWorkteam_creationTimeBefore = Lens.lens (\ListLabelingJobsForWorkteam' {creationTimeBefore} -> creationTimeBefore) (\s@ListLabelingJobsForWorkteam' {} a -> s {creationTimeBefore = a} :: ListLabelingJobsForWorkteam) Prelude.. Lens.mapping Core._Time
+listLabelingJobsForWorkteam_creationTimeBefore = Lens.lens (\ListLabelingJobsForWorkteam' {creationTimeBefore} -> creationTimeBefore) (\s@ListLabelingJobsForWorkteam' {} a -> s {creationTimeBefore = a} :: ListLabelingJobsForWorkteam) Prelude.. Lens.mapping Data._Time
 
 -- | The field to sort results by. The default is @CreationTime@.
 listLabelingJobsForWorkteam_sortBy :: Lens.Lens' ListLabelingJobsForWorkteam (Prelude.Maybe ListLabelingJobsForWorkteamSortByOptions)
@@ -163,7 +164,7 @@ listLabelingJobsForWorkteam_jobReferenceCodeContains = Lens.lens (\ListLabelingJ
 -- | A filter that returns only labeling jobs created after the specified
 -- time (timestamp).
 listLabelingJobsForWorkteam_creationTimeAfter :: Lens.Lens' ListLabelingJobsForWorkteam (Prelude.Maybe Prelude.UTCTime)
-listLabelingJobsForWorkteam_creationTimeAfter = Lens.lens (\ListLabelingJobsForWorkteam' {creationTimeAfter} -> creationTimeAfter) (\s@ListLabelingJobsForWorkteam' {} a -> s {creationTimeAfter = a} :: ListLabelingJobsForWorkteam) Prelude.. Lens.mapping Core._Time
+listLabelingJobsForWorkteam_creationTimeAfter = Lens.lens (\ListLabelingJobsForWorkteam' {creationTimeAfter} -> creationTimeAfter) (\s@ListLabelingJobsForWorkteam' {} a -> s {creationTimeAfter = a} :: ListLabelingJobsForWorkteam) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the work team for which you want to
 -- see labeling jobs for.
@@ -201,9 +202,9 @@ instance Core.AWSRequest ListLabelingJobsForWorkteam where
     Response.receiveJSON
       ( \s h x ->
           ListLabelingJobsForWorkteamResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "LabelingJobSummaryList"
+            Prelude.<*> ( x Data..?> "LabelingJobSummaryList"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -230,43 +231,43 @@ instance Prelude.NFData ListLabelingJobsForWorkteam where
       `Prelude.seq` Prelude.rnf creationTimeAfter
       `Prelude.seq` Prelude.rnf workteamArn
 
-instance Core.ToHeaders ListLabelingJobsForWorkteam where
+instance Data.ToHeaders ListLabelingJobsForWorkteam where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.ListLabelingJobsForWorkteam" ::
+              Data.=# ( "SageMaker.ListLabelingJobsForWorkteam" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListLabelingJobsForWorkteam where
+instance Data.ToJSON ListLabelingJobsForWorkteam where
   toJSON ListLabelingJobsForWorkteam' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("CreationTimeBefore" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("JobReferenceCodeContains" Core..=)
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("JobReferenceCodeContains" Data..=)
               Prelude.<$> jobReferenceCodeContains,
-            ("CreationTimeAfter" Core..=)
+            ("CreationTimeAfter" Data..=)
               Prelude.<$> creationTimeAfter,
-            Prelude.Just ("WorkteamArn" Core..= workteamArn)
+            Prelude.Just ("WorkteamArn" Data..= workteamArn)
           ]
       )
 
-instance Core.ToPath ListLabelingJobsForWorkteam where
+instance Data.ToPath ListLabelingJobsForWorkteam where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListLabelingJobsForWorkteam where
+instance Data.ToQuery ListLabelingJobsForWorkteam where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListLabelingJobsForWorkteamResponse' smart constructor.

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,7 +108,7 @@ instance Core.AWSRequest UpdateUserProfile where
     Response.receiveJSON
       ( \s h x ->
           UpdateUserProfileResponse'
-            Prelude.<$> (x Core..?> "UserProfileArn")
+            Prelude.<$> (x Data..?> "UserProfileArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,36 +124,36 @@ instance Prelude.NFData UpdateUserProfile where
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf userProfileName
 
-instance Core.ToHeaders UpdateUserProfile where
+instance Data.ToHeaders UpdateUserProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.UpdateUserProfile" ::
+              Data.=# ( "SageMaker.UpdateUserProfile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateUserProfile where
+instance Data.ToJSON UpdateUserProfile where
   toJSON UpdateUserProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UserSettings" Core..=) Prelude.<$> userSettings,
-            Prelude.Just ("DomainId" Core..= domainId),
+          [ ("UserSettings" Data..=) Prelude.<$> userSettings,
+            Prelude.Just ("DomainId" Data..= domainId),
             Prelude.Just
-              ("UserProfileName" Core..= userProfileName)
+              ("UserProfileName" Data..= userProfileName)
           ]
       )
 
-instance Core.ToPath UpdateUserProfile where
+instance Data.ToPath UpdateUserProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateUserProfile where
+instance Data.ToQuery UpdateUserProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateUserProfileResponse' smart constructor.

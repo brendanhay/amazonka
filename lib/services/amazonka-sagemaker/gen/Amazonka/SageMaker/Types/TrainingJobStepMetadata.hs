@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TrainingJobStepMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata for a training job step.
@@ -53,13 +54,13 @@ newTrainingJobStepMetadata =
 trainingJobStepMetadata_arn :: Lens.Lens' TrainingJobStepMetadata (Prelude.Maybe Prelude.Text)
 trainingJobStepMetadata_arn = Lens.lens (\TrainingJobStepMetadata' {arn} -> arn) (\s@TrainingJobStepMetadata' {} a -> s {arn = a} :: TrainingJobStepMetadata)
 
-instance Core.FromJSON TrainingJobStepMetadata where
+instance Data.FromJSON TrainingJobStepMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrainingJobStepMetadata"
       ( \x ->
           TrainingJobStepMetadata'
-            Prelude.<$> (x Core..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
       )
 
 instance Prelude.Hashable TrainingJobStepMetadata where

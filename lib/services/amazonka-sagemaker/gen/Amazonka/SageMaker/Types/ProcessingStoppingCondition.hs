@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ProcessingStoppingCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configures conditions under which the processing job should be stopped,
@@ -57,13 +58,13 @@ newProcessingStoppingCondition pMaxRuntimeInSeconds_ =
 processingStoppingCondition_maxRuntimeInSeconds :: Lens.Lens' ProcessingStoppingCondition Prelude.Natural
 processingStoppingCondition_maxRuntimeInSeconds = Lens.lens (\ProcessingStoppingCondition' {maxRuntimeInSeconds} -> maxRuntimeInSeconds) (\s@ProcessingStoppingCondition' {} a -> s {maxRuntimeInSeconds = a} :: ProcessingStoppingCondition)
 
-instance Core.FromJSON ProcessingStoppingCondition where
+instance Data.FromJSON ProcessingStoppingCondition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProcessingStoppingCondition"
       ( \x ->
           ProcessingStoppingCondition'
-            Prelude.<$> (x Core..: "MaxRuntimeInSeconds")
+            Prelude.<$> (x Data..: "MaxRuntimeInSeconds")
       )
 
 instance Prelude.Hashable ProcessingStoppingCondition where
@@ -74,11 +75,11 @@ instance Prelude.NFData ProcessingStoppingCondition where
   rnf ProcessingStoppingCondition' {..} =
     Prelude.rnf maxRuntimeInSeconds
 
-instance Core.ToJSON ProcessingStoppingCondition where
+instance Data.ToJSON ProcessingStoppingCondition where
   toJSON ProcessingStoppingCondition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("MaxRuntimeInSeconds" Core..= maxRuntimeInSeconds)
+              ("MaxRuntimeInSeconds" Data..= maxRuntimeInSeconds)
           ]
       )

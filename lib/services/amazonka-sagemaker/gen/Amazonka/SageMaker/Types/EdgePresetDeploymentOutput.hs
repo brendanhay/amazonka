@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.EdgePresetDeploymentOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.EdgePresetDeploymentStatus
 import Amazonka.SageMaker.Types.EdgePresetDeploymentType
@@ -87,16 +88,16 @@ edgePresetDeploymentOutput_statusMessage = Lens.lens (\EdgePresetDeploymentOutpu
 edgePresetDeploymentOutput_type :: Lens.Lens' EdgePresetDeploymentOutput EdgePresetDeploymentType
 edgePresetDeploymentOutput_type = Lens.lens (\EdgePresetDeploymentOutput' {type'} -> type') (\s@EdgePresetDeploymentOutput' {} a -> s {type' = a} :: EdgePresetDeploymentOutput)
 
-instance Core.FromJSON EdgePresetDeploymentOutput where
+instance Data.FromJSON EdgePresetDeploymentOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EdgePresetDeploymentOutput"
       ( \x ->
           EdgePresetDeploymentOutput'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Artifact")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Artifact")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable EdgePresetDeploymentOutput where

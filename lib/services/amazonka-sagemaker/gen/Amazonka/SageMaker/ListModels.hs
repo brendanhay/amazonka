@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -68,14 +69,14 @@ data ListModels = ListModels'
     nameContains :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only models created before the specified time
     -- (timestamp).
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | Sorts the list of results. The default is @CreationTime@.
     sortBy :: Prelude.Maybe ModelSortKey,
     -- | The maximum number of models to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns only models with a creation time greater than or
     -- equal to the specified time (timestamp).
-    creationTimeAfter :: Prelude.Maybe Core.POSIX
+    creationTimeAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -136,7 +137,7 @@ listModels_nameContains = Lens.lens (\ListModels' {nameContains} -> nameContains
 -- | A filter that returns only models created before the specified time
 -- (timestamp).
 listModels_creationTimeBefore :: Lens.Lens' ListModels (Prelude.Maybe Prelude.UTCTime)
-listModels_creationTimeBefore = Lens.lens (\ListModels' {creationTimeBefore} -> creationTimeBefore) (\s@ListModels' {} a -> s {creationTimeBefore = a} :: ListModels) Prelude.. Lens.mapping Core._Time
+listModels_creationTimeBefore = Lens.lens (\ListModels' {creationTimeBefore} -> creationTimeBefore) (\s@ListModels' {} a -> s {creationTimeBefore = a} :: ListModels) Prelude.. Lens.mapping Data._Time
 
 -- | Sorts the list of results. The default is @CreationTime@.
 listModels_sortBy :: Lens.Lens' ListModels (Prelude.Maybe ModelSortKey)
@@ -149,7 +150,7 @@ listModels_maxResults = Lens.lens (\ListModels' {maxResults} -> maxResults) (\s@
 -- | A filter that returns only models with a creation time greater than or
 -- equal to the specified time (timestamp).
 listModels_creationTimeAfter :: Lens.Lens' ListModels (Prelude.Maybe Prelude.UTCTime)
-listModels_creationTimeAfter = Lens.lens (\ListModels' {creationTimeAfter} -> creationTimeAfter) (\s@ListModels' {} a -> s {creationTimeAfter = a} :: ListModels) Prelude.. Lens.mapping Core._Time
+listModels_creationTimeAfter = Lens.lens (\ListModels' {creationTimeAfter} -> creationTimeAfter) (\s@ListModels' {} a -> s {creationTimeAfter = a} :: ListModels) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListModels where
   page rq rs
@@ -175,9 +176,9 @@ instance Core.AWSRequest ListModels where
     Response.receiveJSON
       ( \s h x ->
           ListModelsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Models" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Models" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListModels where
@@ -200,39 +201,39 @@ instance Prelude.NFData ListModels where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf creationTimeAfter
 
-instance Core.ToHeaders ListModels where
+instance Data.ToHeaders ListModels where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.ListModels" :: Prelude.ByteString),
+              Data.=# ("SageMaker.ListModels" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListModels where
+instance Data.ToJSON ListModels where
   toJSON ListModels' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("CreationTimeBefore" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CreationTimeAfter" Core..=)
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CreationTimeAfter" Data..=)
               Prelude.<$> creationTimeAfter
           ]
       )
 
-instance Core.ToPath ListModels where
+instance Data.ToPath ListModels where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListModels where
+instance Data.ToQuery ListModels where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListModelsResponse' smart constructor.

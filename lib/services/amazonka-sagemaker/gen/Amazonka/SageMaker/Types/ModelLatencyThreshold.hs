@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelLatencyThreshold where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The model latency threshold.
@@ -62,14 +63,14 @@ modelLatencyThreshold_valueInMilliseconds = Lens.lens (\ModelLatencyThreshold' {
 modelLatencyThreshold_percentile :: Lens.Lens' ModelLatencyThreshold (Prelude.Maybe Prelude.Text)
 modelLatencyThreshold_percentile = Lens.lens (\ModelLatencyThreshold' {percentile} -> percentile) (\s@ModelLatencyThreshold' {} a -> s {percentile = a} :: ModelLatencyThreshold)
 
-instance Core.FromJSON ModelLatencyThreshold where
+instance Data.FromJSON ModelLatencyThreshold where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelLatencyThreshold"
       ( \x ->
           ModelLatencyThreshold'
-            Prelude.<$> (x Core..:? "ValueInMilliseconds")
-            Prelude.<*> (x Core..:? "Percentile")
+            Prelude.<$> (x Data..:? "ValueInMilliseconds")
+            Prelude.<*> (x Data..:? "Percentile")
       )
 
 instance Prelude.Hashable ModelLatencyThreshold where
@@ -82,12 +83,12 @@ instance Prelude.NFData ModelLatencyThreshold where
     Prelude.rnf valueInMilliseconds
       `Prelude.seq` Prelude.rnf percentile
 
-instance Core.ToJSON ModelLatencyThreshold where
+instance Data.ToJSON ModelLatencyThreshold where
   toJSON ModelLatencyThreshold' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ValueInMilliseconds" Core..=)
+          [ ("ValueInMilliseconds" Data..=)
               Prelude.<$> valueInMilliseconds,
-            ("Percentile" Core..=) Prelude.<$> percentile
+            ("Percentile" Data..=) Prelude.<$> percentile
           ]
       )

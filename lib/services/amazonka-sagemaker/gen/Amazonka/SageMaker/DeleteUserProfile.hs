@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,35 +105,35 @@ instance Prelude.NFData DeleteUserProfile where
     Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf userProfileName
 
-instance Core.ToHeaders DeleteUserProfile where
+instance Data.ToHeaders DeleteUserProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DeleteUserProfile" ::
+              Data.=# ( "SageMaker.DeleteUserProfile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteUserProfile where
+instance Data.ToJSON DeleteUserProfile where
   toJSON DeleteUserProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DomainId" Core..= domainId),
+          [ Prelude.Just ("DomainId" Data..= domainId),
             Prelude.Just
-              ("UserProfileName" Core..= userProfileName)
+              ("UserProfileName" Data..= userProfileName)
           ]
       )
 
-instance Core.ToPath DeleteUserProfile where
+instance Data.ToPath DeleteUserProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteUserProfile where
+instance Data.ToQuery DeleteUserProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUserProfileResponse' smart constructor.

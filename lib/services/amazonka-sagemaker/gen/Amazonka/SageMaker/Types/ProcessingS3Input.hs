@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ProcessingS3Input where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ProcessingS3CompressionType
 import Amazonka.SageMaker.Types.ProcessingS3DataDistributionType
@@ -169,18 +170,18 @@ processingS3Input_s3Uri = Lens.lens (\ProcessingS3Input' {s3Uri} -> s3Uri) (\s@P
 processingS3Input_s3DataType :: Lens.Lens' ProcessingS3Input ProcessingS3DataType
 processingS3Input_s3DataType = Lens.lens (\ProcessingS3Input' {s3DataType} -> s3DataType) (\s@ProcessingS3Input' {} a -> s {s3DataType = a} :: ProcessingS3Input)
 
-instance Core.FromJSON ProcessingS3Input where
+instance Data.FromJSON ProcessingS3Input where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProcessingS3Input"
       ( \x ->
           ProcessingS3Input'
-            Prelude.<$> (x Core..:? "S3InputMode")
-            Prelude.<*> (x Core..:? "S3DataDistributionType")
-            Prelude.<*> (x Core..:? "LocalPath")
-            Prelude.<*> (x Core..:? "S3CompressionType")
-            Prelude.<*> (x Core..: "S3Uri")
-            Prelude.<*> (x Core..: "S3DataType")
+            Prelude.<$> (x Data..:? "S3InputMode")
+            Prelude.<*> (x Data..:? "S3DataDistributionType")
+            Prelude.<*> (x Data..:? "LocalPath")
+            Prelude.<*> (x Data..:? "S3CompressionType")
+            Prelude.<*> (x Data..: "S3Uri")
+            Prelude.<*> (x Data..: "S3DataType")
       )
 
 instance Prelude.Hashable ProcessingS3Input where
@@ -201,17 +202,17 @@ instance Prelude.NFData ProcessingS3Input where
       `Prelude.seq` Prelude.rnf s3Uri
       `Prelude.seq` Prelude.rnf s3DataType
 
-instance Core.ToJSON ProcessingS3Input where
+instance Data.ToJSON ProcessingS3Input where
   toJSON ProcessingS3Input' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3InputMode" Core..=) Prelude.<$> s3InputMode,
-            ("S3DataDistributionType" Core..=)
+          [ ("S3InputMode" Data..=) Prelude.<$> s3InputMode,
+            ("S3DataDistributionType" Data..=)
               Prelude.<$> s3DataDistributionType,
-            ("LocalPath" Core..=) Prelude.<$> localPath,
-            ("S3CompressionType" Core..=)
+            ("LocalPath" Data..=) Prelude.<$> localPath,
+            ("S3CompressionType" Data..=)
               Prelude.<$> s3CompressionType,
-            Prelude.Just ("S3Uri" Core..= s3Uri),
-            Prelude.Just ("S3DataType" Core..= s3DataType)
+            Prelude.Just ("S3Uri" Data..= s3Uri),
+            Prelude.Just ("S3DataType" Data..= s3DataType)
           ]
       )

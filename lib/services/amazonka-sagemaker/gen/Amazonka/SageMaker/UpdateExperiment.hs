@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,7 +113,7 @@ instance Core.AWSRequest UpdateExperiment where
     Response.receiveJSON
       ( \s h x ->
           UpdateExperimentResponse'
-            Prelude.<$> (x Core..?> "ExperimentArn")
+            Prelude.<$> (x Data..?> "ExperimentArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,34 +129,34 @@ instance Prelude.NFData UpdateExperiment where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf experimentName
 
-instance Core.ToHeaders UpdateExperiment where
+instance Data.ToHeaders UpdateExperiment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.UpdateExperiment" :: Prelude.ByteString),
+              Data.=# ("SageMaker.UpdateExperiment" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateExperiment where
+instance Data.ToJSON UpdateExperiment where
   toJSON UpdateExperiment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("Description" Core..=) Prelude.<$> description,
+          [ ("DisplayName" Data..=) Prelude.<$> displayName,
+            ("Description" Data..=) Prelude.<$> description,
             Prelude.Just
-              ("ExperimentName" Core..= experimentName)
+              ("ExperimentName" Data..= experimentName)
           ]
       )
 
-instance Core.ToPath UpdateExperiment where
+instance Data.ToPath UpdateExperiment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateExperiment where
+instance Data.ToQuery UpdateExperiment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateExperimentResponse' smart constructor.

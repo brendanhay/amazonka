@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,8 +111,8 @@ instance Core.AWSRequest DisassociateTrialComponent where
     Response.receiveJSON
       ( \s h x ->
           DisassociateTrialComponentResponse'
-            Prelude.<$> (x Core..?> "TrialComponentArn")
-            Prelude.<*> (x Core..?> "TrialArn")
+            Prelude.<$> (x Data..?> "TrialComponentArn")
+            Prelude.<*> (x Data..?> "TrialArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,35 +126,35 @@ instance Prelude.NFData DisassociateTrialComponent where
     Prelude.rnf trialComponentName
       `Prelude.seq` Prelude.rnf trialName
 
-instance Core.ToHeaders DisassociateTrialComponent where
+instance Data.ToHeaders DisassociateTrialComponent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DisassociateTrialComponent" ::
+              Data.=# ( "SageMaker.DisassociateTrialComponent" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateTrialComponent where
+instance Data.ToJSON DisassociateTrialComponent where
   toJSON DisassociateTrialComponent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("TrialComponentName" Core..= trialComponentName),
-            Prelude.Just ("TrialName" Core..= trialName)
+              ("TrialComponentName" Data..= trialComponentName),
+            Prelude.Just ("TrialName" Data..= trialName)
           ]
       )
 
-instance Core.ToPath DisassociateTrialComponent where
+instance Data.ToPath DisassociateTrialComponent where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateTrialComponent where
+instance Data.ToQuery DisassociateTrialComponent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateTrialComponentResponse' smart constructor.

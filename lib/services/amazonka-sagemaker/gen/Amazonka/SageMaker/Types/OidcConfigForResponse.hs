@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.OidcConfigForResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Your OIDC IdP workforce configuration.
@@ -115,19 +116,19 @@ oidcConfigForResponse_jwksUri = Lens.lens (\OidcConfigForResponse' {jwksUri} -> 
 oidcConfigForResponse_tokenEndpoint :: Lens.Lens' OidcConfigForResponse (Prelude.Maybe Prelude.Text)
 oidcConfigForResponse_tokenEndpoint = Lens.lens (\OidcConfigForResponse' {tokenEndpoint} -> tokenEndpoint) (\s@OidcConfigForResponse' {} a -> s {tokenEndpoint = a} :: OidcConfigForResponse)
 
-instance Core.FromJSON OidcConfigForResponse where
+instance Data.FromJSON OidcConfigForResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OidcConfigForResponse"
       ( \x ->
           OidcConfigForResponse'
-            Prelude.<$> (x Core..:? "Issuer")
-            Prelude.<*> (x Core..:? "AuthorizationEndpoint")
-            Prelude.<*> (x Core..:? "UserInfoEndpoint")
-            Prelude.<*> (x Core..:? "ClientId")
-            Prelude.<*> (x Core..:? "LogoutEndpoint")
-            Prelude.<*> (x Core..:? "JwksUri")
-            Prelude.<*> (x Core..:? "TokenEndpoint")
+            Prelude.<$> (x Data..:? "Issuer")
+            Prelude.<*> (x Data..:? "AuthorizationEndpoint")
+            Prelude.<*> (x Data..:? "UserInfoEndpoint")
+            Prelude.<*> (x Data..:? "ClientId")
+            Prelude.<*> (x Data..:? "LogoutEndpoint")
+            Prelude.<*> (x Data..:? "JwksUri")
+            Prelude.<*> (x Data..:? "TokenEndpoint")
       )
 
 instance Prelude.Hashable OidcConfigForResponse where

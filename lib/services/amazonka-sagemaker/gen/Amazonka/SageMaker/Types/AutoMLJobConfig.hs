@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AutoMLJobConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AutoMLCandidateGenerationConfig
 import Amazonka.SageMaker.Types.AutoMLDataSplitConfig
@@ -171,17 +172,17 @@ autoMLJobConfig_securityConfig = Lens.lens (\AutoMLJobConfig' {securityConfig} -
 autoMLJobConfig_mode :: Lens.Lens' AutoMLJobConfig (Prelude.Maybe AutoMLMode)
 autoMLJobConfig_mode = Lens.lens (\AutoMLJobConfig' {mode} -> mode) (\s@AutoMLJobConfig' {} a -> s {mode = a} :: AutoMLJobConfig)
 
-instance Core.FromJSON AutoMLJobConfig where
+instance Data.FromJSON AutoMLJobConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoMLJobConfig"
       ( \x ->
           AutoMLJobConfig'
-            Prelude.<$> (x Core..:? "DataSplitConfig")
-            Prelude.<*> (x Core..:? "CompletionCriteria")
-            Prelude.<*> (x Core..:? "CandidateGenerationConfig")
-            Prelude.<*> (x Core..:? "SecurityConfig")
-            Prelude.<*> (x Core..:? "Mode")
+            Prelude.<$> (x Data..:? "DataSplitConfig")
+            Prelude.<*> (x Data..:? "CompletionCriteria")
+            Prelude.<*> (x Data..:? "CandidateGenerationConfig")
+            Prelude.<*> (x Data..:? "SecurityConfig")
+            Prelude.<*> (x Data..:? "Mode")
       )
 
 instance Prelude.Hashable AutoMLJobConfig where
@@ -200,18 +201,18 @@ instance Prelude.NFData AutoMLJobConfig where
       `Prelude.seq` Prelude.rnf securityConfig
       `Prelude.seq` Prelude.rnf mode
 
-instance Core.ToJSON AutoMLJobConfig where
+instance Data.ToJSON AutoMLJobConfig where
   toJSON AutoMLJobConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataSplitConfig" Core..=)
+          [ ("DataSplitConfig" Data..=)
               Prelude.<$> dataSplitConfig,
-            ("CompletionCriteria" Core..=)
+            ("CompletionCriteria" Data..=)
               Prelude.<$> completionCriteria,
-            ("CandidateGenerationConfig" Core..=)
+            ("CandidateGenerationConfig" Data..=)
               Prelude.<$> candidateGenerationConfig,
-            ("SecurityConfig" Core..=)
+            ("SecurityConfig" Data..=)
               Prelude.<$> securityConfig,
-            ("Mode" Core..=) Prelude.<$> mode
+            ("Mode" Data..=) Prelude.<$> mode
           ]
       )

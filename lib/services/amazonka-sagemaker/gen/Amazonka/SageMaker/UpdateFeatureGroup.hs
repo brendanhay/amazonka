@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,7 +107,7 @@ instance Core.AWSRequest UpdateFeatureGroup where
       ( \s h x ->
           UpdateFeatureGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "FeatureGroupArn")
+            Prelude.<*> (x Data..:> "FeatureGroupArn")
       )
 
 instance Prelude.Hashable UpdateFeatureGroup where
@@ -119,36 +120,36 @@ instance Prelude.NFData UpdateFeatureGroup where
     Prelude.rnf featureAdditions
       `Prelude.seq` Prelude.rnf featureGroupName
 
-instance Core.ToHeaders UpdateFeatureGroup where
+instance Data.ToHeaders UpdateFeatureGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.UpdateFeatureGroup" ::
+              Data.=# ( "SageMaker.UpdateFeatureGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFeatureGroup where
+instance Data.ToJSON UpdateFeatureGroup where
   toJSON UpdateFeatureGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FeatureAdditions" Core..=)
+          [ ("FeatureAdditions" Data..=)
               Prelude.<$> featureAdditions,
             Prelude.Just
-              ("FeatureGroupName" Core..= featureGroupName)
+              ("FeatureGroupName" Data..= featureGroupName)
           ]
       )
 
-instance Core.ToPath UpdateFeatureGroup where
+instance Data.ToPath UpdateFeatureGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateFeatureGroup where
+instance Data.ToQuery UpdateFeatureGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFeatureGroupResponse' smart constructor.

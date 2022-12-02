@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TransformDataSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.TransformS3DataSource
 
@@ -53,13 +54,13 @@ newTransformDataSource pS3DataSource_ =
 transformDataSource_s3DataSource :: Lens.Lens' TransformDataSource TransformS3DataSource
 transformDataSource_s3DataSource = Lens.lens (\TransformDataSource' {s3DataSource} -> s3DataSource) (\s@TransformDataSource' {} a -> s {s3DataSource = a} :: TransformDataSource)
 
-instance Core.FromJSON TransformDataSource where
+instance Data.FromJSON TransformDataSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TransformDataSource"
       ( \x ->
           TransformDataSource'
-            Prelude.<$> (x Core..: "S3DataSource")
+            Prelude.<$> (x Data..: "S3DataSource")
       )
 
 instance Prelude.Hashable TransformDataSource where
@@ -70,9 +71,9 @@ instance Prelude.NFData TransformDataSource where
   rnf TransformDataSource' {..} =
     Prelude.rnf s3DataSource
 
-instance Core.ToJSON TransformDataSource where
+instance Data.ToJSON TransformDataSource where
   toJSON TransformDataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("S3DataSource" Core..= s3DataSource)]
+          [Prelude.Just ("S3DataSource" Data..= s3DataSource)]
       )

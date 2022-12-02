@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ChannelSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CompressionType
 import Amazonka.SageMaker.Types.TrainingInputMode
@@ -130,22 +131,22 @@ channelSpecification_supportedContentTypes = Lens.lens (\ChannelSpecification' {
 channelSpecification_supportedInputModes :: Lens.Lens' ChannelSpecification (Prelude.NonEmpty TrainingInputMode)
 channelSpecification_supportedInputModes = Lens.lens (\ChannelSpecification' {supportedInputModes} -> supportedInputModes) (\s@ChannelSpecification' {} a -> s {supportedInputModes = a} :: ChannelSpecification) Prelude.. Lens.coerced
 
-instance Core.FromJSON ChannelSpecification where
+instance Data.FromJSON ChannelSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelSpecification"
       ( \x ->
           ChannelSpecification'
-            Prelude.<$> ( x Core..:? "SupportedCompressionTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "SupportedCompressionTypes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "IsRequired")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> ( x Core..:? "SupportedContentTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "IsRequired")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> ( x Data..:? "SupportedContentTypes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "SupportedInputModes")
+            Prelude.<*> (x Data..: "SupportedInputModes")
       )
 
 instance Prelude.Hashable ChannelSpecification where
@@ -167,20 +168,20 @@ instance Prelude.NFData ChannelSpecification where
       `Prelude.seq` Prelude.rnf supportedContentTypes
       `Prelude.seq` Prelude.rnf supportedInputModes
 
-instance Core.ToJSON ChannelSpecification where
+instance Data.ToJSON ChannelSpecification where
   toJSON ChannelSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SupportedCompressionTypes" Core..=)
+          [ ("SupportedCompressionTypes" Data..=)
               Prelude.<$> supportedCompressionTypes,
-            ("Description" Core..=) Prelude.<$> description,
-            ("IsRequired" Core..=) Prelude.<$> isRequired,
-            Prelude.Just ("Name" Core..= name),
+            ("Description" Data..=) Prelude.<$> description,
+            ("IsRequired" Data..=) Prelude.<$> isRequired,
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ( "SupportedContentTypes"
-                  Core..= supportedContentTypes
+                  Data..= supportedContentTypes
               ),
             Prelude.Just
-              ("SupportedInputModes" Core..= supportedInputModes)
+              ("SupportedInputModes" Data..= supportedInputModes)
           ]
       )

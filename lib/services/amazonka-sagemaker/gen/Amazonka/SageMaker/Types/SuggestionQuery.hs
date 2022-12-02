@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.SuggestionQuery where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.PropertyNameQuery
 
@@ -66,11 +67,11 @@ instance Prelude.NFData SuggestionQuery where
   rnf SuggestionQuery' {..} =
     Prelude.rnf propertyNameQuery
 
-instance Core.ToJSON SuggestionQuery where
+instance Data.ToJSON SuggestionQuery where
   toJSON SuggestionQuery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PropertyNameQuery" Core..=)
+          [ ("PropertyNameQuery" Data..=)
               Prelude.<$> propertyNameQuery
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TensorBoardAppSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ResourceSpec
 
@@ -57,13 +58,13 @@ newTensorBoardAppSettings =
 tensorBoardAppSettings_defaultResourceSpec :: Lens.Lens' TensorBoardAppSettings (Prelude.Maybe ResourceSpec)
 tensorBoardAppSettings_defaultResourceSpec = Lens.lens (\TensorBoardAppSettings' {defaultResourceSpec} -> defaultResourceSpec) (\s@TensorBoardAppSettings' {} a -> s {defaultResourceSpec = a} :: TensorBoardAppSettings)
 
-instance Core.FromJSON TensorBoardAppSettings where
+instance Data.FromJSON TensorBoardAppSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TensorBoardAppSettings"
       ( \x ->
           TensorBoardAppSettings'
-            Prelude.<$> (x Core..:? "DefaultResourceSpec")
+            Prelude.<$> (x Data..:? "DefaultResourceSpec")
       )
 
 instance Prelude.Hashable TensorBoardAppSettings where
@@ -74,11 +75,11 @@ instance Prelude.NFData TensorBoardAppSettings where
   rnf TensorBoardAppSettings' {..} =
     Prelude.rnf defaultResourceSpec
 
-instance Core.ToJSON TensorBoardAppSettings where
+instance Data.ToJSON TensorBoardAppSettings where
   toJSON TensorBoardAppSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DefaultResourceSpec" Core..=)
+          [ ("DefaultResourceSpec" Data..=)
               Prelude.<$> defaultResourceSpec
           ]
       )

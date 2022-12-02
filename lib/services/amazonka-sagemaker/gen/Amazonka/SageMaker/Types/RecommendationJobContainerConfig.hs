@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.RecommendationJobContainerConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.RecommendationJobPayloadConfig
 
@@ -157,23 +158,23 @@ recommendationJobContainerConfig_framework :: Lens.Lens' RecommendationJobContai
 recommendationJobContainerConfig_framework = Lens.lens (\RecommendationJobContainerConfig' {framework} -> framework) (\s@RecommendationJobContainerConfig' {} a -> s {framework = a} :: RecommendationJobContainerConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RecommendationJobContainerConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationJobContainerConfig"
       ( \x ->
           RecommendationJobContainerConfig'
-            Prelude.<$> (x Core..:? "Task")
-            Prelude.<*> ( x Core..:? "SupportedInstanceTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Task")
+            Prelude.<*> ( x Data..:? "SupportedInstanceTypes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Domain")
-            Prelude.<*> (x Core..:? "NearestModelName")
-            Prelude.<*> (x Core..:? "FrameworkVersion")
-            Prelude.<*> (x Core..:? "PayloadConfig")
-            Prelude.<*> (x Core..:? "Framework")
+            Prelude.<*> (x Data..:? "Domain")
+            Prelude.<*> (x Data..:? "NearestModelName")
+            Prelude.<*> (x Data..:? "FrameworkVersion")
+            Prelude.<*> (x Data..:? "PayloadConfig")
+            Prelude.<*> (x Data..:? "Framework")
       )
 
 instance
@@ -204,19 +205,19 @@ instance
       `Prelude.seq` Prelude.rnf payloadConfig
       `Prelude.seq` Prelude.rnf framework
 
-instance Core.ToJSON RecommendationJobContainerConfig where
+instance Data.ToJSON RecommendationJobContainerConfig where
   toJSON RecommendationJobContainerConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Task" Core..=) Prelude.<$> task,
-            ("SupportedInstanceTypes" Core..=)
+          [ ("Task" Data..=) Prelude.<$> task,
+            ("SupportedInstanceTypes" Data..=)
               Prelude.<$> supportedInstanceTypes,
-            ("Domain" Core..=) Prelude.<$> domain,
-            ("NearestModelName" Core..=)
+            ("Domain" Data..=) Prelude.<$> domain,
+            ("NearestModelName" Data..=)
               Prelude.<$> nearestModelName,
-            ("FrameworkVersion" Core..=)
+            ("FrameworkVersion" Data..=)
               Prelude.<$> frameworkVersion,
-            ("PayloadConfig" Core..=) Prelude.<$> payloadConfig,
-            ("Framework" Core..=) Prelude.<$> framework
+            ("PayloadConfig" Data..=) Prelude.<$> payloadConfig,
+            ("Framework" Data..=) Prelude.<$> framework
           ]
       )

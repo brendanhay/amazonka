@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DesiredWeightAndCapacity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies weight and capacity values for a production variant.
@@ -85,13 +86,13 @@ instance Prelude.NFData DesiredWeightAndCapacity where
       `Prelude.seq` Prelude.rnf desiredInstanceCount
       `Prelude.seq` Prelude.rnf variantName
 
-instance Core.ToJSON DesiredWeightAndCapacity where
+instance Data.ToJSON DesiredWeightAndCapacity where
   toJSON DesiredWeightAndCapacity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DesiredWeight" Core..=) Prelude.<$> desiredWeight,
-            ("DesiredInstanceCount" Core..=)
+          [ ("DesiredWeight" Data..=) Prelude.<$> desiredWeight,
+            ("DesiredInstanceCount" Data..=)
               Prelude.<$> desiredInstanceCount,
-            Prelude.Just ("VariantName" Core..= variantName)
+            Prelude.Just ("VariantName" Data..= variantName)
           ]
       )

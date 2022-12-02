@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.VpcConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a VPC that your training jobs and hosted models have access
@@ -83,14 +84,14 @@ vpcConfig_securityGroupIds = Lens.lens (\VpcConfig' {securityGroupIds} -> securi
 vpcConfig_subnets :: Lens.Lens' VpcConfig (Prelude.NonEmpty Prelude.Text)
 vpcConfig_subnets = Lens.lens (\VpcConfig' {subnets} -> subnets) (\s@VpcConfig' {} a -> s {subnets = a} :: VpcConfig) Prelude.. Lens.coerced
 
-instance Core.FromJSON VpcConfig where
+instance Data.FromJSON VpcConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcConfig"
       ( \x ->
           VpcConfig'
-            Prelude.<$> (x Core..: "SecurityGroupIds")
-            Prelude.<*> (x Core..: "Subnets")
+            Prelude.<$> (x Data..: "SecurityGroupIds")
+            Prelude.<*> (x Data..: "Subnets")
       )
 
 instance Prelude.Hashable VpcConfig where
@@ -103,12 +104,12 @@ instance Prelude.NFData VpcConfig where
     Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf subnets
 
-instance Core.ToJSON VpcConfig where
+instance Data.ToJSON VpcConfig where
   toJSON VpcConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("SecurityGroupIds" Core..= securityGroupIds),
-            Prelude.Just ("Subnets" Core..= subnets)
+              ("SecurityGroupIds" Data..= securityGroupIds),
+            Prelude.Just ("Subnets" Data..= subnets)
           ]
       )

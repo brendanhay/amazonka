@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.FileSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details regarding the file source.
@@ -72,15 +73,15 @@ fileSource_contentType = Lens.lens (\FileSource' {contentType} -> contentType) (
 fileSource_s3Uri :: Lens.Lens' FileSource Prelude.Text
 fileSource_s3Uri = Lens.lens (\FileSource' {s3Uri} -> s3Uri) (\s@FileSource' {} a -> s {s3Uri = a} :: FileSource)
 
-instance Core.FromJSON FileSource where
+instance Data.FromJSON FileSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileSource"
       ( \x ->
           FileSource'
-            Prelude.<$> (x Core..:? "ContentDigest")
-            Prelude.<*> (x Core..:? "ContentType")
-            Prelude.<*> (x Core..: "S3Uri")
+            Prelude.<$> (x Data..:? "ContentDigest")
+            Prelude.<*> (x Data..:? "ContentType")
+            Prelude.<*> (x Data..: "S3Uri")
       )
 
 instance Prelude.Hashable FileSource where
@@ -95,12 +96,12 @@ instance Prelude.NFData FileSource where
       `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf s3Uri
 
-instance Core.ToJSON FileSource where
+instance Data.ToJSON FileSource where
   toJSON FileSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ContentDigest" Core..=) Prelude.<$> contentDigest,
-            ("ContentType" Core..=) Prelude.<$> contentType,
-            Prelude.Just ("S3Uri" Core..= s3Uri)
+          [ ("ContentDigest" Data..=) Prelude.<$> contentDigest,
+            ("ContentType" Data..=) Prelude.<$> contentType,
+            Prelude.Just ("S3Uri" Data..= s3Uri)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AutoMLCandidateGenerationConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Stores the config information for how a candidate is generated
@@ -142,15 +143,15 @@ autoMLCandidateGenerationConfig_featureSpecificationS3Uri :: Lens.Lens' AutoMLCa
 autoMLCandidateGenerationConfig_featureSpecificationS3Uri = Lens.lens (\AutoMLCandidateGenerationConfig' {featureSpecificationS3Uri} -> featureSpecificationS3Uri) (\s@AutoMLCandidateGenerationConfig' {} a -> s {featureSpecificationS3Uri = a} :: AutoMLCandidateGenerationConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AutoMLCandidateGenerationConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoMLCandidateGenerationConfig"
       ( \x ->
           AutoMLCandidateGenerationConfig'
-            Prelude.<$> (x Core..:? "FeatureSpecificationS3Uri")
+            Prelude.<$> (x Data..:? "FeatureSpecificationS3Uri")
       )
 
 instance
@@ -170,11 +171,11 @@ instance
   rnf AutoMLCandidateGenerationConfig' {..} =
     Prelude.rnf featureSpecificationS3Uri
 
-instance Core.ToJSON AutoMLCandidateGenerationConfig where
+instance Data.ToJSON AutoMLCandidateGenerationConfig where
   toJSON AutoMLCandidateGenerationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FeatureSpecificationS3Uri" Core..=)
+          [ ("FeatureSpecificationS3Uri" Data..=)
               Prelude.<$> featureSpecificationS3Uri
           ]
       )

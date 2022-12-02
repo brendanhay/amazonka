@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ServiceCatalogProvisionedProductDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of a provisioned service catalog product. For information about
@@ -135,16 +136,16 @@ serviceCatalogProvisionedProductDetails_provisionedProductId :: Lens.Lens' Servi
 serviceCatalogProvisionedProductDetails_provisionedProductId = Lens.lens (\ServiceCatalogProvisionedProductDetails' {provisionedProductId} -> provisionedProductId) (\s@ServiceCatalogProvisionedProductDetails' {} a -> s {provisionedProductId = a} :: ServiceCatalogProvisionedProductDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ServiceCatalogProvisionedProductDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceCatalogProvisionedProductDetails"
       ( \x ->
           ServiceCatalogProvisionedProductDetails'
-            Prelude.<$> (x Core..:? "ProvisionedProductStatusMessage")
-            Prelude.<*> (x Core..:? "ProvisionedProductId")
+            Prelude.<$> (x Data..:? "ProvisionedProductStatusMessage")
+            Prelude.<*> (x Data..:? "ProvisionedProductId")
       )
 
 instance

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.FeatureParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A key-value pair that you specify to describe the feature.
@@ -61,13 +62,13 @@ featureParameter_key = Lens.lens (\FeatureParameter' {key} -> key) (\s@FeaturePa
 featureParameter_value :: Lens.Lens' FeatureParameter (Prelude.Maybe Prelude.Text)
 featureParameter_value = Lens.lens (\FeatureParameter' {value} -> value) (\s@FeatureParameter' {} a -> s {value = a} :: FeatureParameter)
 
-instance Core.FromJSON FeatureParameter where
+instance Data.FromJSON FeatureParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FeatureParameter"
       ( \x ->
           FeatureParameter'
-            Prelude.<$> (x Core..:? "Key") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Key") Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable FeatureParameter where
@@ -79,11 +80,11 @@ instance Prelude.NFData FeatureParameter where
   rnf FeatureParameter' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON FeatureParameter where
+instance Data.ToJSON FeatureParameter where
   toJSON FeatureParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

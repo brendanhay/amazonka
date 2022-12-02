@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MonitoringInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.BatchTransformInput
 import Amazonka.SageMaker.Types.EndpointInput
@@ -63,14 +64,14 @@ monitoringInput_endpointInput = Lens.lens (\MonitoringInput' {endpointInput} -> 
 monitoringInput_batchTransformInput :: Lens.Lens' MonitoringInput (Prelude.Maybe BatchTransformInput)
 monitoringInput_batchTransformInput = Lens.lens (\MonitoringInput' {batchTransformInput} -> batchTransformInput) (\s@MonitoringInput' {} a -> s {batchTransformInput = a} :: MonitoringInput)
 
-instance Core.FromJSON MonitoringInput where
+instance Data.FromJSON MonitoringInput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitoringInput"
       ( \x ->
           MonitoringInput'
-            Prelude.<$> (x Core..:? "EndpointInput")
-            Prelude.<*> (x Core..:? "BatchTransformInput")
+            Prelude.<$> (x Data..:? "EndpointInput")
+            Prelude.<*> (x Data..:? "BatchTransformInput")
       )
 
 instance Prelude.Hashable MonitoringInput where
@@ -83,12 +84,12 @@ instance Prelude.NFData MonitoringInput where
     Prelude.rnf endpointInput
       `Prelude.seq` Prelude.rnf batchTransformInput
 
-instance Core.ToJSON MonitoringInput where
+instance Data.ToJSON MonitoringInput where
   toJSON MonitoringInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EndpointInput" Core..=) Prelude.<$> endpointInput,
-            ("BatchTransformInput" Core..=)
+          [ ("EndpointInput" Data..=) Prelude.<$> endpointInput,
+            ("BatchTransformInput" Data..=)
               Prelude.<$> batchTransformInput
           ]
       )

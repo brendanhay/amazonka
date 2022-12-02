@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.LabelingJobSnsDataSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Amazon SNS data source used for streaming labeling jobs.
@@ -61,13 +62,13 @@ newLabelingJobSnsDataSource pSnsTopicArn_ =
 labelingJobSnsDataSource_snsTopicArn :: Lens.Lens' LabelingJobSnsDataSource Prelude.Text
 labelingJobSnsDataSource_snsTopicArn = Lens.lens (\LabelingJobSnsDataSource' {snsTopicArn} -> snsTopicArn) (\s@LabelingJobSnsDataSource' {} a -> s {snsTopicArn = a} :: LabelingJobSnsDataSource)
 
-instance Core.FromJSON LabelingJobSnsDataSource where
+instance Data.FromJSON LabelingJobSnsDataSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LabelingJobSnsDataSource"
       ( \x ->
           LabelingJobSnsDataSource'
-            Prelude.<$> (x Core..: "SnsTopicArn")
+            Prelude.<$> (x Data..: "SnsTopicArn")
       )
 
 instance Prelude.Hashable LabelingJobSnsDataSource where
@@ -78,9 +79,9 @@ instance Prelude.NFData LabelingJobSnsDataSource where
   rnf LabelingJobSnsDataSource' {..} =
     Prelude.rnf snsTopicArn
 
-instance Core.ToJSON LabelingJobSnsDataSource where
+instance Data.ToJSON LabelingJobSnsDataSource where
   toJSON LabelingJobSnsDataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("SnsTopicArn" Core..= snsTopicArn)]
+          [Prelude.Just ("SnsTopicArn" Data..= snsTopicArn)]
       )

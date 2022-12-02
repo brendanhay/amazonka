@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelDeployConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies how to generate the endpoint name for an automatic one-click
@@ -89,14 +90,14 @@ modelDeployConfig_endpointName = Lens.lens (\ModelDeployConfig' {endpointName} -
 modelDeployConfig_autoGenerateEndpointName :: Lens.Lens' ModelDeployConfig (Prelude.Maybe Prelude.Bool)
 modelDeployConfig_autoGenerateEndpointName = Lens.lens (\ModelDeployConfig' {autoGenerateEndpointName} -> autoGenerateEndpointName) (\s@ModelDeployConfig' {} a -> s {autoGenerateEndpointName = a} :: ModelDeployConfig)
 
-instance Core.FromJSON ModelDeployConfig where
+instance Data.FromJSON ModelDeployConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelDeployConfig"
       ( \x ->
           ModelDeployConfig'
-            Prelude.<$> (x Core..:? "EndpointName")
-            Prelude.<*> (x Core..:? "AutoGenerateEndpointName")
+            Prelude.<$> (x Data..:? "EndpointName")
+            Prelude.<*> (x Data..:? "AutoGenerateEndpointName")
       )
 
 instance Prelude.Hashable ModelDeployConfig where
@@ -109,12 +110,12 @@ instance Prelude.NFData ModelDeployConfig where
     Prelude.rnf endpointName
       `Prelude.seq` Prelude.rnf autoGenerateEndpointName
 
-instance Core.ToJSON ModelDeployConfig where
+instance Data.ToJSON ModelDeployConfig where
   toJSON ModelDeployConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EndpointName" Core..=) Prelude.<$> endpointName,
-            ("AutoGenerateEndpointName" Core..=)
+          [ ("EndpointName" Data..=) Prelude.<$> endpointName,
+            ("AutoGenerateEndpointName" Data..=)
               Prelude.<$> autoGenerateEndpointName
           ]
       )

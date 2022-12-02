@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.HumanLoopActivationConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.HumanLoopActivationConditionsConfig
 
@@ -62,13 +63,13 @@ newHumanLoopActivationConfig
 humanLoopActivationConfig_humanLoopActivationConditionsConfig :: Lens.Lens' HumanLoopActivationConfig HumanLoopActivationConditionsConfig
 humanLoopActivationConfig_humanLoopActivationConditionsConfig = Lens.lens (\HumanLoopActivationConfig' {humanLoopActivationConditionsConfig} -> humanLoopActivationConditionsConfig) (\s@HumanLoopActivationConfig' {} a -> s {humanLoopActivationConditionsConfig = a} :: HumanLoopActivationConfig)
 
-instance Core.FromJSON HumanLoopActivationConfig where
+instance Data.FromJSON HumanLoopActivationConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HumanLoopActivationConfig"
       ( \x ->
           HumanLoopActivationConfig'
-            Prelude.<$> (x Core..: "HumanLoopActivationConditionsConfig")
+            Prelude.<$> (x Data..: "HumanLoopActivationConditionsConfig")
       )
 
 instance Prelude.Hashable HumanLoopActivationConfig where
@@ -80,13 +81,13 @@ instance Prelude.NFData HumanLoopActivationConfig where
   rnf HumanLoopActivationConfig' {..} =
     Prelude.rnf humanLoopActivationConditionsConfig
 
-instance Core.ToJSON HumanLoopActivationConfig where
+instance Data.ToJSON HumanLoopActivationConfig where
   toJSON HumanLoopActivationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "HumanLoopActivationConditionsConfig"
-                  Core..= humanLoopActivationConditionsConfig
+                  Data..= humanLoopActivationConditionsConfig
               )
           ]
       )

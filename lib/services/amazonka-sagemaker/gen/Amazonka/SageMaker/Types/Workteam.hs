@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.Workteam where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MemberDefinition
 import Amazonka.SageMaker.Types.NotificationConfiguration
@@ -30,7 +31,7 @@ import Amazonka.SageMaker.Types.NotificationConfiguration
 -- /See:/ 'newWorkteam' smart constructor.
 data Workteam = Workteam'
   { -- | The date and time that the work team was last updated (timestamp).
-    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDate :: Prelude.Maybe Data.POSIX,
     -- | The URI of the labeling job\'s user interface. Workers open this URI to
     -- start labeling your data objects.
     subDomain :: Prelude.Maybe Prelude.Text,
@@ -40,7 +41,7 @@ data Workteam = Workteam'
     -- | The Amazon Resource Name (ARN) of the workforce.
     workforceArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the work team was created (timestamp).
-    createDate :: Prelude.Maybe Core.POSIX,
+    createDate :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Marketplace identifier for a vendor\'s work team.
     productListingIds :: Prelude.Maybe [Prelude.Text],
     -- | The name of the work team.
@@ -126,7 +127,7 @@ newWorkteam
 
 -- | The date and time that the work team was last updated (timestamp).
 workteam_lastUpdatedDate :: Lens.Lens' Workteam (Prelude.Maybe Prelude.UTCTime)
-workteam_lastUpdatedDate = Lens.lens (\Workteam' {lastUpdatedDate} -> lastUpdatedDate) (\s@Workteam' {} a -> s {lastUpdatedDate = a} :: Workteam) Prelude.. Lens.mapping Core._Time
+workteam_lastUpdatedDate = Lens.lens (\Workteam' {lastUpdatedDate} -> lastUpdatedDate) (\s@Workteam' {} a -> s {lastUpdatedDate = a} :: Workteam) Prelude.. Lens.mapping Data._Time
 
 -- | The URI of the labeling job\'s user interface. Workers open this URI to
 -- start labeling your data objects.
@@ -144,7 +145,7 @@ workteam_workforceArn = Lens.lens (\Workteam' {workforceArn} -> workforceArn) (\
 
 -- | The date and time that the work team was created (timestamp).
 workteam_createDate :: Lens.Lens' Workteam (Prelude.Maybe Prelude.UTCTime)
-workteam_createDate = Lens.lens (\Workteam' {createDate} -> createDate) (\s@Workteam' {} a -> s {createDate = a} :: Workteam) Prelude.. Lens.mapping Core._Time
+workteam_createDate = Lens.lens (\Workteam' {createDate} -> createDate) (\s@Workteam' {} a -> s {createDate = a} :: Workteam) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Marketplace identifier for a vendor\'s work team.
 workteam_productListingIds :: Lens.Lens' Workteam (Prelude.Maybe [Prelude.Text])
@@ -172,24 +173,24 @@ workteam_workteamArn = Lens.lens (\Workteam' {workteamArn} -> workteamArn) (\s@W
 workteam_description :: Lens.Lens' Workteam Prelude.Text
 workteam_description = Lens.lens (\Workteam' {description} -> description) (\s@Workteam' {} a -> s {description = a} :: Workteam)
 
-instance Core.FromJSON Workteam where
+instance Data.FromJSON Workteam where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Workteam"
       ( \x ->
           Workteam'
-            Prelude.<$> (x Core..:? "LastUpdatedDate")
-            Prelude.<*> (x Core..:? "SubDomain")
-            Prelude.<*> (x Core..:? "NotificationConfiguration")
-            Prelude.<*> (x Core..:? "WorkforceArn")
-            Prelude.<*> (x Core..:? "CreateDate")
-            Prelude.<*> ( x Core..:? "ProductListingIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "LastUpdatedDate")
+            Prelude.<*> (x Data..:? "SubDomain")
+            Prelude.<*> (x Data..:? "NotificationConfiguration")
+            Prelude.<*> (x Data..:? "WorkforceArn")
+            Prelude.<*> (x Data..:? "CreateDate")
+            Prelude.<*> ( x Data..:? "ProductListingIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "WorkteamName")
-            Prelude.<*> (x Core..: "MemberDefinitions")
-            Prelude.<*> (x Core..: "WorkteamArn")
-            Prelude.<*> (x Core..: "Description")
+            Prelude.<*> (x Data..: "WorkteamName")
+            Prelude.<*> (x Data..: "MemberDefinitions")
+            Prelude.<*> (x Data..: "WorkteamArn")
+            Prelude.<*> (x Data..: "Description")
       )
 
 instance Prelude.Hashable Workteam where

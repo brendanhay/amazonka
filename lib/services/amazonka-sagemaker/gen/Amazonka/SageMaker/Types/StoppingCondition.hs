@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.StoppingCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a limit to how long a model training job or model compilation
@@ -151,14 +152,14 @@ stoppingCondition_maxWaitTimeInSeconds = Lens.lens (\StoppingCondition' {maxWait
 stoppingCondition_maxRuntimeInSeconds :: Lens.Lens' StoppingCondition (Prelude.Maybe Prelude.Natural)
 stoppingCondition_maxRuntimeInSeconds = Lens.lens (\StoppingCondition' {maxRuntimeInSeconds} -> maxRuntimeInSeconds) (\s@StoppingCondition' {} a -> s {maxRuntimeInSeconds = a} :: StoppingCondition)
 
-instance Core.FromJSON StoppingCondition where
+instance Data.FromJSON StoppingCondition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StoppingCondition"
       ( \x ->
           StoppingCondition'
-            Prelude.<$> (x Core..:? "MaxWaitTimeInSeconds")
-            Prelude.<*> (x Core..:? "MaxRuntimeInSeconds")
+            Prelude.<$> (x Data..:? "MaxWaitTimeInSeconds")
+            Prelude.<*> (x Data..:? "MaxRuntimeInSeconds")
       )
 
 instance Prelude.Hashable StoppingCondition where
@@ -171,13 +172,13 @@ instance Prelude.NFData StoppingCondition where
     Prelude.rnf maxWaitTimeInSeconds
       `Prelude.seq` Prelude.rnf maxRuntimeInSeconds
 
-instance Core.ToJSON StoppingCondition where
+instance Data.ToJSON StoppingCondition where
   toJSON StoppingCondition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxWaitTimeInSeconds" Core..=)
+          [ ("MaxWaitTimeInSeconds" Data..=)
               Prelude.<$> maxWaitTimeInSeconds,
-            ("MaxRuntimeInSeconds" Core..=)
+            ("MaxRuntimeInSeconds" Data..=)
               Prelude.<$> maxRuntimeInSeconds
           ]
       )

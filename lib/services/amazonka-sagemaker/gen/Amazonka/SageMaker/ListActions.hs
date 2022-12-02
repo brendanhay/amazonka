@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -69,7 +70,7 @@ data ListActions = ListActions'
     actionType :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only actions created on or before the specified
     -- time.
-    createdBefore :: Prelude.Maybe Core.POSIX,
+    createdBefore :: Prelude.Maybe Data.POSIX,
     -- | The property used to sort results. The default value is @CreationTime@.
     sortBy :: Prelude.Maybe SortActionsBy,
     -- | The maximum number of actions to return in the response. The default
@@ -77,7 +78,7 @@ data ListActions = ListActions'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns only actions created on or after the specified
     -- time.
-    createdAfter :: Prelude.Maybe Core.POSIX
+    createdAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -142,7 +143,7 @@ listActions_actionType = Lens.lens (\ListActions' {actionType} -> actionType) (\
 -- | A filter that returns only actions created on or before the specified
 -- time.
 listActions_createdBefore :: Lens.Lens' ListActions (Prelude.Maybe Prelude.UTCTime)
-listActions_createdBefore = Lens.lens (\ListActions' {createdBefore} -> createdBefore) (\s@ListActions' {} a -> s {createdBefore = a} :: ListActions) Prelude.. Lens.mapping Core._Time
+listActions_createdBefore = Lens.lens (\ListActions' {createdBefore} -> createdBefore) (\s@ListActions' {} a -> s {createdBefore = a} :: ListActions) Prelude.. Lens.mapping Data._Time
 
 -- | The property used to sort results. The default value is @CreationTime@.
 listActions_sortBy :: Lens.Lens' ListActions (Prelude.Maybe SortActionsBy)
@@ -156,7 +157,7 @@ listActions_maxResults = Lens.lens (\ListActions' {maxResults} -> maxResults) (\
 -- | A filter that returns only actions created on or after the specified
 -- time.
 listActions_createdAfter :: Lens.Lens' ListActions (Prelude.Maybe Prelude.UTCTime)
-listActions_createdAfter = Lens.lens (\ListActions' {createdAfter} -> createdAfter) (\s@ListActions' {} a -> s {createdAfter = a} :: ListActions) Prelude.. Lens.mapping Core._Time
+listActions_createdAfter = Lens.lens (\ListActions' {createdAfter} -> createdAfter) (\s@ListActions' {} a -> s {createdAfter = a} :: ListActions) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListActions where
   page rq rs
@@ -186,8 +187,8 @@ instance Core.AWSRequest ListActions where
     Response.receiveJSON
       ( \s h x ->
           ListActionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ActionSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ActionSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -215,38 +216,38 @@ instance Prelude.NFData ListActions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf createdAfter
 
-instance Core.ToHeaders ListActions where
+instance Data.ToHeaders ListActions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.ListActions" :: Prelude.ByteString),
+              Data.=# ("SageMaker.ListActions" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListActions where
+instance Data.ToJSON ListActions where
   toJSON ListActions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SourceUri" Core..=) Prelude.<$> sourceUri,
-            ("ActionType" Core..=) Prelude.<$> actionType,
-            ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CreatedAfter" Core..=) Prelude.<$> createdAfter
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SourceUri" Data..=) Prelude.<$> sourceUri,
+            ("ActionType" Data..=) Prelude.<$> actionType,
+            ("CreatedBefore" Data..=) Prelude.<$> createdBefore,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CreatedAfter" Data..=) Prelude.<$> createdAfter
           ]
       )
 
-instance Core.ToPath ListActions where
+instance Data.ToPath ListActions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListActions where
+instance Data.ToQuery ListActions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListActionsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TensorBoardOutputConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration of storage locations for the Debugger TensorBoard output
@@ -68,14 +69,14 @@ tensorBoardOutputConfig_localPath = Lens.lens (\TensorBoardOutputConfig' {localP
 tensorBoardOutputConfig_s3OutputPath :: Lens.Lens' TensorBoardOutputConfig Prelude.Text
 tensorBoardOutputConfig_s3OutputPath = Lens.lens (\TensorBoardOutputConfig' {s3OutputPath} -> s3OutputPath) (\s@TensorBoardOutputConfig' {} a -> s {s3OutputPath = a} :: TensorBoardOutputConfig)
 
-instance Core.FromJSON TensorBoardOutputConfig where
+instance Data.FromJSON TensorBoardOutputConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TensorBoardOutputConfig"
       ( \x ->
           TensorBoardOutputConfig'
-            Prelude.<$> (x Core..:? "LocalPath")
-            Prelude.<*> (x Core..: "S3OutputPath")
+            Prelude.<$> (x Data..:? "LocalPath")
+            Prelude.<*> (x Data..: "S3OutputPath")
       )
 
 instance Prelude.Hashable TensorBoardOutputConfig where
@@ -88,11 +89,11 @@ instance Prelude.NFData TensorBoardOutputConfig where
     Prelude.rnf localPath
       `Prelude.seq` Prelude.rnf s3OutputPath
 
-instance Core.ToJSON TensorBoardOutputConfig where
+instance Data.ToJSON TensorBoardOutputConfig where
   toJSON TensorBoardOutputConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LocalPath" Core..=) Prelude.<$> localPath,
-            Prelude.Just ("S3OutputPath" Core..= s3OutputPath)
+          [ ("LocalPath" Data..=) Prelude.<$> localPath,
+            Prelude.Just ("S3OutputPath" Data..= s3OutputPath)
           ]
       )

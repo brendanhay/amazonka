@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,36 +94,36 @@ instance Prelude.NFData StartNotebookInstance where
   rnf StartNotebookInstance' {..} =
     Prelude.rnf notebookInstanceName
 
-instance Core.ToHeaders StartNotebookInstance where
+instance Data.ToHeaders StartNotebookInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.StartNotebookInstance" ::
+              Data.=# ( "SageMaker.StartNotebookInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartNotebookInstance where
+instance Data.ToJSON StartNotebookInstance where
   toJSON StartNotebookInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "NotebookInstanceName"
-                  Core..= notebookInstanceName
+                  Data..= notebookInstanceName
               )
           ]
       )
 
-instance Core.ToPath StartNotebookInstance where
+instance Data.ToPath StartNotebookInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartNotebookInstance where
+instance Data.ToQuery StartNotebookInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartNotebookInstanceResponse' smart constructor.

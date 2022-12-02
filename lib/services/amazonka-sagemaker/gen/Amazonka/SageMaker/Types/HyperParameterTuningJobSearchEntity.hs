@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.HyperParameterTuningJobSearchEntity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.HyperParameterTrainingJobDefinition
 import Amazonka.SageMaker.Types.HyperParameterTrainingJobSummary
@@ -48,18 +49,18 @@ data HyperParameterTuningJobSearchEntity = HyperParameterTuningJobSearchEntity'
     -- | The status of a hyperparameter tuning job.
     hyperParameterTuningJobStatus :: Prelude.Maybe HyperParameterTuningJobStatus,
     -- | The time that a hyperparameter tuning job was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The name of a hyperparameter tuning job.
     hyperParameterTuningJobName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of a hyperparameter tuning job.
     hyperParameterTuningJobArn :: Prelude.Maybe Prelude.Text,
     -- | The time that a hyperparameter tuning job was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     warmStartConfig :: Prelude.Maybe HyperParameterTuningJobWarmStartConfig,
     hyperParameterTuningJobConfig :: Prelude.Maybe HyperParameterTuningJobConfig,
     trainingJobStatusCounters :: Prelude.Maybe TrainingJobStatusCounters,
     -- | The time that a hyperparameter tuning job ended.
-    hyperParameterTuningEndTime :: Prelude.Maybe Core.POSIX,
+    hyperParameterTuningEndTime :: Prelude.Maybe Data.POSIX,
     objectiveStatusCounters :: Prelude.Maybe ObjectiveStatusCounters,
     trainingJobDefinition :: Prelude.Maybe HyperParameterTrainingJobDefinition,
     -- | The error that was created when a hyperparameter tuning job failed.
@@ -165,7 +166,7 @@ hyperParameterTuningJobSearchEntity_hyperParameterTuningJobStatus = Lens.lens (\
 
 -- | The time that a hyperparameter tuning job was last modified.
 hyperParameterTuningJobSearchEntity_lastModifiedTime :: Lens.Lens' HyperParameterTuningJobSearchEntity (Prelude.Maybe Prelude.UTCTime)
-hyperParameterTuningJobSearchEntity_lastModifiedTime = Lens.lens (\HyperParameterTuningJobSearchEntity' {lastModifiedTime} -> lastModifiedTime) (\s@HyperParameterTuningJobSearchEntity' {} a -> s {lastModifiedTime = a} :: HyperParameterTuningJobSearchEntity) Prelude.. Lens.mapping Core._Time
+hyperParameterTuningJobSearchEntity_lastModifiedTime = Lens.lens (\HyperParameterTuningJobSearchEntity' {lastModifiedTime} -> lastModifiedTime) (\s@HyperParameterTuningJobSearchEntity' {} a -> s {lastModifiedTime = a} :: HyperParameterTuningJobSearchEntity) Prelude.. Lens.mapping Data._Time
 
 -- | The name of a hyperparameter tuning job.
 hyperParameterTuningJobSearchEntity_hyperParameterTuningJobName :: Lens.Lens' HyperParameterTuningJobSearchEntity (Prelude.Maybe Prelude.Text)
@@ -177,7 +178,7 @@ hyperParameterTuningJobSearchEntity_hyperParameterTuningJobArn = Lens.lens (\Hyp
 
 -- | The time that a hyperparameter tuning job was created.
 hyperParameterTuningJobSearchEntity_creationTime :: Lens.Lens' HyperParameterTuningJobSearchEntity (Prelude.Maybe Prelude.UTCTime)
-hyperParameterTuningJobSearchEntity_creationTime = Lens.lens (\HyperParameterTuningJobSearchEntity' {creationTime} -> creationTime) (\s@HyperParameterTuningJobSearchEntity' {} a -> s {creationTime = a} :: HyperParameterTuningJobSearchEntity) Prelude.. Lens.mapping Core._Time
+hyperParameterTuningJobSearchEntity_creationTime = Lens.lens (\HyperParameterTuningJobSearchEntity' {creationTime} -> creationTime) (\s@HyperParameterTuningJobSearchEntity' {} a -> s {creationTime = a} :: HyperParameterTuningJobSearchEntity) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 hyperParameterTuningJobSearchEntity_warmStartConfig :: Lens.Lens' HyperParameterTuningJobSearchEntity (Prelude.Maybe HyperParameterTuningJobWarmStartConfig)
@@ -193,7 +194,7 @@ hyperParameterTuningJobSearchEntity_trainingJobStatusCounters = Lens.lens (\Hype
 
 -- | The time that a hyperparameter tuning job ended.
 hyperParameterTuningJobSearchEntity_hyperParameterTuningEndTime :: Lens.Lens' HyperParameterTuningJobSearchEntity (Prelude.Maybe Prelude.UTCTime)
-hyperParameterTuningJobSearchEntity_hyperParameterTuningEndTime = Lens.lens (\HyperParameterTuningJobSearchEntity' {hyperParameterTuningEndTime} -> hyperParameterTuningEndTime) (\s@HyperParameterTuningJobSearchEntity' {} a -> s {hyperParameterTuningEndTime = a} :: HyperParameterTuningJobSearchEntity) Prelude.. Lens.mapping Core._Time
+hyperParameterTuningJobSearchEntity_hyperParameterTuningEndTime = Lens.lens (\HyperParameterTuningJobSearchEntity' {hyperParameterTuningEndTime} -> hyperParameterTuningEndTime) (\s@HyperParameterTuningJobSearchEntity' {} a -> s {hyperParameterTuningEndTime = a} :: HyperParameterTuningJobSearchEntity) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 hyperParameterTuningJobSearchEntity_objectiveStatusCounters :: Lens.Lens' HyperParameterTuningJobSearchEntity (Prelude.Maybe ObjectiveStatusCounters)
@@ -208,30 +209,30 @@ hyperParameterTuningJobSearchEntity_failureReason :: Lens.Lens' HyperParameterTu
 hyperParameterTuningJobSearchEntity_failureReason = Lens.lens (\HyperParameterTuningJobSearchEntity' {failureReason} -> failureReason) (\s@HyperParameterTuningJobSearchEntity' {} a -> s {failureReason = a} :: HyperParameterTuningJobSearchEntity)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     HyperParameterTuningJobSearchEntity
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HyperParameterTuningJobSearchEntity"
       ( \x ->
           HyperParameterTuningJobSearchEntity'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "OverallBestTrainingJob")
-            Prelude.<*> (x Core..:? "BestTrainingJob")
-            Prelude.<*> (x Core..:? "TrainingJobDefinitions")
-            Prelude.<*> (x Core..:? "HyperParameterTuningJobStatus")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "HyperParameterTuningJobName")
-            Prelude.<*> (x Core..:? "HyperParameterTuningJobArn")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "WarmStartConfig")
-            Prelude.<*> (x Core..:? "HyperParameterTuningJobConfig")
-            Prelude.<*> (x Core..:? "TrainingJobStatusCounters")
-            Prelude.<*> (x Core..:? "HyperParameterTuningEndTime")
-            Prelude.<*> (x Core..:? "ObjectiveStatusCounters")
-            Prelude.<*> (x Core..:? "TrainingJobDefinition")
-            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "OverallBestTrainingJob")
+            Prelude.<*> (x Data..:? "BestTrainingJob")
+            Prelude.<*> (x Data..:? "TrainingJobDefinitions")
+            Prelude.<*> (x Data..:? "HyperParameterTuningJobStatus")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "HyperParameterTuningJobName")
+            Prelude.<*> (x Data..:? "HyperParameterTuningJobArn")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "WarmStartConfig")
+            Prelude.<*> (x Data..:? "HyperParameterTuningJobConfig")
+            Prelude.<*> (x Data..:? "TrainingJobStatusCounters")
+            Prelude.<*> (x Data..:? "HyperParameterTuningEndTime")
+            Prelude.<*> (x Data..:? "ObjectiveStatusCounters")
+            Prelude.<*> (x Data..:? "TrainingJobDefinition")
+            Prelude.<*> (x Data..:? "FailureReason")
       )
 
 instance

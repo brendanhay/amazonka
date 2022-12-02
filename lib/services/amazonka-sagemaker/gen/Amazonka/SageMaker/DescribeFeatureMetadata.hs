@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,15 +108,15 @@ instance Core.AWSRequest DescribeFeatureMetadata where
     Response.receiveJSON
       ( \s h x ->
           DescribeFeatureMetadataResponse'
-            Prelude.<$> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "Parameters" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "Parameters" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "FeatureGroupArn")
-            Prelude.<*> (x Core..:> "FeatureGroupName")
-            Prelude.<*> (x Core..:> "FeatureName")
-            Prelude.<*> (x Core..:> "FeatureType")
-            Prelude.<*> (x Core..:> "CreationTime")
-            Prelude.<*> (x Core..:> "LastModifiedTime")
+            Prelude.<*> (x Data..:> "FeatureGroupArn")
+            Prelude.<*> (x Data..:> "FeatureGroupName")
+            Prelude.<*> (x Data..:> "FeatureName")
+            Prelude.<*> (x Data..:> "FeatureType")
+            Prelude.<*> (x Data..:> "CreationTime")
+            Prelude.<*> (x Data..:> "LastModifiedTime")
       )
 
 instance Prelude.Hashable DescribeFeatureMetadata where
@@ -128,35 +129,35 @@ instance Prelude.NFData DescribeFeatureMetadata where
     Prelude.rnf featureGroupName
       `Prelude.seq` Prelude.rnf featureName
 
-instance Core.ToHeaders DescribeFeatureMetadata where
+instance Data.ToHeaders DescribeFeatureMetadata where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeFeatureMetadata" ::
+              Data.=# ( "SageMaker.DescribeFeatureMetadata" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFeatureMetadata where
+instance Data.ToJSON DescribeFeatureMetadata where
   toJSON DescribeFeatureMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("FeatureGroupName" Core..= featureGroupName),
-            Prelude.Just ("FeatureName" Core..= featureName)
+              ("FeatureGroupName" Data..= featureGroupName),
+            Prelude.Just ("FeatureName" Data..= featureName)
           ]
       )
 
-instance Core.ToPath DescribeFeatureMetadata where
+instance Data.ToPath DescribeFeatureMetadata where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFeatureMetadata where
+instance Data.ToQuery DescribeFeatureMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeFeatureMetadataResponse' smart constructor.
@@ -177,11 +178,11 @@ data DescribeFeatureMetadataResponse = DescribeFeatureMetadataResponse'
     -- | The data type of the feature.
     featureType :: FeatureType,
     -- | A timestamp indicating when the feature was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | A timestamp indicating when the metadata for the feature group was
     -- modified. For example, if you add a parameter describing the feature,
     -- the timestamp changes to reflect the last time you
-    lastModifiedTime :: Core.POSIX
+    lastModifiedTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -247,9 +248,9 @@ newDescribeFeatureMetadataResponse
         featureName = pFeatureName_,
         featureType = pFeatureType_,
         creationTime =
-          Core._Time Lens.# pCreationTime_,
+          Data._Time Lens.# pCreationTime_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_
+          Data._Time Lens.# pLastModifiedTime_
       }
 
 -- | The description you added to describe the feature.
@@ -283,13 +284,13 @@ describeFeatureMetadataResponse_featureType = Lens.lens (\DescribeFeatureMetadat
 
 -- | A timestamp indicating when the feature was created.
 describeFeatureMetadataResponse_creationTime :: Lens.Lens' DescribeFeatureMetadataResponse Prelude.UTCTime
-describeFeatureMetadataResponse_creationTime = Lens.lens (\DescribeFeatureMetadataResponse' {creationTime} -> creationTime) (\s@DescribeFeatureMetadataResponse' {} a -> s {creationTime = a} :: DescribeFeatureMetadataResponse) Prelude.. Core._Time
+describeFeatureMetadataResponse_creationTime = Lens.lens (\DescribeFeatureMetadataResponse' {creationTime} -> creationTime) (\s@DescribeFeatureMetadataResponse' {} a -> s {creationTime = a} :: DescribeFeatureMetadataResponse) Prelude.. Data._Time
 
 -- | A timestamp indicating when the metadata for the feature group was
 -- modified. For example, if you add a parameter describing the feature,
 -- the timestamp changes to reflect the last time you
 describeFeatureMetadataResponse_lastModifiedTime :: Lens.Lens' DescribeFeatureMetadataResponse Prelude.UTCTime
-describeFeatureMetadataResponse_lastModifiedTime = Lens.lens (\DescribeFeatureMetadataResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeFeatureMetadataResponse' {} a -> s {lastModifiedTime = a} :: DescribeFeatureMetadataResponse) Prelude.. Core._Time
+describeFeatureMetadataResponse_lastModifiedTime = Lens.lens (\DescribeFeatureMetadataResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeFeatureMetadataResponse' {} a -> s {lastModifiedTime = a} :: DescribeFeatureMetadataResponse) Prelude.. Data._Time
 
 instance
   Prelude.NFData

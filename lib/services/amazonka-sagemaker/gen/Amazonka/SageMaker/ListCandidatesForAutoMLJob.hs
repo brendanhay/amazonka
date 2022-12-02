@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -173,9 +174,9 @@ instance Core.AWSRequest ListCandidatesForAutoMLJob where
     Response.receiveJSON
       ( \s h x ->
           ListCandidatesForAutoMLJobResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Candidates" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Candidates" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListCandidatesForAutoMLJob where
@@ -198,41 +199,41 @@ instance Prelude.NFData ListCandidatesForAutoMLJob where
       `Prelude.seq` Prelude.rnf statusEquals
       `Prelude.seq` Prelude.rnf autoMLJobName
 
-instance Core.ToHeaders ListCandidatesForAutoMLJob where
+instance Data.ToHeaders ListCandidatesForAutoMLJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.ListCandidatesForAutoMLJob" ::
+              Data.=# ( "SageMaker.ListCandidatesForAutoMLJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListCandidatesForAutoMLJob where
+instance Data.ToJSON ListCandidatesForAutoMLJob where
   toJSON ListCandidatesForAutoMLJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("CandidateNameEquals" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("CandidateNameEquals" Data..=)
               Prelude.<$> candidateNameEquals,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("StatusEquals" Core..=) Prelude.<$> statusEquals,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("StatusEquals" Data..=) Prelude.<$> statusEquals,
             Prelude.Just
-              ("AutoMLJobName" Core..= autoMLJobName)
+              ("AutoMLJobName" Data..= autoMLJobName)
           ]
       )
 
-instance Core.ToPath ListCandidatesForAutoMLJob where
+instance Data.ToPath ListCandidatesForAutoMLJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListCandidatesForAutoMLJob where
+instance Data.ToQuery ListCandidatesForAutoMLJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCandidatesForAutoMLJobResponse' smart constructor.

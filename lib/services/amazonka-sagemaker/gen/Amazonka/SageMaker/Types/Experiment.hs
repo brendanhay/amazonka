@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.Experiment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ExperimentSource
 import Amazonka.SageMaker.Types.Tag
@@ -39,12 +40,12 @@ data Experiment = Experiment'
     -- | The description of the experiment.
     description :: Prelude.Maybe Prelude.Text,
     -- | When the experiment was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     source :: Prelude.Maybe ExperimentSource,
     -- | The Amazon Resource Name (ARN) of the experiment.
     experimentArn :: Prelude.Maybe Prelude.Text,
     -- | When the experiment was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     lastModifiedBy :: Prelude.Maybe UserContext,
     -- | Who created the experiment.
     createdBy :: Prelude.Maybe UserContext,
@@ -114,7 +115,7 @@ experiment_description = Lens.lens (\Experiment' {description} -> description) (
 
 -- | When the experiment was last modified.
 experiment_lastModifiedTime :: Lens.Lens' Experiment (Prelude.Maybe Prelude.UTCTime)
-experiment_lastModifiedTime = Lens.lens (\Experiment' {lastModifiedTime} -> lastModifiedTime) (\s@Experiment' {} a -> s {lastModifiedTime = a} :: Experiment) Prelude.. Lens.mapping Core._Time
+experiment_lastModifiedTime = Lens.lens (\Experiment' {lastModifiedTime} -> lastModifiedTime) (\s@Experiment' {} a -> s {lastModifiedTime = a} :: Experiment) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 experiment_source :: Lens.Lens' Experiment (Prelude.Maybe ExperimentSource)
@@ -126,7 +127,7 @@ experiment_experimentArn = Lens.lens (\Experiment' {experimentArn} -> experiment
 
 -- | When the experiment was created.
 experiment_creationTime :: Lens.Lens' Experiment (Prelude.Maybe Prelude.UTCTime)
-experiment_creationTime = Lens.lens (\Experiment' {creationTime} -> creationTime) (\s@Experiment' {} a -> s {creationTime = a} :: Experiment) Prelude.. Lens.mapping Core._Time
+experiment_creationTime = Lens.lens (\Experiment' {creationTime} -> creationTime) (\s@Experiment' {} a -> s {creationTime = a} :: Experiment) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 experiment_lastModifiedBy :: Lens.Lens' Experiment (Prelude.Maybe UserContext)
@@ -140,22 +141,22 @@ experiment_createdBy = Lens.lens (\Experiment' {createdBy} -> createdBy) (\s@Exp
 experiment_experimentName :: Lens.Lens' Experiment (Prelude.Maybe Prelude.Text)
 experiment_experimentName = Lens.lens (\Experiment' {experimentName} -> experimentName) (\s@Experiment' {} a -> s {experimentName = a} :: Experiment)
 
-instance Core.FromJSON Experiment where
+instance Data.FromJSON Experiment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Experiment"
       ( \x ->
           Experiment'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "Source")
-            Prelude.<*> (x Core..:? "ExperimentArn")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "LastModifiedBy")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..:? "ExperimentName")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "Source")
+            Prelude.<*> (x Data..:? "ExperimentArn")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "LastModifiedBy")
+            Prelude.<*> (x Data..:? "CreatedBy")
+            Prelude.<*> (x Data..:? "ExperimentName")
       )
 
 instance Prelude.Hashable Experiment where

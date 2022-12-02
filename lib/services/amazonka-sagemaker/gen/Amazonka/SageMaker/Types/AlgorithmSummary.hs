@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AlgorithmSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AlgorithmStatus
 
@@ -35,7 +36,7 @@ data AlgorithmSummary = AlgorithmSummary'
     -- | The Amazon Resource Name (ARN) of the algorithm.
     algorithmArn :: Prelude.Text,
     -- | A timestamp that shows when the algorithm was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The overall status of the algorithm.
     algorithmStatus :: AlgorithmStatus
   }
@@ -78,7 +79,7 @@ newAlgorithmSummary
           Prelude.Nothing,
         algorithmName = pAlgorithmName_,
         algorithmArn = pAlgorithmArn_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         algorithmStatus = pAlgorithmStatus_
       }
 
@@ -96,23 +97,23 @@ algorithmSummary_algorithmArn = Lens.lens (\AlgorithmSummary' {algorithmArn} -> 
 
 -- | A timestamp that shows when the algorithm was created.
 algorithmSummary_creationTime :: Lens.Lens' AlgorithmSummary Prelude.UTCTime
-algorithmSummary_creationTime = Lens.lens (\AlgorithmSummary' {creationTime} -> creationTime) (\s@AlgorithmSummary' {} a -> s {creationTime = a} :: AlgorithmSummary) Prelude.. Core._Time
+algorithmSummary_creationTime = Lens.lens (\AlgorithmSummary' {creationTime} -> creationTime) (\s@AlgorithmSummary' {} a -> s {creationTime = a} :: AlgorithmSummary) Prelude.. Data._Time
 
 -- | The overall status of the algorithm.
 algorithmSummary_algorithmStatus :: Lens.Lens' AlgorithmSummary AlgorithmStatus
 algorithmSummary_algorithmStatus = Lens.lens (\AlgorithmSummary' {algorithmStatus} -> algorithmStatus) (\s@AlgorithmSummary' {} a -> s {algorithmStatus = a} :: AlgorithmSummary)
 
-instance Core.FromJSON AlgorithmSummary where
+instance Data.FromJSON AlgorithmSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlgorithmSummary"
       ( \x ->
           AlgorithmSummary'
-            Prelude.<$> (x Core..:? "AlgorithmDescription")
-            Prelude.<*> (x Core..: "AlgorithmName")
-            Prelude.<*> (x Core..: "AlgorithmArn")
-            Prelude.<*> (x Core..: "CreationTime")
-            Prelude.<*> (x Core..: "AlgorithmStatus")
+            Prelude.<$> (x Data..:? "AlgorithmDescription")
+            Prelude.<*> (x Data..: "AlgorithmName")
+            Prelude.<*> (x Data..: "AlgorithmArn")
+            Prelude.<*> (x Data..: "CreationTime")
+            Prelude.<*> (x Data..: "AlgorithmStatus")
       )
 
 instance Prelude.Hashable AlgorithmSummary where

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DatasetDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AthenaDatasetDefinition
 import Amazonka.SageMaker.Types.DataDistributionType
@@ -119,17 +120,17 @@ datasetDefinition_localPath = Lens.lens (\DatasetDefinition' {localPath} -> loca
 datasetDefinition_redshiftDatasetDefinition :: Lens.Lens' DatasetDefinition (Prelude.Maybe RedshiftDatasetDefinition)
 datasetDefinition_redshiftDatasetDefinition = Lens.lens (\DatasetDefinition' {redshiftDatasetDefinition} -> redshiftDatasetDefinition) (\s@DatasetDefinition' {} a -> s {redshiftDatasetDefinition = a} :: DatasetDefinition)
 
-instance Core.FromJSON DatasetDefinition where
+instance Data.FromJSON DatasetDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetDefinition"
       ( \x ->
           DatasetDefinition'
-            Prelude.<$> (x Core..:? "InputMode")
-            Prelude.<*> (x Core..:? "AthenaDatasetDefinition")
-            Prelude.<*> (x Core..:? "DataDistributionType")
-            Prelude.<*> (x Core..:? "LocalPath")
-            Prelude.<*> (x Core..:? "RedshiftDatasetDefinition")
+            Prelude.<$> (x Data..:? "InputMode")
+            Prelude.<*> (x Data..:? "AthenaDatasetDefinition")
+            Prelude.<*> (x Data..:? "DataDistributionType")
+            Prelude.<*> (x Data..:? "LocalPath")
+            Prelude.<*> (x Data..:? "RedshiftDatasetDefinition")
       )
 
 instance Prelude.Hashable DatasetDefinition where
@@ -148,17 +149,17 @@ instance Prelude.NFData DatasetDefinition where
       `Prelude.seq` Prelude.rnf localPath
       `Prelude.seq` Prelude.rnf redshiftDatasetDefinition
 
-instance Core.ToJSON DatasetDefinition where
+instance Data.ToJSON DatasetDefinition where
   toJSON DatasetDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InputMode" Core..=) Prelude.<$> inputMode,
-            ("AthenaDatasetDefinition" Core..=)
+          [ ("InputMode" Data..=) Prelude.<$> inputMode,
+            ("AthenaDatasetDefinition" Data..=)
               Prelude.<$> athenaDatasetDefinition,
-            ("DataDistributionType" Core..=)
+            ("DataDistributionType" Data..=)
               Prelude.<$> dataDistributionType,
-            ("LocalPath" Core..=) Prelude.<$> localPath,
-            ("RedshiftDatasetDefinition" Core..=)
+            ("LocalPath" Data..=) Prelude.<$> localPath,
+            ("RedshiftDatasetDefinition" Data..=)
               Prelude.<$> redshiftDatasetDefinition
           ]
       )

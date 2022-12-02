@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MonitoringJsonDatasetFormat where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the JSON dataset format used when running a monitoring job.
@@ -53,13 +54,13 @@ newMonitoringJsonDatasetFormat =
 monitoringJsonDatasetFormat_line :: Lens.Lens' MonitoringJsonDatasetFormat (Prelude.Maybe Prelude.Bool)
 monitoringJsonDatasetFormat_line = Lens.lens (\MonitoringJsonDatasetFormat' {line} -> line) (\s@MonitoringJsonDatasetFormat' {} a -> s {line = a} :: MonitoringJsonDatasetFormat)
 
-instance Core.FromJSON MonitoringJsonDatasetFormat where
+instance Data.FromJSON MonitoringJsonDatasetFormat where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitoringJsonDatasetFormat"
       ( \x ->
           MonitoringJsonDatasetFormat'
-            Prelude.<$> (x Core..:? "Line")
+            Prelude.<$> (x Data..:? "Line")
       )
 
 instance Prelude.Hashable MonitoringJsonDatasetFormat where
@@ -70,9 +71,9 @@ instance Prelude.NFData MonitoringJsonDatasetFormat where
   rnf MonitoringJsonDatasetFormat' {..} =
     Prelude.rnf line
 
-instance Core.ToJSON MonitoringJsonDatasetFormat where
+instance Data.ToJSON MonitoringJsonDatasetFormat where
   toJSON MonitoringJsonDatasetFormat' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Line" Core..=) Prelude.<$> line]
+          [("Line" Data..=) Prelude.<$> line]
       )

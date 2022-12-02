@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.BatchDescribeModelPackageError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The error code and error description associated with the resource.
@@ -66,14 +67,14 @@ batchDescribeModelPackageError_errorCode = Lens.lens (\BatchDescribeModelPackage
 batchDescribeModelPackageError_errorResponse :: Lens.Lens' BatchDescribeModelPackageError Prelude.Text
 batchDescribeModelPackageError_errorResponse = Lens.lens (\BatchDescribeModelPackageError' {errorResponse} -> errorResponse) (\s@BatchDescribeModelPackageError' {} a -> s {errorResponse = a} :: BatchDescribeModelPackageError)
 
-instance Core.FromJSON BatchDescribeModelPackageError where
+instance Data.FromJSON BatchDescribeModelPackageError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchDescribeModelPackageError"
       ( \x ->
           BatchDescribeModelPackageError'
-            Prelude.<$> (x Core..: "ErrorCode")
-            Prelude.<*> (x Core..: "ErrorResponse")
+            Prelude.<$> (x Data..: "ErrorCode")
+            Prelude.<*> (x Data..: "ErrorResponse")
       )
 
 instance

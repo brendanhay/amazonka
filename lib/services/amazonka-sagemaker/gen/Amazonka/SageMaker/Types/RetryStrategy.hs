@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.RetryStrategy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The retry strategy to use when a training job fails due to an
@@ -62,13 +63,13 @@ newRetryStrategy pMaximumRetryAttempts_ =
 retryStrategy_maximumRetryAttempts :: Lens.Lens' RetryStrategy Prelude.Natural
 retryStrategy_maximumRetryAttempts = Lens.lens (\RetryStrategy' {maximumRetryAttempts} -> maximumRetryAttempts) (\s@RetryStrategy' {} a -> s {maximumRetryAttempts = a} :: RetryStrategy)
 
-instance Core.FromJSON RetryStrategy where
+instance Data.FromJSON RetryStrategy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RetryStrategy"
       ( \x ->
           RetryStrategy'
-            Prelude.<$> (x Core..: "MaximumRetryAttempts")
+            Prelude.<$> (x Data..: "MaximumRetryAttempts")
       )
 
 instance Prelude.Hashable RetryStrategy where
@@ -79,13 +80,13 @@ instance Prelude.NFData RetryStrategy where
   rnf RetryStrategy' {..} =
     Prelude.rnf maximumRetryAttempts
 
-instance Core.ToJSON RetryStrategy where
+instance Data.ToJSON RetryStrategy where
   toJSON RetryStrategy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "MaximumRetryAttempts"
-                  Core..= maximumRetryAttempts
+                  Data..= maximumRetryAttempts
               )
           ]
       )

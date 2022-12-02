@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.Explainability where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MetricsSource
 
@@ -51,12 +52,12 @@ newExplainability =
 explainability_report :: Lens.Lens' Explainability (Prelude.Maybe MetricsSource)
 explainability_report = Lens.lens (\Explainability' {report} -> report) (\s@Explainability' {} a -> s {report = a} :: Explainability)
 
-instance Core.FromJSON Explainability where
+instance Data.FromJSON Explainability where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Explainability"
       ( \x ->
-          Explainability' Prelude.<$> (x Core..:? "Report")
+          Explainability' Prelude.<$> (x Data..:? "Report")
       )
 
 instance Prelude.Hashable Explainability where
@@ -66,9 +67,9 @@ instance Prelude.Hashable Explainability where
 instance Prelude.NFData Explainability where
   rnf Explainability' {..} = Prelude.rnf report
 
-instance Core.ToJSON Explainability where
+instance Data.ToJSON Explainability where
   toJSON Explainability' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Report" Core..=) Prelude.<$> report]
+          [("Report" Data..=) Prelude.<$> report]
       )

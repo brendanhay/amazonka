@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DeviceFleetSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of the device fleet.
@@ -28,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newDeviceFleetSummary' smart constructor.
 data DeviceFleetSummary = DeviceFleetSummary'
   { -- | Timestamp of when the device fleet was last updated.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | Timestamp of when the device fleet was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | Amazon Resource Name (ARN) of the device fleet.
     deviceFleetArn :: Prelude.Text,
     -- | Name of the device fleet.
@@ -72,11 +73,11 @@ newDeviceFleetSummary
 
 -- | Timestamp of when the device fleet was last updated.
 deviceFleetSummary_lastModifiedTime :: Lens.Lens' DeviceFleetSummary (Prelude.Maybe Prelude.UTCTime)
-deviceFleetSummary_lastModifiedTime = Lens.lens (\DeviceFleetSummary' {lastModifiedTime} -> lastModifiedTime) (\s@DeviceFleetSummary' {} a -> s {lastModifiedTime = a} :: DeviceFleetSummary) Prelude.. Lens.mapping Core._Time
+deviceFleetSummary_lastModifiedTime = Lens.lens (\DeviceFleetSummary' {lastModifiedTime} -> lastModifiedTime) (\s@DeviceFleetSummary' {} a -> s {lastModifiedTime = a} :: DeviceFleetSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Timestamp of when the device fleet was created.
 deviceFleetSummary_creationTime :: Lens.Lens' DeviceFleetSummary (Prelude.Maybe Prelude.UTCTime)
-deviceFleetSummary_creationTime = Lens.lens (\DeviceFleetSummary' {creationTime} -> creationTime) (\s@DeviceFleetSummary' {} a -> s {creationTime = a} :: DeviceFleetSummary) Prelude.. Lens.mapping Core._Time
+deviceFleetSummary_creationTime = Lens.lens (\DeviceFleetSummary' {creationTime} -> creationTime) (\s@DeviceFleetSummary' {} a -> s {creationTime = a} :: DeviceFleetSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Amazon Resource Name (ARN) of the device fleet.
 deviceFleetSummary_deviceFleetArn :: Lens.Lens' DeviceFleetSummary Prelude.Text
@@ -86,16 +87,16 @@ deviceFleetSummary_deviceFleetArn = Lens.lens (\DeviceFleetSummary' {deviceFleet
 deviceFleetSummary_deviceFleetName :: Lens.Lens' DeviceFleetSummary Prelude.Text
 deviceFleetSummary_deviceFleetName = Lens.lens (\DeviceFleetSummary' {deviceFleetName} -> deviceFleetName) (\s@DeviceFleetSummary' {} a -> s {deviceFleetName = a} :: DeviceFleetSummary)
 
-instance Core.FromJSON DeviceFleetSummary where
+instance Data.FromJSON DeviceFleetSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceFleetSummary"
       ( \x ->
           DeviceFleetSummary'
-            Prelude.<$> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..: "DeviceFleetArn")
-            Prelude.<*> (x Core..: "DeviceFleetName")
+            Prelude.<$> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..: "DeviceFleetArn")
+            Prelude.<*> (x Data..: "DeviceFleetName")
       )
 
 instance Prelude.Hashable DeviceFleetSummary where

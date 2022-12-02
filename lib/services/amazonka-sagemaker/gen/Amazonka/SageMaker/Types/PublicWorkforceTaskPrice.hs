@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.PublicWorkforceTaskPrice where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.USD
 
@@ -261,13 +262,13 @@ newPublicWorkforceTaskPrice =
 publicWorkforceTaskPrice_amountInUsd :: Lens.Lens' PublicWorkforceTaskPrice (Prelude.Maybe USD)
 publicWorkforceTaskPrice_amountInUsd = Lens.lens (\PublicWorkforceTaskPrice' {amountInUsd} -> amountInUsd) (\s@PublicWorkforceTaskPrice' {} a -> s {amountInUsd = a} :: PublicWorkforceTaskPrice)
 
-instance Core.FromJSON PublicWorkforceTaskPrice where
+instance Data.FromJSON PublicWorkforceTaskPrice where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PublicWorkforceTaskPrice"
       ( \x ->
           PublicWorkforceTaskPrice'
-            Prelude.<$> (x Core..:? "AmountInUsd")
+            Prelude.<$> (x Data..:? "AmountInUsd")
       )
 
 instance Prelude.Hashable PublicWorkforceTaskPrice where
@@ -278,9 +279,9 @@ instance Prelude.NFData PublicWorkforceTaskPrice where
   rnf PublicWorkforceTaskPrice' {..} =
     Prelude.rnf amountInUsd
 
-instance Core.ToJSON PublicWorkforceTaskPrice where
+instance Data.ToJSON PublicWorkforceTaskPrice where
   toJSON PublicWorkforceTaskPrice' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("AmountInUsd" Core..=) Prelude.<$> amountInUsd]
+          [("AmountInUsd" Data..=) Prelude.<$> amountInUsd]
       )

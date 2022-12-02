@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.SourceIpConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of IP address ranges
@@ -76,13 +77,13 @@ newSourceIpConfig =
 sourceIpConfig_cidrs :: Lens.Lens' SourceIpConfig [Prelude.Text]
 sourceIpConfig_cidrs = Lens.lens (\SourceIpConfig' {cidrs} -> cidrs) (\s@SourceIpConfig' {} a -> s {cidrs = a} :: SourceIpConfig) Prelude.. Lens.coerced
 
-instance Core.FromJSON SourceIpConfig where
+instance Data.FromJSON SourceIpConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceIpConfig"
       ( \x ->
           SourceIpConfig'
-            Prelude.<$> (x Core..:? "Cidrs" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Cidrs" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SourceIpConfig where
@@ -92,9 +93,9 @@ instance Prelude.Hashable SourceIpConfig where
 instance Prelude.NFData SourceIpConfig where
   rnf SourceIpConfig' {..} = Prelude.rnf cidrs
 
-instance Core.ToJSON SourceIpConfig where
+instance Data.ToJSON SourceIpConfig where
   toJSON SourceIpConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Cidrs" Core..= cidrs)]
+          [Prelude.Just ("Cidrs" Data..= cidrs)]
       )

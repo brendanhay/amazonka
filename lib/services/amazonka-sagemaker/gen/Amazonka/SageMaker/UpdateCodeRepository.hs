@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,7 +115,7 @@ instance Core.AWSRequest UpdateCodeRepository where
       ( \s h x ->
           UpdateCodeRepositoryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "CodeRepositoryArn")
+            Prelude.<*> (x Data..:> "CodeRepositoryArn")
       )
 
 instance Prelude.Hashable UpdateCodeRepository where
@@ -127,35 +128,35 @@ instance Prelude.NFData UpdateCodeRepository where
     Prelude.rnf gitConfig
       `Prelude.seq` Prelude.rnf codeRepositoryName
 
-instance Core.ToHeaders UpdateCodeRepository where
+instance Data.ToHeaders UpdateCodeRepository where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.UpdateCodeRepository" ::
+              Data.=# ( "SageMaker.UpdateCodeRepository" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateCodeRepository where
+instance Data.ToJSON UpdateCodeRepository where
   toJSON UpdateCodeRepository' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GitConfig" Core..=) Prelude.<$> gitConfig,
+          [ ("GitConfig" Data..=) Prelude.<$> gitConfig,
             Prelude.Just
-              ("CodeRepositoryName" Core..= codeRepositoryName)
+              ("CodeRepositoryName" Data..= codeRepositoryName)
           ]
       )
 
-instance Core.ToPath UpdateCodeRepository where
+instance Data.ToPath UpdateCodeRepository where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateCodeRepository where
+instance Data.ToQuery UpdateCodeRepository where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCodeRepositoryResponse' smart constructor.

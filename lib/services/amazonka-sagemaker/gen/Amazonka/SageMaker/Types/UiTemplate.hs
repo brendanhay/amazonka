@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.UiTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Liquid template for the worker user interface.
@@ -59,9 +60,9 @@ instance Prelude.Hashable UiTemplate where
 instance Prelude.NFData UiTemplate where
   rnf UiTemplate' {..} = Prelude.rnf content
 
-instance Core.ToJSON UiTemplate where
+instance Data.ToJSON UiTemplate where
   toJSON UiTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Content" Core..= content)]
+          [Prelude.Just ("Content" Data..= content)]
       )

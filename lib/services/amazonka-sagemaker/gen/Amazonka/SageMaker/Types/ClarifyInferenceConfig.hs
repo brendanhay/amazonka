@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ClarifyInferenceConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ClarifyFeatureType
 
@@ -360,23 +361,23 @@ clarifyInferenceConfig_labelHeaders = Lens.lens (\ClarifyInferenceConfig' {label
 clarifyInferenceConfig_featureHeaders :: Lens.Lens' ClarifyInferenceConfig (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 clarifyInferenceConfig_featureHeaders = Lens.lens (\ClarifyInferenceConfig' {featureHeaders} -> featureHeaders) (\s@ClarifyInferenceConfig' {} a -> s {featureHeaders = a} :: ClarifyInferenceConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ClarifyInferenceConfig where
+instance Data.FromJSON ClarifyInferenceConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClarifyInferenceConfig"
       ( \x ->
           ClarifyInferenceConfig'
-            Prelude.<$> (x Core..:? "ProbabilityIndex")
-            Prelude.<*> (x Core..:? "MaxRecordCount")
-            Prelude.<*> (x Core..:? "LabelAttribute")
-            Prelude.<*> (x Core..:? "LabelIndex")
-            Prelude.<*> (x Core..:? "ContentTemplate")
-            Prelude.<*> (x Core..:? "ProbabilityAttribute")
-            Prelude.<*> (x Core..:? "FeatureTypes")
-            Prelude.<*> (x Core..:? "FeaturesAttribute")
-            Prelude.<*> (x Core..:? "MaxPayloadInMB")
-            Prelude.<*> (x Core..:? "LabelHeaders")
-            Prelude.<*> (x Core..:? "FeatureHeaders")
+            Prelude.<$> (x Data..:? "ProbabilityIndex")
+            Prelude.<*> (x Data..:? "MaxRecordCount")
+            Prelude.<*> (x Data..:? "LabelAttribute")
+            Prelude.<*> (x Data..:? "LabelIndex")
+            Prelude.<*> (x Data..:? "ContentTemplate")
+            Prelude.<*> (x Data..:? "ProbabilityAttribute")
+            Prelude.<*> (x Data..:? "FeatureTypes")
+            Prelude.<*> (x Data..:? "FeaturesAttribute")
+            Prelude.<*> (x Data..:? "MaxPayloadInMB")
+            Prelude.<*> (x Data..:? "LabelHeaders")
+            Prelude.<*> (x Data..:? "FeatureHeaders")
       )
 
 instance Prelude.Hashable ClarifyInferenceConfig where
@@ -407,28 +408,28 @@ instance Prelude.NFData ClarifyInferenceConfig where
       `Prelude.seq` Prelude.rnf labelHeaders
       `Prelude.seq` Prelude.rnf featureHeaders
 
-instance Core.ToJSON ClarifyInferenceConfig where
+instance Data.ToJSON ClarifyInferenceConfig where
   toJSON ClarifyInferenceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProbabilityIndex" Core..=)
+          [ ("ProbabilityIndex" Data..=)
               Prelude.<$> probabilityIndex,
-            ("MaxRecordCount" Core..=)
+            ("MaxRecordCount" Data..=)
               Prelude.<$> maxRecordCount,
-            ("LabelAttribute" Core..=)
+            ("LabelAttribute" Data..=)
               Prelude.<$> labelAttribute,
-            ("LabelIndex" Core..=) Prelude.<$> labelIndex,
-            ("ContentTemplate" Core..=)
+            ("LabelIndex" Data..=) Prelude.<$> labelIndex,
+            ("ContentTemplate" Data..=)
               Prelude.<$> contentTemplate,
-            ("ProbabilityAttribute" Core..=)
+            ("ProbabilityAttribute" Data..=)
               Prelude.<$> probabilityAttribute,
-            ("FeatureTypes" Core..=) Prelude.<$> featureTypes,
-            ("FeaturesAttribute" Core..=)
+            ("FeatureTypes" Data..=) Prelude.<$> featureTypes,
+            ("FeaturesAttribute" Data..=)
               Prelude.<$> featuresAttribute,
-            ("MaxPayloadInMB" Core..=)
+            ("MaxPayloadInMB" Data..=)
               Prelude.<$> maxPayloadInMB,
-            ("LabelHeaders" Core..=) Prelude.<$> labelHeaders,
-            ("FeatureHeaders" Core..=)
+            ("LabelHeaders" Data..=) Prelude.<$> labelHeaders,
+            ("FeatureHeaders" Data..=)
               Prelude.<$> featureHeaders
           ]
       )

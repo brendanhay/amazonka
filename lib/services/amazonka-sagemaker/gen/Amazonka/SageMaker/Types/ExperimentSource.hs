@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ExperimentSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The source of the experiment.
@@ -63,14 +64,14 @@ experimentSource_sourceType = Lens.lens (\ExperimentSource' {sourceType} -> sour
 experimentSource_sourceArn :: Lens.Lens' ExperimentSource Prelude.Text
 experimentSource_sourceArn = Lens.lens (\ExperimentSource' {sourceArn} -> sourceArn) (\s@ExperimentSource' {} a -> s {sourceArn = a} :: ExperimentSource)
 
-instance Core.FromJSON ExperimentSource where
+instance Data.FromJSON ExperimentSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExperimentSource"
       ( \x ->
           ExperimentSource'
-            Prelude.<$> (x Core..:? "SourceType")
-            Prelude.<*> (x Core..: "SourceArn")
+            Prelude.<$> (x Data..:? "SourceType")
+            Prelude.<*> (x Data..: "SourceArn")
       )
 
 instance Prelude.Hashable ExperimentSource where

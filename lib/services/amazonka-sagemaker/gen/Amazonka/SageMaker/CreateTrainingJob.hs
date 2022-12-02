@@ -118,6 +118,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -644,7 +645,7 @@ instance Core.AWSRequest CreateTrainingJob where
       ( \s h x ->
           CreateTrainingJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "TrainingJobArn")
+            Prelude.<*> (x Data..:> "TrainingJobArn")
       )
 
 instance Prelude.Hashable CreateTrainingJob where
@@ -699,73 +700,73 @@ instance Prelude.NFData CreateTrainingJob where
       `Prelude.seq` Prelude.rnf
         stoppingCondition
 
-instance Core.ToHeaders CreateTrainingJob where
+instance Data.ToHeaders CreateTrainingJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.CreateTrainingJob" ::
+              Data.=# ( "SageMaker.CreateTrainingJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTrainingJob where
+instance Data.ToJSON CreateTrainingJob where
   toJSON CreateTrainingJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ProfilerConfig" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ProfilerConfig" Data..=)
               Prelude.<$> profilerConfig,
-            ("EnableManagedSpotTraining" Core..=)
+            ("EnableManagedSpotTraining" Data..=)
               Prelude.<$> enableManagedSpotTraining,
-            ("Environment" Core..=) Prelude.<$> environment,
-            ("RetryStrategy" Core..=) Prelude.<$> retryStrategy,
-            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("EnableNetworkIsolation" Core..=)
+            ("Environment" Data..=) Prelude.<$> environment,
+            ("RetryStrategy" Data..=) Prelude.<$> retryStrategy,
+            ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("EnableNetworkIsolation" Data..=)
               Prelude.<$> enableNetworkIsolation,
-            ("ProfilerRuleConfigurations" Core..=)
+            ("ProfilerRuleConfigurations" Data..=)
               Prelude.<$> profilerRuleConfigurations,
-            ("ExperimentConfig" Core..=)
+            ("ExperimentConfig" Data..=)
               Prelude.<$> experimentConfig,
-            ("CheckpointConfig" Core..=)
+            ("CheckpointConfig" Data..=)
               Prelude.<$> checkpointConfig,
-            ("DebugHookConfig" Core..=)
+            ("DebugHookConfig" Data..=)
               Prelude.<$> debugHookConfig,
-            ("EnableInterContainerTrafficEncryption" Core..=)
+            ("EnableInterContainerTrafficEncryption" Data..=)
               Prelude.<$> enableInterContainerTrafficEncryption,
-            ("DebugRuleConfigurations" Core..=)
+            ("DebugRuleConfigurations" Data..=)
               Prelude.<$> debugRuleConfigurations,
-            ("TensorBoardOutputConfig" Core..=)
+            ("TensorBoardOutputConfig" Data..=)
               Prelude.<$> tensorBoardOutputConfig,
-            ("InputDataConfig" Core..=)
+            ("InputDataConfig" Data..=)
               Prelude.<$> inputDataConfig,
-            ("HyperParameters" Core..=)
+            ("HyperParameters" Data..=)
               Prelude.<$> hyperParameters,
             Prelude.Just
-              ("TrainingJobName" Core..= trainingJobName),
+              ("TrainingJobName" Data..= trainingJobName),
             Prelude.Just
               ( "AlgorithmSpecification"
-                  Core..= algorithmSpecification
+                  Data..= algorithmSpecification
               ),
-            Prelude.Just ("RoleArn" Core..= roleArn),
+            Prelude.Just ("RoleArn" Data..= roleArn),
             Prelude.Just
-              ("OutputDataConfig" Core..= outputDataConfig),
+              ("OutputDataConfig" Data..= outputDataConfig),
             Prelude.Just
-              ("ResourceConfig" Core..= resourceConfig),
+              ("ResourceConfig" Data..= resourceConfig),
             Prelude.Just
-              ("StoppingCondition" Core..= stoppingCondition)
+              ("StoppingCondition" Data..= stoppingCondition)
           ]
       )
 
-instance Core.ToPath CreateTrainingJob where
+instance Data.ToPath CreateTrainingJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTrainingJob where
+instance Data.ToQuery CreateTrainingJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTrainingJobResponse' smart constructor.

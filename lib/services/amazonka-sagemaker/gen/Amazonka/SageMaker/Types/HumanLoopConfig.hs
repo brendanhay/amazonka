@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.HumanLoopConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.PublicWorkforceTaskPrice
 
@@ -197,21 +198,21 @@ humanLoopConfig_taskDescription = Lens.lens (\HumanLoopConfig' {taskDescription}
 humanLoopConfig_taskCount :: Lens.Lens' HumanLoopConfig Prelude.Natural
 humanLoopConfig_taskCount = Lens.lens (\HumanLoopConfig' {taskCount} -> taskCount) (\s@HumanLoopConfig' {} a -> s {taskCount = a} :: HumanLoopConfig)
 
-instance Core.FromJSON HumanLoopConfig where
+instance Data.FromJSON HumanLoopConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HumanLoopConfig"
       ( \x ->
           HumanLoopConfig'
-            Prelude.<$> (x Core..:? "PublicWorkforceTaskPrice")
-            Prelude.<*> (x Core..:? "TaskKeywords")
-            Prelude.<*> (x Core..:? "TaskTimeLimitInSeconds")
-            Prelude.<*> (x Core..:? "TaskAvailabilityLifetimeInSeconds")
-            Prelude.<*> (x Core..: "WorkteamArn")
-            Prelude.<*> (x Core..: "HumanTaskUiArn")
-            Prelude.<*> (x Core..: "TaskTitle")
-            Prelude.<*> (x Core..: "TaskDescription")
-            Prelude.<*> (x Core..: "TaskCount")
+            Prelude.<$> (x Data..:? "PublicWorkforceTaskPrice")
+            Prelude.<*> (x Data..:? "TaskKeywords")
+            Prelude.<*> (x Data..:? "TaskTimeLimitInSeconds")
+            Prelude.<*> (x Data..:? "TaskAvailabilityLifetimeInSeconds")
+            Prelude.<*> (x Data..: "WorkteamArn")
+            Prelude.<*> (x Data..: "HumanTaskUiArn")
+            Prelude.<*> (x Data..: "TaskTitle")
+            Prelude.<*> (x Data..: "TaskDescription")
+            Prelude.<*> (x Data..: "TaskCount")
       )
 
 instance Prelude.Hashable HumanLoopConfig where
@@ -239,23 +240,23 @@ instance Prelude.NFData HumanLoopConfig where
       `Prelude.seq` Prelude.rnf taskDescription
       `Prelude.seq` Prelude.rnf taskCount
 
-instance Core.ToJSON HumanLoopConfig where
+instance Data.ToJSON HumanLoopConfig where
   toJSON HumanLoopConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PublicWorkforceTaskPrice" Core..=)
+          [ ("PublicWorkforceTaskPrice" Data..=)
               Prelude.<$> publicWorkforceTaskPrice,
-            ("TaskKeywords" Core..=) Prelude.<$> taskKeywords,
-            ("TaskTimeLimitInSeconds" Core..=)
+            ("TaskKeywords" Data..=) Prelude.<$> taskKeywords,
+            ("TaskTimeLimitInSeconds" Data..=)
               Prelude.<$> taskTimeLimitInSeconds,
-            ("TaskAvailabilityLifetimeInSeconds" Core..=)
+            ("TaskAvailabilityLifetimeInSeconds" Data..=)
               Prelude.<$> taskAvailabilityLifetimeInSeconds,
-            Prelude.Just ("WorkteamArn" Core..= workteamArn),
+            Prelude.Just ("WorkteamArn" Data..= workteamArn),
             Prelude.Just
-              ("HumanTaskUiArn" Core..= humanTaskUiArn),
-            Prelude.Just ("TaskTitle" Core..= taskTitle),
+              ("HumanTaskUiArn" Data..= humanTaskUiArn),
+            Prelude.Just ("TaskTitle" Data..= taskTitle),
             Prelude.Just
-              ("TaskDescription" Core..= taskDescription),
-            Prelude.Just ("TaskCount" Core..= taskCount)
+              ("TaskDescription" Data..= taskDescription),
+            Prelude.Just ("TaskCount" Data..= taskCount)
           ]
       )

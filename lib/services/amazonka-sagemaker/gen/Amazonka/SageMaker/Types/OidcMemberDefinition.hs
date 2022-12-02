@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.OidcMemberDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of user groups that exist in your OIDC Identity Provider (IdP).
@@ -63,13 +64,13 @@ newOidcMemberDefinition pGroups_ =
 oidcMemberDefinition_groups :: Lens.Lens' OidcMemberDefinition (Prelude.NonEmpty Prelude.Text)
 oidcMemberDefinition_groups = Lens.lens (\OidcMemberDefinition' {groups} -> groups) (\s@OidcMemberDefinition' {} a -> s {groups = a} :: OidcMemberDefinition) Prelude.. Lens.coerced
 
-instance Core.FromJSON OidcMemberDefinition where
+instance Data.FromJSON OidcMemberDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OidcMemberDefinition"
       ( \x ->
           OidcMemberDefinition'
-            Prelude.<$> (x Core..: "Groups")
+            Prelude.<$> (x Data..: "Groups")
       )
 
 instance Prelude.Hashable OidcMemberDefinition where
@@ -79,9 +80,9 @@ instance Prelude.Hashable OidcMemberDefinition where
 instance Prelude.NFData OidcMemberDefinition where
   rnf OidcMemberDefinition' {..} = Prelude.rnf groups
 
-instance Core.ToJSON OidcMemberDefinition where
+instance Data.ToJSON OidcMemberDefinition where
   toJSON OidcMemberDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Groups" Core..= groups)]
+          [Prelude.Just ("Groups" Data..= groups)]
       )

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -134,7 +135,7 @@ instance Core.AWSRequest CreateImage where
     Response.receiveJSON
       ( \s h x ->
           CreateImageResponse'
-            Prelude.<$> (x Core..?> "ImageArn")
+            Prelude.<$> (x Data..?> "ImageArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,35 +155,35 @@ instance Prelude.NFData CreateImage where
       `Prelude.seq` Prelude.rnf imageName
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders CreateImage where
+instance Data.ToHeaders CreateImage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.CreateImage" :: Prelude.ByteString),
+              Data.=# ("SageMaker.CreateImage" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateImage where
+instance Data.ToJSON CreateImage where
   toJSON CreateImage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("ImageName" Core..= imageName),
-            Prelude.Just ("RoleArn" Core..= roleArn)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("DisplayName" Data..=) Prelude.<$> displayName,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("ImageName" Data..= imageName),
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreateImage where
+instance Data.ToPath CreateImage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateImage where
+instance Data.ToQuery CreateImage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateImageResponse' smart constructor.

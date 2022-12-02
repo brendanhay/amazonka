@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,37 +107,37 @@ instance Prelude.NFData StartEdgeDeploymentStage where
     Prelude.rnf edgeDeploymentPlanName
       `Prelude.seq` Prelude.rnf stageName
 
-instance Core.ToHeaders StartEdgeDeploymentStage where
+instance Data.ToHeaders StartEdgeDeploymentStage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.StartEdgeDeploymentStage" ::
+              Data.=# ( "SageMaker.StartEdgeDeploymentStage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartEdgeDeploymentStage where
+instance Data.ToJSON StartEdgeDeploymentStage where
   toJSON StartEdgeDeploymentStage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "EdgeDeploymentPlanName"
-                  Core..= edgeDeploymentPlanName
+                  Data..= edgeDeploymentPlanName
               ),
-            Prelude.Just ("StageName" Core..= stageName)
+            Prelude.Just ("StageName" Data..= stageName)
           ]
       )
 
-instance Core.ToPath StartEdgeDeploymentStage where
+instance Data.ToPath StartEdgeDeploymentStage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartEdgeDeploymentStage where
+instance Data.ToQuery StartEdgeDeploymentStage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartEdgeDeploymentStageResponse' smart constructor.

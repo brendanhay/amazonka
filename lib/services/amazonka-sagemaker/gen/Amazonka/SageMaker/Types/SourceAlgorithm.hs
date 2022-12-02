@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.SourceAlgorithm where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an algorithm that was used to create the model package. The
@@ -90,14 +91,14 @@ sourceAlgorithm_modelDataUrl = Lens.lens (\SourceAlgorithm' {modelDataUrl} -> mo
 sourceAlgorithm_algorithmName :: Lens.Lens' SourceAlgorithm Prelude.Text
 sourceAlgorithm_algorithmName = Lens.lens (\SourceAlgorithm' {algorithmName} -> algorithmName) (\s@SourceAlgorithm' {} a -> s {algorithmName = a} :: SourceAlgorithm)
 
-instance Core.FromJSON SourceAlgorithm where
+instance Data.FromJSON SourceAlgorithm where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceAlgorithm"
       ( \x ->
           SourceAlgorithm'
-            Prelude.<$> (x Core..:? "ModelDataUrl")
-            Prelude.<*> (x Core..: "AlgorithmName")
+            Prelude.<$> (x Data..:? "ModelDataUrl")
+            Prelude.<*> (x Data..: "AlgorithmName")
       )
 
 instance Prelude.Hashable SourceAlgorithm where
@@ -110,12 +111,12 @@ instance Prelude.NFData SourceAlgorithm where
     Prelude.rnf modelDataUrl
       `Prelude.seq` Prelude.rnf algorithmName
 
-instance Core.ToJSON SourceAlgorithm where
+instance Data.ToJSON SourceAlgorithm where
   toJSON SourceAlgorithm' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ModelDataUrl" Core..=) Prelude.<$> modelDataUrl,
+          [ ("ModelDataUrl" Data..=) Prelude.<$> modelDataUrl,
             Prelude.Just
-              ("AlgorithmName" Core..= algorithmName)
+              ("AlgorithmName" Data..= algorithmName)
           ]
       )

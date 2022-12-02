@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.Filter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.Operator
 
@@ -352,12 +353,12 @@ instance Prelude.NFData Filter where
       `Prelude.seq` Prelude.rnf value
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON Filter where
+instance Data.ToJSON Filter where
   toJSON Filter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Operator" Core..=) Prelude.<$> operator,
-            ("Value" Core..=) Prelude.<$> value,
-            Prelude.Just ("Name" Core..= name)
+          [ ("Operator" Data..=) Prelude.<$> operator,
+            ("Value" Data..=) Prelude.<$> value,
+            Prelude.Just ("Name" Data..= name)
           ]
       )

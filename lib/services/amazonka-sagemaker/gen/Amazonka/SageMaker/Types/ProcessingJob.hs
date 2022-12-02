@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ProcessingJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AppSpecification
 import Amazonka.SageMaker.Types.ExperimentConfig
@@ -62,16 +63,16 @@ data ProcessingJob = ProcessingJob'
     -- | List of input configurations for the processing job.
     processingInputs :: Prelude.Maybe [ProcessingInput],
     -- | The time the processing job was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     stoppingCondition :: Prelude.Maybe ProcessingStoppingCondition,
     -- | The ARN of the processing job.
     processingJobArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the processing job started.
-    processingStartTime :: Prelude.Maybe Core.POSIX,
+    processingStartTime :: Prelude.Maybe Data.POSIX,
     -- | The time the processing job was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The time that the processing job ended.
-    processingEndTime :: Prelude.Maybe Core.POSIX,
+    processingEndTime :: Prelude.Maybe Data.POSIX,
     processingResources :: Prelude.Maybe ProcessingResources,
     -- | The ARN of the training job associated with this processing job.
     trainingJobArn :: Prelude.Maybe Prelude.Text,
@@ -220,7 +221,7 @@ processingJob_processingInputs = Lens.lens (\ProcessingJob' {processingInputs} -
 
 -- | The time the processing job was last modified.
 processingJob_lastModifiedTime :: Lens.Lens' ProcessingJob (Prelude.Maybe Prelude.UTCTime)
-processingJob_lastModifiedTime = Lens.lens (\ProcessingJob' {lastModifiedTime} -> lastModifiedTime) (\s@ProcessingJob' {} a -> s {lastModifiedTime = a} :: ProcessingJob) Prelude.. Lens.mapping Core._Time
+processingJob_lastModifiedTime = Lens.lens (\ProcessingJob' {lastModifiedTime} -> lastModifiedTime) (\s@ProcessingJob' {} a -> s {lastModifiedTime = a} :: ProcessingJob) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 processingJob_stoppingCondition :: Lens.Lens' ProcessingJob (Prelude.Maybe ProcessingStoppingCondition)
@@ -232,15 +233,15 @@ processingJob_processingJobArn = Lens.lens (\ProcessingJob' {processingJobArn} -
 
 -- | The time that the processing job started.
 processingJob_processingStartTime :: Lens.Lens' ProcessingJob (Prelude.Maybe Prelude.UTCTime)
-processingJob_processingStartTime = Lens.lens (\ProcessingJob' {processingStartTime} -> processingStartTime) (\s@ProcessingJob' {} a -> s {processingStartTime = a} :: ProcessingJob) Prelude.. Lens.mapping Core._Time
+processingJob_processingStartTime = Lens.lens (\ProcessingJob' {processingStartTime} -> processingStartTime) (\s@ProcessingJob' {} a -> s {processingStartTime = a} :: ProcessingJob) Prelude.. Lens.mapping Data._Time
 
 -- | The time the processing job was created.
 processingJob_creationTime :: Lens.Lens' ProcessingJob (Prelude.Maybe Prelude.UTCTime)
-processingJob_creationTime = Lens.lens (\ProcessingJob' {creationTime} -> creationTime) (\s@ProcessingJob' {} a -> s {creationTime = a} :: ProcessingJob) Prelude.. Lens.mapping Core._Time
+processingJob_creationTime = Lens.lens (\ProcessingJob' {creationTime} -> creationTime) (\s@ProcessingJob' {} a -> s {creationTime = a} :: ProcessingJob) Prelude.. Lens.mapping Data._Time
 
 -- | The time that the processing job ended.
 processingJob_processingEndTime :: Lens.Lens' ProcessingJob (Prelude.Maybe Prelude.UTCTime)
-processingJob_processingEndTime = Lens.lens (\ProcessingJob' {processingEndTime} -> processingEndTime) (\s@ProcessingJob' {} a -> s {processingEndTime = a} :: ProcessingJob) Prelude.. Lens.mapping Core._Time
+processingJob_processingEndTime = Lens.lens (\ProcessingJob' {processingEndTime} -> processingEndTime) (\s@ProcessingJob' {} a -> s {processingEndTime = a} :: ProcessingJob) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 processingJob_processingResources :: Lens.Lens' ProcessingJob (Prelude.Maybe ProcessingResources)
@@ -264,36 +265,36 @@ processingJob_failureReason = Lens.lens (\ProcessingJob' {failureReason} -> fail
 processingJob_processingOutputConfig :: Lens.Lens' ProcessingJob (Prelude.Maybe ProcessingOutputConfig)
 processingJob_processingOutputConfig = Lens.lens (\ProcessingJob' {processingOutputConfig} -> processingOutputConfig) (\s@ProcessingJob' {} a -> s {processingOutputConfig = a} :: ProcessingJob)
 
-instance Core.FromJSON ProcessingJob where
+instance Data.FromJSON ProcessingJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProcessingJob"
       ( \x ->
           ProcessingJob'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ProcessingJobName")
-            Prelude.<*> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "Environment" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ProcessingJobStatus")
-            Prelude.<*> (x Core..:? "MonitoringScheduleArn")
-            Prelude.<*> (x Core..:? "NetworkConfig")
-            Prelude.<*> (x Core..:? "ExperimentConfig")
-            Prelude.<*> (x Core..:? "AppSpecification")
-            Prelude.<*> (x Core..:? "AutoMLJobArn")
-            Prelude.<*> ( x Core..:? "ProcessingInputs"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ProcessingJobName")
+            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "Environment" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ProcessingJobStatus")
+            Prelude.<*> (x Data..:? "MonitoringScheduleArn")
+            Prelude.<*> (x Data..:? "NetworkConfig")
+            Prelude.<*> (x Data..:? "ExperimentConfig")
+            Prelude.<*> (x Data..:? "AppSpecification")
+            Prelude.<*> (x Data..:? "AutoMLJobArn")
+            Prelude.<*> ( x Data..:? "ProcessingInputs"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "StoppingCondition")
-            Prelude.<*> (x Core..:? "ProcessingJobArn")
-            Prelude.<*> (x Core..:? "ProcessingStartTime")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "ProcessingEndTime")
-            Prelude.<*> (x Core..:? "ProcessingResources")
-            Prelude.<*> (x Core..:? "TrainingJobArn")
-            Prelude.<*> (x Core..:? "ExitMessage")
-            Prelude.<*> (x Core..:? "FailureReason")
-            Prelude.<*> (x Core..:? "ProcessingOutputConfig")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "StoppingCondition")
+            Prelude.<*> (x Data..:? "ProcessingJobArn")
+            Prelude.<*> (x Data..:? "ProcessingStartTime")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "ProcessingEndTime")
+            Prelude.<*> (x Data..:? "ProcessingResources")
+            Prelude.<*> (x Data..:? "TrainingJobArn")
+            Prelude.<*> (x Data..:? "ExitMessage")
+            Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..:? "ProcessingOutputConfig")
       )
 
 instance Prelude.Hashable ProcessingJob where

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -156,7 +157,7 @@ instance Core.AWSRequest UpdateModelPackage where
       ( \s h x ->
           UpdateModelPackageResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ModelPackageArn")
+            Prelude.<*> (x Data..:> "ModelPackageArn")
       )
 
 instance Prelude.Hashable UpdateModelPackage where
@@ -178,44 +179,44 @@ instance Prelude.NFData UpdateModelPackage where
       `Prelude.seq` Prelude.rnf additionalInferenceSpecificationsToAdd
       `Prelude.seq` Prelude.rnf modelPackageArn
 
-instance Core.ToHeaders UpdateModelPackage where
+instance Data.ToHeaders UpdateModelPackage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.UpdateModelPackage" ::
+              Data.=# ( "SageMaker.UpdateModelPackage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateModelPackage where
+instance Data.ToJSON UpdateModelPackage where
   toJSON UpdateModelPackage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CustomerMetadataPropertiesToRemove" Core..=)
+          [ ("CustomerMetadataPropertiesToRemove" Data..=)
               Prelude.<$> customerMetadataPropertiesToRemove,
-            ("ModelApprovalStatus" Core..=)
+            ("ModelApprovalStatus" Data..=)
               Prelude.<$> modelApprovalStatus,
-            ("ApprovalDescription" Core..=)
+            ("ApprovalDescription" Data..=)
               Prelude.<$> approvalDescription,
-            ("CustomerMetadataProperties" Core..=)
+            ("CustomerMetadataProperties" Data..=)
               Prelude.<$> customerMetadataProperties,
-            ("AdditionalInferenceSpecificationsToAdd" Core..=)
+            ("AdditionalInferenceSpecificationsToAdd" Data..=)
               Prelude.<$> additionalInferenceSpecificationsToAdd,
             Prelude.Just
-              ("ModelPackageArn" Core..= modelPackageArn)
+              ("ModelPackageArn" Data..= modelPackageArn)
           ]
       )
 
-instance Core.ToPath UpdateModelPackage where
+instance Data.ToPath UpdateModelPackage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateModelPackage where
+instance Data.ToQuery UpdateModelPackage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateModelPackageResponse' smart constructor.

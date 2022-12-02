@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TrialComponentMetricSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of the metrics of a trial component.
@@ -32,7 +33,7 @@ data TrialComponentMetricSummary = TrialComponentMetricSummary'
     -- | The maximum value of the metric.
     max :: Prelude.Maybe Prelude.Double,
     -- | When the metric was last updated.
-    timeStamp :: Prelude.Maybe Core.POSIX,
+    timeStamp :: Prelude.Maybe Data.POSIX,
     -- | The average value of the metric.
     avg :: Prelude.Maybe Prelude.Double,
     -- | The number of samples used to generate the metric.
@@ -99,7 +100,7 @@ trialComponentMetricSummary_max = Lens.lens (\TrialComponentMetricSummary' {max}
 
 -- | When the metric was last updated.
 trialComponentMetricSummary_timeStamp :: Lens.Lens' TrialComponentMetricSummary (Prelude.Maybe Prelude.UTCTime)
-trialComponentMetricSummary_timeStamp = Lens.lens (\TrialComponentMetricSummary' {timeStamp} -> timeStamp) (\s@TrialComponentMetricSummary' {} a -> s {timeStamp = a} :: TrialComponentMetricSummary) Prelude.. Lens.mapping Core._Time
+trialComponentMetricSummary_timeStamp = Lens.lens (\TrialComponentMetricSummary' {timeStamp} -> timeStamp) (\s@TrialComponentMetricSummary' {} a -> s {timeStamp = a} :: TrialComponentMetricSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The average value of the metric.
 trialComponentMetricSummary_avg :: Lens.Lens' TrialComponentMetricSummary (Prelude.Maybe Prelude.Double)
@@ -125,21 +126,21 @@ trialComponentMetricSummary_metricName = Lens.lens (\TrialComponentMetricSummary
 trialComponentMetricSummary_stdDev :: Lens.Lens' TrialComponentMetricSummary (Prelude.Maybe Prelude.Double)
 trialComponentMetricSummary_stdDev = Lens.lens (\TrialComponentMetricSummary' {stdDev} -> stdDev) (\s@TrialComponentMetricSummary' {} a -> s {stdDev = a} :: TrialComponentMetricSummary)
 
-instance Core.FromJSON TrialComponentMetricSummary where
+instance Data.FromJSON TrialComponentMetricSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrialComponentMetricSummary"
       ( \x ->
           TrialComponentMetricSummary'
-            Prelude.<$> (x Core..:? "SourceArn")
-            Prelude.<*> (x Core..:? "Max")
-            Prelude.<*> (x Core..:? "TimeStamp")
-            Prelude.<*> (x Core..:? "Avg")
-            Prelude.<*> (x Core..:? "Count")
-            Prelude.<*> (x Core..:? "Last")
-            Prelude.<*> (x Core..:? "Min")
-            Prelude.<*> (x Core..:? "MetricName")
-            Prelude.<*> (x Core..:? "StdDev")
+            Prelude.<$> (x Data..:? "SourceArn")
+            Prelude.<*> (x Data..:? "Max")
+            Prelude.<*> (x Data..:? "TimeStamp")
+            Prelude.<*> (x Data..:? "Avg")
+            Prelude.<*> (x Data..:? "Count")
+            Prelude.<*> (x Data..:? "Last")
+            Prelude.<*> (x Data..:? "Min")
+            Prelude.<*> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..:? "StdDev")
       )
 
 instance Prelude.Hashable TrialComponentMetricSummary where

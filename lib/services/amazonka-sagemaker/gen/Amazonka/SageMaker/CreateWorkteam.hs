@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -228,7 +229,7 @@ instance Core.AWSRequest CreateWorkteam where
     Response.receiveJSON
       ( \s h x ->
           CreateWorkteamResponse'
-            Prelude.<$> (x Core..?> "WorkteamArn")
+            Prelude.<$> (x Data..?> "WorkteamArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -250,38 +251,38 @@ instance Prelude.NFData CreateWorkteam where
       `Prelude.seq` Prelude.rnf memberDefinitions
       `Prelude.seq` Prelude.rnf description
 
-instance Core.ToHeaders CreateWorkteam where
+instance Data.ToHeaders CreateWorkteam where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.CreateWorkteam" :: Prelude.ByteString),
+              Data.=# ("SageMaker.CreateWorkteam" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWorkteam where
+instance Data.ToJSON CreateWorkteam where
   toJSON CreateWorkteam' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("NotificationConfiguration" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("NotificationConfiguration" Data..=)
               Prelude.<$> notificationConfiguration,
-            ("WorkforceName" Core..=) Prelude.<$> workforceName,
-            Prelude.Just ("WorkteamName" Core..= workteamName),
+            ("WorkforceName" Data..=) Prelude.<$> workforceName,
+            Prelude.Just ("WorkteamName" Data..= workteamName),
             Prelude.Just
-              ("MemberDefinitions" Core..= memberDefinitions),
-            Prelude.Just ("Description" Core..= description)
+              ("MemberDefinitions" Data..= memberDefinitions),
+            Prelude.Just ("Description" Data..= description)
           ]
       )
 
-instance Core.ToPath CreateWorkteam where
+instance Data.ToPath CreateWorkteam where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateWorkteam where
+instance Data.ToQuery CreateWorkteam where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWorkteamResponse' smart constructor.

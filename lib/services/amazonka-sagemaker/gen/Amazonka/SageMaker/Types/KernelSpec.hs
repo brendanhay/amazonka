@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.KernelSpec where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The specification of a Jupyter kernel.
@@ -66,14 +67,14 @@ kernelSpec_displayName = Lens.lens (\KernelSpec' {displayName} -> displayName) (
 kernelSpec_name :: Lens.Lens' KernelSpec Prelude.Text
 kernelSpec_name = Lens.lens (\KernelSpec' {name} -> name) (\s@KernelSpec' {} a -> s {name = a} :: KernelSpec)
 
-instance Core.FromJSON KernelSpec where
+instance Data.FromJSON KernelSpec where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KernelSpec"
       ( \x ->
           KernelSpec'
-            Prelude.<$> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable KernelSpec where
@@ -86,11 +87,11 @@ instance Prelude.NFData KernelSpec where
     Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON KernelSpec where
+instance Data.ToJSON KernelSpec where
   toJSON KernelSpec' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DisplayName" Core..=) Prelude.<$> displayName,
-            Prelude.Just ("Name" Core..= name)
+          [ ("DisplayName" Data..=) Prelude.<$> displayName,
+            Prelude.Just ("Name" Data..= name)
           ]
       )

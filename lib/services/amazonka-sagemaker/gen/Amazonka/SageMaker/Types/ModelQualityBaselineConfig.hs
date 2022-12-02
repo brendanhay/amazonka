@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelQualityBaselineConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MonitoringConstraintsResource
 
@@ -64,14 +65,14 @@ modelQualityBaselineConfig_baseliningJobName = Lens.lens (\ModelQualityBaselineC
 modelQualityBaselineConfig_constraintsResource :: Lens.Lens' ModelQualityBaselineConfig (Prelude.Maybe MonitoringConstraintsResource)
 modelQualityBaselineConfig_constraintsResource = Lens.lens (\ModelQualityBaselineConfig' {constraintsResource} -> constraintsResource) (\s@ModelQualityBaselineConfig' {} a -> s {constraintsResource = a} :: ModelQualityBaselineConfig)
 
-instance Core.FromJSON ModelQualityBaselineConfig where
+instance Data.FromJSON ModelQualityBaselineConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelQualityBaselineConfig"
       ( \x ->
           ModelQualityBaselineConfig'
-            Prelude.<$> (x Core..:? "BaseliningJobName")
-            Prelude.<*> (x Core..:? "ConstraintsResource")
+            Prelude.<$> (x Data..:? "BaseliningJobName")
+            Prelude.<*> (x Data..:? "ConstraintsResource")
       )
 
 instance Prelude.Hashable ModelQualityBaselineConfig where
@@ -84,13 +85,13 @@ instance Prelude.NFData ModelQualityBaselineConfig where
     Prelude.rnf baseliningJobName
       `Prelude.seq` Prelude.rnf constraintsResource
 
-instance Core.ToJSON ModelQualityBaselineConfig where
+instance Data.ToJSON ModelQualityBaselineConfig where
   toJSON ModelQualityBaselineConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BaseliningJobName" Core..=)
+          [ ("BaseliningJobName" Data..=)
               Prelude.<$> baseliningJobName,
-            ("ConstraintsResource" Core..=)
+            ("ConstraintsResource" Data..=)
               Prelude.<$> constraintsResource
           ]
       )

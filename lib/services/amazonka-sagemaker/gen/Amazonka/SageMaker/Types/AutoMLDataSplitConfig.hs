@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AutoMLDataSplitConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure specifies how to split the data into train and validation
@@ -64,13 +65,13 @@ newAutoMLDataSplitConfig =
 autoMLDataSplitConfig_validationFraction :: Lens.Lens' AutoMLDataSplitConfig (Prelude.Maybe Prelude.Double)
 autoMLDataSplitConfig_validationFraction = Lens.lens (\AutoMLDataSplitConfig' {validationFraction} -> validationFraction) (\s@AutoMLDataSplitConfig' {} a -> s {validationFraction = a} :: AutoMLDataSplitConfig)
 
-instance Core.FromJSON AutoMLDataSplitConfig where
+instance Data.FromJSON AutoMLDataSplitConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoMLDataSplitConfig"
       ( \x ->
           AutoMLDataSplitConfig'
-            Prelude.<$> (x Core..:? "ValidationFraction")
+            Prelude.<$> (x Data..:? "ValidationFraction")
       )
 
 instance Prelude.Hashable AutoMLDataSplitConfig where
@@ -81,11 +82,11 @@ instance Prelude.NFData AutoMLDataSplitConfig where
   rnf AutoMLDataSplitConfig' {..} =
     Prelude.rnf validationFraction
 
-instance Core.ToJSON AutoMLDataSplitConfig where
+instance Data.ToJSON AutoMLDataSplitConfig where
   toJSON AutoMLDataSplitConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ValidationFraction" Core..=)
+          [ ("ValidationFraction" Data..=)
               Prelude.<$> validationFraction
           ]
       )

@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -396,7 +397,7 @@ instance Core.AWSRequest CreateFeatureGroup where
       ( \s h x ->
           CreateFeatureGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "FeatureGroupArn")
+            Prelude.<*> (x Data..:> "FeatureGroupArn")
       )
 
 instance Prelude.Hashable CreateFeatureGroup where
@@ -423,51 +424,51 @@ instance Prelude.NFData CreateFeatureGroup where
       `Prelude.seq` Prelude.rnf eventTimeFeatureName
       `Prelude.seq` Prelude.rnf featureDefinitions
 
-instance Core.ToHeaders CreateFeatureGroup where
+instance Data.ToHeaders CreateFeatureGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.CreateFeatureGroup" ::
+              Data.=# ( "SageMaker.CreateFeatureGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFeatureGroup where
+instance Data.ToJSON CreateFeatureGroup where
   toJSON CreateFeatureGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("Description" Core..=) Prelude.<$> description,
-            ("OnlineStoreConfig" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("Description" Data..=) Prelude.<$> description,
+            ("OnlineStoreConfig" Data..=)
               Prelude.<$> onlineStoreConfig,
-            ("OfflineStoreConfig" Core..=)
+            ("OfflineStoreConfig" Data..=)
               Prelude.<$> offlineStoreConfig,
             Prelude.Just
-              ("FeatureGroupName" Core..= featureGroupName),
+              ("FeatureGroupName" Data..= featureGroupName),
             Prelude.Just
               ( "RecordIdentifierFeatureName"
-                  Core..= recordIdentifierFeatureName
+                  Data..= recordIdentifierFeatureName
               ),
             Prelude.Just
               ( "EventTimeFeatureName"
-                  Core..= eventTimeFeatureName
+                  Data..= eventTimeFeatureName
               ),
             Prelude.Just
-              ("FeatureDefinitions" Core..= featureDefinitions)
+              ("FeatureDefinitions" Data..= featureDefinitions)
           ]
       )
 
-instance Core.ToPath CreateFeatureGroup where
+instance Data.ToPath CreateFeatureGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateFeatureGroup where
+instance Data.ToQuery CreateFeatureGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFeatureGroupResponse' smart constructor.

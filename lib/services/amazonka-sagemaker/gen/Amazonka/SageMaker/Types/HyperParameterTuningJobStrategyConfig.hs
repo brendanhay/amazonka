@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.HyperParameterTuningJobStrategyConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.HyperbandStrategyConfig
 
@@ -66,15 +67,15 @@ hyperParameterTuningJobStrategyConfig_hyperbandStrategyConfig :: Lens.Lens' Hype
 hyperParameterTuningJobStrategyConfig_hyperbandStrategyConfig = Lens.lens (\HyperParameterTuningJobStrategyConfig' {hyperbandStrategyConfig} -> hyperbandStrategyConfig) (\s@HyperParameterTuningJobStrategyConfig' {} a -> s {hyperbandStrategyConfig = a} :: HyperParameterTuningJobStrategyConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     HyperParameterTuningJobStrategyConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HyperParameterTuningJobStrategyConfig"
       ( \x ->
           HyperParameterTuningJobStrategyConfig'
-            Prelude.<$> (x Core..:? "HyperbandStrategyConfig")
+            Prelude.<$> (x Data..:? "HyperbandStrategyConfig")
       )
 
 instance
@@ -95,13 +96,13 @@ instance
     Prelude.rnf hyperbandStrategyConfig
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     HyperParameterTuningJobStrategyConfig
   where
   toJSON HyperParameterTuningJobStrategyConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HyperbandStrategyConfig" Core..=)
+          [ ("HyperbandStrategyConfig" Data..=)
               Prelude.<$> hyperbandStrategyConfig
           ]
       )

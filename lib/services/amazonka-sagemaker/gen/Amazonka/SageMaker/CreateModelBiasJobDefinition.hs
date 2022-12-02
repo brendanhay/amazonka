@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -204,7 +205,7 @@ instance Core.AWSRequest CreateModelBiasJobDefinition where
       ( \s h x ->
           CreateModelBiasJobDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "JobDefinitionArn")
+            Prelude.<*> (x Data..:> "JobDefinitionArn")
       )
 
 instance
@@ -236,52 +237,52 @@ instance Prelude.NFData CreateModelBiasJobDefinition where
       `Prelude.seq` Prelude.rnf jobResources
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders CreateModelBiasJobDefinition where
+instance Data.ToHeaders CreateModelBiasJobDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.CreateModelBiasJobDefinition" ::
+              Data.=# ( "SageMaker.CreateModelBiasJobDefinition" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateModelBiasJobDefinition where
+instance Data.ToJSON CreateModelBiasJobDefinition where
   toJSON CreateModelBiasJobDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("NetworkConfig" Core..=) Prelude.<$> networkConfig,
-            ("ModelBiasBaselineConfig" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("NetworkConfig" Data..=) Prelude.<$> networkConfig,
+            ("ModelBiasBaselineConfig" Data..=)
               Prelude.<$> modelBiasBaselineConfig,
-            ("StoppingCondition" Core..=)
+            ("StoppingCondition" Data..=)
               Prelude.<$> stoppingCondition,
             Prelude.Just
-              ("JobDefinitionName" Core..= jobDefinitionName),
+              ("JobDefinitionName" Data..= jobDefinitionName),
             Prelude.Just
               ( "ModelBiasAppSpecification"
-                  Core..= modelBiasAppSpecification
+                  Data..= modelBiasAppSpecification
               ),
             Prelude.Just
-              ("ModelBiasJobInput" Core..= modelBiasJobInput),
+              ("ModelBiasJobInput" Data..= modelBiasJobInput),
             Prelude.Just
               ( "ModelBiasJobOutputConfig"
-                  Core..= modelBiasJobOutputConfig
+                  Data..= modelBiasJobOutputConfig
               ),
-            Prelude.Just ("JobResources" Core..= jobResources),
-            Prelude.Just ("RoleArn" Core..= roleArn)
+            Prelude.Just ("JobResources" Data..= jobResources),
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreateModelBiasJobDefinition where
+instance Data.ToPath CreateModelBiasJobDefinition where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateModelBiasJobDefinition where
+instance Data.ToQuery CreateModelBiasJobDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateModelBiasJobDefinitionResponse' smart constructor.

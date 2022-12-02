@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -182,7 +183,7 @@ instance Core.AWSRequest CreateWorkforce where
       ( \s h x ->
           CreateWorkforceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "WorkforceArn")
+            Prelude.<*> (x Data..:> "WorkforceArn")
       )
 
 instance Prelude.Hashable CreateWorkforce where
@@ -203,39 +204,39 @@ instance Prelude.NFData CreateWorkforce where
       `Prelude.seq` Prelude.rnf oidcConfig
       `Prelude.seq` Prelude.rnf workforceName
 
-instance Core.ToHeaders CreateWorkforce where
+instance Data.ToHeaders CreateWorkforce where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.CreateWorkforce" :: Prelude.ByteString),
+              Data.=# ("SageMaker.CreateWorkforce" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWorkforce where
+instance Data.ToJSON CreateWorkforce where
   toJSON CreateWorkforce' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("CognitoConfig" Core..=) Prelude.<$> cognitoConfig,
-            ("SourceIpConfig" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("CognitoConfig" Data..=) Prelude.<$> cognitoConfig,
+            ("SourceIpConfig" Data..=)
               Prelude.<$> sourceIpConfig,
-            ("WorkforceVpcConfig" Core..=)
+            ("WorkforceVpcConfig" Data..=)
               Prelude.<$> workforceVpcConfig,
-            ("OidcConfig" Core..=) Prelude.<$> oidcConfig,
+            ("OidcConfig" Data..=) Prelude.<$> oidcConfig,
             Prelude.Just
-              ("WorkforceName" Core..= workforceName)
+              ("WorkforceName" Data..= workforceName)
           ]
       )
 
-instance Core.ToPath CreateWorkforce where
+instance Data.ToPath CreateWorkforce where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateWorkforce where
+instance Data.ToQuery CreateWorkforce where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWorkforceResponse' smart constructor.

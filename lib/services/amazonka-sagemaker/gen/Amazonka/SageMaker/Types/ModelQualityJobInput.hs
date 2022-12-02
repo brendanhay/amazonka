@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelQualityJobInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.BatchTransformInput
 import Amazonka.SageMaker.Types.EndpointInput
@@ -76,15 +77,15 @@ modelQualityJobInput_batchTransformInput = Lens.lens (\ModelQualityJobInput' {ba
 modelQualityJobInput_groundTruthS3Input :: Lens.Lens' ModelQualityJobInput MonitoringGroundTruthS3Input
 modelQualityJobInput_groundTruthS3Input = Lens.lens (\ModelQualityJobInput' {groundTruthS3Input} -> groundTruthS3Input) (\s@ModelQualityJobInput' {} a -> s {groundTruthS3Input = a} :: ModelQualityJobInput)
 
-instance Core.FromJSON ModelQualityJobInput where
+instance Data.FromJSON ModelQualityJobInput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelQualityJobInput"
       ( \x ->
           ModelQualityJobInput'
-            Prelude.<$> (x Core..:? "EndpointInput")
-            Prelude.<*> (x Core..:? "BatchTransformInput")
-            Prelude.<*> (x Core..: "GroundTruthS3Input")
+            Prelude.<$> (x Data..:? "EndpointInput")
+            Prelude.<*> (x Data..:? "BatchTransformInput")
+            Prelude.<*> (x Data..: "GroundTruthS3Input")
       )
 
 instance Prelude.Hashable ModelQualityJobInput where
@@ -99,14 +100,14 @@ instance Prelude.NFData ModelQualityJobInput where
       `Prelude.seq` Prelude.rnf batchTransformInput
       `Prelude.seq` Prelude.rnf groundTruthS3Input
 
-instance Core.ToJSON ModelQualityJobInput where
+instance Data.ToJSON ModelQualityJobInput where
   toJSON ModelQualityJobInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EndpointInput" Core..=) Prelude.<$> endpointInput,
-            ("BatchTransformInput" Core..=)
+          [ ("EndpointInput" Data..=) Prelude.<$> endpointInput,
+            ("BatchTransformInput" Data..=)
               Prelude.<$> batchTransformInput,
             Prelude.Just
-              ("GroundTruthS3Input" Core..= groundTruthS3Input)
+              ("GroundTruthS3Input" Data..= groundTruthS3Input)
           ]
       )

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,30 +92,30 @@ instance Prelude.Hashable DeleteImage where
 instance Prelude.NFData DeleteImage where
   rnf DeleteImage' {..} = Prelude.rnf imageName
 
-instance Core.ToHeaders DeleteImage where
+instance Data.ToHeaders DeleteImage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DeleteImage" :: Prelude.ByteString),
+              Data.=# ("SageMaker.DeleteImage" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteImage where
+instance Data.ToJSON DeleteImage where
   toJSON DeleteImage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ImageName" Core..= imageName)]
+          [Prelude.Just ("ImageName" Data..= imageName)]
       )
 
-instance Core.ToPath DeleteImage where
+instance Data.ToPath DeleteImage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteImage where
+instance Data.ToQuery DeleteImage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteImageResponse' smart constructor.

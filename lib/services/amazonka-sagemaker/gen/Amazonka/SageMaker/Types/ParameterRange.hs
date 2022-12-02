@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ParameterRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CategoricalParameterRangeSpecification
 import Amazonka.SageMaker.Types.ContinuousParameterRangeSpecification
@@ -85,16 +86,16 @@ parameterRange_integerParameterRangeSpecification = Lens.lens (\ParameterRange' 
 parameterRange_categoricalParameterRangeSpecification :: Lens.Lens' ParameterRange (Prelude.Maybe CategoricalParameterRangeSpecification)
 parameterRange_categoricalParameterRangeSpecification = Lens.lens (\ParameterRange' {categoricalParameterRangeSpecification} -> categoricalParameterRangeSpecification) (\s@ParameterRange' {} a -> s {categoricalParameterRangeSpecification = a} :: ParameterRange)
 
-instance Core.FromJSON ParameterRange where
+instance Data.FromJSON ParameterRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParameterRange"
       ( \x ->
           ParameterRange'
-            Prelude.<$> (x Core..:? "ContinuousParameterRangeSpecification")
-            Prelude.<*> (x Core..:? "IntegerParameterRangeSpecification")
+            Prelude.<$> (x Data..:? "ContinuousParameterRangeSpecification")
+            Prelude.<*> (x Data..:? "IntegerParameterRangeSpecification")
             Prelude.<*> ( x
-                            Core..:? "CategoricalParameterRangeSpecification"
+                            Data..:? "CategoricalParameterRangeSpecification"
                         )
       )
 
@@ -111,15 +112,15 @@ instance Prelude.NFData ParameterRange where
       `Prelude.seq` Prelude.rnf integerParameterRangeSpecification
       `Prelude.seq` Prelude.rnf categoricalParameterRangeSpecification
 
-instance Core.ToJSON ParameterRange where
+instance Data.ToJSON ParameterRange where
   toJSON ParameterRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ContinuousParameterRangeSpecification" Core..=)
+          [ ("ContinuousParameterRangeSpecification" Data..=)
               Prelude.<$> continuousParameterRangeSpecification,
-            ("IntegerParameterRangeSpecification" Core..=)
+            ("IntegerParameterRangeSpecification" Data..=)
               Prelude.<$> integerParameterRangeSpecification,
-            ("CategoricalParameterRangeSpecification" Core..=)
+            ("CategoricalParameterRangeSpecification" Data..=)
               Prelude.<$> categoricalParameterRangeSpecification
           ]
       )

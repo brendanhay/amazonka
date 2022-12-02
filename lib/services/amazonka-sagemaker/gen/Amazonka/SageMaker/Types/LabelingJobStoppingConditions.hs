@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.LabelingJobStoppingConditions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A set of conditions for stopping a labeling job. If any of the
@@ -67,14 +68,14 @@ labelingJobStoppingConditions_maxPercentageOfInputDatasetLabeled = Lens.lens (\L
 labelingJobStoppingConditions_maxHumanLabeledObjectCount :: Lens.Lens' LabelingJobStoppingConditions (Prelude.Maybe Prelude.Natural)
 labelingJobStoppingConditions_maxHumanLabeledObjectCount = Lens.lens (\LabelingJobStoppingConditions' {maxHumanLabeledObjectCount} -> maxHumanLabeledObjectCount) (\s@LabelingJobStoppingConditions' {} a -> s {maxHumanLabeledObjectCount = a} :: LabelingJobStoppingConditions)
 
-instance Core.FromJSON LabelingJobStoppingConditions where
+instance Data.FromJSON LabelingJobStoppingConditions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LabelingJobStoppingConditions"
       ( \x ->
           LabelingJobStoppingConditions'
-            Prelude.<$> (x Core..:? "MaxPercentageOfInputDatasetLabeled")
-            Prelude.<*> (x Core..:? "MaxHumanLabeledObjectCount")
+            Prelude.<$> (x Data..:? "MaxPercentageOfInputDatasetLabeled")
+            Prelude.<*> (x Data..:? "MaxHumanLabeledObjectCount")
       )
 
 instance
@@ -91,13 +92,13 @@ instance Prelude.NFData LabelingJobStoppingConditions where
     Prelude.rnf maxPercentageOfInputDatasetLabeled
       `Prelude.seq` Prelude.rnf maxHumanLabeledObjectCount
 
-instance Core.ToJSON LabelingJobStoppingConditions where
+instance Data.ToJSON LabelingJobStoppingConditions where
   toJSON LabelingJobStoppingConditions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxPercentageOfInputDatasetLabeled" Core..=)
+          [ ("MaxPercentageOfInputDatasetLabeled" Data..=)
               Prelude.<$> maxPercentageOfInputDatasetLabeled,
-            ("MaxHumanLabeledObjectCount" Core..=)
+            ("MaxHumanLabeledObjectCount" Data..=)
               Prelude.<$> maxHumanLabeledObjectCount
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DataSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.FileSystemDataSource
 import Amazonka.SageMaker.Types.S3DataSource
@@ -63,14 +64,14 @@ dataSource_s3DataSource = Lens.lens (\DataSource' {s3DataSource} -> s3DataSource
 dataSource_fileSystemDataSource :: Lens.Lens' DataSource (Prelude.Maybe FileSystemDataSource)
 dataSource_fileSystemDataSource = Lens.lens (\DataSource' {fileSystemDataSource} -> fileSystemDataSource) (\s@DataSource' {} a -> s {fileSystemDataSource = a} :: DataSource)
 
-instance Core.FromJSON DataSource where
+instance Data.FromJSON DataSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSource"
       ( \x ->
           DataSource'
-            Prelude.<$> (x Core..:? "S3DataSource")
-            Prelude.<*> (x Core..:? "FileSystemDataSource")
+            Prelude.<$> (x Data..:? "S3DataSource")
+            Prelude.<*> (x Data..:? "FileSystemDataSource")
       )
 
 instance Prelude.Hashable DataSource where
@@ -83,12 +84,12 @@ instance Prelude.NFData DataSource where
     Prelude.rnf s3DataSource
       `Prelude.seq` Prelude.rnf fileSystemDataSource
 
-instance Core.ToJSON DataSource where
+instance Data.ToJSON DataSource where
   toJSON DataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3DataSource" Core..=) Prelude.<$> s3DataSource,
-            ("FileSystemDataSource" Core..=)
+          [ ("S3DataSource" Data..=) Prelude.<$> s3DataSource,
+            ("FileSystemDataSource" Data..=)
               Prelude.<$> fileSystemDataSource
           ]
       )

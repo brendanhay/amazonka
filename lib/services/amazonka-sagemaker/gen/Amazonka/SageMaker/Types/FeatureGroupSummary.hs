@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.FeatureGroupSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.FeatureGroupStatus
 import Amazonka.SageMaker.Types.OfflineStoreStatus
@@ -41,7 +42,7 @@ data FeatureGroupSummary = FeatureGroupSummary'
     -- | Unique identifier for the @FeatureGroup@.
     featureGroupArn :: Prelude.Text,
     -- | A timestamp indicating the time of creation time of the @FeatureGroup@.
-    creationTime :: Core.POSIX
+    creationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,7 +83,7 @@ newFeatureGroupSummary
         featureGroupStatus = Prelude.Nothing,
         featureGroupName = pFeatureGroupName_,
         featureGroupArn = pFeatureGroupArn_,
-        creationTime = Core._Time Lens.# pCreationTime_
+        creationTime = Data._Time Lens.# pCreationTime_
       }
 
 -- | Notifies you if replicating data into the @OfflineStore@ has failed.
@@ -105,19 +106,19 @@ featureGroupSummary_featureGroupArn = Lens.lens (\FeatureGroupSummary' {featureG
 
 -- | A timestamp indicating the time of creation time of the @FeatureGroup@.
 featureGroupSummary_creationTime :: Lens.Lens' FeatureGroupSummary Prelude.UTCTime
-featureGroupSummary_creationTime = Lens.lens (\FeatureGroupSummary' {creationTime} -> creationTime) (\s@FeatureGroupSummary' {} a -> s {creationTime = a} :: FeatureGroupSummary) Prelude.. Core._Time
+featureGroupSummary_creationTime = Lens.lens (\FeatureGroupSummary' {creationTime} -> creationTime) (\s@FeatureGroupSummary' {} a -> s {creationTime = a} :: FeatureGroupSummary) Prelude.. Data._Time
 
-instance Core.FromJSON FeatureGroupSummary where
+instance Data.FromJSON FeatureGroupSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FeatureGroupSummary"
       ( \x ->
           FeatureGroupSummary'
-            Prelude.<$> (x Core..:? "OfflineStoreStatus")
-            Prelude.<*> (x Core..:? "FeatureGroupStatus")
-            Prelude.<*> (x Core..: "FeatureGroupName")
-            Prelude.<*> (x Core..: "FeatureGroupArn")
-            Prelude.<*> (x Core..: "CreationTime")
+            Prelude.<$> (x Data..:? "OfflineStoreStatus")
+            Prelude.<*> (x Data..:? "FeatureGroupStatus")
+            Prelude.<*> (x Data..: "FeatureGroupName")
+            Prelude.<*> (x Data..: "FeatureGroupArn")
+            Prelude.<*> (x Data..: "CreationTime")
       )
 
 instance Prelude.Hashable FeatureGroupSummary where

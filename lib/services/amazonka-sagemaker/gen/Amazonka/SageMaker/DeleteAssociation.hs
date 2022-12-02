@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,8 +99,8 @@ instance Core.AWSRequest DeleteAssociation where
     Response.receiveJSON
       ( \s h x ->
           DeleteAssociationResponse'
-            Prelude.<$> (x Core..?> "SourceArn")
-            Prelude.<*> (x Core..?> "DestinationArn")
+            Prelude.<$> (x Data..?> "SourceArn")
+            Prelude.<*> (x Data..?> "DestinationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,35 +114,35 @@ instance Prelude.NFData DeleteAssociation where
     Prelude.rnf sourceArn
       `Prelude.seq` Prelude.rnf destinationArn
 
-instance Core.ToHeaders DeleteAssociation where
+instance Data.ToHeaders DeleteAssociation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DeleteAssociation" ::
+              Data.=# ( "SageMaker.DeleteAssociation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAssociation where
+instance Data.ToJSON DeleteAssociation where
   toJSON DeleteAssociation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SourceArn" Core..= sourceArn),
+          [ Prelude.Just ("SourceArn" Data..= sourceArn),
             Prelude.Just
-              ("DestinationArn" Core..= destinationArn)
+              ("DestinationArn" Data..= destinationArn)
           ]
       )
 
-instance Core.ToPath DeleteAssociation where
+instance Data.ToPath DeleteAssociation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAssociation where
+instance Data.ToQuery DeleteAssociation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAssociationResponse' smart constructor.

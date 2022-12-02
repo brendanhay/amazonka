@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TuningJobStepMetaData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata for a tuning step.
@@ -53,13 +54,13 @@ newTuningJobStepMetaData =
 tuningJobStepMetaData_arn :: Lens.Lens' TuningJobStepMetaData (Prelude.Maybe Prelude.Text)
 tuningJobStepMetaData_arn = Lens.lens (\TuningJobStepMetaData' {arn} -> arn) (\s@TuningJobStepMetaData' {} a -> s {arn = a} :: TuningJobStepMetaData)
 
-instance Core.FromJSON TuningJobStepMetaData where
+instance Data.FromJSON TuningJobStepMetaData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TuningJobStepMetaData"
       ( \x ->
           TuningJobStepMetaData'
-            Prelude.<$> (x Core..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
       )
 
 instance Prelude.Hashable TuningJobStepMetaData where

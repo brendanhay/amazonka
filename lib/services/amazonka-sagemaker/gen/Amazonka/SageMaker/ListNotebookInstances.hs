@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -82,16 +83,16 @@ data ListNotebookInstances = ListNotebookInstances'
     defaultCodeRepositoryContains :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only notebook instances that were modified after
     -- the specified time (timestamp).
-    lastModifiedTimeAfter :: Prelude.Maybe Core.POSIX,
+    lastModifiedTimeAfter :: Prelude.Maybe Data.POSIX,
     -- | A string in the notebook instances\' name. This filter returns only
     -- notebook instances whose name contains the specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only notebook instances that were modified before
     -- the specified time (timestamp).
-    lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
+    lastModifiedTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | A filter that returns only notebook instances that were created before
     -- the specified time (timestamp).
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | The field to sort results by. The default is @Name@.
     sortBy :: Prelude.Maybe NotebookInstanceSortKey,
     -- | The maximum number of notebook instances to return.
@@ -105,7 +106,7 @@ data ListNotebookInstances = ListNotebookInstances'
     statusEquals :: Prelude.Maybe NotebookInstanceStatus,
     -- | A filter that returns only notebook instances that were created after
     -- the specified time (timestamp).
-    creationTimeAfter :: Prelude.Maybe Core.POSIX,
+    creationTimeAfter :: Prelude.Maybe Data.POSIX,
     -- | A filter that returns only notebook instances with associated with the
     -- specified git repository.
     additionalCodeRepositoryEquals :: Prelude.Maybe Prelude.Text
@@ -209,7 +210,7 @@ listNotebookInstances_defaultCodeRepositoryContains = Lens.lens (\ListNotebookIn
 -- | A filter that returns only notebook instances that were modified after
 -- the specified time (timestamp).
 listNotebookInstances_lastModifiedTimeAfter :: Lens.Lens' ListNotebookInstances (Prelude.Maybe Prelude.UTCTime)
-listNotebookInstances_lastModifiedTimeAfter = Lens.lens (\ListNotebookInstances' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListNotebookInstances' {} a -> s {lastModifiedTimeAfter = a} :: ListNotebookInstances) Prelude.. Lens.mapping Core._Time
+listNotebookInstances_lastModifiedTimeAfter = Lens.lens (\ListNotebookInstances' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListNotebookInstances' {} a -> s {lastModifiedTimeAfter = a} :: ListNotebookInstances) Prelude.. Lens.mapping Data._Time
 
 -- | A string in the notebook instances\' name. This filter returns only
 -- notebook instances whose name contains the specified string.
@@ -219,12 +220,12 @@ listNotebookInstances_nameContains = Lens.lens (\ListNotebookInstances' {nameCon
 -- | A filter that returns only notebook instances that were modified before
 -- the specified time (timestamp).
 listNotebookInstances_lastModifiedTimeBefore :: Lens.Lens' ListNotebookInstances (Prelude.Maybe Prelude.UTCTime)
-listNotebookInstances_lastModifiedTimeBefore = Lens.lens (\ListNotebookInstances' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListNotebookInstances' {} a -> s {lastModifiedTimeBefore = a} :: ListNotebookInstances) Prelude.. Lens.mapping Core._Time
+listNotebookInstances_lastModifiedTimeBefore = Lens.lens (\ListNotebookInstances' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListNotebookInstances' {} a -> s {lastModifiedTimeBefore = a} :: ListNotebookInstances) Prelude.. Lens.mapping Data._Time
 
 -- | A filter that returns only notebook instances that were created before
 -- the specified time (timestamp).
 listNotebookInstances_creationTimeBefore :: Lens.Lens' ListNotebookInstances (Prelude.Maybe Prelude.UTCTime)
-listNotebookInstances_creationTimeBefore = Lens.lens (\ListNotebookInstances' {creationTimeBefore} -> creationTimeBefore) (\s@ListNotebookInstances' {} a -> s {creationTimeBefore = a} :: ListNotebookInstances) Prelude.. Lens.mapping Core._Time
+listNotebookInstances_creationTimeBefore = Lens.lens (\ListNotebookInstances' {creationTimeBefore} -> creationTimeBefore) (\s@ListNotebookInstances' {} a -> s {creationTimeBefore = a} :: ListNotebookInstances) Prelude.. Lens.mapping Data._Time
 
 -- | The field to sort results by. The default is @Name@.
 listNotebookInstances_sortBy :: Lens.Lens' ListNotebookInstances (Prelude.Maybe NotebookInstanceSortKey)
@@ -248,7 +249,7 @@ listNotebookInstances_statusEquals = Lens.lens (\ListNotebookInstances' {statusE
 -- | A filter that returns only notebook instances that were created after
 -- the specified time (timestamp).
 listNotebookInstances_creationTimeAfter :: Lens.Lens' ListNotebookInstances (Prelude.Maybe Prelude.UTCTime)
-listNotebookInstances_creationTimeAfter = Lens.lens (\ListNotebookInstances' {creationTimeAfter} -> creationTimeAfter) (\s@ListNotebookInstances' {} a -> s {creationTimeAfter = a} :: ListNotebookInstances) Prelude.. Lens.mapping Core._Time
+listNotebookInstances_creationTimeAfter = Lens.lens (\ListNotebookInstances' {creationTimeAfter} -> creationTimeAfter) (\s@ListNotebookInstances' {} a -> s {creationTimeAfter = a} :: ListNotebookInstances) Prelude.. Lens.mapping Data._Time
 
 -- | A filter that returns only notebook instances with associated with the
 -- specified git repository.
@@ -287,8 +288,8 @@ instance Core.AWSRequest ListNotebookInstances where
     Response.receiveJSON
       ( \s h x ->
           ListNotebookInstancesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "NotebookInstances"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "NotebookInstances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -327,54 +328,54 @@ instance Prelude.NFData ListNotebookInstances where
       `Prelude.seq` Prelude.rnf creationTimeAfter
       `Prelude.seq` Prelude.rnf additionalCodeRepositoryEquals
 
-instance Core.ToHeaders ListNotebookInstances where
+instance Data.ToHeaders ListNotebookInstances where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.ListNotebookInstances" ::
+              Data.=# ( "SageMaker.ListNotebookInstances" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListNotebookInstances where
+instance Data.ToJSON ListNotebookInstances where
   toJSON ListNotebookInstances' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("DefaultCodeRepositoryContains" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("DefaultCodeRepositoryContains" Data..=)
               Prelude.<$> defaultCodeRepositoryContains,
-            ("LastModifiedTimeAfter" Core..=)
+            ("LastModifiedTimeAfter" Data..=)
               Prelude.<$> lastModifiedTimeAfter,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("LastModifiedTimeBefore" Core..=)
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("LastModifiedTimeBefore" Data..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("CreationTimeBefore" Core..=)
+            ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             ( "NotebookInstanceLifecycleConfigNameContains"
-                Core..=
+                Data..=
             )
               Prelude.<$> notebookInstanceLifecycleConfigNameContains,
-            ("StatusEquals" Core..=) Prelude.<$> statusEquals,
-            ("CreationTimeAfter" Core..=)
+            ("StatusEquals" Data..=) Prelude.<$> statusEquals,
+            ("CreationTimeAfter" Data..=)
               Prelude.<$> creationTimeAfter,
-            ("AdditionalCodeRepositoryEquals" Core..=)
+            ("AdditionalCodeRepositoryEquals" Data..=)
               Prelude.<$> additionalCodeRepositoryEquals
           ]
       )
 
-instance Core.ToPath ListNotebookInstances where
+instance Data.ToPath ListNotebookInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListNotebookInstances where
+instance Data.ToQuery ListNotebookInstances where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListNotebookInstancesResponse' smart constructor.

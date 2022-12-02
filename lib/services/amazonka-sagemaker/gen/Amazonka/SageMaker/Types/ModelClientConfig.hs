@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelClientConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configures the timeout and maximum number of retries for processing a
@@ -69,14 +70,14 @@ modelClientConfig_invocationsMaxRetries = Lens.lens (\ModelClientConfig' {invoca
 modelClientConfig_invocationsTimeoutInSeconds :: Lens.Lens' ModelClientConfig (Prelude.Maybe Prelude.Natural)
 modelClientConfig_invocationsTimeoutInSeconds = Lens.lens (\ModelClientConfig' {invocationsTimeoutInSeconds} -> invocationsTimeoutInSeconds) (\s@ModelClientConfig' {} a -> s {invocationsTimeoutInSeconds = a} :: ModelClientConfig)
 
-instance Core.FromJSON ModelClientConfig where
+instance Data.FromJSON ModelClientConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelClientConfig"
       ( \x ->
           ModelClientConfig'
-            Prelude.<$> (x Core..:? "InvocationsMaxRetries")
-            Prelude.<*> (x Core..:? "InvocationsTimeoutInSeconds")
+            Prelude.<$> (x Data..:? "InvocationsMaxRetries")
+            Prelude.<*> (x Data..:? "InvocationsTimeoutInSeconds")
       )
 
 instance Prelude.Hashable ModelClientConfig where
@@ -89,13 +90,13 @@ instance Prelude.NFData ModelClientConfig where
     Prelude.rnf invocationsMaxRetries
       `Prelude.seq` Prelude.rnf invocationsTimeoutInSeconds
 
-instance Core.ToJSON ModelClientConfig where
+instance Data.ToJSON ModelClientConfig where
   toJSON ModelClientConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InvocationsMaxRetries" Core..=)
+          [ ("InvocationsMaxRetries" Data..=)
               Prelude.<$> invocationsMaxRetries,
-            ("InvocationsTimeoutInSeconds" Core..=)
+            ("InvocationsTimeoutInSeconds" Data..=)
               Prelude.<$> invocationsTimeoutInSeconds
           ]
       )

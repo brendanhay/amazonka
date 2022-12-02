@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,15 +94,15 @@ instance Core.AWSRequest GetDeviceFleetReport where
     Response.receiveJSON
       ( \s h x ->
           GetDeviceFleetReportResponse'
-            Prelude.<$> (x Core..?> "ModelStats" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "AgentVersions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ReportGenerated")
-            Prelude.<*> (x Core..?> "DeviceStats")
-            Prelude.<*> (x Core..?> "OutputConfig")
+            Prelude.<$> (x Data..?> "ModelStats" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "AgentVersions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ReportGenerated")
+            Prelude.<*> (x Data..?> "DeviceStats")
+            Prelude.<*> (x Data..?> "OutputConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "DeviceFleetArn")
-            Prelude.<*> (x Core..:> "DeviceFleetName")
+            Prelude.<*> (x Data..:> "DeviceFleetArn")
+            Prelude.<*> (x Data..:> "DeviceFleetName")
       )
 
 instance Prelude.Hashable GetDeviceFleetReport where
@@ -112,34 +113,34 @@ instance Prelude.NFData GetDeviceFleetReport where
   rnf GetDeviceFleetReport' {..} =
     Prelude.rnf deviceFleetName
 
-instance Core.ToHeaders GetDeviceFleetReport where
+instance Data.ToHeaders GetDeviceFleetReport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.GetDeviceFleetReport" ::
+              Data.=# ( "SageMaker.GetDeviceFleetReport" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDeviceFleetReport where
+instance Data.ToJSON GetDeviceFleetReport where
   toJSON GetDeviceFleetReport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("DeviceFleetName" Core..= deviceFleetName)
+              ("DeviceFleetName" Data..= deviceFleetName)
           ]
       )
 
-instance Core.ToPath GetDeviceFleetReport where
+instance Data.ToPath GetDeviceFleetReport where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDeviceFleetReport where
+instance Data.ToQuery GetDeviceFleetReport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDeviceFleetReportResponse' smart constructor.
@@ -151,7 +152,7 @@ data GetDeviceFleetReportResponse = GetDeviceFleetReportResponse'
     -- | The versions of Edge Manager agent deployed on the fleet.
     agentVersions :: Prelude.Maybe [AgentVersion],
     -- | Timestamp of when the report was generated.
-    reportGenerated :: Prelude.Maybe Core.POSIX,
+    reportGenerated :: Prelude.Maybe Data.POSIX,
     -- | Status of devices.
     deviceStats :: Prelude.Maybe DeviceStats,
     -- | The output configuration for storing sample data collected by the fleet.
@@ -229,7 +230,7 @@ getDeviceFleetReportResponse_agentVersions = Lens.lens (\GetDeviceFleetReportRes
 
 -- | Timestamp of when the report was generated.
 getDeviceFleetReportResponse_reportGenerated :: Lens.Lens' GetDeviceFleetReportResponse (Prelude.Maybe Prelude.UTCTime)
-getDeviceFleetReportResponse_reportGenerated = Lens.lens (\GetDeviceFleetReportResponse' {reportGenerated} -> reportGenerated) (\s@GetDeviceFleetReportResponse' {} a -> s {reportGenerated = a} :: GetDeviceFleetReportResponse) Prelude.. Lens.mapping Core._Time
+getDeviceFleetReportResponse_reportGenerated = Lens.lens (\GetDeviceFleetReportResponse' {reportGenerated} -> reportGenerated) (\s@GetDeviceFleetReportResponse' {} a -> s {reportGenerated = a} :: GetDeviceFleetReportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Status of devices.
 getDeviceFleetReportResponse_deviceStats :: Lens.Lens' GetDeviceFleetReportResponse (Prelude.Maybe DeviceStats)

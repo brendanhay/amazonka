@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.OutputParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An output parameter of a pipeline step.
@@ -62,13 +63,13 @@ outputParameter_name = Lens.lens (\OutputParameter' {name} -> name) (\s@OutputPa
 outputParameter_value :: Lens.Lens' OutputParameter Prelude.Text
 outputParameter_value = Lens.lens (\OutputParameter' {value} -> value) (\s@OutputParameter' {} a -> s {value = a} :: OutputParameter)
 
-instance Core.FromJSON OutputParameter where
+instance Data.FromJSON OutputParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputParameter"
       ( \x ->
           OutputParameter'
-            Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable OutputParameter where
@@ -80,11 +81,11 @@ instance Prelude.NFData OutputParameter where
   rnf OutputParameter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON OutputParameter where
+instance Data.ToJSON OutputParameter where
   toJSON OutputParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

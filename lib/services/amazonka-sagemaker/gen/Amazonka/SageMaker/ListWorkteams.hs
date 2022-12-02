@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -154,9 +155,9 @@ instance Core.AWSRequest ListWorkteams where
     Response.receiveJSON
       ( \s h x ->
           ListWorkteamsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Workteams" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Workteams" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListWorkteams where
@@ -175,35 +176,35 @@ instance Prelude.NFData ListWorkteams where
       `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListWorkteams where
+instance Data.ToHeaders ListWorkteams where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.ListWorkteams" :: Prelude.ByteString),
+              Data.=# ("SageMaker.ListWorkteams" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListWorkteams where
+instance Data.ToJSON ListWorkteams where
   toJSON ListWorkteams' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListWorkteams where
+instance Data.ToPath ListWorkteams where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListWorkteams where
+instance Data.ToQuery ListWorkteams where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListWorkteamsResponse' smart constructor.

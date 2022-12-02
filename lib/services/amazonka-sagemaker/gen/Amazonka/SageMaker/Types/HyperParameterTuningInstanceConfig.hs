@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.HyperParameterTuningInstanceConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.TrainingInstanceType
 
@@ -113,17 +114,17 @@ hyperParameterTuningInstanceConfig_volumeSizeInGB :: Lens.Lens' HyperParameterTu
 hyperParameterTuningInstanceConfig_volumeSizeInGB = Lens.lens (\HyperParameterTuningInstanceConfig' {volumeSizeInGB} -> volumeSizeInGB) (\s@HyperParameterTuningInstanceConfig' {} a -> s {volumeSizeInGB = a} :: HyperParameterTuningInstanceConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     HyperParameterTuningInstanceConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HyperParameterTuningInstanceConfig"
       ( \x ->
           HyperParameterTuningInstanceConfig'
-            Prelude.<$> (x Core..: "InstanceType")
-            Prelude.<*> (x Core..: "InstanceCount")
-            Prelude.<*> (x Core..: "VolumeSizeInGB")
+            Prelude.<$> (x Data..: "InstanceType")
+            Prelude.<*> (x Data..: "InstanceCount")
+            Prelude.<*> (x Data..: "VolumeSizeInGB")
       )
 
 instance
@@ -147,15 +148,15 @@ instance
       `Prelude.seq` Prelude.rnf volumeSizeInGB
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     HyperParameterTuningInstanceConfig
   where
   toJSON HyperParameterTuningInstanceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("InstanceType" Core..= instanceType),
-            Prelude.Just ("InstanceCount" Core..= instanceCount),
+          [ Prelude.Just ("InstanceType" Data..= instanceType),
+            Prelude.Just ("InstanceCount" Data..= instanceCount),
             Prelude.Just
-              ("VolumeSizeInGB" Core..= volumeSizeInGB)
+              ("VolumeSizeInGB" Data..= volumeSizeInGB)
           ]
       )

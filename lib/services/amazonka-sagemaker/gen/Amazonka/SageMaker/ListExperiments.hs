@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -66,14 +67,14 @@ data ListExperiments = ListExperiments'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only experiments created before the specified
     -- time.
-    createdBefore :: Prelude.Maybe Core.POSIX,
+    createdBefore :: Prelude.Maybe Data.POSIX,
     -- | The property used to sort results. The default value is @CreationTime@.
     sortBy :: Prelude.Maybe SortExperimentsBy,
     -- | The maximum number of experiments to return in the response. The default
     -- value is 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns only experiments created after the specified time.
-    createdAfter :: Prelude.Maybe Core.POSIX
+    createdAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -125,7 +126,7 @@ listExperiments_nextToken = Lens.lens (\ListExperiments' {nextToken} -> nextToke
 -- | A filter that returns only experiments created before the specified
 -- time.
 listExperiments_createdBefore :: Lens.Lens' ListExperiments (Prelude.Maybe Prelude.UTCTime)
-listExperiments_createdBefore = Lens.lens (\ListExperiments' {createdBefore} -> createdBefore) (\s@ListExperiments' {} a -> s {createdBefore = a} :: ListExperiments) Prelude.. Lens.mapping Core._Time
+listExperiments_createdBefore = Lens.lens (\ListExperiments' {createdBefore} -> createdBefore) (\s@ListExperiments' {} a -> s {createdBefore = a} :: ListExperiments) Prelude.. Lens.mapping Data._Time
 
 -- | The property used to sort results. The default value is @CreationTime@.
 listExperiments_sortBy :: Lens.Lens' ListExperiments (Prelude.Maybe SortExperimentsBy)
@@ -138,7 +139,7 @@ listExperiments_maxResults = Lens.lens (\ListExperiments' {maxResults} -> maxRes
 
 -- | A filter that returns only experiments created after the specified time.
 listExperiments_createdAfter :: Lens.Lens' ListExperiments (Prelude.Maybe Prelude.UTCTime)
-listExperiments_createdAfter = Lens.lens (\ListExperiments' {createdAfter} -> createdAfter) (\s@ListExperiments' {} a -> s {createdAfter = a} :: ListExperiments) Prelude.. Lens.mapping Core._Time
+listExperiments_createdAfter = Lens.lens (\ListExperiments' {createdAfter} -> createdAfter) (\s@ListExperiments' {} a -> s {createdAfter = a} :: ListExperiments) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListExperiments where
   page rq rs
@@ -172,8 +173,8 @@ instance Core.AWSRequest ListExperiments where
     Response.receiveJSON
       ( \s h x ->
           ListExperimentsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ExperimentSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ExperimentSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -197,36 +198,36 @@ instance Prelude.NFData ListExperiments where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf createdAfter
 
-instance Core.ToHeaders ListExperiments where
+instance Data.ToHeaders ListExperiments where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.ListExperiments" :: Prelude.ByteString),
+              Data.=# ("SageMaker.ListExperiments" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListExperiments where
+instance Data.ToJSON ListExperiments where
   toJSON ListExperiments' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CreatedAfter" Core..=) Prelude.<$> createdAfter
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("CreatedBefore" Data..=) Prelude.<$> createdBefore,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CreatedAfter" Data..=) Prelude.<$> createdAfter
           ]
       )
 
-instance Core.ToPath ListExperiments where
+instance Data.ToPath ListExperiments where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListExperiments where
+instance Data.ToQuery ListExperiments where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListExperimentsResponse' smart constructor.

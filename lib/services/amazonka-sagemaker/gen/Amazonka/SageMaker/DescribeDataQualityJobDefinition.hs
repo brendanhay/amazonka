@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,18 +101,18 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeDataQualityJobDefinitionResponse'
-            Prelude.<$> (x Core..?> "NetworkConfig")
-            Prelude.<*> (x Core..?> "DataQualityBaselineConfig")
-            Prelude.<*> (x Core..?> "StoppingCondition")
+            Prelude.<$> (x Data..?> "NetworkConfig")
+            Prelude.<*> (x Data..?> "DataQualityBaselineConfig")
+            Prelude.<*> (x Data..?> "StoppingCondition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "JobDefinitionArn")
-            Prelude.<*> (x Core..:> "JobDefinitionName")
-            Prelude.<*> (x Core..:> "CreationTime")
-            Prelude.<*> (x Core..:> "DataQualityAppSpecification")
-            Prelude.<*> (x Core..:> "DataQualityJobInput")
-            Prelude.<*> (x Core..:> "DataQualityJobOutputConfig")
-            Prelude.<*> (x Core..:> "JobResources")
-            Prelude.<*> (x Core..:> "RoleArn")
+            Prelude.<*> (x Data..:> "JobDefinitionArn")
+            Prelude.<*> (x Data..:> "JobDefinitionName")
+            Prelude.<*> (x Data..:> "CreationTime")
+            Prelude.<*> (x Data..:> "DataQualityAppSpecification")
+            Prelude.<*> (x Data..:> "DataQualityJobInput")
+            Prelude.<*> (x Data..:> "DataQualityJobOutputConfig")
+            Prelude.<*> (x Data..:> "JobResources")
+            Prelude.<*> (x Data..:> "RoleArn")
       )
 
 instance
@@ -131,37 +132,37 @@ instance
     Prelude.rnf jobDefinitionName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeDataQualityJobDefinition
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeDataQualityJobDefinition" ::
+              Data.=# ( "SageMaker.DescribeDataQualityJobDefinition" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDataQualityJobDefinition where
+instance Data.ToJSON DescribeDataQualityJobDefinition where
   toJSON DescribeDataQualityJobDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("JobDefinitionName" Core..= jobDefinitionName)
+              ("JobDefinitionName" Data..= jobDefinitionName)
           ]
       )
 
-instance Core.ToPath DescribeDataQualityJobDefinition where
+instance Data.ToPath DescribeDataQualityJobDefinition where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeDataQualityJobDefinition
   where
   toQuery = Prelude.const Prelude.mempty
@@ -182,7 +183,7 @@ data DescribeDataQualityJobDefinitionResponse = DescribeDataQualityJobDefinition
     -- | The name of the data quality monitoring job definition.
     jobDefinitionName :: Prelude.Text,
     -- | The time that the data quality monitoring job definition was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | Information about the container that runs the data quality monitoring
     -- job.
     dataQualityAppSpecification :: DataQualityAppSpecification,
@@ -276,7 +277,7 @@ newDescribeDataQualityJobDefinitionResponse
         jobDefinitionName =
           pJobDefinitionName_,
         creationTime =
-          Core._Time
+          Data._Time
             Lens.# pCreationTime_,
         dataQualityAppSpecification =
           pDataQualityAppSpecification_,
@@ -316,7 +317,7 @@ describeDataQualityJobDefinitionResponse_jobDefinitionName = Lens.lens (\Describ
 
 -- | The time that the data quality monitoring job definition was created.
 describeDataQualityJobDefinitionResponse_creationTime :: Lens.Lens' DescribeDataQualityJobDefinitionResponse Prelude.UTCTime
-describeDataQualityJobDefinitionResponse_creationTime = Lens.lens (\DescribeDataQualityJobDefinitionResponse' {creationTime} -> creationTime) (\s@DescribeDataQualityJobDefinitionResponse' {} a -> s {creationTime = a} :: DescribeDataQualityJobDefinitionResponse) Prelude.. Core._Time
+describeDataQualityJobDefinitionResponse_creationTime = Lens.lens (\DescribeDataQualityJobDefinitionResponse' {creationTime} -> creationTime) (\s@DescribeDataQualityJobDefinitionResponse' {} a -> s {creationTime = a} :: DescribeDataQualityJobDefinitionResponse) Prelude.. Data._Time
 
 -- | Information about the container that runs the data quality monitoring
 -- job.

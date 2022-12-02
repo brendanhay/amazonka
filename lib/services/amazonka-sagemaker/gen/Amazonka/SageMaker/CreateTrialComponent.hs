@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,12 +91,12 @@ data CreateTrialComponent = CreateTrialComponent'
     -- metrics, snapshots, logs, and images.
     outputArtifacts :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact),
     -- | When the component ended.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The input artifacts for the component. Examples of input artifacts are
     -- datasets, algorithms, hyperparameters, source code, and instance types.
     inputArtifacts :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact),
     -- | When the component started.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The hyperparameters for the component.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue),
     -- | The name of the component. The name must be unique in your Amazon Web
@@ -193,7 +194,7 @@ createTrialComponent_outputArtifacts = Lens.lens (\CreateTrialComponent' {output
 
 -- | When the component ended.
 createTrialComponent_endTime :: Lens.Lens' CreateTrialComponent (Prelude.Maybe Prelude.UTCTime)
-createTrialComponent_endTime = Lens.lens (\CreateTrialComponent' {endTime} -> endTime) (\s@CreateTrialComponent' {} a -> s {endTime = a} :: CreateTrialComponent) Prelude.. Lens.mapping Core._Time
+createTrialComponent_endTime = Lens.lens (\CreateTrialComponent' {endTime} -> endTime) (\s@CreateTrialComponent' {} a -> s {endTime = a} :: CreateTrialComponent) Prelude.. Lens.mapping Data._Time
 
 -- | The input artifacts for the component. Examples of input artifacts are
 -- datasets, algorithms, hyperparameters, source code, and instance types.
@@ -202,7 +203,7 @@ createTrialComponent_inputArtifacts = Lens.lens (\CreateTrialComponent' {inputAr
 
 -- | When the component started.
 createTrialComponent_startTime :: Lens.Lens' CreateTrialComponent (Prelude.Maybe Prelude.UTCTime)
-createTrialComponent_startTime = Lens.lens (\CreateTrialComponent' {startTime} -> startTime) (\s@CreateTrialComponent' {} a -> s {startTime = a} :: CreateTrialComponent) Prelude.. Lens.mapping Core._Time
+createTrialComponent_startTime = Lens.lens (\CreateTrialComponent' {startTime} -> startTime) (\s@CreateTrialComponent' {} a -> s {startTime = a} :: CreateTrialComponent) Prelude.. Lens.mapping Data._Time
 
 -- | The hyperparameters for the component.
 createTrialComponent_parameters :: Lens.Lens' CreateTrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue))
@@ -223,7 +224,7 @@ instance Core.AWSRequest CreateTrialComponent where
     Response.receiveJSON
       ( \s h x ->
           CreateTrialComponentResponse'
-            Prelude.<$> (x Core..?> "TrialComponentArn")
+            Prelude.<$> (x Data..?> "TrialComponentArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -253,46 +254,46 @@ instance Prelude.NFData CreateTrialComponent where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf trialComponentName
 
-instance Core.ToHeaders CreateTrialComponent where
+instance Data.ToHeaders CreateTrialComponent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.CreateTrialComponent" ::
+              Data.=# ( "SageMaker.CreateTrialComponent" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTrialComponent where
+instance Data.ToJSON CreateTrialComponent where
   toJSON CreateTrialComponent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("MetadataProperties" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("MetadataProperties" Data..=)
               Prelude.<$> metadataProperties,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("Status" Core..=) Prelude.<$> status,
-            ("OutputArtifacts" Core..=)
+            ("DisplayName" Data..=) Prelude.<$> displayName,
+            ("Status" Data..=) Prelude.<$> status,
+            ("OutputArtifacts" Data..=)
               Prelude.<$> outputArtifacts,
-            ("EndTime" Core..=) Prelude.<$> endTime,
-            ("InputArtifacts" Core..=)
+            ("EndTime" Data..=) Prelude.<$> endTime,
+            ("InputArtifacts" Data..=)
               Prelude.<$> inputArtifacts,
-            ("StartTime" Core..=) Prelude.<$> startTime,
-            ("Parameters" Core..=) Prelude.<$> parameters,
+            ("StartTime" Data..=) Prelude.<$> startTime,
+            ("Parameters" Data..=) Prelude.<$> parameters,
             Prelude.Just
-              ("TrialComponentName" Core..= trialComponentName)
+              ("TrialComponentName" Data..= trialComponentName)
           ]
       )
 
-instance Core.ToPath CreateTrialComponent where
+instance Data.ToPath CreateTrialComponent where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTrialComponent where
+instance Data.ToQuery CreateTrialComponent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTrialComponentResponse' smart constructor.

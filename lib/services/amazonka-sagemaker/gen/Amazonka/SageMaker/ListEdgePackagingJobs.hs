@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -67,15 +68,15 @@ data ListEdgePackagingJobs = ListEdgePackagingJobs'
     -- need tokening.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Select jobs where the job was updated after specified time.
-    lastModifiedTimeAfter :: Prelude.Maybe Core.POSIX,
+    lastModifiedTimeAfter :: Prelude.Maybe Data.POSIX,
     -- | Filter for jobs containing this name in their packaging job name.
     nameContains :: Prelude.Maybe Prelude.Text,
     -- | Filter for jobs where the model name contains this string.
     modelNameContains :: Prelude.Maybe Prelude.Text,
     -- | Select jobs where the job was updated before specified time.
-    lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
+    lastModifiedTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | Select jobs where the job was created before specified time.
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | Use to specify what column to sort by.
     sortBy :: Prelude.Maybe ListEdgePackagingJobsSortBy,
     -- | Maximum number of results to select.
@@ -83,7 +84,7 @@ data ListEdgePackagingJobs = ListEdgePackagingJobs'
     -- | The job status to filter for.
     statusEquals :: Prelude.Maybe EdgePackagingJobStatus,
     -- | Select jobs where the job was created after specified time.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX
+    creationTimeAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -145,7 +146,7 @@ listEdgePackagingJobs_nextToken = Lens.lens (\ListEdgePackagingJobs' {nextToken}
 
 -- | Select jobs where the job was updated after specified time.
 listEdgePackagingJobs_lastModifiedTimeAfter :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe Prelude.UTCTime)
-listEdgePackagingJobs_lastModifiedTimeAfter = Lens.lens (\ListEdgePackagingJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListEdgePackagingJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListEdgePackagingJobs) Prelude.. Lens.mapping Core._Time
+listEdgePackagingJobs_lastModifiedTimeAfter = Lens.lens (\ListEdgePackagingJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListEdgePackagingJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListEdgePackagingJobs) Prelude.. Lens.mapping Data._Time
 
 -- | Filter for jobs containing this name in their packaging job name.
 listEdgePackagingJobs_nameContains :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe Prelude.Text)
@@ -157,11 +158,11 @@ listEdgePackagingJobs_modelNameContains = Lens.lens (\ListEdgePackagingJobs' {mo
 
 -- | Select jobs where the job was updated before specified time.
 listEdgePackagingJobs_lastModifiedTimeBefore :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe Prelude.UTCTime)
-listEdgePackagingJobs_lastModifiedTimeBefore = Lens.lens (\ListEdgePackagingJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListEdgePackagingJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListEdgePackagingJobs) Prelude.. Lens.mapping Core._Time
+listEdgePackagingJobs_lastModifiedTimeBefore = Lens.lens (\ListEdgePackagingJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListEdgePackagingJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListEdgePackagingJobs) Prelude.. Lens.mapping Data._Time
 
 -- | Select jobs where the job was created before specified time.
 listEdgePackagingJobs_creationTimeBefore :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe Prelude.UTCTime)
-listEdgePackagingJobs_creationTimeBefore = Lens.lens (\ListEdgePackagingJobs' {creationTimeBefore} -> creationTimeBefore) (\s@ListEdgePackagingJobs' {} a -> s {creationTimeBefore = a} :: ListEdgePackagingJobs) Prelude.. Lens.mapping Core._Time
+listEdgePackagingJobs_creationTimeBefore = Lens.lens (\ListEdgePackagingJobs' {creationTimeBefore} -> creationTimeBefore) (\s@ListEdgePackagingJobs' {} a -> s {creationTimeBefore = a} :: ListEdgePackagingJobs) Prelude.. Lens.mapping Data._Time
 
 -- | Use to specify what column to sort by.
 listEdgePackagingJobs_sortBy :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe ListEdgePackagingJobsSortBy)
@@ -177,7 +178,7 @@ listEdgePackagingJobs_statusEquals = Lens.lens (\ListEdgePackagingJobs' {statusE
 
 -- | Select jobs where the job was created after specified time.
 listEdgePackagingJobs_creationTimeAfter :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe Prelude.UTCTime)
-listEdgePackagingJobs_creationTimeAfter = Lens.lens (\ListEdgePackagingJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListEdgePackagingJobs' {} a -> s {creationTimeAfter = a} :: ListEdgePackagingJobs) Prelude.. Lens.mapping Core._Time
+listEdgePackagingJobs_creationTimeAfter = Lens.lens (\ListEdgePackagingJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListEdgePackagingJobs' {} a -> s {creationTimeAfter = a} :: ListEdgePackagingJobs) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListEdgePackagingJobs where
   page rq rs
@@ -210,9 +211,9 @@ instance Core.AWSRequest ListEdgePackagingJobs where
     Response.receiveJSON
       ( \s h x ->
           ListEdgePackagingJobsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "EdgePackagingJobSummaries"
+            Prelude.<*> ( x Data..?> "EdgePackagingJobSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -245,48 +246,48 @@ instance Prelude.NFData ListEdgePackagingJobs where
       `Prelude.seq` Prelude.rnf statusEquals
       `Prelude.seq` Prelude.rnf creationTimeAfter
 
-instance Core.ToHeaders ListEdgePackagingJobs where
+instance Data.ToHeaders ListEdgePackagingJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.ListEdgePackagingJobs" ::
+              Data.=# ( "SageMaker.ListEdgePackagingJobs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListEdgePackagingJobs where
+instance Data.ToJSON ListEdgePackagingJobs where
   toJSON ListEdgePackagingJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("LastModifiedTimeAfter" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("LastModifiedTimeAfter" Data..=)
               Prelude.<$> lastModifiedTimeAfter,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("ModelNameContains" Core..=)
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("ModelNameContains" Data..=)
               Prelude.<$> modelNameContains,
-            ("LastModifiedTimeBefore" Core..=)
+            ("LastModifiedTimeBefore" Data..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("CreationTimeBefore" Core..=)
+            ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("StatusEquals" Core..=) Prelude.<$> statusEquals,
-            ("CreationTimeAfter" Core..=)
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("StatusEquals" Data..=) Prelude.<$> statusEquals,
+            ("CreationTimeAfter" Data..=)
               Prelude.<$> creationTimeAfter
           ]
       )
 
-instance Core.ToPath ListEdgePackagingJobs where
+instance Data.ToPath ListEdgePackagingJobs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListEdgePackagingJobs where
+instance Data.ToQuery ListEdgePackagingJobs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListEdgePackagingJobsResponse' smart constructor.

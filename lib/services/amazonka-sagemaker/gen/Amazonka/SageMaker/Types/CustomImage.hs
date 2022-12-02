@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.CustomImage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A custom SageMaker image. For more information, see
@@ -75,15 +76,15 @@ customImage_imageName = Lens.lens (\CustomImage' {imageName} -> imageName) (\s@C
 customImage_appImageConfigName :: Lens.Lens' CustomImage Prelude.Text
 customImage_appImageConfigName = Lens.lens (\CustomImage' {appImageConfigName} -> appImageConfigName) (\s@CustomImage' {} a -> s {appImageConfigName = a} :: CustomImage)
 
-instance Core.FromJSON CustomImage where
+instance Data.FromJSON CustomImage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomImage"
       ( \x ->
           CustomImage'
-            Prelude.<$> (x Core..:? "ImageVersionNumber")
-            Prelude.<*> (x Core..: "ImageName")
-            Prelude.<*> (x Core..: "AppImageConfigName")
+            Prelude.<$> (x Data..:? "ImageVersionNumber")
+            Prelude.<*> (x Data..: "ImageName")
+            Prelude.<*> (x Data..: "AppImageConfigName")
       )
 
 instance Prelude.Hashable CustomImage where
@@ -98,14 +99,14 @@ instance Prelude.NFData CustomImage where
       `Prelude.seq` Prelude.rnf imageName
       `Prelude.seq` Prelude.rnf appImageConfigName
 
-instance Core.ToJSON CustomImage where
+instance Data.ToJSON CustomImage where
   toJSON CustomImage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ImageVersionNumber" Core..=)
+          [ ("ImageVersionNumber" Data..=)
               Prelude.<$> imageVersionNumber,
-            Prelude.Just ("ImageName" Core..= imageName),
+            Prelude.Just ("ImageName" Data..= imageName),
             Prelude.Just
-              ("AppImageConfigName" Core..= appImageConfigName)
+              ("AppImageConfigName" Data..= appImageConfigName)
           ]
       )

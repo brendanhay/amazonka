@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DomainSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ExecutionRoleIdentityConfig
 import Amazonka.SageMaker.Types.RStudioServerProDomainSettings
@@ -85,17 +86,17 @@ domainSettings_executionRoleIdentityConfig = Lens.lens (\DomainSettings' {execut
 domainSettings_rStudioServerProDomainSettings :: Lens.Lens' DomainSettings (Prelude.Maybe RStudioServerProDomainSettings)
 domainSettings_rStudioServerProDomainSettings = Lens.lens (\DomainSettings' {rStudioServerProDomainSettings} -> rStudioServerProDomainSettings) (\s@DomainSettings' {} a -> s {rStudioServerProDomainSettings = a} :: DomainSettings)
 
-instance Core.FromJSON DomainSettings where
+instance Data.FromJSON DomainSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainSettings"
       ( \x ->
           DomainSettings'
-            Prelude.<$> ( x Core..:? "SecurityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "SecurityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ExecutionRoleIdentityConfig")
-            Prelude.<*> (x Core..:? "RStudioServerProDomainSettings")
+            Prelude.<*> (x Data..:? "ExecutionRoleIdentityConfig")
+            Prelude.<*> (x Data..:? "RStudioServerProDomainSettings")
       )
 
 instance Prelude.Hashable DomainSettings where
@@ -110,15 +111,15 @@ instance Prelude.NFData DomainSettings where
       `Prelude.seq` Prelude.rnf executionRoleIdentityConfig
       `Prelude.seq` Prelude.rnf rStudioServerProDomainSettings
 
-instance Core.ToJSON DomainSettings where
+instance Data.ToJSON DomainSettings where
   toJSON DomainSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SecurityGroupIds" Core..=)
+          [ ("SecurityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("ExecutionRoleIdentityConfig" Core..=)
+            ("ExecutionRoleIdentityConfig" Data..=)
               Prelude.<$> executionRoleIdentityConfig,
-            ("RStudioServerProDomainSettings" Core..=)
+            ("RStudioServerProDomainSettings" Data..=)
               Prelude.<$> rStudioServerProDomainSettings
           ]
       )

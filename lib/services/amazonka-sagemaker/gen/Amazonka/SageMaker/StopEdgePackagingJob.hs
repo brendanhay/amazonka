@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,36 +90,36 @@ instance Prelude.NFData StopEdgePackagingJob where
   rnf StopEdgePackagingJob' {..} =
     Prelude.rnf edgePackagingJobName
 
-instance Core.ToHeaders StopEdgePackagingJob where
+instance Data.ToHeaders StopEdgePackagingJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.StopEdgePackagingJob" ::
+              Data.=# ( "SageMaker.StopEdgePackagingJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopEdgePackagingJob where
+instance Data.ToJSON StopEdgePackagingJob where
   toJSON StopEdgePackagingJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "EdgePackagingJobName"
-                  Core..= edgePackagingJobName
+                  Data..= edgePackagingJobName
               )
           ]
       )
 
-instance Core.ToPath StopEdgePackagingJob where
+instance Data.ToPath StopEdgePackagingJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopEdgePackagingJob where
+instance Data.ToQuery StopEdgePackagingJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopEdgePackagingJobResponse' smart constructor.

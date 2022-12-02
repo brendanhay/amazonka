@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.JupyterServerAppSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ResourceSpec
 
@@ -84,16 +85,16 @@ jupyterServerAppSettings_lifecycleConfigArns = Lens.lens (\JupyterServerAppSetti
 jupyterServerAppSettings_defaultResourceSpec :: Lens.Lens' JupyterServerAppSettings (Prelude.Maybe ResourceSpec)
 jupyterServerAppSettings_defaultResourceSpec = Lens.lens (\JupyterServerAppSettings' {defaultResourceSpec} -> defaultResourceSpec) (\s@JupyterServerAppSettings' {} a -> s {defaultResourceSpec = a} :: JupyterServerAppSettings)
 
-instance Core.FromJSON JupyterServerAppSettings where
+instance Data.FromJSON JupyterServerAppSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JupyterServerAppSettings"
       ( \x ->
           JupyterServerAppSettings'
-            Prelude.<$> ( x Core..:? "LifecycleConfigArns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "LifecycleConfigArns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DefaultResourceSpec")
+            Prelude.<*> (x Data..:? "DefaultResourceSpec")
       )
 
 instance Prelude.Hashable JupyterServerAppSettings where
@@ -106,13 +107,13 @@ instance Prelude.NFData JupyterServerAppSettings where
     Prelude.rnf lifecycleConfigArns
       `Prelude.seq` Prelude.rnf defaultResourceSpec
 
-instance Core.ToJSON JupyterServerAppSettings where
+instance Data.ToJSON JupyterServerAppSettings where
   toJSON JupyterServerAppSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LifecycleConfigArns" Core..=)
+          [ ("LifecycleConfigArns" Data..=)
               Prelude.<$> lifecycleConfigArns,
-            ("DefaultResourceSpec" Core..=)
+            ("DefaultResourceSpec" Data..=)
               Prelude.<$> defaultResourceSpec
           ]
       )

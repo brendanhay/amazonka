@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ResolvedAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AutoMLJobCompletionCriteria
 import Amazonka.SageMaker.Types.AutoMLJobObjective
@@ -72,15 +73,15 @@ resolvedAttributes_autoMLJobObjective = Lens.lens (\ResolvedAttributes' {autoMLJ
 resolvedAttributes_problemType :: Lens.Lens' ResolvedAttributes (Prelude.Maybe ProblemType)
 resolvedAttributes_problemType = Lens.lens (\ResolvedAttributes' {problemType} -> problemType) (\s@ResolvedAttributes' {} a -> s {problemType = a} :: ResolvedAttributes)
 
-instance Core.FromJSON ResolvedAttributes where
+instance Data.FromJSON ResolvedAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResolvedAttributes"
       ( \x ->
           ResolvedAttributes'
-            Prelude.<$> (x Core..:? "CompletionCriteria")
-            Prelude.<*> (x Core..:? "AutoMLJobObjective")
-            Prelude.<*> (x Core..:? "ProblemType")
+            Prelude.<$> (x Data..:? "CompletionCriteria")
+            Prelude.<*> (x Data..:? "AutoMLJobObjective")
+            Prelude.<*> (x Data..:? "ProblemType")
       )
 
 instance Prelude.Hashable ResolvedAttributes where

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TrialComponentSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Resource Name (ARN) and job type of the source of a trial
@@ -64,14 +65,14 @@ trialComponentSource_sourceType = Lens.lens (\TrialComponentSource' {sourceType}
 trialComponentSource_sourceArn :: Lens.Lens' TrialComponentSource Prelude.Text
 trialComponentSource_sourceArn = Lens.lens (\TrialComponentSource' {sourceArn} -> sourceArn) (\s@TrialComponentSource' {} a -> s {sourceArn = a} :: TrialComponentSource)
 
-instance Core.FromJSON TrialComponentSource where
+instance Data.FromJSON TrialComponentSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrialComponentSource"
       ( \x ->
           TrialComponentSource'
-            Prelude.<$> (x Core..:? "SourceType")
-            Prelude.<*> (x Core..: "SourceArn")
+            Prelude.<$> (x Data..:? "SourceType")
+            Prelude.<*> (x Data..: "SourceArn")
       )
 
 instance Prelude.Hashable TrialComponentSource where

@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -399,59 +400,59 @@ instance Prelude.NFData UpdateNotebookInstance where
       `Prelude.seq` Prelude.rnf rootAccess
       `Prelude.seq` Prelude.rnf notebookInstanceName
 
-instance Core.ToHeaders UpdateNotebookInstance where
+instance Data.ToHeaders UpdateNotebookInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.UpdateNotebookInstance" ::
+              Data.=# ( "SageMaker.UpdateNotebookInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateNotebookInstance where
+instance Data.ToJSON UpdateNotebookInstance where
   toJSON UpdateNotebookInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("DisassociateLifecycleConfig" Core..=)
+          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("DisassociateLifecycleConfig" Data..=)
               Prelude.<$> disassociateLifecycleConfig,
-            ("InstanceMetadataServiceConfiguration" Core..=)
+            ("InstanceMetadataServiceConfiguration" Data..=)
               Prelude.<$> instanceMetadataServiceConfiguration,
-            ("AcceleratorTypes" Core..=)
+            ("AcceleratorTypes" Data..=)
               Prelude.<$> acceleratorTypes,
-            ("DisassociateAdditionalCodeRepositories" Core..=)
+            ("DisassociateAdditionalCodeRepositories" Data..=)
               Prelude.<$> disassociateAdditionalCodeRepositories,
-            ("DisassociateDefaultCodeRepository" Core..=)
+            ("DisassociateDefaultCodeRepository" Data..=)
               Prelude.<$> disassociateDefaultCodeRepository,
-            ("InstanceType" Core..=) Prelude.<$> instanceType,
-            ("DisassociateAcceleratorTypes" Core..=)
+            ("InstanceType" Data..=) Prelude.<$> instanceType,
+            ("DisassociateAcceleratorTypes" Data..=)
               Prelude.<$> disassociateAcceleratorTypes,
-            ("AdditionalCodeRepositories" Core..=)
+            ("AdditionalCodeRepositories" Data..=)
               Prelude.<$> additionalCodeRepositories,
-            ("VolumeSizeInGB" Core..=)
+            ("VolumeSizeInGB" Data..=)
               Prelude.<$> volumeSizeInGB,
-            ("LifecycleConfigName" Core..=)
+            ("LifecycleConfigName" Data..=)
               Prelude.<$> lifecycleConfigName,
-            ("DefaultCodeRepository" Core..=)
+            ("DefaultCodeRepository" Data..=)
               Prelude.<$> defaultCodeRepository,
-            ("RootAccess" Core..=) Prelude.<$> rootAccess,
+            ("RootAccess" Data..=) Prelude.<$> rootAccess,
             Prelude.Just
               ( "NotebookInstanceName"
-                  Core..= notebookInstanceName
+                  Data..= notebookInstanceName
               )
           ]
       )
 
-instance Core.ToPath UpdateNotebookInstance where
+instance Data.ToPath UpdateNotebookInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateNotebookInstance where
+instance Data.ToQuery UpdateNotebookInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateNotebookInstanceResponse' smart constructor.

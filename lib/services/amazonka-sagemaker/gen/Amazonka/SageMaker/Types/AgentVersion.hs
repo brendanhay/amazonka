@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AgentVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Edge Manager agent version.
@@ -65,14 +66,14 @@ agentVersion_version = Lens.lens (\AgentVersion' {version} -> version) (\s@Agent
 agentVersion_agentCount :: Lens.Lens' AgentVersion Prelude.Integer
 agentVersion_agentCount = Lens.lens (\AgentVersion' {agentCount} -> agentCount) (\s@AgentVersion' {} a -> s {agentCount = a} :: AgentVersion)
 
-instance Core.FromJSON AgentVersion where
+instance Data.FromJSON AgentVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AgentVersion"
       ( \x ->
           AgentVersion'
-            Prelude.<$> (x Core..: "Version")
-            Prelude.<*> (x Core..: "AgentCount")
+            Prelude.<$> (x Data..: "Version")
+            Prelude.<*> (x Data..: "AgentCount")
       )
 
 instance Prelude.Hashable AgentVersion where

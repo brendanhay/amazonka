@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AlgorithmValidationSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AlgorithmValidationProfile
 
@@ -79,16 +80,16 @@ algorithmValidationSpecification_validationProfiles :: Lens.Lens' AlgorithmValid
 algorithmValidationSpecification_validationProfiles = Lens.lens (\AlgorithmValidationSpecification' {validationProfiles} -> validationProfiles) (\s@AlgorithmValidationSpecification' {} a -> s {validationProfiles = a} :: AlgorithmValidationSpecification) Prelude.. Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AlgorithmValidationSpecification
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlgorithmValidationSpecification"
       ( \x ->
           AlgorithmValidationSpecification'
-            Prelude.<$> (x Core..: "ValidationRole")
-            Prelude.<*> (x Core..: "ValidationProfiles")
+            Prelude.<$> (x Data..: "ValidationRole")
+            Prelude.<*> (x Data..: "ValidationProfiles")
       )
 
 instance
@@ -109,13 +110,13 @@ instance
     Prelude.rnf validationRole
       `Prelude.seq` Prelude.rnf validationProfiles
 
-instance Core.ToJSON AlgorithmValidationSpecification where
+instance Data.ToJSON AlgorithmValidationSpecification where
   toJSON AlgorithmValidationSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ValidationRole" Core..= validationRole),
+              ("ValidationRole" Data..= validationRole),
             Prelude.Just
-              ("ValidationProfiles" Core..= validationProfiles)
+              ("ValidationProfiles" Data..= validationProfiles)
           ]
       )

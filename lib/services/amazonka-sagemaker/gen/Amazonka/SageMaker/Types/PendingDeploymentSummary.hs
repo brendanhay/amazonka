@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.PendingDeploymentSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.PendingProductionVariantSummary
 
@@ -32,7 +33,7 @@ data PendingDeploymentSummary = PendingDeploymentSummary'
   { -- | List of @PendingProductionVariantSummary@ objects.
     productionVariants :: Prelude.Maybe (Prelude.NonEmpty PendingProductionVariantSummary),
     -- | The start time of the deployment.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the endpoint configuration used in the deployment.
     endpointConfigName :: Prelude.Text
   }
@@ -69,21 +70,21 @@ pendingDeploymentSummary_productionVariants = Lens.lens (\PendingDeploymentSumma
 
 -- | The start time of the deployment.
 pendingDeploymentSummary_startTime :: Lens.Lens' PendingDeploymentSummary (Prelude.Maybe Prelude.UTCTime)
-pendingDeploymentSummary_startTime = Lens.lens (\PendingDeploymentSummary' {startTime} -> startTime) (\s@PendingDeploymentSummary' {} a -> s {startTime = a} :: PendingDeploymentSummary) Prelude.. Lens.mapping Core._Time
+pendingDeploymentSummary_startTime = Lens.lens (\PendingDeploymentSummary' {startTime} -> startTime) (\s@PendingDeploymentSummary' {} a -> s {startTime = a} :: PendingDeploymentSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the endpoint configuration used in the deployment.
 pendingDeploymentSummary_endpointConfigName :: Lens.Lens' PendingDeploymentSummary Prelude.Text
 pendingDeploymentSummary_endpointConfigName = Lens.lens (\PendingDeploymentSummary' {endpointConfigName} -> endpointConfigName) (\s@PendingDeploymentSummary' {} a -> s {endpointConfigName = a} :: PendingDeploymentSummary)
 
-instance Core.FromJSON PendingDeploymentSummary where
+instance Data.FromJSON PendingDeploymentSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PendingDeploymentSummary"
       ( \x ->
           PendingDeploymentSummary'
-            Prelude.<$> (x Core..:? "ProductionVariants")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..: "EndpointConfigName")
+            Prelude.<$> (x Data..:? "ProductionVariants")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..: "EndpointConfigName")
       )
 
 instance Prelude.Hashable PendingDeploymentSummary where

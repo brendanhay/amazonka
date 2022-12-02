@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.EdgeModelSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of model on edge device.
@@ -65,14 +66,14 @@ edgeModelSummary_modelName = Lens.lens (\EdgeModelSummary' {modelName} -> modelN
 edgeModelSummary_modelVersion :: Lens.Lens' EdgeModelSummary Prelude.Text
 edgeModelSummary_modelVersion = Lens.lens (\EdgeModelSummary' {modelVersion} -> modelVersion) (\s@EdgeModelSummary' {} a -> s {modelVersion = a} :: EdgeModelSummary)
 
-instance Core.FromJSON EdgeModelSummary where
+instance Data.FromJSON EdgeModelSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EdgeModelSummary"
       ( \x ->
           EdgeModelSummary'
-            Prelude.<$> (x Core..: "ModelName")
-            Prelude.<*> (x Core..: "ModelVersion")
+            Prelude.<$> (x Data..: "ModelName")
+            Prelude.<*> (x Data..: "ModelVersion")
       )
 
 instance Prelude.Hashable EdgeModelSummary where

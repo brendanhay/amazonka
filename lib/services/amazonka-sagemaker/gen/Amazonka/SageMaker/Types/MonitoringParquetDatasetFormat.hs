@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MonitoringParquetDatasetFormat where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the Parquet dataset format used when running a monitoring
@@ -41,9 +42,9 @@ newMonitoringParquetDatasetFormat ::
 newMonitoringParquetDatasetFormat =
   MonitoringParquetDatasetFormat'
 
-instance Core.FromJSON MonitoringParquetDatasetFormat where
+instance Data.FromJSON MonitoringParquetDatasetFormat where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitoringParquetDatasetFormat"
       (\x -> Prelude.pure MonitoringParquetDatasetFormat')
 
@@ -60,5 +61,5 @@ instance
   where
   rnf _ = ()
 
-instance Core.ToJSON MonitoringParquetDatasetFormat where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON MonitoringParquetDatasetFormat where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

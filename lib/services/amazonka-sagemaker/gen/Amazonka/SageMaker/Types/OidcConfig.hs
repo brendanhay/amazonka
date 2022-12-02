@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.OidcConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use this parameter to configure your OIDC Identity Provider (IdP).
@@ -30,7 +31,7 @@ data OidcConfig = OidcConfig'
   { -- | The OIDC IdP client ID used to configure your private workforce.
     clientId :: Prelude.Text,
     -- | The OIDC IdP client secret used to configure your private workforce.
-    clientSecret :: Core.Sensitive Prelude.Text,
+    clientSecret :: Data.Sensitive Prelude.Text,
     -- | The OIDC IdP issuer used to configure your private workforce.
     issuer :: Prelude.Text,
     -- | The OIDC IdP authorization endpoint used to configure your private
@@ -104,7 +105,7 @@ newOidcConfig
   pJwksUri_ =
     OidcConfig'
       { clientId = pClientId_,
-        clientSecret = Core._Sensitive Lens.# pClientSecret_,
+        clientSecret = Data._Sensitive Lens.# pClientSecret_,
         issuer = pIssuer_,
         authorizationEndpoint = pAuthorizationEndpoint_,
         tokenEndpoint = pTokenEndpoint_,
@@ -119,7 +120,7 @@ oidcConfig_clientId = Lens.lens (\OidcConfig' {clientId} -> clientId) (\s@OidcCo
 
 -- | The OIDC IdP client secret used to configure your private workforce.
 oidcConfig_clientSecret :: Lens.Lens' OidcConfig Prelude.Text
-oidcConfig_clientSecret = Lens.lens (\OidcConfig' {clientSecret} -> clientSecret) (\s@OidcConfig' {} a -> s {clientSecret = a} :: OidcConfig) Prelude.. Core._Sensitive
+oidcConfig_clientSecret = Lens.lens (\OidcConfig' {clientSecret} -> clientSecret) (\s@OidcConfig' {} a -> s {clientSecret = a} :: OidcConfig) Prelude.. Data._Sensitive
 
 -- | The OIDC IdP issuer used to configure your private workforce.
 oidcConfig_issuer :: Lens.Lens' OidcConfig Prelude.Text
@@ -170,22 +171,22 @@ instance Prelude.NFData OidcConfig where
       `Prelude.seq` Prelude.rnf logoutEndpoint
       `Prelude.seq` Prelude.rnf jwksUri
 
-instance Core.ToJSON OidcConfig where
+instance Data.ToJSON OidcConfig where
   toJSON OidcConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ClientId" Core..= clientId),
-            Prelude.Just ("ClientSecret" Core..= clientSecret),
-            Prelude.Just ("Issuer" Core..= issuer),
+          [ Prelude.Just ("ClientId" Data..= clientId),
+            Prelude.Just ("ClientSecret" Data..= clientSecret),
+            Prelude.Just ("Issuer" Data..= issuer),
             Prelude.Just
               ( "AuthorizationEndpoint"
-                  Core..= authorizationEndpoint
+                  Data..= authorizationEndpoint
               ),
-            Prelude.Just ("TokenEndpoint" Core..= tokenEndpoint),
+            Prelude.Just ("TokenEndpoint" Data..= tokenEndpoint),
             Prelude.Just
-              ("UserInfoEndpoint" Core..= userInfoEndpoint),
+              ("UserInfoEndpoint" Data..= userInfoEndpoint),
             Prelude.Just
-              ("LogoutEndpoint" Core..= logoutEndpoint),
-            Prelude.Just ("JwksUri" Core..= jwksUri)
+              ("LogoutEndpoint" Data..= logoutEndpoint),
+            Prelude.Just ("JwksUri" Data..= jwksUri)
           ]
       )

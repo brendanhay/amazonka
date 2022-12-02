@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.RecommendationJobPayloadConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for the payload for a recommendation job.
@@ -68,15 +69,15 @@ recommendationJobPayloadConfig_samplePayloadUrl = Lens.lens (\RecommendationJobP
 recommendationJobPayloadConfig_supportedContentTypes :: Lens.Lens' RecommendationJobPayloadConfig (Prelude.Maybe [Prelude.Text])
 recommendationJobPayloadConfig_supportedContentTypes = Lens.lens (\RecommendationJobPayloadConfig' {supportedContentTypes} -> supportedContentTypes) (\s@RecommendationJobPayloadConfig' {} a -> s {supportedContentTypes = a} :: RecommendationJobPayloadConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON RecommendationJobPayloadConfig where
+instance Data.FromJSON RecommendationJobPayloadConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationJobPayloadConfig"
       ( \x ->
           RecommendationJobPayloadConfig'
-            Prelude.<$> (x Core..:? "SamplePayloadUrl")
-            Prelude.<*> ( x Core..:? "SupportedContentTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "SamplePayloadUrl")
+            Prelude.<*> ( x Data..:? "SupportedContentTypes"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -98,13 +99,13 @@ instance
     Prelude.rnf samplePayloadUrl
       `Prelude.seq` Prelude.rnf supportedContentTypes
 
-instance Core.ToJSON RecommendationJobPayloadConfig where
+instance Data.ToJSON RecommendationJobPayloadConfig where
   toJSON RecommendationJobPayloadConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SamplePayloadUrl" Core..=)
+          [ ("SamplePayloadUrl" Data..=)
               Prelude.<$> samplePayloadUrl,
-            ("SupportedContentTypes" Core..=)
+            ("SupportedContentTypes" Data..=)
               Prelude.<$> supportedContentTypes
           ]
       )

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,7 +128,7 @@ instance Core.AWSRequest UpdateTrainingJob where
       ( \s h x ->
           UpdateTrainingJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "TrainingJobArn")
+            Prelude.<*> (x Data..:> "TrainingJobArn")
       )
 
 instance Prelude.Hashable UpdateTrainingJob where
@@ -144,40 +145,40 @@ instance Prelude.NFData UpdateTrainingJob where
       `Prelude.seq` Prelude.rnf resourceConfig
       `Prelude.seq` Prelude.rnf trainingJobName
 
-instance Core.ToHeaders UpdateTrainingJob where
+instance Data.ToHeaders UpdateTrainingJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.UpdateTrainingJob" ::
+              Data.=# ( "SageMaker.UpdateTrainingJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTrainingJob where
+instance Data.ToJSON UpdateTrainingJob where
   toJSON UpdateTrainingJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProfilerConfig" Core..=)
+          [ ("ProfilerConfig" Data..=)
               Prelude.<$> profilerConfig,
-            ("ProfilerRuleConfigurations" Core..=)
+            ("ProfilerRuleConfigurations" Data..=)
               Prelude.<$> profilerRuleConfigurations,
-            ("ResourceConfig" Core..=)
+            ("ResourceConfig" Data..=)
               Prelude.<$> resourceConfig,
             Prelude.Just
-              ("TrainingJobName" Core..= trainingJobName)
+              ("TrainingJobName" Data..= trainingJobName)
           ]
       )
 
-instance Core.ToPath UpdateTrainingJob where
+instance Data.ToPath UpdateTrainingJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateTrainingJob where
+instance Data.ToQuery UpdateTrainingJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTrainingJobResponse' smart constructor.

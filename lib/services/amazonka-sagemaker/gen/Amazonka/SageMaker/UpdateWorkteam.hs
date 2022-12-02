@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -190,7 +191,7 @@ instance Core.AWSRequest UpdateWorkteam where
       ( \s h x ->
           UpdateWorkteamResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Workteam")
+            Prelude.<*> (x Data..:> "Workteam")
       )
 
 instance Prelude.Hashable UpdateWorkteam where
@@ -208,36 +209,36 @@ instance Prelude.NFData UpdateWorkteam where
       `Prelude.seq` Prelude.rnf memberDefinitions
       `Prelude.seq` Prelude.rnf workteamName
 
-instance Core.ToHeaders UpdateWorkteam where
+instance Data.ToHeaders UpdateWorkteam where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.UpdateWorkteam" :: Prelude.ByteString),
+              Data.=# ("SageMaker.UpdateWorkteam" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateWorkteam where
+instance Data.ToJSON UpdateWorkteam where
   toJSON UpdateWorkteam' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NotificationConfiguration" Core..=)
+          [ ("NotificationConfiguration" Data..=)
               Prelude.<$> notificationConfiguration,
-            ("Description" Core..=) Prelude.<$> description,
-            ("MemberDefinitions" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("MemberDefinitions" Data..=)
               Prelude.<$> memberDefinitions,
-            Prelude.Just ("WorkteamName" Core..= workteamName)
+            Prelude.Just ("WorkteamName" Data..= workteamName)
           ]
       )
 
-instance Core.ToPath UpdateWorkteam where
+instance Data.ToPath UpdateWorkteam where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateWorkteam where
+instance Data.ToQuery UpdateWorkteam where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateWorkteamResponse' smart constructor.

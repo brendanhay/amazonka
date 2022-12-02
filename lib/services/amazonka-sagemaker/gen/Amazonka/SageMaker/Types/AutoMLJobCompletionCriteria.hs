@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AutoMLJobCompletionCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | How long a job is allowed to run, or how many candidates a job is
@@ -97,15 +98,15 @@ autoMLJobCompletionCriteria_maxRuntimePerTrainingJobInSeconds = Lens.lens (\Auto
 autoMLJobCompletionCriteria_maxAutoMLJobRuntimeInSeconds :: Lens.Lens' AutoMLJobCompletionCriteria (Prelude.Maybe Prelude.Natural)
 autoMLJobCompletionCriteria_maxAutoMLJobRuntimeInSeconds = Lens.lens (\AutoMLJobCompletionCriteria' {maxAutoMLJobRuntimeInSeconds} -> maxAutoMLJobRuntimeInSeconds) (\s@AutoMLJobCompletionCriteria' {} a -> s {maxAutoMLJobRuntimeInSeconds = a} :: AutoMLJobCompletionCriteria)
 
-instance Core.FromJSON AutoMLJobCompletionCriteria where
+instance Data.FromJSON AutoMLJobCompletionCriteria where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoMLJobCompletionCriteria"
       ( \x ->
           AutoMLJobCompletionCriteria'
-            Prelude.<$> (x Core..:? "MaxCandidates")
-            Prelude.<*> (x Core..:? "MaxRuntimePerTrainingJobInSeconds")
-            Prelude.<*> (x Core..:? "MaxAutoMLJobRuntimeInSeconds")
+            Prelude.<$> (x Data..:? "MaxCandidates")
+            Prelude.<*> (x Data..:? "MaxRuntimePerTrainingJobInSeconds")
+            Prelude.<*> (x Data..:? "MaxAutoMLJobRuntimeInSeconds")
       )
 
 instance Prelude.Hashable AutoMLJobCompletionCriteria where
@@ -120,14 +121,14 @@ instance Prelude.NFData AutoMLJobCompletionCriteria where
       `Prelude.seq` Prelude.rnf maxRuntimePerTrainingJobInSeconds
       `Prelude.seq` Prelude.rnf maxAutoMLJobRuntimeInSeconds
 
-instance Core.ToJSON AutoMLJobCompletionCriteria where
+instance Data.ToJSON AutoMLJobCompletionCriteria where
   toJSON AutoMLJobCompletionCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxCandidates" Core..=) Prelude.<$> maxCandidates,
-            ("MaxRuntimePerTrainingJobInSeconds" Core..=)
+          [ ("MaxCandidates" Data..=) Prelude.<$> maxCandidates,
+            ("MaxRuntimePerTrainingJobInSeconds" Data..=)
               Prelude.<$> maxRuntimePerTrainingJobInSeconds,
-            ("MaxAutoMLJobRuntimeInSeconds" Core..=)
+            ("MaxAutoMLJobRuntimeInSeconds" Data..=)
               Prelude.<$> maxAutoMLJobRuntimeInSeconds
           ]
       )

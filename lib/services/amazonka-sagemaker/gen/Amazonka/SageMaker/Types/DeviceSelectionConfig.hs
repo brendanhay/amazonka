@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DeviceSelectionConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.DeviceSubsetType
 
@@ -83,16 +84,16 @@ deviceSelectionConfig_deviceNames = Lens.lens (\DeviceSelectionConfig' {deviceNa
 deviceSelectionConfig_deviceSubsetType :: Lens.Lens' DeviceSelectionConfig DeviceSubsetType
 deviceSelectionConfig_deviceSubsetType = Lens.lens (\DeviceSelectionConfig' {deviceSubsetType} -> deviceSubsetType) (\s@DeviceSelectionConfig' {} a -> s {deviceSubsetType = a} :: DeviceSelectionConfig)
 
-instance Core.FromJSON DeviceSelectionConfig where
+instance Data.FromJSON DeviceSelectionConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceSelectionConfig"
       ( \x ->
           DeviceSelectionConfig'
-            Prelude.<$> (x Core..:? "DeviceNameContains")
-            Prelude.<*> (x Core..:? "Percentage")
-            Prelude.<*> (x Core..:? "DeviceNames" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "DeviceSubsetType")
+            Prelude.<$> (x Data..:? "DeviceNameContains")
+            Prelude.<*> (x Data..:? "Percentage")
+            Prelude.<*> (x Data..:? "DeviceNames" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "DeviceSubsetType")
       )
 
 instance Prelude.Hashable DeviceSelectionConfig where
@@ -109,15 +110,15 @@ instance Prelude.NFData DeviceSelectionConfig where
       `Prelude.seq` Prelude.rnf deviceNames
       `Prelude.seq` Prelude.rnf deviceSubsetType
 
-instance Core.ToJSON DeviceSelectionConfig where
+instance Data.ToJSON DeviceSelectionConfig where
   toJSON DeviceSelectionConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeviceNameContains" Core..=)
+          [ ("DeviceNameContains" Data..=)
               Prelude.<$> deviceNameContains,
-            ("Percentage" Core..=) Prelude.<$> percentage,
-            ("DeviceNames" Core..=) Prelude.<$> deviceNames,
+            ("Percentage" Data..=) Prelude.<$> percentage,
+            ("DeviceNames" Data..=) Prelude.<$> deviceNames,
             Prelude.Just
-              ("DeviceSubsetType" Core..= deviceSubsetType)
+              ("DeviceSubsetType" Data..= deviceSubsetType)
           ]
       )

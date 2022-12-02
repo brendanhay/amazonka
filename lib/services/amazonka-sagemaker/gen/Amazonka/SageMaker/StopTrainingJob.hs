@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,32 +97,32 @@ instance Prelude.NFData StopTrainingJob where
   rnf StopTrainingJob' {..} =
     Prelude.rnf trainingJobName
 
-instance Core.ToHeaders StopTrainingJob where
+instance Data.ToHeaders StopTrainingJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.StopTrainingJob" :: Prelude.ByteString),
+              Data.=# ("SageMaker.StopTrainingJob" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopTrainingJob where
+instance Data.ToJSON StopTrainingJob where
   toJSON StopTrainingJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("TrainingJobName" Core..= trainingJobName)
+              ("TrainingJobName" Data..= trainingJobName)
           ]
       )
 
-instance Core.ToPath StopTrainingJob where
+instance Data.ToPath StopTrainingJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopTrainingJob where
+instance Data.ToQuery StopTrainingJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopTrainingJobResponse' smart constructor.

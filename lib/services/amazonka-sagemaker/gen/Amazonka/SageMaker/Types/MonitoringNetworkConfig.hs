@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MonitoringNetworkConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.VpcConfig
 
@@ -84,15 +85,15 @@ monitoringNetworkConfig_enableNetworkIsolation = Lens.lens (\MonitoringNetworkCo
 monitoringNetworkConfig_enableInterContainerTrafficEncryption :: Lens.Lens' MonitoringNetworkConfig (Prelude.Maybe Prelude.Bool)
 monitoringNetworkConfig_enableInterContainerTrafficEncryption = Lens.lens (\MonitoringNetworkConfig' {enableInterContainerTrafficEncryption} -> enableInterContainerTrafficEncryption) (\s@MonitoringNetworkConfig' {} a -> s {enableInterContainerTrafficEncryption = a} :: MonitoringNetworkConfig)
 
-instance Core.FromJSON MonitoringNetworkConfig where
+instance Data.FromJSON MonitoringNetworkConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitoringNetworkConfig"
       ( \x ->
           MonitoringNetworkConfig'
-            Prelude.<$> (x Core..:? "VpcConfig")
-            Prelude.<*> (x Core..:? "EnableNetworkIsolation")
-            Prelude.<*> (x Core..:? "EnableInterContainerTrafficEncryption")
+            Prelude.<$> (x Data..:? "VpcConfig")
+            Prelude.<*> (x Data..:? "EnableNetworkIsolation")
+            Prelude.<*> (x Data..:? "EnableInterContainerTrafficEncryption")
       )
 
 instance Prelude.Hashable MonitoringNetworkConfig where
@@ -107,14 +108,14 @@ instance Prelude.NFData MonitoringNetworkConfig where
       `Prelude.seq` Prelude.rnf enableNetworkIsolation
       `Prelude.seq` Prelude.rnf enableInterContainerTrafficEncryption
 
-instance Core.ToJSON MonitoringNetworkConfig where
+instance Data.ToJSON MonitoringNetworkConfig where
   toJSON MonitoringNetworkConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("EnableNetworkIsolation" Core..=)
+          [ ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("EnableNetworkIsolation" Data..=)
               Prelude.<$> enableNetworkIsolation,
-            ("EnableInterContainerTrafficEncryption" Core..=)
+            ("EnableInterContainerTrafficEncryption" Data..=)
               Prelude.<$> enableInterContainerTrafficEncryption
           ]
       )

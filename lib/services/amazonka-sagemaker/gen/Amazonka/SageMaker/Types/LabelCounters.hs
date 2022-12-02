@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.LabelCounters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a breakdown of the number of objects labeled.
@@ -88,17 +89,17 @@ labelCounters_failedNonRetryableError = Lens.lens (\LabelCounters' {failedNonRet
 labelCounters_humanLabeled :: Lens.Lens' LabelCounters (Prelude.Maybe Prelude.Natural)
 labelCounters_humanLabeled = Lens.lens (\LabelCounters' {humanLabeled} -> humanLabeled) (\s@LabelCounters' {} a -> s {humanLabeled = a} :: LabelCounters)
 
-instance Core.FromJSON LabelCounters where
+instance Data.FromJSON LabelCounters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LabelCounters"
       ( \x ->
           LabelCounters'
-            Prelude.<$> (x Core..:? "MachineLabeled")
-            Prelude.<*> (x Core..:? "TotalLabeled")
-            Prelude.<*> (x Core..:? "Unlabeled")
-            Prelude.<*> (x Core..:? "FailedNonRetryableError")
-            Prelude.<*> (x Core..:? "HumanLabeled")
+            Prelude.<$> (x Data..:? "MachineLabeled")
+            Prelude.<*> (x Data..:? "TotalLabeled")
+            Prelude.<*> (x Data..:? "Unlabeled")
+            Prelude.<*> (x Data..:? "FailedNonRetryableError")
+            Prelude.<*> (x Data..:? "HumanLabeled")
       )
 
 instance Prelude.Hashable LabelCounters where

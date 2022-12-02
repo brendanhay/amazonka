@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.EdgeDeploymentModelConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the configuration of a model in a deployment.
@@ -68,14 +69,14 @@ edgeDeploymentModelConfig_modelHandle = Lens.lens (\EdgeDeploymentModelConfig' {
 edgeDeploymentModelConfig_edgePackagingJobName :: Lens.Lens' EdgeDeploymentModelConfig Prelude.Text
 edgeDeploymentModelConfig_edgePackagingJobName = Lens.lens (\EdgeDeploymentModelConfig' {edgePackagingJobName} -> edgePackagingJobName) (\s@EdgeDeploymentModelConfig' {} a -> s {edgePackagingJobName = a} :: EdgeDeploymentModelConfig)
 
-instance Core.FromJSON EdgeDeploymentModelConfig where
+instance Data.FromJSON EdgeDeploymentModelConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EdgeDeploymentModelConfig"
       ( \x ->
           EdgeDeploymentModelConfig'
-            Prelude.<$> (x Core..: "ModelHandle")
-            Prelude.<*> (x Core..: "EdgePackagingJobName")
+            Prelude.<$> (x Data..: "ModelHandle")
+            Prelude.<*> (x Data..: "EdgePackagingJobName")
       )
 
 instance Prelude.Hashable EdgeDeploymentModelConfig where
@@ -88,14 +89,14 @@ instance Prelude.NFData EdgeDeploymentModelConfig where
     Prelude.rnf modelHandle
       `Prelude.seq` Prelude.rnf edgePackagingJobName
 
-instance Core.ToJSON EdgeDeploymentModelConfig where
+instance Data.ToJSON EdgeDeploymentModelConfig where
   toJSON EdgeDeploymentModelConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ModelHandle" Core..= modelHandle),
+          [ Prelude.Just ("ModelHandle" Data..= modelHandle),
             Prelude.Just
               ( "EdgePackagingJobName"
-                  Core..= edgePackagingJobName
+                  Data..= edgePackagingJobName
               )
           ]
       )

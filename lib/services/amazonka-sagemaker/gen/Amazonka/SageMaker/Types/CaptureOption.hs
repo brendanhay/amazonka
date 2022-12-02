@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.CaptureOption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CaptureMode
 
@@ -53,12 +54,12 @@ newCaptureOption pCaptureMode_ =
 captureOption_captureMode :: Lens.Lens' CaptureOption CaptureMode
 captureOption_captureMode = Lens.lens (\CaptureOption' {captureMode} -> captureMode) (\s@CaptureOption' {} a -> s {captureMode = a} :: CaptureOption)
 
-instance Core.FromJSON CaptureOption where
+instance Data.FromJSON CaptureOption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CaptureOption"
       ( \x ->
-          CaptureOption' Prelude.<$> (x Core..: "CaptureMode")
+          CaptureOption' Prelude.<$> (x Data..: "CaptureMode")
       )
 
 instance Prelude.Hashable CaptureOption where
@@ -68,9 +69,9 @@ instance Prelude.Hashable CaptureOption where
 instance Prelude.NFData CaptureOption where
   rnf CaptureOption' {..} = Prelude.rnf captureMode
 
-instance Core.ToJSON CaptureOption where
+instance Data.ToJSON CaptureOption where
   toJSON CaptureOption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("CaptureMode" Core..= captureMode)]
+          [Prelude.Just ("CaptureMode" Data..= captureMode)]
       )

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AdditionalInferenceSpecificationDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ModelPackageContainerDefinition
 import Amazonka.SageMaker.Types.ProductionVariantInstanceType
@@ -140,27 +141,27 @@ additionalInferenceSpecificationDefinition_containers :: Lens.Lens' AdditionalIn
 additionalInferenceSpecificationDefinition_containers = Lens.lens (\AdditionalInferenceSpecificationDefinition' {containers} -> containers) (\s@AdditionalInferenceSpecificationDefinition' {} a -> s {containers = a} :: AdditionalInferenceSpecificationDefinition) Prelude.. Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AdditionalInferenceSpecificationDefinition
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AdditionalInferenceSpecificationDefinition"
       ( \x ->
           AdditionalInferenceSpecificationDefinition'
-            Prelude.<$> (x Core..:? "Description")
-              Prelude.<*> ( x Core..:? "SupportedContentTypes"
-                              Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Description")
+              Prelude.<*> ( x Data..:? "SupportedContentTypes"
+                              Data..!= Prelude.mempty
                           )
-              Prelude.<*> ( x Core..:? "SupportedResponseMIMETypes"
-                              Core..!= Prelude.mempty
+              Prelude.<*> ( x Data..:? "SupportedResponseMIMETypes"
+                              Data..!= Prelude.mempty
                           )
-              Prelude.<*> ( x Core..:? "SupportedRealtimeInferenceInstanceTypes"
-                              Core..!= Prelude.mempty
+              Prelude.<*> ( x Data..:? "SupportedRealtimeInferenceInstanceTypes"
+                              Data..!= Prelude.mempty
                           )
-              Prelude.<*> (x Core..:? "SupportedTransformInstanceTypes")
-              Prelude.<*> (x Core..: "Name")
-              Prelude.<*> (x Core..: "Containers")
+              Prelude.<*> (x Data..:? "SupportedTransformInstanceTypes")
+              Prelude.<*> (x Data..: "Name")
+              Prelude.<*> (x Data..: "Containers")
       )
 
 instance
@@ -192,23 +193,23 @@ instance
       `Prelude.seq` Prelude.rnf containers
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AdditionalInferenceSpecificationDefinition
   where
   toJSON
     AdditionalInferenceSpecificationDefinition' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Description" Core..=) Prelude.<$> description,
-              ("SupportedContentTypes" Core..=)
+            [ ("Description" Data..=) Prelude.<$> description,
+              ("SupportedContentTypes" Data..=)
                 Prelude.<$> supportedContentTypes,
-              ("SupportedResponseMIMETypes" Core..=)
+              ("SupportedResponseMIMETypes" Data..=)
                 Prelude.<$> supportedResponseMIMETypes,
-              ("SupportedRealtimeInferenceInstanceTypes" Core..=)
+              ("SupportedRealtimeInferenceInstanceTypes" Data..=)
                 Prelude.<$> supportedRealtimeInferenceInstanceTypes,
-              ("SupportedTransformInstanceTypes" Core..=)
+              ("SupportedTransformInstanceTypes" Data..=)
                 Prelude.<$> supportedTransformInstanceTypes,
-              Prelude.Just ("Name" Core..= name),
-              Prelude.Just ("Containers" Core..= containers)
+              Prelude.Just ("Name" Data..= name),
+              Prelude.Just ("Containers" Data..= containers)
             ]
         )

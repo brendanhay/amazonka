@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,7 +85,7 @@ instance Core.AWSRequest DeleteWorkteam where
       ( \s h x ->
           DeleteWorkteamResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Success")
+            Prelude.<*> (x Data..:> "Success")
       )
 
 instance Prelude.Hashable DeleteWorkteam where
@@ -94,30 +95,30 @@ instance Prelude.Hashable DeleteWorkteam where
 instance Prelude.NFData DeleteWorkteam where
   rnf DeleteWorkteam' {..} = Prelude.rnf workteamName
 
-instance Core.ToHeaders DeleteWorkteam where
+instance Data.ToHeaders DeleteWorkteam where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DeleteWorkteam" :: Prelude.ByteString),
+              Data.=# ("SageMaker.DeleteWorkteam" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteWorkteam where
+instance Data.ToJSON DeleteWorkteam where
   toJSON DeleteWorkteam' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("WorkteamName" Core..= workteamName)]
+          [Prelude.Just ("WorkteamName" Data..= workteamName)]
       )
 
-instance Core.ToPath DeleteWorkteam where
+instance Data.ToPath DeleteWorkteam where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteWorkteam where
+instance Data.ToQuery DeleteWorkteam where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteWorkteamResponse' smart constructor.

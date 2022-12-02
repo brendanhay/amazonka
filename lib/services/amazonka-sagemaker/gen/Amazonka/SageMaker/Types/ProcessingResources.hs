@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ProcessingResources where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ProcessingClusterConfig
 
@@ -61,13 +62,13 @@ newProcessingResources pClusterConfig_ =
 processingResources_clusterConfig :: Lens.Lens' ProcessingResources ProcessingClusterConfig
 processingResources_clusterConfig = Lens.lens (\ProcessingResources' {clusterConfig} -> clusterConfig) (\s@ProcessingResources' {} a -> s {clusterConfig = a} :: ProcessingResources)
 
-instance Core.FromJSON ProcessingResources where
+instance Data.FromJSON ProcessingResources where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProcessingResources"
       ( \x ->
           ProcessingResources'
-            Prelude.<$> (x Core..: "ClusterConfig")
+            Prelude.<$> (x Data..: "ClusterConfig")
       )
 
 instance Prelude.Hashable ProcessingResources where
@@ -78,11 +79,11 @@ instance Prelude.NFData ProcessingResources where
   rnf ProcessingResources' {..} =
     Prelude.rnf clusterConfig
 
-instance Core.ToJSON ProcessingResources where
+instance Data.ToJSON ProcessingResources where
   toJSON ProcessingResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ClusterConfig" Core..= clusterConfig)
+              ("ClusterConfig" Data..= clusterConfig)
           ]
       )

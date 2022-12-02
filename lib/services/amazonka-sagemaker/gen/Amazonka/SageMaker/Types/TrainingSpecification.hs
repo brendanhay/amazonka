@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TrainingSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ChannelSpecification
 import Amazonka.SageMaker.Types.HyperParameterSpecification
@@ -152,28 +153,28 @@ trainingSpecification_supportedTrainingInstanceTypes = Lens.lens (\TrainingSpeci
 trainingSpecification_trainingChannels :: Lens.Lens' TrainingSpecification (Prelude.NonEmpty ChannelSpecification)
 trainingSpecification_trainingChannels = Lens.lens (\TrainingSpecification' {trainingChannels} -> trainingChannels) (\s@TrainingSpecification' {} a -> s {trainingChannels = a} :: TrainingSpecification) Prelude.. Lens.coerced
 
-instance Core.FromJSON TrainingSpecification where
+instance Data.FromJSON TrainingSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrainingSpecification"
       ( \x ->
           TrainingSpecification'
-            Prelude.<$> (x Core..:? "SupportsDistributedTraining")
-            Prelude.<*> ( x Core..:? "SupportedTuningJobObjectiveMetrics"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "SupportsDistributedTraining")
+            Prelude.<*> ( x Data..:? "SupportedTuningJobObjectiveMetrics"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "SupportedHyperParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "SupportedHyperParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "MetricDefinitions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "MetricDefinitions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "TrainingImageDigest")
-            Prelude.<*> (x Core..: "TrainingImage")
-            Prelude.<*> ( x Core..:? "SupportedTrainingInstanceTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "TrainingImageDigest")
+            Prelude.<*> (x Data..: "TrainingImage")
+            Prelude.<*> ( x Data..:? "SupportedTrainingInstanceTypes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "TrainingChannels")
+            Prelude.<*> (x Data..: "TrainingChannels")
       )
 
 instance Prelude.Hashable TrainingSpecification where
@@ -199,26 +200,26 @@ instance Prelude.NFData TrainingSpecification where
       `Prelude.seq` Prelude.rnf supportedTrainingInstanceTypes
       `Prelude.seq` Prelude.rnf trainingChannels
 
-instance Core.ToJSON TrainingSpecification where
+instance Data.ToJSON TrainingSpecification where
   toJSON TrainingSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SupportsDistributedTraining" Core..=)
+          [ ("SupportsDistributedTraining" Data..=)
               Prelude.<$> supportsDistributedTraining,
-            ("SupportedTuningJobObjectiveMetrics" Core..=)
+            ("SupportedTuningJobObjectiveMetrics" Data..=)
               Prelude.<$> supportedTuningJobObjectiveMetrics,
-            ("SupportedHyperParameters" Core..=)
+            ("SupportedHyperParameters" Data..=)
               Prelude.<$> supportedHyperParameters,
-            ("MetricDefinitions" Core..=)
+            ("MetricDefinitions" Data..=)
               Prelude.<$> metricDefinitions,
-            ("TrainingImageDigest" Core..=)
+            ("TrainingImageDigest" Data..=)
               Prelude.<$> trainingImageDigest,
-            Prelude.Just ("TrainingImage" Core..= trainingImage),
+            Prelude.Just ("TrainingImage" Data..= trainingImage),
             Prelude.Just
               ( "SupportedTrainingInstanceTypes"
-                  Core..= supportedTrainingInstanceTypes
+                  Data..= supportedTrainingInstanceTypes
               ),
             Prelude.Just
-              ("TrainingChannels" Core..= trainingChannels)
+              ("TrainingChannels" Data..= trainingChannels)
           ]
       )

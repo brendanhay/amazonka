@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AlgorithmSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MetricDefinition
 import Amazonka.SageMaker.Types.TrainingInputMode
@@ -277,21 +278,21 @@ algorithmSpecification_enableSageMakerMetricsTimeSeries = Lens.lens (\AlgorithmS
 algorithmSpecification_trainingInputMode :: Lens.Lens' AlgorithmSpecification TrainingInputMode
 algorithmSpecification_trainingInputMode = Lens.lens (\AlgorithmSpecification' {trainingInputMode} -> trainingInputMode) (\s@AlgorithmSpecification' {} a -> s {trainingInputMode = a} :: AlgorithmSpecification)
 
-instance Core.FromJSON AlgorithmSpecification where
+instance Data.FromJSON AlgorithmSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlgorithmSpecification"
       ( \x ->
           AlgorithmSpecification'
-            Prelude.<$> (x Core..:? "ContainerEntrypoint")
-            Prelude.<*> (x Core..:? "AlgorithmName")
-            Prelude.<*> ( x Core..:? "MetricDefinitions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ContainerEntrypoint")
+            Prelude.<*> (x Data..:? "AlgorithmName")
+            Prelude.<*> ( x Data..:? "MetricDefinitions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ContainerArguments")
-            Prelude.<*> (x Core..:? "TrainingImage")
-            Prelude.<*> (x Core..:? "EnableSageMakerMetricsTimeSeries")
-            Prelude.<*> (x Core..: "TrainingInputMode")
+            Prelude.<*> (x Data..:? "ContainerArguments")
+            Prelude.<*> (x Data..:? "TrainingImage")
+            Prelude.<*> (x Data..:? "EnableSageMakerMetricsTimeSeries")
+            Prelude.<*> (x Data..: "TrainingInputMode")
       )
 
 instance Prelude.Hashable AlgorithmSpecification where
@@ -314,21 +315,21 @@ instance Prelude.NFData AlgorithmSpecification where
       `Prelude.seq` Prelude.rnf enableSageMakerMetricsTimeSeries
       `Prelude.seq` Prelude.rnf trainingInputMode
 
-instance Core.ToJSON AlgorithmSpecification where
+instance Data.ToJSON AlgorithmSpecification where
   toJSON AlgorithmSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ContainerEntrypoint" Core..=)
+          [ ("ContainerEntrypoint" Data..=)
               Prelude.<$> containerEntrypoint,
-            ("AlgorithmName" Core..=) Prelude.<$> algorithmName,
-            ("MetricDefinitions" Core..=)
+            ("AlgorithmName" Data..=) Prelude.<$> algorithmName,
+            ("MetricDefinitions" Data..=)
               Prelude.<$> metricDefinitions,
-            ("ContainerArguments" Core..=)
+            ("ContainerArguments" Data..=)
               Prelude.<$> containerArguments,
-            ("TrainingImage" Core..=) Prelude.<$> trainingImage,
-            ("EnableSageMakerMetricsTimeSeries" Core..=)
+            ("TrainingImage" Data..=) Prelude.<$> trainingImage,
+            ("EnableSageMakerMetricsTimeSeries" Data..=)
               Prelude.<$> enableSageMakerMetricsTimeSeries,
             Prelude.Just
-              ("TrainingInputMode" Core..= trainingInputMode)
+              ("TrainingInputMode" Data..= trainingInputMode)
           ]
       )

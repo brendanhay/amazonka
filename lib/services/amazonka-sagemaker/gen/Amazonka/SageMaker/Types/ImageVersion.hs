@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ImageVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ImageVersionStatus
 
@@ -32,7 +33,7 @@ data ImageVersion = ImageVersion'
   { -- | When a create or delete operation fails, the reason for the failure.
     failureReason :: Prelude.Maybe Prelude.Text,
     -- | When the version was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the image the version is based on.
     imageArn :: Prelude.Text,
     -- | The ARN of the version.
@@ -40,7 +41,7 @@ data ImageVersion = ImageVersion'
     -- | The status of the version.
     imageVersionStatus :: ImageVersionStatus,
     -- | When the version was last modified.
-    lastModifiedTime :: Core.POSIX,
+    lastModifiedTime :: Data.POSIX,
     -- | The version number.
     version :: Prelude.Natural
   }
@@ -90,12 +91,12 @@ newImageVersion
   pVersion_ =
     ImageVersion'
       { failureReason = Prelude.Nothing,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         imageArn = pImageArn_,
         imageVersionArn = pImageVersionArn_,
         imageVersionStatus = pImageVersionStatus_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_,
+          Data._Time Lens.# pLastModifiedTime_,
         version = pVersion_
       }
 
@@ -105,7 +106,7 @@ imageVersion_failureReason = Lens.lens (\ImageVersion' {failureReason} -> failur
 
 -- | When the version was created.
 imageVersion_creationTime :: Lens.Lens' ImageVersion Prelude.UTCTime
-imageVersion_creationTime = Lens.lens (\ImageVersion' {creationTime} -> creationTime) (\s@ImageVersion' {} a -> s {creationTime = a} :: ImageVersion) Prelude.. Core._Time
+imageVersion_creationTime = Lens.lens (\ImageVersion' {creationTime} -> creationTime) (\s@ImageVersion' {} a -> s {creationTime = a} :: ImageVersion) Prelude.. Data._Time
 
 -- | The Amazon Resource Name (ARN) of the image the version is based on.
 imageVersion_imageArn :: Lens.Lens' ImageVersion Prelude.Text
@@ -121,25 +122,25 @@ imageVersion_imageVersionStatus = Lens.lens (\ImageVersion' {imageVersionStatus}
 
 -- | When the version was last modified.
 imageVersion_lastModifiedTime :: Lens.Lens' ImageVersion Prelude.UTCTime
-imageVersion_lastModifiedTime = Lens.lens (\ImageVersion' {lastModifiedTime} -> lastModifiedTime) (\s@ImageVersion' {} a -> s {lastModifiedTime = a} :: ImageVersion) Prelude.. Core._Time
+imageVersion_lastModifiedTime = Lens.lens (\ImageVersion' {lastModifiedTime} -> lastModifiedTime) (\s@ImageVersion' {} a -> s {lastModifiedTime = a} :: ImageVersion) Prelude.. Data._Time
 
 -- | The version number.
 imageVersion_version :: Lens.Lens' ImageVersion Prelude.Natural
 imageVersion_version = Lens.lens (\ImageVersion' {version} -> version) (\s@ImageVersion' {} a -> s {version = a} :: ImageVersion)
 
-instance Core.FromJSON ImageVersion where
+instance Data.FromJSON ImageVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageVersion"
       ( \x ->
           ImageVersion'
-            Prelude.<$> (x Core..:? "FailureReason")
-            Prelude.<*> (x Core..: "CreationTime")
-            Prelude.<*> (x Core..: "ImageArn")
-            Prelude.<*> (x Core..: "ImageVersionArn")
-            Prelude.<*> (x Core..: "ImageVersionStatus")
-            Prelude.<*> (x Core..: "LastModifiedTime")
-            Prelude.<*> (x Core..: "Version")
+            Prelude.<$> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..: "CreationTime")
+            Prelude.<*> (x Data..: "ImageArn")
+            Prelude.<*> (x Data..: "ImageVersionArn")
+            Prelude.<*> (x Data..: "ImageVersionStatus")
+            Prelude.<*> (x Data..: "LastModifiedTime")
+            Prelude.<*> (x Data..: "Version")
       )
 
 instance Prelude.Hashable ImageVersion where

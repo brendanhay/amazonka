@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MonitoringResources where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MonitoringClusterConfig
 
@@ -59,13 +60,13 @@ newMonitoringResources pClusterConfig_ =
 monitoringResources_clusterConfig :: Lens.Lens' MonitoringResources MonitoringClusterConfig
 monitoringResources_clusterConfig = Lens.lens (\MonitoringResources' {clusterConfig} -> clusterConfig) (\s@MonitoringResources' {} a -> s {clusterConfig = a} :: MonitoringResources)
 
-instance Core.FromJSON MonitoringResources where
+instance Data.FromJSON MonitoringResources where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitoringResources"
       ( \x ->
           MonitoringResources'
-            Prelude.<$> (x Core..: "ClusterConfig")
+            Prelude.<$> (x Data..: "ClusterConfig")
       )
 
 instance Prelude.Hashable MonitoringResources where
@@ -76,11 +77,11 @@ instance Prelude.NFData MonitoringResources where
   rnf MonitoringResources' {..} =
     Prelude.rnf clusterConfig
 
-instance Core.ToJSON MonitoringResources where
+instance Data.ToJSON MonitoringResources where
   toJSON MonitoringResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ClusterConfig" Core..= clusterConfig)
+              ("ClusterConfig" Data..= clusterConfig)
           ]
       )

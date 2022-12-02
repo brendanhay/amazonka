@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ServiceCatalogProvisioningDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ProvisioningParameter
 
@@ -92,20 +93,20 @@ serviceCatalogProvisioningDetails_productId :: Lens.Lens' ServiceCatalogProvisio
 serviceCatalogProvisioningDetails_productId = Lens.lens (\ServiceCatalogProvisioningDetails' {productId} -> productId) (\s@ServiceCatalogProvisioningDetails' {} a -> s {productId = a} :: ServiceCatalogProvisioningDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ServiceCatalogProvisioningDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceCatalogProvisioningDetails"
       ( \x ->
           ServiceCatalogProvisioningDetails'
-            Prelude.<$> (x Core..:? "PathId")
-            Prelude.<*> ( x Core..:? "ProvisioningParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "PathId")
+            Prelude.<*> ( x Data..:? "ProvisioningParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ProvisioningArtifactId")
-            Prelude.<*> (x Core..: "ProductId")
+            Prelude.<*> (x Data..:? "ProvisioningArtifactId")
+            Prelude.<*> (x Data..: "ProductId")
       )
 
 instance
@@ -131,17 +132,17 @@ instance
       `Prelude.seq` Prelude.rnf productId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ServiceCatalogProvisioningDetails
   where
   toJSON ServiceCatalogProvisioningDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PathId" Core..=) Prelude.<$> pathId,
-            ("ProvisioningParameters" Core..=)
+          [ ("PathId" Data..=) Prelude.<$> pathId,
+            ("ProvisioningParameters" Data..=)
               Prelude.<$> provisioningParameters,
-            ("ProvisioningArtifactId" Core..=)
+            ("ProvisioningArtifactId" Data..=)
               Prelude.<$> provisioningArtifactId,
-            Prelude.Just ("ProductId" Core..= productId)
+            Prelude.Just ("ProductId" Data..= productId)
           ]
       )

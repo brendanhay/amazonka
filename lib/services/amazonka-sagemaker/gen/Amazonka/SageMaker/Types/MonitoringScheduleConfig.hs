@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MonitoringScheduleConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MonitoringJobDefinition
 import Amazonka.SageMaker.Types.MonitoringType
@@ -83,16 +84,16 @@ monitoringScheduleConfig_monitoringType = Lens.lens (\MonitoringScheduleConfig' 
 monitoringScheduleConfig_monitoringJobDefinitionName :: Lens.Lens' MonitoringScheduleConfig (Prelude.Maybe Prelude.Text)
 monitoringScheduleConfig_monitoringJobDefinitionName = Lens.lens (\MonitoringScheduleConfig' {monitoringJobDefinitionName} -> monitoringJobDefinitionName) (\s@MonitoringScheduleConfig' {} a -> s {monitoringJobDefinitionName = a} :: MonitoringScheduleConfig)
 
-instance Core.FromJSON MonitoringScheduleConfig where
+instance Data.FromJSON MonitoringScheduleConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitoringScheduleConfig"
       ( \x ->
           MonitoringScheduleConfig'
-            Prelude.<$> (x Core..:? "ScheduleConfig")
-            Prelude.<*> (x Core..:? "MonitoringJobDefinition")
-            Prelude.<*> (x Core..:? "MonitoringType")
-            Prelude.<*> (x Core..:? "MonitoringJobDefinitionName")
+            Prelude.<$> (x Data..:? "ScheduleConfig")
+            Prelude.<*> (x Data..:? "MonitoringJobDefinition")
+            Prelude.<*> (x Data..:? "MonitoringType")
+            Prelude.<*> (x Data..:? "MonitoringJobDefinitionName")
       )
 
 instance Prelude.Hashable MonitoringScheduleConfig where
@@ -109,17 +110,17 @@ instance Prelude.NFData MonitoringScheduleConfig where
       `Prelude.seq` Prelude.rnf monitoringType
       `Prelude.seq` Prelude.rnf monitoringJobDefinitionName
 
-instance Core.ToJSON MonitoringScheduleConfig where
+instance Data.ToJSON MonitoringScheduleConfig where
   toJSON MonitoringScheduleConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ScheduleConfig" Core..=)
+          [ ("ScheduleConfig" Data..=)
               Prelude.<$> scheduleConfig,
-            ("MonitoringJobDefinition" Core..=)
+            ("MonitoringJobDefinition" Data..=)
               Prelude.<$> monitoringJobDefinition,
-            ("MonitoringType" Core..=)
+            ("MonitoringType" Data..=)
               Prelude.<$> monitoringType,
-            ("MonitoringJobDefinitionName" Core..=)
+            ("MonitoringJobDefinitionName" Data..=)
               Prelude.<$> monitoringJobDefinitionName
           ]
       )

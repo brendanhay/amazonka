@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.LabelingJobForWorkteamSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.LabelCountersForWorkteam
 
@@ -41,7 +42,7 @@ data LabelingJobForWorkteamSummary = LabelingJobForWorkteamSummary'
     -- labeling job.
     workRequesterAccountId :: Prelude.Text,
     -- | The date and time that the labeling job was created.
-    creationTime :: Core.POSIX
+    creationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,7 +88,7 @@ newLabelingJobForWorkteamSummary
         workRequesterAccountId =
           pWorkRequesterAccountId_,
         creationTime =
-          Core._Time Lens.# pCreationTime_
+          Data._Time Lens.# pCreationTime_
       }
 
 -- | The configured number of workers per data object.
@@ -114,20 +115,20 @@ labelingJobForWorkteamSummary_workRequesterAccountId = Lens.lens (\LabelingJobFo
 
 -- | The date and time that the labeling job was created.
 labelingJobForWorkteamSummary_creationTime :: Lens.Lens' LabelingJobForWorkteamSummary Prelude.UTCTime
-labelingJobForWorkteamSummary_creationTime = Lens.lens (\LabelingJobForWorkteamSummary' {creationTime} -> creationTime) (\s@LabelingJobForWorkteamSummary' {} a -> s {creationTime = a} :: LabelingJobForWorkteamSummary) Prelude.. Core._Time
+labelingJobForWorkteamSummary_creationTime = Lens.lens (\LabelingJobForWorkteamSummary' {creationTime} -> creationTime) (\s@LabelingJobForWorkteamSummary' {} a -> s {creationTime = a} :: LabelingJobForWorkteamSummary) Prelude.. Data._Time
 
-instance Core.FromJSON LabelingJobForWorkteamSummary where
+instance Data.FromJSON LabelingJobForWorkteamSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LabelingJobForWorkteamSummary"
       ( \x ->
           LabelingJobForWorkteamSummary'
-            Prelude.<$> (x Core..:? "NumberOfHumanWorkersPerDataObject")
-            Prelude.<*> (x Core..:? "LabelingJobName")
-            Prelude.<*> (x Core..:? "LabelCounters")
-            Prelude.<*> (x Core..: "JobReferenceCode")
-            Prelude.<*> (x Core..: "WorkRequesterAccountId")
-            Prelude.<*> (x Core..: "CreationTime")
+            Prelude.<$> (x Data..:? "NumberOfHumanWorkersPerDataObject")
+            Prelude.<*> (x Data..:? "LabelingJobName")
+            Prelude.<*> (x Data..:? "LabelCounters")
+            Prelude.<*> (x Data..: "JobReferenceCode")
+            Prelude.<*> (x Data..: "WorkRequesterAccountId")
+            Prelude.<*> (x Data..: "CreationTime")
       )
 
 instance

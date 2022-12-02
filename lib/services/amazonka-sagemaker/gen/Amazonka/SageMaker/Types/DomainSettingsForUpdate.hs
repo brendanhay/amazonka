@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DomainSettingsForUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ExecutionRoleIdentityConfig
 import Amazonka.SageMaker.Types.RStudioServerProDomainSettingsForUpdate
@@ -88,13 +89,13 @@ instance Prelude.NFData DomainSettingsForUpdate where
     Prelude.rnf executionRoleIdentityConfig
       `Prelude.seq` Prelude.rnf rStudioServerProDomainSettingsForUpdate
 
-instance Core.ToJSON DomainSettingsForUpdate where
+instance Data.ToJSON DomainSettingsForUpdate where
   toJSON DomainSettingsForUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExecutionRoleIdentityConfig" Core..=)
+          [ ("ExecutionRoleIdentityConfig" Data..=)
               Prelude.<$> executionRoleIdentityConfig,
-            ("RStudioServerProDomainSettingsForUpdate" Core..=)
+            ("RStudioServerProDomainSettingsForUpdate" Data..=)
               Prelude.<$> rStudioServerProDomainSettingsForUpdate
           ]
       )

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,10 +88,10 @@ instance Core.AWSRequest BatchDescribeModelPackage where
     Response.receiveJSON
       ( \s h x ->
           BatchDescribeModelPackageResponse'
-            Prelude.<$> ( x Core..?> "ModelPackageSummaries"
+            Prelude.<$> ( x Data..?> "ModelPackageSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "BatchDescribeModelPackageErrorMap"
+            Prelude.<*> ( x Data..?> "BatchDescribeModelPackageErrorMap"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -104,34 +105,34 @@ instance Prelude.NFData BatchDescribeModelPackage where
   rnf BatchDescribeModelPackage' {..} =
     Prelude.rnf modelPackageArnList
 
-instance Core.ToHeaders BatchDescribeModelPackage where
+instance Data.ToHeaders BatchDescribeModelPackage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.BatchDescribeModelPackage" ::
+              Data.=# ( "SageMaker.BatchDescribeModelPackage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchDescribeModelPackage where
+instance Data.ToJSON BatchDescribeModelPackage where
   toJSON BatchDescribeModelPackage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ModelPackageArnList" Core..= modelPackageArnList)
+              ("ModelPackageArnList" Data..= modelPackageArnList)
           ]
       )
 
-instance Core.ToPath BatchDescribeModelPackage where
+instance Data.ToPath BatchDescribeModelPackage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchDescribeModelPackage where
+instance Data.ToQuery BatchDescribeModelPackage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchDescribeModelPackageResponse' smart constructor.

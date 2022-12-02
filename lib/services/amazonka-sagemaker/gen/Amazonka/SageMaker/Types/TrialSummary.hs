@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TrialSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.TrialSource
 
@@ -33,11 +34,11 @@ data TrialSummary = TrialSummary'
     -- @TrialName@ is displayed.
     displayName :: Prelude.Maybe Prelude.Text,
     -- | When the trial was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the trial.
     trialName :: Prelude.Maybe Prelude.Text,
     -- | When the trial was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     trialSource :: Prelude.Maybe TrialSource,
     -- | The Amazon Resource Name (ARN) of the trial.
     trialArn :: Prelude.Maybe Prelude.Text
@@ -83,7 +84,7 @@ trialSummary_displayName = Lens.lens (\TrialSummary' {displayName} -> displayNam
 
 -- | When the trial was last modified.
 trialSummary_lastModifiedTime :: Lens.Lens' TrialSummary (Prelude.Maybe Prelude.UTCTime)
-trialSummary_lastModifiedTime = Lens.lens (\TrialSummary' {lastModifiedTime} -> lastModifiedTime) (\s@TrialSummary' {} a -> s {lastModifiedTime = a} :: TrialSummary) Prelude.. Lens.mapping Core._Time
+trialSummary_lastModifiedTime = Lens.lens (\TrialSummary' {lastModifiedTime} -> lastModifiedTime) (\s@TrialSummary' {} a -> s {lastModifiedTime = a} :: TrialSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the trial.
 trialSummary_trialName :: Lens.Lens' TrialSummary (Prelude.Maybe Prelude.Text)
@@ -91,7 +92,7 @@ trialSummary_trialName = Lens.lens (\TrialSummary' {trialName} -> trialName) (\s
 
 -- | When the trial was created.
 trialSummary_creationTime :: Lens.Lens' TrialSummary (Prelude.Maybe Prelude.UTCTime)
-trialSummary_creationTime = Lens.lens (\TrialSummary' {creationTime} -> creationTime) (\s@TrialSummary' {} a -> s {creationTime = a} :: TrialSummary) Prelude.. Lens.mapping Core._Time
+trialSummary_creationTime = Lens.lens (\TrialSummary' {creationTime} -> creationTime) (\s@TrialSummary' {} a -> s {creationTime = a} :: TrialSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 trialSummary_trialSource :: Lens.Lens' TrialSummary (Prelude.Maybe TrialSource)
@@ -101,18 +102,18 @@ trialSummary_trialSource = Lens.lens (\TrialSummary' {trialSource} -> trialSourc
 trialSummary_trialArn :: Lens.Lens' TrialSummary (Prelude.Maybe Prelude.Text)
 trialSummary_trialArn = Lens.lens (\TrialSummary' {trialArn} -> trialArn) (\s@TrialSummary' {} a -> s {trialArn = a} :: TrialSummary)
 
-instance Core.FromJSON TrialSummary where
+instance Data.FromJSON TrialSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrialSummary"
       ( \x ->
           TrialSummary'
-            Prelude.<$> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "TrialName")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "TrialSource")
-            Prelude.<*> (x Core..:? "TrialArn")
+            Prelude.<$> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "TrialName")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "TrialSource")
+            Prelude.<*> (x Data..:? "TrialArn")
       )
 
 instance Prelude.Hashable TrialSummary where

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.KernelGatewayImageConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.FileSystemConfig
 import Amazonka.SageMaker.Types.KernelSpec
@@ -70,14 +71,14 @@ kernelGatewayImageConfig_fileSystemConfig = Lens.lens (\KernelGatewayImageConfig
 kernelGatewayImageConfig_kernelSpecs :: Lens.Lens' KernelGatewayImageConfig (Prelude.NonEmpty KernelSpec)
 kernelGatewayImageConfig_kernelSpecs = Lens.lens (\KernelGatewayImageConfig' {kernelSpecs} -> kernelSpecs) (\s@KernelGatewayImageConfig' {} a -> s {kernelSpecs = a} :: KernelGatewayImageConfig) Prelude.. Lens.coerced
 
-instance Core.FromJSON KernelGatewayImageConfig where
+instance Data.FromJSON KernelGatewayImageConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KernelGatewayImageConfig"
       ( \x ->
           KernelGatewayImageConfig'
-            Prelude.<$> (x Core..:? "FileSystemConfig")
-            Prelude.<*> (x Core..: "KernelSpecs")
+            Prelude.<$> (x Data..:? "FileSystemConfig")
+            Prelude.<*> (x Data..: "KernelSpecs")
       )
 
 instance Prelude.Hashable KernelGatewayImageConfig where
@@ -90,12 +91,12 @@ instance Prelude.NFData KernelGatewayImageConfig where
     Prelude.rnf fileSystemConfig
       `Prelude.seq` Prelude.rnf kernelSpecs
 
-instance Core.ToJSON KernelGatewayImageConfig where
+instance Data.ToJSON KernelGatewayImageConfig where
   toJSON KernelGatewayImageConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FileSystemConfig" Core..=)
+          [ ("FileSystemConfig" Data..=)
               Prelude.<$> fileSystemConfig,
-            Prelude.Just ("KernelSpecs" Core..= kernelSpecs)
+            Prelude.Just ("KernelSpecs" Data..= kernelSpecs)
           ]
       )

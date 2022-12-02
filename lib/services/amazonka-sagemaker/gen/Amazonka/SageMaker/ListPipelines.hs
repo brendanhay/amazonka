@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -65,7 +66,7 @@ data ListPipelines = ListPipelines'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns the pipelines that were created before a specified
     -- time.
-    createdBefore :: Prelude.Maybe Core.POSIX,
+    createdBefore :: Prelude.Maybe Data.POSIX,
     -- | The field by which to sort results. The default is @CreatedTime@.
     sortBy :: Prelude.Maybe SortPipelinesBy,
     -- | The maximum number of pipelines to return in the response.
@@ -74,7 +75,7 @@ data ListPipelines = ListPipelines'
     pipelineNamePrefix :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns the pipelines that were created after a specified
     -- time.
-    createdAfter :: Prelude.Maybe Core.POSIX
+    createdAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -129,7 +130,7 @@ listPipelines_nextToken = Lens.lens (\ListPipelines' {nextToken} -> nextToken) (
 -- | A filter that returns the pipelines that were created before a specified
 -- time.
 listPipelines_createdBefore :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.UTCTime)
-listPipelines_createdBefore = Lens.lens (\ListPipelines' {createdBefore} -> createdBefore) (\s@ListPipelines' {} a -> s {createdBefore = a} :: ListPipelines) Prelude.. Lens.mapping Core._Time
+listPipelines_createdBefore = Lens.lens (\ListPipelines' {createdBefore} -> createdBefore) (\s@ListPipelines' {} a -> s {createdBefore = a} :: ListPipelines) Prelude.. Lens.mapping Data._Time
 
 -- | The field by which to sort results. The default is @CreatedTime@.
 listPipelines_sortBy :: Lens.Lens' ListPipelines (Prelude.Maybe SortPipelinesBy)
@@ -146,7 +147,7 @@ listPipelines_pipelineNamePrefix = Lens.lens (\ListPipelines' {pipelineNamePrefi
 -- | A filter that returns the pipelines that were created after a specified
 -- time.
 listPipelines_createdAfter :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.UTCTime)
-listPipelines_createdAfter = Lens.lens (\ListPipelines' {createdAfter} -> createdAfter) (\s@ListPipelines' {} a -> s {createdAfter = a} :: ListPipelines) Prelude.. Lens.mapping Core._Time
+listPipelines_createdAfter = Lens.lens (\ListPipelines' {createdAfter} -> createdAfter) (\s@ListPipelines' {} a -> s {createdAfter = a} :: ListPipelines) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListPipelines where
   page rq rs
@@ -178,8 +179,8 @@ instance Core.AWSRequest ListPipelines where
     Response.receiveJSON
       ( \s h x ->
           ListPipelinesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "PipelineSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "PipelineSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -205,38 +206,38 @@ instance Prelude.NFData ListPipelines where
       `Prelude.seq` Prelude.rnf pipelineNamePrefix
       `Prelude.seq` Prelude.rnf createdAfter
 
-instance Core.ToHeaders ListPipelines where
+instance Data.ToHeaders ListPipelines where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.ListPipelines" :: Prelude.ByteString),
+              Data.=# ("SageMaker.ListPipelines" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListPipelines where
+instance Data.ToJSON ListPipelines where
   toJSON ListPipelines' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("PipelineNamePrefix" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("CreatedBefore" Data..=) Prelude.<$> createdBefore,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("PipelineNamePrefix" Data..=)
               Prelude.<$> pipelineNamePrefix,
-            ("CreatedAfter" Core..=) Prelude.<$> createdAfter
+            ("CreatedAfter" Data..=) Prelude.<$> createdAfter
           ]
       )
 
-instance Core.ToPath ListPipelines where
+instance Data.ToPath ListPipelines where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListPipelines where
+instance Data.ToQuery ListPipelines where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListPipelinesResponse' smart constructor.

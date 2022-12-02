@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -146,7 +147,7 @@ instance Core.AWSRequest CreateContext where
     Response.receiveJSON
       ( \s h x ->
           CreateContextResponse'
-            Prelude.<$> (x Core..?> "ContextArn")
+            Prelude.<$> (x Data..?> "ContextArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,36 +169,36 @@ instance Prelude.NFData CreateContext where
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf contextType
 
-instance Core.ToHeaders CreateContext where
+instance Data.ToHeaders CreateContext where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.CreateContext" :: Prelude.ByteString),
+              Data.=# ("SageMaker.CreateContext" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateContext where
+instance Data.ToJSON CreateContext where
   toJSON CreateContext' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Properties" Core..=) Prelude.<$> properties,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("ContextName" Core..= contextName),
-            Prelude.Just ("Source" Core..= source),
-            Prelude.Just ("ContextType" Core..= contextType)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Properties" Data..=) Prelude.<$> properties,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("ContextName" Data..= contextName),
+            Prelude.Just ("Source" Data..= source),
+            Prelude.Just ("ContextType" Data..= contextType)
           ]
       )
 
-instance Core.ToPath CreateContext where
+instance Data.ToPath CreateContext where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateContext where
+instance Data.ToQuery CreateContext where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateContextResponse' smart constructor.

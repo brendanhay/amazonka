@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TrialComponentSimpleSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.TrialComponentSource
 import Amazonka.SageMaker.Types.UserContext
@@ -35,7 +36,7 @@ data TrialComponentSimpleSummary = TrialComponentSimpleSummary'
     trialComponentName :: Prelude.Maybe Prelude.Text,
     trialComponentSource :: Prelude.Maybe TrialComponentSource,
     -- | When the component was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     createdBy :: Prelude.Maybe UserContext
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,23 +84,23 @@ trialComponentSimpleSummary_trialComponentSource = Lens.lens (\TrialComponentSim
 
 -- | When the component was created.
 trialComponentSimpleSummary_creationTime :: Lens.Lens' TrialComponentSimpleSummary (Prelude.Maybe Prelude.UTCTime)
-trialComponentSimpleSummary_creationTime = Lens.lens (\TrialComponentSimpleSummary' {creationTime} -> creationTime) (\s@TrialComponentSimpleSummary' {} a -> s {creationTime = a} :: TrialComponentSimpleSummary) Prelude.. Lens.mapping Core._Time
+trialComponentSimpleSummary_creationTime = Lens.lens (\TrialComponentSimpleSummary' {creationTime} -> creationTime) (\s@TrialComponentSimpleSummary' {} a -> s {creationTime = a} :: TrialComponentSimpleSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 trialComponentSimpleSummary_createdBy :: Lens.Lens' TrialComponentSimpleSummary (Prelude.Maybe UserContext)
 trialComponentSimpleSummary_createdBy = Lens.lens (\TrialComponentSimpleSummary' {createdBy} -> createdBy) (\s@TrialComponentSimpleSummary' {} a -> s {createdBy = a} :: TrialComponentSimpleSummary)
 
-instance Core.FromJSON TrialComponentSimpleSummary where
+instance Data.FromJSON TrialComponentSimpleSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrialComponentSimpleSummary"
       ( \x ->
           TrialComponentSimpleSummary'
-            Prelude.<$> (x Core..:? "TrialComponentArn")
-            Prelude.<*> (x Core..:? "TrialComponentName")
-            Prelude.<*> (x Core..:? "TrialComponentSource")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "CreatedBy")
+            Prelude.<$> (x Data..:? "TrialComponentArn")
+            Prelude.<*> (x Data..:? "TrialComponentName")
+            Prelude.<*> (x Data..:? "TrialComponentSource")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "CreatedBy")
       )
 
 instance Prelude.Hashable TrialComponentSimpleSummary where

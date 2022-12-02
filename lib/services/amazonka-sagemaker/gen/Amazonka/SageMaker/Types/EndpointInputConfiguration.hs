@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.EndpointInputConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.EnvironmentParameterRanges
 import Amazonka.SageMaker.Types.ProductionVariantInstanceType
@@ -75,15 +76,15 @@ endpointInputConfiguration_environmentParameterRanges = Lens.lens (\EndpointInpu
 endpointInputConfiguration_instanceType :: Lens.Lens' EndpointInputConfiguration ProductionVariantInstanceType
 endpointInputConfiguration_instanceType = Lens.lens (\EndpointInputConfiguration' {instanceType} -> instanceType) (\s@EndpointInputConfiguration' {} a -> s {instanceType = a} :: EndpointInputConfiguration)
 
-instance Core.FromJSON EndpointInputConfiguration where
+instance Data.FromJSON EndpointInputConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointInputConfiguration"
       ( \x ->
           EndpointInputConfiguration'
-            Prelude.<$> (x Core..:? "InferenceSpecificationName")
-            Prelude.<*> (x Core..:? "EnvironmentParameterRanges")
-            Prelude.<*> (x Core..: "InstanceType")
+            Prelude.<$> (x Data..:? "InferenceSpecificationName")
+            Prelude.<*> (x Data..:? "EnvironmentParameterRanges")
+            Prelude.<*> (x Data..: "InstanceType")
       )
 
 instance Prelude.Hashable EndpointInputConfiguration where
@@ -99,14 +100,14 @@ instance Prelude.NFData EndpointInputConfiguration where
       `Prelude.seq` Prelude.rnf environmentParameterRanges
       `Prelude.seq` Prelude.rnf instanceType
 
-instance Core.ToJSON EndpointInputConfiguration where
+instance Data.ToJSON EndpointInputConfiguration where
   toJSON EndpointInputConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InferenceSpecificationName" Core..=)
+          [ ("InferenceSpecificationName" Data..=)
               Prelude.<$> inferenceSpecificationName,
-            ("EnvironmentParameterRanges" Core..=)
+            ("EnvironmentParameterRanges" Data..=)
               Prelude.<$> environmentParameterRanges,
-            Prelude.Just ("InstanceType" Core..= instanceType)
+            Prelude.Just ("InstanceType" Data..= instanceType)
           ]
       )

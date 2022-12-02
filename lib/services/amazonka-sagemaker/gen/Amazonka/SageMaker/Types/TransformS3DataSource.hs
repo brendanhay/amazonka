@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TransformS3DataSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.S3DataType
 
@@ -207,14 +208,14 @@ transformS3DataSource_s3DataType = Lens.lens (\TransformS3DataSource' {s3DataTyp
 transformS3DataSource_s3Uri :: Lens.Lens' TransformS3DataSource Prelude.Text
 transformS3DataSource_s3Uri = Lens.lens (\TransformS3DataSource' {s3Uri} -> s3Uri) (\s@TransformS3DataSource' {} a -> s {s3Uri = a} :: TransformS3DataSource)
 
-instance Core.FromJSON TransformS3DataSource where
+instance Data.FromJSON TransformS3DataSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TransformS3DataSource"
       ( \x ->
           TransformS3DataSource'
-            Prelude.<$> (x Core..: "S3DataType")
-            Prelude.<*> (x Core..: "S3Uri")
+            Prelude.<$> (x Data..: "S3DataType")
+            Prelude.<*> (x Data..: "S3Uri")
       )
 
 instance Prelude.Hashable TransformS3DataSource where
@@ -227,11 +228,11 @@ instance Prelude.NFData TransformS3DataSource where
     Prelude.rnf s3DataType
       `Prelude.seq` Prelude.rnf s3Uri
 
-instance Core.ToJSON TransformS3DataSource where
+instance Data.ToJSON TransformS3DataSource where
   toJSON TransformS3DataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("S3DataType" Core..= s3DataType),
-            Prelude.Just ("S3Uri" Core..= s3Uri)
+          [ Prelude.Just ("S3DataType" Data..= s3DataType),
+            Prelude.Just ("S3Uri" Data..= s3Uri)
           ]
       )

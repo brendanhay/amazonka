@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.LabelingJobResourceConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.VpcConfig
 
@@ -127,14 +128,14 @@ labelingJobResourceConfig_vpcConfig = Lens.lens (\LabelingJobResourceConfig' {vp
 labelingJobResourceConfig_volumeKmsKeyId :: Lens.Lens' LabelingJobResourceConfig (Prelude.Maybe Prelude.Text)
 labelingJobResourceConfig_volumeKmsKeyId = Lens.lens (\LabelingJobResourceConfig' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@LabelingJobResourceConfig' {} a -> s {volumeKmsKeyId = a} :: LabelingJobResourceConfig)
 
-instance Core.FromJSON LabelingJobResourceConfig where
+instance Data.FromJSON LabelingJobResourceConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LabelingJobResourceConfig"
       ( \x ->
           LabelingJobResourceConfig'
-            Prelude.<$> (x Core..:? "VpcConfig")
-            Prelude.<*> (x Core..:? "VolumeKmsKeyId")
+            Prelude.<$> (x Data..:? "VpcConfig")
+            Prelude.<*> (x Data..:? "VolumeKmsKeyId")
       )
 
 instance Prelude.Hashable LabelingJobResourceConfig where
@@ -147,12 +148,12 @@ instance Prelude.NFData LabelingJobResourceConfig where
     Prelude.rnf vpcConfig
       `Prelude.seq` Prelude.rnf volumeKmsKeyId
 
-instance Core.ToJSON LabelingJobResourceConfig where
+instance Data.ToJSON LabelingJobResourceConfig where
   toJSON LabelingJobResourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("VolumeKmsKeyId" Core..=)
+          [ ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("VolumeKmsKeyId" Data..=)
               Prelude.<$> volumeKmsKeyId
           ]
       )

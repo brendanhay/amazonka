@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DebugRuleEvaluationStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.RuleEvaluationStatus
 
@@ -31,7 +32,7 @@ data DebugRuleEvaluationStatus = DebugRuleEvaluationStatus'
   { -- | Details from the rule evaluation.
     statusDetails :: Prelude.Maybe Prelude.Text,
     -- | Timestamp when the rule evaluation status was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the rule evaluation job.
     ruleEvaluationJobArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the rule configuration.
@@ -76,7 +77,7 @@ debugRuleEvaluationStatus_statusDetails = Lens.lens (\DebugRuleEvaluationStatus'
 
 -- | Timestamp when the rule evaluation status was last modified.
 debugRuleEvaluationStatus_lastModifiedTime :: Lens.Lens' DebugRuleEvaluationStatus (Prelude.Maybe Prelude.UTCTime)
-debugRuleEvaluationStatus_lastModifiedTime = Lens.lens (\DebugRuleEvaluationStatus' {lastModifiedTime} -> lastModifiedTime) (\s@DebugRuleEvaluationStatus' {} a -> s {lastModifiedTime = a} :: DebugRuleEvaluationStatus) Prelude.. Lens.mapping Core._Time
+debugRuleEvaluationStatus_lastModifiedTime = Lens.lens (\DebugRuleEvaluationStatus' {lastModifiedTime} -> lastModifiedTime) (\s@DebugRuleEvaluationStatus' {} a -> s {lastModifiedTime = a} :: DebugRuleEvaluationStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the rule evaluation job.
 debugRuleEvaluationStatus_ruleEvaluationJobArn :: Lens.Lens' DebugRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
@@ -90,17 +91,17 @@ debugRuleEvaluationStatus_ruleConfigurationName = Lens.lens (\DebugRuleEvaluatio
 debugRuleEvaluationStatus_ruleEvaluationStatus :: Lens.Lens' DebugRuleEvaluationStatus (Prelude.Maybe RuleEvaluationStatus)
 debugRuleEvaluationStatus_ruleEvaluationStatus = Lens.lens (\DebugRuleEvaluationStatus' {ruleEvaluationStatus} -> ruleEvaluationStatus) (\s@DebugRuleEvaluationStatus' {} a -> s {ruleEvaluationStatus = a} :: DebugRuleEvaluationStatus)
 
-instance Core.FromJSON DebugRuleEvaluationStatus where
+instance Data.FromJSON DebugRuleEvaluationStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DebugRuleEvaluationStatus"
       ( \x ->
           DebugRuleEvaluationStatus'
-            Prelude.<$> (x Core..:? "StatusDetails")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "RuleEvaluationJobArn")
-            Prelude.<*> (x Core..:? "RuleConfigurationName")
-            Prelude.<*> (x Core..:? "RuleEvaluationStatus")
+            Prelude.<$> (x Data..:? "StatusDetails")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "RuleEvaluationJobArn")
+            Prelude.<*> (x Data..:? "RuleConfigurationName")
+            Prelude.<*> (x Data..:? "RuleEvaluationStatus")
       )
 
 instance Prelude.Hashable DebugRuleEvaluationStatus where

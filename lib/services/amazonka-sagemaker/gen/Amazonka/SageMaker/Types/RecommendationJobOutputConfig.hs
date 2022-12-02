@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.RecommendationJobOutputConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.RecommendationJobCompiledOutputConfig
 
@@ -158,12 +159,12 @@ instance Prelude.NFData RecommendationJobOutputConfig where
     Prelude.rnf compiledOutputConfig
       `Prelude.seq` Prelude.rnf kmsKeyId
 
-instance Core.ToJSON RecommendationJobOutputConfig where
+instance Data.ToJSON RecommendationJobOutputConfig where
   toJSON RecommendationJobOutputConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CompiledOutputConfig" Core..=)
+          [ ("CompiledOutputConfig" Data..=)
               Prelude.<$> compiledOutputConfig,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId
           ]
       )

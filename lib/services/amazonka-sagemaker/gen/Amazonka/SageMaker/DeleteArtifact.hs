@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,7 +94,7 @@ instance Core.AWSRequest DeleteArtifact where
     Response.receiveJSON
       ( \s h x ->
           DeleteArtifactResponse'
-            Prelude.<$> (x Core..?> "ArtifactArn")
+            Prelude.<$> (x Data..?> "ArtifactArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -107,32 +108,32 @@ instance Prelude.NFData DeleteArtifact where
     Prelude.rnf artifactArn
       `Prelude.seq` Prelude.rnf source
 
-instance Core.ToHeaders DeleteArtifact where
+instance Data.ToHeaders DeleteArtifact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DeleteArtifact" :: Prelude.ByteString),
+              Data.=# ("SageMaker.DeleteArtifact" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteArtifact where
+instance Data.ToJSON DeleteArtifact where
   toJSON DeleteArtifact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ArtifactArn" Core..=) Prelude.<$> artifactArn,
-            ("Source" Core..=) Prelude.<$> source
+          [ ("ArtifactArn" Data..=) Prelude.<$> artifactArn,
+            ("Source" Data..=) Prelude.<$> source
           ]
       )
 
-instance Core.ToPath DeleteArtifact where
+instance Data.ToPath DeleteArtifact where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteArtifact where
+instance Data.ToQuery DeleteArtifact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteArtifactResponse' smart constructor.

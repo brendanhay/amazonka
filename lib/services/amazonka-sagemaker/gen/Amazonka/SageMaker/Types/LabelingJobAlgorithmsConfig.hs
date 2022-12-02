@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.LabelingJobAlgorithmsConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.LabelingJobResourceConfig
 
@@ -138,15 +139,15 @@ labelingJobAlgorithmsConfig_labelingJobResourceConfig = Lens.lens (\LabelingJobA
 labelingJobAlgorithmsConfig_labelingJobAlgorithmSpecificationArn :: Lens.Lens' LabelingJobAlgorithmsConfig Prelude.Text
 labelingJobAlgorithmsConfig_labelingJobAlgorithmSpecificationArn = Lens.lens (\LabelingJobAlgorithmsConfig' {labelingJobAlgorithmSpecificationArn} -> labelingJobAlgorithmSpecificationArn) (\s@LabelingJobAlgorithmsConfig' {} a -> s {labelingJobAlgorithmSpecificationArn = a} :: LabelingJobAlgorithmsConfig)
 
-instance Core.FromJSON LabelingJobAlgorithmsConfig where
+instance Data.FromJSON LabelingJobAlgorithmsConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LabelingJobAlgorithmsConfig"
       ( \x ->
           LabelingJobAlgorithmsConfig'
-            Prelude.<$> (x Core..:? "InitialActiveLearningModelArn")
-            Prelude.<*> (x Core..:? "LabelingJobResourceConfig")
-            Prelude.<*> (x Core..: "LabelingJobAlgorithmSpecificationArn")
+            Prelude.<$> (x Data..:? "InitialActiveLearningModelArn")
+            Prelude.<*> (x Data..:? "LabelingJobResourceConfig")
+            Prelude.<*> (x Data..: "LabelingJobAlgorithmSpecificationArn")
       )
 
 instance Prelude.Hashable LabelingJobAlgorithmsConfig where
@@ -162,17 +163,17 @@ instance Prelude.NFData LabelingJobAlgorithmsConfig where
       `Prelude.seq` Prelude.rnf labelingJobResourceConfig
       `Prelude.seq` Prelude.rnf labelingJobAlgorithmSpecificationArn
 
-instance Core.ToJSON LabelingJobAlgorithmsConfig where
+instance Data.ToJSON LabelingJobAlgorithmsConfig where
   toJSON LabelingJobAlgorithmsConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InitialActiveLearningModelArn" Core..=)
+          [ ("InitialActiveLearningModelArn" Data..=)
               Prelude.<$> initialActiveLearningModelArn,
-            ("LabelingJobResourceConfig" Core..=)
+            ("LabelingJobResourceConfig" Data..=)
               Prelude.<$> labelingJobResourceConfig,
             Prelude.Just
               ( "LabelingJobAlgorithmSpecificationArn"
-                  Core..= labelingJobAlgorithmSpecificationArn
+                  Data..= labelingJobAlgorithmSpecificationArn
               )
           ]
       )

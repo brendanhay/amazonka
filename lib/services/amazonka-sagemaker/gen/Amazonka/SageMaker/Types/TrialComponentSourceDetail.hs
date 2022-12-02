@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TrialComponentSourceDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ProcessingJob
 import Amazonka.SageMaker.Types.TrainingJob
@@ -93,16 +94,16 @@ trialComponentSourceDetail_processingJob = Lens.lens (\TrialComponentSourceDetai
 trialComponentSourceDetail_transformJob :: Lens.Lens' TrialComponentSourceDetail (Prelude.Maybe TransformJob)
 trialComponentSourceDetail_transformJob = Lens.lens (\TrialComponentSourceDetail' {transformJob} -> transformJob) (\s@TrialComponentSourceDetail' {} a -> s {transformJob = a} :: TrialComponentSourceDetail)
 
-instance Core.FromJSON TrialComponentSourceDetail where
+instance Data.FromJSON TrialComponentSourceDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrialComponentSourceDetail"
       ( \x ->
           TrialComponentSourceDetail'
-            Prelude.<$> (x Core..:? "TrainingJob")
-            Prelude.<*> (x Core..:? "SourceArn")
-            Prelude.<*> (x Core..:? "ProcessingJob")
-            Prelude.<*> (x Core..:? "TransformJob")
+            Prelude.<$> (x Data..:? "TrainingJob")
+            Prelude.<*> (x Data..:? "SourceArn")
+            Prelude.<*> (x Data..:? "ProcessingJob")
+            Prelude.<*> (x Data..:? "TransformJob")
       )
 
 instance Prelude.Hashable TrialComponentSourceDetail where

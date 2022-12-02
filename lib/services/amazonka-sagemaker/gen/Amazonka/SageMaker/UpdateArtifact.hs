@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,7 +116,7 @@ instance Core.AWSRequest UpdateArtifact where
     Response.receiveJSON
       ( \s h x ->
           UpdateArtifactResponse'
-            Prelude.<$> (x Core..?> "ArtifactArn")
+            Prelude.<$> (x Data..?> "ArtifactArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,35 +134,35 @@ instance Prelude.NFData UpdateArtifact where
       `Prelude.seq` Prelude.rnf properties
       `Prelude.seq` Prelude.rnf artifactArn
 
-instance Core.ToHeaders UpdateArtifact where
+instance Data.ToHeaders UpdateArtifact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.UpdateArtifact" :: Prelude.ByteString),
+              Data.=# ("SageMaker.UpdateArtifact" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateArtifact where
+instance Data.ToJSON UpdateArtifact where
   toJSON UpdateArtifact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ArtifactName" Core..=) Prelude.<$> artifactName,
-            ("PropertiesToRemove" Core..=)
+          [ ("ArtifactName" Data..=) Prelude.<$> artifactName,
+            ("PropertiesToRemove" Data..=)
               Prelude.<$> propertiesToRemove,
-            ("Properties" Core..=) Prelude.<$> properties,
-            Prelude.Just ("ArtifactArn" Core..= artifactArn)
+            ("Properties" Data..=) Prelude.<$> properties,
+            Prelude.Just ("ArtifactArn" Data..= artifactArn)
           ]
       )
 
-instance Core.ToPath UpdateArtifact where
+instance Data.ToPath UpdateArtifact where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateArtifact where
+instance Data.ToQuery UpdateArtifact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateArtifactResponse' smart constructor.

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,17 +94,17 @@ instance Core.AWSRequest DescribeArtifact where
     Response.receiveJSON
       ( \s h x ->
           DescribeArtifactResponse'
-            Prelude.<$> (x Core..?> "ArtifactName")
-            Prelude.<*> (x Core..?> "ArtifactType")
-            Prelude.<*> (x Core..?> "MetadataProperties")
-            Prelude.<*> (x Core..?> "Properties" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ArtifactArn")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "Source")
-            Prelude.<*> (x Core..?> "LineageGroupArn")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "LastModifiedBy")
-            Prelude.<*> (x Core..?> "CreatedBy")
+            Prelude.<$> (x Data..?> "ArtifactName")
+            Prelude.<*> (x Data..?> "ArtifactType")
+            Prelude.<*> (x Data..?> "MetadataProperties")
+            Prelude.<*> (x Data..?> "Properties" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ArtifactArn")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "Source")
+            Prelude.<*> (x Data..?> "LineageGroupArn")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "LastModifiedBy")
+            Prelude.<*> (x Data..?> "CreatedBy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,30 +115,30 @@ instance Prelude.Hashable DescribeArtifact where
 instance Prelude.NFData DescribeArtifact where
   rnf DescribeArtifact' {..} = Prelude.rnf artifactArn
 
-instance Core.ToHeaders DescribeArtifact where
+instance Data.ToHeaders DescribeArtifact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DescribeArtifact" :: Prelude.ByteString),
+              Data.=# ("SageMaker.DescribeArtifact" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeArtifact where
+instance Data.ToJSON DescribeArtifact where
   toJSON DescribeArtifact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ArtifactArn" Core..= artifactArn)]
+          [Prelude.Just ("ArtifactArn" Data..= artifactArn)]
       )
 
-instance Core.ToPath DescribeArtifact where
+instance Data.ToPath DescribeArtifact where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeArtifact where
+instance Data.ToQuery DescribeArtifact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeArtifactResponse' smart constructor.
@@ -152,13 +153,13 @@ data DescribeArtifactResponse = DescribeArtifactResponse'
     -- | The Amazon Resource Name (ARN) of the artifact.
     artifactArn :: Prelude.Maybe Prelude.Text,
     -- | When the artifact was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The source of the artifact.
     source :: Prelude.Maybe ArtifactSource,
     -- | The Amazon Resource Name (ARN) of the lineage group.
     lineageGroupArn :: Prelude.Maybe Prelude.Text,
     -- | When the artifact was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     lastModifiedBy :: Prelude.Maybe UserContext,
     createdBy :: Prelude.Maybe UserContext,
     -- | The response's http status code.
@@ -240,7 +241,7 @@ describeArtifactResponse_artifactArn = Lens.lens (\DescribeArtifactResponse' {ar
 
 -- | When the artifact was last modified.
 describeArtifactResponse_lastModifiedTime :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe Prelude.UTCTime)
-describeArtifactResponse_lastModifiedTime = Lens.lens (\DescribeArtifactResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeArtifactResponse' {} a -> s {lastModifiedTime = a} :: DescribeArtifactResponse) Prelude.. Lens.mapping Core._Time
+describeArtifactResponse_lastModifiedTime = Lens.lens (\DescribeArtifactResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeArtifactResponse' {} a -> s {lastModifiedTime = a} :: DescribeArtifactResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The source of the artifact.
 describeArtifactResponse_source :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe ArtifactSource)
@@ -252,7 +253,7 @@ describeArtifactResponse_lineageGroupArn = Lens.lens (\DescribeArtifactResponse'
 
 -- | When the artifact was created.
 describeArtifactResponse_creationTime :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe Prelude.UTCTime)
-describeArtifactResponse_creationTime = Lens.lens (\DescribeArtifactResponse' {creationTime} -> creationTime) (\s@DescribeArtifactResponse' {} a -> s {creationTime = a} :: DescribeArtifactResponse) Prelude.. Lens.mapping Core._Time
+describeArtifactResponse_creationTime = Lens.lens (\DescribeArtifactResponse' {creationTime} -> creationTime) (\s@DescribeArtifactResponse' {} a -> s {creationTime = a} :: DescribeArtifactResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 describeArtifactResponse_lastModifiedBy :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe UserContext)

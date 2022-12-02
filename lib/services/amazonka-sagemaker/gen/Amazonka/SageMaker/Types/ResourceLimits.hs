@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ResourceLimits where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the maximum number of training jobs and parallel training jobs
@@ -71,14 +72,14 @@ resourceLimits_maxNumberOfTrainingJobs = Lens.lens (\ResourceLimits' {maxNumberO
 resourceLimits_maxParallelTrainingJobs :: Lens.Lens' ResourceLimits Prelude.Natural
 resourceLimits_maxParallelTrainingJobs = Lens.lens (\ResourceLimits' {maxParallelTrainingJobs} -> maxParallelTrainingJobs) (\s@ResourceLimits' {} a -> s {maxParallelTrainingJobs = a} :: ResourceLimits)
 
-instance Core.FromJSON ResourceLimits where
+instance Data.FromJSON ResourceLimits where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceLimits"
       ( \x ->
           ResourceLimits'
-            Prelude.<$> (x Core..:? "MaxNumberOfTrainingJobs")
-            Prelude.<*> (x Core..: "MaxParallelTrainingJobs")
+            Prelude.<$> (x Data..:? "MaxNumberOfTrainingJobs")
+            Prelude.<*> (x Data..: "MaxParallelTrainingJobs")
       )
 
 instance Prelude.Hashable ResourceLimits where
@@ -92,15 +93,15 @@ instance Prelude.NFData ResourceLimits where
     Prelude.rnf maxNumberOfTrainingJobs
       `Prelude.seq` Prelude.rnf maxParallelTrainingJobs
 
-instance Core.ToJSON ResourceLimits where
+instance Data.ToJSON ResourceLimits where
   toJSON ResourceLimits' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxNumberOfTrainingJobs" Core..=)
+          [ ("MaxNumberOfTrainingJobs" Data..=)
               Prelude.<$> maxNumberOfTrainingJobs,
             Prelude.Just
               ( "MaxParallelTrainingJobs"
-                  Core..= maxParallelTrainingJobs
+                  Data..= maxParallelTrainingJobs
               )
           ]
       )

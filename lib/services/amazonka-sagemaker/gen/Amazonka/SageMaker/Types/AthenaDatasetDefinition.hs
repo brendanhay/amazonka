@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AthenaDatasetDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AthenaResultCompressionType
 import Amazonka.SageMaker.Types.AthenaResultFormat
@@ -133,20 +134,20 @@ athenaDatasetDefinition_outputS3Uri = Lens.lens (\AthenaDatasetDefinition' {outp
 athenaDatasetDefinition_outputFormat :: Lens.Lens' AthenaDatasetDefinition AthenaResultFormat
 athenaDatasetDefinition_outputFormat = Lens.lens (\AthenaDatasetDefinition' {outputFormat} -> outputFormat) (\s@AthenaDatasetDefinition' {} a -> s {outputFormat = a} :: AthenaDatasetDefinition)
 
-instance Core.FromJSON AthenaDatasetDefinition where
+instance Data.FromJSON AthenaDatasetDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AthenaDatasetDefinition"
       ( \x ->
           AthenaDatasetDefinition'
-            Prelude.<$> (x Core..:? "WorkGroup")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "OutputCompression")
-            Prelude.<*> (x Core..: "Catalog")
-            Prelude.<*> (x Core..: "Database")
-            Prelude.<*> (x Core..: "QueryString")
-            Prelude.<*> (x Core..: "OutputS3Uri")
-            Prelude.<*> (x Core..: "OutputFormat")
+            Prelude.<$> (x Data..:? "WorkGroup")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "OutputCompression")
+            Prelude.<*> (x Data..: "Catalog")
+            Prelude.<*> (x Data..: "Database")
+            Prelude.<*> (x Data..: "QueryString")
+            Prelude.<*> (x Data..: "OutputS3Uri")
+            Prelude.<*> (x Data..: "OutputFormat")
       )
 
 instance Prelude.Hashable AthenaDatasetDefinition where
@@ -171,18 +172,18 @@ instance Prelude.NFData AthenaDatasetDefinition where
       `Prelude.seq` Prelude.rnf outputS3Uri
       `Prelude.seq` Prelude.rnf outputFormat
 
-instance Core.ToJSON AthenaDatasetDefinition where
+instance Data.ToJSON AthenaDatasetDefinition where
   toJSON AthenaDatasetDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("WorkGroup" Core..=) Prelude.<$> workGroup,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("OutputCompression" Core..=)
+          [ ("WorkGroup" Data..=) Prelude.<$> workGroup,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("OutputCompression" Data..=)
               Prelude.<$> outputCompression,
-            Prelude.Just ("Catalog" Core..= catalog),
-            Prelude.Just ("Database" Core..= database),
-            Prelude.Just ("QueryString" Core..= queryString),
-            Prelude.Just ("OutputS3Uri" Core..= outputS3Uri),
-            Prelude.Just ("OutputFormat" Core..= outputFormat)
+            Prelude.Just ("Catalog" Data..= catalog),
+            Prelude.Just ("Database" Data..= database),
+            Prelude.Just ("QueryString" Data..= queryString),
+            Prelude.Just ("OutputS3Uri" Data..= outputS3Uri),
+            Prelude.Just ("OutputFormat" Data..= outputFormat)
           ]
       )

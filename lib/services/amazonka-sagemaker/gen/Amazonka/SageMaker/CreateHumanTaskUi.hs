@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,7 +116,7 @@ instance Core.AWSRequest CreateHumanTaskUi where
       ( \s h x ->
           CreateHumanTaskUiResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "HumanTaskUiArn")
+            Prelude.<*> (x Data..:> "HumanTaskUiArn")
       )
 
 instance Prelude.Hashable CreateHumanTaskUi where
@@ -130,36 +131,36 @@ instance Prelude.NFData CreateHumanTaskUi where
       `Prelude.seq` Prelude.rnf humanTaskUiName
       `Prelude.seq` Prelude.rnf uiTemplate
 
-instance Core.ToHeaders CreateHumanTaskUi where
+instance Data.ToHeaders CreateHumanTaskUi where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.CreateHumanTaskUi" ::
+              Data.=# ( "SageMaker.CreateHumanTaskUi" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateHumanTaskUi where
+instance Data.ToJSON CreateHumanTaskUi where
   toJSON CreateHumanTaskUi' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
-              ("HumanTaskUiName" Core..= humanTaskUiName),
-            Prelude.Just ("UiTemplate" Core..= uiTemplate)
+              ("HumanTaskUiName" Data..= humanTaskUiName),
+            Prelude.Just ("UiTemplate" Data..= uiTemplate)
           ]
       )
 
-instance Core.ToPath CreateHumanTaskUi where
+instance Data.ToPath CreateHumanTaskUi where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateHumanTaskUi where
+instance Data.ToQuery CreateHumanTaskUi where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateHumanTaskUiResponse' smart constructor.

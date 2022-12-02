@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,34 +90,34 @@ instance Prelude.NFData DeleteDeviceFleet where
   rnf DeleteDeviceFleet' {..} =
     Prelude.rnf deviceFleetName
 
-instance Core.ToHeaders DeleteDeviceFleet where
+instance Data.ToHeaders DeleteDeviceFleet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DeleteDeviceFleet" ::
+              Data.=# ( "SageMaker.DeleteDeviceFleet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteDeviceFleet where
+instance Data.ToJSON DeleteDeviceFleet where
   toJSON DeleteDeviceFleet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("DeviceFleetName" Core..= deviceFleetName)
+              ("DeviceFleetName" Data..= deviceFleetName)
           ]
       )
 
-instance Core.ToPath DeleteDeviceFleet where
+instance Data.ToPath DeleteDeviceFleet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDeviceFleet where
+instance Data.ToQuery DeleteDeviceFleet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDeviceFleetResponse' smart constructor.

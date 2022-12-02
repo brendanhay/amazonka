@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ArtifactSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ArtifactSource
 
@@ -37,11 +38,11 @@ data ArtifactSummary = ArtifactSummary'
     -- | The Amazon Resource Name (ARN) of the artifact.
     artifactArn :: Prelude.Maybe Prelude.Text,
     -- | When the artifact was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The source of the artifact.
     source :: Prelude.Maybe ArtifactSource,
     -- | When the artifact was created.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,7 +91,7 @@ artifactSummary_artifactArn = Lens.lens (\ArtifactSummary' {artifactArn} -> arti
 
 -- | When the artifact was last modified.
 artifactSummary_lastModifiedTime :: Lens.Lens' ArtifactSummary (Prelude.Maybe Prelude.UTCTime)
-artifactSummary_lastModifiedTime = Lens.lens (\ArtifactSummary' {lastModifiedTime} -> lastModifiedTime) (\s@ArtifactSummary' {} a -> s {lastModifiedTime = a} :: ArtifactSummary) Prelude.. Lens.mapping Core._Time
+artifactSummary_lastModifiedTime = Lens.lens (\ArtifactSummary' {lastModifiedTime} -> lastModifiedTime) (\s@ArtifactSummary' {} a -> s {lastModifiedTime = a} :: ArtifactSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The source of the artifact.
 artifactSummary_source :: Lens.Lens' ArtifactSummary (Prelude.Maybe ArtifactSource)
@@ -98,20 +99,20 @@ artifactSummary_source = Lens.lens (\ArtifactSummary' {source} -> source) (\s@Ar
 
 -- | When the artifact was created.
 artifactSummary_creationTime :: Lens.Lens' ArtifactSummary (Prelude.Maybe Prelude.UTCTime)
-artifactSummary_creationTime = Lens.lens (\ArtifactSummary' {creationTime} -> creationTime) (\s@ArtifactSummary' {} a -> s {creationTime = a} :: ArtifactSummary) Prelude.. Lens.mapping Core._Time
+artifactSummary_creationTime = Lens.lens (\ArtifactSummary' {creationTime} -> creationTime) (\s@ArtifactSummary' {} a -> s {creationTime = a} :: ArtifactSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ArtifactSummary where
+instance Data.FromJSON ArtifactSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ArtifactSummary"
       ( \x ->
           ArtifactSummary'
-            Prelude.<$> (x Core..:? "ArtifactName")
-            Prelude.<*> (x Core..:? "ArtifactType")
-            Prelude.<*> (x Core..:? "ArtifactArn")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "Source")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Data..:? "ArtifactName")
+            Prelude.<*> (x Data..:? "ArtifactType")
+            Prelude.<*> (x Data..:? "ArtifactArn")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "Source")
+            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance Prelude.Hashable ArtifactSummary where

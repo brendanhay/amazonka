@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.Device where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information of a particular device.
@@ -84,12 +85,12 @@ instance Prelude.NFData Device where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf deviceName
 
-instance Core.ToJSON Device where
+instance Data.ToJSON Device where
   toJSON Device' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IotThingName" Core..=) Prelude.<$> iotThingName,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("DeviceName" Core..= deviceName)
+          [ ("IotThingName" Data..=) Prelude.<$> iotThingName,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("DeviceName" Data..= deviceName)
           ]
       )

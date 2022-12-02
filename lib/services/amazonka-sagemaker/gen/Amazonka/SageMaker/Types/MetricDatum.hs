@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MetricDatum where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AutoMLMetricEnum
 import Amazonka.SageMaker.Types.AutoMLMetricExtendedEnum
@@ -94,16 +95,16 @@ metricDatum_standardMetricName = Lens.lens (\MetricDatum' {standardMetricName} -
 metricDatum_value :: Lens.Lens' MetricDatum (Prelude.Maybe Prelude.Double)
 metricDatum_value = Lens.lens (\MetricDatum' {value} -> value) (\s@MetricDatum' {} a -> s {value = a} :: MetricDatum)
 
-instance Core.FromJSON MetricDatum where
+instance Data.FromJSON MetricDatum where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricDatum"
       ( \x ->
           MetricDatum'
-            Prelude.<$> (x Core..:? "MetricName")
-            Prelude.<*> (x Core..:? "Set")
-            Prelude.<*> (x Core..:? "StandardMetricName")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..:? "Set")
+            Prelude.<*> (x Data..:? "StandardMetricName")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable MetricDatum where

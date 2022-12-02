@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,12 +95,12 @@ instance Core.AWSRequest DescribeHumanTaskUi where
     Response.receiveJSON
       ( \s h x ->
           DescribeHumanTaskUiResponse'
-            Prelude.<$> (x Core..?> "HumanTaskUiStatus")
+            Prelude.<$> (x Data..?> "HumanTaskUiStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "HumanTaskUiArn")
-            Prelude.<*> (x Core..:> "HumanTaskUiName")
-            Prelude.<*> (x Core..:> "CreationTime")
-            Prelude.<*> (x Core..:> "UiTemplate")
+            Prelude.<*> (x Data..:> "HumanTaskUiArn")
+            Prelude.<*> (x Data..:> "HumanTaskUiName")
+            Prelude.<*> (x Data..:> "CreationTime")
+            Prelude.<*> (x Data..:> "UiTemplate")
       )
 
 instance Prelude.Hashable DescribeHumanTaskUi where
@@ -110,34 +111,34 @@ instance Prelude.NFData DescribeHumanTaskUi where
   rnf DescribeHumanTaskUi' {..} =
     Prelude.rnf humanTaskUiName
 
-instance Core.ToHeaders DescribeHumanTaskUi where
+instance Data.ToHeaders DescribeHumanTaskUi where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeHumanTaskUi" ::
+              Data.=# ( "SageMaker.DescribeHumanTaskUi" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeHumanTaskUi where
+instance Data.ToJSON DescribeHumanTaskUi where
   toJSON DescribeHumanTaskUi' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("HumanTaskUiName" Core..= humanTaskUiName)
+              ("HumanTaskUiName" Data..= humanTaskUiName)
           ]
       )
 
-instance Core.ToPath DescribeHumanTaskUi where
+instance Data.ToPath DescribeHumanTaskUi where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeHumanTaskUi where
+instance Data.ToQuery DescribeHumanTaskUi where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeHumanTaskUiResponse' smart constructor.
@@ -153,7 +154,7 @@ data DescribeHumanTaskUiResponse = DescribeHumanTaskUiResponse'
     -- | The name of the human task user interface (worker task template).
     humanTaskUiName :: Prelude.Text,
     -- | The timestamp when the human task user interface was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     uiTemplate :: UiTemplateInfo
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -204,7 +205,7 @@ newDescribeHumanTaskUiResponse
         humanTaskUiArn = pHumanTaskUiArn_,
         humanTaskUiName = pHumanTaskUiName_,
         creationTime =
-          Core._Time Lens.# pCreationTime_,
+          Data._Time Lens.# pCreationTime_,
         uiTemplate = pUiTemplate_
       }
 
@@ -228,7 +229,7 @@ describeHumanTaskUiResponse_humanTaskUiName = Lens.lens (\DescribeHumanTaskUiRes
 
 -- | The timestamp when the human task user interface was created.
 describeHumanTaskUiResponse_creationTime :: Lens.Lens' DescribeHumanTaskUiResponse Prelude.UTCTime
-describeHumanTaskUiResponse_creationTime = Lens.lens (\DescribeHumanTaskUiResponse' {creationTime} -> creationTime) (\s@DescribeHumanTaskUiResponse' {} a -> s {creationTime = a} :: DescribeHumanTaskUiResponse) Prelude.. Core._Time
+describeHumanTaskUiResponse_creationTime = Lens.lens (\DescribeHumanTaskUiResponse' {creationTime} -> creationTime) (\s@DescribeHumanTaskUiResponse' {} a -> s {creationTime = a} :: DescribeHumanTaskUiResponse) Prelude.. Data._Time
 
 -- | Undocumented member.
 describeHumanTaskUiResponse_uiTemplate :: Lens.Lens' DescribeHumanTaskUiResponse UiTemplateInfo

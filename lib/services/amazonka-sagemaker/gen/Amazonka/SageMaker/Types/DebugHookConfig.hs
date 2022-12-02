@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DebugHookConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CollectionConfiguration
 
@@ -95,18 +96,18 @@ debugHookConfig_hookParameters = Lens.lens (\DebugHookConfig' {hookParameters} -
 debugHookConfig_s3OutputPath :: Lens.Lens' DebugHookConfig Prelude.Text
 debugHookConfig_s3OutputPath = Lens.lens (\DebugHookConfig' {s3OutputPath} -> s3OutputPath) (\s@DebugHookConfig' {} a -> s {s3OutputPath = a} :: DebugHookConfig)
 
-instance Core.FromJSON DebugHookConfig where
+instance Data.FromJSON DebugHookConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DebugHookConfig"
       ( \x ->
           DebugHookConfig'
-            Prelude.<$> ( x Core..:? "CollectionConfigurations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "CollectionConfigurations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LocalPath")
-            Prelude.<*> (x Core..:? "HookParameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "S3OutputPath")
+            Prelude.<*> (x Data..:? "LocalPath")
+            Prelude.<*> (x Data..:? "HookParameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "S3OutputPath")
       )
 
 instance Prelude.Hashable DebugHookConfig where
@@ -124,15 +125,15 @@ instance Prelude.NFData DebugHookConfig where
       `Prelude.seq` Prelude.rnf hookParameters
       `Prelude.seq` Prelude.rnf s3OutputPath
 
-instance Core.ToJSON DebugHookConfig where
+instance Data.ToJSON DebugHookConfig where
   toJSON DebugHookConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CollectionConfigurations" Core..=)
+          [ ("CollectionConfigurations" Data..=)
               Prelude.<$> collectionConfigurations,
-            ("LocalPath" Core..=) Prelude.<$> localPath,
-            ("HookParameters" Core..=)
+            ("LocalPath" Data..=) Prelude.<$> localPath,
+            ("HookParameters" Data..=)
               Prelude.<$> hookParameters,
-            Prelude.Just ("S3OutputPath" Core..= s3OutputPath)
+            Prelude.Just ("S3OutputPath" Data..= s3OutputPath)
           ]
       )

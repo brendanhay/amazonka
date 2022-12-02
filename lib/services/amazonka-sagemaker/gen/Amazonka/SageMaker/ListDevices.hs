@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -59,7 +60,7 @@ data ListDevices = ListDevices'
     -- need tokening.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Select fleets where the job was updated after X
-    latestHeartbeatAfter :: Prelude.Maybe Core.POSIX,
+    latestHeartbeatAfter :: Prelude.Maybe Data.POSIX,
     -- | Filter for fleets containing this name in their device fleet name.
     deviceFleetName :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of results to select.
@@ -107,7 +108,7 @@ listDevices_nextToken = Lens.lens (\ListDevices' {nextToken} -> nextToken) (\s@L
 
 -- | Select fleets where the job was updated after X
 listDevices_latestHeartbeatAfter :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.UTCTime)
-listDevices_latestHeartbeatAfter = Lens.lens (\ListDevices' {latestHeartbeatAfter} -> latestHeartbeatAfter) (\s@ListDevices' {} a -> s {latestHeartbeatAfter = a} :: ListDevices) Prelude.. Lens.mapping Core._Time
+listDevices_latestHeartbeatAfter = Lens.lens (\ListDevices' {latestHeartbeatAfter} -> latestHeartbeatAfter) (\s@ListDevices' {} a -> s {latestHeartbeatAfter = a} :: ListDevices) Prelude.. Lens.mapping Data._Time
 
 -- | Filter for fleets containing this name in their device fleet name.
 listDevices_deviceFleetName :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Text)
@@ -147,9 +148,9 @@ instance Core.AWSRequest ListDevices where
     Response.receiveJSON
       ( \s h x ->
           ListDevicesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "DeviceSummaries"
+            Prelude.<*> ( x Data..?> "DeviceSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -170,37 +171,37 @@ instance Prelude.NFData ListDevices where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf modelName
 
-instance Core.ToHeaders ListDevices where
+instance Data.ToHeaders ListDevices where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.ListDevices" :: Prelude.ByteString),
+              Data.=# ("SageMaker.ListDevices" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDevices where
+instance Data.ToJSON ListDevices where
   toJSON ListDevices' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("LatestHeartbeatAfter" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("LatestHeartbeatAfter" Data..=)
               Prelude.<$> latestHeartbeatAfter,
-            ("DeviceFleetName" Core..=)
+            ("DeviceFleetName" Data..=)
               Prelude.<$> deviceFleetName,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ModelName" Core..=) Prelude.<$> modelName
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("ModelName" Data..=) Prelude.<$> modelName
           ]
       )
 
-instance Core.ToPath ListDevices where
+instance Data.ToPath ListDevices where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDevices where
+instance Data.ToQuery ListDevices where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDevicesResponse' smart constructor.

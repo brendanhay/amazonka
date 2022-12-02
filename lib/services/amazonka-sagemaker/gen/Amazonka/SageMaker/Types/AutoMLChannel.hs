@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AutoMLChannel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AutoMLChannelType
 import Amazonka.SageMaker.Types.AutoMLDataSource
@@ -124,17 +125,17 @@ autoMLChannel_dataSource = Lens.lens (\AutoMLChannel' {dataSource} -> dataSource
 autoMLChannel_targetAttributeName :: Lens.Lens' AutoMLChannel Prelude.Text
 autoMLChannel_targetAttributeName = Lens.lens (\AutoMLChannel' {targetAttributeName} -> targetAttributeName) (\s@AutoMLChannel' {} a -> s {targetAttributeName = a} :: AutoMLChannel)
 
-instance Core.FromJSON AutoMLChannel where
+instance Data.FromJSON AutoMLChannel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoMLChannel"
       ( \x ->
           AutoMLChannel'
-            Prelude.<$> (x Core..:? "CompressionType")
-            Prelude.<*> (x Core..:? "ChannelType")
-            Prelude.<*> (x Core..:? "ContentType")
-            Prelude.<*> (x Core..: "DataSource")
-            Prelude.<*> (x Core..: "TargetAttributeName")
+            Prelude.<$> (x Data..:? "CompressionType")
+            Prelude.<*> (x Data..:? "ChannelType")
+            Prelude.<*> (x Data..:? "ContentType")
+            Prelude.<*> (x Data..: "DataSource")
+            Prelude.<*> (x Data..: "TargetAttributeName")
       )
 
 instance Prelude.Hashable AutoMLChannel where
@@ -153,16 +154,16 @@ instance Prelude.NFData AutoMLChannel where
       `Prelude.seq` Prelude.rnf dataSource
       `Prelude.seq` Prelude.rnf targetAttributeName
 
-instance Core.ToJSON AutoMLChannel where
+instance Data.ToJSON AutoMLChannel where
   toJSON AutoMLChannel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CompressionType" Core..=)
+          [ ("CompressionType" Data..=)
               Prelude.<$> compressionType,
-            ("ChannelType" Core..=) Prelude.<$> channelType,
-            ("ContentType" Core..=) Prelude.<$> contentType,
-            Prelude.Just ("DataSource" Core..= dataSource),
+            ("ChannelType" Data..=) Prelude.<$> channelType,
+            ("ContentType" Data..=) Prelude.<$> contentType,
+            Prelude.Just ("DataSource" Data..= dataSource),
             Prelude.Just
-              ("TargetAttributeName" Core..= targetAttributeName)
+              ("TargetAttributeName" Data..= targetAttributeName)
           ]
       )

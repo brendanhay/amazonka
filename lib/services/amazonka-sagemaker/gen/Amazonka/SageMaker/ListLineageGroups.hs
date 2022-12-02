@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -66,7 +67,7 @@ data ListLineageGroups = ListLineageGroups'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A timestamp to filter against lineage groups created before a certain
     -- point in time.
-    createdBefore :: Prelude.Maybe Core.POSIX,
+    createdBefore :: Prelude.Maybe Data.POSIX,
     -- | The parameter by which to sort the results. The default is
     -- @CreationTime@.
     sortBy :: Prelude.Maybe SortLineageGroupsBy,
@@ -75,7 +76,7 @@ data ListLineageGroups = ListLineageGroups'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A timestamp to filter against lineage groups created after a certain
     -- point in time.
-    createdAfter :: Prelude.Maybe Core.POSIX
+    createdAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -127,7 +128,7 @@ listLineageGroups_nextToken = Lens.lens (\ListLineageGroups' {nextToken} -> next
 -- | A timestamp to filter against lineage groups created before a certain
 -- point in time.
 listLineageGroups_createdBefore :: Lens.Lens' ListLineageGroups (Prelude.Maybe Prelude.UTCTime)
-listLineageGroups_createdBefore = Lens.lens (\ListLineageGroups' {createdBefore} -> createdBefore) (\s@ListLineageGroups' {} a -> s {createdBefore = a} :: ListLineageGroups) Prelude.. Lens.mapping Core._Time
+listLineageGroups_createdBefore = Lens.lens (\ListLineageGroups' {createdBefore} -> createdBefore) (\s@ListLineageGroups' {} a -> s {createdBefore = a} :: ListLineageGroups) Prelude.. Lens.mapping Data._Time
 
 -- | The parameter by which to sort the results. The default is
 -- @CreationTime@.
@@ -142,7 +143,7 @@ listLineageGroups_maxResults = Lens.lens (\ListLineageGroups' {maxResults} -> ma
 -- | A timestamp to filter against lineage groups created after a certain
 -- point in time.
 listLineageGroups_createdAfter :: Lens.Lens' ListLineageGroups (Prelude.Maybe Prelude.UTCTime)
-listLineageGroups_createdAfter = Lens.lens (\ListLineageGroups' {createdAfter} -> createdAfter) (\s@ListLineageGroups' {} a -> s {createdAfter = a} :: ListLineageGroups) Prelude.. Lens.mapping Core._Time
+listLineageGroups_createdAfter = Lens.lens (\ListLineageGroups' {createdAfter} -> createdAfter) (\s@ListLineageGroups' {} a -> s {createdAfter = a} :: ListLineageGroups) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListLineageGroups where
   page rq rs
@@ -176,8 +177,8 @@ instance Core.AWSRequest ListLineageGroups where
     Response.receiveJSON
       ( \s h x ->
           ListLineageGroupsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "LineageGroupSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "LineageGroupSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -201,38 +202,38 @@ instance Prelude.NFData ListLineageGroups where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf createdAfter
 
-instance Core.ToHeaders ListLineageGroups where
+instance Data.ToHeaders ListLineageGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.ListLineageGroups" ::
+              Data.=# ( "SageMaker.ListLineageGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListLineageGroups where
+instance Data.ToJSON ListLineageGroups where
   toJSON ListLineageGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CreatedAfter" Core..=) Prelude.<$> createdAfter
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("CreatedBefore" Data..=) Prelude.<$> createdBefore,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CreatedAfter" Data..=) Prelude.<$> createdAfter
           ]
       )
 
-instance Core.ToPath ListLineageGroups where
+instance Data.ToPath ListLineageGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListLineageGroups where
+instance Data.ToQuery ListLineageGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListLineageGroupsResponse' smart constructor.

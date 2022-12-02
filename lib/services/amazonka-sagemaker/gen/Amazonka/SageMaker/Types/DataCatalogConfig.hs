@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DataCatalogConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The meta data of the Glue table which serves as data catalog for the
@@ -77,15 +78,15 @@ dataCatalogConfig_catalog = Lens.lens (\DataCatalogConfig' {catalog} -> catalog)
 dataCatalogConfig_database :: Lens.Lens' DataCatalogConfig Prelude.Text
 dataCatalogConfig_database = Lens.lens (\DataCatalogConfig' {database} -> database) (\s@DataCatalogConfig' {} a -> s {database = a} :: DataCatalogConfig)
 
-instance Core.FromJSON DataCatalogConfig where
+instance Data.FromJSON DataCatalogConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataCatalogConfig"
       ( \x ->
           DataCatalogConfig'
-            Prelude.<$> (x Core..: "TableName")
-            Prelude.<*> (x Core..: "Catalog")
-            Prelude.<*> (x Core..: "Database")
+            Prelude.<$> (x Data..: "TableName")
+            Prelude.<*> (x Data..: "Catalog")
+            Prelude.<*> (x Data..: "Database")
       )
 
 instance Prelude.Hashable DataCatalogConfig where
@@ -100,12 +101,12 @@ instance Prelude.NFData DataCatalogConfig where
       `Prelude.seq` Prelude.rnf catalog
       `Prelude.seq` Prelude.rnf database
 
-instance Core.ToJSON DataCatalogConfig where
+instance Data.ToJSON DataCatalogConfig where
   toJSON DataCatalogConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("TableName" Core..= tableName),
-            Prelude.Just ("Catalog" Core..= catalog),
-            Prelude.Just ("Database" Core..= database)
+          [ Prelude.Just ("TableName" Data..= tableName),
+            Prelude.Just ("Catalog" Data..= catalog),
+            Prelude.Just ("Database" Data..= database)
           ]
       )

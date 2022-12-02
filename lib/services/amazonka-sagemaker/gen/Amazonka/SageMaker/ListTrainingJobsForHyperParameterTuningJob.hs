@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -188,9 +189,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListTrainingJobsForHyperParameterTuningJobResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Core..?> "TrainingJobSummaries"
+              Prelude.<*> ( x Data..?> "TrainingJobSummaries"
                               Core..!@ Prelude.mempty
                           )
       )
@@ -222,51 +223,51 @@ instance
       `Prelude.seq` Prelude.rnf hyperParameterTuningJobName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListTrainingJobsForHyperParameterTuningJob
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.ListTrainingJobsForHyperParameterTuningJob" ::
+              Data.=# ( "SageMaker.ListTrainingJobsForHyperParameterTuningJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ListTrainingJobsForHyperParameterTuningJob
   where
   toJSON
     ListTrainingJobsForHyperParameterTuningJob' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-              ("NextToken" Core..=) Prelude.<$> nextToken,
-              ("SortBy" Core..=) Prelude.<$> sortBy,
-              ("MaxResults" Core..=) Prelude.<$> maxResults,
-              ("StatusEquals" Core..=) Prelude.<$> statusEquals,
+            [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+              ("NextToken" Data..=) Prelude.<$> nextToken,
+              ("SortBy" Data..=) Prelude.<$> sortBy,
+              ("MaxResults" Data..=) Prelude.<$> maxResults,
+              ("StatusEquals" Data..=) Prelude.<$> statusEquals,
               Prelude.Just
                 ( "HyperParameterTuningJobName"
-                    Core..= hyperParameterTuningJobName
+                    Data..= hyperParameterTuningJobName
                 )
             ]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListTrainingJobsForHyperParameterTuningJob
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListTrainingJobsForHyperParameterTuningJob
   where
   toQuery = Prelude.const Prelude.mempty

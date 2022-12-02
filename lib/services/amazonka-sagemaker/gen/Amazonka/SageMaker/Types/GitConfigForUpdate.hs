@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.GitConfigForUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies configuration details for a Git repository when the repository
@@ -73,9 +74,9 @@ instance Prelude.Hashable GitConfigForUpdate where
 instance Prelude.NFData GitConfigForUpdate where
   rnf GitConfigForUpdate' {..} = Prelude.rnf secretArn
 
-instance Core.ToJSON GitConfigForUpdate where
+instance Data.ToJSON GitConfigForUpdate where
   toJSON GitConfigForUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("SecretArn" Core..=) Prelude.<$> secretArn]
+          [("SecretArn" Data..=) Prelude.<$> secretArn]
       )

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,15 +95,15 @@ instance Core.AWSRequest DescribeEndpointConfig where
     Response.receiveJSON
       ( \s h x ->
           DescribeEndpointConfigResponse'
-            Prelude.<$> (x Core..?> "AsyncInferenceConfig")
-            Prelude.<*> (x Core..?> "DataCaptureConfig")
-            Prelude.<*> (x Core..?> "KmsKeyId")
-            Prelude.<*> (x Core..?> "ExplainerConfig")
+            Prelude.<$> (x Data..?> "AsyncInferenceConfig")
+            Prelude.<*> (x Data..?> "DataCaptureConfig")
+            Prelude.<*> (x Data..?> "KmsKeyId")
+            Prelude.<*> (x Data..?> "ExplainerConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "EndpointConfigName")
-            Prelude.<*> (x Core..:> "EndpointConfigArn")
-            Prelude.<*> (x Core..:> "ProductionVariants")
-            Prelude.<*> (x Core..:> "CreationTime")
+            Prelude.<*> (x Data..:> "EndpointConfigName")
+            Prelude.<*> (x Data..:> "EndpointConfigArn")
+            Prelude.<*> (x Data..:> "ProductionVariants")
+            Prelude.<*> (x Data..:> "CreationTime")
       )
 
 instance Prelude.Hashable DescribeEndpointConfig where
@@ -113,34 +114,34 @@ instance Prelude.NFData DescribeEndpointConfig where
   rnf DescribeEndpointConfig' {..} =
     Prelude.rnf endpointConfigName
 
-instance Core.ToHeaders DescribeEndpointConfig where
+instance Data.ToHeaders DescribeEndpointConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeEndpointConfig" ::
+              Data.=# ( "SageMaker.DescribeEndpointConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEndpointConfig where
+instance Data.ToJSON DescribeEndpointConfig where
   toJSON DescribeEndpointConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("EndpointConfigName" Core..= endpointConfigName)
+              ("EndpointConfigName" Data..= endpointConfigName)
           ]
       )
 
-instance Core.ToPath DescribeEndpointConfig where
+instance Data.ToPath DescribeEndpointConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEndpointConfig where
+instance Data.ToQuery DescribeEndpointConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEndpointConfigResponse' smart constructor.
@@ -165,7 +166,7 @@ data DescribeEndpointConfigResponse = DescribeEndpointConfigResponse'
     -- want to host at this endpoint.
     productionVariants :: Prelude.NonEmpty ProductionVariant,
     -- | A timestamp that shows when the endpoint configuration was created.
-    creationTime :: Core.POSIX
+    creationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -228,7 +229,7 @@ newDescribeEndpointConfigResponse
         productionVariants =
           Lens.coerced Lens.# pProductionVariants_,
         creationTime =
-          Core._Time Lens.# pCreationTime_
+          Data._Time Lens.# pCreationTime_
       }
 
 -- | Returns the description of an endpoint configuration created using the
@@ -269,7 +270,7 @@ describeEndpointConfigResponse_productionVariants = Lens.lens (\DescribeEndpoint
 
 -- | A timestamp that shows when the endpoint configuration was created.
 describeEndpointConfigResponse_creationTime :: Lens.Lens' DescribeEndpointConfigResponse Prelude.UTCTime
-describeEndpointConfigResponse_creationTime = Lens.lens (\DescribeEndpointConfigResponse' {creationTime} -> creationTime) (\s@DescribeEndpointConfigResponse' {} a -> s {creationTime = a} :: DescribeEndpointConfigResponse) Prelude.. Core._Time
+describeEndpointConfigResponse_creationTime = Lens.lens (\DescribeEndpointConfigResponse' {creationTime} -> creationTime) (\s@DescribeEndpointConfigResponse' {} a -> s {creationTime = a} :: DescribeEndpointConfigResponse) Prelude.. Data._Time
 
 instance
   Prelude.NFData

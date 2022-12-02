@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -148,8 +149,8 @@ instance Core.AWSRequest ListPipelineExecutionSteps where
     Response.receiveJSON
       ( \s h x ->
           ListPipelineExecutionStepsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "PipelineExecutionSteps"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "PipelineExecutionSteps"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -169,37 +170,37 @@ instance Prelude.NFData ListPipelineExecutionSteps where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf pipelineExecutionArn
 
-instance Core.ToHeaders ListPipelineExecutionSteps where
+instance Data.ToHeaders ListPipelineExecutionSteps where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.ListPipelineExecutionSteps" ::
+              Data.=# ( "SageMaker.ListPipelineExecutionSteps" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListPipelineExecutionSteps where
+instance Data.ToJSON ListPipelineExecutionSteps where
   toJSON ListPipelineExecutionSteps' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("PipelineExecutionArn" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("PipelineExecutionArn" Data..=)
               Prelude.<$> pipelineExecutionArn
           ]
       )
 
-instance Core.ToPath ListPipelineExecutionSteps where
+instance Data.ToPath ListPipelineExecutionSteps where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListPipelineExecutionSteps where
+instance Data.ToQuery ListPipelineExecutionSteps where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListPipelineExecutionStepsResponse' smart constructor.

@@ -62,6 +62,7 @@ where
 import Amazonka.AppConfigData.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,9 +120,9 @@ instance Core.AWSRequest GetLatestConfiguration where
       ( \s h x ->
           GetLatestConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
-            Prelude.<*> (h Core..#? "Next-Poll-Configuration-Token")
-            Prelude.<*> (h Core..#? "Next-Poll-Interval-In-Seconds")
-            Prelude.<*> (h Core..#? "Content-Type")
+            Prelude.<*> (h Data..#? "Next-Poll-Configuration-Token")
+            Prelude.<*> (h Data..#? "Next-Poll-Interval-In-Seconds")
+            Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,30 +134,30 @@ instance Prelude.NFData GetLatestConfiguration where
   rnf GetLatestConfiguration' {..} =
     Prelude.rnf configurationToken
 
-instance Core.ToHeaders GetLatestConfiguration where
+instance Data.ToHeaders GetLatestConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetLatestConfiguration where
+instance Data.ToPath GetLatestConfiguration where
   toPath = Prelude.const "/configuration"
 
-instance Core.ToQuery GetLatestConfiguration where
+instance Data.ToQuery GetLatestConfiguration where
   toQuery GetLatestConfiguration' {..} =
     Prelude.mconcat
-      ["configuration_token" Core.=: configurationToken]
+      ["configuration_token" Data.=: configurationToken]
 
 -- | /See:/ 'newGetLatestConfigurationResponse' smart constructor.
 data GetLatestConfigurationResponse = GetLatestConfigurationResponse'
   { -- | The data of the configuration. This may be empty if the client already
     -- has the latest version of configuration.
-    configuration :: Prelude.Maybe (Core.Sensitive Prelude.ByteString),
+    configuration :: Prelude.Maybe (Data.Sensitive Prelude.ByteString),
     -- | The latest token describing the current state of the configuration
     -- session. This MUST be provided to the next call to
     -- @GetLatestConfiguration.@
@@ -212,7 +213,7 @@ newGetLatestConfigurationResponse pHttpStatus_ =
 -- | The data of the configuration. This may be empty if the client already
 -- has the latest version of configuration.
 getLatestConfigurationResponse_configuration :: Lens.Lens' GetLatestConfigurationResponse (Prelude.Maybe Prelude.ByteString)
-getLatestConfigurationResponse_configuration = Lens.lens (\GetLatestConfigurationResponse' {configuration} -> configuration) (\s@GetLatestConfigurationResponse' {} a -> s {configuration = a} :: GetLatestConfigurationResponse) Prelude.. Lens.mapping Core._Sensitive
+getLatestConfigurationResponse_configuration = Lens.lens (\GetLatestConfigurationResponse' {configuration} -> configuration) (\s@GetLatestConfigurationResponse' {} a -> s {configuration = a} :: GetLatestConfigurationResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The latest token describing the current state of the configuration
 -- session. This MUST be provided to the next call to

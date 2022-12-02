@@ -21,6 +21,7 @@ module Amazonka.AmplifyUiBuilder.Types.FieldValidationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the validation configuration for a field.
@@ -82,16 +83,16 @@ fieldValidationConfiguration_validationMessage = Lens.lens (\FieldValidationConf
 fieldValidationConfiguration_type :: Lens.Lens' FieldValidationConfiguration Prelude.Text
 fieldValidationConfiguration_type = Lens.lens (\FieldValidationConfiguration' {type'} -> type') (\s@FieldValidationConfiguration' {} a -> s {type' = a} :: FieldValidationConfiguration)
 
-instance Core.FromJSON FieldValidationConfiguration where
+instance Data.FromJSON FieldValidationConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FieldValidationConfiguration"
       ( \x ->
           FieldValidationConfiguration'
-            Prelude.<$> (x Core..:? "numValues" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "strValues" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "validationMessage")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "numValues" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "strValues" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "validationMessage")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance
@@ -111,14 +112,14 @@ instance Prelude.NFData FieldValidationConfiguration where
       `Prelude.seq` Prelude.rnf validationMessage
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON FieldValidationConfiguration where
+instance Data.ToJSON FieldValidationConfiguration where
   toJSON FieldValidationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("numValues" Core..=) Prelude.<$> numValues,
-            ("strValues" Core..=) Prelude.<$> strValues,
-            ("validationMessage" Core..=)
+          [ ("numValues" Data..=) Prelude.<$> numValues,
+            ("strValues" Data..=) Prelude.<$> strValues,
+            ("validationMessage" Data..=)
               Prelude.<$> validationMessage,
-            Prelude.Just ("type" Core..= type')
+            Prelude.Just ("type" Data..= type')
           ]
       )

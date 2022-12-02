@@ -22,6 +22,7 @@ module Amazonka.AmplifyUiBuilder.Types.ComponentBindingPropertiesValueProperties
 import Amazonka.AmplifyUiBuilder.Types.Predicate
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the data binding configuration for a specific property using
@@ -121,22 +122,22 @@ componentBindingPropertiesValueProperties_field :: Lens.Lens' ComponentBindingPr
 componentBindingPropertiesValueProperties_field = Lens.lens (\ComponentBindingPropertiesValueProperties' {field} -> field) (\s@ComponentBindingPropertiesValueProperties' {} a -> s {field = a} :: ComponentBindingPropertiesValueProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ComponentBindingPropertiesValueProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentBindingPropertiesValueProperties"
       ( \x ->
           ComponentBindingPropertiesValueProperties'
-            Prelude.<$> (x Core..:? "key")
-              Prelude.<*> (x Core..:? "slotName")
-              Prelude.<*> (x Core..:? "model")
-              Prelude.<*> (x Core..:? "bucket")
-              Prelude.<*> (x Core..:? "predicates" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "userAttribute")
-              Prelude.<*> (x Core..:? "defaultValue")
-              Prelude.<*> (x Core..:? "field")
+            Prelude.<$> (x Data..:? "key")
+              Prelude.<*> (x Data..:? "slotName")
+              Prelude.<*> (x Data..:? "model")
+              Prelude.<*> (x Data..:? "bucket")
+              Prelude.<*> (x Data..:? "predicates" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "userAttribute")
+              Prelude.<*> (x Data..:? "defaultValue")
+              Prelude.<*> (x Data..:? "field")
       )
 
 instance
@@ -170,19 +171,19 @@ instance
       `Prelude.seq` Prelude.rnf field
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ComponentBindingPropertiesValueProperties
   where
   toJSON ComponentBindingPropertiesValueProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("key" Core..=) Prelude.<$> key,
-            ("slotName" Core..=) Prelude.<$> slotName,
-            ("model" Core..=) Prelude.<$> model,
-            ("bucket" Core..=) Prelude.<$> bucket,
-            ("predicates" Core..=) Prelude.<$> predicates,
-            ("userAttribute" Core..=) Prelude.<$> userAttribute,
-            ("defaultValue" Core..=) Prelude.<$> defaultValue,
-            ("field" Core..=) Prelude.<$> field
+          [ ("key" Data..=) Prelude.<$> key,
+            ("slotName" Data..=) Prelude.<$> slotName,
+            ("model" Data..=) Prelude.<$> model,
+            ("bucket" Data..=) Prelude.<$> bucket,
+            ("predicates" Data..=) Prelude.<$> predicates,
+            ("userAttribute" Data..=) Prelude.<$> userAttribute,
+            ("defaultValue" Data..=) Prelude.<$> defaultValue,
+            ("field" Data..=) Prelude.<$> field
           ]
       )

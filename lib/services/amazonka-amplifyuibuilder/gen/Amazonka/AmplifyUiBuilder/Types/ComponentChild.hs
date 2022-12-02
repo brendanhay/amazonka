@@ -23,6 +23,7 @@ import Amazonka.AmplifyUiBuilder.Types.ComponentEvent
 import Amazonka.AmplifyUiBuilder.Types.ComponentProperty
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A nested UI configuration within a parent @Component@.
@@ -115,18 +116,18 @@ componentChild_name = Lens.lens (\ComponentChild' {name} -> name) (\s@ComponentC
 componentChild_properties :: Lens.Lens' ComponentChild (Prelude.HashMap Prelude.Text ComponentProperty)
 componentChild_properties = Lens.lens (\ComponentChild' {properties} -> properties) (\s@ComponentChild' {} a -> s {properties = a} :: ComponentChild) Prelude.. Lens.coerced
 
-instance Core.FromJSON ComponentChild where
+instance Data.FromJSON ComponentChild where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentChild"
       ( \x ->
           ComponentChild'
-            Prelude.<$> (x Core..:? "sourceId")
-            Prelude.<*> (x Core..:? "children" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "events" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "componentType")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..:? "properties" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "sourceId")
+            Prelude.<*> (x Data..:? "children" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "events" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "componentType")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..:? "properties" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ComponentChild where
@@ -147,15 +148,15 @@ instance Prelude.NFData ComponentChild where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf properties
 
-instance Core.ToJSON ComponentChild where
+instance Data.ToJSON ComponentChild where
   toJSON ComponentChild' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sourceId" Core..=) Prelude.<$> sourceId,
-            ("children" Core..=) Prelude.<$> children,
-            ("events" Core..=) Prelude.<$> events,
-            Prelude.Just ("componentType" Core..= componentType),
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("properties" Core..= properties)
+          [ ("sourceId" Data..=) Prelude.<$> sourceId,
+            ("children" Data..=) Prelude.<$> children,
+            ("events" Data..=) Prelude.<$> events,
+            Prelude.Just ("componentType" Data..= componentType),
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("properties" Data..= properties)
           ]
       )

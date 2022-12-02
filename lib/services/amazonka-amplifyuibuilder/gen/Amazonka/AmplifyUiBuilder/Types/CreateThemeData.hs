@@ -22,6 +22,7 @@ module Amazonka.AmplifyUiBuilder.Types.CreateThemeData where
 import Amazonka.AmplifyUiBuilder.Types.ThemeValues
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents all of the information that is required to create a theme.
@@ -99,13 +100,13 @@ instance Prelude.NFData CreateThemeData where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON CreateThemeData where
+instance Data.ToJSON CreateThemeData where
   toJSON CreateThemeData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("overrides" Core..=) Prelude.<$> overrides,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("values" Core..= values)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("overrides" Data..=) Prelude.<$> overrides,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("values" Data..= values)
           ]
       )

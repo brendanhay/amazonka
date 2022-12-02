@@ -46,6 +46,7 @@ where
 import Amazonka.AmplifyUiBuilder.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,7 +136,7 @@ instance Core.AWSRequest UpdateComponent where
     Response.receiveJSON
       ( \s h x ->
           UpdateComponentResponse'
-            Prelude.<$> (Core.eitherParseJSON x)
+            Prelude.<$> (Data.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,35 +156,35 @@ instance Prelude.NFData UpdateComponent where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf updatedComponent
 
-instance Core.ToHeaders UpdateComponent where
+instance Data.ToHeaders UpdateComponent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateComponent where
+instance Data.ToJSON UpdateComponent where
   toJSON UpdateComponent' {..} =
-    Core.toJSON updatedComponent
+    Data.toJSON updatedComponent
 
-instance Core.ToPath UpdateComponent where
+instance Data.ToPath UpdateComponent where
   toPath UpdateComponent' {..} =
     Prelude.mconcat
       [ "/app/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/environment/",
-        Core.toBS environmentName,
+        Data.toBS environmentName,
         "/components/",
-        Core.toBS id
+        Data.toBS id
       ]
 
-instance Core.ToQuery UpdateComponent where
+instance Data.ToQuery UpdateComponent where
   toQuery UpdateComponent' {..} =
-    Prelude.mconcat ["clientToken" Core.=: clientToken]
+    Prelude.mconcat ["clientToken" Data.=: clientToken]
 
 -- | /See:/ 'newUpdateComponentResponse' smart constructor.
 data UpdateComponentResponse = UpdateComponentResponse'

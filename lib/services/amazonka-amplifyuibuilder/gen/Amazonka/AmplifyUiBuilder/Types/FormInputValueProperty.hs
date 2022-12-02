@@ -21,6 +21,7 @@ module Amazonka.AmplifyUiBuilder.Types.FormInputValueProperty where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration for an input field on a form. Use
@@ -52,13 +53,13 @@ newFormInputValueProperty =
 formInputValueProperty_value :: Lens.Lens' FormInputValueProperty (Prelude.Maybe Prelude.Text)
 formInputValueProperty_value = Lens.lens (\FormInputValueProperty' {value} -> value) (\s@FormInputValueProperty' {} a -> s {value = a} :: FormInputValueProperty)
 
-instance Core.FromJSON FormInputValueProperty where
+instance Data.FromJSON FormInputValueProperty where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FormInputValueProperty"
       ( \x ->
           FormInputValueProperty'
-            Prelude.<$> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "value")
       )
 
 instance Prelude.Hashable FormInputValueProperty where
@@ -68,9 +69,9 @@ instance Prelude.Hashable FormInputValueProperty where
 instance Prelude.NFData FormInputValueProperty where
   rnf FormInputValueProperty' {..} = Prelude.rnf value
 
-instance Core.ToJSON FormInputValueProperty where
+instance Data.ToJSON FormInputValueProperty where
   toJSON FormInputValueProperty' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("value" Core..=) Prelude.<$> value]
+          [("value" Data..=) Prelude.<$> value]
       )

@@ -22,6 +22,7 @@ module Amazonka.AmplifyUiBuilder.Types.ComponentEvent where
 import Amazonka.AmplifyUiBuilder.Types.ActionParameters
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration of an event. You can bind an event and a
@@ -76,15 +77,15 @@ componentEvent_action = Lens.lens (\ComponentEvent' {action} -> action) (\s@Comp
 componentEvent_parameters :: Lens.Lens' ComponentEvent (Prelude.Maybe ActionParameters)
 componentEvent_parameters = Lens.lens (\ComponentEvent' {parameters} -> parameters) (\s@ComponentEvent' {} a -> s {parameters = a} :: ComponentEvent)
 
-instance Core.FromJSON ComponentEvent where
+instance Data.FromJSON ComponentEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentEvent"
       ( \x ->
           ComponentEvent'
-            Prelude.<$> (x Core..:? "bindingEvent")
-            Prelude.<*> (x Core..:? "action")
-            Prelude.<*> (x Core..:? "parameters")
+            Prelude.<$> (x Data..:? "bindingEvent")
+            Prelude.<*> (x Data..:? "action")
+            Prelude.<*> (x Data..:? "parameters")
       )
 
 instance Prelude.Hashable ComponentEvent where
@@ -99,12 +100,12 @@ instance Prelude.NFData ComponentEvent where
       `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf parameters
 
-instance Core.ToJSON ComponentEvent where
+instance Data.ToJSON ComponentEvent where
   toJSON ComponentEvent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bindingEvent" Core..=) Prelude.<$> bindingEvent,
-            ("action" Core..=) Prelude.<$> action,
-            ("parameters" Core..=) Prelude.<$> parameters
+          [ ("bindingEvent" Data..=) Prelude.<$> bindingEvent,
+            ("action" Data..=) Prelude.<$> action,
+            ("parameters" Data..=) Prelude.<$> parameters
           ]
       )

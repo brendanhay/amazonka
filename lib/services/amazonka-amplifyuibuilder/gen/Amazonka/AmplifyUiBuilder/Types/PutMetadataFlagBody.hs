@@ -21,6 +21,7 @@ module Amazonka.AmplifyUiBuilder.Types.PutMetadataFlagBody where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Stores the metadata information about a feature on a form or view.
@@ -59,9 +60,9 @@ instance Prelude.Hashable PutMetadataFlagBody where
 instance Prelude.NFData PutMetadataFlagBody where
   rnf PutMetadataFlagBody' {..} = Prelude.rnf newValue'
 
-instance Core.ToJSON PutMetadataFlagBody where
+instance Data.ToJSON PutMetadataFlagBody where
   toJSON PutMetadataFlagBody' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("newValue" Core..= newValue')]
+          [Prelude.Just ("newValue" Data..= newValue')]
       )

@@ -22,6 +22,7 @@ module Amazonka.AmplifyUiBuilder.Types.FormStyle where
 import Amazonka.AmplifyUiBuilder.Types.FormStyleConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration for the form\'s style.
@@ -71,15 +72,15 @@ formStyle_horizontalGap = Lens.lens (\FormStyle' {horizontalGap} -> horizontalGa
 formStyle_outerPadding :: Lens.Lens' FormStyle (Prelude.Maybe FormStyleConfig)
 formStyle_outerPadding = Lens.lens (\FormStyle' {outerPadding} -> outerPadding) (\s@FormStyle' {} a -> s {outerPadding = a} :: FormStyle)
 
-instance Core.FromJSON FormStyle where
+instance Data.FromJSON FormStyle where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FormStyle"
       ( \x ->
           FormStyle'
-            Prelude.<$> (x Core..:? "verticalGap")
-            Prelude.<*> (x Core..:? "horizontalGap")
-            Prelude.<*> (x Core..:? "outerPadding")
+            Prelude.<$> (x Data..:? "verticalGap")
+            Prelude.<*> (x Data..:? "horizontalGap")
+            Prelude.<*> (x Data..:? "outerPadding")
       )
 
 instance Prelude.Hashable FormStyle where
@@ -94,12 +95,12 @@ instance Prelude.NFData FormStyle where
       `Prelude.seq` Prelude.rnf horizontalGap
       `Prelude.seq` Prelude.rnf outerPadding
 
-instance Core.ToJSON FormStyle where
+instance Data.ToJSON FormStyle where
   toJSON FormStyle' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("verticalGap" Core..=) Prelude.<$> verticalGap,
-            ("horizontalGap" Core..=) Prelude.<$> horizontalGap,
-            ("outerPadding" Core..=) Prelude.<$> outerPadding
+          [ ("verticalGap" Data..=) Prelude.<$> verticalGap,
+            ("horizontalGap" Data..=) Prelude.<$> horizontalGap,
+            ("outerPadding" Data..=) Prelude.<$> outerPadding
           ]
       )

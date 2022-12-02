@@ -21,6 +21,7 @@ module Amazonka.AmplifyUiBuilder.Types.ThemeSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the basic information about a theme.
@@ -87,16 +88,16 @@ themeSummary_id = Lens.lens (\ThemeSummary' {id} -> id) (\s@ThemeSummary' {} a -
 themeSummary_name :: Lens.Lens' ThemeSummary Prelude.Text
 themeSummary_name = Lens.lens (\ThemeSummary' {name} -> name) (\s@ThemeSummary' {} a -> s {name = a} :: ThemeSummary)
 
-instance Core.FromJSON ThemeSummary where
+instance Data.FromJSON ThemeSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThemeSummary"
       ( \x ->
           ThemeSummary'
-            Prelude.<$> (x Core..: "appId")
-            Prelude.<*> (x Core..: "environmentName")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..: "appId")
+            Prelude.<*> (x Data..: "environmentName")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable ThemeSummary where

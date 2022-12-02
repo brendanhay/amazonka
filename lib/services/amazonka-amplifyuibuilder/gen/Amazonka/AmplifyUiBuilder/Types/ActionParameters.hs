@@ -23,6 +23,7 @@ import Amazonka.AmplifyUiBuilder.Types.ComponentProperty
 import Amazonka.AmplifyUiBuilder.Types.MutationActionSetStateParameter
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the event action configuration for an element of a
@@ -154,21 +155,21 @@ actionParameters_global = Lens.lens (\ActionParameters' {global} -> global) (\s@
 actionParameters_anchor :: Lens.Lens' ActionParameters (Prelude.Maybe ComponentProperty)
 actionParameters_anchor = Lens.lens (\ActionParameters' {anchor} -> anchor) (\s@ActionParameters' {} a -> s {anchor = a} :: ActionParameters)
 
-instance Core.FromJSON ActionParameters where
+instance Data.FromJSON ActionParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionParameters"
       ( \x ->
           ActionParameters'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "model")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "url")
-            Prelude.<*> (x Core..:? "target")
-            Prelude.<*> (x Core..:? "fields" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "global")
-            Prelude.<*> (x Core..:? "anchor")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "model")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "url")
+            Prelude.<*> (x Data..:? "target")
+            Prelude.<*> (x Data..:? "fields" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "global")
+            Prelude.<*> (x Data..:? "anchor")
       )
 
 instance Prelude.Hashable ActionParameters where
@@ -195,18 +196,18 @@ instance Prelude.NFData ActionParameters where
       `Prelude.seq` Prelude.rnf global
       `Prelude.seq` Prelude.rnf anchor
 
-instance Core.ToJSON ActionParameters where
+instance Data.ToJSON ActionParameters where
   toJSON ActionParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("type" Core..=) Prelude.<$> type',
-            ("model" Core..=) Prelude.<$> model,
-            ("state" Core..=) Prelude.<$> state,
-            ("url" Core..=) Prelude.<$> url,
-            ("target" Core..=) Prelude.<$> target,
-            ("fields" Core..=) Prelude.<$> fields,
-            ("id" Core..=) Prelude.<$> id,
-            ("global" Core..=) Prelude.<$> global,
-            ("anchor" Core..=) Prelude.<$> anchor
+          [ ("type" Data..=) Prelude.<$> type',
+            ("model" Data..=) Prelude.<$> model,
+            ("state" Data..=) Prelude.<$> state,
+            ("url" Data..=) Prelude.<$> url,
+            ("target" Data..=) Prelude.<$> target,
+            ("fields" Data..=) Prelude.<$> fields,
+            ("id" Data..=) Prelude.<$> id,
+            ("global" Data..=) Prelude.<$> global,
+            ("anchor" Data..=) Prelude.<$> anchor
           ]
       )

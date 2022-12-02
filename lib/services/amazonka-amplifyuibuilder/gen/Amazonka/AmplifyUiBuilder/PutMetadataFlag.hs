@@ -41,6 +41,7 @@ where
 import Amazonka.AmplifyUiBuilder.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -134,32 +135,32 @@ instance Prelude.NFData PutMetadataFlag where
       `Prelude.seq` Prelude.rnf environmentName
       `Prelude.seq` Prelude.rnf featureName
 
-instance Core.ToHeaders PutMetadataFlag where
+instance Data.ToHeaders PutMetadataFlag where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutMetadataFlag where
-  toJSON PutMetadataFlag' {..} = Core.toJSON body
+instance Data.ToJSON PutMetadataFlag where
+  toJSON PutMetadataFlag' {..} = Data.toJSON body
 
-instance Core.ToPath PutMetadataFlag where
+instance Data.ToPath PutMetadataFlag where
   toPath PutMetadataFlag' {..} =
     Prelude.mconcat
       [ "/app/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/environment/",
-        Core.toBS environmentName,
+        Data.toBS environmentName,
         "/metadata/features/",
-        Core.toBS featureName
+        Data.toBS featureName
       ]
 
-instance Core.ToQuery PutMetadataFlag where
+instance Data.ToQuery PutMetadataFlag where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutMetadataFlagResponse' smart constructor.

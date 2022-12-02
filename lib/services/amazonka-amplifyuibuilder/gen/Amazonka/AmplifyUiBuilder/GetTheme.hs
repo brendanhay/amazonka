@@ -44,6 +44,7 @@ where
 import Amazonka.AmplifyUiBuilder.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,7 +108,7 @@ instance Core.AWSRequest GetTheme where
     Response.receiveJSON
       ( \s h x ->
           GetThemeResponse'
-            Prelude.<$> (Core.eitherParseJSON x)
+            Prelude.<$> (Data.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,29 +124,29 @@ instance Prelude.NFData GetTheme where
       `Prelude.seq` Prelude.rnf environmentName
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders GetTheme where
+instance Data.ToHeaders GetTheme where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetTheme where
+instance Data.ToPath GetTheme where
   toPath GetTheme' {..} =
     Prelude.mconcat
       [ "/app/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/environment/",
-        Core.toBS environmentName,
+        Data.toBS environmentName,
         "/themes/",
-        Core.toBS id
+        Data.toBS id
       ]
 
-instance Core.ToQuery GetTheme where
+instance Data.ToQuery GetTheme where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetThemeResponse' smart constructor.

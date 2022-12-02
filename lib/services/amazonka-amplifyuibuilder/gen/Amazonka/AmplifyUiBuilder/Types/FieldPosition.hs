@@ -22,6 +22,7 @@ module Amazonka.AmplifyUiBuilder.Types.FieldPosition where
 import Amazonka.AmplifyUiBuilder.Types.FixedPosition
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the field position.
@@ -74,15 +75,15 @@ fieldPosition_rightOf = Lens.lens (\FieldPosition' {rightOf} -> rightOf) (\s@Fie
 fieldPosition_below :: Lens.Lens' FieldPosition (Prelude.Maybe Prelude.Text)
 fieldPosition_below = Lens.lens (\FieldPosition' {below} -> below) (\s@FieldPosition' {} a -> s {below = a} :: FieldPosition)
 
-instance Core.FromJSON FieldPosition where
+instance Data.FromJSON FieldPosition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FieldPosition"
       ( \x ->
           FieldPosition'
-            Prelude.<$> (x Core..:? "fixed")
-            Prelude.<*> (x Core..:? "rightOf")
-            Prelude.<*> (x Core..:? "below")
+            Prelude.<$> (x Data..:? "fixed")
+            Prelude.<*> (x Data..:? "rightOf")
+            Prelude.<*> (x Data..:? "below")
       )
 
 instance Prelude.Hashable FieldPosition where
@@ -97,12 +98,12 @@ instance Prelude.NFData FieldPosition where
       `Prelude.seq` Prelude.rnf rightOf
       `Prelude.seq` Prelude.rnf below
 
-instance Core.ToJSON FieldPosition where
+instance Data.ToJSON FieldPosition where
   toJSON FieldPosition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("fixed" Core..=) Prelude.<$> fixed,
-            ("rightOf" Core..=) Prelude.<$> rightOf,
-            ("below" Core..=) Prelude.<$> below
+          [ ("fixed" Data..=) Prelude.<$> fixed,
+            ("rightOf" Data..=) Prelude.<$> rightOf,
+            ("below" Data..=) Prelude.<$> below
           ]
       )

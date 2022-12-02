@@ -22,6 +22,7 @@ module Amazonka.AmplifyUiBuilder.Types.ValueMapping where
 import Amazonka.AmplifyUiBuilder.Types.FormInputValueProperty
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Associates a complex object with a display value. Use @ValueMapping@ to
@@ -65,14 +66,14 @@ valueMapping_displayValue = Lens.lens (\ValueMapping' {displayValue} -> displayV
 valueMapping_value :: Lens.Lens' ValueMapping FormInputValueProperty
 valueMapping_value = Lens.lens (\ValueMapping' {value} -> value) (\s@ValueMapping' {} a -> s {value = a} :: ValueMapping)
 
-instance Core.FromJSON ValueMapping where
+instance Data.FromJSON ValueMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ValueMapping"
       ( \x ->
           ValueMapping'
-            Prelude.<$> (x Core..:? "displayValue")
-            Prelude.<*> (x Core..: "value")
+            Prelude.<$> (x Data..:? "displayValue")
+            Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable ValueMapping where
@@ -85,11 +86,11 @@ instance Prelude.NFData ValueMapping where
     Prelude.rnf displayValue
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ValueMapping where
+instance Data.ToJSON ValueMapping where
   toJSON ValueMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("displayValue" Core..=) Prelude.<$> displayValue,
-            Prelude.Just ("value" Core..= value)
+          [ ("displayValue" Data..=) Prelude.<$> displayValue,
+            Prelude.Just ("value" Data..= value)
           ]
       )

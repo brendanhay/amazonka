@@ -21,6 +21,7 @@ module Amazonka.AmplifyUiBuilder.Types.ExchangeCodeForTokenRequestBody where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration of a request to exchange an access code for
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newExchangeCodeForTokenRequestBody' smart constructor.
 data ExchangeCodeForTokenRequestBody = ExchangeCodeForTokenRequestBody'
   { -- | The access code to send in the request.
-    code :: Core.Sensitive Prelude.Text,
+    code :: Data.Sensitive Prelude.Text,
     -- | The location of the application that will receive the access code.
     redirectUri :: Prelude.Text
   }
@@ -57,13 +58,13 @@ newExchangeCodeForTokenRequestBody
   pRedirectUri_ =
     ExchangeCodeForTokenRequestBody'
       { code =
-          Core._Sensitive Lens.# pCode_,
+          Data._Sensitive Lens.# pCode_,
         redirectUri = pRedirectUri_
       }
 
 -- | The access code to send in the request.
 exchangeCodeForTokenRequestBody_code :: Lens.Lens' ExchangeCodeForTokenRequestBody Prelude.Text
-exchangeCodeForTokenRequestBody_code = Lens.lens (\ExchangeCodeForTokenRequestBody' {code} -> code) (\s@ExchangeCodeForTokenRequestBody' {} a -> s {code = a} :: ExchangeCodeForTokenRequestBody) Prelude.. Core._Sensitive
+exchangeCodeForTokenRequestBody_code = Lens.lens (\ExchangeCodeForTokenRequestBody' {code} -> code) (\s@ExchangeCodeForTokenRequestBody' {} a -> s {code = a} :: ExchangeCodeForTokenRequestBody) Prelude.. Data._Sensitive
 
 -- | The location of the application that will receive the access code.
 exchangeCodeForTokenRequestBody_redirectUri :: Lens.Lens' ExchangeCodeForTokenRequestBody Prelude.Text
@@ -87,11 +88,11 @@ instance
     Prelude.rnf code
       `Prelude.seq` Prelude.rnf redirectUri
 
-instance Core.ToJSON ExchangeCodeForTokenRequestBody where
+instance Data.ToJSON ExchangeCodeForTokenRequestBody where
   toJSON ExchangeCodeForTokenRequestBody' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("code" Core..= code),
-            Prelude.Just ("redirectUri" Core..= redirectUri)
+          [ Prelude.Just ("code" Data..= code),
+            Prelude.Just ("redirectUri" Data..= redirectUri)
           ]
       )

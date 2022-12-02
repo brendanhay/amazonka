@@ -45,6 +45,7 @@ where
 import Amazonka.AmplifyUiBuilder.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -122,7 +123,7 @@ instance Core.AWSRequest CreateComponent where
     Response.receiveJSON
       ( \s h x ->
           CreateComponentResponse'
-            Prelude.<$> (Core.eitherParseJSON x)
+            Prelude.<$> (Data.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,34 +141,34 @@ instance Prelude.NFData CreateComponent where
       `Prelude.seq` Prelude.rnf componentToCreate
       `Prelude.seq` Prelude.rnf environmentName
 
-instance Core.ToHeaders CreateComponent where
+instance Data.ToHeaders CreateComponent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateComponent where
+instance Data.ToJSON CreateComponent where
   toJSON CreateComponent' {..} =
-    Core.toJSON componentToCreate
+    Data.toJSON componentToCreate
 
-instance Core.ToPath CreateComponent where
+instance Data.ToPath CreateComponent where
   toPath CreateComponent' {..} =
     Prelude.mconcat
       [ "/app/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/environment/",
-        Core.toBS environmentName,
+        Data.toBS environmentName,
         "/components"
       ]
 
-instance Core.ToQuery CreateComponent where
+instance Data.ToQuery CreateComponent where
   toQuery CreateComponent' {..} =
-    Prelude.mconcat ["clientToken" Core.=: clientToken]
+    Prelude.mconcat ["clientToken" Data.=: clientToken]
 
 -- | /See:/ 'newCreateComponentResponse' smart constructor.
 data CreateComponentResponse = CreateComponentResponse'

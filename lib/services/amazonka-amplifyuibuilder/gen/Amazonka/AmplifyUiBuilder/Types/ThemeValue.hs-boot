@@ -11,7 +11,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.AmplifyUiBuilder.Types.ThemeValue where
 
-import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 data ThemeValue
@@ -24,9 +24,9 @@ instance Prelude.Show ThemeValue
 
 instance Prelude.Generic ThemeValue
 
-instance Core.ToJSON ThemeValue
+instance Data.ToJSON ThemeValue
 
-instance Core.FromJSON ThemeValue
+instance Data.FromJSON ThemeValue
 
 instance Prelude.NFData ThemeValue
 

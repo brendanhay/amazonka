@@ -24,6 +24,7 @@ import Amazonka.AmplifyUiBuilder.Types.FieldPosition
 import Amazonka.AmplifyUiBuilder.Types.FieldValidationConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration information for a field in a table.
@@ -94,17 +95,17 @@ fieldConfig_position = Lens.lens (\FieldConfig' {position} -> position) (\s@Fiel
 fieldConfig_excluded :: Lens.Lens' FieldConfig (Prelude.Maybe Prelude.Bool)
 fieldConfig_excluded = Lens.lens (\FieldConfig' {excluded} -> excluded) (\s@FieldConfig' {} a -> s {excluded = a} :: FieldConfig)
 
-instance Core.FromJSON FieldConfig where
+instance Data.FromJSON FieldConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FieldConfig"
       ( \x ->
           FieldConfig'
-            Prelude.<$> (x Core..:? "label")
-            Prelude.<*> (x Core..:? "validations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "inputType")
-            Prelude.<*> (x Core..:? "position")
-            Prelude.<*> (x Core..:? "excluded")
+            Prelude.<$> (x Data..:? "label")
+            Prelude.<*> (x Data..:? "validations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "inputType")
+            Prelude.<*> (x Data..:? "position")
+            Prelude.<*> (x Data..:? "excluded")
       )
 
 instance Prelude.Hashable FieldConfig where
@@ -123,14 +124,14 @@ instance Prelude.NFData FieldConfig where
       `Prelude.seq` Prelude.rnf position
       `Prelude.seq` Prelude.rnf excluded
 
-instance Core.ToJSON FieldConfig where
+instance Data.ToJSON FieldConfig where
   toJSON FieldConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("label" Core..=) Prelude.<$> label,
-            ("validations" Core..=) Prelude.<$> validations,
-            ("inputType" Core..=) Prelude.<$> inputType,
-            ("position" Core..=) Prelude.<$> position,
-            ("excluded" Core..=) Prelude.<$> excluded
+          [ ("label" Data..=) Prelude.<$> label,
+            ("validations" Data..=) Prelude.<$> validations,
+            ("inputType" Data..=) Prelude.<$> inputType,
+            ("position" Data..=) Prelude.<$> position,
+            ("excluded" Data..=) Prelude.<$> excluded
           ]
       )

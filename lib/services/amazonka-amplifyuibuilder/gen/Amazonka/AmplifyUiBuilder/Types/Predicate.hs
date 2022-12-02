@@ -21,6 +21,7 @@ module Amazonka.AmplifyUiBuilder.Types.Predicate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Stores information for generating Amplify DataStore queries. Use a
@@ -89,17 +90,17 @@ predicate_operator = Lens.lens (\Predicate' {operator} -> operator) (\s@Predicat
 predicate_and :: Lens.Lens' Predicate (Prelude.Maybe [Predicate])
 predicate_and = Lens.lens (\Predicate' {and} -> and) (\s@Predicate' {} a -> s {and = a} :: Predicate) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Predicate where
+instance Data.FromJSON Predicate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Predicate"
       ( \x ->
           Predicate'
-            Prelude.<$> (x Core..:? "operand")
-            Prelude.<*> (x Core..:? "field")
-            Prelude.<*> (x Core..:? "or" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "operator")
-            Prelude.<*> (x Core..:? "and" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "operand")
+            Prelude.<*> (x Data..:? "field")
+            Prelude.<*> (x Data..:? "or" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "operator")
+            Prelude.<*> (x Data..:? "and" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Predicate where
@@ -118,14 +119,14 @@ instance Prelude.NFData Predicate where
       `Prelude.seq` Prelude.rnf operator
       `Prelude.seq` Prelude.rnf and
 
-instance Core.ToJSON Predicate where
+instance Data.ToJSON Predicate where
   toJSON Predicate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("operand" Core..=) Prelude.<$> operand,
-            ("field" Core..=) Prelude.<$> field,
-            ("or" Core..=) Prelude.<$> or,
-            ("operator" Core..=) Prelude.<$> operator,
-            ("and" Core..=) Prelude.<$> and
+          [ ("operand" Data..=) Prelude.<$> operand,
+            ("field" Data..=) Prelude.<$> field,
+            ("or" Data..=) Prelude.<$> or,
+            ("operator" Data..=) Prelude.<$> operator,
+            ("and" Data..=) Prelude.<$> and
           ]
       )

@@ -24,6 +24,7 @@ import Amazonka.AmplifyUiBuilder.Types.ComponentPropertyBindingProperties
 import Amazonka.AmplifyUiBuilder.Types.FormBindingElement
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration for all of a component\'s properties. Use
@@ -200,27 +201,27 @@ componentProperty_event = Lens.lens (\ComponentProperty' {event} -> event) (\s@C
 componentProperty_value :: Lens.Lens' ComponentProperty (Prelude.Maybe Prelude.Text)
 componentProperty_value = Lens.lens (\ComponentProperty' {value} -> value) (\s@ComponentProperty' {} a -> s {value = a} :: ComponentProperty)
 
-instance Core.FromJSON ComponentProperty where
+instance Data.FromJSON ComponentProperty where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentProperty"
       ( \x ->
           ComponentProperty'
-            Prelude.<$> (x Core..:? "configured")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "model")
-            Prelude.<*> (x Core..:? "importedValue")
-            Prelude.<*> (x Core..:? "concat" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "collectionBindingProperties")
-            Prelude.<*> (x Core..:? "userAttribute")
-            Prelude.<*> (x Core..:? "componentName")
-            Prelude.<*> (x Core..:? "defaultValue")
-            Prelude.<*> (x Core..:? "bindings" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "bindingProperties")
-            Prelude.<*> (x Core..:? "property")
-            Prelude.<*> (x Core..:? "condition")
-            Prelude.<*> (x Core..:? "event")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "configured")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "model")
+            Prelude.<*> (x Data..:? "importedValue")
+            Prelude.<*> (x Data..:? "concat" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "collectionBindingProperties")
+            Prelude.<*> (x Data..:? "userAttribute")
+            Prelude.<*> (x Data..:? "componentName")
+            Prelude.<*> (x Data..:? "defaultValue")
+            Prelude.<*> (x Data..:? "bindings" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "bindingProperties")
+            Prelude.<*> (x Data..:? "property")
+            Prelude.<*> (x Data..:? "condition")
+            Prelude.<*> (x Data..:? "event")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable ComponentProperty where
@@ -259,26 +260,26 @@ instance Prelude.NFData ComponentProperty where
       `Prelude.seq` Prelude.rnf event
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ComponentProperty where
+instance Data.ToJSON ComponentProperty where
   toJSON ComponentProperty' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("configured" Core..=) Prelude.<$> configured,
-            ("type" Core..=) Prelude.<$> type',
-            ("model" Core..=) Prelude.<$> model,
-            ("importedValue" Core..=) Prelude.<$> importedValue,
-            ("concat" Core..=) Prelude.<$> concat,
-            ("collectionBindingProperties" Core..=)
+          [ ("configured" Data..=) Prelude.<$> configured,
+            ("type" Data..=) Prelude.<$> type',
+            ("model" Data..=) Prelude.<$> model,
+            ("importedValue" Data..=) Prelude.<$> importedValue,
+            ("concat" Data..=) Prelude.<$> concat,
+            ("collectionBindingProperties" Data..=)
               Prelude.<$> collectionBindingProperties,
-            ("userAttribute" Core..=) Prelude.<$> userAttribute,
-            ("componentName" Core..=) Prelude.<$> componentName,
-            ("defaultValue" Core..=) Prelude.<$> defaultValue,
-            ("bindings" Core..=) Prelude.<$> bindings,
-            ("bindingProperties" Core..=)
+            ("userAttribute" Data..=) Prelude.<$> userAttribute,
+            ("componentName" Data..=) Prelude.<$> componentName,
+            ("defaultValue" Data..=) Prelude.<$> defaultValue,
+            ("bindings" Data..=) Prelude.<$> bindings,
+            ("bindingProperties" Data..=)
               Prelude.<$> bindingProperties,
-            ("property" Core..=) Prelude.<$> property,
-            ("condition" Core..=) Prelude.<$> condition,
-            ("event" Core..=) Prelude.<$> event,
-            ("value" Core..=) Prelude.<$> value
+            ("property" Data..=) Prelude.<$> property,
+            ("condition" Data..=) Prelude.<$> condition,
+            ("event" Data..=) Prelude.<$> event,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

@@ -43,6 +43,7 @@ where
 import Amazonka.AmplifyUiBuilder.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,7 +97,7 @@ instance Core.AWSRequest GetMetadata where
       ( \s h x ->
           GetMetadataResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "features" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "features" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable GetMetadata where
@@ -109,28 +110,28 @@ instance Prelude.NFData GetMetadata where
     Prelude.rnf appId
       `Prelude.seq` Prelude.rnf environmentName
 
-instance Core.ToHeaders GetMetadata where
+instance Data.ToHeaders GetMetadata where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetMetadata where
+instance Data.ToPath GetMetadata where
   toPath GetMetadata' {..} =
     Prelude.mconcat
       [ "/app/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/environment/",
-        Core.toBS environmentName,
+        Data.toBS environmentName,
         "/metadata"
       ]
 
-instance Core.ToQuery GetMetadata where
+instance Data.ToQuery GetMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMetadataResponse' smart constructor.

@@ -48,6 +48,7 @@ where
 import Amazonka.AmplifyUiBuilder.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,9 +127,9 @@ instance Core.AWSRequest ExportThemes where
     Response.receiveJSON
       ( \s h x ->
           ExportThemesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "entities" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "entities" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ExportThemes where
@@ -143,30 +144,30 @@ instance Prelude.NFData ExportThemes where
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf environmentName
 
-instance Core.ToHeaders ExportThemes where
+instance Data.ToHeaders ExportThemes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ExportThemes where
+instance Data.ToPath ExportThemes where
   toPath ExportThemes' {..} =
     Prelude.mconcat
       [ "/export/app/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/environment/",
-        Core.toBS environmentName,
+        Data.toBS environmentName,
         "/themes"
       ]
 
-instance Core.ToQuery ExportThemes where
+instance Data.ToQuery ExportThemes where
   toQuery ExportThemes' {..} =
-    Prelude.mconcat ["nextToken" Core.=: nextToken]
+    Prelude.mconcat ["nextToken" Data.=: nextToken]
 
 -- | /See:/ 'newExportThemesResponse' smart constructor.
 data ExportThemesResponse = ExportThemesResponse'

@@ -45,6 +45,7 @@ where
 import Amazonka.AmplifyUiBuilder.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,7 +121,7 @@ instance Core.AWSRequest CreateForm where
     Response.receiveJSON
       ( \s h x ->
           CreateFormResponse'
-            Prelude.<$> (Core.eitherParseJSON x)
+            Prelude.<$> (Data.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,33 +139,33 @@ instance Prelude.NFData CreateForm where
       `Prelude.seq` Prelude.rnf environmentName
       `Prelude.seq` Prelude.rnf formToCreate
 
-instance Core.ToHeaders CreateForm where
+instance Data.ToHeaders CreateForm where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateForm where
-  toJSON CreateForm' {..} = Core.toJSON formToCreate
+instance Data.ToJSON CreateForm where
+  toJSON CreateForm' {..} = Data.toJSON formToCreate
 
-instance Core.ToPath CreateForm where
+instance Data.ToPath CreateForm where
   toPath CreateForm' {..} =
     Prelude.mconcat
       [ "/app/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/environment/",
-        Core.toBS environmentName,
+        Data.toBS environmentName,
         "/forms"
       ]
 
-instance Core.ToQuery CreateForm where
+instance Data.ToQuery CreateForm where
   toQuery CreateForm' {..} =
-    Prelude.mconcat ["clientToken" Core.=: clientToken]
+    Prelude.mconcat ["clientToken" Data.=: clientToken]
 
 -- | /See:/ 'newCreateFormResponse' smart constructor.
 data CreateFormResponse = CreateFormResponse'

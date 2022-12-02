@@ -45,6 +45,7 @@ where
 import Amazonka.AmplifyUiBuilder.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,7 +121,7 @@ instance Core.AWSRequest CreateTheme where
     Response.receiveJSON
       ( \s h x ->
           CreateThemeResponse'
-            Prelude.<$> (Core.eitherParseJSON x)
+            Prelude.<$> (Data.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,33 +139,33 @@ instance Prelude.NFData CreateTheme where
       `Prelude.seq` Prelude.rnf environmentName
       `Prelude.seq` Prelude.rnf themeToCreate
 
-instance Core.ToHeaders CreateTheme where
+instance Data.ToHeaders CreateTheme where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTheme where
-  toJSON CreateTheme' {..} = Core.toJSON themeToCreate
+instance Data.ToJSON CreateTheme where
+  toJSON CreateTheme' {..} = Data.toJSON themeToCreate
 
-instance Core.ToPath CreateTheme where
+instance Data.ToPath CreateTheme where
   toPath CreateTheme' {..} =
     Prelude.mconcat
       [ "/app/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/environment/",
-        Core.toBS environmentName,
+        Data.toBS environmentName,
         "/themes"
       ]
 
-instance Core.ToQuery CreateTheme where
+instance Data.ToQuery CreateTheme where
   toQuery CreateTheme' {..} =
-    Prelude.mconcat ["clientToken" Core.=: clientToken]
+    Prelude.mconcat ["clientToken" Data.=: clientToken]
 
 -- | /See:/ 'newCreateThemeResponse' smart constructor.
 data CreateThemeResponse = CreateThemeResponse'

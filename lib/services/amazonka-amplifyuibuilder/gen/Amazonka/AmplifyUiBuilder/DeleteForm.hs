@@ -40,6 +40,7 @@ where
 import Amazonka.AmplifyUiBuilder.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -113,29 +114,29 @@ instance Prelude.NFData DeleteForm where
       `Prelude.seq` Prelude.rnf environmentName
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders DeleteForm where
+instance Data.ToHeaders DeleteForm where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteForm where
+instance Data.ToPath DeleteForm where
   toPath DeleteForm' {..} =
     Prelude.mconcat
       [ "/app/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/environment/",
-        Core.toBS environmentName,
+        Data.toBS environmentName,
         "/forms/",
-        Core.toBS id
+        Data.toBS id
       ]
 
-instance Core.ToQuery DeleteForm where
+instance Data.ToQuery DeleteForm where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFormResponse' smart constructor.

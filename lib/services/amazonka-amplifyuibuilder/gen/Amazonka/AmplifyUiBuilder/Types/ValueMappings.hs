@@ -22,6 +22,7 @@ module Amazonka.AmplifyUiBuilder.Types.ValueMappings where
 import Amazonka.AmplifyUiBuilder.Types.ValueMapping
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the data binding configuration for a value map.
@@ -51,13 +52,13 @@ newValueMappings =
 valueMappings_values :: Lens.Lens' ValueMappings [ValueMapping]
 valueMappings_values = Lens.lens (\ValueMappings' {values} -> values) (\s@ValueMappings' {} a -> s {values = a} :: ValueMappings) Prelude.. Lens.coerced
 
-instance Core.FromJSON ValueMappings where
+instance Data.FromJSON ValueMappings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ValueMappings"
       ( \x ->
           ValueMappings'
-            Prelude.<$> (x Core..:? "values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ValueMappings where
@@ -67,9 +68,9 @@ instance Prelude.Hashable ValueMappings where
 instance Prelude.NFData ValueMappings where
   rnf ValueMappings' {..} = Prelude.rnf values
 
-instance Core.ToJSON ValueMappings where
+instance Data.ToJSON ValueMappings where
   toJSON ValueMappings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("values" Core..= values)]
+          [Prelude.Just ("values" Data..= values)]
       )

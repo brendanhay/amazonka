@@ -22,6 +22,7 @@ module Amazonka.AmplifyUiBuilder.Types.SectionalElement where
 import Amazonka.AmplifyUiBuilder.Types.FieldPosition
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Stores the configuration information for a visual helper element for a
@@ -105,17 +106,17 @@ sectionalElement_text = Lens.lens (\SectionalElement' {text} -> text) (\s@Sectio
 sectionalElement_type :: Lens.Lens' SectionalElement Prelude.Text
 sectionalElement_type = Lens.lens (\SectionalElement' {type'} -> type') (\s@SectionalElement' {} a -> s {type' = a} :: SectionalElement)
 
-instance Core.FromJSON SectionalElement where
+instance Data.FromJSON SectionalElement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SectionalElement"
       ( \x ->
           SectionalElement'
-            Prelude.<$> (x Core..:? "orientation")
-            Prelude.<*> (x Core..:? "level")
-            Prelude.<*> (x Core..:? "position")
-            Prelude.<*> (x Core..:? "text")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "orientation")
+            Prelude.<*> (x Data..:? "level")
+            Prelude.<*> (x Data..:? "position")
+            Prelude.<*> (x Data..:? "text")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable SectionalElement where
@@ -134,14 +135,14 @@ instance Prelude.NFData SectionalElement where
       `Prelude.seq` Prelude.rnf text
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON SectionalElement where
+instance Data.ToJSON SectionalElement where
   toJSON SectionalElement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("orientation" Core..=) Prelude.<$> orientation,
-            ("level" Core..=) Prelude.<$> level,
-            ("position" Core..=) Prelude.<$> position,
-            ("text" Core..=) Prelude.<$> text,
-            Prelude.Just ("type" Core..= type')
+          [ ("orientation" Data..=) Prelude.<$> orientation,
+            ("level" Data..=) Prelude.<$> level,
+            ("position" Data..=) Prelude.<$> position,
+            ("text" Data..=) Prelude.<$> text,
+            Prelude.Just ("type" Data..= type')
           ]
       )

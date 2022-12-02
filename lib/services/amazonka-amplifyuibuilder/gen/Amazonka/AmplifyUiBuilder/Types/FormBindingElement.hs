@@ -21,6 +21,7 @@ module Amazonka.AmplifyUiBuilder.Types.FormBindingElement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes how to bind a component property to form data.
@@ -65,14 +66,14 @@ formBindingElement_element = Lens.lens (\FormBindingElement' {element} -> elemen
 formBindingElement_property :: Lens.Lens' FormBindingElement Prelude.Text
 formBindingElement_property = Lens.lens (\FormBindingElement' {property} -> property) (\s@FormBindingElement' {} a -> s {property = a} :: FormBindingElement)
 
-instance Core.FromJSON FormBindingElement where
+instance Data.FromJSON FormBindingElement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FormBindingElement"
       ( \x ->
           FormBindingElement'
-            Prelude.<$> (x Core..: "element")
-            Prelude.<*> (x Core..: "property")
+            Prelude.<$> (x Data..: "element")
+            Prelude.<*> (x Data..: "property")
       )
 
 instance Prelude.Hashable FormBindingElement where
@@ -85,11 +86,11 @@ instance Prelude.NFData FormBindingElement where
     Prelude.rnf element
       `Prelude.seq` Prelude.rnf property
 
-instance Core.ToJSON FormBindingElement where
+instance Data.ToJSON FormBindingElement where
   toJSON FormBindingElement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("element" Core..= element),
-            Prelude.Just ("property" Core..= property)
+          [ Prelude.Just ("element" Data..= element),
+            Prelude.Just ("property" Data..= property)
           ]
       )

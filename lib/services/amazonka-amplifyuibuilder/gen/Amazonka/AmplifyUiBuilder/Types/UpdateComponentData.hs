@@ -27,6 +27,7 @@ import Amazonka.AmplifyUiBuilder.Types.ComponentProperty
 import Amazonka.AmplifyUiBuilder.Types.ComponentVariant
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Updates and saves all of the information about a component, based on
@@ -206,23 +207,23 @@ instance Prelude.NFData UpdateComponentData where
       `Prelude.seq` Prelude.rnf componentType
       `Prelude.seq` Prelude.rnf overrides
 
-instance Core.ToJSON UpdateComponentData where
+instance Data.ToJSON UpdateComponentData where
   toJSON UpdateComponentData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("variants" Core..=) Prelude.<$> variants,
-            ("sourceId" Core..=) Prelude.<$> sourceId,
-            ("properties" Core..=) Prelude.<$> properties,
-            ("bindingProperties" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("variants" Data..=) Prelude.<$> variants,
+            ("sourceId" Data..=) Prelude.<$> sourceId,
+            ("properties" Data..=) Prelude.<$> properties,
+            ("bindingProperties" Data..=)
               Prelude.<$> bindingProperties,
-            ("id" Core..=) Prelude.<$> id,
-            ("children" Core..=) Prelude.<$> children,
-            ("events" Core..=) Prelude.<$> events,
-            ("schemaVersion" Core..=) Prelude.<$> schemaVersion,
-            ("collectionProperties" Core..=)
+            ("id" Data..=) Prelude.<$> id,
+            ("children" Data..=) Prelude.<$> children,
+            ("events" Data..=) Prelude.<$> events,
+            ("schemaVersion" Data..=) Prelude.<$> schemaVersion,
+            ("collectionProperties" Data..=)
               Prelude.<$> collectionProperties,
-            ("componentType" Core..=) Prelude.<$> componentType,
-            ("overrides" Core..=) Prelude.<$> overrides
+            ("componentType" Data..=) Prelude.<$> componentType,
+            ("overrides" Data..=) Prelude.<$> overrides
           ]
       )

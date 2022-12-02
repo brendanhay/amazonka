@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.ClusterHealth where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types.ClusterIssue
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,13 +57,13 @@ newClusterHealth =
 clusterHealth_issues :: Lens.Lens' ClusterHealth (Prelude.Maybe [ClusterIssue])
 clusterHealth_issues = Lens.lens (\ClusterHealth' {issues} -> issues) (\s@ClusterHealth' {} a -> s {issues = a} :: ClusterHealth) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ClusterHealth where
+instance Data.FromJSON ClusterHealth where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClusterHealth"
       ( \x ->
           ClusterHealth'
-            Prelude.<$> (x Core..:? "issues" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "issues" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ClusterHealth where

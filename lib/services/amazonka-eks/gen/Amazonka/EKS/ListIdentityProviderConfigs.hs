@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -167,8 +168,8 @@ instance Core.AWSRequest ListIdentityProviderConfigs where
     Response.receiveJSON
       ( \s h x ->
           ListIdentityProviderConfigsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "identityProviderConfigs"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "identityProviderConfigs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -186,30 +187,30 @@ instance Prelude.NFData ListIdentityProviderConfigs where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf clusterName
 
-instance Core.ToHeaders ListIdentityProviderConfigs where
+instance Data.ToHeaders ListIdentityProviderConfigs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListIdentityProviderConfigs where
+instance Data.ToPath ListIdentityProviderConfigs where
   toPath ListIdentityProviderConfigs' {..} =
     Prelude.mconcat
       [ "/clusters/",
-        Core.toBS clusterName,
+        Data.toBS clusterName,
         "/identity-provider-configs"
       ]
 
-instance Core.ToQuery ListIdentityProviderConfigs where
+instance Data.ToQuery ListIdentityProviderConfigs where
   toQuery ListIdentityProviderConfigs' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListIdentityProviderConfigsResponse' smart constructor.

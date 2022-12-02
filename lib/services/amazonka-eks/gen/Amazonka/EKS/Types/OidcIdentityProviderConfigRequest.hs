@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.OidcIdentityProviderConfigRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing an OpenID Connect (OIDC) configuration. Before
@@ -233,24 +234,24 @@ instance
       `Prelude.seq` Prelude.rnf clientId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     OidcIdentityProviderConfigRequest
   where
   toJSON OidcIdentityProviderConfigRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("requiredClaims" Core..=)
+          [ ("requiredClaims" Data..=)
               Prelude.<$> requiredClaims,
-            ("usernamePrefix" Core..=)
+            ("usernamePrefix" Data..=)
               Prelude.<$> usernamePrefix,
-            ("groupsClaim" Core..=) Prelude.<$> groupsClaim,
-            ("groupsPrefix" Core..=) Prelude.<$> groupsPrefix,
-            ("usernameClaim" Core..=) Prelude.<$> usernameClaim,
+            ("groupsClaim" Data..=) Prelude.<$> groupsClaim,
+            ("groupsPrefix" Data..=) Prelude.<$> groupsPrefix,
+            ("usernameClaim" Data..=) Prelude.<$> usernameClaim,
             Prelude.Just
               ( "identityProviderConfigName"
-                  Core..= identityProviderConfigName
+                  Data..= identityProviderConfigName
               ),
-            Prelude.Just ("issuerUrl" Core..= issuerUrl),
-            Prelude.Just ("clientId" Core..= clientId)
+            Prelude.Just ("issuerUrl" Data..= issuerUrl),
+            Prelude.Just ("clientId" Data..= clientId)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.ErrorDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types.EKSErrorCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -140,15 +141,15 @@ errorDetail_resourceIds = Lens.lens (\ErrorDetail' {resourceIds} -> resourceIds)
 errorDetail_errorCode :: Lens.Lens' ErrorDetail (Prelude.Maybe EKSErrorCode)
 errorDetail_errorCode = Lens.lens (\ErrorDetail' {errorCode} -> errorCode) (\s@ErrorDetail' {} a -> s {errorCode = a} :: ErrorDetail)
 
-instance Core.FromJSON ErrorDetail where
+instance Data.FromJSON ErrorDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ErrorDetail"
       ( \x ->
           ErrorDetail'
-            Prelude.<$> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "resourceIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "errorCode")
+            Prelude.<$> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "resourceIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "errorCode")
       )
 
 instance Prelude.Hashable ErrorDetail where

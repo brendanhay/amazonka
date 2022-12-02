@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.ControlPlanePlacementRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The placement configuration for all the control plane instance of your
@@ -71,9 +72,9 @@ instance Prelude.NFData ControlPlanePlacementRequest where
   rnf ControlPlanePlacementRequest' {..} =
     Prelude.rnf groupName
 
-instance Core.ToJSON ControlPlanePlacementRequest where
+instance Data.ToJSON ControlPlanePlacementRequest where
   toJSON ControlPlanePlacementRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("groupName" Core..=) Prelude.<$> groupName]
+          [("groupName" Data..=) Prelude.<$> groupName]
       )

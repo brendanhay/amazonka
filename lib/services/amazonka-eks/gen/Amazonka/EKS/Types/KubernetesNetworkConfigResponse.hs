@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.KubernetesNetworkConfigResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types.IpFamily
 import qualified Amazonka.Prelude as Prelude
 
@@ -117,17 +118,17 @@ kubernetesNetworkConfigResponse_serviceIpv4Cidr :: Lens.Lens' KubernetesNetworkC
 kubernetesNetworkConfigResponse_serviceIpv4Cidr = Lens.lens (\KubernetesNetworkConfigResponse' {serviceIpv4Cidr} -> serviceIpv4Cidr) (\s@KubernetesNetworkConfigResponse' {} a -> s {serviceIpv4Cidr = a} :: KubernetesNetworkConfigResponse)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     KubernetesNetworkConfigResponse
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KubernetesNetworkConfigResponse"
       ( \x ->
           KubernetesNetworkConfigResponse'
-            Prelude.<$> (x Core..:? "ipFamily")
-            Prelude.<*> (x Core..:? "serviceIpv6Cidr")
-            Prelude.<*> (x Core..:? "serviceIpv4Cidr")
+            Prelude.<$> (x Data..:? "ipFamily")
+            Prelude.<*> (x Data..:? "serviceIpv6Cidr")
+            Prelude.<*> (x Data..:? "serviceIpv4Cidr")
       )
 
 instance

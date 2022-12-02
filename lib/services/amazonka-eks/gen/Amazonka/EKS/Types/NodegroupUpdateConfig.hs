@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.NodegroupUpdateConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The node group update configuration.
@@ -77,14 +78,14 @@ nodegroupUpdateConfig_maxUnavailable = Lens.lens (\NodegroupUpdateConfig' {maxUn
 nodegroupUpdateConfig_maxUnavailablePercentage :: Lens.Lens' NodegroupUpdateConfig (Prelude.Maybe Prelude.Natural)
 nodegroupUpdateConfig_maxUnavailablePercentage = Lens.lens (\NodegroupUpdateConfig' {maxUnavailablePercentage} -> maxUnavailablePercentage) (\s@NodegroupUpdateConfig' {} a -> s {maxUnavailablePercentage = a} :: NodegroupUpdateConfig)
 
-instance Core.FromJSON NodegroupUpdateConfig where
+instance Data.FromJSON NodegroupUpdateConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NodegroupUpdateConfig"
       ( \x ->
           NodegroupUpdateConfig'
-            Prelude.<$> (x Core..:? "maxUnavailable")
-            Prelude.<*> (x Core..:? "maxUnavailablePercentage")
+            Prelude.<$> (x Data..:? "maxUnavailable")
+            Prelude.<*> (x Data..:? "maxUnavailablePercentage")
       )
 
 instance Prelude.Hashable NodegroupUpdateConfig where
@@ -97,13 +98,13 @@ instance Prelude.NFData NodegroupUpdateConfig where
     Prelude.rnf maxUnavailable
       `Prelude.seq` Prelude.rnf maxUnavailablePercentage
 
-instance Core.ToJSON NodegroupUpdateConfig where
+instance Data.ToJSON NodegroupUpdateConfig where
   toJSON NodegroupUpdateConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("maxUnavailable" Core..=)
+          [ ("maxUnavailable" Data..=)
               Prelude.<$> maxUnavailable,
-            ("maxUnavailablePercentage" Core..=)
+            ("maxUnavailablePercentage" Data..=)
               Prelude.<$> maxUnavailablePercentage
           ]
       )

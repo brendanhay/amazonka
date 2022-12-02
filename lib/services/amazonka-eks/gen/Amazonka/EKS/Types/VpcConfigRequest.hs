@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.VpcConfigRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the VPC configuration to use for an Amazon EKS
@@ -202,18 +203,18 @@ instance Prelude.NFData VpcConfigRequest where
       `Prelude.seq` Prelude.rnf endpointPublicAccess
       `Prelude.seq` Prelude.rnf subnetIds
 
-instance Core.ToJSON VpcConfigRequest where
+instance Data.ToJSON VpcConfigRequest where
   toJSON VpcConfigRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("securityGroupIds" Core..=)
+          [ ("securityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("endpointPrivateAccess" Core..=)
+            ("endpointPrivateAccess" Data..=)
               Prelude.<$> endpointPrivateAccess,
-            ("publicAccessCidrs" Core..=)
+            ("publicAccessCidrs" Data..=)
               Prelude.<$> publicAccessCidrs,
-            ("endpointPublicAccess" Core..=)
+            ("endpointPublicAccess" Data..=)
               Prelude.<$> endpointPublicAccess,
-            ("subnetIds" Core..=) Prelude.<$> subnetIds
+            ("subnetIds" Data..=) Prelude.<$> subnetIds
           ]
       )

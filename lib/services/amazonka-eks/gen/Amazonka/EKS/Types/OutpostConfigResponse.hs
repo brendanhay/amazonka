@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.OutpostConfigResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types.ControlPlanePlacementResponse
 import qualified Amazonka.Prelude as Prelude
 
@@ -95,15 +96,15 @@ outpostConfigResponse_outpostArns = Lens.lens (\OutpostConfigResponse' {outpostA
 outpostConfigResponse_controlPlaneInstanceType :: Lens.Lens' OutpostConfigResponse Prelude.Text
 outpostConfigResponse_controlPlaneInstanceType = Lens.lens (\OutpostConfigResponse' {controlPlaneInstanceType} -> controlPlaneInstanceType) (\s@OutpostConfigResponse' {} a -> s {controlPlaneInstanceType = a} :: OutpostConfigResponse)
 
-instance Core.FromJSON OutpostConfigResponse where
+instance Data.FromJSON OutpostConfigResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutpostConfigResponse"
       ( \x ->
           OutpostConfigResponse'
-            Prelude.<$> (x Core..:? "controlPlanePlacement")
-            Prelude.<*> (x Core..:? "outpostArns" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "controlPlaneInstanceType")
+            Prelude.<$> (x Data..:? "controlPlanePlacement")
+            Prelude.<*> (x Data..:? "outpostArns" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "controlPlaneInstanceType")
       )
 
 instance Prelude.Hashable OutpostConfigResponse where

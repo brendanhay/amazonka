@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.ConnectorConfigResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The full description of your connected cluster.
@@ -36,7 +37,7 @@ data ConnectorConfigResponse = ConnectorConfigResponse'
     activationId :: Prelude.Maybe Prelude.Text,
     -- | The expiration time of the connected cluster. The cluster\'s YAML file
     -- must be applied through the native provider.
-    activationExpiry :: Prelude.Maybe Core.POSIX,
+    activationExpiry :: Prelude.Maybe Data.POSIX,
     -- | A unique code associated with the cluster for registration purposes.
     activationCode :: Prelude.Maybe Prelude.Text
   }
@@ -88,23 +89,23 @@ connectorConfigResponse_activationId = Lens.lens (\ConnectorConfigResponse' {act
 -- | The expiration time of the connected cluster. The cluster\'s YAML file
 -- must be applied through the native provider.
 connectorConfigResponse_activationExpiry :: Lens.Lens' ConnectorConfigResponse (Prelude.Maybe Prelude.UTCTime)
-connectorConfigResponse_activationExpiry = Lens.lens (\ConnectorConfigResponse' {activationExpiry} -> activationExpiry) (\s@ConnectorConfigResponse' {} a -> s {activationExpiry = a} :: ConnectorConfigResponse) Prelude.. Lens.mapping Core._Time
+connectorConfigResponse_activationExpiry = Lens.lens (\ConnectorConfigResponse' {activationExpiry} -> activationExpiry) (\s@ConnectorConfigResponse' {} a -> s {activationExpiry = a} :: ConnectorConfigResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A unique code associated with the cluster for registration purposes.
 connectorConfigResponse_activationCode :: Lens.Lens' ConnectorConfigResponse (Prelude.Maybe Prelude.Text)
 connectorConfigResponse_activationCode = Lens.lens (\ConnectorConfigResponse' {activationCode} -> activationCode) (\s@ConnectorConfigResponse' {} a -> s {activationCode = a} :: ConnectorConfigResponse)
 
-instance Core.FromJSON ConnectorConfigResponse where
+instance Data.FromJSON ConnectorConfigResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectorConfigResponse"
       ( \x ->
           ConnectorConfigResponse'
-            Prelude.<$> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "provider")
-            Prelude.<*> (x Core..:? "activationId")
-            Prelude.<*> (x Core..:? "activationExpiry")
-            Prelude.<*> (x Core..:? "activationCode")
+            Prelude.<$> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "provider")
+            Prelude.<*> (x Data..:? "activationId")
+            Prelude.<*> (x Data..:? "activationExpiry")
+            Prelude.<*> (x Data..:? "activationCode")
       )
 
 instance Prelude.Hashable ConnectorConfigResponse where

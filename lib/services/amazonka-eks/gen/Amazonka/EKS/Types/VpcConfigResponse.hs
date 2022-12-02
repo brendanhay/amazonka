@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.VpcConfigResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing an Amazon EKS cluster VPC configuration response.
@@ -176,23 +177,23 @@ vpcConfigResponse_endpointPublicAccess = Lens.lens (\VpcConfigResponse' {endpoin
 vpcConfigResponse_subnetIds :: Lens.Lens' VpcConfigResponse (Prelude.Maybe [Prelude.Text])
 vpcConfigResponse_subnetIds = Lens.lens (\VpcConfigResponse' {subnetIds} -> subnetIds) (\s@VpcConfigResponse' {} a -> s {subnetIds = a} :: VpcConfigResponse) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON VpcConfigResponse where
+instance Data.FromJSON VpcConfigResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcConfigResponse"
       ( \x ->
           VpcConfigResponse'
-            Prelude.<$> ( x Core..:? "securityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "securityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "clusterSecurityGroupId")
-            Prelude.<*> (x Core..:? "endpointPrivateAccess")
-            Prelude.<*> ( x Core..:? "publicAccessCidrs"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "clusterSecurityGroupId")
+            Prelude.<*> (x Data..:? "endpointPrivateAccess")
+            Prelude.<*> ( x Data..:? "publicAccessCidrs"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "vpcId")
-            Prelude.<*> (x Core..:? "endpointPublicAccess")
-            Prelude.<*> (x Core..:? "subnetIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "vpcId")
+            Prelude.<*> (x Data..:? "endpointPublicAccess")
+            Prelude.<*> (x Data..:? "subnetIds" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable VpcConfigResponse where

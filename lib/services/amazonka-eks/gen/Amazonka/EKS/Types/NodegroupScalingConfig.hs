@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.NodegroupScalingConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the scaling configuration details for the Auto
@@ -143,15 +144,15 @@ nodegroupScalingConfig_minSize = Lens.lens (\NodegroupScalingConfig' {minSize} -
 nodegroupScalingConfig_maxSize :: Lens.Lens' NodegroupScalingConfig (Prelude.Maybe Prelude.Natural)
 nodegroupScalingConfig_maxSize = Lens.lens (\NodegroupScalingConfig' {maxSize} -> maxSize) (\s@NodegroupScalingConfig' {} a -> s {maxSize = a} :: NodegroupScalingConfig)
 
-instance Core.FromJSON NodegroupScalingConfig where
+instance Data.FromJSON NodegroupScalingConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NodegroupScalingConfig"
       ( \x ->
           NodegroupScalingConfig'
-            Prelude.<$> (x Core..:? "desiredSize")
-            Prelude.<*> (x Core..:? "minSize")
-            Prelude.<*> (x Core..:? "maxSize")
+            Prelude.<$> (x Data..:? "desiredSize")
+            Prelude.<*> (x Data..:? "minSize")
+            Prelude.<*> (x Data..:? "maxSize")
       )
 
 instance Prelude.Hashable NodegroupScalingConfig where
@@ -166,12 +167,12 @@ instance Prelude.NFData NodegroupScalingConfig where
       `Prelude.seq` Prelude.rnf minSize
       `Prelude.seq` Prelude.rnf maxSize
 
-instance Core.ToJSON NodegroupScalingConfig where
+instance Data.ToJSON NodegroupScalingConfig where
   toJSON NodegroupScalingConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("desiredSize" Core..=) Prelude.<$> desiredSize,
-            ("minSize" Core..=) Prelude.<$> minSize,
-            ("maxSize" Core..=) Prelude.<$> maxSize
+          [ ("desiredSize" Data..=) Prelude.<$> desiredSize,
+            ("minSize" Data..=) Prelude.<$> minSize,
+            ("maxSize" Data..=) Prelude.<$> maxSize
           ]
       )

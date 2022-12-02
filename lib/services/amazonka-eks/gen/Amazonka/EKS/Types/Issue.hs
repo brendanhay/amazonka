@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.Issue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types.NodegroupIssueCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -269,15 +270,15 @@ issue_code = Lens.lens (\Issue' {code} -> code) (\s@Issue' {} a -> s {code = a} 
 issue_resourceIds :: Lens.Lens' Issue (Prelude.Maybe [Prelude.Text])
 issue_resourceIds = Lens.lens (\Issue' {resourceIds} -> resourceIds) (\s@Issue' {} a -> s {resourceIds = a} :: Issue) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Issue where
+instance Data.FromJSON Issue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Issue"
       ( \x ->
           Issue'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "code")
-            Prelude.<*> (x Core..:? "resourceIds" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "resourceIds" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Issue where

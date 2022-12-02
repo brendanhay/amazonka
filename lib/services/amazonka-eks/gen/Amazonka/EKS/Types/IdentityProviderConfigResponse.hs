@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.IdentityProviderConfigResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types.OidcIdentityProviderConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newIdentityProviderConfigResponse =
 identityProviderConfigResponse_oidc :: Lens.Lens' IdentityProviderConfigResponse (Prelude.Maybe OidcIdentityProviderConfig)
 identityProviderConfigResponse_oidc = Lens.lens (\IdentityProviderConfigResponse' {oidc} -> oidc) (\s@IdentityProviderConfigResponse' {} a -> s {oidc = a} :: IdentityProviderConfigResponse)
 
-instance Core.FromJSON IdentityProviderConfigResponse where
+instance Data.FromJSON IdentityProviderConfigResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IdentityProviderConfigResponse"
       ( \x ->
           IdentityProviderConfigResponse'
-            Prelude.<$> (x Core..:? "oidc")
+            Prelude.<$> (x Data..:? "oidc")
       )
 
 instance

@@ -82,6 +82,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -238,7 +239,7 @@ instance Core.AWSRequest CreateFargateProfile where
     Response.receiveJSON
       ( \s h x ->
           CreateFargateProfileResponse'
-            Prelude.<$> (x Core..?> "fargateProfile")
+            Prelude.<$> (x Data..?> "fargateProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -262,42 +263,42 @@ instance Prelude.NFData CreateFargateProfile where
       `Prelude.seq` Prelude.rnf clusterName
       `Prelude.seq` Prelude.rnf podExecutionRoleArn
 
-instance Core.ToHeaders CreateFargateProfile where
+instance Data.ToHeaders CreateFargateProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFargateProfile where
+instance Data.ToJSON CreateFargateProfile where
   toJSON CreateFargateProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientRequestToken" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("subnets" Core..=) Prelude.<$> subnets,
-            ("selectors" Core..=) Prelude.<$> selectors,
+            ("subnets" Data..=) Prelude.<$> subnets,
+            ("selectors" Data..=) Prelude.<$> selectors,
             Prelude.Just
-              ("fargateProfileName" Core..= fargateProfileName),
+              ("fargateProfileName" Data..= fargateProfileName),
             Prelude.Just
-              ("podExecutionRoleArn" Core..= podExecutionRoleArn)
+              ("podExecutionRoleArn" Data..= podExecutionRoleArn)
           ]
       )
 
-instance Core.ToPath CreateFargateProfile where
+instance Data.ToPath CreateFargateProfile where
   toPath CreateFargateProfile' {..} =
     Prelude.mconcat
       [ "/clusters/",
-        Core.toBS clusterName,
+        Data.toBS clusterName,
         "/fargate-profiles"
       ]
 
-instance Core.ToQuery CreateFargateProfile where
+instance Data.ToQuery CreateFargateProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFargateProfileResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.AddonIssue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types.AddonIssueCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,15 +72,15 @@ addonIssue_code = Lens.lens (\AddonIssue' {code} -> code) (\s@AddonIssue' {} a -
 addonIssue_resourceIds :: Lens.Lens' AddonIssue (Prelude.Maybe [Prelude.Text])
 addonIssue_resourceIds = Lens.lens (\AddonIssue' {resourceIds} -> resourceIds) (\s@AddonIssue' {} a -> s {resourceIds = a} :: AddonIssue) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AddonIssue where
+instance Data.FromJSON AddonIssue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AddonIssue"
       ( \x ->
           AddonIssue'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "code")
-            Prelude.<*> (x Core..:? "resourceIds" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "resourceIds" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AddonIssue where

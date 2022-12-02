@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.AddonVersionInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types.Compatibility
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,17 +72,17 @@ addonVersionInfo_compatibilities = Lens.lens (\AddonVersionInfo' {compatibilitie
 addonVersionInfo_architecture :: Lens.Lens' AddonVersionInfo (Prelude.Maybe [Prelude.Text])
 addonVersionInfo_architecture = Lens.lens (\AddonVersionInfo' {architecture} -> architecture) (\s@AddonVersionInfo' {} a -> s {architecture = a} :: AddonVersionInfo) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AddonVersionInfo where
+instance Data.FromJSON AddonVersionInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AddonVersionInfo"
       ( \x ->
           AddonVersionInfo'
-            Prelude.<$> (x Core..:? "addonVersion")
-            Prelude.<*> ( x Core..:? "compatibilities"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "addonVersion")
+            Prelude.<*> ( x Data..:? "compatibilities"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "architecture" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "architecture" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AddonVersionInfo where

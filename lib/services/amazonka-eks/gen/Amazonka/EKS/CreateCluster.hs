@@ -77,6 +77,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -302,7 +303,7 @@ instance Core.AWSRequest CreateCluster where
     Response.receiveJSON
       ( \s h x ->
           CreateClusterResponse'
-            Prelude.<$> (x Core..?> "cluster")
+            Prelude.<$> (x Data..?> "cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -332,42 +333,42 @@ instance Prelude.NFData CreateCluster where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf resourcesVpcConfig
 
-instance Core.ToHeaders CreateCluster where
+instance Data.ToHeaders CreateCluster where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCluster where
+instance Data.ToJSON CreateCluster where
   toJSON CreateCluster' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("encryptionConfig" Core..=)
+          [ ("encryptionConfig" Data..=)
               Prelude.<$> encryptionConfig,
-            ("tags" Core..=) Prelude.<$> tags,
-            ("clientRequestToken" Core..=)
+            ("tags" Data..=) Prelude.<$> tags,
+            ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("outpostConfig" Core..=) Prelude.<$> outpostConfig,
-            ("logging" Core..=) Prelude.<$> logging,
-            ("kubernetesNetworkConfig" Core..=)
+            ("outpostConfig" Data..=) Prelude.<$> outpostConfig,
+            ("logging" Data..=) Prelude.<$> logging,
+            ("kubernetesNetworkConfig" Data..=)
               Prelude.<$> kubernetesNetworkConfig,
-            ("version" Core..=) Prelude.<$> version,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("roleArn" Core..= roleArn),
+            ("version" Data..=) Prelude.<$> version,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("roleArn" Data..= roleArn),
             Prelude.Just
-              ("resourcesVpcConfig" Core..= resourcesVpcConfig)
+              ("resourcesVpcConfig" Data..= resourcesVpcConfig)
           ]
       )
 
-instance Core.ToPath CreateCluster where
+instance Data.ToPath CreateCluster where
   toPath = Prelude.const "/clusters"
 
-instance Core.ToQuery CreateCluster where
+instance Data.ToQuery CreateCluster where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateClusterResponse' smart constructor.

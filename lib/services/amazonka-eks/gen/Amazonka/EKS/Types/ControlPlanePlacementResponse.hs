@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.ControlPlanePlacementResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The placement configuration for all the control plane instance of your
@@ -60,13 +61,13 @@ newControlPlanePlacementResponse =
 controlPlanePlacementResponse_groupName :: Lens.Lens' ControlPlanePlacementResponse (Prelude.Maybe Prelude.Text)
 controlPlanePlacementResponse_groupName = Lens.lens (\ControlPlanePlacementResponse' {groupName} -> groupName) (\s@ControlPlanePlacementResponse' {} a -> s {groupName = a} :: ControlPlanePlacementResponse)
 
-instance Core.FromJSON ControlPlanePlacementResponse where
+instance Data.FromJSON ControlPlanePlacementResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ControlPlanePlacementResponse"
       ( \x ->
           ControlPlanePlacementResponse'
-            Prelude.<$> (x Core..:? "groupName")
+            Prelude.<$> (x Data..:? "groupName")
       )
 
 instance

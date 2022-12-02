@@ -71,6 +71,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -515,7 +516,7 @@ instance Core.AWSRequest CreateNodegroup where
     Response.receiveJSON
       ( \s h x ->
           CreateNodegroupResponse'
-            Prelude.<$> (x Core..?> "nodegroup")
+            Prelude.<$> (x Data..?> "nodegroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -561,50 +562,50 @@ instance Prelude.NFData CreateNodegroup where
       `Prelude.seq` Prelude.rnf subnets
       `Prelude.seq` Prelude.rnf nodeRole
 
-instance Core.ToHeaders CreateNodegroup where
+instance Data.ToHeaders CreateNodegroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateNodegroup where
+instance Data.ToJSON CreateNodegroup where
   toJSON CreateNodegroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("releaseVersion" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("releaseVersion" Data..=)
               Prelude.<$> releaseVersion,
-            ("remoteAccess" Core..=) Prelude.<$> remoteAccess,
-            ("instanceTypes" Core..=) Prelude.<$> instanceTypes,
-            ("clientRequestToken" Core..=)
+            ("remoteAccess" Data..=) Prelude.<$> remoteAccess,
+            ("instanceTypes" Data..=) Prelude.<$> instanceTypes,
+            ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("updateConfig" Core..=) Prelude.<$> updateConfig,
-            ("capacityType" Core..=) Prelude.<$> capacityType,
-            ("amiType" Core..=) Prelude.<$> amiType,
-            ("diskSize" Core..=) Prelude.<$> diskSize,
-            ("launchTemplate" Core..=)
+            ("updateConfig" Data..=) Prelude.<$> updateConfig,
+            ("capacityType" Data..=) Prelude.<$> capacityType,
+            ("amiType" Data..=) Prelude.<$> amiType,
+            ("diskSize" Data..=) Prelude.<$> diskSize,
+            ("launchTemplate" Data..=)
               Prelude.<$> launchTemplate,
-            ("taints" Core..=) Prelude.<$> taints,
-            ("labels" Core..=) Prelude.<$> labels,
-            ("scalingConfig" Core..=) Prelude.<$> scalingConfig,
-            ("version" Core..=) Prelude.<$> version,
-            Prelude.Just ("nodegroupName" Core..= nodegroupName),
-            Prelude.Just ("subnets" Core..= subnets),
-            Prelude.Just ("nodeRole" Core..= nodeRole)
+            ("taints" Data..=) Prelude.<$> taints,
+            ("labels" Data..=) Prelude.<$> labels,
+            ("scalingConfig" Data..=) Prelude.<$> scalingConfig,
+            ("version" Data..=) Prelude.<$> version,
+            Prelude.Just ("nodegroupName" Data..= nodegroupName),
+            Prelude.Just ("subnets" Data..= subnets),
+            Prelude.Just ("nodeRole" Data..= nodeRole)
           ]
       )
 
-instance Core.ToPath CreateNodegroup where
+instance Data.ToPath CreateNodegroup where
   toPath CreateNodegroup' {..} =
     Prelude.mconcat
-      ["/clusters/", Core.toBS clusterName, "/node-groups"]
+      ["/clusters/", Data.toBS clusterName, "/node-groups"]
 
-instance Core.ToQuery CreateNodegroup where
+instance Data.ToQuery CreateNodegroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateNodegroupResponse' smart constructor.

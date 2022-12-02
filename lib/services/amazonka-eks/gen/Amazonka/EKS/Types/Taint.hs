@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.Taint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types.TaintEffect
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,15 +74,15 @@ taint_effect = Lens.lens (\Taint' {effect} -> effect) (\s@Taint' {} a -> s {effe
 taint_value :: Lens.Lens' Taint (Prelude.Maybe Prelude.Text)
 taint_value = Lens.lens (\Taint' {value} -> value) (\s@Taint' {} a -> s {value = a} :: Taint)
 
-instance Core.FromJSON Taint where
+instance Data.FromJSON Taint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Taint"
       ( \x ->
           Taint'
-            Prelude.<$> (x Core..:? "key")
-            Prelude.<*> (x Core..:? "effect")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "key")
+            Prelude.<*> (x Data..:? "effect")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable Taint where
@@ -96,12 +97,12 @@ instance Prelude.NFData Taint where
       `Prelude.seq` Prelude.rnf effect
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON Taint where
+instance Data.ToJSON Taint where
   toJSON Taint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("key" Core..=) Prelude.<$> key,
-            ("effect" Core..=) Prelude.<$> effect,
-            ("value" Core..=) Prelude.<$> value
+          [ ("key" Data..=) Prelude.<$> key,
+            ("effect" Data..=) Prelude.<$> effect,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

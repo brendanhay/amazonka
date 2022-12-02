@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -149,7 +150,7 @@ instance Core.AWSRequest RegisterCluster where
     Response.receiveJSON
       ( \s h x ->
           RegisterClusterResponse'
-            Prelude.<$> (x Core..?> "cluster")
+            Prelude.<$> (x Data..?> "cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,34 +168,34 @@ instance Prelude.NFData RegisterCluster where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf connectorConfig
 
-instance Core.ToHeaders RegisterCluster where
+instance Data.ToHeaders RegisterCluster where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterCluster where
+instance Data.ToJSON RegisterCluster where
   toJSON RegisterCluster' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientRequestToken" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("connectorConfig" Core..= connectorConfig)
+              ("connectorConfig" Data..= connectorConfig)
           ]
       )
 
-instance Core.ToPath RegisterCluster where
+instance Data.ToPath RegisterCluster where
   toPath = Prelude.const "/cluster-registrations"
 
-instance Core.ToQuery RegisterCluster where
+instance Data.ToQuery RegisterCluster where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterClusterResponse' smart constructor.

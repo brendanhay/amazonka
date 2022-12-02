@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.EncryptionConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types.Provider
 import qualified Amazonka.Prelude as Prelude
 
@@ -68,14 +69,14 @@ encryptionConfig_provider = Lens.lens (\EncryptionConfig' {provider} -> provider
 encryptionConfig_resources :: Lens.Lens' EncryptionConfig (Prelude.Maybe [Prelude.Text])
 encryptionConfig_resources = Lens.lens (\EncryptionConfig' {resources} -> resources) (\s@EncryptionConfig' {} a -> s {resources = a} :: EncryptionConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON EncryptionConfig where
+instance Data.FromJSON EncryptionConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EncryptionConfig"
       ( \x ->
           EncryptionConfig'
-            Prelude.<$> (x Core..:? "provider")
-            Prelude.<*> (x Core..:? "resources" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "provider")
+            Prelude.<*> (x Data..:? "resources" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EncryptionConfig where
@@ -88,11 +89,11 @@ instance Prelude.NFData EncryptionConfig where
     Prelude.rnf provider
       `Prelude.seq` Prelude.rnf resources
 
-instance Core.ToJSON EncryptionConfig where
+instance Data.ToJSON EncryptionConfig where
   toJSON EncryptionConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("provider" Core..=) Prelude.<$> provider,
-            ("resources" Core..=) Prelude.<$> resources
+          [ ("provider" Data..=) Prelude.<$> provider,
+            ("resources" Data..=) Prelude.<$> resources
           ]
       )

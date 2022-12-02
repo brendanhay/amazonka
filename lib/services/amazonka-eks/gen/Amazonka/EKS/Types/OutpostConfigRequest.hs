@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.OutpostConfigRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types.ControlPlanePlacementRequest
 import qualified Amazonka.Prelude as Prelude
 
@@ -130,16 +131,16 @@ instance Prelude.NFData OutpostConfigRequest where
       `Prelude.seq` Prelude.rnf outpostArns
       `Prelude.seq` Prelude.rnf controlPlaneInstanceType
 
-instance Core.ToJSON OutpostConfigRequest where
+instance Data.ToJSON OutpostConfigRequest where
   toJSON OutpostConfigRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("controlPlanePlacement" Core..=)
+          [ ("controlPlanePlacement" Data..=)
               Prelude.<$> controlPlanePlacement,
-            Prelude.Just ("outpostArns" Core..= outpostArns),
+            Prelude.Just ("outpostArns" Data..= outpostArns),
             Prelude.Just
               ( "controlPlaneInstanceType"
-                  Core..= controlPlaneInstanceType
+                  Data..= controlPlaneInstanceType
               )
           ]
       )

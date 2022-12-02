@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,7 +109,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeIdentityProviderConfigResponse'
-            Prelude.<$> (x Core..?> "identityProviderConfig")
+            Prelude.<$> (x Data..?> "identityProviderConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,39 +132,39 @@ instance
       `Prelude.seq` Prelude.rnf identityProviderConfig
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeIdentityProviderConfig
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeIdentityProviderConfig where
+instance Data.ToJSON DescribeIdentityProviderConfig where
   toJSON DescribeIdentityProviderConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "identityProviderConfig"
-                  Core..= identityProviderConfig
+                  Data..= identityProviderConfig
               )
           ]
       )
 
-instance Core.ToPath DescribeIdentityProviderConfig where
+instance Data.ToPath DescribeIdentityProviderConfig where
   toPath DescribeIdentityProviderConfig' {..} =
     Prelude.mconcat
       [ "/clusters/",
-        Core.toBS clusterName,
+        Data.toBS clusterName,
         "/identity-provider-configs/describe"
       ]
 
-instance Core.ToQuery DescribeIdentityProviderConfig where
+instance Data.ToQuery DescribeIdentityProviderConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeIdentityProviderConfigResponse' smart constructor.

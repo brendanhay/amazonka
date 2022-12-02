@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.RemoteAccessConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the remote access configuration for the managed
@@ -87,16 +88,16 @@ remoteAccessConfig_sourceSecurityGroups = Lens.lens (\RemoteAccessConfig' {sourc
 remoteAccessConfig_ec2SshKey :: Lens.Lens' RemoteAccessConfig (Prelude.Maybe Prelude.Text)
 remoteAccessConfig_ec2SshKey = Lens.lens (\RemoteAccessConfig' {ec2SshKey} -> ec2SshKey) (\s@RemoteAccessConfig' {} a -> s {ec2SshKey = a} :: RemoteAccessConfig)
 
-instance Core.FromJSON RemoteAccessConfig where
+instance Data.FromJSON RemoteAccessConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RemoteAccessConfig"
       ( \x ->
           RemoteAccessConfig'
-            Prelude.<$> ( x Core..:? "sourceSecurityGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "sourceSecurityGroups"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ec2SshKey")
+            Prelude.<*> (x Data..:? "ec2SshKey")
       )
 
 instance Prelude.Hashable RemoteAccessConfig where
@@ -109,12 +110,12 @@ instance Prelude.NFData RemoteAccessConfig where
     Prelude.rnf sourceSecurityGroups
       `Prelude.seq` Prelude.rnf ec2SshKey
 
-instance Core.ToJSON RemoteAccessConfig where
+instance Data.ToJSON RemoteAccessConfig where
   toJSON RemoteAccessConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sourceSecurityGroups" Core..=)
+          [ ("sourceSecurityGroups" Data..=)
               Prelude.<$> sourceSecurityGroups,
-            ("ec2SshKey" Core..=) Prelude.<$> ec2SshKey
+            ("ec2SshKey" Data..=) Prelude.<$> ec2SshKey
           ]
       )

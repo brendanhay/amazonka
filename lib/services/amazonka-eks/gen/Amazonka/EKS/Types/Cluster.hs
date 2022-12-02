@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.Cluster where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types.Certificate
 import Amazonka.EKS.Types.ClusterHealth
 import Amazonka.EKS.Types.ClusterStatus
@@ -95,7 +96,7 @@ data Cluster = Cluster'
     -- in the /Amazon EKS User Guide/.
     resourcesVpcConfig :: Prelude.Maybe VpcConfigResponse,
     -- | The Unix epoch timestamp in seconds for when the cluster was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Kubernetes server version for the cluster.
     version :: Prelude.Maybe Prelude.Text
   }
@@ -290,40 +291,40 @@ cluster_resourcesVpcConfig = Lens.lens (\Cluster' {resourcesVpcConfig} -> resour
 
 -- | The Unix epoch timestamp in seconds for when the cluster was created.
 cluster_createdAt :: Lens.Lens' Cluster (Prelude.Maybe Prelude.UTCTime)
-cluster_createdAt = Lens.lens (\Cluster' {createdAt} -> createdAt) (\s@Cluster' {} a -> s {createdAt = a} :: Cluster) Prelude.. Lens.mapping Core._Time
+cluster_createdAt = Lens.lens (\Cluster' {createdAt} -> createdAt) (\s@Cluster' {} a -> s {createdAt = a} :: Cluster) Prelude.. Lens.mapping Data._Time
 
 -- | The Kubernetes server version for the cluster.
 cluster_version :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_version = Lens.lens (\Cluster' {version} -> version) (\s@Cluster' {} a -> s {version = a} :: Cluster)
 
-instance Core.FromJSON Cluster where
+instance Data.FromJSON Cluster where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Cluster"
       ( \x ->
           Cluster'
-            Prelude.<$> ( x Core..:? "encryptionConfig"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "encryptionConfig"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "clientRequestToken")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "outpostConfig")
-            Prelude.<*> (x Core..:? "logging")
-            Prelude.<*> (x Core..:? "identity")
-            Prelude.<*> (x Core..:? "kubernetesNetworkConfig")
-            Prelude.<*> (x Core..:? "connectorConfig")
-            Prelude.<*> (x Core..:? "health")
-            Prelude.<*> (x Core..:? "platformVersion")
-            Prelude.<*> (x Core..:? "certificateAuthority")
-            Prelude.<*> (x Core..:? "endpoint")
-            Prelude.<*> (x Core..:? "resourcesVpcConfig")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "clientRequestToken")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "outpostConfig")
+            Prelude.<*> (x Data..:? "logging")
+            Prelude.<*> (x Data..:? "identity")
+            Prelude.<*> (x Data..:? "kubernetesNetworkConfig")
+            Prelude.<*> (x Data..:? "connectorConfig")
+            Prelude.<*> (x Data..:? "health")
+            Prelude.<*> (x Data..:? "platformVersion")
+            Prelude.<*> (x Data..:? "certificateAuthority")
+            Prelude.<*> (x Data..:? "endpoint")
+            Prelude.<*> (x Data..:? "resourcesVpcConfig")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable Cluster where

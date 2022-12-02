@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.OIDC where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the <https://openid.net/connect/ OpenID Connect>
@@ -50,11 +51,11 @@ newOIDC = OIDC' {issuer = Prelude.Nothing}
 oidc_issuer :: Lens.Lens' OIDC (Prelude.Maybe Prelude.Text)
 oidc_issuer = Lens.lens (\OIDC' {issuer} -> issuer) (\s@OIDC' {} a -> s {issuer = a} :: OIDC)
 
-instance Core.FromJSON OIDC where
+instance Data.FromJSON OIDC where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OIDC"
-      (\x -> OIDC' Prelude.<$> (x Core..:? "issuer"))
+      (\x -> OIDC' Prelude.<$> (x Data..:? "issuer"))
 
 instance Prelude.Hashable OIDC where
   hashWithSalt _salt OIDC' {..} =

@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.NodegroupResources where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types.AutoScalingGroup
 import qualified Amazonka.Prelude as Prelude
 
@@ -67,16 +68,16 @@ nodegroupResources_autoScalingGroups = Lens.lens (\NodegroupResources' {autoScal
 nodegroupResources_remoteAccessSecurityGroup :: Lens.Lens' NodegroupResources (Prelude.Maybe Prelude.Text)
 nodegroupResources_remoteAccessSecurityGroup = Lens.lens (\NodegroupResources' {remoteAccessSecurityGroup} -> remoteAccessSecurityGroup) (\s@NodegroupResources' {} a -> s {remoteAccessSecurityGroup = a} :: NodegroupResources)
 
-instance Core.FromJSON NodegroupResources where
+instance Data.FromJSON NodegroupResources where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NodegroupResources"
       ( \x ->
           NodegroupResources'
-            Prelude.<$> ( x Core..:? "autoScalingGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "autoScalingGroups"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "remoteAccessSecurityGroup")
+            Prelude.<*> (x Data..:? "remoteAccessSecurityGroup")
       )
 
 instance Prelude.Hashable NodegroupResources where

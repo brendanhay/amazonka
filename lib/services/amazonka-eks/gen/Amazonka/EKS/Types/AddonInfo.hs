@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.AddonInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types.AddonVersionInfo
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,15 +75,15 @@ addonInfo_addonVersions = Lens.lens (\AddonInfo' {addonVersions} -> addonVersion
 addonInfo_addonName :: Lens.Lens' AddonInfo (Prelude.Maybe Prelude.Text)
 addonInfo_addonName = Lens.lens (\AddonInfo' {addonName} -> addonName) (\s@AddonInfo' {} a -> s {addonName = a} :: AddonInfo)
 
-instance Core.FromJSON AddonInfo where
+instance Data.FromJSON AddonInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AddonInfo"
       ( \x ->
           AddonInfo'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "addonVersions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "addonName")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "addonVersions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "addonName")
       )
 
 instance Prelude.Hashable AddonInfo where

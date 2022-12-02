@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.UpdateLabelsPayload where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing a Kubernetes label change for a managed node
@@ -73,12 +74,12 @@ instance Prelude.NFData UpdateLabelsPayload where
     Prelude.rnf addOrUpdateLabels
       `Prelude.seq` Prelude.rnf removeLabels
 
-instance Core.ToJSON UpdateLabelsPayload where
+instance Data.ToJSON UpdateLabelsPayload where
   toJSON UpdateLabelsPayload' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("addOrUpdateLabels" Core..=)
+          [ ("addOrUpdateLabels" Data..=)
               Prelude.<$> addOrUpdateLabels,
-            ("removeLabels" Core..=) Prelude.<$> removeLabels
+            ("removeLabels" Data..=) Prelude.<$> removeLabels
           ]
       )

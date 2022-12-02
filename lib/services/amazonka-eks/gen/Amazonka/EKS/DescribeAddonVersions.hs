@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -165,8 +166,8 @@ instance Core.AWSRequest DescribeAddonVersions where
     Response.receiveJSON
       ( \s h x ->
           DescribeAddonVersionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "addons" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "addons" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,27 +185,27 @@ instance Prelude.NFData DescribeAddonVersions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf kubernetesVersion
 
-instance Core.ToHeaders DescribeAddonVersions where
+instance Data.ToHeaders DescribeAddonVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeAddonVersions where
+instance Data.ToPath DescribeAddonVersions where
   toPath = Prelude.const "/addons/supported-versions"
 
-instance Core.ToQuery DescribeAddonVersions where
+instance Data.ToQuery DescribeAddonVersions where
   toQuery DescribeAddonVersions' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "addonName" Core.=: addonName,
-        "maxResults" Core.=: maxResults,
-        "kubernetesVersion" Core.=: kubernetesVersion
+      [ "nextToken" Data.=: nextToken,
+        "addonName" Data.=: addonName,
+        "maxResults" Data.=: maxResults,
+        "kubernetesVersion" Data.=: kubernetesVersion
       ]
 
 -- | /See:/ 'newDescribeAddonVersionsResponse' smart constructor.

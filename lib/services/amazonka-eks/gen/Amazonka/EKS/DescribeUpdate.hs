@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,7 +132,7 @@ instance Core.AWSRequest DescribeUpdate where
     Response.receiveJSON
       ( \s h x ->
           DescribeUpdateResponse'
-            Prelude.<$> (x Core..?> "update")
+            Prelude.<$> (x Data..?> "update")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,31 +150,31 @@ instance Prelude.NFData DescribeUpdate where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf updateId
 
-instance Core.ToHeaders DescribeUpdate where
+instance Data.ToHeaders DescribeUpdate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeUpdate where
+instance Data.ToPath DescribeUpdate where
   toPath DescribeUpdate' {..} =
     Prelude.mconcat
       [ "/clusters/",
-        Core.toBS name,
+        Data.toBS name,
         "/updates/",
-        Core.toBS updateId
+        Data.toBS updateId
       ]
 
-instance Core.ToQuery DescribeUpdate where
+instance Data.ToQuery DescribeUpdate where
   toQuery DescribeUpdate' {..} =
     Prelude.mconcat
-      [ "nodegroupName" Core.=: nodegroupName,
-        "addonName" Core.=: addonName
+      [ "nodegroupName" Data.=: nodegroupName,
+        "addonName" Data.=: addonName
       ]
 
 -- | /See:/ 'newDescribeUpdateResponse' smart constructor.

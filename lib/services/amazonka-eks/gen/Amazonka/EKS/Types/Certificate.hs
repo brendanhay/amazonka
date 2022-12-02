@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.Certificate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the @certificate-authority-data@ for your
@@ -57,11 +58,11 @@ newCertificate =
 certificate_data :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
 certificate_data = Lens.lens (\Certificate' {data'} -> data') (\s@Certificate' {} a -> s {data' = a} :: Certificate)
 
-instance Core.FromJSON Certificate where
+instance Data.FromJSON Certificate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Certificate"
-      (\x -> Certificate' Prelude.<$> (x Core..:? "data"))
+      (\x -> Certificate' Prelude.<$> (x Data..:? "data"))
 
 instance Prelude.Hashable Certificate where
   hashWithSalt _salt Certificate' {..} =

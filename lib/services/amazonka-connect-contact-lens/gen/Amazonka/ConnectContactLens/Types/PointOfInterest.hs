@@ -21,6 +21,7 @@ module Amazonka.ConnectContactLens.Types.PointOfInterest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The section of the contact audio where that category rule was detected.
@@ -71,14 +72,14 @@ pointOfInterest_beginOffsetMillis = Lens.lens (\PointOfInterest' {beginOffsetMil
 pointOfInterest_endOffsetMillis :: Lens.Lens' PointOfInterest Prelude.Natural
 pointOfInterest_endOffsetMillis = Lens.lens (\PointOfInterest' {endOffsetMillis} -> endOffsetMillis) (\s@PointOfInterest' {} a -> s {endOffsetMillis = a} :: PointOfInterest)
 
-instance Core.FromJSON PointOfInterest where
+instance Data.FromJSON PointOfInterest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PointOfInterest"
       ( \x ->
           PointOfInterest'
-            Prelude.<$> (x Core..: "BeginOffsetMillis")
-            Prelude.<*> (x Core..: "EndOffsetMillis")
+            Prelude.<$> (x Data..: "BeginOffsetMillis")
+            Prelude.<*> (x Data..: "EndOffsetMillis")
       )
 
 instance Prelude.Hashable PointOfInterest where

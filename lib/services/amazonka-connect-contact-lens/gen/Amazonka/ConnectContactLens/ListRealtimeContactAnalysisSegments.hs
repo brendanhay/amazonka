@@ -46,6 +46,7 @@ where
 import Amazonka.ConnectContactLens.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,9 +131,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListRealtimeContactAnalysisSegmentsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..?> "Segments" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "Segments" Core..!@ Prelude.mempty)
       )
 
 instance
@@ -158,35 +159,35 @@ instance
       `Prelude.seq` Prelude.rnf contactId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListRealtimeContactAnalysisSegments
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ListRealtimeContactAnalysisSegments
   where
   toJSON ListRealtimeContactAnalysisSegments' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("InstanceId" Core..= instanceId),
-            Prelude.Just ("ContactId" Core..= contactId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("InstanceId" Data..= instanceId),
+            Prelude.Just ("ContactId" Data..= contactId)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListRealtimeContactAnalysisSegments
   where
   toPath =
@@ -194,7 +195,7 @@ instance
       "/realtime-contact-analysis/analysis-segments"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListRealtimeContactAnalysisSegments
   where
   toQuery = Prelude.const Prelude.mempty

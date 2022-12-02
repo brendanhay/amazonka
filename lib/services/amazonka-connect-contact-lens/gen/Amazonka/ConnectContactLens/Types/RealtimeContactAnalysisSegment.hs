@@ -23,6 +23,7 @@ import Amazonka.ConnectContactLens.Types.Categories
 import Amazonka.ConnectContactLens.Types.Transcript
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An analyzed segment for a real-time analysis session.
@@ -64,14 +65,14 @@ realtimeContactAnalysisSegment_transcript = Lens.lens (\RealtimeContactAnalysisS
 realtimeContactAnalysisSegment_categories :: Lens.Lens' RealtimeContactAnalysisSegment (Prelude.Maybe Categories)
 realtimeContactAnalysisSegment_categories = Lens.lens (\RealtimeContactAnalysisSegment' {categories} -> categories) (\s@RealtimeContactAnalysisSegment' {} a -> s {categories = a} :: RealtimeContactAnalysisSegment)
 
-instance Core.FromJSON RealtimeContactAnalysisSegment where
+instance Data.FromJSON RealtimeContactAnalysisSegment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RealtimeContactAnalysisSegment"
       ( \x ->
           RealtimeContactAnalysisSegment'
-            Prelude.<$> (x Core..:? "Transcript")
-            Prelude.<*> (x Core..:? "Categories")
+            Prelude.<$> (x Data..:? "Transcript")
+            Prelude.<*> (x Data..:? "Categories")
       )
 
 instance

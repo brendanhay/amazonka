@@ -21,6 +21,7 @@ module Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelector where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType
 import Amazonka.KinesisVideoArchivedMedia.Types.TimestampRange
 import qualified Amazonka.Prelude as Prelude
@@ -98,15 +99,15 @@ instance Prelude.NFData FragmentSelector where
     Prelude.rnf fragmentSelectorType
       `Prelude.seq` Prelude.rnf timestampRange
 
-instance Core.ToJSON FragmentSelector where
+instance Data.ToJSON FragmentSelector where
   toJSON FragmentSelector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "FragmentSelectorType"
-                  Core..= fragmentSelectorType
+                  Data..= fragmentSelectorType
               ),
             Prelude.Just
-              ("TimestampRange" Core..= timestampRange)
+              ("TimestampRange" Data..= timestampRange)
           ]
       )

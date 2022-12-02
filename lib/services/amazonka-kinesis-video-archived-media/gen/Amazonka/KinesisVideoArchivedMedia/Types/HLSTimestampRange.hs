@@ -21,6 +21,7 @@ module Amazonka.KinesisVideoArchivedMedia.Types.HLSTimestampRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The start and end of the timestamp range for the requested media.
@@ -44,7 +45,7 @@ data HLSTimestampRange = HLSTimestampRange'
     -- This value is inclusive. The @EndTimestamp@ is compared to the
     -- (starting) timestamp of the fragment. Fragments that start before the
     -- @EndTimestamp@ value and continue past it are included in the session.
-    endTimestamp :: Prelude.Maybe Core.POSIX,
+    endTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The start of the timestamp range for the requested media.
     --
     -- If the @HLSTimestampRange@ value is specified, the @StartTimestamp@
@@ -55,7 +56,7 @@ data HLSTimestampRange = HLSTimestampRange'
     -- and continue past it aren\'t included in the session. If
     -- @FragmentSelectorType@ is @SERVER_TIMESTAMP@, the @StartTimestamp@ must
     -- be later than the stream head.
-    startTimestamp :: Prelude.Maybe Core.POSIX
+    startTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -117,7 +118,7 @@ newHLSTimestampRange =
 -- (starting) timestamp of the fragment. Fragments that start before the
 -- @EndTimestamp@ value and continue past it are included in the session.
 hLSTimestampRange_endTimestamp :: Lens.Lens' HLSTimestampRange (Prelude.Maybe Prelude.UTCTime)
-hLSTimestampRange_endTimestamp = Lens.lens (\HLSTimestampRange' {endTimestamp} -> endTimestamp) (\s@HLSTimestampRange' {} a -> s {endTimestamp = a} :: HLSTimestampRange) Prelude.. Lens.mapping Core._Time
+hLSTimestampRange_endTimestamp = Lens.lens (\HLSTimestampRange' {endTimestamp} -> endTimestamp) (\s@HLSTimestampRange' {} a -> s {endTimestamp = a} :: HLSTimestampRange) Prelude.. Lens.mapping Data._Time
 
 -- | The start of the timestamp range for the requested media.
 --
@@ -130,7 +131,7 @@ hLSTimestampRange_endTimestamp = Lens.lens (\HLSTimestampRange' {endTimestamp} -
 -- @FragmentSelectorType@ is @SERVER_TIMESTAMP@, the @StartTimestamp@ must
 -- be later than the stream head.
 hLSTimestampRange_startTimestamp :: Lens.Lens' HLSTimestampRange (Prelude.Maybe Prelude.UTCTime)
-hLSTimestampRange_startTimestamp = Lens.lens (\HLSTimestampRange' {startTimestamp} -> startTimestamp) (\s@HLSTimestampRange' {} a -> s {startTimestamp = a} :: HLSTimestampRange) Prelude.. Lens.mapping Core._Time
+hLSTimestampRange_startTimestamp = Lens.lens (\HLSTimestampRange' {startTimestamp} -> startTimestamp) (\s@HLSTimestampRange' {} a -> s {startTimestamp = a} :: HLSTimestampRange) Prelude.. Lens.mapping Data._Time
 
 instance Prelude.Hashable HLSTimestampRange where
   hashWithSalt _salt HLSTimestampRange' {..} =
@@ -142,12 +143,12 @@ instance Prelude.NFData HLSTimestampRange where
     Prelude.rnf endTimestamp
       `Prelude.seq` Prelude.rnf startTimestamp
 
-instance Core.ToJSON HLSTimestampRange where
+instance Data.ToJSON HLSTimestampRange where
   toJSON HLSTimestampRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EndTimestamp" Core..=) Prelude.<$> endTimestamp,
-            ("StartTimestamp" Core..=)
+          [ ("EndTimestamp" Data..=) Prelude.<$> endTimestamp,
+            ("StartTimestamp" Data..=)
               Prelude.<$> startTimestamp
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelector where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType
 import Amazonka.KinesisVideoArchivedMedia.Types.HLSTimestampRange
 import qualified Amazonka.Prelude as Prelude
@@ -165,13 +166,13 @@ instance Prelude.NFData HLSFragmentSelector where
     Prelude.rnf fragmentSelectorType
       `Prelude.seq` Prelude.rnf timestampRange
 
-instance Core.ToJSON HLSFragmentSelector where
+instance Data.ToJSON HLSFragmentSelector where
   toJSON HLSFragmentSelector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FragmentSelectorType" Core..=)
+          [ ("FragmentSelectorType" Data..=)
               Prelude.<$> fragmentSelectorType,
-            ("TimestampRange" Core..=)
+            ("TimestampRange" Data..=)
               Prelude.<$> timestampRange
           ]
       )

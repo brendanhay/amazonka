@@ -21,6 +21,7 @@ module Amazonka.KinesisVideoArchivedMedia.Types.DASHTimestampRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The start and end of the timestamp range for the requested media.
@@ -49,7 +50,7 @@ data DASHTimestampRange = DASHTimestampRange'
     -- This value is inclusive. The @EndTimestamp@ is compared to the
     -- (starting) timestamp of the fragment. Fragments that start before the
     -- @EndTimestamp@ value and continue past it are included in the session.
-    endTimestamp :: Prelude.Maybe Core.POSIX,
+    endTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The start of the timestamp range for the requested media.
     --
     -- If the @DASHTimestampRange@ value is specified, the @StartTimestamp@
@@ -60,7 +61,7 @@ data DASHTimestampRange = DASHTimestampRange'
     -- and continue past it aren\'t included in the session. If
     -- @FragmentSelectorType@ is @SERVER_TIMESTAMP@, the @StartTimestamp@ must
     -- be later than the stream head.
-    startTimestamp :: Prelude.Maybe Core.POSIX
+    startTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -122,7 +123,7 @@ newDASHTimestampRange =
 -- (starting) timestamp of the fragment. Fragments that start before the
 -- @EndTimestamp@ value and continue past it are included in the session.
 dASHTimestampRange_endTimestamp :: Lens.Lens' DASHTimestampRange (Prelude.Maybe Prelude.UTCTime)
-dASHTimestampRange_endTimestamp = Lens.lens (\DASHTimestampRange' {endTimestamp} -> endTimestamp) (\s@DASHTimestampRange' {} a -> s {endTimestamp = a} :: DASHTimestampRange) Prelude.. Lens.mapping Core._Time
+dASHTimestampRange_endTimestamp = Lens.lens (\DASHTimestampRange' {endTimestamp} -> endTimestamp) (\s@DASHTimestampRange' {} a -> s {endTimestamp = a} :: DASHTimestampRange) Prelude.. Lens.mapping Data._Time
 
 -- | The start of the timestamp range for the requested media.
 --
@@ -135,7 +136,7 @@ dASHTimestampRange_endTimestamp = Lens.lens (\DASHTimestampRange' {endTimestamp}
 -- @FragmentSelectorType@ is @SERVER_TIMESTAMP@, the @StartTimestamp@ must
 -- be later than the stream head.
 dASHTimestampRange_startTimestamp :: Lens.Lens' DASHTimestampRange (Prelude.Maybe Prelude.UTCTime)
-dASHTimestampRange_startTimestamp = Lens.lens (\DASHTimestampRange' {startTimestamp} -> startTimestamp) (\s@DASHTimestampRange' {} a -> s {startTimestamp = a} :: DASHTimestampRange) Prelude.. Lens.mapping Core._Time
+dASHTimestampRange_startTimestamp = Lens.lens (\DASHTimestampRange' {startTimestamp} -> startTimestamp) (\s@DASHTimestampRange' {} a -> s {startTimestamp = a} :: DASHTimestampRange) Prelude.. Lens.mapping Data._Time
 
 instance Prelude.Hashable DASHTimestampRange where
   hashWithSalt _salt DASHTimestampRange' {..} =
@@ -147,12 +148,12 @@ instance Prelude.NFData DASHTimestampRange where
     Prelude.rnf endTimestamp
       `Prelude.seq` Prelude.rnf startTimestamp
 
-instance Core.ToJSON DASHTimestampRange where
+instance Data.ToJSON DASHTimestampRange where
   toJSON DASHTimestampRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EndTimestamp" Core..=) Prelude.<$> endTimestamp,
-            ("StartTimestamp" Core..=)
+          [ ("EndTimestamp" Data..=) Prelude.<$> endTimestamp,
+            ("StartTimestamp" Data..=)
               Prelude.<$> startTimestamp
           ]
       )

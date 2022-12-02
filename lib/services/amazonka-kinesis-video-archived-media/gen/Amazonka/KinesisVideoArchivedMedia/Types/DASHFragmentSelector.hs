@@ -21,6 +21,7 @@ module Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelector where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType
 import Amazonka.KinesisVideoArchivedMedia.Types.DASHTimestampRange
 import qualified Amazonka.Prelude as Prelude
@@ -165,13 +166,13 @@ instance Prelude.NFData DASHFragmentSelector where
     Prelude.rnf fragmentSelectorType
       `Prelude.seq` Prelude.rnf timestampRange
 
-instance Core.ToJSON DASHFragmentSelector where
+instance Data.ToJSON DASHFragmentSelector where
   toJSON DASHFragmentSelector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FragmentSelectorType" Core..=)
+          [ ("FragmentSelectorType" Data..=)
               Prelude.<$> fragmentSelectorType,
-            ("TimestampRange" Core..=)
+            ("TimestampRange" Data..=)
               Prelude.<$> timestampRange
           ]
       )

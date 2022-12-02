@@ -80,6 +80,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideoArchivedMedia.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -201,8 +202,8 @@ instance Core.AWSRequest ListFragments where
     Response.receiveJSON
       ( \s h x ->
           ListFragmentsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Fragments" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Fragments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -222,26 +223,26 @@ instance Prelude.NFData ListFragments where
       `Prelude.seq` Prelude.rnf streamARN
       `Prelude.seq` Prelude.rnf streamName
 
-instance Core.ToHeaders ListFragments where
+instance Data.ToHeaders ListFragments where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON ListFragments where
+instance Data.ToJSON ListFragments where
   toJSON ListFragments' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("FragmentSelector" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("FragmentSelector" Data..=)
               Prelude.<$> fragmentSelector,
-            ("StreamARN" Core..=) Prelude.<$> streamARN,
-            ("StreamName" Core..=) Prelude.<$> streamName
+            ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName
           ]
       )
 
-instance Core.ToPath ListFragments where
+instance Data.ToPath ListFragments where
   toPath = Prelude.const "/listFragments"
 
-instance Core.ToQuery ListFragments where
+instance Data.ToQuery ListFragments where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListFragmentsResponse' smart constructor.

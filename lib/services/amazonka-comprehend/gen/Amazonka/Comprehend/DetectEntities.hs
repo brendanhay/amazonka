@@ -47,6 +47,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -74,7 +75,7 @@ data DetectEntities = DetectEntities'
     -- <https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html Managing endpoints>.
     endpointArn :: Prelude.Maybe Prelude.Text,
     -- | A UTF-8 text string. The maximum string size is 100 KB.
-    text :: Core.Sensitive Prelude.Text
+    text :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -115,7 +116,7 @@ newDetectEntities pText_ =
   DetectEntities'
     { languageCode = Prelude.Nothing,
       endpointArn = Prelude.Nothing,
-      text = Core._Sensitive Lens.# pText_
+      text = Data._Sensitive Lens.# pText_
     }
 
 -- | The language of the input documents. You can specify any of the primary
@@ -144,7 +145,7 @@ detectEntities_endpointArn = Lens.lens (\DetectEntities' {endpointArn} -> endpoi
 
 -- | A UTF-8 text string. The maximum string size is 100 KB.
 detectEntities_text :: Lens.Lens' DetectEntities Prelude.Text
-detectEntities_text = Lens.lens (\DetectEntities' {text} -> text) (\s@DetectEntities' {} a -> s {text = a} :: DetectEntities) Prelude.. Core._Sensitive
+detectEntities_text = Lens.lens (\DetectEntities' {text} -> text) (\s@DetectEntities' {} a -> s {text = a} :: DetectEntities) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest DetectEntities where
   type
@@ -156,7 +157,7 @@ instance Core.AWSRequest DetectEntities where
     Response.receiveJSON
       ( \s h x ->
           DetectEntitiesResponse'
-            Prelude.<$> (x Core..?> "Entities" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Entities" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,35 +173,35 @@ instance Prelude.NFData DetectEntities where
       `Prelude.seq` Prelude.rnf endpointArn
       `Prelude.seq` Prelude.rnf text
 
-instance Core.ToHeaders DetectEntities where
+instance Data.ToHeaders DetectEntities where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.DetectEntities" ::
+              Data.=# ( "Comprehend_20171127.DetectEntities" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DetectEntities where
+instance Data.ToJSON DetectEntities where
   toJSON DetectEntities' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LanguageCode" Core..=) Prelude.<$> languageCode,
-            ("EndpointArn" Core..=) Prelude.<$> endpointArn,
-            Prelude.Just ("Text" Core..= text)
+          [ ("LanguageCode" Data..=) Prelude.<$> languageCode,
+            ("EndpointArn" Data..=) Prelude.<$> endpointArn,
+            Prelude.Just ("Text" Data..= text)
           ]
       )
 
-instance Core.ToPath DetectEntities where
+instance Data.ToPath DetectEntities where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DetectEntities where
+instance Data.ToQuery DetectEntities where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetectEntitiesResponse' smart constructor.

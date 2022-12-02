@@ -48,6 +48,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -57,7 +58,7 @@ data BatchDetectTargetedSentiment = BatchDetectTargetedSentiment'
   { -- | A list containing the UTF-8 encoded text of the input documents. The
     -- list can contain a maximum of 25 documents. The maximum size of each
     -- document is 5 KB.
-    textList :: Core.Sensitive (Prelude.NonEmpty (Core.Sensitive Prelude.Text)),
+    textList :: Data.Sensitive (Prelude.NonEmpty (Data.Sensitive Prelude.Text)),
     -- | The language of the input documents. Currently, English is the only
     -- supported language.
     languageCode :: LanguageCode
@@ -89,7 +90,7 @@ newBatchDetectTargetedSentiment
   pLanguageCode_ =
     BatchDetectTargetedSentiment'
       { textList =
-          Core._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive Prelude.. Lens.coerced
             Lens.# pTextList_,
         languageCode = pLanguageCode_
       }
@@ -98,7 +99,7 @@ newBatchDetectTargetedSentiment
 -- list can contain a maximum of 25 documents. The maximum size of each
 -- document is 5 KB.
 batchDetectTargetedSentiment_textList :: Lens.Lens' BatchDetectTargetedSentiment (Prelude.NonEmpty Prelude.Text)
-batchDetectTargetedSentiment_textList = Lens.lens (\BatchDetectTargetedSentiment' {textList} -> textList) (\s@BatchDetectTargetedSentiment' {} a -> s {textList = a} :: BatchDetectTargetedSentiment) Prelude.. Core._Sensitive Prelude.. Lens.coerced
+batchDetectTargetedSentiment_textList = Lens.lens (\BatchDetectTargetedSentiment' {textList} -> textList) (\s@BatchDetectTargetedSentiment' {} a -> s {textList = a} :: BatchDetectTargetedSentiment) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
 -- | The language of the input documents. Currently, English is the only
 -- supported language.
@@ -116,8 +117,8 @@ instance Core.AWSRequest BatchDetectTargetedSentiment where
       ( \s h x ->
           BatchDetectTargetedSentimentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "ResultList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ErrorList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ResultList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ErrorList" Core..!@ Prelude.mempty)
       )
 
 instance
@@ -133,34 +134,34 @@ instance Prelude.NFData BatchDetectTargetedSentiment where
     Prelude.rnf textList
       `Prelude.seq` Prelude.rnf languageCode
 
-instance Core.ToHeaders BatchDetectTargetedSentiment where
+instance Data.ToHeaders BatchDetectTargetedSentiment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.BatchDetectTargetedSentiment" ::
+              Data.=# ( "Comprehend_20171127.BatchDetectTargetedSentiment" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchDetectTargetedSentiment where
+instance Data.ToJSON BatchDetectTargetedSentiment where
   toJSON BatchDetectTargetedSentiment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("TextList" Core..= textList),
-            Prelude.Just ("LanguageCode" Core..= languageCode)
+          [ Prelude.Just ("TextList" Data..= textList),
+            Prelude.Just ("LanguageCode" Data..= languageCode)
           ]
       )
 
-instance Core.ToPath BatchDetectTargetedSentiment where
+instance Data.ToPath BatchDetectTargetedSentiment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchDetectTargetedSentiment where
+instance Data.ToQuery BatchDetectTargetedSentiment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchDetectTargetedSentimentResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.Comprehend.Types.PiiEntity where
 import Amazonka.Comprehend.Types.PiiEntityType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a PII entity.
@@ -89,16 +90,16 @@ piiEntity_score = Lens.lens (\PiiEntity' {score} -> score) (\s@PiiEntity' {} a -
 piiEntity_endOffset :: Lens.Lens' PiiEntity (Prelude.Maybe Prelude.Int)
 piiEntity_endOffset = Lens.lens (\PiiEntity' {endOffset} -> endOffset) (\s@PiiEntity' {} a -> s {endOffset = a} :: PiiEntity)
 
-instance Core.FromJSON PiiEntity where
+instance Data.FromJSON PiiEntity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PiiEntity"
       ( \x ->
           PiiEntity'
-            Prelude.<$> (x Core..:? "BeginOffset")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Score")
-            Prelude.<*> (x Core..:? "EndOffset")
+            Prelude.<$> (x Data..:? "BeginOffset")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Score")
+            Prelude.<*> (x Data..:? "EndOffset")
       )
 
 instance Prelude.Hashable PiiEntity where

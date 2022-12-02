@@ -21,6 +21,7 @@ module Amazonka.Comprehend.Types.EntityTypesListItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An entity type within a labeled training dataset that Amazon Comprehend
@@ -71,12 +72,12 @@ newEntityTypesListItem pType_ =
 entityTypesListItem_type :: Lens.Lens' EntityTypesListItem Prelude.Text
 entityTypesListItem_type = Lens.lens (\EntityTypesListItem' {type'} -> type') (\s@EntityTypesListItem' {} a -> s {type' = a} :: EntityTypesListItem)
 
-instance Core.FromJSON EntityTypesListItem where
+instance Data.FromJSON EntityTypesListItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EntityTypesListItem"
       ( \x ->
-          EntityTypesListItem' Prelude.<$> (x Core..: "Type")
+          EntityTypesListItem' Prelude.<$> (x Data..: "Type")
       )
 
 instance Prelude.Hashable EntityTypesListItem where
@@ -86,9 +87,9 @@ instance Prelude.Hashable EntityTypesListItem where
 instance Prelude.NFData EntityTypesListItem where
   rnf EntityTypesListItem' {..} = Prelude.rnf type'
 
-instance Core.ToJSON EntityTypesListItem where
+instance Data.ToJSON EntityTypesListItem where
   toJSON EntityTypesListItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Type" Core..= type')]
+          [Prelude.Just ("Type" Data..= type')]
       )

@@ -22,6 +22,7 @@ module Amazonka.Comprehend.Types.EntityRecognizerSummary where
 import Amazonka.Comprehend.Types.ModelStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the information about an entity recognizer and its versions.
@@ -38,7 +39,7 @@ data EntityRecognizerSummary = EntityRecognizerSummary'
     latestVersionStatus :: Prelude.Maybe ModelStatus,
     -- | The time that the latest entity recognizer version was submitted for
     -- processing.
-    latestVersionCreatedAt :: Prelude.Maybe Core.POSIX
+    latestVersionCreatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,19 +92,19 @@ entityRecognizerSummary_latestVersionStatus = Lens.lens (\EntityRecognizerSummar
 -- | The time that the latest entity recognizer version was submitted for
 -- processing.
 entityRecognizerSummary_latestVersionCreatedAt :: Lens.Lens' EntityRecognizerSummary (Prelude.Maybe Prelude.UTCTime)
-entityRecognizerSummary_latestVersionCreatedAt = Lens.lens (\EntityRecognizerSummary' {latestVersionCreatedAt} -> latestVersionCreatedAt) (\s@EntityRecognizerSummary' {} a -> s {latestVersionCreatedAt = a} :: EntityRecognizerSummary) Prelude.. Lens.mapping Core._Time
+entityRecognizerSummary_latestVersionCreatedAt = Lens.lens (\EntityRecognizerSummary' {latestVersionCreatedAt} -> latestVersionCreatedAt) (\s@EntityRecognizerSummary' {} a -> s {latestVersionCreatedAt = a} :: EntityRecognizerSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON EntityRecognizerSummary where
+instance Data.FromJSON EntityRecognizerSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EntityRecognizerSummary"
       ( \x ->
           EntityRecognizerSummary'
-            Prelude.<$> (x Core..:? "NumberOfVersions")
-            Prelude.<*> (x Core..:? "LatestVersionName")
-            Prelude.<*> (x Core..:? "RecognizerName")
-            Prelude.<*> (x Core..:? "LatestVersionStatus")
-            Prelude.<*> (x Core..:? "LatestVersionCreatedAt")
+            Prelude.<$> (x Data..:? "NumberOfVersions")
+            Prelude.<*> (x Data..:? "LatestVersionName")
+            Prelude.<*> (x Data..:? "RecognizerName")
+            Prelude.<*> (x Data..:? "LatestVersionStatus")
+            Prelude.<*> (x Data..:? "LatestVersionCreatedAt")
       )
 
 instance Prelude.Hashable EntityRecognizerSummary where

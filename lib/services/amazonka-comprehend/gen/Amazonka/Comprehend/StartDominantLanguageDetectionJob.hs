@@ -52,6 +52,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -223,9 +224,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           StartDominantLanguageDetectionJobResponse'
-            Prelude.<$> (x Core..?> "JobStatus")
-              Prelude.<*> (x Core..?> "JobId")
-              Prelude.<*> (x Core..?> "JobArn")
+            Prelude.<$> (x Data..?> "JobStatus")
+              Prelude.<*> (x Data..?> "JobId")
+              Prelude.<*> (x Data..?> "JobArn")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -260,54 +261,54 @@ instance
       `Prelude.seq` Prelude.rnf dataAccessRoleArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     StartDominantLanguageDetectionJob
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.StartDominantLanguageDetectionJob" ::
+              Data.=# ( "Comprehend_20171127.StartDominantLanguageDetectionJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     StartDominantLanguageDetectionJob
   where
   toJSON StartDominantLanguageDetectionJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("JobName" Core..=) Prelude.<$> jobName,
-            ("VolumeKmsKeyId" Core..=)
+            ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("JobName" Data..=) Prelude.<$> jobName,
+            ("VolumeKmsKeyId" Data..=)
               Prelude.<$> volumeKmsKeyId,
             Prelude.Just
-              ("InputDataConfig" Core..= inputDataConfig),
+              ("InputDataConfig" Data..= inputDataConfig),
             Prelude.Just
-              ("OutputDataConfig" Core..= outputDataConfig),
+              ("OutputDataConfig" Data..= outputDataConfig),
             Prelude.Just
-              ("DataAccessRoleArn" Core..= dataAccessRoleArn)
+              ("DataAccessRoleArn" Data..= dataAccessRoleArn)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     StartDominantLanguageDetectionJob
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     StartDominantLanguageDetectionJob
   where
   toQuery = Prelude.const Prelude.mempty

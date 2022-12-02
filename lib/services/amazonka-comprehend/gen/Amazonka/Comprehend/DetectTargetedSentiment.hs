@@ -47,6 +47,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -54,7 +55,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDetectTargetedSentiment' smart constructor.
 data DetectTargetedSentiment = DetectTargetedSentiment'
   { -- | A UTF-8 text string. The maximum string length is 5 KB.
-    text :: Core.Sensitive Prelude.Text,
+    text :: Data.Sensitive Prelude.Text,
     -- | The language of the input documents. Currently, English is the only
     -- supported language.
     languageCode :: LanguageCode
@@ -82,13 +83,13 @@ newDetectTargetedSentiment ::
 newDetectTargetedSentiment pText_ pLanguageCode_ =
   DetectTargetedSentiment'
     { text =
-        Core._Sensitive Lens.# pText_,
+        Data._Sensitive Lens.# pText_,
       languageCode = pLanguageCode_
     }
 
 -- | A UTF-8 text string. The maximum string length is 5 KB.
 detectTargetedSentiment_text :: Lens.Lens' DetectTargetedSentiment Prelude.Text
-detectTargetedSentiment_text = Lens.lens (\DetectTargetedSentiment' {text} -> text) (\s@DetectTargetedSentiment' {} a -> s {text = a} :: DetectTargetedSentiment) Prelude.. Core._Sensitive
+detectTargetedSentiment_text = Lens.lens (\DetectTargetedSentiment' {text} -> text) (\s@DetectTargetedSentiment' {} a -> s {text = a} :: DetectTargetedSentiment) Prelude.. Data._Sensitive
 
 -- | The language of the input documents. Currently, English is the only
 -- supported language.
@@ -105,7 +106,7 @@ instance Core.AWSRequest DetectTargetedSentiment where
     Response.receiveJSON
       ( \s h x ->
           DetectTargetedSentimentResponse'
-            Prelude.<$> (x Core..?> "Entities" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Entities" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,34 +120,34 @@ instance Prelude.NFData DetectTargetedSentiment where
     Prelude.rnf text
       `Prelude.seq` Prelude.rnf languageCode
 
-instance Core.ToHeaders DetectTargetedSentiment where
+instance Data.ToHeaders DetectTargetedSentiment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.DetectTargetedSentiment" ::
+              Data.=# ( "Comprehend_20171127.DetectTargetedSentiment" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DetectTargetedSentiment where
+instance Data.ToJSON DetectTargetedSentiment where
   toJSON DetectTargetedSentiment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Text" Core..= text),
-            Prelude.Just ("LanguageCode" Core..= languageCode)
+          [ Prelude.Just ("Text" Data..= text),
+            Prelude.Just ("LanguageCode" Data..= languageCode)
           ]
       )
 
-instance Core.ToPath DetectTargetedSentiment where
+instance Data.ToPath DetectTargetedSentiment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DetectTargetedSentiment where
+instance Data.ToQuery DetectTargetedSentiment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetectTargetedSentimentResponse' smart constructor.

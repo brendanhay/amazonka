@@ -22,6 +22,7 @@ module Amazonka.Comprehend.Types.BatchDetectTargetedSentimentItemResult where
 import Amazonka.Comprehend.Types.TargetedSentimentEntity
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Analysis results for one of the documents in the batch.
@@ -64,16 +65,16 @@ batchDetectTargetedSentimentItemResult_index :: Lens.Lens' BatchDetectTargetedSe
 batchDetectTargetedSentimentItemResult_index = Lens.lens (\BatchDetectTargetedSentimentItemResult' {index} -> index) (\s@BatchDetectTargetedSentimentItemResult' {} a -> s {index = a} :: BatchDetectTargetedSentimentItemResult)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchDetectTargetedSentimentItemResult
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchDetectTargetedSentimentItemResult"
       ( \x ->
           BatchDetectTargetedSentimentItemResult'
-            Prelude.<$> (x Core..:? "Entities" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Index")
+            Prelude.<$> (x Data..:? "Entities" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Index")
       )
 
 instance

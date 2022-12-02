@@ -21,6 +21,7 @@ module Amazonka.Comprehend.Types.BatchItemError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an error that occurred while processing a document in a batch.
@@ -72,15 +73,15 @@ batchItemError_index = Lens.lens (\BatchItemError' {index} -> index) (\s@BatchIt
 batchItemError_errorCode :: Lens.Lens' BatchItemError (Prelude.Maybe Prelude.Text)
 batchItemError_errorCode = Lens.lens (\BatchItemError' {errorCode} -> errorCode) (\s@BatchItemError' {} a -> s {errorCode = a} :: BatchItemError)
 
-instance Core.FromJSON BatchItemError where
+instance Data.FromJSON BatchItemError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchItemError"
       ( \x ->
           BatchItemError'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "Index")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "Index")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable BatchItemError where

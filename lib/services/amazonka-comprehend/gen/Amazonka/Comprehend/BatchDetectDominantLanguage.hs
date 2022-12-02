@@ -46,6 +46,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -55,7 +56,7 @@ data BatchDetectDominantLanguage = BatchDetectDominantLanguage'
   { -- | A list containing the UTF-8 encoded text of the input documents. The
     -- list can contain a maximum of 25 documents. Each document should contain
     -- at least 20 characters. The maximum size of each document is 5 KB.
-    textList :: Core.Sensitive (Prelude.NonEmpty (Core.Sensitive Prelude.Text))
+    textList :: Data.Sensitive (Prelude.NonEmpty (Data.Sensitive Prelude.Text))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -77,7 +78,7 @@ newBatchDetectDominantLanguage ::
 newBatchDetectDominantLanguage pTextList_ =
   BatchDetectDominantLanguage'
     { textList =
-        Core._Sensitive Prelude.. Lens.coerced
+        Data._Sensitive Prelude.. Lens.coerced
           Lens.# pTextList_
     }
 
@@ -85,7 +86,7 @@ newBatchDetectDominantLanguage pTextList_ =
 -- list can contain a maximum of 25 documents. Each document should contain
 -- at least 20 characters. The maximum size of each document is 5 KB.
 batchDetectDominantLanguage_textList :: Lens.Lens' BatchDetectDominantLanguage (Prelude.NonEmpty Prelude.Text)
-batchDetectDominantLanguage_textList = Lens.lens (\BatchDetectDominantLanguage' {textList} -> textList) (\s@BatchDetectDominantLanguage' {} a -> s {textList = a} :: BatchDetectDominantLanguage) Prelude.. Core._Sensitive Prelude.. Lens.coerced
+batchDetectDominantLanguage_textList = Lens.lens (\BatchDetectDominantLanguage' {textList} -> textList) (\s@BatchDetectDominantLanguage' {} a -> s {textList = a} :: BatchDetectDominantLanguage) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchDetectDominantLanguage where
   type
@@ -98,8 +99,8 @@ instance Core.AWSRequest BatchDetectDominantLanguage where
       ( \s h x ->
           BatchDetectDominantLanguageResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "ResultList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ErrorList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ResultList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ErrorList" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable BatchDetectDominantLanguage where
@@ -110,32 +111,32 @@ instance Prelude.NFData BatchDetectDominantLanguage where
   rnf BatchDetectDominantLanguage' {..} =
     Prelude.rnf textList
 
-instance Core.ToHeaders BatchDetectDominantLanguage where
+instance Data.ToHeaders BatchDetectDominantLanguage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.BatchDetectDominantLanguage" ::
+              Data.=# ( "Comprehend_20171127.BatchDetectDominantLanguage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchDetectDominantLanguage where
+instance Data.ToJSON BatchDetectDominantLanguage where
   toJSON BatchDetectDominantLanguage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TextList" Core..= textList)]
+          [Prelude.Just ("TextList" Data..= textList)]
       )
 
-instance Core.ToPath BatchDetectDominantLanguage where
+instance Data.ToPath BatchDetectDominantLanguage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchDetectDominantLanguage where
+instance Data.ToQuery BatchDetectDominantLanguage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchDetectDominantLanguageResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.Comprehend.Types.KeyPhrasesDetectionJobFilter where
 import Amazonka.Comprehend.Types.JobStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information for filtering a list of dominant language detection
@@ -37,11 +38,11 @@ data KeyPhrasesDetectionJobFilter = KeyPhrasesDetectionJobFilter'
     -- | Filters the list of jobs based on the time that the job was submitted
     -- for processing. Returns only jobs submitted before the specified time.
     -- Jobs are returned in ascending order, oldest to newest.
-    submitTimeBefore :: Prelude.Maybe Core.POSIX,
+    submitTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | Filters the list of jobs based on the time that the job was submitted
     -- for processing. Returns only jobs submitted after the specified time.
     -- Jobs are returned in descending order, newest to oldest.
-    submitTimeAfter :: Prelude.Maybe Core.POSIX
+    submitTimeAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,13 +90,13 @@ keyPhrasesDetectionJobFilter_jobName = Lens.lens (\KeyPhrasesDetectionJobFilter'
 -- for processing. Returns only jobs submitted before the specified time.
 -- Jobs are returned in ascending order, oldest to newest.
 keyPhrasesDetectionJobFilter_submitTimeBefore :: Lens.Lens' KeyPhrasesDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
-keyPhrasesDetectionJobFilter_submitTimeBefore = Lens.lens (\KeyPhrasesDetectionJobFilter' {submitTimeBefore} -> submitTimeBefore) (\s@KeyPhrasesDetectionJobFilter' {} a -> s {submitTimeBefore = a} :: KeyPhrasesDetectionJobFilter) Prelude.. Lens.mapping Core._Time
+keyPhrasesDetectionJobFilter_submitTimeBefore = Lens.lens (\KeyPhrasesDetectionJobFilter' {submitTimeBefore} -> submitTimeBefore) (\s@KeyPhrasesDetectionJobFilter' {} a -> s {submitTimeBefore = a} :: KeyPhrasesDetectionJobFilter) Prelude.. Lens.mapping Data._Time
 
 -- | Filters the list of jobs based on the time that the job was submitted
 -- for processing. Returns only jobs submitted after the specified time.
 -- Jobs are returned in descending order, newest to oldest.
 keyPhrasesDetectionJobFilter_submitTimeAfter :: Lens.Lens' KeyPhrasesDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
-keyPhrasesDetectionJobFilter_submitTimeAfter = Lens.lens (\KeyPhrasesDetectionJobFilter' {submitTimeAfter} -> submitTimeAfter) (\s@KeyPhrasesDetectionJobFilter' {} a -> s {submitTimeAfter = a} :: KeyPhrasesDetectionJobFilter) Prelude.. Lens.mapping Core._Time
+keyPhrasesDetectionJobFilter_submitTimeAfter = Lens.lens (\KeyPhrasesDetectionJobFilter' {submitTimeAfter} -> submitTimeAfter) (\s@KeyPhrasesDetectionJobFilter' {} a -> s {submitTimeAfter = a} :: KeyPhrasesDetectionJobFilter) Prelude.. Lens.mapping Data._Time
 
 instance
   Prelude.Hashable
@@ -114,15 +115,15 @@ instance Prelude.NFData KeyPhrasesDetectionJobFilter where
       `Prelude.seq` Prelude.rnf submitTimeBefore
       `Prelude.seq` Prelude.rnf submitTimeAfter
 
-instance Core.ToJSON KeyPhrasesDetectionJobFilter where
+instance Data.ToJSON KeyPhrasesDetectionJobFilter where
   toJSON KeyPhrasesDetectionJobFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("JobStatus" Core..=) Prelude.<$> jobStatus,
-            ("JobName" Core..=) Prelude.<$> jobName,
-            ("SubmitTimeBefore" Core..=)
+          [ ("JobStatus" Data..=) Prelude.<$> jobStatus,
+            ("JobName" Data..=) Prelude.<$> jobName,
+            ("SubmitTimeBefore" Data..=)
               Prelude.<$> submitTimeBefore,
-            ("SubmitTimeAfter" Core..=)
+            ("SubmitTimeAfter" Data..=)
               Prelude.<$> submitTimeAfter
           ]
       )

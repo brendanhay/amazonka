@@ -22,6 +22,7 @@ module Amazonka.Comprehend.Types.Entity where
 import Amazonka.Comprehend.Types.EntityType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an entity.
@@ -98,17 +99,17 @@ entity_endOffset = Lens.lens (\Entity' {endOffset} -> endOffset) (\s@Entity' {} 
 entity_text :: Lens.Lens' Entity (Prelude.Maybe Prelude.Text)
 entity_text = Lens.lens (\Entity' {text} -> text) (\s@Entity' {} a -> s {text = a} :: Entity)
 
-instance Core.FromJSON Entity where
+instance Data.FromJSON Entity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Entity"
       ( \x ->
           Entity'
-            Prelude.<$> (x Core..:? "BeginOffset")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Score")
-            Prelude.<*> (x Core..:? "EndOffset")
-            Prelude.<*> (x Core..:? "Text")
+            Prelude.<$> (x Data..:? "BeginOffset")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Score")
+            Prelude.<*> (x Data..:? "EndOffset")
+            Prelude.<*> (x Data..:? "Text")
       )
 
 instance Prelude.Hashable Entity where

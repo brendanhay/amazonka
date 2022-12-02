@@ -23,6 +23,7 @@ import Amazonka.Comprehend.Types.EntityRecognizerEvaluationMetrics
 import Amazonka.Comprehend.Types.EntityRecognizerMetadataEntityTypesListItem
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Detailed information about an entity recognizer.
@@ -94,16 +95,16 @@ entityRecognizerMetadata_entityTypes = Lens.lens (\EntityRecognizerMetadata' {en
 entityRecognizerMetadata_numberOfTrainedDocuments :: Lens.Lens' EntityRecognizerMetadata (Prelude.Maybe Prelude.Int)
 entityRecognizerMetadata_numberOfTrainedDocuments = Lens.lens (\EntityRecognizerMetadata' {numberOfTrainedDocuments} -> numberOfTrainedDocuments) (\s@EntityRecognizerMetadata' {} a -> s {numberOfTrainedDocuments = a} :: EntityRecognizerMetadata)
 
-instance Core.FromJSON EntityRecognizerMetadata where
+instance Data.FromJSON EntityRecognizerMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EntityRecognizerMetadata"
       ( \x ->
           EntityRecognizerMetadata'
-            Prelude.<$> (x Core..:? "EvaluationMetrics")
-            Prelude.<*> (x Core..:? "NumberOfTestDocuments")
-            Prelude.<*> (x Core..:? "EntityTypes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "NumberOfTrainedDocuments")
+            Prelude.<$> (x Data..:? "EvaluationMetrics")
+            Prelude.<*> (x Data..:? "NumberOfTestDocuments")
+            Prelude.<*> (x Data..:? "EntityTypes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "NumberOfTrainedDocuments")
       )
 
 instance Prelude.Hashable EntityRecognizerMetadata where

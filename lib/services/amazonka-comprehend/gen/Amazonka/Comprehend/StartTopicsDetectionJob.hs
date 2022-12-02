@@ -53,6 +53,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -238,9 +239,9 @@ instance Core.AWSRequest StartTopicsDetectionJob where
     Response.receiveJSON
       ( \s h x ->
           StartTopicsDetectionJobResponse'
-            Prelude.<$> (x Core..?> "JobStatus")
-            Prelude.<*> (x Core..?> "JobId")
-            Prelude.<*> (x Core..?> "JobArn")
+            Prelude.<$> (x Data..?> "JobStatus")
+            Prelude.<*> (x Data..?> "JobId")
+            Prelude.<*> (x Data..?> "JobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -268,47 +269,47 @@ instance Prelude.NFData StartTopicsDetectionJob where
       `Prelude.seq` Prelude.rnf outputDataConfig
       `Prelude.seq` Prelude.rnf dataAccessRoleArn
 
-instance Core.ToHeaders StartTopicsDetectionJob where
+instance Data.ToHeaders StartTopicsDetectionJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.StartTopicsDetectionJob" ::
+              Data.=# ( "Comprehend_20171127.StartTopicsDetectionJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartTopicsDetectionJob where
+instance Data.ToJSON StartTopicsDetectionJob where
   toJSON StartTopicsDetectionJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("JobName" Core..=) Prelude.<$> jobName,
-            ("NumberOfTopics" Core..=)
+            ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("JobName" Data..=) Prelude.<$> jobName,
+            ("NumberOfTopics" Data..=)
               Prelude.<$> numberOfTopics,
-            ("VolumeKmsKeyId" Core..=)
+            ("VolumeKmsKeyId" Data..=)
               Prelude.<$> volumeKmsKeyId,
             Prelude.Just
-              ("InputDataConfig" Core..= inputDataConfig),
+              ("InputDataConfig" Data..= inputDataConfig),
             Prelude.Just
-              ("OutputDataConfig" Core..= outputDataConfig),
+              ("OutputDataConfig" Data..= outputDataConfig),
             Prelude.Just
-              ("DataAccessRoleArn" Core..= dataAccessRoleArn)
+              ("DataAccessRoleArn" Data..= dataAccessRoleArn)
           ]
       )
 
-instance Core.ToPath StartTopicsDetectionJob where
+instance Data.ToPath StartTopicsDetectionJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartTopicsDetectionJob where
+instance Data.ToQuery StartTopicsDetectionJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartTopicsDetectionJobResponse' smart constructor.

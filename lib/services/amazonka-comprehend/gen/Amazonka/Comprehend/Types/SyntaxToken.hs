@@ -22,6 +22,7 @@ module Amazonka.Comprehend.Types.SyntaxToken where
 import Amazonka.Comprehend.Types.PartOfSpeechTag
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a work in the input text that was recognized and assigned a
@@ -109,17 +110,17 @@ syntaxToken_tokenId = Lens.lens (\SyntaxToken' {tokenId} -> tokenId) (\s@SyntaxT
 syntaxToken_text :: Lens.Lens' SyntaxToken (Prelude.Maybe Prelude.Text)
 syntaxToken_text = Lens.lens (\SyntaxToken' {text} -> text) (\s@SyntaxToken' {} a -> s {text = a} :: SyntaxToken)
 
-instance Core.FromJSON SyntaxToken where
+instance Data.FromJSON SyntaxToken where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SyntaxToken"
       ( \x ->
           SyntaxToken'
-            Prelude.<$> (x Core..:? "BeginOffset")
-            Prelude.<*> (x Core..:? "PartOfSpeech")
-            Prelude.<*> (x Core..:? "EndOffset")
-            Prelude.<*> (x Core..:? "TokenId")
-            Prelude.<*> (x Core..:? "Text")
+            Prelude.<$> (x Data..:? "BeginOffset")
+            Prelude.<*> (x Data..:? "PartOfSpeech")
+            Prelude.<*> (x Data..:? "EndOffset")
+            Prelude.<*> (x Data..:? "TokenId")
+            Prelude.<*> (x Data..:? "Text")
       )
 
 instance Prelude.Hashable SyntaxToken where

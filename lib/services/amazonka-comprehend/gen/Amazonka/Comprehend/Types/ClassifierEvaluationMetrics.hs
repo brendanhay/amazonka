@@ -21,6 +21,7 @@ module Amazonka.Comprehend.Types.ClassifierEvaluationMetrics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the result metrics for the test data associated with an
@@ -192,20 +193,20 @@ classifierEvaluationMetrics_precision = Lens.lens (\ClassifierEvaluationMetrics'
 classifierEvaluationMetrics_microRecall :: Lens.Lens' ClassifierEvaluationMetrics (Prelude.Maybe Prelude.Double)
 classifierEvaluationMetrics_microRecall = Lens.lens (\ClassifierEvaluationMetrics' {microRecall} -> microRecall) (\s@ClassifierEvaluationMetrics' {} a -> s {microRecall = a} :: ClassifierEvaluationMetrics)
 
-instance Core.FromJSON ClassifierEvaluationMetrics where
+instance Data.FromJSON ClassifierEvaluationMetrics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClassifierEvaluationMetrics"
       ( \x ->
           ClassifierEvaluationMetrics'
-            Prelude.<$> (x Core..:? "MicroF1Score")
-            Prelude.<*> (x Core..:? "F1Score")
-            Prelude.<*> (x Core..:? "MicroPrecision")
-            Prelude.<*> (x Core..:? "Accuracy")
-            Prelude.<*> (x Core..:? "HammingLoss")
-            Prelude.<*> (x Core..:? "Recall")
-            Prelude.<*> (x Core..:? "Precision")
-            Prelude.<*> (x Core..:? "MicroRecall")
+            Prelude.<$> (x Data..:? "MicroF1Score")
+            Prelude.<*> (x Data..:? "F1Score")
+            Prelude.<*> (x Data..:? "MicroPrecision")
+            Prelude.<*> (x Data..:? "Accuracy")
+            Prelude.<*> (x Data..:? "HammingLoss")
+            Prelude.<*> (x Data..:? "Recall")
+            Prelude.<*> (x Data..:? "Precision")
+            Prelude.<*> (x Data..:? "MicroRecall")
       )
 
 instance Prelude.Hashable ClassifierEvaluationMetrics where

@@ -22,6 +22,7 @@ module Amazonka.Comprehend.Types.EntityRecognizerMetadataEntityTypesListItem whe
 import Amazonka.Comprehend.Types.EntityTypesEvaluationMetrics
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Individual item from the list of entity types in the metadata of an
@@ -84,17 +85,17 @@ entityRecognizerMetadataEntityTypesListItem_numberOfTrainMentions :: Lens.Lens' 
 entityRecognizerMetadataEntityTypesListItem_numberOfTrainMentions = Lens.lens (\EntityRecognizerMetadataEntityTypesListItem' {numberOfTrainMentions} -> numberOfTrainMentions) (\s@EntityRecognizerMetadataEntityTypesListItem' {} a -> s {numberOfTrainMentions = a} :: EntityRecognizerMetadataEntityTypesListItem)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     EntityRecognizerMetadataEntityTypesListItem
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EntityRecognizerMetadataEntityTypesListItem"
       ( \x ->
           EntityRecognizerMetadataEntityTypesListItem'
-            Prelude.<$> (x Core..:? "EvaluationMetrics")
-              Prelude.<*> (x Core..:? "Type")
-              Prelude.<*> (x Core..:? "NumberOfTrainMentions")
+            Prelude.<$> (x Data..:? "EvaluationMetrics")
+              Prelude.<*> (x Data..:? "Type")
+              Prelude.<*> (x Data..:? "NumberOfTrainMentions")
       )
 
 instance

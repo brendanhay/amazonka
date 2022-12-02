@@ -23,6 +23,7 @@ import Amazonka.Comprehend.Types.SentimentScore
 import Amazonka.Comprehend.Types.SentimentType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the sentiment and sentiment score for one mention of an entity.
@@ -65,14 +66,14 @@ mentionSentiment_sentimentScore = Lens.lens (\MentionSentiment' {sentimentScore}
 mentionSentiment_sentiment :: Lens.Lens' MentionSentiment (Prelude.Maybe SentimentType)
 mentionSentiment_sentiment = Lens.lens (\MentionSentiment' {sentiment} -> sentiment) (\s@MentionSentiment' {} a -> s {sentiment = a} :: MentionSentiment)
 
-instance Core.FromJSON MentionSentiment where
+instance Data.FromJSON MentionSentiment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MentionSentiment"
       ( \x ->
           MentionSentiment'
-            Prelude.<$> (x Core..:? "SentimentScore")
-            Prelude.<*> (x Core..:? "Sentiment")
+            Prelude.<$> (x Data..:? "SentimentScore")
+            Prelude.<*> (x Data..:? "Sentiment")
       )
 
 instance Prelude.Hashable MentionSentiment where

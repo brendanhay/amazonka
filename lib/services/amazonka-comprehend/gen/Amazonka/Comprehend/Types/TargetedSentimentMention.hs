@@ -23,6 +23,7 @@ import Amazonka.Comprehend.Types.MentionSentiment
 import Amazonka.Comprehend.Types.TargetedSentimentEntityType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about one mention of an entity. The mention information
@@ -123,19 +124,19 @@ targetedSentimentMention_groupScore = Lens.lens (\TargetedSentimentMention' {gro
 targetedSentimentMention_text :: Lens.Lens' TargetedSentimentMention (Prelude.Maybe Prelude.Text)
 targetedSentimentMention_text = Lens.lens (\TargetedSentimentMention' {text} -> text) (\s@TargetedSentimentMention' {} a -> s {text = a} :: TargetedSentimentMention)
 
-instance Core.FromJSON TargetedSentimentMention where
+instance Data.FromJSON TargetedSentimentMention where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TargetedSentimentMention"
       ( \x ->
           TargetedSentimentMention'
-            Prelude.<$> (x Core..:? "BeginOffset")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Score")
-            Prelude.<*> (x Core..:? "EndOffset")
-            Prelude.<*> (x Core..:? "MentionSentiment")
-            Prelude.<*> (x Core..:? "GroupScore")
-            Prelude.<*> (x Core..:? "Text")
+            Prelude.<$> (x Data..:? "BeginOffset")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Score")
+            Prelude.<*> (x Data..:? "EndOffset")
+            Prelude.<*> (x Data..:? "MentionSentiment")
+            Prelude.<*> (x Data..:? "GroupScore")
+            Prelude.<*> (x Data..:? "Text")
       )
 
 instance Prelude.Hashable TargetedSentimentMention where

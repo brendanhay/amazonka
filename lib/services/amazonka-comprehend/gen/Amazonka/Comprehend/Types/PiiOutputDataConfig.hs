@@ -21,6 +21,7 @@ module Amazonka.Comprehend.Types.PiiOutputDataConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides configuration parameters for the output of PII entity detection
@@ -85,14 +86,14 @@ piiOutputDataConfig_kmsKeyId = Lens.lens (\PiiOutputDataConfig' {kmsKeyId} -> km
 piiOutputDataConfig_s3Uri :: Lens.Lens' PiiOutputDataConfig Prelude.Text
 piiOutputDataConfig_s3Uri = Lens.lens (\PiiOutputDataConfig' {s3Uri} -> s3Uri) (\s@PiiOutputDataConfig' {} a -> s {s3Uri = a} :: PiiOutputDataConfig)
 
-instance Core.FromJSON PiiOutputDataConfig where
+instance Data.FromJSON PiiOutputDataConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PiiOutputDataConfig"
       ( \x ->
           PiiOutputDataConfig'
-            Prelude.<$> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..: "S3Uri")
+            Prelude.<$> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..: "S3Uri")
       )
 
 instance Prelude.Hashable PiiOutputDataConfig where

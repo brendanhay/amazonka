@@ -22,6 +22,7 @@ module Amazonka.Comprehend.Types.EntityRecognizerDocuments where
 import Amazonka.Comprehend.Types.InputFormat
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the training documents submitted with an entity recognizer.
@@ -104,15 +105,15 @@ entityRecognizerDocuments_inputFormat = Lens.lens (\EntityRecognizerDocuments' {
 entityRecognizerDocuments_s3Uri :: Lens.Lens' EntityRecognizerDocuments Prelude.Text
 entityRecognizerDocuments_s3Uri = Lens.lens (\EntityRecognizerDocuments' {s3Uri} -> s3Uri) (\s@EntityRecognizerDocuments' {} a -> s {s3Uri = a} :: EntityRecognizerDocuments)
 
-instance Core.FromJSON EntityRecognizerDocuments where
+instance Data.FromJSON EntityRecognizerDocuments where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EntityRecognizerDocuments"
       ( \x ->
           EntityRecognizerDocuments'
-            Prelude.<$> (x Core..:? "TestS3Uri")
-            Prelude.<*> (x Core..:? "InputFormat")
-            Prelude.<*> (x Core..: "S3Uri")
+            Prelude.<$> (x Data..:? "TestS3Uri")
+            Prelude.<*> (x Data..:? "InputFormat")
+            Prelude.<*> (x Data..: "S3Uri")
       )
 
 instance Prelude.Hashable EntityRecognizerDocuments where
@@ -127,12 +128,12 @@ instance Prelude.NFData EntityRecognizerDocuments where
       `Prelude.seq` Prelude.rnf inputFormat
       `Prelude.seq` Prelude.rnf s3Uri
 
-instance Core.ToJSON EntityRecognizerDocuments where
+instance Data.ToJSON EntityRecognizerDocuments where
   toJSON EntityRecognizerDocuments' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TestS3Uri" Core..=) Prelude.<$> testS3Uri,
-            ("InputFormat" Core..=) Prelude.<$> inputFormat,
-            Prelude.Just ("S3Uri" Core..= s3Uri)
+          [ ("TestS3Uri" Data..=) Prelude.<$> testS3Uri,
+            ("InputFormat" Data..=) Prelude.<$> inputFormat,
+            Prelude.Just ("S3Uri" Data..= s3Uri)
           ]
       )

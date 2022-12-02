@@ -22,6 +22,7 @@ module Amazonka.Comprehend.Types.DocumentClassifierSummary where
 import Amazonka.Comprehend.Types.ModelStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes information about a document classifier and its versions.
@@ -38,7 +39,7 @@ data DocumentClassifierSummary = DocumentClassifierSummary'
     documentClassifierName :: Prelude.Maybe Prelude.Text,
     -- | The time that the latest document classifier version was submitted for
     -- processing.
-    latestVersionCreatedAt :: Prelude.Maybe Core.POSIX
+    latestVersionCreatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,19 +92,19 @@ documentClassifierSummary_documentClassifierName = Lens.lens (\DocumentClassifie
 -- | The time that the latest document classifier version was submitted for
 -- processing.
 documentClassifierSummary_latestVersionCreatedAt :: Lens.Lens' DocumentClassifierSummary (Prelude.Maybe Prelude.UTCTime)
-documentClassifierSummary_latestVersionCreatedAt = Lens.lens (\DocumentClassifierSummary' {latestVersionCreatedAt} -> latestVersionCreatedAt) (\s@DocumentClassifierSummary' {} a -> s {latestVersionCreatedAt = a} :: DocumentClassifierSummary) Prelude.. Lens.mapping Core._Time
+documentClassifierSummary_latestVersionCreatedAt = Lens.lens (\DocumentClassifierSummary' {latestVersionCreatedAt} -> latestVersionCreatedAt) (\s@DocumentClassifierSummary' {} a -> s {latestVersionCreatedAt = a} :: DocumentClassifierSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON DocumentClassifierSummary where
+instance Data.FromJSON DocumentClassifierSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentClassifierSummary"
       ( \x ->
           DocumentClassifierSummary'
-            Prelude.<$> (x Core..:? "NumberOfVersions")
-            Prelude.<*> (x Core..:? "LatestVersionName")
-            Prelude.<*> (x Core..:? "LatestVersionStatus")
-            Prelude.<*> (x Core..:? "DocumentClassifierName")
-            Prelude.<*> (x Core..:? "LatestVersionCreatedAt")
+            Prelude.<$> (x Data..:? "NumberOfVersions")
+            Prelude.<*> (x Data..:? "LatestVersionName")
+            Prelude.<*> (x Data..:? "LatestVersionStatus")
+            Prelude.<*> (x Data..:? "DocumentClassifierName")
+            Prelude.<*> (x Data..:? "LatestVersionCreatedAt")
       )
 
 instance Prelude.Hashable DocumentClassifierSummary where

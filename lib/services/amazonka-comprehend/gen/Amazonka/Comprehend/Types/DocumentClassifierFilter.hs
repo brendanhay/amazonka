@@ -22,6 +22,7 @@ module Amazonka.Comprehend.Types.DocumentClassifierFilter where
 import Amazonka.Comprehend.Types.ModelStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information for filtering a list of document classifiers. You
@@ -36,14 +37,14 @@ data DocumentClassifierFilter = DocumentClassifierFilter'
     -- was submitted for processing. Returns only classifiers submitted before
     -- the specified time. Classifiers are returned in ascending order, oldest
     -- to newest.
-    submitTimeBefore :: Prelude.Maybe Core.POSIX,
+    submitTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | The name that you assigned to the document classifier
     documentClassifierName :: Prelude.Maybe Prelude.Text,
     -- | Filters the list of classifiers based on the time that the classifier
     -- was submitted for processing. Returns only classifiers submitted after
     -- the specified time. Classifiers are returned in descending order, newest
     -- to oldest.
-    submitTimeAfter :: Prelude.Maybe Core.POSIX
+    submitTimeAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,7 +88,7 @@ documentClassifierFilter_status = Lens.lens (\DocumentClassifierFilter' {status}
 -- the specified time. Classifiers are returned in ascending order, oldest
 -- to newest.
 documentClassifierFilter_submitTimeBefore :: Lens.Lens' DocumentClassifierFilter (Prelude.Maybe Prelude.UTCTime)
-documentClassifierFilter_submitTimeBefore = Lens.lens (\DocumentClassifierFilter' {submitTimeBefore} -> submitTimeBefore) (\s@DocumentClassifierFilter' {} a -> s {submitTimeBefore = a} :: DocumentClassifierFilter) Prelude.. Lens.mapping Core._Time
+documentClassifierFilter_submitTimeBefore = Lens.lens (\DocumentClassifierFilter' {submitTimeBefore} -> submitTimeBefore) (\s@DocumentClassifierFilter' {} a -> s {submitTimeBefore = a} :: DocumentClassifierFilter) Prelude.. Lens.mapping Data._Time
 
 -- | The name that you assigned to the document classifier
 documentClassifierFilter_documentClassifierName :: Lens.Lens' DocumentClassifierFilter (Prelude.Maybe Prelude.Text)
@@ -98,7 +99,7 @@ documentClassifierFilter_documentClassifierName = Lens.lens (\DocumentClassifier
 -- the specified time. Classifiers are returned in descending order, newest
 -- to oldest.
 documentClassifierFilter_submitTimeAfter :: Lens.Lens' DocumentClassifierFilter (Prelude.Maybe Prelude.UTCTime)
-documentClassifierFilter_submitTimeAfter = Lens.lens (\DocumentClassifierFilter' {submitTimeAfter} -> submitTimeAfter) (\s@DocumentClassifierFilter' {} a -> s {submitTimeAfter = a} :: DocumentClassifierFilter) Prelude.. Lens.mapping Core._Time
+documentClassifierFilter_submitTimeAfter = Lens.lens (\DocumentClassifierFilter' {submitTimeAfter} -> submitTimeAfter) (\s@DocumentClassifierFilter' {} a -> s {submitTimeAfter = a} :: DocumentClassifierFilter) Prelude.. Lens.mapping Data._Time
 
 instance Prelude.Hashable DocumentClassifierFilter where
   hashWithSalt _salt DocumentClassifierFilter' {..} =
@@ -114,16 +115,16 @@ instance Prelude.NFData DocumentClassifierFilter where
       `Prelude.seq` Prelude.rnf documentClassifierName
       `Prelude.seq` Prelude.rnf submitTimeAfter
 
-instance Core.ToJSON DocumentClassifierFilter where
+instance Data.ToJSON DocumentClassifierFilter where
   toJSON DocumentClassifierFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("SubmitTimeBefore" Core..=)
+          [ ("Status" Data..=) Prelude.<$> status,
+            ("SubmitTimeBefore" Data..=)
               Prelude.<$> submitTimeBefore,
-            ("DocumentClassifierName" Core..=)
+            ("DocumentClassifierName" Data..=)
               Prelude.<$> documentClassifierName,
-            ("SubmitTimeAfter" Core..=)
+            ("SubmitTimeAfter" Data..=)
               Prelude.<$> submitTimeAfter
           ]
       )

@@ -60,6 +60,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -374,7 +375,7 @@ instance Core.AWSRequest CreateDocumentClassifier where
     Response.receiveJSON
       ( \s h x ->
           CreateDocumentClassifierResponse'
-            Prelude.<$> (x Core..?> "DocumentClassifierArn")
+            Prelude.<$> (x Data..?> "DocumentClassifierArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -410,53 +411,53 @@ instance Prelude.NFData CreateDocumentClassifier where
       `Prelude.seq` Prelude.rnf inputDataConfig
       `Prelude.seq` Prelude.rnf languageCode
 
-instance Core.ToHeaders CreateDocumentClassifier where
+instance Data.ToHeaders CreateDocumentClassifier where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.CreateDocumentClassifier" ::
+              Data.=# ( "Comprehend_20171127.CreateDocumentClassifier" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDocumentClassifier where
+instance Data.ToJSON CreateDocumentClassifier where
   toJSON CreateDocumentClassifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("OutputDataConfig" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("OutputDataConfig" Data..=)
               Prelude.<$> outputDataConfig,
-            ("ModelPolicy" Core..=) Prelude.<$> modelPolicy,
-            ("ModelKmsKeyId" Core..=) Prelude.<$> modelKmsKeyId,
-            ("ClientRequestToken" Core..=)
+            ("ModelPolicy" Data..=) Prelude.<$> modelPolicy,
+            ("ModelKmsKeyId" Data..=) Prelude.<$> modelKmsKeyId,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("VolumeKmsKeyId" Core..=)
+            ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("VolumeKmsKeyId" Data..=)
               Prelude.<$> volumeKmsKeyId,
-            ("VersionName" Core..=) Prelude.<$> versionName,
-            ("Mode" Core..=) Prelude.<$> mode,
+            ("VersionName" Data..=) Prelude.<$> versionName,
+            ("Mode" Data..=) Prelude.<$> mode,
             Prelude.Just
               ( "DocumentClassifierName"
-                  Core..= documentClassifierName
+                  Data..= documentClassifierName
               ),
             Prelude.Just
-              ("DataAccessRoleArn" Core..= dataAccessRoleArn),
+              ("DataAccessRoleArn" Data..= dataAccessRoleArn),
             Prelude.Just
-              ("InputDataConfig" Core..= inputDataConfig),
-            Prelude.Just ("LanguageCode" Core..= languageCode)
+              ("InputDataConfig" Data..= inputDataConfig),
+            Prelude.Just ("LanguageCode" Data..= languageCode)
           ]
       )
 
-instance Core.ToPath CreateDocumentClassifier where
+instance Data.ToPath CreateDocumentClassifier where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDocumentClassifier where
+instance Data.ToQuery CreateDocumentClassifier where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDocumentClassifierResponse' smart constructor.

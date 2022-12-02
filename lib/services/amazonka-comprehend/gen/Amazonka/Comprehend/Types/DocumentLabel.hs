@@ -21,6 +21,7 @@ module Amazonka.Comprehend.Types.DocumentLabel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies one of the label or labels that categorize the document being
@@ -65,13 +66,13 @@ documentLabel_name = Lens.lens (\DocumentLabel' {name} -> name) (\s@DocumentLabe
 documentLabel_score :: Lens.Lens' DocumentLabel (Prelude.Maybe Prelude.Double)
 documentLabel_score = Lens.lens (\DocumentLabel' {score} -> score) (\s@DocumentLabel' {} a -> s {score = a} :: DocumentLabel)
 
-instance Core.FromJSON DocumentLabel where
+instance Data.FromJSON DocumentLabel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentLabel"
       ( \x ->
           DocumentLabel'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Score")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Score")
       )
 
 instance Prelude.Hashable DocumentLabel where

@@ -54,6 +54,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -344,7 +345,7 @@ instance Core.AWSRequest CreateEntityRecognizer where
     Response.receiveJSON
       ( \s h x ->
           CreateEntityRecognizerResponse'
-            Prelude.<$> (x Core..?> "EntityRecognizerArn")
+            Prelude.<$> (x Data..?> "EntityRecognizerArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -376,48 +377,48 @@ instance Prelude.NFData CreateEntityRecognizer where
       `Prelude.seq` Prelude.rnf inputDataConfig
       `Prelude.seq` Prelude.rnf languageCode
 
-instance Core.ToHeaders CreateEntityRecognizer where
+instance Data.ToHeaders CreateEntityRecognizer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.CreateEntityRecognizer" ::
+              Data.=# ( "Comprehend_20171127.CreateEntityRecognizer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEntityRecognizer where
+instance Data.ToJSON CreateEntityRecognizer where
   toJSON CreateEntityRecognizer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ModelPolicy" Core..=) Prelude.<$> modelPolicy,
-            ("ModelKmsKeyId" Core..=) Prelude.<$> modelKmsKeyId,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ModelPolicy" Data..=) Prelude.<$> modelPolicy,
+            ("ModelKmsKeyId" Data..=) Prelude.<$> modelKmsKeyId,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("VolumeKmsKeyId" Core..=)
+            ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("VolumeKmsKeyId" Data..=)
               Prelude.<$> volumeKmsKeyId,
-            ("VersionName" Core..=) Prelude.<$> versionName,
+            ("VersionName" Data..=) Prelude.<$> versionName,
             Prelude.Just
-              ("RecognizerName" Core..= recognizerName),
+              ("RecognizerName" Data..= recognizerName),
             Prelude.Just
-              ("DataAccessRoleArn" Core..= dataAccessRoleArn),
+              ("DataAccessRoleArn" Data..= dataAccessRoleArn),
             Prelude.Just
-              ("InputDataConfig" Core..= inputDataConfig),
-            Prelude.Just ("LanguageCode" Core..= languageCode)
+              ("InputDataConfig" Data..= inputDataConfig),
+            Prelude.Just ("LanguageCode" Data..= languageCode)
           ]
       )
 
-instance Core.ToPath CreateEntityRecognizer where
+instance Data.ToPath CreateEntityRecognizer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateEntityRecognizer where
+instance Data.ToQuery CreateEntityRecognizer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEntityRecognizerResponse' smart constructor.

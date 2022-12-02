@@ -25,6 +25,7 @@ import Amazonka.Comprehend.Types.OutputDataConfig
 import Amazonka.Comprehend.Types.VpcConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a dominant language detection job.
@@ -48,7 +49,7 @@ data DominantLanguageDetectionJobProperties = DominantLanguageDetectionJobProper
     jobName :: Prelude.Maybe Prelude.Text,
     -- | The time that the dominant language detection job was submitted for
     -- processing.
-    submitTime :: Prelude.Maybe Core.POSIX,
+    submitTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier assigned to the dominant language detection job.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
@@ -65,7 +66,7 @@ data DominantLanguageDetectionJobProperties = DominantLanguageDetectionJobProper
     -- to your input data.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the dominant language detection job completed.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the dominant language detection job.
     -- It is a unique, fully qualified identifier for the job. It includes the
     -- AWS account, Region, and the job ID. The format of the ARN is as
@@ -186,7 +187,7 @@ dominantLanguageDetectionJobProperties_jobName = Lens.lens (\DominantLanguageDet
 -- | The time that the dominant language detection job was submitted for
 -- processing.
 dominantLanguageDetectionJobProperties_submitTime :: Lens.Lens' DominantLanguageDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
-dominantLanguageDetectionJobProperties_submitTime = Lens.lens (\DominantLanguageDetectionJobProperties' {submitTime} -> submitTime) (\s@DominantLanguageDetectionJobProperties' {} a -> s {submitTime = a} :: DominantLanguageDetectionJobProperties) Prelude.. Lens.mapping Core._Time
+dominantLanguageDetectionJobProperties_submitTime = Lens.lens (\DominantLanguageDetectionJobProperties' {submitTime} -> submitTime) (\s@DominantLanguageDetectionJobProperties' {} a -> s {submitTime = a} :: DominantLanguageDetectionJobProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier assigned to the dominant language detection job.
 dominantLanguageDetectionJobProperties_jobId :: Lens.Lens' DominantLanguageDetectionJobProperties (Prelude.Maybe Prelude.Text)
@@ -211,7 +212,7 @@ dominantLanguageDetectionJobProperties_dataAccessRoleArn = Lens.lens (\DominantL
 
 -- | The time that the dominant language detection job completed.
 dominantLanguageDetectionJobProperties_endTime :: Lens.Lens' DominantLanguageDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
-dominantLanguageDetectionJobProperties_endTime = Lens.lens (\DominantLanguageDetectionJobProperties' {endTime} -> endTime) (\s@DominantLanguageDetectionJobProperties' {} a -> s {endTime = a} :: DominantLanguageDetectionJobProperties) Prelude.. Lens.mapping Core._Time
+dominantLanguageDetectionJobProperties_endTime = Lens.lens (\DominantLanguageDetectionJobProperties' {endTime} -> endTime) (\s@DominantLanguageDetectionJobProperties' {} a -> s {endTime = a} :: DominantLanguageDetectionJobProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the dominant language detection job.
 -- It is a unique, fully qualified identifier for the job. It includes the
@@ -232,26 +233,26 @@ dominantLanguageDetectionJobProperties_inputDataConfig :: Lens.Lens' DominantLan
 dominantLanguageDetectionJobProperties_inputDataConfig = Lens.lens (\DominantLanguageDetectionJobProperties' {inputDataConfig} -> inputDataConfig) (\s@DominantLanguageDetectionJobProperties' {} a -> s {inputDataConfig = a} :: DominantLanguageDetectionJobProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DominantLanguageDetectionJobProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DominantLanguageDetectionJobProperties"
       ( \x ->
           DominantLanguageDetectionJobProperties'
-            Prelude.<$> (x Core..:? "OutputDataConfig")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "JobStatus")
-            Prelude.<*> (x Core..:? "VpcConfig")
-            Prelude.<*> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "SubmitTime")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "VolumeKmsKeyId")
-            Prelude.<*> (x Core..:? "DataAccessRoleArn")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "JobArn")
-            Prelude.<*> (x Core..:? "InputDataConfig")
+            Prelude.<$> (x Data..:? "OutputDataConfig")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "JobStatus")
+            Prelude.<*> (x Data..:? "VpcConfig")
+            Prelude.<*> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "SubmitTime")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "VolumeKmsKeyId")
+            Prelude.<*> (x Data..:? "DataAccessRoleArn")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "JobArn")
+            Prelude.<*> (x Data..:? "InputDataConfig")
       )
 
 instance

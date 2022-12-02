@@ -21,6 +21,7 @@ module Amazonka.Comprehend.Types.EntityRecognizerEvaluationMetrics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Detailed information about the accuracy of an entity recognizer.
@@ -99,17 +100,17 @@ entityRecognizerEvaluationMetrics_precision :: Lens.Lens' EntityRecognizerEvalua
 entityRecognizerEvaluationMetrics_precision = Lens.lens (\EntityRecognizerEvaluationMetrics' {precision} -> precision) (\s@EntityRecognizerEvaluationMetrics' {} a -> s {precision = a} :: EntityRecognizerEvaluationMetrics)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     EntityRecognizerEvaluationMetrics
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EntityRecognizerEvaluationMetrics"
       ( \x ->
           EntityRecognizerEvaluationMetrics'
-            Prelude.<$> (x Core..:? "F1Score")
-            Prelude.<*> (x Core..:? "Recall")
-            Prelude.<*> (x Core..:? "Precision")
+            Prelude.<$> (x Data..:? "F1Score")
+            Prelude.<*> (x Data..:? "Recall")
+            Prelude.<*> (x Data..:? "Precision")
       )
 
 instance

@@ -47,6 +47,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,38 +119,38 @@ instance
     Prelude.rnf documentClassifierArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     StopTrainingDocumentClassifier
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.StopTrainingDocumentClassifier" ::
+              Data.=# ( "Comprehend_20171127.StopTrainingDocumentClassifier" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopTrainingDocumentClassifier where
+instance Data.ToJSON StopTrainingDocumentClassifier where
   toJSON StopTrainingDocumentClassifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "DocumentClassifierArn"
-                  Core..= documentClassifierArn
+                  Data..= documentClassifierArn
               )
           ]
       )
 
-instance Core.ToPath StopTrainingDocumentClassifier where
+instance Data.ToPath StopTrainingDocumentClassifier where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopTrainingDocumentClassifier where
+instance Data.ToQuery StopTrainingDocumentClassifier where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopTrainingDocumentClassifierResponse' smart constructor.

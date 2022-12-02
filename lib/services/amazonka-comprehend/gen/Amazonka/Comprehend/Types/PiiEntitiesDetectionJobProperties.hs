@@ -27,6 +27,7 @@ import Amazonka.Comprehend.Types.PiiOutputDataConfig
 import Amazonka.Comprehend.Types.RedactionConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a PII entities detection job.
@@ -45,7 +46,7 @@ data PiiEntitiesDetectionJobProperties = PiiEntitiesDetectionJobProperties'
     jobName :: Prelude.Maybe Prelude.Text,
     -- | The time that the PII entities detection job was submitted for
     -- processing.
-    submitTime :: Prelude.Maybe Core.POSIX,
+    submitTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier assigned to the PII entities detection job.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | Provides configuration parameters for PII entity redaction.
@@ -58,7 +59,7 @@ data PiiEntitiesDetectionJobProperties = PiiEntitiesDetectionJobProperties'
     -- to your input data.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the PII entities detection job completed.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The language code of the input documents
     languageCode :: Prelude.Maybe LanguageCode,
     -- | Specifies whether the output provides the locations (offsets) of PII
@@ -170,7 +171,7 @@ piiEntitiesDetectionJobProperties_jobName = Lens.lens (\PiiEntitiesDetectionJobP
 -- | The time that the PII entities detection job was submitted for
 -- processing.
 piiEntitiesDetectionJobProperties_submitTime :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
-piiEntitiesDetectionJobProperties_submitTime = Lens.lens (\PiiEntitiesDetectionJobProperties' {submitTime} -> submitTime) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {submitTime = a} :: PiiEntitiesDetectionJobProperties) Prelude.. Lens.mapping Core._Time
+piiEntitiesDetectionJobProperties_submitTime = Lens.lens (\PiiEntitiesDetectionJobProperties' {submitTime} -> submitTime) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {submitTime = a} :: PiiEntitiesDetectionJobProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier assigned to the PII entities detection job.
 piiEntitiesDetectionJobProperties_jobId :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe Prelude.Text)
@@ -191,7 +192,7 @@ piiEntitiesDetectionJobProperties_dataAccessRoleArn = Lens.lens (\PiiEntitiesDet
 
 -- | The time that the PII entities detection job completed.
 piiEntitiesDetectionJobProperties_endTime :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
-piiEntitiesDetectionJobProperties_endTime = Lens.lens (\PiiEntitiesDetectionJobProperties' {endTime} -> endTime) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {endTime = a} :: PiiEntitiesDetectionJobProperties) Prelude.. Lens.mapping Core._Time
+piiEntitiesDetectionJobProperties_endTime = Lens.lens (\PiiEntitiesDetectionJobProperties' {endTime} -> endTime) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {endTime = a} :: PiiEntitiesDetectionJobProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The language code of the input documents
 piiEntitiesDetectionJobProperties_languageCode :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe LanguageCode)
@@ -219,27 +220,27 @@ piiEntitiesDetectionJobProperties_inputDataConfig :: Lens.Lens' PiiEntitiesDetec
 piiEntitiesDetectionJobProperties_inputDataConfig = Lens.lens (\PiiEntitiesDetectionJobProperties' {inputDataConfig} -> inputDataConfig) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {inputDataConfig = a} :: PiiEntitiesDetectionJobProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     PiiEntitiesDetectionJobProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PiiEntitiesDetectionJobProperties"
       ( \x ->
           PiiEntitiesDetectionJobProperties'
-            Prelude.<$> (x Core..:? "OutputDataConfig")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "JobStatus")
-            Prelude.<*> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "SubmitTime")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "RedactionConfig")
-            Prelude.<*> (x Core..:? "DataAccessRoleArn")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "LanguageCode")
-            Prelude.<*> (x Core..:? "Mode")
-            Prelude.<*> (x Core..:? "JobArn")
-            Prelude.<*> (x Core..:? "InputDataConfig")
+            Prelude.<$> (x Data..:? "OutputDataConfig")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "JobStatus")
+            Prelude.<*> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "SubmitTime")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "RedactionConfig")
+            Prelude.<*> (x Data..:? "DataAccessRoleArn")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "LanguageCode")
+            Prelude.<*> (x Data..:? "Mode")
+            Prelude.<*> (x Data..:? "JobArn")
+            Prelude.<*> (x Data..:? "InputDataConfig")
       )
 
 instance

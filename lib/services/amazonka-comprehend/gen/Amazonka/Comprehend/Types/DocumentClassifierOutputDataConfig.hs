@@ -21,6 +21,7 @@ module Amazonka.Comprehend.Types.DocumentClassifierOutputDataConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides output results configuration parameters for custom classifier
@@ -127,16 +128,16 @@ documentClassifierOutputDataConfig_s3Uri :: Lens.Lens' DocumentClassifierOutputD
 documentClassifierOutputDataConfig_s3Uri = Lens.lens (\DocumentClassifierOutputDataConfig' {s3Uri} -> s3Uri) (\s@DocumentClassifierOutputDataConfig' {} a -> s {s3Uri = a} :: DocumentClassifierOutputDataConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DocumentClassifierOutputDataConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentClassifierOutputDataConfig"
       ( \x ->
           DocumentClassifierOutputDataConfig'
-            Prelude.<$> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "S3Uri")
+            Prelude.<$> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "S3Uri")
       )
 
 instance
@@ -158,13 +159,13 @@ instance
       `Prelude.seq` Prelude.rnf s3Uri
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DocumentClassifierOutputDataConfig
   where
   toJSON DocumentClassifierOutputDataConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("S3Uri" Core..=) Prelude.<$> s3Uri
+          [ ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("S3Uri" Data..=) Prelude.<$> s3Uri
           ]
       )

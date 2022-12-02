@@ -22,6 +22,7 @@ module Amazonka.Comprehend.Types.TopicsDetectionJobFilter where
 import Amazonka.Comprehend.Types.JobStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information for filtering topic detection jobs. For more
@@ -36,11 +37,11 @@ data TopicsDetectionJobFilter = TopicsDetectionJobFilter'
     -- | Filters the list of jobs based on the time that the job was submitted
     -- for processing. Only returns jobs submitted before the specified time.
     -- Jobs are returned in descending order, newest to oldest.
-    submitTimeBefore :: Prelude.Maybe Core.POSIX,
+    submitTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | Filters the list of jobs based on the time that the job was submitted
     -- for processing. Only returns jobs submitted after the specified time.
     -- Jobs are returned in ascending order, oldest to newest.
-    submitTimeAfter :: Prelude.Maybe Core.POSIX
+    submitTimeAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,13 +89,13 @@ topicsDetectionJobFilter_jobName = Lens.lens (\TopicsDetectionJobFilter' {jobNam
 -- for processing. Only returns jobs submitted before the specified time.
 -- Jobs are returned in descending order, newest to oldest.
 topicsDetectionJobFilter_submitTimeBefore :: Lens.Lens' TopicsDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
-topicsDetectionJobFilter_submitTimeBefore = Lens.lens (\TopicsDetectionJobFilter' {submitTimeBefore} -> submitTimeBefore) (\s@TopicsDetectionJobFilter' {} a -> s {submitTimeBefore = a} :: TopicsDetectionJobFilter) Prelude.. Lens.mapping Core._Time
+topicsDetectionJobFilter_submitTimeBefore = Lens.lens (\TopicsDetectionJobFilter' {submitTimeBefore} -> submitTimeBefore) (\s@TopicsDetectionJobFilter' {} a -> s {submitTimeBefore = a} :: TopicsDetectionJobFilter) Prelude.. Lens.mapping Data._Time
 
 -- | Filters the list of jobs based on the time that the job was submitted
 -- for processing. Only returns jobs submitted after the specified time.
 -- Jobs are returned in ascending order, oldest to newest.
 topicsDetectionJobFilter_submitTimeAfter :: Lens.Lens' TopicsDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
-topicsDetectionJobFilter_submitTimeAfter = Lens.lens (\TopicsDetectionJobFilter' {submitTimeAfter} -> submitTimeAfter) (\s@TopicsDetectionJobFilter' {} a -> s {submitTimeAfter = a} :: TopicsDetectionJobFilter) Prelude.. Lens.mapping Core._Time
+topicsDetectionJobFilter_submitTimeAfter = Lens.lens (\TopicsDetectionJobFilter' {submitTimeAfter} -> submitTimeAfter) (\s@TopicsDetectionJobFilter' {} a -> s {submitTimeAfter = a} :: TopicsDetectionJobFilter) Prelude.. Lens.mapping Data._Time
 
 instance Prelude.Hashable TopicsDetectionJobFilter where
   hashWithSalt _salt TopicsDetectionJobFilter' {..} =
@@ -110,15 +111,15 @@ instance Prelude.NFData TopicsDetectionJobFilter where
       `Prelude.seq` Prelude.rnf submitTimeBefore
       `Prelude.seq` Prelude.rnf submitTimeAfter
 
-instance Core.ToJSON TopicsDetectionJobFilter where
+instance Data.ToJSON TopicsDetectionJobFilter where
   toJSON TopicsDetectionJobFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("JobStatus" Core..=) Prelude.<$> jobStatus,
-            ("JobName" Core..=) Prelude.<$> jobName,
-            ("SubmitTimeBefore" Core..=)
+          [ ("JobStatus" Data..=) Prelude.<$> jobStatus,
+            ("JobName" Data..=) Prelude.<$> jobName,
+            ("SubmitTimeBefore" Data..=)
               Prelude.<$> submitTimeBefore,
-            ("SubmitTimeAfter" Core..=)
+            ("SubmitTimeAfter" Data..=)
               Prelude.<$> submitTimeAfter
           ]
       )

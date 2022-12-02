@@ -22,6 +22,7 @@ module Amazonka.Comprehend.Types.EndpointProperties where
 import Amazonka.Comprehend.Types.EndpointStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies information about the specified endpoint. For information
@@ -55,12 +56,12 @@ data EndpointProperties = EndpointProperties'
     -- progress
     desiredModelArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the endpoint was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Number (ARN) of the model to which the endpoint is
     -- attached.
     modelArn :: Prelude.Maybe Prelude.Text,
     -- | The creation date and time of the endpoint.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Number (ARN) of the endpoint.
     endpointArn :: Prelude.Maybe Prelude.Text
   }
@@ -164,7 +165,7 @@ endpointProperties_desiredModelArn = Lens.lens (\EndpointProperties' {desiredMod
 
 -- | The date and time that the endpoint was last modified.
 endpointProperties_lastModifiedTime :: Lens.Lens' EndpointProperties (Prelude.Maybe Prelude.UTCTime)
-endpointProperties_lastModifiedTime = Lens.lens (\EndpointProperties' {lastModifiedTime} -> lastModifiedTime) (\s@EndpointProperties' {} a -> s {lastModifiedTime = a} :: EndpointProperties) Prelude.. Lens.mapping Core._Time
+endpointProperties_lastModifiedTime = Lens.lens (\EndpointProperties' {lastModifiedTime} -> lastModifiedTime) (\s@EndpointProperties' {} a -> s {lastModifiedTime = a} :: EndpointProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Number (ARN) of the model to which the endpoint is
 -- attached.
@@ -173,29 +174,29 @@ endpointProperties_modelArn = Lens.lens (\EndpointProperties' {modelArn} -> mode
 
 -- | The creation date and time of the endpoint.
 endpointProperties_creationTime :: Lens.Lens' EndpointProperties (Prelude.Maybe Prelude.UTCTime)
-endpointProperties_creationTime = Lens.lens (\EndpointProperties' {creationTime} -> creationTime) (\s@EndpointProperties' {} a -> s {creationTime = a} :: EndpointProperties) Prelude.. Lens.mapping Core._Time
+endpointProperties_creationTime = Lens.lens (\EndpointProperties' {creationTime} -> creationTime) (\s@EndpointProperties' {} a -> s {creationTime = a} :: EndpointProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Number (ARN) of the endpoint.
 endpointProperties_endpointArn :: Lens.Lens' EndpointProperties (Prelude.Maybe Prelude.Text)
 endpointProperties_endpointArn = Lens.lens (\EndpointProperties' {endpointArn} -> endpointArn) (\s@EndpointProperties' {} a -> s {endpointArn = a} :: EndpointProperties)
 
-instance Core.FromJSON EndpointProperties where
+instance Data.FromJSON EndpointProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointProperties"
       ( \x ->
           EndpointProperties'
-            Prelude.<$> (x Core..:? "DesiredInferenceUnits")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "CurrentInferenceUnits")
-            Prelude.<*> (x Core..:? "DesiredDataAccessRoleArn")
-            Prelude.<*> (x Core..:? "DataAccessRoleArn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "DesiredModelArn")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "ModelArn")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "EndpointArn")
+            Prelude.<$> (x Data..:? "DesiredInferenceUnits")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "CurrentInferenceUnits")
+            Prelude.<*> (x Data..:? "DesiredDataAccessRoleArn")
+            Prelude.<*> (x Data..:? "DataAccessRoleArn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "DesiredModelArn")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "ModelArn")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "EndpointArn")
       )
 
 instance Prelude.Hashable EndpointProperties where

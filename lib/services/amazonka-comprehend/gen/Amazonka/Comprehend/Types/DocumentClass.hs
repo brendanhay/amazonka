@@ -21,6 +21,7 @@ module Amazonka.Comprehend.Types.DocumentClass where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the class that categorizes the document being analyzed
@@ -64,13 +65,13 @@ documentClass_name = Lens.lens (\DocumentClass' {name} -> name) (\s@DocumentClas
 documentClass_score :: Lens.Lens' DocumentClass (Prelude.Maybe Prelude.Double)
 documentClass_score = Lens.lens (\DocumentClass' {score} -> score) (\s@DocumentClass' {} a -> s {score = a} :: DocumentClass)
 
-instance Core.FromJSON DocumentClass where
+instance Data.FromJSON DocumentClass where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentClass"
       ( \x ->
           DocumentClass'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Score")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Score")
       )
 
 instance Prelude.Hashable DocumentClass where

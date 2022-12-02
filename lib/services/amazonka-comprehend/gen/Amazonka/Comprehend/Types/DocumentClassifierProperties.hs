@@ -28,6 +28,7 @@ import Amazonka.Comprehend.Types.ModelStatus
 import Amazonka.Comprehend.Types.VpcConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a document classifier.
@@ -54,7 +55,7 @@ data DocumentClassifierProperties = DocumentClassifierProperties'
     -- <https://docs.aws.amazon.com/vppc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
     vpcConfig :: Prelude.Maybe VpcConfig,
     -- | The time that the document classifier was submitted for training.
-    submitTime :: Prelude.Maybe Core.POSIX,
+    submitTime :: Prelude.Maybe Data.POSIX,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
     -- uses to encrypt data on the storage volume attached to the ML compute
     -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
@@ -68,7 +69,7 @@ data DocumentClassifierProperties = DocumentClassifierProperties'
     -- | Indicates the time when the training starts on documentation
     -- classifiers. You are billed for the time interval between this time and
     -- the value of TrainingEndTime.
-    trainingStartTime :: Prelude.Maybe Core.POSIX,
+    trainingStartTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
     -- role that grants Amazon Comprehend read access to your input data.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
@@ -78,7 +79,7 @@ data DocumentClassifierProperties = DocumentClassifierProperties'
     -- @Message@ field.
     status :: Prelude.Maybe ModelStatus,
     -- | The time that training the document classifier completed.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The language code for the language of the documents that the classifier
     -- was trained on.
     languageCode :: Prelude.Maybe LanguageCode,
@@ -102,11 +103,11 @@ data DocumentClassifierProperties = DocumentClassifierProperties'
     -- Indicates the time when the training completes on documentation
     -- classifiers. You are billed for the time interval between this time and
     -- the value of TrainingStartTime.
-    trainingEndTime :: Prelude.Maybe Core.POSIX,
+    trainingEndTime :: Prelude.Maybe Data.POSIX,
     -- | Information about the document classifier, including the number of
     -- documents used for training the classifier, the number of documents used
     -- for test the classifier, and an accuracy rating.
-    classifierMetadata :: Prelude.Maybe (Core.Sensitive ClassifierMetadata)
+    classifierMetadata :: Prelude.Maybe (Data.Sensitive ClassifierMetadata)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -244,7 +245,7 @@ documentClassifierProperties_vpcConfig = Lens.lens (\DocumentClassifierPropertie
 
 -- | The time that the document classifier was submitted for training.
 documentClassifierProperties_submitTime :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe Prelude.UTCTime)
-documentClassifierProperties_submitTime = Lens.lens (\DocumentClassifierProperties' {submitTime} -> submitTime) (\s@DocumentClassifierProperties' {} a -> s {submitTime = a} :: DocumentClassifierProperties) Prelude.. Lens.mapping Core._Time
+documentClassifierProperties_submitTime = Lens.lens (\DocumentClassifierProperties' {submitTime} -> submitTime) (\s@DocumentClassifierProperties' {} a -> s {submitTime = a} :: DocumentClassifierProperties) Prelude.. Lens.mapping Data._Time
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
@@ -262,7 +263,7 @@ documentClassifierProperties_volumeKmsKeyId = Lens.lens (\DocumentClassifierProp
 -- classifiers. You are billed for the time interval between this time and
 -- the value of TrainingEndTime.
 documentClassifierProperties_trainingStartTime :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe Prelude.UTCTime)
-documentClassifierProperties_trainingStartTime = Lens.lens (\DocumentClassifierProperties' {trainingStartTime} -> trainingStartTime) (\s@DocumentClassifierProperties' {} a -> s {trainingStartTime = a} :: DocumentClassifierProperties) Prelude.. Lens.mapping Core._Time
+documentClassifierProperties_trainingStartTime = Lens.lens (\DocumentClassifierProperties' {trainingStartTime} -> trainingStartTime) (\s@DocumentClassifierProperties' {} a -> s {trainingStartTime = a} :: DocumentClassifierProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
 -- role that grants Amazon Comprehend read access to your input data.
@@ -278,7 +279,7 @@ documentClassifierProperties_status = Lens.lens (\DocumentClassifierProperties' 
 
 -- | The time that training the document classifier completed.
 documentClassifierProperties_endTime :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe Prelude.UTCTime)
-documentClassifierProperties_endTime = Lens.lens (\DocumentClassifierProperties' {endTime} -> endTime) (\s@DocumentClassifierProperties' {} a -> s {endTime = a} :: DocumentClassifierProperties) Prelude.. Lens.mapping Core._Time
+documentClassifierProperties_endTime = Lens.lens (\DocumentClassifierProperties' {endTime} -> endTime) (\s@DocumentClassifierProperties' {} a -> s {endTime = a} :: DocumentClassifierProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The language code for the language of the documents that the classifier
 -- was trained on.
@@ -316,38 +317,38 @@ documentClassifierProperties_inputDataConfig = Lens.lens (\DocumentClassifierPro
 -- classifiers. You are billed for the time interval between this time and
 -- the value of TrainingStartTime.
 documentClassifierProperties_trainingEndTime :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe Prelude.UTCTime)
-documentClassifierProperties_trainingEndTime = Lens.lens (\DocumentClassifierProperties' {trainingEndTime} -> trainingEndTime) (\s@DocumentClassifierProperties' {} a -> s {trainingEndTime = a} :: DocumentClassifierProperties) Prelude.. Lens.mapping Core._Time
+documentClassifierProperties_trainingEndTime = Lens.lens (\DocumentClassifierProperties' {trainingEndTime} -> trainingEndTime) (\s@DocumentClassifierProperties' {} a -> s {trainingEndTime = a} :: DocumentClassifierProperties) Prelude.. Lens.mapping Data._Time
 
 -- | Information about the document classifier, including the number of
 -- documents used for training the classifier, the number of documents used
 -- for test the classifier, and an accuracy rating.
 documentClassifierProperties_classifierMetadata :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe ClassifierMetadata)
-documentClassifierProperties_classifierMetadata = Lens.lens (\DocumentClassifierProperties' {classifierMetadata} -> classifierMetadata) (\s@DocumentClassifierProperties' {} a -> s {classifierMetadata = a} :: DocumentClassifierProperties) Prelude.. Lens.mapping Core._Sensitive
+documentClassifierProperties_classifierMetadata = Lens.lens (\DocumentClassifierProperties' {classifierMetadata} -> classifierMetadata) (\s@DocumentClassifierProperties' {} a -> s {classifierMetadata = a} :: DocumentClassifierProperties) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON DocumentClassifierProperties where
+instance Data.FromJSON DocumentClassifierProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentClassifierProperties"
       ( \x ->
           DocumentClassifierProperties'
-            Prelude.<$> (x Core..:? "OutputDataConfig")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "ModelKmsKeyId")
-            Prelude.<*> (x Core..:? "VpcConfig")
-            Prelude.<*> (x Core..:? "SubmitTime")
-            Prelude.<*> (x Core..:? "VolumeKmsKeyId")
-            Prelude.<*> (x Core..:? "TrainingStartTime")
-            Prelude.<*> (x Core..:? "DataAccessRoleArn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "LanguageCode")
-            Prelude.<*> (x Core..:? "VersionName")
-            Prelude.<*> (x Core..:? "Mode")
-            Prelude.<*> (x Core..:? "DocumentClassifierArn")
-            Prelude.<*> (x Core..:? "SourceModelArn")
-            Prelude.<*> (x Core..:? "InputDataConfig")
-            Prelude.<*> (x Core..:? "TrainingEndTime")
-            Prelude.<*> (x Core..:? "ClassifierMetadata")
+            Prelude.<$> (x Data..:? "OutputDataConfig")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "ModelKmsKeyId")
+            Prelude.<*> (x Data..:? "VpcConfig")
+            Prelude.<*> (x Data..:? "SubmitTime")
+            Prelude.<*> (x Data..:? "VolumeKmsKeyId")
+            Prelude.<*> (x Data..:? "TrainingStartTime")
+            Prelude.<*> (x Data..:? "DataAccessRoleArn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "LanguageCode")
+            Prelude.<*> (x Data..:? "VersionName")
+            Prelude.<*> (x Data..:? "Mode")
+            Prelude.<*> (x Data..:? "DocumentClassifierArn")
+            Prelude.<*> (x Data..:? "SourceModelArn")
+            Prelude.<*> (x Data..:? "InputDataConfig")
+            Prelude.<*> (x Data..:? "TrainingEndTime")
+            Prelude.<*> (x Data..:? "ClassifierMetadata")
       )
 
 instance

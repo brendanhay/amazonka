@@ -47,6 +47,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -56,7 +57,7 @@ data BatchDetectEntities = BatchDetectEntities'
   { -- | A list containing the UTF-8 encoded text of the input documents. The
     -- list can contain a maximum of 25 documents. The maximum size of each
     -- document is 5 KB.
-    textList :: Core.Sensitive (Prelude.NonEmpty (Core.Sensitive Prelude.Text)),
+    textList :: Data.Sensitive (Prelude.NonEmpty (Data.Sensitive Prelude.Text)),
     -- | The language of the input documents. You can specify any of the primary
     -- languages supported by Amazon Comprehend. All documents must be in the
     -- same language.
@@ -88,7 +89,7 @@ newBatchDetectEntities ::
 newBatchDetectEntities pTextList_ pLanguageCode_ =
   BatchDetectEntities'
     { textList =
-        Core._Sensitive Prelude.. Lens.coerced
+        Data._Sensitive Prelude.. Lens.coerced
           Lens.# pTextList_,
       languageCode = pLanguageCode_
     }
@@ -97,7 +98,7 @@ newBatchDetectEntities pTextList_ pLanguageCode_ =
 -- list can contain a maximum of 25 documents. The maximum size of each
 -- document is 5 KB.
 batchDetectEntities_textList :: Lens.Lens' BatchDetectEntities (Prelude.NonEmpty Prelude.Text)
-batchDetectEntities_textList = Lens.lens (\BatchDetectEntities' {textList} -> textList) (\s@BatchDetectEntities' {} a -> s {textList = a} :: BatchDetectEntities) Prelude.. Core._Sensitive Prelude.. Lens.coerced
+batchDetectEntities_textList = Lens.lens (\BatchDetectEntities' {textList} -> textList) (\s@BatchDetectEntities' {} a -> s {textList = a} :: BatchDetectEntities) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
 -- | The language of the input documents. You can specify any of the primary
 -- languages supported by Amazon Comprehend. All documents must be in the
@@ -116,8 +117,8 @@ instance Core.AWSRequest BatchDetectEntities where
       ( \s h x ->
           BatchDetectEntitiesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "ResultList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ErrorList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ResultList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ErrorList" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable BatchDetectEntities where
@@ -130,34 +131,34 @@ instance Prelude.NFData BatchDetectEntities where
     Prelude.rnf textList
       `Prelude.seq` Prelude.rnf languageCode
 
-instance Core.ToHeaders BatchDetectEntities where
+instance Data.ToHeaders BatchDetectEntities where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.BatchDetectEntities" ::
+              Data.=# ( "Comprehend_20171127.BatchDetectEntities" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchDetectEntities where
+instance Data.ToJSON BatchDetectEntities where
   toJSON BatchDetectEntities' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("TextList" Core..= textList),
-            Prelude.Just ("LanguageCode" Core..= languageCode)
+          [ Prelude.Just ("TextList" Data..= textList),
+            Prelude.Just ("LanguageCode" Data..= languageCode)
           ]
       )
 
-instance Core.ToPath BatchDetectEntities where
+instance Data.ToPath BatchDetectEntities where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchDetectEntities where
+instance Data.ToQuery BatchDetectEntities where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchDetectEntitiesResponse' smart constructor.

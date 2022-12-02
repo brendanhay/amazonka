@@ -44,6 +44,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,7 +102,7 @@ instance Core.AWSRequest DetectPiiEntities where
     Response.receiveJSON
       ( \s h x ->
           DetectPiiEntitiesResponse'
-            Prelude.<$> (x Core..?> "Entities" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Entities" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,34 +116,34 @@ instance Prelude.NFData DetectPiiEntities where
     Prelude.rnf text
       `Prelude.seq` Prelude.rnf languageCode
 
-instance Core.ToHeaders DetectPiiEntities where
+instance Data.ToHeaders DetectPiiEntities where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.DetectPiiEntities" ::
+              Data.=# ( "Comprehend_20171127.DetectPiiEntities" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DetectPiiEntities where
+instance Data.ToJSON DetectPiiEntities where
   toJSON DetectPiiEntities' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Text" Core..= text),
-            Prelude.Just ("LanguageCode" Core..= languageCode)
+          [ Prelude.Just ("Text" Data..= text),
+            Prelude.Just ("LanguageCode" Data..= languageCode)
           ]
       )
 
-instance Core.ToPath DetectPiiEntities where
+instance Data.ToPath DetectPiiEntities where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DetectPiiEntities where
+instance Data.ToQuery DetectPiiEntities where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetectPiiEntitiesResponse' smart constructor.

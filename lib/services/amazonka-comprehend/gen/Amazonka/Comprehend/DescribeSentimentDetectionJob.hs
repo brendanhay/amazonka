@@ -43,6 +43,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,7 +91,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeSentimentDetectionJobResponse'
-            Prelude.<$> (x Core..?> "SentimentDetectionJobProperties")
+            Prelude.<$> (x Data..?> "SentimentDetectionJobProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -105,32 +106,32 @@ instance Prelude.NFData DescribeSentimentDetectionJob where
   rnf DescribeSentimentDetectionJob' {..} =
     Prelude.rnf jobId
 
-instance Core.ToHeaders DescribeSentimentDetectionJob where
+instance Data.ToHeaders DescribeSentimentDetectionJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.DescribeSentimentDetectionJob" ::
+              Data.=# ( "Comprehend_20171127.DescribeSentimentDetectionJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeSentimentDetectionJob where
+instance Data.ToJSON DescribeSentimentDetectionJob where
   toJSON DescribeSentimentDetectionJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Core..= jobId)]
+          [Prelude.Just ("JobId" Data..= jobId)]
       )
 
-instance Core.ToPath DescribeSentimentDetectionJob where
+instance Data.ToPath DescribeSentimentDetectionJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSentimentDetectionJob where
+instance Data.ToQuery DescribeSentimentDetectionJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSentimentDetectionJobResponse' smart constructor.

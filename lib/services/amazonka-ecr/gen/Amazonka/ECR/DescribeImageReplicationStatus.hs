@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,11 +118,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeImageReplicationStatusResponse'
-            Prelude.<$> ( x Core..?> "replicationStatuses"
+            Prelude.<$> ( x Data..?> "replicationStatuses"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "repositoryName")
-            Prelude.<*> (x Core..?> "imageId")
+            Prelude.<*> (x Data..?> "repositoryName")
+            Prelude.<*> (x Data..?> "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,38 +147,38 @@ instance
       `Prelude.seq` Prelude.rnf imageId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeImageReplicationStatus
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.DescribeImageReplicationStatus" ::
+              Data.=# ( "AmazonEC2ContainerRegistry_V20150921.DescribeImageReplicationStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeImageReplicationStatus where
+instance Data.ToJSON DescribeImageReplicationStatus where
   toJSON DescribeImageReplicationStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("registryId" Core..=) Prelude.<$> registryId,
+          [ ("registryId" Data..=) Prelude.<$> registryId,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
-            Prelude.Just ("imageId" Core..= imageId)
+              ("repositoryName" Data..= repositoryName),
+            Prelude.Just ("imageId" Data..= imageId)
           ]
       )
 
-instance Core.ToPath DescribeImageReplicationStatus where
+instance Data.ToPath DescribeImageReplicationStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeImageReplicationStatus where
+instance Data.ToQuery DescribeImageReplicationStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeImageReplicationStatusResponse' smart constructor.

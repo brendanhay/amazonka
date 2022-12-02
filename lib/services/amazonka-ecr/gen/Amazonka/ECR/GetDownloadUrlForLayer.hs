@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,8 +130,8 @@ instance Core.AWSRequest GetDownloadUrlForLayer where
     Response.receiveJSON
       ( \s h x ->
           GetDownloadUrlForLayerResponse'
-            Prelude.<$> (x Core..?> "downloadUrl")
-            Prelude.<*> (x Core..?> "layerDigest")
+            Prelude.<$> (x Data..?> "downloadUrl")
+            Prelude.<*> (x Data..?> "layerDigest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,36 +147,36 @@ instance Prelude.NFData GetDownloadUrlForLayer where
       `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf layerDigest
 
-instance Core.ToHeaders GetDownloadUrlForLayer where
+instance Data.ToHeaders GetDownloadUrlForLayer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.GetDownloadUrlForLayer" ::
+              Data.=# ( "AmazonEC2ContainerRegistry_V20150921.GetDownloadUrlForLayer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDownloadUrlForLayer where
+instance Data.ToJSON GetDownloadUrlForLayer where
   toJSON GetDownloadUrlForLayer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("registryId" Core..=) Prelude.<$> registryId,
+          [ ("registryId" Data..=) Prelude.<$> registryId,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
-            Prelude.Just ("layerDigest" Core..= layerDigest)
+              ("repositoryName" Data..= repositoryName),
+            Prelude.Just ("layerDigest" Data..= layerDigest)
           ]
       )
 
-instance Core.ToPath GetDownloadUrlForLayer where
+instance Data.ToPath GetDownloadUrlForLayer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDownloadUrlForLayer where
+instance Data.ToQuery GetDownloadUrlForLayer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDownloadUrlForLayerResponse' smart constructor.

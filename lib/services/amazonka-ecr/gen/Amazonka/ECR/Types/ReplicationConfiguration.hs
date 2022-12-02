@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.ReplicationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types.ReplicationRule
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newReplicationConfiguration =
 replicationConfiguration_rules :: Lens.Lens' ReplicationConfiguration [ReplicationRule]
 replicationConfiguration_rules = Lens.lens (\ReplicationConfiguration' {rules} -> rules) (\s@ReplicationConfiguration' {} a -> s {rules = a} :: ReplicationConfiguration) Prelude.. Lens.coerced
 
-instance Core.FromJSON ReplicationConfiguration where
+instance Data.FromJSON ReplicationConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicationConfiguration"
       ( \x ->
           ReplicationConfiguration'
-            Prelude.<$> (x Core..:? "rules" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "rules" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ReplicationConfiguration where
@@ -70,9 +71,9 @@ instance Prelude.Hashable ReplicationConfiguration where
 instance Prelude.NFData ReplicationConfiguration where
   rnf ReplicationConfiguration' {..} = Prelude.rnf rules
 
-instance Core.ToJSON ReplicationConfiguration where
+instance Data.ToJSON ReplicationConfiguration where
   toJSON ReplicationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("rules" Core..= rules)]
+          [Prelude.Just ("rules" Data..= rules)]
       )

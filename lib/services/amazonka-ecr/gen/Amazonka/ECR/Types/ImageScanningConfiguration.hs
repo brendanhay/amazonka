@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.ImageScanningConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The image scanning configuration for a repository.
@@ -71,13 +72,13 @@ newImageScanningConfiguration =
 imageScanningConfiguration_scanOnPush :: Lens.Lens' ImageScanningConfiguration (Prelude.Maybe Prelude.Bool)
 imageScanningConfiguration_scanOnPush = Lens.lens (\ImageScanningConfiguration' {scanOnPush} -> scanOnPush) (\s@ImageScanningConfiguration' {} a -> s {scanOnPush = a} :: ImageScanningConfiguration)
 
-instance Core.FromJSON ImageScanningConfiguration where
+instance Data.FromJSON ImageScanningConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageScanningConfiguration"
       ( \x ->
           ImageScanningConfiguration'
-            Prelude.<$> (x Core..:? "scanOnPush")
+            Prelude.<$> (x Data..:? "scanOnPush")
       )
 
 instance Prelude.Hashable ImageScanningConfiguration where
@@ -88,9 +89,9 @@ instance Prelude.NFData ImageScanningConfiguration where
   rnf ImageScanningConfiguration' {..} =
     Prelude.rnf scanOnPush
 
-instance Core.ToJSON ImageScanningConfiguration where
+instance Data.ToJSON ImageScanningConfiguration where
   toJSON ImageScanningConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("scanOnPush" Core..=) Prelude.<$> scanOnPush]
+          [("scanOnPush" Data..=) Prelude.<$> scanOnPush]
       )

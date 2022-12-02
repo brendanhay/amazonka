@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -193,8 +194,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribePullThroughCacheRulesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "pullThroughCacheRules"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "pullThroughCacheRules"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -217,37 +218,37 @@ instance Prelude.NFData DescribePullThroughCacheRules where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf registryId
 
-instance Core.ToHeaders DescribePullThroughCacheRules where
+instance Data.ToHeaders DescribePullThroughCacheRules where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.DescribePullThroughCacheRules" ::
+              Data.=# ( "AmazonEC2ContainerRegistry_V20150921.DescribePullThroughCacheRules" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribePullThroughCacheRules where
+instance Data.ToJSON DescribePullThroughCacheRules where
   toJSON DescribePullThroughCacheRules' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("ecrRepositoryPrefixes" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("ecrRepositoryPrefixes" Data..=)
               Prelude.<$> ecrRepositoryPrefixes,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("registryId" Core..=) Prelude.<$> registryId
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("registryId" Data..=) Prelude.<$> registryId
           ]
       )
 
-instance Core.ToPath DescribePullThroughCacheRules where
+instance Data.ToPath DescribePullThroughCacheRules where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribePullThroughCacheRules where
+instance Data.ToQuery DescribePullThroughCacheRules where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePullThroughCacheRulesResponse' smart constructor.

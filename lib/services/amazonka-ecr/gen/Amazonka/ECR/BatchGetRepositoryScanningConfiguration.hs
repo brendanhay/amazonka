@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,10 +94,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchGetRepositoryScanningConfigurationResponse'
-            Prelude.<$> ( x Core..?> "scanningConfigurations"
+            Prelude.<$> ( x Data..?> "scanningConfigurations"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Core..?> "failures" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "failures" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,43 +118,43 @@ instance
     Prelude.rnf repositoryNames
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     BatchGetRepositoryScanningConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.BatchGetRepositoryScanningConfiguration" ::
+              Data.=# ( "AmazonEC2ContainerRegistry_V20150921.BatchGetRepositoryScanningConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     BatchGetRepositoryScanningConfiguration
   where
   toJSON BatchGetRepositoryScanningConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("repositoryNames" Core..= repositoryNames)
+              ("repositoryNames" Data..= repositoryNames)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     BatchGetRepositoryScanningConfiguration
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     BatchGetRepositoryScanningConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

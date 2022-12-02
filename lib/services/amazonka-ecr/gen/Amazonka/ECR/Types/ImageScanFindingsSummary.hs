@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.ImageScanFindingsSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types.FindingSeverity
 import qualified Amazonka.Prelude as Prelude
 
@@ -29,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newImageScanFindingsSummary' smart constructor.
 data ImageScanFindingsSummary = ImageScanFindingsSummary'
   { -- | The time when the vulnerability data was last scanned.
-    vulnerabilitySourceUpdatedAt :: Prelude.Maybe Core.POSIX,
+    vulnerabilitySourceUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The image vulnerability counts, sorted by severity.
     findingSeverityCounts :: Prelude.Maybe (Prelude.HashMap FindingSeverity Prelude.Natural),
     -- | The time of the last completed image scan.
-    imageScanCompletedAt :: Prelude.Maybe Core.POSIX
+    imageScanCompletedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,7 +63,7 @@ newImageScanFindingsSummary =
 
 -- | The time when the vulnerability data was last scanned.
 imageScanFindingsSummary_vulnerabilitySourceUpdatedAt :: Lens.Lens' ImageScanFindingsSummary (Prelude.Maybe Prelude.UTCTime)
-imageScanFindingsSummary_vulnerabilitySourceUpdatedAt = Lens.lens (\ImageScanFindingsSummary' {vulnerabilitySourceUpdatedAt} -> vulnerabilitySourceUpdatedAt) (\s@ImageScanFindingsSummary' {} a -> s {vulnerabilitySourceUpdatedAt = a} :: ImageScanFindingsSummary) Prelude.. Lens.mapping Core._Time
+imageScanFindingsSummary_vulnerabilitySourceUpdatedAt = Lens.lens (\ImageScanFindingsSummary' {vulnerabilitySourceUpdatedAt} -> vulnerabilitySourceUpdatedAt) (\s@ImageScanFindingsSummary' {} a -> s {vulnerabilitySourceUpdatedAt = a} :: ImageScanFindingsSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The image vulnerability counts, sorted by severity.
 imageScanFindingsSummary_findingSeverityCounts :: Lens.Lens' ImageScanFindingsSummary (Prelude.Maybe (Prelude.HashMap FindingSeverity Prelude.Natural))
@@ -70,19 +71,19 @@ imageScanFindingsSummary_findingSeverityCounts = Lens.lens (\ImageScanFindingsSu
 
 -- | The time of the last completed image scan.
 imageScanFindingsSummary_imageScanCompletedAt :: Lens.Lens' ImageScanFindingsSummary (Prelude.Maybe Prelude.UTCTime)
-imageScanFindingsSummary_imageScanCompletedAt = Lens.lens (\ImageScanFindingsSummary' {imageScanCompletedAt} -> imageScanCompletedAt) (\s@ImageScanFindingsSummary' {} a -> s {imageScanCompletedAt = a} :: ImageScanFindingsSummary) Prelude.. Lens.mapping Core._Time
+imageScanFindingsSummary_imageScanCompletedAt = Lens.lens (\ImageScanFindingsSummary' {imageScanCompletedAt} -> imageScanCompletedAt) (\s@ImageScanFindingsSummary' {} a -> s {imageScanCompletedAt = a} :: ImageScanFindingsSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ImageScanFindingsSummary where
+instance Data.FromJSON ImageScanFindingsSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageScanFindingsSummary"
       ( \x ->
           ImageScanFindingsSummary'
-            Prelude.<$> (x Core..:? "vulnerabilitySourceUpdatedAt")
-            Prelude.<*> ( x Core..:? "findingSeverityCounts"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "vulnerabilitySourceUpdatedAt")
+            Prelude.<*> ( x Data..:? "findingSeverityCounts"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "imageScanCompletedAt")
+            Prelude.<*> (x Data..:? "imageScanCompletedAt")
       )
 
 instance Prelude.Hashable ImageScanFindingsSummary where

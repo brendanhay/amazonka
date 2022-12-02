@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.ImageReplicationStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types.ReplicationStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -84,16 +85,16 @@ imageReplicationStatus_region = Lens.lens (\ImageReplicationStatus' {region} -> 
 imageReplicationStatus_registryId :: Lens.Lens' ImageReplicationStatus (Prelude.Maybe Prelude.Text)
 imageReplicationStatus_registryId = Lens.lens (\ImageReplicationStatus' {registryId} -> registryId) (\s@ImageReplicationStatus' {} a -> s {registryId = a} :: ImageReplicationStatus)
 
-instance Core.FromJSON ImageReplicationStatus where
+instance Data.FromJSON ImageReplicationStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageReplicationStatus"
       ( \x ->
           ImageReplicationStatus'
-            Prelude.<$> (x Core..:? "failureCode")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..:? "registryId")
+            Prelude.<$> (x Data..:? "failureCode")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..:? "registryId")
       )
 
 instance Prelude.Hashable ImageReplicationStatus where

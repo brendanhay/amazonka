@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,9 +139,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           PutImageScanningConfigurationResponse'
-            Prelude.<$> (x Core..?> "repositoryName")
-            Prelude.<*> (x Core..?> "registryId")
-            Prelude.<*> (x Core..?> "imageScanningConfiguration")
+            Prelude.<$> (x Data..?> "repositoryName")
+            Prelude.<*> (x Data..?> "registryId")
+            Prelude.<*> (x Data..?> "imageScanningConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,39 +160,39 @@ instance Prelude.NFData PutImageScanningConfiguration where
       `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf imageScanningConfiguration
 
-instance Core.ToHeaders PutImageScanningConfiguration where
+instance Data.ToHeaders PutImageScanningConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.PutImageScanningConfiguration" ::
+              Data.=# ( "AmazonEC2ContainerRegistry_V20150921.PutImageScanningConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutImageScanningConfiguration where
+instance Data.ToJSON PutImageScanningConfiguration where
   toJSON PutImageScanningConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("registryId" Core..=) Prelude.<$> registryId,
+          [ ("registryId" Data..=) Prelude.<$> registryId,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
+              ("repositoryName" Data..= repositoryName),
             Prelude.Just
               ( "imageScanningConfiguration"
-                  Core..= imageScanningConfiguration
+                  Data..= imageScanningConfiguration
               )
           ]
       )
 
-instance Core.ToPath PutImageScanningConfiguration where
+instance Data.ToPath PutImageScanningConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutImageScanningConfiguration where
+instance Data.ToQuery PutImageScanningConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutImageScanningConfigurationResponse' smart constructor.

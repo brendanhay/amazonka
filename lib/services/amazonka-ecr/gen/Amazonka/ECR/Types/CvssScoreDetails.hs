@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.CvssScoreDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types.CvssScoreAdjustment
 import qualified Amazonka.Prelude as Prelude
 
@@ -92,17 +93,17 @@ cvssScoreDetails_adjustments = Lens.lens (\CvssScoreDetails' {adjustments} -> ad
 cvssScoreDetails_version :: Lens.Lens' CvssScoreDetails (Prelude.Maybe Prelude.Text)
 cvssScoreDetails_version = Lens.lens (\CvssScoreDetails' {version} -> version) (\s@CvssScoreDetails' {} a -> s {version = a} :: CvssScoreDetails)
 
-instance Core.FromJSON CvssScoreDetails where
+instance Data.FromJSON CvssScoreDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CvssScoreDetails"
       ( \x ->
           CvssScoreDetails'
-            Prelude.<$> (x Core..:? "score")
-            Prelude.<*> (x Core..:? "scoreSource")
-            Prelude.<*> (x Core..:? "scoringVector")
-            Prelude.<*> (x Core..:? "adjustments" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "score")
+            Prelude.<*> (x Data..:? "scoreSource")
+            Prelude.<*> (x Data..:? "scoringVector")
+            Prelude.<*> (x Data..:? "adjustments" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable CvssScoreDetails where

@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.RegistryScanningConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types.RegistryScanningRule
 import Amazonka.ECR.Types.ScanType
 import qualified Amazonka.Prelude as Prelude
@@ -64,14 +65,14 @@ registryScanningConfiguration_rules = Lens.lens (\RegistryScanningConfiguration'
 registryScanningConfiguration_scanType :: Lens.Lens' RegistryScanningConfiguration (Prelude.Maybe ScanType)
 registryScanningConfiguration_scanType = Lens.lens (\RegistryScanningConfiguration' {scanType} -> scanType) (\s@RegistryScanningConfiguration' {} a -> s {scanType = a} :: RegistryScanningConfiguration)
 
-instance Core.FromJSON RegistryScanningConfiguration where
+instance Data.FromJSON RegistryScanningConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RegistryScanningConfiguration"
       ( \x ->
           RegistryScanningConfiguration'
-            Prelude.<$> (x Core..:? "rules" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "scanType")
+            Prelude.<$> (x Data..:? "rules" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "scanType")
       )
 
 instance

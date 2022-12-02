@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,8 +112,8 @@ instance Core.AWSRequest InitiateLayerUpload where
     Response.receiveJSON
       ( \s h x ->
           InitiateLayerUploadResponse'
-            Prelude.<$> (x Core..?> "uploadId")
-            Prelude.<*> (x Core..?> "partSize")
+            Prelude.<$> (x Data..?> "uploadId")
+            Prelude.<*> (x Data..?> "partSize")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,35 +127,35 @@ instance Prelude.NFData InitiateLayerUpload where
     Prelude.rnf registryId
       `Prelude.seq` Prelude.rnf repositoryName
 
-instance Core.ToHeaders InitiateLayerUpload where
+instance Data.ToHeaders InitiateLayerUpload where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.InitiateLayerUpload" ::
+              Data.=# ( "AmazonEC2ContainerRegistry_V20150921.InitiateLayerUpload" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON InitiateLayerUpload where
+instance Data.ToJSON InitiateLayerUpload where
   toJSON InitiateLayerUpload' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("registryId" Core..=) Prelude.<$> registryId,
+          [ ("registryId" Data..=) Prelude.<$> registryId,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName)
+              ("repositoryName" Data..= repositoryName)
           ]
       )
 
-instance Core.ToPath InitiateLayerUpload where
+instance Data.ToPath InitiateLayerUpload where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery InitiateLayerUpload where
+instance Data.ToQuery InitiateLayerUpload where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newInitiateLayerUploadResponse' smart constructor.

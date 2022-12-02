@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.RegistryScanningRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types.ScanFrequency
 import Amazonka.ECR.Types.ScanningRepositoryFilter
 import qualified Amazonka.Prelude as Prelude
@@ -81,15 +82,15 @@ registryScanningRule_scanFrequency = Lens.lens (\RegistryScanningRule' {scanFreq
 registryScanningRule_repositoryFilters :: Lens.Lens' RegistryScanningRule [ScanningRepositoryFilter]
 registryScanningRule_repositoryFilters = Lens.lens (\RegistryScanningRule' {repositoryFilters} -> repositoryFilters) (\s@RegistryScanningRule' {} a -> s {repositoryFilters = a} :: RegistryScanningRule) Prelude.. Lens.coerced
 
-instance Core.FromJSON RegistryScanningRule where
+instance Data.FromJSON RegistryScanningRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RegistryScanningRule"
       ( \x ->
           RegistryScanningRule'
-            Prelude.<$> (x Core..: "scanFrequency")
-            Prelude.<*> ( x Core..:? "repositoryFilters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..: "scanFrequency")
+            Prelude.<*> ( x Data..:? "repositoryFilters"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -103,13 +104,13 @@ instance Prelude.NFData RegistryScanningRule where
     Prelude.rnf scanFrequency
       `Prelude.seq` Prelude.rnf repositoryFilters
 
-instance Core.ToJSON RegistryScanningRule where
+instance Data.ToJSON RegistryScanningRule where
   toJSON RegistryScanningRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("scanFrequency" Core..= scanFrequency),
+              ("scanFrequency" Data..= scanFrequency),
             Prelude.Just
-              ("repositoryFilters" Core..= repositoryFilters)
+              ("repositoryFilters" Data..= repositoryFilters)
           ]
       )

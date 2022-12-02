@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.RepositoryScanningConfigurationFailure where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types.ScanningConfigurationFailureCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,17 +75,17 @@ repositoryScanningConfigurationFailure_failureReason :: Lens.Lens' RepositorySca
 repositoryScanningConfigurationFailure_failureReason = Lens.lens (\RepositoryScanningConfigurationFailure' {failureReason} -> failureReason) (\s@RepositoryScanningConfigurationFailure' {} a -> s {failureReason = a} :: RepositoryScanningConfigurationFailure)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RepositoryScanningConfigurationFailure
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RepositoryScanningConfigurationFailure"
       ( \x ->
           RepositoryScanningConfigurationFailure'
-            Prelude.<$> (x Core..:? "failureCode")
-            Prelude.<*> (x Core..:? "repositoryName")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<$> (x Data..:? "failureCode")
+            Prelude.<*> (x Data..:? "repositoryName")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -182,7 +183,7 @@ instance Core.AWSRequest CreateRepository where
     Response.receiveJSON
       ( \s h x ->
           CreateRepositoryResponse'
-            Prelude.<$> (x Core..?> "repository")
+            Prelude.<$> (x Data..?> "repository")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,42 +205,42 @@ instance Prelude.NFData CreateRepository where
       `Prelude.seq` Prelude.rnf imageScanningConfiguration
       `Prelude.seq` Prelude.rnf repositoryName
 
-instance Core.ToHeaders CreateRepository where
+instance Data.ToHeaders CreateRepository where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.CreateRepository" ::
+              Data.=# ( "AmazonEC2ContainerRegistry_V20150921.CreateRepository" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRepository where
+instance Data.ToJSON CreateRepository where
   toJSON CreateRepository' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("imageTagMutability" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("imageTagMutability" Data..=)
               Prelude.<$> imageTagMutability,
-            ("encryptionConfiguration" Core..=)
+            ("encryptionConfiguration" Data..=)
               Prelude.<$> encryptionConfiguration,
-            ("registryId" Core..=) Prelude.<$> registryId,
-            ("imageScanningConfiguration" Core..=)
+            ("registryId" Data..=) Prelude.<$> registryId,
+            ("imageScanningConfiguration" Data..=)
               Prelude.<$> imageScanningConfiguration,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName)
+              ("repositoryName" Data..= repositoryName)
           ]
       )
 
-instance Core.ToPath CreateRepository where
+instance Data.ToPath CreateRepository where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateRepository where
+instance Data.ToQuery CreateRepository where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRepositoryResponse' smart constructor.

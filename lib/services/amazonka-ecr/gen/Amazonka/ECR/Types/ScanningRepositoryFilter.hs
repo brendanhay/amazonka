@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.ScanningRepositoryFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types.ScanningRepositoryFilterType
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,14 +70,14 @@ scanningRepositoryFilter_filter = Lens.lens (\ScanningRepositoryFilter' {filter'
 scanningRepositoryFilter_filterType :: Lens.Lens' ScanningRepositoryFilter ScanningRepositoryFilterType
 scanningRepositoryFilter_filterType = Lens.lens (\ScanningRepositoryFilter' {filterType} -> filterType) (\s@ScanningRepositoryFilter' {} a -> s {filterType = a} :: ScanningRepositoryFilter)
 
-instance Core.FromJSON ScanningRepositoryFilter where
+instance Data.FromJSON ScanningRepositoryFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScanningRepositoryFilter"
       ( \x ->
           ScanningRepositoryFilter'
-            Prelude.<$> (x Core..: "filter")
-            Prelude.<*> (x Core..: "filterType")
+            Prelude.<$> (x Data..: "filter")
+            Prelude.<*> (x Data..: "filterType")
       )
 
 instance Prelude.Hashable ScanningRepositoryFilter where
@@ -89,11 +90,11 @@ instance Prelude.NFData ScanningRepositoryFilter where
     Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf filterType
 
-instance Core.ToJSON ScanningRepositoryFilter where
+instance Data.ToJSON ScanningRepositoryFilter where
   toJSON ScanningRepositoryFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("filter" Core..= filter'),
-            Prelude.Just ("filterType" Core..= filterType)
+          [ Prelude.Just ("filter" Data..= filter'),
+            Prelude.Just ("filterType" Data..= filterType)
           ]
       )

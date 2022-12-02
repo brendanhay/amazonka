@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -221,13 +222,13 @@ instance Core.AWSRequest GetLifecyclePolicyPreview where
     Response.receiveJSON
       ( \s h x ->
           GetLifecyclePolicyPreviewResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "repositoryName")
-            Prelude.<*> (x Core..?> "summary")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "registryId")
-            Prelude.<*> (x Core..?> "previewResults" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "lifecyclePolicyText")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "repositoryName")
+            Prelude.<*> (x Data..?> "summary")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "registryId")
+            Prelude.<*> (x Data..?> "previewResults" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "lifecyclePolicyText")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -249,39 +250,39 @@ instance Prelude.NFData GetLifecyclePolicyPreview where
       `Prelude.seq` Prelude.rnf registryId
       `Prelude.seq` Prelude.rnf repositoryName
 
-instance Core.ToHeaders GetLifecyclePolicyPreview where
+instance Data.ToHeaders GetLifecyclePolicyPreview where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicyPreview" ::
+              Data.=# ( "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicyPreview" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetLifecyclePolicyPreview where
+instance Data.ToJSON GetLifecyclePolicyPreview where
   toJSON GetLifecyclePolicyPreview' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("imageIds" Core..=) Prelude.<$> imageIds,
-            ("filter" Core..=) Prelude.<$> filter',
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("registryId" Core..=) Prelude.<$> registryId,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("imageIds" Data..=) Prelude.<$> imageIds,
+            ("filter" Data..=) Prelude.<$> filter',
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("registryId" Data..=) Prelude.<$> registryId,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName)
+              ("repositoryName" Data..= repositoryName)
           ]
       )
 
-instance Core.ToPath GetLifecyclePolicyPreview where
+instance Data.ToPath GetLifecyclePolicyPreview where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetLifecyclePolicyPreview where
+instance Data.ToQuery GetLifecyclePolicyPreview where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLifecyclePolicyPreviewResponse' smart constructor.

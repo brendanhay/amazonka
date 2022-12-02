@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -210,12 +211,12 @@ instance Core.AWSRequest DescribeImageScanFindings where
     Response.receiveJSON
       ( \s h x ->
           DescribeImageScanFindingsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "repositoryName")
-            Prelude.<*> (x Core..?> "registryId")
-            Prelude.<*> (x Core..?> "imageScanStatus")
-            Prelude.<*> (x Core..?> "imageScanFindings")
-            Prelude.<*> (x Core..?> "imageId")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "repositoryName")
+            Prelude.<*> (x Data..?> "registryId")
+            Prelude.<*> (x Data..?> "imageScanStatus")
+            Prelude.<*> (x Data..?> "imageScanFindings")
+            Prelude.<*> (x Data..?> "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -235,38 +236,38 @@ instance Prelude.NFData DescribeImageScanFindings where
       `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf imageId
 
-instance Core.ToHeaders DescribeImageScanFindings where
+instance Data.ToHeaders DescribeImageScanFindings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.DescribeImageScanFindings" ::
+              Data.=# ( "AmazonEC2ContainerRegistry_V20150921.DescribeImageScanFindings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeImageScanFindings where
+instance Data.ToJSON DescribeImageScanFindings where
   toJSON DescribeImageScanFindings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("registryId" Core..=) Prelude.<$> registryId,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("registryId" Data..=) Prelude.<$> registryId,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
-            Prelude.Just ("imageId" Core..= imageId)
+              ("repositoryName" Data..= repositoryName),
+            Prelude.Just ("imageId" Data..= imageId)
           ]
       )
 
-instance Core.ToPath DescribeImageScanFindings where
+instance Data.ToPath DescribeImageScanFindings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeImageScanFindings where
+instance Data.ToQuery DescribeImageScanFindings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeImageScanFindingsResponse' smart constructor.

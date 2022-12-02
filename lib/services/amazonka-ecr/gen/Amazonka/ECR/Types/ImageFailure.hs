@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.ImageFailure where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types.ImageFailureCode
 import Amazonka.ECR.Types.ImageIdentifier
 import qualified Amazonka.Prelude as Prelude
@@ -72,15 +73,15 @@ imageFailure_imageId = Lens.lens (\ImageFailure' {imageId} -> imageId) (\s@Image
 imageFailure_failureReason :: Lens.Lens' ImageFailure (Prelude.Maybe Prelude.Text)
 imageFailure_failureReason = Lens.lens (\ImageFailure' {failureReason} -> failureReason) (\s@ImageFailure' {} a -> s {failureReason = a} :: ImageFailure)
 
-instance Core.FromJSON ImageFailure where
+instance Data.FromJSON ImageFailure where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageFailure"
       ( \x ->
           ImageFailure'
-            Prelude.<$> (x Core..:? "failureCode")
-            Prelude.<*> (x Core..:? "imageId")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<$> (x Data..:? "failureCode")
+            Prelude.<*> (x Data..:? "imageId")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance Prelude.Hashable ImageFailure where

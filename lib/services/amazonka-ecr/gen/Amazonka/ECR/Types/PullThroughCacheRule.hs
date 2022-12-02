@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.PullThroughCacheRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of a pull through cache rule.
@@ -36,7 +37,7 @@ data PullThroughCacheRule = PullThroughCacheRule'
     -- rule.
     ecrRepositoryPrefix :: Prelude.Maybe Prelude.Text,
     -- | The date and time the pull through cache was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,18 +85,18 @@ pullThroughCacheRule_ecrRepositoryPrefix = Lens.lens (\PullThroughCacheRule' {ec
 
 -- | The date and time the pull through cache was created.
 pullThroughCacheRule_createdAt :: Lens.Lens' PullThroughCacheRule (Prelude.Maybe Prelude.UTCTime)
-pullThroughCacheRule_createdAt = Lens.lens (\PullThroughCacheRule' {createdAt} -> createdAt) (\s@PullThroughCacheRule' {} a -> s {createdAt = a} :: PullThroughCacheRule) Prelude.. Lens.mapping Core._Time
+pullThroughCacheRule_createdAt = Lens.lens (\PullThroughCacheRule' {createdAt} -> createdAt) (\s@PullThroughCacheRule' {} a -> s {createdAt = a} :: PullThroughCacheRule) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON PullThroughCacheRule where
+instance Data.FromJSON PullThroughCacheRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PullThroughCacheRule"
       ( \x ->
           PullThroughCacheRule'
-            Prelude.<$> (x Core..:? "upstreamRegistryUrl")
-            Prelude.<*> (x Core..:? "registryId")
-            Prelude.<*> (x Core..:? "ecrRepositoryPrefix")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "upstreamRegistryUrl")
+            Prelude.<*> (x Data..:? "registryId")
+            Prelude.<*> (x Data..:? "ecrRepositoryPrefix")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable PullThroughCacheRule where

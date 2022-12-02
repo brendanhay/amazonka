@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.ReplicationDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An array of objects representing the destination for a replication rule.
@@ -71,14 +72,14 @@ replicationDestination_region = Lens.lens (\ReplicationDestination' {region} -> 
 replicationDestination_registryId :: Lens.Lens' ReplicationDestination Prelude.Text
 replicationDestination_registryId = Lens.lens (\ReplicationDestination' {registryId} -> registryId) (\s@ReplicationDestination' {} a -> s {registryId = a} :: ReplicationDestination)
 
-instance Core.FromJSON ReplicationDestination where
+instance Data.FromJSON ReplicationDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicationDestination"
       ( \x ->
           ReplicationDestination'
-            Prelude.<$> (x Core..: "region")
-            Prelude.<*> (x Core..: "registryId")
+            Prelude.<$> (x Data..: "region")
+            Prelude.<*> (x Data..: "registryId")
       )
 
 instance Prelude.Hashable ReplicationDestination where
@@ -91,11 +92,11 @@ instance Prelude.NFData ReplicationDestination where
     Prelude.rnf region
       `Prelude.seq` Prelude.rnf registryId
 
-instance Core.ToJSON ReplicationDestination where
+instance Data.ToJSON ReplicationDestination where
   toJSON ReplicationDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("region" Core..= region),
-            Prelude.Just ("registryId" Core..= registryId)
+          [ Prelude.Just ("region" Data..= region),
+            Prelude.Just ("registryId" Data..= registryId)
           ]
       )

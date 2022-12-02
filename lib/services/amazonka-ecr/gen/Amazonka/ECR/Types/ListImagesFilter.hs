@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.ListImagesFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types.TagStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -61,9 +62,9 @@ instance Prelude.Hashable ListImagesFilter where
 instance Prelude.NFData ListImagesFilter where
   rnf ListImagesFilter' {..} = Prelude.rnf tagStatus
 
-instance Core.ToJSON ListImagesFilter where
+instance Data.ToJSON ListImagesFilter where
   toJSON ListImagesFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("tagStatus" Core..=) Prelude.<$> tagStatus]
+          [("tagStatus" Data..=) Prelude.<$> tagStatus]
       )

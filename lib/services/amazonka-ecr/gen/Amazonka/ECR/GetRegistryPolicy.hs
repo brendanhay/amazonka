@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -68,8 +69,8 @@ instance Core.AWSRequest GetRegistryPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetRegistryPolicyResponse'
-            Prelude.<$> (x Core..?> "policyText")
-            Prelude.<*> (x Core..?> "registryId")
+            Prelude.<$> (x Data..?> "policyText")
+            Prelude.<*> (x Data..?> "registryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -80,28 +81,28 @@ instance Prelude.Hashable GetRegistryPolicy where
 instance Prelude.NFData GetRegistryPolicy where
   rnf _ = ()
 
-instance Core.ToHeaders GetRegistryPolicy where
+instance Data.ToHeaders GetRegistryPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.GetRegistryPolicy" ::
+              Data.=# ( "AmazonEC2ContainerRegistry_V20150921.GetRegistryPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRegistryPolicy where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetRegistryPolicy where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetRegistryPolicy where
+instance Data.ToPath GetRegistryPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRegistryPolicy where
+instance Data.ToQuery GetRegistryPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRegistryPolicyResponse' smart constructor.

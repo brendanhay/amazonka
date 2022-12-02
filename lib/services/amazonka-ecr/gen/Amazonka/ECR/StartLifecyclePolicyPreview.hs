@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,10 +121,10 @@ instance Core.AWSRequest StartLifecyclePolicyPreview where
     Response.receiveJSON
       ( \s h x ->
           StartLifecyclePolicyPreviewResponse'
-            Prelude.<$> (x Core..?> "repositoryName")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "registryId")
-            Prelude.<*> (x Core..?> "lifecyclePolicyText")
+            Prelude.<$> (x Data..?> "repositoryName")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "registryId")
+            Prelude.<*> (x Data..?> "lifecyclePolicyText")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,37 +140,37 @@ instance Prelude.NFData StartLifecyclePolicyPreview where
       `Prelude.seq` Prelude.rnf lifecyclePolicyText
       `Prelude.seq` Prelude.rnf repositoryName
 
-instance Core.ToHeaders StartLifecyclePolicyPreview where
+instance Data.ToHeaders StartLifecyclePolicyPreview where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.StartLifecyclePolicyPreview" ::
+              Data.=# ( "AmazonEC2ContainerRegistry_V20150921.StartLifecyclePolicyPreview" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartLifecyclePolicyPreview where
+instance Data.ToJSON StartLifecyclePolicyPreview where
   toJSON StartLifecyclePolicyPreview' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("registryId" Core..=) Prelude.<$> registryId,
-            ("lifecyclePolicyText" Core..=)
+          [ ("registryId" Data..=) Prelude.<$> registryId,
+            ("lifecyclePolicyText" Data..=)
               Prelude.<$> lifecyclePolicyText,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName)
+              ("repositoryName" Data..= repositoryName)
           ]
       )
 
-instance Core.ToPath StartLifecyclePolicyPreview where
+instance Data.ToPath StartLifecyclePolicyPreview where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartLifecyclePolicyPreview where
+instance Data.ToQuery StartLifecyclePolicyPreview where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartLifecyclePolicyPreviewResponse' smart constructor.

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -145,8 +146,8 @@ instance Core.AWSRequest BatchGetImage where
     Response.receiveJSON
       ( \s h x ->
           BatchGetImageResponse'
-            Prelude.<$> (x Core..?> "failures" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "images" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "images" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,38 +165,38 @@ instance Prelude.NFData BatchGetImage where
       `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf imageIds
 
-instance Core.ToHeaders BatchGetImage where
+instance Data.ToHeaders BatchGetImage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.BatchGetImage" ::
+              Data.=# ( "AmazonEC2ContainerRegistry_V20150921.BatchGetImage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetImage where
+instance Data.ToJSON BatchGetImage where
   toJSON BatchGetImage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("acceptedMediaTypes" Core..=)
+          [ ("acceptedMediaTypes" Data..=)
               Prelude.<$> acceptedMediaTypes,
-            ("registryId" Core..=) Prelude.<$> registryId,
+            ("registryId" Data..=) Prelude.<$> registryId,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
-            Prelude.Just ("imageIds" Core..= imageIds)
+              ("repositoryName" Data..= repositoryName),
+            Prelude.Just ("imageIds" Data..= imageIds)
           ]
       )
 
-instance Core.ToPath BatchGetImage where
+instance Data.ToPath BatchGetImage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetImage where
+instance Data.ToQuery BatchGetImage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetImageResponse' smart constructor.

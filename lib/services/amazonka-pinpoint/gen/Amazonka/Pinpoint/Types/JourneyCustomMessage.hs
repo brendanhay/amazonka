@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.JourneyCustomMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the message content for a custom channel message that\'s sent
@@ -54,13 +55,13 @@ newJourneyCustomMessage =
 journeyCustomMessage_data :: Lens.Lens' JourneyCustomMessage (Prelude.Maybe Prelude.Text)
 journeyCustomMessage_data = Lens.lens (\JourneyCustomMessage' {data'} -> data') (\s@JourneyCustomMessage' {} a -> s {data' = a} :: JourneyCustomMessage)
 
-instance Core.FromJSON JourneyCustomMessage where
+instance Data.FromJSON JourneyCustomMessage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JourneyCustomMessage"
       ( \x ->
           JourneyCustomMessage'
-            Prelude.<$> (x Core..:? "Data")
+            Prelude.<$> (x Data..:? "Data")
       )
 
 instance Prelude.Hashable JourneyCustomMessage where
@@ -70,9 +71,9 @@ instance Prelude.Hashable JourneyCustomMessage where
 instance Prelude.NFData JourneyCustomMessage where
   rnf JourneyCustomMessage' {..} = Prelude.rnf data'
 
-instance Core.ToJSON JourneyCustomMessage where
+instance Data.ToJSON JourneyCustomMessage where
   toJSON JourneyCustomMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Data" Core..=) Prelude.<$> data']
+          [("Data" Data..=) Prelude.<$> data']
       )

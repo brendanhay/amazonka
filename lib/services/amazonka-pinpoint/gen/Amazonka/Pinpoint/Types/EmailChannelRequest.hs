@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.EmailChannelRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the status and settings of the email channel for an
@@ -130,15 +131,15 @@ instance Prelude.NFData EmailChannelRequest where
       `Prelude.seq` Prelude.rnf fromAddress
       `Prelude.seq` Prelude.rnf identity
 
-instance Core.ToJSON EmailChannelRequest where
+instance Data.ToJSON EmailChannelRequest where
   toJSON EmailChannelRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("ConfigurationSet" Core..=)
+          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("Enabled" Data..=) Prelude.<$> enabled,
+            ("ConfigurationSet" Data..=)
               Prelude.<$> configurationSet,
-            Prelude.Just ("FromAddress" Core..= fromAddress),
-            Prelude.Just ("Identity" Core..= identity)
+            Prelude.Just ("FromAddress" Data..= fromAddress),
+            Prelude.Just ("Identity" Data..= identity)
           ]
       )

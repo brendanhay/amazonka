@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.JourneyChannelSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The channel-specific configurations for the journey.
@@ -65,14 +66,14 @@ journeyChannelSettings_connectCampaignExecutionRoleArn = Lens.lens (\JourneyChan
 journeyChannelSettings_connectCampaignArn :: Lens.Lens' JourneyChannelSettings (Prelude.Maybe Prelude.Text)
 journeyChannelSettings_connectCampaignArn = Lens.lens (\JourneyChannelSettings' {connectCampaignArn} -> connectCampaignArn) (\s@JourneyChannelSettings' {} a -> s {connectCampaignArn = a} :: JourneyChannelSettings)
 
-instance Core.FromJSON JourneyChannelSettings where
+instance Data.FromJSON JourneyChannelSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JourneyChannelSettings"
       ( \x ->
           JourneyChannelSettings'
-            Prelude.<$> (x Core..:? "ConnectCampaignExecutionRoleArn")
-            Prelude.<*> (x Core..:? "ConnectCampaignArn")
+            Prelude.<$> (x Data..:? "ConnectCampaignExecutionRoleArn")
+            Prelude.<*> (x Data..:? "ConnectCampaignArn")
       )
 
 instance Prelude.Hashable JourneyChannelSettings where
@@ -86,13 +87,13 @@ instance Prelude.NFData JourneyChannelSettings where
     Prelude.rnf connectCampaignExecutionRoleArn
       `Prelude.seq` Prelude.rnf connectCampaignArn
 
-instance Core.ToJSON JourneyChannelSettings where
+instance Data.ToJSON JourneyChannelSettings where
   toJSON JourneyChannelSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConnectCampaignExecutionRoleArn" Core..=)
+          [ ("ConnectCampaignExecutionRoleArn" Data..=)
               Prelude.<$> connectCampaignExecutionRoleArn,
-            ("ConnectCampaignArn" Core..=)
+            ("ConnectCampaignArn" Data..=)
               Prelude.<$> connectCampaignArn
           ]
       )

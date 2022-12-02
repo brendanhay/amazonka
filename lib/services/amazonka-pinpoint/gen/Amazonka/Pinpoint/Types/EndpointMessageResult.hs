@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.EndpointMessageResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.DeliveryStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -181,18 +182,18 @@ endpointMessageResult_deliveryStatus = Lens.lens (\EndpointMessageResult' {deliv
 endpointMessageResult_statusCode :: Lens.Lens' EndpointMessageResult Prelude.Int
 endpointMessageResult_statusCode = Lens.lens (\EndpointMessageResult' {statusCode} -> statusCode) (\s@EndpointMessageResult' {} a -> s {statusCode = a} :: EndpointMessageResult)
 
-instance Core.FromJSON EndpointMessageResult where
+instance Data.FromJSON EndpointMessageResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointMessageResult"
       ( \x ->
           EndpointMessageResult'
-            Prelude.<$> (x Core..:? "UpdatedToken")
-            Prelude.<*> (x Core..:? "MessageId")
-            Prelude.<*> (x Core..:? "Address")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..: "DeliveryStatus")
-            Prelude.<*> (x Core..: "StatusCode")
+            Prelude.<$> (x Data..:? "UpdatedToken")
+            Prelude.<*> (x Data..:? "MessageId")
+            Prelude.<*> (x Data..:? "Address")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..: "DeliveryStatus")
+            Prelude.<*> (x Data..: "StatusCode")
       )
 
 instance Prelude.Hashable EndpointMessageResult where

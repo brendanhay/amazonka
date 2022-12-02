@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.MetricDimension where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies metric-based criteria for including or excluding endpoints
@@ -74,14 +75,14 @@ metricDimension_comparisonOperator = Lens.lens (\MetricDimension' {comparisonOpe
 metricDimension_value :: Lens.Lens' MetricDimension Prelude.Double
 metricDimension_value = Lens.lens (\MetricDimension' {value} -> value) (\s@MetricDimension' {} a -> s {value = a} :: MetricDimension)
 
-instance Core.FromJSON MetricDimension where
+instance Data.FromJSON MetricDimension where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricDimension"
       ( \x ->
           MetricDimension'
-            Prelude.<$> (x Core..: "ComparisonOperator")
-            Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "ComparisonOperator")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable MetricDimension where
@@ -94,12 +95,12 @@ instance Prelude.NFData MetricDimension where
     Prelude.rnf comparisonOperator
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON MetricDimension where
+instance Data.ToJSON MetricDimension where
   toJSON MetricDimension' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ComparisonOperator" Core..= comparisonOperator),
-            Prelude.Just ("Value" Core..= value)
+              ("ComparisonOperator" Data..= comparisonOperator),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

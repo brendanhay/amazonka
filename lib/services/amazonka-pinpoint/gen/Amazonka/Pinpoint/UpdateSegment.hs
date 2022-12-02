@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,7 +118,7 @@ instance Core.AWSRequest UpdateSegment where
       ( \s h x ->
           UpdateSegmentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable UpdateSegment where
@@ -132,31 +133,31 @@ instance Prelude.NFData UpdateSegment where
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf writeSegmentRequest
 
-instance Core.ToHeaders UpdateSegment where
+instance Data.ToHeaders UpdateSegment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSegment where
+instance Data.ToJSON UpdateSegment where
   toJSON UpdateSegment' {..} =
-    Core.toJSON writeSegmentRequest
+    Data.toJSON writeSegmentRequest
 
-instance Core.ToPath UpdateSegment where
+instance Data.ToPath UpdateSegment where
   toPath UpdateSegment' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/segments/",
-        Core.toBS segmentId
+        Data.toBS segmentId
       ]
 
-instance Core.ToQuery UpdateSegment where
+instance Data.ToQuery UpdateSegment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSegmentResponse' smart constructor.

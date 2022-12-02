@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.ApplicationDateRangeKpiResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.BaseKpiResult
 import qualified Amazonka.Prelude as Prelude
 
@@ -47,10 +48,10 @@ data ApplicationDateRangeKpiResponse = ApplicationDateRangeKpiResponse'
     kpiName :: Prelude.Text,
     -- | The last date and time of the date range that was used to filter the
     -- query results, in extended ISO 8601 format. The date range is inclusive.
-    endTime :: Core.POSIX,
+    endTime :: Data.POSIX,
     -- | The first date and time of the date range that was used to filter the
     -- query results, in extended ISO 8601 format. The date range is inclusive.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The unique identifier for the application that the metric applies to.
     applicationId :: Prelude.Text
   }
@@ -109,8 +110,8 @@ newApplicationDateRangeKpiResponse
           Prelude.Nothing,
         kpiResult = pKpiResult_,
         kpiName = pKpiName_,
-        endTime = Core._Time Lens.# pEndTime_,
-        startTime = Core._Time Lens.# pStartTime_,
+        endTime = Data._Time Lens.# pEndTime_,
+        startTime = Data._Time Lens.# pStartTime_,
         applicationId = pApplicationId_
       }
 
@@ -138,32 +139,32 @@ applicationDateRangeKpiResponse_kpiName = Lens.lens (\ApplicationDateRangeKpiRes
 -- | The last date and time of the date range that was used to filter the
 -- query results, in extended ISO 8601 format. The date range is inclusive.
 applicationDateRangeKpiResponse_endTime :: Lens.Lens' ApplicationDateRangeKpiResponse Prelude.UTCTime
-applicationDateRangeKpiResponse_endTime = Lens.lens (\ApplicationDateRangeKpiResponse' {endTime} -> endTime) (\s@ApplicationDateRangeKpiResponse' {} a -> s {endTime = a} :: ApplicationDateRangeKpiResponse) Prelude.. Core._Time
+applicationDateRangeKpiResponse_endTime = Lens.lens (\ApplicationDateRangeKpiResponse' {endTime} -> endTime) (\s@ApplicationDateRangeKpiResponse' {} a -> s {endTime = a} :: ApplicationDateRangeKpiResponse) Prelude.. Data._Time
 
 -- | The first date and time of the date range that was used to filter the
 -- query results, in extended ISO 8601 format. The date range is inclusive.
 applicationDateRangeKpiResponse_startTime :: Lens.Lens' ApplicationDateRangeKpiResponse Prelude.UTCTime
-applicationDateRangeKpiResponse_startTime = Lens.lens (\ApplicationDateRangeKpiResponse' {startTime} -> startTime) (\s@ApplicationDateRangeKpiResponse' {} a -> s {startTime = a} :: ApplicationDateRangeKpiResponse) Prelude.. Core._Time
+applicationDateRangeKpiResponse_startTime = Lens.lens (\ApplicationDateRangeKpiResponse' {startTime} -> startTime) (\s@ApplicationDateRangeKpiResponse' {} a -> s {startTime = a} :: ApplicationDateRangeKpiResponse) Prelude.. Data._Time
 
 -- | The unique identifier for the application that the metric applies to.
 applicationDateRangeKpiResponse_applicationId :: Lens.Lens' ApplicationDateRangeKpiResponse Prelude.Text
 applicationDateRangeKpiResponse_applicationId = Lens.lens (\ApplicationDateRangeKpiResponse' {applicationId} -> applicationId) (\s@ApplicationDateRangeKpiResponse' {} a -> s {applicationId = a} :: ApplicationDateRangeKpiResponse)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ApplicationDateRangeKpiResponse
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationDateRangeKpiResponse"
       ( \x ->
           ApplicationDateRangeKpiResponse'
-            Prelude.<$> (x Core..:? "NextToken")
-            Prelude.<*> (x Core..: "KpiResult")
-            Prelude.<*> (x Core..: "KpiName")
-            Prelude.<*> (x Core..: "EndTime")
-            Prelude.<*> (x Core..: "StartTime")
-            Prelude.<*> (x Core..: "ApplicationId")
+            Prelude.<$> (x Data..:? "NextToken")
+            Prelude.<*> (x Data..: "KpiResult")
+            Prelude.<*> (x Data..: "KpiName")
+            Prelude.<*> (x Data..: "EndTime")
+            Prelude.<*> (x Data..: "StartTime")
+            Prelude.<*> (x Data..: "ApplicationId")
       )
 
 instance

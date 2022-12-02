@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.CampaignEventFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.EventDimensions
 import Amazonka.Pinpoint.Types.FilterType
 import qualified Amazonka.Prelude as Prelude
@@ -73,14 +74,14 @@ campaignEventFilter_filterType = Lens.lens (\CampaignEventFilter' {filterType} -
 campaignEventFilter_dimensions :: Lens.Lens' CampaignEventFilter EventDimensions
 campaignEventFilter_dimensions = Lens.lens (\CampaignEventFilter' {dimensions} -> dimensions) (\s@CampaignEventFilter' {} a -> s {dimensions = a} :: CampaignEventFilter)
 
-instance Core.FromJSON CampaignEventFilter where
+instance Data.FromJSON CampaignEventFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CampaignEventFilter"
       ( \x ->
           CampaignEventFilter'
-            Prelude.<$> (x Core..: "FilterType")
-            Prelude.<*> (x Core..: "Dimensions")
+            Prelude.<$> (x Data..: "FilterType")
+            Prelude.<*> (x Data..: "Dimensions")
       )
 
 instance Prelude.Hashable CampaignEventFilter where
@@ -93,11 +94,11 @@ instance Prelude.NFData CampaignEventFilter where
     Prelude.rnf filterType
       `Prelude.seq` Prelude.rnf dimensions
 
-instance Core.ToJSON CampaignEventFilter where
+instance Data.ToJSON CampaignEventFilter where
   toJSON CampaignEventFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("FilterType" Core..= filterType),
-            Prelude.Just ("Dimensions" Core..= dimensions)
+          [ Prelude.Just ("FilterType" Data..= filterType),
+            Prelude.Just ("Dimensions" Data..= dimensions)
           ]
       )

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -143,7 +144,7 @@ instance Core.AWSRequest ListTemplateVersions where
       ( \s h x ->
           ListTemplateVersionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable ListTemplateVersions where
@@ -160,32 +161,32 @@ instance Prelude.NFData ListTemplateVersions where
       `Prelude.seq` Prelude.rnf templateName
       `Prelude.seq` Prelude.rnf templateType
 
-instance Core.ToHeaders ListTemplateVersions where
+instance Data.ToHeaders ListTemplateVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListTemplateVersions where
+instance Data.ToPath ListTemplateVersions where
   toPath ListTemplateVersions' {..} =
     Prelude.mconcat
       [ "/v1/templates/",
-        Core.toBS templateName,
+        Data.toBS templateName,
         "/",
-        Core.toBS templateType,
+        Data.toBS templateType,
         "/versions"
       ]
 
-instance Core.ToQuery ListTemplateVersions where
+instance Data.ToQuery ListTemplateVersions where
   toQuery ListTemplateVersions' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "page-size" Core.=: pageSize
+      [ "next-token" Data.=: nextToken,
+        "page-size" Data.=: pageSize
       ]
 
 -- | /See:/ 'newListTemplateVersionsResponse' smart constructor.

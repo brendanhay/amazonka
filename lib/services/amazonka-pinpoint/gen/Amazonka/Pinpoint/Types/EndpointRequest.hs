@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.EndpointRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.ChannelType
 import Amazonka.Pinpoint.Types.EndpointDemographic
 import Amazonka.Pinpoint.Types.EndpointLocation
@@ -273,21 +274,21 @@ instance Prelude.NFData EndpointRequest where
       `Prelude.seq` Prelude.rnf endpointStatus
       `Prelude.seq` Prelude.rnf channelType
 
-instance Core.ToJSON EndpointRequest where
+instance Data.ToJSON EndpointRequest where
   toJSON EndpointRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Demographic" Core..=) Prelude.<$> demographic,
-            ("User" Core..=) Prelude.<$> user,
-            ("RequestId" Core..=) Prelude.<$> requestId,
-            ("Metrics" Core..=) Prelude.<$> metrics,
-            ("Location" Core..=) Prelude.<$> location,
-            ("OptOut" Core..=) Prelude.<$> optOut,
-            ("Address" Core..=) Prelude.<$> address,
-            ("EffectiveDate" Core..=) Prelude.<$> effectiveDate,
-            ("Attributes" Core..=) Prelude.<$> attributes,
-            ("EndpointStatus" Core..=)
+          [ ("Demographic" Data..=) Prelude.<$> demographic,
+            ("User" Data..=) Prelude.<$> user,
+            ("RequestId" Data..=) Prelude.<$> requestId,
+            ("Metrics" Data..=) Prelude.<$> metrics,
+            ("Location" Data..=) Prelude.<$> location,
+            ("OptOut" Data..=) Prelude.<$> optOut,
+            ("Address" Data..=) Prelude.<$> address,
+            ("EffectiveDate" Data..=) Prelude.<$> effectiveDate,
+            ("Attributes" Data..=) Prelude.<$> attributes,
+            ("EndpointStatus" Data..=)
               Prelude.<$> endpointStatus,
-            ("ChannelType" Core..=) Prelude.<$> channelType
+            ("ChannelType" Data..=) Prelude.<$> channelType
           ]
       )

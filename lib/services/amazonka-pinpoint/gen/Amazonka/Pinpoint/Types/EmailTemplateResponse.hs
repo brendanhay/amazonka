@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.EmailTemplateResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.TemplateType
 import qualified Amazonka.Prelude as Prelude
 
@@ -214,25 +215,25 @@ emailTemplateResponse_templateName = Lens.lens (\EmailTemplateResponse' {templat
 emailTemplateResponse_templateType :: Lens.Lens' EmailTemplateResponse TemplateType
 emailTemplateResponse_templateType = Lens.lens (\EmailTemplateResponse' {templateType} -> templateType) (\s@EmailTemplateResponse' {} a -> s {templateType = a} :: EmailTemplateResponse)
 
-instance Core.FromJSON EmailTemplateResponse where
+instance Data.FromJSON EmailTemplateResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EmailTemplateResponse"
       ( \x ->
           EmailTemplateResponse'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "RecommenderId")
-            Prelude.<*> (x Core..:? "DefaultSubstitutions")
-            Prelude.<*> (x Core..:? "TextPart")
-            Prelude.<*> (x Core..:? "Subject")
-            Prelude.<*> (x Core..:? "HtmlPart")
-            Prelude.<*> (x Core..:? "TemplateDescription")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..: "LastModifiedDate")
-            Prelude.<*> (x Core..: "CreationDate")
-            Prelude.<*> (x Core..: "TemplateName")
-            Prelude.<*> (x Core..: "TemplateType")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "RecommenderId")
+            Prelude.<*> (x Data..:? "DefaultSubstitutions")
+            Prelude.<*> (x Data..:? "TextPart")
+            Prelude.<*> (x Data..:? "Subject")
+            Prelude.<*> (x Data..:? "HtmlPart")
+            Prelude.<*> (x Data..:? "TemplateDescription")
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..: "LastModifiedDate")
+            Prelude.<*> (x Data..: "CreationDate")
+            Prelude.<*> (x Data..: "TemplateName")
+            Prelude.<*> (x Data..: "TemplateType")
       )
 
 instance Prelude.Hashable EmailTemplateResponse where

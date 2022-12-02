@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.EndpointUser where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies data for one or more attributes that describe the user who\'s
@@ -95,14 +96,14 @@ endpointUser_userAttributes = Lens.lens (\EndpointUser' {userAttributes} -> user
 endpointUser_userId :: Lens.Lens' EndpointUser (Prelude.Maybe Prelude.Text)
 endpointUser_userId = Lens.lens (\EndpointUser' {userId} -> userId) (\s@EndpointUser' {} a -> s {userId = a} :: EndpointUser)
 
-instance Core.FromJSON EndpointUser where
+instance Data.FromJSON EndpointUser where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointUser"
       ( \x ->
           EndpointUser'
-            Prelude.<$> (x Core..:? "UserAttributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "UserId")
+            Prelude.<$> (x Data..:? "UserAttributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "UserId")
       )
 
 instance Prelude.Hashable EndpointUser where
@@ -115,12 +116,12 @@ instance Prelude.NFData EndpointUser where
     Prelude.rnf userAttributes
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToJSON EndpointUser where
+instance Data.ToJSON EndpointUser where
   toJSON EndpointUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UserAttributes" Core..=)
+          [ ("UserAttributes" Data..=)
               Prelude.<$> userAttributes,
-            ("UserId" Core..=) Prelude.<$> userId
+            ("UserId" Data..=) Prelude.<$> userId
           ]
       )

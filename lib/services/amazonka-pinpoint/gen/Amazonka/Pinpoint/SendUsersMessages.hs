@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,7 +103,7 @@ instance Core.AWSRequest SendUsersMessages where
       ( \s h x ->
           SendUsersMessagesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable SendUsersMessages where
@@ -115,30 +116,30 @@ instance Prelude.NFData SendUsersMessages where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf sendUsersMessageRequest
 
-instance Core.ToHeaders SendUsersMessages where
+instance Data.ToHeaders SendUsersMessages where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SendUsersMessages where
+instance Data.ToJSON SendUsersMessages where
   toJSON SendUsersMessages' {..} =
-    Core.toJSON sendUsersMessageRequest
+    Data.toJSON sendUsersMessageRequest
 
-instance Core.ToPath SendUsersMessages where
+instance Data.ToPath SendUsersMessages where
   toPath SendUsersMessages' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/users-messages"
       ]
 
-instance Core.ToQuery SendUsersMessages where
+instance Data.ToQuery SendUsersMessages where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSendUsersMessagesResponse' smart constructor.

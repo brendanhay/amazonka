@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,26 +100,26 @@ instance Prelude.NFData TagResource where
     Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf tagsModel
 
-instance Core.ToHeaders TagResource where
+instance Data.ToHeaders TagResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON TagResource where
-  toJSON TagResource' {..} = Core.toJSON tagsModel
+instance Data.ToJSON TagResource where
+  toJSON TagResource' {..} = Data.toJSON tagsModel
 
-instance Core.ToPath TagResource where
+instance Data.ToPath TagResource where
   toPath TagResource' {..} =
     Prelude.mconcat
-      ["/v1/tags/", Core.toBS resourceArn]
+      ["/v1/tags/", Data.toBS resourceArn]
 
-instance Core.ToQuery TagResource where
+instance Data.ToQuery TagResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTagResourceResponse' smart constructor.

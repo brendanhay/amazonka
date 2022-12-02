@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.DirectMessageConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.ADMMessage
 import Amazonka.Pinpoint.Types.APNSMessage
 import Amazonka.Pinpoint.Types.BaiduMessage
@@ -199,20 +200,20 @@ instance Prelude.NFData DirectMessageConfiguration where
       `Prelude.seq` Prelude.rnf emailMessage
       `Prelude.seq` Prelude.rnf baiduMessage
 
-instance Core.ToJSON DirectMessageConfiguration where
+instance Data.ToJSON DirectMessageConfiguration where
   toJSON DirectMessageConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ADMMessage" Core..=) Prelude.<$> aDMMessage,
-            ("SMSMessage" Core..=) Prelude.<$> sMSMessage,
-            ("VoiceMessage" Core..=) Prelude.<$> voiceMessage,
-            ("DefaultMessage" Core..=)
+          [ ("ADMMessage" Data..=) Prelude.<$> aDMMessage,
+            ("SMSMessage" Data..=) Prelude.<$> sMSMessage,
+            ("VoiceMessage" Data..=) Prelude.<$> voiceMessage,
+            ("DefaultMessage" Data..=)
               Prelude.<$> defaultMessage,
-            ("APNSMessage" Core..=) Prelude.<$> aPNSMessage,
-            ("GCMMessage" Core..=) Prelude.<$> gCMMessage,
-            ("DefaultPushNotificationMessage" Core..=)
+            ("APNSMessage" Data..=) Prelude.<$> aPNSMessage,
+            ("GCMMessage" Data..=) Prelude.<$> gCMMessage,
+            ("DefaultPushNotificationMessage" Data..=)
               Prelude.<$> defaultPushNotificationMessage,
-            ("EmailMessage" Core..=) Prelude.<$> emailMessage,
-            ("BaiduMessage" Core..=) Prelude.<$> baiduMessage
+            ("EmailMessage" Data..=) Prelude.<$> emailMessage,
+            ("BaiduMessage" Data..=) Prelude.<$> baiduMessage
           ]
       )

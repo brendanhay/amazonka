@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -217,7 +218,7 @@ instance Core.AWSRequest UpdateSmsTemplate where
       ( \s h x ->
           UpdateSmsTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable UpdateSmsTemplate where
@@ -234,31 +235,31 @@ instance Prelude.NFData UpdateSmsTemplate where
       `Prelude.seq` Prelude.rnf templateName
       `Prelude.seq` Prelude.rnf sMSTemplateRequest
 
-instance Core.ToHeaders UpdateSmsTemplate where
+instance Data.ToHeaders UpdateSmsTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSmsTemplate where
+instance Data.ToJSON UpdateSmsTemplate where
   toJSON UpdateSmsTemplate' {..} =
-    Core.toJSON sMSTemplateRequest
+    Data.toJSON sMSTemplateRequest
 
-instance Core.ToPath UpdateSmsTemplate where
+instance Data.ToPath UpdateSmsTemplate where
   toPath UpdateSmsTemplate' {..} =
     Prelude.mconcat
-      ["/v1/templates/", Core.toBS templateName, "/sms"]
+      ["/v1/templates/", Data.toBS templateName, "/sms"]
 
-instance Core.ToQuery UpdateSmsTemplate where
+instance Data.ToQuery UpdateSmsTemplate where
   toQuery UpdateSmsTemplate' {..} =
     Prelude.mconcat
-      [ "create-new-version" Core.=: createNewVersion,
-        "version" Core.=: version
+      [ "create-new-version" Data.=: createNewVersion,
+        "version" Data.=: version
       ]
 
 -- | /See:/ 'newUpdateSmsTemplateResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.SegmentResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.SegmentDimensions
 import Amazonka.Pinpoint.Types.SegmentGroupList
 import Amazonka.Pinpoint.Types.SegmentImportResource
@@ -213,24 +214,24 @@ segmentResponse_arn = Lens.lens (\SegmentResponse' {arn} -> arn) (\s@SegmentResp
 segmentResponse_applicationId :: Lens.Lens' SegmentResponse Prelude.Text
 segmentResponse_applicationId = Lens.lens (\SegmentResponse' {applicationId} -> applicationId) (\s@SegmentResponse' {} a -> s {applicationId = a} :: SegmentResponse)
 
-instance Core.FromJSON SegmentResponse where
+instance Data.FromJSON SegmentResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SegmentResponse"
       ( \x ->
           SegmentResponse'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "ImportDefinition")
-            Prelude.<*> (x Core..:? "Dimensions")
-            Prelude.<*> (x Core..:? "SegmentGroups")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..: "SegmentType")
-            Prelude.<*> (x Core..: "CreationDate")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "Arn")
-            Prelude.<*> (x Core..: "ApplicationId")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "ImportDefinition")
+            Prelude.<*> (x Data..:? "Dimensions")
+            Prelude.<*> (x Data..:? "SegmentGroups")
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..: "SegmentType")
+            Prelude.<*> (x Data..: "CreationDate")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "Arn")
+            Prelude.<*> (x Data..: "ApplicationId")
       )
 
 instance Prelude.Hashable SegmentResponse where

@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.ApplicationsResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.ApplicationResponse
 import qualified Amazonka.Prelude as Prelude
 
@@ -68,14 +69,14 @@ applicationsResponse_nextToken = Lens.lens (\ApplicationsResponse' {nextToken} -
 applicationsResponse_item :: Lens.Lens' ApplicationsResponse (Prelude.Maybe [ApplicationResponse])
 applicationsResponse_item = Lens.lens (\ApplicationsResponse' {item} -> item) (\s@ApplicationsResponse' {} a -> s {item = a} :: ApplicationsResponse) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ApplicationsResponse where
+instance Data.FromJSON ApplicationsResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationsResponse"
       ( \x ->
           ApplicationsResponse'
-            Prelude.<$> (x Core..:? "NextToken")
-            Prelude.<*> (x Core..:? "Item" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "NextToken")
+            Prelude.<*> (x Data..:? "Item" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ApplicationsResponse where

@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.DefaultPushNotificationMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.Action
 import qualified Amazonka.Prelude as Prelude
 
@@ -200,16 +201,16 @@ instance
       `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf data'
 
-instance Core.ToJSON DefaultPushNotificationMessage where
+instance Data.ToJSON DefaultPushNotificationMessage where
   toJSON DefaultPushNotificationMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Body" Core..=) Prelude.<$> body,
-            ("Url" Core..=) Prelude.<$> url,
-            ("Substitutions" Core..=) Prelude.<$> substitutions,
-            ("SilentPush" Core..=) Prelude.<$> silentPush,
-            ("Title" Core..=) Prelude.<$> title,
-            ("Action" Core..=) Prelude.<$> action,
-            ("Data" Core..=) Prelude.<$> data'
+          [ ("Body" Data..=) Prelude.<$> body,
+            ("Url" Data..=) Prelude.<$> url,
+            ("Substitutions" Data..=) Prelude.<$> substitutions,
+            ("SilentPush" Data..=) Prelude.<$> silentPush,
+            ("Title" Data..=) Prelude.<$> title,
+            ("Action" Data..=) Prelude.<$> action,
+            ("Data" Data..=) Prelude.<$> data'
           ]
       )

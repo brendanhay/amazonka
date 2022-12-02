@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.DefaultButtonConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.ButtonAction
 import qualified Amazonka.Prelude as Prelude
 
@@ -102,18 +103,18 @@ defaultButtonConfiguration_buttonAction = Lens.lens (\DefaultButtonConfiguration
 defaultButtonConfiguration_text :: Lens.Lens' DefaultButtonConfiguration Prelude.Text
 defaultButtonConfiguration_text = Lens.lens (\DefaultButtonConfiguration' {text} -> text) (\s@DefaultButtonConfiguration' {} a -> s {text = a} :: DefaultButtonConfiguration)
 
-instance Core.FromJSON DefaultButtonConfiguration where
+instance Data.FromJSON DefaultButtonConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DefaultButtonConfiguration"
       ( \x ->
           DefaultButtonConfiguration'
-            Prelude.<$> (x Core..:? "Link")
-            Prelude.<*> (x Core..:? "TextColor")
-            Prelude.<*> (x Core..:? "BackgroundColor")
-            Prelude.<*> (x Core..:? "BorderRadius")
-            Prelude.<*> (x Core..: "ButtonAction")
-            Prelude.<*> (x Core..: "Text")
+            Prelude.<$> (x Data..:? "Link")
+            Prelude.<*> (x Data..:? "TextColor")
+            Prelude.<*> (x Data..:? "BackgroundColor")
+            Prelude.<*> (x Data..:? "BorderRadius")
+            Prelude.<*> (x Data..: "ButtonAction")
+            Prelude.<*> (x Data..: "Text")
       )
 
 instance Prelude.Hashable DefaultButtonConfiguration where
@@ -134,16 +135,16 @@ instance Prelude.NFData DefaultButtonConfiguration where
       `Prelude.seq` Prelude.rnf buttonAction
       `Prelude.seq` Prelude.rnf text
 
-instance Core.ToJSON DefaultButtonConfiguration where
+instance Data.ToJSON DefaultButtonConfiguration where
   toJSON DefaultButtonConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Link" Core..=) Prelude.<$> link,
-            ("TextColor" Core..=) Prelude.<$> textColor,
-            ("BackgroundColor" Core..=)
+          [ ("Link" Data..=) Prelude.<$> link,
+            ("TextColor" Data..=) Prelude.<$> textColor,
+            ("BackgroundColor" Data..=)
               Prelude.<$> backgroundColor,
-            ("BorderRadius" Core..=) Prelude.<$> borderRadius,
-            Prelude.Just ("ButtonAction" Core..= buttonAction),
-            Prelude.Just ("Text" Core..= text)
+            ("BorderRadius" Data..=) Prelude.<$> borderRadius,
+            Prelude.Just ("ButtonAction" Data..= buttonAction),
+            Prelude.Just ("Text" Data..= text)
           ]
       )

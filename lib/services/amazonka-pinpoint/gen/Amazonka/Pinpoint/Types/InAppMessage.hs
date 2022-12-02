@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.InAppMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.InAppMessageContent
 import Amazonka.Pinpoint.Types.Layout
 import qualified Amazonka.Prelude as Prelude
@@ -72,15 +73,15 @@ inAppMessage_layout = Lens.lens (\InAppMessage' {layout} -> layout) (\s@InAppMes
 inAppMessage_content :: Lens.Lens' InAppMessage (Prelude.Maybe [InAppMessageContent])
 inAppMessage_content = Lens.lens (\InAppMessage' {content} -> content) (\s@InAppMessage' {} a -> s {content = a} :: InAppMessage) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON InAppMessage where
+instance Data.FromJSON InAppMessage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InAppMessage"
       ( \x ->
           InAppMessage'
-            Prelude.<$> (x Core..:? "CustomConfig" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Layout")
-            Prelude.<*> (x Core..:? "Content" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "CustomConfig" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Layout")
+            Prelude.<*> (x Data..:? "Content" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable InAppMessage where

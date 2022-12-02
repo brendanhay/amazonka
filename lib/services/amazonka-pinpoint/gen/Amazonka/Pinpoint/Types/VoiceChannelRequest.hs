@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.VoiceChannelRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the status and settings of the voice channel for an
@@ -58,9 +59,9 @@ instance Prelude.Hashable VoiceChannelRequest where
 instance Prelude.NFData VoiceChannelRequest where
   rnf VoiceChannelRequest' {..} = Prelude.rnf enabled
 
-instance Core.ToJSON VoiceChannelRequest where
+instance Data.ToJSON VoiceChannelRequest where
   toJSON VoiceChannelRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Enabled" Core..=) Prelude.<$> enabled]
+          [("Enabled" Data..=) Prelude.<$> enabled]
       )

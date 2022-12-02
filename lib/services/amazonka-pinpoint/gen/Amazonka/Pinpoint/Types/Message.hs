@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.Message where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.Action
 import qualified Amazonka.Prelude as Prelude
 
@@ -243,24 +244,24 @@ message_mediaUrl = Lens.lens (\Message' {mediaUrl} -> mediaUrl) (\s@Message' {} 
 message_action :: Lens.Lens' Message (Prelude.Maybe Action)
 message_action = Lens.lens (\Message' {action} -> action) (\s@Message' {} a -> s {action = a} :: Message)
 
-instance Core.FromJSON Message where
+instance Data.FromJSON Message where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Message"
       ( \x ->
           Message'
-            Prelude.<$> (x Core..:? "TimeToLive")
-            Prelude.<*> (x Core..:? "JsonBody")
-            Prelude.<*> (x Core..:? "Body")
-            Prelude.<*> (x Core..:? "ImageUrl")
-            Prelude.<*> (x Core..:? "Url")
-            Prelude.<*> (x Core..:? "ImageSmallIconUrl")
-            Prelude.<*> (x Core..:? "RawContent")
-            Prelude.<*> (x Core..:? "SilentPush")
-            Prelude.<*> (x Core..:? "ImageIconUrl")
-            Prelude.<*> (x Core..:? "Title")
-            Prelude.<*> (x Core..:? "MediaUrl")
-            Prelude.<*> (x Core..:? "Action")
+            Prelude.<$> (x Data..:? "TimeToLive")
+            Prelude.<*> (x Data..:? "JsonBody")
+            Prelude.<*> (x Data..:? "Body")
+            Prelude.<*> (x Data..:? "ImageUrl")
+            Prelude.<*> (x Data..:? "Url")
+            Prelude.<*> (x Data..:? "ImageSmallIconUrl")
+            Prelude.<*> (x Data..:? "RawContent")
+            Prelude.<*> (x Data..:? "SilentPush")
+            Prelude.<*> (x Data..:? "ImageIconUrl")
+            Prelude.<*> (x Data..:? "Title")
+            Prelude.<*> (x Data..:? "MediaUrl")
+            Prelude.<*> (x Data..:? "Action")
       )
 
 instance Prelude.Hashable Message where
@@ -293,22 +294,22 @@ instance Prelude.NFData Message where
       `Prelude.seq` Prelude.rnf mediaUrl
       `Prelude.seq` Prelude.rnf action
 
-instance Core.ToJSON Message where
+instance Data.ToJSON Message where
   toJSON Message' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TimeToLive" Core..=) Prelude.<$> timeToLive,
-            ("JsonBody" Core..=) Prelude.<$> jsonBody,
-            ("Body" Core..=) Prelude.<$> body,
-            ("ImageUrl" Core..=) Prelude.<$> imageUrl,
-            ("Url" Core..=) Prelude.<$> url,
-            ("ImageSmallIconUrl" Core..=)
+          [ ("TimeToLive" Data..=) Prelude.<$> timeToLive,
+            ("JsonBody" Data..=) Prelude.<$> jsonBody,
+            ("Body" Data..=) Prelude.<$> body,
+            ("ImageUrl" Data..=) Prelude.<$> imageUrl,
+            ("Url" Data..=) Prelude.<$> url,
+            ("ImageSmallIconUrl" Data..=)
               Prelude.<$> imageSmallIconUrl,
-            ("RawContent" Core..=) Prelude.<$> rawContent,
-            ("SilentPush" Core..=) Prelude.<$> silentPush,
-            ("ImageIconUrl" Core..=) Prelude.<$> imageIconUrl,
-            ("Title" Core..=) Prelude.<$> title,
-            ("MediaUrl" Core..=) Prelude.<$> mediaUrl,
-            ("Action" Core..=) Prelude.<$> action
+            ("RawContent" Data..=) Prelude.<$> rawContent,
+            ("SilentPush" Data..=) Prelude.<$> silentPush,
+            ("ImageIconUrl" Data..=) Prelude.<$> imageIconUrl,
+            ("Title" Data..=) Prelude.<$> title,
+            ("MediaUrl" Data..=) Prelude.<$> mediaUrl,
+            ("Action" Data..=) Prelude.<$> action
           ]
       )

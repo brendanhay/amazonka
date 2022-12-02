@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.CustomMessageActivity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.EndpointTypesElement
 import Amazonka.Pinpoint.Types.JourneyCustomMessage
 import qualified Amazonka.Prelude as Prelude
@@ -170,18 +171,18 @@ customMessageActivity_deliveryUri = Lens.lens (\CustomMessageActivity' {delivery
 customMessageActivity_messageConfig :: Lens.Lens' CustomMessageActivity (Prelude.Maybe JourneyCustomMessage)
 customMessageActivity_messageConfig = Lens.lens (\CustomMessageActivity' {messageConfig} -> messageConfig) (\s@CustomMessageActivity' {} a -> s {messageConfig = a} :: CustomMessageActivity)
 
-instance Core.FromJSON CustomMessageActivity where
+instance Data.FromJSON CustomMessageActivity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomMessageActivity"
       ( \x ->
           CustomMessageActivity'
-            Prelude.<$> (x Core..:? "EndpointTypes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "TemplateName")
-            Prelude.<*> (x Core..:? "NextActivity")
-            Prelude.<*> (x Core..:? "TemplateVersion")
-            Prelude.<*> (x Core..:? "DeliveryUri")
-            Prelude.<*> (x Core..:? "MessageConfig")
+            Prelude.<$> (x Data..:? "EndpointTypes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "TemplateName")
+            Prelude.<*> (x Data..:? "NextActivity")
+            Prelude.<*> (x Data..:? "TemplateVersion")
+            Prelude.<*> (x Data..:? "DeliveryUri")
+            Prelude.<*> (x Data..:? "MessageConfig")
       )
 
 instance Prelude.Hashable CustomMessageActivity where
@@ -202,16 +203,16 @@ instance Prelude.NFData CustomMessageActivity where
       `Prelude.seq` Prelude.rnf deliveryUri
       `Prelude.seq` Prelude.rnf messageConfig
 
-instance Core.ToJSON CustomMessageActivity where
+instance Data.ToJSON CustomMessageActivity where
   toJSON CustomMessageActivity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EndpointTypes" Core..=) Prelude.<$> endpointTypes,
-            ("TemplateName" Core..=) Prelude.<$> templateName,
-            ("NextActivity" Core..=) Prelude.<$> nextActivity,
-            ("TemplateVersion" Core..=)
+          [ ("EndpointTypes" Data..=) Prelude.<$> endpointTypes,
+            ("TemplateName" Data..=) Prelude.<$> templateName,
+            ("NextActivity" Data..=) Prelude.<$> nextActivity,
+            ("TemplateVersion" Data..=)
               Prelude.<$> templateVersion,
-            ("DeliveryUri" Core..=) Prelude.<$> deliveryUri,
-            ("MessageConfig" Core..=) Prelude.<$> messageConfig
+            ("DeliveryUri" Data..=) Prelude.<$> deliveryUri,
+            ("MessageConfig" Data..=) Prelude.<$> messageConfig
           ]
       )

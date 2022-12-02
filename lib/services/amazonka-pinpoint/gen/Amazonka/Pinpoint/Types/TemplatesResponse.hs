@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.TemplatesResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.TemplateResponse
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,14 +76,14 @@ templatesResponse_nextToken = Lens.lens (\TemplatesResponse' {nextToken} -> next
 templatesResponse_item :: Lens.Lens' TemplatesResponse [TemplateResponse]
 templatesResponse_item = Lens.lens (\TemplatesResponse' {item} -> item) (\s@TemplatesResponse' {} a -> s {item = a} :: TemplatesResponse) Prelude.. Lens.coerced
 
-instance Core.FromJSON TemplatesResponse where
+instance Data.FromJSON TemplatesResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TemplatesResponse"
       ( \x ->
           TemplatesResponse'
-            Prelude.<$> (x Core..:? "NextToken")
-            Prelude.<*> (x Core..:? "Item" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "NextToken")
+            Prelude.<*> (x Data..:? "Item" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TemplatesResponse where

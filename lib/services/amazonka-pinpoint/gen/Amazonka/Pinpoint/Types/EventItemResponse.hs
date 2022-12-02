@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.EventItemResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the status code and message that result from processing an
@@ -71,14 +72,14 @@ eventItemResponse_message = Lens.lens (\EventItemResponse' {message} -> message)
 eventItemResponse_statusCode :: Lens.Lens' EventItemResponse (Prelude.Maybe Prelude.Int)
 eventItemResponse_statusCode = Lens.lens (\EventItemResponse' {statusCode} -> statusCode) (\s@EventItemResponse' {} a -> s {statusCode = a} :: EventItemResponse)
 
-instance Core.FromJSON EventItemResponse where
+instance Data.FromJSON EventItemResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventItemResponse"
       ( \x ->
           EventItemResponse'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "StatusCode")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "StatusCode")
       )
 
 instance Prelude.Hashable EventItemResponse where

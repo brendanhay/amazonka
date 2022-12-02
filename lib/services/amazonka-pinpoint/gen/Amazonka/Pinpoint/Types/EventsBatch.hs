@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.EventsBatch where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.Event
 import Amazonka.Pinpoint.Types.PublicEndpoint
 import qualified Amazonka.Prelude as Prelude
@@ -78,11 +79,11 @@ instance Prelude.NFData EventsBatch where
     Prelude.rnf endpoint
       `Prelude.seq` Prelude.rnf events
 
-instance Core.ToJSON EventsBatch where
+instance Data.ToJSON EventsBatch where
   toJSON EventsBatch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Endpoint" Core..= endpoint),
-            Prelude.Just ("Events" Core..= events)
+          [ Prelude.Just ("Endpoint" Data..= endpoint),
+            Prelude.Just ("Events" Data..= events)
           ]
       )

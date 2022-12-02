@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.InAppMessageButton where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.DefaultButtonConfiguration
 import Amazonka.Pinpoint.Types.OverrideButtonConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -81,16 +82,16 @@ inAppMessageButton_android = Lens.lens (\InAppMessageButton' {android} -> androi
 inAppMessageButton_defaultConfig :: Lens.Lens' InAppMessageButton (Prelude.Maybe DefaultButtonConfiguration)
 inAppMessageButton_defaultConfig = Lens.lens (\InAppMessageButton' {defaultConfig} -> defaultConfig) (\s@InAppMessageButton' {} a -> s {defaultConfig = a} :: InAppMessageButton)
 
-instance Core.FromJSON InAppMessageButton where
+instance Data.FromJSON InAppMessageButton where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InAppMessageButton"
       ( \x ->
           InAppMessageButton'
-            Prelude.<$> (x Core..:? "Web")
-            Prelude.<*> (x Core..:? "IOS")
-            Prelude.<*> (x Core..:? "Android")
-            Prelude.<*> (x Core..:? "DefaultConfig")
+            Prelude.<$> (x Data..:? "Web")
+            Prelude.<*> (x Data..:? "IOS")
+            Prelude.<*> (x Data..:? "Android")
+            Prelude.<*> (x Data..:? "DefaultConfig")
       )
 
 instance Prelude.Hashable InAppMessageButton where
@@ -107,13 +108,13 @@ instance Prelude.NFData InAppMessageButton where
       `Prelude.seq` Prelude.rnf android
       `Prelude.seq` Prelude.rnf defaultConfig
 
-instance Core.ToJSON InAppMessageButton where
+instance Data.ToJSON InAppMessageButton where
   toJSON InAppMessageButton' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Web" Core..=) Prelude.<$> web,
-            ("IOS" Core..=) Prelude.<$> ios,
-            ("Android" Core..=) Prelude.<$> android,
-            ("DefaultConfig" Core..=) Prelude.<$> defaultConfig
+          [ ("Web" Data..=) Prelude.<$> web,
+            ("IOS" Data..=) Prelude.<$> ios,
+            ("Android" Data..=) Prelude.<$> android,
+            ("DefaultConfig" Data..=) Prelude.<$> defaultConfig
           ]
       )

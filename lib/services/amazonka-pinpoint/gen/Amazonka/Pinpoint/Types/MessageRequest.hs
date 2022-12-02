@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.MessageRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.AddressConfiguration
 import Amazonka.Pinpoint.Types.DirectMessageConfiguration
 import Amazonka.Pinpoint.Types.EndpointSendConfiguration
@@ -175,19 +176,19 @@ instance Prelude.NFData MessageRequest where
       `Prelude.seq` Prelude.rnf traceId
       `Prelude.seq` Prelude.rnf messageConfiguration
 
-instance Core.ToJSON MessageRequest where
+instance Data.ToJSON MessageRequest where
   toJSON MessageRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Context" Core..=) Prelude.<$> context,
-            ("Endpoints" Core..=) Prelude.<$> endpoints,
-            ("Addresses" Core..=) Prelude.<$> addresses,
-            ("TemplateConfiguration" Core..=)
+          [ ("Context" Data..=) Prelude.<$> context,
+            ("Endpoints" Data..=) Prelude.<$> endpoints,
+            ("Addresses" Data..=) Prelude.<$> addresses,
+            ("TemplateConfiguration" Data..=)
               Prelude.<$> templateConfiguration,
-            ("TraceId" Core..=) Prelude.<$> traceId,
+            ("TraceId" Data..=) Prelude.<$> traceId,
             Prelude.Just
               ( "MessageConfiguration"
-                  Core..= messageConfiguration
+                  Data..= messageConfiguration
               )
           ]
       )

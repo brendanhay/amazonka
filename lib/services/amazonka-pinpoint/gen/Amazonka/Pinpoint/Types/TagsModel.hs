@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.TagsModel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the tags (keys and values) for an application, campaign,
@@ -68,13 +69,13 @@ newTagsModel = TagsModel' {tags = Prelude.mempty}
 tagsModel_tags :: Lens.Lens' TagsModel (Prelude.HashMap Prelude.Text Prelude.Text)
 tagsModel_tags = Lens.lens (\TagsModel' {tags} -> tags) (\s@TagsModel' {} a -> s {tags = a} :: TagsModel) Prelude.. Lens.coerced
 
-instance Core.FromJSON TagsModel where
+instance Data.FromJSON TagsModel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TagsModel"
       ( \x ->
           TagsModel'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TagsModel where
@@ -84,9 +85,9 @@ instance Prelude.Hashable TagsModel where
 instance Prelude.NFData TagsModel where
   rnf TagsModel' {..} = Prelude.rnf tags
 
-instance Core.ToJSON TagsModel where
+instance Data.ToJSON TagsModel where
   toJSON TagsModel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("tags" Core..= tags)]
+          [Prelude.Just ("tags" Data..= tags)]
       )

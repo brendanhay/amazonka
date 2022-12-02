@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.NumberValidateResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a phone number.
@@ -208,26 +209,26 @@ numberValidateResponse_countryCodeNumeric = Lens.lens (\NumberValidateResponse' 
 numberValidateResponse_countryCodeIso2 :: Lens.Lens' NumberValidateResponse (Prelude.Maybe Prelude.Text)
 numberValidateResponse_countryCodeIso2 = Lens.lens (\NumberValidateResponse' {countryCodeIso2} -> countryCodeIso2) (\s@NumberValidateResponse' {} a -> s {countryCodeIso2 = a} :: NumberValidateResponse)
 
-instance Core.FromJSON NumberValidateResponse where
+instance Data.FromJSON NumberValidateResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NumberValidateResponse"
       ( \x ->
           NumberValidateResponse'
-            Prelude.<$> (x Core..:? "ZipCode")
-            Prelude.<*> (x Core..:? "PhoneTypeCode")
-            Prelude.<*> (x Core..:? "Country")
-            Prelude.<*> (x Core..:? "Timezone")
-            Prelude.<*> (x Core..:? "CleansedPhoneNumberE164")
-            Prelude.<*> (x Core..:? "County")
-            Prelude.<*> (x Core..:? "Carrier")
-            Prelude.<*> (x Core..:? "CleansedPhoneNumberNational")
-            Prelude.<*> (x Core..:? "OriginalPhoneNumber")
-            Prelude.<*> (x Core..:? "OriginalCountryCodeIso2")
-            Prelude.<*> (x Core..:? "PhoneType")
-            Prelude.<*> (x Core..:? "City")
-            Prelude.<*> (x Core..:? "CountryCodeNumeric")
-            Prelude.<*> (x Core..:? "CountryCodeIso2")
+            Prelude.<$> (x Data..:? "ZipCode")
+            Prelude.<*> (x Data..:? "PhoneTypeCode")
+            Prelude.<*> (x Data..:? "Country")
+            Prelude.<*> (x Data..:? "Timezone")
+            Prelude.<*> (x Data..:? "CleansedPhoneNumberE164")
+            Prelude.<*> (x Data..:? "County")
+            Prelude.<*> (x Data..:? "Carrier")
+            Prelude.<*> (x Data..:? "CleansedPhoneNumberNational")
+            Prelude.<*> (x Data..:? "OriginalPhoneNumber")
+            Prelude.<*> (x Data..:? "OriginalCountryCodeIso2")
+            Prelude.<*> (x Data..:? "PhoneType")
+            Prelude.<*> (x Data..:? "City")
+            Prelude.<*> (x Data..:? "CountryCodeNumeric")
+            Prelude.<*> (x Data..:? "CountryCodeIso2")
       )
 
 instance Prelude.Hashable NumberValidateResponse where

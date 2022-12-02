@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.ClosedDaysRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Closed Days Rule. Part of Journey sending schedule.
@@ -70,15 +71,15 @@ closedDaysRule_startDateTime = Lens.lens (\ClosedDaysRule' {startDateTime} -> st
 closedDaysRule_endDateTime :: Lens.Lens' ClosedDaysRule (Prelude.Maybe Prelude.Text)
 closedDaysRule_endDateTime = Lens.lens (\ClosedDaysRule' {endDateTime} -> endDateTime) (\s@ClosedDaysRule' {} a -> s {endDateTime = a} :: ClosedDaysRule)
 
-instance Core.FromJSON ClosedDaysRule where
+instance Data.FromJSON ClosedDaysRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClosedDaysRule"
       ( \x ->
           ClosedDaysRule'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "StartDateTime")
-            Prelude.<*> (x Core..:? "EndDateTime")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "StartDateTime")
+            Prelude.<*> (x Data..:? "EndDateTime")
       )
 
 instance Prelude.Hashable ClosedDaysRule where
@@ -93,12 +94,12 @@ instance Prelude.NFData ClosedDaysRule where
       `Prelude.seq` Prelude.rnf startDateTime
       `Prelude.seq` Prelude.rnf endDateTime
 
-instance Core.ToJSON ClosedDaysRule where
+instance Data.ToJSON ClosedDaysRule where
   toJSON ClosedDaysRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("StartDateTime" Core..=) Prelude.<$> startDateTime,
-            ("EndDateTime" Core..=) Prelude.<$> endDateTime
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("StartDateTime" Data..=) Prelude.<$> startDateTime,
+            ("EndDateTime" Data..=) Prelude.<$> endDateTime
           ]
       )

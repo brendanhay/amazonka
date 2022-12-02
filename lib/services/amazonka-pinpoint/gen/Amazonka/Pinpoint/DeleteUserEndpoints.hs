@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,7 +103,7 @@ instance Core.AWSRequest DeleteUserEndpoints where
       ( \s h x ->
           DeleteUserEndpointsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable DeleteUserEndpoints where
@@ -115,27 +116,27 @@ instance Prelude.NFData DeleteUserEndpoints where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToHeaders DeleteUserEndpoints where
+instance Data.ToHeaders DeleteUserEndpoints where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteUserEndpoints where
+instance Data.ToPath DeleteUserEndpoints where
   toPath DeleteUserEndpoints' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/users/",
-        Core.toBS userId
+        Data.toBS userId
       ]
 
-instance Core.ToQuery DeleteUserEndpoints where
+instance Data.ToQuery DeleteUserEndpoints where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUserEndpointsResponse' smart constructor.

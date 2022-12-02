@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.JourneyEmailMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the \"From\" address for an email message that\'s sent to
@@ -57,13 +58,13 @@ newJourneyEmailMessage =
 journeyEmailMessage_fromAddress :: Lens.Lens' JourneyEmailMessage (Prelude.Maybe Prelude.Text)
 journeyEmailMessage_fromAddress = Lens.lens (\JourneyEmailMessage' {fromAddress} -> fromAddress) (\s@JourneyEmailMessage' {} a -> s {fromAddress = a} :: JourneyEmailMessage)
 
-instance Core.FromJSON JourneyEmailMessage where
+instance Data.FromJSON JourneyEmailMessage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JourneyEmailMessage"
       ( \x ->
           JourneyEmailMessage'
-            Prelude.<$> (x Core..:? "FromAddress")
+            Prelude.<$> (x Data..:? "FromAddress")
       )
 
 instance Prelude.Hashable JourneyEmailMessage where
@@ -74,9 +75,9 @@ instance Prelude.NFData JourneyEmailMessage where
   rnf JourneyEmailMessage' {..} =
     Prelude.rnf fromAddress
 
-instance Core.ToJSON JourneyEmailMessage where
+instance Data.ToJSON JourneyEmailMessage where
   toJSON JourneyEmailMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("FromAddress" Core..=) Prelude.<$> fromAddress]
+          [("FromAddress" Data..=) Prelude.<$> fromAddress]
       )

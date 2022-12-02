@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.EndpointItemResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the status code and message that result from processing data
@@ -68,14 +69,14 @@ endpointItemResponse_message = Lens.lens (\EndpointItemResponse' {message} -> me
 endpointItemResponse_statusCode :: Lens.Lens' EndpointItemResponse (Prelude.Maybe Prelude.Int)
 endpointItemResponse_statusCode = Lens.lens (\EndpointItemResponse' {statusCode} -> statusCode) (\s@EndpointItemResponse' {} a -> s {statusCode = a} :: EndpointItemResponse)
 
-instance Core.FromJSON EndpointItemResponse where
+instance Data.FromJSON EndpointItemResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointItemResponse"
       ( \x ->
           EndpointItemResponse'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "StatusCode")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "StatusCode")
       )
 
 instance Prelude.Hashable EndpointItemResponse where

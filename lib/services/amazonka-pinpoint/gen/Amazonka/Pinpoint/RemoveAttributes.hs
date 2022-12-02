@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -152,7 +153,7 @@ instance Core.AWSRequest RemoveAttributes where
       ( \s h x ->
           RemoveAttributesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable RemoveAttributes where
@@ -167,31 +168,31 @@ instance Prelude.NFData RemoveAttributes where
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf updateAttributesRequest
 
-instance Core.ToHeaders RemoveAttributes where
+instance Data.ToHeaders RemoveAttributes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RemoveAttributes where
+instance Data.ToJSON RemoveAttributes where
   toJSON RemoveAttributes' {..} =
-    Core.toJSON updateAttributesRequest
+    Data.toJSON updateAttributesRequest
 
-instance Core.ToPath RemoveAttributes where
+instance Data.ToPath RemoveAttributes where
   toPath RemoveAttributes' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/attributes/",
-        Core.toBS attributeType
+        Data.toBS attributeType
       ]
 
-instance Core.ToQuery RemoveAttributes where
+instance Data.ToQuery RemoveAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveAttributesResponse' smart constructor.

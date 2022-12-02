@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.DefaultPushNotificationTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.Action
 import qualified Amazonka.Prelude as Prelude
 
@@ -165,19 +166,19 @@ defaultPushNotificationTemplate_action :: Lens.Lens' DefaultPushNotificationTemp
 defaultPushNotificationTemplate_action = Lens.lens (\DefaultPushNotificationTemplate' {action} -> action) (\s@DefaultPushNotificationTemplate' {} a -> s {action = a} :: DefaultPushNotificationTemplate)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DefaultPushNotificationTemplate
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DefaultPushNotificationTemplate"
       ( \x ->
           DefaultPushNotificationTemplate'
-            Prelude.<$> (x Core..:? "Body")
-            Prelude.<*> (x Core..:? "Url")
-            Prelude.<*> (x Core..:? "Sound")
-            Prelude.<*> (x Core..:? "Title")
-            Prelude.<*> (x Core..:? "Action")
+            Prelude.<$> (x Data..:? "Body")
+            Prelude.<*> (x Data..:? "Url")
+            Prelude.<*> (x Data..:? "Sound")
+            Prelude.<*> (x Data..:? "Title")
+            Prelude.<*> (x Data..:? "Action")
       )
 
 instance
@@ -204,14 +205,14 @@ instance
       `Prelude.seq` Prelude.rnf title
       `Prelude.seq` Prelude.rnf action
 
-instance Core.ToJSON DefaultPushNotificationTemplate where
+instance Data.ToJSON DefaultPushNotificationTemplate where
   toJSON DefaultPushNotificationTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Body" Core..=) Prelude.<$> body,
-            ("Url" Core..=) Prelude.<$> url,
-            ("Sound" Core..=) Prelude.<$> sound,
-            ("Title" Core..=) Prelude.<$> title,
-            ("Action" Core..=) Prelude.<$> action
+          [ ("Body" Data..=) Prelude.<$> body,
+            ("Url" Data..=) Prelude.<$> url,
+            ("Sound" Data..=) Prelude.<$> sound,
+            ("Title" Data..=) Prelude.<$> title,
+            ("Action" Data..=) Prelude.<$> action
           ]
       )

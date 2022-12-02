@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,7 +131,7 @@ instance Core.AWSRequest GetCampaignActivities where
       ( \s h x ->
           GetCampaignActivitiesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable GetCampaignActivities where
@@ -147,31 +148,31 @@ instance Prelude.NFData GetCampaignActivities where
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf campaignId
 
-instance Core.ToHeaders GetCampaignActivities where
+instance Data.ToHeaders GetCampaignActivities where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetCampaignActivities where
+instance Data.ToPath GetCampaignActivities where
   toPath GetCampaignActivities' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/campaigns/",
-        Core.toBS campaignId,
+        Data.toBS campaignId,
         "/activities"
       ]
 
-instance Core.ToQuery GetCampaignActivities where
+instance Data.ToQuery GetCampaignActivities where
   toQuery GetCampaignActivities' {..} =
     Prelude.mconcat
-      ["page-size" Core.=: pageSize, "token" Core.=: token]
+      ["page-size" Data.=: pageSize, "token" Data.=: token]
 
 -- | /See:/ 'newGetCampaignActivitiesResponse' smart constructor.
 data GetCampaignActivitiesResponse = GetCampaignActivitiesResponse'

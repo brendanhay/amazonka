@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.JourneyStateRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.State
 import qualified Amazonka.Prelude as Prelude
 
@@ -118,9 +119,9 @@ instance Prelude.Hashable JourneyStateRequest where
 instance Prelude.NFData JourneyStateRequest where
   rnf JourneyStateRequest' {..} = Prelude.rnf state
 
-instance Core.ToJSON JourneyStateRequest where
+instance Data.ToJSON JourneyStateRequest where
   toJSON JourneyStateRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("State" Core..=) Prelude.<$> state]
+          [("State" Data..=) Prelude.<$> state]
       )

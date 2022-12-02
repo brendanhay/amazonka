@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.SegmentCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a segment to associate with an activity in a journey.
@@ -52,13 +53,13 @@ newSegmentCondition pSegmentId_ =
 segmentCondition_segmentId :: Lens.Lens' SegmentCondition Prelude.Text
 segmentCondition_segmentId = Lens.lens (\SegmentCondition' {segmentId} -> segmentId) (\s@SegmentCondition' {} a -> s {segmentId = a} :: SegmentCondition)
 
-instance Core.FromJSON SegmentCondition where
+instance Data.FromJSON SegmentCondition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SegmentCondition"
       ( \x ->
           SegmentCondition'
-            Prelude.<$> (x Core..: "SegmentId")
+            Prelude.<$> (x Data..: "SegmentId")
       )
 
 instance Prelude.Hashable SegmentCondition where
@@ -68,9 +69,9 @@ instance Prelude.Hashable SegmentCondition where
 instance Prelude.NFData SegmentCondition where
   rnf SegmentCondition' {..} = Prelude.rnf segmentId
 
-instance Core.ToJSON SegmentCondition where
+instance Data.ToJSON SegmentCondition where
   toJSON SegmentCondition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("SegmentId" Core..= segmentId)]
+          [Prelude.Just ("SegmentId" Data..= segmentId)]
       )

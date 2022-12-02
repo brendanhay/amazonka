@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.EventStream where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies settings for publishing event data to an Amazon Kinesis data
@@ -143,18 +144,18 @@ eventStream_roleArn = Lens.lens (\EventStream' {roleArn} -> roleArn) (\s@EventSt
 eventStream_destinationStreamArn :: Lens.Lens' EventStream Prelude.Text
 eventStream_destinationStreamArn = Lens.lens (\EventStream' {destinationStreamArn} -> destinationStreamArn) (\s@EventStream' {} a -> s {destinationStreamArn = a} :: EventStream)
 
-instance Core.FromJSON EventStream where
+instance Data.FromJSON EventStream where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventStream"
       ( \x ->
           EventStream'
-            Prelude.<$> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "ExternalId")
-            Prelude.<*> (x Core..:? "LastUpdatedBy")
-            Prelude.<*> (x Core..: "ApplicationId")
-            Prelude.<*> (x Core..: "RoleArn")
-            Prelude.<*> (x Core..: "DestinationStreamArn")
+            Prelude.<$> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "ExternalId")
+            Prelude.<*> (x Data..:? "LastUpdatedBy")
+            Prelude.<*> (x Data..: "ApplicationId")
+            Prelude.<*> (x Data..: "RoleArn")
+            Prelude.<*> (x Data..: "DestinationStreamArn")
       )
 
 instance Prelude.Hashable EventStream where

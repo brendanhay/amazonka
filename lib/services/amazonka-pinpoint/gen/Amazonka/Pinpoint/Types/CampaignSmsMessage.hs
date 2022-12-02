@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.CampaignSmsMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.MessageType
 import qualified Amazonka.Prelude as Prelude
 
@@ -129,18 +130,18 @@ campaignSmsMessage_templateId = Lens.lens (\CampaignSmsMessage' {templateId} -> 
 campaignSmsMessage_originationNumber :: Lens.Lens' CampaignSmsMessage (Prelude.Maybe Prelude.Text)
 campaignSmsMessage_originationNumber = Lens.lens (\CampaignSmsMessage' {originationNumber} -> originationNumber) (\s@CampaignSmsMessage' {} a -> s {originationNumber = a} :: CampaignSmsMessage)
 
-instance Core.FromJSON CampaignSmsMessage where
+instance Data.FromJSON CampaignSmsMessage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CampaignSmsMessage"
       ( \x ->
           CampaignSmsMessage'
-            Prelude.<$> (x Core..:? "EntityId")
-            Prelude.<*> (x Core..:? "MessageType")
-            Prelude.<*> (x Core..:? "SenderId")
-            Prelude.<*> (x Core..:? "Body")
-            Prelude.<*> (x Core..:? "TemplateId")
-            Prelude.<*> (x Core..:? "OriginationNumber")
+            Prelude.<$> (x Data..:? "EntityId")
+            Prelude.<*> (x Data..:? "MessageType")
+            Prelude.<*> (x Data..:? "SenderId")
+            Prelude.<*> (x Data..:? "Body")
+            Prelude.<*> (x Data..:? "TemplateId")
+            Prelude.<*> (x Data..:? "OriginationNumber")
       )
 
 instance Prelude.Hashable CampaignSmsMessage where
@@ -161,16 +162,16 @@ instance Prelude.NFData CampaignSmsMessage where
       `Prelude.seq` Prelude.rnf templateId
       `Prelude.seq` Prelude.rnf originationNumber
 
-instance Core.ToJSON CampaignSmsMessage where
+instance Data.ToJSON CampaignSmsMessage where
   toJSON CampaignSmsMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EntityId" Core..=) Prelude.<$> entityId,
-            ("MessageType" Core..=) Prelude.<$> messageType,
-            ("SenderId" Core..=) Prelude.<$> senderId,
-            ("Body" Core..=) Prelude.<$> body,
-            ("TemplateId" Core..=) Prelude.<$> templateId,
-            ("OriginationNumber" Core..=)
+          [ ("EntityId" Data..=) Prelude.<$> entityId,
+            ("MessageType" Data..=) Prelude.<$> messageType,
+            ("SenderId" Data..=) Prelude.<$> senderId,
+            ("Body" Data..=) Prelude.<$> body,
+            ("TemplateId" Data..=) Prelude.<$> templateId,
+            ("OriginationNumber" Data..=)
               Prelude.<$> originationNumber
           ]
       )

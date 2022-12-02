@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,7 +119,7 @@ instance Core.AWSRequest GetSegmentVersion where
       ( \s h x ->
           GetSegmentVersionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable GetSegmentVersion where
@@ -133,29 +134,29 @@ instance Prelude.NFData GetSegmentVersion where
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf applicationId
 
-instance Core.ToHeaders GetSegmentVersion where
+instance Data.ToHeaders GetSegmentVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSegmentVersion where
+instance Data.ToPath GetSegmentVersion where
   toPath GetSegmentVersion' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/segments/",
-        Core.toBS segmentId,
+        Data.toBS segmentId,
         "/versions/",
-        Core.toBS version
+        Data.toBS version
       ]
 
-instance Core.ToQuery GetSegmentVersion where
+instance Data.ToQuery GetSegmentVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSegmentVersionResponse' smart constructor.

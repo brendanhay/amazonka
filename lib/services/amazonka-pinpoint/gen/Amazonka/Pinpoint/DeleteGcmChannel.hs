@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest DeleteGcmChannel where
       ( \s h x ->
           DeleteGcmChannelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable DeleteGcmChannel where
@@ -98,26 +99,26 @@ instance Prelude.Hashable DeleteGcmChannel where
 instance Prelude.NFData DeleteGcmChannel where
   rnf DeleteGcmChannel' {..} = Prelude.rnf applicationId
 
-instance Core.ToHeaders DeleteGcmChannel where
+instance Data.ToHeaders DeleteGcmChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteGcmChannel where
+instance Data.ToPath DeleteGcmChannel where
   toPath DeleteGcmChannel' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/channels/gcm"
       ]
 
-instance Core.ToQuery DeleteGcmChannel where
+instance Data.ToQuery DeleteGcmChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteGcmChannelResponse' smart constructor.

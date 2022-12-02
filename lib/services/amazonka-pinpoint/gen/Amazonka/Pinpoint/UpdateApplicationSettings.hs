@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,7 +105,7 @@ instance Core.AWSRequest UpdateApplicationSettings where
       ( \s h x ->
           UpdateApplicationSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable UpdateApplicationSettings where
@@ -117,27 +118,27 @@ instance Prelude.NFData UpdateApplicationSettings where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf writeApplicationSettingsRequest
 
-instance Core.ToHeaders UpdateApplicationSettings where
+instance Data.ToHeaders UpdateApplicationSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateApplicationSettings where
+instance Data.ToJSON UpdateApplicationSettings where
   toJSON UpdateApplicationSettings' {..} =
-    Core.toJSON writeApplicationSettingsRequest
+    Data.toJSON writeApplicationSettingsRequest
 
-instance Core.ToPath UpdateApplicationSettings where
+instance Data.ToPath UpdateApplicationSettings where
   toPath UpdateApplicationSettings' {..} =
     Prelude.mconcat
-      ["/v1/apps/", Core.toBS applicationId, "/settings"]
+      ["/v1/apps/", Data.toBS applicationId, "/settings"]
 
-instance Core.ToQuery UpdateApplicationSettings where
+instance Data.ToQuery UpdateApplicationSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateApplicationSettingsResponse' smart constructor.

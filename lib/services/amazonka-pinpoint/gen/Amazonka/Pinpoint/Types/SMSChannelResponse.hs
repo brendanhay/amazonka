@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.SMSChannelResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the status and settings of the SMS channel
@@ -197,26 +198,26 @@ sMSChannelResponse_transactionalMessagesPerSecond = Lens.lens (\SMSChannelRespon
 sMSChannelResponse_platform :: Lens.Lens' SMSChannelResponse Prelude.Text
 sMSChannelResponse_platform = Lens.lens (\SMSChannelResponse' {platform} -> platform) (\s@SMSChannelResponse' {} a -> s {platform = a} :: SMSChannelResponse)
 
-instance Core.FromJSON SMSChannelResponse where
+instance Data.FromJSON SMSChannelResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SMSChannelResponse"
       ( \x ->
           SMSChannelResponse'
-            Prelude.<$> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "SenderId")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "HasCredential")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "ShortCode")
-            Prelude.<*> (x Core..:? "PromotionalMessagesPerSecond")
-            Prelude.<*> (x Core..:? "LastModifiedBy")
-            Prelude.<*> (x Core..:? "IsArchived")
-            Prelude.<*> (x Core..:? "ApplicationId")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..:? "TransactionalMessagesPerSecond")
-            Prelude.<*> (x Core..: "Platform")
+            Prelude.<$> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "SenderId")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "HasCredential")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "ShortCode")
+            Prelude.<*> (x Data..:? "PromotionalMessagesPerSecond")
+            Prelude.<*> (x Data..:? "LastModifiedBy")
+            Prelude.<*> (x Data..:? "IsArchived")
+            Prelude.<*> (x Data..:? "ApplicationId")
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..:? "TransactionalMessagesPerSecond")
+            Prelude.<*> (x Data..: "Platform")
       )
 
 instance Prelude.Hashable SMSChannelResponse where

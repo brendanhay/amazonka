@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.MultiConditionalSplitActivity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.MultiConditionalBranch
 import Amazonka.Pinpoint.Types.WaitTime
 import qualified Amazonka.Prelude as Prelude
@@ -95,15 +96,15 @@ multiConditionalSplitActivity_defaultActivity = Lens.lens (\MultiConditionalSpli
 multiConditionalSplitActivity_evaluationWaitTime :: Lens.Lens' MultiConditionalSplitActivity (Prelude.Maybe WaitTime)
 multiConditionalSplitActivity_evaluationWaitTime = Lens.lens (\MultiConditionalSplitActivity' {evaluationWaitTime} -> evaluationWaitTime) (\s@MultiConditionalSplitActivity' {} a -> s {evaluationWaitTime = a} :: MultiConditionalSplitActivity)
 
-instance Core.FromJSON MultiConditionalSplitActivity where
+instance Data.FromJSON MultiConditionalSplitActivity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MultiConditionalSplitActivity"
       ( \x ->
           MultiConditionalSplitActivity'
-            Prelude.<$> (x Core..:? "Branches" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DefaultActivity")
-            Prelude.<*> (x Core..:? "EvaluationWaitTime")
+            Prelude.<$> (x Data..:? "Branches" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DefaultActivity")
+            Prelude.<*> (x Data..:? "EvaluationWaitTime")
       )
 
 instance
@@ -121,14 +122,14 @@ instance Prelude.NFData MultiConditionalSplitActivity where
       `Prelude.seq` Prelude.rnf defaultActivity
       `Prelude.seq` Prelude.rnf evaluationWaitTime
 
-instance Core.ToJSON MultiConditionalSplitActivity where
+instance Data.ToJSON MultiConditionalSplitActivity where
   toJSON MultiConditionalSplitActivity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Branches" Core..=) Prelude.<$> branches,
-            ("DefaultActivity" Core..=)
+          [ ("Branches" Data..=) Prelude.<$> branches,
+            ("DefaultActivity" Data..=)
               Prelude.<$> defaultActivity,
-            ("EvaluationWaitTime" Core..=)
+            ("EvaluationWaitTime" Data..=)
               Prelude.<$> evaluationWaitTime
           ]
       )

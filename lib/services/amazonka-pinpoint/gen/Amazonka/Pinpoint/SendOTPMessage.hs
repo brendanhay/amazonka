@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance Core.AWSRequest SendOTPMessage where
       ( \s h x ->
           SendOTPMessageResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable SendOTPMessage where
@@ -113,27 +114,27 @@ instance Prelude.NFData SendOTPMessage where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf sendOTPMessageRequestParameters
 
-instance Core.ToHeaders SendOTPMessage where
+instance Data.ToHeaders SendOTPMessage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SendOTPMessage where
+instance Data.ToJSON SendOTPMessage where
   toJSON SendOTPMessage' {..} =
-    Core.toJSON sendOTPMessageRequestParameters
+    Data.toJSON sendOTPMessageRequestParameters
 
-instance Core.ToPath SendOTPMessage where
+instance Data.ToPath SendOTPMessage where
   toPath SendOTPMessage' {..} =
     Prelude.mconcat
-      ["/v1/apps/", Core.toBS applicationId, "/otp"]
+      ["/v1/apps/", Data.toBS applicationId, "/otp"]
 
-instance Core.ToQuery SendOTPMessage where
+instance Data.ToQuery SendOTPMessage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSendOTPMessageResponse' smart constructor.

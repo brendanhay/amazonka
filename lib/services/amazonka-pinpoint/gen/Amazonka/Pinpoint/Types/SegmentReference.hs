@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.SegmentReference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the segment identifier and version of a segment.
@@ -63,13 +64,13 @@ segmentReference_version = Lens.lens (\SegmentReference' {version} -> version) (
 segmentReference_id :: Lens.Lens' SegmentReference Prelude.Text
 segmentReference_id = Lens.lens (\SegmentReference' {id} -> id) (\s@SegmentReference' {} a -> s {id = a} :: SegmentReference)
 
-instance Core.FromJSON SegmentReference where
+instance Data.FromJSON SegmentReference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SegmentReference"
       ( \x ->
           SegmentReference'
-            Prelude.<$> (x Core..:? "Version") Prelude.<*> (x Core..: "Id")
+            Prelude.<$> (x Data..:? "Version") Prelude.<*> (x Data..: "Id")
       )
 
 instance Prelude.Hashable SegmentReference where
@@ -81,11 +82,11 @@ instance Prelude.NFData SegmentReference where
   rnf SegmentReference' {..} =
     Prelude.rnf version `Prelude.seq` Prelude.rnf id
 
-instance Core.ToJSON SegmentReference where
+instance Data.ToJSON SegmentReference where
   toJSON SegmentReference' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Version" Core..=) Prelude.<$> version,
-            Prelude.Just ("Id" Core..= id)
+          [ ("Version" Data..=) Prelude.<$> version,
+            Prelude.Just ("Id" Data..= id)
           ]
       )

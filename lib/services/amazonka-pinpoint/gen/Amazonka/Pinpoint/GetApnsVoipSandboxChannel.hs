@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,7 +92,7 @@ instance Core.AWSRequest GetApnsVoipSandboxChannel where
       ( \s h x ->
           GetApnsVoipSandboxChannelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable GetApnsVoipSandboxChannel where
@@ -102,26 +103,26 @@ instance Prelude.NFData GetApnsVoipSandboxChannel where
   rnf GetApnsVoipSandboxChannel' {..} =
     Prelude.rnf applicationId
 
-instance Core.ToHeaders GetApnsVoipSandboxChannel where
+instance Data.ToHeaders GetApnsVoipSandboxChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetApnsVoipSandboxChannel where
+instance Data.ToPath GetApnsVoipSandboxChannel where
   toPath GetApnsVoipSandboxChannel' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/channels/apns_voip_sandbox"
       ]
 
-instance Core.ToQuery GetApnsVoipSandboxChannel where
+instance Data.ToQuery GetApnsVoipSandboxChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetApnsVoipSandboxChannelResponse' smart constructor.

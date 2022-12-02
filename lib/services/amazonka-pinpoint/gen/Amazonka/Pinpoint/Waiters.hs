@@ -18,6 +18,7 @@ module Amazonka.Pinpoint.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Lens
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude

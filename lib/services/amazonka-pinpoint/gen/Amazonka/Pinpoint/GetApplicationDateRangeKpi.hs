@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -62,7 +63,7 @@ data GetApplicationDateRangeKpi = GetApplicationDateRangeKpi'
     -- date range that filters the query results. This value should be in
     -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
     -- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
@@ -72,7 +73,7 @@ data GetApplicationDateRangeKpi = GetApplicationDateRangeKpi'
     -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
     -- example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value
     -- should also be fewer than 90 days from the current day.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
     applicationId :: Prelude.Text,
@@ -154,7 +155,7 @@ getApplicationDateRangeKpi_nextToken = Lens.lens (\GetApplicationDateRangeKpi' {
 -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
 -- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
 getApplicationDateRangeKpi_endTime :: Lens.Lens' GetApplicationDateRangeKpi (Prelude.Maybe Prelude.UTCTime)
-getApplicationDateRangeKpi_endTime = Lens.lens (\GetApplicationDateRangeKpi' {endTime} -> endTime) (\s@GetApplicationDateRangeKpi' {} a -> s {endTime = a} :: GetApplicationDateRangeKpi) Prelude.. Lens.mapping Core._Time
+getApplicationDateRangeKpi_endTime = Lens.lens (\GetApplicationDateRangeKpi' {endTime} -> endTime) (\s@GetApplicationDateRangeKpi' {} a -> s {endTime = a} :: GetApplicationDateRangeKpi) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
@@ -168,7 +169,7 @@ getApplicationDateRangeKpi_pageSize = Lens.lens (\GetApplicationDateRangeKpi' {p
 -- example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value
 -- should also be fewer than 90 days from the current day.
 getApplicationDateRangeKpi_startTime :: Lens.Lens' GetApplicationDateRangeKpi (Prelude.Maybe Prelude.UTCTime)
-getApplicationDateRangeKpi_startTime = Lens.lens (\GetApplicationDateRangeKpi' {startTime} -> startTime) (\s@GetApplicationDateRangeKpi' {} a -> s {startTime = a} :: GetApplicationDateRangeKpi) Prelude.. Lens.mapping Core._Time
+getApplicationDateRangeKpi_startTime = Lens.lens (\GetApplicationDateRangeKpi' {startTime} -> startTime) (\s@GetApplicationDateRangeKpi' {} a -> s {startTime = a} :: GetApplicationDateRangeKpi) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
@@ -196,7 +197,7 @@ instance Core.AWSRequest GetApplicationDateRangeKpi where
       ( \s h x ->
           GetApplicationDateRangeKpiResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable GetApplicationDateRangeKpi where
@@ -217,33 +218,33 @@ instance Prelude.NFData GetApplicationDateRangeKpi where
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf kpiName
 
-instance Core.ToHeaders GetApplicationDateRangeKpi where
+instance Data.ToHeaders GetApplicationDateRangeKpi where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetApplicationDateRangeKpi where
+instance Data.ToPath GetApplicationDateRangeKpi where
   toPath GetApplicationDateRangeKpi' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/kpis/daterange/",
-        Core.toBS kpiName
+        Data.toBS kpiName
       ]
 
-instance Core.ToQuery GetApplicationDateRangeKpi where
+instance Data.ToQuery GetApplicationDateRangeKpi where
   toQuery GetApplicationDateRangeKpi' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "end-time" Core.=: endTime,
-        "page-size" Core.=: pageSize,
-        "start-time" Core.=: startTime
+      [ "next-token" Data.=: nextToken,
+        "end-time" Data.=: endTime,
+        "page-size" Data.=: pageSize,
+        "start-time" Data.=: startTime
       ]
 
 -- | /See:/ 'newGetApplicationDateRangeKpiResponse' smart constructor.

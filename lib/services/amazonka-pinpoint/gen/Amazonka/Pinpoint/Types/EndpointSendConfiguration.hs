@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.EndpointSendConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the content, including message variables and attributes, to
@@ -136,14 +137,14 @@ instance Prelude.NFData EndpointSendConfiguration where
       `Prelude.seq` Prelude.rnf rawContent
       `Prelude.seq` Prelude.rnf bodyOverride
 
-instance Core.ToJSON EndpointSendConfiguration where
+instance Data.ToJSON EndpointSendConfiguration where
   toJSON EndpointSendConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Context" Core..=) Prelude.<$> context,
-            ("Substitutions" Core..=) Prelude.<$> substitutions,
-            ("TitleOverride" Core..=) Prelude.<$> titleOverride,
-            ("RawContent" Core..=) Prelude.<$> rawContent,
-            ("BodyOverride" Core..=) Prelude.<$> bodyOverride
+          [ ("Context" Data..=) Prelude.<$> context,
+            ("Substitutions" Data..=) Prelude.<$> substitutions,
+            ("TitleOverride" Data..=) Prelude.<$> titleOverride,
+            ("RawContent" Data..=) Prelude.<$> rawContent,
+            ("BodyOverride" Data..=) Prelude.<$> bodyOverride
           ]
       )

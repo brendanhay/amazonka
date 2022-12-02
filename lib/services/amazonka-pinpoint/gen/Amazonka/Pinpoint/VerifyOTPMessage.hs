@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance Core.AWSRequest VerifyOTPMessage where
       ( \s h x ->
           VerifyOTPMessageResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable VerifyOTPMessage where
@@ -113,27 +114,27 @@ instance Prelude.NFData VerifyOTPMessage where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf verifyOTPMessageRequestParameters
 
-instance Core.ToHeaders VerifyOTPMessage where
+instance Data.ToHeaders VerifyOTPMessage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON VerifyOTPMessage where
+instance Data.ToJSON VerifyOTPMessage where
   toJSON VerifyOTPMessage' {..} =
-    Core.toJSON verifyOTPMessageRequestParameters
+    Data.toJSON verifyOTPMessageRequestParameters
 
-instance Core.ToPath VerifyOTPMessage where
+instance Data.ToPath VerifyOTPMessage where
   toPath VerifyOTPMessage' {..} =
     Prelude.mconcat
-      ["/v1/apps/", Core.toBS applicationId, "/verify-otp"]
+      ["/v1/apps/", Data.toBS applicationId, "/verify-otp"]
 
-instance Core.ToQuery VerifyOTPMessage where
+instance Data.ToQuery VerifyOTPMessage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newVerifyOTPMessageResponse' smart constructor.

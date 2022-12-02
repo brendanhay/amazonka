@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.DefaultMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the default message for all channels.
@@ -74,11 +75,11 @@ instance Prelude.NFData DefaultMessage where
     Prelude.rnf body
       `Prelude.seq` Prelude.rnf substitutions
 
-instance Core.ToJSON DefaultMessage where
+instance Data.ToJSON DefaultMessage where
   toJSON DefaultMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Body" Core..=) Prelude.<$> body,
-            ("Substitutions" Core..=) Prelude.<$> substitutions
+          [ ("Body" Data..=) Prelude.<$> body,
+            ("Substitutions" Data..=) Prelude.<$> substitutions
           ]
       )

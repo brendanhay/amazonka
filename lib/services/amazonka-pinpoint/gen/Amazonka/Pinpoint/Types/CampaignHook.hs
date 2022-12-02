@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.CampaignHook where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.Mode
 import qualified Amazonka.Prelude as Prelude
 
@@ -108,15 +109,15 @@ campaignHook_webUrl = Lens.lens (\CampaignHook' {webUrl} -> webUrl) (\s@Campaign
 campaignHook_mode :: Lens.Lens' CampaignHook (Prelude.Maybe Mode)
 campaignHook_mode = Lens.lens (\CampaignHook' {mode} -> mode) (\s@CampaignHook' {} a -> s {mode = a} :: CampaignHook)
 
-instance Core.FromJSON CampaignHook where
+instance Data.FromJSON CampaignHook where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CampaignHook"
       ( \x ->
           CampaignHook'
-            Prelude.<$> (x Core..:? "LambdaFunctionName")
-            Prelude.<*> (x Core..:? "WebUrl")
-            Prelude.<*> (x Core..:? "Mode")
+            Prelude.<$> (x Data..:? "LambdaFunctionName")
+            Prelude.<*> (x Data..:? "WebUrl")
+            Prelude.<*> (x Data..:? "Mode")
       )
 
 instance Prelude.Hashable CampaignHook where
@@ -131,13 +132,13 @@ instance Prelude.NFData CampaignHook where
       `Prelude.seq` Prelude.rnf webUrl
       `Prelude.seq` Prelude.rnf mode
 
-instance Core.ToJSON CampaignHook where
+instance Data.ToJSON CampaignHook where
   toJSON CampaignHook' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LambdaFunctionName" Core..=)
+          [ ("LambdaFunctionName" Data..=)
               Prelude.<$> lambdaFunctionName,
-            ("WebUrl" Core..=) Prelude.<$> webUrl,
-            ("Mode" Core..=) Prelude.<$> mode
+            ("WebUrl" Data..=) Prelude.<$> webUrl,
+            ("Mode" Data..=) Prelude.<$> mode
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.InAppTemplateResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.InAppMessageContent
 import Amazonka.Pinpoint.Types.Layout
 import Amazonka.Pinpoint.Types.TemplateType
@@ -170,23 +171,23 @@ inAppTemplateResponse_templateName = Lens.lens (\InAppTemplateResponse' {templat
 inAppTemplateResponse_templateType :: Lens.Lens' InAppTemplateResponse TemplateType
 inAppTemplateResponse_templateType = Lens.lens (\InAppTemplateResponse' {templateType} -> templateType) (\s@InAppTemplateResponse' {} a -> s {templateType = a} :: InAppTemplateResponse)
 
-instance Core.FromJSON InAppTemplateResponse where
+instance Data.FromJSON InAppTemplateResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InAppTemplateResponse"
       ( \x ->
           InAppTemplateResponse'
-            Prelude.<$> (x Core..:? "CustomConfig" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Layout")
-            Prelude.<*> (x Core..:? "Content" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "TemplateDescription")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..: "LastModifiedDate")
-            Prelude.<*> (x Core..: "CreationDate")
-            Prelude.<*> (x Core..: "TemplateName")
-            Prelude.<*> (x Core..: "TemplateType")
+            Prelude.<$> (x Data..:? "CustomConfig" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Layout")
+            Prelude.<*> (x Data..:? "Content" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "TemplateDescription")
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..: "LastModifiedDate")
+            Prelude.<*> (x Data..: "CreationDate")
+            Prelude.<*> (x Data..: "TemplateName")
+            Prelude.<*> (x Data..: "TemplateType")
       )
 
 instance Prelude.Hashable InAppTemplateResponse where

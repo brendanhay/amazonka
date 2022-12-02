@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.PushNotificationTemplateRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.APNSPushNotificationTemplate
 import Amazonka.Pinpoint.Types.AndroidPushNotificationTemplate
 import Amazonka.Pinpoint.Types.DefaultPushNotificationTemplate
@@ -227,20 +228,20 @@ instance
       `Prelude.seq` Prelude.rnf templateDescription
       `Prelude.seq` Prelude.rnf gcm
 
-instance Core.ToJSON PushNotificationTemplateRequest where
+instance Data.ToJSON PushNotificationTemplateRequest where
   toJSON PushNotificationTemplateRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("ADM" Core..=) Prelude.<$> adm,
-            ("APNS" Core..=) Prelude.<$> apns,
-            ("Default" Core..=) Prelude.<$> default',
-            ("RecommenderId" Core..=) Prelude.<$> recommenderId,
-            ("DefaultSubstitutions" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("ADM" Data..=) Prelude.<$> adm,
+            ("APNS" Data..=) Prelude.<$> apns,
+            ("Default" Data..=) Prelude.<$> default',
+            ("RecommenderId" Data..=) Prelude.<$> recommenderId,
+            ("DefaultSubstitutions" Data..=)
               Prelude.<$> defaultSubstitutions,
-            ("Baidu" Core..=) Prelude.<$> baidu,
-            ("TemplateDescription" Core..=)
+            ("Baidu" Data..=) Prelude.<$> baidu,
+            ("TemplateDescription" Data..=)
               Prelude.<$> templateDescription,
-            ("GCM" Core..=) Prelude.<$> gcm
+            ("GCM" Data..=) Prelude.<$> gcm
           ]
       )

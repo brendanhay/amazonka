@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.Session where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a session.
@@ -97,14 +98,14 @@ instance Prelude.NFData Session where
       `Prelude.seq` Prelude.rnf startTimestamp
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToJSON Session where
+instance Data.ToJSON Session where
   toJSON Session' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Duration" Core..=) Prelude.<$> duration,
-            ("StopTimestamp" Core..=) Prelude.<$> stopTimestamp,
+          [ ("Duration" Data..=) Prelude.<$> duration,
+            ("StopTimestamp" Data..=) Prelude.<$> stopTimestamp,
             Prelude.Just
-              ("StartTimestamp" Core..= startTimestamp),
-            Prelude.Just ("Id" Core..= id)
+              ("StartTimestamp" Data..= startTimestamp),
+            Prelude.Just ("Id" Data..= id)
           ]
       )

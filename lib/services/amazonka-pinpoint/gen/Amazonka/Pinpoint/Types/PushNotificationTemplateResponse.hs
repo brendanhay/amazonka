@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.PushNotificationTemplateResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.APNSPushNotificationTemplate
 import Amazonka.Pinpoint.Types.AndroidPushNotificationTemplate
 import Amazonka.Pinpoint.Types.DefaultPushNotificationTemplate
@@ -261,29 +262,29 @@ pushNotificationTemplateResponse_templateName :: Lens.Lens' PushNotificationTemp
 pushNotificationTemplateResponse_templateName = Lens.lens (\PushNotificationTemplateResponse' {templateName} -> templateName) (\s@PushNotificationTemplateResponse' {} a -> s {templateName = a} :: PushNotificationTemplateResponse)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     PushNotificationTemplateResponse
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PushNotificationTemplateResponse"
       ( \x ->
           PushNotificationTemplateResponse'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ADM")
-            Prelude.<*> (x Core..:? "APNS")
-            Prelude.<*> (x Core..:? "Default")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "RecommenderId")
-            Prelude.<*> (x Core..:? "DefaultSubstitutions")
-            Prelude.<*> (x Core..:? "Baidu")
-            Prelude.<*> (x Core..:? "TemplateDescription")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..:? "GCM")
-            Prelude.<*> (x Core..: "LastModifiedDate")
-            Prelude.<*> (x Core..: "CreationDate")
-            Prelude.<*> (x Core..: "TemplateType")
-            Prelude.<*> (x Core..: "TemplateName")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ADM")
+            Prelude.<*> (x Data..:? "APNS")
+            Prelude.<*> (x Data..:? "Default")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "RecommenderId")
+            Prelude.<*> (x Data..:? "DefaultSubstitutions")
+            Prelude.<*> (x Data..:? "Baidu")
+            Prelude.<*> (x Data..:? "TemplateDescription")
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..:? "GCM")
+            Prelude.<*> (x Data..: "LastModifiedDate")
+            Prelude.<*> (x Data..: "CreationDate")
+            Prelude.<*> (x Data..: "TemplateType")
+            Prelude.<*> (x Data..: "TemplateName")
       )
 
 instance

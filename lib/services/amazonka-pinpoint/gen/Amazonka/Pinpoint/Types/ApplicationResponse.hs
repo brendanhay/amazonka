@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.ApplicationResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an application.
@@ -106,17 +107,17 @@ applicationResponse_arn = Lens.lens (\ApplicationResponse' {arn} -> arn) (\s@App
 applicationResponse_name :: Lens.Lens' ApplicationResponse Prelude.Text
 applicationResponse_name = Lens.lens (\ApplicationResponse' {name} -> name) (\s@ApplicationResponse' {} a -> s {name = a} :: ApplicationResponse)
 
-instance Core.FromJSON ApplicationResponse where
+instance Data.FromJSON ApplicationResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationResponse"
       ( \x ->
           ApplicationResponse'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "Arn")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "Arn")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable ApplicationResponse where

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,7 +92,7 @@ instance Core.AWSRequest GetApnsVoipChannel where
       ( \s h x ->
           GetApnsVoipChannelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable GetApnsVoipChannel where
@@ -102,26 +103,26 @@ instance Prelude.NFData GetApnsVoipChannel where
   rnf GetApnsVoipChannel' {..} =
     Prelude.rnf applicationId
 
-instance Core.ToHeaders GetApnsVoipChannel where
+instance Data.ToHeaders GetApnsVoipChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetApnsVoipChannel where
+instance Data.ToPath GetApnsVoipChannel where
   toPath GetApnsVoipChannel' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/channels/apns_voip"
       ]
 
-instance Core.ToQuery GetApnsVoipChannel where
+instance Data.ToQuery GetApnsVoipChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetApnsVoipChannelResponse' smart constructor.

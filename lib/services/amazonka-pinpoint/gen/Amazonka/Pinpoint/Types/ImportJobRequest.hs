@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.ImportJobRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.DefinitionFormat
 import qualified Amazonka.Prelude as Prelude
 
@@ -217,18 +218,18 @@ instance Prelude.NFData ImportJobRequest where
       `Prelude.seq` Prelude.rnf s3Url
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToJSON ImportJobRequest where
+instance Data.ToJSON ImportJobRequest where
   toJSON ImportJobRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DefineSegment" Core..=) Prelude.<$> defineSegment,
-            ("SegmentId" Core..=) Prelude.<$> segmentId,
-            ("ExternalId" Core..=) Prelude.<$> externalId,
-            ("SegmentName" Core..=) Prelude.<$> segmentName,
-            ("RegisterEndpoints" Core..=)
+          [ ("DefineSegment" Data..=) Prelude.<$> defineSegment,
+            ("SegmentId" Data..=) Prelude.<$> segmentId,
+            ("ExternalId" Data..=) Prelude.<$> externalId,
+            ("SegmentName" Data..=) Prelude.<$> segmentName,
+            ("RegisterEndpoints" Data..=)
               Prelude.<$> registerEndpoints,
-            Prelude.Just ("Format" Core..= format),
-            Prelude.Just ("S3Url" Core..= s3Url),
-            Prelude.Just ("RoleArn" Core..= roleArn)
+            Prelude.Just ("Format" Data..= format),
+            Prelude.Just ("S3Url" Data..= s3Url),
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )

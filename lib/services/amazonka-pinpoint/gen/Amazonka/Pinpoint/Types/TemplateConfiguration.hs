@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.TemplateConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.Template
 import qualified Amazonka.Prelude as Prelude
 
@@ -85,16 +86,16 @@ templateConfiguration_voiceTemplate = Lens.lens (\TemplateConfiguration' {voiceT
 templateConfiguration_pushTemplate :: Lens.Lens' TemplateConfiguration (Prelude.Maybe Template)
 templateConfiguration_pushTemplate = Lens.lens (\TemplateConfiguration' {pushTemplate} -> pushTemplate) (\s@TemplateConfiguration' {} a -> s {pushTemplate = a} :: TemplateConfiguration)
 
-instance Core.FromJSON TemplateConfiguration where
+instance Data.FromJSON TemplateConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TemplateConfiguration"
       ( \x ->
           TemplateConfiguration'
-            Prelude.<$> (x Core..:? "EmailTemplate")
-            Prelude.<*> (x Core..:? "SMSTemplate")
-            Prelude.<*> (x Core..:? "VoiceTemplate")
-            Prelude.<*> (x Core..:? "PushTemplate")
+            Prelude.<$> (x Data..:? "EmailTemplate")
+            Prelude.<*> (x Data..:? "SMSTemplate")
+            Prelude.<*> (x Data..:? "VoiceTemplate")
+            Prelude.<*> (x Data..:? "PushTemplate")
       )
 
 instance Prelude.Hashable TemplateConfiguration where
@@ -111,13 +112,13 @@ instance Prelude.NFData TemplateConfiguration where
       `Prelude.seq` Prelude.rnf voiceTemplate
       `Prelude.seq` Prelude.rnf pushTemplate
 
-instance Core.ToJSON TemplateConfiguration where
+instance Data.ToJSON TemplateConfiguration where
   toJSON TemplateConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EmailTemplate" Core..=) Prelude.<$> emailTemplate,
-            ("SMSTemplate" Core..=) Prelude.<$> sMSTemplate,
-            ("VoiceTemplate" Core..=) Prelude.<$> voiceTemplate,
-            ("PushTemplate" Core..=) Prelude.<$> pushTemplate
+          [ ("EmailTemplate" Data..=) Prelude.<$> emailTemplate,
+            ("SMSTemplate" Data..=) Prelude.<$> sMSTemplate,
+            ("VoiceTemplate" Data..=) Prelude.<$> voiceTemplate,
+            ("PushTemplate" Data..=) Prelude.<$> pushTemplate
           ]
       )

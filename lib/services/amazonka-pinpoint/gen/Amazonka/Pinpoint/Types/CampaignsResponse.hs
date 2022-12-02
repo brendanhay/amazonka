@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.CampaignsResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.CampaignResponse
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,14 +73,14 @@ campaignsResponse_nextToken = Lens.lens (\CampaignsResponse' {nextToken} -> next
 campaignsResponse_item :: Lens.Lens' CampaignsResponse [CampaignResponse]
 campaignsResponse_item = Lens.lens (\CampaignsResponse' {item} -> item) (\s@CampaignsResponse' {} a -> s {item = a} :: CampaignsResponse) Prelude.. Lens.coerced
 
-instance Core.FromJSON CampaignsResponse where
+instance Data.FromJSON CampaignsResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CampaignsResponse"
       ( \x ->
           CampaignsResponse'
-            Prelude.<$> (x Core..:? "NextToken")
-            Prelude.<*> (x Core..:? "Item" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "NextToken")
+            Prelude.<*> (x Data..:? "Item" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable CampaignsResponse where

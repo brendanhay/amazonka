@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,7 +133,7 @@ instance Core.AWSRequest GetSegmentVersions where
       ( \s h x ->
           GetSegmentVersionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable GetSegmentVersions where
@@ -149,31 +150,31 @@ instance Prelude.NFData GetSegmentVersions where
       `Prelude.seq` Prelude.rnf segmentId
       `Prelude.seq` Prelude.rnf applicationId
 
-instance Core.ToHeaders GetSegmentVersions where
+instance Data.ToHeaders GetSegmentVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSegmentVersions where
+instance Data.ToPath GetSegmentVersions where
   toPath GetSegmentVersions' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/segments/",
-        Core.toBS segmentId,
+        Data.toBS segmentId,
         "/versions"
       ]
 
-instance Core.ToQuery GetSegmentVersions where
+instance Data.ToQuery GetSegmentVersions where
   toQuery GetSegmentVersions' {..} =
     Prelude.mconcat
-      ["page-size" Core.=: pageSize, "token" Core.=: token]
+      ["page-size" Data.=: pageSize, "token" Data.=: token]
 
 -- | /See:/ 'newGetSegmentVersionsResponse' smart constructor.
 data GetSegmentVersionsResponse = GetSegmentVersionsResponse'

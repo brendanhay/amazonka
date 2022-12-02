@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,7 +97,7 @@ instance
       ( \s h x ->
           DeleteRecommenderConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance
@@ -116,25 +117,25 @@ instance
     Prelude.rnf recommenderId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteRecommenderConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteRecommenderConfiguration where
+instance Data.ToPath DeleteRecommenderConfiguration where
   toPath DeleteRecommenderConfiguration' {..} =
     Prelude.mconcat
-      ["/v1/recommenders/", Core.toBS recommenderId]
+      ["/v1/recommenders/", Data.toBS recommenderId]
 
-instance Core.ToQuery DeleteRecommenderConfiguration where
+instance Data.ToQuery DeleteRecommenderConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRecommenderConfigurationResponse' smart constructor.

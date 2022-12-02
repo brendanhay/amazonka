@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.ListRecommenderConfigurationsResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.RecommenderConfigurationResponse
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,16 +75,16 @@ listRecommenderConfigurationsResponse_item :: Lens.Lens' ListRecommenderConfigur
 listRecommenderConfigurationsResponse_item = Lens.lens (\ListRecommenderConfigurationsResponse' {item} -> item) (\s@ListRecommenderConfigurationsResponse' {} a -> s {item = a} :: ListRecommenderConfigurationsResponse) Prelude.. Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ListRecommenderConfigurationsResponse
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListRecommenderConfigurationsResponse"
       ( \x ->
           ListRecommenderConfigurationsResponse'
-            Prelude.<$> (x Core..:? "NextToken")
-            Prelude.<*> (x Core..:? "Item" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "NextToken")
+            Prelude.<*> (x Data..:? "Item" Data..!= Prelude.mempty)
       )
 
 instance

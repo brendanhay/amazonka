@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,7 +111,7 @@ instance
       ( \s h x ->
           UpdateRecommenderConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance
@@ -132,29 +133,29 @@ instance
       `Prelude.seq` Prelude.rnf updateRecommenderConfiguration
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateRecommenderConfiguration'
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRecommenderConfiguration' where
+instance Data.ToJSON UpdateRecommenderConfiguration' where
   toJSON UpdateRecommenderConfiguration'' {..} =
-    Core.toJSON updateRecommenderConfiguration
+    Data.toJSON updateRecommenderConfiguration
 
-instance Core.ToPath UpdateRecommenderConfiguration' where
+instance Data.ToPath UpdateRecommenderConfiguration' where
   toPath UpdateRecommenderConfiguration'' {..} =
     Prelude.mconcat
-      ["/v1/recommenders/", Core.toBS recommenderId]
+      ["/v1/recommenders/", Data.toBS recommenderId]
 
-instance Core.ToQuery UpdateRecommenderConfiguration' where
+instance Data.ToQuery UpdateRecommenderConfiguration' where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRecommenderConfigurationResponse' smart constructor.

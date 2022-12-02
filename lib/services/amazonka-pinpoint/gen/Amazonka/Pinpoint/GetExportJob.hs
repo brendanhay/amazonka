@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance Core.AWSRequest GetExportJob where
       ( \s h x ->
           GetExportJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable GetExportJob where
@@ -113,27 +114,27 @@ instance Prelude.NFData GetExportJob where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders GetExportJob where
+instance Data.ToHeaders GetExportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetExportJob where
+instance Data.ToPath GetExportJob where
   toPath GetExportJob' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/jobs/export/",
-        Core.toBS jobId
+        Data.toBS jobId
       ]
 
-instance Core.ToQuery GetExportJob where
+instance Data.ToQuery GetExportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetExportJobResponse' smart constructor.

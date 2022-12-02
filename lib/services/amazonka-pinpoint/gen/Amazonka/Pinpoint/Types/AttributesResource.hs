@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.AttributesResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the type and the names of attributes that
@@ -106,15 +107,15 @@ attributesResource_attributeType = Lens.lens (\AttributesResource' {attributeTyp
 attributesResource_applicationId :: Lens.Lens' AttributesResource Prelude.Text
 attributesResource_applicationId = Lens.lens (\AttributesResource' {applicationId} -> applicationId) (\s@AttributesResource' {} a -> s {applicationId = a} :: AttributesResource)
 
-instance Core.FromJSON AttributesResource where
+instance Data.FromJSON AttributesResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AttributesResource"
       ( \x ->
           AttributesResource'
-            Prelude.<$> (x Core..:? "Attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "AttributeType")
-            Prelude.<*> (x Core..: "ApplicationId")
+            Prelude.<$> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "AttributeType")
+            Prelude.<*> (x Data..: "ApplicationId")
       )
 
 instance Prelude.Hashable AttributesResource where

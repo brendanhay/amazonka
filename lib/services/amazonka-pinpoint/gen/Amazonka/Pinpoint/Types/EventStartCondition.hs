@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.EventStartCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.EventFilter
 import qualified Amazonka.Prelude as Prelude
 
@@ -61,14 +62,14 @@ eventStartCondition_eventFilter = Lens.lens (\EventStartCondition' {eventFilter}
 eventStartCondition_segmentId :: Lens.Lens' EventStartCondition (Prelude.Maybe Prelude.Text)
 eventStartCondition_segmentId = Lens.lens (\EventStartCondition' {segmentId} -> segmentId) (\s@EventStartCondition' {} a -> s {segmentId = a} :: EventStartCondition)
 
-instance Core.FromJSON EventStartCondition where
+instance Data.FromJSON EventStartCondition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventStartCondition"
       ( \x ->
           EventStartCondition'
-            Prelude.<$> (x Core..:? "EventFilter")
-            Prelude.<*> (x Core..:? "SegmentId")
+            Prelude.<$> (x Data..:? "EventFilter")
+            Prelude.<*> (x Data..:? "SegmentId")
       )
 
 instance Prelude.Hashable EventStartCondition where
@@ -81,11 +82,11 @@ instance Prelude.NFData EventStartCondition where
     Prelude.rnf eventFilter
       `Prelude.seq` Prelude.rnf segmentId
 
-instance Core.ToJSON EventStartCondition where
+instance Data.ToJSON EventStartCondition where
   toJSON EventStartCondition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EventFilter" Core..=) Prelude.<$> eventFilter,
-            ("SegmentId" Core..=) Prelude.<$> segmentId
+          [ ("EventFilter" Data..=) Prelude.<$> eventFilter,
+            ("SegmentId" Data..=) Prelude.<$> segmentId
           ]
       )

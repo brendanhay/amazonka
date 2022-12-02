@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.WriteApplicationSettingsRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.CampaignHook
 import Amazonka.Pinpoint.Types.CampaignLimits
 import Amazonka.Pinpoint.Types.QuietTime
@@ -208,16 +209,16 @@ instance
       `Prelude.seq` Prelude.rnf quietTime
       `Prelude.seq` Prelude.rnf campaignHook
 
-instance Core.ToJSON WriteApplicationSettingsRequest where
+instance Data.ToJSON WriteApplicationSettingsRequest where
   toJSON WriteApplicationSettingsRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Limits" Core..=) Prelude.<$> limits,
-            ("EventTaggingEnabled" Core..=)
+          [ ("Limits" Data..=) Prelude.<$> limits,
+            ("EventTaggingEnabled" Data..=)
               Prelude.<$> eventTaggingEnabled,
-            ("CloudWatchMetricsEnabled" Core..=)
+            ("CloudWatchMetricsEnabled" Data..=)
               Prelude.<$> cloudWatchMetricsEnabled,
-            ("QuietTime" Core..=) Prelude.<$> quietTime,
-            ("CampaignHook" Core..=) Prelude.<$> campaignHook
+            ("QuietTime" Data..=) Prelude.<$> quietTime,
+            ("CampaignHook" Data..=) Prelude.<$> campaignHook
           ]
       )

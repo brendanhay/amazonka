@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.ADMChannelRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the status and settings of the ADM (Amazon Device Messaging)
@@ -93,12 +94,12 @@ instance Prelude.NFData ADMChannelRequest where
       `Prelude.seq` Prelude.rnf clientSecret
       `Prelude.seq` Prelude.rnf clientId
 
-instance Core.ToJSON ADMChannelRequest where
+instance Data.ToJSON ADMChannelRequest where
   toJSON ADMChannelRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Enabled" Core..=) Prelude.<$> enabled,
-            Prelude.Just ("ClientSecret" Core..= clientSecret),
-            Prelude.Just ("ClientId" Core..= clientId)
+          [ ("Enabled" Data..=) Prelude.<$> enabled,
+            Prelude.Just ("ClientSecret" Data..= clientSecret),
+            Prelude.Just ("ClientId" Data..= clientId)
           ]
       )

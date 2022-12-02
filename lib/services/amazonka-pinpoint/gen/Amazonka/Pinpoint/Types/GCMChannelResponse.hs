@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.GCMChannelResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the status and settings of the GCM channel
@@ -162,23 +163,23 @@ gCMChannelResponse_credential = Lens.lens (\GCMChannelResponse' {credential} -> 
 gCMChannelResponse_platform :: Lens.Lens' GCMChannelResponse Prelude.Text
 gCMChannelResponse_platform = Lens.lens (\GCMChannelResponse' {platform} -> platform) (\s@GCMChannelResponse' {} a -> s {platform = a} :: GCMChannelResponse)
 
-instance Core.FromJSON GCMChannelResponse where
+instance Data.FromJSON GCMChannelResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GCMChannelResponse"
       ( \x ->
           GCMChannelResponse'
-            Prelude.<$> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "HasCredential")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "LastModifiedBy")
-            Prelude.<*> (x Core..:? "IsArchived")
-            Prelude.<*> (x Core..:? "ApplicationId")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..: "Credential")
-            Prelude.<*> (x Core..: "Platform")
+            Prelude.<$> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "HasCredential")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "LastModifiedBy")
+            Prelude.<*> (x Data..:? "IsArchived")
+            Prelude.<*> (x Data..:? "ApplicationId")
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..: "Credential")
+            Prelude.<*> (x Data..: "Platform")
       )
 
 instance Prelude.Hashable GCMChannelResponse where

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,7 +99,7 @@ instance Core.AWSRequest SendMessages where
       ( \s h x ->
           SendMessagesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable SendMessages where
@@ -111,26 +112,26 @@ instance Prelude.NFData SendMessages where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf messageRequest
 
-instance Core.ToHeaders SendMessages where
+instance Data.ToHeaders SendMessages where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SendMessages where
-  toJSON SendMessages' {..} = Core.toJSON messageRequest
+instance Data.ToJSON SendMessages where
+  toJSON SendMessages' {..} = Data.toJSON messageRequest
 
-instance Core.ToPath SendMessages where
+instance Data.ToPath SendMessages where
   toPath SendMessages' {..} =
     Prelude.mconcat
-      ["/v1/apps/", Core.toBS applicationId, "/messages"]
+      ["/v1/apps/", Data.toBS applicationId, "/messages"]
 
-instance Core.ToQuery SendMessages where
+instance Data.ToQuery SendMessages where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSendMessagesResponse' smart constructor.

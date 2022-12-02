@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,7 +106,7 @@ instance Core.AWSRequest UpdateApnsVoipSandboxChannel where
       ( \s h x ->
           UpdateApnsVoipSandboxChannelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance
@@ -121,30 +122,30 @@ instance Prelude.NFData UpdateApnsVoipSandboxChannel where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf aPNSVoipSandboxChannelRequest
 
-instance Core.ToHeaders UpdateApnsVoipSandboxChannel where
+instance Data.ToHeaders UpdateApnsVoipSandboxChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateApnsVoipSandboxChannel where
+instance Data.ToJSON UpdateApnsVoipSandboxChannel where
   toJSON UpdateApnsVoipSandboxChannel' {..} =
-    Core.toJSON aPNSVoipSandboxChannelRequest
+    Data.toJSON aPNSVoipSandboxChannelRequest
 
-instance Core.ToPath UpdateApnsVoipSandboxChannel where
+instance Data.ToPath UpdateApnsVoipSandboxChannel where
   toPath UpdateApnsVoipSandboxChannel' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/channels/apns_voip_sandbox"
       ]
 
-instance Core.ToQuery UpdateApnsVoipSandboxChannel where
+instance Data.ToQuery UpdateApnsVoipSandboxChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateApnsVoipSandboxChannelResponse' smart constructor.

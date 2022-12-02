@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.APNSMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.Action
 import qualified Amazonka.Prelude as Prelude
 
@@ -628,28 +629,28 @@ instance Prelude.NFData APNSMessage where
       `Prelude.seq` Prelude.rnf
         preferredAuthenticationMethod
 
-instance Core.ToJSON APNSMessage where
+instance Data.ToJSON APNSMessage where
   toJSON APNSMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CollapseId" Core..=) Prelude.<$> collapseId,
-            ("TimeToLive" Core..=) Prelude.<$> timeToLive,
-            ("ThreadId" Core..=) Prelude.<$> threadId,
-            ("Body" Core..=) Prelude.<$> body,
-            ("Url" Core..=) Prelude.<$> url,
-            ("Substitutions" Core..=) Prelude.<$> substitutions,
-            ("RawContent" Core..=) Prelude.<$> rawContent,
-            ("Sound" Core..=) Prelude.<$> sound,
-            ("SilentPush" Core..=) Prelude.<$> silentPush,
-            ("APNSPushType" Core..=) Prelude.<$> aPNSPushType,
-            ("Badge" Core..=) Prelude.<$> badge,
-            ("Title" Core..=) Prelude.<$> title,
-            ("Priority" Core..=) Prelude.<$> priority,
-            ("MediaUrl" Core..=) Prelude.<$> mediaUrl,
-            ("Category" Core..=) Prelude.<$> category,
-            ("Action" Core..=) Prelude.<$> action,
-            ("Data" Core..=) Prelude.<$> data',
-            ("PreferredAuthenticationMethod" Core..=)
+          [ ("CollapseId" Data..=) Prelude.<$> collapseId,
+            ("TimeToLive" Data..=) Prelude.<$> timeToLive,
+            ("ThreadId" Data..=) Prelude.<$> threadId,
+            ("Body" Data..=) Prelude.<$> body,
+            ("Url" Data..=) Prelude.<$> url,
+            ("Substitutions" Data..=) Prelude.<$> substitutions,
+            ("RawContent" Data..=) Prelude.<$> rawContent,
+            ("Sound" Data..=) Prelude.<$> sound,
+            ("SilentPush" Data..=) Prelude.<$> silentPush,
+            ("APNSPushType" Data..=) Prelude.<$> aPNSPushType,
+            ("Badge" Data..=) Prelude.<$> badge,
+            ("Title" Data..=) Prelude.<$> title,
+            ("Priority" Data..=) Prelude.<$> priority,
+            ("MediaUrl" Data..=) Prelude.<$> mediaUrl,
+            ("Category" Data..=) Prelude.<$> category,
+            ("Action" Data..=) Prelude.<$> action,
+            ("Data" Data..=) Prelude.<$> data',
+            ("PreferredAuthenticationMethod" Data..=)
               Prelude.<$> preferredAuthenticationMethod
           ]
       )

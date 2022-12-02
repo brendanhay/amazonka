@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.EventDimensions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.AttributeDimension
 import Amazonka.Pinpoint.Types.MetricDimension
 import Amazonka.Pinpoint.Types.SetDimension
@@ -104,15 +105,15 @@ eventDimensions_metrics = Lens.lens (\EventDimensions' {metrics} -> metrics) (\s
 eventDimensions_attributes :: Lens.Lens' EventDimensions (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeDimension))
 eventDimensions_attributes = Lens.lens (\EventDimensions' {attributes} -> attributes) (\s@EventDimensions' {} a -> s {attributes = a} :: EventDimensions) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON EventDimensions where
+instance Data.FromJSON EventDimensions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventDimensions"
       ( \x ->
           EventDimensions'
-            Prelude.<$> (x Core..:? "EventType")
-            Prelude.<*> (x Core..:? "Metrics" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "EventType")
+            Prelude.<*> (x Data..:? "Metrics" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EventDimensions where
@@ -127,12 +128,12 @@ instance Prelude.NFData EventDimensions where
       `Prelude.seq` Prelude.rnf metrics
       `Prelude.seq` Prelude.rnf attributes
 
-instance Core.ToJSON EventDimensions where
+instance Data.ToJSON EventDimensions where
   toJSON EventDimensions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EventType" Core..=) Prelude.<$> eventType,
-            ("Metrics" Core..=) Prelude.<$> metrics,
-            ("Attributes" Core..=) Prelude.<$> attributes
+          [ ("EventType" Data..=) Prelude.<$> eventType,
+            ("Metrics" Data..=) Prelude.<$> metrics,
+            ("Attributes" Data..=) Prelude.<$> attributes
           ]
       )

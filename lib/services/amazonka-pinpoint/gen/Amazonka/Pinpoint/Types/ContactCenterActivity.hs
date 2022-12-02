@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.ContactCenterActivity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newContactCenterActivity' smart constructor.
@@ -54,13 +55,13 @@ newContactCenterActivity =
 contactCenterActivity_nextActivity :: Lens.Lens' ContactCenterActivity (Prelude.Maybe Prelude.Text)
 contactCenterActivity_nextActivity = Lens.lens (\ContactCenterActivity' {nextActivity} -> nextActivity) (\s@ContactCenterActivity' {} a -> s {nextActivity = a} :: ContactCenterActivity)
 
-instance Core.FromJSON ContactCenterActivity where
+instance Data.FromJSON ContactCenterActivity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContactCenterActivity"
       ( \x ->
           ContactCenterActivity'
-            Prelude.<$> (x Core..:? "NextActivity")
+            Prelude.<$> (x Data..:? "NextActivity")
       )
 
 instance Prelude.Hashable ContactCenterActivity where
@@ -71,9 +72,9 @@ instance Prelude.NFData ContactCenterActivity where
   rnf ContactCenterActivity' {..} =
     Prelude.rnf nextActivity
 
-instance Core.ToJSON ContactCenterActivity where
+instance Data.ToJSON ContactCenterActivity where
   toJSON ContactCenterActivity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("NextActivity" Core..=) Prelude.<$> nextActivity]
+          [("NextActivity" Data..=) Prelude.<$> nextActivity]
       )

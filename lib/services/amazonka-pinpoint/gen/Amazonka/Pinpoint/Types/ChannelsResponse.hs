@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.ChannelsResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.ChannelResponse
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,13 +57,13 @@ newChannelsResponse =
 channelsResponse_channels :: Lens.Lens' ChannelsResponse (Prelude.HashMap Prelude.Text ChannelResponse)
 channelsResponse_channels = Lens.lens (\ChannelsResponse' {channels} -> channels) (\s@ChannelsResponse' {} a -> s {channels = a} :: ChannelsResponse) Prelude.. Lens.coerced
 
-instance Core.FromJSON ChannelsResponse where
+instance Data.FromJSON ChannelsResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelsResponse"
       ( \x ->
           ChannelsResponse'
-            Prelude.<$> (x Core..:? "Channels" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Channels" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ChannelsResponse where

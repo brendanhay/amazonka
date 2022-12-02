@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.SegmentDimensions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.AttributeDimension
 import Amazonka.Pinpoint.Types.MetricDimension
 import Amazonka.Pinpoint.Types.SegmentBehaviors
@@ -111,18 +112,18 @@ segmentDimensions_attributes = Lens.lens (\SegmentDimensions' {attributes} -> at
 segmentDimensions_behavior :: Lens.Lens' SegmentDimensions (Prelude.Maybe SegmentBehaviors)
 segmentDimensions_behavior = Lens.lens (\SegmentDimensions' {behavior} -> behavior) (\s@SegmentDimensions' {} a -> s {behavior = a} :: SegmentDimensions)
 
-instance Core.FromJSON SegmentDimensions where
+instance Data.FromJSON SegmentDimensions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SegmentDimensions"
       ( \x ->
           SegmentDimensions'
-            Prelude.<$> (x Core..:? "Demographic")
-            Prelude.<*> (x Core..:? "Metrics" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "UserAttributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Location")
-            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Behavior")
+            Prelude.<$> (x Data..:? "Demographic")
+            Prelude.<*> (x Data..:? "Metrics" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "UserAttributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Location")
+            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Behavior")
       )
 
 instance Prelude.Hashable SegmentDimensions where
@@ -143,16 +144,16 @@ instance Prelude.NFData SegmentDimensions where
       `Prelude.seq` Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf behavior
 
-instance Core.ToJSON SegmentDimensions where
+instance Data.ToJSON SegmentDimensions where
   toJSON SegmentDimensions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Demographic" Core..=) Prelude.<$> demographic,
-            ("Metrics" Core..=) Prelude.<$> metrics,
-            ("UserAttributes" Core..=)
+          [ ("Demographic" Data..=) Prelude.<$> demographic,
+            ("Metrics" Data..=) Prelude.<$> metrics,
+            ("UserAttributes" Data..=)
               Prelude.<$> userAttributes,
-            ("Location" Core..=) Prelude.<$> location,
-            ("Attributes" Core..=) Prelude.<$> attributes,
-            ("Behavior" Core..=) Prelude.<$> behavior
+            ("Location" Data..=) Prelude.<$> location,
+            ("Attributes" Data..=) Prelude.<$> attributes,
+            ("Behavior" Data..=) Prelude.<$> behavior
           ]
       )

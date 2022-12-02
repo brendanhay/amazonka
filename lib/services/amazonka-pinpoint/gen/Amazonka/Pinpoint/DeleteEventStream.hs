@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,7 +88,7 @@ instance Core.AWSRequest DeleteEventStream where
       ( \s h x ->
           DeleteEventStreamResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable DeleteEventStream where
@@ -98,26 +99,26 @@ instance Prelude.NFData DeleteEventStream where
   rnf DeleteEventStream' {..} =
     Prelude.rnf applicationId
 
-instance Core.ToHeaders DeleteEventStream where
+instance Data.ToHeaders DeleteEventStream where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteEventStream where
+instance Data.ToPath DeleteEventStream where
   toPath DeleteEventStream' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/eventstream"
       ]
 
-instance Core.ToQuery DeleteEventStream where
+instance Data.ToQuery DeleteEventStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteEventStreamResponse' smart constructor.

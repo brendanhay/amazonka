@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.ImportJobResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.DefinitionFormat
 import qualified Amazonka.Prelude as Prelude
 
@@ -200,20 +201,20 @@ importJobResource_s3Url = Lens.lens (\ImportJobResource' {s3Url} -> s3Url) (\s@I
 importJobResource_roleArn :: Lens.Lens' ImportJobResource Prelude.Text
 importJobResource_roleArn = Lens.lens (\ImportJobResource' {roleArn} -> roleArn) (\s@ImportJobResource' {} a -> s {roleArn = a} :: ImportJobResource)
 
-instance Core.FromJSON ImportJobResource where
+instance Data.FromJSON ImportJobResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportJobResource"
       ( \x ->
           ImportJobResource'
-            Prelude.<$> (x Core..:? "DefineSegment")
-            Prelude.<*> (x Core..:? "SegmentId")
-            Prelude.<*> (x Core..:? "ExternalId")
-            Prelude.<*> (x Core..:? "SegmentName")
-            Prelude.<*> (x Core..:? "RegisterEndpoints")
-            Prelude.<*> (x Core..: "Format")
-            Prelude.<*> (x Core..: "S3Url")
-            Prelude.<*> (x Core..: "RoleArn")
+            Prelude.<$> (x Data..:? "DefineSegment")
+            Prelude.<*> (x Data..:? "SegmentId")
+            Prelude.<*> (x Data..:? "ExternalId")
+            Prelude.<*> (x Data..:? "SegmentName")
+            Prelude.<*> (x Data..:? "RegisterEndpoints")
+            Prelude.<*> (x Data..: "Format")
+            Prelude.<*> (x Data..: "S3Url")
+            Prelude.<*> (x Data..: "RoleArn")
       )
 
 instance Prelude.Hashable ImportJobResource where

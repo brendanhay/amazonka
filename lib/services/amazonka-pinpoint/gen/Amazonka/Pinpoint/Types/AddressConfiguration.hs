@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.AddressConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.ChannelType
 import qualified Amazonka.Prelude as Prelude
 
@@ -147,15 +148,15 @@ instance Prelude.NFData AddressConfiguration where
       `Prelude.seq` Prelude.rnf bodyOverride
       `Prelude.seq` Prelude.rnf channelType
 
-instance Core.ToJSON AddressConfiguration where
+instance Data.ToJSON AddressConfiguration where
   toJSON AddressConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Context" Core..=) Prelude.<$> context,
-            ("Substitutions" Core..=) Prelude.<$> substitutions,
-            ("TitleOverride" Core..=) Prelude.<$> titleOverride,
-            ("RawContent" Core..=) Prelude.<$> rawContent,
-            ("BodyOverride" Core..=) Prelude.<$> bodyOverride,
-            ("ChannelType" Core..=) Prelude.<$> channelType
+          [ ("Context" Data..=) Prelude.<$> context,
+            ("Substitutions" Data..=) Prelude.<$> substitutions,
+            ("TitleOverride" Data..=) Prelude.<$> titleOverride,
+            ("RawContent" Data..=) Prelude.<$> rawContent,
+            ("BodyOverride" Data..=) Prelude.<$> bodyOverride,
+            ("ChannelType" Data..=) Prelude.<$> channelType
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.AndroidPushNotificationTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.Action
 import qualified Amazonka.Prelude as Prelude
 
@@ -205,23 +206,23 @@ androidPushNotificationTemplate_smallImageIconUrl :: Lens.Lens' AndroidPushNotif
 androidPushNotificationTemplate_smallImageIconUrl = Lens.lens (\AndroidPushNotificationTemplate' {smallImageIconUrl} -> smallImageIconUrl) (\s@AndroidPushNotificationTemplate' {} a -> s {smallImageIconUrl = a} :: AndroidPushNotificationTemplate)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AndroidPushNotificationTemplate
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AndroidPushNotificationTemplate"
       ( \x ->
           AndroidPushNotificationTemplate'
-            Prelude.<$> (x Core..:? "Body")
-            Prelude.<*> (x Core..:? "ImageUrl")
-            Prelude.<*> (x Core..:? "Url")
-            Prelude.<*> (x Core..:? "RawContent")
-            Prelude.<*> (x Core..:? "Sound")
-            Prelude.<*> (x Core..:? "ImageIconUrl")
-            Prelude.<*> (x Core..:? "Title")
-            Prelude.<*> (x Core..:? "Action")
-            Prelude.<*> (x Core..:? "SmallImageIconUrl")
+            Prelude.<$> (x Data..:? "Body")
+            Prelude.<*> (x Data..:? "ImageUrl")
+            Prelude.<*> (x Data..:? "Url")
+            Prelude.<*> (x Data..:? "RawContent")
+            Prelude.<*> (x Data..:? "Sound")
+            Prelude.<*> (x Data..:? "ImageIconUrl")
+            Prelude.<*> (x Data..:? "Title")
+            Prelude.<*> (x Data..:? "Action")
+            Prelude.<*> (x Data..:? "SmallImageIconUrl")
       )
 
 instance
@@ -256,19 +257,19 @@ instance
       `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf smallImageIconUrl
 
-instance Core.ToJSON AndroidPushNotificationTemplate where
+instance Data.ToJSON AndroidPushNotificationTemplate where
   toJSON AndroidPushNotificationTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Body" Core..=) Prelude.<$> body,
-            ("ImageUrl" Core..=) Prelude.<$> imageUrl,
-            ("Url" Core..=) Prelude.<$> url,
-            ("RawContent" Core..=) Prelude.<$> rawContent,
-            ("Sound" Core..=) Prelude.<$> sound,
-            ("ImageIconUrl" Core..=) Prelude.<$> imageIconUrl,
-            ("Title" Core..=) Prelude.<$> title,
-            ("Action" Core..=) Prelude.<$> action,
-            ("SmallImageIconUrl" Core..=)
+          [ ("Body" Data..=) Prelude.<$> body,
+            ("ImageUrl" Data..=) Prelude.<$> imageUrl,
+            ("Url" Data..=) Prelude.<$> url,
+            ("RawContent" Data..=) Prelude.<$> rawContent,
+            ("Sound" Data..=) Prelude.<$> sound,
+            ("ImageIconUrl" Data..=) Prelude.<$> imageIconUrl,
+            ("Title" Data..=) Prelude.<$> title,
+            ("Action" Data..=) Prelude.<$> action,
+            ("SmallImageIconUrl" Data..=)
               Prelude.<$> smallImageIconUrl
           ]
       )

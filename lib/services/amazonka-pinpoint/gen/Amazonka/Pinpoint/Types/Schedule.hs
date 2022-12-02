@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.Schedule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.CampaignEventFilter
 import Amazonka.Pinpoint.Types.Frequency
 import Amazonka.Pinpoint.Types.QuietTime
@@ -195,19 +196,19 @@ schedule_isLocalTime = Lens.lens (\Schedule' {isLocalTime} -> isLocalTime) (\s@S
 schedule_startTime :: Lens.Lens' Schedule Prelude.Text
 schedule_startTime = Lens.lens (\Schedule' {startTime} -> startTime) (\s@Schedule' {} a -> s {startTime = a} :: Schedule)
 
-instance Core.FromJSON Schedule where
+instance Data.FromJSON Schedule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Schedule"
       ( \x ->
           Schedule'
-            Prelude.<$> (x Core..:? "EventFilter")
-            Prelude.<*> (x Core..:? "Timezone")
-            Prelude.<*> (x Core..:? "Frequency")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "QuietTime")
-            Prelude.<*> (x Core..:? "IsLocalTime")
-            Prelude.<*> (x Core..: "StartTime")
+            Prelude.<$> (x Data..:? "EventFilter")
+            Prelude.<*> (x Data..:? "Timezone")
+            Prelude.<*> (x Data..:? "Frequency")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "QuietTime")
+            Prelude.<*> (x Data..:? "IsLocalTime")
+            Prelude.<*> (x Data..: "StartTime")
       )
 
 instance Prelude.Hashable Schedule where
@@ -230,16 +231,16 @@ instance Prelude.NFData Schedule where
       `Prelude.seq` Prelude.rnf isLocalTime
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToJSON Schedule where
+instance Data.ToJSON Schedule where
   toJSON Schedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EventFilter" Core..=) Prelude.<$> eventFilter,
-            ("Timezone" Core..=) Prelude.<$> timezone,
-            ("Frequency" Core..=) Prelude.<$> frequency,
-            ("EndTime" Core..=) Prelude.<$> endTime,
-            ("QuietTime" Core..=) Prelude.<$> quietTime,
-            ("IsLocalTime" Core..=) Prelude.<$> isLocalTime,
-            Prelude.Just ("StartTime" Core..= startTime)
+          [ ("EventFilter" Data..=) Prelude.<$> eventFilter,
+            ("Timezone" Data..=) Prelude.<$> timezone,
+            ("Frequency" Data..=) Prelude.<$> frequency,
+            ("EndTime" Data..=) Prelude.<$> endTime,
+            ("QuietTime" Data..=) Prelude.<$> quietTime,
+            ("IsLocalTime" Data..=) Prelude.<$> isLocalTime,
+            Prelude.Just ("StartTime" Data..= startTime)
           ]
       )

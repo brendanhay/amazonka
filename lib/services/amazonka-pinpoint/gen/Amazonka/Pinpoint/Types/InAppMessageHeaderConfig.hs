@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.InAppMessageHeaderConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.Alignment
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,15 +81,15 @@ inAppMessageHeaderConfig_header = Lens.lens (\InAppMessageHeaderConfig' {header}
 inAppMessageHeaderConfig_textColor :: Lens.Lens' InAppMessageHeaderConfig Prelude.Text
 inAppMessageHeaderConfig_textColor = Lens.lens (\InAppMessageHeaderConfig' {textColor} -> textColor) (\s@InAppMessageHeaderConfig' {} a -> s {textColor = a} :: InAppMessageHeaderConfig)
 
-instance Core.FromJSON InAppMessageHeaderConfig where
+instance Data.FromJSON InAppMessageHeaderConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InAppMessageHeaderConfig"
       ( \x ->
           InAppMessageHeaderConfig'
-            Prelude.<$> (x Core..: "Alignment")
-            Prelude.<*> (x Core..: "Header")
-            Prelude.<*> (x Core..: "TextColor")
+            Prelude.<$> (x Data..: "Alignment")
+            Prelude.<*> (x Data..: "Header")
+            Prelude.<*> (x Data..: "TextColor")
       )
 
 instance Prelude.Hashable InAppMessageHeaderConfig where
@@ -103,12 +104,12 @@ instance Prelude.NFData InAppMessageHeaderConfig where
       `Prelude.seq` Prelude.rnf header
       `Prelude.seq` Prelude.rnf textColor
 
-instance Core.ToJSON InAppMessageHeaderConfig where
+instance Data.ToJSON InAppMessageHeaderConfig where
   toJSON InAppMessageHeaderConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Alignment" Core..= alignment),
-            Prelude.Just ("Header" Core..= header),
-            Prelude.Just ("TextColor" Core..= textColor)
+          [ Prelude.Just ("Alignment" Data..= alignment),
+            Prelude.Just ("Header" Data..= header),
+            Prelude.Just ("TextColor" Data..= textColor)
           ]
       )

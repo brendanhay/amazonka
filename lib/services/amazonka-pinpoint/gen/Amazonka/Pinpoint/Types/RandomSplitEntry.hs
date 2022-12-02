@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.RandomSplitEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the settings for a path in a random split activity in a
@@ -83,14 +84,14 @@ randomSplitEntry_nextActivity = Lens.lens (\RandomSplitEntry' {nextActivity} -> 
 randomSplitEntry_percentage :: Lens.Lens' RandomSplitEntry (Prelude.Maybe Prelude.Int)
 randomSplitEntry_percentage = Lens.lens (\RandomSplitEntry' {percentage} -> percentage) (\s@RandomSplitEntry' {} a -> s {percentage = a} :: RandomSplitEntry)
 
-instance Core.FromJSON RandomSplitEntry where
+instance Data.FromJSON RandomSplitEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RandomSplitEntry"
       ( \x ->
           RandomSplitEntry'
-            Prelude.<$> (x Core..:? "NextActivity")
-            Prelude.<*> (x Core..:? "Percentage")
+            Prelude.<$> (x Data..:? "NextActivity")
+            Prelude.<*> (x Data..:? "Percentage")
       )
 
 instance Prelude.Hashable RandomSplitEntry where
@@ -103,11 +104,11 @@ instance Prelude.NFData RandomSplitEntry where
     Prelude.rnf nextActivity
       `Prelude.seq` Prelude.rnf percentage
 
-instance Core.ToJSON RandomSplitEntry where
+instance Data.ToJSON RandomSplitEntry where
   toJSON RandomSplitEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextActivity" Core..=) Prelude.<$> nextActivity,
-            ("Percentage" Core..=) Prelude.<$> percentage
+          [ ("NextActivity" Data..=) Prelude.<$> nextActivity,
+            ("Percentage" Data..=) Prelude.<$> percentage
           ]
       )

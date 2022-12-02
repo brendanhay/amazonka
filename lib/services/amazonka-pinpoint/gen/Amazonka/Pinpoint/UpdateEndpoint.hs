@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,7 +120,7 @@ instance Core.AWSRequest UpdateEndpoint where
       ( \s h x ->
           UpdateEndpointResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable UpdateEndpoint where
@@ -134,31 +135,31 @@ instance Prelude.NFData UpdateEndpoint where
       `Prelude.seq` Prelude.rnf endpointId
       `Prelude.seq` Prelude.rnf endpointRequest
 
-instance Core.ToHeaders UpdateEndpoint where
+instance Data.ToHeaders UpdateEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateEndpoint where
+instance Data.ToJSON UpdateEndpoint where
   toJSON UpdateEndpoint' {..} =
-    Core.toJSON endpointRequest
+    Data.toJSON endpointRequest
 
-instance Core.ToPath UpdateEndpoint where
+instance Data.ToPath UpdateEndpoint where
   toPath UpdateEndpoint' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/endpoints/",
-        Core.toBS endpointId
+        Data.toBS endpointId
       ]
 
-instance Core.ToQuery UpdateEndpoint where
+instance Data.ToQuery UpdateEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEndpointResponse' smart constructor.

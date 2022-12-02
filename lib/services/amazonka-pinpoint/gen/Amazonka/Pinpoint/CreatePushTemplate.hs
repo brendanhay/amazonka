@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,7 +111,7 @@ instance Core.AWSRequest CreatePushTemplate where
       ( \s h x ->
           CreatePushTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable CreatePushTemplate where
@@ -123,27 +124,27 @@ instance Prelude.NFData CreatePushTemplate where
     Prelude.rnf templateName
       `Prelude.seq` Prelude.rnf pushNotificationTemplateRequest
 
-instance Core.ToHeaders CreatePushTemplate where
+instance Data.ToHeaders CreatePushTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePushTemplate where
+instance Data.ToJSON CreatePushTemplate where
   toJSON CreatePushTemplate' {..} =
-    Core.toJSON pushNotificationTemplateRequest
+    Data.toJSON pushNotificationTemplateRequest
 
-instance Core.ToPath CreatePushTemplate where
+instance Data.ToPath CreatePushTemplate where
   toPath CreatePushTemplate' {..} =
     Prelude.mconcat
-      ["/v1/templates/", Core.toBS templateName, "/push"]
+      ["/v1/templates/", Data.toBS templateName, "/push"]
 
-instance Core.ToQuery CreatePushTemplate where
+instance Data.ToQuery CreatePushTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePushTemplateResponse' smart constructor.

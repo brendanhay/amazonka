@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,7 +132,7 @@ instance Core.AWSRequest GetCampaignVersions where
       ( \s h x ->
           GetCampaignVersionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable GetCampaignVersions where
@@ -148,31 +149,31 @@ instance Prelude.NFData GetCampaignVersions where
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf campaignId
 
-instance Core.ToHeaders GetCampaignVersions where
+instance Data.ToHeaders GetCampaignVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetCampaignVersions where
+instance Data.ToPath GetCampaignVersions where
   toPath GetCampaignVersions' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/campaigns/",
-        Core.toBS campaignId,
+        Data.toBS campaignId,
         "/versions"
       ]
 
-instance Core.ToQuery GetCampaignVersions where
+instance Data.ToQuery GetCampaignVersions where
   toQuery GetCampaignVersions' {..} =
     Prelude.mconcat
-      ["page-size" Core.=: pageSize, "token" Core.=: token]
+      ["page-size" Data.=: pageSize, "token" Data.=: token]
 
 -- | /See:/ 'newGetCampaignVersionsResponse' smart constructor.
 data GetCampaignVersionsResponse = GetCampaignVersionsResponse'

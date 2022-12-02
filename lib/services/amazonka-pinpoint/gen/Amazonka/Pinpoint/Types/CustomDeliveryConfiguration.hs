@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.CustomDeliveryConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.EndpointTypesElement
 import qualified Amazonka.Prelude as Prelude
 
@@ -98,14 +99,14 @@ customDeliveryConfiguration_endpointTypes = Lens.lens (\CustomDeliveryConfigurat
 customDeliveryConfiguration_deliveryUri :: Lens.Lens' CustomDeliveryConfiguration Prelude.Text
 customDeliveryConfiguration_deliveryUri = Lens.lens (\CustomDeliveryConfiguration' {deliveryUri} -> deliveryUri) (\s@CustomDeliveryConfiguration' {} a -> s {deliveryUri = a} :: CustomDeliveryConfiguration)
 
-instance Core.FromJSON CustomDeliveryConfiguration where
+instance Data.FromJSON CustomDeliveryConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomDeliveryConfiguration"
       ( \x ->
           CustomDeliveryConfiguration'
-            Prelude.<$> (x Core..:? "EndpointTypes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "DeliveryUri")
+            Prelude.<$> (x Data..:? "EndpointTypes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "DeliveryUri")
       )
 
 instance Prelude.Hashable CustomDeliveryConfiguration where
@@ -118,11 +119,11 @@ instance Prelude.NFData CustomDeliveryConfiguration where
     Prelude.rnf endpointTypes
       `Prelude.seq` Prelude.rnf deliveryUri
 
-instance Core.ToJSON CustomDeliveryConfiguration where
+instance Data.ToJSON CustomDeliveryConfiguration where
   toJSON CustomDeliveryConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EndpointTypes" Core..=) Prelude.<$> endpointTypes,
-            Prelude.Just ("DeliveryUri" Core..= deliveryUri)
+          [ ("EndpointTypes" Data..=) Prelude.<$> endpointTypes,
+            Prelude.Just ("DeliveryUri" Data..= deliveryUri)
           ]
       )

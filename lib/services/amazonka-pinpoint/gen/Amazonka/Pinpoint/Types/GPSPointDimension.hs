@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.GPSPointDimension where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.GPSCoordinates
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,14 +67,14 @@ gPSPointDimension_rangeInKilometers = Lens.lens (\GPSPointDimension' {rangeInKil
 gPSPointDimension_coordinates :: Lens.Lens' GPSPointDimension GPSCoordinates
 gPSPointDimension_coordinates = Lens.lens (\GPSPointDimension' {coordinates} -> coordinates) (\s@GPSPointDimension' {} a -> s {coordinates = a} :: GPSPointDimension)
 
-instance Core.FromJSON GPSPointDimension where
+instance Data.FromJSON GPSPointDimension where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GPSPointDimension"
       ( \x ->
           GPSPointDimension'
-            Prelude.<$> (x Core..:? "RangeInKilometers")
-            Prelude.<*> (x Core..: "Coordinates")
+            Prelude.<$> (x Data..:? "RangeInKilometers")
+            Prelude.<*> (x Data..: "Coordinates")
       )
 
 instance Prelude.Hashable GPSPointDimension where
@@ -86,12 +87,12 @@ instance Prelude.NFData GPSPointDimension where
     Prelude.rnf rangeInKilometers
       `Prelude.seq` Prelude.rnf coordinates
 
-instance Core.ToJSON GPSPointDimension where
+instance Data.ToJSON GPSPointDimension where
   toJSON GPSPointDimension' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RangeInKilometers" Core..=)
+          [ ("RangeInKilometers" Data..=)
               Prelude.<$> rangeInKilometers,
-            Prelude.Just ("Coordinates" Core..= coordinates)
+            Prelude.Just ("Coordinates" Data..= coordinates)
           ]
       )

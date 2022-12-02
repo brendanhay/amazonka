@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.InAppMessagesResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.InAppMessageCampaign
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,14 +55,14 @@ newInAppMessagesResponse =
 inAppMessagesResponse_inAppMessageCampaigns :: Lens.Lens' InAppMessagesResponse (Prelude.Maybe [InAppMessageCampaign])
 inAppMessagesResponse_inAppMessageCampaigns = Lens.lens (\InAppMessagesResponse' {inAppMessageCampaigns} -> inAppMessageCampaigns) (\s@InAppMessagesResponse' {} a -> s {inAppMessageCampaigns = a} :: InAppMessagesResponse) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON InAppMessagesResponse where
+instance Data.FromJSON InAppMessagesResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InAppMessagesResponse"
       ( \x ->
           InAppMessagesResponse'
-            Prelude.<$> ( x Core..:? "InAppMessageCampaigns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "InAppMessageCampaigns"
+                            Data..!= Prelude.mempty
                         )
       )
 

@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.APNSVoipSandboxChannelRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the status and settings of the APNs (Apple Push Notification
@@ -173,18 +174,18 @@ instance Prelude.NFData APNSVoipSandboxChannelRequest where
       `Prelude.seq` Prelude.rnf bundleId
       `Prelude.seq` Prelude.rnf defaultAuthenticationMethod
 
-instance Core.ToJSON APNSVoipSandboxChannelRequest where
+instance Data.ToJSON APNSVoipSandboxChannelRequest where
   toJSON APNSVoipSandboxChannelRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PrivateKey" Core..=) Prelude.<$> privateKey,
-            ("TeamId" Core..=) Prelude.<$> teamId,
-            ("TokenKeyId" Core..=) Prelude.<$> tokenKeyId,
-            ("Certificate" Core..=) Prelude.<$> certificate,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("TokenKey" Core..=) Prelude.<$> tokenKey,
-            ("BundleId" Core..=) Prelude.<$> bundleId,
-            ("DefaultAuthenticationMethod" Core..=)
+          [ ("PrivateKey" Data..=) Prelude.<$> privateKey,
+            ("TeamId" Data..=) Prelude.<$> teamId,
+            ("TokenKeyId" Data..=) Prelude.<$> tokenKeyId,
+            ("Certificate" Data..=) Prelude.<$> certificate,
+            ("Enabled" Data..=) Prelude.<$> enabled,
+            ("TokenKey" Data..=) Prelude.<$> tokenKey,
+            ("BundleId" Data..=) Prelude.<$> bundleId,
+            ("DefaultAuthenticationMethod" Data..=)
               Prelude.<$> defaultAuthenticationMethod
           ]
       )

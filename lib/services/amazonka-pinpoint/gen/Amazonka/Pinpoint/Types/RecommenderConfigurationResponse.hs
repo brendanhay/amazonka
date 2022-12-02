@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.RecommenderConfigurationResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about Amazon Pinpoint configuration settings for
@@ -304,26 +305,26 @@ recommenderConfigurationResponse_id :: Lens.Lens' RecommenderConfigurationRespon
 recommenderConfigurationResponse_id = Lens.lens (\RecommenderConfigurationResponse' {id} -> id) (\s@RecommenderConfigurationResponse' {} a -> s {id = a} :: RecommenderConfigurationResponse)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RecommenderConfigurationResponse
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommenderConfigurationResponse"
       ( \x ->
           RecommenderConfigurationResponse'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "RecommendationTransformerUri")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "RecommendationsDisplayName")
-            Prelude.<*> (x Core..:? "RecommendationProviderIdType")
-            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "RecommendationsPerMessage")
-            Prelude.<*> (x Core..: "RecommendationProviderUri")
-            Prelude.<*> (x Core..: "LastModifiedDate")
-            Prelude.<*> (x Core..: "CreationDate")
-            Prelude.<*> (x Core..: "RecommendationProviderRoleArn")
-            Prelude.<*> (x Core..: "Id")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "RecommendationTransformerUri")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "RecommendationsDisplayName")
+            Prelude.<*> (x Data..:? "RecommendationProviderIdType")
+            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RecommendationsPerMessage")
+            Prelude.<*> (x Data..: "RecommendationProviderUri")
+            Prelude.<*> (x Data..: "LastModifiedDate")
+            Prelude.<*> (x Data..: "CreationDate")
+            Prelude.<*> (x Data..: "RecommendationProviderRoleArn")
+            Prelude.<*> (x Data..: "Id")
       )
 
 instance

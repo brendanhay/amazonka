@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.RawEmail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the contents of an email message, represented as a raw MIME
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 data RawEmail = RawEmail'
   { -- | The email message, represented as a raw MIME message. The entire message
     -- must be base64 encoded.
-    data' :: Prelude.Maybe Core.Base64
+    data' :: Prelude.Maybe Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,7 +60,7 @@ newRawEmail = RawEmail' {data' = Prelude.Nothing}
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 rawEmail_data :: Lens.Lens' RawEmail (Prelude.Maybe Prelude.ByteString)
-rawEmail_data = Lens.lens (\RawEmail' {data'} -> data') (\s@RawEmail' {} a -> s {data' = a} :: RawEmail) Prelude.. Lens.mapping Core._Base64
+rawEmail_data = Lens.lens (\RawEmail' {data'} -> data') (\s@RawEmail' {} a -> s {data' = a} :: RawEmail) Prelude.. Lens.mapping Data._Base64
 
 instance Prelude.Hashable RawEmail where
   hashWithSalt _salt RawEmail' {..} =
@@ -68,9 +69,9 @@ instance Prelude.Hashable RawEmail where
 instance Prelude.NFData RawEmail where
   rnf RawEmail' {..} = Prelude.rnf data'
 
-instance Core.ToJSON RawEmail where
+instance Data.ToJSON RawEmail where
   toJSON RawEmail' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Data" Core..=) Prelude.<$> data']
+          [("Data" Data..=) Prelude.<$> data']
       )

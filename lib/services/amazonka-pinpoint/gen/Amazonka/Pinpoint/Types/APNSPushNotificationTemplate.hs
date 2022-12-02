@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.APNSPushNotificationTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.Action
 import qualified Amazonka.Prelude as Prelude
 
@@ -182,19 +183,19 @@ aPNSPushNotificationTemplate_mediaUrl = Lens.lens (\APNSPushNotificationTemplate
 aPNSPushNotificationTemplate_action :: Lens.Lens' APNSPushNotificationTemplate (Prelude.Maybe Action)
 aPNSPushNotificationTemplate_action = Lens.lens (\APNSPushNotificationTemplate' {action} -> action) (\s@APNSPushNotificationTemplate' {} a -> s {action = a} :: APNSPushNotificationTemplate)
 
-instance Core.FromJSON APNSPushNotificationTemplate where
+instance Data.FromJSON APNSPushNotificationTemplate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "APNSPushNotificationTemplate"
       ( \x ->
           APNSPushNotificationTemplate'
-            Prelude.<$> (x Core..:? "Body")
-            Prelude.<*> (x Core..:? "Url")
-            Prelude.<*> (x Core..:? "RawContent")
-            Prelude.<*> (x Core..:? "Sound")
-            Prelude.<*> (x Core..:? "Title")
-            Prelude.<*> (x Core..:? "MediaUrl")
-            Prelude.<*> (x Core..:? "Action")
+            Prelude.<$> (x Data..:? "Body")
+            Prelude.<*> (x Data..:? "Url")
+            Prelude.<*> (x Data..:? "RawContent")
+            Prelude.<*> (x Data..:? "Sound")
+            Prelude.<*> (x Data..:? "Title")
+            Prelude.<*> (x Data..:? "MediaUrl")
+            Prelude.<*> (x Data..:? "Action")
       )
 
 instance
@@ -220,16 +221,16 @@ instance Prelude.NFData APNSPushNotificationTemplate where
       `Prelude.seq` Prelude.rnf mediaUrl
       `Prelude.seq` Prelude.rnf action
 
-instance Core.ToJSON APNSPushNotificationTemplate where
+instance Data.ToJSON APNSPushNotificationTemplate where
   toJSON APNSPushNotificationTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Body" Core..=) Prelude.<$> body,
-            ("Url" Core..=) Prelude.<$> url,
-            ("RawContent" Core..=) Prelude.<$> rawContent,
-            ("Sound" Core..=) Prelude.<$> sound,
-            ("Title" Core..=) Prelude.<$> title,
-            ("MediaUrl" Core..=) Prelude.<$> mediaUrl,
-            ("Action" Core..=) Prelude.<$> action
+          [ ("Body" Data..=) Prelude.<$> body,
+            ("Url" Data..=) Prelude.<$> url,
+            ("RawContent" Data..=) Prelude.<$> rawContent,
+            ("Sound" Data..=) Prelude.<$> sound,
+            ("Title" Data..=) Prelude.<$> title,
+            ("MediaUrl" Data..=) Prelude.<$> mediaUrl,
+            ("Action" Data..=) Prelude.<$> action
           ]
       )

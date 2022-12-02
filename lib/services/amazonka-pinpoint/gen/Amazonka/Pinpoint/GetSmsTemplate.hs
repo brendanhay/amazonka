@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -169,7 +170,7 @@ instance Core.AWSRequest GetSmsTemplate where
       ( \s h x ->
           GetSmsTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable GetSmsTemplate where
@@ -182,25 +183,25 @@ instance Prelude.NFData GetSmsTemplate where
     Prelude.rnf version
       `Prelude.seq` Prelude.rnf templateName
 
-instance Core.ToHeaders GetSmsTemplate where
+instance Data.ToHeaders GetSmsTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSmsTemplate where
+instance Data.ToPath GetSmsTemplate where
   toPath GetSmsTemplate' {..} =
     Prelude.mconcat
-      ["/v1/templates/", Core.toBS templateName, "/sms"]
+      ["/v1/templates/", Data.toBS templateName, "/sms"]
 
-instance Core.ToQuery GetSmsTemplate where
+instance Data.ToQuery GetSmsTemplate where
   toQuery GetSmsTemplate' {..} =
-    Prelude.mconcat ["version" Core.=: version]
+    Prelude.mconcat ["version" Data.=: version]
 
 -- | /See:/ 'newGetSmsTemplateResponse' smart constructor.
 data GetSmsTemplateResponse = GetSmsTemplateResponse'

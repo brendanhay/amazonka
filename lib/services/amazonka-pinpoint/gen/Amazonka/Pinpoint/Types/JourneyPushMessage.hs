@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.JourneyPushMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the message configuration for a push notification that\'s sent
@@ -75,13 +76,13 @@ newJourneyPushMessage =
 journeyPushMessage_timeToLive :: Lens.Lens' JourneyPushMessage (Prelude.Maybe Prelude.Text)
 journeyPushMessage_timeToLive = Lens.lens (\JourneyPushMessage' {timeToLive} -> timeToLive) (\s@JourneyPushMessage' {} a -> s {timeToLive = a} :: JourneyPushMessage)
 
-instance Core.FromJSON JourneyPushMessage where
+instance Data.FromJSON JourneyPushMessage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JourneyPushMessage"
       ( \x ->
           JourneyPushMessage'
-            Prelude.<$> (x Core..:? "TimeToLive")
+            Prelude.<$> (x Data..:? "TimeToLive")
       )
 
 instance Prelude.Hashable JourneyPushMessage where
@@ -91,9 +92,9 @@ instance Prelude.Hashable JourneyPushMessage where
 instance Prelude.NFData JourneyPushMessage where
   rnf JourneyPushMessage' {..} = Prelude.rnf timeToLive
 
-instance Core.ToJSON JourneyPushMessage where
+instance Data.ToJSON JourneyPushMessage where
   toJSON JourneyPushMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("TimeToLive" Core..=) Prelude.<$> timeToLive]
+          [("TimeToLive" Data..=) Prelude.<$> timeToLive]
       )

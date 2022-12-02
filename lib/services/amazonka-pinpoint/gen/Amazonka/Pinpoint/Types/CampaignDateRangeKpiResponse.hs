@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.CampaignDateRangeKpiResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.BaseKpiResult
 import qualified Amazonka.Prelude as Prelude
 
@@ -47,12 +48,12 @@ data CampaignDateRangeKpiResponse = CampaignDateRangeKpiResponse'
     kpiName :: Prelude.Text,
     -- | The last date and time of the date range that was used to filter the
     -- query results, in extended ISO 8601 format. The date range is inclusive.
-    endTime :: Core.POSIX,
+    endTime :: Data.POSIX,
     -- | The unique identifier for the campaign that the metric applies to.
     campaignId :: Prelude.Text,
     -- | The first date and time of the date range that was used to filter the
     -- query results, in extended ISO 8601 format. The date range is inclusive.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The unique identifier for the application that the metric applies to.
     applicationId :: Prelude.Text
   }
@@ -116,9 +117,9 @@ newCampaignDateRangeKpiResponse
           Prelude.Nothing,
         kpiResult = pKpiResult_,
         kpiName = pKpiName_,
-        endTime = Core._Time Lens.# pEndTime_,
+        endTime = Data._Time Lens.# pEndTime_,
         campaignId = pCampaignId_,
-        startTime = Core._Time Lens.# pStartTime_,
+        startTime = Data._Time Lens.# pStartTime_,
         applicationId = pApplicationId_
       }
 
@@ -146,7 +147,7 @@ campaignDateRangeKpiResponse_kpiName = Lens.lens (\CampaignDateRangeKpiResponse'
 -- | The last date and time of the date range that was used to filter the
 -- query results, in extended ISO 8601 format. The date range is inclusive.
 campaignDateRangeKpiResponse_endTime :: Lens.Lens' CampaignDateRangeKpiResponse Prelude.UTCTime
-campaignDateRangeKpiResponse_endTime = Lens.lens (\CampaignDateRangeKpiResponse' {endTime} -> endTime) (\s@CampaignDateRangeKpiResponse' {} a -> s {endTime = a} :: CampaignDateRangeKpiResponse) Prelude.. Core._Time
+campaignDateRangeKpiResponse_endTime = Lens.lens (\CampaignDateRangeKpiResponse' {endTime} -> endTime) (\s@CampaignDateRangeKpiResponse' {} a -> s {endTime = a} :: CampaignDateRangeKpiResponse) Prelude.. Data._Time
 
 -- | The unique identifier for the campaign that the metric applies to.
 campaignDateRangeKpiResponse_campaignId :: Lens.Lens' CampaignDateRangeKpiResponse Prelude.Text
@@ -155,25 +156,25 @@ campaignDateRangeKpiResponse_campaignId = Lens.lens (\CampaignDateRangeKpiRespon
 -- | The first date and time of the date range that was used to filter the
 -- query results, in extended ISO 8601 format. The date range is inclusive.
 campaignDateRangeKpiResponse_startTime :: Lens.Lens' CampaignDateRangeKpiResponse Prelude.UTCTime
-campaignDateRangeKpiResponse_startTime = Lens.lens (\CampaignDateRangeKpiResponse' {startTime} -> startTime) (\s@CampaignDateRangeKpiResponse' {} a -> s {startTime = a} :: CampaignDateRangeKpiResponse) Prelude.. Core._Time
+campaignDateRangeKpiResponse_startTime = Lens.lens (\CampaignDateRangeKpiResponse' {startTime} -> startTime) (\s@CampaignDateRangeKpiResponse' {} a -> s {startTime = a} :: CampaignDateRangeKpiResponse) Prelude.. Data._Time
 
 -- | The unique identifier for the application that the metric applies to.
 campaignDateRangeKpiResponse_applicationId :: Lens.Lens' CampaignDateRangeKpiResponse Prelude.Text
 campaignDateRangeKpiResponse_applicationId = Lens.lens (\CampaignDateRangeKpiResponse' {applicationId} -> applicationId) (\s@CampaignDateRangeKpiResponse' {} a -> s {applicationId = a} :: CampaignDateRangeKpiResponse)
 
-instance Core.FromJSON CampaignDateRangeKpiResponse where
+instance Data.FromJSON CampaignDateRangeKpiResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CampaignDateRangeKpiResponse"
       ( \x ->
           CampaignDateRangeKpiResponse'
-            Prelude.<$> (x Core..:? "NextToken")
-            Prelude.<*> (x Core..: "KpiResult")
-            Prelude.<*> (x Core..: "KpiName")
-            Prelude.<*> (x Core..: "EndTime")
-            Prelude.<*> (x Core..: "CampaignId")
-            Prelude.<*> (x Core..: "StartTime")
-            Prelude.<*> (x Core..: "ApplicationId")
+            Prelude.<$> (x Data..:? "NextToken")
+            Prelude.<*> (x Data..: "KpiResult")
+            Prelude.<*> (x Data..: "KpiName")
+            Prelude.<*> (x Data..: "EndTime")
+            Prelude.<*> (x Data..: "CampaignId")
+            Prelude.<*> (x Data..: "StartTime")
+            Prelude.<*> (x Data..: "ApplicationId")
       )
 
 instance

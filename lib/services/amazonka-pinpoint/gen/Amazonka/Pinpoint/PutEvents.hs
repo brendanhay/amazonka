@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,7 +100,7 @@ instance Core.AWSRequest PutEvents where
       ( \s h x ->
           PutEventsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable PutEvents where
@@ -112,26 +113,26 @@ instance Prelude.NFData PutEvents where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf eventsRequest
 
-instance Core.ToHeaders PutEvents where
+instance Data.ToHeaders PutEvents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutEvents where
-  toJSON PutEvents' {..} = Core.toJSON eventsRequest
+instance Data.ToJSON PutEvents where
+  toJSON PutEvents' {..} = Data.toJSON eventsRequest
 
-instance Core.ToPath PutEvents where
+instance Data.ToPath PutEvents where
   toPath PutEvents' {..} =
     Prelude.mconcat
-      ["/v1/apps/", Core.toBS applicationId, "/events"]
+      ["/v1/apps/", Data.toBS applicationId, "/events"]
 
-instance Core.ToQuery PutEvents where
+instance Data.ToQuery PutEvents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutEventsResponse' smart constructor.

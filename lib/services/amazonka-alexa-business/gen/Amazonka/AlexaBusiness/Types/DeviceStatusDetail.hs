@@ -23,6 +23,7 @@ import Amazonka.AlexaBusiness.Types.DeviceStatusDetailCode
 import Amazonka.AlexaBusiness.Types.Feature
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of a device’s status.
@@ -63,14 +64,14 @@ deviceStatusDetail_code = Lens.lens (\DeviceStatusDetail' {code} -> code) (\s@De
 deviceStatusDetail_feature :: Lens.Lens' DeviceStatusDetail (Prelude.Maybe Feature)
 deviceStatusDetail_feature = Lens.lens (\DeviceStatusDetail' {feature} -> feature) (\s@DeviceStatusDetail' {} a -> s {feature = a} :: DeviceStatusDetail)
 
-instance Core.FromJSON DeviceStatusDetail where
+instance Data.FromJSON DeviceStatusDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceStatusDetail"
       ( \x ->
           DeviceStatusDetail'
-            Prelude.<$> (x Core..:? "Code")
-            Prelude.<*> (x Core..:? "Feature")
+            Prelude.<$> (x Data..:? "Code")
+            Prelude.<*> (x Data..:? "Feature")
       )
 
 instance Prelude.Hashable DeviceStatusDetail where

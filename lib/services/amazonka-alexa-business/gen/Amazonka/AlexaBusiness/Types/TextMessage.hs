@@ -22,6 +22,7 @@ module Amazonka.AlexaBusiness.Types.TextMessage where
 import Amazonka.AlexaBusiness.Types.Locale
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The text message.
@@ -72,11 +73,11 @@ instance Prelude.NFData TextMessage where
   rnf TextMessage' {..} =
     Prelude.rnf locale `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON TextMessage where
+instance Data.ToJSON TextMessage where
   toJSON TextMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Locale" Core..= locale),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Locale" Data..= locale),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

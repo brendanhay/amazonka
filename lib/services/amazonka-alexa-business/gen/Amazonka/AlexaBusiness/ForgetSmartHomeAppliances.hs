@@ -41,6 +41,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,32 +94,32 @@ instance Prelude.NFData ForgetSmartHomeAppliances where
   rnf ForgetSmartHomeAppliances' {..} =
     Prelude.rnf roomArn
 
-instance Core.ToHeaders ForgetSmartHomeAppliances where
+instance Data.ToHeaders ForgetSmartHomeAppliances where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.ForgetSmartHomeAppliances" ::
+              Data.=# ( "AlexaForBusiness.ForgetSmartHomeAppliances" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ForgetSmartHomeAppliances where
+instance Data.ToJSON ForgetSmartHomeAppliances where
   toJSON ForgetSmartHomeAppliances' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("RoomArn" Core..= roomArn)]
+          [Prelude.Just ("RoomArn" Data..= roomArn)]
       )
 
-instance Core.ToPath ForgetSmartHomeAppliances where
+instance Data.ToPath ForgetSmartHomeAppliances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ForgetSmartHomeAppliances where
+instance Data.ToQuery ForgetSmartHomeAppliances where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newForgetSmartHomeAppliancesResponse' smart constructor.

@@ -47,6 +47,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,7 +137,7 @@ instance Core.AWSRequest CreateRoom where
     Response.receiveJSON
       ( \s h x ->
           CreateRoomResponse'
-            Prelude.<$> (x Core..?> "RoomArn")
+            Prelude.<$> (x Data..?> "RoomArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,40 +159,40 @@ instance Prelude.NFData CreateRoom where
       `Prelude.seq` Prelude.rnf providerCalendarId
       `Prelude.seq` Prelude.rnf roomName
 
-instance Core.ToHeaders CreateRoom where
+instance Data.ToHeaders CreateRoom where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.CreateRoom" ::
+              Data.=# ( "AlexaForBusiness.CreateRoom" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRoom where
+instance Data.ToJSON CreateRoom where
   toJSON CreateRoom' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("ProfileArn" Core..=) Prelude.<$> profileArn,
-            ("Description" Core..=) Prelude.<$> description,
-            ("ProviderCalendarId" Core..=)
+            ("ProfileArn" Data..=) Prelude.<$> profileArn,
+            ("Description" Data..=) Prelude.<$> description,
+            ("ProviderCalendarId" Data..=)
               Prelude.<$> providerCalendarId,
-            Prelude.Just ("RoomName" Core..= roomName)
+            Prelude.Just ("RoomName" Data..= roomName)
           ]
       )
 
-instance Core.ToPath CreateRoom where
+instance Data.ToPath CreateRoom where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateRoom where
+instance Data.ToQuery CreateRoom where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRoomResponse' smart constructor.

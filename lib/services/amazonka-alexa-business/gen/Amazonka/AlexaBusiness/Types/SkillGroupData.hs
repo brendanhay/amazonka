@@ -21,6 +21,7 @@ module Amazonka.AlexaBusiness.Types.SkillGroupData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The attributes of a skill group.
@@ -70,15 +71,15 @@ skillGroupData_description = Lens.lens (\SkillGroupData' {description} -> descri
 skillGroupData_skillGroupName :: Lens.Lens' SkillGroupData (Prelude.Maybe Prelude.Text)
 skillGroupData_skillGroupName = Lens.lens (\SkillGroupData' {skillGroupName} -> skillGroupName) (\s@SkillGroupData' {} a -> s {skillGroupName = a} :: SkillGroupData)
 
-instance Core.FromJSON SkillGroupData where
+instance Data.FromJSON SkillGroupData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SkillGroupData"
       ( \x ->
           SkillGroupData'
-            Prelude.<$> (x Core..:? "SkillGroupArn")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "SkillGroupName")
+            Prelude.<$> (x Data..:? "SkillGroupArn")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "SkillGroupName")
       )
 
 instance Prelude.Hashable SkillGroupData where

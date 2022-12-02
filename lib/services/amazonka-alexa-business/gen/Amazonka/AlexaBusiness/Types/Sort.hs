@@ -22,6 +22,7 @@ module Amazonka.AlexaBusiness.Types.Sort where
 import Amazonka.AlexaBusiness.Types.SortValue
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing a sort criteria.
@@ -72,11 +73,11 @@ instance Prelude.NFData Sort where
   rnf Sort' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON Sort where
+instance Data.ToJSON Sort where
   toJSON Sort' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Core..= key),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Key" Data..= key),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

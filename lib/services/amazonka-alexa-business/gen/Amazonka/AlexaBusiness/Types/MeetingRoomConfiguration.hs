@@ -24,6 +24,7 @@ import Amazonka.AlexaBusiness.Types.InstantBooking
 import Amazonka.AlexaBusiness.Types.RequireCheckIn
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Meeting room settings of a room profile.
@@ -101,16 +102,16 @@ meetingRoomConfiguration_roomUtilizationMetricsEnabled = Lens.lens (\MeetingRoom
 meetingRoomConfiguration_requireCheckIn :: Lens.Lens' MeetingRoomConfiguration (Prelude.Maybe RequireCheckIn)
 meetingRoomConfiguration_requireCheckIn = Lens.lens (\MeetingRoomConfiguration' {requireCheckIn} -> requireCheckIn) (\s@MeetingRoomConfiguration' {} a -> s {requireCheckIn = a} :: MeetingRoomConfiguration)
 
-instance Core.FromJSON MeetingRoomConfiguration where
+instance Data.FromJSON MeetingRoomConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MeetingRoomConfiguration"
       ( \x ->
           MeetingRoomConfiguration'
-            Prelude.<$> (x Core..:? "InstantBooking")
-            Prelude.<*> (x Core..:? "EndOfMeetingReminder")
-            Prelude.<*> (x Core..:? "RoomUtilizationMetricsEnabled")
-            Prelude.<*> (x Core..:? "RequireCheckIn")
+            Prelude.<$> (x Data..:? "InstantBooking")
+            Prelude.<*> (x Data..:? "EndOfMeetingReminder")
+            Prelude.<*> (x Data..:? "RoomUtilizationMetricsEnabled")
+            Prelude.<*> (x Data..:? "RequireCheckIn")
       )
 
 instance Prelude.Hashable MeetingRoomConfiguration where

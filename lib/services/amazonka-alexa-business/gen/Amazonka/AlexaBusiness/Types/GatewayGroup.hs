@@ -21,6 +21,7 @@ module Amazonka.AlexaBusiness.Types.GatewayGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of the gateway group.
@@ -70,15 +71,15 @@ gatewayGroup_arn = Lens.lens (\GatewayGroup' {arn} -> arn) (\s@GatewayGroup' {} 
 gatewayGroup_description :: Lens.Lens' GatewayGroup (Prelude.Maybe Prelude.Text)
 gatewayGroup_description = Lens.lens (\GatewayGroup' {description} -> description) (\s@GatewayGroup' {} a -> s {description = a} :: GatewayGroup)
 
-instance Core.FromJSON GatewayGroup where
+instance Data.FromJSON GatewayGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GatewayGroup"
       ( \x ->
           GatewayGroup'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable GatewayGroup where

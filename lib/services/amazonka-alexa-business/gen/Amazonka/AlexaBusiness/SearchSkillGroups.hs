@@ -50,6 +50,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -161,9 +162,9 @@ instance Core.AWSRequest SearchSkillGroups where
     Response.receiveJSON
       ( \s h x ->
           SearchSkillGroupsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "SkillGroups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "TotalCount")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "SkillGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "TotalCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,36 +182,36 @@ instance Prelude.NFData SearchSkillGroups where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders SearchSkillGroups where
+instance Data.ToHeaders SearchSkillGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.SearchSkillGroups" ::
+              Data.=# ( "AlexaForBusiness.SearchSkillGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchSkillGroups where
+instance Data.ToJSON SearchSkillGroups where
   toJSON SearchSkillGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortCriteria" Core..=) Prelude.<$> sortCriteria,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("SortCriteria" Data..=) Prelude.<$> sortCriteria,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath SearchSkillGroups where
+instance Data.ToPath SearchSkillGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SearchSkillGroups where
+instance Data.ToQuery SearchSkillGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchSkillGroupsResponse' smart constructor.

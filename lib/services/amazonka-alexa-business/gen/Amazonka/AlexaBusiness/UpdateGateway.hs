@@ -45,6 +45,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,37 +136,37 @@ instance Prelude.NFData UpdateGateway where
       `Prelude.seq` Prelude.rnf softwareVersion
       `Prelude.seq` Prelude.rnf gatewayArn
 
-instance Core.ToHeaders UpdateGateway where
+instance Data.ToHeaders UpdateGateway where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.UpdateGateway" ::
+              Data.=# ( "AlexaForBusiness.UpdateGateway" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateGateway where
+instance Data.ToJSON UpdateGateway where
   toJSON UpdateGateway' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Description" Core..=) Prelude.<$> description,
-            ("SoftwareVersion" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Description" Data..=) Prelude.<$> description,
+            ("SoftwareVersion" Data..=)
               Prelude.<$> softwareVersion,
-            Prelude.Just ("GatewayArn" Core..= gatewayArn)
+            Prelude.Just ("GatewayArn" Data..= gatewayArn)
           ]
       )
 
-instance Core.ToPath UpdateGateway where
+instance Data.ToPath UpdateGateway where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateGateway where
+instance Data.ToQuery UpdateGateway where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateGatewayResponse' smart constructor.

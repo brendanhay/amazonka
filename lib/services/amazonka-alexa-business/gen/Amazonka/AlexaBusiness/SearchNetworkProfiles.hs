@@ -48,6 +48,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,11 +139,11 @@ instance Core.AWSRequest SearchNetworkProfiles where
     Response.receiveJSON
       ( \s h x ->
           SearchNetworkProfilesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "NetworkProfiles"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "NetworkProfiles"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "TotalCount")
+            Prelude.<*> (x Data..?> "TotalCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,36 +161,36 @@ instance Prelude.NFData SearchNetworkProfiles where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders SearchNetworkProfiles where
+instance Data.ToHeaders SearchNetworkProfiles where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.SearchNetworkProfiles" ::
+              Data.=# ( "AlexaForBusiness.SearchNetworkProfiles" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchNetworkProfiles where
+instance Data.ToJSON SearchNetworkProfiles where
   toJSON SearchNetworkProfiles' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortCriteria" Core..=) Prelude.<$> sortCriteria,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("SortCriteria" Data..=) Prelude.<$> sortCriteria,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath SearchNetworkProfiles where
+instance Data.ToPath SearchNetworkProfiles where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SearchNetworkProfiles where
+instance Data.ToQuery SearchNetworkProfiles where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchNetworkProfilesResponse' smart constructor.

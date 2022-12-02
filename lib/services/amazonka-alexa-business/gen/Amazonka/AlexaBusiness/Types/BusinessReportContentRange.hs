@@ -22,6 +22,7 @@ module Amazonka.AlexaBusiness.Types.BusinessReportContentRange where
 import Amazonka.AlexaBusiness.Types.BusinessReportInterval
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The content range of the report.
@@ -53,13 +54,13 @@ newBusinessReportContentRange pInterval_ =
 businessReportContentRange_interval :: Lens.Lens' BusinessReportContentRange BusinessReportInterval
 businessReportContentRange_interval = Lens.lens (\BusinessReportContentRange' {interval} -> interval) (\s@BusinessReportContentRange' {} a -> s {interval = a} :: BusinessReportContentRange)
 
-instance Core.FromJSON BusinessReportContentRange where
+instance Data.FromJSON BusinessReportContentRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BusinessReportContentRange"
       ( \x ->
           BusinessReportContentRange'
-            Prelude.<$> (x Core..: "Interval")
+            Prelude.<$> (x Data..: "Interval")
       )
 
 instance Prelude.Hashable BusinessReportContentRange where
@@ -70,9 +71,9 @@ instance Prelude.NFData BusinessReportContentRange where
   rnf BusinessReportContentRange' {..} =
     Prelude.rnf interval
 
-instance Core.ToJSON BusinessReportContentRange where
+instance Data.ToJSON BusinessReportContentRange where
   toJSON BusinessReportContentRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Interval" Core..= interval)]
+          [Prelude.Just ("Interval" Data..= interval)]
       )

@@ -21,6 +21,7 @@ module Amazonka.AlexaBusiness.Types.Gateway where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of the gateway.
@@ -91,17 +92,17 @@ gateway_description = Lens.lens (\Gateway' {description} -> description) (\s@Gat
 gateway_softwareVersion :: Lens.Lens' Gateway (Prelude.Maybe Prelude.Text)
 gateway_softwareVersion = Lens.lens (\Gateway' {softwareVersion} -> softwareVersion) (\s@Gateway' {} a -> s {softwareVersion = a} :: Gateway)
 
-instance Core.FromJSON Gateway where
+instance Data.FromJSON Gateway where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Gateway"
       ( \x ->
           Gateway'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "GatewayGroupArn")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "SoftwareVersion")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "GatewayGroupArn")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "SoftwareVersion")
       )
 
 instance Prelude.Hashable Gateway where

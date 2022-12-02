@@ -24,6 +24,7 @@ import Amazonka.AlexaBusiness.Types.BusinessReportS3Location
 import Amazonka.AlexaBusiness.Types.BusinessReportStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Usage report with specified parameters.
@@ -31,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newBusinessReport' smart constructor.
 data BusinessReport = BusinessReport'
   { -- | The time of report delivery.
-    deliveryTime :: Prelude.Maybe Core.POSIX,
+    deliveryTime :: Prelude.Maybe Data.POSIX,
     -- | The failure code.
     failureCode :: Prelude.Maybe BusinessReportFailureCode,
     -- | The download link where a user can download the report.
@@ -75,7 +76,7 @@ newBusinessReport =
 
 -- | The time of report delivery.
 businessReport_deliveryTime :: Lens.Lens' BusinessReport (Prelude.Maybe Prelude.UTCTime)
-businessReport_deliveryTime = Lens.lens (\BusinessReport' {deliveryTime} -> deliveryTime) (\s@BusinessReport' {} a -> s {deliveryTime = a} :: BusinessReport) Prelude.. Lens.mapping Core._Time
+businessReport_deliveryTime = Lens.lens (\BusinessReport' {deliveryTime} -> deliveryTime) (\s@BusinessReport' {} a -> s {deliveryTime = a} :: BusinessReport) Prelude.. Lens.mapping Data._Time
 
 -- | The failure code.
 businessReport_failureCode :: Lens.Lens' BusinessReport (Prelude.Maybe BusinessReportFailureCode)
@@ -94,17 +95,17 @@ businessReport_status = Lens.lens (\BusinessReport' {status} -> status) (\s@Busi
 businessReport_s3Location :: Lens.Lens' BusinessReport (Prelude.Maybe BusinessReportS3Location)
 businessReport_s3Location = Lens.lens (\BusinessReport' {s3Location} -> s3Location) (\s@BusinessReport' {} a -> s {s3Location = a} :: BusinessReport)
 
-instance Core.FromJSON BusinessReport where
+instance Data.FromJSON BusinessReport where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BusinessReport"
       ( \x ->
           BusinessReport'
-            Prelude.<$> (x Core..:? "DeliveryTime")
-            Prelude.<*> (x Core..:? "FailureCode")
-            Prelude.<*> (x Core..:? "DownloadUrl")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "S3Location")
+            Prelude.<$> (x Data..:? "DeliveryTime")
+            Prelude.<*> (x Data..:? "FailureCode")
+            Prelude.<*> (x Data..:? "DownloadUrl")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "S3Location")
       )
 
 instance Prelude.Hashable BusinessReport where

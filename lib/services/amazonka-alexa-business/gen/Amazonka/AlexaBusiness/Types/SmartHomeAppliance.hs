@@ -21,6 +21,7 @@ module Amazonka.AlexaBusiness.Types.SmartHomeAppliance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A smart home appliance that can connect to a central system. Any
@@ -72,15 +73,15 @@ smartHomeAppliance_description = Lens.lens (\SmartHomeAppliance' {description} -
 smartHomeAppliance_friendlyName :: Lens.Lens' SmartHomeAppliance (Prelude.Maybe Prelude.Text)
 smartHomeAppliance_friendlyName = Lens.lens (\SmartHomeAppliance' {friendlyName} -> friendlyName) (\s@SmartHomeAppliance' {} a -> s {friendlyName = a} :: SmartHomeAppliance)
 
-instance Core.FromJSON SmartHomeAppliance where
+instance Data.FromJSON SmartHomeAppliance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SmartHomeAppliance"
       ( \x ->
           SmartHomeAppliance'
-            Prelude.<$> (x Core..:? "ManufacturerName")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "FriendlyName")
+            Prelude.<$> (x Data..:? "ManufacturerName")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "FriendlyName")
       )
 
 instance Prelude.Hashable SmartHomeAppliance where

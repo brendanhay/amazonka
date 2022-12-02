@@ -23,6 +23,7 @@ import Amazonka.AlexaBusiness.Types.ConnectionStatus
 import Amazonka.AlexaBusiness.Types.DeviceStatusDetail
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Detailed information about a device\'s status.
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newDeviceStatusInfo' smart constructor.
 data DeviceStatusInfo = DeviceStatusInfo'
   { -- | The time (in epoch) when the device connection status changed.
-    connectionStatusUpdatedTime :: Prelude.Maybe Core.POSIX,
+    connectionStatusUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | One or more device status detail descriptions.
     deviceStatusDetails :: Prelude.Maybe [DeviceStatusDetail],
     -- | The latest available information about the connection status of a
@@ -65,7 +66,7 @@ newDeviceStatusInfo =
 
 -- | The time (in epoch) when the device connection status changed.
 deviceStatusInfo_connectionStatusUpdatedTime :: Lens.Lens' DeviceStatusInfo (Prelude.Maybe Prelude.UTCTime)
-deviceStatusInfo_connectionStatusUpdatedTime = Lens.lens (\DeviceStatusInfo' {connectionStatusUpdatedTime} -> connectionStatusUpdatedTime) (\s@DeviceStatusInfo' {} a -> s {connectionStatusUpdatedTime = a} :: DeviceStatusInfo) Prelude.. Lens.mapping Core._Time
+deviceStatusInfo_connectionStatusUpdatedTime = Lens.lens (\DeviceStatusInfo' {connectionStatusUpdatedTime} -> connectionStatusUpdatedTime) (\s@DeviceStatusInfo' {} a -> s {connectionStatusUpdatedTime = a} :: DeviceStatusInfo) Prelude.. Lens.mapping Data._Time
 
 -- | One or more device status detail descriptions.
 deviceStatusInfo_deviceStatusDetails :: Lens.Lens' DeviceStatusInfo (Prelude.Maybe [DeviceStatusDetail])
@@ -76,17 +77,17 @@ deviceStatusInfo_deviceStatusDetails = Lens.lens (\DeviceStatusInfo' {deviceStat
 deviceStatusInfo_connectionStatus :: Lens.Lens' DeviceStatusInfo (Prelude.Maybe ConnectionStatus)
 deviceStatusInfo_connectionStatus = Lens.lens (\DeviceStatusInfo' {connectionStatus} -> connectionStatus) (\s@DeviceStatusInfo' {} a -> s {connectionStatus = a} :: DeviceStatusInfo)
 
-instance Core.FromJSON DeviceStatusInfo where
+instance Data.FromJSON DeviceStatusInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceStatusInfo"
       ( \x ->
           DeviceStatusInfo'
-            Prelude.<$> (x Core..:? "ConnectionStatusUpdatedTime")
-            Prelude.<*> ( x Core..:? "DeviceStatusDetails"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ConnectionStatusUpdatedTime")
+            Prelude.<*> ( x Data..:? "DeviceStatusDetails"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ConnectionStatus")
+            Prelude.<*> (x Data..:? "ConnectionStatus")
       )
 
 instance Prelude.Hashable DeviceStatusInfo where

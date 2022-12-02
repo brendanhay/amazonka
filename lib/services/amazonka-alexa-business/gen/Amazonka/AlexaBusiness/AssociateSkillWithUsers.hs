@@ -42,6 +42,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,32 +95,32 @@ instance Prelude.NFData AssociateSkillWithUsers where
   rnf AssociateSkillWithUsers' {..} =
     Prelude.rnf skillId
 
-instance Core.ToHeaders AssociateSkillWithUsers where
+instance Data.ToHeaders AssociateSkillWithUsers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.AssociateSkillWithUsers" ::
+              Data.=# ( "AlexaForBusiness.AssociateSkillWithUsers" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateSkillWithUsers where
+instance Data.ToJSON AssociateSkillWithUsers where
   toJSON AssociateSkillWithUsers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("SkillId" Core..= skillId)]
+          [Prelude.Just ("SkillId" Data..= skillId)]
       )
 
-instance Core.ToPath AssociateSkillWithUsers where
+instance Data.ToPath AssociateSkillWithUsers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateSkillWithUsers where
+instance Data.ToQuery AssociateSkillWithUsers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateSkillWithUsersResponse' smart constructor.

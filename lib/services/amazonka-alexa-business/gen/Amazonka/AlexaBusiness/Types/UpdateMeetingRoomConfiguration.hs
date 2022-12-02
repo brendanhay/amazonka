@@ -24,6 +24,7 @@ import Amazonka.AlexaBusiness.Types.UpdateInstantBooking
 import Amazonka.AlexaBusiness.Types.UpdateRequireCheckIn
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Updates meeting room settings of a room profile.
@@ -124,17 +125,17 @@ instance
       `Prelude.seq` Prelude.rnf roomUtilizationMetricsEnabled
       `Prelude.seq` Prelude.rnf requireCheckIn
 
-instance Core.ToJSON UpdateMeetingRoomConfiguration where
+instance Data.ToJSON UpdateMeetingRoomConfiguration where
   toJSON UpdateMeetingRoomConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InstantBooking" Core..=)
+          [ ("InstantBooking" Data..=)
               Prelude.<$> instantBooking,
-            ("EndOfMeetingReminder" Core..=)
+            ("EndOfMeetingReminder" Data..=)
               Prelude.<$> endOfMeetingReminder,
-            ("RoomUtilizationMetricsEnabled" Core..=)
+            ("RoomUtilizationMetricsEnabled" Data..=)
               Prelude.<$> roomUtilizationMetricsEnabled,
-            ("RequireCheckIn" Core..=)
+            ("RequireCheckIn" Data..=)
               Prelude.<$> requireCheckIn
           ]
       )

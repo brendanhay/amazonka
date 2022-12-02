@@ -55,6 +55,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -234,7 +235,7 @@ instance Core.AWSRequest CreateProfile where
     Response.receiveJSON
       ( \s h x ->
           CreateProfileResponse'
-            Prelude.<$> (x Core..?> "ProfileArn")
+            Prelude.<$> (x Data..?> "ProfileArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -272,52 +273,52 @@ instance Prelude.NFData CreateProfile where
       `Prelude.seq` Prelude.rnf temperatureUnit
       `Prelude.seq` Prelude.rnf wakeWord
 
-instance Core.ToHeaders CreateProfile where
+instance Data.ToHeaders CreateProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.CreateProfile" ::
+              Data.=# ( "AlexaForBusiness.CreateProfile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateProfile where
+instance Data.ToJSON CreateProfile where
   toJSON CreateProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("SetupModeDisabled" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("SetupModeDisabled" Data..=)
               Prelude.<$> setupModeDisabled,
-            ("ClientRequestToken" Core..=)
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("DataRetentionOptIn" Core..=)
+            ("DataRetentionOptIn" Data..=)
               Prelude.<$> dataRetentionOptIn,
-            ("Locale" Core..=) Prelude.<$> locale,
-            ("MeetingRoomConfiguration" Core..=)
+            ("Locale" Data..=) Prelude.<$> locale,
+            ("MeetingRoomConfiguration" Data..=)
               Prelude.<$> meetingRoomConfiguration,
-            ("PSTNEnabled" Core..=) Prelude.<$> pSTNEnabled,
-            ("MaxVolumeLimit" Core..=)
+            ("PSTNEnabled" Data..=) Prelude.<$> pSTNEnabled,
+            ("MaxVolumeLimit" Data..=)
               Prelude.<$> maxVolumeLimit,
-            Prelude.Just ("ProfileName" Core..= profileName),
-            Prelude.Just ("Timezone" Core..= timezone),
-            Prelude.Just ("Address" Core..= address),
-            Prelude.Just ("DistanceUnit" Core..= distanceUnit),
+            Prelude.Just ("ProfileName" Data..= profileName),
+            Prelude.Just ("Timezone" Data..= timezone),
+            Prelude.Just ("Address" Data..= address),
+            Prelude.Just ("DistanceUnit" Data..= distanceUnit),
             Prelude.Just
-              ("TemperatureUnit" Core..= temperatureUnit),
-            Prelude.Just ("WakeWord" Core..= wakeWord)
+              ("TemperatureUnit" Data..= temperatureUnit),
+            Prelude.Just ("WakeWord" Data..= wakeWord)
           ]
       )
 
-instance Core.ToPath CreateProfile where
+instance Data.ToPath CreateProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateProfile where
+instance Data.ToQuery CreateProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateProfileResponse' smart constructor.

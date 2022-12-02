@@ -44,6 +44,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -129,35 +130,35 @@ instance Prelude.NFData DeleteRoomSkillParameter where
       `Prelude.seq` Prelude.rnf skillId
       `Prelude.seq` Prelude.rnf parameterKey
 
-instance Core.ToHeaders DeleteRoomSkillParameter where
+instance Data.ToHeaders DeleteRoomSkillParameter where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.DeleteRoomSkillParameter" ::
+              Data.=# ( "AlexaForBusiness.DeleteRoomSkillParameter" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteRoomSkillParameter where
+instance Data.ToJSON DeleteRoomSkillParameter where
   toJSON DeleteRoomSkillParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoomArn" Core..=) Prelude.<$> roomArn,
-            Prelude.Just ("SkillId" Core..= skillId),
-            Prelude.Just ("ParameterKey" Core..= parameterKey)
+          [ ("RoomArn" Data..=) Prelude.<$> roomArn,
+            Prelude.Just ("SkillId" Data..= skillId),
+            Prelude.Just ("ParameterKey" Data..= parameterKey)
           ]
       )
 
-instance Core.ToPath DeleteRoomSkillParameter where
+instance Data.ToPath DeleteRoomSkillParameter where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteRoomSkillParameter where
+instance Data.ToQuery DeleteRoomSkillParameter where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRoomSkillParameterResponse' smart constructor.

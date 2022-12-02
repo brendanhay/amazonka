@@ -42,6 +42,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -79,7 +80,7 @@ instance Core.AWSRequest GetProfile where
     Response.receiveJSON
       ( \s h x ->
           GetProfileResponse'
-            Prelude.<$> (x Core..?> "Profile")
+            Prelude.<$> (x Data..?> "Profile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -90,32 +91,32 @@ instance Prelude.Hashable GetProfile where
 instance Prelude.NFData GetProfile where
   rnf GetProfile' {..} = Prelude.rnf profileArn
 
-instance Core.ToHeaders GetProfile where
+instance Data.ToHeaders GetProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.GetProfile" ::
+              Data.=# ( "AlexaForBusiness.GetProfile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetProfile where
+instance Data.ToJSON GetProfile where
   toJSON GetProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("ProfileArn" Core..=) Prelude.<$> profileArn]
+          [("ProfileArn" Data..=) Prelude.<$> profileArn]
       )
 
-instance Core.ToPath GetProfile where
+instance Data.ToPath GetProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetProfile where
+instance Data.ToQuery GetProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetProfileResponse' smart constructor.

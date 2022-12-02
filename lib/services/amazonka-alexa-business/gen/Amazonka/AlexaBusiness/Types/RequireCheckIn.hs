@@ -21,6 +21,7 @@ module Amazonka.AlexaBusiness.Types.RequireCheckIn where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for the require check in feature that are applied to a room
@@ -66,14 +67,14 @@ requireCheckIn_enabled = Lens.lens (\RequireCheckIn' {enabled} -> enabled) (\s@R
 requireCheckIn_releaseAfterMinutes :: Lens.Lens' RequireCheckIn (Prelude.Maybe Prelude.Int)
 requireCheckIn_releaseAfterMinutes = Lens.lens (\RequireCheckIn' {releaseAfterMinutes} -> releaseAfterMinutes) (\s@RequireCheckIn' {} a -> s {releaseAfterMinutes = a} :: RequireCheckIn)
 
-instance Core.FromJSON RequireCheckIn where
+instance Data.FromJSON RequireCheckIn where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RequireCheckIn"
       ( \x ->
           RequireCheckIn'
-            Prelude.<$> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "ReleaseAfterMinutes")
+            Prelude.<$> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "ReleaseAfterMinutes")
       )
 
 instance Prelude.Hashable RequireCheckIn where

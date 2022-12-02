@@ -42,6 +42,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,35 +110,35 @@ instance
     Prelude.rnf roomArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     StartSmartHomeApplianceDiscovery
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.StartSmartHomeApplianceDiscovery" ::
+              Data.=# ( "AlexaForBusiness.StartSmartHomeApplianceDiscovery" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartSmartHomeApplianceDiscovery where
+instance Data.ToJSON StartSmartHomeApplianceDiscovery where
   toJSON StartSmartHomeApplianceDiscovery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("RoomArn" Core..= roomArn)]
+          [Prelude.Just ("RoomArn" Data..= roomArn)]
       )
 
-instance Core.ToPath StartSmartHomeApplianceDiscovery where
+instance Data.ToPath StartSmartHomeApplianceDiscovery where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     StartSmartHomeApplianceDiscovery
   where
   toQuery = Prelude.const Prelude.mempty

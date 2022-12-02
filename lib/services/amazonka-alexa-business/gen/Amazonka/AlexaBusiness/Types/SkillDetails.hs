@@ -22,6 +22,7 @@ module Amazonka.AlexaBusiness.Types.SkillDetails where
 import Amazonka.AlexaBusiness.Types.DeveloperInfo
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Granular information about the skill.
@@ -143,26 +144,26 @@ skillDetails_skillTypes = Lens.lens (\SkillDetails' {skillTypes} -> skillTypes) 
 skillDetails_bulletPoints :: Lens.Lens' SkillDetails (Prelude.Maybe [Prelude.Text])
 skillDetails_bulletPoints = Lens.lens (\SkillDetails' {bulletPoints} -> bulletPoints) (\s@SkillDetails' {} a -> s {bulletPoints = a} :: SkillDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SkillDetails where
+instance Data.FromJSON SkillDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SkillDetails"
       ( \x ->
           SkillDetails'
-            Prelude.<$> (x Core..:? "InvocationPhrase")
-            Prelude.<*> (x Core..:? "EndUserLicenseAgreement")
-            Prelude.<*> (x Core..:? "Reviews" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ReleaseDate")
-            Prelude.<*> ( x Core..:? "GenericKeywords"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "InvocationPhrase")
+            Prelude.<*> (x Data..:? "EndUserLicenseAgreement")
+            Prelude.<*> (x Data..:? "Reviews" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ReleaseDate")
+            Prelude.<*> ( x Data..:? "GenericKeywords"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DeveloperInfo")
-            Prelude.<*> ( x Core..:? "NewInThisVersionBulletPoints"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "DeveloperInfo")
+            Prelude.<*> ( x Data..:? "NewInThisVersionBulletPoints"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ProductDescription")
-            Prelude.<*> (x Core..:? "SkillTypes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "BulletPoints" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ProductDescription")
+            Prelude.<*> (x Data..:? "SkillTypes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "BulletPoints" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SkillDetails where

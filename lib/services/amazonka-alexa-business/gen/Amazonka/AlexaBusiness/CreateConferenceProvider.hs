@@ -48,6 +48,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -155,7 +156,7 @@ instance Core.AWSRequest CreateConferenceProvider where
     Response.receiveJSON
       ( \s h x ->
           CreateConferenceProviderResponse'
-            Prelude.<$> (x Core..?> "ConferenceProviderArn")
+            Prelude.<$> (x Data..?> "ConferenceProviderArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,47 +180,47 @@ instance Prelude.NFData CreateConferenceProvider where
       `Prelude.seq` Prelude.rnf conferenceProviderType
       `Prelude.seq` Prelude.rnf meetingSetting
 
-instance Core.ToHeaders CreateConferenceProvider where
+instance Data.ToHeaders CreateConferenceProvider where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.CreateConferenceProvider" ::
+              Data.=# ( "AlexaForBusiness.CreateConferenceProvider" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateConferenceProvider where
+instance Data.ToJSON CreateConferenceProvider where
   toJSON CreateConferenceProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("IPDialIn" Core..=) Prelude.<$> iPDialIn,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("IPDialIn" Data..=) Prelude.<$> iPDialIn,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("PSTNDialIn" Core..=) Prelude.<$> pSTNDialIn,
+            ("PSTNDialIn" Data..=) Prelude.<$> pSTNDialIn,
             Prelude.Just
               ( "ConferenceProviderName"
-                  Core..= conferenceProviderName
+                  Data..= conferenceProviderName
               ),
             Prelude.Just
               ( "ConferenceProviderType"
-                  Core..= conferenceProviderType
+                  Data..= conferenceProviderType
               ),
             Prelude.Just
-              ("MeetingSetting" Core..= meetingSetting)
+              ("MeetingSetting" Data..= meetingSetting)
           ]
       )
 
-instance Core.ToPath CreateConferenceProvider where
+instance Data.ToPath CreateConferenceProvider where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateConferenceProvider where
+instance Data.ToQuery CreateConferenceProvider where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateConferenceProviderResponse' smart constructor.

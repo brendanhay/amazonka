@@ -42,6 +42,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ instance Core.AWSRequest GetConferenceProvider where
     Response.receiveJSON
       ( \s h x ->
           GetConferenceProviderResponse'
-            Prelude.<$> (x Core..?> "ConferenceProvider")
+            Prelude.<$> (x Data..?> "ConferenceProvider")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,36 +99,36 @@ instance Prelude.NFData GetConferenceProvider where
   rnf GetConferenceProvider' {..} =
     Prelude.rnf conferenceProviderArn
 
-instance Core.ToHeaders GetConferenceProvider where
+instance Data.ToHeaders GetConferenceProvider where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.GetConferenceProvider" ::
+              Data.=# ( "AlexaForBusiness.GetConferenceProvider" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetConferenceProvider where
+instance Data.ToJSON GetConferenceProvider where
   toJSON GetConferenceProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ConferenceProviderArn"
-                  Core..= conferenceProviderArn
+                  Data..= conferenceProviderArn
               )
           ]
       )
 
-instance Core.ToPath GetConferenceProvider where
+instance Data.ToPath GetConferenceProvider where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetConferenceProvider where
+instance Data.ToQuery GetConferenceProvider where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetConferenceProviderResponse' smart constructor.

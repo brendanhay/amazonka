@@ -47,6 +47,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -163,38 +164,38 @@ instance Prelude.NFData UpdateBusinessReportSchedule where
       `Prelude.seq` Prelude.rnf scheduleName
       `Prelude.seq` Prelude.rnf scheduleArn
 
-instance Core.ToHeaders UpdateBusinessReportSchedule where
+instance Data.ToHeaders UpdateBusinessReportSchedule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.UpdateBusinessReportSchedule" ::
+              Data.=# ( "AlexaForBusiness.UpdateBusinessReportSchedule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateBusinessReportSchedule where
+instance Data.ToJSON UpdateBusinessReportSchedule where
   toJSON UpdateBusinessReportSchedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3KeyPrefix" Core..=) Prelude.<$> s3KeyPrefix,
-            ("S3BucketName" Core..=) Prelude.<$> s3BucketName,
-            ("Format" Core..=) Prelude.<$> format,
-            ("Recurrence" Core..=) Prelude.<$> recurrence,
-            ("ScheduleName" Core..=) Prelude.<$> scheduleName,
-            Prelude.Just ("ScheduleArn" Core..= scheduleArn)
+          [ ("S3KeyPrefix" Data..=) Prelude.<$> s3KeyPrefix,
+            ("S3BucketName" Data..=) Prelude.<$> s3BucketName,
+            ("Format" Data..=) Prelude.<$> format,
+            ("Recurrence" Data..=) Prelude.<$> recurrence,
+            ("ScheduleName" Data..=) Prelude.<$> scheduleName,
+            Prelude.Just ("ScheduleArn" Data..= scheduleArn)
           ]
       )
 
-instance Core.ToPath UpdateBusinessReportSchedule where
+instance Data.ToPath UpdateBusinessReportSchedule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateBusinessReportSchedule where
+instance Data.ToQuery UpdateBusinessReportSchedule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateBusinessReportScheduleResponse' smart constructor.

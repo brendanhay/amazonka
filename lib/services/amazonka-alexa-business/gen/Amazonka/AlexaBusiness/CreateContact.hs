@@ -49,6 +49,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -72,7 +73,7 @@ data CreateContact = CreateContact'
     -- defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We
     -- recommend that you use PhoneNumbers, which lets you specify the phone
     -- number type and multiple numbers.
-    phoneNumber :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    phoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The list of phone numbers for the contact.
     phoneNumbers :: Prelude.Maybe [PhoneNumber],
     -- | The first name of the contact that is used to call the contact on the
@@ -155,7 +156,7 @@ createContact_lastName = Lens.lens (\CreateContact' {lastName} -> lastName) (\s@
 -- recommend that you use PhoneNumbers, which lets you specify the phone
 -- number type and multiple numbers.
 createContact_phoneNumber :: Lens.Lens' CreateContact (Prelude.Maybe Prelude.Text)
-createContact_phoneNumber = Lens.lens (\CreateContact' {phoneNumber} -> phoneNumber) (\s@CreateContact' {} a -> s {phoneNumber = a} :: CreateContact) Prelude.. Lens.mapping Core._Sensitive
+createContact_phoneNumber = Lens.lens (\CreateContact' {phoneNumber} -> phoneNumber) (\s@CreateContact' {} a -> s {phoneNumber = a} :: CreateContact) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The list of phone numbers for the contact.
 createContact_phoneNumbers :: Lens.Lens' CreateContact (Prelude.Maybe [PhoneNumber])
@@ -176,7 +177,7 @@ instance Core.AWSRequest CreateContact where
     Response.receiveJSON
       ( \s h x ->
           CreateContactResponse'
-            Prelude.<$> (x Core..?> "ContactArn")
+            Prelude.<$> (x Data..?> "ContactArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,41 +203,41 @@ instance Prelude.NFData CreateContact where
       `Prelude.seq` Prelude.rnf phoneNumbers
       `Prelude.seq` Prelude.rnf firstName
 
-instance Core.ToHeaders CreateContact where
+instance Data.ToHeaders CreateContact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.CreateContact" ::
+              Data.=# ( "AlexaForBusiness.CreateContact" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateContact where
+instance Data.ToJSON CreateContact where
   toJSON CreateContact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("SipAddresses" Core..=) Prelude.<$> sipAddresses,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("LastName" Core..=) Prelude.<$> lastName,
-            ("PhoneNumber" Core..=) Prelude.<$> phoneNumber,
-            ("PhoneNumbers" Core..=) Prelude.<$> phoneNumbers,
-            Prelude.Just ("FirstName" Core..= firstName)
+            ("SipAddresses" Data..=) Prelude.<$> sipAddresses,
+            ("DisplayName" Data..=) Prelude.<$> displayName,
+            ("LastName" Data..=) Prelude.<$> lastName,
+            ("PhoneNumber" Data..=) Prelude.<$> phoneNumber,
+            ("PhoneNumbers" Data..=) Prelude.<$> phoneNumbers,
+            Prelude.Just ("FirstName" Data..= firstName)
           ]
       )
 
-instance Core.ToPath CreateContact where
+instance Data.ToPath CreateContact where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateContact where
+instance Data.ToQuery CreateContact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateContactResponse' smart constructor.

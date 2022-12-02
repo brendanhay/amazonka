@@ -25,6 +25,7 @@ import Amazonka.AlexaBusiness.Types.MeetingSetting
 import Amazonka.AlexaBusiness.Types.PSTNDialIn
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An entity that provides a conferencing solution. Alexa for Business acts
@@ -104,18 +105,18 @@ conferenceProvider_pSTNDialIn = Lens.lens (\ConferenceProvider' {pSTNDialIn} -> 
 conferenceProvider_arn :: Lens.Lens' ConferenceProvider (Prelude.Maybe Prelude.Text)
 conferenceProvider_arn = Lens.lens (\ConferenceProvider' {arn} -> arn) (\s@ConferenceProvider' {} a -> s {arn = a} :: ConferenceProvider)
 
-instance Core.FromJSON ConferenceProvider where
+instance Data.FromJSON ConferenceProvider where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConferenceProvider"
       ( \x ->
           ConferenceProvider'
-            Prelude.<$> (x Core..:? "IPDialIn")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "MeetingSetting")
-            Prelude.<*> (x Core..:? "PSTNDialIn")
-            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<$> (x Data..:? "IPDialIn")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "MeetingSetting")
+            Prelude.<*> (x Data..:? "PSTNDialIn")
+            Prelude.<*> (x Data..:? "Arn")
       )
 
 instance Prelude.Hashable ConferenceProvider where

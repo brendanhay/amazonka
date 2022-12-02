@@ -49,6 +49,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -159,8 +160,8 @@ instance Core.AWSRequest ListSkills where
     Response.receiveJSON
       ( \s h x ->
           ListSkillsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "SkillSummaries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "SkillSummaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,38 +181,38 @@ instance Prelude.NFData ListSkills where
       `Prelude.seq` Prelude.rnf enablementType
       `Prelude.seq` Prelude.rnf skillType
 
-instance Core.ToHeaders ListSkills where
+instance Data.ToHeaders ListSkills where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.ListSkills" ::
+              Data.=# ( "AlexaForBusiness.ListSkills" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSkills where
+instance Data.ToJSON ListSkills where
   toJSON ListSkills' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SkillGroupArn" Core..=) Prelude.<$> skillGroupArn,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("EnablementType" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SkillGroupArn" Data..=) Prelude.<$> skillGroupArn,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("EnablementType" Data..=)
               Prelude.<$> enablementType,
-            ("SkillType" Core..=) Prelude.<$> skillType
+            ("SkillType" Data..=) Prelude.<$> skillType
           ]
       )
 
-instance Core.ToPath ListSkills where
+instance Data.ToPath ListSkills where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSkills where
+instance Data.ToQuery ListSkills where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSkillsResponse' smart constructor.

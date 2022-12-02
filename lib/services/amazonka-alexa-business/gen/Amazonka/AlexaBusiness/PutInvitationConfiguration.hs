@@ -44,6 +44,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,37 +128,37 @@ instance Prelude.NFData PutInvitationConfiguration where
       `Prelude.seq` Prelude.rnf contactEmail
       `Prelude.seq` Prelude.rnf organizationName
 
-instance Core.ToHeaders PutInvitationConfiguration where
+instance Data.ToHeaders PutInvitationConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.PutInvitationConfiguration" ::
+              Data.=# ( "AlexaForBusiness.PutInvitationConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutInvitationConfiguration where
+instance Data.ToJSON PutInvitationConfiguration where
   toJSON PutInvitationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PrivateSkillIds" Core..=)
+          [ ("PrivateSkillIds" Data..=)
               Prelude.<$> privateSkillIds,
-            ("ContactEmail" Core..=) Prelude.<$> contactEmail,
+            ("ContactEmail" Data..=) Prelude.<$> contactEmail,
             Prelude.Just
-              ("OrganizationName" Core..= organizationName)
+              ("OrganizationName" Data..= organizationName)
           ]
       )
 
-instance Core.ToPath PutInvitationConfiguration where
+instance Data.ToPath PutInvitationConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutInvitationConfiguration where
+instance Data.ToQuery PutInvitationConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutInvitationConfigurationResponse' smart constructor.

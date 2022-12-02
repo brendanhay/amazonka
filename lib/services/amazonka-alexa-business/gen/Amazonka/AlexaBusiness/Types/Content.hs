@@ -24,6 +24,7 @@ import Amazonka.AlexaBusiness.Types.Ssml
 import Amazonka.AlexaBusiness.Types.TextMessage
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The content definition. This can contain only one text, SSML, or audio
@@ -86,12 +87,12 @@ instance Prelude.NFData Content where
       `Prelude.seq` Prelude.rnf textList
       `Prelude.seq` Prelude.rnf ssmlList
 
-instance Core.ToJSON Content where
+instance Data.ToJSON Content where
   toJSON Content' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AudioList" Core..=) Prelude.<$> audioList,
-            ("TextList" Core..=) Prelude.<$> textList,
-            ("SsmlList" Core..=) Prelude.<$> ssmlList
+          [ ("AudioList" Data..=) Prelude.<$> audioList,
+            ("TextList" Data..=) Prelude.<$> textList,
+            ("SsmlList" Data..=) Prelude.<$> ssmlList
           ]
       )

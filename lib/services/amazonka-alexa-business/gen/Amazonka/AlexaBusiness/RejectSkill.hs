@@ -44,6 +44,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,32 +94,32 @@ instance Prelude.Hashable RejectSkill where
 instance Prelude.NFData RejectSkill where
   rnf RejectSkill' {..} = Prelude.rnf skillId
 
-instance Core.ToHeaders RejectSkill where
+instance Data.ToHeaders RejectSkill where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.RejectSkill" ::
+              Data.=# ( "AlexaForBusiness.RejectSkill" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RejectSkill where
+instance Data.ToJSON RejectSkill where
   toJSON RejectSkill' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("SkillId" Core..= skillId)]
+          [Prelude.Just ("SkillId" Data..= skillId)]
       )
 
-instance Core.ToPath RejectSkill where
+instance Data.ToPath RejectSkill where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RejectSkill where
+instance Data.ToQuery RejectSkill where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRejectSkillResponse' smart constructor.

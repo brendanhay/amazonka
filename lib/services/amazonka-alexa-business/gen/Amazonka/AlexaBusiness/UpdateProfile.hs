@@ -54,6 +54,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -255,51 +256,51 @@ instance Prelude.NFData UpdateProfile where
       `Prelude.seq` Prelude.rnf maxVolumeLimit
       `Prelude.seq` Prelude.rnf temperatureUnit
 
-instance Core.ToHeaders UpdateProfile where
+instance Data.ToHeaders UpdateProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.UpdateProfile" ::
+              Data.=# ( "AlexaForBusiness.UpdateProfile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateProfile where
+instance Data.ToJSON UpdateProfile where
   toJSON UpdateProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SetupModeDisabled" Core..=)
+          [ ("SetupModeDisabled" Data..=)
               Prelude.<$> setupModeDisabled,
-            ("DistanceUnit" Core..=) Prelude.<$> distanceUnit,
-            ("DataRetentionOptIn" Core..=)
+            ("DistanceUnit" Data..=) Prelude.<$> distanceUnit,
+            ("DataRetentionOptIn" Data..=)
               Prelude.<$> dataRetentionOptIn,
-            ("ProfileName" Core..=) Prelude.<$> profileName,
-            ("WakeWord" Core..=) Prelude.<$> wakeWord,
-            ("Locale" Core..=) Prelude.<$> locale,
-            ("MeetingRoomConfiguration" Core..=)
+            ("ProfileName" Data..=) Prelude.<$> profileName,
+            ("WakeWord" Data..=) Prelude.<$> wakeWord,
+            ("Locale" Data..=) Prelude.<$> locale,
+            ("MeetingRoomConfiguration" Data..=)
               Prelude.<$> meetingRoomConfiguration,
-            ("Timezone" Core..=) Prelude.<$> timezone,
-            ("ProfileArn" Core..=) Prelude.<$> profileArn,
-            ("PSTNEnabled" Core..=) Prelude.<$> pSTNEnabled,
-            ("IsDefault" Core..=) Prelude.<$> isDefault,
-            ("Address" Core..=) Prelude.<$> address,
-            ("MaxVolumeLimit" Core..=)
+            ("Timezone" Data..=) Prelude.<$> timezone,
+            ("ProfileArn" Data..=) Prelude.<$> profileArn,
+            ("PSTNEnabled" Data..=) Prelude.<$> pSTNEnabled,
+            ("IsDefault" Data..=) Prelude.<$> isDefault,
+            ("Address" Data..=) Prelude.<$> address,
+            ("MaxVolumeLimit" Data..=)
               Prelude.<$> maxVolumeLimit,
-            ("TemperatureUnit" Core..=)
+            ("TemperatureUnit" Data..=)
               Prelude.<$> temperatureUnit
           ]
       )
 
-instance Core.ToPath UpdateProfile where
+instance Data.ToPath UpdateProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateProfile where
+instance Data.ToQuery UpdateProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateProfileResponse' smart constructor.

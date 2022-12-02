@@ -42,6 +42,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,44 +125,44 @@ instance
       `Prelude.seq` Prelude.rnf networkProfileArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AssociateDeviceWithNetworkProfile
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.AssociateDeviceWithNetworkProfile" ::
+              Data.=# ( "AlexaForBusiness.AssociateDeviceWithNetworkProfile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AssociateDeviceWithNetworkProfile
   where
   toJSON AssociateDeviceWithNetworkProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DeviceArn" Core..= deviceArn),
+          [ Prelude.Just ("DeviceArn" Data..= deviceArn),
             Prelude.Just
-              ("NetworkProfileArn" Core..= networkProfileArn)
+              ("NetworkProfileArn" Data..= networkProfileArn)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     AssociateDeviceWithNetworkProfile
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     AssociateDeviceWithNetworkProfile
   where
   toQuery = Prelude.const Prelude.mempty

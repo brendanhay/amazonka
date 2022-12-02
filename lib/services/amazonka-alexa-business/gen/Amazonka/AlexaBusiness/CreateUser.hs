@@ -47,6 +47,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,7 +137,7 @@ instance Core.AWSRequest CreateUser where
     Response.receiveJSON
       ( \s h x ->
           CreateUserResponse'
-            Prelude.<$> (x Core..?> "UserArn")
+            Prelude.<$> (x Data..?> "UserArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,39 +159,39 @@ instance Prelude.NFData CreateUser where
       `Prelude.seq` Prelude.rnf lastName
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToHeaders CreateUser where
+instance Data.ToHeaders CreateUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.CreateUser" ::
+              Data.=# ( "AlexaForBusiness.CreateUser" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateUser where
+instance Data.ToJSON CreateUser where
   toJSON CreateUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("FirstName" Core..=) Prelude.<$> firstName,
-            ("Email" Core..=) Prelude.<$> email,
-            ("LastName" Core..=) Prelude.<$> lastName,
-            Prelude.Just ("UserId" Core..= userId)
+            ("FirstName" Data..=) Prelude.<$> firstName,
+            ("Email" Data..=) Prelude.<$> email,
+            ("LastName" Data..=) Prelude.<$> lastName,
+            Prelude.Just ("UserId" Data..= userId)
           ]
       )
 
-instance Core.ToPath CreateUser where
+instance Data.ToPath CreateUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateUser where
+instance Data.ToQuery CreateUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateUserResponse' smart constructor.

@@ -43,6 +43,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,36 +118,36 @@ instance Prelude.NFData UpdateSkillGroup where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf skillGroupName
 
-instance Core.ToHeaders UpdateSkillGroup where
+instance Data.ToHeaders UpdateSkillGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.UpdateSkillGroup" ::
+              Data.=# ( "AlexaForBusiness.UpdateSkillGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSkillGroup where
+instance Data.ToJSON UpdateSkillGroup where
   toJSON UpdateSkillGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SkillGroupArn" Core..=) Prelude.<$> skillGroupArn,
-            ("Description" Core..=) Prelude.<$> description,
-            ("SkillGroupName" Core..=)
+          [ ("SkillGroupArn" Data..=) Prelude.<$> skillGroupArn,
+            ("Description" Data..=) Prelude.<$> description,
+            ("SkillGroupName" Data..=)
               Prelude.<$> skillGroupName
           ]
       )
 
-instance Core.ToPath UpdateSkillGroup where
+instance Data.ToPath UpdateSkillGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateSkillGroup where
+instance Data.ToQuery UpdateSkillGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSkillGroupResponse' smart constructor.

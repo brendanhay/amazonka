@@ -21,6 +21,7 @@ module Amazonka.AlexaBusiness.Types.InstantBooking where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for the instant booking feature that are applied to a room
@@ -66,14 +67,14 @@ instantBooking_enabled = Lens.lens (\InstantBooking' {enabled} -> enabled) (\s@I
 instantBooking_durationInMinutes :: Lens.Lens' InstantBooking (Prelude.Maybe Prelude.Int)
 instantBooking_durationInMinutes = Lens.lens (\InstantBooking' {durationInMinutes} -> durationInMinutes) (\s@InstantBooking' {} a -> s {durationInMinutes = a} :: InstantBooking)
 
-instance Core.FromJSON InstantBooking where
+instance Data.FromJSON InstantBooking where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstantBooking"
       ( \x ->
           InstantBooking'
-            Prelude.<$> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "DurationInMinutes")
+            Prelude.<$> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "DurationInMinutes")
       )
 
 instance Prelude.Hashable InstantBooking where

@@ -50,6 +50,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -156,9 +157,9 @@ instance Core.AWSRequest SearchRooms where
     Response.receiveJSON
       ( \s h x ->
           SearchRoomsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Rooms" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "TotalCount")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Rooms" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "TotalCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,36 +177,36 @@ instance Prelude.NFData SearchRooms where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders SearchRooms where
+instance Data.ToHeaders SearchRooms where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.SearchRooms" ::
+              Data.=# ( "AlexaForBusiness.SearchRooms" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchRooms where
+instance Data.ToJSON SearchRooms where
   toJSON SearchRooms' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortCriteria" Core..=) Prelude.<$> sortCriteria,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("SortCriteria" Data..=) Prelude.<$> sortCriteria,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath SearchRooms where
+instance Data.ToPath SearchRooms where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SearchRooms where
+instance Data.ToQuery SearchRooms where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchRoomsResponse' smart constructor.

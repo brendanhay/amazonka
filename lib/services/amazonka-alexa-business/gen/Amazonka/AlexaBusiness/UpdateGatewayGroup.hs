@@ -44,6 +44,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,36 +121,36 @@ instance Prelude.NFData UpdateGatewayGroup where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf gatewayGroupArn
 
-instance Core.ToHeaders UpdateGatewayGroup where
+instance Data.ToHeaders UpdateGatewayGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.UpdateGatewayGroup" ::
+              Data.=# ( "AlexaForBusiness.UpdateGatewayGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateGatewayGroup where
+instance Data.ToJSON UpdateGatewayGroup where
   toJSON UpdateGatewayGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Description" Core..=) Prelude.<$> description,
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Description" Data..=) Prelude.<$> description,
             Prelude.Just
-              ("GatewayGroupArn" Core..= gatewayGroupArn)
+              ("GatewayGroupArn" Data..= gatewayGroupArn)
           ]
       )
 
-instance Core.ToPath UpdateGatewayGroup where
+instance Data.ToPath UpdateGatewayGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateGatewayGroup where
+instance Data.ToQuery UpdateGatewayGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateGatewayGroupResponse' smart constructor.

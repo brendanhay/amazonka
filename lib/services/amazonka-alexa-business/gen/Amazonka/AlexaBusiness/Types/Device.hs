@@ -24,6 +24,7 @@ import Amazonka.AlexaBusiness.Types.DeviceStatus
 import Amazonka.AlexaBusiness.Types.DeviceStatusInfo
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A device with attributes.
@@ -139,22 +140,22 @@ device_deviceArn = Lens.lens (\Device' {deviceArn} -> deviceArn) (\s@Device' {} 
 device_deviceType :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_deviceType = Lens.lens (\Device' {deviceType} -> deviceType) (\s@Device' {} a -> s {deviceType = a} :: Device)
 
-instance Core.FromJSON Device where
+instance Data.FromJSON Device where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Device"
       ( \x ->
           Device'
-            Prelude.<$> (x Core..:? "DeviceSerialNumber")
-            Prelude.<*> (x Core..:? "DeviceName")
-            Prelude.<*> (x Core..:? "DeviceStatusInfo")
-            Prelude.<*> (x Core..:? "RoomArn")
-            Prelude.<*> (x Core..:? "SoftwareVersion")
-            Prelude.<*> (x Core..:? "MacAddress")
-            Prelude.<*> (x Core..:? "NetworkProfileInfo")
-            Prelude.<*> (x Core..:? "DeviceStatus")
-            Prelude.<*> (x Core..:? "DeviceArn")
-            Prelude.<*> (x Core..:? "DeviceType")
+            Prelude.<$> (x Data..:? "DeviceSerialNumber")
+            Prelude.<*> (x Data..:? "DeviceName")
+            Prelude.<*> (x Data..:? "DeviceStatusInfo")
+            Prelude.<*> (x Data..:? "RoomArn")
+            Prelude.<*> (x Data..:? "SoftwareVersion")
+            Prelude.<*> (x Data..:? "MacAddress")
+            Prelude.<*> (x Data..:? "NetworkProfileInfo")
+            Prelude.<*> (x Data..:? "DeviceStatus")
+            Prelude.<*> (x Data..:? "DeviceArn")
+            Prelude.<*> (x Data..:? "DeviceType")
       )
 
 instance Prelude.Hashable Device where

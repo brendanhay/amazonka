@@ -21,6 +21,7 @@ module Amazonka.AlexaBusiness.Types.Room where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A room with attributes.
@@ -88,17 +89,17 @@ room_providerCalendarId = Lens.lens (\Room' {providerCalendarId} -> providerCale
 room_roomName :: Lens.Lens' Room (Prelude.Maybe Prelude.Text)
 room_roomName = Lens.lens (\Room' {roomName} -> roomName) (\s@Room' {} a -> s {roomName = a} :: Room)
 
-instance Core.FromJSON Room where
+instance Data.FromJSON Room where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Room"
       ( \x ->
           Room'
-            Prelude.<$> (x Core..:? "ProfileArn")
-            Prelude.<*> (x Core..:? "RoomArn")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ProviderCalendarId")
-            Prelude.<*> (x Core..:? "RoomName")
+            Prelude.<$> (x Data..:? "ProfileArn")
+            Prelude.<*> (x Data..:? "RoomArn")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ProviderCalendarId")
+            Prelude.<*> (x Data..:? "RoomName")
       )
 
 instance Prelude.Hashable Room where

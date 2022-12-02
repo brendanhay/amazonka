@@ -41,6 +41,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,34 +91,34 @@ instance Prelude.Hashable DeleteSkillGroup where
 instance Prelude.NFData DeleteSkillGroup where
   rnf DeleteSkillGroup' {..} = Prelude.rnf skillGroupArn
 
-instance Core.ToHeaders DeleteSkillGroup where
+instance Data.ToHeaders DeleteSkillGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.DeleteSkillGroup" ::
+              Data.=# ( "AlexaForBusiness.DeleteSkillGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteSkillGroup where
+instance Data.ToJSON DeleteSkillGroup where
   toJSON DeleteSkillGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SkillGroupArn" Core..=)
+          [ ("SkillGroupArn" Data..=)
               Prelude.<$> skillGroupArn
           ]
       )
 
-instance Core.ToPath DeleteSkillGroup where
+instance Data.ToPath DeleteSkillGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteSkillGroup where
+instance Data.ToQuery DeleteSkillGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSkillGroupResponse' smart constructor.

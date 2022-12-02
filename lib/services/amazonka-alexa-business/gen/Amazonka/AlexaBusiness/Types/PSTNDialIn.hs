@@ -21,6 +21,7 @@ module Amazonka.AlexaBusiness.Types.PSTNDialIn where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The information for public switched telephone network (PSTN)
@@ -104,16 +105,16 @@ pSTNDialIn_oneClickIdDelay = Lens.lens (\PSTNDialIn' {oneClickIdDelay} -> oneCli
 pSTNDialIn_oneClickPinDelay :: Lens.Lens' PSTNDialIn Prelude.Text
 pSTNDialIn_oneClickPinDelay = Lens.lens (\PSTNDialIn' {oneClickPinDelay} -> oneClickPinDelay) (\s@PSTNDialIn' {} a -> s {oneClickPinDelay = a} :: PSTNDialIn)
 
-instance Core.FromJSON PSTNDialIn where
+instance Data.FromJSON PSTNDialIn where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PSTNDialIn"
       ( \x ->
           PSTNDialIn'
-            Prelude.<$> (x Core..: "CountryCode")
-            Prelude.<*> (x Core..: "PhoneNumber")
-            Prelude.<*> (x Core..: "OneClickIdDelay")
-            Prelude.<*> (x Core..: "OneClickPinDelay")
+            Prelude.<$> (x Data..: "CountryCode")
+            Prelude.<*> (x Data..: "PhoneNumber")
+            Prelude.<*> (x Data..: "OneClickIdDelay")
+            Prelude.<*> (x Data..: "OneClickPinDelay")
       )
 
 instance Prelude.Hashable PSTNDialIn where
@@ -130,15 +131,15 @@ instance Prelude.NFData PSTNDialIn where
       `Prelude.seq` Prelude.rnf oneClickIdDelay
       `Prelude.seq` Prelude.rnf oneClickPinDelay
 
-instance Core.ToJSON PSTNDialIn where
+instance Data.ToJSON PSTNDialIn where
   toJSON PSTNDialIn' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("CountryCode" Core..= countryCode),
-            Prelude.Just ("PhoneNumber" Core..= phoneNumber),
+          [ Prelude.Just ("CountryCode" Data..= countryCode),
+            Prelude.Just ("PhoneNumber" Data..= phoneNumber),
             Prelude.Just
-              ("OneClickIdDelay" Core..= oneClickIdDelay),
+              ("OneClickIdDelay" Data..= oneClickIdDelay),
             Prelude.Just
-              ("OneClickPinDelay" Core..= oneClickPinDelay)
+              ("OneClickPinDelay" Data..= oneClickPinDelay)
           ]
       )

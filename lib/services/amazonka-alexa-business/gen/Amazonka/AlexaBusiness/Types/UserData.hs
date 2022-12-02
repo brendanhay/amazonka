@@ -22,6 +22,7 @@ module Amazonka.AlexaBusiness.Types.UserData where
 import Amazonka.AlexaBusiness.Types.EnrollmentStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information related to a user.
@@ -98,18 +99,18 @@ userData_enrollmentId = Lens.lens (\UserData' {enrollmentId} -> enrollmentId) (\
 userData_userArn :: Lens.Lens' UserData (Prelude.Maybe Prelude.Text)
 userData_userArn = Lens.lens (\UserData' {userArn} -> userArn) (\s@UserData' {} a -> s {userArn = a} :: UserData)
 
-instance Core.FromJSON UserData where
+instance Data.FromJSON UserData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserData"
       ( \x ->
           UserData'
-            Prelude.<$> (x Core..:? "FirstName")
-            Prelude.<*> (x Core..:? "Email")
-            Prelude.<*> (x Core..:? "EnrollmentStatus")
-            Prelude.<*> (x Core..:? "LastName")
-            Prelude.<*> (x Core..:? "EnrollmentId")
-            Prelude.<*> (x Core..:? "UserArn")
+            Prelude.<$> (x Data..:? "FirstName")
+            Prelude.<*> (x Data..:? "Email")
+            Prelude.<*> (x Data..:? "EnrollmentStatus")
+            Prelude.<*> (x Data..:? "LastName")
+            Prelude.<*> (x Data..:? "EnrollmentId")
+            Prelude.<*> (x Data..:? "UserArn")
       )
 
 instance Prelude.Hashable UserData where

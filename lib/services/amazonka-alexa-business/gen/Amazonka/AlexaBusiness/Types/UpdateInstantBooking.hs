@@ -21,6 +21,7 @@ module Amazonka.AlexaBusiness.Types.UpdateInstantBooking where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Updates settings for the instant booking feature that are applied to a
@@ -76,12 +77,12 @@ instance Prelude.NFData UpdateInstantBooking where
     Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf durationInMinutes
 
-instance Core.ToJSON UpdateInstantBooking where
+instance Data.ToJSON UpdateInstantBooking where
   toJSON UpdateInstantBooking' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Enabled" Core..=) Prelude.<$> enabled,
-            ("DurationInMinutes" Core..=)
+          [ ("Enabled" Data..=) Prelude.<$> enabled,
+            ("DurationInMinutes" Data..=)
               Prelude.<$> durationInMinutes
           ]
       )

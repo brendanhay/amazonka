@@ -22,6 +22,7 @@ module Amazonka.AlexaBusiness.Types.SipAddress where
 import Amazonka.AlexaBusiness.Types.SipType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The SIP address for the contact containing the URI and SIP address type.
@@ -29,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSipAddress' smart constructor.
 data SipAddress = SipAddress'
   { -- | The URI for the SIP address.
-    uri :: Core.Sensitive Prelude.Text,
+    uri :: Data.Sensitive Prelude.Text,
     -- | The type of the SIP address.
-    type' :: Core.Sensitive SipType
+    type' :: Data.Sensitive SipType
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -54,25 +55,25 @@ newSipAddress ::
   SipAddress
 newSipAddress pUri_ pType_ =
   SipAddress'
-    { uri = Core._Sensitive Lens.# pUri_,
-      type' = Core._Sensitive Lens.# pType_
+    { uri = Data._Sensitive Lens.# pUri_,
+      type' = Data._Sensitive Lens.# pType_
     }
 
 -- | The URI for the SIP address.
 sipAddress_uri :: Lens.Lens' SipAddress Prelude.Text
-sipAddress_uri = Lens.lens (\SipAddress' {uri} -> uri) (\s@SipAddress' {} a -> s {uri = a} :: SipAddress) Prelude.. Core._Sensitive
+sipAddress_uri = Lens.lens (\SipAddress' {uri} -> uri) (\s@SipAddress' {} a -> s {uri = a} :: SipAddress) Prelude.. Data._Sensitive
 
 -- | The type of the SIP address.
 sipAddress_type :: Lens.Lens' SipAddress SipType
-sipAddress_type = Lens.lens (\SipAddress' {type'} -> type') (\s@SipAddress' {} a -> s {type' = a} :: SipAddress) Prelude.. Core._Sensitive
+sipAddress_type = Lens.lens (\SipAddress' {type'} -> type') (\s@SipAddress' {} a -> s {type' = a} :: SipAddress) Prelude.. Data._Sensitive
 
-instance Core.FromJSON SipAddress where
+instance Data.FromJSON SipAddress where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SipAddress"
       ( \x ->
           SipAddress'
-            Prelude.<$> (x Core..: "Uri") Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..: "Uri") Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable SipAddress where
@@ -84,11 +85,11 @@ instance Prelude.NFData SipAddress where
   rnf SipAddress' {..} =
     Prelude.rnf uri `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON SipAddress where
+instance Data.ToJSON SipAddress where
   toJSON SipAddress' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Uri" Core..= uri),
-            Prelude.Just ("Type" Core..= type')
+          [ Prelude.Just ("Uri" Data..= uri),
+            Prelude.Just ("Type" Data..= type')
           ]
       )

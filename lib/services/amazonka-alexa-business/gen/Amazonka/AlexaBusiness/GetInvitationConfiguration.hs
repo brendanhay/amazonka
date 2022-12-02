@@ -42,6 +42,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -71,11 +72,11 @@ instance Core.AWSRequest GetInvitationConfiguration where
     Response.receiveJSON
       ( \s h x ->
           GetInvitationConfigurationResponse'
-            Prelude.<$> ( x Core..?> "PrivateSkillIds"
+            Prelude.<$> ( x Data..?> "PrivateSkillIds"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "OrganizationName")
-            Prelude.<*> (x Core..?> "ContactEmail")
+            Prelude.<*> (x Data..?> "OrganizationName")
+            Prelude.<*> (x Data..?> "ContactEmail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -86,28 +87,28 @@ instance Prelude.Hashable GetInvitationConfiguration where
 instance Prelude.NFData GetInvitationConfiguration where
   rnf _ = ()
 
-instance Core.ToHeaders GetInvitationConfiguration where
+instance Data.ToHeaders GetInvitationConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.GetInvitationConfiguration" ::
+              Data.=# ( "AlexaForBusiness.GetInvitationConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetInvitationConfiguration where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetInvitationConfiguration where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetInvitationConfiguration where
+instance Data.ToPath GetInvitationConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetInvitationConfiguration where
+instance Data.ToQuery GetInvitationConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInvitationConfigurationResponse' smart constructor.

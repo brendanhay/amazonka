@@ -47,6 +47,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -64,11 +65,11 @@ data UpdateNetworkProfile = UpdateNetworkProfile'
     -- during EAP negotiation.
     trustAnchors :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The current password of the Wi-Fi network.
-    currentPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    currentPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The next, or subsequent, password of the Wi-Fi network. This password is
     -- asynchronously transmitted to the device and is used when the password
     -- of the network changes to NextPassword.
-    nextPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    nextPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the network profile associated with a device.
     networkProfileName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the network profile associated with a device.
@@ -137,13 +138,13 @@ updateNetworkProfile_trustAnchors = Lens.lens (\UpdateNetworkProfile' {trustAnch
 
 -- | The current password of the Wi-Fi network.
 updateNetworkProfile_currentPassword :: Lens.Lens' UpdateNetworkProfile (Prelude.Maybe Prelude.Text)
-updateNetworkProfile_currentPassword = Lens.lens (\UpdateNetworkProfile' {currentPassword} -> currentPassword) (\s@UpdateNetworkProfile' {} a -> s {currentPassword = a} :: UpdateNetworkProfile) Prelude.. Lens.mapping Core._Sensitive
+updateNetworkProfile_currentPassword = Lens.lens (\UpdateNetworkProfile' {currentPassword} -> currentPassword) (\s@UpdateNetworkProfile' {} a -> s {currentPassword = a} :: UpdateNetworkProfile) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The next, or subsequent, password of the Wi-Fi network. This password is
 -- asynchronously transmitted to the device and is used when the password
 -- of the network changes to NextPassword.
 updateNetworkProfile_nextPassword :: Lens.Lens' UpdateNetworkProfile (Prelude.Maybe Prelude.Text)
-updateNetworkProfile_nextPassword = Lens.lens (\UpdateNetworkProfile' {nextPassword} -> nextPassword) (\s@UpdateNetworkProfile' {} a -> s {nextPassword = a} :: UpdateNetworkProfile) Prelude.. Lens.mapping Core._Sensitive
+updateNetworkProfile_nextPassword = Lens.lens (\UpdateNetworkProfile' {nextPassword} -> nextPassword) (\s@UpdateNetworkProfile' {} a -> s {nextPassword = a} :: UpdateNetworkProfile) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the network profile associated with a device.
 updateNetworkProfile_networkProfileName :: Lens.Lens' UpdateNetworkProfile (Prelude.Maybe Prelude.Text)
@@ -187,43 +188,43 @@ instance Prelude.NFData UpdateNetworkProfile where
       `Prelude.seq` Prelude.rnf networkProfileName
       `Prelude.seq` Prelude.rnf networkProfileArn
 
-instance Core.ToHeaders UpdateNetworkProfile where
+instance Data.ToHeaders UpdateNetworkProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.UpdateNetworkProfile" ::
+              Data.=# ( "AlexaForBusiness.UpdateNetworkProfile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateNetworkProfile where
+instance Data.ToJSON UpdateNetworkProfile where
   toJSON UpdateNetworkProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CertificateAuthorityArn" Core..=)
+          [ ("CertificateAuthorityArn" Data..=)
               Prelude.<$> certificateAuthorityArn,
-            ("Description" Core..=) Prelude.<$> description,
-            ("TrustAnchors" Core..=) Prelude.<$> trustAnchors,
-            ("CurrentPassword" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("TrustAnchors" Data..=) Prelude.<$> trustAnchors,
+            ("CurrentPassword" Data..=)
               Prelude.<$> currentPassword,
-            ("NextPassword" Core..=) Prelude.<$> nextPassword,
-            ("NetworkProfileName" Core..=)
+            ("NextPassword" Data..=) Prelude.<$> nextPassword,
+            ("NetworkProfileName" Data..=)
               Prelude.<$> networkProfileName,
             Prelude.Just
-              ("NetworkProfileArn" Core..= networkProfileArn)
+              ("NetworkProfileArn" Data..= networkProfileArn)
           ]
       )
 
-instance Core.ToPath UpdateNetworkProfile where
+instance Data.ToPath UpdateNetworkProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateNetworkProfile where
+instance Data.ToQuery UpdateNetworkProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateNetworkProfileResponse' smart constructor.

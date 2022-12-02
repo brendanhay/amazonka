@@ -25,6 +25,7 @@ import Amazonka.AlexaBusiness.Types.BusinessReportFormat
 import Amazonka.AlexaBusiness.Types.BusinessReportRecurrence
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The schedule of the usage report.
@@ -126,20 +127,20 @@ businessReportSchedule_scheduleName = Lens.lens (\BusinessReportSchedule' {sched
 businessReportSchedule_lastBusinessReport :: Lens.Lens' BusinessReportSchedule (Prelude.Maybe BusinessReport)
 businessReportSchedule_lastBusinessReport = Lens.lens (\BusinessReportSchedule' {lastBusinessReport} -> lastBusinessReport) (\s@BusinessReportSchedule' {} a -> s {lastBusinessReport = a} :: BusinessReportSchedule)
 
-instance Core.FromJSON BusinessReportSchedule where
+instance Data.FromJSON BusinessReportSchedule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BusinessReportSchedule"
       ( \x ->
           BusinessReportSchedule'
-            Prelude.<$> (x Core..:? "S3KeyPrefix")
-            Prelude.<*> (x Core..:? "S3BucketName")
-            Prelude.<*> (x Core..:? "Format")
-            Prelude.<*> (x Core..:? "ScheduleArn")
-            Prelude.<*> (x Core..:? "ContentRange")
-            Prelude.<*> (x Core..:? "Recurrence")
-            Prelude.<*> (x Core..:? "ScheduleName")
-            Prelude.<*> (x Core..:? "LastBusinessReport")
+            Prelude.<$> (x Data..:? "S3KeyPrefix")
+            Prelude.<*> (x Data..:? "S3BucketName")
+            Prelude.<*> (x Data..:? "Format")
+            Prelude.<*> (x Data..:? "ScheduleArn")
+            Prelude.<*> (x Data..:? "ContentRange")
+            Prelude.<*> (x Data..:? "Recurrence")
+            Prelude.<*> (x Data..:? "ScheduleName")
+            Prelude.<*> (x Data..:? "LastBusinessReport")
       )
 
 instance Prelude.Hashable BusinessReportSchedule where

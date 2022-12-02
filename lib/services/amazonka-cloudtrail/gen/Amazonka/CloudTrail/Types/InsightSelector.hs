@@ -22,6 +22,7 @@ module Amazonka.CloudTrail.Types.InsightSelector where
 import Amazonka.CloudTrail.Types.InsightType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A JSON string that contains a list of insight types that are logged on a
@@ -55,13 +56,13 @@ newInsightSelector =
 insightSelector_insightType :: Lens.Lens' InsightSelector (Prelude.Maybe InsightType)
 insightSelector_insightType = Lens.lens (\InsightSelector' {insightType} -> insightType) (\s@InsightSelector' {} a -> s {insightType = a} :: InsightSelector)
 
-instance Core.FromJSON InsightSelector where
+instance Data.FromJSON InsightSelector where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InsightSelector"
       ( \x ->
           InsightSelector'
-            Prelude.<$> (x Core..:? "InsightType")
+            Prelude.<$> (x Data..:? "InsightType")
       )
 
 instance Prelude.Hashable InsightSelector where
@@ -71,9 +72,9 @@ instance Prelude.Hashable InsightSelector where
 instance Prelude.NFData InsightSelector where
   rnf InsightSelector' {..} = Prelude.rnf insightType
 
-instance Core.ToJSON InsightSelector where
+instance Data.ToJSON InsightSelector where
   toJSON InsightSelector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("InsightType" Core..=) Prelude.<$> insightType]
+          [("InsightType" Data..=) Prelude.<$> insightType]
       )

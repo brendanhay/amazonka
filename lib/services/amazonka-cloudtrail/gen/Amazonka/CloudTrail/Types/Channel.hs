@@ -21,6 +21,7 @@ module Amazonka.CloudTrail.Types.Channel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a returned CloudTrail channel.
@@ -73,14 +74,14 @@ channel_name = Lens.lens (\Channel' {name} -> name) (\s@Channel' {} a -> s {name
 channel_channelArn :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
 channel_channelArn = Lens.lens (\Channel' {channelArn} -> channelArn) (\s@Channel' {} a -> s {channelArn = a} :: Channel)
 
-instance Core.FromJSON Channel where
+instance Data.FromJSON Channel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Channel"
       ( \x ->
           Channel'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ChannelArn")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ChannelArn")
       )
 
 instance Prelude.Hashable Channel where

@@ -21,6 +21,7 @@ module Amazonka.CloudTrail.Types.S3ImportSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The settings for the source S3 bucket.
@@ -79,15 +80,15 @@ s3ImportSource_s3BucketRegion = Lens.lens (\S3ImportSource' {s3BucketRegion} -> 
 s3ImportSource_s3BucketAccessRoleArn :: Lens.Lens' S3ImportSource Prelude.Text
 s3ImportSource_s3BucketAccessRoleArn = Lens.lens (\S3ImportSource' {s3BucketAccessRoleArn} -> s3BucketAccessRoleArn) (\s@S3ImportSource' {} a -> s {s3BucketAccessRoleArn = a} :: S3ImportSource)
 
-instance Core.FromJSON S3ImportSource where
+instance Data.FromJSON S3ImportSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3ImportSource"
       ( \x ->
           S3ImportSource'
-            Prelude.<$> (x Core..: "S3LocationUri")
-            Prelude.<*> (x Core..: "S3BucketRegion")
-            Prelude.<*> (x Core..: "S3BucketAccessRoleArn")
+            Prelude.<$> (x Data..: "S3LocationUri")
+            Prelude.<*> (x Data..: "S3BucketRegion")
+            Prelude.<*> (x Data..: "S3BucketAccessRoleArn")
       )
 
 instance Prelude.Hashable S3ImportSource where
@@ -102,17 +103,17 @@ instance Prelude.NFData S3ImportSource where
       `Prelude.seq` Prelude.rnf s3BucketRegion
       `Prelude.seq` Prelude.rnf s3BucketAccessRoleArn
 
-instance Core.ToJSON S3ImportSource where
+instance Data.ToJSON S3ImportSource where
   toJSON S3ImportSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("S3LocationUri" Core..= s3LocationUri),
+              ("S3LocationUri" Data..= s3LocationUri),
             Prelude.Just
-              ("S3BucketRegion" Core..= s3BucketRegion),
+              ("S3BucketRegion" Data..= s3BucketRegion),
             Prelude.Just
               ( "S3BucketAccessRoleArn"
-                  Core..= s3BucketAccessRoleArn
+                  Data..= s3BucketAccessRoleArn
               )
           ]
       )

@@ -50,6 +50,7 @@ where
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,15 +90,15 @@ instance Core.AWSRequest GetImport where
     Response.receiveJSON
       ( \s h x ->
           GetImportResponse'
-            Prelude.<$> (x Core..?> "ImportSource")
-            Prelude.<*> (x Core..?> "EndEventTime")
-            Prelude.<*> (x Core..?> "CreatedTimestamp")
-            Prelude.<*> (x Core..?> "UpdatedTimestamp")
-            Prelude.<*> (x Core..?> "StartEventTime")
-            Prelude.<*> (x Core..?> "ImportStatistics")
-            Prelude.<*> (x Core..?> "ImportId")
-            Prelude.<*> (x Core..?> "ImportStatus")
-            Prelude.<*> (x Core..?> "Destinations")
+            Prelude.<$> (x Data..?> "ImportSource")
+            Prelude.<*> (x Data..?> "EndEventTime")
+            Prelude.<*> (x Data..?> "CreatedTimestamp")
+            Prelude.<*> (x Data..?> "UpdatedTimestamp")
+            Prelude.<*> (x Data..?> "StartEventTime")
+            Prelude.<*> (x Data..?> "ImportStatistics")
+            Prelude.<*> (x Data..?> "ImportId")
+            Prelude.<*> (x Data..?> "ImportStatus")
+            Prelude.<*> (x Data..?> "Destinations")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,32 +109,32 @@ instance Prelude.Hashable GetImport where
 instance Prelude.NFData GetImport where
   rnf GetImport' {..} = Prelude.rnf importId
 
-instance Core.ToHeaders GetImport where
+instance Data.ToHeaders GetImport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetImport" ::
+              Data.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetImport" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetImport where
+instance Data.ToJSON GetImport where
   toJSON GetImport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ImportId" Core..= importId)]
+          [Prelude.Just ("ImportId" Data..= importId)]
       )
 
-instance Core.ToPath GetImport where
+instance Data.ToPath GetImport where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetImport where
+instance Data.ToQuery GetImport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetImportResponse' smart constructor.
@@ -143,15 +144,15 @@ data GetImportResponse = GetImportResponse'
     -- | Used with @StartEventTime@ to bound a @StartImport@ request, and limit
     -- imported trail events to only those events logged within a specified
     -- time period.
-    endEventTime :: Prelude.Maybe Core.POSIX,
+    endEventTime :: Prelude.Maybe Data.POSIX,
     -- | The timestamp of the import\'s creation.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The timestamp of when the import was updated.
-    updatedTimestamp :: Prelude.Maybe Core.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | Used with @EndEventTime@ to bound a @StartImport@ request, and limit
     -- imported trail events to only those events logged within a specified
     -- time period.
-    startEventTime :: Prelude.Maybe Core.POSIX,
+    startEventTime :: Prelude.Maybe Data.POSIX,
     -- | Provides statistics for the import. CloudTrail does not update import
     -- statistics in real-time. Returned values for parameters such as
     -- @EventsCompleted@ may be lower than the actual value, because CloudTrail
@@ -228,21 +229,21 @@ getImportResponse_importSource = Lens.lens (\GetImportResponse' {importSource} -
 -- imported trail events to only those events logged within a specified
 -- time period.
 getImportResponse_endEventTime :: Lens.Lens' GetImportResponse (Prelude.Maybe Prelude.UTCTime)
-getImportResponse_endEventTime = Lens.lens (\GetImportResponse' {endEventTime} -> endEventTime) (\s@GetImportResponse' {} a -> s {endEventTime = a} :: GetImportResponse) Prelude.. Lens.mapping Core._Time
+getImportResponse_endEventTime = Lens.lens (\GetImportResponse' {endEventTime} -> endEventTime) (\s@GetImportResponse' {} a -> s {endEventTime = a} :: GetImportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp of the import\'s creation.
 getImportResponse_createdTimestamp :: Lens.Lens' GetImportResponse (Prelude.Maybe Prelude.UTCTime)
-getImportResponse_createdTimestamp = Lens.lens (\GetImportResponse' {createdTimestamp} -> createdTimestamp) (\s@GetImportResponse' {} a -> s {createdTimestamp = a} :: GetImportResponse) Prelude.. Lens.mapping Core._Time
+getImportResponse_createdTimestamp = Lens.lens (\GetImportResponse' {createdTimestamp} -> createdTimestamp) (\s@GetImportResponse' {} a -> s {createdTimestamp = a} :: GetImportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp of when the import was updated.
 getImportResponse_updatedTimestamp :: Lens.Lens' GetImportResponse (Prelude.Maybe Prelude.UTCTime)
-getImportResponse_updatedTimestamp = Lens.lens (\GetImportResponse' {updatedTimestamp} -> updatedTimestamp) (\s@GetImportResponse' {} a -> s {updatedTimestamp = a} :: GetImportResponse) Prelude.. Lens.mapping Core._Time
+getImportResponse_updatedTimestamp = Lens.lens (\GetImportResponse' {updatedTimestamp} -> updatedTimestamp) (\s@GetImportResponse' {} a -> s {updatedTimestamp = a} :: GetImportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Used with @EndEventTime@ to bound a @StartImport@ request, and limit
 -- imported trail events to only those events logged within a specified
 -- time period.
 getImportResponse_startEventTime :: Lens.Lens' GetImportResponse (Prelude.Maybe Prelude.UTCTime)
-getImportResponse_startEventTime = Lens.lens (\GetImportResponse' {startEventTime} -> startEventTime) (\s@GetImportResponse' {} a -> s {startEventTime = a} :: GetImportResponse) Prelude.. Lens.mapping Core._Time
+getImportResponse_startEventTime = Lens.lens (\GetImportResponse' {startEventTime} -> startEventTime) (\s@GetImportResponse' {} a -> s {startEventTime = a} :: GetImportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Provides statistics for the import. CloudTrail does not update import
 -- statistics in real-time. Returned values for parameters such as

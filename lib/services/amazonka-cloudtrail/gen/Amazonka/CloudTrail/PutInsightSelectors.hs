@@ -48,6 +48,7 @@ where
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,10 +110,10 @@ instance Core.AWSRequest PutInsightSelectors where
     Response.receiveJSON
       ( \s h x ->
           PutInsightSelectorsResponse'
-            Prelude.<$> ( x Core..?> "InsightSelectors"
+            Prelude.<$> ( x Data..?> "InsightSelectors"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "TrailARN")
+            Prelude.<*> (x Data..?> "TrailARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,35 +127,35 @@ instance Prelude.NFData PutInsightSelectors where
     Prelude.rnf trailName
       `Prelude.seq` Prelude.rnf insightSelectors
 
-instance Core.ToHeaders PutInsightSelectors where
+instance Data.ToHeaders PutInsightSelectors where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.PutInsightSelectors" ::
+              Data.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.PutInsightSelectors" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutInsightSelectors where
+instance Data.ToJSON PutInsightSelectors where
   toJSON PutInsightSelectors' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("TrailName" Core..= trailName),
+          [ Prelude.Just ("TrailName" Data..= trailName),
             Prelude.Just
-              ("InsightSelectors" Core..= insightSelectors)
+              ("InsightSelectors" Data..= insightSelectors)
           ]
       )
 
-instance Core.ToPath PutInsightSelectors where
+instance Data.ToPath PutInsightSelectors where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutInsightSelectors where
+instance Data.ToQuery PutInsightSelectors where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutInsightSelectorsResponse' smart constructor.

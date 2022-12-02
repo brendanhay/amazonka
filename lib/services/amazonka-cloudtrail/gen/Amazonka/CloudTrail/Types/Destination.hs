@@ -22,6 +22,7 @@ module Amazonka.CloudTrail.Types.Destination where
 import Amazonka.CloudTrail.Types.DestinationType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the service where CloudTrail delivers events.
@@ -69,14 +70,14 @@ destination_type = Lens.lens (\Destination' {type'} -> type') (\s@Destination' {
 destination_location :: Lens.Lens' Destination Prelude.Text
 destination_location = Lens.lens (\Destination' {location} -> location) (\s@Destination' {} a -> s {location = a} :: Destination)
 
-instance Core.FromJSON Destination where
+instance Data.FromJSON Destination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Destination"
       ( \x ->
           Destination'
-            Prelude.<$> (x Core..: "Type")
-            Prelude.<*> (x Core..: "Location")
+            Prelude.<$> (x Data..: "Type")
+            Prelude.<*> (x Data..: "Location")
       )
 
 instance Prelude.Hashable Destination where

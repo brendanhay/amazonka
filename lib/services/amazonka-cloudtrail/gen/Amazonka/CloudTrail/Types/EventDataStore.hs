@@ -23,6 +23,7 @@ import Amazonka.CloudTrail.Types.AdvancedEventSelector
 import Amazonka.CloudTrail.Types.EventDataStoreStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A storage lake of event data against which you can run complex SQL-based
@@ -42,7 +43,7 @@ data EventDataStore = EventDataStore'
     advancedEventSelectors :: Prelude.Maybe [AdvancedEventSelector],
     -- | This field is being deprecated. The timestamp of the event data store\'s
     -- creation.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | This field is being deprecated. Indicates whether the event data store
     -- includes events from all regions, or only from the region in which it
     -- was created.
@@ -50,7 +51,7 @@ data EventDataStore = EventDataStore'
     -- | This field is being deprecated. The timestamp showing when an event data
     -- store was updated, if applicable. @UpdatedTimestamp@ is always either
     -- the same or newer than the time shown in @CreatedTimestamp@.
-    updatedTimestamp :: Prelude.Maybe Core.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | This field is being deprecated. The status of an event data store.
     -- Values are @ENABLED@ and @PENDING_DELETION@.
     status :: Prelude.Maybe EventDataStoreStatus,
@@ -133,7 +134,7 @@ eventDataStore_advancedEventSelectors = Lens.lens (\EventDataStore' {advancedEve
 -- | This field is being deprecated. The timestamp of the event data store\'s
 -- creation.
 eventDataStore_createdTimestamp :: Lens.Lens' EventDataStore (Prelude.Maybe Prelude.UTCTime)
-eventDataStore_createdTimestamp = Lens.lens (\EventDataStore' {createdTimestamp} -> createdTimestamp) (\s@EventDataStore' {} a -> s {createdTimestamp = a} :: EventDataStore) Prelude.. Lens.mapping Core._Time
+eventDataStore_createdTimestamp = Lens.lens (\EventDataStore' {createdTimestamp} -> createdTimestamp) (\s@EventDataStore' {} a -> s {createdTimestamp = a} :: EventDataStore) Prelude.. Lens.mapping Data._Time
 
 -- | This field is being deprecated. Indicates whether the event data store
 -- includes events from all regions, or only from the region in which it
@@ -145,7 +146,7 @@ eventDataStore_multiRegionEnabled = Lens.lens (\EventDataStore' {multiRegionEnab
 -- store was updated, if applicable. @UpdatedTimestamp@ is always either
 -- the same or newer than the time shown in @CreatedTimestamp@.
 eventDataStore_updatedTimestamp :: Lens.Lens' EventDataStore (Prelude.Maybe Prelude.UTCTime)
-eventDataStore_updatedTimestamp = Lens.lens (\EventDataStore' {updatedTimestamp} -> updatedTimestamp) (\s@EventDataStore' {} a -> s {updatedTimestamp = a} :: EventDataStore) Prelude.. Lens.mapping Core._Time
+eventDataStore_updatedTimestamp = Lens.lens (\EventDataStore' {updatedTimestamp} -> updatedTimestamp) (\s@EventDataStore' {} a -> s {updatedTimestamp = a} :: EventDataStore) Prelude.. Lens.mapping Data._Time
 
 -- | This field is being deprecated. The status of an event data store.
 -- Values are @ENABLED@ and @PENDING_DELETION@.
@@ -166,24 +167,24 @@ eventDataStore_organizationEnabled = Lens.lens (\EventDataStore' {organizationEn
 eventDataStore_terminationProtectionEnabled :: Lens.Lens' EventDataStore (Prelude.Maybe Prelude.Bool)
 eventDataStore_terminationProtectionEnabled = Lens.lens (\EventDataStore' {terminationProtectionEnabled} -> terminationProtectionEnabled) (\s@EventDataStore' {} a -> s {terminationProtectionEnabled = a} :: EventDataStore)
 
-instance Core.FromJSON EventDataStore where
+instance Data.FromJSON EventDataStore where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventDataStore"
       ( \x ->
           EventDataStore'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "EventDataStoreArn")
-            Prelude.<*> ( x Core..:? "AdvancedEventSelectors"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "EventDataStoreArn")
+            Prelude.<*> ( x Data..:? "AdvancedEventSelectors"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "MultiRegionEnabled")
-            Prelude.<*> (x Core..:? "UpdatedTimestamp")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "RetentionPeriod")
-            Prelude.<*> (x Core..:? "OrganizationEnabled")
-            Prelude.<*> (x Core..:? "TerminationProtectionEnabled")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "MultiRegionEnabled")
+            Prelude.<*> (x Data..:? "UpdatedTimestamp")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "RetentionPeriod")
+            Prelude.<*> (x Data..:? "OrganizationEnabled")
+            Prelude.<*> (x Data..:? "TerminationProtectionEnabled")
       )
 
 instance Prelude.Hashable EventDataStore where

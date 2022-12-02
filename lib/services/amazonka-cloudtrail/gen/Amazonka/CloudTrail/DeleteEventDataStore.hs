@@ -52,6 +52,7 @@ where
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,34 +108,34 @@ instance Prelude.NFData DeleteEventDataStore where
   rnf DeleteEventDataStore' {..} =
     Prelude.rnf eventDataStore
 
-instance Core.ToHeaders DeleteEventDataStore where
+instance Data.ToHeaders DeleteEventDataStore where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.DeleteEventDataStore" ::
+              Data.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.DeleteEventDataStore" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteEventDataStore where
+instance Data.ToJSON DeleteEventDataStore where
   toJSON DeleteEventDataStore' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("EventDataStore" Core..= eventDataStore)
+              ("EventDataStore" Data..= eventDataStore)
           ]
       )
 
-instance Core.ToPath DeleteEventDataStore where
+instance Data.ToPath DeleteEventDataStore where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteEventDataStore where
+instance Data.ToQuery DeleteEventDataStore where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteEventDataStoreResponse' smart constructor.

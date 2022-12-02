@@ -21,6 +21,7 @@ module Amazonka.CloudTrail.Types.PublicKey where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a returned public key.
@@ -28,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newPublicKey' smart constructor.
 data PublicKey = PublicKey'
   { -- | The starting time of validity of the public key.
-    validityStartTime :: Prelude.Maybe Core.POSIX,
+    validityStartTime :: Prelude.Maybe Data.POSIX,
     -- | The ending time of validity of the public key.
-    validityEndTime :: Prelude.Maybe Core.POSIX,
+    validityEndTime :: Prelude.Maybe Data.POSIX,
     -- | The fingerprint of the public key.
     fingerprint :: Prelude.Maybe Prelude.Text,
     -- | The DER encoded public key value in PKCS#1 format.
-    value :: Prelude.Maybe Core.Base64
+    value :: Prelude.Maybe Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,11 +70,11 @@ newPublicKey =
 
 -- | The starting time of validity of the public key.
 publicKey_validityStartTime :: Lens.Lens' PublicKey (Prelude.Maybe Prelude.UTCTime)
-publicKey_validityStartTime = Lens.lens (\PublicKey' {validityStartTime} -> validityStartTime) (\s@PublicKey' {} a -> s {validityStartTime = a} :: PublicKey) Prelude.. Lens.mapping Core._Time
+publicKey_validityStartTime = Lens.lens (\PublicKey' {validityStartTime} -> validityStartTime) (\s@PublicKey' {} a -> s {validityStartTime = a} :: PublicKey) Prelude.. Lens.mapping Data._Time
 
 -- | The ending time of validity of the public key.
 publicKey_validityEndTime :: Lens.Lens' PublicKey (Prelude.Maybe Prelude.UTCTime)
-publicKey_validityEndTime = Lens.lens (\PublicKey' {validityEndTime} -> validityEndTime) (\s@PublicKey' {} a -> s {validityEndTime = a} :: PublicKey) Prelude.. Lens.mapping Core._Time
+publicKey_validityEndTime = Lens.lens (\PublicKey' {validityEndTime} -> validityEndTime) (\s@PublicKey' {} a -> s {validityEndTime = a} :: PublicKey) Prelude.. Lens.mapping Data._Time
 
 -- | The fingerprint of the public key.
 publicKey_fingerprint :: Lens.Lens' PublicKey (Prelude.Maybe Prelude.Text)
@@ -85,18 +86,18 @@ publicKey_fingerprint = Lens.lens (\PublicKey' {fingerprint} -> fingerprint) (\s
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 publicKey_value :: Lens.Lens' PublicKey (Prelude.Maybe Prelude.ByteString)
-publicKey_value = Lens.lens (\PublicKey' {value} -> value) (\s@PublicKey' {} a -> s {value = a} :: PublicKey) Prelude.. Lens.mapping Core._Base64
+publicKey_value = Lens.lens (\PublicKey' {value} -> value) (\s@PublicKey' {} a -> s {value = a} :: PublicKey) Prelude.. Lens.mapping Data._Base64
 
-instance Core.FromJSON PublicKey where
+instance Data.FromJSON PublicKey where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PublicKey"
       ( \x ->
           PublicKey'
-            Prelude.<$> (x Core..:? "ValidityStartTime")
-            Prelude.<*> (x Core..:? "ValidityEndTime")
-            Prelude.<*> (x Core..:? "Fingerprint")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "ValidityStartTime")
+            Prelude.<*> (x Data..:? "ValidityEndTime")
+            Prelude.<*> (x Data..:? "Fingerprint")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable PublicKey where

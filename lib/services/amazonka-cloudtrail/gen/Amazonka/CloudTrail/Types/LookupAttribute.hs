@@ -22,6 +22,7 @@ module Amazonka.CloudTrail.Types.LookupAttribute where
 import Amazonka.CloudTrail.Types.LookupAttributeKey
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an attribute and value that filter the events returned.
@@ -76,12 +77,12 @@ instance Prelude.NFData LookupAttribute where
     Prelude.rnf attributeKey
       `Prelude.seq` Prelude.rnf attributeValue
 
-instance Core.ToJSON LookupAttribute where
+instance Data.ToJSON LookupAttribute where
   toJSON LookupAttribute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AttributeKey" Core..= attributeKey),
+          [ Prelude.Just ("AttributeKey" Data..= attributeKey),
             Prelude.Just
-              ("AttributeValue" Core..= attributeValue)
+              ("AttributeValue" Data..= attributeValue)
           ]
       )

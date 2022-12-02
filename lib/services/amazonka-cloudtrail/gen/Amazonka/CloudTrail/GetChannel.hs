@@ -50,6 +50,7 @@ where
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,11 +90,11 @@ instance Core.AWSRequest GetChannel where
     Response.receiveJSON
       ( \s h x ->
           GetChannelResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "SourceConfig")
-            Prelude.<*> (x Core..?> "ChannelArn")
-            Prelude.<*> (x Core..?> "Source")
-            Prelude.<*> (x Core..?> "Destinations")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "SourceConfig")
+            Prelude.<*> (x Data..?> "ChannelArn")
+            Prelude.<*> (x Data..?> "Source")
+            Prelude.<*> (x Data..?> "Destinations")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,32 +105,32 @@ instance Prelude.Hashable GetChannel where
 instance Prelude.NFData GetChannel where
   rnf GetChannel' {..} = Prelude.rnf channel
 
-instance Core.ToHeaders GetChannel where
+instance Data.ToHeaders GetChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetChannel" ::
+              Data.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetChannel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetChannel where
+instance Data.ToJSON GetChannel where
   toJSON GetChannel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Channel" Core..= channel)]
+          [Prelude.Just ("Channel" Data..= channel)]
       )
 
-instance Core.ToPath GetChannel where
+instance Data.ToPath GetChannel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetChannel where
+instance Data.ToQuery GetChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetChannelResponse' smart constructor.

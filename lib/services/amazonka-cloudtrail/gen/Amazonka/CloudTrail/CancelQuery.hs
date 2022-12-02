@@ -48,6 +48,7 @@ where
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,8 +106,8 @@ instance Core.AWSRequest CancelQuery where
       ( \s h x ->
           CancelQueryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "QueryId")
-            Prelude.<*> (x Core..:> "QueryStatus")
+            Prelude.<*> (x Data..:> "QueryId")
+            Prelude.<*> (x Data..:> "QueryStatus")
       )
 
 instance Prelude.Hashable CancelQuery where
@@ -119,35 +120,35 @@ instance Prelude.NFData CancelQuery where
     Prelude.rnf eventDataStore
       `Prelude.seq` Prelude.rnf queryId
 
-instance Core.ToHeaders CancelQuery where
+instance Data.ToHeaders CancelQuery where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.CancelQuery" ::
+              Data.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.CancelQuery" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelQuery where
+instance Data.ToJSON CancelQuery where
   toJSON CancelQuery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EventDataStore" Core..=)
+          [ ("EventDataStore" Data..=)
               Prelude.<$> eventDataStore,
-            Prelude.Just ("QueryId" Core..= queryId)
+            Prelude.Just ("QueryId" Data..= queryId)
           ]
       )
 
-instance Core.ToPath CancelQuery where
+instance Data.ToPath CancelQuery where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelQuery where
+instance Data.ToQuery CancelQuery where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelQueryResponse' smart constructor.

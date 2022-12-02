@@ -21,6 +21,7 @@ module Amazonka.CloudTrail.Types.Trail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The settings for a trail.
@@ -253,28 +254,28 @@ trail_hasInsightSelectors = Lens.lens (\Trail' {hasInsightSelectors} -> hasInsig
 trail_trailARN :: Lens.Lens' Trail (Prelude.Maybe Prelude.Text)
 trail_trailARN = Lens.lens (\Trail' {trailARN} -> trailARN) (\s@Trail' {} a -> s {trailARN = a} :: Trail)
 
-instance Core.FromJSON Trail where
+instance Data.FromJSON Trail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Trail"
       ( \x ->
           Trail'
-            Prelude.<$> (x Core..:? "S3KeyPrefix")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LogFileValidationEnabled")
-            Prelude.<*> (x Core..:? "SnsTopicName")
-            Prelude.<*> (x Core..:? "IsOrganizationTrail")
-            Prelude.<*> (x Core..:? "IncludeGlobalServiceEvents")
-            Prelude.<*> (x Core..:? "S3BucketName")
-            Prelude.<*> (x Core..:? "HasCustomEventSelectors")
-            Prelude.<*> (x Core..:? "SnsTopicARN")
-            Prelude.<*> (x Core..:? "IsMultiRegionTrail")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "CloudWatchLogsRoleArn")
-            Prelude.<*> (x Core..:? "HomeRegion")
-            Prelude.<*> (x Core..:? "CloudWatchLogsLogGroupArn")
-            Prelude.<*> (x Core..:? "HasInsightSelectors")
-            Prelude.<*> (x Core..:? "TrailARN")
+            Prelude.<$> (x Data..:? "S3KeyPrefix")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "LogFileValidationEnabled")
+            Prelude.<*> (x Data..:? "SnsTopicName")
+            Prelude.<*> (x Data..:? "IsOrganizationTrail")
+            Prelude.<*> (x Data..:? "IncludeGlobalServiceEvents")
+            Prelude.<*> (x Data..:? "S3BucketName")
+            Prelude.<*> (x Data..:? "HasCustomEventSelectors")
+            Prelude.<*> (x Data..:? "SnsTopicARN")
+            Prelude.<*> (x Data..:? "IsMultiRegionTrail")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "CloudWatchLogsRoleArn")
+            Prelude.<*> (x Data..:? "HomeRegion")
+            Prelude.<*> (x Data..:? "CloudWatchLogsLogGroupArn")
+            Prelude.<*> (x Data..:? "HasInsightSelectors")
+            Prelude.<*> (x Data..:? "TrailARN")
       )
 
 instance Prelude.Hashable Trail where

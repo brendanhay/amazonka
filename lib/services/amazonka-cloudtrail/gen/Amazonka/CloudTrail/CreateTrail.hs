@@ -66,6 +66,7 @@ where
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -389,19 +390,19 @@ instance Core.AWSRequest CreateTrail where
     Response.receiveJSON
       ( \s h x ->
           CreateTrailResponse'
-            Prelude.<$> (x Core..?> "S3KeyPrefix")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "LogFileValidationEnabled")
-            Prelude.<*> (x Core..?> "SnsTopicName")
-            Prelude.<*> (x Core..?> "IsOrganizationTrail")
-            Prelude.<*> (x Core..?> "IncludeGlobalServiceEvents")
-            Prelude.<*> (x Core..?> "S3BucketName")
-            Prelude.<*> (x Core..?> "SnsTopicARN")
-            Prelude.<*> (x Core..?> "IsMultiRegionTrail")
-            Prelude.<*> (x Core..?> "KmsKeyId")
-            Prelude.<*> (x Core..?> "CloudWatchLogsRoleArn")
-            Prelude.<*> (x Core..?> "CloudWatchLogsLogGroupArn")
-            Prelude.<*> (x Core..?> "TrailARN")
+            Prelude.<$> (x Data..?> "S3KeyPrefix")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "LogFileValidationEnabled")
+            Prelude.<*> (x Data..?> "SnsTopicName")
+            Prelude.<*> (x Data..?> "IsOrganizationTrail")
+            Prelude.<*> (x Data..?> "IncludeGlobalServiceEvents")
+            Prelude.<*> (x Data..?> "S3BucketName")
+            Prelude.<*> (x Data..?> "SnsTopicARN")
+            Prelude.<*> (x Data..?> "IsMultiRegionTrail")
+            Prelude.<*> (x Data..?> "KmsKeyId")
+            Prelude.<*> (x Data..?> "CloudWatchLogsRoleArn")
+            Prelude.<*> (x Data..?> "CloudWatchLogsLogGroupArn")
+            Prelude.<*> (x Data..?> "TrailARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -435,50 +436,50 @@ instance Prelude.NFData CreateTrail where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf s3BucketName
 
-instance Core.ToHeaders CreateTrail where
+instance Data.ToHeaders CreateTrail where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.CreateTrail" ::
+              Data.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.CreateTrail" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTrail where
+instance Data.ToJSON CreateTrail where
   toJSON CreateTrail' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3KeyPrefix" Core..=) Prelude.<$> s3KeyPrefix,
-            ("SnsTopicName" Core..=) Prelude.<$> snsTopicName,
-            ("IsOrganizationTrail" Core..=)
+          [ ("S3KeyPrefix" Data..=) Prelude.<$> s3KeyPrefix,
+            ("SnsTopicName" Data..=) Prelude.<$> snsTopicName,
+            ("IsOrganizationTrail" Data..=)
               Prelude.<$> isOrganizationTrail,
-            ("IncludeGlobalServiceEvents" Core..=)
+            ("IncludeGlobalServiceEvents" Data..=)
               Prelude.<$> includeGlobalServiceEvents,
-            ("TagsList" Core..=) Prelude.<$> tagsList,
-            ("IsMultiRegionTrail" Core..=)
+            ("TagsList" Data..=) Prelude.<$> tagsList,
+            ("IsMultiRegionTrail" Data..=)
               Prelude.<$> isMultiRegionTrail,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("EnableLogFileValidation" Core..=)
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("EnableLogFileValidation" Data..=)
               Prelude.<$> enableLogFileValidation,
-            ("CloudWatchLogsRoleArn" Core..=)
+            ("CloudWatchLogsRoleArn" Data..=)
               Prelude.<$> cloudWatchLogsRoleArn,
-            ("CloudWatchLogsLogGroupArn" Core..=)
+            ("CloudWatchLogsLogGroupArn" Data..=)
               Prelude.<$> cloudWatchLogsLogGroupArn,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("S3BucketName" Core..= s3BucketName)
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("S3BucketName" Data..= s3BucketName)
           ]
       )
 
-instance Core.ToPath CreateTrail where
+instance Data.ToPath CreateTrail where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTrail where
+instance Data.ToQuery CreateTrail where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Returns the objects or data listed below if successful. Otherwise,

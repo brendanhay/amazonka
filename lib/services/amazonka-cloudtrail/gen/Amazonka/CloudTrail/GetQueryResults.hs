@@ -50,6 +50,7 @@ where
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,13 +124,13 @@ instance Core.AWSRequest GetQueryResults where
     Response.receiveJSON
       ( \s h x ->
           GetQueryResultsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "QueryStatistics")
-            Prelude.<*> ( x Core..?> "QueryResultRows"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "QueryStatistics")
+            Prelude.<*> ( x Data..?> "QueryResultRows"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "QueryStatus")
-            Prelude.<*> (x Core..?> "ErrorMessage")
+            Prelude.<*> (x Data..?> "QueryStatus")
+            Prelude.<*> (x Data..?> "ErrorMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,38 +148,38 @@ instance Prelude.NFData GetQueryResults where
       `Prelude.seq` Prelude.rnf maxQueryResults
       `Prelude.seq` Prelude.rnf queryId
 
-instance Core.ToHeaders GetQueryResults where
+instance Data.ToHeaders GetQueryResults where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetQueryResults" ::
+              Data.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetQueryResults" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetQueryResults where
+instance Data.ToJSON GetQueryResults where
   toJSON GetQueryResults' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("EventDataStore" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("EventDataStore" Data..=)
               Prelude.<$> eventDataStore,
-            ("MaxQueryResults" Core..=)
+            ("MaxQueryResults" Data..=)
               Prelude.<$> maxQueryResults,
-            Prelude.Just ("QueryId" Core..= queryId)
+            Prelude.Just ("QueryId" Data..= queryId)
           ]
       )
 
-instance Core.ToPath GetQueryResults where
+instance Data.ToPath GetQueryResults where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetQueryResults where
+instance Data.ToQuery GetQueryResults where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetQueryResultsResponse' smart constructor.

@@ -53,6 +53,7 @@ where
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,19 +101,19 @@ instance Core.AWSRequest GetEventDataStore where
     Response.receiveJSON
       ( \s h x ->
           GetEventDataStoreResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "EventDataStoreArn")
-            Prelude.<*> ( x Core..?> "AdvancedEventSelectors"
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "EventDataStoreArn")
+            Prelude.<*> ( x Data..?> "AdvancedEventSelectors"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "CreatedTimestamp")
-            Prelude.<*> (x Core..?> "MultiRegionEnabled")
-            Prelude.<*> (x Core..?> "UpdatedTimestamp")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "RetentionPeriod")
-            Prelude.<*> (x Core..?> "KmsKeyId")
-            Prelude.<*> (x Core..?> "OrganizationEnabled")
-            Prelude.<*> (x Core..?> "TerminationProtectionEnabled")
+            Prelude.<*> (x Data..?> "CreatedTimestamp")
+            Prelude.<*> (x Data..?> "MultiRegionEnabled")
+            Prelude.<*> (x Data..?> "UpdatedTimestamp")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "RetentionPeriod")
+            Prelude.<*> (x Data..?> "KmsKeyId")
+            Prelude.<*> (x Data..?> "OrganizationEnabled")
+            Prelude.<*> (x Data..?> "TerminationProtectionEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,34 +125,34 @@ instance Prelude.NFData GetEventDataStore where
   rnf GetEventDataStore' {..} =
     Prelude.rnf eventDataStore
 
-instance Core.ToHeaders GetEventDataStore where
+instance Data.ToHeaders GetEventDataStore where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetEventDataStore" ::
+              Data.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetEventDataStore" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetEventDataStore where
+instance Data.ToJSON GetEventDataStore where
   toJSON GetEventDataStore' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("EventDataStore" Core..= eventDataStore)
+              ("EventDataStore" Data..= eventDataStore)
           ]
       )
 
-instance Core.ToPath GetEventDataStore where
+instance Data.ToPath GetEventDataStore where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetEventDataStore where
+instance Data.ToQuery GetEventDataStore where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEventDataStoreResponse' smart constructor.
@@ -163,14 +164,14 @@ data GetEventDataStoreResponse = GetEventDataStoreResponse'
     -- | The advanced event selectors used to select events for the data store.
     advancedEventSelectors :: Prelude.Maybe [AdvancedEventSelector],
     -- | The timestamp of the event data store\'s creation.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | Indicates whether the event data store includes events from all regions,
     -- or only from the region in which it was created.
     multiRegionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Shows the time that an event data store was updated, if applicable.
     -- @UpdatedTimestamp@ is always either the same or newer than the time
     -- shown in @CreatedTimestamp@.
-    updatedTimestamp :: Prelude.Maybe Core.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The status of an event data store. Values can be @ENABLED@ and
     -- @PENDING_DELETION@.
     status :: Prelude.Maybe EventDataStoreStatus,
@@ -266,7 +267,7 @@ getEventDataStoreResponse_advancedEventSelectors = Lens.lens (\GetEventDataStore
 
 -- | The timestamp of the event data store\'s creation.
 getEventDataStoreResponse_createdTimestamp :: Lens.Lens' GetEventDataStoreResponse (Prelude.Maybe Prelude.UTCTime)
-getEventDataStoreResponse_createdTimestamp = Lens.lens (\GetEventDataStoreResponse' {createdTimestamp} -> createdTimestamp) (\s@GetEventDataStoreResponse' {} a -> s {createdTimestamp = a} :: GetEventDataStoreResponse) Prelude.. Lens.mapping Core._Time
+getEventDataStoreResponse_createdTimestamp = Lens.lens (\GetEventDataStoreResponse' {createdTimestamp} -> createdTimestamp) (\s@GetEventDataStoreResponse' {} a -> s {createdTimestamp = a} :: GetEventDataStoreResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates whether the event data store includes events from all regions,
 -- or only from the region in which it was created.
@@ -277,7 +278,7 @@ getEventDataStoreResponse_multiRegionEnabled = Lens.lens (\GetEventDataStoreResp
 -- @UpdatedTimestamp@ is always either the same or newer than the time
 -- shown in @CreatedTimestamp@.
 getEventDataStoreResponse_updatedTimestamp :: Lens.Lens' GetEventDataStoreResponse (Prelude.Maybe Prelude.UTCTime)
-getEventDataStoreResponse_updatedTimestamp = Lens.lens (\GetEventDataStoreResponse' {updatedTimestamp} -> updatedTimestamp) (\s@GetEventDataStoreResponse' {} a -> s {updatedTimestamp = a} :: GetEventDataStoreResponse) Prelude.. Lens.mapping Core._Time
+getEventDataStoreResponse_updatedTimestamp = Lens.lens (\GetEventDataStoreResponse' {updatedTimestamp} -> updatedTimestamp) (\s@GetEventDataStoreResponse' {} a -> s {updatedTimestamp = a} :: GetEventDataStoreResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The status of an event data store. Values can be @ENABLED@ and
 -- @PENDING_DELETION@.

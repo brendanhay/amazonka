@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.VirtualObject where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that defines an Amazon S3 object to be deleted if a
@@ -71,11 +72,11 @@ instance Prelude.NFData VirtualObject where
   rnf VirtualObject' {..} =
     Prelude.rnf eTag `Prelude.seq` Prelude.rnf uri
 
-instance Core.ToJSON VirtualObject where
+instance Data.ToJSON VirtualObject where
   toJSON VirtualObject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ETag" Core..=) Prelude.<$> eTag,
-            Prelude.Just ("Uri" Core..= uri)
+          [ ("ETag" Data..=) Prelude.<$> eTag,
+            Prelude.Just ("Uri" Data..= uri)
           ]
       )

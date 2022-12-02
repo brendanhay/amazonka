@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,7 +92,7 @@ instance Core.AWSRequest StartTransaction where
     Response.receiveJSON
       ( \s h x ->
           StartTransactionResponse'
-            Prelude.<$> (x Core..?> "TransactionId")
+            Prelude.<$> (x Data..?> "TransactionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,30 +104,30 @@ instance Prelude.NFData StartTransaction where
   rnf StartTransaction' {..} =
     Prelude.rnf transactionType
 
-instance Core.ToHeaders StartTransaction where
+instance Data.ToHeaders StartTransaction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartTransaction where
+instance Data.ToJSON StartTransaction where
   toJSON StartTransaction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TransactionType" Core..=)
+          [ ("TransactionType" Data..=)
               Prelude.<$> transactionType
           ]
       )
 
-instance Core.ToPath StartTransaction where
+instance Data.ToPath StartTransaction where
   toPath = Prelude.const "/StartTransaction"
 
-instance Core.ToQuery StartTransaction where
+instance Data.ToQuery StartTransaction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartTransactionResponse' smart constructor.

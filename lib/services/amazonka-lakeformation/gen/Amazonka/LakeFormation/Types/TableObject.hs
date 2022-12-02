@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.TableObject where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the details of a governed table.
@@ -73,15 +74,15 @@ tableObject_uri = Lens.lens (\TableObject' {uri} -> uri) (\s@TableObject' {} a -
 tableObject_eTag :: Lens.Lens' TableObject (Prelude.Maybe Prelude.Text)
 tableObject_eTag = Lens.lens (\TableObject' {eTag} -> eTag) (\s@TableObject' {} a -> s {eTag = a} :: TableObject)
 
-instance Core.FromJSON TableObject where
+instance Data.FromJSON TableObject where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TableObject"
       ( \x ->
           TableObject'
-            Prelude.<$> (x Core..:? "Size")
-            Prelude.<*> (x Core..:? "Uri")
-            Prelude.<*> (x Core..:? "ETag")
+            Prelude.<$> (x Data..:? "Size")
+            Prelude.<*> (x Data..:? "Uri")
+            Prelude.<*> (x Data..:? "ETag")
       )
 
 instance Prelude.Hashable TableObject where

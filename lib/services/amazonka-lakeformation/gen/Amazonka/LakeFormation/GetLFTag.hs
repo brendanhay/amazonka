@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,9 +105,9 @@ instance Core.AWSRequest GetLFTag where
     Response.receiveJSON
       ( \s h x ->
           GetLFTagResponse'
-            Prelude.<$> (x Core..?> "TagValues")
-            Prelude.<*> (x Core..?> "TagKey")
-            Prelude.<*> (x Core..?> "CatalogId")
+            Prelude.<$> (x Data..?> "TagValues")
+            Prelude.<*> (x Data..?> "TagKey")
+            Prelude.<*> (x Data..?> "CatalogId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,30 +121,30 @@ instance Prelude.NFData GetLFTag where
     Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf tagKey
 
-instance Core.ToHeaders GetLFTag where
+instance Data.ToHeaders GetLFTag where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetLFTag where
+instance Data.ToJSON GetLFTag where
   toJSON GetLFTag' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("TagKey" Core..= tagKey)
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("TagKey" Data..= tagKey)
           ]
       )
 
-instance Core.ToPath GetLFTag where
+instance Data.ToPath GetLFTag where
   toPath = Prelude.const "/GetLFTag"
 
-instance Core.ToQuery GetLFTag where
+instance Data.ToQuery GetLFTag where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLFTagResponse' smart constructor.

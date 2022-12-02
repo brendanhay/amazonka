@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.DetailsMap where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing the additional details to be returned in the
@@ -54,13 +55,13 @@ newDetailsMap =
 detailsMap_resourceShare :: Lens.Lens' DetailsMap (Prelude.Maybe [Prelude.Text])
 detailsMap_resourceShare = Lens.lens (\DetailsMap' {resourceShare} -> resourceShare) (\s@DetailsMap' {} a -> s {resourceShare = a} :: DetailsMap) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DetailsMap where
+instance Data.FromJSON DetailsMap where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DetailsMap"
       ( \x ->
           DetailsMap'
-            Prelude.<$> (x Core..:? "ResourceShare" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ResourceShare" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DetailsMap where

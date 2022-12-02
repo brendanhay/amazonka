@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,31 +127,31 @@ instance Prelude.NFData PutDataLakeSettings where
     Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf dataLakeSettings
 
-instance Core.ToHeaders PutDataLakeSettings where
+instance Data.ToHeaders PutDataLakeSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutDataLakeSettings where
+instance Data.ToJSON PutDataLakeSettings where
   toJSON PutDataLakeSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
             Prelude.Just
-              ("DataLakeSettings" Core..= dataLakeSettings)
+              ("DataLakeSettings" Data..= dataLakeSettings)
           ]
       )
 
-instance Core.ToPath PutDataLakeSettings where
+instance Data.ToPath PutDataLakeSettings where
   toPath = Prelude.const "/PutDataLakeSettings"
 
-instance Core.ToQuery PutDataLakeSettings where
+instance Data.ToQuery PutDataLakeSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutDataLakeSettingsResponse' smart constructor.

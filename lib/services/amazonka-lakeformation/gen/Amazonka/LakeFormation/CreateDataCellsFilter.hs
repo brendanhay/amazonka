@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,28 +98,28 @@ instance Prelude.NFData CreateDataCellsFilter where
   rnf CreateDataCellsFilter' {..} =
     Prelude.rnf tableData
 
-instance Core.ToHeaders CreateDataCellsFilter where
+instance Data.ToHeaders CreateDataCellsFilter where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDataCellsFilter where
+instance Data.ToJSON CreateDataCellsFilter where
   toJSON CreateDataCellsFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TableData" Core..= tableData)]
+          [Prelude.Just ("TableData" Data..= tableData)]
       )
 
-instance Core.ToPath CreateDataCellsFilter where
+instance Data.ToPath CreateDataCellsFilter where
   toPath = Prelude.const "/CreateDataCellsFilter"
 
-instance Core.ToQuery CreateDataCellsFilter where
+instance Data.ToQuery CreateDataCellsFilter where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDataCellsFilterResponse' smart constructor.

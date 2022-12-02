@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.PlanningStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Statistics related to the processing of a query statement.
@@ -80,16 +81,16 @@ planningStatistics_estimatedDataToScanBytes = Lens.lens (\PlanningStatistics' {e
 planningStatistics_queueTimeMillis :: Lens.Lens' PlanningStatistics (Prelude.Maybe Prelude.Integer)
 planningStatistics_queueTimeMillis = Lens.lens (\PlanningStatistics' {queueTimeMillis} -> queueTimeMillis) (\s@PlanningStatistics' {} a -> s {queueTimeMillis = a} :: PlanningStatistics)
 
-instance Core.FromJSON PlanningStatistics where
+instance Data.FromJSON PlanningStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PlanningStatistics"
       ( \x ->
           PlanningStatistics'
-            Prelude.<$> (x Core..:? "PlanningTimeMillis")
-            Prelude.<*> (x Core..:? "WorkUnitsGeneratedCount")
-            Prelude.<*> (x Core..:? "EstimatedDataToScanBytes")
-            Prelude.<*> (x Core..:? "QueueTimeMillis")
+            Prelude.<$> (x Data..:? "PlanningTimeMillis")
+            Prelude.<*> (x Data..:? "WorkUnitsGeneratedCount")
+            Prelude.<*> (x Data..:? "EstimatedDataToScanBytes")
+            Prelude.<*> (x Data..:? "QueueTimeMillis")
       )
 
 instance Prelude.Hashable PlanningStatistics where

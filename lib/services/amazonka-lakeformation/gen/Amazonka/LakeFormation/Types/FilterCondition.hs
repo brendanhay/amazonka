@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.FilterCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types.ComparisonOperator
 import Amazonka.LakeFormation.Types.FieldNameString
 import qualified Amazonka.Prelude as Prelude
@@ -85,14 +86,14 @@ instance Prelude.NFData FilterCondition where
       `Prelude.seq` Prelude.rnf comparisonOperator
       `Prelude.seq` Prelude.rnf stringValueList
 
-instance Core.ToJSON FilterCondition where
+instance Data.ToJSON FilterCondition where
   toJSON FilterCondition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Field" Core..=) Prelude.<$> field,
-            ("ComparisonOperator" Core..=)
+          [ ("Field" Data..=) Prelude.<$> field,
+            ("ComparisonOperator" Data..=)
               Prelude.<$> comparisonOperator,
-            ("StringValueList" Core..=)
+            ("StringValueList" Data..=)
               Prelude.<$> stringValueList
           ]
       )

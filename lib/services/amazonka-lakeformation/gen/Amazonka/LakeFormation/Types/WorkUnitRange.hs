@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.WorkUnitRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the valid range of work unit IDs for querying the execution
@@ -83,15 +84,15 @@ workUnitRange_workUnitIdMin = Lens.lens (\WorkUnitRange' {workUnitIdMin} -> work
 workUnitRange_workUnitToken :: Lens.Lens' WorkUnitRange Prelude.Text
 workUnitRange_workUnitToken = Lens.lens (\WorkUnitRange' {workUnitToken} -> workUnitToken) (\s@WorkUnitRange' {} a -> s {workUnitToken = a} :: WorkUnitRange)
 
-instance Core.FromJSON WorkUnitRange where
+instance Data.FromJSON WorkUnitRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkUnitRange"
       ( \x ->
           WorkUnitRange'
-            Prelude.<$> (x Core..: "WorkUnitIdMax")
-            Prelude.<*> (x Core..: "WorkUnitIdMin")
-            Prelude.<*> (x Core..: "WorkUnitToken")
+            Prelude.<$> (x Data..: "WorkUnitIdMax")
+            Prelude.<*> (x Data..: "WorkUnitIdMin")
+            Prelude.<*> (x Data..: "WorkUnitToken")
       )
 
 instance Prelude.Hashable WorkUnitRange where

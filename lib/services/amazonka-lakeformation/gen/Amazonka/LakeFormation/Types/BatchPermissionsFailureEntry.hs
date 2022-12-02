@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.BatchPermissionsFailureEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types.BatchPermissionsRequestEntry
 import Amazonka.LakeFormation.Types.ErrorDetail
 import qualified Amazonka.Prelude as Prelude
@@ -65,14 +66,14 @@ batchPermissionsFailureEntry_requestEntry = Lens.lens (\BatchPermissionsFailureE
 batchPermissionsFailureEntry_error :: Lens.Lens' BatchPermissionsFailureEntry (Prelude.Maybe ErrorDetail)
 batchPermissionsFailureEntry_error = Lens.lens (\BatchPermissionsFailureEntry' {error} -> error) (\s@BatchPermissionsFailureEntry' {} a -> s {error = a} :: BatchPermissionsFailureEntry)
 
-instance Core.FromJSON BatchPermissionsFailureEntry where
+instance Data.FromJSON BatchPermissionsFailureEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchPermissionsFailureEntry"
       ( \x ->
           BatchPermissionsFailureEntry'
-            Prelude.<$> (x Core..:? "RequestEntry")
-            Prelude.<*> (x Core..:? "Error")
+            Prelude.<$> (x Data..:? "RequestEntry")
+            Prelude.<*> (x Data..:? "Error")
       )
 
 instance

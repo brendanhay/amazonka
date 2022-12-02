@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -85,7 +86,7 @@ instance Core.AWSRequest CommitTransaction where
     Response.receiveJSON
       ( \s h x ->
           CommitTransactionResponse'
-            Prelude.<$> (x Core..?> "TransactionStatus")
+            Prelude.<$> (x Data..?> "TransactionStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -97,30 +98,30 @@ instance Prelude.NFData CommitTransaction where
   rnf CommitTransaction' {..} =
     Prelude.rnf transactionId
 
-instance Core.ToHeaders CommitTransaction where
+instance Data.ToHeaders CommitTransaction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CommitTransaction where
+instance Data.ToJSON CommitTransaction where
   toJSON CommitTransaction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("TransactionId" Core..= transactionId)
+              ("TransactionId" Data..= transactionId)
           ]
       )
 
-instance Core.ToPath CommitTransaction where
+instance Data.ToPath CommitTransaction where
   toPath = Prelude.const "/CommitTransaction"
 
-instance Core.ToQuery CommitTransaction where
+instance Data.ToQuery CommitTransaction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCommitTransactionResponse' smart constructor.

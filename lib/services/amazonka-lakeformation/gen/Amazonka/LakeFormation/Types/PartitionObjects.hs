@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.PartitionObjects where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types.TableObject
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ partitionObjects_objects = Lens.lens (\PartitionObjects' {objects} -> objects) (
 partitionObjects_partitionValues :: Lens.Lens' PartitionObjects (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 partitionObjects_partitionValues = Lens.lens (\PartitionObjects' {partitionValues} -> partitionValues) (\s@PartitionObjects' {} a -> s {partitionValues = a} :: PartitionObjects) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PartitionObjects where
+instance Data.FromJSON PartitionObjects where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PartitionObjects"
       ( \x ->
           PartitionObjects'
-            Prelude.<$> (x Core..:? "Objects" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "PartitionValues")
+            Prelude.<$> (x Data..:? "Objects" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "PartitionValues")
       )
 
 instance Prelude.Hashable PartitionObjects where

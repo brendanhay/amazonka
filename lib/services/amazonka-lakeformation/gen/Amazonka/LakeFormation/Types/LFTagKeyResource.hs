@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.LFTagKeyResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing an LF-tag key and values for a resource.
@@ -83,15 +84,15 @@ lFTagKeyResource_tagKey = Lens.lens (\LFTagKeyResource' {tagKey} -> tagKey) (\s@
 lFTagKeyResource_tagValues :: Lens.Lens' LFTagKeyResource (Prelude.NonEmpty Prelude.Text)
 lFTagKeyResource_tagValues = Lens.lens (\LFTagKeyResource' {tagValues} -> tagValues) (\s@LFTagKeyResource' {} a -> s {tagValues = a} :: LFTagKeyResource) Prelude.. Lens.coerced
 
-instance Core.FromJSON LFTagKeyResource where
+instance Data.FromJSON LFTagKeyResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LFTagKeyResource"
       ( \x ->
           LFTagKeyResource'
-            Prelude.<$> (x Core..:? "CatalogId")
-            Prelude.<*> (x Core..: "TagKey")
-            Prelude.<*> (x Core..: "TagValues")
+            Prelude.<$> (x Data..:? "CatalogId")
+            Prelude.<*> (x Data..: "TagKey")
+            Prelude.<*> (x Data..: "TagValues")
       )
 
 instance Prelude.Hashable LFTagKeyResource where
@@ -106,12 +107,12 @@ instance Prelude.NFData LFTagKeyResource where
       `Prelude.seq` Prelude.rnf tagKey
       `Prelude.seq` Prelude.rnf tagValues
 
-instance Core.ToJSON LFTagKeyResource where
+instance Data.ToJSON LFTagKeyResource where
   toJSON LFTagKeyResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("TagKey" Core..= tagKey),
-            Prelude.Just ("TagValues" Core..= tagValues)
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("TagKey" Data..= tagKey),
+            Prelude.Just ("TagValues" Data..= tagValues)
           ]
       )

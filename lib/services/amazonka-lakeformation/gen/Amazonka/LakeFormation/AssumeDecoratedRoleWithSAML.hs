@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -161,10 +162,10 @@ instance Core.AWSRequest AssumeDecoratedRoleWithSAML where
     Response.receiveJSON
       ( \s h x ->
           AssumeDecoratedRoleWithSAMLResponse'
-            Prelude.<$> (x Core..?> "SessionToken")
-            Prelude.<*> (x Core..?> "Expiration")
-            Prelude.<*> (x Core..?> "SecretAccessKey")
-            Prelude.<*> (x Core..?> "AccessKeyId")
+            Prelude.<$> (x Data..?> "SessionToken")
+            Prelude.<*> (x Data..?> "Expiration")
+            Prelude.<*> (x Data..?> "SecretAccessKey")
+            Prelude.<*> (x Data..?> "AccessKeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,33 +183,33 @@ instance Prelude.NFData AssumeDecoratedRoleWithSAML where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf principalArn
 
-instance Core.ToHeaders AssumeDecoratedRoleWithSAML where
+instance Data.ToHeaders AssumeDecoratedRoleWithSAML where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssumeDecoratedRoleWithSAML where
+instance Data.ToJSON AssumeDecoratedRoleWithSAML where
   toJSON AssumeDecoratedRoleWithSAML' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DurationSeconds" Core..=)
+          [ ("DurationSeconds" Data..=)
               Prelude.<$> durationSeconds,
-            Prelude.Just ("SAMLAssertion" Core..= sAMLAssertion),
-            Prelude.Just ("RoleArn" Core..= roleArn),
-            Prelude.Just ("PrincipalArn" Core..= principalArn)
+            Prelude.Just ("SAMLAssertion" Data..= sAMLAssertion),
+            Prelude.Just ("RoleArn" Data..= roleArn),
+            Prelude.Just ("PrincipalArn" Data..= principalArn)
           ]
       )
 
-instance Core.ToPath AssumeDecoratedRoleWithSAML where
+instance Data.ToPath AssumeDecoratedRoleWithSAML where
   toPath = Prelude.const "/AssumeDecoratedRoleWithSAML"
 
-instance Core.ToQuery AssumeDecoratedRoleWithSAML where
+instance Data.ToQuery AssumeDecoratedRoleWithSAML where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssumeDecoratedRoleWithSAMLResponse' smart constructor.
@@ -216,7 +217,7 @@ data AssumeDecoratedRoleWithSAMLResponse = AssumeDecoratedRoleWithSAMLResponse'
   { -- | The session token for the temporary credentials.
     sessionToken :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the temporary credentials expire.
-    expiration :: Prelude.Maybe Core.POSIX,
+    expiration :: Prelude.Maybe Data.POSIX,
     -- | The secret key for the temporary credentials. (The access key consists
     -- of an access key ID and a secret key).
     secretAccessKey :: Prelude.Maybe Prelude.Text,
@@ -267,7 +268,7 @@ assumeDecoratedRoleWithSAMLResponse_sessionToken = Lens.lens (\AssumeDecoratedRo
 
 -- | The date and time when the temporary credentials expire.
 assumeDecoratedRoleWithSAMLResponse_expiration :: Lens.Lens' AssumeDecoratedRoleWithSAMLResponse (Prelude.Maybe Prelude.UTCTime)
-assumeDecoratedRoleWithSAMLResponse_expiration = Lens.lens (\AssumeDecoratedRoleWithSAMLResponse' {expiration} -> expiration) (\s@AssumeDecoratedRoleWithSAMLResponse' {} a -> s {expiration = a} :: AssumeDecoratedRoleWithSAMLResponse) Prelude.. Lens.mapping Core._Time
+assumeDecoratedRoleWithSAMLResponse_expiration = Lens.lens (\AssumeDecoratedRoleWithSAMLResponse' {expiration} -> expiration) (\s@AssumeDecoratedRoleWithSAMLResponse' {} a -> s {expiration = a} :: AssumeDecoratedRoleWithSAMLResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The secret key for the temporary credentials. (The access key consists
 -- of an access key ID and a secret key).

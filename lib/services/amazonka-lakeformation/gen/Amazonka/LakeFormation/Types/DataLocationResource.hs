@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.DataLocationResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure for a data location object where permissions are granted or
@@ -70,14 +71,14 @@ dataLocationResource_catalogId = Lens.lens (\DataLocationResource' {catalogId} -
 dataLocationResource_resourceArn :: Lens.Lens' DataLocationResource Prelude.Text
 dataLocationResource_resourceArn = Lens.lens (\DataLocationResource' {resourceArn} -> resourceArn) (\s@DataLocationResource' {} a -> s {resourceArn = a} :: DataLocationResource)
 
-instance Core.FromJSON DataLocationResource where
+instance Data.FromJSON DataLocationResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataLocationResource"
       ( \x ->
           DataLocationResource'
-            Prelude.<$> (x Core..:? "CatalogId")
-            Prelude.<*> (x Core..: "ResourceArn")
+            Prelude.<$> (x Data..:? "CatalogId")
+            Prelude.<*> (x Data..: "ResourceArn")
       )
 
 instance Prelude.Hashable DataLocationResource where
@@ -90,11 +91,11 @@ instance Prelude.NFData DataLocationResource where
     Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf resourceArn
 
-instance Core.ToJSON DataLocationResource where
+instance Data.ToJSON DataLocationResource where
   toJSON DataLocationResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("ResourceArn" Core..= resourceArn)
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("ResourceArn" Data..= resourceArn)
           ]
       )

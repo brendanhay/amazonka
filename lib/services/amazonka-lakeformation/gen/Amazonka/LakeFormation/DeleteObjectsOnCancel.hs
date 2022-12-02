@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -168,33 +169,33 @@ instance Prelude.NFData DeleteObjectsOnCancel where
       `Prelude.seq` Prelude.rnf transactionId
       `Prelude.seq` Prelude.rnf objects
 
-instance Core.ToHeaders DeleteObjectsOnCancel where
+instance Data.ToHeaders DeleteObjectsOnCancel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteObjectsOnCancel where
+instance Data.ToJSON DeleteObjectsOnCancel where
   toJSON DeleteObjectsOnCancel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName),
-            Prelude.Just ("TransactionId" Core..= transactionId),
-            Prelude.Just ("Objects" Core..= objects)
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName),
+            Prelude.Just ("TransactionId" Data..= transactionId),
+            Prelude.Just ("Objects" Data..= objects)
           ]
       )
 
-instance Core.ToPath DeleteObjectsOnCancel where
+instance Data.ToPath DeleteObjectsOnCancel where
   toPath = Prelude.const "/DeleteObjectsOnCancel"
 
-instance Core.ToQuery DeleteObjectsOnCancel where
+instance Data.ToQuery DeleteObjectsOnCancel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteObjectsOnCancelResponse' smart constructor.

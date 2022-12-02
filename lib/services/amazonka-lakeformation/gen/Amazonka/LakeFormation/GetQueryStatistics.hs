@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -85,9 +86,9 @@ instance Core.AWSRequest GetQueryStatistics where
     Response.receiveJSON
       ( \s h x ->
           GetQueryStatisticsResponse'
-            Prelude.<$> (x Core..?> "QuerySubmissionTime")
-            Prelude.<*> (x Core..?> "ExecutionStatistics")
-            Prelude.<*> (x Core..?> "PlanningStatistics")
+            Prelude.<$> (x Data..?> "QuerySubmissionTime")
+            Prelude.<*> (x Data..?> "ExecutionStatistics")
+            Prelude.<*> (x Data..?> "PlanningStatistics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,34 +99,34 @@ instance Prelude.Hashable GetQueryStatistics where
 instance Prelude.NFData GetQueryStatistics where
   rnf GetQueryStatistics' {..} = Prelude.rnf queryId
 
-instance Core.ToHeaders GetQueryStatistics where
+instance Data.ToHeaders GetQueryStatistics where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetQueryStatistics where
+instance Data.ToJSON GetQueryStatistics where
   toJSON GetQueryStatistics' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("QueryId" Core..= queryId)]
+          [Prelude.Just ("QueryId" Data..= queryId)]
       )
 
-instance Core.ToPath GetQueryStatistics where
+instance Data.ToPath GetQueryStatistics where
   toPath = Prelude.const "/GetQueryStatistics"
 
-instance Core.ToQuery GetQueryStatistics where
+instance Data.ToQuery GetQueryStatistics where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetQueryStatisticsResponse' smart constructor.
 data GetQueryStatisticsResponse = GetQueryStatisticsResponse'
   { -- | The time that the query was submitted.
-    querySubmissionTime :: Prelude.Maybe Core.POSIX,
+    querySubmissionTime :: Prelude.Maybe Data.POSIX,
     -- | An @ExecutionStatistics@ structure containing execution statistics.
     executionStatistics :: Prelude.Maybe ExecutionStatistics,
     -- | A @PlanningStatistics@ structure containing query planning statistics.
@@ -165,7 +166,7 @@ newGetQueryStatisticsResponse pHttpStatus_ =
 
 -- | The time that the query was submitted.
 getQueryStatisticsResponse_querySubmissionTime :: Lens.Lens' GetQueryStatisticsResponse (Prelude.Maybe Prelude.UTCTime)
-getQueryStatisticsResponse_querySubmissionTime = Lens.lens (\GetQueryStatisticsResponse' {querySubmissionTime} -> querySubmissionTime) (\s@GetQueryStatisticsResponse' {} a -> s {querySubmissionTime = a} :: GetQueryStatisticsResponse) Prelude.. Lens.mapping Core._Time
+getQueryStatisticsResponse_querySubmissionTime = Lens.lens (\GetQueryStatisticsResponse' {querySubmissionTime} -> querySubmissionTime) (\s@GetQueryStatisticsResponse' {} a -> s {querySubmissionTime = a} :: GetQueryStatisticsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | An @ExecutionStatistics@ structure containing execution statistics.
 getQueryStatisticsResponse_executionStatistics :: Lens.Lens' GetQueryStatisticsResponse (Prelude.Maybe ExecutionStatistics)

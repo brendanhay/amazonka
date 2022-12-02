@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,33 +130,33 @@ instance Prelude.NFData DeleteDataCellsFilter where
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableCatalogId
 
-instance Core.ToHeaders DeleteDataCellsFilter where
+instance Data.ToHeaders DeleteDataCellsFilter where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteDataCellsFilter where
+instance Data.ToJSON DeleteDataCellsFilter where
   toJSON DeleteDataCellsFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TableName" Core..=) Prelude.<$> tableName,
-            ("Name" Core..=) Prelude.<$> name,
-            ("DatabaseName" Core..=) Prelude.<$> databaseName,
-            ("TableCatalogId" Core..=)
+          [ ("TableName" Data..=) Prelude.<$> tableName,
+            ("Name" Data..=) Prelude.<$> name,
+            ("DatabaseName" Data..=) Prelude.<$> databaseName,
+            ("TableCatalogId" Data..=)
               Prelude.<$> tableCatalogId
           ]
       )
 
-instance Core.ToPath DeleteDataCellsFilter where
+instance Data.ToPath DeleteDataCellsFilter where
   toPath = Prelude.const "/DeleteDataCellsFilter"
 
-instance Core.ToQuery DeleteDataCellsFilter where
+instance Data.ToQuery DeleteDataCellsFilter where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDataCellsFilterResponse' smart constructor.

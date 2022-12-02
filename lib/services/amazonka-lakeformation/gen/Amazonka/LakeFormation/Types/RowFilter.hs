@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.RowFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types.AllRowsWildcard
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ rowFilter_allRowsWildcard = Lens.lens (\RowFilter' {allRowsWildcard} -> allRowsW
 rowFilter_filterExpression :: Lens.Lens' RowFilter (Prelude.Maybe Prelude.Text)
 rowFilter_filterExpression = Lens.lens (\RowFilter' {filterExpression} -> filterExpression) (\s@RowFilter' {} a -> s {filterExpression = a} :: RowFilter)
 
-instance Core.FromJSON RowFilter where
+instance Data.FromJSON RowFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RowFilter"
       ( \x ->
           RowFilter'
-            Prelude.<$> (x Core..:? "AllRowsWildcard")
-            Prelude.<*> (x Core..:? "FilterExpression")
+            Prelude.<$> (x Data..:? "AllRowsWildcard")
+            Prelude.<*> (x Data..:? "FilterExpression")
       )
 
 instance Prelude.Hashable RowFilter where
@@ -82,13 +83,13 @@ instance Prelude.NFData RowFilter where
     Prelude.rnf allRowsWildcard
       `Prelude.seq` Prelude.rnf filterExpression
 
-instance Core.ToJSON RowFilter where
+instance Data.ToJSON RowFilter where
   toJSON RowFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AllRowsWildcard" Core..=)
+          [ ("AllRowsWildcard" Data..=)
               Prelude.<$> allRowsWildcard,
-            ("FilterExpression" Core..=)
+            ("FilterExpression" Data..=)
               Prelude.<$> filterExpression
           ]
       )

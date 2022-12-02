@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,7 +107,7 @@ instance Core.AWSRequest BatchRevokePermissions where
     Response.receiveJSON
       ( \s h x ->
           BatchRevokePermissionsResponse'
-            Prelude.<$> (x Core..?> "Failures" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Failures" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,30 +121,30 @@ instance Prelude.NFData BatchRevokePermissions where
     Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf entries
 
-instance Core.ToHeaders BatchRevokePermissions where
+instance Data.ToHeaders BatchRevokePermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchRevokePermissions where
+instance Data.ToJSON BatchRevokePermissions where
   toJSON BatchRevokePermissions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("Entries" Core..= entries)
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("Entries" Data..= entries)
           ]
       )
 
-instance Core.ToPath BatchRevokePermissions where
+instance Data.ToPath BatchRevokePermissions where
   toPath = Prelude.const "/BatchRevokePermissions"
 
-instance Core.ToQuery BatchRevokePermissions where
+instance Data.ToQuery BatchRevokePermissions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchRevokePermissionsResponse' smart constructor.

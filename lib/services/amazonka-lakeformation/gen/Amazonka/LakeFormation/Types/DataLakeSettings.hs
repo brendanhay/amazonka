@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.DataLakeSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types.DataLakePrincipal
 import Amazonka.LakeFormation.Types.PrincipalPermissions
 import qualified Amazonka.Prelude as Prelude
@@ -269,30 +270,30 @@ dataLakeSettings_externalDataFilteringAllowList = Lens.lens (\DataLakeSettings' 
 dataLakeSettings_parameters :: Lens.Lens' DataLakeSettings (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 dataLakeSettings_parameters = Lens.lens (\DataLakeSettings' {parameters} -> parameters) (\s@DataLakeSettings' {} a -> s {parameters = a} :: DataLakeSettings) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DataLakeSettings where
+instance Data.FromJSON DataLakeSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataLakeSettings"
       ( \x ->
           DataLakeSettings'
-            Prelude.<$> (x Core..:? "DataLakeAdmins" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "CreateDatabaseDefaultPermissions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "DataLakeAdmins" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "CreateDatabaseDefaultPermissions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "AllowExternalDataFiltering")
-            Prelude.<*> ( x Core..:? "TrustedResourceOwners"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "AllowExternalDataFiltering")
+            Prelude.<*> ( x Data..:? "TrustedResourceOwners"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "AuthorizedSessionTagValueList"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "AuthorizedSessionTagValueList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "CreateTableDefaultPermissions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "CreateTableDefaultPermissions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ExternalDataFilteringAllowList"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ExternalDataFilteringAllowList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DataLakeSettings where
@@ -317,24 +318,24 @@ instance Prelude.NFData DataLakeSettings where
       `Prelude.seq` Prelude.rnf externalDataFilteringAllowList
       `Prelude.seq` Prelude.rnf parameters
 
-instance Core.ToJSON DataLakeSettings where
+instance Data.ToJSON DataLakeSettings where
   toJSON DataLakeSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataLakeAdmins" Core..=)
+          [ ("DataLakeAdmins" Data..=)
               Prelude.<$> dataLakeAdmins,
-            ("CreateDatabaseDefaultPermissions" Core..=)
+            ("CreateDatabaseDefaultPermissions" Data..=)
               Prelude.<$> createDatabaseDefaultPermissions,
-            ("AllowExternalDataFiltering" Core..=)
+            ("AllowExternalDataFiltering" Data..=)
               Prelude.<$> allowExternalDataFiltering,
-            ("TrustedResourceOwners" Core..=)
+            ("TrustedResourceOwners" Data..=)
               Prelude.<$> trustedResourceOwners,
-            ("AuthorizedSessionTagValueList" Core..=)
+            ("AuthorizedSessionTagValueList" Data..=)
               Prelude.<$> authorizedSessionTagValueList,
-            ("CreateTableDefaultPermissions" Core..=)
+            ("CreateTableDefaultPermissions" Data..=)
               Prelude.<$> createTableDefaultPermissions,
-            ("ExternalDataFilteringAllowList" Core..=)
+            ("ExternalDataFilteringAllowList" Data..=)
               Prelude.<$> externalDataFilteringAllowList,
-            ("Parameters" Core..=) Prelude.<$> parameters
+            ("Parameters" Data..=) Prelude.<$> parameters
           ]
       )

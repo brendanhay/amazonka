@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.TableResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types.TableWildcard
 import qualified Amazonka.Prelude as Prelude
 
@@ -105,16 +106,16 @@ tableResource_catalogId = Lens.lens (\TableResource' {catalogId} -> catalogId) (
 tableResource_databaseName :: Lens.Lens' TableResource Prelude.Text
 tableResource_databaseName = Lens.lens (\TableResource' {databaseName} -> databaseName) (\s@TableResource' {} a -> s {databaseName = a} :: TableResource)
 
-instance Core.FromJSON TableResource where
+instance Data.FromJSON TableResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TableResource"
       ( \x ->
           TableResource'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "TableWildcard")
-            Prelude.<*> (x Core..:? "CatalogId")
-            Prelude.<*> (x Core..: "DatabaseName")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "TableWildcard")
+            Prelude.<*> (x Data..:? "CatalogId")
+            Prelude.<*> (x Data..: "DatabaseName")
       )
 
 instance Prelude.Hashable TableResource where
@@ -131,13 +132,13 @@ instance Prelude.NFData TableResource where
       `Prelude.seq` Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf databaseName
 
-instance Core.ToJSON TableResource where
+instance Data.ToJSON TableResource where
   toJSON TableResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("TableWildcard" Core..=) Prelude.<$> tableWildcard,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("DatabaseName" Core..= databaseName)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("TableWildcard" Data..=) Prelude.<$> tableWildcard,
+            ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Data..= databaseName)
           ]
       )

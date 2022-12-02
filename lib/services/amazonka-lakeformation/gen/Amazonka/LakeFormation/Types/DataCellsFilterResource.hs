@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.DataCellsFilterResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure for a data cells filter resource.
@@ -80,16 +81,16 @@ dataCellsFilterResource_databaseName = Lens.lens (\DataCellsFilterResource' {dat
 dataCellsFilterResource_tableCatalogId :: Lens.Lens' DataCellsFilterResource (Prelude.Maybe Prelude.Text)
 dataCellsFilterResource_tableCatalogId = Lens.lens (\DataCellsFilterResource' {tableCatalogId} -> tableCatalogId) (\s@DataCellsFilterResource' {} a -> s {tableCatalogId = a} :: DataCellsFilterResource)
 
-instance Core.FromJSON DataCellsFilterResource where
+instance Data.FromJSON DataCellsFilterResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataCellsFilterResource"
       ( \x ->
           DataCellsFilterResource'
-            Prelude.<$> (x Core..:? "TableName")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "TableCatalogId")
+            Prelude.<$> (x Data..:? "TableName")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "TableCatalogId")
       )
 
 instance Prelude.Hashable DataCellsFilterResource where
@@ -106,14 +107,14 @@ instance Prelude.NFData DataCellsFilterResource where
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableCatalogId
 
-instance Core.ToJSON DataCellsFilterResource where
+instance Data.ToJSON DataCellsFilterResource where
   toJSON DataCellsFilterResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TableName" Core..=) Prelude.<$> tableName,
-            ("Name" Core..=) Prelude.<$> name,
-            ("DatabaseName" Core..=) Prelude.<$> databaseName,
-            ("TableCatalogId" Core..=)
+          [ ("TableName" Data..=) Prelude.<$> tableName,
+            ("Name" Data..=) Prelude.<$> name,
+            ("DatabaseName" Data..=) Prelude.<$> databaseName,
+            ("TableCatalogId" Data..=)
               Prelude.<$> tableCatalogId
           ]
       )

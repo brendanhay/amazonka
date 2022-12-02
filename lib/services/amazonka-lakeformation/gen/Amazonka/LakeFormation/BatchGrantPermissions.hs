@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,7 +106,7 @@ instance Core.AWSRequest BatchGrantPermissions where
     Response.receiveJSON
       ( \s h x ->
           BatchGrantPermissionsResponse'
-            Prelude.<$> (x Core..?> "Failures" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Failures" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,30 +120,30 @@ instance Prelude.NFData BatchGrantPermissions where
     Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf entries
 
-instance Core.ToHeaders BatchGrantPermissions where
+instance Data.ToHeaders BatchGrantPermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGrantPermissions where
+instance Data.ToJSON BatchGrantPermissions where
   toJSON BatchGrantPermissions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("Entries" Core..= entries)
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("Entries" Data..= entries)
           ]
       )
 
-instance Core.ToPath BatchGrantPermissions where
+instance Data.ToPath BatchGrantPermissions where
   toPath = Prelude.const "/BatchGrantPermissions"
 
-instance Core.ToQuery BatchGrantPermissions where
+instance Data.ToQuery BatchGrantPermissions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGrantPermissionsResponse' smart constructor.

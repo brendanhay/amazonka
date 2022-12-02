@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -143,34 +144,34 @@ instance Prelude.NFData UpdateLFTag where
       `Prelude.seq` Prelude.rnf tagValuesToAdd
       `Prelude.seq` Prelude.rnf tagKey
 
-instance Core.ToHeaders UpdateLFTag where
+instance Data.ToHeaders UpdateLFTag where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateLFTag where
+instance Data.ToJSON UpdateLFTag where
   toJSON UpdateLFTag' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("TagValuesToDelete" Core..=)
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("TagValuesToDelete" Data..=)
               Prelude.<$> tagValuesToDelete,
-            ("TagValuesToAdd" Core..=)
+            ("TagValuesToAdd" Data..=)
               Prelude.<$> tagValuesToAdd,
-            Prelude.Just ("TagKey" Core..= tagKey)
+            Prelude.Just ("TagKey" Data..= tagKey)
           ]
       )
 
-instance Core.ToPath UpdateLFTag where
+instance Data.ToPath UpdateLFTag where
   toPath = Prelude.const "/UpdateLFTag"
 
-instance Core.ToQuery UpdateLFTag where
+instance Data.ToQuery UpdateLFTag where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLFTagResponse' smart constructor.

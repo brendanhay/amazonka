@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.AllRowsWildcard where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that you pass to indicate you want all rows in a filter.
@@ -39,9 +40,9 @@ newAllRowsWildcard ::
   AllRowsWildcard
 newAllRowsWildcard = AllRowsWildcard'
 
-instance Core.FromJSON AllRowsWildcard where
+instance Data.FromJSON AllRowsWildcard where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AllRowsWildcard"
       (\x -> Prelude.pure AllRowsWildcard')
 
@@ -52,5 +53,5 @@ instance Prelude.Hashable AllRowsWildcard where
 instance Prelude.NFData AllRowsWildcard where
   rnf _ = ()
 
-instance Core.ToJSON AllRowsWildcard where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON AllRowsWildcard where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.Resource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types.CatalogResource
 import Amazonka.LakeFormation.Types.DataCellsFilterResource
 import Amazonka.LakeFormation.Types.DataLocationResource
@@ -153,20 +154,20 @@ resource_dataLocation = Lens.lens (\Resource' {dataLocation} -> dataLocation) (\
 resource_table :: Lens.Lens' Resource (Prelude.Maybe TableResource)
 resource_table = Lens.lens (\Resource' {table} -> table) (\s@Resource' {} a -> s {table = a} :: Resource)
 
-instance Core.FromJSON Resource where
+instance Data.FromJSON Resource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Core..:? "TableWithColumns")
-            Prelude.<*> (x Core..:? "Catalog")
-            Prelude.<*> (x Core..:? "LFTag")
-            Prelude.<*> (x Core..:? "LFTagPolicy")
-            Prelude.<*> (x Core..:? "DataCellsFilter")
-            Prelude.<*> (x Core..:? "Database")
-            Prelude.<*> (x Core..:? "DataLocation")
-            Prelude.<*> (x Core..:? "Table")
+            Prelude.<$> (x Data..:? "TableWithColumns")
+            Prelude.<*> (x Data..:? "Catalog")
+            Prelude.<*> (x Data..:? "LFTag")
+            Prelude.<*> (x Data..:? "LFTagPolicy")
+            Prelude.<*> (x Data..:? "DataCellsFilter")
+            Prelude.<*> (x Data..:? "Database")
+            Prelude.<*> (x Data..:? "DataLocation")
+            Prelude.<*> (x Data..:? "Table")
       )
 
 instance Prelude.Hashable Resource where
@@ -191,19 +192,19 @@ instance Prelude.NFData Resource where
       `Prelude.seq` Prelude.rnf dataLocation
       `Prelude.seq` Prelude.rnf table
 
-instance Core.ToJSON Resource where
+instance Data.ToJSON Resource where
   toJSON Resource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TableWithColumns" Core..=)
+          [ ("TableWithColumns" Data..=)
               Prelude.<$> tableWithColumns,
-            ("Catalog" Core..=) Prelude.<$> catalog,
-            ("LFTag" Core..=) Prelude.<$> lFTag,
-            ("LFTagPolicy" Core..=) Prelude.<$> lFTagPolicy,
-            ("DataCellsFilter" Core..=)
+            ("Catalog" Data..=) Prelude.<$> catalog,
+            ("LFTag" Data..=) Prelude.<$> lFTag,
+            ("LFTagPolicy" Data..=) Prelude.<$> lFTagPolicy,
+            ("DataCellsFilter" Data..=)
               Prelude.<$> dataCellsFilter,
-            ("Database" Core..=) Prelude.<$> database,
-            ("DataLocation" Core..=) Prelude.<$> dataLocation,
-            ("Table" Core..=) Prelude.<$> table
+            ("Database" Data..=) Prelude.<$> database,
+            ("DataLocation" Data..=) Prelude.<$> dataLocation,
+            ("Table" Data..=) Prelude.<$> table
           ]
       )

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,31 +129,31 @@ instance Prelude.NFData CreateLFTag where
       `Prelude.seq` Prelude.rnf tagKey
       `Prelude.seq` Prelude.rnf tagValues
 
-instance Core.ToHeaders CreateLFTag where
+instance Data.ToHeaders CreateLFTag where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLFTag where
+instance Data.ToJSON CreateLFTag where
   toJSON CreateLFTag' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("TagKey" Core..= tagKey),
-            Prelude.Just ("TagValues" Core..= tagValues)
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("TagKey" Data..= tagKey),
+            Prelude.Just ("TagValues" Data..= tagValues)
           ]
       )
 
-instance Core.ToPath CreateLFTag where
+instance Data.ToPath CreateLFTag where
   toPath = Prelude.const "/CreateLFTag"
 
-instance Core.ToQuery CreateLFTag where
+instance Data.ToQuery CreateLFTag where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLFTagResponse' smart constructor.

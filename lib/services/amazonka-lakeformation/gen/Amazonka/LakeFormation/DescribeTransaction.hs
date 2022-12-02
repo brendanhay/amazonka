@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,7 +87,7 @@ instance Core.AWSRequest DescribeTransaction where
     Response.receiveJSON
       ( \s h x ->
           DescribeTransactionResponse'
-            Prelude.<$> (x Core..?> "TransactionDescription")
+            Prelude.<$> (x Data..?> "TransactionDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,30 +99,30 @@ instance Prelude.NFData DescribeTransaction where
   rnf DescribeTransaction' {..} =
     Prelude.rnf transactionId
 
-instance Core.ToHeaders DescribeTransaction where
+instance Data.ToHeaders DescribeTransaction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeTransaction where
+instance Data.ToJSON DescribeTransaction where
   toJSON DescribeTransaction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("TransactionId" Core..= transactionId)
+              ("TransactionId" Data..= transactionId)
           ]
       )
 
-instance Core.ToPath DescribeTransaction where
+instance Data.ToPath DescribeTransaction where
   toPath = Prelude.const "/DescribeTransaction"
 
-instance Core.ToQuery DescribeTransaction where
+instance Data.ToQuery DescribeTransaction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeTransactionResponse' smart constructor.

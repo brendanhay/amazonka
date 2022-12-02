@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.PrincipalPermissions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types.DataLakePrincipal
 import Amazonka.LakeFormation.Types.Permission
 import qualified Amazonka.Prelude as Prelude
@@ -63,14 +64,14 @@ principalPermissions_principal = Lens.lens (\PrincipalPermissions' {principal} -
 principalPermissions_permissions :: Lens.Lens' PrincipalPermissions (Prelude.Maybe [Permission])
 principalPermissions_permissions = Lens.lens (\PrincipalPermissions' {permissions} -> permissions) (\s@PrincipalPermissions' {} a -> s {permissions = a} :: PrincipalPermissions) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PrincipalPermissions where
+instance Data.FromJSON PrincipalPermissions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PrincipalPermissions"
       ( \x ->
           PrincipalPermissions'
-            Prelude.<$> (x Core..:? "Principal")
-            Prelude.<*> (x Core..:? "Permissions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Principal")
+            Prelude.<*> (x Data..:? "Permissions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PrincipalPermissions where
@@ -83,11 +84,11 @@ instance Prelude.NFData PrincipalPermissions where
     Prelude.rnf principal
       `Prelude.seq` Prelude.rnf permissions
 
-instance Core.ToJSON PrincipalPermissions where
+instance Data.ToJSON PrincipalPermissions where
   toJSON PrincipalPermissions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Principal" Core..=) Prelude.<$> principal,
-            ("Permissions" Core..=) Prelude.<$> permissions
+          [ ("Principal" Data..=) Prelude.<$> principal,
+            ("Permissions" Data..=) Prelude.<$> permissions
           ]
       )

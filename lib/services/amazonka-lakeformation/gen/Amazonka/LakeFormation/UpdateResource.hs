@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,30 +111,30 @@ instance Prelude.NFData UpdateResource where
     Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf resourceArn
 
-instance Core.ToHeaders UpdateResource where
+instance Data.ToHeaders UpdateResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateResource where
+instance Data.ToJSON UpdateResource where
   toJSON UpdateResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("RoleArn" Core..= roleArn),
-            Prelude.Just ("ResourceArn" Core..= resourceArn)
+          [ Prelude.Just ("RoleArn" Data..= roleArn),
+            Prelude.Just ("ResourceArn" Data..= resourceArn)
           ]
       )
 
-instance Core.ToPath UpdateResource where
+instance Data.ToPath UpdateResource where
   toPath = Prelude.const "/UpdateResource"
 
-instance Core.ToQuery UpdateResource where
+instance Data.ToQuery UpdateResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateResourceResponse' smart constructor.

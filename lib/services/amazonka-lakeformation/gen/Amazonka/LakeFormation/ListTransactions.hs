@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,8 +129,8 @@ instance Core.AWSRequest ListTransactions where
     Response.receiveJSON
       ( \s h x ->
           ListTransactionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Transactions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Transactions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,32 +148,32 @@ instance Prelude.NFData ListTransactions where
       `Prelude.seq` Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf statusFilter
 
-instance Core.ToHeaders ListTransactions where
+instance Data.ToHeaders ListTransactions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListTransactions where
+instance Data.ToJSON ListTransactions where
   toJSON ListTransactions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("StatusFilter" Core..=) Prelude.<$> statusFilter
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("StatusFilter" Data..=) Prelude.<$> statusFilter
           ]
       )
 
-instance Core.ToPath ListTransactions where
+instance Data.ToPath ListTransactions where
   toPath = Prelude.const "/ListTransactions"
 
-instance Core.ToQuery ListTransactions where
+instance Data.ToQuery ListTransactions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTransactionsResponse' smart constructor.

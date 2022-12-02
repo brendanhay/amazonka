@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.PartitionValueList where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a list of values defining partitions.
@@ -62,9 +63,9 @@ instance Prelude.Hashable PartitionValueList where
 instance Prelude.NFData PartitionValueList where
   rnf PartitionValueList' {..} = Prelude.rnf values
 
-instance Core.ToJSON PartitionValueList where
+instance Data.ToJSON PartitionValueList where
   toJSON PartitionValueList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Values" Core..= values)]
+          [Prelude.Just ("Values" Data..= values)]
       )

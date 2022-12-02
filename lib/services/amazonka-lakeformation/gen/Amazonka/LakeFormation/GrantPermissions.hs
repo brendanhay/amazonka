@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -197,34 +198,34 @@ instance Prelude.NFData GrantPermissions where
       `Prelude.seq` Prelude.rnf resource
       `Prelude.seq` Prelude.rnf permissions
 
-instance Core.ToHeaders GrantPermissions where
+instance Data.ToHeaders GrantPermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GrantPermissions where
+instance Data.ToJSON GrantPermissions where
   toJSON GrantPermissions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("PermissionsWithGrantOption" Core..=)
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("PermissionsWithGrantOption" Data..=)
               Prelude.<$> permissionsWithGrantOption,
-            Prelude.Just ("Principal" Core..= principal),
-            Prelude.Just ("Resource" Core..= resource),
-            Prelude.Just ("Permissions" Core..= permissions)
+            Prelude.Just ("Principal" Data..= principal),
+            Prelude.Just ("Resource" Data..= resource),
+            Prelude.Just ("Permissions" Data..= permissions)
           ]
       )
 
-instance Core.ToPath GrantPermissions where
+instance Data.ToPath GrantPermissions where
   toPath = Prelude.const "/GrantPermissions"
 
-instance Core.ToQuery GrantPermissions where
+instance Data.ToQuery GrantPermissions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGrantPermissionsResponse' smart constructor.

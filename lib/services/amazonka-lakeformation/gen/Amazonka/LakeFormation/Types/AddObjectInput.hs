@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.AddObjectInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A new object to add to the governed table.
@@ -117,14 +118,14 @@ instance Prelude.NFData AddObjectInput where
       `Prelude.seq` Prelude.rnf eTag
       `Prelude.seq` Prelude.rnf size
 
-instance Core.ToJSON AddObjectInput where
+instance Data.ToJSON AddObjectInput where
   toJSON AddObjectInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PartitionValues" Core..=)
+          [ ("PartitionValues" Data..=)
               Prelude.<$> partitionValues,
-            Prelude.Just ("Uri" Core..= uri),
-            Prelude.Just ("ETag" Core..= eTag),
-            Prelude.Just ("Size" Core..= size)
+            Prelude.Just ("Uri" Data..= uri),
+            Prelude.Just ("ETag" Data..= eTag),
+            Prelude.Just ("Size" Data..= size)
           ]
       )

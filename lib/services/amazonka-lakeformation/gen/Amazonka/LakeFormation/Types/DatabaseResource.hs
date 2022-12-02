@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.DatabaseResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure for the database object.
@@ -66,14 +67,14 @@ databaseResource_catalogId = Lens.lens (\DatabaseResource' {catalogId} -> catalo
 databaseResource_name :: Lens.Lens' DatabaseResource Prelude.Text
 databaseResource_name = Lens.lens (\DatabaseResource' {name} -> name) (\s@DatabaseResource' {} a -> s {name = a} :: DatabaseResource)
 
-instance Core.FromJSON DatabaseResource where
+instance Data.FromJSON DatabaseResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatabaseResource"
       ( \x ->
           DatabaseResource'
-            Prelude.<$> (x Core..:? "CatalogId")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "CatalogId")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable DatabaseResource where
@@ -86,11 +87,11 @@ instance Prelude.NFData DatabaseResource where
     Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON DatabaseResource where
+instance Data.ToJSON DatabaseResource where
   toJSON DatabaseResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("Name" Core..= name)
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("Name" Data..= name)
           ]
       )

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,7 +117,7 @@ instance Core.AWSRequest AddLFTagsToResource where
     Response.receiveJSON
       ( \s h x ->
           AddLFTagsToResourceResponse'
-            Prelude.<$> (x Core..?> "Failures" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Failures" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,31 +133,31 @@ instance Prelude.NFData AddLFTagsToResource where
       `Prelude.seq` Prelude.rnf resource
       `Prelude.seq` Prelude.rnf lFTags
 
-instance Core.ToHeaders AddLFTagsToResource where
+instance Data.ToHeaders AddLFTagsToResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AddLFTagsToResource where
+instance Data.ToJSON AddLFTagsToResource where
   toJSON AddLFTagsToResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("Resource" Core..= resource),
-            Prelude.Just ("LFTags" Core..= lFTags)
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("Resource" Data..= resource),
+            Prelude.Just ("LFTags" Data..= lFTags)
           ]
       )
 
-instance Core.ToPath AddLFTagsToResource where
+instance Data.ToPath AddLFTagsToResource where
   toPath = Prelude.const "/AddLFTagsToResource"
 
-instance Core.ToQuery AddLFTagsToResource where
+instance Data.ToQuery AddLFTagsToResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddLFTagsToResourceResponse' smart constructor.

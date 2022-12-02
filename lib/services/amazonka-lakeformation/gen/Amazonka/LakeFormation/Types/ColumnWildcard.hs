@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.ColumnWildcard where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A wildcard object, consisting of an optional list of excluded column
@@ -54,14 +55,14 @@ newColumnWildcard =
 columnWildcard_excludedColumnNames :: Lens.Lens' ColumnWildcard (Prelude.Maybe [Prelude.Text])
 columnWildcard_excludedColumnNames = Lens.lens (\ColumnWildcard' {excludedColumnNames} -> excludedColumnNames) (\s@ColumnWildcard' {} a -> s {excludedColumnNames = a} :: ColumnWildcard) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ColumnWildcard where
+instance Data.FromJSON ColumnWildcard where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ColumnWildcard"
       ( \x ->
           ColumnWildcard'
-            Prelude.<$> ( x Core..:? "ExcludedColumnNames"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ExcludedColumnNames"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -73,11 +74,11 @@ instance Prelude.NFData ColumnWildcard where
   rnf ColumnWildcard' {..} =
     Prelude.rnf excludedColumnNames
 
-instance Core.ToJSON ColumnWildcard where
+instance Data.ToJSON ColumnWildcard where
   toJSON ColumnWildcard' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExcludedColumnNames" Core..=)
+          [ ("ExcludedColumnNames" Data..=)
               Prelude.<$> excludedColumnNames
           ]
       )

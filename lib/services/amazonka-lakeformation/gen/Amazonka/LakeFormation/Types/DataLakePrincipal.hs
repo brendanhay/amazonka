@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.DataLakePrincipal where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Lake Formation principal. Supported principals are IAM users or IAM
@@ -54,13 +55,13 @@ newDataLakePrincipal =
 dataLakePrincipal_dataLakePrincipalIdentifier :: Lens.Lens' DataLakePrincipal (Prelude.Maybe Prelude.Text)
 dataLakePrincipal_dataLakePrincipalIdentifier = Lens.lens (\DataLakePrincipal' {dataLakePrincipalIdentifier} -> dataLakePrincipalIdentifier) (\s@DataLakePrincipal' {} a -> s {dataLakePrincipalIdentifier = a} :: DataLakePrincipal)
 
-instance Core.FromJSON DataLakePrincipal where
+instance Data.FromJSON DataLakePrincipal where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataLakePrincipal"
       ( \x ->
           DataLakePrincipal'
-            Prelude.<$> (x Core..:? "DataLakePrincipalIdentifier")
+            Prelude.<$> (x Data..:? "DataLakePrincipalIdentifier")
       )
 
 instance Prelude.Hashable DataLakePrincipal where
@@ -72,11 +73,11 @@ instance Prelude.NFData DataLakePrincipal where
   rnf DataLakePrincipal' {..} =
     Prelude.rnf dataLakePrincipalIdentifier
 
-instance Core.ToJSON DataLakePrincipal where
+instance Data.ToJSON DataLakePrincipal where
   toJSON DataLakePrincipal' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataLakePrincipalIdentifier" Core..=)
+          [ ("DataLakePrincipalIdentifier" Data..=)
               Prelude.<$> dataLakePrincipalIdentifier
           ]
       )

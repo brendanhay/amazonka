@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -59,7 +60,7 @@ data GetWorkUnitResults = GetWorkUnitResults'
     workUnitId :: Prelude.Natural,
     -- | A work token used to query the execution service. Token output from
     -- @GetWorkUnits@.
-    workUnitToken :: Core.Sensitive Prelude.Text
+    workUnitToken :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -95,7 +96,7 @@ newGetWorkUnitResults
       { queryId = pQueryId_,
         workUnitId = pWorkUnitId_,
         workUnitToken =
-          Core._Sensitive Lens.# pWorkUnitToken_
+          Data._Sensitive Lens.# pWorkUnitToken_
       }
 
 -- | The ID of the plan query operation for which to get results.
@@ -111,7 +112,7 @@ getWorkUnitResults_workUnitId = Lens.lens (\GetWorkUnitResults' {workUnitId} -> 
 -- | A work token used to query the execution service. Token output from
 -- @GetWorkUnits@.
 getWorkUnitResults_workUnitToken :: Lens.Lens' GetWorkUnitResults Prelude.Text
-getWorkUnitResults_workUnitToken = Lens.lens (\GetWorkUnitResults' {workUnitToken} -> workUnitToken) (\s@GetWorkUnitResults' {} a -> s {workUnitToken = a} :: GetWorkUnitResults) Prelude.. Core._Sensitive
+getWorkUnitResults_workUnitToken = Lens.lens (\GetWorkUnitResults' {workUnitToken} -> workUnitToken) (\s@GetWorkUnitResults' {} a -> s {workUnitToken = a} :: GetWorkUnitResults) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest GetWorkUnitResults where
   type
@@ -139,32 +140,32 @@ instance Prelude.NFData GetWorkUnitResults where
       `Prelude.seq` Prelude.rnf workUnitId
       `Prelude.seq` Prelude.rnf workUnitToken
 
-instance Core.ToHeaders GetWorkUnitResults where
+instance Data.ToHeaders GetWorkUnitResults where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetWorkUnitResults where
+instance Data.ToJSON GetWorkUnitResults where
   toJSON GetWorkUnitResults' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("QueryId" Core..= queryId),
-            Prelude.Just ("WorkUnitId" Core..= workUnitId),
+          [ Prelude.Just ("QueryId" Data..= queryId),
+            Prelude.Just ("WorkUnitId" Data..= workUnitId),
             Prelude.Just
-              ("WorkUnitToken" Core..= workUnitToken)
+              ("WorkUnitToken" Data..= workUnitToken)
           ]
       )
 
-instance Core.ToPath GetWorkUnitResults where
+instance Data.ToPath GetWorkUnitResults where
   toPath = Prelude.const "/GetWorkUnitResults"
 
-instance Core.ToQuery GetWorkUnitResults where
+instance Data.ToQuery GetWorkUnitResults where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A structure for the output.
@@ -175,7 +176,7 @@ data GetWorkUnitResultsResponse = GetWorkUnitResultsResponse'
     httpStatus :: Prelude.Int,
     -- | Rows returned from the @GetWorkUnitResults@ operation as a stream of
     -- Apache Arrow v1.0 messages.
-    resultStream :: Core.ResponseBody
+    resultStream :: Data.ResponseBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -195,7 +196,7 @@ newGetWorkUnitResultsResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
   -- | 'resultStream'
-  Core.ResponseBody ->
+  Data.ResponseBody ->
   GetWorkUnitResultsResponse
 newGetWorkUnitResultsResponse
   pHttpStatus_
@@ -212,5 +213,5 @@ getWorkUnitResultsResponse_httpStatus = Lens.lens (\GetWorkUnitResultsResponse' 
 
 -- | Rows returned from the @GetWorkUnitResults@ operation as a stream of
 -- Apache Arrow v1.0 messages.
-getWorkUnitResultsResponse_resultStream :: Lens.Lens' GetWorkUnitResultsResponse Core.ResponseBody
+getWorkUnitResultsResponse_resultStream :: Lens.Lens' GetWorkUnitResultsResponse Data.ResponseBody
 getWorkUnitResultsResponse_resultStream = Lens.lens (\GetWorkUnitResultsResponse' {resultStream} -> resultStream) (\s@GetWorkUnitResultsResponse' {} a -> s {resultStream = a} :: GetWorkUnitResultsResponse)

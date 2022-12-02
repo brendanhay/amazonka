@@ -21,6 +21,7 @@ module Amazonka.MarketplaceCatalog.Types.ChangeSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MarketplaceCatalog.Types.Entity
 import Amazonka.MarketplaceCatalog.Types.ErrorDetail
 import qualified Amazonka.Prelude as Prelude
@@ -94,18 +95,18 @@ changeSummary_details = Lens.lens (\ChangeSummary' {details} -> details) (\s@Cha
 changeSummary_errorDetailList :: Lens.Lens' ChangeSummary (Prelude.Maybe [ErrorDetail])
 changeSummary_errorDetailList = Lens.lens (\ChangeSummary' {errorDetailList} -> errorDetailList) (\s@ChangeSummary' {} a -> s {errorDetailList = a} :: ChangeSummary) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ChangeSummary where
+instance Data.FromJSON ChangeSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChangeSummary"
       ( \x ->
           ChangeSummary'
-            Prelude.<$> (x Core..:? "Entity")
-            Prelude.<*> (x Core..:? "ChangeName")
-            Prelude.<*> (x Core..:? "ChangeType")
-            Prelude.<*> (x Core..:? "Details")
-            Prelude.<*> ( x Core..:? "ErrorDetailList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Entity")
+            Prelude.<*> (x Data..:? "ChangeName")
+            Prelude.<*> (x Data..:? "ChangeType")
+            Prelude.<*> (x Data..:? "Details")
+            Prelude.<*> ( x Data..:? "ErrorDetailList"
+                            Data..!= Prelude.mempty
                         )
       )
 

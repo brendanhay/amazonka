@@ -21,6 +21,7 @@ module Amazonka.MarketplaceCatalog.Types.Sort where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MarketplaceCatalog.Types.SortOrder
 import qualified Amazonka.Prelude as Prelude
 
@@ -87,11 +88,11 @@ instance Prelude.NFData Sort where
     Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf sortBy
 
-instance Core.ToJSON Sort where
+instance Data.ToJSON Sort where
   toJSON Sort' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("SortBy" Core..=) Prelude.<$> sortBy
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("SortBy" Data..=) Prelude.<$> sortBy
           ]
       )

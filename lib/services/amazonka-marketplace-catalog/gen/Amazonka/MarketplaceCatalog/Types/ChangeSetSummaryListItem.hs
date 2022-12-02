@@ -21,6 +21,7 @@ module Amazonka.MarketplaceCatalog.Types.ChangeSetSummaryListItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MarketplaceCatalog.Types.ChangeStatus
 import Amazonka.MarketplaceCatalog.Types.FailureCode
 import qualified Amazonka.Prelude as Prelude
@@ -146,20 +147,20 @@ changeSetSummaryListItem_entityIdList = Lens.lens (\ChangeSetSummaryListItem' {e
 changeSetSummaryListItem_startTime :: Lens.Lens' ChangeSetSummaryListItem (Prelude.Maybe Prelude.Text)
 changeSetSummaryListItem_startTime = Lens.lens (\ChangeSetSummaryListItem' {startTime} -> startTime) (\s@ChangeSetSummaryListItem' {} a -> s {startTime = a} :: ChangeSetSummaryListItem)
 
-instance Core.FromJSON ChangeSetSummaryListItem where
+instance Data.FromJSON ChangeSetSummaryListItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChangeSetSummaryListItem"
       ( \x ->
           ChangeSetSummaryListItem'
-            Prelude.<$> (x Core..:? "FailureCode")
-            Prelude.<*> (x Core..:? "ChangeSetId")
-            Prelude.<*> (x Core..:? "ChangeSetName")
-            Prelude.<*> (x Core..:? "ChangeSetArn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "EntityIdList" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<$> (x Data..:? "FailureCode")
+            Prelude.<*> (x Data..:? "ChangeSetId")
+            Prelude.<*> (x Data..:? "ChangeSetName")
+            Prelude.<*> (x Data..:? "ChangeSetArn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "EntityIdList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable ChangeSetSummaryListItem where

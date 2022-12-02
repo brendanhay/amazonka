@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MarketplaceCatalog.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,11 +105,11 @@ instance Core.AWSRequest DescribeEntity where
     Response.receiveJSON
       ( \s h x ->
           DescribeEntityResponse'
-            Prelude.<$> (x Core..?> "LastModifiedDate")
-            Prelude.<*> (x Core..?> "Details")
-            Prelude.<*> (x Core..?> "EntityType")
-            Prelude.<*> (x Core..?> "EntityIdentifier")
-            Prelude.<*> (x Core..?> "EntityArn")
+            Prelude.<$> (x Data..?> "LastModifiedDate")
+            Prelude.<*> (x Data..?> "Details")
+            Prelude.<*> (x Data..?> "EntityType")
+            Prelude.<*> (x Data..?> "EntityIdentifier")
+            Prelude.<*> (x Data..?> "EntityArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,25 +123,25 @@ instance Prelude.NFData DescribeEntity where
     Prelude.rnf catalog
       `Prelude.seq` Prelude.rnf entityId
 
-instance Core.ToHeaders DescribeEntity where
+instance Data.ToHeaders DescribeEntity where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeEntity where
+instance Data.ToPath DescribeEntity where
   toPath = Prelude.const "/DescribeEntity"
 
-instance Core.ToQuery DescribeEntity where
+instance Data.ToQuery DescribeEntity where
   toQuery DescribeEntity' {..} =
     Prelude.mconcat
-      [ "catalog" Core.=: catalog,
-        "entityId" Core.=: entityId
+      [ "catalog" Data.=: catalog,
+        "entityId" Data.=: entityId
       ]
 
 -- | /See:/ 'newDescribeEntityResponse' smart constructor.

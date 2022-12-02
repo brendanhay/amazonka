@@ -18,6 +18,7 @@ module Amazonka.MarketplaceCatalog.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MarketplaceCatalog.Lens
 import Amazonka.MarketplaceCatalog.Types
 import qualified Amazonka.Prelude as Prelude

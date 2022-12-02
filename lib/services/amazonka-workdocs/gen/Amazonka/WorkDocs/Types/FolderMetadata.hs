@@ -21,6 +21,7 @@ module Amazonka.WorkDocs.Types.FolderMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkDocs.Types.ResourceStateType
 
@@ -35,7 +36,7 @@ data FolderMetadata = FolderMetadata'
     -- | The ID of the parent folder.
     parentFolderId :: Prelude.Maybe Prelude.Text,
     -- | The time when the folder was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The size of the folder metadata.
     size :: Prelude.Maybe Prelude.Integer,
     -- | The ID of the folder.
@@ -50,7 +51,7 @@ data FolderMetadata = FolderMetadata'
     -- | The size of the latest version of the folder metadata.
     latestVersionSize :: Prelude.Maybe Prelude.Integer,
     -- | The time when the folder was updated.
-    modifiedTimestamp :: Prelude.Maybe Core.POSIX
+    modifiedTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -115,7 +116,7 @@ folderMetadata_parentFolderId = Lens.lens (\FolderMetadata' {parentFolderId} -> 
 
 -- | The time when the folder was created.
 folderMetadata_createdTimestamp :: Lens.Lens' FolderMetadata (Prelude.Maybe Prelude.UTCTime)
-folderMetadata_createdTimestamp = Lens.lens (\FolderMetadata' {createdTimestamp} -> createdTimestamp) (\s@FolderMetadata' {} a -> s {createdTimestamp = a} :: FolderMetadata) Prelude.. Lens.mapping Core._Time
+folderMetadata_createdTimestamp = Lens.lens (\FolderMetadata' {createdTimestamp} -> createdTimestamp) (\s@FolderMetadata' {} a -> s {createdTimestamp = a} :: FolderMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The size of the folder metadata.
 folderMetadata_size :: Lens.Lens' FolderMetadata (Prelude.Maybe Prelude.Integer)
@@ -144,25 +145,25 @@ folderMetadata_latestVersionSize = Lens.lens (\FolderMetadata' {latestVersionSiz
 
 -- | The time when the folder was updated.
 folderMetadata_modifiedTimestamp :: Lens.Lens' FolderMetadata (Prelude.Maybe Prelude.UTCTime)
-folderMetadata_modifiedTimestamp = Lens.lens (\FolderMetadata' {modifiedTimestamp} -> modifiedTimestamp) (\s@FolderMetadata' {} a -> s {modifiedTimestamp = a} :: FolderMetadata) Prelude.. Lens.mapping Core._Time
+folderMetadata_modifiedTimestamp = Lens.lens (\FolderMetadata' {modifiedTimestamp} -> modifiedTimestamp) (\s@FolderMetadata' {} a -> s {modifiedTimestamp = a} :: FolderMetadata) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON FolderMetadata where
+instance Data.FromJSON FolderMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FolderMetadata"
       ( \x ->
           FolderMetadata'
-            Prelude.<$> (x Core..:? "CreatorId")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ParentFolderId")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "Size")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Labels" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ResourceState")
-            Prelude.<*> (x Core..:? "Signature")
-            Prelude.<*> (x Core..:? "LatestVersionSize")
-            Prelude.<*> (x Core..:? "ModifiedTimestamp")
+            Prelude.<$> (x Data..:? "CreatorId")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ParentFolderId")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "Size")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Labels" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ResourceState")
+            Prelude.<*> (x Data..:? "Signature")
+            Prelude.<*> (x Data..:? "LatestVersionSize")
+            Prelude.<*> (x Data..:? "ModifiedTimestamp")
       )
 
 instance Prelude.Hashable FolderMetadata where

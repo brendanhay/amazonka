@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -140,8 +141,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeNotificationSubscriptionsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-              Prelude.<*> (x Core..?> "Subscriptions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Marker")
+              Prelude.<*> (x Data..?> "Subscriptions" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,37 +167,37 @@ instance
       `Prelude.seq` Prelude.rnf organizationId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeNotificationSubscriptions
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeNotificationSubscriptions
   where
   toPath DescribeNotificationSubscriptions' {..} =
     Prelude.mconcat
       [ "/api/v1/organizations/",
-        Core.toBS organizationId,
+        Data.toBS organizationId,
         "/subscriptions"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeNotificationSubscriptions
   where
   toQuery DescribeNotificationSubscriptions' {..} =
     Prelude.mconcat
-      ["marker" Core.=: marker, "limit" Core.=: limit]
+      ["marker" Data.=: marker, "limit" Data.=: limit]
 
 -- | /See:/ 'newDescribeNotificationSubscriptionsResponse' smart constructor.
 data DescribeNotificationSubscriptionsResponse = DescribeNotificationSubscriptionsResponse'

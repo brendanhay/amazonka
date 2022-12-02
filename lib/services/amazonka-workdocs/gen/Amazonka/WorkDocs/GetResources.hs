@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -60,7 +61,7 @@ data GetResources = GetResources'
     marker :: Prelude.Maybe Prelude.Text,
     -- | The Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The maximum number of resources to return.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | The user ID for the resource collection. This is a required field for
@@ -110,7 +111,7 @@ getResources_marker = Lens.lens (\GetResources' {marker} -> marker) (\s@GetResou
 -- | The Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 getResources_authenticationToken :: Lens.Lens' GetResources (Prelude.Maybe Prelude.Text)
-getResources_authenticationToken = Lens.lens (\GetResources' {authenticationToken} -> authenticationToken) (\s@GetResources' {} a -> s {authenticationToken = a} :: GetResources) Prelude.. Lens.mapping Core._Sensitive
+getResources_authenticationToken = Lens.lens (\GetResources' {authenticationToken} -> authenticationToken) (\s@GetResources' {} a -> s {authenticationToken = a} :: GetResources) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The maximum number of resources to return.
 getResources_limit :: Lens.Lens' GetResources (Prelude.Maybe Prelude.Natural)
@@ -133,9 +134,9 @@ instance Core.AWSRequest GetResources where
     Response.receiveJSON
       ( \s h x ->
           GetResourcesResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "Folders" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Documents" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "Folders" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Documents" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,24 +156,24 @@ instance Prelude.NFData GetResources where
       `Prelude.seq` Prelude.rnf userId
       `Prelude.seq` Prelude.rnf collectionType
 
-instance Core.ToHeaders GetResources where
+instance Data.ToHeaders GetResources where
   toHeaders GetResources' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath GetResources where
+instance Data.ToPath GetResources where
   toPath = Prelude.const "/api/v1/resources"
 
-instance Core.ToQuery GetResources where
+instance Data.ToQuery GetResources where
   toQuery GetResources' {..} =
     Prelude.mconcat
-      [ "marker" Core.=: marker,
-        "limit" Core.=: limit,
-        "userId" Core.=: userId,
-        "collectionType" Core.=: collectionType
+      [ "marker" Data.=: marker,
+        "limit" Data.=: limit,
+        "userId" Data.=: userId,
+        "collectionType" Data.=: collectionType
       ]
 
 -- | /See:/ 'newGetResourcesResponse' smart constructor.

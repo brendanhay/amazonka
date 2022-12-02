@@ -21,6 +21,7 @@ module Amazonka.WorkDocs.Types.UploadMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the upload.
@@ -30,7 +31,7 @@ data UploadMetadata = UploadMetadata'
   { -- | The signed headers.
     signedHeaders :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The URL of the upload.
-    uploadUrl :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    uploadUrl :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -59,16 +60,16 @@ uploadMetadata_signedHeaders = Lens.lens (\UploadMetadata' {signedHeaders} -> si
 
 -- | The URL of the upload.
 uploadMetadata_uploadUrl :: Lens.Lens' UploadMetadata (Prelude.Maybe Prelude.Text)
-uploadMetadata_uploadUrl = Lens.lens (\UploadMetadata' {uploadUrl} -> uploadUrl) (\s@UploadMetadata' {} a -> s {uploadUrl = a} :: UploadMetadata) Prelude.. Lens.mapping Core._Sensitive
+uploadMetadata_uploadUrl = Lens.lens (\UploadMetadata' {uploadUrl} -> uploadUrl) (\s@UploadMetadata' {} a -> s {uploadUrl = a} :: UploadMetadata) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON UploadMetadata where
+instance Data.FromJSON UploadMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UploadMetadata"
       ( \x ->
           UploadMetadata'
-            Prelude.<$> (x Core..:? "SignedHeaders" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "UploadUrl")
+            Prelude.<$> (x Data..:? "SignedHeaders" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "UploadUrl")
       )
 
 instance Prelude.Hashable UploadMetadata where

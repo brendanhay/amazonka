@@ -21,6 +21,7 @@ module Amazonka.WorkDocs.Types.StorageRuleType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkDocs.Types.StorageType
 
@@ -63,14 +64,14 @@ storageRuleType_storageAllocatedInBytes = Lens.lens (\StorageRuleType' {storageA
 storageRuleType_storageType :: Lens.Lens' StorageRuleType (Prelude.Maybe StorageType)
 storageRuleType_storageType = Lens.lens (\StorageRuleType' {storageType} -> storageType) (\s@StorageRuleType' {} a -> s {storageType = a} :: StorageRuleType)
 
-instance Core.FromJSON StorageRuleType where
+instance Data.FromJSON StorageRuleType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StorageRuleType"
       ( \x ->
           StorageRuleType'
-            Prelude.<$> (x Core..:? "StorageAllocatedInBytes")
-            Prelude.<*> (x Core..:? "StorageType")
+            Prelude.<$> (x Data..:? "StorageAllocatedInBytes")
+            Prelude.<*> (x Data..:? "StorageType")
       )
 
 instance Prelude.Hashable StorageRuleType where
@@ -84,12 +85,12 @@ instance Prelude.NFData StorageRuleType where
     Prelude.rnf storageAllocatedInBytes
       `Prelude.seq` Prelude.rnf storageType
 
-instance Core.ToJSON StorageRuleType where
+instance Data.ToJSON StorageRuleType where
   toJSON StorageRuleType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StorageAllocatedInBytes" Core..=)
+          [ ("StorageAllocatedInBytes" Data..=)
               Prelude.<$> storageAllocatedInBytes,
-            ("StorageType" Core..=) Prelude.<$> storageType
+            ("StorageType" Data..=) Prelude.<$> storageType
           ]
       )

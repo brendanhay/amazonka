@@ -21,6 +21,7 @@ module Amazonka.WorkDocs.Types.DocumentMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkDocs.Types.DocumentVersionMetadata
 import Amazonka.WorkDocs.Types.ResourceStateType
@@ -36,7 +37,7 @@ data DocumentMetadata = DocumentMetadata'
     -- | The latest version of the document.
     latestVersionMetadata :: Prelude.Maybe DocumentVersionMetadata,
     -- | The time when the document was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The ID of the document.
     id :: Prelude.Maybe Prelude.Text,
     -- | List of labels on the document.
@@ -44,7 +45,7 @@ data DocumentMetadata = DocumentMetadata'
     -- | The resource state.
     resourceState :: Prelude.Maybe ResourceStateType,
     -- | The time when the document was updated.
-    modifiedTimestamp :: Prelude.Maybe Core.POSIX
+    modifiedTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -99,7 +100,7 @@ documentMetadata_latestVersionMetadata = Lens.lens (\DocumentMetadata' {latestVe
 
 -- | The time when the document was created.
 documentMetadata_createdTimestamp :: Lens.Lens' DocumentMetadata (Prelude.Maybe Prelude.UTCTime)
-documentMetadata_createdTimestamp = Lens.lens (\DocumentMetadata' {createdTimestamp} -> createdTimestamp) (\s@DocumentMetadata' {} a -> s {createdTimestamp = a} :: DocumentMetadata) Prelude.. Lens.mapping Core._Time
+documentMetadata_createdTimestamp = Lens.lens (\DocumentMetadata' {createdTimestamp} -> createdTimestamp) (\s@DocumentMetadata' {} a -> s {createdTimestamp = a} :: DocumentMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the document.
 documentMetadata_id :: Lens.Lens' DocumentMetadata (Prelude.Maybe Prelude.Text)
@@ -115,22 +116,22 @@ documentMetadata_resourceState = Lens.lens (\DocumentMetadata' {resourceState} -
 
 -- | The time when the document was updated.
 documentMetadata_modifiedTimestamp :: Lens.Lens' DocumentMetadata (Prelude.Maybe Prelude.UTCTime)
-documentMetadata_modifiedTimestamp = Lens.lens (\DocumentMetadata' {modifiedTimestamp} -> modifiedTimestamp) (\s@DocumentMetadata' {} a -> s {modifiedTimestamp = a} :: DocumentMetadata) Prelude.. Lens.mapping Core._Time
+documentMetadata_modifiedTimestamp = Lens.lens (\DocumentMetadata' {modifiedTimestamp} -> modifiedTimestamp) (\s@DocumentMetadata' {} a -> s {modifiedTimestamp = a} :: DocumentMetadata) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON DocumentMetadata where
+instance Data.FromJSON DocumentMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentMetadata"
       ( \x ->
           DocumentMetadata'
-            Prelude.<$> (x Core..:? "CreatorId")
-            Prelude.<*> (x Core..:? "ParentFolderId")
-            Prelude.<*> (x Core..:? "LatestVersionMetadata")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Labels" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ResourceState")
-            Prelude.<*> (x Core..:? "ModifiedTimestamp")
+            Prelude.<$> (x Data..:? "CreatorId")
+            Prelude.<*> (x Data..:? "ParentFolderId")
+            Prelude.<*> (x Data..:? "LatestVersionMetadata")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Labels" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ResourceState")
+            Prelude.<*> (x Data..:? "ModifiedTimestamp")
       )
 
 instance Prelude.Hashable DocumentMetadata where

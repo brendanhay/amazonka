@@ -21,6 +21,7 @@ module Amazonka.WorkDocs.Types.Activity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkDocs.Types.ActivityType
 import Amazonka.WorkDocs.Types.CommentMetadata
@@ -40,7 +41,7 @@ data Activity = Activity'
     -- | The metadata of the resource involved in the user action.
     resourceMetadata :: Prelude.Maybe ResourceMetadata,
     -- | The timestamp when the action was performed.
-    timeStamp :: Prelude.Maybe Core.POSIX,
+    timeStamp :: Prelude.Maybe Data.POSIX,
     -- | Indicates whether an activity is indirect or direct. An indirect
     -- activity results from a direct activity performed on a parent resource.
     -- For example, sharing a parent folder (the direct activity) shares all of
@@ -126,7 +127,7 @@ activity_resourceMetadata = Lens.lens (\Activity' {resourceMetadata} -> resource
 
 -- | The timestamp when the action was performed.
 activity_timeStamp :: Lens.Lens' Activity (Prelude.Maybe Prelude.UTCTime)
-activity_timeStamp = Lens.lens (\Activity' {timeStamp} -> timeStamp) (\s@Activity' {} a -> s {timeStamp = a} :: Activity) Prelude.. Lens.mapping Core._Time
+activity_timeStamp = Lens.lens (\Activity' {timeStamp} -> timeStamp) (\s@Activity' {} a -> s {timeStamp = a} :: Activity) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates whether an activity is indirect or direct. An indirect
 -- activity results from a direct activity performed on a parent resource.
@@ -156,21 +157,21 @@ activity_initiator = Lens.lens (\Activity' {initiator} -> initiator) (\s@Activit
 activity_participants :: Lens.Lens' Activity (Prelude.Maybe Participants)
 activity_participants = Lens.lens (\Activity' {participants} -> participants) (\s@Activity' {} a -> s {participants = a} :: Activity)
 
-instance Core.FromJSON Activity where
+instance Data.FromJSON Activity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Activity"
       ( \x ->
           Activity'
-            Prelude.<$> (x Core..:? "CommentMetadata")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "ResourceMetadata")
-            Prelude.<*> (x Core..:? "TimeStamp")
-            Prelude.<*> (x Core..:? "IsIndirectActivity")
-            Prelude.<*> (x Core..:? "OrganizationId")
-            Prelude.<*> (x Core..:? "OriginalParent")
-            Prelude.<*> (x Core..:? "Initiator")
-            Prelude.<*> (x Core..:? "Participants")
+            Prelude.<$> (x Data..:? "CommentMetadata")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "ResourceMetadata")
+            Prelude.<*> (x Data..:? "TimeStamp")
+            Prelude.<*> (x Data..:? "IsIndirectActivity")
+            Prelude.<*> (x Data..:? "OrganizationId")
+            Prelude.<*> (x Data..:? "OriginalParent")
+            Prelude.<*> (x Data..:? "Initiator")
+            Prelude.<*> (x Data..:? "Participants")
       )
 
 instance Prelude.Hashable Activity where

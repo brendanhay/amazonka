@@ -21,6 +21,7 @@ module Amazonka.WorkDocs.Types.ResourceMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkDocs.Types.ResourceType
 import Amazonka.WorkDocs.Types.UserMetadata
@@ -111,19 +112,19 @@ resourceMetadata_id = Lens.lens (\ResourceMetadata' {id} -> id) (\s@ResourceMeta
 resourceMetadata_versionId :: Lens.Lens' ResourceMetadata (Prelude.Maybe Prelude.Text)
 resourceMetadata_versionId = Lens.lens (\ResourceMetadata' {versionId} -> versionId) (\s@ResourceMetadata' {} a -> s {versionId = a} :: ResourceMetadata)
 
-instance Core.FromJSON ResourceMetadata where
+instance Data.FromJSON ResourceMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceMetadata"
       ( \x ->
           ResourceMetadata'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "OriginalName")
-            Prelude.<*> (x Core..:? "ParentId")
-            Prelude.<*> (x Core..:? "Owner")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "VersionId")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "OriginalName")
+            Prelude.<*> (x Data..:? "ParentId")
+            Prelude.<*> (x Data..:? "Owner")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "VersionId")
       )
 
 instance Prelude.Hashable ResourceMetadata where

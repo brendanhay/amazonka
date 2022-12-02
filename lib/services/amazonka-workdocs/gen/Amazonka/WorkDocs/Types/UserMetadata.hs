@@ -21,6 +21,7 @@ module Amazonka.WorkDocs.Types.UserMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the metadata of the user.
@@ -36,7 +37,7 @@ data UserMetadata = UserMetadata'
     -- | The surname of the user.
     surname :: Prelude.Maybe Prelude.Text,
     -- | The email address of the user.
-    emailAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    emailAddress :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -86,19 +87,19 @@ userMetadata_surname = Lens.lens (\UserMetadata' {surname} -> surname) (\s@UserM
 
 -- | The email address of the user.
 userMetadata_emailAddress :: Lens.Lens' UserMetadata (Prelude.Maybe Prelude.Text)
-userMetadata_emailAddress = Lens.lens (\UserMetadata' {emailAddress} -> emailAddress) (\s@UserMetadata' {} a -> s {emailAddress = a} :: UserMetadata) Prelude.. Lens.mapping Core._Sensitive
+userMetadata_emailAddress = Lens.lens (\UserMetadata' {emailAddress} -> emailAddress) (\s@UserMetadata' {} a -> s {emailAddress = a} :: UserMetadata) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON UserMetadata where
+instance Data.FromJSON UserMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserMetadata"
       ( \x ->
           UserMetadata'
-            Prelude.<$> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "GivenName")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Surname")
-            Prelude.<*> (x Core..:? "EmailAddress")
+            Prelude.<$> (x Data..:? "Username")
+            Prelude.<*> (x Data..:? "GivenName")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Surname")
+            Prelude.<*> (x Data..:? "EmailAddress")
       )
 
 instance Prelude.Hashable UserMetadata where

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -56,7 +57,7 @@ data DeleteCustomMetadata = DeleteCustomMetadata'
     deleteAll :: Prelude.Maybe Prelude.Bool,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | List of properties to remove.
     keys :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the version, if the custom metadata is being deleted from a
@@ -108,7 +109,7 @@ deleteCustomMetadata_deleteAll = Lens.lens (\DeleteCustomMetadata' {deleteAll} -
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 deleteCustomMetadata_authenticationToken :: Lens.Lens' DeleteCustomMetadata (Prelude.Maybe Prelude.Text)
-deleteCustomMetadata_authenticationToken = Lens.lens (\DeleteCustomMetadata' {authenticationToken} -> authenticationToken) (\s@DeleteCustomMetadata' {} a -> s {authenticationToken = a} :: DeleteCustomMetadata) Prelude.. Lens.mapping Core._Sensitive
+deleteCustomMetadata_authenticationToken = Lens.lens (\DeleteCustomMetadata' {authenticationToken} -> authenticationToken) (\s@DeleteCustomMetadata' {} a -> s {authenticationToken = a} :: DeleteCustomMetadata) Prelude.. Lens.mapping Data._Sensitive
 
 -- | List of properties to remove.
 deleteCustomMetadata_keys :: Lens.Lens' DeleteCustomMetadata (Prelude.Maybe [Prelude.Text])
@@ -152,30 +153,30 @@ instance Prelude.NFData DeleteCustomMetadata where
       `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf resourceId
 
-instance Core.ToHeaders DeleteCustomMetadata where
+instance Data.ToHeaders DeleteCustomMetadata where
   toHeaders DeleteCustomMetadata' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath DeleteCustomMetadata where
+instance Data.ToPath DeleteCustomMetadata where
   toPath DeleteCustomMetadata' {..} =
     Prelude.mconcat
       [ "/api/v1/resources/",
-        Core.toBS resourceId,
+        Data.toBS resourceId,
         "/customMetadata"
       ]
 
-instance Core.ToQuery DeleteCustomMetadata where
+instance Data.ToQuery DeleteCustomMetadata where
   toQuery DeleteCustomMetadata' {..} =
     Prelude.mconcat
-      [ "deleteAll" Core.=: deleteAll,
+      [ "deleteAll" Data.=: deleteAll,
         "keys"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> keys),
-        "versionId" Core.=: versionId
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> keys),
+        "versionId" Data.=: versionId
       ]
 
 -- | /See:/ 'newDeleteCustomMetadataResponse' smart constructor.

@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -47,7 +48,7 @@ import Amazonka.WorkDocs.Types
 data DeleteFolderContents = DeleteFolderContents'
   { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the folder.
     folderId :: Prelude.Text
   }
@@ -79,7 +80,7 @@ newDeleteFolderContents pFolderId_ =
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 deleteFolderContents_authenticationToken :: Lens.Lens' DeleteFolderContents (Prelude.Maybe Prelude.Text)
-deleteFolderContents_authenticationToken = Lens.lens (\DeleteFolderContents' {authenticationToken} -> authenticationToken) (\s@DeleteFolderContents' {} a -> s {authenticationToken = a} :: DeleteFolderContents) Prelude.. Lens.mapping Core._Sensitive
+deleteFolderContents_authenticationToken = Lens.lens (\DeleteFolderContents' {authenticationToken} -> authenticationToken) (\s@DeleteFolderContents' {} a -> s {authenticationToken = a} :: DeleteFolderContents) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the folder.
 deleteFolderContents_folderId :: Lens.Lens' DeleteFolderContents Prelude.Text
@@ -104,20 +105,20 @@ instance Prelude.NFData DeleteFolderContents where
     Prelude.rnf authenticationToken
       `Prelude.seq` Prelude.rnf folderId
 
-instance Core.ToHeaders DeleteFolderContents where
+instance Data.ToHeaders DeleteFolderContents where
   toHeaders DeleteFolderContents' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath DeleteFolderContents where
+instance Data.ToPath DeleteFolderContents where
   toPath DeleteFolderContents' {..} =
     Prelude.mconcat
-      ["/api/v1/folders/", Core.toBS folderId, "/contents"]
+      ["/api/v1/folders/", Data.toBS folderId, "/contents"]
 
-instance Core.ToQuery DeleteFolderContents where
+instance Data.ToQuery DeleteFolderContents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFolderContentsResponse' smart constructor.

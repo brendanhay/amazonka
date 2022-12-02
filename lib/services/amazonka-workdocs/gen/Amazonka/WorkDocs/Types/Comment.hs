@@ -21,6 +21,7 @@ module Amazonka.WorkDocs.Types.Comment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkDocs.Types.CommentStatusType
 import Amazonka.WorkDocs.Types.CommentVisibilityType
@@ -31,7 +32,7 @@ import Amazonka.WorkDocs.Types.User
 -- /See:/ 'newComment' smart constructor.
 data Comment = Comment'
   { -- | The time that the comment was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The ID of the root comment in the thread.
     threadId :: Prelude.Maybe Prelude.Text,
     -- | The visibility of the comment. Options are either PRIVATE, where the
@@ -44,7 +45,7 @@ data Comment = Comment'
     -- | The status of the comment.
     status :: Prelude.Maybe CommentStatusType,
     -- | The text of the comment.
-    text :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    text :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The details of the user who made the comment.
     contributor :: Prelude.Maybe User,
     -- | If the comment is a reply to another user\'s comment, this field
@@ -103,7 +104,7 @@ newComment pCommentId_ =
 
 -- | The time that the comment was created.
 comment_createdTimestamp :: Lens.Lens' Comment (Prelude.Maybe Prelude.UTCTime)
-comment_createdTimestamp = Lens.lens (\Comment' {createdTimestamp} -> createdTimestamp) (\s@Comment' {} a -> s {createdTimestamp = a} :: Comment) Prelude.. Lens.mapping Core._Time
+comment_createdTimestamp = Lens.lens (\Comment' {createdTimestamp} -> createdTimestamp) (\s@Comment' {} a -> s {createdTimestamp = a} :: Comment) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the root comment in the thread.
 comment_threadId :: Lens.Lens' Comment (Prelude.Maybe Prelude.Text)
@@ -126,7 +127,7 @@ comment_status = Lens.lens (\Comment' {status} -> status) (\s@Comment' {} a -> s
 
 -- | The text of the comment.
 comment_text :: Lens.Lens' Comment (Prelude.Maybe Prelude.Text)
-comment_text = Lens.lens (\Comment' {text} -> text) (\s@Comment' {} a -> s {text = a} :: Comment) Prelude.. Lens.mapping Core._Sensitive
+comment_text = Lens.lens (\Comment' {text} -> text) (\s@Comment' {} a -> s {text = a} :: Comment) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The details of the user who made the comment.
 comment_contributor :: Lens.Lens' Comment (Prelude.Maybe User)
@@ -141,21 +142,21 @@ comment_recipientId = Lens.lens (\Comment' {recipientId} -> recipientId) (\s@Com
 comment_commentId :: Lens.Lens' Comment Prelude.Text
 comment_commentId = Lens.lens (\Comment' {commentId} -> commentId) (\s@Comment' {} a -> s {commentId = a} :: Comment)
 
-instance Core.FromJSON Comment where
+instance Data.FromJSON Comment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Comment"
       ( \x ->
           Comment'
-            Prelude.<$> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "ThreadId")
-            Prelude.<*> (x Core..:? "Visibility")
-            Prelude.<*> (x Core..:? "ParentId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Text")
-            Prelude.<*> (x Core..:? "Contributor")
-            Prelude.<*> (x Core..:? "RecipientId")
-            Prelude.<*> (x Core..: "CommentId")
+            Prelude.<$> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "ThreadId")
+            Prelude.<*> (x Data..:? "Visibility")
+            Prelude.<*> (x Data..:? "ParentId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Text")
+            Prelude.<*> (x Data..:? "Contributor")
+            Prelude.<*> (x Data..:? "RecipientId")
+            Prelude.<*> (x Data..: "CommentId")
       )
 
 instance Prelude.Hashable Comment where

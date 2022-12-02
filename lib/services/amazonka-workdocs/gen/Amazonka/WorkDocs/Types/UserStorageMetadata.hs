@@ -21,6 +21,7 @@ module Amazonka.WorkDocs.Types.UserStorageMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkDocs.Types.StorageRuleType
 
@@ -63,14 +64,14 @@ userStorageMetadata_storageUtilizedInBytes = Lens.lens (\UserStorageMetadata' {s
 userStorageMetadata_storageRule :: Lens.Lens' UserStorageMetadata (Prelude.Maybe StorageRuleType)
 userStorageMetadata_storageRule = Lens.lens (\UserStorageMetadata' {storageRule} -> storageRule) (\s@UserStorageMetadata' {} a -> s {storageRule = a} :: UserStorageMetadata)
 
-instance Core.FromJSON UserStorageMetadata where
+instance Data.FromJSON UserStorageMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserStorageMetadata"
       ( \x ->
           UserStorageMetadata'
-            Prelude.<$> (x Core..:? "StorageUtilizedInBytes")
-            Prelude.<*> (x Core..:? "StorageRule")
+            Prelude.<$> (x Data..:? "StorageUtilizedInBytes")
+            Prelude.<*> (x Data..:? "StorageRule")
       )
 
 instance Prelude.Hashable UserStorageMetadata where

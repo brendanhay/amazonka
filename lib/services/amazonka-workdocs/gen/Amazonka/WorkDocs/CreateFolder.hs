@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -54,7 +55,7 @@ data CreateFolder = CreateFolder'
     name :: Prelude.Maybe Prelude.Text,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the parent folder.
     parentFolderId :: Prelude.Text
   }
@@ -92,7 +93,7 @@ createFolder_name = Lens.lens (\CreateFolder' {name} -> name) (\s@CreateFolder' 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 createFolder_authenticationToken :: Lens.Lens' CreateFolder (Prelude.Maybe Prelude.Text)
-createFolder_authenticationToken = Lens.lens (\CreateFolder' {authenticationToken} -> authenticationToken) (\s@CreateFolder' {} a -> s {authenticationToken = a} :: CreateFolder) Prelude.. Lens.mapping Core._Sensitive
+createFolder_authenticationToken = Lens.lens (\CreateFolder' {authenticationToken} -> authenticationToken) (\s@CreateFolder' {} a -> s {authenticationToken = a} :: CreateFolder) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the parent folder.
 createFolder_parentFolderId :: Lens.Lens' CreateFolder Prelude.Text
@@ -106,7 +107,7 @@ instance Core.AWSRequest CreateFolder where
     Response.receiveJSON
       ( \s h x ->
           CreateFolderResponse'
-            Prelude.<$> (x Core..?> "Metadata")
+            Prelude.<$> (x Data..?> "Metadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,28 +123,28 @@ instance Prelude.NFData CreateFolder where
       `Prelude.seq` Prelude.rnf authenticationToken
       `Prelude.seq` Prelude.rnf parentFolderId
 
-instance Core.ToHeaders CreateFolder where
+instance Data.ToHeaders CreateFolder where
   toHeaders CreateFolder' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateFolder where
+instance Data.ToJSON CreateFolder where
   toJSON CreateFolder' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
+          [ ("Name" Data..=) Prelude.<$> name,
             Prelude.Just
-              ("ParentFolderId" Core..= parentFolderId)
+              ("ParentFolderId" Data..= parentFolderId)
           ]
       )
 
-instance Core.ToPath CreateFolder where
+instance Data.ToPath CreateFolder where
   toPath = Prelude.const "/api/v1/folders"
 
-instance Core.ToQuery CreateFolder where
+instance Data.ToQuery CreateFolder where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFolderResponse' smart constructor.

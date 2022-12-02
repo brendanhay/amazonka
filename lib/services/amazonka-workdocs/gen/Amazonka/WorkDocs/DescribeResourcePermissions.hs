@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -62,7 +63,7 @@ data DescribeResourcePermissions = DescribeResourcePermissions'
     marker :: Prelude.Maybe Prelude.Text,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The maximum number of items to return with this call.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the resource.
@@ -115,7 +116,7 @@ describeResourcePermissions_marker = Lens.lens (\DescribeResourcePermissions' {m
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 describeResourcePermissions_authenticationToken :: Lens.Lens' DescribeResourcePermissions (Prelude.Maybe Prelude.Text)
-describeResourcePermissions_authenticationToken = Lens.lens (\DescribeResourcePermissions' {authenticationToken} -> authenticationToken) (\s@DescribeResourcePermissions' {} a -> s {authenticationToken = a} :: DescribeResourcePermissions) Prelude.. Lens.mapping Core._Sensitive
+describeResourcePermissions_authenticationToken = Lens.lens (\DescribeResourcePermissions' {authenticationToken} -> authenticationToken) (\s@DescribeResourcePermissions' {} a -> s {authenticationToken = a} :: DescribeResourcePermissions) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The maximum number of items to return with this call.
 describeResourcePermissions_limit :: Lens.Lens' DescribeResourcePermissions (Prelude.Maybe Prelude.Natural)
@@ -157,8 +158,8 @@ instance Core.AWSRequest DescribeResourcePermissions where
     Response.receiveJSON
       ( \s h x ->
           DescribeResourcePermissionsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "Principals" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "Principals" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,28 +179,28 @@ instance Prelude.NFData DescribeResourcePermissions where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf resourceId
 
-instance Core.ToHeaders DescribeResourcePermissions where
+instance Data.ToHeaders DescribeResourcePermissions where
   toHeaders DescribeResourcePermissions' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath DescribeResourcePermissions where
+instance Data.ToPath DescribeResourcePermissions where
   toPath DescribeResourcePermissions' {..} =
     Prelude.mconcat
       [ "/api/v1/resources/",
-        Core.toBS resourceId,
+        Data.toBS resourceId,
         "/permissions"
       ]
 
-instance Core.ToQuery DescribeResourcePermissions where
+instance Data.ToQuery DescribeResourcePermissions where
   toQuery DescribeResourcePermissions' {..} =
     Prelude.mconcat
-      [ "principalId" Core.=: principalId,
-        "marker" Core.=: marker,
-        "limit" Core.=: limit
+      [ "principalId" Data.=: principalId,
+        "marker" Data.=: marker,
+        "limit" Data.=: limit
       ]
 
 -- | /See:/ 'newDescribeResourcePermissionsResponse' smart constructor.

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -50,7 +51,7 @@ import Amazonka.WorkDocs.Types
 data RemoveResourcePermission = RemoveResourcePermission'
   { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The principal type of the resource.
     principalType :: Prelude.Maybe PrincipalType,
     -- | The ID of the resource.
@@ -96,7 +97,7 @@ newRemoveResourcePermission
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 removeResourcePermission_authenticationToken :: Lens.Lens' RemoveResourcePermission (Prelude.Maybe Prelude.Text)
-removeResourcePermission_authenticationToken = Lens.lens (\RemoveResourcePermission' {authenticationToken} -> authenticationToken) (\s@RemoveResourcePermission' {} a -> s {authenticationToken = a} :: RemoveResourcePermission) Prelude.. Lens.mapping Core._Sensitive
+removeResourcePermission_authenticationToken = Lens.lens (\RemoveResourcePermission' {authenticationToken} -> authenticationToken) (\s@RemoveResourcePermission' {} a -> s {authenticationToken = a} :: RemoveResourcePermission) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The principal type of the resource.
 removeResourcePermission_principalType :: Lens.Lens' RemoveResourcePermission (Prelude.Maybe PrincipalType)
@@ -134,26 +135,26 @@ instance Prelude.NFData RemoveResourcePermission where
       `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf principalId
 
-instance Core.ToHeaders RemoveResourcePermission where
+instance Data.ToHeaders RemoveResourcePermission where
   toHeaders RemoveResourcePermission' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath RemoveResourcePermission where
+instance Data.ToPath RemoveResourcePermission where
   toPath RemoveResourcePermission' {..} =
     Prelude.mconcat
       [ "/api/v1/resources/",
-        Core.toBS resourceId,
+        Data.toBS resourceId,
         "/permissions/",
-        Core.toBS principalId
+        Data.toBS principalId
       ]
 
-instance Core.ToQuery RemoveResourcePermission where
+instance Data.ToQuery RemoveResourcePermission where
   toQuery RemoveResourcePermission' {..} =
-    Prelude.mconcat ["type" Core.=: principalType]
+    Prelude.mconcat ["type" Data.=: principalType]
 
 -- | /See:/ 'newRemoveResourcePermissionResponse' smart constructor.
 data RemoveResourcePermissionResponse = RemoveResourcePermissionResponse'

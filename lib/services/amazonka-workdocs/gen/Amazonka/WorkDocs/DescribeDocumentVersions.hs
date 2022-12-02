@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -63,7 +64,7 @@ data DescribeDocumentVersions = DescribeDocumentVersions'
     marker :: Prelude.Maybe Prelude.Text,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specify \"SOURCE\" to include initialized versions and a URL for the
     -- source document.
     fields :: Prelude.Maybe Prelude.Text,
@@ -122,7 +123,7 @@ describeDocumentVersions_marker = Lens.lens (\DescribeDocumentVersions' {marker}
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 describeDocumentVersions_authenticationToken :: Lens.Lens' DescribeDocumentVersions (Prelude.Maybe Prelude.Text)
-describeDocumentVersions_authenticationToken = Lens.lens (\DescribeDocumentVersions' {authenticationToken} -> authenticationToken) (\s@DescribeDocumentVersions' {} a -> s {authenticationToken = a} :: DescribeDocumentVersions) Prelude.. Lens.mapping Core._Sensitive
+describeDocumentVersions_authenticationToken = Lens.lens (\DescribeDocumentVersions' {authenticationToken} -> authenticationToken) (\s@DescribeDocumentVersions' {} a -> s {authenticationToken = a} :: DescribeDocumentVersions) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specify \"SOURCE\" to include initialized versions and a URL for the
 -- source document.
@@ -174,8 +175,8 @@ instance Core.AWSRequest DescribeDocumentVersions where
     Response.receiveJSON
       ( \s h x ->
           DescribeDocumentVersionsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> ( x Core..?> "DocumentVersions"
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> ( x Data..?> "DocumentVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -199,29 +200,29 @@ instance Prelude.NFData DescribeDocumentVersions where
       `Prelude.seq` Prelude.rnf include
       `Prelude.seq` Prelude.rnf documentId
 
-instance Core.ToHeaders DescribeDocumentVersions where
+instance Data.ToHeaders DescribeDocumentVersions where
   toHeaders DescribeDocumentVersions' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath DescribeDocumentVersions where
+instance Data.ToPath DescribeDocumentVersions where
   toPath DescribeDocumentVersions' {..} =
     Prelude.mconcat
       [ "/api/v1/documents/",
-        Core.toBS documentId,
+        Data.toBS documentId,
         "/versions"
       ]
 
-instance Core.ToQuery DescribeDocumentVersions where
+instance Data.ToQuery DescribeDocumentVersions where
   toQuery DescribeDocumentVersions' {..} =
     Prelude.mconcat
-      [ "marker" Core.=: marker,
-        "fields" Core.=: fields,
-        "limit" Core.=: limit,
-        "include" Core.=: include
+      [ "marker" Data.=: marker,
+        "fields" Data.=: fields,
+        "limit" Data.=: limit,
+        "include" Data.=: include
       ]
 
 -- | /See:/ 'newDescribeDocumentVersionsResponse' smart constructor.

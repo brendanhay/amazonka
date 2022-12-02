@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -71,7 +72,7 @@ data DescribeUsers = DescribeUsers'
     marker :: Prelude.Maybe Prelude.Text,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A comma-separated list of values. Specify \"STORAGE_METADATA\" to
     -- include the user storage quota and utilization information.
     fields :: Prelude.Maybe Prelude.Text,
@@ -97,7 +98,7 @@ data DescribeUsers = DescribeUsers'
     --     María García, and Mateo Jackson. If you use multiple characters, the
     --     API only returns data that matches all characters. For example,
     --     querying on @Ma J@ only returns Mateo Jackson.
-    query :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    query :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the organization.
     organizationId :: Prelude.Maybe Prelude.Text,
     -- | The order for the results.
@@ -180,7 +181,7 @@ describeUsers_marker = Lens.lens (\DescribeUsers' {marker} -> marker) (\s@Descri
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 describeUsers_authenticationToken :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Text)
-describeUsers_authenticationToken = Lens.lens (\DescribeUsers' {authenticationToken} -> authenticationToken) (\s@DescribeUsers' {} a -> s {authenticationToken = a} :: DescribeUsers) Prelude.. Lens.mapping Core._Sensitive
+describeUsers_authenticationToken = Lens.lens (\DescribeUsers' {authenticationToken} -> authenticationToken) (\s@DescribeUsers' {} a -> s {authenticationToken = a} :: DescribeUsers) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A comma-separated list of values. Specify \"STORAGE_METADATA\" to
 -- include the user storage quota and utilization information.
@@ -214,7 +215,7 @@ describeUsers_limit = Lens.lens (\DescribeUsers' {limit} -> limit) (\s@DescribeU
 --     API only returns data that matches all characters. For example,
 --     querying on @Ma J@ only returns Mateo Jackson.
 describeUsers_query :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Text)
-describeUsers_query = Lens.lens (\DescribeUsers' {query} -> query) (\s@DescribeUsers' {} a -> s {query = a} :: DescribeUsers) Prelude.. Lens.mapping Core._Sensitive
+describeUsers_query = Lens.lens (\DescribeUsers' {query} -> query) (\s@DescribeUsers' {} a -> s {query = a} :: DescribeUsers) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the organization.
 describeUsers_organizationId :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Text)
@@ -261,9 +262,9 @@ instance Core.AWSRequest DescribeUsers where
     Response.receiveJSON
       ( \s h x ->
           DescribeUsersResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "Users" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "TotalNumberOfUsers")
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "Users" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "TotalNumberOfUsers")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -293,29 +294,29 @@ instance Prelude.NFData DescribeUsers where
       `Prelude.seq` Prelude.rnf include
       `Prelude.seq` Prelude.rnf userIds
 
-instance Core.ToHeaders DescribeUsers where
+instance Data.ToHeaders DescribeUsers where
   toHeaders DescribeUsers' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath DescribeUsers where
+instance Data.ToPath DescribeUsers where
   toPath = Prelude.const "/api/v1/users"
 
-instance Core.ToQuery DescribeUsers where
+instance Data.ToQuery DescribeUsers where
   toQuery DescribeUsers' {..} =
     Prelude.mconcat
-      [ "marker" Core.=: marker,
-        "fields" Core.=: fields,
-        "sort" Core.=: sort,
-        "limit" Core.=: limit,
-        "query" Core.=: query,
-        "organizationId" Core.=: organizationId,
-        "order" Core.=: order,
-        "include" Core.=: include,
-        "userIds" Core.=: userIds
+      [ "marker" Data.=: marker,
+        "fields" Data.=: fields,
+        "sort" Data.=: sort,
+        "limit" Data.=: limit,
+        "query" Data.=: query,
+        "organizationId" Data.=: organizationId,
+        "order" Data.=: order,
+        "include" Data.=: include,
+        "userIds" Data.=: userIds
       ]
 
 -- | /See:/ 'newDescribeUsersResponse' smart constructor.

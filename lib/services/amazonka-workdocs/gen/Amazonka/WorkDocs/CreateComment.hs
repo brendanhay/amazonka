@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -69,13 +70,13 @@ data CreateComment = CreateComment'
     parentId :: Prelude.Maybe Prelude.Text,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the document.
     documentId :: Prelude.Text,
     -- | The ID of the document version.
     versionId :: Prelude.Text,
     -- | The text of the comment.
-    text :: Core.Sensitive Prelude.Text
+    text :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -124,7 +125,7 @@ newCreateComment pDocumentId_ pVersionId_ pText_ =
       authenticationToken = Prelude.Nothing,
       documentId = pDocumentId_,
       versionId = pVersionId_,
-      text = Core._Sensitive Lens.# pText_
+      text = Data._Sensitive Lens.# pText_
     }
 
 -- | The ID of the root comment in the thread.
@@ -150,7 +151,7 @@ createComment_parentId = Lens.lens (\CreateComment' {parentId} -> parentId) (\s@
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 createComment_authenticationToken :: Lens.Lens' CreateComment (Prelude.Maybe Prelude.Text)
-createComment_authenticationToken = Lens.lens (\CreateComment' {authenticationToken} -> authenticationToken) (\s@CreateComment' {} a -> s {authenticationToken = a} :: CreateComment) Prelude.. Lens.mapping Core._Sensitive
+createComment_authenticationToken = Lens.lens (\CreateComment' {authenticationToken} -> authenticationToken) (\s@CreateComment' {} a -> s {authenticationToken = a} :: CreateComment) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the document.
 createComment_documentId :: Lens.Lens' CreateComment Prelude.Text
@@ -162,7 +163,7 @@ createComment_versionId = Lens.lens (\CreateComment' {versionId} -> versionId) (
 
 -- | The text of the comment.
 createComment_text :: Lens.Lens' CreateComment Prelude.Text
-createComment_text = Lens.lens (\CreateComment' {text} -> text) (\s@CreateComment' {} a -> s {text = a} :: CreateComment) Prelude.. Core._Sensitive
+createComment_text = Lens.lens (\CreateComment' {text} -> text) (\s@CreateComment' {} a -> s {text = a} :: CreateComment) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest CreateComment where
   type
@@ -174,7 +175,7 @@ instance Core.AWSRequest CreateComment where
     Response.receiveJSON
       ( \s h x ->
           CreateCommentResponse'
-            Prelude.<$> (x Core..?> "Comment")
+            Prelude.<$> (x Data..?> "Comment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -200,38 +201,38 @@ instance Prelude.NFData CreateComment where
       `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf text
 
-instance Core.ToHeaders CreateComment where
+instance Data.ToHeaders CreateComment where
   toHeaders CreateComment' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateComment where
+instance Data.ToJSON CreateComment where
   toJSON CreateComment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ThreadId" Core..=) Prelude.<$> threadId,
-            ("NotifyCollaborators" Core..=)
+          [ ("ThreadId" Data..=) Prelude.<$> threadId,
+            ("NotifyCollaborators" Data..=)
               Prelude.<$> notifyCollaborators,
-            ("Visibility" Core..=) Prelude.<$> visibility,
-            ("ParentId" Core..=) Prelude.<$> parentId,
-            Prelude.Just ("Text" Core..= text)
+            ("Visibility" Data..=) Prelude.<$> visibility,
+            ("ParentId" Data..=) Prelude.<$> parentId,
+            Prelude.Just ("Text" Data..= text)
           ]
       )
 
-instance Core.ToPath CreateComment where
+instance Data.ToPath CreateComment where
   toPath CreateComment' {..} =
     Prelude.mconcat
       [ "/api/v1/documents/",
-        Core.toBS documentId,
+        Data.toBS documentId,
         "/versions/",
-        Core.toBS versionId,
+        Data.toBS versionId,
         "/comment"
       ]
 
-instance Core.ToQuery CreateComment where
+instance Data.ToQuery CreateComment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCommentResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.WorkDocs.Types.NotificationOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Set of options which defines notification preferences of given action.
@@ -31,7 +32,7 @@ data NotificationOptions = NotificationOptions'
     -- receipients.
     sendEmail :: Prelude.Maybe Prelude.Bool,
     -- | Text value to be included in the email body.
-    emailMessage :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    emailMessage :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -62,7 +63,7 @@ notificationOptions_sendEmail = Lens.lens (\NotificationOptions' {sendEmail} -> 
 
 -- | Text value to be included in the email body.
 notificationOptions_emailMessage :: Lens.Lens' NotificationOptions (Prelude.Maybe Prelude.Text)
-notificationOptions_emailMessage = Lens.lens (\NotificationOptions' {emailMessage} -> emailMessage) (\s@NotificationOptions' {} a -> s {emailMessage = a} :: NotificationOptions) Prelude.. Lens.mapping Core._Sensitive
+notificationOptions_emailMessage = Lens.lens (\NotificationOptions' {emailMessage} -> emailMessage) (\s@NotificationOptions' {} a -> s {emailMessage = a} :: NotificationOptions) Prelude.. Lens.mapping Data._Sensitive
 
 instance Prelude.Hashable NotificationOptions where
   hashWithSalt _salt NotificationOptions' {..} =
@@ -74,11 +75,11 @@ instance Prelude.NFData NotificationOptions where
     Prelude.rnf sendEmail
       `Prelude.seq` Prelude.rnf emailMessage
 
-instance Core.ToJSON NotificationOptions where
+instance Data.ToJSON NotificationOptions where
   toJSON NotificationOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SendEmail" Core..=) Prelude.<$> sendEmail,
-            ("EmailMessage" Core..=) Prelude.<$> emailMessage
+          [ ("SendEmail" Data..=) Prelude.<$> sendEmail,
+            ("EmailMessage" Data..=) Prelude.<$> emailMessage
           ]
       )

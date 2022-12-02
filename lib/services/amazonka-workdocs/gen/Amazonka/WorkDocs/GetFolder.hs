@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -55,7 +56,7 @@ data GetFolder = GetFolder'
     includeCustomMetadata :: Prelude.Maybe Prelude.Bool,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the folder.
     folderId :: Prelude.Text
   }
@@ -93,7 +94,7 @@ getFolder_includeCustomMetadata = Lens.lens (\GetFolder' {includeCustomMetadata}
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 getFolder_authenticationToken :: Lens.Lens' GetFolder (Prelude.Maybe Prelude.Text)
-getFolder_authenticationToken = Lens.lens (\GetFolder' {authenticationToken} -> authenticationToken) (\s@GetFolder' {} a -> s {authenticationToken = a} :: GetFolder) Prelude.. Lens.mapping Core._Sensitive
+getFolder_authenticationToken = Lens.lens (\GetFolder' {authenticationToken} -> authenticationToken) (\s@GetFolder' {} a -> s {authenticationToken = a} :: GetFolder) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the folder.
 getFolder_folderId :: Lens.Lens' GetFolder Prelude.Text
@@ -107,8 +108,8 @@ instance Core.AWSRequest GetFolder where
     Response.receiveJSON
       ( \s h x ->
           GetFolderResponse'
-            Prelude.<$> (x Core..?> "Metadata")
-            Prelude.<*> (x Core..?> "CustomMetadata" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Metadata")
+            Prelude.<*> (x Data..?> "CustomMetadata" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,24 +125,24 @@ instance Prelude.NFData GetFolder where
       `Prelude.seq` Prelude.rnf authenticationToken
       `Prelude.seq` Prelude.rnf folderId
 
-instance Core.ToHeaders GetFolder where
+instance Data.ToHeaders GetFolder where
   toHeaders GetFolder' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath GetFolder where
+instance Data.ToPath GetFolder where
   toPath GetFolder' {..} =
     Prelude.mconcat
-      ["/api/v1/folders/", Core.toBS folderId]
+      ["/api/v1/folders/", Data.toBS folderId]
 
-instance Core.ToQuery GetFolder where
+instance Data.ToQuery GetFolder where
   toQuery GetFolder' {..} =
     Prelude.mconcat
       [ "includeCustomMetadata"
-          Core.=: includeCustomMetadata
+          Data.=: includeCustomMetadata
       ]
 
 -- | /See:/ 'newGetFolderResponse' smart constructor.

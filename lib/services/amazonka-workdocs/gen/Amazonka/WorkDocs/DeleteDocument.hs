@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -47,7 +48,7 @@ import Amazonka.WorkDocs.Types
 data DeleteDocument = DeleteDocument'
   { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the document.
     documentId :: Prelude.Text
   }
@@ -79,7 +80,7 @@ newDeleteDocument pDocumentId_ =
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 deleteDocument_authenticationToken :: Lens.Lens' DeleteDocument (Prelude.Maybe Prelude.Text)
-deleteDocument_authenticationToken = Lens.lens (\DeleteDocument' {authenticationToken} -> authenticationToken) (\s@DeleteDocument' {} a -> s {authenticationToken = a} :: DeleteDocument) Prelude.. Lens.mapping Core._Sensitive
+deleteDocument_authenticationToken = Lens.lens (\DeleteDocument' {authenticationToken} -> authenticationToken) (\s@DeleteDocument' {} a -> s {authenticationToken = a} :: DeleteDocument) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the document.
 deleteDocument_documentId :: Lens.Lens' DeleteDocument Prelude.Text
@@ -104,20 +105,20 @@ instance Prelude.NFData DeleteDocument where
     Prelude.rnf authenticationToken
       `Prelude.seq` Prelude.rnf documentId
 
-instance Core.ToHeaders DeleteDocument where
+instance Data.ToHeaders DeleteDocument where
   toHeaders DeleteDocument' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath DeleteDocument where
+instance Data.ToPath DeleteDocument where
   toPath DeleteDocument' {..} =
     Prelude.mconcat
-      ["/api/v1/documents/", Core.toBS documentId]
+      ["/api/v1/documents/", Data.toBS documentId]
 
-instance Core.ToQuery DeleteDocument where
+instance Data.ToQuery DeleteDocument where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDocumentResponse' smart constructor.

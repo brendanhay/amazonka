@@ -21,6 +21,7 @@ module Amazonka.WorkDocs.Types.ShareResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkDocs.Types.RoleType
 import Amazonka.WorkDocs.Types.ShareStatusType
@@ -38,7 +39,7 @@ data ShareResult = ShareResult'
     -- | The role.
     role' :: Prelude.Maybe RoleType,
     -- | The status message.
-    statusMessage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    statusMessage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the invited user.
     inviteePrincipalId :: Prelude.Maybe Prelude.Text
   }
@@ -93,24 +94,24 @@ shareResult_role = Lens.lens (\ShareResult' {role'} -> role') (\s@ShareResult' {
 
 -- | The status message.
 shareResult_statusMessage :: Lens.Lens' ShareResult (Prelude.Maybe Prelude.Text)
-shareResult_statusMessage = Lens.lens (\ShareResult' {statusMessage} -> statusMessage) (\s@ShareResult' {} a -> s {statusMessage = a} :: ShareResult) Prelude.. Lens.mapping Core._Sensitive
+shareResult_statusMessage = Lens.lens (\ShareResult' {statusMessage} -> statusMessage) (\s@ShareResult' {} a -> s {statusMessage = a} :: ShareResult) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the invited user.
 shareResult_inviteePrincipalId :: Lens.Lens' ShareResult (Prelude.Maybe Prelude.Text)
 shareResult_inviteePrincipalId = Lens.lens (\ShareResult' {inviteePrincipalId} -> inviteePrincipalId) (\s@ShareResult' {} a -> s {inviteePrincipalId = a} :: ShareResult)
 
-instance Core.FromJSON ShareResult where
+instance Data.FromJSON ShareResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ShareResult"
       ( \x ->
           ShareResult'
-            Prelude.<$> (x Core..:? "PrincipalId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ShareId")
-            Prelude.<*> (x Core..:? "Role")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "InviteePrincipalId")
+            Prelude.<$> (x Data..:? "PrincipalId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ShareId")
+            Prelude.<*> (x Data..:? "Role")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..:? "InviteePrincipalId")
       )
 
 instance Prelude.Hashable ShareResult where

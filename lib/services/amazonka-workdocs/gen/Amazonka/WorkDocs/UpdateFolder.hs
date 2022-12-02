@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -55,7 +56,7 @@ data UpdateFolder = UpdateFolder'
     parentFolderId :: Prelude.Maybe Prelude.Text,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The resource state of the folder. Only ACTIVE and RECYCLED are accepted
     -- values from the API.
     resourceState :: Prelude.Maybe ResourceStateType,
@@ -107,7 +108,7 @@ updateFolder_parentFolderId = Lens.lens (\UpdateFolder' {parentFolderId} -> pare
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 updateFolder_authenticationToken :: Lens.Lens' UpdateFolder (Prelude.Maybe Prelude.Text)
-updateFolder_authenticationToken = Lens.lens (\UpdateFolder' {authenticationToken} -> authenticationToken) (\s@UpdateFolder' {} a -> s {authenticationToken = a} :: UpdateFolder) Prelude.. Lens.mapping Core._Sensitive
+updateFolder_authenticationToken = Lens.lens (\UpdateFolder' {authenticationToken} -> authenticationToken) (\s@UpdateFolder' {} a -> s {authenticationToken = a} :: UpdateFolder) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The resource state of the folder. Only ACTIVE and RECYCLED are accepted
 -- values from the API.
@@ -140,31 +141,31 @@ instance Prelude.NFData UpdateFolder where
       `Prelude.seq` Prelude.rnf resourceState
       `Prelude.seq` Prelude.rnf folderId
 
-instance Core.ToHeaders UpdateFolder where
+instance Data.ToHeaders UpdateFolder where
   toHeaders UpdateFolder' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON UpdateFolder where
+instance Data.ToJSON UpdateFolder where
   toJSON UpdateFolder' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("ParentFolderId" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("ParentFolderId" Data..=)
               Prelude.<$> parentFolderId,
-            ("ResourceState" Core..=) Prelude.<$> resourceState
+            ("ResourceState" Data..=) Prelude.<$> resourceState
           ]
       )
 
-instance Core.ToPath UpdateFolder where
+instance Data.ToPath UpdateFolder where
   toPath UpdateFolder' {..} =
     Prelude.mconcat
-      ["/api/v1/folders/", Core.toBS folderId]
+      ["/api/v1/folders/", Data.toBS folderId]
 
-instance Core.ToQuery UpdateFolder where
+instance Data.ToQuery UpdateFolder where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFolderResponse' smart constructor.

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -60,7 +61,7 @@ data DescribeComments = DescribeComments'
     marker :: Prelude.Maybe Prelude.Text,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The maximum number of items to return.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the document.
@@ -112,7 +113,7 @@ describeComments_marker = Lens.lens (\DescribeComments' {marker} -> marker) (\s@
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 describeComments_authenticationToken :: Lens.Lens' DescribeComments (Prelude.Maybe Prelude.Text)
-describeComments_authenticationToken = Lens.lens (\DescribeComments' {authenticationToken} -> authenticationToken) (\s@DescribeComments' {} a -> s {authenticationToken = a} :: DescribeComments) Prelude.. Lens.mapping Core._Sensitive
+describeComments_authenticationToken = Lens.lens (\DescribeComments' {authenticationToken} -> authenticationToken) (\s@DescribeComments' {} a -> s {authenticationToken = a} :: DescribeComments) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The maximum number of items to return.
 describeComments_limit :: Lens.Lens' DescribeComments (Prelude.Maybe Prelude.Natural)
@@ -156,8 +157,8 @@ instance Core.AWSRequest DescribeComments where
     Response.receiveJSON
       ( \s h x ->
           DescribeCommentsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "Comments" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "Comments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,28 +178,28 @@ instance Prelude.NFData DescribeComments where
       `Prelude.seq` Prelude.rnf documentId
       `Prelude.seq` Prelude.rnf versionId
 
-instance Core.ToHeaders DescribeComments where
+instance Data.ToHeaders DescribeComments where
   toHeaders DescribeComments' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath DescribeComments where
+instance Data.ToPath DescribeComments where
   toPath DescribeComments' {..} =
     Prelude.mconcat
       [ "/api/v1/documents/",
-        Core.toBS documentId,
+        Data.toBS documentId,
         "/versions/",
-        Core.toBS versionId,
+        Data.toBS versionId,
         "/comments"
       ]
 
-instance Core.ToQuery DescribeComments where
+instance Data.ToQuery DescribeComments where
   toQuery DescribeComments' {..} =
     Prelude.mconcat
-      ["marker" Core.=: marker, "limit" Core.=: limit]
+      ["marker" Data.=: marker, "limit" Data.=: limit]
 
 -- | /See:/ 'newDescribeCommentsResponse' smart constructor.
 data DescribeCommentsResponse = DescribeCommentsResponse'

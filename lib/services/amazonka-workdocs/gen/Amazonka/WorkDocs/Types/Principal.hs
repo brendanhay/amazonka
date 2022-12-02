@@ -21,6 +21,7 @@ module Amazonka.WorkDocs.Types.Principal where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkDocs.Types.PermissionInfo
 import Amazonka.WorkDocs.Types.PrincipalType
@@ -72,15 +73,15 @@ principal_id = Lens.lens (\Principal' {id} -> id) (\s@Principal' {} a -> s {id =
 principal_roles :: Lens.Lens' Principal (Prelude.Maybe [PermissionInfo])
 principal_roles = Lens.lens (\Principal' {roles} -> roles) (\s@Principal' {} a -> s {roles = a} :: Principal) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Principal where
+instance Data.FromJSON Principal where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Principal"
       ( \x ->
           Principal'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Roles" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Roles" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Principal where

@@ -21,6 +21,7 @@ module Amazonka.WorkDocs.Types.Subscription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkDocs.Types.SubscriptionProtocolType
 
@@ -71,15 +72,15 @@ subscription_protocol = Lens.lens (\Subscription' {protocol} -> protocol) (\s@Su
 subscription_endPoint :: Lens.Lens' Subscription (Prelude.Maybe Prelude.Text)
 subscription_endPoint = Lens.lens (\Subscription' {endPoint} -> endPoint) (\s@Subscription' {} a -> s {endPoint = a} :: Subscription)
 
-instance Core.FromJSON Subscription where
+instance Data.FromJSON Subscription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Subscription"
       ( \x ->
           Subscription'
-            Prelude.<$> (x Core..:? "SubscriptionId")
-            Prelude.<*> (x Core..:? "Protocol")
-            Prelude.<*> (x Core..:? "EndPoint")
+            Prelude.<$> (x Data..:? "SubscriptionId")
+            Prelude.<*> (x Data..:? "Protocol")
+            Prelude.<*> (x Data..:? "EndPoint")
       )
 
 instance Prelude.Hashable Subscription where

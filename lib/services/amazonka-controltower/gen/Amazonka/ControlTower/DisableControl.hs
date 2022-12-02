@@ -46,6 +46,7 @@ where
 import Amazonka.ControlTower.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,7 +111,7 @@ instance Core.AWSRequest DisableControl where
       ( \s h x ->
           DisableControlResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "operationIdentifier")
+            Prelude.<*> (x Data..:> "operationIdentifier")
       )
 
 instance Prelude.Hashable DisableControl where
@@ -123,32 +124,32 @@ instance Prelude.NFData DisableControl where
     Prelude.rnf controlIdentifier
       `Prelude.seq` Prelude.rnf targetIdentifier
 
-instance Core.ToHeaders DisableControl where
+instance Data.ToHeaders DisableControl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisableControl where
+instance Data.ToJSON DisableControl where
   toJSON DisableControl' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("controlIdentifier" Core..= controlIdentifier),
+              ("controlIdentifier" Data..= controlIdentifier),
             Prelude.Just
-              ("targetIdentifier" Core..= targetIdentifier)
+              ("targetIdentifier" Data..= targetIdentifier)
           ]
       )
 
-instance Core.ToPath DisableControl where
+instance Data.ToPath DisableControl where
   toPath = Prelude.const "/disable-control"
 
-instance Core.ToQuery DisableControl where
+instance Data.ToQuery DisableControl where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisableControlResponse' smart constructor.

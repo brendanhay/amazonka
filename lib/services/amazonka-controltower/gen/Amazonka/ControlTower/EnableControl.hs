@@ -46,6 +46,7 @@ where
 import Amazonka.ControlTower.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,7 +111,7 @@ instance Core.AWSRequest EnableControl where
       ( \s h x ->
           EnableControlResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "operationIdentifier")
+            Prelude.<*> (x Data..:> "operationIdentifier")
       )
 
 instance Prelude.Hashable EnableControl where
@@ -123,32 +124,32 @@ instance Prelude.NFData EnableControl where
     Prelude.rnf controlIdentifier
       `Prelude.seq` Prelude.rnf targetIdentifier
 
-instance Core.ToHeaders EnableControl where
+instance Data.ToHeaders EnableControl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON EnableControl where
+instance Data.ToJSON EnableControl where
   toJSON EnableControl' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("controlIdentifier" Core..= controlIdentifier),
+              ("controlIdentifier" Data..= controlIdentifier),
             Prelude.Just
-              ("targetIdentifier" Core..= targetIdentifier)
+              ("targetIdentifier" Data..= targetIdentifier)
           ]
       )
 
-instance Core.ToPath EnableControl where
+instance Data.ToPath EnableControl where
   toPath = Prelude.const "/enable-control"
 
-instance Core.ToQuery EnableControl where
+instance Data.ToQuery EnableControl where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEnableControlResponse' smart constructor.

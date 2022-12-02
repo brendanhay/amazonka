@@ -44,6 +44,7 @@ where
 import Amazonka.ControlTower.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,7 +93,7 @@ instance Core.AWSRequest GetControlOperation where
       ( \s h x ->
           GetControlOperationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "controlOperation")
+            Prelude.<*> (x Data..:> "controlOperation")
       )
 
 instance Prelude.Hashable GetControlOperation where
@@ -103,30 +104,30 @@ instance Prelude.NFData GetControlOperation where
   rnf GetControlOperation' {..} =
     Prelude.rnf operationIdentifier
 
-instance Core.ToHeaders GetControlOperation where
+instance Data.ToHeaders GetControlOperation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetControlOperation where
+instance Data.ToJSON GetControlOperation where
   toJSON GetControlOperation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("operationIdentifier" Core..= operationIdentifier)
+              ("operationIdentifier" Data..= operationIdentifier)
           ]
       )
 
-instance Core.ToPath GetControlOperation where
+instance Data.ToPath GetControlOperation where
   toPath = Prelude.const "/get-control-operation"
 
-instance Core.ToQuery GetControlOperation where
+instance Data.ToQuery GetControlOperation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetControlOperationResponse' smart constructor.

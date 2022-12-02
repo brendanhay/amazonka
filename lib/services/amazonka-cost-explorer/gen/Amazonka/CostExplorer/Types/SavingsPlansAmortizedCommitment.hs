@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.SavingsPlansAmortizedCommitment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The amortized amount of Savings Plans purchased in a specific account
@@ -83,17 +84,17 @@ savingsPlansAmortizedCommitment_amortizedRecurringCommitment :: Lens.Lens' Savin
 savingsPlansAmortizedCommitment_amortizedRecurringCommitment = Lens.lens (\SavingsPlansAmortizedCommitment' {amortizedRecurringCommitment} -> amortizedRecurringCommitment) (\s@SavingsPlansAmortizedCommitment' {} a -> s {amortizedRecurringCommitment = a} :: SavingsPlansAmortizedCommitment)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SavingsPlansAmortizedCommitment
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SavingsPlansAmortizedCommitment"
       ( \x ->
           SavingsPlansAmortizedCommitment'
-            Prelude.<$> (x Core..:? "AmortizedUpfrontCommitment")
-            Prelude.<*> (x Core..:? "TotalAmortizedCommitment")
-            Prelude.<*> (x Core..:? "AmortizedRecurringCommitment")
+            Prelude.<$> (x Data..:? "AmortizedUpfrontCommitment")
+            Prelude.<*> (x Data..:? "TotalAmortizedCommitment")
+            Prelude.<*> (x Data..:? "AmortizedRecurringCommitment")
       )
 
 instance

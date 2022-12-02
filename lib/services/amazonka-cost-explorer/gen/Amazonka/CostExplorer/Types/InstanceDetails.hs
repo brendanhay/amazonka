@@ -26,6 +26,7 @@ import Amazonka.CostExplorer.Types.ESInstanceDetails
 import Amazonka.CostExplorer.Types.ElastiCacheInstanceDetails
 import Amazonka.CostExplorer.Types.RDSInstanceDetails
 import Amazonka.CostExplorer.Types.RedshiftInstanceDetails
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the instances that Amazon Web Services recommends that you
@@ -110,17 +111,17 @@ instanceDetails_redshiftInstanceDetails = Lens.lens (\InstanceDetails' {redshift
 instanceDetails_eSInstanceDetails :: Lens.Lens' InstanceDetails (Prelude.Maybe ESInstanceDetails)
 instanceDetails_eSInstanceDetails = Lens.lens (\InstanceDetails' {eSInstanceDetails} -> eSInstanceDetails) (\s@InstanceDetails' {} a -> s {eSInstanceDetails = a} :: InstanceDetails)
 
-instance Core.FromJSON InstanceDetails where
+instance Data.FromJSON InstanceDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceDetails"
       ( \x ->
           InstanceDetails'
-            Prelude.<$> (x Core..:? "EC2InstanceDetails")
-            Prelude.<*> (x Core..:? "ElastiCacheInstanceDetails")
-            Prelude.<*> (x Core..:? "RDSInstanceDetails")
-            Prelude.<*> (x Core..:? "RedshiftInstanceDetails")
-            Prelude.<*> (x Core..:? "ESInstanceDetails")
+            Prelude.<$> (x Data..:? "EC2InstanceDetails")
+            Prelude.<*> (x Data..:? "ElastiCacheInstanceDetails")
+            Prelude.<*> (x Data..:? "RDSInstanceDetails")
+            Prelude.<*> (x Data..:? "RedshiftInstanceDetails")
+            Prelude.<*> (x Data..:? "ESInstanceDetails")
       )
 
 instance Prelude.Hashable InstanceDetails where

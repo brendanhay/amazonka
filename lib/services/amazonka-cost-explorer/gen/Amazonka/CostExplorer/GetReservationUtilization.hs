@@ -54,6 +54,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -398,10 +399,10 @@ instance Core.AWSRequest GetReservationUtilization where
     Response.receiveJSON
       ( \s h x ->
           GetReservationUtilizationResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-            Prelude.<*> (x Core..?> "Total")
+            Prelude.<$> (x Data..?> "NextPageToken")
+            Prelude.<*> (x Data..?> "Total")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "UtilizationsByTime"
+            Prelude.<*> ( x Data..?> "UtilizationsByTime"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -426,39 +427,39 @@ instance Prelude.NFData GetReservationUtilization where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf timePeriod
 
-instance Core.ToHeaders GetReservationUtilization where
+instance Data.ToHeaders GetReservationUtilization where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSInsightsIndexService.GetReservationUtilization" ::
+              Data.=# ( "AWSInsightsIndexService.GetReservationUtilization" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetReservationUtilization where
+instance Data.ToJSON GetReservationUtilization where
   toJSON GetReservationUtilization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
-            ("Granularity" Core..=) Prelude.<$> granularity,
-            ("GroupBy" Core..=) Prelude.<$> groupBy,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("Filter" Core..=) Prelude.<$> filter',
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("TimePeriod" Core..= timePeriod)
+          [ ("NextPageToken" Data..=) Prelude.<$> nextPageToken,
+            ("Granularity" Data..=) Prelude.<$> granularity,
+            ("GroupBy" Data..=) Prelude.<$> groupBy,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("TimePeriod" Data..= timePeriod)
           ]
       )
 
-instance Core.ToPath GetReservationUtilization where
+instance Data.ToPath GetReservationUtilization where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetReservationUtilization where
+instance Data.ToQuery GetReservationUtilization where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetReservationUtilizationResponse' smart constructor.

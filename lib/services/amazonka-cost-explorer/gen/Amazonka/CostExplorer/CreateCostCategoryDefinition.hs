@@ -49,6 +49,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -241,8 +242,8 @@ instance Core.AWSRequest CreateCostCategoryDefinition where
     Response.receiveJSON
       ( \s h x ->
           CreateCostCategoryDefinitionResponse'
-            Prelude.<$> (x Core..?> "EffectiveStart")
-            Prelude.<*> (x Core..?> "CostCategoryArn")
+            Prelude.<$> (x Data..?> "EffectiveStart")
+            Prelude.<*> (x Data..?> "CostCategoryArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -269,41 +270,41 @@ instance Prelude.NFData CreateCostCategoryDefinition where
       `Prelude.seq` Prelude.rnf ruleVersion
       `Prelude.seq` Prelude.rnf rules
 
-instance Core.ToHeaders CreateCostCategoryDefinition where
+instance Data.ToHeaders CreateCostCategoryDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSInsightsIndexService.CreateCostCategoryDefinition" ::
+              Data.=# ( "AWSInsightsIndexService.CreateCostCategoryDefinition" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCostCategoryDefinition where
+instance Data.ToJSON CreateCostCategoryDefinition where
   toJSON CreateCostCategoryDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SplitChargeRules" Core..=)
+          [ ("SplitChargeRules" Data..=)
               Prelude.<$> splitChargeRules,
-            ("DefaultValue" Core..=) Prelude.<$> defaultValue,
-            ("ResourceTags" Core..=) Prelude.<$> resourceTags,
-            ("EffectiveStart" Core..=)
+            ("DefaultValue" Data..=) Prelude.<$> defaultValue,
+            ("ResourceTags" Data..=) Prelude.<$> resourceTags,
+            ("EffectiveStart" Data..=)
               Prelude.<$> effectiveStart,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("RuleVersion" Core..= ruleVersion),
-            Prelude.Just ("Rules" Core..= rules)
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("RuleVersion" Data..= ruleVersion),
+            Prelude.Just ("Rules" Data..= rules)
           ]
       )
 
-instance Core.ToPath CreateCostCategoryDefinition where
+instance Data.ToPath CreateCostCategoryDefinition where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCostCategoryDefinition where
+instance Data.ToQuery CreateCostCategoryDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCostCategoryDefinitionResponse' smart constructor.

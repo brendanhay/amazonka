@@ -25,6 +25,7 @@ import Amazonka.CostExplorer.Types.AnomalyFeedbackType
 import Amazonka.CostExplorer.Types.AnomalyScore
 import Amazonka.CostExplorer.Types.Impact
 import Amazonka.CostExplorer.Types.RootCause
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An unusual cost pattern. This consists of the detailed metadata and the
@@ -147,21 +148,21 @@ anomaly_impact = Lens.lens (\Anomaly' {impact} -> impact) (\s@Anomaly' {} a -> s
 anomaly_monitorArn :: Lens.Lens' Anomaly Prelude.Text
 anomaly_monitorArn = Lens.lens (\Anomaly' {monitorArn} -> monitorArn) (\s@Anomaly' {} a -> s {monitorArn = a} :: Anomaly)
 
-instance Core.FromJSON Anomaly where
+instance Data.FromJSON Anomaly where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Anomaly"
       ( \x ->
           Anomaly'
-            Prelude.<$> (x Core..:? "DimensionValue")
-            Prelude.<*> (x Core..:? "AnomalyEndDate")
-            Prelude.<*> (x Core..:? "Feedback")
-            Prelude.<*> (x Core..:? "AnomalyStartDate")
-            Prelude.<*> (x Core..:? "RootCauses" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "AnomalyId")
-            Prelude.<*> (x Core..: "AnomalyScore")
-            Prelude.<*> (x Core..: "Impact")
-            Prelude.<*> (x Core..: "MonitorArn")
+            Prelude.<$> (x Data..:? "DimensionValue")
+            Prelude.<*> (x Data..:? "AnomalyEndDate")
+            Prelude.<*> (x Data..:? "Feedback")
+            Prelude.<*> (x Data..:? "AnomalyStartDate")
+            Prelude.<*> (x Data..:? "RootCauses" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "AnomalyId")
+            Prelude.<*> (x Data..: "AnomalyScore")
+            Prelude.<*> (x Data..: "Impact")
+            Prelude.<*> (x Data..: "MonitorArn")
       )
 
 instance Prelude.Hashable Anomaly where

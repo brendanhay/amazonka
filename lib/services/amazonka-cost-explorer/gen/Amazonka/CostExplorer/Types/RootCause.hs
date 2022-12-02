@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.RootCause where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The combination of Amazon Web Service, linked account, Region, and usage
@@ -80,16 +81,16 @@ rootCause_region = Lens.lens (\RootCause' {region} -> region) (\s@RootCause' {} 
 rootCause_linkedAccount :: Lens.Lens' RootCause (Prelude.Maybe Prelude.Text)
 rootCause_linkedAccount = Lens.lens (\RootCause' {linkedAccount} -> linkedAccount) (\s@RootCause' {} a -> s {linkedAccount = a} :: RootCause)
 
-instance Core.FromJSON RootCause where
+instance Data.FromJSON RootCause where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RootCause"
       ( \x ->
           RootCause'
-            Prelude.<$> (x Core..:? "UsageType")
-            Prelude.<*> (x Core..:? "Service")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "LinkedAccount")
+            Prelude.<$> (x Data..:? "UsageType")
+            Prelude.<*> (x Data..:? "Service")
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "LinkedAccount")
       )
 
 instance Prelude.Hashable RootCause where

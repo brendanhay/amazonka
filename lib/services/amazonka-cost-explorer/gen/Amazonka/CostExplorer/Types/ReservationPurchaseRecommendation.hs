@@ -28,6 +28,7 @@ import Amazonka.CostExplorer.Types.ReservationPurchaseRecommendationDetail
 import Amazonka.CostExplorer.Types.ReservationPurchaseRecommendationSummary
 import Amazonka.CostExplorer.Types.ServiceSpecification
 import Amazonka.CostExplorer.Types.TermInYears
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A specific reservation that Amazon Web Services recommends for purchase.
@@ -130,23 +131,23 @@ reservationPurchaseRecommendation_accountScope :: Lens.Lens' ReservationPurchase
 reservationPurchaseRecommendation_accountScope = Lens.lens (\ReservationPurchaseRecommendation' {accountScope} -> accountScope) (\s@ReservationPurchaseRecommendation' {} a -> s {accountScope = a} :: ReservationPurchaseRecommendation)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ReservationPurchaseRecommendation
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReservationPurchaseRecommendation"
       ( \x ->
           ReservationPurchaseRecommendation'
-            Prelude.<$> (x Core..:? "RecommendationSummary")
-            Prelude.<*> (x Core..:? "ServiceSpecification")
-            Prelude.<*> (x Core..:? "LookbackPeriodInDays")
-            Prelude.<*> (x Core..:? "TermInYears")
-            Prelude.<*> ( x Core..:? "RecommendationDetails"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "RecommendationSummary")
+            Prelude.<*> (x Data..:? "ServiceSpecification")
+            Prelude.<*> (x Data..:? "LookbackPeriodInDays")
+            Prelude.<*> (x Data..:? "TermInYears")
+            Prelude.<*> ( x Data..:? "RecommendationDetails"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "PaymentOption")
-            Prelude.<*> (x Core..:? "AccountScope")
+            Prelude.<*> (x Data..:? "PaymentOption")
+            Prelude.<*> (x Data..:? "AccountScope")
       )
 
 instance

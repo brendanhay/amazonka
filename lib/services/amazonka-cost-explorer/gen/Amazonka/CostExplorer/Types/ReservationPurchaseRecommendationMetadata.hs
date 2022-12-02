@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.ReservationPurchaseRecommendationMetadata whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about this specific recommendation, such as the timestamp
@@ -65,16 +66,16 @@ reservationPurchaseRecommendationMetadata_generationTimestamp :: Lens.Lens' Rese
 reservationPurchaseRecommendationMetadata_generationTimestamp = Lens.lens (\ReservationPurchaseRecommendationMetadata' {generationTimestamp} -> generationTimestamp) (\s@ReservationPurchaseRecommendationMetadata' {} a -> s {generationTimestamp = a} :: ReservationPurchaseRecommendationMetadata)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ReservationPurchaseRecommendationMetadata
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReservationPurchaseRecommendationMetadata"
       ( \x ->
           ReservationPurchaseRecommendationMetadata'
-            Prelude.<$> (x Core..:? "RecommendationId")
-              Prelude.<*> (x Core..:? "GenerationTimestamp")
+            Prelude.<$> (x Data..:? "RecommendationId")
+              Prelude.<*> (x Data..:? "GenerationTimestamp")
       )
 
 instance

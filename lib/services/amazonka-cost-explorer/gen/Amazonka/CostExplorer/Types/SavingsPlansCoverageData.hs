@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.SavingsPlansCoverageData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specific coverage percentage, On-Demand costs, and spend covered by
@@ -93,16 +94,16 @@ savingsPlansCoverageData_totalCost = Lens.lens (\SavingsPlansCoverageData' {tota
 savingsPlansCoverageData_onDemandCost :: Lens.Lens' SavingsPlansCoverageData (Prelude.Maybe Prelude.Text)
 savingsPlansCoverageData_onDemandCost = Lens.lens (\SavingsPlansCoverageData' {onDemandCost} -> onDemandCost) (\s@SavingsPlansCoverageData' {} a -> s {onDemandCost = a} :: SavingsPlansCoverageData)
 
-instance Core.FromJSON SavingsPlansCoverageData where
+instance Data.FromJSON SavingsPlansCoverageData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SavingsPlansCoverageData"
       ( \x ->
           SavingsPlansCoverageData'
-            Prelude.<$> (x Core..:? "SpendCoveredBySavingsPlans")
-            Prelude.<*> (x Core..:? "CoveragePercentage")
-            Prelude.<*> (x Core..:? "TotalCost")
-            Prelude.<*> (x Core..:? "OnDemandCost")
+            Prelude.<$> (x Data..:? "SpendCoveredBySavingsPlans")
+            Prelude.<*> (x Data..:? "CoveragePercentage")
+            Prelude.<*> (x Data..:? "TotalCost")
+            Prelude.<*> (x Data..:? "OnDemandCost")
       )
 
 instance Prelude.Hashable SavingsPlansCoverageData where

@@ -22,6 +22,7 @@ module Amazonka.CostExplorer.Types.TagValues where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.MatchOption
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The values that are available for a tag.
@@ -84,15 +85,15 @@ tagValues_matchOptions = Lens.lens (\TagValues' {matchOptions} -> matchOptions) 
 tagValues_values :: Lens.Lens' TagValues (Prelude.Maybe [Prelude.Text])
 tagValues_values = Lens.lens (\TagValues' {values} -> values) (\s@TagValues' {} a -> s {values = a} :: TagValues) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TagValues where
+instance Data.FromJSON TagValues where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TagValues"
       ( \x ->
           TagValues'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "MatchOptions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "MatchOptions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TagValues where
@@ -107,12 +108,12 @@ instance Prelude.NFData TagValues where
       `Prelude.seq` Prelude.rnf matchOptions
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON TagValues where
+instance Data.ToJSON TagValues where
   toJSON TagValues' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("MatchOptions" Core..=) Prelude.<$> matchOptions,
-            ("Values" Core..=) Prelude.<$> values
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("MatchOptions" Data..=) Prelude.<$> matchOptions,
+            ("Values" Data..=) Prelude.<$> values
           ]
       )

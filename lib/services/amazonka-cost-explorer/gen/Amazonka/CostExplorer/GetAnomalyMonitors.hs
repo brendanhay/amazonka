@@ -47,6 +47,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -113,9 +114,9 @@ instance Core.AWSRequest GetAnomalyMonitors where
     Response.receiveJSON
       ( \s h x ->
           GetAnomalyMonitorsResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
+            Prelude.<$> (x Data..?> "NextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "AnomalyMonitors"
+            Prelude.<*> ( x Data..?> "AnomalyMonitors"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -132,36 +133,36 @@ instance Prelude.NFData GetAnomalyMonitors where
       `Prelude.seq` Prelude.rnf monitorArnList
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders GetAnomalyMonitors where
+instance Data.ToHeaders GetAnomalyMonitors where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSInsightsIndexService.GetAnomalyMonitors" ::
+              Data.=# ( "AWSInsightsIndexService.GetAnomalyMonitors" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAnomalyMonitors where
+instance Data.ToJSON GetAnomalyMonitors where
   toJSON GetAnomalyMonitors' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
-            ("MonitorArnList" Core..=)
+          [ ("NextPageToken" Data..=) Prelude.<$> nextPageToken,
+            ("MonitorArnList" Data..=)
               Prelude.<$> monitorArnList,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath GetAnomalyMonitors where
+instance Data.ToPath GetAnomalyMonitors where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAnomalyMonitors where
+instance Data.ToQuery GetAnomalyMonitors where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAnomalyMonitorsResponse' smart constructor.

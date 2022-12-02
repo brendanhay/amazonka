@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.CostCategoryStatus
 import Amazonka.CostExplorer.Types.CostCategoryStatusComponent
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The list of processing statuses for Cost Management products for a
@@ -65,14 +66,14 @@ costCategoryProcessingStatus_status = Lens.lens (\CostCategoryProcessingStatus' 
 costCategoryProcessingStatus_component :: Lens.Lens' CostCategoryProcessingStatus (Prelude.Maybe CostCategoryStatusComponent)
 costCategoryProcessingStatus_component = Lens.lens (\CostCategoryProcessingStatus' {component} -> component) (\s@CostCategoryProcessingStatus' {} a -> s {component = a} :: CostCategoryProcessingStatus)
 
-instance Core.FromJSON CostCategoryProcessingStatus where
+instance Data.FromJSON CostCategoryProcessingStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CostCategoryProcessingStatus"
       ( \x ->
           CostCategoryProcessingStatus'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Component")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Component")
       )
 
 instance

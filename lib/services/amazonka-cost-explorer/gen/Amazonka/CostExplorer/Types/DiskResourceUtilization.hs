@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.DiskResourceUtilization where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The field that contains a list of disk (local storage) metrics that are
@@ -81,16 +82,16 @@ diskResourceUtilization_diskWriteOpsPerSecond = Lens.lens (\DiskResourceUtilizat
 diskResourceUtilization_diskReadBytesPerSecond :: Lens.Lens' DiskResourceUtilization (Prelude.Maybe Prelude.Text)
 diskResourceUtilization_diskReadBytesPerSecond = Lens.lens (\DiskResourceUtilization' {diskReadBytesPerSecond} -> diskReadBytesPerSecond) (\s@DiskResourceUtilization' {} a -> s {diskReadBytesPerSecond = a} :: DiskResourceUtilization)
 
-instance Core.FromJSON DiskResourceUtilization where
+instance Data.FromJSON DiskResourceUtilization where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DiskResourceUtilization"
       ( \x ->
           DiskResourceUtilization'
-            Prelude.<$> (x Core..:? "DiskReadOpsPerSecond")
-            Prelude.<*> (x Core..:? "DiskWriteBytesPerSecond")
-            Prelude.<*> (x Core..:? "DiskWriteOpsPerSecond")
-            Prelude.<*> (x Core..:? "DiskReadBytesPerSecond")
+            Prelude.<$> (x Data..:? "DiskReadOpsPerSecond")
+            Prelude.<*> (x Data..:? "DiskWriteBytesPerSecond")
+            Prelude.<*> (x Data..:? "DiskWriteOpsPerSecond")
+            Prelude.<*> (x Data..:? "DiskReadBytesPerSecond")
       )
 
 instance Prelude.Hashable DiskResourceUtilization where

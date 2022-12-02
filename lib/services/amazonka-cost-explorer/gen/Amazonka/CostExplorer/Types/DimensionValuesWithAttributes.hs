@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.DimensionValuesWithAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata of a specific type that you can use to filter and group
@@ -63,14 +64,14 @@ dimensionValuesWithAttributes_attributes = Lens.lens (\DimensionValuesWithAttrib
 dimensionValuesWithAttributes_value :: Lens.Lens' DimensionValuesWithAttributes (Prelude.Maybe Prelude.Text)
 dimensionValuesWithAttributes_value = Lens.lens (\DimensionValuesWithAttributes' {value} -> value) (\s@DimensionValuesWithAttributes' {} a -> s {value = a} :: DimensionValuesWithAttributes)
 
-instance Core.FromJSON DimensionValuesWithAttributes where
+instance Data.FromJSON DimensionValuesWithAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DimensionValuesWithAttributes"
       ( \x ->
           DimensionValuesWithAttributes'
-            Prelude.<$> (x Core..:? "Attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance

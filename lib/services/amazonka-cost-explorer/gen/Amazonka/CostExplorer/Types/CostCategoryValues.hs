@@ -22,6 +22,7 @@ module Amazonka.CostExplorer.Types.CostCategoryValues where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.MatchOption
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Cost Categories values used for filtering the costs.
@@ -84,15 +85,15 @@ costCategoryValues_matchOptions = Lens.lens (\CostCategoryValues' {matchOptions}
 costCategoryValues_values :: Lens.Lens' CostCategoryValues (Prelude.Maybe [Prelude.Text])
 costCategoryValues_values = Lens.lens (\CostCategoryValues' {values} -> values) (\s@CostCategoryValues' {} a -> s {values = a} :: CostCategoryValues) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CostCategoryValues where
+instance Data.FromJSON CostCategoryValues where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CostCategoryValues"
       ( \x ->
           CostCategoryValues'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "MatchOptions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "MatchOptions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable CostCategoryValues where
@@ -107,12 +108,12 @@ instance Prelude.NFData CostCategoryValues where
       `Prelude.seq` Prelude.rnf matchOptions
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON CostCategoryValues where
+instance Data.ToJSON CostCategoryValues where
   toJSON CostCategoryValues' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("MatchOptions" Core..=) Prelude.<$> matchOptions,
-            ("Values" Core..=) Prelude.<$> values
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("MatchOptions" Data..=) Prelude.<$> matchOptions,
+            ("Values" Data..=) Prelude.<$> values
           ]
       )

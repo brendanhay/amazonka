@@ -48,6 +48,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,8 +150,8 @@ instance Core.AWSRequest ListCostAllocationTags where
     Response.receiveJSON
       ( \s h x ->
           ListCostAllocationTagsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "CostAllocationTags"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "CostAllocationTags"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -172,37 +173,37 @@ instance Prelude.NFData ListCostAllocationTags where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListCostAllocationTags where
+instance Data.ToHeaders ListCostAllocationTags where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSInsightsIndexService.ListCostAllocationTags" ::
+              Data.=# ( "AWSInsightsIndexService.ListCostAllocationTags" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListCostAllocationTags where
+instance Data.ToJSON ListCostAllocationTags where
   toJSON ListCostAllocationTags' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TagKeys" Core..=) Prelude.<$> tagKeys,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Type" Core..=) Prelude.<$> type',
-            ("Status" Core..=) Prelude.<$> status,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("TagKeys" Data..=) Prelude.<$> tagKeys,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Type" Data..=) Prelude.<$> type',
+            ("Status" Data..=) Prelude.<$> status,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListCostAllocationTags where
+instance Data.ToPath ListCostAllocationTags where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListCostAllocationTags where
+instance Data.ToQuery ListCostAllocationTags where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCostAllocationTagsResponse' smart constructor.

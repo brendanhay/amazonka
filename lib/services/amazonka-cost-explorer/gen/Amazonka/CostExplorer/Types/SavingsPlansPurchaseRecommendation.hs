@@ -28,6 +28,7 @@ import Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendationDetail
 import Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendationSummary
 import Amazonka.CostExplorer.Types.SupportedSavingsPlansType
 import Amazonka.CostExplorer.Types.TermInYears
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains your request parameters, Savings Plan Recommendations Summary,
@@ -136,26 +137,26 @@ savingsPlansPurchaseRecommendation_accountScope :: Lens.Lens' SavingsPlansPurcha
 savingsPlansPurchaseRecommendation_accountScope = Lens.lens (\SavingsPlansPurchaseRecommendation' {accountScope} -> accountScope) (\s@SavingsPlansPurchaseRecommendation' {} a -> s {accountScope = a} :: SavingsPlansPurchaseRecommendation)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SavingsPlansPurchaseRecommendation
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SavingsPlansPurchaseRecommendation"
       ( \x ->
           SavingsPlansPurchaseRecommendation'
-            Prelude.<$> (x Core..:? "SavingsPlansType")
+            Prelude.<$> (x Data..:? "SavingsPlansType")
             Prelude.<*> ( x
-                            Core..:? "SavingsPlansPurchaseRecommendationDetails"
-                            Core..!= Prelude.mempty
+                            Data..:? "SavingsPlansPurchaseRecommendationDetails"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LookbackPeriodInDays")
+            Prelude.<*> (x Data..:? "LookbackPeriodInDays")
             Prelude.<*> ( x
-                            Core..:? "SavingsPlansPurchaseRecommendationSummary"
+                            Data..:? "SavingsPlansPurchaseRecommendationSummary"
                         )
-            Prelude.<*> (x Core..:? "TermInYears")
-            Prelude.<*> (x Core..:? "PaymentOption")
-            Prelude.<*> (x Core..:? "AccountScope")
+            Prelude.<*> (x Data..:? "TermInYears")
+            Prelude.<*> (x Data..:? "PaymentOption")
+            Prelude.<*> (x Data..:? "AccountScope")
       )
 
 instance

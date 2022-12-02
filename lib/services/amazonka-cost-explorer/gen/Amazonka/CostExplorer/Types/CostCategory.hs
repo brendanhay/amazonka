@@ -25,6 +25,7 @@ import Amazonka.CostExplorer.Types.CostCategoryProcessingStatus
 import Amazonka.CostExplorer.Types.CostCategoryRule
 import Amazonka.CostExplorer.Types.CostCategoryRuleVersion
 import Amazonka.CostExplorer.Types.CostCategorySplitChargeRule
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The structure of Cost Categories. This includes detailed metadata and
@@ -153,23 +154,23 @@ costCategory_ruleVersion = Lens.lens (\CostCategory' {ruleVersion} -> ruleVersio
 costCategory_rules :: Lens.Lens' CostCategory (Prelude.NonEmpty CostCategoryRule)
 costCategory_rules = Lens.lens (\CostCategory' {rules} -> rules) (\s@CostCategory' {} a -> s {rules = a} :: CostCategory) Prelude.. Lens.coerced
 
-instance Core.FromJSON CostCategory where
+instance Data.FromJSON CostCategory where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CostCategory"
       ( \x ->
           CostCategory'
-            Prelude.<$> (x Core..:? "SplitChargeRules")
-            Prelude.<*> (x Core..:? "EffectiveEnd")
-            Prelude.<*> (x Core..:? "DefaultValue")
-            Prelude.<*> ( x Core..:? "ProcessingStatus"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "SplitChargeRules")
+            Prelude.<*> (x Data..:? "EffectiveEnd")
+            Prelude.<*> (x Data..:? "DefaultValue")
+            Prelude.<*> ( x Data..:? "ProcessingStatus"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "CostCategoryArn")
-            Prelude.<*> (x Core..: "EffectiveStart")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "RuleVersion")
-            Prelude.<*> (x Core..: "Rules")
+            Prelude.<*> (x Data..: "CostCategoryArn")
+            Prelude.<*> (x Data..: "EffectiveStart")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "RuleVersion")
+            Prelude.<*> (x Data..: "Rules")
       )
 
 instance Prelude.Hashable CostCategory where

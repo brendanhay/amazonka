@@ -66,6 +66,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -314,9 +315,9 @@ instance Core.AWSRequest GetSavingsPlansCoverage where
     Response.receiveJSON
       ( \s h x ->
           GetSavingsPlansCoverageResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "SavingsPlansCoverages"
+            Prelude.<*> ( x Data..?> "SavingsPlansCoverages"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -343,40 +344,40 @@ instance Prelude.NFData GetSavingsPlansCoverage where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf timePeriod
 
-instance Core.ToHeaders GetSavingsPlansCoverage where
+instance Data.ToHeaders GetSavingsPlansCoverage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSInsightsIndexService.GetSavingsPlansCoverage" ::
+              Data.=# ( "AWSInsightsIndexService.GetSavingsPlansCoverage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetSavingsPlansCoverage where
+instance Data.ToJSON GetSavingsPlansCoverage where
   toJSON GetSavingsPlansCoverage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Granularity" Core..=) Prelude.<$> granularity,
-            ("GroupBy" Core..=) Prelude.<$> groupBy,
-            ("Metrics" Core..=) Prelude.<$> metrics,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("Filter" Core..=) Prelude.<$> filter',
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("TimePeriod" Core..= timePeriod)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Granularity" Data..=) Prelude.<$> granularity,
+            ("GroupBy" Data..=) Prelude.<$> groupBy,
+            ("Metrics" Data..=) Prelude.<$> metrics,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("TimePeriod" Data..= timePeriod)
           ]
       )
 
-instance Core.ToPath GetSavingsPlansCoverage where
+instance Data.ToPath GetSavingsPlansCoverage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetSavingsPlansCoverage where
+instance Data.ToQuery GetSavingsPlansCoverage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSavingsPlansCoverageResponse' smart constructor.

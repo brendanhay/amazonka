@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.CostAllocationTagStatus
 import Amazonka.CostExplorer.Types.CostAllocationTagType
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The cost allocation tag structure. This includes detailed metadata for
@@ -91,15 +92,15 @@ costAllocationTag_type = Lens.lens (\CostAllocationTag' {type'} -> type') (\s@Co
 costAllocationTag_status :: Lens.Lens' CostAllocationTag CostAllocationTagStatus
 costAllocationTag_status = Lens.lens (\CostAllocationTag' {status} -> status) (\s@CostAllocationTag' {} a -> s {status = a} :: CostAllocationTag)
 
-instance Core.FromJSON CostAllocationTag where
+instance Data.FromJSON CostAllocationTag where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CostAllocationTag"
       ( \x ->
           CostAllocationTag'
-            Prelude.<$> (x Core..: "TagKey")
-            Prelude.<*> (x Core..: "Type")
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..: "TagKey")
+            Prelude.<*> (x Data..: "Type")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance Prelude.Hashable CostAllocationTag where

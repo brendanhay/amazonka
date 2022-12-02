@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.CoverageNormalizedUnits where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The amount of instance usage, in normalized units. You can use
@@ -99,16 +100,16 @@ coverageNormalizedUnits_coverageNormalizedUnitsPercentage = Lens.lens (\Coverage
 coverageNormalizedUnits_onDemandNormalizedUnits :: Lens.Lens' CoverageNormalizedUnits (Prelude.Maybe Prelude.Text)
 coverageNormalizedUnits_onDemandNormalizedUnits = Lens.lens (\CoverageNormalizedUnits' {onDemandNormalizedUnits} -> onDemandNormalizedUnits) (\s@CoverageNormalizedUnits' {} a -> s {onDemandNormalizedUnits = a} :: CoverageNormalizedUnits)
 
-instance Core.FromJSON CoverageNormalizedUnits where
+instance Data.FromJSON CoverageNormalizedUnits where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CoverageNormalizedUnits"
       ( \x ->
           CoverageNormalizedUnits'
-            Prelude.<$> (x Core..:? "TotalRunningNormalizedUnits")
-            Prelude.<*> (x Core..:? "ReservedNormalizedUnits")
-            Prelude.<*> (x Core..:? "CoverageNormalizedUnitsPercentage")
-            Prelude.<*> (x Core..:? "OnDemandNormalizedUnits")
+            Prelude.<$> (x Data..:? "TotalRunningNormalizedUnits")
+            Prelude.<*> (x Data..:? "ReservedNormalizedUnits")
+            Prelude.<*> (x Data..:? "CoverageNormalizedUnitsPercentage")
+            Prelude.<*> (x Data..:? "OnDemandNormalizedUnits")
       )
 
 instance Prelude.Hashable CoverageNormalizedUnits where

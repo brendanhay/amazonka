@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.SavingsPlansUtilization where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The measurement of how well you\'re using your existing Savings Plans.
@@ -92,16 +93,16 @@ savingsPlansUtilization_usedCommitment = Lens.lens (\SavingsPlansUtilization' {u
 savingsPlansUtilization_utilizationPercentage :: Lens.Lens' SavingsPlansUtilization (Prelude.Maybe Prelude.Text)
 savingsPlansUtilization_utilizationPercentage = Lens.lens (\SavingsPlansUtilization' {utilizationPercentage} -> utilizationPercentage) (\s@SavingsPlansUtilization' {} a -> s {utilizationPercentage = a} :: SavingsPlansUtilization)
 
-instance Core.FromJSON SavingsPlansUtilization where
+instance Data.FromJSON SavingsPlansUtilization where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SavingsPlansUtilization"
       ( \x ->
           SavingsPlansUtilization'
-            Prelude.<$> (x Core..:? "TotalCommitment")
-            Prelude.<*> (x Core..:? "UnusedCommitment")
-            Prelude.<*> (x Core..:? "UsedCommitment")
-            Prelude.<*> (x Core..:? "UtilizationPercentage")
+            Prelude.<$> (x Data..:? "TotalCommitment")
+            Prelude.<*> (x Data..:? "UnusedCommitment")
+            Prelude.<*> (x Data..:? "UsedCommitment")
+            Prelude.<*> (x Data..:? "UtilizationPercentage")
       )
 
 instance Prelude.Hashable SavingsPlansUtilization where

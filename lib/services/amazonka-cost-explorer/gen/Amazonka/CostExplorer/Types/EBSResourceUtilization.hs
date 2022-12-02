@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.EBSResourceUtilization where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The EBS field that contains a list of EBS metrics that are associated
@@ -81,16 +82,16 @@ eBSResourceUtilization_ebsReadOpsPerSecond = Lens.lens (\EBSResourceUtilization'
 eBSResourceUtilization_ebsWriteBytesPerSecond :: Lens.Lens' EBSResourceUtilization (Prelude.Maybe Prelude.Text)
 eBSResourceUtilization_ebsWriteBytesPerSecond = Lens.lens (\EBSResourceUtilization' {ebsWriteBytesPerSecond} -> ebsWriteBytesPerSecond) (\s@EBSResourceUtilization' {} a -> s {ebsWriteBytesPerSecond = a} :: EBSResourceUtilization)
 
-instance Core.FromJSON EBSResourceUtilization where
+instance Data.FromJSON EBSResourceUtilization where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EBSResourceUtilization"
       ( \x ->
           EBSResourceUtilization'
-            Prelude.<$> (x Core..:? "EbsWriteOpsPerSecond")
-            Prelude.<*> (x Core..:? "EbsReadBytesPerSecond")
-            Prelude.<*> (x Core..:? "EbsReadOpsPerSecond")
-            Prelude.<*> (x Core..:? "EbsWriteBytesPerSecond")
+            Prelude.<$> (x Data..:? "EbsWriteOpsPerSecond")
+            Prelude.<*> (x Data..:? "EbsReadBytesPerSecond")
+            Prelude.<*> (x Data..:? "EbsReadOpsPerSecond")
+            Prelude.<*> (x Data..:? "EbsWriteBytesPerSecond")
       )
 
 instance Prelude.Hashable EBSResourceUtilization where

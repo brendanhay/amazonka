@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.EC2ResourceDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details on the Amazon EC2 Resource.
@@ -134,21 +135,21 @@ eC2ResourceDetails_region = Lens.lens (\EC2ResourceDetails' {region} -> region) 
 eC2ResourceDetails_sku :: Lens.Lens' EC2ResourceDetails (Prelude.Maybe Prelude.Text)
 eC2ResourceDetails_sku = Lens.lens (\EC2ResourceDetails' {sku} -> sku) (\s@EC2ResourceDetails' {} a -> s {sku = a} :: EC2ResourceDetails)
 
-instance Core.FromJSON EC2ResourceDetails where
+instance Data.FromJSON EC2ResourceDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EC2ResourceDetails"
       ( \x ->
           EC2ResourceDetails'
-            Prelude.<$> (x Core..:? "HourlyOnDemandRate")
-            Prelude.<*> (x Core..:? "NetworkPerformance")
-            Prelude.<*> (x Core..:? "Memory")
-            Prelude.<*> (x Core..:? "Vcpu")
-            Prelude.<*> (x Core..:? "Storage")
-            Prelude.<*> (x Core..:? "Platform")
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "Sku")
+            Prelude.<$> (x Data..:? "HourlyOnDemandRate")
+            Prelude.<*> (x Data..:? "NetworkPerformance")
+            Prelude.<*> (x Data..:? "Memory")
+            Prelude.<*> (x Data..:? "Vcpu")
+            Prelude.<*> (x Data..:? "Storage")
+            Prelude.<*> (x Data..:? "Platform")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "Sku")
       )
 
 instance Prelude.Hashable EC2ResourceDetails where

@@ -49,6 +49,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -340,10 +341,10 @@ instance Core.AWSRequest GetUsageForecast where
     Response.receiveJSON
       ( \s h x ->
           GetUsageForecastResponse'
-            Prelude.<$> ( x Core..?> "ForecastResultsByTime"
+            Prelude.<$> ( x Data..?> "ForecastResultsByTime"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Total")
+            Prelude.<*> (x Data..?> "Total")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -364,38 +365,38 @@ instance Prelude.NFData GetUsageForecast where
       `Prelude.seq` Prelude.rnf metric
       `Prelude.seq` Prelude.rnf granularity
 
-instance Core.ToHeaders GetUsageForecast where
+instance Data.ToHeaders GetUsageForecast where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSInsightsIndexService.GetUsageForecast" ::
+              Data.=# ( "AWSInsightsIndexService.GetUsageForecast" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetUsageForecast where
+instance Data.ToJSON GetUsageForecast where
   toJSON GetUsageForecast' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PredictionIntervalLevel" Core..=)
+          [ ("PredictionIntervalLevel" Data..=)
               Prelude.<$> predictionIntervalLevel,
-            ("Filter" Core..=) Prelude.<$> filter',
-            Prelude.Just ("TimePeriod" Core..= timePeriod),
-            Prelude.Just ("Metric" Core..= metric),
-            Prelude.Just ("Granularity" Core..= granularity)
+            ("Filter" Data..=) Prelude.<$> filter',
+            Prelude.Just ("TimePeriod" Data..= timePeriod),
+            Prelude.Just ("Metric" Data..= metric),
+            Prelude.Just ("Granularity" Data..= granularity)
           ]
       )
 
-instance Core.ToPath GetUsageForecast where
+instance Data.ToPath GetUsageForecast where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetUsageForecast where
+instance Data.ToQuery GetUsageForecast where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetUsageForecastResponse' smart constructor.

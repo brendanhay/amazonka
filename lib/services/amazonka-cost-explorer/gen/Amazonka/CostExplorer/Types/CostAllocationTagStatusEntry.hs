@@ -22,6 +22,7 @@ module Amazonka.CostExplorer.Types.CostAllocationTagStatusEntry where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.CostAllocationTagStatus
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The cost allocation tag status. The status of a key can either be active
@@ -79,11 +80,11 @@ instance Prelude.NFData CostAllocationTagStatusEntry where
   rnf CostAllocationTagStatusEntry' {..} =
     Prelude.rnf tagKey `Prelude.seq` Prelude.rnf status
 
-instance Core.ToJSON CostAllocationTagStatusEntry where
+instance Data.ToJSON CostAllocationTagStatusEntry where
   toJSON CostAllocationTagStatusEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("TagKey" Core..= tagKey),
-            Prelude.Just ("Status" Core..= status)
+          [ Prelude.Just ("TagKey" Data..= tagKey),
+            Prelude.Just ("Status" Data..= status)
           ]
       )

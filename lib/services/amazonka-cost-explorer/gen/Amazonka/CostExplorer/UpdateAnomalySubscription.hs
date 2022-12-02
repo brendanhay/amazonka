@@ -47,6 +47,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -140,7 +141,7 @@ instance Core.AWSRequest UpdateAnomalySubscription where
       ( \s h x ->
           UpdateAnomalySubscriptionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "SubscriptionArn")
+            Prelude.<*> (x Data..:> "SubscriptionArn")
       )
 
 instance Prelude.Hashable UpdateAnomalySubscription where
@@ -161,41 +162,41 @@ instance Prelude.NFData UpdateAnomalySubscription where
       `Prelude.seq` Prelude.rnf threshold
       `Prelude.seq` Prelude.rnf subscriptionArn
 
-instance Core.ToHeaders UpdateAnomalySubscription where
+instance Data.ToHeaders UpdateAnomalySubscription where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSInsightsIndexService.UpdateAnomalySubscription" ::
+              Data.=# ( "AWSInsightsIndexService.UpdateAnomalySubscription" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAnomalySubscription where
+instance Data.ToJSON UpdateAnomalySubscription where
   toJSON UpdateAnomalySubscription' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MonitorArnList" Core..=)
+          [ ("MonitorArnList" Data..=)
               Prelude.<$> monitorArnList,
-            ("Frequency" Core..=) Prelude.<$> frequency,
-            ("SubscriptionName" Core..=)
+            ("Frequency" Data..=) Prelude.<$> frequency,
+            ("SubscriptionName" Data..=)
               Prelude.<$> subscriptionName,
-            ("Subscribers" Core..=) Prelude.<$> subscribers,
-            ("Threshold" Core..=) Prelude.<$> threshold,
+            ("Subscribers" Data..=) Prelude.<$> subscribers,
+            ("Threshold" Data..=) Prelude.<$> threshold,
             Prelude.Just
-              ("SubscriptionArn" Core..= subscriptionArn)
+              ("SubscriptionArn" Data..= subscriptionArn)
           ]
       )
 
-instance Core.ToPath UpdateAnomalySubscription where
+instance Data.ToPath UpdateAnomalySubscription where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateAnomalySubscription where
+instance Data.ToQuery UpdateAnomalySubscription where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAnomalySubscriptionResponse' smart constructor.

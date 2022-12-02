@@ -26,6 +26,7 @@ import Amazonka.CostExplorer.Types.FindingReasonCode
 import Amazonka.CostExplorer.Types.ModifyRecommendationDetail
 import Amazonka.CostExplorer.Types.RightsizingType
 import Amazonka.CostExplorer.Types.TerminateRecommendationDetail
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Recommendations to rightsize resources.
@@ -109,20 +110,20 @@ rightsizingRecommendation_currentInstance = Lens.lens (\RightsizingRecommendatio
 rightsizingRecommendation_rightsizingType :: Lens.Lens' RightsizingRecommendation (Prelude.Maybe RightsizingType)
 rightsizingRecommendation_rightsizingType = Lens.lens (\RightsizingRecommendation' {rightsizingType} -> rightsizingType) (\s@RightsizingRecommendation' {} a -> s {rightsizingType = a} :: RightsizingRecommendation)
 
-instance Core.FromJSON RightsizingRecommendation where
+instance Data.FromJSON RightsizingRecommendation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RightsizingRecommendation"
       ( \x ->
           RightsizingRecommendation'
-            Prelude.<$> ( x Core..:? "FindingReasonCodes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "FindingReasonCodes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "TerminateRecommendationDetail")
-            Prelude.<*> (x Core..:? "ModifyRecommendationDetail")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "CurrentInstance")
-            Prelude.<*> (x Core..:? "RightsizingType")
+            Prelude.<*> (x Data..:? "TerminateRecommendationDetail")
+            Prelude.<*> (x Data..:? "ModifyRecommendationDetail")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "CurrentInstance")
+            Prelude.<*> (x Data..:? "RightsizingType")
       )
 
 instance Prelude.Hashable RightsizingRecommendation where

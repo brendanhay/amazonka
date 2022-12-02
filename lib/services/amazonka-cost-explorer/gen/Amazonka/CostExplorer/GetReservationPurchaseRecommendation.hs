@@ -74,6 +74,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -230,9 +231,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetReservationPurchaseRecommendationResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-              Prelude.<*> (x Core..?> "Metadata")
-              Prelude.<*> ( x Core..?> "Recommendations"
+            Prelude.<$> (x Data..?> "NextPageToken")
+              Prelude.<*> (x Data..?> "Metadata")
+              Prelude.<*> ( x Data..?> "Recommendations"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -273,53 +274,53 @@ instance
       `Prelude.seq` Prelude.rnf service
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetReservationPurchaseRecommendation
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSInsightsIndexService.GetReservationPurchaseRecommendation" ::
+              Data.=# ( "AWSInsightsIndexService.GetReservationPurchaseRecommendation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     GetReservationPurchaseRecommendation
   where
   toJSON GetReservationPurchaseRecommendation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
-            ("ServiceSpecification" Core..=)
+          [ ("NextPageToken" Data..=) Prelude.<$> nextPageToken,
+            ("ServiceSpecification" Data..=)
               Prelude.<$> serviceSpecification,
-            ("LookbackPeriodInDays" Core..=)
+            ("LookbackPeriodInDays" Data..=)
               Prelude.<$> lookbackPeriodInDays,
-            ("Filter" Core..=) Prelude.<$> filter',
-            ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("AccountId" Core..=) Prelude.<$> accountId,
-            ("TermInYears" Core..=) Prelude.<$> termInYears,
-            ("PaymentOption" Core..=) Prelude.<$> paymentOption,
-            ("AccountScope" Core..=) Prelude.<$> accountScope,
-            Prelude.Just ("Service" Core..= service)
+            ("Filter" Data..=) Prelude.<$> filter',
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("AccountId" Data..=) Prelude.<$> accountId,
+            ("TermInYears" Data..=) Prelude.<$> termInYears,
+            ("PaymentOption" Data..=) Prelude.<$> paymentOption,
+            ("AccountScope" Data..=) Prelude.<$> accountScope,
+            Prelude.Just ("Service" Data..= service)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetReservationPurchaseRecommendation
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetReservationPurchaseRecommendation
   where
   toQuery = Prelude.const Prelude.mempty

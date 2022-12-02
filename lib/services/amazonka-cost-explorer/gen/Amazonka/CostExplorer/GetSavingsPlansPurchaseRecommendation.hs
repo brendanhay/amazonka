@@ -52,6 +52,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -232,9 +233,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetSavingsPlansPurchaseRecommendationResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-              Prelude.<*> (x Core..?> "SavingsPlansPurchaseRecommendation")
-              Prelude.<*> (x Core..?> "Metadata")
+            Prelude.<$> (x Data..?> "NextPageToken")
+              Prelude.<*> (x Data..?> "SavingsPlansPurchaseRecommendation")
+              Prelude.<*> (x Data..?> "Metadata")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -269,53 +270,53 @@ instance
       `Prelude.seq` Prelude.rnf lookbackPeriodInDays
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetSavingsPlansPurchaseRecommendation
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSInsightsIndexService.GetSavingsPlansPurchaseRecommendation" ::
+              Data.=# ( "AWSInsightsIndexService.GetSavingsPlansPurchaseRecommendation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     GetSavingsPlansPurchaseRecommendation
   where
   toJSON GetSavingsPlansPurchaseRecommendation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
-            ("Filter" Core..=) Prelude.<$> filter',
-            ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("AccountScope" Core..=) Prelude.<$> accountScope,
+          [ ("NextPageToken" Data..=) Prelude.<$> nextPageToken,
+            ("Filter" Data..=) Prelude.<$> filter',
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("AccountScope" Data..=) Prelude.<$> accountScope,
             Prelude.Just
-              ("SavingsPlansType" Core..= savingsPlansType),
-            Prelude.Just ("TermInYears" Core..= termInYears),
-            Prelude.Just ("PaymentOption" Core..= paymentOption),
+              ("SavingsPlansType" Data..= savingsPlansType),
+            Prelude.Just ("TermInYears" Data..= termInYears),
+            Prelude.Just ("PaymentOption" Data..= paymentOption),
             Prelude.Just
               ( "LookbackPeriodInDays"
-                  Core..= lookbackPeriodInDays
+                  Data..= lookbackPeriodInDays
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetSavingsPlansPurchaseRecommendation
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetSavingsPlansPurchaseRecommendation
   where
   toQuery = Prelude.const Prelude.mempty

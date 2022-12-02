@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendationMetadata wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata about your Savings Plans Purchase Recommendations.
@@ -74,17 +75,17 @@ savingsPlansPurchaseRecommendationMetadata_generationTimestamp :: Lens.Lens' Sav
 savingsPlansPurchaseRecommendationMetadata_generationTimestamp = Lens.lens (\SavingsPlansPurchaseRecommendationMetadata' {generationTimestamp} -> generationTimestamp) (\s@SavingsPlansPurchaseRecommendationMetadata' {} a -> s {generationTimestamp = a} :: SavingsPlansPurchaseRecommendationMetadata)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SavingsPlansPurchaseRecommendationMetadata
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SavingsPlansPurchaseRecommendationMetadata"
       ( \x ->
           SavingsPlansPurchaseRecommendationMetadata'
-            Prelude.<$> (x Core..:? "RecommendationId")
-              Prelude.<*> (x Core..:? "AdditionalMetadata")
-              Prelude.<*> (x Core..:? "GenerationTimestamp")
+            Prelude.<$> (x Data..:? "RecommendationId")
+              Prelude.<*> (x Data..:? "AdditionalMetadata")
+              Prelude.<*> (x Data..:? "GenerationTimestamp")
       )
 
 instance

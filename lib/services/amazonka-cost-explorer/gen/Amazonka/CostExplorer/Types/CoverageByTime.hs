@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.Coverage
 import Amazonka.CostExplorer.Types.DateInterval
 import Amazonka.CostExplorer.Types.ReservationCoverageGroup
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Reservation coverage for a specified period, in hours.
@@ -73,15 +74,15 @@ coverageByTime_timePeriod = Lens.lens (\CoverageByTime' {timePeriod} -> timePeri
 coverageByTime_groups :: Lens.Lens' CoverageByTime (Prelude.Maybe [ReservationCoverageGroup])
 coverageByTime_groups = Lens.lens (\CoverageByTime' {groups} -> groups) (\s@CoverageByTime' {} a -> s {groups = a} :: CoverageByTime) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CoverageByTime where
+instance Data.FromJSON CoverageByTime where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CoverageByTime"
       ( \x ->
           CoverageByTime'
-            Prelude.<$> (x Core..:? "Total")
-            Prelude.<*> (x Core..:? "TimePeriod")
-            Prelude.<*> (x Core..:? "Groups" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Total")
+            Prelude.<*> (x Data..:? "TimePeriod")
+            Prelude.<*> (x Data..:? "Groups" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable CoverageByTime where

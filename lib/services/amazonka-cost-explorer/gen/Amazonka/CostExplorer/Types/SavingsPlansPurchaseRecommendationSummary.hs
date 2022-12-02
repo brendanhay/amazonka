@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendationSummary whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary metrics for your Savings Plans Purchase Recommendations.
@@ -191,27 +192,27 @@ savingsPlansPurchaseRecommendationSummary_totalRecommendationCount :: Lens.Lens'
 savingsPlansPurchaseRecommendationSummary_totalRecommendationCount = Lens.lens (\SavingsPlansPurchaseRecommendationSummary' {totalRecommendationCount} -> totalRecommendationCount) (\s@SavingsPlansPurchaseRecommendationSummary' {} a -> s {totalRecommendationCount = a} :: SavingsPlansPurchaseRecommendationSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SavingsPlansPurchaseRecommendationSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SavingsPlansPurchaseRecommendationSummary"
       ( \x ->
           SavingsPlansPurchaseRecommendationSummary'
-            Prelude.<$> (x Core..:? "HourlyCommitmentToPurchase")
-              Prelude.<*> (x Core..:? "EstimatedSavingsPercentage")
-              Prelude.<*> (x Core..:? "EstimatedMonthlySavingsAmount")
-              Prelude.<*> (x Core..:? "DailyCommitmentToPurchase")
+            Prelude.<$> (x Data..:? "HourlyCommitmentToPurchase")
+              Prelude.<*> (x Data..:? "EstimatedSavingsPercentage")
+              Prelude.<*> (x Data..:? "EstimatedMonthlySavingsAmount")
+              Prelude.<*> (x Data..:? "DailyCommitmentToPurchase")
               Prelude.<*> ( x
-                              Core..:? "EstimatedOnDemandCostWithCurrentCommitment"
+                              Data..:? "EstimatedOnDemandCostWithCurrentCommitment"
                           )
-              Prelude.<*> (x Core..:? "EstimatedTotalCost")
-              Prelude.<*> (x Core..:? "CurrentOnDemandSpend")
-              Prelude.<*> (x Core..:? "CurrencyCode")
-              Prelude.<*> (x Core..:? "EstimatedSavingsAmount")
-              Prelude.<*> (x Core..:? "EstimatedROI")
-              Prelude.<*> (x Core..:? "TotalRecommendationCount")
+              Prelude.<*> (x Data..:? "EstimatedTotalCost")
+              Prelude.<*> (x Data..:? "CurrentOnDemandSpend")
+              Prelude.<*> (x Data..:? "CurrencyCode")
+              Prelude.<*> (x Data..:? "EstimatedSavingsAmount")
+              Prelude.<*> (x Data..:? "EstimatedROI")
+              Prelude.<*> (x Data..:? "TotalRecommendationCount")
       )
 
 instance

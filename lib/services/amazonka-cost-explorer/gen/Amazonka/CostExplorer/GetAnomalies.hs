@@ -49,6 +49,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -156,9 +157,9 @@ instance Core.AWSRequest GetAnomalies where
     Response.receiveJSON
       ( \s h x ->
           GetAnomaliesResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
+            Prelude.<$> (x Data..?> "NextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Anomalies" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Anomalies" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable GetAnomalies where
@@ -179,38 +180,38 @@ instance Prelude.NFData GetAnomalies where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf dateInterval
 
-instance Core.ToHeaders GetAnomalies where
+instance Data.ToHeaders GetAnomalies where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSInsightsIndexService.GetAnomalies" ::
+              Data.=# ( "AWSInsightsIndexService.GetAnomalies" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAnomalies where
+instance Data.ToJSON GetAnomalies where
   toJSON GetAnomalies' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
-            ("TotalImpact" Core..=) Prelude.<$> totalImpact,
-            ("MonitorArn" Core..=) Prelude.<$> monitorArn,
-            ("Feedback" Core..=) Prelude.<$> feedback,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("DateInterval" Core..= dateInterval)
+          [ ("NextPageToken" Data..=) Prelude.<$> nextPageToken,
+            ("TotalImpact" Data..=) Prelude.<$> totalImpact,
+            ("MonitorArn" Data..=) Prelude.<$> monitorArn,
+            ("Feedback" Data..=) Prelude.<$> feedback,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("DateInterval" Data..= dateInterval)
           ]
       )
 
-instance Core.ToPath GetAnomalies where
+instance Data.ToPath GetAnomalies where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAnomalies where
+instance Data.ToQuery GetAnomalies where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAnomaliesResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.CostExplorer.Types.ServiceSpecification where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.EC2Specification
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Hardware specifications for the service that you want recommendations
@@ -58,13 +59,13 @@ newServiceSpecification =
 serviceSpecification_eC2Specification :: Lens.Lens' ServiceSpecification (Prelude.Maybe EC2Specification)
 serviceSpecification_eC2Specification = Lens.lens (\ServiceSpecification' {eC2Specification} -> eC2Specification) (\s@ServiceSpecification' {} a -> s {eC2Specification = a} :: ServiceSpecification)
 
-instance Core.FromJSON ServiceSpecification where
+instance Data.FromJSON ServiceSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceSpecification"
       ( \x ->
           ServiceSpecification'
-            Prelude.<$> (x Core..:? "EC2Specification")
+            Prelude.<$> (x Data..:? "EC2Specification")
       )
 
 instance Prelude.Hashable ServiceSpecification where
@@ -75,11 +76,11 @@ instance Prelude.NFData ServiceSpecification where
   rnf ServiceSpecification' {..} =
     Prelude.rnf eC2Specification
 
-instance Core.ToJSON ServiceSpecification where
+instance Data.ToJSON ServiceSpecification where
   toJSON ServiceSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EC2Specification" Core..=)
+          [ ("EC2Specification" Data..=)
               Prelude.<$> eC2Specification
           ]
       )

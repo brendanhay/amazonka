@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.DateInterval
 import Amazonka.CostExplorer.Types.SavingsPlansCoverageData
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The amount of Savings Plans eligible usage that\'s covered by Savings
@@ -76,15 +77,15 @@ savingsPlansCoverage_timePeriod = Lens.lens (\SavingsPlansCoverage' {timePeriod}
 savingsPlansCoverage_attributes :: Lens.Lens' SavingsPlansCoverage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 savingsPlansCoverage_attributes = Lens.lens (\SavingsPlansCoverage' {attributes} -> attributes) (\s@SavingsPlansCoverage' {} a -> s {attributes = a} :: SavingsPlansCoverage) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SavingsPlansCoverage where
+instance Data.FromJSON SavingsPlansCoverage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SavingsPlansCoverage"
       ( \x ->
           SavingsPlansCoverage'
-            Prelude.<$> (x Core..:? "Coverage")
-            Prelude.<*> (x Core..:? "TimePeriod")
-            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Coverage")
+            Prelude.<*> (x Data..:? "TimePeriod")
+            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SavingsPlansCoverage where

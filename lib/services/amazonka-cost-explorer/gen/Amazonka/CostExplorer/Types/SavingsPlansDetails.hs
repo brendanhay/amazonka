@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.SavingsPlansDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The attribute details on a specific Savings Plan.
@@ -79,15 +80,15 @@ savingsPlansDetails_instanceFamily = Lens.lens (\SavingsPlansDetails' {instanceF
 savingsPlansDetails_offeringId :: Lens.Lens' SavingsPlansDetails (Prelude.Maybe Prelude.Text)
 savingsPlansDetails_offeringId = Lens.lens (\SavingsPlansDetails' {offeringId} -> offeringId) (\s@SavingsPlansDetails' {} a -> s {offeringId = a} :: SavingsPlansDetails)
 
-instance Core.FromJSON SavingsPlansDetails where
+instance Data.FromJSON SavingsPlansDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SavingsPlansDetails"
       ( \x ->
           SavingsPlansDetails'
-            Prelude.<$> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "InstanceFamily")
-            Prelude.<*> (x Core..:? "OfferingId")
+            Prelude.<$> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "InstanceFamily")
+            Prelude.<*> (x Data..:? "OfferingId")
       )
 
 instance Prelude.Hashable SavingsPlansDetails where

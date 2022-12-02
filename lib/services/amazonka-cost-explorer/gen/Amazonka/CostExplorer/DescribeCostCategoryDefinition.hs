@@ -50,6 +50,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,7 +107,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeCostCategoryDefinitionResponse'
-            Prelude.<$> (x Core..?> "CostCategory")
+            Prelude.<$> (x Data..?> "CostCategory")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,37 +130,37 @@ instance
       `Prelude.seq` Prelude.rnf costCategoryArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeCostCategoryDefinition
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSInsightsIndexService.DescribeCostCategoryDefinition" ::
+              Data.=# ( "AWSInsightsIndexService.DescribeCostCategoryDefinition" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeCostCategoryDefinition where
+instance Data.ToJSON DescribeCostCategoryDefinition where
   toJSON DescribeCostCategoryDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EffectiveOn" Core..=) Prelude.<$> effectiveOn,
+          [ ("EffectiveOn" Data..=) Prelude.<$> effectiveOn,
             Prelude.Just
-              ("CostCategoryArn" Core..= costCategoryArn)
+              ("CostCategoryArn" Data..= costCategoryArn)
           ]
       )
 
-instance Core.ToPath DescribeCostCategoryDefinition where
+instance Data.ToPath DescribeCostCategoryDefinition where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCostCategoryDefinition where
+instance Data.ToQuery DescribeCostCategoryDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeCostCategoryDefinitionResponse' smart constructor.

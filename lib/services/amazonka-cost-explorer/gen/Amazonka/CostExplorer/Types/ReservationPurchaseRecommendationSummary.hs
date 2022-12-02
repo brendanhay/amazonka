@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.ReservationPurchaseRecommendationSummary wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary about this recommendation, such as the currency code, the
@@ -82,17 +83,17 @@ reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsAmount :: L
 reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsAmount = Lens.lens (\ReservationPurchaseRecommendationSummary' {totalEstimatedMonthlySavingsAmount} -> totalEstimatedMonthlySavingsAmount) (\s@ReservationPurchaseRecommendationSummary' {} a -> s {totalEstimatedMonthlySavingsAmount = a} :: ReservationPurchaseRecommendationSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ReservationPurchaseRecommendationSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReservationPurchaseRecommendationSummary"
       ( \x ->
           ReservationPurchaseRecommendationSummary'
-            Prelude.<$> (x Core..:? "CurrencyCode")
-            Prelude.<*> (x Core..:? "TotalEstimatedMonthlySavingsPercentage")
-            Prelude.<*> (x Core..:? "TotalEstimatedMonthlySavingsAmount")
+            Prelude.<$> (x Data..:? "CurrencyCode")
+            Prelude.<*> (x Data..:? "TotalEstimatedMonthlySavingsPercentage")
+            Prelude.<*> (x Data..:? "TotalEstimatedMonthlySavingsAmount")
       )
 
 instance

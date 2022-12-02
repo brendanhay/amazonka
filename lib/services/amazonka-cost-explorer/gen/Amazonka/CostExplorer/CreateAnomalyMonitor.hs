@@ -44,6 +44,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -170,7 +171,7 @@ instance Core.AWSRequest CreateAnomalyMonitor where
       ( \s h x ->
           CreateAnomalyMonitorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "MonitorArn")
+            Prelude.<*> (x Data..:> "MonitorArn")
       )
 
 instance Prelude.Hashable CreateAnomalyMonitor where
@@ -183,35 +184,35 @@ instance Prelude.NFData CreateAnomalyMonitor where
     Prelude.rnf resourceTags
       `Prelude.seq` Prelude.rnf anomalyMonitor
 
-instance Core.ToHeaders CreateAnomalyMonitor where
+instance Data.ToHeaders CreateAnomalyMonitor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSInsightsIndexService.CreateAnomalyMonitor" ::
+              Data.=# ( "AWSInsightsIndexService.CreateAnomalyMonitor" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAnomalyMonitor where
+instance Data.ToJSON CreateAnomalyMonitor where
   toJSON CreateAnomalyMonitor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceTags" Core..=) Prelude.<$> resourceTags,
+          [ ("ResourceTags" Data..=) Prelude.<$> resourceTags,
             Prelude.Just
-              ("AnomalyMonitor" Core..= anomalyMonitor)
+              ("AnomalyMonitor" Data..= anomalyMonitor)
           ]
       )
 
-instance Core.ToPath CreateAnomalyMonitor where
+instance Data.ToPath CreateAnomalyMonitor where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateAnomalyMonitor where
+instance Data.ToQuery CreateAnomalyMonitor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAnomalyMonitorResponse' smart constructor.

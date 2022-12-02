@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.CostCategoryInheritedValueDimension
 import Amazonka.CostExplorer.Types.CostCategoryRuleType
 import Amazonka.CostExplorer.Types.Expression
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Rules are processed in order. If there are multiple rules that match the
@@ -152,16 +153,16 @@ costCategoryRule_rule = Lens.lens (\CostCategoryRule' {rule} -> rule) (\s@CostCa
 costCategoryRule_value :: Lens.Lens' CostCategoryRule (Prelude.Maybe Prelude.Text)
 costCategoryRule_value = Lens.lens (\CostCategoryRule' {value} -> value) (\s@CostCategoryRule' {} a -> s {value = a} :: CostCategoryRule)
 
-instance Core.FromJSON CostCategoryRule where
+instance Data.FromJSON CostCategoryRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CostCategoryRule"
       ( \x ->
           CostCategoryRule'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "InheritedValue")
-            Prelude.<*> (x Core..:? "Rule")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "InheritedValue")
+            Prelude.<*> (x Data..:? "Rule")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable CostCategoryRule where
@@ -178,14 +179,14 @@ instance Prelude.NFData CostCategoryRule where
       `Prelude.seq` Prelude.rnf rule
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON CostCategoryRule where
+instance Data.ToJSON CostCategoryRule where
   toJSON CostCategoryRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("InheritedValue" Core..=)
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("InheritedValue" Data..=)
               Prelude.<$> inheritedValue,
-            ("Rule" Core..=) Prelude.<$> rule,
-            ("Value" Core..=) Prelude.<$> value
+            ("Rule" Data..=) Prelude.<$> rule,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

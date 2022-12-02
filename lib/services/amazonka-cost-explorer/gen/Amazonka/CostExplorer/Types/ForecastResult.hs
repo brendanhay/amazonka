@@ -22,6 +22,7 @@ module Amazonka.CostExplorer.Types.ForecastResult where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.DateInterval
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The forecast that\'s created for your query.
@@ -81,16 +82,16 @@ forecastResult_meanValue = Lens.lens (\ForecastResult' {meanValue} -> meanValue)
 forecastResult_timePeriod :: Lens.Lens' ForecastResult (Prelude.Maybe DateInterval)
 forecastResult_timePeriod = Lens.lens (\ForecastResult' {timePeriod} -> timePeriod) (\s@ForecastResult' {} a -> s {timePeriod = a} :: ForecastResult)
 
-instance Core.FromJSON ForecastResult where
+instance Data.FromJSON ForecastResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ForecastResult"
       ( \x ->
           ForecastResult'
-            Prelude.<$> (x Core..:? "PredictionIntervalLowerBound")
-            Prelude.<*> (x Core..:? "PredictionIntervalUpperBound")
-            Prelude.<*> (x Core..:? "MeanValue")
-            Prelude.<*> (x Core..:? "TimePeriod")
+            Prelude.<$> (x Data..:? "PredictionIntervalLowerBound")
+            Prelude.<*> (x Data..:? "PredictionIntervalUpperBound")
+            Prelude.<*> (x Data..:? "MeanValue")
+            Prelude.<*> (x Data..:? "TimePeriod")
       )
 
 instance Prelude.Hashable ForecastResult where

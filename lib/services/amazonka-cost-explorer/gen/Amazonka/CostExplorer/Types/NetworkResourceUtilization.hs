@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.NetworkResourceUtilization where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The network field that contains a list of network metrics that are
@@ -87,16 +88,16 @@ networkResourceUtilization_networkPacketsOutPerSecond = Lens.lens (\NetworkResou
 networkResourceUtilization_networkInBytesPerSecond :: Lens.Lens' NetworkResourceUtilization (Prelude.Maybe Prelude.Text)
 networkResourceUtilization_networkInBytesPerSecond = Lens.lens (\NetworkResourceUtilization' {networkInBytesPerSecond} -> networkInBytesPerSecond) (\s@NetworkResourceUtilization' {} a -> s {networkInBytesPerSecond = a} :: NetworkResourceUtilization)
 
-instance Core.FromJSON NetworkResourceUtilization where
+instance Data.FromJSON NetworkResourceUtilization where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkResourceUtilization"
       ( \x ->
           NetworkResourceUtilization'
-            Prelude.<$> (x Core..:? "NetworkOutBytesPerSecond")
-            Prelude.<*> (x Core..:? "NetworkPacketsInPerSecond")
-            Prelude.<*> (x Core..:? "NetworkPacketsOutPerSecond")
-            Prelude.<*> (x Core..:? "NetworkInBytesPerSecond")
+            Prelude.<$> (x Data..:? "NetworkOutBytesPerSecond")
+            Prelude.<*> (x Data..:? "NetworkPacketsInPerSecond")
+            Prelude.<*> (x Data..:? "NetworkPacketsOutPerSecond")
+            Prelude.<*> (x Data..:? "NetworkInBytesPerSecond")
       )
 
 instance Prelude.Hashable NetworkResourceUtilization where

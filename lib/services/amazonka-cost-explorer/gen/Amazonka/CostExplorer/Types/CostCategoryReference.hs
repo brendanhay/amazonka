@@ -22,6 +22,7 @@ module Amazonka.CostExplorer.Types.CostCategoryReference where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.CostCategoryProcessingStatus
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A reference to a Cost Category containing only enough information to
@@ -121,22 +122,22 @@ costCategoryReference_costCategoryArn = Lens.lens (\CostCategoryReference' {cost
 costCategoryReference_numberOfRules :: Lens.Lens' CostCategoryReference (Prelude.Maybe Prelude.Natural)
 costCategoryReference_numberOfRules = Lens.lens (\CostCategoryReference' {numberOfRules} -> numberOfRules) (\s@CostCategoryReference' {} a -> s {numberOfRules = a} :: CostCategoryReference)
 
-instance Core.FromJSON CostCategoryReference where
+instance Data.FromJSON CostCategoryReference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CostCategoryReference"
       ( \x ->
           CostCategoryReference'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "EffectiveEnd")
-            Prelude.<*> (x Core..:? "DefaultValue")
-            Prelude.<*> ( x Core..:? "ProcessingStatus"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "EffectiveEnd")
+            Prelude.<*> (x Data..:? "DefaultValue")
+            Prelude.<*> ( x Data..:? "ProcessingStatus"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EffectiveStart")
-            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CostCategoryArn")
-            Prelude.<*> (x Core..:? "NumberOfRules")
+            Prelude.<*> (x Data..:? "EffectiveStart")
+            Prelude.<*> (x Data..:? "Values" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CostCategoryArn")
+            Prelude.<*> (x Data..:? "NumberOfRules")
       )
 
 instance Prelude.Hashable CostCategoryReference where

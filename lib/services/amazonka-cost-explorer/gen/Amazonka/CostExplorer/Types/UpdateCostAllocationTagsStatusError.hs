@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.UpdateCostAllocationTagsStatusError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Gives a detailed description of the result of an action. It\'s on each
@@ -73,17 +74,17 @@ updateCostAllocationTagsStatusError_tagKey :: Lens.Lens' UpdateCostAllocationTag
 updateCostAllocationTagsStatusError_tagKey = Lens.lens (\UpdateCostAllocationTagsStatusError' {tagKey} -> tagKey) (\s@UpdateCostAllocationTagsStatusError' {} a -> s {tagKey = a} :: UpdateCostAllocationTagsStatusError)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     UpdateCostAllocationTagsStatusError
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UpdateCostAllocationTagsStatusError"
       ( \x ->
           UpdateCostAllocationTagsStatusError'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Code")
-            Prelude.<*> (x Core..:? "TagKey")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Code")
+            Prelude.<*> (x Data..:? "TagKey")
       )
 
 instance

@@ -46,6 +46,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -172,7 +173,7 @@ instance Core.AWSRequest CreateAnomalySubscription where
       ( \s h x ->
           CreateAnomalySubscriptionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "SubscriptionArn")
+            Prelude.<*> (x Data..:> "SubscriptionArn")
       )
 
 instance Prelude.Hashable CreateAnomalySubscription where
@@ -185,35 +186,35 @@ instance Prelude.NFData CreateAnomalySubscription where
     Prelude.rnf resourceTags
       `Prelude.seq` Prelude.rnf anomalySubscription
 
-instance Core.ToHeaders CreateAnomalySubscription where
+instance Data.ToHeaders CreateAnomalySubscription where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSInsightsIndexService.CreateAnomalySubscription" ::
+              Data.=# ( "AWSInsightsIndexService.CreateAnomalySubscription" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAnomalySubscription where
+instance Data.ToJSON CreateAnomalySubscription where
   toJSON CreateAnomalySubscription' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceTags" Core..=) Prelude.<$> resourceTags,
+          [ ("ResourceTags" Data..=) Prelude.<$> resourceTags,
             Prelude.Just
-              ("AnomalySubscription" Core..= anomalySubscription)
+              ("AnomalySubscription" Data..= anomalySubscription)
           ]
       )
 
-instance Core.ToPath CreateAnomalySubscription where
+instance Data.ToPath CreateAnomalySubscription where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateAnomalySubscription where
+instance Data.ToQuery CreateAnomalySubscription where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAnomalySubscriptionResponse' smart constructor.

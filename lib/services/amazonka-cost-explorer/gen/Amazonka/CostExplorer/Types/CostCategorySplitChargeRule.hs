@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.CostCategorySplitChargeMethod
 import Amazonka.CostExplorer.Types.CostCategorySplitChargeRuleParameter
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use the split charge rule to split the cost of one Cost Category value
@@ -131,16 +132,16 @@ costCategorySplitChargeRule_targets = Lens.lens (\CostCategorySplitChargeRule' {
 costCategorySplitChargeRule_method :: Lens.Lens' CostCategorySplitChargeRule CostCategorySplitChargeMethod
 costCategorySplitChargeRule_method = Lens.lens (\CostCategorySplitChargeRule' {method} -> method) (\s@CostCategorySplitChargeRule' {} a -> s {method = a} :: CostCategorySplitChargeRule)
 
-instance Core.FromJSON CostCategorySplitChargeRule where
+instance Data.FromJSON CostCategorySplitChargeRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CostCategorySplitChargeRule"
       ( \x ->
           CostCategorySplitChargeRule'
-            Prelude.<$> (x Core..:? "Parameters")
-            Prelude.<*> (x Core..: "Source")
-            Prelude.<*> (x Core..: "Targets")
-            Prelude.<*> (x Core..: "Method")
+            Prelude.<$> (x Data..:? "Parameters")
+            Prelude.<*> (x Data..: "Source")
+            Prelude.<*> (x Data..: "Targets")
+            Prelude.<*> (x Data..: "Method")
       )
 
 instance Prelude.Hashable CostCategorySplitChargeRule where
@@ -157,13 +158,13 @@ instance Prelude.NFData CostCategorySplitChargeRule where
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf method
 
-instance Core.ToJSON CostCategorySplitChargeRule where
+instance Data.ToJSON CostCategorySplitChargeRule where
   toJSON CostCategorySplitChargeRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("Source" Core..= source),
-            Prelude.Just ("Targets" Core..= targets),
-            Prelude.Just ("Method" Core..= method)
+          [ ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("Source" Data..= source),
+            Prelude.Just ("Targets" Data..= targets),
+            Prelude.Just ("Method" Data..= method)
           ]
       )

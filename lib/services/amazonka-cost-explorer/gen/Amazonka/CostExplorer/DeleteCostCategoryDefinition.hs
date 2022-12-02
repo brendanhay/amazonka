@@ -44,6 +44,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,8 +89,8 @@ instance Core.AWSRequest DeleteCostCategoryDefinition where
     Response.receiveJSON
       ( \s h x ->
           DeleteCostCategoryDefinitionResponse'
-            Prelude.<$> (x Core..?> "EffectiveEnd")
-            Prelude.<*> (x Core..?> "CostCategoryArn")
+            Prelude.<$> (x Data..?> "EffectiveEnd")
+            Prelude.<*> (x Data..?> "CostCategoryArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,34 +105,34 @@ instance Prelude.NFData DeleteCostCategoryDefinition where
   rnf DeleteCostCategoryDefinition' {..} =
     Prelude.rnf costCategoryArn
 
-instance Core.ToHeaders DeleteCostCategoryDefinition where
+instance Data.ToHeaders DeleteCostCategoryDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSInsightsIndexService.DeleteCostCategoryDefinition" ::
+              Data.=# ( "AWSInsightsIndexService.DeleteCostCategoryDefinition" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteCostCategoryDefinition where
+instance Data.ToJSON DeleteCostCategoryDefinition where
   toJSON DeleteCostCategoryDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("CostCategoryArn" Core..= costCategoryArn)
+              ("CostCategoryArn" Data..= costCategoryArn)
           ]
       )
 
-instance Core.ToPath DeleteCostCategoryDefinition where
+instance Data.ToPath DeleteCostCategoryDefinition where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteCostCategoryDefinition where
+instance Data.ToQuery DeleteCostCategoryDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCostCategoryDefinitionResponse' smart constructor.

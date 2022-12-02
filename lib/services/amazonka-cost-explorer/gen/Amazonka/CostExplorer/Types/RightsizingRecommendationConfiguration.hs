@@ -22,6 +22,7 @@ module Amazonka.CostExplorer.Types.RightsizingRecommendationConfiguration where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.RecommendationTarget
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | You can use @RightsizingRecommendationConfiguration@ to customize
@@ -86,16 +87,16 @@ rightsizingRecommendationConfiguration_benefitsConsidered :: Lens.Lens' Rightsiz
 rightsizingRecommendationConfiguration_benefitsConsidered = Lens.lens (\RightsizingRecommendationConfiguration' {benefitsConsidered} -> benefitsConsidered) (\s@RightsizingRecommendationConfiguration' {} a -> s {benefitsConsidered = a} :: RightsizingRecommendationConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RightsizingRecommendationConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RightsizingRecommendationConfiguration"
       ( \x ->
           RightsizingRecommendationConfiguration'
-            Prelude.<$> (x Core..: "RecommendationTarget")
-            Prelude.<*> (x Core..: "BenefitsConsidered")
+            Prelude.<$> (x Data..: "RecommendationTarget")
+            Prelude.<*> (x Data..: "BenefitsConsidered")
       )
 
 instance
@@ -117,17 +118,17 @@ instance
       `Prelude.seq` Prelude.rnf benefitsConsidered
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RightsizingRecommendationConfiguration
   where
   toJSON RightsizingRecommendationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "RecommendationTarget"
-                  Core..= recommendationTarget
+                  Data..= recommendationTarget
               ),
             Prelude.Just
-              ("BenefitsConsidered" Core..= benefitsConsidered)
+              ("BenefitsConsidered" Data..= benefitsConsidered)
           ]
       )

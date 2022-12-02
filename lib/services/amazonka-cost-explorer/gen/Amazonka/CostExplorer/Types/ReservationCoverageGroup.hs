@@ -22,6 +22,7 @@ module Amazonka.CostExplorer.Types.ReservationCoverageGroup where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.Coverage
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A group of reservations that share a set of attributes.
@@ -63,14 +64,14 @@ reservationCoverageGroup_coverage = Lens.lens (\ReservationCoverageGroup' {cover
 reservationCoverageGroup_attributes :: Lens.Lens' ReservationCoverageGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 reservationCoverageGroup_attributes = Lens.lens (\ReservationCoverageGroup' {attributes} -> attributes) (\s@ReservationCoverageGroup' {} a -> s {attributes = a} :: ReservationCoverageGroup) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ReservationCoverageGroup where
+instance Data.FromJSON ReservationCoverageGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReservationCoverageGroup"
       ( \x ->
           ReservationCoverageGroup'
-            Prelude.<$> (x Core..:? "Coverage")
-            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Coverage")
+            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ReservationCoverageGroup where

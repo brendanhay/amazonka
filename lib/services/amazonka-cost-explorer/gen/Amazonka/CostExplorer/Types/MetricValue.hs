@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.MetricValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The aggregated value for a metric.
@@ -61,14 +62,14 @@ metricValue_unit = Lens.lens (\MetricValue' {unit} -> unit) (\s@MetricValue' {} 
 metricValue_amount :: Lens.Lens' MetricValue (Prelude.Maybe Prelude.Text)
 metricValue_amount = Lens.lens (\MetricValue' {amount} -> amount) (\s@MetricValue' {} a -> s {amount = a} :: MetricValue)
 
-instance Core.FromJSON MetricValue where
+instance Data.FromJSON MetricValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricValue"
       ( \x ->
           MetricValue'
-            Prelude.<$> (x Core..:? "Unit")
-            Prelude.<*> (x Core..:? "Amount")
+            Prelude.<$> (x Data..:? "Unit")
+            Prelude.<*> (x Data..:? "Amount")
       )
 
 instance Prelude.Hashable MetricValue where

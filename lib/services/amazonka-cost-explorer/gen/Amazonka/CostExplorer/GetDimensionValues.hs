@@ -54,6 +54,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -705,13 +706,13 @@ instance Core.AWSRequest GetDimensionValues where
     Response.receiveJSON
       ( \s h x ->
           GetDimensionValuesResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
+            Prelude.<$> (x Data..?> "NextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "DimensionValues"
+            Prelude.<*> ( x Data..?> "DimensionValues"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..:> "ReturnSize")
-            Prelude.<*> (x Core..:> "TotalSize")
+            Prelude.<*> (x Data..:> "ReturnSize")
+            Prelude.<*> (x Data..:> "TotalSize")
       )
 
 instance Prelude.Hashable GetDimensionValues where
@@ -736,40 +737,40 @@ instance Prelude.NFData GetDimensionValues where
       `Prelude.seq` Prelude.rnf timePeriod
       `Prelude.seq` Prelude.rnf dimension
 
-instance Core.ToHeaders GetDimensionValues where
+instance Data.ToHeaders GetDimensionValues where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSInsightsIndexService.GetDimensionValues" ::
+              Data.=# ( "AWSInsightsIndexService.GetDimensionValues" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDimensionValues where
+instance Data.ToJSON GetDimensionValues where
   toJSON GetDimensionValues' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
-            ("Context" Core..=) Prelude.<$> context,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("SearchString" Core..=) Prelude.<$> searchString,
-            ("Filter" Core..=) Prelude.<$> filter',
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("TimePeriod" Core..= timePeriod),
-            Prelude.Just ("Dimension" Core..= dimension)
+          [ ("NextPageToken" Data..=) Prelude.<$> nextPageToken,
+            ("Context" Data..=) Prelude.<$> context,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("SearchString" Data..=) Prelude.<$> searchString,
+            ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("TimePeriod" Data..= timePeriod),
+            Prelude.Just ("Dimension" Data..= dimension)
           ]
       )
 
-instance Core.ToPath GetDimensionValues where
+instance Data.ToPath GetDimensionValues where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDimensionValues where
+instance Data.ToQuery GetDimensionValues where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDimensionValuesResponse' smart constructor.

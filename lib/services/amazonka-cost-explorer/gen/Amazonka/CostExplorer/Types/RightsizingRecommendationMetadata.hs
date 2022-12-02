@@ -22,6 +22,7 @@ module Amazonka.CostExplorer.Types.RightsizingRecommendationMetadata where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.LookbackPeriodInDays
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata for this recommendation set.
@@ -85,18 +86,18 @@ rightsizingRecommendationMetadata_generationTimestamp :: Lens.Lens' RightsizingR
 rightsizingRecommendationMetadata_generationTimestamp = Lens.lens (\RightsizingRecommendationMetadata' {generationTimestamp} -> generationTimestamp) (\s@RightsizingRecommendationMetadata' {} a -> s {generationTimestamp = a} :: RightsizingRecommendationMetadata)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RightsizingRecommendationMetadata
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RightsizingRecommendationMetadata"
       ( \x ->
           RightsizingRecommendationMetadata'
-            Prelude.<$> (x Core..:? "RecommendationId")
-            Prelude.<*> (x Core..:? "LookbackPeriodInDays")
-            Prelude.<*> (x Core..:? "AdditionalMetadata")
-            Prelude.<*> (x Core..:? "GenerationTimestamp")
+            Prelude.<$> (x Data..:? "RecommendationId")
+            Prelude.<*> (x Data..:? "LookbackPeriodInDays")
+            Prelude.<*> (x Data..:? "AdditionalMetadata")
+            Prelude.<*> (x Data..:? "GenerationTimestamp")
       )
 
 instance

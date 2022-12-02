@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.EC2InstanceDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the Amazon EC2 instances that Amazon Web Services
@@ -125,20 +126,20 @@ eC2InstanceDetails_currentGeneration = Lens.lens (\EC2InstanceDetails' {currentG
 eC2InstanceDetails_tenancy :: Lens.Lens' EC2InstanceDetails (Prelude.Maybe Prelude.Text)
 eC2InstanceDetails_tenancy = Lens.lens (\EC2InstanceDetails' {tenancy} -> tenancy) (\s@EC2InstanceDetails' {} a -> s {tenancy = a} :: EC2InstanceDetails)
 
-instance Core.FromJSON EC2InstanceDetails where
+instance Data.FromJSON EC2InstanceDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EC2InstanceDetails"
       ( \x ->
           EC2InstanceDetails'
-            Prelude.<$> (x Core..:? "Platform")
-            Prelude.<*> (x Core..:? "SizeFlexEligible")
-            Prelude.<*> (x Core..:? "AvailabilityZone")
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "Family")
-            Prelude.<*> (x Core..:? "CurrentGeneration")
-            Prelude.<*> (x Core..:? "Tenancy")
+            Prelude.<$> (x Data..:? "Platform")
+            Prelude.<*> (x Data..:? "SizeFlexEligible")
+            Prelude.<*> (x Data..:? "AvailabilityZone")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "Family")
+            Prelude.<*> (x Data..:? "CurrentGeneration")
+            Prelude.<*> (x Data..:? "Tenancy")
       )
 
 instance Prelude.Hashable EC2InstanceDetails where

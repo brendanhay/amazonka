@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.ESInstanceDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the Amazon OpenSearch Service instances that Amazon Web
@@ -93,17 +94,17 @@ eSInstanceDetails_currentGeneration = Lens.lens (\ESInstanceDetails' {currentGen
 eSInstanceDetails_instanceSize :: Lens.Lens' ESInstanceDetails (Prelude.Maybe Prelude.Text)
 eSInstanceDetails_instanceSize = Lens.lens (\ESInstanceDetails' {instanceSize} -> instanceSize) (\s@ESInstanceDetails' {} a -> s {instanceSize = a} :: ESInstanceDetails)
 
-instance Core.FromJSON ESInstanceDetails where
+instance Data.FromJSON ESInstanceDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ESInstanceDetails"
       ( \x ->
           ESInstanceDetails'
-            Prelude.<$> (x Core..:? "SizeFlexEligible")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "InstanceClass")
-            Prelude.<*> (x Core..:? "CurrentGeneration")
-            Prelude.<*> (x Core..:? "InstanceSize")
+            Prelude.<$> (x Data..:? "SizeFlexEligible")
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "InstanceClass")
+            Prelude.<*> (x Data..:? "CurrentGeneration")
+            Prelude.<*> (x Data..:? "InstanceSize")
       )
 
 instance Prelude.Hashable ESInstanceDetails where

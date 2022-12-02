@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,23 +102,23 @@ instance Core.AWSRequest DescribeApplicationInstance where
     Response.receiveJSON
       ( \s h x ->
           DescribeApplicationInstanceResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "StatusDescription")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "CreatedTime")
-            Prelude.<*> (x Core..?> "DefaultRuntimeContextDevice")
-            Prelude.<*> (x Core..?> "ApplicationInstanceIdToReplace")
-            Prelude.<*> ( x Core..?> "RuntimeContextStates"
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "StatusDescription")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "CreatedTime")
+            Prelude.<*> (x Data..?> "DefaultRuntimeContextDevice")
+            Prelude.<*> (x Data..?> "ApplicationInstanceIdToReplace")
+            Prelude.<*> ( x Data..?> "RuntimeContextStates"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "HealthStatus")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "LastUpdatedTime")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "ApplicationInstanceId")
-            Prelude.<*> (x Core..?> "RuntimeRoleArn")
-            Prelude.<*> (x Core..?> "DefaultRuntimeContextDeviceName")
+            Prelude.<*> (x Data..?> "HealthStatus")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "LastUpdatedTime")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "ApplicationInstanceId")
+            Prelude.<*> (x Data..?> "RuntimeRoleArn")
+            Prelude.<*> (x Data..?> "DefaultRuntimeContextDeviceName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,25 +130,25 @@ instance Prelude.NFData DescribeApplicationInstance where
   rnf DescribeApplicationInstance' {..} =
     Prelude.rnf applicationInstanceId
 
-instance Core.ToHeaders DescribeApplicationInstance where
+instance Data.ToHeaders DescribeApplicationInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeApplicationInstance where
+instance Data.ToPath DescribeApplicationInstance where
   toPath DescribeApplicationInstance' {..} =
     Prelude.mconcat
       [ "/application-instances/",
-        Core.toBS applicationInstanceId
+        Data.toBS applicationInstanceId
       ]
 
-instance Core.ToQuery DescribeApplicationInstance where
+instance Data.ToQuery DescribeApplicationInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeApplicationInstanceResponse' smart constructor.
@@ -159,7 +160,7 @@ data DescribeApplicationInstanceResponse = DescribeApplicationInstanceResponse'
     -- | The application instance\'s name.
     name :: Prelude.Maybe Prelude.Text,
     -- | When the application instance was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The device\'s ID.
     defaultRuntimeContextDevice :: Prelude.Maybe Prelude.Text,
     -- | The ID of the application instance that this instance replaced.
@@ -173,7 +174,7 @@ data DescribeApplicationInstanceResponse = DescribeApplicationInstanceResponse'
     -- | The application instance\'s status.
     status :: Prelude.Maybe ApplicationInstanceStatus,
     -- | The application instance was updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The application instance\'s description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The application instance\'s ID.
@@ -269,7 +270,7 @@ describeApplicationInstanceResponse_name = Lens.lens (\DescribeApplicationInstan
 
 -- | When the application instance was created.
 describeApplicationInstanceResponse_createdTime :: Lens.Lens' DescribeApplicationInstanceResponse (Prelude.Maybe Prelude.UTCTime)
-describeApplicationInstanceResponse_createdTime = Lens.lens (\DescribeApplicationInstanceResponse' {createdTime} -> createdTime) (\s@DescribeApplicationInstanceResponse' {} a -> s {createdTime = a} :: DescribeApplicationInstanceResponse) Prelude.. Lens.mapping Core._Time
+describeApplicationInstanceResponse_createdTime = Lens.lens (\DescribeApplicationInstanceResponse' {createdTime} -> createdTime) (\s@DescribeApplicationInstanceResponse' {} a -> s {createdTime = a} :: DescribeApplicationInstanceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The device\'s ID.
 describeApplicationInstanceResponse_defaultRuntimeContextDevice :: Lens.Lens' DescribeApplicationInstanceResponse (Prelude.Maybe Prelude.Text)
@@ -297,7 +298,7 @@ describeApplicationInstanceResponse_status = Lens.lens (\DescribeApplicationInst
 
 -- | The application instance was updated.
 describeApplicationInstanceResponse_lastUpdatedTime :: Lens.Lens' DescribeApplicationInstanceResponse (Prelude.Maybe Prelude.UTCTime)
-describeApplicationInstanceResponse_lastUpdatedTime = Lens.lens (\DescribeApplicationInstanceResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DescribeApplicationInstanceResponse' {} a -> s {lastUpdatedTime = a} :: DescribeApplicationInstanceResponse) Prelude.. Lens.mapping Core._Time
+describeApplicationInstanceResponse_lastUpdatedTime = Lens.lens (\DescribeApplicationInstanceResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DescribeApplicationInstanceResponse' {} a -> s {lastUpdatedTime = a} :: DescribeApplicationInstanceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The application instance\'s description.
 describeApplicationInstanceResponse_description :: Lens.Lens' DescribeApplicationInstanceResponse (Prelude.Maybe Prelude.Text)

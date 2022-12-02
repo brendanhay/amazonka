@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,21 +107,21 @@ instance Core.AWSRequest DescribeNode where
     Response.receiveJSON
       ( \s h x ->
           DescribeNodeResponse'
-            Prelude.<$> (x Core..?> "AssetName")
-            Prelude.<*> (x Core..?> "PackageArn")
+            Prelude.<$> (x Data..?> "AssetName")
+            Prelude.<*> (x Data..?> "PackageArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Category")
-            Prelude.<*> (x Core..:> "CreatedTime")
-            Prelude.<*> (x Core..:> "Description")
-            Prelude.<*> (x Core..:> "LastUpdatedTime")
-            Prelude.<*> (x Core..:> "Name")
-            Prelude.<*> (x Core..:> "NodeId")
-            Prelude.<*> (x Core..:> "NodeInterface")
-            Prelude.<*> (x Core..:> "OwnerAccount")
-            Prelude.<*> (x Core..:> "PackageId")
-            Prelude.<*> (x Core..:> "PackageName")
-            Prelude.<*> (x Core..:> "PackageVersion")
-            Prelude.<*> (x Core..:> "PatchVersion")
+            Prelude.<*> (x Data..:> "Category")
+            Prelude.<*> (x Data..:> "CreatedTime")
+            Prelude.<*> (x Data..:> "Description")
+            Prelude.<*> (x Data..:> "LastUpdatedTime")
+            Prelude.<*> (x Data..:> "Name")
+            Prelude.<*> (x Data..:> "NodeId")
+            Prelude.<*> (x Data..:> "NodeInterface")
+            Prelude.<*> (x Data..:> "OwnerAccount")
+            Prelude.<*> (x Data..:> "PackageId")
+            Prelude.<*> (x Data..:> "PackageName")
+            Prelude.<*> (x Data..:> "PackageVersion")
+            Prelude.<*> (x Data..:> "PatchVersion")
       )
 
 instance Prelude.Hashable DescribeNode where
@@ -133,25 +134,25 @@ instance Prelude.NFData DescribeNode where
     Prelude.rnf ownerAccount
       `Prelude.seq` Prelude.rnf nodeId
 
-instance Core.ToHeaders DescribeNode where
+instance Data.ToHeaders DescribeNode where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeNode where
+instance Data.ToPath DescribeNode where
   toPath DescribeNode' {..} =
-    Prelude.mconcat ["/nodes/", Core.toBS nodeId]
+    Prelude.mconcat ["/nodes/", Data.toBS nodeId]
 
-instance Core.ToQuery DescribeNode where
+instance Data.ToQuery DescribeNode where
   toQuery DescribeNode' {..} =
     Prelude.mconcat
-      ["OwnerAccount" Core.=: ownerAccount]
+      ["OwnerAccount" Data.=: ownerAccount]
 
 -- | /See:/ 'newDescribeNodeResponse' smart constructor.
 data DescribeNodeResponse = DescribeNodeResponse'
@@ -164,11 +165,11 @@ data DescribeNodeResponse = DescribeNodeResponse'
     -- | The node\'s category.
     category :: NodeCategory,
     -- | When the node was created.
-    createdTime :: Core.POSIX,
+    createdTime :: Data.POSIX,
     -- | The node\'s description.
     description :: Prelude.Text,
     -- | When the node was updated.
-    lastUpdatedTime :: Core.POSIX,
+    lastUpdatedTime :: Data.POSIX,
     -- | The node\'s name.
     name :: Prelude.Text,
     -- | The node\'s ID.
@@ -272,10 +273,10 @@ newDescribeNodeResponse
         packageArn = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         category = pCategory_,
-        createdTime = Core._Time Lens.# pCreatedTime_,
+        createdTime = Data._Time Lens.# pCreatedTime_,
         description = pDescription_,
         lastUpdatedTime =
-          Core._Time Lens.# pLastUpdatedTime_,
+          Data._Time Lens.# pLastUpdatedTime_,
         name = pName_,
         nodeId = pNodeId_,
         nodeInterface = pNodeInterface_,
@@ -304,7 +305,7 @@ describeNodeResponse_category = Lens.lens (\DescribeNodeResponse' {category} -> 
 
 -- | When the node was created.
 describeNodeResponse_createdTime :: Lens.Lens' DescribeNodeResponse Prelude.UTCTime
-describeNodeResponse_createdTime = Lens.lens (\DescribeNodeResponse' {createdTime} -> createdTime) (\s@DescribeNodeResponse' {} a -> s {createdTime = a} :: DescribeNodeResponse) Prelude.. Core._Time
+describeNodeResponse_createdTime = Lens.lens (\DescribeNodeResponse' {createdTime} -> createdTime) (\s@DescribeNodeResponse' {} a -> s {createdTime = a} :: DescribeNodeResponse) Prelude.. Data._Time
 
 -- | The node\'s description.
 describeNodeResponse_description :: Lens.Lens' DescribeNodeResponse Prelude.Text
@@ -312,7 +313,7 @@ describeNodeResponse_description = Lens.lens (\DescribeNodeResponse' {descriptio
 
 -- | When the node was updated.
 describeNodeResponse_lastUpdatedTime :: Lens.Lens' DescribeNodeResponse Prelude.UTCTime
-describeNodeResponse_lastUpdatedTime = Lens.lens (\DescribeNodeResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DescribeNodeResponse' {} a -> s {lastUpdatedTime = a} :: DescribeNodeResponse) Prelude.. Core._Time
+describeNodeResponse_lastUpdatedTime = Lens.lens (\DescribeNodeResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DescribeNodeResponse' {} a -> s {lastUpdatedTime = a} :: DescribeNodeResponse) Prelude.. Data._Time
 
 -- | The node\'s name.
 describeNodeResponse_name :: Lens.Lens' DescribeNodeResponse Prelude.Text

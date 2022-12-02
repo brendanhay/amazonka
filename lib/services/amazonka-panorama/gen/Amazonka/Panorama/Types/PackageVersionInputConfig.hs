@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.PackageVersionInputConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types.S3Location
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,13 +57,13 @@ newPackageVersionInputConfig pS3Location_ =
 packageVersionInputConfig_s3Location :: Lens.Lens' PackageVersionInputConfig S3Location
 packageVersionInputConfig_s3Location = Lens.lens (\PackageVersionInputConfig' {s3Location} -> s3Location) (\s@PackageVersionInputConfig' {} a -> s {s3Location = a} :: PackageVersionInputConfig)
 
-instance Core.FromJSON PackageVersionInputConfig where
+instance Data.FromJSON PackageVersionInputConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PackageVersionInputConfig"
       ( \x ->
           PackageVersionInputConfig'
-            Prelude.<$> (x Core..: "S3Location")
+            Prelude.<$> (x Data..: "S3Location")
       )
 
 instance Prelude.Hashable PackageVersionInputConfig where
@@ -73,9 +74,9 @@ instance Prelude.NFData PackageVersionInputConfig where
   rnf PackageVersionInputConfig' {..} =
     Prelude.rnf s3Location
 
-instance Core.ToJSON PackageVersionInputConfig where
+instance Data.ToJSON PackageVersionInputConfig where
   toJSON PackageVersionInputConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("S3Location" Core..= s3Location)]
+          [Prelude.Just ("S3Location" Data..= s3Location)]
       )

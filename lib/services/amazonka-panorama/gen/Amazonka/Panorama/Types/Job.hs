@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.Job where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A job for a device.
@@ -61,14 +62,14 @@ job_deviceId = Lens.lens (\Job' {deviceId} -> deviceId) (\s@Job' {} a -> s {devi
 job_jobId :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_jobId = Lens.lens (\Job' {jobId} -> jobId) (\s@Job' {} a -> s {jobId = a} :: Job)
 
-instance Core.FromJSON Job where
+instance Data.FromJSON Job where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Job"
       ( \x ->
           Job'
-            Prelude.<$> (x Core..:? "DeviceId")
-            Prelude.<*> (x Core..:? "JobId")
+            Prelude.<$> (x Data..:? "DeviceId")
+            Prelude.<*> (x Data..:? "JobId")
       )
 
 instance Prelude.Hashable Job where

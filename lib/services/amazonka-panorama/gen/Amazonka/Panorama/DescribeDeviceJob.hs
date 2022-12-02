@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,15 +92,15 @@ instance Core.AWSRequest DescribeDeviceJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeDeviceJobResponse'
-            Prelude.<$> (x Core..?> "CreatedTime")
-            Prelude.<*> (x Core..?> "DeviceId")
-            Prelude.<*> (x Core..?> "DeviceName")
-            Prelude.<*> (x Core..?> "JobId")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "ImageVersion")
-            Prelude.<*> (x Core..?> "DeviceArn")
-            Prelude.<*> (x Core..?> "DeviceType")
-            Prelude.<*> (x Core..?> "JobType")
+            Prelude.<$> (x Data..?> "CreatedTime")
+            Prelude.<*> (x Data..?> "DeviceId")
+            Prelude.<*> (x Data..?> "DeviceName")
+            Prelude.<*> (x Data..?> "JobId")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "ImageVersion")
+            Prelude.<*> (x Data..?> "DeviceArn")
+            Prelude.<*> (x Data..?> "DeviceType")
+            Prelude.<*> (x Data..?> "JobType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,28 +111,28 @@ instance Prelude.Hashable DescribeDeviceJob where
 instance Prelude.NFData DescribeDeviceJob where
   rnf DescribeDeviceJob' {..} = Prelude.rnf jobId
 
-instance Core.ToHeaders DescribeDeviceJob where
+instance Data.ToHeaders DescribeDeviceJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeDeviceJob where
+instance Data.ToPath DescribeDeviceJob where
   toPath DescribeDeviceJob' {..} =
-    Prelude.mconcat ["/jobs/", Core.toBS jobId]
+    Prelude.mconcat ["/jobs/", Data.toBS jobId]
 
-instance Core.ToQuery DescribeDeviceJob where
+instance Data.ToQuery DescribeDeviceJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDeviceJobResponse' smart constructor.
 data DescribeDeviceJobResponse = DescribeDeviceJobResponse'
   { -- | When the job was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The device\'s ID.
     deviceId :: Prelude.Maybe Prelude.Text,
     -- | The device\'s name.
@@ -201,7 +202,7 @@ newDescribeDeviceJobResponse pHttpStatus_ =
 
 -- | When the job was created.
 describeDeviceJobResponse_createdTime :: Lens.Lens' DescribeDeviceJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeDeviceJobResponse_createdTime = Lens.lens (\DescribeDeviceJobResponse' {createdTime} -> createdTime) (\s@DescribeDeviceJobResponse' {} a -> s {createdTime = a} :: DescribeDeviceJobResponse) Prelude.. Lens.mapping Core._Time
+describeDeviceJobResponse_createdTime = Lens.lens (\DescribeDeviceJobResponse' {createdTime} -> createdTime) (\s@DescribeDeviceJobResponse' {} a -> s {createdTime = a} :: DescribeDeviceJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The device\'s ID.
 describeDeviceJobResponse_deviceId :: Lens.Lens' DescribeDeviceJobResponse (Prelude.Maybe Prelude.Text)

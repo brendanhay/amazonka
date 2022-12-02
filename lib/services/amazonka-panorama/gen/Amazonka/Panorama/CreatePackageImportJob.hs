@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,7 +137,7 @@ instance Core.AWSRequest CreatePackageImportJob where
       ( \s h x ->
           CreatePackageImportJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "JobId")
+            Prelude.<*> (x Data..:> "JobId")
       )
 
 instance Prelude.Hashable CreatePackageImportJob where
@@ -155,33 +156,33 @@ instance Prelude.NFData CreatePackageImportJob where
       `Prelude.seq` Prelude.rnf jobType
       `Prelude.seq` Prelude.rnf outputConfig
 
-instance Core.ToHeaders CreatePackageImportJob where
+instance Data.ToHeaders CreatePackageImportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePackageImportJob where
+instance Data.ToJSON CreatePackageImportJob where
   toJSON CreatePackageImportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("JobTags" Core..=) Prelude.<$> jobTags,
-            Prelude.Just ("ClientToken" Core..= clientToken),
-            Prelude.Just ("InputConfig" Core..= inputConfig),
-            Prelude.Just ("JobType" Core..= jobType),
-            Prelude.Just ("OutputConfig" Core..= outputConfig)
+          [ ("JobTags" Data..=) Prelude.<$> jobTags,
+            Prelude.Just ("ClientToken" Data..= clientToken),
+            Prelude.Just ("InputConfig" Data..= inputConfig),
+            Prelude.Just ("JobType" Data..= jobType),
+            Prelude.Just ("OutputConfig" Data..= outputConfig)
           ]
       )
 
-instance Core.ToPath CreatePackageImportJob where
+instance Data.ToPath CreatePackageImportJob where
   toPath = Prelude.const "/packages/import-jobs"
 
-instance Core.ToQuery CreatePackageImportJob where
+instance Data.ToQuery CreatePackageImportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePackageImportJobResponse' smart constructor.

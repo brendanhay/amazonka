@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -65,7 +66,7 @@ data CreateNodeFromTemplateJob = CreateNodeFromTemplateJob'
     -- | An output package version for the node.
     outputPackageVersion :: Prelude.Text,
     -- | Template parameters for the node.
-    templateParameters :: Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text),
+    templateParameters :: Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text),
     -- | The type of node.
     templateType :: TemplateType
   }
@@ -157,7 +158,7 @@ instance Core.AWSRequest CreateNodeFromTemplateJob where
       ( \s h x ->
           CreateNodeFromTemplateJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "JobId")
+            Prelude.<*> (x Data..:> "JobId")
       )
 
 instance Prelude.Hashable CreateNodeFromTemplateJob where
@@ -180,41 +181,41 @@ instance Prelude.NFData CreateNodeFromTemplateJob where
       `Prelude.seq` Prelude.rnf templateParameters
       `Prelude.seq` Prelude.rnf templateType
 
-instance Core.ToHeaders CreateNodeFromTemplateJob where
+instance Data.ToHeaders CreateNodeFromTemplateJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateNodeFromTemplateJob where
+instance Data.ToJSON CreateNodeFromTemplateJob where
   toJSON CreateNodeFromTemplateJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NodeDescription" Core..=)
+          [ ("NodeDescription" Data..=)
               Prelude.<$> nodeDescription,
-            ("JobTags" Core..=) Prelude.<$> jobTags,
-            Prelude.Just ("NodeName" Core..= nodeName),
+            ("JobTags" Data..=) Prelude.<$> jobTags,
+            Prelude.Just ("NodeName" Data..= nodeName),
             Prelude.Just
-              ("OutputPackageName" Core..= outputPackageName),
+              ("OutputPackageName" Data..= outputPackageName),
             Prelude.Just
               ( "OutputPackageVersion"
-                  Core..= outputPackageVersion
+                  Data..= outputPackageVersion
               ),
             Prelude.Just
-              ("TemplateParameters" Core..= templateParameters),
-            Prelude.Just ("TemplateType" Core..= templateType)
+              ("TemplateParameters" Data..= templateParameters),
+            Prelude.Just ("TemplateType" Data..= templateType)
           ]
       )
 
-instance Core.ToPath CreateNodeFromTemplateJob where
+instance Data.ToPath CreateNodeFromTemplateJob where
   toPath = Prelude.const "/packages/template-job"
 
-instance Core.ToQuery CreateNodeFromTemplateJob where
+instance Data.ToQuery CreateNodeFromTemplateJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateNodeFromTemplateJobResponse' smart constructor.

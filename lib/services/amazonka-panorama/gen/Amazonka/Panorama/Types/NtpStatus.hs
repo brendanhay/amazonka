@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.NtpStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types.NetworkConnectionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,15 +72,15 @@ ntpStatus_connectionStatus = Lens.lens (\NtpStatus' {connectionStatus} -> connec
 ntpStatus_ipAddress :: Lens.Lens' NtpStatus (Prelude.Maybe Prelude.Text)
 ntpStatus_ipAddress = Lens.lens (\NtpStatus' {ipAddress} -> ipAddress) (\s@NtpStatus' {} a -> s {ipAddress = a} :: NtpStatus)
 
-instance Core.FromJSON NtpStatus where
+instance Data.FromJSON NtpStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NtpStatus"
       ( \x ->
           NtpStatus'
-            Prelude.<$> (x Core..:? "NtpServerName")
-            Prelude.<*> (x Core..:? "ConnectionStatus")
-            Prelude.<*> (x Core..:? "IpAddress")
+            Prelude.<$> (x Data..:? "NtpServerName")
+            Prelude.<*> (x Data..:? "ConnectionStatus")
+            Prelude.<*> (x Data..:? "IpAddress")
       )
 
 instance Prelude.Hashable NtpStatus where

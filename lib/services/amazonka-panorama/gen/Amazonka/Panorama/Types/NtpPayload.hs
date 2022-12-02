@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.NtpPayload where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Network time protocol (NTP) server settings. Use this option to connect
@@ -51,13 +52,13 @@ newNtpPayload =
 ntpPayload_ntpServers :: Lens.Lens' NtpPayload [Prelude.Text]
 ntpPayload_ntpServers = Lens.lens (\NtpPayload' {ntpServers} -> ntpServers) (\s@NtpPayload' {} a -> s {ntpServers = a} :: NtpPayload) Prelude.. Lens.coerced
 
-instance Core.FromJSON NtpPayload where
+instance Data.FromJSON NtpPayload where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NtpPayload"
       ( \x ->
           NtpPayload'
-            Prelude.<$> (x Core..:? "NtpServers" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "NtpServers" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable NtpPayload where
@@ -67,9 +68,9 @@ instance Prelude.Hashable NtpPayload where
 instance Prelude.NFData NtpPayload where
   rnf NtpPayload' {..} = Prelude.rnf ntpServers
 
-instance Core.ToJSON NtpPayload where
+instance Data.ToJSON NtpPayload where
   toJSON NtpPayload' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("NtpServers" Core..= ntpServers)]
+          [Prelude.Just ("NtpServers" Data..= ntpServers)]
       )

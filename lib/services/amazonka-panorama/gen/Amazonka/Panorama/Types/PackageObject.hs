@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.PackageObject where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A package object.
@@ -79,15 +80,15 @@ packageObject_packageVersion = Lens.lens (\PackageObject' {packageVersion} -> pa
 packageObject_patchVersion :: Lens.Lens' PackageObject Prelude.Text
 packageObject_patchVersion = Lens.lens (\PackageObject' {patchVersion} -> patchVersion) (\s@PackageObject' {} a -> s {patchVersion = a} :: PackageObject)
 
-instance Core.FromJSON PackageObject where
+instance Data.FromJSON PackageObject where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PackageObject"
       ( \x ->
           PackageObject'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "PackageVersion")
-            Prelude.<*> (x Core..: "PatchVersion")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "PackageVersion")
+            Prelude.<*> (x Data..: "PatchVersion")
       )
 
 instance Prelude.Hashable PackageObject where

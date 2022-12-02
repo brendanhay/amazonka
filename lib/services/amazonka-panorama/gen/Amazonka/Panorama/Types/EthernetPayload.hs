@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.EthernetPayload where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types.ConnectionType
 import Amazonka.Panorama.Types.StaticIpConnectionInfo
 import qualified Amazonka.Prelude as Prelude
@@ -66,14 +67,14 @@ ethernetPayload_staticIpConnectionInfo = Lens.lens (\EthernetPayload' {staticIpC
 ethernetPayload_connectionType :: Lens.Lens' EthernetPayload ConnectionType
 ethernetPayload_connectionType = Lens.lens (\EthernetPayload' {connectionType} -> connectionType) (\s@EthernetPayload' {} a -> s {connectionType = a} :: EthernetPayload)
 
-instance Core.FromJSON EthernetPayload where
+instance Data.FromJSON EthernetPayload where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EthernetPayload"
       ( \x ->
           EthernetPayload'
-            Prelude.<$> (x Core..:? "StaticIpConnectionInfo")
-            Prelude.<*> (x Core..: "ConnectionType")
+            Prelude.<$> (x Data..:? "StaticIpConnectionInfo")
+            Prelude.<*> (x Data..: "ConnectionType")
       )
 
 instance Prelude.Hashable EthernetPayload where
@@ -86,13 +87,13 @@ instance Prelude.NFData EthernetPayload where
     Prelude.rnf staticIpConnectionInfo
       `Prelude.seq` Prelude.rnf connectionType
 
-instance Core.ToJSON EthernetPayload where
+instance Data.ToJSON EthernetPayload where
   toJSON EthernetPayload' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StaticIpConnectionInfo" Core..=)
+          [ ("StaticIpConnectionInfo" Data..=)
               Prelude.<$> staticIpConnectionInfo,
             Prelude.Just
-              ("ConnectionType" Core..= connectionType)
+              ("ConnectionType" Data..= connectionType)
           ]
       )

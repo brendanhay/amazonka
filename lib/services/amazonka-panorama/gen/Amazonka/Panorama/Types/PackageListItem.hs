@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.PackageListItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A package summary.
@@ -32,7 +33,7 @@ data PackageListItem = PackageListItem'
     -- | The package\'s name.
     packageName :: Prelude.Maybe Prelude.Text,
     -- | When the package was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The package\'s ARN.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The package\'s ID.
@@ -78,7 +79,7 @@ packageListItem_packageName = Lens.lens (\PackageListItem' {packageName} -> pack
 
 -- | When the package was created.
 packageListItem_createdTime :: Lens.Lens' PackageListItem (Prelude.Maybe Prelude.UTCTime)
-packageListItem_createdTime = Lens.lens (\PackageListItem' {createdTime} -> createdTime) (\s@PackageListItem' {} a -> s {createdTime = a} :: PackageListItem) Prelude.. Lens.mapping Core._Time
+packageListItem_createdTime = Lens.lens (\PackageListItem' {createdTime} -> createdTime) (\s@PackageListItem' {} a -> s {createdTime = a} :: PackageListItem) Prelude.. Lens.mapping Data._Time
 
 -- | The package\'s ARN.
 packageListItem_arn :: Lens.Lens' PackageListItem (Prelude.Maybe Prelude.Text)
@@ -88,17 +89,17 @@ packageListItem_arn = Lens.lens (\PackageListItem' {arn} -> arn) (\s@PackageList
 packageListItem_packageId :: Lens.Lens' PackageListItem (Prelude.Maybe Prelude.Text)
 packageListItem_packageId = Lens.lens (\PackageListItem' {packageId} -> packageId) (\s@PackageListItem' {} a -> s {packageId = a} :: PackageListItem)
 
-instance Core.FromJSON PackageListItem where
+instance Data.FromJSON PackageListItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PackageListItem"
       ( \x ->
           PackageListItem'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "PackageName")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "PackageId")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "PackageName")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "PackageId")
       )
 
 instance Prelude.Hashable PackageListItem where

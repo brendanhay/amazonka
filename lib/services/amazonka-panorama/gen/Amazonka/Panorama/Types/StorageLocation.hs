@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.StorageLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A storage location.
@@ -104,17 +105,17 @@ storageLocation_manifestPrefixLocation = Lens.lens (\StorageLocation' {manifestP
 storageLocation_repoPrefixLocation :: Lens.Lens' StorageLocation Prelude.Text
 storageLocation_repoPrefixLocation = Lens.lens (\StorageLocation' {repoPrefixLocation} -> repoPrefixLocation) (\s@StorageLocation' {} a -> s {repoPrefixLocation = a} :: StorageLocation)
 
-instance Core.FromJSON StorageLocation where
+instance Data.FromJSON StorageLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StorageLocation"
       ( \x ->
           StorageLocation'
-            Prelude.<$> (x Core..: "BinaryPrefixLocation")
-            Prelude.<*> (x Core..: "Bucket")
-            Prelude.<*> (x Core..: "GeneratedPrefixLocation")
-            Prelude.<*> (x Core..: "ManifestPrefixLocation")
-            Prelude.<*> (x Core..: "RepoPrefixLocation")
+            Prelude.<$> (x Data..: "BinaryPrefixLocation")
+            Prelude.<*> (x Data..: "Bucket")
+            Prelude.<*> (x Data..: "GeneratedPrefixLocation")
+            Prelude.<*> (x Data..: "ManifestPrefixLocation")
+            Prelude.<*> (x Data..: "RepoPrefixLocation")
       )
 
 instance Prelude.Hashable StorageLocation where

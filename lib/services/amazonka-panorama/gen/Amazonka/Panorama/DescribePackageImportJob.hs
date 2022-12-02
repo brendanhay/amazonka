@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,18 +94,18 @@ instance Core.AWSRequest DescribePackageImportJob where
     Response.receiveJSON
       ( \s h x ->
           DescribePackageImportJobResponse'
-            Prelude.<$> (x Core..?> "ClientToken")
-            Prelude.<*> (x Core..?> "JobTags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "ClientToken")
+            Prelude.<*> (x Data..?> "JobTags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "CreatedTime")
-            Prelude.<*> (x Core..:> "InputConfig")
-            Prelude.<*> (x Core..:> "JobId")
-            Prelude.<*> (x Core..:> "JobType")
-            Prelude.<*> (x Core..:> "LastUpdatedTime")
-            Prelude.<*> (x Core..:> "Output")
-            Prelude.<*> (x Core..:> "OutputConfig")
-            Prelude.<*> (x Core..:> "Status")
-            Prelude.<*> (x Core..:> "StatusMessage")
+            Prelude.<*> (x Data..:> "CreatedTime")
+            Prelude.<*> (x Data..:> "InputConfig")
+            Prelude.<*> (x Data..:> "JobId")
+            Prelude.<*> (x Data..:> "JobType")
+            Prelude.<*> (x Data..:> "LastUpdatedTime")
+            Prelude.<*> (x Data..:> "Output")
+            Prelude.<*> (x Data..:> "OutputConfig")
+            Prelude.<*> (x Data..:> "Status")
+            Prelude.<*> (x Data..:> "StatusMessage")
       )
 
 instance Prelude.Hashable DescribePackageImportJob where
@@ -114,23 +115,23 @@ instance Prelude.Hashable DescribePackageImportJob where
 instance Prelude.NFData DescribePackageImportJob where
   rnf DescribePackageImportJob' {..} = Prelude.rnf jobId
 
-instance Core.ToHeaders DescribePackageImportJob where
+instance Data.ToHeaders DescribePackageImportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribePackageImportJob where
+instance Data.ToPath DescribePackageImportJob where
   toPath DescribePackageImportJob' {..} =
     Prelude.mconcat
-      ["/packages/import-jobs/", Core.toBS jobId]
+      ["/packages/import-jobs/", Data.toBS jobId]
 
-instance Core.ToQuery DescribePackageImportJob where
+instance Data.ToQuery DescribePackageImportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePackageImportJobResponse' smart constructor.
@@ -142,7 +143,7 @@ data DescribePackageImportJobResponse = DescribePackageImportJobResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | When the job was created.
-    createdTime :: Core.POSIX,
+    createdTime :: Data.POSIX,
     -- | The job\'s input config.
     inputConfig :: PackageImportJobInputConfig,
     -- | The job\'s ID.
@@ -150,7 +151,7 @@ data DescribePackageImportJobResponse = DescribePackageImportJobResponse'
     -- | The job\'s type.
     jobType :: PackageImportJobType,
     -- | When the job was updated.
-    lastUpdatedTime :: Core.POSIX,
+    lastUpdatedTime :: Data.POSIX,
     -- | The job\'s output.
     output :: PackageImportJobOutput,
     -- | The job\'s output config.
@@ -232,12 +233,12 @@ newDescribePackageImportJobResponse
         jobTags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         createdTime =
-          Core._Time Lens.# pCreatedTime_,
+          Data._Time Lens.# pCreatedTime_,
         inputConfig = pInputConfig_,
         jobId = pJobId_,
         jobType = pJobType_,
         lastUpdatedTime =
-          Core._Time Lens.# pLastUpdatedTime_,
+          Data._Time Lens.# pLastUpdatedTime_,
         output = pOutput_,
         outputConfig = pOutputConfig_,
         status = pStatus_,
@@ -258,7 +259,7 @@ describePackageImportJobResponse_httpStatus = Lens.lens (\DescribePackageImportJ
 
 -- | When the job was created.
 describePackageImportJobResponse_createdTime :: Lens.Lens' DescribePackageImportJobResponse Prelude.UTCTime
-describePackageImportJobResponse_createdTime = Lens.lens (\DescribePackageImportJobResponse' {createdTime} -> createdTime) (\s@DescribePackageImportJobResponse' {} a -> s {createdTime = a} :: DescribePackageImportJobResponse) Prelude.. Core._Time
+describePackageImportJobResponse_createdTime = Lens.lens (\DescribePackageImportJobResponse' {createdTime} -> createdTime) (\s@DescribePackageImportJobResponse' {} a -> s {createdTime = a} :: DescribePackageImportJobResponse) Prelude.. Data._Time
 
 -- | The job\'s input config.
 describePackageImportJobResponse_inputConfig :: Lens.Lens' DescribePackageImportJobResponse PackageImportJobInputConfig
@@ -274,7 +275,7 @@ describePackageImportJobResponse_jobType = Lens.lens (\DescribePackageImportJobR
 
 -- | When the job was updated.
 describePackageImportJobResponse_lastUpdatedTime :: Lens.Lens' DescribePackageImportJobResponse Prelude.UTCTime
-describePackageImportJobResponse_lastUpdatedTime = Lens.lens (\DescribePackageImportJobResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DescribePackageImportJobResponse' {} a -> s {lastUpdatedTime = a} :: DescribePackageImportJobResponse) Prelude.. Core._Time
+describePackageImportJobResponse_lastUpdatedTime = Lens.lens (\DescribePackageImportJobResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DescribePackageImportJobResponse' {} a -> s {lastUpdatedTime = a} :: DescribePackageImportJobResponse) Prelude.. Data._Time
 
 -- | The job\'s output.
 describePackageImportJobResponse_output :: Lens.Lens' DescribePackageImportJobResponse PackageImportJobOutput

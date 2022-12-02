@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,12 +125,12 @@ instance Core.AWSRequest ProvisionDevice where
     Response.receiveJSON
       ( \s h x ->
           ProvisionDeviceResponse'
-            Prelude.<$> (x Core..?> "DeviceId")
-            Prelude.<*> (x Core..?> "IotThingName")
-            Prelude.<*> (x Core..?> "Certificates")
+            Prelude.<$> (x Data..?> "DeviceId")
+            Prelude.<*> (x Data..?> "IotThingName")
+            Prelude.<*> (x Data..?> "Certificates")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Arn")
-            Prelude.<*> (x Core..:> "Status")
+            Prelude.<*> (x Data..:> "Arn")
+            Prelude.<*> (x Data..:> "Status")
       )
 
 instance Prelude.Hashable ProvisionDevice where
@@ -146,33 +147,33 @@ instance Prelude.NFData ProvisionDevice where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders ProvisionDevice where
+instance Data.ToHeaders ProvisionDevice where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ProvisionDevice where
+instance Data.ToJSON ProvisionDevice where
   toJSON ProvisionDevice' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("NetworkingConfiguration" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("NetworkingConfiguration" Data..=)
               Prelude.<$> networkingConfiguration,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name)
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath ProvisionDevice where
+instance Data.ToPath ProvisionDevice where
   toPath = Prelude.const "/devices"
 
-instance Core.ToQuery ProvisionDevice where
+instance Data.ToQuery ProvisionDevice where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newProvisionDeviceResponse' smart constructor.
@@ -182,7 +183,7 @@ data ProvisionDeviceResponse = ProvisionDeviceResponse'
     -- | The device\'s IoT thing name.
     iotThingName :: Prelude.Maybe Prelude.Text,
     -- | The device\'s configuration bundle.
-    certificates :: Prelude.Maybe Core.Base64,
+    certificates :: Prelude.Maybe Data.Base64,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The device\'s ARN.
@@ -251,7 +252,7 @@ provisionDeviceResponse_iotThingName = Lens.lens (\ProvisionDeviceResponse' {iot
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 provisionDeviceResponse_certificates :: Lens.Lens' ProvisionDeviceResponse (Prelude.Maybe Prelude.ByteString)
-provisionDeviceResponse_certificates = Lens.lens (\ProvisionDeviceResponse' {certificates} -> certificates) (\s@ProvisionDeviceResponse' {} a -> s {certificates = a} :: ProvisionDeviceResponse) Prelude.. Lens.mapping Core._Base64
+provisionDeviceResponse_certificates = Lens.lens (\ProvisionDeviceResponse' {certificates} -> certificates) (\s@ProvisionDeviceResponse' {} a -> s {certificates = a} :: ProvisionDeviceResponse) Prelude.. Lens.mapping Data._Base64
 
 -- | The response's http status code.
 provisionDeviceResponse_httpStatus :: Lens.Lens' ProvisionDeviceResponse Prelude.Int

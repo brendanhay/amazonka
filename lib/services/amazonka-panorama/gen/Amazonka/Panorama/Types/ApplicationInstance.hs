@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.ApplicationInstance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types.ApplicationInstanceHealthStatus
 import Amazonka.Panorama.Types.ApplicationInstanceStatus
 import Amazonka.Panorama.Types.ReportedRuntimeContextState
@@ -37,7 +38,7 @@ data ApplicationInstance = ApplicationInstance'
     -- | The application instance\'s name.
     name :: Prelude.Maybe Prelude.Text,
     -- | When the application instance was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The device\'s ID.
     defaultRuntimeContextDevice :: Prelude.Maybe Prelude.Text,
     -- | The application\'s state.
@@ -120,7 +121,7 @@ applicationInstance_name = Lens.lens (\ApplicationInstance' {name} -> name) (\s@
 
 -- | When the application instance was created.
 applicationInstance_createdTime :: Lens.Lens' ApplicationInstance (Prelude.Maybe Prelude.UTCTime)
-applicationInstance_createdTime = Lens.lens (\ApplicationInstance' {createdTime} -> createdTime) (\s@ApplicationInstance' {} a -> s {createdTime = a} :: ApplicationInstance) Prelude.. Lens.mapping Core._Time
+applicationInstance_createdTime = Lens.lens (\ApplicationInstance' {createdTime} -> createdTime) (\s@ApplicationInstance' {} a -> s {createdTime = a} :: ApplicationInstance) Prelude.. Lens.mapping Data._Time
 
 -- | The device\'s ID.
 applicationInstance_defaultRuntimeContextDevice :: Lens.Lens' ApplicationInstance (Prelude.Maybe Prelude.Text)
@@ -154,26 +155,26 @@ applicationInstance_applicationInstanceId = Lens.lens (\ApplicationInstance' {ap
 applicationInstance_defaultRuntimeContextDeviceName :: Lens.Lens' ApplicationInstance (Prelude.Maybe Prelude.Text)
 applicationInstance_defaultRuntimeContextDeviceName = Lens.lens (\ApplicationInstance' {defaultRuntimeContextDeviceName} -> defaultRuntimeContextDeviceName) (\s@ApplicationInstance' {} a -> s {defaultRuntimeContextDeviceName = a} :: ApplicationInstance)
 
-instance Core.FromJSON ApplicationInstance where
+instance Data.FromJSON ApplicationInstance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationInstance"
       ( \x ->
           ApplicationInstance'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "StatusDescription")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "DefaultRuntimeContextDevice")
-            Prelude.<*> ( x Core..:? "RuntimeContextStates"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "StatusDescription")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "DefaultRuntimeContextDevice")
+            Prelude.<*> ( x Data..:? "RuntimeContextStates"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "HealthStatus")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ApplicationInstanceId")
-            Prelude.<*> (x Core..:? "DefaultRuntimeContextDeviceName")
+            Prelude.<*> (x Data..:? "HealthStatus")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ApplicationInstanceId")
+            Prelude.<*> (x Data..:? "DefaultRuntimeContextDeviceName")
       )
 
 instance Prelude.Hashable ApplicationInstance where

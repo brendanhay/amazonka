@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.NodeInstance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types.NodeInstanceStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -111,19 +112,19 @@ nodeInstance_currentStatus = Lens.lens (\NodeInstance' {currentStatus} -> curren
 nodeInstance_nodeInstanceId :: Lens.Lens' NodeInstance Prelude.Text
 nodeInstance_nodeInstanceId = Lens.lens (\NodeInstance' {nodeInstanceId} -> nodeInstanceId) (\s@NodeInstance' {} a -> s {nodeInstanceId = a} :: NodeInstance)
 
-instance Core.FromJSON NodeInstance where
+instance Data.FromJSON NodeInstance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NodeInstance"
       ( \x ->
           NodeInstance'
-            Prelude.<$> (x Core..:? "NodeId")
-            Prelude.<*> (x Core..:? "PackageName")
-            Prelude.<*> (x Core..:? "PackagePatchVersion")
-            Prelude.<*> (x Core..:? "PackageVersion")
-            Prelude.<*> (x Core..:? "NodeName")
-            Prelude.<*> (x Core..: "CurrentStatus")
-            Prelude.<*> (x Core..: "NodeInstanceId")
+            Prelude.<$> (x Data..:? "NodeId")
+            Prelude.<*> (x Data..:? "PackageName")
+            Prelude.<*> (x Data..:? "PackagePatchVersion")
+            Prelude.<*> (x Data..:? "PackageVersion")
+            Prelude.<*> (x Data..:? "NodeName")
+            Prelude.<*> (x Data..: "CurrentStatus")
+            Prelude.<*> (x Data..: "NodeInstanceId")
       )
 
 instance Prelude.Hashable NodeInstance where

@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.AlternateSoftwareMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a beta appliance software update.
@@ -53,13 +54,13 @@ newAlternateSoftwareMetadata =
 alternateSoftwareMetadata_version :: Lens.Lens' AlternateSoftwareMetadata (Prelude.Maybe Prelude.Text)
 alternateSoftwareMetadata_version = Lens.lens (\AlternateSoftwareMetadata' {version} -> version) (\s@AlternateSoftwareMetadata' {} a -> s {version = a} :: AlternateSoftwareMetadata)
 
-instance Core.FromJSON AlternateSoftwareMetadata where
+instance Data.FromJSON AlternateSoftwareMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlternateSoftwareMetadata"
       ( \x ->
           AlternateSoftwareMetadata'
-            Prelude.<$> (x Core..:? "Version")
+            Prelude.<$> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable AlternateSoftwareMetadata where

@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.OTAJobConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An over-the-air update (OTA) job configuration.
@@ -59,9 +60,9 @@ instance Prelude.Hashable OTAJobConfig where
 instance Prelude.NFData OTAJobConfig where
   rnf OTAJobConfig' {..} = Prelude.rnf imageVersion
 
-instance Core.ToJSON OTAJobConfig where
+instance Data.ToJSON OTAJobConfig where
   toJSON OTAJobConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ImageVersion" Core..= imageVersion)]
+          [Prelude.Just ("ImageVersion" Data..= imageVersion)]
       )

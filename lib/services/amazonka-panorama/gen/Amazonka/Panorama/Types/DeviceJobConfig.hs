@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.DeviceJobConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types.OTAJobConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -61,9 +62,9 @@ instance Prelude.Hashable DeviceJobConfig where
 instance Prelude.NFData DeviceJobConfig where
   rnf DeviceJobConfig' {..} = Prelude.rnf oTAJobConfig
 
-instance Core.ToJSON DeviceJobConfig where
+instance Data.ToJSON DeviceJobConfig where
   toJSON DeviceJobConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("OTAJobConfig" Core..=) Prelude.<$> oTAJobConfig]
+          [("OTAJobConfig" Data..=) Prelude.<$> oTAJobConfig]
       )

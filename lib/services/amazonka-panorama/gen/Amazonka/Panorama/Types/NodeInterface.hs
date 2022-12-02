@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.NodeInterface where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types.NodeInputPort
 import Amazonka.Panorama.Types.NodeOutputPort
 import qualified Amazonka.Prelude as Prelude
@@ -63,14 +64,14 @@ nodeInterface_inputs = Lens.lens (\NodeInterface' {inputs} -> inputs) (\s@NodeIn
 nodeInterface_outputs :: Lens.Lens' NodeInterface [NodeOutputPort]
 nodeInterface_outputs = Lens.lens (\NodeInterface' {outputs} -> outputs) (\s@NodeInterface' {} a -> s {outputs = a} :: NodeInterface) Prelude.. Lens.coerced
 
-instance Core.FromJSON NodeInterface where
+instance Data.FromJSON NodeInterface where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NodeInterface"
       ( \x ->
           NodeInterface'
-            Prelude.<$> (x Core..:? "Inputs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Outputs" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Inputs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Outputs" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable NodeInterface where

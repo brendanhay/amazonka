@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -161,7 +162,7 @@ instance Core.AWSRequest CreateApplicationInstance where
       ( \s h x ->
           CreateApplicationInstanceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ApplicationInstanceId")
+            Prelude.<*> (x Data..:> "ApplicationInstanceId")
       )
 
 instance Prelude.Hashable CreateApplicationInstance where
@@ -186,43 +187,43 @@ instance Prelude.NFData CreateApplicationInstance where
       `Prelude.seq` Prelude.rnf defaultRuntimeContextDevice
       `Prelude.seq` Prelude.rnf manifestPayload
 
-instance Core.ToHeaders CreateApplicationInstance where
+instance Data.ToHeaders CreateApplicationInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateApplicationInstance where
+instance Data.ToJSON CreateApplicationInstance where
   toJSON CreateApplicationInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Name" Core..=) Prelude.<$> name,
-            ("ApplicationInstanceIdToReplace" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Name" Data..=) Prelude.<$> name,
+            ("ApplicationInstanceIdToReplace" Data..=)
               Prelude.<$> applicationInstanceIdToReplace,
-            ("ManifestOverridesPayload" Core..=)
+            ("ManifestOverridesPayload" Data..=)
               Prelude.<$> manifestOverridesPayload,
-            ("Description" Core..=) Prelude.<$> description,
-            ("RuntimeRoleArn" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("RuntimeRoleArn" Data..=)
               Prelude.<$> runtimeRoleArn,
             Prelude.Just
               ( "DefaultRuntimeContextDevice"
-                  Core..= defaultRuntimeContextDevice
+                  Data..= defaultRuntimeContextDevice
               ),
             Prelude.Just
-              ("ManifestPayload" Core..= manifestPayload)
+              ("ManifestPayload" Data..= manifestPayload)
           ]
       )
 
-instance Core.ToPath CreateApplicationInstance where
+instance Data.ToPath CreateApplicationInstance where
   toPath = Prelude.const "/application-instances"
 
-instance Core.ToQuery CreateApplicationInstance where
+instance Data.ToQuery CreateApplicationInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateApplicationInstanceResponse' smart constructor.

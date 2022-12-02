@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.PackageImportJobOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types.OutPutS3Location
 import qualified Amazonka.Prelude as Prelude
 
@@ -93,16 +94,16 @@ packageImportJobOutput_packageVersion = Lens.lens (\PackageImportJobOutput' {pac
 packageImportJobOutput_patchVersion :: Lens.Lens' PackageImportJobOutput Prelude.Text
 packageImportJobOutput_patchVersion = Lens.lens (\PackageImportJobOutput' {patchVersion} -> patchVersion) (\s@PackageImportJobOutput' {} a -> s {patchVersion = a} :: PackageImportJobOutput)
 
-instance Core.FromJSON PackageImportJobOutput where
+instance Data.FromJSON PackageImportJobOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PackageImportJobOutput"
       ( \x ->
           PackageImportJobOutput'
-            Prelude.<$> (x Core..: "OutputS3Location")
-            Prelude.<*> (x Core..: "PackageId")
-            Prelude.<*> (x Core..: "PackageVersion")
-            Prelude.<*> (x Core..: "PatchVersion")
+            Prelude.<$> (x Data..: "OutputS3Location")
+            Prelude.<*> (x Data..: "PackageId")
+            Prelude.<*> (x Data..: "PackageVersion")
+            Prelude.<*> (x Data..: "PatchVersion")
       )
 
 instance Prelude.Hashable PackageImportJobOutput where

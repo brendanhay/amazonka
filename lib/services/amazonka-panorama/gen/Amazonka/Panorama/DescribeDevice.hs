@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,28 +103,28 @@ instance Core.AWSRequest DescribeDevice where
     Response.receiveJSON
       ( \s h x ->
           DescribeDeviceResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "CurrentNetworkingStatus")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Type")
-            Prelude.<*> (x Core..?> "CreatedTime")
-            Prelude.<*> (x Core..?> "LeaseExpirationTime")
-            Prelude.<*> (x Core..?> "LatestSoftware")
-            Prelude.<*> (x Core..?> "ProvisioningStatus")
-            Prelude.<*> (x Core..?> "DeviceId")
-            Prelude.<*> ( x Core..?> "AlternateSoftwares"
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "CurrentNetworkingStatus")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Type")
+            Prelude.<*> (x Data..?> "CreatedTime")
+            Prelude.<*> (x Data..?> "LeaseExpirationTime")
+            Prelude.<*> (x Data..?> "LatestSoftware")
+            Prelude.<*> (x Data..?> "ProvisioningStatus")
+            Prelude.<*> (x Data..?> "DeviceId")
+            Prelude.<*> ( x Data..?> "AlternateSoftwares"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NetworkingConfiguration")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "LatestDeviceJob")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "Brand")
-            Prelude.<*> (x Core..?> "DeviceConnectionStatus")
-            Prelude.<*> (x Core..?> "DeviceAggregatedStatus")
-            Prelude.<*> (x Core..?> "SerialNumber")
-            Prelude.<*> (x Core..?> "CurrentSoftware")
-            Prelude.<*> (x Core..?> "LatestAlternateSoftware")
+            Prelude.<*> (x Data..?> "NetworkingConfiguration")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "LatestDeviceJob")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "Brand")
+            Prelude.<*> (x Data..?> "DeviceConnectionStatus")
+            Prelude.<*> (x Data..?> "DeviceAggregatedStatus")
+            Prelude.<*> (x Data..?> "SerialNumber")
+            Prelude.<*> (x Data..?> "CurrentSoftware")
+            Prelude.<*> (x Data..?> "LatestAlternateSoftware")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,22 +135,22 @@ instance Prelude.Hashable DescribeDevice where
 instance Prelude.NFData DescribeDevice where
   rnf DescribeDevice' {..} = Prelude.rnf deviceId
 
-instance Core.ToHeaders DescribeDevice where
+instance Data.ToHeaders DescribeDevice where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeDevice where
+instance Data.ToPath DescribeDevice where
   toPath DescribeDevice' {..} =
-    Prelude.mconcat ["/devices/", Core.toBS deviceId]
+    Prelude.mconcat ["/devices/", Data.toBS deviceId]
 
-instance Core.ToQuery DescribeDevice where
+instance Data.ToQuery DescribeDevice where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDeviceResponse' smart constructor.
@@ -163,9 +164,9 @@ data DescribeDeviceResponse = DescribeDeviceResponse'
     -- | The device\'s type.
     type' :: Prelude.Maybe DeviceType,
     -- | When the device was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The device\'s lease expiration time.
-    leaseExpirationTime :: Prelude.Maybe Core.POSIX,
+    leaseExpirationTime :: Prelude.Maybe Data.POSIX,
     -- | The latest software version available for the device.
     latestSoftware :: Prelude.Maybe Prelude.Text,
     -- | The device\'s provisioning status.
@@ -299,11 +300,11 @@ describeDeviceResponse_type = Lens.lens (\DescribeDeviceResponse' {type'} -> typ
 
 -- | When the device was created.
 describeDeviceResponse_createdTime :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.UTCTime)
-describeDeviceResponse_createdTime = Lens.lens (\DescribeDeviceResponse' {createdTime} -> createdTime) (\s@DescribeDeviceResponse' {} a -> s {createdTime = a} :: DescribeDeviceResponse) Prelude.. Lens.mapping Core._Time
+describeDeviceResponse_createdTime = Lens.lens (\DescribeDeviceResponse' {createdTime} -> createdTime) (\s@DescribeDeviceResponse' {} a -> s {createdTime = a} :: DescribeDeviceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The device\'s lease expiration time.
 describeDeviceResponse_leaseExpirationTime :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.UTCTime)
-describeDeviceResponse_leaseExpirationTime = Lens.lens (\DescribeDeviceResponse' {leaseExpirationTime} -> leaseExpirationTime) (\s@DescribeDeviceResponse' {} a -> s {leaseExpirationTime = a} :: DescribeDeviceResponse) Prelude.. Lens.mapping Core._Time
+describeDeviceResponse_leaseExpirationTime = Lens.lens (\DescribeDeviceResponse' {leaseExpirationTime} -> leaseExpirationTime) (\s@DescribeDeviceResponse' {} a -> s {leaseExpirationTime = a} :: DescribeDeviceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The latest software version available for the device.
 describeDeviceResponse_latestSoftware :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)

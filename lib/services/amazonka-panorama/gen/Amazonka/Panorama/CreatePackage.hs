@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,10 +98,10 @@ instance Core.AWSRequest CreatePackage where
     Response.receiveJSON
       ( \s h x ->
           CreatePackageResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "PackageId")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "PackageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "StorageLocation")
+            Prelude.<*> (x Data..:> "StorageLocation")
       )
 
 instance Prelude.Hashable CreatePackage where
@@ -113,30 +114,30 @@ instance Prelude.NFData CreatePackage where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf packageName
 
-instance Core.ToHeaders CreatePackage where
+instance Data.ToHeaders CreatePackage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePackage where
+instance Data.ToJSON CreatePackage where
   toJSON CreatePackage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("PackageName" Core..= packageName)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("PackageName" Data..= packageName)
           ]
       )
 
-instance Core.ToPath CreatePackage where
+instance Data.ToPath CreatePackage where
   toPath = Prelude.const "/packages"
 
-instance Core.ToQuery CreatePackage where
+instance Data.ToQuery CreatePackage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePackageResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.NodeSignal where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types.NodeSignalValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -76,12 +77,12 @@ instance Prelude.NFData NodeSignal where
     Prelude.rnf nodeInstanceId
       `Prelude.seq` Prelude.rnf signal
 
-instance Core.ToJSON NodeSignal where
+instance Data.ToJSON NodeSignal where
   toJSON NodeSignal' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("NodeInstanceId" Core..= nodeInstanceId),
-            Prelude.Just ("Signal" Core..= signal)
+              ("NodeInstanceId" Data..= nodeInstanceId),
+            Prelude.Just ("Signal" Data..= signal)
           ]
       )

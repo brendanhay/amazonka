@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.NodeFromTemplateJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types.NodeFromTemplateJobStatus
 import Amazonka.Panorama.Types.TemplateType
 import qualified Amazonka.Prelude as Prelude
@@ -32,7 +33,7 @@ data NodeFromTemplateJob = NodeFromTemplateJob'
   { -- | The job\'s template type.
     templateType :: Prelude.Maybe TemplateType,
     -- | When the job was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The job\'s ID.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | The job\'s status.
@@ -82,7 +83,7 @@ nodeFromTemplateJob_templateType = Lens.lens (\NodeFromTemplateJob' {templateTyp
 
 -- | When the job was created.
 nodeFromTemplateJob_createdTime :: Lens.Lens' NodeFromTemplateJob (Prelude.Maybe Prelude.UTCTime)
-nodeFromTemplateJob_createdTime = Lens.lens (\NodeFromTemplateJob' {createdTime} -> createdTime) (\s@NodeFromTemplateJob' {} a -> s {createdTime = a} :: NodeFromTemplateJob) Prelude.. Lens.mapping Core._Time
+nodeFromTemplateJob_createdTime = Lens.lens (\NodeFromTemplateJob' {createdTime} -> createdTime) (\s@NodeFromTemplateJob' {} a -> s {createdTime = a} :: NodeFromTemplateJob) Prelude.. Lens.mapping Data._Time
 
 -- | The job\'s ID.
 nodeFromTemplateJob_jobId :: Lens.Lens' NodeFromTemplateJob (Prelude.Maybe Prelude.Text)
@@ -100,18 +101,18 @@ nodeFromTemplateJob_nodeName = Lens.lens (\NodeFromTemplateJob' {nodeName} -> no
 nodeFromTemplateJob_statusMessage :: Lens.Lens' NodeFromTemplateJob (Prelude.Maybe Prelude.Text)
 nodeFromTemplateJob_statusMessage = Lens.lens (\NodeFromTemplateJob' {statusMessage} -> statusMessage) (\s@NodeFromTemplateJob' {} a -> s {statusMessage = a} :: NodeFromTemplateJob)
 
-instance Core.FromJSON NodeFromTemplateJob where
+instance Data.FromJSON NodeFromTemplateJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NodeFromTemplateJob"
       ( \x ->
           NodeFromTemplateJob'
-            Prelude.<$> (x Core..:? "TemplateType")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "NodeName")
-            Prelude.<*> (x Core..:? "StatusMessage")
+            Prelude.<$> (x Data..:? "TemplateType")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "NodeName")
+            Prelude.<*> (x Data..:? "StatusMessage")
       )
 
 instance Prelude.Hashable NodeFromTemplateJob where

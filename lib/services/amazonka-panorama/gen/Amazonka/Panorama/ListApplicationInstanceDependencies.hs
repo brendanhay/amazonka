@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,8 +119,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListApplicationInstanceDependenciesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> (x Core..?> "PackageObjects" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> (x Data..?> "PackageObjects" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,38 +145,38 @@ instance
       `Prelude.seq` Prelude.rnf applicationInstanceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListApplicationInstanceDependencies
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListApplicationInstanceDependencies
   where
   toPath ListApplicationInstanceDependencies' {..} =
     Prelude.mconcat
       [ "/application-instances/",
-        Core.toBS applicationInstanceId,
+        Data.toBS applicationInstanceId,
         "/package-dependencies"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListApplicationInstanceDependencies
   where
   toQuery ListApplicationInstanceDependencies' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListApplicationInstanceDependenciesResponse' smart constructor.

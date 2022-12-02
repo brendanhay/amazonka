@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.LatestDeviceJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types.JobType
 import Amazonka.Panorama.Types.UpdateProgress
 import qualified Amazonka.Prelude as Prelude
@@ -72,15 +73,15 @@ latestDeviceJob_imageVersion = Lens.lens (\LatestDeviceJob' {imageVersion} -> im
 latestDeviceJob_jobType :: Lens.Lens' LatestDeviceJob (Prelude.Maybe JobType)
 latestDeviceJob_jobType = Lens.lens (\LatestDeviceJob' {jobType} -> jobType) (\s@LatestDeviceJob' {} a -> s {jobType = a} :: LatestDeviceJob)
 
-instance Core.FromJSON LatestDeviceJob where
+instance Data.FromJSON LatestDeviceJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LatestDeviceJob"
       ( \x ->
           LatestDeviceJob'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ImageVersion")
-            Prelude.<*> (x Core..:? "JobType")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ImageVersion")
+            Prelude.<*> (x Data..:? "JobType")
       )
 
 instance Prelude.Hashable LatestDeviceJob where

@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.NodeOutputPort where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types.PortType
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,15 +72,15 @@ nodeOutputPort_type = Lens.lens (\NodeOutputPort' {type'} -> type') (\s@NodeOutp
 nodeOutputPort_description :: Lens.Lens' NodeOutputPort (Prelude.Maybe Prelude.Text)
 nodeOutputPort_description = Lens.lens (\NodeOutputPort' {description} -> description) (\s@NodeOutputPort' {} a -> s {description = a} :: NodeOutputPort)
 
-instance Core.FromJSON NodeOutputPort where
+instance Data.FromJSON NodeOutputPort where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NodeOutputPort"
       ( \x ->
           NodeOutputPort'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable NodeOutputPort where

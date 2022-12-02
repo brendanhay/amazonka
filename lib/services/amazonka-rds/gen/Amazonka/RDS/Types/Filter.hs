@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.Filter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter name and value pair that is used to return a more specific list
@@ -86,9 +87,9 @@ instance Prelude.NFData Filter where
   rnf Filter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToQuery Filter where
+instance Data.ToQuery Filter where
   toQuery Filter' {..} =
     Prelude.mconcat
-      [ "Name" Core.=: name,
-        "Values" Core.=: Core.toQueryList "Value" values
+      [ "Name" Data.=: name,
+        "Values" Data.=: Data.toQueryList "Value" values
       ]

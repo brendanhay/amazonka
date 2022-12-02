@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -214,7 +215,7 @@ instance Core.AWSRequest ModifyDBSnapshotAttribute where
       "ModifyDBSnapshotAttributeResult"
       ( \s h x ->
           ModifyDBSnapshotAttributeResponse'
-            Prelude.<$> (x Core..@? "DBSnapshotAttributesResult")
+            Prelude.<$> (x Data..@? "DBSnapshotAttributesResult")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -232,31 +233,31 @@ instance Prelude.NFData ModifyDBSnapshotAttribute where
       `Prelude.seq` Prelude.rnf dbSnapshotIdentifier
       `Prelude.seq` Prelude.rnf attributeName
 
-instance Core.ToHeaders ModifyDBSnapshotAttribute where
+instance Data.ToHeaders ModifyDBSnapshotAttribute where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyDBSnapshotAttribute where
+instance Data.ToPath ModifyDBSnapshotAttribute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyDBSnapshotAttribute where
+instance Data.ToQuery ModifyDBSnapshotAttribute where
   toQuery ModifyDBSnapshotAttribute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyDBSnapshotAttribute" :: Prelude.ByteString),
+          Data.=: ("ModifyDBSnapshotAttribute" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "ValuesToRemove"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "AttributeValue"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "AttributeValue"
                 Prelude.<$> valuesToRemove
             ),
         "ValuesToAdd"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "AttributeValue"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "AttributeValue"
                 Prelude.<$> valuesToAdd
             ),
-        "DBSnapshotIdentifier" Core.=: dbSnapshotIdentifier,
-        "AttributeName" Core.=: attributeName
+        "DBSnapshotIdentifier" Data.=: dbSnapshotIdentifier,
+        "AttributeName" Data.=: attributeName
       ]
 
 -- | /See:/ 'newModifyDBSnapshotAttributeResponse' smart constructor.

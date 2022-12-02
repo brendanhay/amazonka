@@ -94,6 +94,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -1284,7 +1285,7 @@ instance Core.AWSRequest RestoreDBInstanceFromS3 where
       "RestoreDBInstanceFromS3Result"
       ( \s h x ->
           RestoreDBInstanceFromS3Response'
-            Prelude.<$> (x Core..@? "DBInstance")
+            Prelude.<$> (x Data..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -1412,92 +1413,92 @@ instance Prelude.NFData RestoreDBInstanceFromS3 where
       `Prelude.seq` Prelude.rnf
         s3IngestionRoleArn
 
-instance Core.ToHeaders RestoreDBInstanceFromS3 where
+instance Data.ToHeaders RestoreDBInstanceFromS3 where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RestoreDBInstanceFromS3 where
+instance Data.ToPath RestoreDBInstanceFromS3 where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestoreDBInstanceFromS3 where
+instance Data.ToQuery RestoreDBInstanceFromS3 where
   toQuery RestoreDBInstanceFromS3' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RestoreDBInstanceFromS3" :: Prelude.ByteString),
+          Data.=: ("RestoreDBInstanceFromS3" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "MaxAllocatedStorage" Core.=: maxAllocatedStorage,
-        "Port" Core.=: port,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "MaxAllocatedStorage" Data.=: maxAllocatedStorage,
+        "Port" Data.=: port,
         "PerformanceInsightsRetentionPeriod"
-          Core.=: performanceInsightsRetentionPeriod,
+          Data.=: performanceInsightsRetentionPeriod,
         "VpcSecurityGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "VpcSecurityGroupId"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "VpcSecurityGroupId"
                 Prelude.<$> vpcSecurityGroupIds
             ),
-        "DBParameterGroupName" Core.=: dbParameterGroupName,
+        "DBParameterGroupName" Data.=: dbParameterGroupName,
         "PreferredBackupWindow"
-          Core.=: preferredBackupWindow,
-        "StorageThroughput" Core.=: storageThroughput,
+          Data.=: preferredBackupWindow,
+        "StorageThroughput" Data.=: storageThroughput,
         "BackupRetentionPeriod"
-          Core.=: backupRetentionPeriod,
-        "MasterUsername" Core.=: masterUsername,
-        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
-        "DBSubnetGroupName" Core.=: dbSubnetGroupName,
+          Data.=: backupRetentionPeriod,
+        "MasterUsername" Data.=: masterUsername,
+        "CopyTagsToSnapshot" Data.=: copyTagsToSnapshot,
+        "DBSubnetGroupName" Data.=: dbSubnetGroupName,
         "AutoMinorVersionUpgrade"
-          Core.=: autoMinorVersionUpgrade,
-        "OptionGroupName" Core.=: optionGroupName,
+          Data.=: autoMinorVersionUpgrade,
+        "OptionGroupName" Data.=: optionGroupName,
         "PerformanceInsightsKMSKeyId"
-          Core.=: performanceInsightsKMSKeyId,
+          Data.=: performanceInsightsKMSKeyId,
         "EnableIAMDatabaseAuthentication"
-          Core.=: enableIAMDatabaseAuthentication,
+          Data.=: enableIAMDatabaseAuthentication,
         "DBSecurityGroups"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "DBSecurityGroupName"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "DBSecurityGroupName"
                 Prelude.<$> dbSecurityGroups
             ),
-        "MonitoringInterval" Core.=: monitoringInterval,
-        "AvailabilityZone" Core.=: availabilityZone,
-        "MasterUserPassword" Core.=: masterUserPassword,
-        "PubliclyAccessible" Core.=: publiclyAccessible,
-        "StorageType" Core.=: storageType,
+        "MonitoringInterval" Data.=: monitoringInterval,
+        "AvailabilityZone" Data.=: availabilityZone,
+        "MasterUserPassword" Data.=: masterUserPassword,
+        "PubliclyAccessible" Data.=: publiclyAccessible,
+        "StorageType" Data.=: storageType,
         "EnableCloudwatchLogsExports"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> enableCloudwatchLogsExports
             ),
         "ProcessorFeatures"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "ProcessorFeature"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "ProcessorFeature"
                 Prelude.<$> processorFeatures
             ),
         "EnablePerformanceInsights"
-          Core.=: enablePerformanceInsights,
-        "MonitoringRoleArn" Core.=: monitoringRoleArn,
-        "StorageEncrypted" Core.=: storageEncrypted,
-        "KmsKeyId" Core.=: kmsKeyId,
-        "AllocatedStorage" Core.=: allocatedStorage,
-        "DeletionProtection" Core.=: deletionProtection,
+          Data.=: enablePerformanceInsights,
+        "MonitoringRoleArn" Data.=: monitoringRoleArn,
+        "StorageEncrypted" Data.=: storageEncrypted,
+        "KmsKeyId" Data.=: kmsKeyId,
+        "AllocatedStorage" Data.=: allocatedStorage,
+        "DeletionProtection" Data.=: deletionProtection,
         "PreferredMaintenanceWindow"
-          Core.=: preferredMaintenanceWindow,
-        "Iops" Core.=: iops,
-        "EngineVersion" Core.=: engineVersion,
-        "DBName" Core.=: dbName,
-        "NetworkType" Core.=: networkType,
-        "MultiAZ" Core.=: multiAZ,
-        "S3Prefix" Core.=: s3Prefix,
-        "LicenseModel" Core.=: licenseModel,
+          Data.=: preferredMaintenanceWindow,
+        "Iops" Data.=: iops,
+        "EngineVersion" Data.=: engineVersion,
+        "DBName" Data.=: dbName,
+        "NetworkType" Data.=: networkType,
+        "MultiAZ" Data.=: multiAZ,
+        "S3Prefix" Data.=: s3Prefix,
+        "LicenseModel" Data.=: licenseModel,
         "UseDefaultProcessorFeatures"
-          Core.=: useDefaultProcessorFeatures,
-        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier,
-        "DBInstanceClass" Core.=: dbInstanceClass,
-        "Engine" Core.=: engine,
-        "SourceEngine" Core.=: sourceEngine,
-        "SourceEngineVersion" Core.=: sourceEngineVersion,
-        "S3BucketName" Core.=: s3BucketName,
-        "S3IngestionRoleArn" Core.=: s3IngestionRoleArn
+          Data.=: useDefaultProcessorFeatures,
+        "DBInstanceIdentifier" Data.=: dbInstanceIdentifier,
+        "DBInstanceClass" Data.=: dbInstanceClass,
+        "Engine" Data.=: engine,
+        "SourceEngine" Data.=: sourceEngine,
+        "SourceEngineVersion" Data.=: sourceEngineVersion,
+        "S3BucketName" Data.=: s3BucketName,
+        "S3IngestionRoleArn" Data.=: s3IngestionRoleArn
       ]
 
 -- | /See:/ 'newRestoreDBInstanceFromS3Response' smart constructor.

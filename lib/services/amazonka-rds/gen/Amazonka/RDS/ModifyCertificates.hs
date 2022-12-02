@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -141,7 +142,7 @@ instance Core.AWSRequest ModifyCertificates where
       "ModifyCertificatesResult"
       ( \s h x ->
           ModifyCertificatesResponse'
-            Prelude.<$> (x Core..@? "Certificate")
+            Prelude.<$> (x Data..@? "Certificate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,23 +156,23 @@ instance Prelude.NFData ModifyCertificates where
     Prelude.rnf removeCustomerOverride
       `Prelude.seq` Prelude.rnf certificateIdentifier
 
-instance Core.ToHeaders ModifyCertificates where
+instance Data.ToHeaders ModifyCertificates where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyCertificates where
+instance Data.ToPath ModifyCertificates where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyCertificates where
+instance Data.ToQuery ModifyCertificates where
   toQuery ModifyCertificates' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyCertificates" :: Prelude.ByteString),
+          Data.=: ("ModifyCertificates" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "RemoveCustomerOverride"
-          Core.=: removeCustomerOverride,
+          Data.=: removeCustomerOverride,
         "CertificateIdentifier"
-          Core.=: certificateIdentifier
+          Data.=: certificateIdentifier
       ]
 
 -- | /See:/ 'newModifyCertificatesResponse' smart constructor.

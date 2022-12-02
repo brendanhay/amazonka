@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -76,8 +77,8 @@ instance Core.AWSRequest DescribeAccountAttributes where
       "DescribeAccountAttributesResult"
       ( \s h x ->
           DescribeAccountAttributesResponse'
-            Prelude.<$> ( x Core..@? "AccountQuotas" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "AccountQuota")
+            Prelude.<$> ( x Data..@? "AccountQuotas" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "AccountQuota")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -89,20 +90,20 @@ instance Prelude.Hashable DescribeAccountAttributes where
 instance Prelude.NFData DescribeAccountAttributes where
   rnf _ = ()
 
-instance Core.ToHeaders DescribeAccountAttributes where
+instance Data.ToHeaders DescribeAccountAttributes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAccountAttributes where
+instance Data.ToPath DescribeAccountAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAccountAttributes where
+instance Data.ToQuery DescribeAccountAttributes where
   toQuery =
     Prelude.const
       ( Prelude.mconcat
           [ "Action"
-              Core.=: ("DescribeAccountAttributes" :: Prelude.ByteString),
+              Data.=: ("DescribeAccountAttributes" :: Prelude.ByteString),
             "Version"
-              Core.=: ("2014-10-31" :: Prelude.ByteString)
+              Data.=: ("2014-10-31" :: Prelude.ByteString)
           ]
       )
 

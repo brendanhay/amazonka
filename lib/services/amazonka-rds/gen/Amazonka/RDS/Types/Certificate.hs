@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.Certificate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A CA certificate for an Amazon Web Services account.
@@ -30,9 +31,9 @@ data Certificate = Certificate'
   { -- | The thumbprint of the certificate.
     thumbprint :: Prelude.Maybe Prelude.Text,
     -- | The final date that the certificate continues to be valid.
-    validTill :: Prelude.Maybe Core.ISO8601,
+    validTill :: Prelude.Maybe Data.ISO8601,
     -- | The starting date from which the certificate is valid.
-    validFrom :: Prelude.Maybe Core.ISO8601,
+    validFrom :: Prelude.Maybe Data.ISO8601,
     -- | Whether there is an override for the default certificate identifier.
     customerOverride :: Prelude.Maybe Prelude.Bool,
     -- | The unique key that identifies a certificate.
@@ -43,7 +44,7 @@ data Certificate = Certificate'
     certificateType :: Prelude.Maybe Prelude.Text,
     -- | If there is an override for the default certificate identifier, when the
     -- override expires.
-    customerOverrideValidTill :: Prelude.Maybe Core.ISO8601
+    customerOverrideValidTill :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,11 +92,11 @@ certificate_thumbprint = Lens.lens (\Certificate' {thumbprint} -> thumbprint) (\
 
 -- | The final date that the certificate continues to be valid.
 certificate_validTill :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
-certificate_validTill = Lens.lens (\Certificate' {validTill} -> validTill) (\s@Certificate' {} a -> s {validTill = a} :: Certificate) Prelude.. Lens.mapping Core._Time
+certificate_validTill = Lens.lens (\Certificate' {validTill} -> validTill) (\s@Certificate' {} a -> s {validTill = a} :: Certificate) Prelude.. Lens.mapping Data._Time
 
 -- | The starting date from which the certificate is valid.
 certificate_validFrom :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
-certificate_validFrom = Lens.lens (\Certificate' {validFrom} -> validFrom) (\s@Certificate' {} a -> s {validFrom = a} :: Certificate) Prelude.. Lens.mapping Core._Time
+certificate_validFrom = Lens.lens (\Certificate' {validFrom} -> validFrom) (\s@Certificate' {} a -> s {validFrom = a} :: Certificate) Prelude.. Lens.mapping Data._Time
 
 -- | Whether there is an override for the default certificate identifier.
 certificate_customerOverride :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Bool)
@@ -116,19 +117,19 @@ certificate_certificateType = Lens.lens (\Certificate' {certificateType} -> cert
 -- | If there is an override for the default certificate identifier, when the
 -- override expires.
 certificate_customerOverrideValidTill :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
-certificate_customerOverrideValidTill = Lens.lens (\Certificate' {customerOverrideValidTill} -> customerOverrideValidTill) (\s@Certificate' {} a -> s {customerOverrideValidTill = a} :: Certificate) Prelude.. Lens.mapping Core._Time
+certificate_customerOverrideValidTill = Lens.lens (\Certificate' {customerOverrideValidTill} -> customerOverrideValidTill) (\s@Certificate' {} a -> s {customerOverrideValidTill = a} :: Certificate) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML Certificate where
+instance Data.FromXML Certificate where
   parseXML x =
     Certificate'
-      Prelude.<$> (x Core..@? "Thumbprint")
-      Prelude.<*> (x Core..@? "ValidTill")
-      Prelude.<*> (x Core..@? "ValidFrom")
-      Prelude.<*> (x Core..@? "CustomerOverride")
-      Prelude.<*> (x Core..@? "CertificateIdentifier")
-      Prelude.<*> (x Core..@? "CertificateArn")
-      Prelude.<*> (x Core..@? "CertificateType")
-      Prelude.<*> (x Core..@? "CustomerOverrideValidTill")
+      Prelude.<$> (x Data..@? "Thumbprint")
+      Prelude.<*> (x Data..@? "ValidTill")
+      Prelude.<*> (x Data..@? "ValidFrom")
+      Prelude.<*> (x Data..@? "CustomerOverride")
+      Prelude.<*> (x Data..@? "CertificateIdentifier")
+      Prelude.<*> (x Data..@? "CertificateArn")
+      Prelude.<*> (x Data..@? "CertificateType")
+      Prelude.<*> (x Data..@? "CustomerOverrideValidTill")
 
 instance Prelude.Hashable Certificate where
   hashWithSalt _salt Certificate' {..} =

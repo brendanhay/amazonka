@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.DBSecurityGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.EC2SecurityGroup
 import Amazonka.RDS.Types.IPRange
@@ -114,21 +115,21 @@ dbSecurityGroup_iPRanges = Lens.lens (\DBSecurityGroup' {iPRanges} -> iPRanges) 
 dbSecurityGroup_vpcId :: Lens.Lens' DBSecurityGroup (Prelude.Maybe Prelude.Text)
 dbSecurityGroup_vpcId = Lens.lens (\DBSecurityGroup' {vpcId} -> vpcId) (\s@DBSecurityGroup' {} a -> s {vpcId = a} :: DBSecurityGroup)
 
-instance Core.FromXML DBSecurityGroup where
+instance Data.FromXML DBSecurityGroup where
   parseXML x =
     DBSecurityGroup'
-      Prelude.<$> (x Core..@? "OwnerId")
-      Prelude.<*> (x Core..@? "DBSecurityGroupDescription")
-      Prelude.<*> (x Core..@? "DBSecurityGroupName")
-      Prelude.<*> ( x Core..@? "EC2SecurityGroups"
+      Prelude.<$> (x Data..@? "OwnerId")
+      Prelude.<*> (x Data..@? "DBSecurityGroupDescription")
+      Prelude.<*> (x Data..@? "DBSecurityGroupName")
+      Prelude.<*> ( x Data..@? "EC2SecurityGroups"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "EC2SecurityGroup")
+                      Prelude.>>= Core.may (Data.parseXMLList "EC2SecurityGroup")
                   )
-      Prelude.<*> (x Core..@? "DBSecurityGroupArn")
-      Prelude.<*> ( x Core..@? "IPRanges" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "IPRange")
+      Prelude.<*> (x Data..@? "DBSecurityGroupArn")
+      Prelude.<*> ( x Data..@? "IPRanges" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "IPRange")
                   )
-      Prelude.<*> (x Core..@? "VpcId")
+      Prelude.<*> (x Data..@? "VpcId")
 
 instance Prelude.Hashable DBSecurityGroup where
   hashWithSalt _salt DBSecurityGroup' {..} =

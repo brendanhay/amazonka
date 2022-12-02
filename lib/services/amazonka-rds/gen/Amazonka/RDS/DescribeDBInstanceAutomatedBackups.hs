@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -284,11 +285,11 @@ instance
       "DescribeDBInstanceAutomatedBackupsResult"
       ( \s h x ->
           DescribeDBInstanceAutomatedBackupsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-              Prelude.<*> ( x Core..@? "DBInstanceAutomatedBackups"
+            Prelude.<$> (x Data..@? "Marker")
+              Prelude.<*> ( x Data..@? "DBInstanceAutomatedBackups"
                               Core..!@ Prelude.mempty
                               Prelude.>>= Core.may
-                                (Core.parseXMLList "DBInstanceAutomatedBackup")
+                                (Data.parseXMLList "DBInstanceAutomatedBackup")
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -320,38 +321,38 @@ instance
       `Prelude.seq` Prelude.rnf dbiResourceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeDBInstanceAutomatedBackups
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeDBInstanceAutomatedBackups
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeDBInstanceAutomatedBackups
   where
   toQuery DescribeDBInstanceAutomatedBackups' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeDBInstanceAutomatedBackups" ::
+          Data.=: ( "DescribeDBInstanceAutomatedBackups" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "DBInstanceIdentifier" Data.=: dbInstanceIdentifier,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
         "DBInstanceAutomatedBackupsArn"
-          Core.=: dbInstanceAutomatedBackupsArn,
-        "MaxRecords" Core.=: maxRecords,
-        "DbiResourceId" Core.=: dbiResourceId
+          Data.=: dbInstanceAutomatedBackupsArn,
+        "MaxRecords" Data.=: maxRecords,
+        "DbiResourceId" Data.=: dbiResourceId
       ]
 
 -- | Contains the result of a successful invocation of the

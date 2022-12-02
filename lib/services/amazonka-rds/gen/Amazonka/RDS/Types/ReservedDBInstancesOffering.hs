@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.ReservedDBInstancesOffering where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.RecurringCharge
 
@@ -137,22 +138,22 @@ reservedDBInstancesOffering_usagePrice = Lens.lens (\ReservedDBInstancesOffering
 reservedDBInstancesOffering_multiAZ :: Lens.Lens' ReservedDBInstancesOffering (Prelude.Maybe Prelude.Bool)
 reservedDBInstancesOffering_multiAZ = Lens.lens (\ReservedDBInstancesOffering' {multiAZ} -> multiAZ) (\s@ReservedDBInstancesOffering' {} a -> s {multiAZ = a} :: ReservedDBInstancesOffering)
 
-instance Core.FromXML ReservedDBInstancesOffering where
+instance Data.FromXML ReservedDBInstancesOffering where
   parseXML x =
     ReservedDBInstancesOffering'
-      Prelude.<$> (x Core..@? "DBInstanceClass")
-      Prelude.<*> ( x Core..@? "RecurringCharges"
+      Prelude.<$> (x Data..@? "DBInstanceClass")
+      Prelude.<*> ( x Data..@? "RecurringCharges"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "RecurringCharge")
+                      Prelude.>>= Core.may (Data.parseXMLList "RecurringCharge")
                   )
-      Prelude.<*> (x Core..@? "OfferingType")
-      Prelude.<*> (x Core..@? "Duration")
-      Prelude.<*> (x Core..@? "CurrencyCode")
-      Prelude.<*> (x Core..@? "ProductDescription")
-      Prelude.<*> (x Core..@? "ReservedDBInstancesOfferingId")
-      Prelude.<*> (x Core..@? "FixedPrice")
-      Prelude.<*> (x Core..@? "UsagePrice")
-      Prelude.<*> (x Core..@? "MultiAZ")
+      Prelude.<*> (x Data..@? "OfferingType")
+      Prelude.<*> (x Data..@? "Duration")
+      Prelude.<*> (x Data..@? "CurrencyCode")
+      Prelude.<*> (x Data..@? "ProductDescription")
+      Prelude.<*> (x Data..@? "ReservedDBInstancesOfferingId")
+      Prelude.<*> (x Data..@? "FixedPrice")
+      Prelude.<*> (x Data..@? "UsagePrice")
+      Prelude.<*> (x Data..@? "MultiAZ")
 
 instance Prelude.Hashable ReservedDBInstancesOffering where
   hashWithSalt _salt ReservedDBInstancesOffering' {..} =

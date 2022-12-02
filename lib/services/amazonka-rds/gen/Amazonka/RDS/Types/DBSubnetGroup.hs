@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.DBSubnetGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.Subnet
 
@@ -149,20 +150,20 @@ dbSubnetGroup_vpcId = Lens.lens (\DBSubnetGroup' {vpcId} -> vpcId) (\s@DBSubnetG
 dbSubnetGroup_supportedNetworkTypes :: Lens.Lens' DBSubnetGroup (Prelude.Maybe [Prelude.Text])
 dbSubnetGroup_supportedNetworkTypes = Lens.lens (\DBSubnetGroup' {supportedNetworkTypes} -> supportedNetworkTypes) (\s@DBSubnetGroup' {} a -> s {supportedNetworkTypes = a} :: DBSubnetGroup) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML DBSubnetGroup where
+instance Data.FromXML DBSubnetGroup where
   parseXML x =
     DBSubnetGroup'
-      Prelude.<$> (x Core..@? "DBSubnetGroupName")
-      Prelude.<*> (x Core..@? "SubnetGroupStatus")
-      Prelude.<*> ( x Core..@? "Subnets" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Subnet")
+      Prelude.<$> (x Data..@? "DBSubnetGroupName")
+      Prelude.<*> (x Data..@? "SubnetGroupStatus")
+      Prelude.<*> ( x Data..@? "Subnets" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Subnet")
                   )
-      Prelude.<*> (x Core..@? "DBSubnetGroupDescription")
-      Prelude.<*> (x Core..@? "DBSubnetGroupArn")
-      Prelude.<*> (x Core..@? "VpcId")
-      Prelude.<*> ( x Core..@? "SupportedNetworkTypes"
+      Prelude.<*> (x Data..@? "DBSubnetGroupDescription")
+      Prelude.<*> (x Data..@? "DBSubnetGroupArn")
+      Prelude.<*> (x Data..@? "VpcId")
+      Prelude.<*> ( x Data..@? "SupportedNetworkTypes"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable DBSubnetGroup where

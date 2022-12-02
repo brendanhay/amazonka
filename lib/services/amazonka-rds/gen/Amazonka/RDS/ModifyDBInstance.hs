@@ -93,6 +93,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -2415,7 +2416,7 @@ instance Core.AWSRequest ModifyDBInstance where
       "ModifyDBInstanceResult"
       ( \s h x ->
           ModifyDBInstanceResponse'
-            Prelude.<$> (x Core..@? "DBInstance")
+            Prelude.<$> (x Data..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -2553,98 +2554,98 @@ instance Prelude.NFData ModifyDBInstance where
       `Prelude.seq` Prelude.rnf
         dbInstanceIdentifier
 
-instance Core.ToHeaders ModifyDBInstance where
+instance Data.ToHeaders ModifyDBInstance where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyDBInstance where
+instance Data.ToPath ModifyDBInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyDBInstance where
+instance Data.ToQuery ModifyDBInstance where
   toQuery ModifyDBInstance' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyDBInstance" :: Prelude.ByteString),
+          Data.=: ("ModifyDBInstance" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "MaxAllocatedStorage" Core.=: maxAllocatedStorage,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "MaxAllocatedStorage" Data.=: maxAllocatedStorage,
         "PerformanceInsightsRetentionPeriod"
-          Core.=: performanceInsightsRetentionPeriod,
+          Data.=: performanceInsightsRetentionPeriod,
         "VpcSecurityGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "VpcSecurityGroupId"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "VpcSecurityGroupId"
                 Prelude.<$> vpcSecurityGroupIds
             ),
-        "DBParameterGroupName" Core.=: dbParameterGroupName,
+        "DBParameterGroupName" Data.=: dbParameterGroupName,
         "PreferredBackupWindow"
-          Core.=: preferredBackupWindow,
-        "StorageThroughput" Core.=: storageThroughput,
+          Data.=: preferredBackupWindow,
+        "StorageThroughput" Data.=: storageThroughput,
         "BackupRetentionPeriod"
-          Core.=: backupRetentionPeriod,
-        "DBInstanceClass" Core.=: dbInstanceClass,
-        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
-        "DomainIAMRoleName" Core.=: domainIAMRoleName,
-        "PromotionTier" Core.=: promotionTier,
-        "AutomationMode" Core.=: automationMode,
-        "DBSubnetGroupName" Core.=: dbSubnetGroupName,
+          Data.=: backupRetentionPeriod,
+        "DBInstanceClass" Data.=: dbInstanceClass,
+        "CopyTagsToSnapshot" Data.=: copyTagsToSnapshot,
+        "DomainIAMRoleName" Data.=: domainIAMRoleName,
+        "PromotionTier" Data.=: promotionTier,
+        "AutomationMode" Data.=: automationMode,
+        "DBSubnetGroupName" Data.=: dbSubnetGroupName,
         "AutoMinorVersionUpgrade"
-          Core.=: autoMinorVersionUpgrade,
-        "ApplyImmediately" Core.=: applyImmediately,
+          Data.=: autoMinorVersionUpgrade,
+        "ApplyImmediately" Data.=: applyImmediately,
         "AllowMajorVersionUpgrade"
-          Core.=: allowMajorVersionUpgrade,
-        "DBPortNumber" Core.=: dbPortNumber,
+          Data.=: allowMajorVersionUpgrade,
+        "DBPortNumber" Data.=: dbPortNumber,
         "ResumeFullAutomationModeMinutes"
-          Core.=: resumeFullAutomationModeMinutes,
-        "Domain" Core.=: domain,
-        "OptionGroupName" Core.=: optionGroupName,
+          Data.=: resumeFullAutomationModeMinutes,
+        "Domain" Data.=: domain,
+        "OptionGroupName" Data.=: optionGroupName,
         "PerformanceInsightsKMSKeyId"
-          Core.=: performanceInsightsKMSKeyId,
+          Data.=: performanceInsightsKMSKeyId,
         "EnableIAMDatabaseAuthentication"
-          Core.=: enableIAMDatabaseAuthentication,
+          Data.=: enableIAMDatabaseAuthentication,
         "CertificateRotationRestart"
-          Core.=: certificateRotationRestart,
+          Data.=: certificateRotationRestart,
         "DBSecurityGroups"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "DBSecurityGroupName"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "DBSecurityGroupName"
                 Prelude.<$> dbSecurityGroups
             ),
-        "MonitoringInterval" Core.=: monitoringInterval,
+        "MonitoringInterval" Data.=: monitoringInterval,
         "TdeCredentialPassword"
-          Core.=: tdeCredentialPassword,
-        "MasterUserPassword" Core.=: masterUserPassword,
-        "PubliclyAccessible" Core.=: publiclyAccessible,
-        "StorageType" Core.=: storageType,
+          Data.=: tdeCredentialPassword,
+        "MasterUserPassword" Data.=: masterUserPassword,
+        "PubliclyAccessible" Data.=: publiclyAccessible,
+        "StorageType" Data.=: storageType,
         "ProcessorFeatures"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "ProcessorFeature"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "ProcessorFeature"
                 Prelude.<$> processorFeatures
             ),
         "EnablePerformanceInsights"
-          Core.=: enablePerformanceInsights,
-        "TdeCredentialArn" Core.=: tdeCredentialArn,
+          Data.=: enablePerformanceInsights,
+        "TdeCredentialArn" Data.=: tdeCredentialArn,
         "CloudwatchLogsExportConfiguration"
-          Core.=: cloudwatchLogsExportConfiguration,
+          Data.=: cloudwatchLogsExportConfiguration,
         "CACertificateIdentifier"
-          Core.=: cACertificateIdentifier,
-        "MonitoringRoleArn" Core.=: monitoringRoleArn,
-        "ReplicaMode" Core.=: replicaMode,
-        "AllocatedStorage" Core.=: allocatedStorage,
-        "DeletionProtection" Core.=: deletionProtection,
+          Data.=: cACertificateIdentifier,
+        "MonitoringRoleArn" Data.=: monitoringRoleArn,
+        "ReplicaMode" Data.=: replicaMode,
+        "AllocatedStorage" Data.=: allocatedStorage,
+        "DeletionProtection" Data.=: deletionProtection,
         "NewDBInstanceIdentifier"
-          Core.=: newDBInstanceIdentifier',
+          Data.=: newDBInstanceIdentifier',
         "AwsBackupRecoveryPointArn"
-          Core.=: awsBackupRecoveryPointArn,
+          Data.=: awsBackupRecoveryPointArn,
         "PreferredMaintenanceWindow"
-          Core.=: preferredMaintenanceWindow,
-        "Iops" Core.=: iops,
-        "EngineVersion" Core.=: engineVersion,
-        "NetworkType" Core.=: networkType,
-        "MultiAZ" Core.=: multiAZ,
+          Data.=: preferredMaintenanceWindow,
+        "Iops" Data.=: iops,
+        "EngineVersion" Data.=: engineVersion,
+        "NetworkType" Data.=: networkType,
+        "MultiAZ" Data.=: multiAZ,
         "EnableCustomerOwnedIp"
-          Core.=: enableCustomerOwnedIp,
-        "LicenseModel" Core.=: licenseModel,
+          Data.=: enableCustomerOwnedIp,
+        "LicenseModel" Data.=: licenseModel,
         "UseDefaultProcessorFeatures"
-          Core.=: useDefaultProcessorFeatures,
-        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier
+          Data.=: useDefaultProcessorFeatures,
+        "DBInstanceIdentifier" Data.=: dbInstanceIdentifier
       ]
 
 -- | /See:/ 'newModifyDBInstanceResponse' smart constructor.

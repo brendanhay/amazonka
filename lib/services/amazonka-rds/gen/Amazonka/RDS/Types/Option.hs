@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.Option where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.DBSecurityGroupMembership
 import Amazonka.RDS.Types.OptionSetting
@@ -133,26 +134,26 @@ option_vpcSecurityGroupMemberships = Lens.lens (\Option' {vpcSecurityGroupMember
 option_optionSettings :: Lens.Lens' Option (Prelude.Maybe [OptionSetting])
 option_optionSettings = Lens.lens (\Option' {optionSettings} -> optionSettings) (\s@Option' {} a -> s {optionSettings = a} :: Option) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML Option where
+instance Data.FromXML Option where
   parseXML x =
     Option'
-      Prelude.<$> (x Core..@? "Port")
-      Prelude.<*> ( x Core..@? "DBSecurityGroupMemberships"
+      Prelude.<$> (x Data..@? "Port")
+      Prelude.<*> ( x Data..@? "DBSecurityGroupMemberships"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "DBSecurityGroup")
+                      Prelude.>>= Core.may (Data.parseXMLList "DBSecurityGroup")
                   )
-      Prelude.<*> (x Core..@? "OptionVersion")
-      Prelude.<*> (x Core..@? "Persistent")
-      Prelude.<*> (x Core..@? "OptionName")
-      Prelude.<*> (x Core..@? "OptionDescription")
-      Prelude.<*> (x Core..@? "Permanent")
-      Prelude.<*> ( x Core..@? "VpcSecurityGroupMemberships"
+      Prelude.<*> (x Data..@? "OptionVersion")
+      Prelude.<*> (x Data..@? "Persistent")
+      Prelude.<*> (x Data..@? "OptionName")
+      Prelude.<*> (x Data..@? "OptionDescription")
+      Prelude.<*> (x Data..@? "Permanent")
+      Prelude.<*> ( x Data..@? "VpcSecurityGroupMemberships"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "VpcSecurityGroupMembership")
+                        (Data.parseXMLList "VpcSecurityGroupMembership")
                   )
-      Prelude.<*> ( x Core..@? "OptionSettings" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "OptionSetting")
+      Prelude.<*> ( x Data..@? "OptionSettings" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "OptionSetting")
                   )
 
 instance Prelude.Hashable Option where

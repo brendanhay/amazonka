@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.DBClusterMember where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an instance that is part of a DB cluster.
@@ -97,13 +98,13 @@ dbClusterMember_dbClusterParameterGroupStatus = Lens.lens (\DBClusterMember' {db
 dbClusterMember_isClusterWriter :: Lens.Lens' DBClusterMember (Prelude.Maybe Prelude.Bool)
 dbClusterMember_isClusterWriter = Lens.lens (\DBClusterMember' {isClusterWriter} -> isClusterWriter) (\s@DBClusterMember' {} a -> s {isClusterWriter = a} :: DBClusterMember)
 
-instance Core.FromXML DBClusterMember where
+instance Data.FromXML DBClusterMember where
   parseXML x =
     DBClusterMember'
-      Prelude.<$> (x Core..@? "PromotionTier")
-      Prelude.<*> (x Core..@? "DBInstanceIdentifier")
-      Prelude.<*> (x Core..@? "DBClusterParameterGroupStatus")
-      Prelude.<*> (x Core..@? "IsClusterWriter")
+      Prelude.<$> (x Data..@? "PromotionTier")
+      Prelude.<*> (x Data..@? "DBInstanceIdentifier")
+      Prelude.<*> (x Data..@? "DBClusterParameterGroupStatus")
+      Prelude.<*> (x Data..@? "IsClusterWriter")
 
 instance Prelude.Hashable DBClusterMember where
   hashWithSalt _salt DBClusterMember' {..} =

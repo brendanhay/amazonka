@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.ValidStorageOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.DoubleRange
 import Amazonka.RDS.Types.Range
@@ -131,28 +132,28 @@ validStorageOptions_supportsStorageAutoscaling = Lens.lens (\ValidStorageOptions
 validStorageOptions_storageThroughputToIopsRatio :: Lens.Lens' ValidStorageOptions (Prelude.Maybe [DoubleRange])
 validStorageOptions_storageThroughputToIopsRatio = Lens.lens (\ValidStorageOptions' {storageThroughputToIopsRatio} -> storageThroughputToIopsRatio) (\s@ValidStorageOptions' {} a -> s {storageThroughputToIopsRatio = a} :: ValidStorageOptions) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML ValidStorageOptions where
+instance Data.FromXML ValidStorageOptions where
   parseXML x =
     ValidStorageOptions'
-      Prelude.<$> ( x Core..@? "StorageSize" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Range")
+      Prelude.<$> ( x Data..@? "StorageSize" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Range")
                   )
-      Prelude.<*> ( x Core..@? "IopsToStorageRatio"
+      Prelude.<*> ( x Data..@? "IopsToStorageRatio"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "DoubleRange")
+                      Prelude.>>= Core.may (Data.parseXMLList "DoubleRange")
                   )
-      Prelude.<*> ( x Core..@? "ProvisionedIops" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Range")
+      Prelude.<*> ( x Data..@? "ProvisionedIops" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Range")
                   )
-      Prelude.<*> ( x Core..@? "ProvisionedStorageThroughput"
+      Prelude.<*> ( x Data..@? "ProvisionedStorageThroughput"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Range")
+                      Prelude.>>= Core.may (Data.parseXMLList "Range")
                   )
-      Prelude.<*> (x Core..@? "StorageType")
-      Prelude.<*> (x Core..@? "SupportsStorageAutoscaling")
-      Prelude.<*> ( x Core..@? "StorageThroughputToIopsRatio"
+      Prelude.<*> (x Data..@? "StorageType")
+      Prelude.<*> (x Data..@? "SupportsStorageAutoscaling")
+      Prelude.<*> ( x Data..@? "StorageThroughputToIopsRatio"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "DoubleRange")
+                      Prelude.>>= Core.may (Data.parseXMLList "DoubleRange")
                   )
 
 instance Prelude.Hashable ValidStorageOptions where

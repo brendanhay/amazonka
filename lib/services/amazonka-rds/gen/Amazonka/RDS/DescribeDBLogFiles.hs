@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -215,11 +216,11 @@ instance Core.AWSRequest DescribeDBLogFiles where
       "DescribeDBLogFilesResult"
       ( \s h x ->
           DescribeDBLogFilesResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "DescribeDBLogFiles"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "DescribeDBLogFiles"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may
-                              (Core.parseXMLList "DescribeDBLogFilesDetails")
+                              (Data.parseXMLList "DescribeDBLogFilesDetails")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -244,28 +245,28 @@ instance Prelude.NFData DescribeDBLogFiles where
       `Prelude.seq` Prelude.rnf filenameContains
       `Prelude.seq` Prelude.rnf dbInstanceIdentifier
 
-instance Core.ToHeaders DescribeDBLogFiles where
+instance Data.ToHeaders DescribeDBLogFiles where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDBLogFiles where
+instance Data.ToPath DescribeDBLogFiles where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDBLogFiles where
+instance Data.ToQuery DescribeDBLogFiles where
   toQuery DescribeDBLogFiles' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeDBLogFiles" :: Prelude.ByteString),
+          Data.=: ("DescribeDBLogFiles" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "FileLastWritten" Core.=: fileLastWritten,
-        "FileSize" Core.=: fileSize,
-        "Marker" Core.=: marker,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "FileLastWritten" Data.=: fileLastWritten,
+        "FileSize" Data.=: fileSize,
+        "Marker" Data.=: marker,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords,
-        "FilenameContains" Core.=: filenameContains,
-        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "MaxRecords" Data.=: maxRecords,
+        "FilenameContains" Data.=: filenameContains,
+        "DBInstanceIdentifier" Data.=: dbInstanceIdentifier
       ]
 
 -- | The response from a call to @DescribeDBLogFiles@.

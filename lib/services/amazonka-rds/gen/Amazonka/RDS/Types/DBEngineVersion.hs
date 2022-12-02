@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.DBEngineVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.CharacterSet
 import Amazonka.RDS.Types.Tag
@@ -106,7 +107,7 @@ data DBEngineVersion = DBEngineVersion'
     -- If not specified, then no prefix is assumed.
     databaseInstallationFilesS3Prefix :: Prelude.Maybe Prelude.Text,
     -- | The creation time of the DB engine version.
-    createTime :: Prelude.Maybe Core.ISO8601,
+    createTime :: Prelude.Maybe Data.ISO8601,
     -- | A list of the time zones supported by this engine for the @Timezone@
     -- parameter of the @CreateDBInstance@ action.
     supportedTimezones :: Prelude.Maybe [Timezone],
@@ -372,7 +373,7 @@ dbEngineVersion_databaseInstallationFilesS3Prefix = Lens.lens (\DBEngineVersion'
 
 -- | The creation time of the DB engine version.
 dbEngineVersion_createTime :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.UTCTime)
-dbEngineVersion_createTime = Lens.lens (\DBEngineVersion' {createTime} -> createTime) (\s@DBEngineVersion' {} a -> s {createTime = a} :: DBEngineVersion) Prelude.. Lens.mapping Core._Time
+dbEngineVersion_createTime = Lens.lens (\DBEngineVersion' {createTime} -> createTime) (\s@DBEngineVersion' {} a -> s {createTime = a} :: DBEngineVersion) Prelude.. Lens.mapping Data._Time
 
 -- | A list of the time zones supported by this engine for the @Timezone@
 -- parameter of the @CreateDBInstance@ action.
@@ -397,59 +398,59 @@ dbEngineVersion_engineVersion = Lens.lens (\DBEngineVersion' {engineVersion} -> 
 dbEngineVersion_dbEngineDescription :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
 dbEngineVersion_dbEngineDescription = Lens.lens (\DBEngineVersion' {dbEngineDescription} -> dbEngineDescription) (\s@DBEngineVersion' {} a -> s {dbEngineDescription = a} :: DBEngineVersion)
 
-instance Core.FromXML DBEngineVersion where
+instance Data.FromXML DBEngineVersion where
   parseXML x =
     DBEngineVersion'
-      Prelude.<$> ( x Core..@? "ValidUpgradeTarget"
+      Prelude.<$> ( x Data..@? "ValidUpgradeTarget"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "UpgradeTarget")
+                      Prelude.>>= Core.may (Data.parseXMLList "UpgradeTarget")
                   )
-      Prelude.<*> ( x Core..@? "ExportableLogTypes"
+      Prelude.<*> ( x Data..@? "ExportableLogTypes"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "SupportsReadReplica")
-      Prelude.<*> (x Core..@? "SupportsBabelfish")
-      Prelude.<*> ( x Core..@? "SupportedCharacterSets"
+      Prelude.<*> (x Data..@? "SupportsReadReplica")
+      Prelude.<*> (x Data..@? "SupportsBabelfish")
+      Prelude.<*> ( x Data..@? "SupportedCharacterSets"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "CharacterSet")
+                      Prelude.>>= Core.may (Data.parseXMLList "CharacterSet")
                   )
-      Prelude.<*> ( x Core..@? "TagList" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+      Prelude.<*> ( x Data..@? "TagList" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
-      Prelude.<*> ( x Core..@? "SupportedFeatureNames"
+      Prelude.<*> ( x Data..@? "SupportedFeatureNames"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "DBEngineVersionArn")
-      Prelude.<*> ( x Core..@? "SupportedEngineModes"
+      Prelude.<*> (x Data..@? "DBEngineVersionArn")
+      Prelude.<*> ( x Data..@? "SupportedEngineModes"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "DefaultCharacterSet")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "CustomDBEngineVersionManifest")
-      Prelude.<*> (x Core..@? "MajorEngineVersion")
-      Prelude.<*> (x Core..@? "DatabaseInstallationFilesS3BucketName")
-      Prelude.<*> (x Core..@? "DBEngineVersionDescription")
-      Prelude.<*> (x Core..@? "SupportsParallelQuery")
-      Prelude.<*> (x Core..@? "SupportsLogExportsToCloudwatchLogs")
-      Prelude.<*> (x Core..@? "KMSKeyId")
-      Prelude.<*> (x Core..@? "Engine")
-      Prelude.<*> (x Core..@? "DBParameterGroupFamily")
-      Prelude.<*> (x Core..@? "DatabaseInstallationFilesS3Prefix")
-      Prelude.<*> (x Core..@? "CreateTime")
-      Prelude.<*> ( x Core..@? "SupportedTimezones"
+      Prelude.<*> (x Data..@? "DefaultCharacterSet")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "CustomDBEngineVersionManifest")
+      Prelude.<*> (x Data..@? "MajorEngineVersion")
+      Prelude.<*> (x Data..@? "DatabaseInstallationFilesS3BucketName")
+      Prelude.<*> (x Data..@? "DBEngineVersionDescription")
+      Prelude.<*> (x Data..@? "SupportsParallelQuery")
+      Prelude.<*> (x Data..@? "SupportsLogExportsToCloudwatchLogs")
+      Prelude.<*> (x Data..@? "KMSKeyId")
+      Prelude.<*> (x Data..@? "Engine")
+      Prelude.<*> (x Data..@? "DBParameterGroupFamily")
+      Prelude.<*> (x Data..@? "DatabaseInstallationFilesS3Prefix")
+      Prelude.<*> (x Data..@? "CreateTime")
+      Prelude.<*> ( x Data..@? "SupportedTimezones"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Timezone")
+                      Prelude.>>= Core.may (Data.parseXMLList "Timezone")
                   )
-      Prelude.<*> (x Core..@? "SupportsGlobalDatabases")
-      Prelude.<*> ( x Core..@? "SupportedNcharCharacterSets"
+      Prelude.<*> (x Data..@? "SupportsGlobalDatabases")
+      Prelude.<*> ( x Data..@? "SupportedNcharCharacterSets"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "CharacterSet")
+                      Prelude.>>= Core.may (Data.parseXMLList "CharacterSet")
                   )
-      Prelude.<*> (x Core..@? "EngineVersion")
-      Prelude.<*> (x Core..@? "DBEngineDescription")
+      Prelude.<*> (x Data..@? "EngineVersion")
+      Prelude.<*> (x Data..@? "DBEngineDescription")
 
 instance Prelude.Hashable DBEngineVersion where
   hashWithSalt _salt DBEngineVersion' {..} =

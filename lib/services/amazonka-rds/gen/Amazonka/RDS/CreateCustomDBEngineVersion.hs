@@ -115,6 +115,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -371,7 +372,7 @@ instance Core.AWSRequest CreateCustomDBEngineVersion where
   response =
     Response.receiveXMLWrapper
       "CreateCustomDBEngineVersionResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable CreateCustomDBEngineVersion where
   hashWithSalt _salt CreateCustomDBEngineVersion' {..} =
@@ -395,31 +396,31 @@ instance Prelude.NFData CreateCustomDBEngineVersion where
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf manifest
 
-instance Core.ToHeaders CreateCustomDBEngineVersion where
+instance Data.ToHeaders CreateCustomDBEngineVersion where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateCustomDBEngineVersion where
+instance Data.ToPath CreateCustomDBEngineVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCustomDBEngineVersion where
+instance Data.ToQuery CreateCustomDBEngineVersion where
   toQuery CreateCustomDBEngineVersion' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateCustomDBEngineVersion" ::
+          Data.=: ( "CreateCustomDBEngineVersion" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "Description" Core.=: description,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "Description" Data.=: description,
         "DatabaseInstallationFilesS3Prefix"
-          Core.=: databaseInstallationFilesS3Prefix,
-        "Engine" Core.=: engine,
-        "EngineVersion" Core.=: engineVersion,
+          Data.=: databaseInstallationFilesS3Prefix,
+        "Engine" Data.=: engine,
+        "EngineVersion" Data.=: engineVersion,
         "DatabaseInstallationFilesS3BucketName"
-          Core.=: databaseInstallationFilesS3BucketName,
-        "KMSKeyId" Core.=: kmsKeyId,
-        "Manifest" Core.=: manifest
+          Data.=: databaseInstallationFilesS3BucketName,
+        "KMSKeyId" Data.=: kmsKeyId,
+        "Manifest" Data.=: manifest
       ]

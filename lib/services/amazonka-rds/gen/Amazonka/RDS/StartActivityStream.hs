@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -166,12 +167,12 @@ instance Core.AWSRequest StartActivityStream where
       "StartActivityStreamResult"
       ( \s h x ->
           StartActivityStreamResponse'
-            Prelude.<$> (x Core..@? "ApplyImmediately")
-            Prelude.<*> (x Core..@? "Status")
-            Prelude.<*> (x Core..@? "EngineNativeAuditFieldsIncluded")
-            Prelude.<*> (x Core..@? "KinesisStreamName")
-            Prelude.<*> (x Core..@? "Mode")
-            Prelude.<*> (x Core..@? "KmsKeyId")
+            Prelude.<$> (x Data..@? "ApplyImmediately")
+            Prelude.<*> (x Data..@? "Status")
+            Prelude.<*> (x Data..@? "EngineNativeAuditFieldsIncluded")
+            Prelude.<*> (x Data..@? "KinesisStreamName")
+            Prelude.<*> (x Data..@? "Mode")
+            Prelude.<*> (x Data..@? "KmsKeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,25 +192,25 @@ instance Prelude.NFData StartActivityStream where
       `Prelude.seq` Prelude.rnf mode
       `Prelude.seq` Prelude.rnf kmsKeyId
 
-instance Core.ToHeaders StartActivityStream where
+instance Data.ToHeaders StartActivityStream where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath StartActivityStream where
+instance Data.ToPath StartActivityStream where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartActivityStream where
+instance Data.ToQuery StartActivityStream where
   toQuery StartActivityStream' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("StartActivityStream" :: Prelude.ByteString),
+          Data.=: ("StartActivityStream" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "ApplyImmediately" Core.=: applyImmediately,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "ApplyImmediately" Data.=: applyImmediately,
         "EngineNativeAuditFieldsIncluded"
-          Core.=: engineNativeAuditFieldsIncluded,
-        "ResourceArn" Core.=: resourceArn,
-        "Mode" Core.=: mode,
-        "KmsKeyId" Core.=: kmsKeyId
+          Data.=: engineNativeAuditFieldsIncluded,
+        "ResourceArn" Data.=: resourceArn,
+        "Mode" Data.=: mode,
+        "KmsKeyId" Data.=: kmsKeyId
       ]
 
 -- | /See:/ 'newStartActivityStreamResponse' smart constructor.

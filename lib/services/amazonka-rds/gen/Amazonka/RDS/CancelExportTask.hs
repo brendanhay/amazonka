@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -99,7 +100,7 @@ instance Core.AWSRequest CancelExportTask where
   response =
     Response.receiveXMLWrapper
       "CancelExportTaskResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable CancelExportTask where
   hashWithSalt _salt CancelExportTask' {..} =
@@ -109,18 +110,18 @@ instance Prelude.NFData CancelExportTask where
   rnf CancelExportTask' {..} =
     Prelude.rnf exportTaskIdentifier
 
-instance Core.ToHeaders CancelExportTask where
+instance Data.ToHeaders CancelExportTask where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CancelExportTask where
+instance Data.ToPath CancelExportTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelExportTask where
+instance Data.ToQuery CancelExportTask where
   toQuery CancelExportTask' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CancelExportTask" :: Prelude.ByteString),
+          Data.=: ("CancelExportTask" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "ExportTaskIdentifier" Core.=: exportTaskIdentifier
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "ExportTaskIdentifier" Data.=: exportTaskIdentifier
       ]

@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -307,10 +308,10 @@ instance Core.AWSRequest DescribeDBClusterBacktracks where
       "DescribeDBClusterBacktracksResult"
       ( \s h x ->
           DescribeDBClusterBacktracksResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "DBClusterBacktracks"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "DBClusterBacktracks"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "DBClusterBacktrack")
+                            Prelude.>>= Core.may (Data.parseXMLList "DBClusterBacktrack")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -331,28 +332,28 @@ instance Prelude.NFData DescribeDBClusterBacktracks where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf dbClusterIdentifier
 
-instance Core.ToHeaders DescribeDBClusterBacktracks where
+instance Data.ToHeaders DescribeDBClusterBacktracks where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDBClusterBacktracks where
+instance Data.ToPath DescribeDBClusterBacktracks where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDBClusterBacktracks where
+instance Data.ToQuery DescribeDBClusterBacktracks where
   toQuery DescribeDBClusterBacktracks' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeDBClusterBacktracks" ::
+          Data.=: ( "DescribeDBClusterBacktracks" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "BacktrackIdentifier" Core.=: backtrackIdentifier,
-        "MaxRecords" Core.=: maxRecords,
-        "DBClusterIdentifier" Core.=: dbClusterIdentifier
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "BacktrackIdentifier" Data.=: backtrackIdentifier,
+        "MaxRecords" Data.=: maxRecords,
+        "DBClusterIdentifier" Data.=: dbClusterIdentifier
       ]
 
 -- | Contains the result of a successful invocation of the

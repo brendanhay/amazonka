@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.FailoverState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.FailoverStatus
 
@@ -128,12 +129,12 @@ failoverState_fromDbClusterArn = Lens.lens (\FailoverState' {fromDbClusterArn} -
 failoverState_toDbClusterArn :: Lens.Lens' FailoverState (Prelude.Maybe Prelude.Text)
 failoverState_toDbClusterArn = Lens.lens (\FailoverState' {toDbClusterArn} -> toDbClusterArn) (\s@FailoverState' {} a -> s {toDbClusterArn = a} :: FailoverState)
 
-instance Core.FromXML FailoverState where
+instance Data.FromXML FailoverState where
   parseXML x =
     FailoverState'
-      Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "FromDbClusterArn")
-      Prelude.<*> (x Core..@? "ToDbClusterArn")
+      Prelude.<$> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "FromDbClusterArn")
+      Prelude.<*> (x Data..@? "ToDbClusterArn")
 
 instance Prelude.Hashable FailoverState where
   hashWithSalt _salt FailoverState' {..} =

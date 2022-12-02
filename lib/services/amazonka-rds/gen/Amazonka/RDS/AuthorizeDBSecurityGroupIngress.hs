@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -192,7 +193,7 @@ instance
       "AuthorizeDBSecurityGroupIngressResult"
       ( \s h x ->
           AuthorizeDBSecurityGroupIngressResponse'
-            Prelude.<$> (x Core..@? "DBSecurityGroup")
+            Prelude.<$> (x Data..@? "DBSecurityGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -221,29 +222,29 @@ instance
       `Prelude.seq` Prelude.rnf dbSecurityGroupName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AuthorizeDBSecurityGroupIngress
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AuthorizeDBSecurityGroupIngress where
+instance Data.ToPath AuthorizeDBSecurityGroupIngress where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AuthorizeDBSecurityGroupIngress where
+instance Data.ToQuery AuthorizeDBSecurityGroupIngress where
   toQuery AuthorizeDBSecurityGroupIngress' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "AuthorizeDBSecurityGroupIngress" ::
+          Data.=: ( "AuthorizeDBSecurityGroupIngress" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "EC2SecurityGroupId" Core.=: eC2SecurityGroupId,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "EC2SecurityGroupId" Data.=: eC2SecurityGroupId,
         "EC2SecurityGroupOwnerId"
-          Core.=: eC2SecurityGroupOwnerId,
-        "EC2SecurityGroupName" Core.=: eC2SecurityGroupName,
-        "CIDRIP" Core.=: cidrip,
-        "DBSecurityGroupName" Core.=: dbSecurityGroupName
+          Data.=: eC2SecurityGroupOwnerId,
+        "EC2SecurityGroupName" Data.=: eC2SecurityGroupName,
+        "CIDRIP" Data.=: cidrip,
+        "DBSecurityGroupName" Data.=: dbSecurityGroupName
       ]
 
 -- | /See:/ 'newAuthorizeDBSecurityGroupIngressResponse' smart constructor.

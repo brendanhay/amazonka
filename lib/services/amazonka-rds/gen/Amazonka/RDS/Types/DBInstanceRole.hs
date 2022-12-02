@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.DBInstanceRole where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Amazon Web Services Identity and Access Management (IAM)
@@ -116,12 +117,12 @@ dbInstanceRole_featureName = Lens.lens (\DBInstanceRole' {featureName} -> featur
 dbInstanceRole_status :: Lens.Lens' DBInstanceRole (Prelude.Maybe Prelude.Text)
 dbInstanceRole_status = Lens.lens (\DBInstanceRole' {status} -> status) (\s@DBInstanceRole' {} a -> s {status = a} :: DBInstanceRole)
 
-instance Core.FromXML DBInstanceRole where
+instance Data.FromXML DBInstanceRole where
   parseXML x =
     DBInstanceRole'
-      Prelude.<$> (x Core..@? "RoleArn")
-      Prelude.<*> (x Core..@? "FeatureName")
-      Prelude.<*> (x Core..@? "Status")
+      Prelude.<$> (x Data..@? "RoleArn")
+      Prelude.<*> (x Data..@? "FeatureName")
+      Prelude.<*> (x Data..@? "Status")
 
 instance Prelude.Hashable DBInstanceRole where
   hashWithSalt _salt DBInstanceRole' {..} =

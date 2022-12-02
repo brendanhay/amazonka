@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -188,10 +189,10 @@ instance Core.AWSRequest DescribeDBProxyEndpoints where
       "DescribeDBProxyEndpointsResult"
       ( \s h x ->
           DescribeDBProxyEndpointsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "DBProxyEndpoints"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "DBProxyEndpoints"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -212,26 +213,26 @@ instance Prelude.NFData DescribeDBProxyEndpoints where
       `Prelude.seq` Prelude.rnf dbProxyEndpointName
       `Prelude.seq` Prelude.rnf dbProxyName
 
-instance Core.ToHeaders DescribeDBProxyEndpoints where
+instance Data.ToHeaders DescribeDBProxyEndpoints where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDBProxyEndpoints where
+instance Data.ToPath DescribeDBProxyEndpoints where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDBProxyEndpoints where
+instance Data.ToQuery DescribeDBProxyEndpoints where
   toQuery DescribeDBProxyEndpoints' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeDBProxyEndpoints" :: Prelude.ByteString),
+          Data.=: ("DescribeDBProxyEndpoints" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords,
-        "DBProxyEndpointName" Core.=: dbProxyEndpointName,
-        "DBProxyName" Core.=: dbProxyName
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "MaxRecords" Data.=: maxRecords,
+        "DBProxyEndpointName" Data.=: dbProxyEndpointName,
+        "DBProxyName" Data.=: dbProxyName
       ]
 
 -- | /See:/ 'newDescribeDBProxyEndpointsResponse' smart constructor.

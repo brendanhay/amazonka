@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -195,9 +196,9 @@ instance Core.AWSRequest DescribeSourceRegions where
       "DescribeSourceRegionsResult"
       ( \s h x ->
           DescribeSourceRegionsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "SourceRegions" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "SourceRegion")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "SourceRegions" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "SourceRegion")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -216,25 +217,25 @@ instance Prelude.NFData DescribeSourceRegions where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf regionName
 
-instance Core.ToHeaders DescribeSourceRegions where
+instance Data.ToHeaders DescribeSourceRegions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeSourceRegions where
+instance Data.ToPath DescribeSourceRegions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSourceRegions where
+instance Data.ToQuery DescribeSourceRegions where
   toQuery DescribeSourceRegions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeSourceRegions" :: Prelude.ByteString),
+          Data.=: ("DescribeSourceRegions" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords,
-        "RegionName" Core.=: regionName
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "MaxRecords" Data.=: maxRecords,
+        "RegionName" Data.=: regionName
       ]
 
 -- | Contains the result of a successful invocation of the

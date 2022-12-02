@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.EngineDefaults where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.Parameter
 
@@ -81,13 +82,13 @@ engineDefaults_dbParameterGroupFamily = Lens.lens (\EngineDefaults' {dbParameter
 engineDefaults_parameters :: Lens.Lens' EngineDefaults (Prelude.Maybe [Parameter])
 engineDefaults_parameters = Lens.lens (\EngineDefaults' {parameters} -> parameters) (\s@EngineDefaults' {} a -> s {parameters = a} :: EngineDefaults) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML EngineDefaults where
+instance Data.FromXML EngineDefaults where
   parseXML x =
     EngineDefaults'
-      Prelude.<$> (x Core..@? "Marker")
-      Prelude.<*> (x Core..@? "DBParameterGroupFamily")
-      Prelude.<*> ( x Core..@? "Parameters" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Parameter")
+      Prelude.<$> (x Data..@? "Marker")
+      Prelude.<*> (x Data..@? "DBParameterGroupFamily")
+      Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Parameter")
                   )
 
 instance Prelude.Hashable EngineDefaults where

@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.DBClusterRole where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Amazon Web Services Identity and Access Management (IAM)
@@ -113,12 +114,12 @@ dbClusterRole_featureName = Lens.lens (\DBClusterRole' {featureName} -> featureN
 dbClusterRole_status :: Lens.Lens' DBClusterRole (Prelude.Maybe Prelude.Text)
 dbClusterRole_status = Lens.lens (\DBClusterRole' {status} -> status) (\s@DBClusterRole' {} a -> s {status = a} :: DBClusterRole)
 
-instance Core.FromXML DBClusterRole where
+instance Data.FromXML DBClusterRole where
   parseXML x =
     DBClusterRole'
-      Prelude.<$> (x Core..@? "RoleArn")
-      Prelude.<*> (x Core..@? "FeatureName")
-      Prelude.<*> (x Core..@? "Status")
+      Prelude.<$> (x Data..@? "RoleArn")
+      Prelude.<*> (x Data..@? "FeatureName")
+      Prelude.<*> (x Data..@? "Status")
 
 instance Prelude.Hashable DBClusterRole where
   hashWithSalt _salt DBClusterRole' {..} =

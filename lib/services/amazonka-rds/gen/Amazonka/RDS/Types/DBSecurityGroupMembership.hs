@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.DBSecurityGroupMembership where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This data type is used as a response element in the following actions:
@@ -70,11 +71,11 @@ dbSecurityGroupMembership_status = Lens.lens (\DBSecurityGroupMembership' {statu
 dbSecurityGroupMembership_dbSecurityGroupName :: Lens.Lens' DBSecurityGroupMembership (Prelude.Maybe Prelude.Text)
 dbSecurityGroupMembership_dbSecurityGroupName = Lens.lens (\DBSecurityGroupMembership' {dbSecurityGroupName} -> dbSecurityGroupName) (\s@DBSecurityGroupMembership' {} a -> s {dbSecurityGroupName = a} :: DBSecurityGroupMembership)
 
-instance Core.FromXML DBSecurityGroupMembership where
+instance Data.FromXML DBSecurityGroupMembership where
   parseXML x =
     DBSecurityGroupMembership'
-      Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "DBSecurityGroupName")
+      Prelude.<$> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "DBSecurityGroupName")
 
 instance Prelude.Hashable DBSecurityGroupMembership where
   hashWithSalt _salt DBSecurityGroupMembership' {..} =

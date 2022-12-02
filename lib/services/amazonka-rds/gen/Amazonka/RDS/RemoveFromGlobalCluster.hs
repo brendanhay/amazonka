@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -106,7 +107,7 @@ instance Core.AWSRequest RemoveFromGlobalCluster where
       "RemoveFromGlobalClusterResult"
       ( \s h x ->
           RemoveFromGlobalClusterResponse'
-            Prelude.<$> (x Core..@? "GlobalCluster")
+            Prelude.<$> (x Data..@? "GlobalCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,22 +121,22 @@ instance Prelude.NFData RemoveFromGlobalCluster where
     Prelude.rnf dbClusterIdentifier
       `Prelude.seq` Prelude.rnf globalClusterIdentifier
 
-instance Core.ToHeaders RemoveFromGlobalCluster where
+instance Data.ToHeaders RemoveFromGlobalCluster where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RemoveFromGlobalCluster where
+instance Data.ToPath RemoveFromGlobalCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RemoveFromGlobalCluster where
+instance Data.ToQuery RemoveFromGlobalCluster where
   toQuery RemoveFromGlobalCluster' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RemoveFromGlobalCluster" :: Prelude.ByteString),
+          Data.=: ("RemoveFromGlobalCluster" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DbClusterIdentifier" Core.=: dbClusterIdentifier,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "DbClusterIdentifier" Data.=: dbClusterIdentifier,
         "GlobalClusterIdentifier"
-          Core.=: globalClusterIdentifier
+          Data.=: globalClusterIdentifier
       ]
 
 -- | /See:/ 'newRemoveFromGlobalClusterResponse' smart constructor.

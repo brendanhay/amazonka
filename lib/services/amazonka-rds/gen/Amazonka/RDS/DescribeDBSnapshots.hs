@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -448,9 +449,9 @@ instance Core.AWSRequest DescribeDBSnapshots where
       "DescribeDBSnapshotsResult"
       ( \s h x ->
           DescribeDBSnapshotsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "DBSnapshots" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "DBSnapshot")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "DBSnapshots" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "DBSnapshot")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -479,30 +480,30 @@ instance Prelude.NFData DescribeDBSnapshots where
       `Prelude.seq` Prelude.rnf dbiResourceId
       `Prelude.seq` Prelude.rnf snapshotType
 
-instance Core.ToHeaders DescribeDBSnapshots where
+instance Data.ToHeaders DescribeDBSnapshots where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDBSnapshots where
+instance Data.ToPath DescribeDBSnapshots where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDBSnapshots where
+instance Data.ToQuery DescribeDBSnapshots where
   toQuery DescribeDBSnapshots' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeDBSnapshots" :: Prelude.ByteString),
+          Data.=: ("DescribeDBSnapshots" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "IncludeShared" Core.=: includeShared,
-        "Marker" Core.=: marker,
-        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier,
-        "DBSnapshotIdentifier" Core.=: dbSnapshotIdentifier,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "IncludeShared" Data.=: includeShared,
+        "Marker" Data.=: marker,
+        "DBInstanceIdentifier" Data.=: dbInstanceIdentifier,
+        "DBSnapshotIdentifier" Data.=: dbSnapshotIdentifier,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords,
-        "IncludePublic" Core.=: includePublic,
-        "DbiResourceId" Core.=: dbiResourceId,
-        "SnapshotType" Core.=: snapshotType
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "MaxRecords" Data.=: maxRecords,
+        "IncludePublic" Data.=: includePublic,
+        "DbiResourceId" Data.=: dbiResourceId,
+        "SnapshotType" Data.=: snapshotType
       ]
 
 -- | Contains the result of a successful invocation of the

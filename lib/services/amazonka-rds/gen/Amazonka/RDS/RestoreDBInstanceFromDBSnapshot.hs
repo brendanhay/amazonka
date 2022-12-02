@@ -95,6 +95,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -1309,7 +1310,7 @@ instance
       "RestoreDBInstanceFromDBSnapshotResult"
       ( \s h x ->
           RestoreDBInstanceFromDBSnapshotResponse'
-            Prelude.<$> (x Core..@? "DBInstance")
+            Prelude.<$> (x Data..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -1409,78 +1410,78 @@ instance
         dbInstanceIdentifier
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     RestoreDBInstanceFromDBSnapshot
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RestoreDBInstanceFromDBSnapshot where
+instance Data.ToPath RestoreDBInstanceFromDBSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestoreDBInstanceFromDBSnapshot where
+instance Data.ToQuery RestoreDBInstanceFromDBSnapshot where
   toQuery RestoreDBInstanceFromDBSnapshot' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "RestoreDBInstanceFromDBSnapshot" ::
+          Data.=: ( "RestoreDBInstanceFromDBSnapshot" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "Port" Core.=: port,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "Port" Data.=: port,
         "VpcSecurityGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "VpcSecurityGroupId"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "VpcSecurityGroupId"
                 Prelude.<$> vpcSecurityGroupIds
             ),
-        "DBParameterGroupName" Core.=: dbParameterGroupName,
-        "BackupTarget" Core.=: backupTarget,
-        "StorageThroughput" Core.=: storageThroughput,
-        "DBInstanceClass" Core.=: dbInstanceClass,
-        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
-        "DomainIAMRoleName" Core.=: domainIAMRoleName,
+        "DBParameterGroupName" Data.=: dbParameterGroupName,
+        "BackupTarget" Data.=: backupTarget,
+        "StorageThroughput" Data.=: storageThroughput,
+        "DBInstanceClass" Data.=: dbInstanceClass,
+        "CopyTagsToSnapshot" Data.=: copyTagsToSnapshot,
+        "DomainIAMRoleName" Data.=: domainIAMRoleName,
         "DBClusterSnapshotIdentifier"
-          Core.=: dbClusterSnapshotIdentifier,
-        "DBSubnetGroupName" Core.=: dbSubnetGroupName,
+          Data.=: dbClusterSnapshotIdentifier,
+        "DBSubnetGroupName" Data.=: dbSubnetGroupName,
         "AutoMinorVersionUpgrade"
-          Core.=: autoMinorVersionUpgrade,
-        "DBSnapshotIdentifier" Core.=: dbSnapshotIdentifier,
-        "Domain" Core.=: domain,
-        "OptionGroupName" Core.=: optionGroupName,
+          Data.=: autoMinorVersionUpgrade,
+        "DBSnapshotIdentifier" Data.=: dbSnapshotIdentifier,
+        "Domain" Data.=: domain,
+        "OptionGroupName" Data.=: optionGroupName,
         "EnableIAMDatabaseAuthentication"
-          Core.=: enableIAMDatabaseAuthentication,
+          Data.=: enableIAMDatabaseAuthentication,
         "TdeCredentialPassword"
-          Core.=: tdeCredentialPassword,
-        "AvailabilityZone" Core.=: availabilityZone,
-        "PubliclyAccessible" Core.=: publiclyAccessible,
-        "StorageType" Core.=: storageType,
+          Data.=: tdeCredentialPassword,
+        "AvailabilityZone" Data.=: availabilityZone,
+        "PubliclyAccessible" Data.=: publiclyAccessible,
+        "StorageType" Data.=: storageType,
         "EnableCloudwatchLogsExports"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> enableCloudwatchLogsExports
             ),
         "ProcessorFeatures"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "ProcessorFeature"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "ProcessorFeature"
                 Prelude.<$> processorFeatures
             ),
-        "TdeCredentialArn" Core.=: tdeCredentialArn,
-        "Engine" Core.=: engine,
-        "DeletionProtection" Core.=: deletionProtection,
+        "TdeCredentialArn" Data.=: tdeCredentialArn,
+        "Engine" Data.=: engine,
+        "DeletionProtection" Data.=: deletionProtection,
         "CustomIamInstanceProfile"
-          Core.=: customIamInstanceProfile,
-        "Iops" Core.=: iops,
-        "DBName" Core.=: dbName,
-        "NetworkType" Core.=: networkType,
-        "MultiAZ" Core.=: multiAZ,
+          Data.=: customIamInstanceProfile,
+        "Iops" Data.=: iops,
+        "DBName" Data.=: dbName,
+        "NetworkType" Data.=: networkType,
+        "MultiAZ" Data.=: multiAZ,
         "EnableCustomerOwnedIp"
-          Core.=: enableCustomerOwnedIp,
-        "LicenseModel" Core.=: licenseModel,
+          Data.=: enableCustomerOwnedIp,
+        "LicenseModel" Data.=: licenseModel,
         "UseDefaultProcessorFeatures"
-          Core.=: useDefaultProcessorFeatures,
-        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier
+          Data.=: useDefaultProcessorFeatures,
+        "DBInstanceIdentifier" Data.=: dbInstanceIdentifier
       ]
 
 -- | /See:/ 'newRestoreDBInstanceFromDBSnapshotResponse' smart constructor.

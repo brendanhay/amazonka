@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.UserAuthConfigInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.AuthScheme
 import Amazonka.RDS.Types.IAMAuthMode
@@ -112,14 +113,14 @@ userAuthConfigInfo_secretArn = Lens.lens (\UserAuthConfigInfo' {secretArn} -> se
 userAuthConfigInfo_authScheme :: Lens.Lens' UserAuthConfigInfo (Prelude.Maybe AuthScheme)
 userAuthConfigInfo_authScheme = Lens.lens (\UserAuthConfigInfo' {authScheme} -> authScheme) (\s@UserAuthConfigInfo' {} a -> s {authScheme = a} :: UserAuthConfigInfo)
 
-instance Core.FromXML UserAuthConfigInfo where
+instance Data.FromXML UserAuthConfigInfo where
   parseXML x =
     UserAuthConfigInfo'
-      Prelude.<$> (x Core..@? "UserName")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "IAMAuth")
-      Prelude.<*> (x Core..@? "SecretArn")
-      Prelude.<*> (x Core..@? "AuthScheme")
+      Prelude.<$> (x Data..@? "UserName")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "IAMAuth")
+      Prelude.<*> (x Data..@? "SecretArn")
+      Prelude.<*> (x Data..@? "AuthScheme")
 
 instance Prelude.Hashable UserAuthConfigInfo where
   hashWithSalt _salt UserAuthConfigInfo' {..} =

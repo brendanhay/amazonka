@@ -92,6 +92,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -1596,7 +1597,7 @@ instance Core.AWSRequest CreateDBInstanceReadReplica where
       "CreateDBInstanceReadReplicaResult"
       ( \s h x ->
           CreateDBInstanceReadReplicaResponse'
-            Prelude.<$> (x Core..@? "DBInstance")
+            Prelude.<$> (x Data..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -1695,79 +1696,79 @@ instance Prelude.NFData CreateDBInstanceReadReplica where
       `Prelude.seq` Prelude.rnf
         sourceDBInstanceIdentifier
 
-instance Core.ToHeaders CreateDBInstanceReadReplica where
+instance Data.ToHeaders CreateDBInstanceReadReplica where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateDBInstanceReadReplica where
+instance Data.ToPath CreateDBInstanceReadReplica where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDBInstanceReadReplica where
+instance Data.ToQuery CreateDBInstanceReadReplica where
   toQuery CreateDBInstanceReadReplica' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateDBInstanceReadReplica" ::
+          Data.=: ( "CreateDBInstanceReadReplica" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "MaxAllocatedStorage" Core.=: maxAllocatedStorage,
-        "Port" Core.=: port,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "MaxAllocatedStorage" Data.=: maxAllocatedStorage,
+        "Port" Data.=: port,
         "PerformanceInsightsRetentionPeriod"
-          Core.=: performanceInsightsRetentionPeriod,
+          Data.=: performanceInsightsRetentionPeriod,
         "VpcSecurityGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "VpcSecurityGroupId"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "VpcSecurityGroupId"
                 Prelude.<$> vpcSecurityGroupIds
             ),
-        "DBParameterGroupName" Core.=: dbParameterGroupName,
-        "StorageThroughput" Core.=: storageThroughput,
-        "DBInstanceClass" Core.=: dbInstanceClass,
-        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
-        "DomainIAMRoleName" Core.=: domainIAMRoleName,
-        "DBSubnetGroupName" Core.=: dbSubnetGroupName,
+        "DBParameterGroupName" Data.=: dbParameterGroupName,
+        "StorageThroughput" Data.=: storageThroughput,
+        "DBInstanceClass" Data.=: dbInstanceClass,
+        "CopyTagsToSnapshot" Data.=: copyTagsToSnapshot,
+        "DomainIAMRoleName" Data.=: domainIAMRoleName,
+        "DBSubnetGroupName" Data.=: dbSubnetGroupName,
         "AutoMinorVersionUpgrade"
-          Core.=: autoMinorVersionUpgrade,
-        "Domain" Core.=: domain,
-        "OptionGroupName" Core.=: optionGroupName,
+          Data.=: autoMinorVersionUpgrade,
+        "Domain" Data.=: domain,
+        "OptionGroupName" Data.=: optionGroupName,
         "PerformanceInsightsKMSKeyId"
-          Core.=: performanceInsightsKMSKeyId,
+          Data.=: performanceInsightsKMSKeyId,
         "EnableIAMDatabaseAuthentication"
-          Core.=: enableIAMDatabaseAuthentication,
-        "MonitoringInterval" Core.=: monitoringInterval,
-        "AvailabilityZone" Core.=: availabilityZone,
-        "PubliclyAccessible" Core.=: publiclyAccessible,
-        "StorageType" Core.=: storageType,
+          Data.=: enableIAMDatabaseAuthentication,
+        "MonitoringInterval" Data.=: monitoringInterval,
+        "AvailabilityZone" Data.=: availabilityZone,
+        "PubliclyAccessible" Data.=: publiclyAccessible,
+        "StorageType" Data.=: storageType,
         "EnableCloudwatchLogsExports"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> enableCloudwatchLogsExports
             ),
         "ProcessorFeatures"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "ProcessorFeature"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "ProcessorFeature"
                 Prelude.<$> processorFeatures
             ),
         "EnablePerformanceInsights"
-          Core.=: enablePerformanceInsights,
-        "MonitoringRoleArn" Core.=: monitoringRoleArn,
-        "ReplicaMode" Core.=: replicaMode,
-        "KmsKeyId" Core.=: kmsKeyId,
-        "DeletionProtection" Core.=: deletionProtection,
-        "DestinationRegion" Core.=: destinationRegion,
+          Data.=: enablePerformanceInsights,
+        "MonitoringRoleArn" Data.=: monitoringRoleArn,
+        "ReplicaMode" Data.=: replicaMode,
+        "KmsKeyId" Data.=: kmsKeyId,
+        "DeletionProtection" Data.=: deletionProtection,
+        "DestinationRegion" Data.=: destinationRegion,
         "CustomIamInstanceProfile"
-          Core.=: customIamInstanceProfile,
-        "Iops" Core.=: iops,
-        "PreSignedUrl" Core.=: preSignedUrl,
-        "NetworkType" Core.=: networkType,
-        "MultiAZ" Core.=: multiAZ,
+          Data.=: customIamInstanceProfile,
+        "Iops" Data.=: iops,
+        "PreSignedUrl" Data.=: preSignedUrl,
+        "NetworkType" Data.=: networkType,
+        "MultiAZ" Data.=: multiAZ,
         "UseDefaultProcessorFeatures"
-          Core.=: useDefaultProcessorFeatures,
-        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier,
+          Data.=: useDefaultProcessorFeatures,
+        "DBInstanceIdentifier" Data.=: dbInstanceIdentifier,
         "SourceDBInstanceIdentifier"
-          Core.=: sourceDBInstanceIdentifier
+          Data.=: sourceDBInstanceIdentifier
       ]
 
 -- | /See:/ 'newCreateDBInstanceReadReplicaResponse' smart constructor.

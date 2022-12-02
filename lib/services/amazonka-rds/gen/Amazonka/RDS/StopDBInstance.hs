@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -110,7 +111,7 @@ instance Core.AWSRequest StopDBInstance where
       "StopDBInstanceResult"
       ( \s h x ->
           StopDBInstanceResponse'
-            Prelude.<$> (x Core..@? "DBInstance")
+            Prelude.<$> (x Data..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,21 +125,21 @@ instance Prelude.NFData StopDBInstance where
     Prelude.rnf dbSnapshotIdentifier
       `Prelude.seq` Prelude.rnf dbInstanceIdentifier
 
-instance Core.ToHeaders StopDBInstance where
+instance Data.ToHeaders StopDBInstance where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath StopDBInstance where
+instance Data.ToPath StopDBInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopDBInstance where
+instance Data.ToQuery StopDBInstance where
   toQuery StopDBInstance' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("StopDBInstance" :: Prelude.ByteString),
+          Data.=: ("StopDBInstance" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBSnapshotIdentifier" Core.=: dbSnapshotIdentifier,
-        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "DBSnapshotIdentifier" Data.=: dbSnapshotIdentifier,
+        "DBInstanceIdentifier" Data.=: dbInstanceIdentifier
       ]
 
 -- | /See:/ 'newStopDBInstanceResponse' smart constructor.

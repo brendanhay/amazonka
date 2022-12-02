@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -283,10 +284,10 @@ instance Core.AWSRequest DescribeReservedDBInstances where
       "DescribeReservedDBInstancesResult"
       ( \s h x ->
           DescribeReservedDBInstancesResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "ReservedDBInstances"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "ReservedDBInstances"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "ReservedDBInstance")
+                            Prelude.>>= Core.may (Data.parseXMLList "ReservedDBInstance")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -319,35 +320,35 @@ instance Prelude.NFData DescribeReservedDBInstances where
       `Prelude.seq` Prelude.rnf reservedDBInstancesOfferingId
       `Prelude.seq` Prelude.rnf multiAZ
 
-instance Core.ToHeaders DescribeReservedDBInstances where
+instance Data.ToHeaders DescribeReservedDBInstances where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeReservedDBInstances where
+instance Data.ToPath DescribeReservedDBInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeReservedDBInstances where
+instance Data.ToQuery DescribeReservedDBInstances where
   toQuery DescribeReservedDBInstances' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeReservedDBInstances" ::
+          Data.=: ( "DescribeReservedDBInstances" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBInstanceClass" Core.=: dbInstanceClass,
-        "Marker" Core.=: marker,
-        "ReservedDBInstanceId" Core.=: reservedDBInstanceId,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "DBInstanceClass" Data.=: dbInstanceClass,
+        "Marker" Data.=: marker,
+        "ReservedDBInstanceId" Data.=: reservedDBInstanceId,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "OfferingType" Core.=: offeringType,
-        "MaxRecords" Core.=: maxRecords,
-        "Duration" Core.=: duration,
-        "ProductDescription" Core.=: productDescription,
-        "LeaseId" Core.=: leaseId,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "OfferingType" Data.=: offeringType,
+        "MaxRecords" Data.=: maxRecords,
+        "Duration" Data.=: duration,
+        "ProductDescription" Data.=: productDescription,
+        "LeaseId" Data.=: leaseId,
         "ReservedDBInstancesOfferingId"
-          Core.=: reservedDBInstancesOfferingId,
-        "MultiAZ" Core.=: multiAZ
+          Data.=: reservedDBInstancesOfferingId,
+        "MultiAZ" Data.=: multiAZ
       ]
 
 -- | Contains the result of a successful invocation of the

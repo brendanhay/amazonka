@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -192,7 +193,7 @@ instance Core.AWSRequest ModifyDBSnapshot where
       "ModifyDBSnapshotResult"
       ( \s h x ->
           ModifyDBSnapshotResponse'
-            Prelude.<$> (x Core..@? "DBSnapshot")
+            Prelude.<$> (x Data..@? "DBSnapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -208,22 +209,22 @@ instance Prelude.NFData ModifyDBSnapshot where
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf dbSnapshotIdentifier
 
-instance Core.ToHeaders ModifyDBSnapshot where
+instance Data.ToHeaders ModifyDBSnapshot where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyDBSnapshot where
+instance Data.ToPath ModifyDBSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyDBSnapshot where
+instance Data.ToQuery ModifyDBSnapshot where
   toQuery ModifyDBSnapshot' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyDBSnapshot" :: Prelude.ByteString),
+          Data.=: ("ModifyDBSnapshot" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "OptionGroupName" Core.=: optionGroupName,
-        "EngineVersion" Core.=: engineVersion,
-        "DBSnapshotIdentifier" Core.=: dbSnapshotIdentifier
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "OptionGroupName" Data.=: optionGroupName,
+        "EngineVersion" Data.=: engineVersion,
+        "DBSnapshotIdentifier" Data.=: dbSnapshotIdentifier
       ]
 
 -- | /See:/ 'newModifyDBSnapshotResponse' smart constructor.

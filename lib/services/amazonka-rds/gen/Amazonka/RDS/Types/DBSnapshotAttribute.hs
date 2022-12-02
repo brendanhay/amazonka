@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.DBSnapshotAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the name and values of a manual DB snapshot attribute
@@ -99,13 +100,13 @@ dbSnapshotAttribute_attributeValues = Lens.lens (\DBSnapshotAttribute' {attribut
 dbSnapshotAttribute_attributeName :: Lens.Lens' DBSnapshotAttribute (Prelude.Maybe Prelude.Text)
 dbSnapshotAttribute_attributeName = Lens.lens (\DBSnapshotAttribute' {attributeName} -> attributeName) (\s@DBSnapshotAttribute' {} a -> s {attributeName = a} :: DBSnapshotAttribute)
 
-instance Core.FromXML DBSnapshotAttribute where
+instance Data.FromXML DBSnapshotAttribute where
   parseXML x =
     DBSnapshotAttribute'
-      Prelude.<$> ( x Core..@? "AttributeValues" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "AttributeValue")
+      Prelude.<$> ( x Data..@? "AttributeValues" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "AttributeValue")
                   )
-      Prelude.<*> (x Core..@? "AttributeName")
+      Prelude.<*> (x Data..@? "AttributeName")
 
 instance Prelude.Hashable DBSnapshotAttribute where
   hashWithSalt _salt DBSnapshotAttribute' {..} =

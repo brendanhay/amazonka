@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -216,9 +217,9 @@ instance Core.AWSRequest DescribeDBClusterParameters where
       "DescribeDBClusterParametersResult"
       ( \s h x ->
           DescribeDBClusterParametersResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "Parameters" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "Parameter")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "Parameter")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -239,29 +240,29 @@ instance Prelude.NFData DescribeDBClusterParameters where
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
 
-instance Core.ToHeaders DescribeDBClusterParameters where
+instance Data.ToHeaders DescribeDBClusterParameters where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDBClusterParameters where
+instance Data.ToPath DescribeDBClusterParameters where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDBClusterParameters where
+instance Data.ToQuery DescribeDBClusterParameters where
   toQuery DescribeDBClusterParameters' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeDBClusterParameters" ::
+          Data.=: ( "DescribeDBClusterParameters" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords,
-        "Source" Core.=: source,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "MaxRecords" Data.=: maxRecords,
+        "Source" Data.=: source,
         "DBClusterParameterGroupName"
-          Core.=: dbClusterParameterGroupName
+          Data.=: dbClusterParameterGroupName
       ]
 
 -- | Provides details about a DB cluster parameter group including the

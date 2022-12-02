@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -183,10 +184,10 @@ instance Core.AWSRequest DescribeDBSecurityGroups where
       "DescribeDBSecurityGroupsResult"
       ( \s h x ->
           DescribeDBSecurityGroupsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "DBSecurityGroups"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "DBSecurityGroups"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "DBSecurityGroup")
+                            Prelude.>>= Core.may (Data.parseXMLList "DBSecurityGroup")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -205,25 +206,25 @@ instance Prelude.NFData DescribeDBSecurityGroups where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf dbSecurityGroupName
 
-instance Core.ToHeaders DescribeDBSecurityGroups where
+instance Data.ToHeaders DescribeDBSecurityGroups where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDBSecurityGroups where
+instance Data.ToPath DescribeDBSecurityGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDBSecurityGroups where
+instance Data.ToQuery DescribeDBSecurityGroups where
   toQuery DescribeDBSecurityGroups' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeDBSecurityGroups" :: Prelude.ByteString),
+          Data.=: ("DescribeDBSecurityGroups" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords,
-        "DBSecurityGroupName" Core.=: dbSecurityGroupName
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "MaxRecords" Data.=: maxRecords,
+        "DBSecurityGroupName" Data.=: dbSecurityGroupName
       ]
 
 -- | Contains the result of a successful invocation of the

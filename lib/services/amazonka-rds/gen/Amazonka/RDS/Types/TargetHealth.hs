@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.TargetHealth where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.TargetHealthReason
 import Amazonka.RDS.Types.TargetState
@@ -90,12 +91,12 @@ targetHealth_description = Lens.lens (\TargetHealth' {description} -> descriptio
 targetHealth_reason :: Lens.Lens' TargetHealth (Prelude.Maybe TargetHealthReason)
 targetHealth_reason = Lens.lens (\TargetHealth' {reason} -> reason) (\s@TargetHealth' {} a -> s {reason = a} :: TargetHealth)
 
-instance Core.FromXML TargetHealth where
+instance Data.FromXML TargetHealth where
   parseXML x =
     TargetHealth'
-      Prelude.<$> (x Core..@? "State")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "Reason")
+      Prelude.<$> (x Data..@? "State")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "Reason")
 
 instance Prelude.Hashable TargetHealth where
   hashWithSalt _salt TargetHealth' {..} =

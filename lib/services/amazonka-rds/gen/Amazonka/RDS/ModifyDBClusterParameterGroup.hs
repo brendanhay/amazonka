@@ -71,6 +71,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -163,7 +164,7 @@ instance
   response =
     Response.receiveXMLWrapper
       "ModifyDBClusterParameterGroupResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance
   Prelude.Hashable
@@ -179,23 +180,23 @@ instance Prelude.NFData ModifyDBClusterParameterGroup where
     Prelude.rnf dbClusterParameterGroupName
       `Prelude.seq` Prelude.rnf parameters
 
-instance Core.ToHeaders ModifyDBClusterParameterGroup where
+instance Data.ToHeaders ModifyDBClusterParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyDBClusterParameterGroup where
+instance Data.ToPath ModifyDBClusterParameterGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyDBClusterParameterGroup where
+instance Data.ToQuery ModifyDBClusterParameterGroup where
   toQuery ModifyDBClusterParameterGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ModifyDBClusterParameterGroup" ::
+          Data.=: ( "ModifyDBClusterParameterGroup" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "DBClusterParameterGroupName"
-          Core.=: dbClusterParameterGroupName,
+          Data.=: dbClusterParameterGroupName,
         "Parameters"
-          Core.=: Core.toQueryList "Parameter" parameters
+          Data.=: Data.toQueryList "Parameter" parameters
       ]

@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.ScalingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the scaling configuration of an Aurora Serverless v1 DB
@@ -259,14 +260,14 @@ instance Prelude.NFData ScalingConfiguration where
       `Prelude.seq` Prelude.rnf autoPause
       `Prelude.seq` Prelude.rnf minCapacity
 
-instance Core.ToQuery ScalingConfiguration where
+instance Data.ToQuery ScalingConfiguration where
   toQuery ScalingConfiguration' {..} =
     Prelude.mconcat
-      [ "TimeoutAction" Core.=: timeoutAction,
-        "SecondsBeforeTimeout" Core.=: secondsBeforeTimeout,
+      [ "TimeoutAction" Data.=: timeoutAction,
+        "SecondsBeforeTimeout" Data.=: secondsBeforeTimeout,
         "SecondsUntilAutoPause"
-          Core.=: secondsUntilAutoPause,
-        "MaxCapacity" Core.=: maxCapacity,
-        "AutoPause" Core.=: autoPause,
-        "MinCapacity" Core.=: minCapacity
+          Data.=: secondsUntilAutoPause,
+        "MaxCapacity" Data.=: maxCapacity,
+        "AutoPause" Data.=: autoPause,
+        "MinCapacity" Data.=: minCapacity
       ]

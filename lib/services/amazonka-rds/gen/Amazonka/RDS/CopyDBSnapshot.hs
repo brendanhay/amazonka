@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -578,7 +579,7 @@ instance Core.AWSRequest CopyDBSnapshot where
       "CopyDBSnapshotResult"
       ( \s h x ->
           CopyDBSnapshotResponse'
-            Prelude.<$> (x Core..@? "DBSnapshot")
+            Prelude.<$> (x Data..@? "DBSnapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -606,33 +607,33 @@ instance Prelude.NFData CopyDBSnapshot where
       `Prelude.seq` Prelude.rnf sourceDBSnapshotIdentifier
       `Prelude.seq` Prelude.rnf targetDBSnapshotIdentifier
 
-instance Core.ToHeaders CopyDBSnapshot where
+instance Data.ToHeaders CopyDBSnapshot where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CopyDBSnapshot where
+instance Data.ToPath CopyDBSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CopyDBSnapshot where
+instance Data.ToQuery CopyDBSnapshot where
   toQuery CopyDBSnapshot' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CopyDBSnapshot" :: Prelude.ByteString),
+          Data.=: ("CopyDBSnapshot" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
         "TargetCustomAvailabilityZone"
-          Core.=: targetCustomAvailabilityZone,
-        "OptionGroupName" Core.=: optionGroupName,
-        "CopyTags" Core.=: copyTags,
-        "KmsKeyId" Core.=: kmsKeyId,
-        "DestinationRegion" Core.=: destinationRegion,
-        "PreSignedUrl" Core.=: preSignedUrl,
+          Data.=: targetCustomAvailabilityZone,
+        "OptionGroupName" Data.=: optionGroupName,
+        "CopyTags" Data.=: copyTags,
+        "KmsKeyId" Data.=: kmsKeyId,
+        "DestinationRegion" Data.=: destinationRegion,
+        "PreSignedUrl" Data.=: preSignedUrl,
         "SourceDBSnapshotIdentifier"
-          Core.=: sourceDBSnapshotIdentifier,
+          Data.=: sourceDBSnapshotIdentifier,
         "TargetDBSnapshotIdentifier"
-          Core.=: targetDBSnapshotIdentifier
+          Data.=: targetDBSnapshotIdentifier
       ]
 
 -- | /See:/ 'newCopyDBSnapshotResponse' smart constructor.

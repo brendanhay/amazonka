@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -223,7 +224,7 @@ instance Core.AWSRequest PromoteReadReplica where
       "PromoteReadReplicaResult"
       ( \s h x ->
           PromoteReadReplicaResponse'
-            Prelude.<$> (x Core..@? "DBInstance")
+            Prelude.<$> (x Data..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -239,24 +240,24 @@ instance Prelude.NFData PromoteReadReplica where
       `Prelude.seq` Prelude.rnf backupRetentionPeriod
       `Prelude.seq` Prelude.rnf dbInstanceIdentifier
 
-instance Core.ToHeaders PromoteReadReplica where
+instance Data.ToHeaders PromoteReadReplica where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath PromoteReadReplica where
+instance Data.ToPath PromoteReadReplica where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PromoteReadReplica where
+instance Data.ToQuery PromoteReadReplica where
   toQuery PromoteReadReplica' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("PromoteReadReplica" :: Prelude.ByteString),
+          Data.=: ("PromoteReadReplica" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "PreferredBackupWindow"
-          Core.=: preferredBackupWindow,
+          Data.=: preferredBackupWindow,
         "BackupRetentionPeriod"
-          Core.=: backupRetentionPeriod,
-        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier
+          Data.=: backupRetentionPeriod,
+        "DBInstanceIdentifier" Data.=: dbInstanceIdentifier
       ]
 
 -- | /See:/ 'newPromoteReadReplicaResponse' smart constructor.

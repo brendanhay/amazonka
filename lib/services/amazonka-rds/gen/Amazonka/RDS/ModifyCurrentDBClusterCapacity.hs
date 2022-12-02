@@ -71,6 +71,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -229,11 +230,11 @@ instance
       "ModifyCurrentDBClusterCapacityResult"
       ( \s h x ->
           ModifyCurrentDBClusterCapacityResponse'
-            Prelude.<$> (x Core..@? "TimeoutAction")
-            Prelude.<*> (x Core..@? "DBClusterIdentifier")
-            Prelude.<*> (x Core..@? "PendingCapacity")
-            Prelude.<*> (x Core..@? "SecondsBeforeTimeout")
-            Prelude.<*> (x Core..@? "CurrentCapacity")
+            Prelude.<$> (x Data..@? "TimeoutAction")
+            Prelude.<*> (x Data..@? "DBClusterIdentifier")
+            Prelude.<*> (x Data..@? "PendingCapacity")
+            Prelude.<*> (x Data..@? "SecondsBeforeTimeout")
+            Prelude.<*> (x Data..@? "CurrentCapacity")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -260,27 +261,27 @@ instance
       `Prelude.seq` Prelude.rnf dbClusterIdentifier
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ModifyCurrentDBClusterCapacity
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyCurrentDBClusterCapacity where
+instance Data.ToPath ModifyCurrentDBClusterCapacity where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyCurrentDBClusterCapacity where
+instance Data.ToQuery ModifyCurrentDBClusterCapacity where
   toQuery ModifyCurrentDBClusterCapacity' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ModifyCurrentDBClusterCapacity" ::
+          Data.=: ( "ModifyCurrentDBClusterCapacity" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "TimeoutAction" Core.=: timeoutAction,
-        "SecondsBeforeTimeout" Core.=: secondsBeforeTimeout,
-        "Capacity" Core.=: capacity,
-        "DBClusterIdentifier" Core.=: dbClusterIdentifier
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "TimeoutAction" Data.=: timeoutAction,
+        "SecondsBeforeTimeout" Data.=: secondsBeforeTimeout,
+        "Capacity" Data.=: capacity,
+        "DBClusterIdentifier" Data.=: dbClusterIdentifier
       ]
 
 -- | /See:/ 'newModifyCurrentDBClusterCapacityResponse' smart constructor.

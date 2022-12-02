@@ -106,6 +106,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -3271,7 +3272,7 @@ instance Core.AWSRequest CreateDBInstance where
       "CreateDBInstanceResult"
       ( \s h x ->
           CreateDBInstanceResponse'
-            Prelude.<$> (x Core..@? "DBInstance")
+            Prelude.<$> (x Data..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -3417,101 +3418,101 @@ instance Prelude.NFData CreateDBInstance where
       `Prelude.seq` Prelude.rnf
         engine
 
-instance Core.ToHeaders CreateDBInstance where
+instance Data.ToHeaders CreateDBInstance where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateDBInstance where
+instance Data.ToPath CreateDBInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDBInstance where
+instance Data.ToQuery CreateDBInstance where
   toQuery CreateDBInstance' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateDBInstance" :: Prelude.ByteString),
+          Data.=: ("CreateDBInstance" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "MaxAllocatedStorage" Core.=: maxAllocatedStorage,
-        "Port" Core.=: port,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "MaxAllocatedStorage" Data.=: maxAllocatedStorage,
+        "Port" Data.=: port,
         "PerformanceInsightsRetentionPeriod"
-          Core.=: performanceInsightsRetentionPeriod,
+          Data.=: performanceInsightsRetentionPeriod,
         "VpcSecurityGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "VpcSecurityGroupId"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "VpcSecurityGroupId"
                 Prelude.<$> vpcSecurityGroupIds
             ),
-        "DBParameterGroupName" Core.=: dbParameterGroupName,
-        "BackupTarget" Core.=: backupTarget,
+        "DBParameterGroupName" Data.=: dbParameterGroupName,
+        "BackupTarget" Data.=: backupTarget,
         "PreferredBackupWindow"
-          Core.=: preferredBackupWindow,
-        "StorageThroughput" Core.=: storageThroughput,
+          Data.=: preferredBackupWindow,
+        "StorageThroughput" Data.=: storageThroughput,
         "BackupRetentionPeriod"
-          Core.=: backupRetentionPeriod,
-        "CharacterSetName" Core.=: characterSetName,
-        "MasterUsername" Core.=: masterUsername,
-        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
-        "DomainIAMRoleName" Core.=: domainIAMRoleName,
-        "PromotionTier" Core.=: promotionTier,
-        "DBSubnetGroupName" Core.=: dbSubnetGroupName,
+          Data.=: backupRetentionPeriod,
+        "CharacterSetName" Data.=: characterSetName,
+        "MasterUsername" Data.=: masterUsername,
+        "CopyTagsToSnapshot" Data.=: copyTagsToSnapshot,
+        "DomainIAMRoleName" Data.=: domainIAMRoleName,
+        "PromotionTier" Data.=: promotionTier,
+        "DBSubnetGroupName" Data.=: dbSubnetGroupName,
         "AutoMinorVersionUpgrade"
-          Core.=: autoMinorVersionUpgrade,
-        "Domain" Core.=: domain,
-        "OptionGroupName" Core.=: optionGroupName,
-        "DBClusterIdentifier" Core.=: dbClusterIdentifier,
-        "Timezone" Core.=: timezone,
+          Data.=: autoMinorVersionUpgrade,
+        "Domain" Data.=: domain,
+        "OptionGroupName" Data.=: optionGroupName,
+        "DBClusterIdentifier" Data.=: dbClusterIdentifier,
+        "Timezone" Data.=: timezone,
         "PerformanceInsightsKMSKeyId"
-          Core.=: performanceInsightsKMSKeyId,
+          Data.=: performanceInsightsKMSKeyId,
         "EnableIAMDatabaseAuthentication"
-          Core.=: enableIAMDatabaseAuthentication,
+          Data.=: enableIAMDatabaseAuthentication,
         "DBSecurityGroups"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "DBSecurityGroupName"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "DBSecurityGroupName"
                 Prelude.<$> dbSecurityGroups
             ),
-        "MonitoringInterval" Core.=: monitoringInterval,
+        "MonitoringInterval" Data.=: monitoringInterval,
         "TdeCredentialPassword"
-          Core.=: tdeCredentialPassword,
-        "AvailabilityZone" Core.=: availabilityZone,
-        "MasterUserPassword" Core.=: masterUserPassword,
-        "PubliclyAccessible" Core.=: publiclyAccessible,
-        "StorageType" Core.=: storageType,
+          Data.=: tdeCredentialPassword,
+        "AvailabilityZone" Data.=: availabilityZone,
+        "MasterUserPassword" Data.=: masterUserPassword,
+        "PubliclyAccessible" Data.=: publiclyAccessible,
+        "StorageType" Data.=: storageType,
         "EnableCloudwatchLogsExports"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> enableCloudwatchLogsExports
             ),
         "ProcessorFeatures"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "ProcessorFeature"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "ProcessorFeature"
                 Prelude.<$> processorFeatures
             ),
         "EnablePerformanceInsights"
-          Core.=: enablePerformanceInsights,
-        "TdeCredentialArn" Core.=: tdeCredentialArn,
+          Data.=: enablePerformanceInsights,
+        "TdeCredentialArn" Data.=: tdeCredentialArn,
         "NcharCharacterSetName"
-          Core.=: ncharCharacterSetName,
-        "MonitoringRoleArn" Core.=: monitoringRoleArn,
-        "StorageEncrypted" Core.=: storageEncrypted,
-        "KmsKeyId" Core.=: kmsKeyId,
-        "AllocatedStorage" Core.=: allocatedStorage,
-        "DeletionProtection" Core.=: deletionProtection,
+          Data.=: ncharCharacterSetName,
+        "MonitoringRoleArn" Data.=: monitoringRoleArn,
+        "StorageEncrypted" Data.=: storageEncrypted,
+        "KmsKeyId" Data.=: kmsKeyId,
+        "AllocatedStorage" Data.=: allocatedStorage,
+        "DeletionProtection" Data.=: deletionProtection,
         "PreferredMaintenanceWindow"
-          Core.=: preferredMaintenanceWindow,
+          Data.=: preferredMaintenanceWindow,
         "CustomIamInstanceProfile"
-          Core.=: customIamInstanceProfile,
-        "Iops" Core.=: iops,
-        "EngineVersion" Core.=: engineVersion,
-        "DBName" Core.=: dbName,
-        "NetworkType" Core.=: networkType,
-        "MultiAZ" Core.=: multiAZ,
+          Data.=: customIamInstanceProfile,
+        "Iops" Data.=: iops,
+        "EngineVersion" Data.=: engineVersion,
+        "DBName" Data.=: dbName,
+        "NetworkType" Data.=: networkType,
+        "MultiAZ" Data.=: multiAZ,
         "EnableCustomerOwnedIp"
-          Core.=: enableCustomerOwnedIp,
-        "LicenseModel" Core.=: licenseModel,
-        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier,
-        "DBInstanceClass" Core.=: dbInstanceClass,
-        "Engine" Core.=: engine
+          Data.=: enableCustomerOwnedIp,
+        "LicenseModel" Data.=: licenseModel,
+        "DBInstanceIdentifier" Data.=: dbInstanceIdentifier,
+        "DBInstanceClass" Data.=: dbInstanceClass,
+        "Engine" Data.=: engine
       ]
 
 -- | /See:/ 'newCreateDBInstanceResponse' smart constructor.

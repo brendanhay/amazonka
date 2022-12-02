@@ -89,6 +89,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -154,7 +155,7 @@ instance Core.AWSRequest DeleteCustomDBEngineVersion where
   response =
     Response.receiveXMLWrapper
       "DeleteCustomDBEngineVersionResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable DeleteCustomDBEngineVersion where
   hashWithSalt _salt DeleteCustomDBEngineVersion' {..} =
@@ -166,21 +167,21 @@ instance Prelude.NFData DeleteCustomDBEngineVersion where
     Prelude.rnf engine
       `Prelude.seq` Prelude.rnf engineVersion
 
-instance Core.ToHeaders DeleteCustomDBEngineVersion where
+instance Data.ToHeaders DeleteCustomDBEngineVersion where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteCustomDBEngineVersion where
+instance Data.ToPath DeleteCustomDBEngineVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteCustomDBEngineVersion where
+instance Data.ToQuery DeleteCustomDBEngineVersion where
   toQuery DeleteCustomDBEngineVersion' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DeleteCustomDBEngineVersion" ::
+          Data.=: ( "DeleteCustomDBEngineVersion" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "Engine" Core.=: engine,
-        "EngineVersion" Core.=: engineVersion
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "Engine" Data.=: engine,
+        "EngineVersion" Data.=: engineVersion
       ]

@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.DoubleRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A range of double values.
@@ -61,10 +62,10 @@ doubleRange_from = Lens.lens (\DoubleRange' {from} -> from) (\s@DoubleRange' {} 
 doubleRange_to :: Lens.Lens' DoubleRange (Prelude.Maybe Prelude.Double)
 doubleRange_to = Lens.lens (\DoubleRange' {to} -> to) (\s@DoubleRange' {} a -> s {to = a} :: DoubleRange)
 
-instance Core.FromXML DoubleRange where
+instance Data.FromXML DoubleRange where
   parseXML x =
     DoubleRange'
-      Prelude.<$> (x Core..@? "From") Prelude.<*> (x Core..@? "To")
+      Prelude.<$> (x Data..@? "From") Prelude.<*> (x Data..@? "To")
 
 instance Prelude.Hashable DoubleRange where
   hashWithSalt _salt DoubleRange' {..} =

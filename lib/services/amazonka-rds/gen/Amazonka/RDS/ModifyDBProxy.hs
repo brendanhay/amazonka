@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -198,7 +199,7 @@ instance Core.AWSRequest ModifyDBProxy where
       "ModifyDBProxyResult"
       ( \s h x ->
           ModifyDBProxyResponse'
-            Prelude.<$> (x Core..@? "DBProxy")
+            Prelude.<$> (x Data..@? "DBProxy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -224,33 +225,33 @@ instance Prelude.NFData ModifyDBProxy where
       `Prelude.seq` Prelude.rnf newDBProxyName'
       `Prelude.seq` Prelude.rnf dbProxyName
 
-instance Core.ToHeaders ModifyDBProxy where
+instance Data.ToHeaders ModifyDBProxy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyDBProxy where
+instance Data.ToPath ModifyDBProxy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyDBProxy where
+instance Data.ToQuery ModifyDBProxy where
   toQuery ModifyDBProxy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyDBProxy" :: Prelude.ByteString),
+          Data.=: ("ModifyDBProxy" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "RoleArn" Core.=: roleArn,
-        "RequireTLS" Core.=: requireTLS,
-        "DebugLogging" Core.=: debugLogging,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "RoleArn" Data.=: roleArn,
+        "RequireTLS" Data.=: requireTLS,
+        "DebugLogging" Data.=: debugLogging,
         "SecurityGroups"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> securityGroups
             ),
         "Auth"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> auth),
-        "IdleClientTimeout" Core.=: idleClientTimeout,
-        "NewDBProxyName" Core.=: newDBProxyName',
-        "DBProxyName" Core.=: dbProxyName
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> auth),
+        "IdleClientTimeout" Data.=: idleClientTimeout,
+        "NewDBProxyName" Data.=: newDBProxyName',
+        "DBProxyName" Data.=: dbProxyName
       ]
 
 -- | /See:/ 'newModifyDBProxyResponse' smart constructor.

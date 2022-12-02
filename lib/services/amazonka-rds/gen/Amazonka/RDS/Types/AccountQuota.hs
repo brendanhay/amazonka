@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.AccountQuota where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a quota for an Amazon Web Services account.
@@ -159,12 +160,12 @@ accountQuota_used = Lens.lens (\AccountQuota' {used} -> used) (\s@AccountQuota' 
 accountQuota_accountQuotaName :: Lens.Lens' AccountQuota (Prelude.Maybe Prelude.Text)
 accountQuota_accountQuotaName = Lens.lens (\AccountQuota' {accountQuotaName} -> accountQuotaName) (\s@AccountQuota' {} a -> s {accountQuotaName = a} :: AccountQuota)
 
-instance Core.FromXML AccountQuota where
+instance Data.FromXML AccountQuota where
   parseXML x =
     AccountQuota'
-      Prelude.<$> (x Core..@? "Max")
-      Prelude.<*> (x Core..@? "Used")
-      Prelude.<*> (x Core..@? "AccountQuotaName")
+      Prelude.<$> (x Data..@? "Max")
+      Prelude.<*> (x Data..@? "Used")
+      Prelude.<*> (x Data..@? "AccountQuotaName")
 
 instance Prelude.Hashable AccountQuota where
   hashWithSalt _salt AccountQuota' {..} =

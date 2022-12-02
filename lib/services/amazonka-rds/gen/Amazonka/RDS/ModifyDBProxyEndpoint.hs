@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -122,7 +123,7 @@ instance Core.AWSRequest ModifyDBProxyEndpoint where
       "ModifyDBProxyEndpointResult"
       ( \s h x ->
           ModifyDBProxyEndpointResponse'
-            Prelude.<$> (x Core..@? "DBProxyEndpoint")
+            Prelude.<$> (x Data..@? "DBProxyEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,27 +139,27 @@ instance Prelude.NFData ModifyDBProxyEndpoint where
       `Prelude.seq` Prelude.rnf newDBProxyEndpointName'
       `Prelude.seq` Prelude.rnf dbProxyEndpointName
 
-instance Core.ToHeaders ModifyDBProxyEndpoint where
+instance Data.ToHeaders ModifyDBProxyEndpoint where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyDBProxyEndpoint where
+instance Data.ToPath ModifyDBProxyEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyDBProxyEndpoint where
+instance Data.ToQuery ModifyDBProxyEndpoint where
   toQuery ModifyDBProxyEndpoint' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyDBProxyEndpoint" :: Prelude.ByteString),
+          Data.=: ("ModifyDBProxyEndpoint" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "VpcSecurityGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> vpcSecurityGroupIds
             ),
         "NewDBProxyEndpointName"
-          Core.=: newDBProxyEndpointName',
-        "DBProxyEndpointName" Core.=: dbProxyEndpointName
+          Data.=: newDBProxyEndpointName',
+        "DBProxyEndpointName" Data.=: dbProxyEndpointName
       ]
 
 -- | /See:/ 'newModifyDBProxyEndpointResponse' smart constructor.

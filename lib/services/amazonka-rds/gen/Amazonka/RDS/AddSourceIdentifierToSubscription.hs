@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -179,7 +180,7 @@ instance
       "AddSourceIdentifierToSubscriptionResult"
       ( \s h x ->
           AddSourceIdentifierToSubscriptionResponse'
-            Prelude.<$> (x Core..@? "EventSubscription")
+            Prelude.<$> (x Data..@? "EventSubscription")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,31 +203,31 @@ instance
       `Prelude.seq` Prelude.rnf sourceIdentifier
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AddSourceIdentifierToSubscription
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     AddSourceIdentifierToSubscription
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     AddSourceIdentifierToSubscription
   where
   toQuery AddSourceIdentifierToSubscription' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "AddSourceIdentifierToSubscription" ::
+          Data.=: ( "AddSourceIdentifierToSubscription" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "SubscriptionName" Core.=: subscriptionName,
-        "SourceIdentifier" Core.=: sourceIdentifier
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "SubscriptionName" Data.=: subscriptionName,
+        "SourceIdentifier" Data.=: sourceIdentifier
       ]
 
 -- | /See:/ 'newAddSourceIdentifierToSubscriptionResponse' smart constructor.

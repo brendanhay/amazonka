@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -141,7 +142,7 @@ instance Core.AWSRequest RebootDBInstance where
       "RebootDBInstanceResult"
       ( \s h x ->
           RebootDBInstanceResponse'
-            Prelude.<$> (x Core..@? "DBInstance")
+            Prelude.<$> (x Data..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,21 +156,21 @@ instance Prelude.NFData RebootDBInstance where
     Prelude.rnf forceFailover
       `Prelude.seq` Prelude.rnf dbInstanceIdentifier
 
-instance Core.ToHeaders RebootDBInstance where
+instance Data.ToHeaders RebootDBInstance where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RebootDBInstance where
+instance Data.ToPath RebootDBInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RebootDBInstance where
+instance Data.ToQuery RebootDBInstance where
   toQuery RebootDBInstance' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RebootDBInstance" :: Prelude.ByteString),
+          Data.=: ("RebootDBInstance" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "ForceFailover" Core.=: forceFailover,
-        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "ForceFailover" Data.=: forceFailover,
+        "DBInstanceIdentifier" Data.=: dbInstanceIdentifier
       ]
 
 -- | /See:/ 'newRebootDBInstanceResponse' smart constructor.

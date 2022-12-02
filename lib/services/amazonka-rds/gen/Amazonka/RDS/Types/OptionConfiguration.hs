@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.OptionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.OptionSetting
 
@@ -118,25 +119,25 @@ instance Prelude.NFData OptionConfiguration where
       `Prelude.seq` Prelude.rnf optionSettings
       `Prelude.seq` Prelude.rnf optionName
 
-instance Core.ToQuery OptionConfiguration where
+instance Data.ToQuery OptionConfiguration where
   toQuery OptionConfiguration' {..} =
     Prelude.mconcat
-      [ "Port" Core.=: port,
+      [ "Port" Data.=: port,
         "DBSecurityGroupMemberships"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "DBSecurityGroupName"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "DBSecurityGroupName"
                 Prelude.<$> dbSecurityGroupMemberships
             ),
-        "OptionVersion" Core.=: optionVersion,
+        "OptionVersion" Data.=: optionVersion,
         "VpcSecurityGroupMemberships"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "VpcSecurityGroupId"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "VpcSecurityGroupId"
                 Prelude.<$> vpcSecurityGroupMemberships
             ),
         "OptionSettings"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "OptionSetting"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "OptionSetting"
                 Prelude.<$> optionSettings
             ),
-        "OptionName" Core.=: optionName
+        "OptionName" Data.=: optionName
       ]

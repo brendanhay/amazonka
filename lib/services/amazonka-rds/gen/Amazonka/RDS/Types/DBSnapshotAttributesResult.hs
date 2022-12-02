@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.DBSnapshotAttributesResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.DBSnapshotAttribute
 
@@ -68,14 +69,14 @@ dbSnapshotAttributesResult_dbSnapshotAttributes = Lens.lens (\DBSnapshotAttribut
 dbSnapshotAttributesResult_dbSnapshotIdentifier :: Lens.Lens' DBSnapshotAttributesResult (Prelude.Maybe Prelude.Text)
 dbSnapshotAttributesResult_dbSnapshotIdentifier = Lens.lens (\DBSnapshotAttributesResult' {dbSnapshotIdentifier} -> dbSnapshotIdentifier) (\s@DBSnapshotAttributesResult' {} a -> s {dbSnapshotIdentifier = a} :: DBSnapshotAttributesResult)
 
-instance Core.FromXML DBSnapshotAttributesResult where
+instance Data.FromXML DBSnapshotAttributesResult where
   parseXML x =
     DBSnapshotAttributesResult'
-      Prelude.<$> ( x Core..@? "DBSnapshotAttributes"
+      Prelude.<$> ( x Data..@? "DBSnapshotAttributes"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "DBSnapshotAttribute")
+                      Prelude.>>= Core.may (Data.parseXMLList "DBSnapshotAttribute")
                   )
-      Prelude.<*> (x Core..@? "DBSnapshotIdentifier")
+      Prelude.<*> (x Data..@? "DBSnapshotIdentifier")
 
 instance Prelude.Hashable DBSnapshotAttributesResult where
   hashWithSalt _salt DBSnapshotAttributesResult' {..} =

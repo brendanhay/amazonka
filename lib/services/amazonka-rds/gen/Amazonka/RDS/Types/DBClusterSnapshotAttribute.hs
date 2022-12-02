@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.DBClusterSnapshotAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the name and values of a manual DB cluster snapshot attribute.
@@ -99,13 +100,13 @@ dbClusterSnapshotAttribute_attributeValues = Lens.lens (\DBClusterSnapshotAttrib
 dbClusterSnapshotAttribute_attributeName :: Lens.Lens' DBClusterSnapshotAttribute (Prelude.Maybe Prelude.Text)
 dbClusterSnapshotAttribute_attributeName = Lens.lens (\DBClusterSnapshotAttribute' {attributeName} -> attributeName) (\s@DBClusterSnapshotAttribute' {} a -> s {attributeName = a} :: DBClusterSnapshotAttribute)
 
-instance Core.FromXML DBClusterSnapshotAttribute where
+instance Data.FromXML DBClusterSnapshotAttribute where
   parseXML x =
     DBClusterSnapshotAttribute'
-      Prelude.<$> ( x Core..@? "AttributeValues" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "AttributeValue")
+      Prelude.<$> ( x Data..@? "AttributeValues" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "AttributeValue")
                   )
-      Prelude.<*> (x Core..@? "AttributeName")
+      Prelude.<*> (x Data..@? "AttributeName")
 
 instance Prelude.Hashable DBClusterSnapshotAttribute where
   hashWithSalt _salt DBClusterSnapshotAttribute' {..} =

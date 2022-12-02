@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -114,9 +115,9 @@ instance Core.AWSRequest StopActivityStream where
       "StopActivityStreamResult"
       ( \s h x ->
           StopActivityStreamResponse'
-            Prelude.<$> (x Core..@? "Status")
-            Prelude.<*> (x Core..@? "KinesisStreamName")
-            Prelude.<*> (x Core..@? "KmsKeyId")
+            Prelude.<$> (x Data..@? "Status")
+            Prelude.<*> (x Data..@? "KinesisStreamName")
+            Prelude.<*> (x Data..@? "KmsKeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,21 +131,21 @@ instance Prelude.NFData StopActivityStream where
     Prelude.rnf applyImmediately
       `Prelude.seq` Prelude.rnf resourceArn
 
-instance Core.ToHeaders StopActivityStream where
+instance Data.ToHeaders StopActivityStream where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath StopActivityStream where
+instance Data.ToPath StopActivityStream where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopActivityStream where
+instance Data.ToQuery StopActivityStream where
   toQuery StopActivityStream' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("StopActivityStream" :: Prelude.ByteString),
+          Data.=: ("StopActivityStream" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "ApplyImmediately" Core.=: applyImmediately,
-        "ResourceArn" Core.=: resourceArn
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "ApplyImmediately" Data.=: applyImmediately,
+        "ResourceArn" Data.=: resourceArn
       ]
 
 -- | /See:/ 'newStopActivityStreamResponse' smart constructor.

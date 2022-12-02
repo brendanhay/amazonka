@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.OrderableDBInstanceOption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.AvailabilityZone
 import Amazonka.RDS.Types.AvailableProcessorFeature
@@ -433,59 +434,59 @@ orderableDBInstanceOption_maxStorageThroughputPerDbInstance = Lens.lens (\Ordera
 orderableDBInstanceOption_supportedNetworkTypes :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe [Prelude.Text])
 orderableDBInstanceOption_supportedNetworkTypes = Lens.lens (\OrderableDBInstanceOption' {supportedNetworkTypes} -> supportedNetworkTypes) (\s@OrderableDBInstanceOption' {} a -> s {supportedNetworkTypes = a} :: OrderableDBInstanceOption) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML OrderableDBInstanceOption where
+instance Data.FromXML OrderableDBInstanceOption where
   parseXML x =
     OrderableDBInstanceOption'
-      Prelude.<$> (x Core..@? "SupportsStorageEncryption")
-      Prelude.<*> (x Core..@? "SupportsClusters")
-      Prelude.<*> (x Core..@? "MaxStorageSize")
-      Prelude.<*> (x Core..@? "MultiAZCapable")
-      Prelude.<*> (x Core..@? "MaxStorageThroughputPerIops")
-      Prelude.<*> (x Core..@? "DBInstanceClass")
-      Prelude.<*> (x Core..@? "Vpc")
-      Prelude.<*> (x Core..@? "SupportsPerformanceInsights")
-      Prelude.<*> ( x Core..@? "AvailabilityZones"
+      Prelude.<$> (x Data..@? "SupportsStorageEncryption")
+      Prelude.<*> (x Data..@? "SupportsClusters")
+      Prelude.<*> (x Data..@? "MaxStorageSize")
+      Prelude.<*> (x Data..@? "MultiAZCapable")
+      Prelude.<*> (x Data..@? "MaxStorageThroughputPerIops")
+      Prelude.<*> (x Data..@? "DBInstanceClass")
+      Prelude.<*> (x Data..@? "Vpc")
+      Prelude.<*> (x Data..@? "SupportsPerformanceInsights")
+      Prelude.<*> ( x Data..@? "AvailabilityZones"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "AvailabilityZone")
+                      Prelude.>>= Core.may (Data.parseXMLList "AvailabilityZone")
                   )
-      Prelude.<*> (x Core..@? "AvailabilityZoneGroup")
-      Prelude.<*> (x Core..@? "MinIopsPerDbInstance")
-      Prelude.<*> ( x Core..@? "SupportedActivityStreamModes"
+      Prelude.<*> (x Data..@? "AvailabilityZoneGroup")
+      Prelude.<*> (x Data..@? "MinIopsPerDbInstance")
+      Prelude.<*> ( x Data..@? "SupportedActivityStreamModes"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "SupportedEngineModes"
+      Prelude.<*> ( x Data..@? "SupportedEngineModes"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "MinStorageSize")
-      Prelude.<*> (x Core..@? "StorageType")
-      Prelude.<*> (x Core..@? "OutpostCapable")
-      Prelude.<*> (x Core..@? "SupportsIops")
-      Prelude.<*> (x Core..@? "MaxIopsPerDbInstance")
-      Prelude.<*> (x Core..@? "MinStorageThroughputPerDbInstance")
-      Prelude.<*> (x Core..@? "SupportsIAMDatabaseAuthentication")
-      Prelude.<*> (x Core..@? "SupportsEnhancedMonitoring")
-      Prelude.<*> ( x Core..@? "AvailableProcessorFeatures"
+      Prelude.<*> (x Data..@? "MinStorageSize")
+      Prelude.<*> (x Data..@? "StorageType")
+      Prelude.<*> (x Data..@? "OutpostCapable")
+      Prelude.<*> (x Data..@? "SupportsIops")
+      Prelude.<*> (x Data..@? "MaxIopsPerDbInstance")
+      Prelude.<*> (x Data..@? "MinStorageThroughputPerDbInstance")
+      Prelude.<*> (x Data..@? "SupportsIAMDatabaseAuthentication")
+      Prelude.<*> (x Data..@? "SupportsEnhancedMonitoring")
+      Prelude.<*> ( x Data..@? "AvailableProcessorFeatures"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "AvailableProcessorFeature")
+                        (Data.parseXMLList "AvailableProcessorFeature")
                   )
-      Prelude.<*> (x Core..@? "Engine")
-      Prelude.<*> (x Core..@? "ReadReplicaCapable")
-      Prelude.<*> (x Core..@? "SupportsStorageAutoscaling")
-      Prelude.<*> (x Core..@? "SupportsGlobalDatabases")
-      Prelude.<*> (x Core..@? "MaxIopsPerGib")
-      Prelude.<*> (x Core..@? "MinStorageThroughputPerIops")
-      Prelude.<*> (x Core..@? "EngineVersion")
-      Prelude.<*> (x Core..@? "SupportsKerberosAuthentication")
-      Prelude.<*> (x Core..@? "MinIopsPerGib")
-      Prelude.<*> (x Core..@? "LicenseModel")
-      Prelude.<*> (x Core..@? "SupportsStorageThroughput")
-      Prelude.<*> (x Core..@? "MaxStorageThroughputPerDbInstance")
-      Prelude.<*> ( x Core..@? "SupportedNetworkTypes"
+      Prelude.<*> (x Data..@? "Engine")
+      Prelude.<*> (x Data..@? "ReadReplicaCapable")
+      Prelude.<*> (x Data..@? "SupportsStorageAutoscaling")
+      Prelude.<*> (x Data..@? "SupportsGlobalDatabases")
+      Prelude.<*> (x Data..@? "MaxIopsPerGib")
+      Prelude.<*> (x Data..@? "MinStorageThroughputPerIops")
+      Prelude.<*> (x Data..@? "EngineVersion")
+      Prelude.<*> (x Data..@? "SupportsKerberosAuthentication")
+      Prelude.<*> (x Data..@? "MinIopsPerGib")
+      Prelude.<*> (x Data..@? "LicenseModel")
+      Prelude.<*> (x Data..@? "SupportsStorageThroughput")
+      Prelude.<*> (x Data..@? "MaxStorageThroughputPerDbInstance")
+      Prelude.<*> ( x Data..@? "SupportedNetworkTypes"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable OrderableDBInstanceOption where

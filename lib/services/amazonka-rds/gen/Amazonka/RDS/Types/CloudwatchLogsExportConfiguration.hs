@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.CloudwatchLogsExportConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration setting for the log types to be enabled for export to
@@ -96,19 +97,19 @@ instance
       `Prelude.seq` Prelude.rnf disableLogTypes
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CloudwatchLogsExportConfiguration
   where
   toQuery CloudwatchLogsExportConfiguration' {..} =
     Prelude.mconcat
       [ "EnableLogTypes"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> enableLogTypes
             ),
         "DisableLogTypes"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> disableLogTypes
             )
       ]

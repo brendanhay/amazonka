@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -231,7 +232,7 @@ instance
       "StartDBInstanceAutomatedBackupsReplicationResult"
       ( \s h x ->
           StartDBInstanceAutomatedBackupsReplicationResponse'
-            Prelude.<$> (x Core..@? "DBInstanceAutomatedBackup")
+            Prelude.<$> (x Data..@? "DBInstanceAutomatedBackup")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -260,36 +261,36 @@ instance
       `Prelude.seq` Prelude.rnf sourceDBInstanceArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     StartDBInstanceAutomatedBackupsReplication
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     StartDBInstanceAutomatedBackupsReplication
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     StartDBInstanceAutomatedBackupsReplication
   where
   toQuery
     StartDBInstanceAutomatedBackupsReplication' {..} =
       Prelude.mconcat
         [ "Action"
-            Core.=: ( "StartDBInstanceAutomatedBackupsReplication" ::
+            Data.=: ( "StartDBInstanceAutomatedBackupsReplication" ::
                         Prelude.ByteString
                     ),
           "Version"
-            Core.=: ("2014-10-31" :: Prelude.ByteString),
+            Data.=: ("2014-10-31" :: Prelude.ByteString),
           "BackupRetentionPeriod"
-            Core.=: backupRetentionPeriod,
-          "KmsKeyId" Core.=: kmsKeyId,
-          "DestinationRegion" Core.=: destinationRegion,
-          "PreSignedUrl" Core.=: preSignedUrl,
-          "SourceDBInstanceArn" Core.=: sourceDBInstanceArn
+            Data.=: backupRetentionPeriod,
+          "KmsKeyId" Data.=: kmsKeyId,
+          "DestinationRegion" Data.=: destinationRegion,
+          "PreSignedUrl" Data.=: preSignedUrl,
+          "SourceDBInstanceArn" Data.=: sourceDBInstanceArn
         ]
 
 -- | /See:/ 'newStartDBInstanceAutomatedBackupsReplicationResponse' smart constructor.

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -146,7 +147,7 @@ instance Core.AWSRequest ModifyOptionGroup where
       "ModifyOptionGroupResult"
       ( \s h x ->
           ModifyOptionGroupResponse'
-            Prelude.<$> (x Core..@? "OptionGroup")
+            Prelude.<$> (x Data..@? "OptionGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,31 +165,31 @@ instance Prelude.NFData ModifyOptionGroup where
       `Prelude.seq` Prelude.rnf optionsToRemove
       `Prelude.seq` Prelude.rnf optionGroupName
 
-instance Core.ToHeaders ModifyOptionGroup where
+instance Data.ToHeaders ModifyOptionGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyOptionGroup where
+instance Data.ToPath ModifyOptionGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyOptionGroup where
+instance Data.ToQuery ModifyOptionGroup where
   toQuery ModifyOptionGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyOptionGroup" :: Prelude.ByteString),
+          Data.=: ("ModifyOptionGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "OptionsToInclude"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "OptionConfiguration"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "OptionConfiguration"
                 Prelude.<$> optionsToInclude
             ),
-        "ApplyImmediately" Core.=: applyImmediately,
+        "ApplyImmediately" Data.=: applyImmediately,
         "OptionsToRemove"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> optionsToRemove
             ),
-        "OptionGroupName" Core.=: optionGroupName
+        "OptionGroupName" Data.=: optionGroupName
       ]
 
 -- | /See:/ 'newModifyOptionGroupResponse' smart constructor.

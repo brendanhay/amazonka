@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -141,7 +142,7 @@ instance
       "PurchaseReservedDBInstancesOfferingResult"
       ( \s h x ->
           PurchaseReservedDBInstancesOfferingResponse'
-            Prelude.<$> (x Core..@? "ReservedDBInstance")
+            Prelude.<$> (x Data..@? "ReservedDBInstance")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,36 +169,36 @@ instance
       `Prelude.seq` Prelude.rnf reservedDBInstancesOfferingId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PurchaseReservedDBInstancesOffering
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     PurchaseReservedDBInstancesOffering
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PurchaseReservedDBInstancesOffering
   where
   toQuery PurchaseReservedDBInstancesOffering' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "PurchaseReservedDBInstancesOffering" ::
+          Data.=: ( "PurchaseReservedDBInstancesOffering" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "DBInstanceCount" Core.=: dbInstanceCount,
-        "ReservedDBInstanceId" Core.=: reservedDBInstanceId,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "DBInstanceCount" Data.=: dbInstanceCount,
+        "ReservedDBInstanceId" Data.=: reservedDBInstanceId,
         "ReservedDBInstancesOfferingId"
-          Core.=: reservedDBInstancesOfferingId
+          Data.=: reservedDBInstancesOfferingId
       ]
 
 -- | /See:/ 'newPurchaseReservedDBInstancesOfferingResponse' smart constructor.

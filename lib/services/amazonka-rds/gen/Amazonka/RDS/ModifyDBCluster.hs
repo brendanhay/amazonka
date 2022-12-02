@@ -86,6 +86,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -1522,7 +1523,7 @@ instance Core.AWSRequest ModifyDBCluster where
       "ModifyDBClusterResult"
       ( \s h x ->
           ModifyDBClusterResponse'
-            Prelude.<$> (x Core..@? "DBCluster")
+            Prelude.<$> (x Data..@? "DBCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -1622,75 +1623,75 @@ instance Prelude.NFData ModifyDBCluster where
       `Prelude.seq` Prelude.rnf
         dbClusterIdentifier
 
-instance Core.ToHeaders ModifyDBCluster where
+instance Data.ToHeaders ModifyDBCluster where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyDBCluster where
+instance Data.ToPath ModifyDBCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyDBCluster where
+instance Data.ToQuery ModifyDBCluster where
   toQuery ModifyDBCluster' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyDBCluster" :: Prelude.ByteString),
+          Data.=: ("ModifyDBCluster" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "NewDBClusterIdentifier"
-          Core.=: newDBClusterIdentifier',
-        "Port" Core.=: port,
+          Data.=: newDBClusterIdentifier',
+        "Port" Data.=: port,
         "ServerlessV2ScalingConfiguration"
-          Core.=: serverlessV2ScalingConfiguration,
+          Data.=: serverlessV2ScalingConfiguration,
         "EnableGlobalWriteForwarding"
-          Core.=: enableGlobalWriteForwarding,
+          Data.=: enableGlobalWriteForwarding,
         "PerformanceInsightsRetentionPeriod"
-          Core.=: performanceInsightsRetentionPeriod,
+          Data.=: performanceInsightsRetentionPeriod,
         "VpcSecurityGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "VpcSecurityGroupId"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "VpcSecurityGroupId"
                 Prelude.<$> vpcSecurityGroupIds
             ),
         "PreferredBackupWindow"
-          Core.=: preferredBackupWindow,
+          Data.=: preferredBackupWindow,
         "BackupRetentionPeriod"
-          Core.=: backupRetentionPeriod,
-        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
-        "DomainIAMRoleName" Core.=: domainIAMRoleName,
+          Data.=: backupRetentionPeriod,
+        "CopyTagsToSnapshot" Data.=: copyTagsToSnapshot,
+        "DomainIAMRoleName" Data.=: domainIAMRoleName,
         "DBInstanceParameterGroupName"
-          Core.=: dbInstanceParameterGroupName,
+          Data.=: dbInstanceParameterGroupName,
         "AutoMinorVersionUpgrade"
-          Core.=: autoMinorVersionUpgrade,
-        "ApplyImmediately" Core.=: applyImmediately,
+          Data.=: autoMinorVersionUpgrade,
+        "ApplyImmediately" Data.=: applyImmediately,
         "AllowMajorVersionUpgrade"
-          Core.=: allowMajorVersionUpgrade,
+          Data.=: allowMajorVersionUpgrade,
         "DBClusterInstanceClass"
-          Core.=: dbClusterInstanceClass,
-        "Domain" Core.=: domain,
-        "OptionGroupName" Core.=: optionGroupName,
+          Data.=: dbClusterInstanceClass,
+        "Domain" Data.=: domain,
+        "OptionGroupName" Data.=: optionGroupName,
         "PerformanceInsightsKMSKeyId"
-          Core.=: performanceInsightsKMSKeyId,
+          Data.=: performanceInsightsKMSKeyId,
         "EnableIAMDatabaseAuthentication"
-          Core.=: enableIAMDatabaseAuthentication,
-        "MonitoringInterval" Core.=: monitoringInterval,
-        "MasterUserPassword" Core.=: masterUserPassword,
-        "StorageType" Core.=: storageType,
-        "EnableHttpEndpoint" Core.=: enableHttpEndpoint,
-        "BacktrackWindow" Core.=: backtrackWindow,
+          Data.=: enableIAMDatabaseAuthentication,
+        "MonitoringInterval" Data.=: monitoringInterval,
+        "MasterUserPassword" Data.=: masterUserPassword,
+        "StorageType" Data.=: storageType,
+        "EnableHttpEndpoint" Data.=: enableHttpEndpoint,
+        "BacktrackWindow" Data.=: backtrackWindow,
         "EnablePerformanceInsights"
-          Core.=: enablePerformanceInsights,
+          Data.=: enablePerformanceInsights,
         "CloudwatchLogsExportConfiguration"
-          Core.=: cloudwatchLogsExportConfiguration,
-        "ScalingConfiguration" Core.=: scalingConfiguration,
-        "MonitoringRoleArn" Core.=: monitoringRoleArn,
-        "AllocatedStorage" Core.=: allocatedStorage,
-        "DeletionProtection" Core.=: deletionProtection,
+          Data.=: cloudwatchLogsExportConfiguration,
+        "ScalingConfiguration" Data.=: scalingConfiguration,
+        "MonitoringRoleArn" Data.=: monitoringRoleArn,
+        "AllocatedStorage" Data.=: allocatedStorage,
+        "DeletionProtection" Data.=: deletionProtection,
         "PreferredMaintenanceWindow"
-          Core.=: preferredMaintenanceWindow,
+          Data.=: preferredMaintenanceWindow,
         "DBClusterParameterGroupName"
-          Core.=: dbClusterParameterGroupName,
-        "Iops" Core.=: iops,
-        "EngineVersion" Core.=: engineVersion,
-        "NetworkType" Core.=: networkType,
-        "DBClusterIdentifier" Core.=: dbClusterIdentifier
+          Data.=: dbClusterParameterGroupName,
+        "Iops" Data.=: iops,
+        "EngineVersion" Data.=: engineVersion,
+        "NetworkType" Data.=: networkType,
+        "DBClusterIdentifier" Data.=: dbClusterIdentifier
       ]
 
 -- | /See:/ 'newModifyDBClusterResponse' smart constructor.

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -101,7 +102,7 @@ instance Core.AWSRequest DeleteDBSnapshot where
       "DeleteDBSnapshotResult"
       ( \s h x ->
           DeleteDBSnapshotResponse'
-            Prelude.<$> (x Core..@? "DBSnapshot")
+            Prelude.<$> (x Data..@? "DBSnapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,20 +114,20 @@ instance Prelude.NFData DeleteDBSnapshot where
   rnf DeleteDBSnapshot' {..} =
     Prelude.rnf dbSnapshotIdentifier
 
-instance Core.ToHeaders DeleteDBSnapshot where
+instance Data.ToHeaders DeleteDBSnapshot where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteDBSnapshot where
+instance Data.ToPath DeleteDBSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDBSnapshot where
+instance Data.ToQuery DeleteDBSnapshot where
   toQuery DeleteDBSnapshot' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteDBSnapshot" :: Prelude.ByteString),
+          Data.=: ("DeleteDBSnapshot" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBSnapshotIdentifier" Core.=: dbSnapshotIdentifier
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "DBSnapshotIdentifier" Data.=: dbSnapshotIdentifier
       ]
 
 -- | /See:/ 'newDeleteDBSnapshotResponse' smart constructor.

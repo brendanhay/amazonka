@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.DBProxyEndpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.DBProxyEndpointStatus
 import Amazonka.RDS.Types.DBProxyEndpointTargetRole
@@ -56,7 +57,7 @@ data DBProxyEndpoint = DBProxyEndpoint'
     -- can\'t end with a hyphen or contain two consecutive hyphens.
     dbProxyEndpointName :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the DB proxy endpoint was first created.
-    createdDate :: Prelude.Maybe Core.ISO8601,
+    createdDate :: Prelude.Maybe Data.ISO8601,
     -- | The Amazon Resource Name (ARN) for the DB proxy endpoint.
     dbProxyEndpointArn :: Prelude.Maybe Prelude.Text,
     -- | The endpoint that you can use to connect to the DB proxy. You include
@@ -165,7 +166,7 @@ dbProxyEndpoint_dbProxyEndpointName = Lens.lens (\DBProxyEndpoint' {dbProxyEndpo
 
 -- | The date and time when the DB proxy endpoint was first created.
 dbProxyEndpoint_createdDate :: Lens.Lens' DBProxyEndpoint (Prelude.Maybe Prelude.UTCTime)
-dbProxyEndpoint_createdDate = Lens.lens (\DBProxyEndpoint' {createdDate} -> createdDate) (\s@DBProxyEndpoint' {} a -> s {createdDate = a} :: DBProxyEndpoint) Prelude.. Lens.mapping Core._Time
+dbProxyEndpoint_createdDate = Lens.lens (\DBProxyEndpoint' {createdDate} -> createdDate) (\s@DBProxyEndpoint' {} a -> s {createdDate = a} :: DBProxyEndpoint) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) for the DB proxy endpoint.
 dbProxyEndpoint_dbProxyEndpointArn :: Lens.Lens' DBProxyEndpoint (Prelude.Maybe Prelude.Text)
@@ -191,25 +192,25 @@ dbProxyEndpoint_dbProxyName = Lens.lens (\DBProxyEndpoint' {dbProxyName} -> dbPr
 dbProxyEndpoint_targetRole :: Lens.Lens' DBProxyEndpoint (Prelude.Maybe DBProxyEndpointTargetRole)
 dbProxyEndpoint_targetRole = Lens.lens (\DBProxyEndpoint' {targetRole} -> targetRole) (\s@DBProxyEndpoint' {} a -> s {targetRole = a} :: DBProxyEndpoint)
 
-instance Core.FromXML DBProxyEndpoint where
+instance Data.FromXML DBProxyEndpoint where
   parseXML x =
     DBProxyEndpoint'
-      Prelude.<$> ( x Core..@? "VpcSecurityGroupIds"
+      Prelude.<$> ( x Data..@? "VpcSecurityGroupIds"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "IsDefault")
-      Prelude.<*> ( x Core..@? "VpcSubnetIds" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "IsDefault")
+      Prelude.<*> ( x Data..@? "VpcSubnetIds" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "DBProxyEndpointName")
-      Prelude.<*> (x Core..@? "CreatedDate")
-      Prelude.<*> (x Core..@? "DBProxyEndpointArn")
-      Prelude.<*> (x Core..@? "Endpoint")
-      Prelude.<*> (x Core..@? "VpcId")
-      Prelude.<*> (x Core..@? "DBProxyName")
-      Prelude.<*> (x Core..@? "TargetRole")
+      Prelude.<*> (x Data..@? "DBProxyEndpointName")
+      Prelude.<*> (x Data..@? "CreatedDate")
+      Prelude.<*> (x Data..@? "DBProxyEndpointArn")
+      Prelude.<*> (x Data..@? "Endpoint")
+      Prelude.<*> (x Data..@? "VpcId")
+      Prelude.<*> (x Data..@? "DBProxyName")
+      Prelude.<*> (x Data..@? "TargetRole")
 
 instance Prelude.Hashable DBProxyEndpoint where
   hashWithSalt _salt DBProxyEndpoint' {..} =

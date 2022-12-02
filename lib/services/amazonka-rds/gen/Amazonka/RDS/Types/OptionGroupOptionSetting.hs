@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.OptionGroupOptionSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.MinimumEngineVersionPerAllowedValue
 
@@ -129,20 +130,20 @@ optionGroupOptionSetting_isRequired = Lens.lens (\OptionGroupOptionSetting' {isR
 optionGroupOptionSetting_minimumEngineVersionPerAllowedValue :: Lens.Lens' OptionGroupOptionSetting (Prelude.Maybe [MinimumEngineVersionPerAllowedValue])
 optionGroupOptionSetting_minimumEngineVersionPerAllowedValue = Lens.lens (\OptionGroupOptionSetting' {minimumEngineVersionPerAllowedValue} -> minimumEngineVersionPerAllowedValue) (\s@OptionGroupOptionSetting' {} a -> s {minimumEngineVersionPerAllowedValue = a} :: OptionGroupOptionSetting) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML OptionGroupOptionSetting where
+instance Data.FromXML OptionGroupOptionSetting where
   parseXML x =
     OptionGroupOptionSetting'
-      Prelude.<$> (x Core..@? "SettingDescription")
-      Prelude.<*> (x Core..@? "ApplyType")
-      Prelude.<*> (x Core..@? "DefaultValue")
-      Prelude.<*> (x Core..@? "IsModifiable")
-      Prelude.<*> (x Core..@? "SettingName")
-      Prelude.<*> (x Core..@? "AllowedValues")
-      Prelude.<*> (x Core..@? "IsRequired")
-      Prelude.<*> ( x Core..@? "MinimumEngineVersionPerAllowedValue"
+      Prelude.<$> (x Data..@? "SettingDescription")
+      Prelude.<*> (x Data..@? "ApplyType")
+      Prelude.<*> (x Data..@? "DefaultValue")
+      Prelude.<*> (x Data..@? "IsModifiable")
+      Prelude.<*> (x Data..@? "SettingName")
+      Prelude.<*> (x Data..@? "AllowedValues")
+      Prelude.<*> (x Data..@? "IsRequired")
+      Prelude.<*> ( x Data..@? "MinimumEngineVersionPerAllowedValue"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        ( Core.parseXMLList
+                        ( Data.parseXMLList
                             "MinimumEngineVersionPerAllowedValue"
                         )
                   )

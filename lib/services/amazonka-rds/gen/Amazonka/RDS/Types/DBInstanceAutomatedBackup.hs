@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.DBInstanceAutomatedBackup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.DBInstanceAutomatedBackupsReplication
 import Amazonka.RDS.Types.RestoreWindow
@@ -62,7 +63,7 @@ data DBInstanceAutomatedBackup = DBInstanceAutomatedBackup'
     -- | The Amazon Resource Name (ARN) for the replicated automated backups.
     dbInstanceAutomatedBackupsArn :: Prelude.Maybe Prelude.Text,
     -- | Provides the date and time that the DB instance was created.
-    instanceCreateTime :: Prelude.Maybe Core.ISO8601,
+    instanceCreateTime :: Prelude.Maybe Data.ISO8601,
     -- | Provides a list of status information for an automated backup:
     --
     -- -   @active@ - automated backups for current instances
@@ -291,7 +292,7 @@ dbInstanceAutomatedBackup_dbInstanceAutomatedBackupsArn = Lens.lens (\DBInstance
 
 -- | Provides the date and time that the DB instance was created.
 dbInstanceAutomatedBackup_instanceCreateTime :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.UTCTime)
-dbInstanceAutomatedBackup_instanceCreateTime = Lens.lens (\DBInstanceAutomatedBackup' {instanceCreateTime} -> instanceCreateTime) (\s@DBInstanceAutomatedBackup' {} a -> s {instanceCreateTime = a} :: DBInstanceAutomatedBackup) Prelude.. Lens.mapping Core._Time
+dbInstanceAutomatedBackup_instanceCreateTime = Lens.lens (\DBInstanceAutomatedBackup' {instanceCreateTime} -> instanceCreateTime) (\s@DBInstanceAutomatedBackup' {} a -> s {instanceCreateTime = a} :: DBInstanceAutomatedBackup) Prelude.. Lens.mapping Data._Time
 
 -- | Provides a list of status information for an automated backup:
 --
@@ -376,43 +377,43 @@ dbInstanceAutomatedBackup_restoreWindow = Lens.lens (\DBInstanceAutomatedBackup'
 dbInstanceAutomatedBackup_licenseModel :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
 dbInstanceAutomatedBackup_licenseModel = Lens.lens (\DBInstanceAutomatedBackup' {licenseModel} -> licenseModel) (\s@DBInstanceAutomatedBackup' {} a -> s {licenseModel = a} :: DBInstanceAutomatedBackup)
 
-instance Core.FromXML DBInstanceAutomatedBackup where
+instance Data.FromXML DBInstanceAutomatedBackup where
   parseXML x =
     DBInstanceAutomatedBackup'
-      Prelude.<$> (x Core..@? "Port")
-      Prelude.<*> ( x Core..@? "DBInstanceAutomatedBackupsReplications"
+      Prelude.<$> (x Data..@? "Port")
+      Prelude.<*> ( x Data..@? "DBInstanceAutomatedBackupsReplications"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        ( Core.parseXMLList
+                        ( Data.parseXMLList
                             "DBInstanceAutomatedBackupsReplication"
                         )
                   )
-      Prelude.<*> (x Core..@? "BackupTarget")
-      Prelude.<*> (x Core..@? "StorageThroughput")
-      Prelude.<*> (x Core..@? "BackupRetentionPeriod")
-      Prelude.<*> (x Core..@? "MasterUsername")
-      Prelude.<*> (x Core..@? "DBInstanceIdentifier")
-      Prelude.<*> (x Core..@? "OptionGroupName")
-      Prelude.<*> (x Core..@? "Timezone")
-      Prelude.<*> (x Core..@? "DBInstanceAutomatedBackupsArn")
-      Prelude.<*> (x Core..@? "InstanceCreateTime")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "AvailabilityZone")
-      Prelude.<*> (x Core..@? "StorageType")
-      Prelude.<*> (x Core..@? "Region")
-      Prelude.<*> (x Core..@? "TdeCredentialArn")
-      Prelude.<*> (x Core..@? "DBInstanceArn")
-      Prelude.<*> (x Core..@? "Encrypted")
-      Prelude.<*> (x Core..@? "KmsKeyId")
-      Prelude.<*> (x Core..@? "Engine")
-      Prelude.<*> (x Core..@? "AllocatedStorage")
-      Prelude.<*> (x Core..@? "IAMDatabaseAuthenticationEnabled")
-      Prelude.<*> (x Core..@? "VpcId")
-      Prelude.<*> (x Core..@? "DbiResourceId")
-      Prelude.<*> (x Core..@? "Iops")
-      Prelude.<*> (x Core..@? "EngineVersion")
-      Prelude.<*> (x Core..@? "RestoreWindow")
-      Prelude.<*> (x Core..@? "LicenseModel")
+      Prelude.<*> (x Data..@? "BackupTarget")
+      Prelude.<*> (x Data..@? "StorageThroughput")
+      Prelude.<*> (x Data..@? "BackupRetentionPeriod")
+      Prelude.<*> (x Data..@? "MasterUsername")
+      Prelude.<*> (x Data..@? "DBInstanceIdentifier")
+      Prelude.<*> (x Data..@? "OptionGroupName")
+      Prelude.<*> (x Data..@? "Timezone")
+      Prelude.<*> (x Data..@? "DBInstanceAutomatedBackupsArn")
+      Prelude.<*> (x Data..@? "InstanceCreateTime")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "AvailabilityZone")
+      Prelude.<*> (x Data..@? "StorageType")
+      Prelude.<*> (x Data..@? "Region")
+      Prelude.<*> (x Data..@? "TdeCredentialArn")
+      Prelude.<*> (x Data..@? "DBInstanceArn")
+      Prelude.<*> (x Data..@? "Encrypted")
+      Prelude.<*> (x Data..@? "KmsKeyId")
+      Prelude.<*> (x Data..@? "Engine")
+      Prelude.<*> (x Data..@? "AllocatedStorage")
+      Prelude.<*> (x Data..@? "IAMDatabaseAuthenticationEnabled")
+      Prelude.<*> (x Data..@? "VpcId")
+      Prelude.<*> (x Data..@? "DbiResourceId")
+      Prelude.<*> (x Data..@? "Iops")
+      Prelude.<*> (x Data..@? "EngineVersion")
+      Prelude.<*> (x Data..@? "RestoreWindow")
+      Prelude.<*> (x Data..@? "LicenseModel")
 
 instance Prelude.Hashable DBInstanceAutomatedBackup where
   hashWithSalt _salt DBInstanceAutomatedBackup' {..} =

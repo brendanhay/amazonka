@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.MinimumEngineVersionPerAllowedValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The minimum DB engine version required for each corresponding allowed
@@ -64,13 +65,13 @@ minimumEngineVersionPerAllowedValue_allowedValue :: Lens.Lens' MinimumEngineVers
 minimumEngineVersionPerAllowedValue_allowedValue = Lens.lens (\MinimumEngineVersionPerAllowedValue' {allowedValue} -> allowedValue) (\s@MinimumEngineVersionPerAllowedValue' {} a -> s {allowedValue = a} :: MinimumEngineVersionPerAllowedValue)
 
 instance
-  Core.FromXML
+  Data.FromXML
     MinimumEngineVersionPerAllowedValue
   where
   parseXML x =
     MinimumEngineVersionPerAllowedValue'
-      Prelude.<$> (x Core..@? "MinimumEngineVersion")
-      Prelude.<*> (x Core..@? "AllowedValue")
+      Prelude.<$> (x Data..@? "MinimumEngineVersion")
+      Prelude.<*> (x Data..@? "AllowedValue")
 
 instance
   Prelude.Hashable

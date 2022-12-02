@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -97,20 +98,20 @@ instance Prelude.NFData DeleteOptionGroup where
   rnf DeleteOptionGroup' {..} =
     Prelude.rnf optionGroupName
 
-instance Core.ToHeaders DeleteOptionGroup where
+instance Data.ToHeaders DeleteOptionGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteOptionGroup where
+instance Data.ToPath DeleteOptionGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteOptionGroup where
+instance Data.ToQuery DeleteOptionGroup where
   toQuery DeleteOptionGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteOptionGroup" :: Prelude.ByteString),
+          Data.=: ("DeleteOptionGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "OptionGroupName" Core.=: optionGroupName
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "OptionGroupName" Data.=: optionGroupName
       ]
 
 -- | /See:/ 'newDeleteOptionGroupResponse' smart constructor.

@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -194,9 +195,9 @@ instance Core.AWSRequest DescribeGlobalClusters where
       "DescribeGlobalClustersResult"
       ( \s h x ->
           DescribeGlobalClustersResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "GlobalClusters" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "GlobalClusterMember")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "GlobalClusters" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "GlobalClusterMember")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -215,26 +216,26 @@ instance Prelude.NFData DescribeGlobalClusters where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf globalClusterIdentifier
 
-instance Core.ToHeaders DescribeGlobalClusters where
+instance Data.ToHeaders DescribeGlobalClusters where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeGlobalClusters where
+instance Data.ToPath DescribeGlobalClusters where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeGlobalClusters where
+instance Data.ToQuery DescribeGlobalClusters where
   toQuery DescribeGlobalClusters' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeGlobalClusters" :: Prelude.ByteString),
+          Data.=: ("DescribeGlobalClusters" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "MaxRecords" Data.=: maxRecords,
         "GlobalClusterIdentifier"
-          Core.=: globalClusterIdentifier
+          Data.=: globalClusterIdentifier
       ]
 
 -- | /See:/ 'newDescribeGlobalClustersResponse' smart constructor.

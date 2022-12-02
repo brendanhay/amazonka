@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -139,7 +140,7 @@ instance Core.AWSRequest ModifyDBClusterEndpoint where
   response =
     Response.receiveXMLWrapper
       "ModifyDBClusterEndpointResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable ModifyDBClusterEndpoint where
   hashWithSalt _salt ModifyDBClusterEndpoint' {..} =
@@ -155,30 +156,30 @@ instance Prelude.NFData ModifyDBClusterEndpoint where
       `Prelude.seq` Prelude.rnf endpointType
       `Prelude.seq` Prelude.rnf dbClusterEndpointIdentifier
 
-instance Core.ToHeaders ModifyDBClusterEndpoint where
+instance Data.ToHeaders ModifyDBClusterEndpoint where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyDBClusterEndpoint where
+instance Data.ToPath ModifyDBClusterEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyDBClusterEndpoint where
+instance Data.ToQuery ModifyDBClusterEndpoint where
   toQuery ModifyDBClusterEndpoint' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyDBClusterEndpoint" :: Prelude.ByteString),
+          Data.=: ("ModifyDBClusterEndpoint" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "StaticMembers"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> staticMembers
             ),
         "ExcludedMembers"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> excludedMembers
             ),
-        "EndpointType" Core.=: endpointType,
+        "EndpointType" Data.=: endpointType,
         "DBClusterEndpointIdentifier"
-          Core.=: dbClusterEndpointIdentifier
+          Data.=: dbClusterEndpointIdentifier
       ]

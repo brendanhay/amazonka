@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.SourceRegion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an Amazon Web Services Region name as the result of a
@@ -84,15 +85,15 @@ sourceRegion_regionName = Lens.lens (\SourceRegion' {regionName} -> regionName) 
 sourceRegion_endpoint :: Lens.Lens' SourceRegion (Prelude.Maybe Prelude.Text)
 sourceRegion_endpoint = Lens.lens (\SourceRegion' {endpoint} -> endpoint) (\s@SourceRegion' {} a -> s {endpoint = a} :: SourceRegion)
 
-instance Core.FromXML SourceRegion where
+instance Data.FromXML SourceRegion where
   parseXML x =
     SourceRegion'
-      Prelude.<$> (x Core..@? "Status")
+      Prelude.<$> (x Data..@? "Status")
       Prelude.<*> ( x
-                      Core..@? "SupportsDBInstanceAutomatedBackupsReplication"
+                      Data..@? "SupportsDBInstanceAutomatedBackupsReplication"
                   )
-      Prelude.<*> (x Core..@? "RegionName")
-      Prelude.<*> (x Core..@? "Endpoint")
+      Prelude.<*> (x Data..@? "RegionName")
+      Prelude.<*> (x Data..@? "Endpoint")
 
 instance Prelude.Hashable SourceRegion where
   hashWithSalt _salt SourceRegion' {..} =

@@ -92,6 +92,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -182,7 +183,7 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     --     enabled
     --
     -- Example: @2009-09-07T23:45:00Z@
-    restoreTime :: Prelude.Maybe Core.ISO8601,
+    restoreTime :: Prelude.Maybe Data.ISO8601,
     -- | The resource ID of the source DB instance from which to restore.
     sourceDbiResourceId :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to copy all tags from the restored DB
@@ -947,7 +948,7 @@ restoreDBInstanceToPointInTime_dbInstanceClass = Lens.lens (\RestoreDBInstanceTo
 --
 -- Example: @2009-09-07T23:45:00Z@
 restoreDBInstanceToPointInTime_restoreTime :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.UTCTime)
-restoreDBInstanceToPointInTime_restoreTime = Lens.lens (\RestoreDBInstanceToPointInTime' {restoreTime} -> restoreTime) (\s@RestoreDBInstanceToPointInTime' {} a -> s {restoreTime = a} :: RestoreDBInstanceToPointInTime) Prelude.. Lens.mapping Core._Time
+restoreDBInstanceToPointInTime_restoreTime = Lens.lens (\RestoreDBInstanceToPointInTime' {restoreTime} -> restoreTime) (\s@RestoreDBInstanceToPointInTime' {} a -> s {restoreTime = a} :: RestoreDBInstanceToPointInTime) Prelude.. Lens.mapping Data._Time
 
 -- | The resource ID of the source DB instance from which to restore.
 restoreDBInstanceToPointInTime_sourceDbiResourceId :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Text)
@@ -1277,7 +1278,7 @@ instance
       "RestoreDBInstanceToPointInTimeResult"
       ( \s h x ->
           RestoreDBInstanceToPointInTimeResponse'
-            Prelude.<$> (x Core..@? "DBInstance")
+            Prelude.<$> (x Data..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -1391,85 +1392,85 @@ instance
         targetDBInstanceIdentifier
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     RestoreDBInstanceToPointInTime
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RestoreDBInstanceToPointInTime where
+instance Data.ToPath RestoreDBInstanceToPointInTime where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestoreDBInstanceToPointInTime where
+instance Data.ToQuery RestoreDBInstanceToPointInTime where
   toQuery RestoreDBInstanceToPointInTime' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "RestoreDBInstanceToPointInTime" ::
+          Data.=: ( "RestoreDBInstanceToPointInTime" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "MaxAllocatedStorage" Core.=: maxAllocatedStorage,
-        "Port" Core.=: port,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "MaxAllocatedStorage" Data.=: maxAllocatedStorage,
+        "Port" Data.=: port,
         "VpcSecurityGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "VpcSecurityGroupId"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "VpcSecurityGroupId"
                 Prelude.<$> vpcSecurityGroupIds
             ),
         "SourceDBInstanceIdentifier"
-          Core.=: sourceDBInstanceIdentifier,
-        "DBParameterGroupName" Core.=: dbParameterGroupName,
-        "BackupTarget" Core.=: backupTarget,
-        "StorageThroughput" Core.=: storageThroughput,
-        "DBInstanceClass" Core.=: dbInstanceClass,
-        "RestoreTime" Core.=: restoreTime,
-        "SourceDbiResourceId" Core.=: sourceDbiResourceId,
-        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
-        "DomainIAMRoleName" Core.=: domainIAMRoleName,
-        "DBSubnetGroupName" Core.=: dbSubnetGroupName,
+          Data.=: sourceDBInstanceIdentifier,
+        "DBParameterGroupName" Data.=: dbParameterGroupName,
+        "BackupTarget" Data.=: backupTarget,
+        "StorageThroughput" Data.=: storageThroughput,
+        "DBInstanceClass" Data.=: dbInstanceClass,
+        "RestoreTime" Data.=: restoreTime,
+        "SourceDbiResourceId" Data.=: sourceDbiResourceId,
+        "CopyTagsToSnapshot" Data.=: copyTagsToSnapshot,
+        "DomainIAMRoleName" Data.=: domainIAMRoleName,
+        "DBSubnetGroupName" Data.=: dbSubnetGroupName,
         "AutoMinorVersionUpgrade"
-          Core.=: autoMinorVersionUpgrade,
-        "Domain" Core.=: domain,
-        "OptionGroupName" Core.=: optionGroupName,
+          Data.=: autoMinorVersionUpgrade,
+        "Domain" Data.=: domain,
+        "OptionGroupName" Data.=: optionGroupName,
         "EnableIAMDatabaseAuthentication"
-          Core.=: enableIAMDatabaseAuthentication,
+          Data.=: enableIAMDatabaseAuthentication,
         "TdeCredentialPassword"
-          Core.=: tdeCredentialPassword,
-        "AvailabilityZone" Core.=: availabilityZone,
-        "PubliclyAccessible" Core.=: publiclyAccessible,
-        "StorageType" Core.=: storageType,
+          Data.=: tdeCredentialPassword,
+        "AvailabilityZone" Data.=: availabilityZone,
+        "PubliclyAccessible" Data.=: publiclyAccessible,
+        "StorageType" Data.=: storageType,
         "EnableCloudwatchLogsExports"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> enableCloudwatchLogsExports
             ),
         "SourceDBInstanceAutomatedBackupsArn"
-          Core.=: sourceDBInstanceAutomatedBackupsArn,
+          Data.=: sourceDBInstanceAutomatedBackupsArn,
         "ProcessorFeatures"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "ProcessorFeature"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "ProcessorFeature"
                 Prelude.<$> processorFeatures
             ),
-        "TdeCredentialArn" Core.=: tdeCredentialArn,
+        "TdeCredentialArn" Data.=: tdeCredentialArn,
         "UseLatestRestorableTime"
-          Core.=: useLatestRestorableTime,
-        "Engine" Core.=: engine,
-        "DeletionProtection" Core.=: deletionProtection,
+          Data.=: useLatestRestorableTime,
+        "Engine" Data.=: engine,
+        "DeletionProtection" Data.=: deletionProtection,
         "CustomIamInstanceProfile"
-          Core.=: customIamInstanceProfile,
-        "Iops" Core.=: iops,
-        "DBName" Core.=: dbName,
-        "NetworkType" Core.=: networkType,
-        "MultiAZ" Core.=: multiAZ,
+          Data.=: customIamInstanceProfile,
+        "Iops" Data.=: iops,
+        "DBName" Data.=: dbName,
+        "NetworkType" Data.=: networkType,
+        "MultiAZ" Data.=: multiAZ,
         "EnableCustomerOwnedIp"
-          Core.=: enableCustomerOwnedIp,
-        "LicenseModel" Core.=: licenseModel,
+          Data.=: enableCustomerOwnedIp,
+        "LicenseModel" Data.=: licenseModel,
         "UseDefaultProcessorFeatures"
-          Core.=: useDefaultProcessorFeatures,
+          Data.=: useDefaultProcessorFeatures,
         "TargetDBInstanceIdentifier"
-          Core.=: targetDBInstanceIdentifier
+          Data.=: targetDBInstanceIdentifier
       ]
 
 -- | /See:/ 'newRestoreDBInstanceToPointInTimeResponse' smart constructor.

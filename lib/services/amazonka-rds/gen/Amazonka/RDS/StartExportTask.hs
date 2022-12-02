@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -298,7 +299,7 @@ instance Core.AWSRequest StartExportTask where
   response =
     Response.receiveXMLWrapper
       "StartExportTaskResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable StartExportTask where
   hashWithSalt _salt StartExportTask' {..} =
@@ -320,26 +321,26 @@ instance Prelude.NFData StartExportTask where
       `Prelude.seq` Prelude.rnf iamRoleArn
       `Prelude.seq` Prelude.rnf kmsKeyId
 
-instance Core.ToHeaders StartExportTask where
+instance Data.ToHeaders StartExportTask where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath StartExportTask where
+instance Data.ToPath StartExportTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartExportTask where
+instance Data.ToQuery StartExportTask where
   toQuery StartExportTask' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("StartExportTask" :: Prelude.ByteString),
+          Data.=: ("StartExportTask" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "ExportOnly"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> exportOnly),
-        "S3Prefix" Core.=: s3Prefix,
-        "ExportTaskIdentifier" Core.=: exportTaskIdentifier,
-        "SourceArn" Core.=: sourceArn,
-        "S3BucketName" Core.=: s3BucketName,
-        "IamRoleArn" Core.=: iamRoleArn,
-        "KmsKeyId" Core.=: kmsKeyId
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> exportOnly),
+        "S3Prefix" Data.=: s3Prefix,
+        "ExportTaskIdentifier" Data.=: exportTaskIdentifier,
+        "SourceArn" Data.=: sourceArn,
+        "S3BucketName" Data.=: s3BucketName,
+        "IamRoleArn" Data.=: iamRoleArn,
+        "KmsKeyId" Data.=: kmsKeyId
       ]

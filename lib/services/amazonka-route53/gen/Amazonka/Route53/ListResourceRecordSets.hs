@@ -116,6 +116,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -359,16 +360,16 @@ instance Core.AWSRequest ListResourceRecordSets where
     Response.receiveXML
       ( \s h x ->
           ListResourceRecordSetsResponse'
-            Prelude.<$> (x Core..@? "NextRecordIdentifier")
-            Prelude.<*> (x Core..@? "NextRecordName")
-            Prelude.<*> (x Core..@? "NextRecordType")
+            Prelude.<$> (x Data..@? "NextRecordIdentifier")
+            Prelude.<*> (x Data..@? "NextRecordName")
+            Prelude.<*> (x Data..@? "NextRecordType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "ResourceRecordSets"
+            Prelude.<*> ( x Data..@? "ResourceRecordSets"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "ResourceRecordSet"
+                            Prelude.>>= Data.parseXMLList "ResourceRecordSet"
                         )
-            Prelude.<*> (x Core..@ "IsTruncated")
-            Prelude.<*> (x Core..@ "MaxItems")
+            Prelude.<*> (x Data..@ "IsTruncated")
+            Prelude.<*> (x Data..@ "MaxItems")
       )
 
 instance Prelude.Hashable ListResourceRecordSets where
@@ -387,24 +388,24 @@ instance Prelude.NFData ListResourceRecordSets where
       `Prelude.seq` Prelude.rnf startRecordName
       `Prelude.seq` Prelude.rnf hostedZoneId
 
-instance Core.ToHeaders ListResourceRecordSets where
+instance Data.ToHeaders ListResourceRecordSets where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListResourceRecordSets where
+instance Data.ToPath ListResourceRecordSets where
   toPath ListResourceRecordSets' {..} =
     Prelude.mconcat
       [ "/2013-04-01/hostedzone/",
-        Core.toBS hostedZoneId,
+        Data.toBS hostedZoneId,
         "/rrset"
       ]
 
-instance Core.ToQuery ListResourceRecordSets where
+instance Data.ToQuery ListResourceRecordSets where
   toQuery ListResourceRecordSets' {..} =
     Prelude.mconcat
-      [ "type" Core.=: startRecordType,
-        "maxitems" Core.=: maxItems,
-        "identifier" Core.=: startRecordIdentifier,
-        "name" Core.=: startRecordName
+      [ "type" Data.=: startRecordType,
+        "maxitems" Data.=: maxItems,
+        "identifier" Data.=: startRecordIdentifier,
+        "name" Data.=: startRecordName
       ]
 
 -- | A complex type that contains list information for the resource record

@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.ChangeBatch where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 import Amazonka.Route53.Types.Change
@@ -78,9 +79,9 @@ instance Prelude.NFData ChangeBatch where
     Prelude.rnf comment
       `Prelude.seq` Prelude.rnf changes
 
-instance Core.ToXML ChangeBatch where
+instance Data.ToXML ChangeBatch where
   toXML ChangeBatch' {..} =
     Prelude.mconcat
-      [ "Comment" Core.@= comment,
-        "Changes" Core.@= Core.toXMLList "Change" changes
+      [ "Comment" Data.@= comment,
+        "Changes" Data.@= Data.toXMLList "Change" changes
       ]

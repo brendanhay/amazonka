@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.HealthCheck where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 import Amazonka.Route53.Types.CloudWatchAlarmConfiguration
@@ -142,15 +143,15 @@ healthCheck_healthCheckConfig = Lens.lens (\HealthCheck' {healthCheckConfig} -> 
 healthCheck_healthCheckVersion :: Lens.Lens' HealthCheck Prelude.Natural
 healthCheck_healthCheckVersion = Lens.lens (\HealthCheck' {healthCheckVersion} -> healthCheckVersion) (\s@HealthCheck' {} a -> s {healthCheckVersion = a} :: HealthCheck)
 
-instance Core.FromXML HealthCheck where
+instance Data.FromXML HealthCheck where
   parseXML x =
     HealthCheck'
-      Prelude.<$> (x Core..@? "CloudWatchAlarmConfiguration")
-      Prelude.<*> (x Core..@? "LinkedService")
-      Prelude.<*> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "CallerReference")
-      Prelude.<*> (x Core..@ "HealthCheckConfig")
-      Prelude.<*> (x Core..@ "HealthCheckVersion")
+      Prelude.<$> (x Data..@? "CloudWatchAlarmConfiguration")
+      Prelude.<*> (x Data..@? "LinkedService")
+      Prelude.<*> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "CallerReference")
+      Prelude.<*> (x Data..@ "HealthCheckConfig")
+      Prelude.<*> (x Data..@ "HealthCheckVersion")
 
 instance Prelude.Hashable HealthCheck where
   hashWithSalt _salt HealthCheck' {..} =

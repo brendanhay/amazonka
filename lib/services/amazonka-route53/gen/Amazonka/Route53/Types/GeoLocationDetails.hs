@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.GeoLocationDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 
@@ -121,15 +122,15 @@ geoLocationDetails_continentCode = Lens.lens (\GeoLocationDetails' {continentCod
 geoLocationDetails_continentName :: Lens.Lens' GeoLocationDetails (Prelude.Maybe Prelude.Text)
 geoLocationDetails_continentName = Lens.lens (\GeoLocationDetails' {continentName} -> continentName) (\s@GeoLocationDetails' {} a -> s {continentName = a} :: GeoLocationDetails)
 
-instance Core.FromXML GeoLocationDetails where
+instance Data.FromXML GeoLocationDetails where
   parseXML x =
     GeoLocationDetails'
-      Prelude.<$> (x Core..@? "SubdivisionCode")
-      Prelude.<*> (x Core..@? "CountryName")
-      Prelude.<*> (x Core..@? "CountryCode")
-      Prelude.<*> (x Core..@? "SubdivisionName")
-      Prelude.<*> (x Core..@? "ContinentCode")
-      Prelude.<*> (x Core..@? "ContinentName")
+      Prelude.<$> (x Data..@? "SubdivisionCode")
+      Prelude.<*> (x Data..@? "CountryName")
+      Prelude.<*> (x Data..@? "CountryCode")
+      Prelude.<*> (x Data..@? "SubdivisionName")
+      Prelude.<*> (x Data..@? "ContinentCode")
+      Prelude.<*> (x Data..@? "ContinentName")
 
 instance Prelude.Hashable GeoLocationDetails where
   hashWithSalt _salt GeoLocationDetails' {..} =

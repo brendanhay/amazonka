@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.CidrBlockSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 
@@ -62,11 +63,11 @@ cidrBlockSummary_cidrBlock = Lens.lens (\CidrBlockSummary' {cidrBlock} -> cidrBl
 cidrBlockSummary_locationName :: Lens.Lens' CidrBlockSummary (Prelude.Maybe Prelude.Text)
 cidrBlockSummary_locationName = Lens.lens (\CidrBlockSummary' {locationName} -> locationName) (\s@CidrBlockSummary' {} a -> s {locationName = a} :: CidrBlockSummary)
 
-instance Core.FromXML CidrBlockSummary where
+instance Data.FromXML CidrBlockSummary where
   parseXML x =
     CidrBlockSummary'
-      Prelude.<$> (x Core..@? "CidrBlock")
-      Prelude.<*> (x Core..@? "LocationName")
+      Prelude.<$> (x Data..@? "CidrBlock")
+      Prelude.<*> (x Data..@? "LocationName")
 
 instance Prelude.Hashable CidrBlockSummary where
   hashWithSalt _salt CidrBlockSummary' {..} =

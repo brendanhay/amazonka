@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,7 +98,7 @@ instance Core.AWSRequest GetChange where
       ( \s h x ->
           GetChangeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "ChangeInfo")
+            Prelude.<*> (x Data..@ "ChangeInfo")
       )
 
 instance Prelude.Hashable GetChange where
@@ -107,15 +108,15 @@ instance Prelude.Hashable GetChange where
 instance Prelude.NFData GetChange where
   rnf GetChange' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetChange where
+instance Data.ToHeaders GetChange where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetChange where
+instance Data.ToPath GetChange where
   toPath GetChange' {..} =
     Prelude.mconcat
-      ["/2013-04-01/change/", Core.toBS id]
+      ["/2013-04-01/change/", Data.toBS id]
 
-instance Core.ToQuery GetChange where
+instance Data.ToQuery GetChange where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A complex type that contains the @ChangeInfo@ element.

@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.LocationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 
@@ -51,10 +52,10 @@ newLocationSummary =
 locationSummary_locationName :: Lens.Lens' LocationSummary (Prelude.Maybe Prelude.Text)
 locationSummary_locationName = Lens.lens (\LocationSummary' {locationName} -> locationName) (\s@LocationSummary' {} a -> s {locationName = a} :: LocationSummary)
 
-instance Core.FromXML LocationSummary where
+instance Data.FromXML LocationSummary where
   parseXML x =
     LocationSummary'
-      Prelude.<$> (x Core..@? "LocationName")
+      Prelude.<$> (x Data..@? "LocationName")
 
 instance Prelude.Hashable LocationSummary where
   hashWithSalt _salt LocationSummary' {..} =

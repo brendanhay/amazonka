@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -171,7 +172,7 @@ instance Core.AWSRequest ChangeCidrCollection where
       ( \s h x ->
           ChangeCidrCollectionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "Id")
+            Prelude.<*> (x Data..@ "Id")
       )
 
 instance Prelude.Hashable ChangeCidrCollection where
@@ -186,27 +187,27 @@ instance Prelude.NFData ChangeCidrCollection where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf changes
 
-instance Core.ToElement ChangeCidrCollection where
+instance Data.ToElement ChangeCidrCollection where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}ChangeCidrCollectionRequest"
 
-instance Core.ToHeaders ChangeCidrCollection where
+instance Data.ToHeaders ChangeCidrCollection where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ChangeCidrCollection where
+instance Data.ToPath ChangeCidrCollection where
   toPath ChangeCidrCollection' {..} =
     Prelude.mconcat
-      ["/2013-04-01/cidrcollection/", Core.toBS id]
+      ["/2013-04-01/cidrcollection/", Data.toBS id]
 
-instance Core.ToQuery ChangeCidrCollection where
+instance Data.ToQuery ChangeCidrCollection where
   toQuery = Prelude.const Prelude.mempty
 
-instance Core.ToXML ChangeCidrCollection where
+instance Data.ToXML ChangeCidrCollection where
   toXML ChangeCidrCollection' {..} =
     Prelude.mconcat
-      [ "CollectionVersion" Core.@= collectionVersion,
-        "Changes" Core.@= Core.toXMLList "member" changes
+      [ "CollectionVersion" Data.@= collectionVersion,
+        "Changes" Data.@= Data.toXMLList "member" changes
       ]
 
 -- | /See:/ 'newChangeCidrCollectionResponse' smart constructor.

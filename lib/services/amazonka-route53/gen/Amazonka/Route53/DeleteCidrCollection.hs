@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,15 +94,15 @@ instance Prelude.Hashable DeleteCidrCollection where
 instance Prelude.NFData DeleteCidrCollection where
   rnf DeleteCidrCollection' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DeleteCidrCollection where
+instance Data.ToHeaders DeleteCidrCollection where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteCidrCollection where
+instance Data.ToPath DeleteCidrCollection where
   toPath DeleteCidrCollection' {..} =
     Prelude.mconcat
-      ["/2013-04-01/cidrcollection/", Core.toBS id]
+      ["/2013-04-01/cidrcollection/", Data.toBS id]
 
-instance Core.ToQuery DeleteCidrCollection where
+instance Data.ToQuery DeleteCidrCollection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCidrCollectionResponse' smart constructor.

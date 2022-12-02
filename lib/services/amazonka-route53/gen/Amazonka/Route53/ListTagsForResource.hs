@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,7 +118,7 @@ instance Core.AWSRequest ListTagsForResource where
       ( \s h x ->
           ListTagsForResourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "ResourceTagSet")
+            Prelude.<*> (x Data..@ "ResourceTagSet")
       )
 
 instance Prelude.Hashable ListTagsForResource where
@@ -130,19 +131,19 @@ instance Prelude.NFData ListTagsForResource where
     Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf resourceId
 
-instance Core.ToHeaders ListTagsForResource where
+instance Data.ToHeaders ListTagsForResource where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListTagsForResource where
+instance Data.ToPath ListTagsForResource where
   toPath ListTagsForResource' {..} =
     Prelude.mconcat
       [ "/2013-04-01/tags/",
-        Core.toBS resourceType,
+        Data.toBS resourceType,
         "/",
-        Core.toBS resourceId
+        Data.toBS resourceId
       ]
 
-instance Core.ToQuery ListTagsForResource where
+instance Data.ToQuery ListTagsForResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A complex type that contains information about the health checks or

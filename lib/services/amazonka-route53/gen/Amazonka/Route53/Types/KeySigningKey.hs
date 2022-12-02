@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.KeySigningKey where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 
@@ -81,7 +82,7 @@ data KeySigningKey = KeySigningKey'
     -- <https://tools.ietf.org/rfc/rfc4034.txt RFC-4034 Page 5>.
     publicKey :: Prelude.Maybe Prelude.Text,
     -- | The last time that the key-signing key (KSK) was changed.
-    lastModifiedDate :: Prelude.Maybe Core.ISO8601,
+    lastModifiedDate :: Prelude.Maybe Data.ISO8601,
     -- | An integer that specifies how the key is used. For key-signing key
     -- (KSK), this value is always 257.
     flag :: Prelude.Maybe Prelude.Int,
@@ -119,7 +120,7 @@ data KeySigningKey = KeySigningKey'
     -- <https://tools.ietf.org/html/rfc8624#section-3.1 RFC-8624 Section 3.1>.
     signingAlgorithmType :: Prelude.Maybe Prelude.Int,
     -- | The date when the key-signing key (KSK) was created.
-    createdDate :: Prelude.Maybe Core.ISO8601,
+    createdDate :: Prelude.Maybe Data.ISO8601,
     -- | An integer used to identify the DNSSEC record for the domain name. The
     -- process used to calculate the value is described in
     -- <https://tools.ietf.org/rfc/rfc4034.txt RFC-4034 Appendix B>.
@@ -336,7 +337,7 @@ keySigningKey_publicKey = Lens.lens (\KeySigningKey' {publicKey} -> publicKey) (
 
 -- | The last time that the key-signing key (KSK) was changed.
 keySigningKey_lastModifiedDate :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.UTCTime)
-keySigningKey_lastModifiedDate = Lens.lens (\KeySigningKey' {lastModifiedDate} -> lastModifiedDate) (\s@KeySigningKey' {} a -> s {lastModifiedDate = a} :: KeySigningKey) Prelude.. Lens.mapping Core._Time
+keySigningKey_lastModifiedDate = Lens.lens (\KeySigningKey' {lastModifiedDate} -> lastModifiedDate) (\s@KeySigningKey' {} a -> s {lastModifiedDate = a} :: KeySigningKey) Prelude.. Lens.mapping Data._Time
 
 -- | An integer that specifies how the key is used. For key-signing key
 -- (KSK), this value is always 257.
@@ -386,7 +387,7 @@ keySigningKey_signingAlgorithmType = Lens.lens (\KeySigningKey' {signingAlgorith
 
 -- | The date when the key-signing key (KSK) was created.
 keySigningKey_createdDate :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.UTCTime)
-keySigningKey_createdDate = Lens.lens (\KeySigningKey' {createdDate} -> createdDate) (\s@KeySigningKey' {} a -> s {createdDate = a} :: KeySigningKey) Prelude.. Lens.mapping Core._Time
+keySigningKey_createdDate = Lens.lens (\KeySigningKey' {createdDate} -> createdDate) (\s@KeySigningKey' {} a -> s {createdDate = a} :: KeySigningKey) Prelude.. Lens.mapping Data._Time
 
 -- | An integer used to identify the DNSSEC record for the domain name. The
 -- process used to calculate the value is described in
@@ -414,25 +415,25 @@ keySigningKey_digestAlgorithmMnemonic = Lens.lens (\KeySigningKey' {digestAlgori
 keySigningKey_digestValue :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Text)
 keySigningKey_digestValue = Lens.lens (\KeySigningKey' {digestValue} -> digestValue) (\s@KeySigningKey' {} a -> s {digestValue = a} :: KeySigningKey)
 
-instance Core.FromXML KeySigningKey where
+instance Data.FromXML KeySigningKey where
   parseXML x =
     KeySigningKey'
-      Prelude.<$> (x Core..@? "KmsArn")
-      Prelude.<*> (x Core..@? "DigestAlgorithmType")
-      Prelude.<*> (x Core..@? "Name")
-      Prelude.<*> (x Core..@? "SigningAlgorithmMnemonic")
-      Prelude.<*> (x Core..@? "PublicKey")
-      Prelude.<*> (x Core..@? "LastModifiedDate")
-      Prelude.<*> (x Core..@? "Flag")
-      Prelude.<*> (x Core..@? "DSRecord")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "DNSKEYRecord")
-      Prelude.<*> (x Core..@? "SigningAlgorithmType")
-      Prelude.<*> (x Core..@? "CreatedDate")
-      Prelude.<*> (x Core..@? "KeyTag")
-      Prelude.<*> (x Core..@? "StatusMessage")
-      Prelude.<*> (x Core..@? "DigestAlgorithmMnemonic")
-      Prelude.<*> (x Core..@? "DigestValue")
+      Prelude.<$> (x Data..@? "KmsArn")
+      Prelude.<*> (x Data..@? "DigestAlgorithmType")
+      Prelude.<*> (x Data..@? "Name")
+      Prelude.<*> (x Data..@? "SigningAlgorithmMnemonic")
+      Prelude.<*> (x Data..@? "PublicKey")
+      Prelude.<*> (x Data..@? "LastModifiedDate")
+      Prelude.<*> (x Data..@? "Flag")
+      Prelude.<*> (x Data..@? "DSRecord")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "DNSKEYRecord")
+      Prelude.<*> (x Data..@? "SigningAlgorithmType")
+      Prelude.<*> (x Data..@? "CreatedDate")
+      Prelude.<*> (x Data..@? "KeyTag")
+      Prelude.<*> (x Data..@? "StatusMessage")
+      Prelude.<*> (x Data..@? "DigestAlgorithmMnemonic")
+      Prelude.<*> (x Data..@? "DigestValue")
 
 instance Prelude.Hashable KeySigningKey where
   hashWithSalt _salt KeySigningKey' {..} =

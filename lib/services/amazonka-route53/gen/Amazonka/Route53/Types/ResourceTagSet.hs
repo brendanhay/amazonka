@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.ResourceTagSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 import Amazonka.Route53.Types.Tag
@@ -85,14 +86,14 @@ resourceTagSet_tags = Lens.lens (\ResourceTagSet' {tags} -> tags) (\s@ResourceTa
 resourceTagSet_resourceType :: Lens.Lens' ResourceTagSet (Prelude.Maybe TagResourceType)
 resourceTagSet_resourceType = Lens.lens (\ResourceTagSet' {resourceType} -> resourceType) (\s@ResourceTagSet' {} a -> s {resourceType = a} :: ResourceTagSet)
 
-instance Core.FromXML ResourceTagSet where
+instance Data.FromXML ResourceTagSet where
   parseXML x =
     ResourceTagSet'
-      Prelude.<$> (x Core..@? "ResourceId")
-      Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList1 "Tag")
+      Prelude.<$> (x Data..@? "ResourceId")
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList1 "Tag")
                   )
-      Prelude.<*> (x Core..@? "ResourceType")
+      Prelude.<*> (x Data..@? "ResourceType")
 
 instance Prelude.Hashable ResourceTagSet where
   hashWithSalt _salt ResourceTagSet' {..} =

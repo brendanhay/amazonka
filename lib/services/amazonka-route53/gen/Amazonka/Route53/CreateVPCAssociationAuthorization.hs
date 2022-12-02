@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,8 +127,8 @@ instance
       ( \s h x ->
           CreateVPCAssociationAuthorizationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..@ "HostedZoneId")
-              Prelude.<*> (x Core..@ "VPC")
+              Prelude.<*> (x Data..@ "HostedZoneId")
+              Prelude.<*> (x Data..@ "VPC")
       )
 
 instance
@@ -149,39 +150,39 @@ instance
       `Prelude.seq` Prelude.rnf vpc
 
 instance
-  Core.ToElement
+  Data.ToElement
     CreateVPCAssociationAuthorization
   where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}CreateVPCAssociationAuthorizationRequest"
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateVPCAssociationAuthorization
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateVPCAssociationAuthorization
   where
   toPath CreateVPCAssociationAuthorization' {..} =
     Prelude.mconcat
       [ "/2013-04-01/hostedzone/",
-        Core.toBS hostedZoneId,
+        Data.toBS hostedZoneId,
         "/authorizevpcassociation"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateVPCAssociationAuthorization
   where
   toQuery = Prelude.const Prelude.mempty
 
-instance Core.ToXML CreateVPCAssociationAuthorization where
+instance Data.ToXML CreateVPCAssociationAuthorization where
   toXML CreateVPCAssociationAuthorization' {..} =
-    Prelude.mconcat ["VPC" Core.@= vpc]
+    Prelude.mconcat ["VPC" Data.@= vpc]
 
 -- | A complex type that contains the response information from a
 -- @CreateVPCAssociationAuthorization@ request.

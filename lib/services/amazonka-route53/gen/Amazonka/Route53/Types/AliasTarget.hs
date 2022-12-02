@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.AliasTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 
@@ -1001,12 +1002,12 @@ aliasTarget_dNSName = Lens.lens (\AliasTarget' {dNSName} -> dNSName) (\s@AliasTa
 aliasTarget_evaluateTargetHealth :: Lens.Lens' AliasTarget Prelude.Bool
 aliasTarget_evaluateTargetHealth = Lens.lens (\AliasTarget' {evaluateTargetHealth} -> evaluateTargetHealth) (\s@AliasTarget' {} a -> s {evaluateTargetHealth = a} :: AliasTarget)
 
-instance Core.FromXML AliasTarget where
+instance Data.FromXML AliasTarget where
   parseXML x =
     AliasTarget'
-      Prelude.<$> (x Core..@ "HostedZoneId")
-      Prelude.<*> (x Core..@ "DNSName")
-      Prelude.<*> (x Core..@ "EvaluateTargetHealth")
+      Prelude.<$> (x Data..@ "HostedZoneId")
+      Prelude.<*> (x Data..@ "DNSName")
+      Prelude.<*> (x Data..@ "EvaluateTargetHealth")
 
 instance Prelude.Hashable AliasTarget where
   hashWithSalt _salt AliasTarget' {..} =
@@ -1020,10 +1021,10 @@ instance Prelude.NFData AliasTarget where
       `Prelude.seq` Prelude.rnf dNSName
       `Prelude.seq` Prelude.rnf evaluateTargetHealth
 
-instance Core.ToXML AliasTarget where
+instance Data.ToXML AliasTarget where
   toXML AliasTarget' {..} =
     Prelude.mconcat
-      [ "HostedZoneId" Core.@= hostedZoneId,
-        "DNSName" Core.@= dNSName,
-        "EvaluateTargetHealth" Core.@= evaluateTargetHealth
+      [ "HostedZoneId" Data.@= hostedZoneId,
+        "DNSName" Data.@= dNSName,
+        "EvaluateTargetHealth" Data.@= evaluateTargetHealth
       ]

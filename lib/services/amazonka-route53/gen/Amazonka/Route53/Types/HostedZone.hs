@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.HostedZone where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 import Amazonka.Route53.Types.HostedZoneConfig
@@ -142,15 +143,15 @@ hostedZone_name = Lens.lens (\HostedZone' {name} -> name) (\s@HostedZone' {} a -
 hostedZone_callerReference :: Lens.Lens' HostedZone Prelude.Text
 hostedZone_callerReference = Lens.lens (\HostedZone' {callerReference} -> callerReference) (\s@HostedZone' {} a -> s {callerReference = a} :: HostedZone)
 
-instance Core.FromXML HostedZone where
+instance Data.FromXML HostedZone where
   parseXML x =
     HostedZone'
-      Prelude.<$> (x Core..@? "LinkedService")
-      Prelude.<*> (x Core..@? "Config")
-      Prelude.<*> (x Core..@? "ResourceRecordSetCount")
-      Prelude.<*> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "Name")
-      Prelude.<*> (x Core..@ "CallerReference")
+      Prelude.<$> (x Data..@? "LinkedService")
+      Prelude.<*> (x Data..@? "Config")
+      Prelude.<*> (x Data..@? "ResourceRecordSetCount")
+      Prelude.<*> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "Name")
+      Prelude.<*> (x Data..@ "CallerReference")
 
 instance Prelude.Hashable HostedZone where
   hashWithSalt _salt HostedZone' {..} =

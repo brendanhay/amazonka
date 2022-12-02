@@ -82,6 +82,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -160,7 +161,7 @@ instance
       ( \s h x ->
           DisassociateVPCFromHostedZoneResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "ChangeInfo")
+            Prelude.<*> (x Data..@ "ChangeInfo")
       )
 
 instance
@@ -178,29 +179,29 @@ instance Prelude.NFData DisassociateVPCFromHostedZone where
       `Prelude.seq` Prelude.rnf hostedZoneId
       `Prelude.seq` Prelude.rnf vpc
 
-instance Core.ToElement DisassociateVPCFromHostedZone where
+instance Data.ToElement DisassociateVPCFromHostedZone where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}DisassociateVPCFromHostedZoneRequest"
 
-instance Core.ToHeaders DisassociateVPCFromHostedZone where
+instance Data.ToHeaders DisassociateVPCFromHostedZone where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DisassociateVPCFromHostedZone where
+instance Data.ToPath DisassociateVPCFromHostedZone where
   toPath DisassociateVPCFromHostedZone' {..} =
     Prelude.mconcat
       [ "/2013-04-01/hostedzone/",
-        Core.toBS hostedZoneId,
+        Data.toBS hostedZoneId,
         "/disassociatevpc"
       ]
 
-instance Core.ToQuery DisassociateVPCFromHostedZone where
+instance Data.ToQuery DisassociateVPCFromHostedZone where
   toQuery = Prelude.const Prelude.mempty
 
-instance Core.ToXML DisassociateVPCFromHostedZone where
+instance Data.ToXML DisassociateVPCFromHostedZone where
   toXML DisassociateVPCFromHostedZone' {..} =
     Prelude.mconcat
-      ["Comment" Core.@= comment, "VPC" Core.@= vpc]
+      ["Comment" Data.@= comment, "VPC" Data.@= vpc]
 
 -- | A complex type that contains the response information for the
 -- disassociate request.

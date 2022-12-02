@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -171,8 +172,8 @@ instance Core.AWSRequest CreateTrafficPolicyInstance where
       ( \s h x ->
           CreateTrafficPolicyInstanceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "TrafficPolicyInstance")
-            Prelude.<*> (h Core..# "Location")
+            Prelude.<*> (x Data..@ "TrafficPolicyInstance")
+            Prelude.<*> (h Data..# "Location")
       )
 
 instance Prelude.Hashable CreateTrafficPolicyInstance where
@@ -191,29 +192,29 @@ instance Prelude.NFData CreateTrafficPolicyInstance where
       `Prelude.seq` Prelude.rnf trafficPolicyId
       `Prelude.seq` Prelude.rnf trafficPolicyVersion
 
-instance Core.ToElement CreateTrafficPolicyInstance where
+instance Data.ToElement CreateTrafficPolicyInstance where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}CreateTrafficPolicyInstanceRequest"
 
-instance Core.ToHeaders CreateTrafficPolicyInstance where
+instance Data.ToHeaders CreateTrafficPolicyInstance where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateTrafficPolicyInstance where
+instance Data.ToPath CreateTrafficPolicyInstance where
   toPath =
     Prelude.const "/2013-04-01/trafficpolicyinstance"
 
-instance Core.ToQuery CreateTrafficPolicyInstance where
+instance Data.ToQuery CreateTrafficPolicyInstance where
   toQuery = Prelude.const Prelude.mempty
 
-instance Core.ToXML CreateTrafficPolicyInstance where
+instance Data.ToXML CreateTrafficPolicyInstance where
   toXML CreateTrafficPolicyInstance' {..} =
     Prelude.mconcat
-      [ "HostedZoneId" Core.@= hostedZoneId,
-        "Name" Core.@= name,
-        "TTL" Core.@= ttl,
-        "TrafficPolicyId" Core.@= trafficPolicyId,
-        "TrafficPolicyVersion" Core.@= trafficPolicyVersion
+      [ "HostedZoneId" Data.@= hostedZoneId,
+        "Name" Data.@= name,
+        "TTL" Data.@= ttl,
+        "TrafficPolicyId" Data.@= trafficPolicyId,
+        "TrafficPolicyVersion" Data.@= trafficPolicyVersion
       ]
 
 -- | A complex type that contains the response information for the

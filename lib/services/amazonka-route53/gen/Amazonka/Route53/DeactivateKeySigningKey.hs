@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,7 +101,7 @@ instance Core.AWSRequest DeactivateKeySigningKey where
       ( \s h x ->
           DeactivateKeySigningKeyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "ChangeInfo")
+            Prelude.<*> (x Data..@ "ChangeInfo")
       )
 
 instance Prelude.Hashable DeactivateKeySigningKey where
@@ -113,20 +114,20 @@ instance Prelude.NFData DeactivateKeySigningKey where
     Prelude.rnf hostedZoneId
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders DeactivateKeySigningKey where
+instance Data.ToHeaders DeactivateKeySigningKey where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeactivateKeySigningKey where
+instance Data.ToPath DeactivateKeySigningKey where
   toPath DeactivateKeySigningKey' {..} =
     Prelude.mconcat
       [ "/2013-04-01/keysigningkey/",
-        Core.toBS hostedZoneId,
+        Data.toBS hostedZoneId,
         "/",
-        Core.toBS name,
+        Data.toBS name,
         "/deactivate"
       ]
 
-instance Core.ToQuery DeactivateKeySigningKey where
+instance Data.ToQuery DeactivateKeySigningKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeactivateKeySigningKeyResponse' smart constructor.

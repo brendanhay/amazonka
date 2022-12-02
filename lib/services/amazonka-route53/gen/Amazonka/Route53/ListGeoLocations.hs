@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -203,16 +204,16 @@ instance Core.AWSRequest ListGeoLocations where
     Response.receiveXML
       ( \s h x ->
           ListGeoLocationsResponse'
-            Prelude.<$> (x Core..@? "NextSubdivisionCode")
-            Prelude.<*> (x Core..@? "NextCountryCode")
-            Prelude.<*> (x Core..@? "NextContinentCode")
+            Prelude.<$> (x Data..@? "NextSubdivisionCode")
+            Prelude.<*> (x Data..@? "NextCountryCode")
+            Prelude.<*> (x Data..@? "NextContinentCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "GeoLocationDetailsList"
+            Prelude.<*> ( x Data..@? "GeoLocationDetailsList"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "GeoLocationDetails"
+                            Prelude.>>= Data.parseXMLList "GeoLocationDetails"
                         )
-            Prelude.<*> (x Core..@ "IsTruncated")
-            Prelude.<*> (x Core..@ "MaxItems")
+            Prelude.<*> (x Data..@ "IsTruncated")
+            Prelude.<*> (x Data..@ "MaxItems")
       )
 
 instance Prelude.Hashable ListGeoLocations where
@@ -229,19 +230,19 @@ instance Prelude.NFData ListGeoLocations where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf startContinentCode
 
-instance Core.ToHeaders ListGeoLocations where
+instance Data.ToHeaders ListGeoLocations where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListGeoLocations where
+instance Data.ToPath ListGeoLocations where
   toPath = Prelude.const "/2013-04-01/geolocations"
 
-instance Core.ToQuery ListGeoLocations where
+instance Data.ToQuery ListGeoLocations where
   toQuery ListGeoLocations' {..} =
     Prelude.mconcat
-      [ "startcountrycode" Core.=: startCountryCode,
-        "startsubdivisioncode" Core.=: startSubdivisionCode,
-        "maxitems" Core.=: maxItems,
-        "startcontinentcode" Core.=: startContinentCode
+      [ "startcountrycode" Data.=: startCountryCode,
+        "startsubdivisioncode" Data.=: startSubdivisionCode,
+        "maxitems" Data.=: maxItems,
+        "startcontinentcode" Data.=: startContinentCode
       ]
 
 -- | A complex type containing the response information for the request.

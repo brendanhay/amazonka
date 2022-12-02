@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -218,14 +219,14 @@ instance Core.AWSRequest TestDNSAnswer where
       ( \s h x ->
           TestDNSAnswerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "Nameserver")
-            Prelude.<*> (x Core..@ "RecordName")
-            Prelude.<*> (x Core..@ "RecordType")
-            Prelude.<*> ( x Core..@? "RecordData" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "RecordDataEntry"
+            Prelude.<*> (x Data..@ "Nameserver")
+            Prelude.<*> (x Data..@ "RecordName")
+            Prelude.<*> (x Data..@ "RecordType")
+            Prelude.<*> ( x Data..@? "RecordData" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "RecordDataEntry"
                         )
-            Prelude.<*> (x Core..@ "ResponseCode")
-            Prelude.<*> (x Core..@ "Protocol")
+            Prelude.<*> (x Data..@ "ResponseCode")
+            Prelude.<*> (x Data..@ "Protocol")
       )
 
 instance Prelude.Hashable TestDNSAnswer where
@@ -246,22 +247,22 @@ instance Prelude.NFData TestDNSAnswer where
       `Prelude.seq` Prelude.rnf recordName
       `Prelude.seq` Prelude.rnf recordType
 
-instance Core.ToHeaders TestDNSAnswer where
+instance Data.ToHeaders TestDNSAnswer where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath TestDNSAnswer where
+instance Data.ToPath TestDNSAnswer where
   toPath = Prelude.const "/2013-04-01/testdnsanswer"
 
-instance Core.ToQuery TestDNSAnswer where
+instance Data.ToQuery TestDNSAnswer where
   toQuery TestDNSAnswer' {..} =
     Prelude.mconcat
-      [ "resolverip" Core.=: resolverIP,
+      [ "resolverip" Data.=: resolverIP,
         "edns0clientsubnetmask"
-          Core.=: eDNS0ClientSubnetMask,
-        "edns0clientsubnetip" Core.=: eDNS0ClientSubnetIP,
-        "hostedzoneid" Core.=: hostedZoneId,
-        "recordname" Core.=: recordName,
-        "recordtype" Core.=: recordType
+          Data.=: eDNS0ClientSubnetMask,
+        "edns0clientsubnetip" Data.=: eDNS0ClientSubnetIP,
+        "hostedzoneid" Data.=: hostedZoneId,
+        "recordname" Data.=: recordName,
+        "recordtype" Data.=: recordType
       ]
 
 -- | A complex type that contains the response to a @TestDNSAnswer@ request.

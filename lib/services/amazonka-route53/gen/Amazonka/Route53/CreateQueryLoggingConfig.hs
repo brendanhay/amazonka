@@ -173,6 +173,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -266,8 +267,8 @@ instance Core.AWSRequest CreateQueryLoggingConfig where
       ( \s h x ->
           CreateQueryLoggingConfigResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "QueryLoggingConfig")
-            Prelude.<*> (h Core..# "Location")
+            Prelude.<*> (x Data..@ "QueryLoggingConfig")
+            Prelude.<*> (h Data..# "Location")
       )
 
 instance Prelude.Hashable CreateQueryLoggingConfig where
@@ -280,27 +281,27 @@ instance Prelude.NFData CreateQueryLoggingConfig where
     Prelude.rnf hostedZoneId
       `Prelude.seq` Prelude.rnf cloudWatchLogsLogGroupArn
 
-instance Core.ToElement CreateQueryLoggingConfig where
+instance Data.ToElement CreateQueryLoggingConfig where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}CreateQueryLoggingConfigRequest"
 
-instance Core.ToHeaders CreateQueryLoggingConfig where
+instance Data.ToHeaders CreateQueryLoggingConfig where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateQueryLoggingConfig where
+instance Data.ToPath CreateQueryLoggingConfig where
   toPath =
     Prelude.const "/2013-04-01/queryloggingconfig"
 
-instance Core.ToQuery CreateQueryLoggingConfig where
+instance Data.ToQuery CreateQueryLoggingConfig where
   toQuery = Prelude.const Prelude.mempty
 
-instance Core.ToXML CreateQueryLoggingConfig where
+instance Data.ToXML CreateQueryLoggingConfig where
   toXML CreateQueryLoggingConfig' {..} =
     Prelude.mconcat
-      [ "HostedZoneId" Core.@= hostedZoneId,
+      [ "HostedZoneId" Data.@= hostedZoneId,
         "CloudWatchLogsLogGroupArn"
-          Core.@= cloudWatchLogsLogGroupArn
+          Data.@= cloudWatchLogsLogGroupArn
       ]
 
 -- | /See:/ 'newCreateQueryLoggingConfigResponse' smart constructor.

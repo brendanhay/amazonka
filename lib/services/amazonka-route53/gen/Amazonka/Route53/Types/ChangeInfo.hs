@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.ChangeInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 import Amazonka.Route53.Types.ChangeStatus
@@ -43,7 +44,7 @@ data ChangeInfo = ChangeInfo'
     -- <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601 format> and Coordinated
     -- Universal Time (UTC). For example, the value @2017-03-27T17:48:16.751Z@
     -- represents March 27, 2017 at 17:48:16.751 UTC.
-    submittedAt :: Core.ISO8601
+    submittedAt :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,7 +82,7 @@ newChangeInfo pId_ pStatus_ pSubmittedAt_ =
     { comment = Prelude.Nothing,
       id = pId_,
       status = pStatus_,
-      submittedAt = Core._Time Lens.# pSubmittedAt_
+      submittedAt = Data._Time Lens.# pSubmittedAt_
     }
 
 -- | A comment you can provide.
@@ -104,15 +105,15 @@ changeInfo_status = Lens.lens (\ChangeInfo' {status} -> status) (\s@ChangeInfo' 
 -- Universal Time (UTC). For example, the value @2017-03-27T17:48:16.751Z@
 -- represents March 27, 2017 at 17:48:16.751 UTC.
 changeInfo_submittedAt :: Lens.Lens' ChangeInfo Prelude.UTCTime
-changeInfo_submittedAt = Lens.lens (\ChangeInfo' {submittedAt} -> submittedAt) (\s@ChangeInfo' {} a -> s {submittedAt = a} :: ChangeInfo) Prelude.. Core._Time
+changeInfo_submittedAt = Lens.lens (\ChangeInfo' {submittedAt} -> submittedAt) (\s@ChangeInfo' {} a -> s {submittedAt = a} :: ChangeInfo) Prelude.. Data._Time
 
-instance Core.FromXML ChangeInfo where
+instance Data.FromXML ChangeInfo where
   parseXML x =
     ChangeInfo'
-      Prelude.<$> (x Core..@? "Comment")
-      Prelude.<*> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "Status")
-      Prelude.<*> (x Core..@ "SubmittedAt")
+      Prelude.<$> (x Data..@? "Comment")
+      Prelude.<*> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "Status")
+      Prelude.<*> (x Data..@ "SubmittedAt")
 
 instance Prelude.Hashable ChangeInfo where
   hashWithSalt _salt ChangeInfo' {..} =

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -131,9 +132,9 @@ instance Core.AWSRequest ListCidrCollections where
     Response.receiveXML
       ( \s h x ->
           ListCidrCollectionsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "CidrCollections" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "CidrCollections" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -148,17 +149,17 @@ instance Prelude.NFData ListCidrCollections where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListCidrCollections where
+instance Data.ToHeaders ListCidrCollections where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListCidrCollections where
+instance Data.ToPath ListCidrCollections where
   toPath = Prelude.const "/2013-04-01/cidrcollection"
 
-instance Core.ToQuery ListCidrCollections where
+instance Data.ToQuery ListCidrCollections where
   toQuery ListCidrCollections' {..} =
     Prelude.mconcat
-      [ "nexttoken" Core.=: nextToken,
-        "maxresults" Core.=: maxResults
+      [ "nexttoken" Data.=: nextToken,
+        "maxresults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListCidrCollectionsResponse' smart constructor.

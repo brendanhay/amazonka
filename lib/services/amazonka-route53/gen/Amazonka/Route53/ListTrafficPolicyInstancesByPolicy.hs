@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -282,16 +283,16 @@ instance
     Response.receiveXML
       ( \s h x ->
           ListTrafficPolicyInstancesByPolicyResponse'
-            Prelude.<$> (x Core..@? "HostedZoneIdMarker")
-              Prelude.<*> (x Core..@? "TrafficPolicyInstanceTypeMarker")
-              Prelude.<*> (x Core..@? "TrafficPolicyInstanceNameMarker")
+            Prelude.<$> (x Data..@? "HostedZoneIdMarker")
+              Prelude.<*> (x Data..@? "TrafficPolicyInstanceTypeMarker")
+              Prelude.<*> (x Data..@? "TrafficPolicyInstanceNameMarker")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Core..@? "TrafficPolicyInstances"
+              Prelude.<*> ( x Data..@? "TrafficPolicyInstances"
                               Core..!@ Prelude.mempty
-                              Prelude.>>= Core.parseXMLList "TrafficPolicyInstance"
+                              Prelude.>>= Data.parseXMLList "TrafficPolicyInstance"
                           )
-              Prelude.<*> (x Core..@ "IsTruncated")
-              Prelude.<*> (x Core..@ "MaxItems")
+              Prelude.<*> (x Data..@ "IsTruncated")
+              Prelude.<*> (x Data..@ "MaxItems")
       )
 
 instance
@@ -321,13 +322,13 @@ instance
       `Prelude.seq` Prelude.rnf trafficPolicyVersion
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListTrafficPolicyInstancesByPolicy
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListTrafficPolicyInstancesByPolicy
   where
   toPath =
@@ -335,19 +336,19 @@ instance
       "/2013-04-01/trafficpolicyinstances/trafficpolicy"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListTrafficPolicyInstancesByPolicy
   where
   toQuery ListTrafficPolicyInstancesByPolicy' {..} =
     Prelude.mconcat
-      [ "hostedzoneid" Core.=: hostedZoneIdMarker,
+      [ "hostedzoneid" Data.=: hostedZoneIdMarker,
         "trafficpolicyinstancetype"
-          Core.=: trafficPolicyInstanceTypeMarker,
+          Data.=: trafficPolicyInstanceTypeMarker,
         "trafficpolicyinstancename"
-          Core.=: trafficPolicyInstanceNameMarker,
-        "maxitems" Core.=: maxItems,
-        "id" Core.=: trafficPolicyId,
-        "version" Core.=: trafficPolicyVersion
+          Data.=: trafficPolicyInstanceNameMarker,
+        "maxitems" Data.=: maxItems,
+        "id" Data.=: trafficPolicyId,
+        "version" Data.=: trafficPolicyVersion
       ]
 
 -- | A complex type that contains the response information for the request.

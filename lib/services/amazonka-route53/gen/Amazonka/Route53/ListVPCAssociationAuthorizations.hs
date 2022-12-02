@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -167,11 +168,11 @@ instance
     Response.receiveXML
       ( \s h x ->
           ListVPCAssociationAuthorizationsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<$> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "HostedZoneId")
-            Prelude.<*> ( x Core..@? "VPCs" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList1 "VPC"
+            Prelude.<*> (x Data..@ "HostedZoneId")
+            Prelude.<*> ( x Data..@? "VPCs" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList1 "VPC"
                         )
       )
 
@@ -196,27 +197,27 @@ instance
       `Prelude.seq` Prelude.rnf hostedZoneId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListVPCAssociationAuthorizations
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListVPCAssociationAuthorizations where
+instance Data.ToPath ListVPCAssociationAuthorizations where
   toPath ListVPCAssociationAuthorizations' {..} =
     Prelude.mconcat
       [ "/2013-04-01/hostedzone/",
-        Core.toBS hostedZoneId,
+        Data.toBS hostedZoneId,
         "/authorizevpcassociation"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListVPCAssociationAuthorizations
   where
   toQuery ListVPCAssociationAuthorizations' {..} =
     Prelude.mconcat
-      [ "nexttoken" Core.=: nextToken,
-        "maxresults" Core.=: maxResults
+      [ "nexttoken" Data.=: nextToken,
+        "maxresults" Data.=: maxResults
       ]
 
 -- | A complex type that contains the response information for the request.

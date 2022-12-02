@@ -18,6 +18,7 @@ module Amazonka.Route53.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.GetChange
 import Amazonka.Route53.Lens
@@ -36,7 +37,7 @@ newResourceRecordSetsChanged =
             Core.AcceptSuccess
             ( getChangeResponse_changeInfo
                 Prelude.. changeInfo_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

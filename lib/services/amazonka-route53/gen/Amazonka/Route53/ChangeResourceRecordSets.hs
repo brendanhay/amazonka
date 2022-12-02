@@ -129,6 +129,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -197,7 +198,7 @@ instance Core.AWSRequest ChangeResourceRecordSets where
       ( \s h x ->
           ChangeResourceRecordSetsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "ChangeInfo")
+            Prelude.<*> (x Data..@ "ChangeInfo")
       )
 
 instance Prelude.Hashable ChangeResourceRecordSets where
@@ -210,28 +211,28 @@ instance Prelude.NFData ChangeResourceRecordSets where
     Prelude.rnf hostedZoneId
       `Prelude.seq` Prelude.rnf changeBatch
 
-instance Core.ToElement ChangeResourceRecordSets where
+instance Data.ToElement ChangeResourceRecordSets where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}ChangeResourceRecordSetsRequest"
 
-instance Core.ToHeaders ChangeResourceRecordSets where
+instance Data.ToHeaders ChangeResourceRecordSets where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ChangeResourceRecordSets where
+instance Data.ToPath ChangeResourceRecordSets where
   toPath ChangeResourceRecordSets' {..} =
     Prelude.mconcat
       [ "/2013-04-01/hostedzone/",
-        Core.toBS hostedZoneId,
+        Data.toBS hostedZoneId,
         "/rrset/"
       ]
 
-instance Core.ToQuery ChangeResourceRecordSets where
+instance Data.ToQuery ChangeResourceRecordSets where
   toQuery = Prelude.const Prelude.mempty
 
-instance Core.ToXML ChangeResourceRecordSets where
+instance Data.ToXML ChangeResourceRecordSets where
   toXML ChangeResourceRecordSets' {..} =
-    Prelude.mconcat ["ChangeBatch" Core.@= changeBatch]
+    Prelude.mconcat ["ChangeBatch" Data.@= changeBatch]
 
 -- | A complex type containing the response for the request.
 --

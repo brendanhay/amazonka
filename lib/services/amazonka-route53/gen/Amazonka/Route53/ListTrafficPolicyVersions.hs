@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -159,12 +160,12 @@ instance Core.AWSRequest ListTrafficPolicyVersions where
       ( \s h x ->
           ListTrafficPolicyVersionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "TrafficPolicies" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "TrafficPolicy"
+            Prelude.<*> ( x Data..@? "TrafficPolicies" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "TrafficPolicy"
                         )
-            Prelude.<*> (x Core..@ "IsTruncated")
-            Prelude.<*> (x Core..@ "TrafficPolicyVersionMarker")
-            Prelude.<*> (x Core..@ "MaxItems")
+            Prelude.<*> (x Data..@ "IsTruncated")
+            Prelude.<*> (x Data..@ "TrafficPolicyVersionMarker")
+            Prelude.<*> (x Data..@ "MaxItems")
       )
 
 instance Prelude.Hashable ListTrafficPolicyVersions where
@@ -180,23 +181,23 @@ instance Prelude.NFData ListTrafficPolicyVersions where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders ListTrafficPolicyVersions where
+instance Data.ToHeaders ListTrafficPolicyVersions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListTrafficPolicyVersions where
+instance Data.ToPath ListTrafficPolicyVersions where
   toPath ListTrafficPolicyVersions' {..} =
     Prelude.mconcat
       [ "/2013-04-01/trafficpolicies/",
-        Core.toBS id,
+        Data.toBS id,
         "/versions"
       ]
 
-instance Core.ToQuery ListTrafficPolicyVersions where
+instance Data.ToQuery ListTrafficPolicyVersions where
   toQuery ListTrafficPolicyVersions' {..} =
     Prelude.mconcat
       [ "trafficpolicyversion"
-          Core.=: trafficPolicyVersionMarker,
-        "maxitems" Core.=: maxItems
+          Data.=: trafficPolicyVersionMarker,
+        "maxitems" Data.=: maxItems
       ]
 
 -- | A complex type that contains the response information for the request.

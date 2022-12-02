@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,7 +90,7 @@ instance Core.AWSRequest DisableHostedZoneDNSSEC where
       ( \s h x ->
           DisableHostedZoneDNSSECResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "ChangeInfo")
+            Prelude.<*> (x Data..@ "ChangeInfo")
       )
 
 instance Prelude.Hashable DisableHostedZoneDNSSEC where
@@ -100,18 +101,18 @@ instance Prelude.NFData DisableHostedZoneDNSSEC where
   rnf DisableHostedZoneDNSSEC' {..} =
     Prelude.rnf hostedZoneId
 
-instance Core.ToHeaders DisableHostedZoneDNSSEC where
+instance Data.ToHeaders DisableHostedZoneDNSSEC where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DisableHostedZoneDNSSEC where
+instance Data.ToPath DisableHostedZoneDNSSEC where
   toPath DisableHostedZoneDNSSEC' {..} =
     Prelude.mconcat
       [ "/2013-04-01/hostedzone/",
-        Core.toBS hostedZoneId,
+        Data.toBS hostedZoneId,
         "/disable-dnssec"
       ]
 
-instance Core.ToQuery DisableHostedZoneDNSSEC where
+instance Data.ToQuery DisableHostedZoneDNSSEC where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisableHostedZoneDNSSECResponse' smart constructor.

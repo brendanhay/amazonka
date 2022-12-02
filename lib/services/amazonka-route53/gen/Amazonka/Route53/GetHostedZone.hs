@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,12 +88,12 @@ instance Core.AWSRequest GetHostedZone where
     Response.receiveXML
       ( \s h x ->
           GetHostedZoneResponse'
-            Prelude.<$> ( x Core..@? "VPCs" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList1 "VPC")
+            Prelude.<$> ( x Data..@? "VPCs" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList1 "VPC")
                         )
-            Prelude.<*> (x Core..@? "DelegationSet")
+            Prelude.<*> (x Data..@? "DelegationSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "HostedZone")
+            Prelude.<*> (x Data..@ "HostedZone")
       )
 
 instance Prelude.Hashable GetHostedZone where
@@ -102,15 +103,15 @@ instance Prelude.Hashable GetHostedZone where
 instance Prelude.NFData GetHostedZone where
   rnf GetHostedZone' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetHostedZone where
+instance Data.ToHeaders GetHostedZone where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetHostedZone where
+instance Data.ToPath GetHostedZone where
   toPath GetHostedZone' {..} =
     Prelude.mconcat
-      ["/2013-04-01/hostedzone/", Core.toBS id]
+      ["/2013-04-01/hostedzone/", Data.toBS id]
 
-instance Core.ToQuery GetHostedZone where
+instance Data.ToQuery GetHostedZone where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A complex type that contain the response to a @GetHostedZone@ request.

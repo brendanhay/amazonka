@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,7 +105,7 @@ instance Core.AWSRequest UpdateHostedZoneComment where
       ( \s h x ->
           UpdateHostedZoneCommentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "HostedZone")
+            Prelude.<*> (x Data..@ "HostedZone")
       )
 
 instance Prelude.Hashable UpdateHostedZoneComment where
@@ -116,25 +117,25 @@ instance Prelude.NFData UpdateHostedZoneComment where
   rnf UpdateHostedZoneComment' {..} =
     Prelude.rnf comment `Prelude.seq` Prelude.rnf id
 
-instance Core.ToElement UpdateHostedZoneComment where
+instance Data.ToElement UpdateHostedZoneComment where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}UpdateHostedZoneCommentRequest"
 
-instance Core.ToHeaders UpdateHostedZoneComment where
+instance Data.ToHeaders UpdateHostedZoneComment where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UpdateHostedZoneComment where
+instance Data.ToPath UpdateHostedZoneComment where
   toPath UpdateHostedZoneComment' {..} =
     Prelude.mconcat
-      ["/2013-04-01/hostedzone/", Core.toBS id]
+      ["/2013-04-01/hostedzone/", Data.toBS id]
 
-instance Core.ToQuery UpdateHostedZoneComment where
+instance Data.ToQuery UpdateHostedZoneComment where
   toQuery = Prelude.const Prelude.mempty
 
-instance Core.ToXML UpdateHostedZoneComment where
+instance Data.ToXML UpdateHostedZoneComment where
   toXML UpdateHostedZoneComment' {..} =
-    Prelude.mconcat ["Comment" Core.@= comment]
+    Prelude.mconcat ["Comment" Data.@= comment]
 
 -- | A complex type that contains the response to the
 -- @UpdateHostedZoneComment@ request.

@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.DelegationSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 
@@ -80,13 +81,13 @@ delegationSet_callerReference = Lens.lens (\DelegationSet' {callerReference} -> 
 delegationSet_nameServers :: Lens.Lens' DelegationSet (Prelude.NonEmpty Prelude.Text)
 delegationSet_nameServers = Lens.lens (\DelegationSet' {nameServers} -> nameServers) (\s@DelegationSet' {} a -> s {nameServers = a} :: DelegationSet) Prelude.. Lens.coerced
 
-instance Core.FromXML DelegationSet where
+instance Data.FromXML DelegationSet where
   parseXML x =
     DelegationSet'
-      Prelude.<$> (x Core..@? "Id")
-      Prelude.<*> (x Core..@? "CallerReference")
-      Prelude.<*> ( x Core..@? "NameServers" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.parseXMLList1 "NameServer"
+      Prelude.<$> (x Data..@? "Id")
+      Prelude.<*> (x Data..@? "CallerReference")
+      Prelude.<*> ( x Data..@? "NameServers" Core..!@ Prelude.mempty
+                      Prelude.>>= Data.parseXMLList1 "NameServer"
                   )
 
 instance Prelude.Hashable DelegationSet where

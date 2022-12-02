@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.CollectionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 
@@ -91,13 +92,13 @@ collectionSummary_id = Lens.lens (\CollectionSummary' {id} -> id) (\s@Collection
 collectionSummary_version :: Lens.Lens' CollectionSummary (Prelude.Maybe Prelude.Natural)
 collectionSummary_version = Lens.lens (\CollectionSummary' {version} -> version) (\s@CollectionSummary' {} a -> s {version = a} :: CollectionSummary)
 
-instance Core.FromXML CollectionSummary where
+instance Data.FromXML CollectionSummary where
   parseXML x =
     CollectionSummary'
-      Prelude.<$> (x Core..@? "Name")
-      Prelude.<*> (x Core..@? "Arn")
-      Prelude.<*> (x Core..@? "Id")
-      Prelude.<*> (x Core..@? "Version")
+      Prelude.<$> (x Data..@? "Name")
+      Prelude.<*> (x Data..@? "Arn")
+      Prelude.<*> (x Data..@? "Id")
+      Prelude.<*> (x Data..@? "Version")
 
 instance Prelude.Hashable CollectionSummary where
   hashWithSalt _salt CollectionSummary' {..} =

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -173,35 +174,35 @@ instance Prelude.NFData ChangeTagsForResource where
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf resourceId
 
-instance Core.ToElement ChangeTagsForResource where
+instance Data.ToElement ChangeTagsForResource where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}ChangeTagsForResourceRequest"
 
-instance Core.ToHeaders ChangeTagsForResource where
+instance Data.ToHeaders ChangeTagsForResource where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ChangeTagsForResource where
+instance Data.ToPath ChangeTagsForResource where
   toPath ChangeTagsForResource' {..} =
     Prelude.mconcat
       [ "/2013-04-01/tags/",
-        Core.toBS resourceType,
+        Data.toBS resourceType,
         "/",
-        Core.toBS resourceId
+        Data.toBS resourceId
       ]
 
-instance Core.ToQuery ChangeTagsForResource where
+instance Data.ToQuery ChangeTagsForResource where
   toQuery = Prelude.const Prelude.mempty
 
-instance Core.ToXML ChangeTagsForResource where
+instance Data.ToXML ChangeTagsForResource where
   toXML ChangeTagsForResource' {..} =
     Prelude.mconcat
       [ "AddTags"
-          Core.@= Core.toXML
-            (Core.toXMLList "Tag" Prelude.<$> addTags),
+          Data.@= Data.toXML
+            (Data.toXMLList "Tag" Prelude.<$> addTags),
         "RemoveTagKeys"
-          Core.@= Core.toXML
-            (Core.toXMLList "Key" Prelude.<$> removeTagKeys)
+          Data.@= Data.toXML
+            (Data.toXMLList "Key" Prelude.<$> removeTagKeys)
       ]
 
 -- | Empty response for the request.

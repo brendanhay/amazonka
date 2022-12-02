@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.HostedZoneLimit where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 import Amazonka.Route53.Types.HostedZoneLimitType
@@ -83,10 +84,10 @@ hostedZoneLimit_type = Lens.lens (\HostedZoneLimit' {type'} -> type') (\s@Hosted
 hostedZoneLimit_value :: Lens.Lens' HostedZoneLimit Prelude.Natural
 hostedZoneLimit_value = Lens.lens (\HostedZoneLimit' {value} -> value) (\s@HostedZoneLimit' {} a -> s {value = a} :: HostedZoneLimit)
 
-instance Core.FromXML HostedZoneLimit where
+instance Data.FromXML HostedZoneLimit where
   parseXML x =
     HostedZoneLimit'
-      Prelude.<$> (x Core..@ "Type") Prelude.<*> (x Core..@ "Value")
+      Prelude.<$> (x Data..@ "Type") Prelude.<*> (x Data..@ "Value")
 
 instance Prelude.Hashable HostedZoneLimit where
   hashWithSalt _salt HostedZoneLimit' {..} =

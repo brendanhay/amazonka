@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,15 +104,15 @@ instance Prelude.Hashable DeleteReusableDelegationSet where
 instance Prelude.NFData DeleteReusableDelegationSet where
   rnf DeleteReusableDelegationSet' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DeleteReusableDelegationSet where
+instance Data.ToHeaders DeleteReusableDelegationSet where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteReusableDelegationSet where
+instance Data.ToPath DeleteReusableDelegationSet where
   toPath DeleteReusableDelegationSet' {..} =
     Prelude.mconcat
-      ["/2013-04-01/delegationset/", Core.toBS id]
+      ["/2013-04-01/delegationset/", Data.toBS id]
 
-instance Core.ToQuery DeleteReusableDelegationSet where
+instance Data.ToQuery DeleteReusableDelegationSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | An empty element.

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,7 +96,7 @@ instance Core.AWSRequest GetHealthCheck where
       ( \s h x ->
           GetHealthCheckResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "HealthCheck")
+            Prelude.<*> (x Data..@ "HealthCheck")
       )
 
 instance Prelude.Hashable GetHealthCheck where
@@ -105,15 +106,15 @@ instance Prelude.Hashable GetHealthCheck where
 instance Prelude.NFData GetHealthCheck where
   rnf GetHealthCheck' {..} = Prelude.rnf healthCheckId
 
-instance Core.ToHeaders GetHealthCheck where
+instance Data.ToHeaders GetHealthCheck where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetHealthCheck where
+instance Data.ToPath GetHealthCheck where
   toPath GetHealthCheck' {..} =
     Prelude.mconcat
-      ["/2013-04-01/healthcheck/", Core.toBS healthCheckId]
+      ["/2013-04-01/healthcheck/", Data.toBS healthCheckId]
 
-instance Core.ToQuery GetHealthCheck where
+instance Data.ToQuery GetHealthCheck where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A complex type that contains the response to a @GetHealthCheck@ request.

@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,15 +112,15 @@ instance Prelude.NFData DeleteHealthCheck where
   rnf DeleteHealthCheck' {..} =
     Prelude.rnf healthCheckId
 
-instance Core.ToHeaders DeleteHealthCheck where
+instance Data.ToHeaders DeleteHealthCheck where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteHealthCheck where
+instance Data.ToPath DeleteHealthCheck where
   toPath DeleteHealthCheck' {..} =
     Prelude.mconcat
-      ["/2013-04-01/healthcheck/", Core.toBS healthCheckId]
+      ["/2013-04-01/healthcheck/", Data.toBS healthCheckId]
 
-instance Core.ToQuery DeleteHealthCheck where
+instance Data.ToQuery DeleteHealthCheck where
   toQuery = Prelude.const Prelude.mempty
 
 -- | An empty element.

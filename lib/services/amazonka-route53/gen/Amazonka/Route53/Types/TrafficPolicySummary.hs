@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.TrafficPolicySummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 import Amazonka.Route53.Types.RRType
@@ -116,14 +117,14 @@ trafficPolicySummary_latestVersion = Lens.lens (\TrafficPolicySummary' {latestVe
 trafficPolicySummary_trafficPolicyCount :: Lens.Lens' TrafficPolicySummary Prelude.Natural
 trafficPolicySummary_trafficPolicyCount = Lens.lens (\TrafficPolicySummary' {trafficPolicyCount} -> trafficPolicyCount) (\s@TrafficPolicySummary' {} a -> s {trafficPolicyCount = a} :: TrafficPolicySummary)
 
-instance Core.FromXML TrafficPolicySummary where
+instance Data.FromXML TrafficPolicySummary where
   parseXML x =
     TrafficPolicySummary'
-      Prelude.<$> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "Name")
-      Prelude.<*> (x Core..@ "Type")
-      Prelude.<*> (x Core..@ "LatestVersion")
-      Prelude.<*> (x Core..@ "TrafficPolicyCount")
+      Prelude.<$> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "Name")
+      Prelude.<*> (x Data..@ "Type")
+      Prelude.<*> (x Data..@ "LatestVersion")
+      Prelude.<*> (x Data..@ "TrafficPolicyCount")
 
 instance Prelude.Hashable TrafficPolicySummary where
   hashWithSalt _salt TrafficPolicySummary' {..} =

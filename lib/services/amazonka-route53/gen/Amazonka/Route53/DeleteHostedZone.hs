@@ -91,6 +91,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,7 +137,7 @@ instance Core.AWSRequest DeleteHostedZone where
       ( \s h x ->
           DeleteHostedZoneResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "ChangeInfo")
+            Prelude.<*> (x Data..@ "ChangeInfo")
       )
 
 instance Prelude.Hashable DeleteHostedZone where
@@ -146,15 +147,15 @@ instance Prelude.Hashable DeleteHostedZone where
 instance Prelude.NFData DeleteHostedZone where
   rnf DeleteHostedZone' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DeleteHostedZone where
+instance Data.ToHeaders DeleteHostedZone where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteHostedZone where
+instance Data.ToPath DeleteHostedZone where
   toPath DeleteHostedZone' {..} =
     Prelude.mconcat
-      ["/2013-04-01/hostedzone/", Core.toBS id]
+      ["/2013-04-01/hostedzone/", Data.toBS id]
 
-instance Core.ToQuery DeleteHostedZone where
+instance Data.ToQuery DeleteHostedZone where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A complex type that contains the response to a @DeleteHostedZone@

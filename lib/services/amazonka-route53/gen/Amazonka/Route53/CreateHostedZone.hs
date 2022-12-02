@@ -109,6 +109,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -297,12 +298,12 @@ instance Core.AWSRequest CreateHostedZone where
     Response.receiveXML
       ( \s h x ->
           CreateHostedZoneResponse'
-            Prelude.<$> (x Core..@? "VPC")
+            Prelude.<$> (x Data..@? "VPC")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "HostedZone")
-            Prelude.<*> (x Core..@ "ChangeInfo")
-            Prelude.<*> (x Core..@ "DelegationSet")
-            Prelude.<*> (h Core..# "Location")
+            Prelude.<*> (x Data..@ "HostedZone")
+            Prelude.<*> (x Data..@ "ChangeInfo")
+            Prelude.<*> (x Data..@ "DelegationSet")
+            Prelude.<*> (h Data..# "Location")
       )
 
 instance Prelude.Hashable CreateHostedZone where
@@ -321,28 +322,28 @@ instance Prelude.NFData CreateHostedZone where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf callerReference
 
-instance Core.ToElement CreateHostedZone where
+instance Data.ToElement CreateHostedZone where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}CreateHostedZoneRequest"
 
-instance Core.ToHeaders CreateHostedZone where
+instance Data.ToHeaders CreateHostedZone where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateHostedZone where
+instance Data.ToPath CreateHostedZone where
   toPath = Prelude.const "/2013-04-01/hostedzone"
 
-instance Core.ToQuery CreateHostedZone where
+instance Data.ToQuery CreateHostedZone where
   toQuery = Prelude.const Prelude.mempty
 
-instance Core.ToXML CreateHostedZone where
+instance Data.ToXML CreateHostedZone where
   toXML CreateHostedZone' {..} =
     Prelude.mconcat
-      [ "HostedZoneConfig" Core.@= hostedZoneConfig,
-        "VPC" Core.@= vpc,
-        "DelegationSetId" Core.@= delegationSetId,
-        "Name" Core.@= name,
-        "CallerReference" Core.@= callerReference
+      [ "HostedZoneConfig" Data.@= hostedZoneConfig,
+        "VPC" Data.@= vpc,
+        "DelegationSetId" Data.@= delegationSetId,
+        "Name" Data.@= name,
+        "CallerReference" Data.@= callerReference
       ]
 
 -- | A complex type containing the response information for the hosted zone.

@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.CidrRoutingConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 
@@ -70,11 +71,11 @@ cidrRoutingConfig_collectionId = Lens.lens (\CidrRoutingConfig' {collectionId} -
 cidrRoutingConfig_locationName :: Lens.Lens' CidrRoutingConfig Prelude.Text
 cidrRoutingConfig_locationName = Lens.lens (\CidrRoutingConfig' {locationName} -> locationName) (\s@CidrRoutingConfig' {} a -> s {locationName = a} :: CidrRoutingConfig)
 
-instance Core.FromXML CidrRoutingConfig where
+instance Data.FromXML CidrRoutingConfig where
   parseXML x =
     CidrRoutingConfig'
-      Prelude.<$> (x Core..@ "CollectionId")
-      Prelude.<*> (x Core..@ "LocationName")
+      Prelude.<$> (x Data..@ "CollectionId")
+      Prelude.<*> (x Data..@ "LocationName")
 
 instance Prelude.Hashable CidrRoutingConfig where
   hashWithSalt _salt CidrRoutingConfig' {..} =
@@ -86,9 +87,9 @@ instance Prelude.NFData CidrRoutingConfig where
     Prelude.rnf collectionId
       `Prelude.seq` Prelude.rnf locationName
 
-instance Core.ToXML CidrRoutingConfig where
+instance Data.ToXML CidrRoutingConfig where
   toXML CidrRoutingConfig' {..} =
     Prelude.mconcat
-      [ "CollectionId" Core.@= collectionId,
-        "LocationName" Core.@= locationName
+      [ "CollectionId" Data.@= collectionId,
+        "LocationName" Data.@= locationName
       ]

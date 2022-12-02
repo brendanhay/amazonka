@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.HealthCheckConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 import Amazonka.Route53.Types.AlarmIdentifier
@@ -1037,32 +1038,32 @@ healthCheckConfig_iPAddress = Lens.lens (\HealthCheckConfig' {iPAddress} -> iPAd
 healthCheckConfig_type :: Lens.Lens' HealthCheckConfig HealthCheckType
 healthCheckConfig_type = Lens.lens (\HealthCheckConfig' {type'} -> type') (\s@HealthCheckConfig' {} a -> s {type' = a} :: HealthCheckConfig)
 
-instance Core.FromXML HealthCheckConfig where
+instance Data.FromXML HealthCheckConfig where
   parseXML x =
     HealthCheckConfig'
-      Prelude.<$> (x Core..@? "Port")
-      Prelude.<*> (x Core..@? "HealthThreshold")
-      Prelude.<*> (x Core..@? "FailureThreshold")
-      Prelude.<*> (x Core..@? "AlarmIdentifier")
-      Prelude.<*> ( x Core..@? "Regions" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList1 "Region")
+      Prelude.<$> (x Data..@? "Port")
+      Prelude.<*> (x Data..@? "HealthThreshold")
+      Prelude.<*> (x Data..@? "FailureThreshold")
+      Prelude.<*> (x Data..@? "AlarmIdentifier")
+      Prelude.<*> ( x Data..@? "Regions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList1 "Region")
                   )
-      Prelude.<*> (x Core..@? "ResourcePath")
-      Prelude.<*> ( x Core..@? "ChildHealthChecks"
+      Prelude.<*> (x Data..@? "ResourcePath")
+      Prelude.<*> ( x Data..@? "ChildHealthChecks"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "ChildHealthCheck")
+                      Prelude.>>= Core.may (Data.parseXMLList "ChildHealthCheck")
                   )
-      Prelude.<*> (x Core..@? "SearchString")
-      Prelude.<*> (x Core..@? "RequestInterval")
-      Prelude.<*> (x Core..@? "RoutingControlArn")
-      Prelude.<*> (x Core..@? "Disabled")
-      Prelude.<*> (x Core..@? "MeasureLatency")
-      Prelude.<*> (x Core..@? "Inverted")
-      Prelude.<*> (x Core..@? "FullyQualifiedDomainName")
-      Prelude.<*> (x Core..@? "InsufficientDataHealthStatus")
-      Prelude.<*> (x Core..@? "EnableSNI")
-      Prelude.<*> (x Core..@? "IPAddress")
-      Prelude.<*> (x Core..@ "Type")
+      Prelude.<*> (x Data..@? "SearchString")
+      Prelude.<*> (x Data..@? "RequestInterval")
+      Prelude.<*> (x Data..@? "RoutingControlArn")
+      Prelude.<*> (x Data..@? "Disabled")
+      Prelude.<*> (x Data..@? "MeasureLatency")
+      Prelude.<*> (x Data..@? "Inverted")
+      Prelude.<*> (x Data..@? "FullyQualifiedDomainName")
+      Prelude.<*> (x Data..@? "InsufficientDataHealthStatus")
+      Prelude.<*> (x Data..@? "EnableSNI")
+      Prelude.<*> (x Data..@? "IPAddress")
+      Prelude.<*> (x Data..@ "Type")
 
 instance Prelude.Hashable HealthCheckConfig where
   hashWithSalt _salt HealthCheckConfig' {..} =
@@ -1106,33 +1107,33 @@ instance Prelude.NFData HealthCheckConfig where
       `Prelude.seq` Prelude.rnf iPAddress
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToXML HealthCheckConfig where
+instance Data.ToXML HealthCheckConfig where
   toXML HealthCheckConfig' {..} =
     Prelude.mconcat
-      [ "Port" Core.@= port,
-        "HealthThreshold" Core.@= healthThreshold,
-        "FailureThreshold" Core.@= failureThreshold,
-        "AlarmIdentifier" Core.@= alarmIdentifier,
+      [ "Port" Data.@= port,
+        "HealthThreshold" Data.@= healthThreshold,
+        "FailureThreshold" Data.@= failureThreshold,
+        "AlarmIdentifier" Data.@= alarmIdentifier,
         "Regions"
-          Core.@= Core.toXML
-            (Core.toXMLList "Region" Prelude.<$> regions),
-        "ResourcePath" Core.@= resourcePath,
+          Data.@= Data.toXML
+            (Data.toXMLList "Region" Prelude.<$> regions),
+        "ResourcePath" Data.@= resourcePath,
         "ChildHealthChecks"
-          Core.@= Core.toXML
-            ( Core.toXMLList "ChildHealthCheck"
+          Data.@= Data.toXML
+            ( Data.toXMLList "ChildHealthCheck"
                 Prelude.<$> childHealthChecks
             ),
-        "SearchString" Core.@= searchString,
-        "RequestInterval" Core.@= requestInterval,
-        "RoutingControlArn" Core.@= routingControlArn,
-        "Disabled" Core.@= disabled,
-        "MeasureLatency" Core.@= measureLatency,
-        "Inverted" Core.@= inverted,
+        "SearchString" Data.@= searchString,
+        "RequestInterval" Data.@= requestInterval,
+        "RoutingControlArn" Data.@= routingControlArn,
+        "Disabled" Data.@= disabled,
+        "MeasureLatency" Data.@= measureLatency,
+        "Inverted" Data.@= inverted,
         "FullyQualifiedDomainName"
-          Core.@= fullyQualifiedDomainName,
+          Data.@= fullyQualifiedDomainName,
         "InsufficientDataHealthStatus"
-          Core.@= insufficientDataHealthStatus,
-        "EnableSNI" Core.@= enableSNI,
-        "IPAddress" Core.@= iPAddress,
-        "Type" Core.@= type'
+          Data.@= insufficientDataHealthStatus,
+        "EnableSNI" Data.@= enableSNI,
+        "IPAddress" Data.@= iPAddress,
+        "Type" Data.@= type'
       ]

@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -986,7 +987,7 @@ instance Core.AWSRequest UpdateHealthCheck where
       ( \s h x ->
           UpdateHealthCheckResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "HealthCheck")
+            Prelude.<*> (x Data..@ "HealthCheck")
       )
 
 instance Prelude.Hashable UpdateHealthCheck where
@@ -1029,53 +1030,53 @@ instance Prelude.NFData UpdateHealthCheck where
       `Prelude.seq` Prelude.rnf iPAddress
       `Prelude.seq` Prelude.rnf healthCheckId
 
-instance Core.ToElement UpdateHealthCheck where
+instance Data.ToElement UpdateHealthCheck where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}UpdateHealthCheckRequest"
 
-instance Core.ToHeaders UpdateHealthCheck where
+instance Data.ToHeaders UpdateHealthCheck where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UpdateHealthCheck where
+instance Data.ToPath UpdateHealthCheck where
   toPath UpdateHealthCheck' {..} =
     Prelude.mconcat
-      ["/2013-04-01/healthcheck/", Core.toBS healthCheckId]
+      ["/2013-04-01/healthcheck/", Data.toBS healthCheckId]
 
-instance Core.ToQuery UpdateHealthCheck where
+instance Data.ToQuery UpdateHealthCheck where
   toQuery = Prelude.const Prelude.mempty
 
-instance Core.ToXML UpdateHealthCheck where
+instance Data.ToXML UpdateHealthCheck where
   toXML UpdateHealthCheck' {..} =
     Prelude.mconcat
-      [ "Port" Core.@= port,
-        "HealthThreshold" Core.@= healthThreshold,
-        "HealthCheckVersion" Core.@= healthCheckVersion,
-        "FailureThreshold" Core.@= failureThreshold,
-        "AlarmIdentifier" Core.@= alarmIdentifier,
+      [ "Port" Data.@= port,
+        "HealthThreshold" Data.@= healthThreshold,
+        "HealthCheckVersion" Data.@= healthCheckVersion,
+        "FailureThreshold" Data.@= failureThreshold,
+        "AlarmIdentifier" Data.@= alarmIdentifier,
         "Regions"
-          Core.@= Core.toXML
-            (Core.toXMLList "Region" Prelude.<$> regions),
-        "ResourcePath" Core.@= resourcePath,
+          Data.@= Data.toXML
+            (Data.toXMLList "Region" Prelude.<$> regions),
+        "ResourcePath" Data.@= resourcePath,
         "ChildHealthChecks"
-          Core.@= Core.toXML
-            ( Core.toXMLList "ChildHealthCheck"
+          Data.@= Data.toXML
+            ( Data.toXMLList "ChildHealthCheck"
                 Prelude.<$> childHealthChecks
             ),
-        "SearchString" Core.@= searchString,
+        "SearchString" Data.@= searchString,
         "ResetElements"
-          Core.@= Core.toXML
-            ( Core.toXMLList "ResettableElementName"
+          Data.@= Data.toXML
+            ( Data.toXMLList "ResettableElementName"
                 Prelude.<$> resetElements
             ),
-        "Disabled" Core.@= disabled,
-        "Inverted" Core.@= inverted,
+        "Disabled" Data.@= disabled,
+        "Inverted" Data.@= inverted,
         "FullyQualifiedDomainName"
-          Core.@= fullyQualifiedDomainName,
+          Data.@= fullyQualifiedDomainName,
         "InsufficientDataHealthStatus"
-          Core.@= insufficientDataHealthStatus,
-        "EnableSNI" Core.@= enableSNI,
-        "IPAddress" Core.@= iPAddress
+          Data.@= insufficientDataHealthStatus,
+        "EnableSNI" Data.@= enableSNI,
+        "IPAddress" Data.@= iPAddress
       ]
 
 -- | A complex type that contains the response to the @UpdateHealthCheck@

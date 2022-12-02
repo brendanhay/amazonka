@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,8 +127,8 @@ instance Core.AWSRequest GetHostedZoneLimit where
       ( \s h x ->
           GetHostedZoneLimitResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "Limit")
-            Prelude.<*> (x Core..@ "Count")
+            Prelude.<*> (x Data..@ "Limit")
+            Prelude.<*> (x Data..@ "Count")
       )
 
 instance Prelude.Hashable GetHostedZoneLimit where
@@ -140,19 +141,19 @@ instance Prelude.NFData GetHostedZoneLimit where
     Prelude.rnf type'
       `Prelude.seq` Prelude.rnf hostedZoneId
 
-instance Core.ToHeaders GetHostedZoneLimit where
+instance Data.ToHeaders GetHostedZoneLimit where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetHostedZoneLimit where
+instance Data.ToPath GetHostedZoneLimit where
   toPath GetHostedZoneLimit' {..} =
     Prelude.mconcat
       [ "/2013-04-01/hostedzonelimit/",
-        Core.toBS hostedZoneId,
+        Data.toBS hostedZoneId,
         "/",
-        Core.toBS type'
+        Data.toBS type'
       ]
 
-instance Core.ToQuery GetHostedZoneLimit where
+instance Data.ToQuery GetHostedZoneLimit where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A complex type that contains the requested limit.

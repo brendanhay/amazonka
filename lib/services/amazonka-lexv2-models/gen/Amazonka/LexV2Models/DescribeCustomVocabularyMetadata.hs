@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,12 +124,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeCustomVocabularyMetadataResponse'
-            Prelude.<$> (x Core..?> "customVocabularyStatus")
-            Prelude.<*> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "lastUpdatedDateTime")
+            Prelude.<$> (x Data..?> "customVocabularyStatus")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "lastUpdatedDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,33 +154,33 @@ instance
       `Prelude.seq` Prelude.rnf localeId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeCustomVocabularyMetadata
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeCustomVocabularyMetadata where
+instance Data.ToPath DescribeCustomVocabularyMetadata where
   toPath DescribeCustomVocabularyMetadata' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/",
-        Core.toBS localeId,
+        Data.toBS localeId,
         "/customvocabulary/DEFAULT/metadata"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeCustomVocabularyMetadata
   where
   toQuery = Prelude.const Prelude.mempty
@@ -192,13 +193,13 @@ data DescribeCustomVocabularyMetadataResponse = DescribeCustomVocabularyMetadata
     -- | The version of the bot that contains the custom vocabulary to describe.
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the custom vocabulary was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The locale that contains the custom vocabulary to describe.
     localeId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the bot that contains the custom vocabulary.
     botId :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the custom vocabulary was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -256,7 +257,7 @@ describeCustomVocabularyMetadataResponse_botVersion = Lens.lens (\DescribeCustom
 
 -- | The date and time that the custom vocabulary was created.
 describeCustomVocabularyMetadataResponse_creationDateTime :: Lens.Lens' DescribeCustomVocabularyMetadataResponse (Prelude.Maybe Prelude.UTCTime)
-describeCustomVocabularyMetadataResponse_creationDateTime = Lens.lens (\DescribeCustomVocabularyMetadataResponse' {creationDateTime} -> creationDateTime) (\s@DescribeCustomVocabularyMetadataResponse' {} a -> s {creationDateTime = a} :: DescribeCustomVocabularyMetadataResponse) Prelude.. Lens.mapping Core._Time
+describeCustomVocabularyMetadataResponse_creationDateTime = Lens.lens (\DescribeCustomVocabularyMetadataResponse' {creationDateTime} -> creationDateTime) (\s@DescribeCustomVocabularyMetadataResponse' {} a -> s {creationDateTime = a} :: DescribeCustomVocabularyMetadataResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The locale that contains the custom vocabulary to describe.
 describeCustomVocabularyMetadataResponse_localeId :: Lens.Lens' DescribeCustomVocabularyMetadataResponse (Prelude.Maybe Prelude.Text)
@@ -268,7 +269,7 @@ describeCustomVocabularyMetadataResponse_botId = Lens.lens (\DescribeCustomVocab
 
 -- | The date and time that the custom vocabulary was last updated.
 describeCustomVocabularyMetadataResponse_lastUpdatedDateTime :: Lens.Lens' DescribeCustomVocabularyMetadataResponse (Prelude.Maybe Prelude.UTCTime)
-describeCustomVocabularyMetadataResponse_lastUpdatedDateTime = Lens.lens (\DescribeCustomVocabularyMetadataResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DescribeCustomVocabularyMetadataResponse' {} a -> s {lastUpdatedDateTime = a} :: DescribeCustomVocabularyMetadataResponse) Prelude.. Lens.mapping Core._Time
+describeCustomVocabularyMetadataResponse_lastUpdatedDateTime = Lens.lens (\DescribeCustomVocabularyMetadataResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DescribeCustomVocabularyMetadataResponse' {} a -> s {lastUpdatedDateTime = a} :: DescribeCustomVocabularyMetadataResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeCustomVocabularyMetadataResponse_httpStatus :: Lens.Lens' DescribeCustomVocabularyMetadataResponse Prelude.Int

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,14 +91,14 @@ instance Core.AWSRequest DescribeExport where
     Response.receiveJSON
       ( \s h x ->
           DescribeExportResponse'
-            Prelude.<$> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "downloadUrl")
-            Prelude.<*> (x Core..?> "resourceSpecification")
-            Prelude.<*> (x Core..?> "exportStatus")
-            Prelude.<*> (x Core..?> "exportId")
-            Prelude.<*> (x Core..?> "failureReasons" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "lastUpdatedDateTime")
-            Prelude.<*> (x Core..?> "fileFormat")
+            Prelude.<$> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "downloadUrl")
+            Prelude.<*> (x Data..?> "resourceSpecification")
+            Prelude.<*> (x Data..?> "exportStatus")
+            Prelude.<*> (x Data..?> "exportId")
+            Prelude.<*> (x Data..?> "failureReasons" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "lastUpdatedDateTime")
+            Prelude.<*> (x Data..?> "fileFormat")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,29 +109,29 @@ instance Prelude.Hashable DescribeExport where
 instance Prelude.NFData DescribeExport where
   rnf DescribeExport' {..} = Prelude.rnf exportId
 
-instance Core.ToHeaders DescribeExport where
+instance Data.ToHeaders DescribeExport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeExport where
+instance Data.ToPath DescribeExport where
   toPath DescribeExport' {..} =
     Prelude.mconcat
-      ["/exports/", Core.toBS exportId, "/"]
+      ["/exports/", Data.toBS exportId, "/"]
 
-instance Core.ToQuery DescribeExport where
+instance Data.ToQuery DescribeExport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeExportResponse' smart constructor.
 data DescribeExportResponse = DescribeExportResponse'
   { -- | The date and time that the export was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | A pre-signed S3 URL that points to the bot or bot locale archive. The
     -- URL is only available for 5 minutes after calling the @DescribeExport@
     -- operation.
@@ -147,7 +148,7 @@ data DescribeExportResponse = DescribeExportResponse'
     -- export could not be completed.
     failureReasons :: Prelude.Maybe [Prelude.Text],
     -- | The last date and time that the export was updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The file format used in the files that describe the resource.
     fileFormat :: Prelude.Maybe ImportExportFileFormat,
     -- | The response's http status code.
@@ -205,7 +206,7 @@ newDescribeExportResponse pHttpStatus_ =
 
 -- | The date and time that the export was created.
 describeExportResponse_creationDateTime :: Lens.Lens' DescribeExportResponse (Prelude.Maybe Prelude.UTCTime)
-describeExportResponse_creationDateTime = Lens.lens (\DescribeExportResponse' {creationDateTime} -> creationDateTime) (\s@DescribeExportResponse' {} a -> s {creationDateTime = a} :: DescribeExportResponse) Prelude.. Lens.mapping Core._Time
+describeExportResponse_creationDateTime = Lens.lens (\DescribeExportResponse' {creationDateTime} -> creationDateTime) (\s@DescribeExportResponse' {} a -> s {creationDateTime = a} :: DescribeExportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A pre-signed S3 URL that points to the bot or bot locale archive. The
 -- URL is only available for 5 minutes after calling the @DescribeExport@
@@ -234,7 +235,7 @@ describeExportResponse_failureReasons = Lens.lens (\DescribeExportResponse' {fai
 
 -- | The last date and time that the export was updated.
 describeExportResponse_lastUpdatedDateTime :: Lens.Lens' DescribeExportResponse (Prelude.Maybe Prelude.UTCTime)
-describeExportResponse_lastUpdatedDateTime = Lens.lens (\DescribeExportResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DescribeExportResponse' {} a -> s {lastUpdatedDateTime = a} :: DescribeExportResponse) Prelude.. Lens.mapping Core._Time
+describeExportResponse_lastUpdatedDateTime = Lens.lens (\DescribeExportResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DescribeExportResponse' {} a -> s {lastUpdatedDateTime = a} :: DescribeExportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The file format used in the files that describe the resource.
 describeExportResponse_fileFormat :: Lens.Lens' DescribeExportResponse (Prelude.Maybe ImportExportFileFormat)

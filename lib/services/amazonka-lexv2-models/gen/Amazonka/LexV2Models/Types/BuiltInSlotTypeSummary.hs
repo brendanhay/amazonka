@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.BuiltInSlotTypeSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides summary information about a built-in slot type for the
@@ -67,14 +68,14 @@ builtInSlotTypeSummary_slotTypeSignature = Lens.lens (\BuiltInSlotTypeSummary' {
 builtInSlotTypeSummary_description :: Lens.Lens' BuiltInSlotTypeSummary (Prelude.Maybe Prelude.Text)
 builtInSlotTypeSummary_description = Lens.lens (\BuiltInSlotTypeSummary' {description} -> description) (\s@BuiltInSlotTypeSummary' {} a -> s {description = a} :: BuiltInSlotTypeSummary)
 
-instance Core.FromJSON BuiltInSlotTypeSummary where
+instance Data.FromJSON BuiltInSlotTypeSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BuiltInSlotTypeSummary"
       ( \x ->
           BuiltInSlotTypeSummary'
-            Prelude.<$> (x Core..:? "slotTypeSignature")
-            Prelude.<*> (x Core..:? "description")
+            Prelude.<$> (x Data..:? "slotTypeSignature")
+            Prelude.<*> (x Data..:? "description")
       )
 
 instance Prelude.Hashable BuiltInSlotTypeSummary where

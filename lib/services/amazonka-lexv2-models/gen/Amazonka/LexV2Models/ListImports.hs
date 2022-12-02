@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -188,13 +189,13 @@ instance Core.AWSRequest ListImports where
     Response.receiveJSON
       ( \s h x ->
           ListImportsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> ( x Core..?> "importSummaries"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> ( x Data..?> "importSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "botId")
+            Prelude.<*> (x Data..?> "botId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -218,35 +219,35 @@ instance Prelude.NFData ListImports where
       `Prelude.seq` Prelude.rnf botId
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListImports where
+instance Data.ToHeaders ListImports where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListImports where
+instance Data.ToJSON ListImports where
   toJSON ListImports' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("botVersion" Core..=) Prelude.<$> botVersion,
-            ("localeId" Core..=) Prelude.<$> localeId,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("sortBy" Core..=) Prelude.<$> sortBy,
-            ("botId" Core..=) Prelude.<$> botId,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("botVersion" Data..=) Prelude.<$> botVersion,
+            ("localeId" Data..=) Prelude.<$> localeId,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("botId" Data..=) Prelude.<$> botId,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListImports where
+instance Data.ToPath ListImports where
   toPath = Prelude.const "/imports/"
 
-instance Core.ToQuery ListImports where
+instance Data.ToQuery ListImports where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListImportsResponse' smart constructor.

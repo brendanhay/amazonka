@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,8 +136,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DeleteResourcePolicyStatementResponse'
-            Prelude.<$> (x Core..?> "revisionId")
-            Prelude.<*> (x Core..?> "resourceArn")
+            Prelude.<$> (x Data..?> "revisionId")
+            Prelude.<*> (x Data..?> "resourceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,31 +156,31 @@ instance Prelude.NFData DeleteResourcePolicyStatement where
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf statementId
 
-instance Core.ToHeaders DeleteResourcePolicyStatement where
+instance Data.ToHeaders DeleteResourcePolicyStatement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteResourcePolicyStatement where
+instance Data.ToPath DeleteResourcePolicyStatement where
   toPath DeleteResourcePolicyStatement' {..} =
     Prelude.mconcat
       [ "/policy/",
-        Core.toBS resourceArn,
+        Data.toBS resourceArn,
         "/statements/",
-        Core.toBS statementId,
+        Data.toBS statementId,
         "/"
       ]
 
-instance Core.ToQuery DeleteResourcePolicyStatement where
+instance Data.ToQuery DeleteResourcePolicyStatement where
   toQuery DeleteResourcePolicyStatement' {..} =
     Prelude.mconcat
-      ["expectedRevisionId" Core.=: expectedRevisionId]
+      ["expectedRevisionId" Data.=: expectedRevisionId]
 
 -- | /See:/ 'newDeleteResourcePolicyStatementResponse' smart constructor.
 data DeleteResourcePolicyStatementResponse = DeleteResourcePolicyStatementResponse'

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,10 +120,10 @@ instance Core.AWSRequest DeleteCustomVocabulary where
     Response.receiveJSON
       ( \s h x ->
           DeleteCustomVocabularyResponse'
-            Prelude.<$> (x Core..?> "customVocabularyStatus")
-            Prelude.<*> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> (x Core..?> "botId")
+            Prelude.<$> (x Data..?> "customVocabularyStatus")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "botId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,30 +139,30 @@ instance Prelude.NFData DeleteCustomVocabulary where
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf localeId
 
-instance Core.ToHeaders DeleteCustomVocabulary where
+instance Data.ToHeaders DeleteCustomVocabulary where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteCustomVocabulary where
+instance Data.ToPath DeleteCustomVocabulary where
   toPath DeleteCustomVocabulary' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/",
-        Core.toBS localeId,
+        Data.toBS localeId,
         "/customvocabulary"
       ]
 
-instance Core.ToQuery DeleteCustomVocabulary where
+instance Data.ToQuery DeleteCustomVocabulary where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCustomVocabularyResponse' smart constructor.

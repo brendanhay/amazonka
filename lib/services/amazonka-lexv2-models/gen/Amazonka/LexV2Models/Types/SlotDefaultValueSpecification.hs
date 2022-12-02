@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.SlotDefaultValueSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.SlotDefaultValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,14 +59,14 @@ newSlotDefaultValueSpecification =
 slotDefaultValueSpecification_defaultValueList :: Lens.Lens' SlotDefaultValueSpecification [SlotDefaultValue]
 slotDefaultValueSpecification_defaultValueList = Lens.lens (\SlotDefaultValueSpecification' {defaultValueList} -> defaultValueList) (\s@SlotDefaultValueSpecification' {} a -> s {defaultValueList = a} :: SlotDefaultValueSpecification) Prelude.. Lens.coerced
 
-instance Core.FromJSON SlotDefaultValueSpecification where
+instance Data.FromJSON SlotDefaultValueSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SlotDefaultValueSpecification"
       ( \x ->
           SlotDefaultValueSpecification'
-            Prelude.<$> ( x Core..:? "defaultValueList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "defaultValueList"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -80,11 +81,11 @@ instance Prelude.NFData SlotDefaultValueSpecification where
   rnf SlotDefaultValueSpecification' {..} =
     Prelude.rnf defaultValueList
 
-instance Core.ToJSON SlotDefaultValueSpecification where
+instance Data.ToJSON SlotDefaultValueSpecification where
   toJSON SlotDefaultValueSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("defaultValueList" Core..= defaultValueList)
+              ("defaultValueList" Data..= defaultValueList)
           ]
       )

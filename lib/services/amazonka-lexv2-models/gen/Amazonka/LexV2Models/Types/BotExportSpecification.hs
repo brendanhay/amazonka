@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.BotExportSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the identity of a the bot that was exported.
@@ -68,14 +69,14 @@ botExportSpecification_botId = Lens.lens (\BotExportSpecification' {botId} -> bo
 botExportSpecification_botVersion :: Lens.Lens' BotExportSpecification Prelude.Text
 botExportSpecification_botVersion = Lens.lens (\BotExportSpecification' {botVersion} -> botVersion) (\s@BotExportSpecification' {} a -> s {botVersion = a} :: BotExportSpecification)
 
-instance Core.FromJSON BotExportSpecification where
+instance Data.FromJSON BotExportSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BotExportSpecification"
       ( \x ->
           BotExportSpecification'
-            Prelude.<$> (x Core..: "botId")
-            Prelude.<*> (x Core..: "botVersion")
+            Prelude.<$> (x Data..: "botId")
+            Prelude.<*> (x Data..: "botVersion")
       )
 
 instance Prelude.Hashable BotExportSpecification where
@@ -88,11 +89,11 @@ instance Prelude.NFData BotExportSpecification where
     Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botVersion
 
-instance Core.ToJSON BotExportSpecification where
+instance Data.ToJSON BotExportSpecification where
   toJSON BotExportSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("botId" Core..= botId),
-            Prelude.Just ("botVersion" Core..= botVersion)
+          [ Prelude.Just ("botId" Data..= botId),
+            Prelude.Just ("botVersion" Data..= botVersion)
           ]
       )

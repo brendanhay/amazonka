@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -164,15 +165,15 @@ instance Core.AWSRequest UpdateBotRecommendation where
     Response.receiveJSON
       ( \s h x ->
           UpdateBotRecommendationResponse'
-            Prelude.<$> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> (x Core..?> "encryptionSetting")
-            Prelude.<*> (x Core..?> "botRecommendationId")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "botRecommendationStatus")
-            Prelude.<*> (x Core..?> "transcriptSourceSetting")
-            Prelude.<*> (x Core..?> "lastUpdatedDateTime")
+            Prelude.<$> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "encryptionSetting")
+            Prelude.<*> (x Data..?> "botRecommendationId")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botRecommendationStatus")
+            Prelude.<*> (x Data..?> "transcriptSourceSetting")
+            Prelude.<*> (x Data..?> "lastUpdatedDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,41 +193,41 @@ instance Prelude.NFData UpdateBotRecommendation where
       `Prelude.seq` Prelude.rnf botRecommendationId
       `Prelude.seq` Prelude.rnf encryptionSetting
 
-instance Core.ToHeaders UpdateBotRecommendation where
+instance Data.ToHeaders UpdateBotRecommendation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateBotRecommendation where
+instance Data.ToJSON UpdateBotRecommendation where
   toJSON UpdateBotRecommendation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("encryptionSetting" Core..= encryptionSetting)
+              ("encryptionSetting" Data..= encryptionSetting)
           ]
       )
 
-instance Core.ToPath UpdateBotRecommendation where
+instance Data.ToPath UpdateBotRecommendation where
   toPath UpdateBotRecommendation' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/",
-        Core.toBS localeId,
+        Data.toBS localeId,
         "/botrecommendations/",
-        Core.toBS botRecommendationId,
+        Data.toBS botRecommendationId,
         "/"
       ]
 
-instance Core.ToQuery UpdateBotRecommendation where
+instance Data.ToQuery UpdateBotRecommendation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateBotRecommendationResponse' smart constructor.
@@ -236,7 +237,7 @@ data UpdateBotRecommendationResponse = UpdateBotRecommendationResponse'
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the bot recommendation was
     -- created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the language and locale of the bot recommendation to
     -- update. The string must match one of the supported locales. For more
     -- information, see
@@ -261,7 +262,7 @@ data UpdateBotRecommendationResponse = UpdateBotRecommendationResponse'
     transcriptSourceSetting :: Prelude.Maybe TranscriptSourceSetting,
     -- | A timestamp of the date and time that the bot recommendation was last
     -- updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -334,7 +335,7 @@ updateBotRecommendationResponse_botVersion = Lens.lens (\UpdateBotRecommendation
 -- | A timestamp of the date and time that the bot recommendation was
 -- created.
 updateBotRecommendationResponse_creationDateTime :: Lens.Lens' UpdateBotRecommendationResponse (Prelude.Maybe Prelude.UTCTime)
-updateBotRecommendationResponse_creationDateTime = Lens.lens (\UpdateBotRecommendationResponse' {creationDateTime} -> creationDateTime) (\s@UpdateBotRecommendationResponse' {} a -> s {creationDateTime = a} :: UpdateBotRecommendationResponse) Prelude.. Lens.mapping Core._Time
+updateBotRecommendationResponse_creationDateTime = Lens.lens (\UpdateBotRecommendationResponse' {creationDateTime} -> creationDateTime) (\s@UpdateBotRecommendationResponse' {} a -> s {creationDateTime = a} :: UpdateBotRecommendationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier of the language and locale of the bot recommendation to
 -- update. The string must match one of the supported locales. For more
@@ -373,7 +374,7 @@ updateBotRecommendationResponse_transcriptSourceSetting = Lens.lens (\UpdateBotR
 -- | A timestamp of the date and time that the bot recommendation was last
 -- updated.
 updateBotRecommendationResponse_lastUpdatedDateTime :: Lens.Lens' UpdateBotRecommendationResponse (Prelude.Maybe Prelude.UTCTime)
-updateBotRecommendationResponse_lastUpdatedDateTime = Lens.lens (\UpdateBotRecommendationResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@UpdateBotRecommendationResponse' {} a -> s {lastUpdatedDateTime = a} :: UpdateBotRecommendationResponse) Prelude.. Lens.mapping Core._Time
+updateBotRecommendationResponse_lastUpdatedDateTime = Lens.lens (\UpdateBotRecommendationResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@UpdateBotRecommendationResponse' {} a -> s {lastUpdatedDateTime = a} :: UpdateBotRecommendationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 updateBotRecommendationResponse_httpStatus :: Lens.Lens' UpdateBotRecommendationResponse Prelude.Int

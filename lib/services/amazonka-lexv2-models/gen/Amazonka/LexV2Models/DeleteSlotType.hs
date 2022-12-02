@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -169,36 +170,36 @@ instance Prelude.NFData DeleteSlotType where
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf localeId
 
-instance Core.ToHeaders DeleteSlotType where
+instance Data.ToHeaders DeleteSlotType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteSlotType where
+instance Data.ToPath DeleteSlotType where
   toPath DeleteSlotType' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/",
-        Core.toBS localeId,
+        Data.toBS localeId,
         "/slottypes/",
-        Core.toBS slotTypeId,
+        Data.toBS slotTypeId,
         "/"
       ]
 
-instance Core.ToQuery DeleteSlotType where
+instance Data.ToQuery DeleteSlotType where
   toQuery DeleteSlotType' {..} =
     Prelude.mconcat
       [ "skipResourceInUseCheck"
-          Core.=: skipResourceInUseCheck
+          Data.=: skipResourceInUseCheck
       ]
 
 -- | /See:/ 'newDeleteSlotTypeResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.SlotTypeSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.SlotTypeCategory
 import qualified Amazonka.Prelude as Prelude
 
@@ -52,7 +53,7 @@ data SlotTypeSummary = SlotTypeSummary'
     -- parent slot type.
     parentSlotTypeSignature :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the slot type was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -136,20 +137,20 @@ slotTypeSummary_parentSlotTypeSignature = Lens.lens (\SlotTypeSummary' {parentSl
 
 -- | A timestamp of the date and time that the slot type was last updated.
 slotTypeSummary_lastUpdatedDateTime :: Lens.Lens' SlotTypeSummary (Prelude.Maybe Prelude.UTCTime)
-slotTypeSummary_lastUpdatedDateTime = Lens.lens (\SlotTypeSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@SlotTypeSummary' {} a -> s {lastUpdatedDateTime = a} :: SlotTypeSummary) Prelude.. Lens.mapping Core._Time
+slotTypeSummary_lastUpdatedDateTime = Lens.lens (\SlotTypeSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@SlotTypeSummary' {} a -> s {lastUpdatedDateTime = a} :: SlotTypeSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON SlotTypeSummary where
+instance Data.FromJSON SlotTypeSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SlotTypeSummary"
       ( \x ->
           SlotTypeSummary'
-            Prelude.<$> (x Core..:? "slotTypeCategory")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "slotTypeName")
-            Prelude.<*> (x Core..:? "slotTypeId")
-            Prelude.<*> (x Core..:? "parentSlotTypeSignature")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
+            Prelude.<$> (x Data..:? "slotTypeCategory")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "slotTypeName")
+            Prelude.<*> (x Data..:? "slotTypeId")
+            Prelude.<*> (x Data..:? "parentSlotTypeSignature")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
       )
 
 instance Prelude.Hashable SlotTypeSummary where

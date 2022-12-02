@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.SampleValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines one of the values for a slot type.
@@ -52,11 +53,11 @@ newSampleValue pValue_ =
 sampleValue_value :: Lens.Lens' SampleValue Prelude.Text
 sampleValue_value = Lens.lens (\SampleValue' {value} -> value) (\s@SampleValue' {} a -> s {value = a} :: SampleValue)
 
-instance Core.FromJSON SampleValue where
+instance Data.FromJSON SampleValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SampleValue"
-      (\x -> SampleValue' Prelude.<$> (x Core..: "value"))
+      (\x -> SampleValue' Prelude.<$> (x Data..: "value"))
 
 instance Prelude.Hashable SampleValue where
   hashWithSalt _salt SampleValue' {..} =
@@ -65,9 +66,9 @@ instance Prelude.Hashable SampleValue where
 instance Prelude.NFData SampleValue where
   rnf SampleValue' {..} = Prelude.rnf value
 
-instance Core.ToJSON SampleValue where
+instance Data.ToJSON SampleValue where
   toJSON SampleValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("value" Core..= value)]
+          [Prelude.Just ("value" Data..= value)]
       )

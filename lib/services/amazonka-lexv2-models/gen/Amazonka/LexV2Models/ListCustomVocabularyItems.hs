@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,13 +139,13 @@ instance Core.AWSRequest ListCustomVocabularyItems where
     Response.receiveJSON
       ( \s h x ->
           ListCustomVocabularyItemsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "customVocabularyItems"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "customVocabularyItems"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> (x Core..?> "botId")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "botId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,39 +165,39 @@ instance Prelude.NFData ListCustomVocabularyItems where
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf localeId
 
-instance Core.ToHeaders ListCustomVocabularyItems where
+instance Data.ToHeaders ListCustomVocabularyItems where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListCustomVocabularyItems where
+instance Data.ToJSON ListCustomVocabularyItems where
   toJSON ListCustomVocabularyItems' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListCustomVocabularyItems where
+instance Data.ToPath ListCustomVocabularyItems where
   toPath ListCustomVocabularyItems' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/",
-        Core.toBS localeId,
+        Data.toBS localeId,
         "/customvocabulary/DEFAULT/list"
       ]
 
-instance Core.ToQuery ListCustomVocabularyItems where
+instance Data.ToQuery ListCustomVocabularyItems where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCustomVocabularyItemsResponse' smart constructor.

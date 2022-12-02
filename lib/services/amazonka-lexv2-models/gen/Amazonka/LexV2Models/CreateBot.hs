@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -210,16 +211,16 @@ instance Core.AWSRequest CreateBot where
     Response.receiveJSON
       ( \s h x ->
           CreateBotResponse'
-            Prelude.<$> (x Core..?> "roleArn")
-            Prelude.<*> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "idleSessionTTLInSeconds")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "botTags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "botName")
-            Prelude.<*> (x Core..?> "dataPrivacy")
-            Prelude.<*> (x Core..?> "botStatus")
-            Prelude.<*> ( x Core..?> "testBotAliasTags"
+            Prelude.<$> (x Data..?> "roleArn")
+            Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "idleSessionTTLInSeconds")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botTags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "botName")
+            Prelude.<*> (x Data..?> "dataPrivacy")
+            Prelude.<*> (x Data..?> "botStatus")
+            Prelude.<*> ( x Data..?> "testBotAliasTags"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -245,39 +246,39 @@ instance Prelude.NFData CreateBot where
       `Prelude.seq` Prelude.rnf dataPrivacy
       `Prelude.seq` Prelude.rnf idleSessionTTLInSeconds
 
-instance Core.ToHeaders CreateBot where
+instance Data.ToHeaders CreateBot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBot where
+instance Data.ToJSON CreateBot where
   toJSON CreateBot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("botTags" Core..=) Prelude.<$> botTags,
-            ("testBotAliasTags" Core..=)
+          [ ("description" Data..=) Prelude.<$> description,
+            ("botTags" Data..=) Prelude.<$> botTags,
+            ("testBotAliasTags" Data..=)
               Prelude.<$> testBotAliasTags,
-            Prelude.Just ("botName" Core..= botName),
-            Prelude.Just ("roleArn" Core..= roleArn),
-            Prelude.Just ("dataPrivacy" Core..= dataPrivacy),
+            Prelude.Just ("botName" Data..= botName),
+            Prelude.Just ("roleArn" Data..= roleArn),
+            Prelude.Just ("dataPrivacy" Data..= dataPrivacy),
             Prelude.Just
               ( "idleSessionTTLInSeconds"
-                  Core..= idleSessionTTLInSeconds
+                  Data..= idleSessionTTLInSeconds
               )
           ]
       )
 
-instance Core.ToPath CreateBot where
+instance Data.ToPath CreateBot where
   toPath = Prelude.const "/bots/"
 
-instance Core.ToQuery CreateBot where
+instance Data.ToQuery CreateBot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBotResponse' smart constructor.
@@ -285,7 +286,7 @@ data CreateBotResponse = CreateBotResponse'
   { -- | The IAM role specified for the bot.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | A timestamp indicating the date and time that the bot was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The description specified for the bot.
     description :: Prelude.Maybe Prelude.Text,
     -- | The session idle time specified for the bot.
@@ -369,7 +370,7 @@ createBotResponse_roleArn = Lens.lens (\CreateBotResponse' {roleArn} -> roleArn)
 
 -- | A timestamp indicating the date and time that the bot was created.
 createBotResponse_creationDateTime :: Lens.Lens' CreateBotResponse (Prelude.Maybe Prelude.UTCTime)
-createBotResponse_creationDateTime = Lens.lens (\CreateBotResponse' {creationDateTime} -> creationDateTime) (\s@CreateBotResponse' {} a -> s {creationDateTime = a} :: CreateBotResponse) Prelude.. Lens.mapping Core._Time
+createBotResponse_creationDateTime = Lens.lens (\CreateBotResponse' {creationDateTime} -> creationDateTime) (\s@CreateBotResponse' {} a -> s {creationDateTime = a} :: CreateBotResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The description specified for the bot.
 createBotResponse_description :: Lens.Lens' CreateBotResponse (Prelude.Maybe Prelude.Text)

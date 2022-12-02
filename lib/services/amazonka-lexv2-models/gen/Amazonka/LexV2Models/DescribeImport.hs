@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,15 +92,15 @@ instance Core.AWSRequest DescribeImport where
     Response.receiveJSON
       ( \s h x ->
           DescribeImportResponse'
-            Prelude.<$> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "importedResourceName")
-            Prelude.<*> (x Core..?> "resourceSpecification")
-            Prelude.<*> (x Core..?> "importId")
-            Prelude.<*> (x Core..?> "importStatus")
-            Prelude.<*> (x Core..?> "importedResourceId")
-            Prelude.<*> (x Core..?> "failureReasons" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "lastUpdatedDateTime")
-            Prelude.<*> (x Core..?> "mergeStrategy")
+            Prelude.<$> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "importedResourceName")
+            Prelude.<*> (x Data..?> "resourceSpecification")
+            Prelude.<*> (x Data..?> "importId")
+            Prelude.<*> (x Data..?> "importStatus")
+            Prelude.<*> (x Data..?> "importedResourceId")
+            Prelude.<*> (x Data..?> "failureReasons" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "lastUpdatedDateTime")
+            Prelude.<*> (x Data..?> "mergeStrategy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,29 +111,29 @@ instance Prelude.Hashable DescribeImport where
 instance Prelude.NFData DescribeImport where
   rnf DescribeImport' {..} = Prelude.rnf importId
 
-instance Core.ToHeaders DescribeImport where
+instance Data.ToHeaders DescribeImport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeImport where
+instance Data.ToPath DescribeImport where
   toPath DescribeImport' {..} =
     Prelude.mconcat
-      ["/imports/", Core.toBS importId, "/"]
+      ["/imports/", Data.toBS importId, "/"]
 
-instance Core.ToQuery DescribeImport where
+instance Data.ToQuery DescribeImport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeImportResponse' smart constructor.
 data DescribeImportResponse = DescribeImportResponse'
   { -- | The date and time that the import was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the imported resource.
     importedResourceName :: Prelude.Maybe Prelude.Text,
     -- | The specifications of the imported bot, bot locale, or custom
@@ -150,7 +151,7 @@ data DescribeImportResponse = DescribeImportResponse'
     -- reasons for the failure.
     failureReasons :: Prelude.Maybe [Prelude.Text],
     -- | The date and time that the import was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The strategy used when there was a name conflict between the imported
     -- resource and an existing resource. When the merge strategy is
     -- @FailOnConflict@ existing resources are not overwritten and the import
@@ -216,7 +217,7 @@ newDescribeImportResponse pHttpStatus_ =
 
 -- | The date and time that the import was created.
 describeImportResponse_creationDateTime :: Lens.Lens' DescribeImportResponse (Prelude.Maybe Prelude.UTCTime)
-describeImportResponse_creationDateTime = Lens.lens (\DescribeImportResponse' {creationDateTime} -> creationDateTime) (\s@DescribeImportResponse' {} a -> s {creationDateTime = a} :: DescribeImportResponse) Prelude.. Lens.mapping Core._Time
+describeImportResponse_creationDateTime = Lens.lens (\DescribeImportResponse' {creationDateTime} -> creationDateTime) (\s@DescribeImportResponse' {} a -> s {creationDateTime = a} :: DescribeImportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the imported resource.
 describeImportResponse_importedResourceName :: Lens.Lens' DescribeImportResponse (Prelude.Maybe Prelude.Text)
@@ -248,7 +249,7 @@ describeImportResponse_failureReasons = Lens.lens (\DescribeImportResponse' {fai
 
 -- | The date and time that the import was last updated.
 describeImportResponse_lastUpdatedDateTime :: Lens.Lens' DescribeImportResponse (Prelude.Maybe Prelude.UTCTime)
-describeImportResponse_lastUpdatedDateTime = Lens.lens (\DescribeImportResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DescribeImportResponse' {} a -> s {lastUpdatedDateTime = a} :: DescribeImportResponse) Prelude.. Lens.mapping Core._Time
+describeImportResponse_lastUpdatedDateTime = Lens.lens (\DescribeImportResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DescribeImportResponse' {} a -> s {lastUpdatedDateTime = a} :: DescribeImportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The strategy used when there was a name conflict between the imported
 -- resource and an existing resource. When the merge strategy is

@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -228,19 +229,19 @@ instance Core.AWSRequest UpdateSlotType where
     Response.receiveJSON
       ( \s h x ->
           UpdateSlotTypeResponse'
-            Prelude.<$> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "compositeSlotTypeSetting")
-            Prelude.<*> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> (x Core..?> "externalSourceSetting")
-            Prelude.<*> (x Core..?> "valueSelectionSetting")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "slotTypeValues")
-            Prelude.<*> (x Core..?> "slotTypeName")
-            Prelude.<*> (x Core..?> "slotTypeId")
-            Prelude.<*> (x Core..?> "parentSlotTypeSignature")
-            Prelude.<*> (x Core..?> "lastUpdatedDateTime")
+            Prelude.<$> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "compositeSlotTypeSetting")
+            Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "externalSourceSetting")
+            Prelude.<*> (x Data..?> "valueSelectionSetting")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "slotTypeValues")
+            Prelude.<*> (x Data..?> "slotTypeName")
+            Prelude.<*> (x Data..?> "slotTypeId")
+            Prelude.<*> (x Data..?> "parentSlotTypeSignature")
+            Prelude.<*> (x Data..?> "lastUpdatedDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -273,51 +274,51 @@ instance Prelude.NFData UpdateSlotType where
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf localeId
 
-instance Core.ToHeaders UpdateSlotType where
+instance Data.ToHeaders UpdateSlotType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSlotType where
+instance Data.ToJSON UpdateSlotType where
   toJSON UpdateSlotType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("compositeSlotTypeSetting" Core..=)
+          [ ("compositeSlotTypeSetting" Data..=)
               Prelude.<$> compositeSlotTypeSetting,
-            ("externalSourceSetting" Core..=)
+            ("externalSourceSetting" Data..=)
               Prelude.<$> externalSourceSetting,
-            ("valueSelectionSetting" Core..=)
+            ("valueSelectionSetting" Data..=)
               Prelude.<$> valueSelectionSetting,
-            ("description" Core..=) Prelude.<$> description,
-            ("slotTypeValues" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("slotTypeValues" Data..=)
               Prelude.<$> slotTypeValues,
-            ("parentSlotTypeSignature" Core..=)
+            ("parentSlotTypeSignature" Data..=)
               Prelude.<$> parentSlotTypeSignature,
-            Prelude.Just ("slotTypeName" Core..= slotTypeName)
+            Prelude.Just ("slotTypeName" Data..= slotTypeName)
           ]
       )
 
-instance Core.ToPath UpdateSlotType where
+instance Data.ToPath UpdateSlotType where
   toPath UpdateSlotType' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/",
-        Core.toBS localeId,
+        Data.toBS localeId,
         "/slottypes/",
-        Core.toBS slotTypeId,
+        Data.toBS slotTypeId,
         "/"
       ]
 
-instance Core.ToQuery UpdateSlotType where
+instance Data.ToQuery UpdateSlotType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSlotTypeResponse' smart constructor.
@@ -328,7 +329,7 @@ data UpdateSlotTypeResponse = UpdateSlotTypeResponse'
     -- | Specifications for a composite slot type.
     compositeSlotTypeSetting :: Prelude.Maybe CompositeSlotTypeSetting,
     -- | The timestamp of the date and time that the slot type was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The language and locale of the updated slot type.
     localeId :: Prelude.Maybe Prelude.Text,
     externalSourceSetting :: Prelude.Maybe ExternalSourceSetting,
@@ -349,7 +350,7 @@ data UpdateSlotTypeResponse = UpdateSlotTypeResponse'
     -- this slot type.
     parentSlotTypeSignature :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the slot type was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -427,7 +428,7 @@ updateSlotTypeResponse_compositeSlotTypeSetting = Lens.lens (\UpdateSlotTypeResp
 
 -- | The timestamp of the date and time that the slot type was created.
 updateSlotTypeResponse_creationDateTime :: Lens.Lens' UpdateSlotTypeResponse (Prelude.Maybe Prelude.UTCTime)
-updateSlotTypeResponse_creationDateTime = Lens.lens (\UpdateSlotTypeResponse' {creationDateTime} -> creationDateTime) (\s@UpdateSlotTypeResponse' {} a -> s {creationDateTime = a} :: UpdateSlotTypeResponse) Prelude.. Lens.mapping Core._Time
+updateSlotTypeResponse_creationDateTime = Lens.lens (\UpdateSlotTypeResponse' {creationDateTime} -> creationDateTime) (\s@UpdateSlotTypeResponse' {} a -> s {creationDateTime = a} :: UpdateSlotTypeResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The language and locale of the updated slot type.
 updateSlotTypeResponse_localeId :: Lens.Lens' UpdateSlotTypeResponse (Prelude.Maybe Prelude.Text)
@@ -469,7 +470,7 @@ updateSlotTypeResponse_parentSlotTypeSignature = Lens.lens (\UpdateSlotTypeRespo
 
 -- | A timestamp of the date and time that the slot type was last updated.
 updateSlotTypeResponse_lastUpdatedDateTime :: Lens.Lens' UpdateSlotTypeResponse (Prelude.Maybe Prelude.UTCTime)
-updateSlotTypeResponse_lastUpdatedDateTime = Lens.lens (\UpdateSlotTypeResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@UpdateSlotTypeResponse' {} a -> s {lastUpdatedDateTime = a} :: UpdateSlotTypeResponse) Prelude.. Lens.mapping Core._Time
+updateSlotTypeResponse_lastUpdatedDateTime = Lens.lens (\UpdateSlotTypeResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@UpdateSlotTypeResponse' {} a -> s {lastUpdatedDateTime = a} :: UpdateSlotTypeResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 updateSlotTypeResponse_httpStatus :: Lens.Lens' UpdateSlotTypeResponse Prelude.Int

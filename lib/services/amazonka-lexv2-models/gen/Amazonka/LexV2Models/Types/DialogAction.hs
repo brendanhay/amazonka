@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.DialogAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.DialogActionType
 import qualified Amazonka.Prelude as Prelude
 
@@ -78,15 +79,15 @@ dialogAction_slotToElicit = Lens.lens (\DialogAction' {slotToElicit} -> slotToEl
 dialogAction_type :: Lens.Lens' DialogAction DialogActionType
 dialogAction_type = Lens.lens (\DialogAction' {type'} -> type') (\s@DialogAction' {} a -> s {type' = a} :: DialogAction)
 
-instance Core.FromJSON DialogAction where
+instance Data.FromJSON DialogAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DialogAction"
       ( \x ->
           DialogAction'
-            Prelude.<$> (x Core..:? "suppressNextMessage")
-            Prelude.<*> (x Core..:? "slotToElicit")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "suppressNextMessage")
+            Prelude.<*> (x Data..:? "slotToElicit")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable DialogAction where
@@ -101,13 +102,13 @@ instance Prelude.NFData DialogAction where
       `Prelude.seq` Prelude.rnf slotToElicit
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON DialogAction where
+instance Data.ToJSON DialogAction where
   toJSON DialogAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("suppressNextMessage" Core..=)
+          [ ("suppressNextMessage" Data..=)
               Prelude.<$> suppressNextMessage,
-            ("slotToElicit" Core..=) Prelude.<$> slotToElicit,
-            Prelude.Just ("type" Core..= type')
+            ("slotToElicit" Data..=) Prelude.<$> slotToElicit,
+            Prelude.Just ("type" Data..= type')
           ]
       )

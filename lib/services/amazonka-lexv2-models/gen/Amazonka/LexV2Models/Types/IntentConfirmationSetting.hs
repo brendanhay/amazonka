@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.IntentConfirmationSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.ConditionalSpecification
 import Amazonka.LexV2Models.Types.DialogCodeHookInvocationSetting
 import Amazonka.LexV2Models.Types.DialogState
@@ -224,25 +225,25 @@ intentConfirmationSetting_declinationNextStep = Lens.lens (\IntentConfirmationSe
 intentConfirmationSetting_promptSpecification :: Lens.Lens' IntentConfirmationSetting PromptSpecification
 intentConfirmationSetting_promptSpecification = Lens.lens (\IntentConfirmationSetting' {promptSpecification} -> promptSpecification) (\s@IntentConfirmationSetting' {} a -> s {promptSpecification = a} :: IntentConfirmationSetting)
 
-instance Core.FromJSON IntentConfirmationSetting where
+instance Data.FromJSON IntentConfirmationSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IntentConfirmationSetting"
       ( \x ->
           IntentConfirmationSetting'
-            Prelude.<$> (x Core..:? "active")
-            Prelude.<*> (x Core..:? "failureNextStep")
-            Prelude.<*> (x Core..:? "codeHook")
-            Prelude.<*> (x Core..:? "elicitationCodeHook")
-            Prelude.<*> (x Core..:? "declinationResponse")
-            Prelude.<*> (x Core..:? "declinationConditional")
-            Prelude.<*> (x Core..:? "failureConditional")
-            Prelude.<*> (x Core..:? "confirmationResponse")
-            Prelude.<*> (x Core..:? "confirmationNextStep")
-            Prelude.<*> (x Core..:? "failureResponse")
-            Prelude.<*> (x Core..:? "confirmationConditional")
-            Prelude.<*> (x Core..:? "declinationNextStep")
-            Prelude.<*> (x Core..: "promptSpecification")
+            Prelude.<$> (x Data..:? "active")
+            Prelude.<*> (x Data..:? "failureNextStep")
+            Prelude.<*> (x Data..:? "codeHook")
+            Prelude.<*> (x Data..:? "elicitationCodeHook")
+            Prelude.<*> (x Data..:? "declinationResponse")
+            Prelude.<*> (x Data..:? "declinationConditional")
+            Prelude.<*> (x Data..:? "failureConditional")
+            Prelude.<*> (x Data..:? "confirmationResponse")
+            Prelude.<*> (x Data..:? "confirmationNextStep")
+            Prelude.<*> (x Data..:? "failureResponse")
+            Prelude.<*> (x Data..:? "confirmationConditional")
+            Prelude.<*> (x Data..:? "declinationNextStep")
+            Prelude.<*> (x Data..: "promptSpecification")
       )
 
 instance Prelude.Hashable IntentConfirmationSetting where
@@ -277,33 +278,33 @@ instance Prelude.NFData IntentConfirmationSetting where
       `Prelude.seq` Prelude.rnf declinationNextStep
       `Prelude.seq` Prelude.rnf promptSpecification
 
-instance Core.ToJSON IntentConfirmationSetting where
+instance Data.ToJSON IntentConfirmationSetting where
   toJSON IntentConfirmationSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("active" Core..=) Prelude.<$> active,
-            ("failureNextStep" Core..=)
+          [ ("active" Data..=) Prelude.<$> active,
+            ("failureNextStep" Data..=)
               Prelude.<$> failureNextStep,
-            ("codeHook" Core..=) Prelude.<$> codeHook,
-            ("elicitationCodeHook" Core..=)
+            ("codeHook" Data..=) Prelude.<$> codeHook,
+            ("elicitationCodeHook" Data..=)
               Prelude.<$> elicitationCodeHook,
-            ("declinationResponse" Core..=)
+            ("declinationResponse" Data..=)
               Prelude.<$> declinationResponse,
-            ("declinationConditional" Core..=)
+            ("declinationConditional" Data..=)
               Prelude.<$> declinationConditional,
-            ("failureConditional" Core..=)
+            ("failureConditional" Data..=)
               Prelude.<$> failureConditional,
-            ("confirmationResponse" Core..=)
+            ("confirmationResponse" Data..=)
               Prelude.<$> confirmationResponse,
-            ("confirmationNextStep" Core..=)
+            ("confirmationNextStep" Data..=)
               Prelude.<$> confirmationNextStep,
-            ("failureResponse" Core..=)
+            ("failureResponse" Data..=)
               Prelude.<$> failureResponse,
-            ("confirmationConditional" Core..=)
+            ("confirmationConditional" Data..=)
               Prelude.<$> confirmationConditional,
-            ("declinationNextStep" Core..=)
+            ("declinationNextStep" Data..=)
               Prelude.<$> declinationNextStep,
             Prelude.Just
-              ("promptSpecification" Core..= promptSpecification)
+              ("promptSpecification" Data..= promptSpecification)
           ]
       )

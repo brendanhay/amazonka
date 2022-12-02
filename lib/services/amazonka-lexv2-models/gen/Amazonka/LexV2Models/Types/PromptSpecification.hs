@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.PromptSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.MessageGroup
 import Amazonka.LexV2Models.Types.MessageSelectionStrategy
 import Amazonka.LexV2Models.Types.PromptAttempt
@@ -104,19 +105,19 @@ promptSpecification_messageGroups = Lens.lens (\PromptSpecification' {messageGro
 promptSpecification_maxRetries :: Lens.Lens' PromptSpecification Prelude.Natural
 promptSpecification_maxRetries = Lens.lens (\PromptSpecification' {maxRetries} -> maxRetries) (\s@PromptSpecification' {} a -> s {maxRetries = a} :: PromptSpecification)
 
-instance Core.FromJSON PromptSpecification where
+instance Data.FromJSON PromptSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PromptSpecification"
       ( \x ->
           PromptSpecification'
-            Prelude.<$> (x Core..:? "allowInterrupt")
-            Prelude.<*> ( x Core..:? "promptAttemptsSpecification"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "allowInterrupt")
+            Prelude.<*> ( x Data..:? "promptAttemptsSpecification"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "messageSelectionStrategy")
-            Prelude.<*> (x Core..: "messageGroups")
-            Prelude.<*> (x Core..: "maxRetries")
+            Prelude.<*> (x Data..:? "messageSelectionStrategy")
+            Prelude.<*> (x Data..: "messageGroups")
+            Prelude.<*> (x Data..: "maxRetries")
       )
 
 instance Prelude.Hashable PromptSpecification where
@@ -135,17 +136,17 @@ instance Prelude.NFData PromptSpecification where
       `Prelude.seq` Prelude.rnf messageGroups
       `Prelude.seq` Prelude.rnf maxRetries
 
-instance Core.ToJSON PromptSpecification where
+instance Data.ToJSON PromptSpecification where
   toJSON PromptSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("allowInterrupt" Core..=)
+          [ ("allowInterrupt" Data..=)
               Prelude.<$> allowInterrupt,
-            ("promptAttemptsSpecification" Core..=)
+            ("promptAttemptsSpecification" Data..=)
               Prelude.<$> promptAttemptsSpecification,
-            ("messageSelectionStrategy" Core..=)
+            ("messageSelectionStrategy" Data..=)
               Prelude.<$> messageSelectionStrategy,
-            Prelude.Just ("messageGroups" Core..= messageGroups),
-            Prelude.Just ("maxRetries" Core..= maxRetries)
+            Prelude.Just ("messageGroups" Data..= messageGroups),
+            Prelude.Just ("maxRetries" Data..= maxRetries)
           ]
       )

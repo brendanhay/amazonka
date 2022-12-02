@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.MultipleValuesSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates whether a slot can return multiple values.
@@ -77,13 +78,13 @@ newMultipleValuesSetting =
 multipleValuesSetting_allowMultipleValues :: Lens.Lens' MultipleValuesSetting (Prelude.Maybe Prelude.Bool)
 multipleValuesSetting_allowMultipleValues = Lens.lens (\MultipleValuesSetting' {allowMultipleValues} -> allowMultipleValues) (\s@MultipleValuesSetting' {} a -> s {allowMultipleValues = a} :: MultipleValuesSetting)
 
-instance Core.FromJSON MultipleValuesSetting where
+instance Data.FromJSON MultipleValuesSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MultipleValuesSetting"
       ( \x ->
           MultipleValuesSetting'
-            Prelude.<$> (x Core..:? "allowMultipleValues")
+            Prelude.<$> (x Data..:? "allowMultipleValues")
       )
 
 instance Prelude.Hashable MultipleValuesSetting where
@@ -94,11 +95,11 @@ instance Prelude.NFData MultipleValuesSetting where
   rnf MultipleValuesSetting' {..} =
     Prelude.rnf allowMultipleValues
 
-instance Core.ToJSON MultipleValuesSetting where
+instance Data.ToJSON MultipleValuesSetting where
   toJSON MultipleValuesSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("allowMultipleValues" Core..=)
+          [ ("allowMultipleValues" Data..=)
               Prelude.<$> allowMultipleValues
           ]
       )

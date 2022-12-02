@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.DataPrivacy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | By default, data stored by Amazon Lex is encrypted. The @DataPrivacy@
@@ -123,12 +124,12 @@ newDataPrivacy pChildDirected_ =
 dataPrivacy_childDirected :: Lens.Lens' DataPrivacy Prelude.Bool
 dataPrivacy_childDirected = Lens.lens (\DataPrivacy' {childDirected} -> childDirected) (\s@DataPrivacy' {} a -> s {childDirected = a} :: DataPrivacy)
 
-instance Core.FromJSON DataPrivacy where
+instance Data.FromJSON DataPrivacy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataPrivacy"
       ( \x ->
-          DataPrivacy' Prelude.<$> (x Core..: "childDirected")
+          DataPrivacy' Prelude.<$> (x Data..: "childDirected")
       )
 
 instance Prelude.Hashable DataPrivacy where
@@ -138,11 +139,11 @@ instance Prelude.Hashable DataPrivacy where
 instance Prelude.NFData DataPrivacy where
   rnf DataPrivacy' {..} = Prelude.rnf childDirected
 
-instance Core.ToJSON DataPrivacy where
+instance Data.ToJSON DataPrivacy where
   toJSON DataPrivacy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("childDirected" Core..= childDirected)
+              ("childDirected" Data..= childDirected)
           ]
       )

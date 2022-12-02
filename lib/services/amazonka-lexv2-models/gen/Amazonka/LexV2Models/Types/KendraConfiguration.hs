@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.KendraConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides configuration information for the AMAZON.KendraSearchIntent
@@ -94,15 +95,15 @@ kendraConfiguration_queryFilterString = Lens.lens (\KendraConfiguration' {queryF
 kendraConfiguration_kendraIndex :: Lens.Lens' KendraConfiguration Prelude.Text
 kendraConfiguration_kendraIndex = Lens.lens (\KendraConfiguration' {kendraIndex} -> kendraIndex) (\s@KendraConfiguration' {} a -> s {kendraIndex = a} :: KendraConfiguration)
 
-instance Core.FromJSON KendraConfiguration where
+instance Data.FromJSON KendraConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KendraConfiguration"
       ( \x ->
           KendraConfiguration'
-            Prelude.<$> (x Core..:? "queryFilterStringEnabled")
-            Prelude.<*> (x Core..:? "queryFilterString")
-            Prelude.<*> (x Core..: "kendraIndex")
+            Prelude.<$> (x Data..:? "queryFilterStringEnabled")
+            Prelude.<*> (x Data..:? "queryFilterString")
+            Prelude.<*> (x Data..: "kendraIndex")
       )
 
 instance Prelude.Hashable KendraConfiguration where
@@ -118,14 +119,14 @@ instance Prelude.NFData KendraConfiguration where
       `Prelude.seq` Prelude.rnf queryFilterString
       `Prelude.seq` Prelude.rnf kendraIndex
 
-instance Core.ToJSON KendraConfiguration where
+instance Data.ToJSON KendraConfiguration where
   toJSON KendraConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("queryFilterStringEnabled" Core..=)
+          [ ("queryFilterStringEnabled" Data..=)
               Prelude.<$> queryFilterStringEnabled,
-            ("queryFilterString" Core..=)
+            ("queryFilterString" Data..=)
               Prelude.<$> queryFilterString,
-            Prelude.Just ("kendraIndex" Core..= kendraIndex)
+            Prelude.Just ("kendraIndex" Data..= kendraIndex)
           ]
       )

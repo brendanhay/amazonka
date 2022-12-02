@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.BotLocaleFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.BotLocaleFilterName
 import Amazonka.LexV2Models.Types.BotLocaleFilterOperator
 import qualified Amazonka.Prelude as Prelude
@@ -99,12 +100,12 @@ instance Prelude.NFData BotLocaleFilter where
       `Prelude.seq` Prelude.rnf values
       `Prelude.seq` Prelude.rnf operator
 
-instance Core.ToJSON BotLocaleFilter where
+instance Data.ToJSON BotLocaleFilter where
   toJSON BotLocaleFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
-            Prelude.Just ("values" Core..= values),
-            Prelude.Just ("operator" Core..= operator)
+          [ Prelude.Just ("name" Data..= name),
+            Prelude.Just ("values" Data..= values),
+            Prelude.Just ("operator" Data..= operator)
           ]
       )

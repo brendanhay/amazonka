@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.TranscriptFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.LexTranscriptFilter
 import qualified Amazonka.Prelude as Prelude
 
@@ -61,13 +62,13 @@ newTranscriptFilter =
 transcriptFilter_lexTranscriptFilter :: Lens.Lens' TranscriptFilter (Prelude.Maybe LexTranscriptFilter)
 transcriptFilter_lexTranscriptFilter = Lens.lens (\TranscriptFilter' {lexTranscriptFilter} -> lexTranscriptFilter) (\s@TranscriptFilter' {} a -> s {lexTranscriptFilter = a} :: TranscriptFilter)
 
-instance Core.FromJSON TranscriptFilter where
+instance Data.FromJSON TranscriptFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TranscriptFilter"
       ( \x ->
           TranscriptFilter'
-            Prelude.<$> (x Core..:? "lexTranscriptFilter")
+            Prelude.<$> (x Data..:? "lexTranscriptFilter")
       )
 
 instance Prelude.Hashable TranscriptFilter where
@@ -78,11 +79,11 @@ instance Prelude.NFData TranscriptFilter where
   rnf TranscriptFilter' {..} =
     Prelude.rnf lexTranscriptFilter
 
-instance Core.ToJSON TranscriptFilter where
+instance Data.ToJSON TranscriptFilter where
   toJSON TranscriptFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("lexTranscriptFilter" Core..=)
+          [ ("lexTranscriptFilter" Data..=)
               Prelude.<$> lexTranscriptFilter
           ]
       )

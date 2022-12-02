@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.FailedCustomVocabularyItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.ErrorCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -82,15 +83,15 @@ failedCustomVocabularyItem_errorCode = Lens.lens (\FailedCustomVocabularyItem' {
 failedCustomVocabularyItem_itemId :: Lens.Lens' FailedCustomVocabularyItem (Prelude.Maybe Prelude.Text)
 failedCustomVocabularyItem_itemId = Lens.lens (\FailedCustomVocabularyItem' {itemId} -> itemId) (\s@FailedCustomVocabularyItem' {} a -> s {itemId = a} :: FailedCustomVocabularyItem)
 
-instance Core.FromJSON FailedCustomVocabularyItem where
+instance Data.FromJSON FailedCustomVocabularyItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailedCustomVocabularyItem"
       ( \x ->
           FailedCustomVocabularyItem'
-            Prelude.<$> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "errorCode")
-            Prelude.<*> (x Core..:? "itemId")
+            Prelude.<$> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "errorCode")
+            Prelude.<*> (x Data..:? "itemId")
       )
 
 instance Prelude.Hashable FailedCustomVocabularyItem where

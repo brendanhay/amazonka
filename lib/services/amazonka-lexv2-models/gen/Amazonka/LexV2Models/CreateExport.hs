@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -67,7 +68,7 @@ data CreateExport = CreateExport'
   { -- | An password to use to encrypt the exported archive. Using a password is
     -- optional, but you should encrypt the archive to protect the data in
     -- transit between Amazon Lex and your local computer.
-    filePassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    filePassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specifies the type of resource to export, either a bot or a bot locale.
     -- You can only specify one type of resource to export.
     resourceSpecification :: ExportResourceSpecification,
@@ -109,7 +110,7 @@ newCreateExport pResourceSpecification_ pFileFormat_ =
 -- optional, but you should encrypt the archive to protect the data in
 -- transit between Amazon Lex and your local computer.
 createExport_filePassword :: Lens.Lens' CreateExport (Prelude.Maybe Prelude.Text)
-createExport_filePassword = Lens.lens (\CreateExport' {filePassword} -> filePassword) (\s@CreateExport' {} a -> s {filePassword = a} :: CreateExport) Prelude.. Lens.mapping Core._Sensitive
+createExport_filePassword = Lens.lens (\CreateExport' {filePassword} -> filePassword) (\s@CreateExport' {} a -> s {filePassword = a} :: CreateExport) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specifies the type of resource to export, either a bot or a bot locale.
 -- You can only specify one type of resource to export.
@@ -128,11 +129,11 @@ instance Core.AWSRequest CreateExport where
     Response.receiveJSON
       ( \s h x ->
           CreateExportResponse'
-            Prelude.<$> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "resourceSpecification")
-            Prelude.<*> (x Core..?> "exportStatus")
-            Prelude.<*> (x Core..?> "exportId")
-            Prelude.<*> (x Core..?> "fileFormat")
+            Prelude.<$> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "resourceSpecification")
+            Prelude.<*> (x Data..?> "exportStatus")
+            Prelude.<*> (x Data..?> "exportId")
+            Prelude.<*> (x Data..?> "fileFormat")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,40 +149,40 @@ instance Prelude.NFData CreateExport where
       `Prelude.seq` Prelude.rnf resourceSpecification
       `Prelude.seq` Prelude.rnf fileFormat
 
-instance Core.ToHeaders CreateExport where
+instance Data.ToHeaders CreateExport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateExport where
+instance Data.ToJSON CreateExport where
   toJSON CreateExport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("filePassword" Core..=) Prelude.<$> filePassword,
+          [ ("filePassword" Data..=) Prelude.<$> filePassword,
             Prelude.Just
               ( "resourceSpecification"
-                  Core..= resourceSpecification
+                  Data..= resourceSpecification
               ),
-            Prelude.Just ("fileFormat" Core..= fileFormat)
+            Prelude.Just ("fileFormat" Data..= fileFormat)
           ]
       )
 
-instance Core.ToPath CreateExport where
+instance Data.ToPath CreateExport where
   toPath = Prelude.const "/exports/"
 
-instance Core.ToQuery CreateExport where
+instance Data.ToQuery CreateExport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateExportResponse' smart constructor.
 data CreateExportResponse = CreateExportResponse'
   { -- | The date and time that the request to export a bot was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | A description of the type of resource that was exported, either a bot or
     -- a bot locale.
     resourceSpecification :: Prelude.Maybe ExportResourceSpecification,
@@ -241,7 +242,7 @@ newCreateExportResponse pHttpStatus_ =
 
 -- | The date and time that the request to export a bot was created.
 createExportResponse_creationDateTime :: Lens.Lens' CreateExportResponse (Prelude.Maybe Prelude.UTCTime)
-createExportResponse_creationDateTime = Lens.lens (\CreateExportResponse' {creationDateTime} -> creationDateTime) (\s@CreateExportResponse' {} a -> s {creationDateTime = a} :: CreateExportResponse) Prelude.. Lens.mapping Core._Time
+createExportResponse_creationDateTime = Lens.lens (\CreateExportResponse' {creationDateTime} -> creationDateTime) (\s@CreateExportResponse' {} a -> s {creationDateTime = a} :: CreateExportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A description of the type of resource that was exported, either a bot or
 -- a bot locale.

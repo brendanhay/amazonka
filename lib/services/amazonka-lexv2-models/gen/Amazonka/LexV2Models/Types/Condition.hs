@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.Condition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides an expression that evaluates to true or false.
@@ -52,13 +53,13 @@ newCondition pExpressionString_ =
 condition_expressionString :: Lens.Lens' Condition Prelude.Text
 condition_expressionString = Lens.lens (\Condition' {expressionString} -> expressionString) (\s@Condition' {} a -> s {expressionString = a} :: Condition)
 
-instance Core.FromJSON Condition where
+instance Data.FromJSON Condition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Condition"
       ( \x ->
           Condition'
-            Prelude.<$> (x Core..: "expressionString")
+            Prelude.<$> (x Data..: "expressionString")
       )
 
 instance Prelude.Hashable Condition where
@@ -68,11 +69,11 @@ instance Prelude.Hashable Condition where
 instance Prelude.NFData Condition where
   rnf Condition' {..} = Prelude.rnf expressionString
 
-instance Core.ToJSON Condition where
+instance Data.ToJSON Condition where
   toJSON Condition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("expressionString" Core..= expressionString)
+              ("expressionString" Data..= expressionString)
           ]
       )

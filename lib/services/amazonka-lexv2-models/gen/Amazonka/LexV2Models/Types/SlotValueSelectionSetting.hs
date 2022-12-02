@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.SlotValueSelectionSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.AdvancedRecognitionSetting
 import Amazonka.LexV2Models.Types.SlotValueRegexFilter
 import Amazonka.LexV2Models.Types.SlotValueResolutionStrategy
@@ -112,15 +113,15 @@ slotValueSelectionSetting_regexFilter = Lens.lens (\SlotValueSelectionSetting' {
 slotValueSelectionSetting_resolutionStrategy :: Lens.Lens' SlotValueSelectionSetting SlotValueResolutionStrategy
 slotValueSelectionSetting_resolutionStrategy = Lens.lens (\SlotValueSelectionSetting' {resolutionStrategy} -> resolutionStrategy) (\s@SlotValueSelectionSetting' {} a -> s {resolutionStrategy = a} :: SlotValueSelectionSetting)
 
-instance Core.FromJSON SlotValueSelectionSetting where
+instance Data.FromJSON SlotValueSelectionSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SlotValueSelectionSetting"
       ( \x ->
           SlotValueSelectionSetting'
-            Prelude.<$> (x Core..:? "advancedRecognitionSetting")
-            Prelude.<*> (x Core..:? "regexFilter")
-            Prelude.<*> (x Core..: "resolutionStrategy")
+            Prelude.<$> (x Data..:? "advancedRecognitionSetting")
+            Prelude.<*> (x Data..:? "regexFilter")
+            Prelude.<*> (x Data..: "resolutionStrategy")
       )
 
 instance Prelude.Hashable SlotValueSelectionSetting where
@@ -136,14 +137,14 @@ instance Prelude.NFData SlotValueSelectionSetting where
       `Prelude.seq` Prelude.rnf regexFilter
       `Prelude.seq` Prelude.rnf resolutionStrategy
 
-instance Core.ToJSON SlotValueSelectionSetting where
+instance Data.ToJSON SlotValueSelectionSetting where
   toJSON SlotValueSelectionSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("advancedRecognitionSetting" Core..=)
+          [ ("advancedRecognitionSetting" Data..=)
               Prelude.<$> advancedRecognitionSetting,
-            ("regexFilter" Core..=) Prelude.<$> regexFilter,
+            ("regexFilter" Data..=) Prelude.<$> regexFilter,
             Prelude.Just
-              ("resolutionStrategy" Core..= resolutionStrategy)
+              ("resolutionStrategy" Data..= resolutionStrategy)
           ]
       )

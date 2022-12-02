@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -204,19 +205,19 @@ instance Core.AWSRequest CreateBotAlias where
     Response.receiveJSON
       ( \s h x ->
           CreateBotAliasResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "botAliasStatus")
-            Prelude.<*> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "sentimentAnalysisSettings")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "botAliasId")
-            Prelude.<*> (x Core..?> "conversationLogSettings")
-            Prelude.<*> ( x Core..?> "botAliasLocaleSettings"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "botAliasStatus")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "sentimentAnalysisSettings")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botAliasId")
+            Prelude.<*> (x Data..?> "conversationLogSettings")
+            Prelude.<*> ( x Data..?> "botAliasLocaleSettings"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "botAliasName")
+            Prelude.<*> (x Data..?> "botAliasName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -242,40 +243,40 @@ instance Prelude.NFData CreateBotAlias where
       `Prelude.seq` Prelude.rnf botAliasName
       `Prelude.seq` Prelude.rnf botId
 
-instance Core.ToHeaders CreateBotAlias where
+instance Data.ToHeaders CreateBotAlias where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBotAlias where
+instance Data.ToJSON CreateBotAlias where
   toJSON CreateBotAlias' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("botVersion" Core..=) Prelude.<$> botVersion,
-            ("description" Core..=) Prelude.<$> description,
-            ("sentimentAnalysisSettings" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("botVersion" Data..=) Prelude.<$> botVersion,
+            ("description" Data..=) Prelude.<$> description,
+            ("sentimentAnalysisSettings" Data..=)
               Prelude.<$> sentimentAnalysisSettings,
-            ("conversationLogSettings" Core..=)
+            ("conversationLogSettings" Data..=)
               Prelude.<$> conversationLogSettings,
-            ("botAliasLocaleSettings" Core..=)
+            ("botAliasLocaleSettings" Data..=)
               Prelude.<$> botAliasLocaleSettings,
-            Prelude.Just ("botAliasName" Core..= botAliasName)
+            Prelude.Just ("botAliasName" Data..= botAliasName)
           ]
       )
 
-instance Core.ToPath CreateBotAlias where
+instance Data.ToPath CreateBotAlias where
   toPath CreateBotAlias' {..} =
     Prelude.mconcat
-      ["/bots/", Core.toBS botId, "/botaliases/"]
+      ["/bots/", Data.toBS botId, "/botaliases/"]
 
-instance Core.ToQuery CreateBotAlias where
+instance Data.ToQuery CreateBotAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBotAliasResponse' smart constructor.
@@ -291,7 +292,7 @@ data CreateBotAliasResponse = CreateBotAliasResponse'
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | A Unix timestamp indicating the date and time that the bot alias was
     -- created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The description specified for the bot alias.
     description :: Prelude.Maybe Prelude.Text,
     sentimentAnalysisSettings :: Prelude.Maybe SentimentAnalysisSettings,
@@ -383,7 +384,7 @@ createBotAliasResponse_botVersion = Lens.lens (\CreateBotAliasResponse' {botVers
 -- | A Unix timestamp indicating the date and time that the bot alias was
 -- created.
 createBotAliasResponse_creationDateTime :: Lens.Lens' CreateBotAliasResponse (Prelude.Maybe Prelude.UTCTime)
-createBotAliasResponse_creationDateTime = Lens.lens (\CreateBotAliasResponse' {creationDateTime} -> creationDateTime) (\s@CreateBotAliasResponse' {} a -> s {creationDateTime = a} :: CreateBotAliasResponse) Prelude.. Lens.mapping Core._Time
+createBotAliasResponse_creationDateTime = Lens.lens (\CreateBotAliasResponse' {creationDateTime} -> creationDateTime) (\s@CreateBotAliasResponse' {} a -> s {creationDateTime = a} :: CreateBotAliasResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The description specified for the bot alias.
 createBotAliasResponse_description :: Lens.Lens' CreateBotAliasResponse (Prelude.Maybe Prelude.Text)

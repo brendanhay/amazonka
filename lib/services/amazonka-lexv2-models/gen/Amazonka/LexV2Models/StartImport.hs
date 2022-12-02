@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -59,7 +60,7 @@ data StartImport = StartImport'
   { -- | The password used to encrypt the zip archive that contains the resource
     -- definition. You should always encrypt the zip archive to protect it
     -- during transit between your site and Amazon Lex.
-    filePassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    filePassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The unique identifier for the import. It is included in the response
     -- from the
     -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateUploadUrl.html CreateUploadUrl>
@@ -121,7 +122,7 @@ newStartImport
 -- definition. You should always encrypt the zip archive to protect it
 -- during transit between your site and Amazon Lex.
 startImport_filePassword :: Lens.Lens' StartImport (Prelude.Maybe Prelude.Text)
-startImport_filePassword = Lens.lens (\StartImport' {filePassword} -> filePassword) (\s@StartImport' {} a -> s {filePassword = a} :: StartImport) Prelude.. Lens.mapping Core._Sensitive
+startImport_filePassword = Lens.lens (\StartImport' {filePassword} -> filePassword) (\s@StartImport' {} a -> s {filePassword = a} :: StartImport) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The unique identifier for the import. It is included in the response
 -- from the
@@ -149,11 +150,11 @@ instance Core.AWSRequest StartImport where
     Response.receiveJSON
       ( \s h x ->
           StartImportResponse'
-            Prelude.<$> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "resourceSpecification")
-            Prelude.<*> (x Core..?> "importId")
-            Prelude.<*> (x Core..?> "importStatus")
-            Prelude.<*> (x Core..?> "mergeStrategy")
+            Prelude.<$> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "resourceSpecification")
+            Prelude.<*> (x Data..?> "importId")
+            Prelude.<*> (x Data..?> "importStatus")
+            Prelude.<*> (x Data..?> "mergeStrategy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,42 +172,42 @@ instance Prelude.NFData StartImport where
       `Prelude.seq` Prelude.rnf resourceSpecification
       `Prelude.seq` Prelude.rnf mergeStrategy
 
-instance Core.ToHeaders StartImport where
+instance Data.ToHeaders StartImport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartImport where
+instance Data.ToJSON StartImport where
   toJSON StartImport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("filePassword" Core..=) Prelude.<$> filePassword,
-            Prelude.Just ("importId" Core..= importId),
+          [ ("filePassword" Data..=) Prelude.<$> filePassword,
+            Prelude.Just ("importId" Data..= importId),
             Prelude.Just
               ( "resourceSpecification"
-                  Core..= resourceSpecification
+                  Data..= resourceSpecification
               ),
             Prelude.Just
-              ("mergeStrategy" Core..= mergeStrategy)
+              ("mergeStrategy" Data..= mergeStrategy)
           ]
       )
 
-instance Core.ToPath StartImport where
+instance Data.ToPath StartImport where
   toPath = Prelude.const "/imports/"
 
-instance Core.ToQuery StartImport where
+instance Data.ToQuery StartImport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartImportResponse' smart constructor.
 data StartImportResponse = StartImportResponse'
   { -- | The date and time that the import request was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The parameters used when importing the resource.
     resourceSpecification :: Prelude.Maybe ImportResourceSpecification,
     -- | A unique identifier for the import.
@@ -264,7 +265,7 @@ newStartImportResponse pHttpStatus_ =
 
 -- | The date and time that the import request was created.
 startImportResponse_creationDateTime :: Lens.Lens' StartImportResponse (Prelude.Maybe Prelude.UTCTime)
-startImportResponse_creationDateTime = Lens.lens (\StartImportResponse' {creationDateTime} -> creationDateTime) (\s@StartImportResponse' {} a -> s {creationDateTime = a} :: StartImportResponse) Prelude.. Lens.mapping Core._Time
+startImportResponse_creationDateTime = Lens.lens (\StartImportResponse' {creationDateTime} -> creationDateTime) (\s@StartImportResponse' {} a -> s {creationDateTime = a} :: StartImportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The parameters used when importing the resource.
 startImportResponse_resourceSpecification :: Lens.Lens' StartImportResponse (Prelude.Maybe ImportResourceSpecification)

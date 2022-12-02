@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.AdvancedRecognitionSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.AudioRecognitionStrategy
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,13 +59,13 @@ newAdvancedRecognitionSetting =
 advancedRecognitionSetting_audioRecognitionStrategy :: Lens.Lens' AdvancedRecognitionSetting (Prelude.Maybe AudioRecognitionStrategy)
 advancedRecognitionSetting_audioRecognitionStrategy = Lens.lens (\AdvancedRecognitionSetting' {audioRecognitionStrategy} -> audioRecognitionStrategy) (\s@AdvancedRecognitionSetting' {} a -> s {audioRecognitionStrategy = a} :: AdvancedRecognitionSetting)
 
-instance Core.FromJSON AdvancedRecognitionSetting where
+instance Data.FromJSON AdvancedRecognitionSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AdvancedRecognitionSetting"
       ( \x ->
           AdvancedRecognitionSetting'
-            Prelude.<$> (x Core..:? "audioRecognitionStrategy")
+            Prelude.<$> (x Data..:? "audioRecognitionStrategy")
       )
 
 instance Prelude.Hashable AdvancedRecognitionSetting where
@@ -76,11 +77,11 @@ instance Prelude.NFData AdvancedRecognitionSetting where
   rnf AdvancedRecognitionSetting' {..} =
     Prelude.rnf audioRecognitionStrategy
 
-instance Core.ToJSON AdvancedRecognitionSetting where
+instance Data.ToJSON AdvancedRecognitionSetting where
   toJSON AdvancedRecognitionSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("audioRecognitionStrategy" Core..=)
+          [ ("audioRecognitionStrategy" Data..=)
               Prelude.<$> audioRecognitionStrategy
           ]
       )

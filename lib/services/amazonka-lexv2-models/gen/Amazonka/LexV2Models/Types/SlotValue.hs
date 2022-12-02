@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.SlotValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The value to set in a slot.
@@ -59,13 +60,13 @@ newSlotValue =
 slotValue_interpretedValue :: Lens.Lens' SlotValue (Prelude.Maybe Prelude.Text)
 slotValue_interpretedValue = Lens.lens (\SlotValue' {interpretedValue} -> interpretedValue) (\s@SlotValue' {} a -> s {interpretedValue = a} :: SlotValue)
 
-instance Core.FromJSON SlotValue where
+instance Data.FromJSON SlotValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SlotValue"
       ( \x ->
           SlotValue'
-            Prelude.<$> (x Core..:? "interpretedValue")
+            Prelude.<$> (x Data..:? "interpretedValue")
       )
 
 instance Prelude.Hashable SlotValue where
@@ -75,11 +76,11 @@ instance Prelude.Hashable SlotValue where
 instance Prelude.NFData SlotValue where
   rnf SlotValue' {..} = Prelude.rnf interpretedValue
 
-instance Core.ToJSON SlotValue where
+instance Data.ToJSON SlotValue where
   toJSON SlotValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("interpretedValue" Core..=)
+          [ ("interpretedValue" Data..=)
               Prelude.<$> interpretedValue
           ]
       )

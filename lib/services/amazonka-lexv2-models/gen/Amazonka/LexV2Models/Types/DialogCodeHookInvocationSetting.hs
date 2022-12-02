@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.DialogCodeHookInvocationSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.PostDialogCodeHookInvocationSpecification
 import qualified Amazonka.Prelude as Prelude
 
@@ -103,18 +104,18 @@ dialogCodeHookInvocationSetting_postCodeHookSpecification :: Lens.Lens' DialogCo
 dialogCodeHookInvocationSetting_postCodeHookSpecification = Lens.lens (\DialogCodeHookInvocationSetting' {postCodeHookSpecification} -> postCodeHookSpecification) (\s@DialogCodeHookInvocationSetting' {} a -> s {postCodeHookSpecification = a} :: DialogCodeHookInvocationSetting)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DialogCodeHookInvocationSetting
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DialogCodeHookInvocationSetting"
       ( \x ->
           DialogCodeHookInvocationSetting'
-            Prelude.<$> (x Core..:? "invocationLabel")
-            Prelude.<*> (x Core..: "enableCodeHookInvocation")
-            Prelude.<*> (x Core..: "active")
-            Prelude.<*> (x Core..: "postCodeHookSpecification")
+            Prelude.<$> (x Data..:? "invocationLabel")
+            Prelude.<*> (x Data..: "enableCodeHookInvocation")
+            Prelude.<*> (x Data..: "active")
+            Prelude.<*> (x Data..: "postCodeHookSpecification")
       )
 
 instance
@@ -139,20 +140,20 @@ instance
       `Prelude.seq` Prelude.rnf active
       `Prelude.seq` Prelude.rnf postCodeHookSpecification
 
-instance Core.ToJSON DialogCodeHookInvocationSetting where
+instance Data.ToJSON DialogCodeHookInvocationSetting where
   toJSON DialogCodeHookInvocationSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("invocationLabel" Core..=)
+          [ ("invocationLabel" Data..=)
               Prelude.<$> invocationLabel,
             Prelude.Just
               ( "enableCodeHookInvocation"
-                  Core..= enableCodeHookInvocation
+                  Data..= enableCodeHookInvocation
               ),
-            Prelude.Just ("active" Core..= active),
+            Prelude.Just ("active" Data..= active),
             Prelude.Just
               ( "postCodeHookSpecification"
-                  Core..= postCodeHookSpecification
+                  Data..= postCodeHookSpecification
               )
           ]
       )

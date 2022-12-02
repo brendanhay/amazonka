@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.CustomVocabularyExportSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the parameters required for exporting a custom vocabulary.
@@ -81,17 +82,17 @@ customVocabularyExportSpecification_localeId :: Lens.Lens' CustomVocabularyExpor
 customVocabularyExportSpecification_localeId = Lens.lens (\CustomVocabularyExportSpecification' {localeId} -> localeId) (\s@CustomVocabularyExportSpecification' {} a -> s {localeId = a} :: CustomVocabularyExportSpecification)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CustomVocabularyExportSpecification
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomVocabularyExportSpecification"
       ( \x ->
           CustomVocabularyExportSpecification'
-            Prelude.<$> (x Core..: "botId")
-            Prelude.<*> (x Core..: "botVersion")
-            Prelude.<*> (x Core..: "localeId")
+            Prelude.<$> (x Data..: "botId")
+            Prelude.<*> (x Data..: "botVersion")
+            Prelude.<*> (x Data..: "localeId")
       )
 
 instance
@@ -115,14 +116,14 @@ instance
       `Prelude.seq` Prelude.rnf localeId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CustomVocabularyExportSpecification
   where
   toJSON CustomVocabularyExportSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("botId" Core..= botId),
-            Prelude.Just ("botVersion" Core..= botVersion),
-            Prelude.Just ("localeId" Core..= localeId)
+          [ Prelude.Just ("botId" Data..= botId),
+            Prelude.Just ("botVersion" Data..= botVersion),
+            Prelude.Just ("localeId" Data..= localeId)
           ]
       )

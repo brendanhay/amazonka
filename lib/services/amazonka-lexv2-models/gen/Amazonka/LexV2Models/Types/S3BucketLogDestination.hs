@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.S3BucketLogDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an Amazon S3 bucket for logging audio conversations
@@ -81,15 +82,15 @@ s3BucketLogDestination_s3BucketArn = Lens.lens (\S3BucketLogDestination' {s3Buck
 s3BucketLogDestination_logPrefix :: Lens.Lens' S3BucketLogDestination Prelude.Text
 s3BucketLogDestination_logPrefix = Lens.lens (\S3BucketLogDestination' {logPrefix} -> logPrefix) (\s@S3BucketLogDestination' {} a -> s {logPrefix = a} :: S3BucketLogDestination)
 
-instance Core.FromJSON S3BucketLogDestination where
+instance Data.FromJSON S3BucketLogDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3BucketLogDestination"
       ( \x ->
           S3BucketLogDestination'
-            Prelude.<$> (x Core..:? "kmsKeyArn")
-            Prelude.<*> (x Core..: "s3BucketArn")
-            Prelude.<*> (x Core..: "logPrefix")
+            Prelude.<$> (x Data..:? "kmsKeyArn")
+            Prelude.<*> (x Data..: "s3BucketArn")
+            Prelude.<*> (x Data..: "logPrefix")
       )
 
 instance Prelude.Hashable S3BucketLogDestination where
@@ -104,12 +105,12 @@ instance Prelude.NFData S3BucketLogDestination where
       `Prelude.seq` Prelude.rnf s3BucketArn
       `Prelude.seq` Prelude.rnf logPrefix
 
-instance Core.ToJSON S3BucketLogDestination where
+instance Data.ToJSON S3BucketLogDestination where
   toJSON S3BucketLogDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("kmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            Prelude.Just ("s3BucketArn" Core..= s3BucketArn),
-            Prelude.Just ("logPrefix" Core..= logPrefix)
+          [ ("kmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            Prelude.Just ("s3BucketArn" Data..= s3BucketArn),
+            Prelude.Just ("logPrefix" Data..= logPrefix)
           ]
       )

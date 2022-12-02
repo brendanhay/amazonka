@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.WaitAndContinueSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.ResponseSpecification
 import Amazonka.LexV2Models.Types.StillWaitingResponseSpecification
 import qualified Amazonka.Prelude as Prelude
@@ -104,16 +105,16 @@ waitAndContinueSpecification_waitingResponse = Lens.lens (\WaitAndContinueSpecif
 waitAndContinueSpecification_continueResponse :: Lens.Lens' WaitAndContinueSpecification ResponseSpecification
 waitAndContinueSpecification_continueResponse = Lens.lens (\WaitAndContinueSpecification' {continueResponse} -> continueResponse) (\s@WaitAndContinueSpecification' {} a -> s {continueResponse = a} :: WaitAndContinueSpecification)
 
-instance Core.FromJSON WaitAndContinueSpecification where
+instance Data.FromJSON WaitAndContinueSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WaitAndContinueSpecification"
       ( \x ->
           WaitAndContinueSpecification'
-            Prelude.<$> (x Core..:? "active")
-            Prelude.<*> (x Core..:? "stillWaitingResponse")
-            Prelude.<*> (x Core..: "waitingResponse")
-            Prelude.<*> (x Core..: "continueResponse")
+            Prelude.<$> (x Data..:? "active")
+            Prelude.<*> (x Data..:? "stillWaitingResponse")
+            Prelude.<*> (x Data..: "waitingResponse")
+            Prelude.<*> (x Data..: "continueResponse")
       )
 
 instance
@@ -133,16 +134,16 @@ instance Prelude.NFData WaitAndContinueSpecification where
       `Prelude.seq` Prelude.rnf waitingResponse
       `Prelude.seq` Prelude.rnf continueResponse
 
-instance Core.ToJSON WaitAndContinueSpecification where
+instance Data.ToJSON WaitAndContinueSpecification where
   toJSON WaitAndContinueSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("active" Core..=) Prelude.<$> active,
-            ("stillWaitingResponse" Core..=)
+          [ ("active" Data..=) Prelude.<$> active,
+            ("stillWaitingResponse" Data..=)
               Prelude.<$> stillWaitingResponse,
             Prelude.Just
-              ("waitingResponse" Core..= waitingResponse),
+              ("waitingResponse" Data..= waitingResponse),
             Prelude.Just
-              ("continueResponse" Core..= continueResponse)
+              ("continueResponse" Data..= continueResponse)
           ]
       )

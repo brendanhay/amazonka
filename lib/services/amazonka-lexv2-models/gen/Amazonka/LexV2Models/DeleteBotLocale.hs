@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,10 +125,10 @@ instance Core.AWSRequest DeleteBotLocale where
     Response.receiveJSON
       ( \s h x ->
           DeleteBotLocaleResponse'
-            Prelude.<$> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "botLocaleStatus")
+            Prelude.<$> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botLocaleStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,30 +144,30 @@ instance Prelude.NFData DeleteBotLocale where
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf localeId
 
-instance Core.ToHeaders DeleteBotLocale where
+instance Data.ToHeaders DeleteBotLocale where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteBotLocale where
+instance Data.ToPath DeleteBotLocale where
   toPath DeleteBotLocale' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/",
-        Core.toBS localeId,
+        Data.toBS localeId,
         "/"
       ]
 
-instance Core.ToQuery DeleteBotLocale where
+instance Data.ToQuery DeleteBotLocale where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteBotLocaleResponse' smart constructor.

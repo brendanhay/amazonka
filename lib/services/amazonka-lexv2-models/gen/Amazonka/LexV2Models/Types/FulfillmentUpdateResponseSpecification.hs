@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.FulfillmentUpdateResponseSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.MessageGroup
 import qualified Amazonka.Prelude as Prelude
 
@@ -98,17 +99,17 @@ fulfillmentUpdateResponseSpecification_messageGroups :: Lens.Lens' FulfillmentUp
 fulfillmentUpdateResponseSpecification_messageGroups = Lens.lens (\FulfillmentUpdateResponseSpecification' {messageGroups} -> messageGroups) (\s@FulfillmentUpdateResponseSpecification' {} a -> s {messageGroups = a} :: FulfillmentUpdateResponseSpecification) Prelude.. Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     FulfillmentUpdateResponseSpecification
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FulfillmentUpdateResponseSpecification"
       ( \x ->
           FulfillmentUpdateResponseSpecification'
-            Prelude.<$> (x Core..:? "allowInterrupt")
-            Prelude.<*> (x Core..: "frequencyInSeconds")
-            Prelude.<*> (x Core..: "messageGroups")
+            Prelude.<$> (x Data..:? "allowInterrupt")
+            Prelude.<*> (x Data..: "frequencyInSeconds")
+            Prelude.<*> (x Data..: "messageGroups")
       )
 
 instance
@@ -132,17 +133,17 @@ instance
       `Prelude.seq` Prelude.rnf messageGroups
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     FulfillmentUpdateResponseSpecification
   where
   toJSON FulfillmentUpdateResponseSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("allowInterrupt" Core..=)
+          [ ("allowInterrupt" Data..=)
               Prelude.<$> allowInterrupt,
             Prelude.Just
-              ("frequencyInSeconds" Core..= frequencyInSeconds),
+              ("frequencyInSeconds" Data..= frequencyInSeconds),
             Prelude.Just
-              ("messageGroups" Core..= messageGroups)
+              ("messageGroups" Data..= messageGroups)
           ]
       )

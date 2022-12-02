@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,9 +123,9 @@ instance Core.AWSRequest ListBotAliases where
     Response.receiveJSON
       ( \s h x ->
           ListBotAliasesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> ( x Core..?> "botAliasSummaries"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> ( x Data..?> "botAliasSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -142,32 +143,32 @@ instance Prelude.NFData ListBotAliases where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf botId
 
-instance Core.ToHeaders ListBotAliases where
+instance Data.ToHeaders ListBotAliases where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListBotAliases where
+instance Data.ToJSON ListBotAliases where
   toJSON ListBotAliases' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListBotAliases where
+instance Data.ToPath ListBotAliases where
   toPath ListBotAliases' {..} =
     Prelude.mconcat
-      ["/bots/", Core.toBS botId, "/botaliases/"]
+      ["/bots/", Data.toBS botId, "/botaliases/"]
 
-instance Core.ToQuery ListBotAliases where
+instance Data.ToQuery ListBotAliases where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListBotAliasesResponse' smart constructor.

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,16 +107,16 @@ instance Core.AWSRequest DescribeBotVersion where
     Response.receiveJSON
       ( \s h x ->
           DescribeBotVersionResponse'
-            Prelude.<$> (x Core..?> "roleArn")
-            Prelude.<*> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "idleSessionTTLInSeconds")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "botName")
-            Prelude.<*> (x Core..?> "dataPrivacy")
-            Prelude.<*> (x Core..?> "failureReasons" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "botStatus")
+            Prelude.<$> (x Data..?> "roleArn")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "idleSessionTTLInSeconds")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botName")
+            Prelude.<*> (x Data..?> "dataPrivacy")
+            Prelude.<*> (x Data..?> "failureReasons" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "botStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,28 +130,28 @@ instance Prelude.NFData DescribeBotVersion where
     Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botVersion
 
-instance Core.ToHeaders DescribeBotVersion where
+instance Data.ToHeaders DescribeBotVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeBotVersion where
+instance Data.ToPath DescribeBotVersion where
   toPath DescribeBotVersion' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/"
       ]
 
-instance Core.ToQuery DescribeBotVersion where
+instance Data.ToQuery DescribeBotVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeBotVersionResponse' smart constructor.
@@ -161,7 +162,7 @@ data DescribeBotVersionResponse = DescribeBotVersionResponse'
     -- | The version of the bot to describe.
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the bot version was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The description specified for the bot.
     description :: Prelude.Maybe Prelude.Text,
     -- | The number of seconds that a session with the bot remains active before
@@ -248,7 +249,7 @@ describeBotVersionResponse_botVersion = Lens.lens (\DescribeBotVersionResponse' 
 
 -- | A timestamp of the date and time that the bot version was created.
 describeBotVersionResponse_creationDateTime :: Lens.Lens' DescribeBotVersionResponse (Prelude.Maybe Prelude.UTCTime)
-describeBotVersionResponse_creationDateTime = Lens.lens (\DescribeBotVersionResponse' {creationDateTime} -> creationDateTime) (\s@DescribeBotVersionResponse' {} a -> s {creationDateTime = a} :: DescribeBotVersionResponse) Prelude.. Lens.mapping Core._Time
+describeBotVersionResponse_creationDateTime = Lens.lens (\DescribeBotVersionResponse' {creationDateTime} -> creationDateTime) (\s@DescribeBotVersionResponse' {} a -> s {creationDateTime = a} :: DescribeBotVersionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The description specified for the bot.
 describeBotVersionResponse_description :: Lens.Lens' DescribeBotVersionResponse (Prelude.Maybe Prelude.Text)

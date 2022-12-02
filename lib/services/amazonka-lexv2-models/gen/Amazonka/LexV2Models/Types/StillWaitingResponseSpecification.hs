@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.StillWaitingResponseSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.MessageGroup
 import qualified Amazonka.Prelude as Prelude
 
@@ -106,18 +107,18 @@ stillWaitingResponseSpecification_timeoutInSeconds :: Lens.Lens' StillWaitingRes
 stillWaitingResponseSpecification_timeoutInSeconds = Lens.lens (\StillWaitingResponseSpecification' {timeoutInSeconds} -> timeoutInSeconds) (\s@StillWaitingResponseSpecification' {} a -> s {timeoutInSeconds = a} :: StillWaitingResponseSpecification)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     StillWaitingResponseSpecification
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StillWaitingResponseSpecification"
       ( \x ->
           StillWaitingResponseSpecification'
-            Prelude.<$> (x Core..:? "allowInterrupt")
-            Prelude.<*> (x Core..: "messageGroups")
-            Prelude.<*> (x Core..: "frequencyInSeconds")
-            Prelude.<*> (x Core..: "timeoutInSeconds")
+            Prelude.<$> (x Data..:? "allowInterrupt")
+            Prelude.<*> (x Data..: "messageGroups")
+            Prelude.<*> (x Data..: "frequencyInSeconds")
+            Prelude.<*> (x Data..: "timeoutInSeconds")
       )
 
 instance
@@ -143,18 +144,18 @@ instance
       `Prelude.seq` Prelude.rnf timeoutInSeconds
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     StillWaitingResponseSpecification
   where
   toJSON StillWaitingResponseSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("allowInterrupt" Core..=)
+          [ ("allowInterrupt" Data..=)
               Prelude.<$> allowInterrupt,
-            Prelude.Just ("messageGroups" Core..= messageGroups),
+            Prelude.Just ("messageGroups" Data..= messageGroups),
             Prelude.Just
-              ("frequencyInSeconds" Core..= frequencyInSeconds),
+              ("frequencyInSeconds" Data..= frequencyInSeconds),
             Prelude.Just
-              ("timeoutInSeconds" Core..= timeoutInSeconds)
+              ("timeoutInSeconds" Data..= timeoutInSeconds)
           ]
       )

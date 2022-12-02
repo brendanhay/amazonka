@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.VoiceSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.VoiceEngine
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,14 +81,14 @@ voiceSettings_engine = Lens.lens (\VoiceSettings' {engine} -> engine) (\s@VoiceS
 voiceSettings_voiceId :: Lens.Lens' VoiceSettings Prelude.Text
 voiceSettings_voiceId = Lens.lens (\VoiceSettings' {voiceId} -> voiceId) (\s@VoiceSettings' {} a -> s {voiceId = a} :: VoiceSettings)
 
-instance Core.FromJSON VoiceSettings where
+instance Data.FromJSON VoiceSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VoiceSettings"
       ( \x ->
           VoiceSettings'
-            Prelude.<$> (x Core..:? "engine")
-            Prelude.<*> (x Core..: "voiceId")
+            Prelude.<$> (x Data..:? "engine")
+            Prelude.<*> (x Data..: "voiceId")
       )
 
 instance Prelude.Hashable VoiceSettings where
@@ -100,11 +101,11 @@ instance Prelude.NFData VoiceSettings where
     Prelude.rnf engine
       `Prelude.seq` Prelude.rnf voiceId
 
-instance Core.ToJSON VoiceSettings where
+instance Data.ToJSON VoiceSettings where
   toJSON VoiceSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("engine" Core..=) Prelude.<$> engine,
-            Prelude.Just ("voiceId" Core..= voiceId)
+          [ ("engine" Data..=) Prelude.<$> engine,
+            Prelude.Just ("voiceId" Data..= voiceId)
           ]
       )

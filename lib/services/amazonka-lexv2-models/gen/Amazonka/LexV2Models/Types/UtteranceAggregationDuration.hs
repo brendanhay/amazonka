@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.UtteranceAggregationDuration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.RelativeAggregationDuration
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,13 +59,13 @@ newUtteranceAggregationDuration
 utteranceAggregationDuration_relativeAggregationDuration :: Lens.Lens' UtteranceAggregationDuration RelativeAggregationDuration
 utteranceAggregationDuration_relativeAggregationDuration = Lens.lens (\UtteranceAggregationDuration' {relativeAggregationDuration} -> relativeAggregationDuration) (\s@UtteranceAggregationDuration' {} a -> s {relativeAggregationDuration = a} :: UtteranceAggregationDuration)
 
-instance Core.FromJSON UtteranceAggregationDuration where
+instance Data.FromJSON UtteranceAggregationDuration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UtteranceAggregationDuration"
       ( \x ->
           UtteranceAggregationDuration'
-            Prelude.<$> (x Core..: "relativeAggregationDuration")
+            Prelude.<$> (x Data..: "relativeAggregationDuration")
       )
 
 instance
@@ -79,13 +80,13 @@ instance Prelude.NFData UtteranceAggregationDuration where
   rnf UtteranceAggregationDuration' {..} =
     Prelude.rnf relativeAggregationDuration
 
-instance Core.ToJSON UtteranceAggregationDuration where
+instance Data.ToJSON UtteranceAggregationDuration where
   toJSON UtteranceAggregationDuration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "relativeAggregationDuration"
-                  Core..= relativeAggregationDuration
+                  Data..= relativeAggregationDuration
               )
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.CustomVocabularyItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The unique custom vocabulary item from the custom vocabulary list.
@@ -95,16 +96,16 @@ customVocabularyItem_itemId = Lens.lens (\CustomVocabularyItem' {itemId} -> item
 customVocabularyItem_phrase :: Lens.Lens' CustomVocabularyItem Prelude.Text
 customVocabularyItem_phrase = Lens.lens (\CustomVocabularyItem' {phrase} -> phrase) (\s@CustomVocabularyItem' {} a -> s {phrase = a} :: CustomVocabularyItem)
 
-instance Core.FromJSON CustomVocabularyItem where
+instance Data.FromJSON CustomVocabularyItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomVocabularyItem"
       ( \x ->
           CustomVocabularyItem'
-            Prelude.<$> (x Core..:? "displayAs")
-            Prelude.<*> (x Core..:? "weight")
-            Prelude.<*> (x Core..: "itemId")
-            Prelude.<*> (x Core..: "phrase")
+            Prelude.<$> (x Data..:? "displayAs")
+            Prelude.<*> (x Data..:? "weight")
+            Prelude.<*> (x Data..: "itemId")
+            Prelude.<*> (x Data..: "phrase")
       )
 
 instance Prelude.Hashable CustomVocabularyItem where
@@ -121,13 +122,13 @@ instance Prelude.NFData CustomVocabularyItem where
       `Prelude.seq` Prelude.rnf itemId
       `Prelude.seq` Prelude.rnf phrase
 
-instance Core.ToJSON CustomVocabularyItem where
+instance Data.ToJSON CustomVocabularyItem where
   toJSON CustomVocabularyItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("displayAs" Core..=) Prelude.<$> displayAs,
-            ("weight" Core..=) Prelude.<$> weight,
-            Prelude.Just ("itemId" Core..= itemId),
-            Prelude.Just ("phrase" Core..= phrase)
+          [ ("displayAs" Data..=) Prelude.<$> displayAs,
+            ("weight" Data..=) Prelude.<$> weight,
+            Prelude.Just ("itemId" Data..= itemId),
+            Prelude.Just ("phrase" Data..= phrase)
           ]
       )

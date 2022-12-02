@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -142,32 +143,32 @@ instance Prelude.NFData DeleteIntent where
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf localeId
 
-instance Core.ToHeaders DeleteIntent where
+instance Data.ToHeaders DeleteIntent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteIntent where
+instance Data.ToPath DeleteIntent where
   toPath DeleteIntent' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/",
-        Core.toBS localeId,
+        Data.toBS localeId,
         "/intents/",
-        Core.toBS intentId,
+        Data.toBS intentId,
         "/"
       ]
 
-instance Core.ToQuery DeleteIntent where
+instance Data.ToQuery DeleteIntent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteIntentResponse' smart constructor.

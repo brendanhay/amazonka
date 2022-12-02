@@ -101,6 +101,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -454,25 +455,25 @@ instance Core.AWSRequest CreateIntent where
     Response.receiveJSON
       ( \s h x ->
           CreateIntentResponse'
-            Prelude.<$> (x Core..?> "intentClosingSetting")
-            Prelude.<*> ( x Core..?> "sampleUtterances"
+            Prelude.<$> (x Data..?> "intentClosingSetting")
+            Prelude.<*> ( x Data..?> "sampleUtterances"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "kendraConfiguration")
-            Prelude.<*> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "dialogCodeHook")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> (x Core..?> "outputContexts" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "intentConfirmationSetting")
-            Prelude.<*> (x Core..?> "parentIntentSignature")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "intentId")
-            Prelude.<*> (x Core..?> "intentName")
-            Prelude.<*> (x Core..?> "fulfillmentCodeHook")
-            Prelude.<*> (x Core..?> "initialResponseSetting")
-            Prelude.<*> (x Core..?> "inputContexts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "kendraConfiguration")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "dialogCodeHook")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "outputContexts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "intentConfirmationSetting")
+            Prelude.<*> (x Data..?> "parentIntentSignature")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "intentId")
+            Prelude.<*> (x Data..?> "intentName")
+            Prelude.<*> (x Data..?> "fulfillmentCodeHook")
+            Prelude.<*> (x Data..?> "initialResponseSetting")
+            Prelude.<*> (x Data..?> "inputContexts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -512,58 +513,58 @@ instance Prelude.NFData CreateIntent where
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf localeId
 
-instance Core.ToHeaders CreateIntent where
+instance Data.ToHeaders CreateIntent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateIntent where
+instance Data.ToJSON CreateIntent where
   toJSON CreateIntent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("intentClosingSetting" Core..=)
+          [ ("intentClosingSetting" Data..=)
               Prelude.<$> intentClosingSetting,
-            ("sampleUtterances" Core..=)
+            ("sampleUtterances" Data..=)
               Prelude.<$> sampleUtterances,
-            ("kendraConfiguration" Core..=)
+            ("kendraConfiguration" Data..=)
               Prelude.<$> kendraConfiguration,
-            ("dialogCodeHook" Core..=)
+            ("dialogCodeHook" Data..=)
               Prelude.<$> dialogCodeHook,
-            ("outputContexts" Core..=)
+            ("outputContexts" Data..=)
               Prelude.<$> outputContexts,
-            ("intentConfirmationSetting" Core..=)
+            ("intentConfirmationSetting" Data..=)
               Prelude.<$> intentConfirmationSetting,
-            ("parentIntentSignature" Core..=)
+            ("parentIntentSignature" Data..=)
               Prelude.<$> parentIntentSignature,
-            ("description" Core..=) Prelude.<$> description,
-            ("fulfillmentCodeHook" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("fulfillmentCodeHook" Data..=)
               Prelude.<$> fulfillmentCodeHook,
-            ("initialResponseSetting" Core..=)
+            ("initialResponseSetting" Data..=)
               Prelude.<$> initialResponseSetting,
-            ("inputContexts" Core..=) Prelude.<$> inputContexts,
-            Prelude.Just ("intentName" Core..= intentName)
+            ("inputContexts" Data..=) Prelude.<$> inputContexts,
+            Prelude.Just ("intentName" Data..= intentName)
           ]
       )
 
-instance Core.ToPath CreateIntent where
+instance Data.ToPath CreateIntent where
   toPath CreateIntent' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/",
-        Core.toBS localeId,
+        Data.toBS localeId,
         "/intents/"
       ]
 
-instance Core.ToQuery CreateIntent where
+instance Data.ToQuery CreateIntent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateIntentResponse' smart constructor.
@@ -578,7 +579,7 @@ data CreateIntentResponse = CreateIntentResponse'
     -- | The identifier of the version of the bot associated with the intent.
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the intent was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The dialog Lambda function specified for the intent.
     dialogCodeHook :: Prelude.Maybe DialogCodeHookSettings,
     -- | The locale that the intent is specified to use.
@@ -700,7 +701,7 @@ createIntentResponse_botVersion = Lens.lens (\CreateIntentResponse' {botVersion}
 
 -- | A timestamp of the date and time that the intent was created.
 createIntentResponse_creationDateTime :: Lens.Lens' CreateIntentResponse (Prelude.Maybe Prelude.UTCTime)
-createIntentResponse_creationDateTime = Lens.lens (\CreateIntentResponse' {creationDateTime} -> creationDateTime) (\s@CreateIntentResponse' {} a -> s {creationDateTime = a} :: CreateIntentResponse) Prelude.. Lens.mapping Core._Time
+createIntentResponse_creationDateTime = Lens.lens (\CreateIntentResponse' {creationDateTime} -> creationDateTime) (\s@CreateIntentResponse' {} a -> s {creationDateTime = a} :: CreateIntentResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The dialog Lambda function specified for the intent.
 createIntentResponse_dialogCodeHook :: Lens.Lens' CreateIntentResponse (Prelude.Maybe DialogCodeHookSettings)

@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.SubSlotTypeComposition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Subslot type composition.
@@ -68,14 +69,14 @@ subSlotTypeComposition_name = Lens.lens (\SubSlotTypeComposition' {name} -> name
 subSlotTypeComposition_slotTypeId :: Lens.Lens' SubSlotTypeComposition Prelude.Text
 subSlotTypeComposition_slotTypeId = Lens.lens (\SubSlotTypeComposition' {slotTypeId} -> slotTypeId) (\s@SubSlotTypeComposition' {} a -> s {slotTypeId = a} :: SubSlotTypeComposition)
 
-instance Core.FromJSON SubSlotTypeComposition where
+instance Data.FromJSON SubSlotTypeComposition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SubSlotTypeComposition"
       ( \x ->
           SubSlotTypeComposition'
-            Prelude.<$> (x Core..: "name")
-            Prelude.<*> (x Core..: "slotTypeId")
+            Prelude.<$> (x Data..: "name")
+            Prelude.<*> (x Data..: "slotTypeId")
       )
 
 instance Prelude.Hashable SubSlotTypeComposition where
@@ -88,11 +89,11 @@ instance Prelude.NFData SubSlotTypeComposition where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf slotTypeId
 
-instance Core.ToJSON SubSlotTypeComposition where
+instance Data.ToJSON SubSlotTypeComposition where
   toJSON SubSlotTypeComposition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
-            Prelude.Just ("slotTypeId" Core..= slotTypeId)
+          [ Prelude.Just ("name" Data..= name),
+            Prelude.Just ("slotTypeId" Data..= slotTypeId)
           ]
       )

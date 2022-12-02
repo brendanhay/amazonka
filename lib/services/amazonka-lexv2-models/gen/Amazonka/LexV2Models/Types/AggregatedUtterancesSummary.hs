@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.AggregatedUtterancesSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides summary information for aggregated utterances. The
@@ -32,7 +33,7 @@ data AggregatedUtterancesSummary = AggregatedUtterancesSummary'
   { -- | The last date and time that an utterance was recorded in the time window
     -- for aggregation. An utterance may be sent to Amazon Lex after that time,
     -- but only utterances within the time window are counted.
-    utteranceLastRecordedInAggregationDuration :: Prelude.Maybe Core.POSIX,
+    utteranceLastRecordedInAggregationDuration :: Prelude.Maybe Data.POSIX,
     -- | Aggregated utterance data may contain utterances from versions of your
     -- bot that have since been deleted. When the aggregated contains this kind
     -- of data, this field is set to true.
@@ -45,7 +46,7 @@ data AggregatedUtterancesSummary = AggregatedUtterancesSummary'
     -- window for aggregation. An utterance may have been sent to Amazon Lex
     -- before that time, but only utterances within the time window are
     -- counted.
-    utteranceFirstRecordedInAggregationDuration :: Prelude.Maybe Core.POSIX,
+    utteranceFirstRecordedInAggregationDuration :: Prelude.Maybe Data.POSIX,
     -- | The number of times that the utterance was missed by Amazon Lex An
     -- utterance is missed when it doesn\'t activate an intent or slot.
     missedCount :: Prelude.Maybe Prelude.Int,
@@ -106,7 +107,7 @@ newAggregatedUtterancesSummary =
 -- for aggregation. An utterance may be sent to Amazon Lex after that time,
 -- but only utterances within the time window are counted.
 aggregatedUtterancesSummary_utteranceLastRecordedInAggregationDuration :: Lens.Lens' AggregatedUtterancesSummary (Prelude.Maybe Prelude.UTCTime)
-aggregatedUtterancesSummary_utteranceLastRecordedInAggregationDuration = Lens.lens (\AggregatedUtterancesSummary' {utteranceLastRecordedInAggregationDuration} -> utteranceLastRecordedInAggregationDuration) (\s@AggregatedUtterancesSummary' {} a -> s {utteranceLastRecordedInAggregationDuration = a} :: AggregatedUtterancesSummary) Prelude.. Lens.mapping Core._Time
+aggregatedUtterancesSummary_utteranceLastRecordedInAggregationDuration = Lens.lens (\AggregatedUtterancesSummary' {utteranceLastRecordedInAggregationDuration} -> utteranceLastRecordedInAggregationDuration) (\s@AggregatedUtterancesSummary' {} a -> s {utteranceLastRecordedInAggregationDuration = a} :: AggregatedUtterancesSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Aggregated utterance data may contain utterances from versions of your
 -- bot that have since been deleted. When the aggregated contains this kind
@@ -125,7 +126,7 @@ aggregatedUtterancesSummary_utterance = Lens.lens (\AggregatedUtterancesSummary'
 -- before that time, but only utterances within the time window are
 -- counted.
 aggregatedUtterancesSummary_utteranceFirstRecordedInAggregationDuration :: Lens.Lens' AggregatedUtterancesSummary (Prelude.Maybe Prelude.UTCTime)
-aggregatedUtterancesSummary_utteranceFirstRecordedInAggregationDuration = Lens.lens (\AggregatedUtterancesSummary' {utteranceFirstRecordedInAggregationDuration} -> utteranceFirstRecordedInAggregationDuration) (\s@AggregatedUtterancesSummary' {} a -> s {utteranceFirstRecordedInAggregationDuration = a} :: AggregatedUtterancesSummary) Prelude.. Lens.mapping Core._Time
+aggregatedUtterancesSummary_utteranceFirstRecordedInAggregationDuration = Lens.lens (\AggregatedUtterancesSummary' {utteranceFirstRecordedInAggregationDuration} -> utteranceFirstRecordedInAggregationDuration) (\s@AggregatedUtterancesSummary' {} a -> s {utteranceFirstRecordedInAggregationDuration = a} :: AggregatedUtterancesSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The number of times that the utterance was missed by Amazon Lex An
 -- utterance is missed when it doesn\'t activate an intent or slot.
@@ -138,22 +139,22 @@ aggregatedUtterancesSummary_missedCount = Lens.lens (\AggregatedUtterancesSummar
 aggregatedUtterancesSummary_hitCount :: Lens.Lens' AggregatedUtterancesSummary (Prelude.Maybe Prelude.Int)
 aggregatedUtterancesSummary_hitCount = Lens.lens (\AggregatedUtterancesSummary' {hitCount} -> hitCount) (\s@AggregatedUtterancesSummary' {} a -> s {hitCount = a} :: AggregatedUtterancesSummary)
 
-instance Core.FromJSON AggregatedUtterancesSummary where
+instance Data.FromJSON AggregatedUtterancesSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AggregatedUtterancesSummary"
       ( \x ->
           AggregatedUtterancesSummary'
             Prelude.<$> ( x
-                            Core..:? "utteranceLastRecordedInAggregationDuration"
+                            Data..:? "utteranceLastRecordedInAggregationDuration"
                         )
-            Prelude.<*> (x Core..:? "containsDataFromDeletedResources")
-            Prelude.<*> (x Core..:? "utterance")
+            Prelude.<*> (x Data..:? "containsDataFromDeletedResources")
+            Prelude.<*> (x Data..:? "utterance")
             Prelude.<*> ( x
-                            Core..:? "utteranceFirstRecordedInAggregationDuration"
+                            Data..:? "utteranceFirstRecordedInAggregationDuration"
                         )
-            Prelude.<*> (x Core..:? "missedCount")
-            Prelude.<*> (x Core..:? "hitCount")
+            Prelude.<*> (x Data..:? "missedCount")
+            Prelude.<*> (x Data..:? "hitCount")
       )
 
 instance Prelude.Hashable AggregatedUtterancesSummary where

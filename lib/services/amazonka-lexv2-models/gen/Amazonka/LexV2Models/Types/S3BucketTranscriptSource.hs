@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.S3BucketTranscriptSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.PathFormat
 import Amazonka.LexV2Models.Types.TranscriptFilter
 import Amazonka.LexV2Models.Types.TranscriptFormat
@@ -129,17 +130,17 @@ s3BucketTranscriptSource_s3BucketName = Lens.lens (\S3BucketTranscriptSource' {s
 s3BucketTranscriptSource_transcriptFormat :: Lens.Lens' S3BucketTranscriptSource TranscriptFormat
 s3BucketTranscriptSource_transcriptFormat = Lens.lens (\S3BucketTranscriptSource' {transcriptFormat} -> transcriptFormat) (\s@S3BucketTranscriptSource' {} a -> s {transcriptFormat = a} :: S3BucketTranscriptSource)
 
-instance Core.FromJSON S3BucketTranscriptSource where
+instance Data.FromJSON S3BucketTranscriptSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3BucketTranscriptSource"
       ( \x ->
           S3BucketTranscriptSource'
-            Prelude.<$> (x Core..:? "transcriptFilter")
-            Prelude.<*> (x Core..:? "kmsKeyArn")
-            Prelude.<*> (x Core..:? "pathFormat")
-            Prelude.<*> (x Core..: "s3BucketName")
-            Prelude.<*> (x Core..: "transcriptFormat")
+            Prelude.<$> (x Data..:? "transcriptFilter")
+            Prelude.<*> (x Data..:? "kmsKeyArn")
+            Prelude.<*> (x Data..:? "pathFormat")
+            Prelude.<*> (x Data..: "s3BucketName")
+            Prelude.<*> (x Data..: "transcriptFormat")
       )
 
 instance Prelude.Hashable S3BucketTranscriptSource where
@@ -158,16 +159,16 @@ instance Prelude.NFData S3BucketTranscriptSource where
       `Prelude.seq` Prelude.rnf s3BucketName
       `Prelude.seq` Prelude.rnf transcriptFormat
 
-instance Core.ToJSON S3BucketTranscriptSource where
+instance Data.ToJSON S3BucketTranscriptSource where
   toJSON S3BucketTranscriptSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("transcriptFilter" Core..=)
+          [ ("transcriptFilter" Data..=)
               Prelude.<$> transcriptFilter,
-            ("kmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            ("pathFormat" Core..=) Prelude.<$> pathFormat,
-            Prelude.Just ("s3BucketName" Core..= s3BucketName),
+            ("kmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            ("pathFormat" Data..=) Prelude.<$> pathFormat,
+            Prelude.Just ("s3BucketName" Data..= s3BucketName),
             Prelude.Just
-              ("transcriptFormat" Core..= transcriptFormat)
+              ("transcriptFormat" Data..= transcriptFormat)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.IntentClosingSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.ConditionalSpecification
 import Amazonka.LexV2Models.Types.DialogState
 import Amazonka.LexV2Models.Types.ResponseSpecification
@@ -101,16 +102,16 @@ intentClosingSetting_nextStep = Lens.lens (\IntentClosingSetting' {nextStep} -> 
 intentClosingSetting_conditional :: Lens.Lens' IntentClosingSetting (Prelude.Maybe ConditionalSpecification)
 intentClosingSetting_conditional = Lens.lens (\IntentClosingSetting' {conditional} -> conditional) (\s@IntentClosingSetting' {} a -> s {conditional = a} :: IntentClosingSetting)
 
-instance Core.FromJSON IntentClosingSetting where
+instance Data.FromJSON IntentClosingSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IntentClosingSetting"
       ( \x ->
           IntentClosingSetting'
-            Prelude.<$> (x Core..:? "active")
-            Prelude.<*> (x Core..:? "closingResponse")
-            Prelude.<*> (x Core..:? "nextStep")
-            Prelude.<*> (x Core..:? "conditional")
+            Prelude.<$> (x Data..:? "active")
+            Prelude.<*> (x Data..:? "closingResponse")
+            Prelude.<*> (x Data..:? "nextStep")
+            Prelude.<*> (x Data..:? "conditional")
       )
 
 instance Prelude.Hashable IntentClosingSetting where
@@ -127,14 +128,14 @@ instance Prelude.NFData IntentClosingSetting where
       `Prelude.seq` Prelude.rnf nextStep
       `Prelude.seq` Prelude.rnf conditional
 
-instance Core.ToJSON IntentClosingSetting where
+instance Data.ToJSON IntentClosingSetting where
   toJSON IntentClosingSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("active" Core..=) Prelude.<$> active,
-            ("closingResponse" Core..=)
+          [ ("active" Data..=) Prelude.<$> active,
+            ("closingResponse" Data..=)
               Prelude.<$> closingResponse,
-            ("nextStep" Core..=) Prelude.<$> nextStep,
-            ("conditional" Core..=) Prelude.<$> conditional
+            ("nextStep" Data..=) Prelude.<$> nextStep,
+            ("conditional" Data..=) Prelude.<$> conditional
           ]
       )

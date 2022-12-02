@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -69,8 +70,8 @@ instance Core.AWSRequest CreateUploadUrl where
     Response.receiveJSON
       ( \s h x ->
           CreateUploadUrlResponse'
-            Prelude.<$> (x Core..?> "uploadUrl")
-            Prelude.<*> (x Core..?> "importId")
+            Prelude.<$> (x Data..?> "uploadUrl")
+            Prelude.<*> (x Data..?> "importId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -81,24 +82,24 @@ instance Prelude.Hashable CreateUploadUrl where
 instance Prelude.NFData CreateUploadUrl where
   rnf _ = ()
 
-instance Core.ToHeaders CreateUploadUrl where
+instance Data.ToHeaders CreateUploadUrl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateUploadUrl where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON CreateUploadUrl where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath CreateUploadUrl where
+instance Data.ToPath CreateUploadUrl where
   toPath = Prelude.const "/createuploadurl/"
 
-instance Core.ToQuery CreateUploadUrl where
+instance Data.ToQuery CreateUploadUrl where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateUploadUrlResponse' smart constructor.

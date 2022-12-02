@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.SlotTypeValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.SampleValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ slotTypeValue_sampleValue = Lens.lens (\SlotTypeValue' {sampleValue} -> sampleVa
 slotTypeValue_synonyms :: Lens.Lens' SlotTypeValue (Prelude.Maybe (Prelude.NonEmpty SampleValue))
 slotTypeValue_synonyms = Lens.lens (\SlotTypeValue' {synonyms} -> synonyms) (\s@SlotTypeValue' {} a -> s {synonyms = a} :: SlotTypeValue) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SlotTypeValue where
+instance Data.FromJSON SlotTypeValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SlotTypeValue"
       ( \x ->
           SlotTypeValue'
-            Prelude.<$> (x Core..:? "sampleValue")
-            Prelude.<*> (x Core..:? "synonyms")
+            Prelude.<$> (x Data..:? "sampleValue")
+            Prelude.<*> (x Data..:? "synonyms")
       )
 
 instance Prelude.Hashable SlotTypeValue where
@@ -83,11 +84,11 @@ instance Prelude.NFData SlotTypeValue where
     Prelude.rnf sampleValue
       `Prelude.seq` Prelude.rnf synonyms
 
-instance Core.ToJSON SlotTypeValue where
+instance Data.ToJSON SlotTypeValue where
   toJSON SlotTypeValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sampleValue" Core..=) Prelude.<$> sampleValue,
-            ("synonyms" Core..=) Prelude.<$> synonyms
+          [ ("sampleValue" Data..=) Prelude.<$> sampleValue,
+            ("synonyms" Data..=) Prelude.<$> synonyms
           ]
       )

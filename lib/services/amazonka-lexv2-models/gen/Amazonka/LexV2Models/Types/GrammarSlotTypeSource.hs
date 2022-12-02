@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.GrammarSlotTypeSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the Amazon S3 bucket name and location for the grammar that is
@@ -78,15 +79,15 @@ grammarSlotTypeSource_s3BucketName = Lens.lens (\GrammarSlotTypeSource' {s3Bucke
 grammarSlotTypeSource_s3ObjectKey :: Lens.Lens' GrammarSlotTypeSource Prelude.Text
 grammarSlotTypeSource_s3ObjectKey = Lens.lens (\GrammarSlotTypeSource' {s3ObjectKey} -> s3ObjectKey) (\s@GrammarSlotTypeSource' {} a -> s {s3ObjectKey = a} :: GrammarSlotTypeSource)
 
-instance Core.FromJSON GrammarSlotTypeSource where
+instance Data.FromJSON GrammarSlotTypeSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GrammarSlotTypeSource"
       ( \x ->
           GrammarSlotTypeSource'
-            Prelude.<$> (x Core..:? "kmsKeyArn")
-            Prelude.<*> (x Core..: "s3BucketName")
-            Prelude.<*> (x Core..: "s3ObjectKey")
+            Prelude.<$> (x Data..:? "kmsKeyArn")
+            Prelude.<*> (x Data..: "s3BucketName")
+            Prelude.<*> (x Data..: "s3ObjectKey")
       )
 
 instance Prelude.Hashable GrammarSlotTypeSource where
@@ -101,12 +102,12 @@ instance Prelude.NFData GrammarSlotTypeSource where
       `Prelude.seq` Prelude.rnf s3BucketName
       `Prelude.seq` Prelude.rnf s3ObjectKey
 
-instance Core.ToJSON GrammarSlotTypeSource where
+instance Data.ToJSON GrammarSlotTypeSource where
   toJSON GrammarSlotTypeSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("kmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            Prelude.Just ("s3BucketName" Core..= s3BucketName),
-            Prelude.Just ("s3ObjectKey" Core..= s3ObjectKey)
+          [ ("kmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            Prelude.Just ("s3BucketName" Data..= s3BucketName),
+            Prelude.Just ("s3ObjectKey" Data..= s3ObjectKey)
           ]
       )

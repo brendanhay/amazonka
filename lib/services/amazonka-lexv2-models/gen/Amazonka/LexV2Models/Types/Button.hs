@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.Button where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a button to use on a response card used to gather slot values
@@ -69,13 +70,13 @@ button_text = Lens.lens (\Button' {text} -> text) (\s@Button' {} a -> s {text = 
 button_value :: Lens.Lens' Button Prelude.Text
 button_value = Lens.lens (\Button' {value} -> value) (\s@Button' {} a -> s {value = a} :: Button)
 
-instance Core.FromJSON Button where
+instance Data.FromJSON Button where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Button"
       ( \x ->
           Button'
-            Prelude.<$> (x Core..: "text") Prelude.<*> (x Core..: "value")
+            Prelude.<$> (x Data..: "text") Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable Button where
@@ -87,11 +88,11 @@ instance Prelude.NFData Button where
   rnf Button' {..} =
     Prelude.rnf text `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON Button where
+instance Data.ToJSON Button where
   toJSON Button' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("text" Core..= text),
-            Prelude.Just ("value" Core..= value)
+          [ Prelude.Just ("text" Data..= text),
+            Prelude.Just ("value" Data..= value)
           ]
       )

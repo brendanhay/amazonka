@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.PathFormat where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The object that contains a path format that will be applied when Amazon
@@ -59,13 +60,13 @@ newPathFormat =
 pathFormat_objectPrefixes :: Lens.Lens' PathFormat (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 pathFormat_objectPrefixes = Lens.lens (\PathFormat' {objectPrefixes} -> objectPrefixes) (\s@PathFormat' {} a -> s {objectPrefixes = a} :: PathFormat) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PathFormat where
+instance Data.FromJSON PathFormat where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PathFormat"
       ( \x ->
           PathFormat'
-            Prelude.<$> (x Core..:? "objectPrefixes")
+            Prelude.<$> (x Data..:? "objectPrefixes")
       )
 
 instance Prelude.Hashable PathFormat where
@@ -75,11 +76,11 @@ instance Prelude.Hashable PathFormat where
 instance Prelude.NFData PathFormat where
   rnf PathFormat' {..} = Prelude.rnf objectPrefixes
 
-instance Core.ToJSON PathFormat where
+instance Data.ToJSON PathFormat where
   toJSON PathFormat' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("objectPrefixes" Core..=)
+          [ ("objectPrefixes" Data..=)
               Prelude.<$> objectPrefixes
           ]
       )

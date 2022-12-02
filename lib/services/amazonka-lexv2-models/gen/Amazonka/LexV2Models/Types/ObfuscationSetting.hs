@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.ObfuscationSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.ObfuscationSettingType
 import qualified Amazonka.Prelude as Prelude
 
@@ -59,13 +60,13 @@ newObfuscationSetting pObfuscationSettingType_ =
 obfuscationSetting_obfuscationSettingType :: Lens.Lens' ObfuscationSetting ObfuscationSettingType
 obfuscationSetting_obfuscationSettingType = Lens.lens (\ObfuscationSetting' {obfuscationSettingType} -> obfuscationSettingType) (\s@ObfuscationSetting' {} a -> s {obfuscationSettingType = a} :: ObfuscationSetting)
 
-instance Core.FromJSON ObfuscationSetting where
+instance Data.FromJSON ObfuscationSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ObfuscationSetting"
       ( \x ->
           ObfuscationSetting'
-            Prelude.<$> (x Core..: "obfuscationSettingType")
+            Prelude.<$> (x Data..: "obfuscationSettingType")
       )
 
 instance Prelude.Hashable ObfuscationSetting where
@@ -76,13 +77,13 @@ instance Prelude.NFData ObfuscationSetting where
   rnf ObfuscationSetting' {..} =
     Prelude.rnf obfuscationSettingType
 
-instance Core.ToJSON ObfuscationSetting where
+instance Data.ToJSON ObfuscationSetting where
   toJSON ObfuscationSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "obfuscationSettingType"
-                  Core..= obfuscationSettingType
+                  Data..= obfuscationSettingType
               )
           ]
       )

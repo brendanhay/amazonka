@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.SlotValueElicitationSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.PromptSpecification
 import Amazonka.LexV2Models.Types.SampleUtterance
 import Amazonka.LexV2Models.Types.SlotCaptureSetting
@@ -124,20 +125,20 @@ slotValueElicitationSetting_slotCaptureSetting = Lens.lens (\SlotValueElicitatio
 slotValueElicitationSetting_slotConstraint :: Lens.Lens' SlotValueElicitationSetting SlotConstraint
 slotValueElicitationSetting_slotConstraint = Lens.lens (\SlotValueElicitationSetting' {slotConstraint} -> slotConstraint) (\s@SlotValueElicitationSetting' {} a -> s {slotConstraint = a} :: SlotValueElicitationSetting)
 
-instance Core.FromJSON SlotValueElicitationSetting where
+instance Data.FromJSON SlotValueElicitationSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SlotValueElicitationSetting"
       ( \x ->
           SlotValueElicitationSetting'
-            Prelude.<$> ( x Core..:? "sampleUtterances"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "sampleUtterances"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "waitAndContinueSpecification")
-            Prelude.<*> (x Core..:? "promptSpecification")
-            Prelude.<*> (x Core..:? "defaultValueSpecification")
-            Prelude.<*> (x Core..:? "slotCaptureSetting")
-            Prelude.<*> (x Core..: "slotConstraint")
+            Prelude.<*> (x Data..:? "waitAndContinueSpecification")
+            Prelude.<*> (x Data..:? "promptSpecification")
+            Prelude.<*> (x Data..:? "defaultValueSpecification")
+            Prelude.<*> (x Data..:? "slotCaptureSetting")
+            Prelude.<*> (x Data..: "slotConstraint")
       )
 
 instance Prelude.Hashable SlotValueElicitationSetting where
@@ -158,21 +159,21 @@ instance Prelude.NFData SlotValueElicitationSetting where
       `Prelude.seq` Prelude.rnf slotCaptureSetting
       `Prelude.seq` Prelude.rnf slotConstraint
 
-instance Core.ToJSON SlotValueElicitationSetting where
+instance Data.ToJSON SlotValueElicitationSetting where
   toJSON SlotValueElicitationSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sampleUtterances" Core..=)
+          [ ("sampleUtterances" Data..=)
               Prelude.<$> sampleUtterances,
-            ("waitAndContinueSpecification" Core..=)
+            ("waitAndContinueSpecification" Data..=)
               Prelude.<$> waitAndContinueSpecification,
-            ("promptSpecification" Core..=)
+            ("promptSpecification" Data..=)
               Prelude.<$> promptSpecification,
-            ("defaultValueSpecification" Core..=)
+            ("defaultValueSpecification" Data..=)
               Prelude.<$> defaultValueSpecification,
-            ("slotCaptureSetting" Core..=)
+            ("slotCaptureSetting" Data..=)
               Prelude.<$> slotCaptureSetting,
             Prelude.Just
-              ("slotConstraint" Core..= slotConstraint)
+              ("slotConstraint" Data..= slotConstraint)
           ]
       )

@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -269,19 +270,19 @@ instance Core.AWSRequest CreateSlot where
     Response.receiveJSON
       ( \s h x ->
           CreateSlotResponse'
-            Prelude.<$> (x Core..?> "multipleValuesSetting")
-            Prelude.<*> (x Core..?> "slotName")
-            Prelude.<*> (x Core..?> "valueElicitationSetting")
-            Prelude.<*> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "intentId")
-            Prelude.<*> (x Core..?> "slotId")
-            Prelude.<*> (x Core..?> "obfuscationSetting")
-            Prelude.<*> (x Core..?> "subSlotSetting")
-            Prelude.<*> (x Core..?> "slotTypeId")
+            Prelude.<$> (x Data..?> "multipleValuesSetting")
+            Prelude.<*> (x Data..?> "slotName")
+            Prelude.<*> (x Data..?> "valueElicitationSetting")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "intentId")
+            Prelude.<*> (x Data..?> "slotId")
+            Prelude.<*> (x Data..?> "obfuscationSetting")
+            Prelude.<*> (x Data..?> "subSlotSetting")
+            Prelude.<*> (x Data..?> "slotTypeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -313,52 +314,52 @@ instance Prelude.NFData CreateSlot where
       `Prelude.seq` Prelude.rnf localeId
       `Prelude.seq` Prelude.rnf intentId
 
-instance Core.ToHeaders CreateSlot where
+instance Data.ToHeaders CreateSlot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSlot where
+instance Data.ToJSON CreateSlot where
   toJSON CreateSlot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("multipleValuesSetting" Core..=)
+          [ ("multipleValuesSetting" Data..=)
               Prelude.<$> multipleValuesSetting,
-            ("description" Core..=) Prelude.<$> description,
-            ("obfuscationSetting" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("obfuscationSetting" Data..=)
               Prelude.<$> obfuscationSetting,
-            ("subSlotSetting" Core..=)
+            ("subSlotSetting" Data..=)
               Prelude.<$> subSlotSetting,
-            ("slotTypeId" Core..=) Prelude.<$> slotTypeId,
-            Prelude.Just ("slotName" Core..= slotName),
+            ("slotTypeId" Data..=) Prelude.<$> slotTypeId,
+            Prelude.Just ("slotName" Data..= slotName),
             Prelude.Just
               ( "valueElicitationSetting"
-                  Core..= valueElicitationSetting
+                  Data..= valueElicitationSetting
               )
           ]
       )
 
-instance Core.ToPath CreateSlot where
+instance Data.ToPath CreateSlot where
   toPath CreateSlot' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/",
-        Core.toBS localeId,
+        Data.toBS localeId,
         "/intents/",
-        Core.toBS intentId,
+        Data.toBS intentId,
         "/slots/"
       ]
 
-instance Core.ToQuery CreateSlot where
+instance Data.ToQuery CreateSlot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSlotResponse' smart constructor.
@@ -372,7 +373,7 @@ data CreateSlotResponse = CreateSlotResponse'
     -- | The version of the bot associated with the slot.
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of the date and time that the slot was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The language and local specified for the slot.
     localeId :: Prelude.Maybe Prelude.Text,
     -- | The description associated with the slot.
@@ -476,7 +477,7 @@ createSlotResponse_botVersion = Lens.lens (\CreateSlotResponse' {botVersion} -> 
 
 -- | The timestamp of the date and time that the slot was created.
 createSlotResponse_creationDateTime :: Lens.Lens' CreateSlotResponse (Prelude.Maybe Prelude.UTCTime)
-createSlotResponse_creationDateTime = Lens.lens (\CreateSlotResponse' {creationDateTime} -> creationDateTime) (\s@CreateSlotResponse' {} a -> s {creationDateTime = a} :: CreateSlotResponse) Prelude.. Lens.mapping Core._Time
+createSlotResponse_creationDateTime = Lens.lens (\CreateSlotResponse' {creationDateTime} -> creationDateTime) (\s@CreateSlotResponse' {} a -> s {creationDateTime = a} :: CreateSlotResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The language and local specified for the slot.
 createSlotResponse_localeId :: Lens.Lens' CreateSlotResponse (Prelude.Maybe Prelude.Text)

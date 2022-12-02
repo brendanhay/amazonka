@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.RecommendedIntentSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains a summary of a recommended intent.
@@ -77,15 +78,15 @@ recommendedIntentSummary_intentId = Lens.lens (\RecommendedIntentSummary' {inten
 recommendedIntentSummary_intentName :: Lens.Lens' RecommendedIntentSummary (Prelude.Maybe Prelude.Text)
 recommendedIntentSummary_intentName = Lens.lens (\RecommendedIntentSummary' {intentName} -> intentName) (\s@RecommendedIntentSummary' {} a -> s {intentName = a} :: RecommendedIntentSummary)
 
-instance Core.FromJSON RecommendedIntentSummary where
+instance Data.FromJSON RecommendedIntentSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendedIntentSummary"
       ( \x ->
           RecommendedIntentSummary'
-            Prelude.<$> (x Core..:? "sampleUtterancesCount")
-            Prelude.<*> (x Core..:? "intentId")
-            Prelude.<*> (x Core..:? "intentName")
+            Prelude.<$> (x Data..:? "sampleUtterancesCount")
+            Prelude.<*> (x Data..:? "intentId")
+            Prelude.<*> (x Data..:? "intentName")
       )
 
 instance Prelude.Hashable RecommendedIntentSummary where

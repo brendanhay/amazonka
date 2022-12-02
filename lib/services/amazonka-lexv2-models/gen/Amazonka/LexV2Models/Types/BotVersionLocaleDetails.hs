@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.BotVersionLocaleDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The version of a bot used for a bot locale.
@@ -55,13 +56,13 @@ newBotVersionLocaleDetails pSourceBotVersion_ =
 botVersionLocaleDetails_sourceBotVersion :: Lens.Lens' BotVersionLocaleDetails Prelude.Text
 botVersionLocaleDetails_sourceBotVersion = Lens.lens (\BotVersionLocaleDetails' {sourceBotVersion} -> sourceBotVersion) (\s@BotVersionLocaleDetails' {} a -> s {sourceBotVersion = a} :: BotVersionLocaleDetails)
 
-instance Core.FromJSON BotVersionLocaleDetails where
+instance Data.FromJSON BotVersionLocaleDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BotVersionLocaleDetails"
       ( \x ->
           BotVersionLocaleDetails'
-            Prelude.<$> (x Core..: "sourceBotVersion")
+            Prelude.<$> (x Data..: "sourceBotVersion")
       )
 
 instance Prelude.Hashable BotVersionLocaleDetails where
@@ -72,11 +73,11 @@ instance Prelude.NFData BotVersionLocaleDetails where
   rnf BotVersionLocaleDetails' {..} =
     Prelude.rnf sourceBotVersion
 
-instance Core.ToJSON BotVersionLocaleDetails where
+instance Data.ToJSON BotVersionLocaleDetails where
   toJSON BotVersionLocaleDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("sourceBotVersion" Core..= sourceBotVersion)
+              ("sourceBotVersion" Data..= sourceBotVersion)
           ]
       )

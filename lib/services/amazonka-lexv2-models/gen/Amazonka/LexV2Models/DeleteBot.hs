@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,8 +108,8 @@ instance Core.AWSRequest DeleteBot where
     Response.receiveJSON
       ( \s h x ->
           DeleteBotResponse'
-            Prelude.<$> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "botStatus")
+            Prelude.<$> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,26 +123,26 @@ instance Prelude.NFData DeleteBot where
     Prelude.rnf skipResourceInUseCheck
       `Prelude.seq` Prelude.rnf botId
 
-instance Core.ToHeaders DeleteBot where
+instance Data.ToHeaders DeleteBot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteBot where
+instance Data.ToPath DeleteBot where
   toPath DeleteBot' {..} =
-    Prelude.mconcat ["/bots/", Core.toBS botId, "/"]
+    Prelude.mconcat ["/bots/", Data.toBS botId, "/"]
 
-instance Core.ToQuery DeleteBot where
+instance Data.ToQuery DeleteBot where
   toQuery DeleteBot' {..} =
     Prelude.mconcat
       [ "skipResourceInUseCheck"
-          Core.=: skipResourceInUseCheck
+          Data.=: skipResourceInUseCheck
       ]
 
 -- | /See:/ 'newDeleteBotResponse' smart constructor.

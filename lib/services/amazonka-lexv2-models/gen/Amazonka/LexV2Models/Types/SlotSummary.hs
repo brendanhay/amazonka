@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.SlotSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.PromptSpecification
 import Amazonka.LexV2Models.Types.SlotConstraint
 import qualified Amazonka.Prelude as Prelude
@@ -45,7 +46,7 @@ data SlotSummary = SlotSummary'
     -- slot.
     slotTypeId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of the last date and time that the slot was updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -114,21 +115,21 @@ slotSummary_slotTypeId = Lens.lens (\SlotSummary' {slotTypeId} -> slotTypeId) (\
 
 -- | The timestamp of the last date and time that the slot was updated.
 slotSummary_lastUpdatedDateTime :: Lens.Lens' SlotSummary (Prelude.Maybe Prelude.UTCTime)
-slotSummary_lastUpdatedDateTime = Lens.lens (\SlotSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@SlotSummary' {} a -> s {lastUpdatedDateTime = a} :: SlotSummary) Prelude.. Lens.mapping Core._Time
+slotSummary_lastUpdatedDateTime = Lens.lens (\SlotSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@SlotSummary' {} a -> s {lastUpdatedDateTime = a} :: SlotSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON SlotSummary where
+instance Data.FromJSON SlotSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SlotSummary"
       ( \x ->
           SlotSummary'
-            Prelude.<$> (x Core..:? "slotName")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "slotConstraint")
-            Prelude.<*> (x Core..:? "slotId")
-            Prelude.<*> (x Core..:? "valueElicitationPromptSpecification")
-            Prelude.<*> (x Core..:? "slotTypeId")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
+            Prelude.<$> (x Data..:? "slotName")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "slotConstraint")
+            Prelude.<*> (x Data..:? "slotId")
+            Prelude.<*> (x Data..:? "valueElicitationPromptSpecification")
+            Prelude.<*> (x Data..:? "slotTypeId")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
       )
 
 instance Prelude.Hashable SlotSummary where

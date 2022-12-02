@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,11 +142,11 @@ instance Core.AWSRequest StopBotRecommendation where
     Response.receiveJSON
       ( \s h x ->
           StopBotRecommendationResponse'
-            Prelude.<$> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> (x Core..?> "botRecommendationId")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "botRecommendationStatus")
+            Prelude.<$> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "botRecommendationId")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botRecommendationStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,35 +164,35 @@ instance Prelude.NFData StopBotRecommendation where
       `Prelude.seq` Prelude.rnf localeId
       `Prelude.seq` Prelude.rnf botRecommendationId
 
-instance Core.ToHeaders StopBotRecommendation where
+instance Data.ToHeaders StopBotRecommendation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopBotRecommendation where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON StopBotRecommendation where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath StopBotRecommendation where
+instance Data.ToPath StopBotRecommendation where
   toPath StopBotRecommendation' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/",
-        Core.toBS localeId,
+        Data.toBS localeId,
         "/botrecommendations/",
-        Core.toBS botRecommendationId,
+        Data.toBS botRecommendationId,
         "/stopbotrecommendation"
       ]
 
-instance Core.ToQuery StopBotRecommendation where
+instance Data.ToQuery StopBotRecommendation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopBotRecommendationResponse' smart constructor.

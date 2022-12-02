@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.BotLocaleExportSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the bot locale parameters required for exporting a bot locale.
@@ -82,15 +83,15 @@ botLocaleExportSpecification_botVersion = Lens.lens (\BotLocaleExportSpecificati
 botLocaleExportSpecification_localeId :: Lens.Lens' BotLocaleExportSpecification Prelude.Text
 botLocaleExportSpecification_localeId = Lens.lens (\BotLocaleExportSpecification' {localeId} -> localeId) (\s@BotLocaleExportSpecification' {} a -> s {localeId = a} :: BotLocaleExportSpecification)
 
-instance Core.FromJSON BotLocaleExportSpecification where
+instance Data.FromJSON BotLocaleExportSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BotLocaleExportSpecification"
       ( \x ->
           BotLocaleExportSpecification'
-            Prelude.<$> (x Core..: "botId")
-            Prelude.<*> (x Core..: "botVersion")
-            Prelude.<*> (x Core..: "localeId")
+            Prelude.<$> (x Data..: "botId")
+            Prelude.<*> (x Data..: "botVersion")
+            Prelude.<*> (x Data..: "localeId")
       )
 
 instance
@@ -108,12 +109,12 @@ instance Prelude.NFData BotLocaleExportSpecification where
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf localeId
 
-instance Core.ToJSON BotLocaleExportSpecification where
+instance Data.ToJSON BotLocaleExportSpecification where
   toJSON BotLocaleExportSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("botId" Core..= botId),
-            Prelude.Just ("botVersion" Core..= botVersion),
-            Prelude.Just ("localeId" Core..= localeId)
+          [ Prelude.Just ("botId" Data..= botId),
+            Prelude.Just ("botVersion" Data..= botVersion),
+            Prelude.Just ("localeId" Data..= localeId)
           ]
       )

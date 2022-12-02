@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.LambdaCodeHook where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a Lambda function that verifies requests to a bot or fulfills
@@ -72,14 +73,14 @@ lambdaCodeHook_lambdaARN = Lens.lens (\LambdaCodeHook' {lambdaARN} -> lambdaARN)
 lambdaCodeHook_codeHookInterfaceVersion :: Lens.Lens' LambdaCodeHook Prelude.Text
 lambdaCodeHook_codeHookInterfaceVersion = Lens.lens (\LambdaCodeHook' {codeHookInterfaceVersion} -> codeHookInterfaceVersion) (\s@LambdaCodeHook' {} a -> s {codeHookInterfaceVersion = a} :: LambdaCodeHook)
 
-instance Core.FromJSON LambdaCodeHook where
+instance Data.FromJSON LambdaCodeHook where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaCodeHook"
       ( \x ->
           LambdaCodeHook'
-            Prelude.<$> (x Core..: "lambdaARN")
-            Prelude.<*> (x Core..: "codeHookInterfaceVersion")
+            Prelude.<$> (x Data..: "lambdaARN")
+            Prelude.<*> (x Data..: "codeHookInterfaceVersion")
       )
 
 instance Prelude.Hashable LambdaCodeHook where
@@ -92,14 +93,14 @@ instance Prelude.NFData LambdaCodeHook where
     Prelude.rnf lambdaARN
       `Prelude.seq` Prelude.rnf codeHookInterfaceVersion
 
-instance Core.ToJSON LambdaCodeHook where
+instance Data.ToJSON LambdaCodeHook where
   toJSON LambdaCodeHook' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("lambdaARN" Core..= lambdaARN),
+          [ Prelude.Just ("lambdaARN" Data..= lambdaARN),
             Prelude.Just
               ( "codeHookInterfaceVersion"
-                  Core..= codeHookInterfaceVersion
+                  Data..= codeHookInterfaceVersion
               )
           ]
       )

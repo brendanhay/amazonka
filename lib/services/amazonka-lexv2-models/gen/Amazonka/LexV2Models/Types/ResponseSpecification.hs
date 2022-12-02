@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.ResponseSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.MessageGroup
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,14 +73,14 @@ responseSpecification_allowInterrupt = Lens.lens (\ResponseSpecification' {allow
 responseSpecification_messageGroups :: Lens.Lens' ResponseSpecification (Prelude.NonEmpty MessageGroup)
 responseSpecification_messageGroups = Lens.lens (\ResponseSpecification' {messageGroups} -> messageGroups) (\s@ResponseSpecification' {} a -> s {messageGroups = a} :: ResponseSpecification) Prelude.. Lens.coerced
 
-instance Core.FromJSON ResponseSpecification where
+instance Data.FromJSON ResponseSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResponseSpecification"
       ( \x ->
           ResponseSpecification'
-            Prelude.<$> (x Core..:? "allowInterrupt")
-            Prelude.<*> (x Core..: "messageGroups")
+            Prelude.<$> (x Data..:? "allowInterrupt")
+            Prelude.<*> (x Data..: "messageGroups")
       )
 
 instance Prelude.Hashable ResponseSpecification where
@@ -92,13 +93,13 @@ instance Prelude.NFData ResponseSpecification where
     Prelude.rnf allowInterrupt
       `Prelude.seq` Prelude.rnf messageGroups
 
-instance Core.ToJSON ResponseSpecification where
+instance Data.ToJSON ResponseSpecification where
   toJSON ResponseSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("allowInterrupt" Core..=)
+          [ ("allowInterrupt" Data..=)
               Prelude.<$> allowInterrupt,
             Prelude.Just
-              ("messageGroups" Core..= messageGroups)
+              ("messageGroups" Data..= messageGroups)
           ]
       )

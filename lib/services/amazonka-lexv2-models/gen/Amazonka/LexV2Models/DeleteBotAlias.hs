@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,9 +114,9 @@ instance Core.AWSRequest DeleteBotAlias where
     Response.receiveJSON
       ( \s h x ->
           DeleteBotAliasResponse'
-            Prelude.<$> (x Core..?> "botAliasStatus")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "botAliasId")
+            Prelude.<$> (x Data..?> "botAliasStatus")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botAliasId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,32 +132,32 @@ instance Prelude.NFData DeleteBotAlias where
       `Prelude.seq` Prelude.rnf botAliasId
       `Prelude.seq` Prelude.rnf botId
 
-instance Core.ToHeaders DeleteBotAlias where
+instance Data.ToHeaders DeleteBotAlias where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteBotAlias where
+instance Data.ToPath DeleteBotAlias where
   toPath DeleteBotAlias' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botaliases/",
-        Core.toBS botAliasId,
+        Data.toBS botAliasId,
         "/"
       ]
 
-instance Core.ToQuery DeleteBotAlias where
+instance Data.ToQuery DeleteBotAlias where
   toQuery DeleteBotAlias' {..} =
     Prelude.mconcat
       [ "skipResourceInUseCheck"
-          Core.=: skipResourceInUseCheck
+          Data.=: skipResourceInUseCheck
       ]
 
 -- | /See:/ 'newDeleteBotAliasResponse' smart constructor.

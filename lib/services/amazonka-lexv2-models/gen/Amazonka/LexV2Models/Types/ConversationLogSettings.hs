@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.ConversationLogSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.AudioLogSetting
 import Amazonka.LexV2Models.Types.TextLogSetting
 import qualified Amazonka.Prelude as Prelude
@@ -65,14 +66,14 @@ conversationLogSettings_audioLogSettings = Lens.lens (\ConversationLogSettings' 
 conversationLogSettings_textLogSettings :: Lens.Lens' ConversationLogSettings (Prelude.Maybe (Prelude.NonEmpty TextLogSetting))
 conversationLogSettings_textLogSettings = Lens.lens (\ConversationLogSettings' {textLogSettings} -> textLogSettings) (\s@ConversationLogSettings' {} a -> s {textLogSettings = a} :: ConversationLogSettings) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ConversationLogSettings where
+instance Data.FromJSON ConversationLogSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConversationLogSettings"
       ( \x ->
           ConversationLogSettings'
-            Prelude.<$> (x Core..:? "audioLogSettings")
-            Prelude.<*> (x Core..:? "textLogSettings")
+            Prelude.<$> (x Data..:? "audioLogSettings")
+            Prelude.<*> (x Data..:? "textLogSettings")
       )
 
 instance Prelude.Hashable ConversationLogSettings where
@@ -85,13 +86,13 @@ instance Prelude.NFData ConversationLogSettings where
     Prelude.rnf audioLogSettings
       `Prelude.seq` Prelude.rnf textLogSettings
 
-instance Core.ToJSON ConversationLogSettings where
+instance Data.ToJSON ConversationLogSettings where
   toJSON ConversationLogSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("audioLogSettings" Core..=)
+          [ ("audioLogSettings" Data..=)
               Prelude.<$> audioLogSettings,
-            ("textLogSettings" Core..=)
+            ("textLogSettings" Data..=)
               Prelude.<$> textLogSettings
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.BotAliasHistoryEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a record of an event that affects a bot alias. For example,
@@ -31,9 +32,9 @@ data BotAliasHistoryEvent = BotAliasHistoryEvent'
   { -- | The version of the bot that was used in the event.
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the event ended.
-    endDate :: Prelude.Maybe Core.POSIX,
+    endDate :: Prelude.Maybe Data.POSIX,
     -- | The date and time that the event started.
-    startDate :: Prelude.Maybe Core.POSIX
+    startDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,21 +66,21 @@ botAliasHistoryEvent_botVersion = Lens.lens (\BotAliasHistoryEvent' {botVersion}
 
 -- | The date and time that the event ended.
 botAliasHistoryEvent_endDate :: Lens.Lens' BotAliasHistoryEvent (Prelude.Maybe Prelude.UTCTime)
-botAliasHistoryEvent_endDate = Lens.lens (\BotAliasHistoryEvent' {endDate} -> endDate) (\s@BotAliasHistoryEvent' {} a -> s {endDate = a} :: BotAliasHistoryEvent) Prelude.. Lens.mapping Core._Time
+botAliasHistoryEvent_endDate = Lens.lens (\BotAliasHistoryEvent' {endDate} -> endDate) (\s@BotAliasHistoryEvent' {} a -> s {endDate = a} :: BotAliasHistoryEvent) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time that the event started.
 botAliasHistoryEvent_startDate :: Lens.Lens' BotAliasHistoryEvent (Prelude.Maybe Prelude.UTCTime)
-botAliasHistoryEvent_startDate = Lens.lens (\BotAliasHistoryEvent' {startDate} -> startDate) (\s@BotAliasHistoryEvent' {} a -> s {startDate = a} :: BotAliasHistoryEvent) Prelude.. Lens.mapping Core._Time
+botAliasHistoryEvent_startDate = Lens.lens (\BotAliasHistoryEvent' {startDate} -> startDate) (\s@BotAliasHistoryEvent' {} a -> s {startDate = a} :: BotAliasHistoryEvent) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON BotAliasHistoryEvent where
+instance Data.FromJSON BotAliasHistoryEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BotAliasHistoryEvent"
       ( \x ->
           BotAliasHistoryEvent'
-            Prelude.<$> (x Core..:? "botVersion")
-            Prelude.<*> (x Core..:? "endDate")
-            Prelude.<*> (x Core..:? "startDate")
+            Prelude.<$> (x Data..:? "botVersion")
+            Prelude.<*> (x Data..:? "endDate")
+            Prelude.<*> (x Data..:? "startDate")
       )
 
 instance Prelude.Hashable BotAliasHistoryEvent where

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,15 +90,15 @@ instance Core.AWSRequest DescribeBot where
     Response.receiveJSON
       ( \s h x ->
           DescribeBotResponse'
-            Prelude.<$> (x Core..?> "roleArn")
-            Prelude.<*> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "idleSessionTTLInSeconds")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "botName")
-            Prelude.<*> (x Core..?> "dataPrivacy")
-            Prelude.<*> (x Core..?> "botStatus")
-            Prelude.<*> (x Core..?> "lastUpdatedDateTime")
+            Prelude.<$> (x Data..?> "roleArn")
+            Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "idleSessionTTLInSeconds")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botName")
+            Prelude.<*> (x Data..?> "dataPrivacy")
+            Prelude.<*> (x Data..?> "botStatus")
+            Prelude.<*> (x Data..?> "lastUpdatedDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,22 +109,22 @@ instance Prelude.Hashable DescribeBot where
 instance Prelude.NFData DescribeBot where
   rnf DescribeBot' {..} = Prelude.rnf botId
 
-instance Core.ToHeaders DescribeBot where
+instance Data.ToHeaders DescribeBot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeBot where
+instance Data.ToPath DescribeBot where
   toPath DescribeBot' {..} =
-    Prelude.mconcat ["/bots/", Core.toBS botId, "/"]
+    Prelude.mconcat ["/bots/", Data.toBS botId, "/"]
 
-instance Core.ToQuery DescribeBot where
+instance Data.ToQuery DescribeBot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeBotResponse' smart constructor.
@@ -132,7 +133,7 @@ data DescribeBotResponse = DescribeBotResponse'
     -- access the bot.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the bot was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the bot.
     description :: Prelude.Maybe Prelude.Text,
     -- | The maximum time in seconds that Amazon Lex retains the data gathered in
@@ -149,7 +150,7 @@ data DescribeBotResponse = DescribeBotResponse'
     -- ready to be used in conversations with users.
     botStatus :: Prelude.Maybe BotStatus,
     -- | A timestamp of the date and time that the bot was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -211,7 +212,7 @@ describeBotResponse_roleArn = Lens.lens (\DescribeBotResponse' {roleArn} -> role
 
 -- | A timestamp of the date and time that the bot was created.
 describeBotResponse_creationDateTime :: Lens.Lens' DescribeBotResponse (Prelude.Maybe Prelude.UTCTime)
-describeBotResponse_creationDateTime = Lens.lens (\DescribeBotResponse' {creationDateTime} -> creationDateTime) (\s@DescribeBotResponse' {} a -> s {creationDateTime = a} :: DescribeBotResponse) Prelude.. Lens.mapping Core._Time
+describeBotResponse_creationDateTime = Lens.lens (\DescribeBotResponse' {creationDateTime} -> creationDateTime) (\s@DescribeBotResponse' {} a -> s {creationDateTime = a} :: DescribeBotResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the bot.
 describeBotResponse_description :: Lens.Lens' DescribeBotResponse (Prelude.Maybe Prelude.Text)
@@ -242,7 +243,7 @@ describeBotResponse_botStatus = Lens.lens (\DescribeBotResponse' {botStatus} -> 
 
 -- | A timestamp of the date and time that the bot was last updated.
 describeBotResponse_lastUpdatedDateTime :: Lens.Lens' DescribeBotResponse (Prelude.Maybe Prelude.UTCTime)
-describeBotResponse_lastUpdatedDateTime = Lens.lens (\DescribeBotResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DescribeBotResponse' {} a -> s {lastUpdatedDateTime = a} :: DescribeBotResponse) Prelude.. Lens.mapping Core._Time
+describeBotResponse_lastUpdatedDateTime = Lens.lens (\DescribeBotResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DescribeBotResponse' {} a -> s {lastUpdatedDateTime = a} :: DescribeBotResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeBotResponse_httpStatus :: Lens.Lens' DescribeBotResponse Prelude.Int

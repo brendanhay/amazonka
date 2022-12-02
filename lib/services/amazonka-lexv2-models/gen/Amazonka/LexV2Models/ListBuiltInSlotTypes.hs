@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -147,9 +148,9 @@ instance Core.AWSRequest ListBuiltInSlotTypes where
     Response.receiveJSON
       ( \s h x ->
           ListBuiltInSlotTypesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> ( x Core..?> "builtInSlotTypeSummaries"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> ( x Data..?> "builtInSlotTypeSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -169,36 +170,36 @@ instance Prelude.NFData ListBuiltInSlotTypes where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf localeId
 
-instance Core.ToHeaders ListBuiltInSlotTypes where
+instance Data.ToHeaders ListBuiltInSlotTypes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListBuiltInSlotTypes where
+instance Data.ToJSON ListBuiltInSlotTypes where
   toJSON ListBuiltInSlotTypes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("sortBy" Core..=) Prelude.<$> sortBy,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListBuiltInSlotTypes where
+instance Data.ToPath ListBuiltInSlotTypes where
   toPath ListBuiltInSlotTypes' {..} =
     Prelude.mconcat
       [ "/builtins/locales/",
-        Core.toBS localeId,
+        Data.toBS localeId,
         "/slottypes/"
       ]
 
-instance Core.ToQuery ListBuiltInSlotTypes where
+instance Data.ToQuery ListBuiltInSlotTypes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListBuiltInSlotTypesResponse' smart constructor.

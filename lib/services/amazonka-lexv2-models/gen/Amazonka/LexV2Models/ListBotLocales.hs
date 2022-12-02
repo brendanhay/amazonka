@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -164,12 +165,12 @@ instance Core.AWSRequest ListBotLocales where
     Response.receiveJSON
       ( \s h x ->
           ListBotLocalesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "botVersion")
-            Prelude.<*> ( x Core..?> "botLocaleSummaries"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> ( x Data..?> "botLocaleSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "botId")
+            Prelude.<*> (x Data..?> "botId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,39 +192,39 @@ instance Prelude.NFData ListBotLocales where
       `Prelude.seq` Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botVersion
 
-instance Core.ToHeaders ListBotLocales where
+instance Data.ToHeaders ListBotLocales where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListBotLocales where
+instance Data.ToJSON ListBotLocales where
   toJSON ListBotLocales' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("sortBy" Core..=) Prelude.<$> sortBy,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListBotLocales where
+instance Data.ToPath ListBotLocales where
   toPath ListBotLocales' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/"
       ]
 
-instance Core.ToQuery ListBotLocales where
+instance Data.ToQuery ListBotLocales where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListBotLocalesResponse' smart constructor.

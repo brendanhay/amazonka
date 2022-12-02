@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.AudioSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the audio input specifications.
@@ -71,14 +72,14 @@ audioSpecification_maxLengthMs = Lens.lens (\AudioSpecification' {maxLengthMs} -
 audioSpecification_endTimeoutMs :: Lens.Lens' AudioSpecification Prelude.Natural
 audioSpecification_endTimeoutMs = Lens.lens (\AudioSpecification' {endTimeoutMs} -> endTimeoutMs) (\s@AudioSpecification' {} a -> s {endTimeoutMs = a} :: AudioSpecification)
 
-instance Core.FromJSON AudioSpecification where
+instance Data.FromJSON AudioSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioSpecification"
       ( \x ->
           AudioSpecification'
-            Prelude.<$> (x Core..: "maxLengthMs")
-            Prelude.<*> (x Core..: "endTimeoutMs")
+            Prelude.<$> (x Data..: "maxLengthMs")
+            Prelude.<*> (x Data..: "endTimeoutMs")
       )
 
 instance Prelude.Hashable AudioSpecification where
@@ -91,11 +92,11 @@ instance Prelude.NFData AudioSpecification where
     Prelude.rnf maxLengthMs
       `Prelude.seq` Prelude.rnf endTimeoutMs
 
-instance Core.ToJSON AudioSpecification where
+instance Data.ToJSON AudioSpecification where
   toJSON AudioSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("maxLengthMs" Core..= maxLengthMs),
-            Prelude.Just ("endTimeoutMs" Core..= endTimeoutMs)
+          [ Prelude.Just ("maxLengthMs" Data..= maxLengthMs),
+            Prelude.Just ("endTimeoutMs" Data..= endTimeoutMs)
           ]
       )

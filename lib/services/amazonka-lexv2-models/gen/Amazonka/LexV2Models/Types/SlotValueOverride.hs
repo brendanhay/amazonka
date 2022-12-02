@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.SlotValueOverride where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.SlotShape
 import Amazonka.LexV2Models.Types.SlotValue
 import qualified Amazonka.Prelude as Prelude
@@ -85,15 +86,15 @@ slotValueOverride_values = Lens.lens (\SlotValueOverride' {values} -> values) (\
 slotValueOverride_value :: Lens.Lens' SlotValueOverride (Prelude.Maybe SlotValue)
 slotValueOverride_value = Lens.lens (\SlotValueOverride' {value} -> value) (\s@SlotValueOverride' {} a -> s {value = a} :: SlotValueOverride)
 
-instance Core.FromJSON SlotValueOverride where
+instance Data.FromJSON SlotValueOverride where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SlotValueOverride"
       ( \x ->
           SlotValueOverride'
-            Prelude.<$> (x Core..:? "shape")
-            Prelude.<*> (x Core..:? "values" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "shape")
+            Prelude.<*> (x Data..:? "values" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable SlotValueOverride where
@@ -108,12 +109,12 @@ instance Prelude.NFData SlotValueOverride where
       `Prelude.seq` Prelude.rnf values
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON SlotValueOverride where
+instance Data.ToJSON SlotValueOverride where
   toJSON SlotValueOverride' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("shape" Core..=) Prelude.<$> shape,
-            ("values" Core..=) Prelude.<$> values,
-            ("value" Core..=) Prelude.<$> value
+          [ ("shape" Data..=) Prelude.<$> shape,
+            ("values" Data..=) Prelude.<$> values,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

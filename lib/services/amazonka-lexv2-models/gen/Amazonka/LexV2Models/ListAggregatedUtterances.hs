@@ -78,6 +78,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -247,16 +248,16 @@ instance Core.AWSRequest ListAggregatedUtterances where
     Response.receiveJSON
       ( \s h x ->
           ListAggregatedUtterancesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "aggregationWindowStartTime")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "botAliasId")
-            Prelude.<*> (x Core..?> "aggregationDuration")
-            Prelude.<*> (x Core..?> "aggregationWindowEndTime")
-            Prelude.<*> (x Core..?> "aggregationLastRefreshedDateTime")
-            Prelude.<*> ( x Core..?> "aggregatedUtterancesSummaries"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "aggregationWindowStartTime")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botAliasId")
+            Prelude.<*> (x Data..?> "aggregationDuration")
+            Prelude.<*> (x Data..?> "aggregationWindowEndTime")
+            Prelude.<*> (x Data..?> "aggregationLastRefreshedDateTime")
+            Prelude.<*> ( x Data..?> "aggregatedUtterancesSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -286,39 +287,39 @@ instance Prelude.NFData ListAggregatedUtterances where
       `Prelude.seq` Prelude.rnf localeId
       `Prelude.seq` Prelude.rnf aggregationDuration
 
-instance Core.ToHeaders ListAggregatedUtterances where
+instance Data.ToHeaders ListAggregatedUtterances where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAggregatedUtterances where
+instance Data.ToJSON ListAggregatedUtterances where
   toJSON ListAggregatedUtterances' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("botVersion" Core..=) Prelude.<$> botVersion,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("sortBy" Core..=) Prelude.<$> sortBy,
-            ("botAliasId" Core..=) Prelude.<$> botAliasId,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("localeId" Core..= localeId),
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("botVersion" Data..=) Prelude.<$> botVersion,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("botAliasId" Data..=) Prelude.<$> botAliasId,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("localeId" Data..= localeId),
             Prelude.Just
-              ("aggregationDuration" Core..= aggregationDuration)
+              ("aggregationDuration" Data..= aggregationDuration)
           ]
       )
 
-instance Core.ToPath ListAggregatedUtterances where
+instance Data.ToPath ListAggregatedUtterances where
   toPath ListAggregatedUtterances' {..} =
     Prelude.mconcat
-      ["/bots/", Core.toBS botId, "/aggregatedutterances/"]
+      ["/bots/", Data.toBS botId, "/aggregatedutterances/"]
 
-instance Core.ToQuery ListAggregatedUtterances where
+instance Data.ToQuery ListAggregatedUtterances where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAggregatedUtterancesResponse' smart constructor.
@@ -334,7 +335,7 @@ data ListAggregatedUtterancesResponse = ListAggregatedUtterancesResponse'
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the aggregation window begins. Only data
     -- collected after this time is returned in the results.
-    aggregationWindowStartTime :: Prelude.Maybe Core.POSIX,
+    aggregationWindowStartTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the language and locale that the utterances are in.
     localeId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the bot that contains the utterances.
@@ -346,7 +347,7 @@ data ListAggregatedUtterancesResponse = ListAggregatedUtterancesResponse'
     aggregationDuration :: Prelude.Maybe UtteranceAggregationDuration,
     -- | The date and time that the aggregation window ends. Only data collected
     -- between the start time and the end time are returned in the results.
-    aggregationWindowEndTime :: Prelude.Maybe Core.POSIX,
+    aggregationWindowEndTime :: Prelude.Maybe Data.POSIX,
     -- | The last date and time that the aggregated data was collected. The time
     -- period depends on the length of the aggregation window.
     --
@@ -357,7 +358,7 @@ data ListAggregatedUtterancesResponse = ListAggregatedUtterancesResponse'
     --
     -- -   __Weeks__ - for a one week time window, every 12 hours; otherwise,
     --     every day
-    aggregationLastRefreshedDateTime :: Prelude.Maybe Core.POSIX,
+    aggregationLastRefreshedDateTime :: Prelude.Maybe Data.POSIX,
     -- | Summaries of the aggregated utterance data. Each response contains
     -- information about the number of times that the utterance was seen during
     -- the time period, whether it was detected or missed, and when it was seen
@@ -457,7 +458,7 @@ listAggregatedUtterancesResponse_botVersion = Lens.lens (\ListAggregatedUtteranc
 -- | The date and time that the aggregation window begins. Only data
 -- collected after this time is returned in the results.
 listAggregatedUtterancesResponse_aggregationWindowStartTime :: Lens.Lens' ListAggregatedUtterancesResponse (Prelude.Maybe Prelude.UTCTime)
-listAggregatedUtterancesResponse_aggregationWindowStartTime = Lens.lens (\ListAggregatedUtterancesResponse' {aggregationWindowStartTime} -> aggregationWindowStartTime) (\s@ListAggregatedUtterancesResponse' {} a -> s {aggregationWindowStartTime = a} :: ListAggregatedUtterancesResponse) Prelude.. Lens.mapping Core._Time
+listAggregatedUtterancesResponse_aggregationWindowStartTime = Lens.lens (\ListAggregatedUtterancesResponse' {aggregationWindowStartTime} -> aggregationWindowStartTime) (\s@ListAggregatedUtterancesResponse' {} a -> s {aggregationWindowStartTime = a} :: ListAggregatedUtterancesResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier of the language and locale that the utterances are in.
 listAggregatedUtterancesResponse_localeId :: Lens.Lens' ListAggregatedUtterancesResponse (Prelude.Maybe Prelude.Text)
@@ -479,7 +480,7 @@ listAggregatedUtterancesResponse_aggregationDuration = Lens.lens (\ListAggregate
 -- | The date and time that the aggregation window ends. Only data collected
 -- between the start time and the end time are returned in the results.
 listAggregatedUtterancesResponse_aggregationWindowEndTime :: Lens.Lens' ListAggregatedUtterancesResponse (Prelude.Maybe Prelude.UTCTime)
-listAggregatedUtterancesResponse_aggregationWindowEndTime = Lens.lens (\ListAggregatedUtterancesResponse' {aggregationWindowEndTime} -> aggregationWindowEndTime) (\s@ListAggregatedUtterancesResponse' {} a -> s {aggregationWindowEndTime = a} :: ListAggregatedUtterancesResponse) Prelude.. Lens.mapping Core._Time
+listAggregatedUtterancesResponse_aggregationWindowEndTime = Lens.lens (\ListAggregatedUtterancesResponse' {aggregationWindowEndTime} -> aggregationWindowEndTime) (\s@ListAggregatedUtterancesResponse' {} a -> s {aggregationWindowEndTime = a} :: ListAggregatedUtterancesResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The last date and time that the aggregated data was collected. The time
 -- period depends on the length of the aggregation window.
@@ -492,7 +493,7 @@ listAggregatedUtterancesResponse_aggregationWindowEndTime = Lens.lens (\ListAggr
 -- -   __Weeks__ - for a one week time window, every 12 hours; otherwise,
 --     every day
 listAggregatedUtterancesResponse_aggregationLastRefreshedDateTime :: Lens.Lens' ListAggregatedUtterancesResponse (Prelude.Maybe Prelude.UTCTime)
-listAggregatedUtterancesResponse_aggregationLastRefreshedDateTime = Lens.lens (\ListAggregatedUtterancesResponse' {aggregationLastRefreshedDateTime} -> aggregationLastRefreshedDateTime) (\s@ListAggregatedUtterancesResponse' {} a -> s {aggregationLastRefreshedDateTime = a} :: ListAggregatedUtterancesResponse) Prelude.. Lens.mapping Core._Time
+listAggregatedUtterancesResponse_aggregationLastRefreshedDateTime = Lens.lens (\ListAggregatedUtterancesResponse' {aggregationLastRefreshedDateTime} -> aggregationLastRefreshedDateTime) (\s@ListAggregatedUtterancesResponse' {} a -> s {aggregationLastRefreshedDateTime = a} :: ListAggregatedUtterancesResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Summaries of the aggregated utterance data. Each response contains
 -- information about the number of times that the utterance was seen during

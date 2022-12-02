@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.GrammarSlotTypeSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.GrammarSlotTypeSource
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,13 +52,13 @@ newGrammarSlotTypeSetting =
 grammarSlotTypeSetting_source :: Lens.Lens' GrammarSlotTypeSetting (Prelude.Maybe GrammarSlotTypeSource)
 grammarSlotTypeSetting_source = Lens.lens (\GrammarSlotTypeSetting' {source} -> source) (\s@GrammarSlotTypeSetting' {} a -> s {source = a} :: GrammarSlotTypeSetting)
 
-instance Core.FromJSON GrammarSlotTypeSetting where
+instance Data.FromJSON GrammarSlotTypeSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GrammarSlotTypeSetting"
       ( \x ->
           GrammarSlotTypeSetting'
-            Prelude.<$> (x Core..:? "source")
+            Prelude.<$> (x Data..:? "source")
       )
 
 instance Prelude.Hashable GrammarSlotTypeSetting where
@@ -67,9 +68,9 @@ instance Prelude.Hashable GrammarSlotTypeSetting where
 instance Prelude.NFData GrammarSlotTypeSetting where
   rnf GrammarSlotTypeSetting' {..} = Prelude.rnf source
 
-instance Core.ToJSON GrammarSlotTypeSetting where
+instance Data.ToJSON GrammarSlotTypeSetting where
   toJSON GrammarSlotTypeSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("source" Core..=) Prelude.<$> source]
+          [("source" Data..=) Prelude.<$> source]
       )

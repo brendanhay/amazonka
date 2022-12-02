@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.CustomVocabularyEntryId where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The unique entry identifier for the custom vocabulary items.
@@ -59,9 +60,9 @@ instance Prelude.Hashable CustomVocabularyEntryId where
 instance Prelude.NFData CustomVocabularyEntryId where
   rnf CustomVocabularyEntryId' {..} = Prelude.rnf itemId
 
-instance Core.ToJSON CustomVocabularyEntryId where
+instance Data.ToJSON CustomVocabularyEntryId where
   toJSON CustomVocabularyEntryId' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("itemId" Core..= itemId)]
+          [Prelude.Just ("itemId" Data..= itemId)]
       )

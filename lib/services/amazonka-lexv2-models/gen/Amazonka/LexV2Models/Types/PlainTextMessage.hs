@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.PlainTextMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines an ASCII text message to send to the user.
@@ -52,12 +53,12 @@ newPlainTextMessage pValue_ =
 plainTextMessage_value :: Lens.Lens' PlainTextMessage Prelude.Text
 plainTextMessage_value = Lens.lens (\PlainTextMessage' {value} -> value) (\s@PlainTextMessage' {} a -> s {value = a} :: PlainTextMessage)
 
-instance Core.FromJSON PlainTextMessage where
+instance Data.FromJSON PlainTextMessage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PlainTextMessage"
       ( \x ->
-          PlainTextMessage' Prelude.<$> (x Core..: "value")
+          PlainTextMessage' Prelude.<$> (x Data..: "value")
       )
 
 instance Prelude.Hashable PlainTextMessage where
@@ -67,9 +68,9 @@ instance Prelude.Hashable PlainTextMessage where
 instance Prelude.NFData PlainTextMessage where
   rnf PlainTextMessage' {..} = Prelude.rnf value
 
-instance Core.ToJSON PlainTextMessage where
+instance Data.ToJSON PlainTextMessage where
   toJSON PlainTextMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("value" Core..= value)]
+          [Prelude.Just ("value" Data..= value)]
       )

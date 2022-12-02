@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.IntentSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.InputContext
 import Amazonka.LexV2Models.Types.OutputContext
 import qualified Amazonka.Prelude as Prelude
@@ -47,7 +48,7 @@ data IntentSummary = IntentSummary'
     -- for recognition.
     inputContexts :: Prelude.Maybe [InputContext],
     -- | The timestamp of the date and time that the intent was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -119,21 +120,21 @@ intentSummary_inputContexts = Lens.lens (\IntentSummary' {inputContexts} -> inpu
 
 -- | The timestamp of the date and time that the intent was last updated.
 intentSummary_lastUpdatedDateTime :: Lens.Lens' IntentSummary (Prelude.Maybe Prelude.UTCTime)
-intentSummary_lastUpdatedDateTime = Lens.lens (\IntentSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@IntentSummary' {} a -> s {lastUpdatedDateTime = a} :: IntentSummary) Prelude.. Lens.mapping Core._Time
+intentSummary_lastUpdatedDateTime = Lens.lens (\IntentSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@IntentSummary' {} a -> s {lastUpdatedDateTime = a} :: IntentSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON IntentSummary where
+instance Data.FromJSON IntentSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IntentSummary"
       ( \x ->
           IntentSummary'
-            Prelude.<$> (x Core..:? "outputContexts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "parentIntentSignature")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "intentId")
-            Prelude.<*> (x Core..:? "intentName")
-            Prelude.<*> (x Core..:? "inputContexts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
+            Prelude.<$> (x Data..:? "outputContexts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "parentIntentSignature")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "intentId")
+            Prelude.<*> (x Data..:? "intentName")
+            Prelude.<*> (x Data..:? "inputContexts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
       )
 
 instance Prelude.Hashable IntentSummary where

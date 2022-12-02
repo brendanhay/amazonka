@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.Message where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.CustomPayload
 import Amazonka.LexV2Models.Types.ImageResponseCard
 import Amazonka.LexV2Models.Types.PlainTextMessage
@@ -86,16 +87,16 @@ message_customPayload = Lens.lens (\Message' {customPayload} -> customPayload) (
 message_plainTextMessage :: Lens.Lens' Message (Prelude.Maybe PlainTextMessage)
 message_plainTextMessage = Lens.lens (\Message' {plainTextMessage} -> plainTextMessage) (\s@Message' {} a -> s {plainTextMessage = a} :: Message)
 
-instance Core.FromJSON Message where
+instance Data.FromJSON Message where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Message"
       ( \x ->
           Message'
-            Prelude.<$> (x Core..:? "ssmlMessage")
-            Prelude.<*> (x Core..:? "imageResponseCard")
-            Prelude.<*> (x Core..:? "customPayload")
-            Prelude.<*> (x Core..:? "plainTextMessage")
+            Prelude.<$> (x Data..:? "ssmlMessage")
+            Prelude.<*> (x Data..:? "imageResponseCard")
+            Prelude.<*> (x Data..:? "customPayload")
+            Prelude.<*> (x Data..:? "plainTextMessage")
       )
 
 instance Prelude.Hashable Message where
@@ -112,15 +113,15 @@ instance Prelude.NFData Message where
       `Prelude.seq` Prelude.rnf customPayload
       `Prelude.seq` Prelude.rnf plainTextMessage
 
-instance Core.ToJSON Message where
+instance Data.ToJSON Message where
   toJSON Message' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ssmlMessage" Core..=) Prelude.<$> ssmlMessage,
-            ("imageResponseCard" Core..=)
+          [ ("ssmlMessage" Data..=) Prelude.<$> ssmlMessage,
+            ("imageResponseCard" Data..=)
               Prelude.<$> imageResponseCard,
-            ("customPayload" Core..=) Prelude.<$> customPayload,
-            ("plainTextMessage" Core..=)
+            ("customPayload" Data..=) Prelude.<$> customPayload,
+            ("plainTextMessage" Data..=)
               Prelude.<$> plainTextMessage
           ]
       )

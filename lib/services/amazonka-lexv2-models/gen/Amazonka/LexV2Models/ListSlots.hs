@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -204,12 +205,12 @@ instance Core.AWSRequest ListSlots where
     Response.receiveJSON
       ( \s h x ->
           ListSlotsResponse'
-            Prelude.<$> (x Core..?> "slotSummaries" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "intentId")
+            Prelude.<$> (x Data..?> "slotSummaries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "intentId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -235,43 +236,43 @@ instance Prelude.NFData ListSlots where
       `Prelude.seq` Prelude.rnf localeId
       `Prelude.seq` Prelude.rnf intentId
 
-instance Core.ToHeaders ListSlots where
+instance Data.ToHeaders ListSlots where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSlots where
+instance Data.ToJSON ListSlots where
   toJSON ListSlots' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("sortBy" Core..=) Prelude.<$> sortBy,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListSlots where
+instance Data.ToPath ListSlots where
   toPath ListSlots' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/",
-        Core.toBS localeId,
+        Data.toBS localeId,
         "/intents/",
-        Core.toBS intentId,
+        Data.toBS intentId,
         "/slots/"
       ]
 
-instance Core.ToQuery ListSlots where
+instance Data.ToQuery ListSlots where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSlotsResponse' smart constructor.

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -139,11 +140,11 @@ instance Core.AWSRequest BuildBotLocale where
     Response.receiveJSON
       ( \s h x ->
           BuildBotLocaleResponse'
-            Prelude.<$> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "lastBuildSubmittedDateTime")
-            Prelude.<*> (x Core..?> "botLocaleStatus")
+            Prelude.<$> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "lastBuildSubmittedDateTime")
+            Prelude.<*> (x Data..?> "botLocaleStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,33 +160,33 @@ instance Prelude.NFData BuildBotLocale where
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf localeId
 
-instance Core.ToHeaders BuildBotLocale where
+instance Data.ToHeaders BuildBotLocale where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BuildBotLocale where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON BuildBotLocale where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath BuildBotLocale where
+instance Data.ToPath BuildBotLocale where
   toPath BuildBotLocale' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/",
-        Core.toBS localeId,
+        Data.toBS localeId,
         "/"
       ]
 
-instance Core.ToQuery BuildBotLocale where
+instance Data.ToQuery BuildBotLocale where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBuildBotLocaleResponse' smart constructor.
@@ -199,7 +200,7 @@ data BuildBotLocaleResponse = BuildBotLocaleResponse'
     botId :: Prelude.Maybe Prelude.Text,
     -- | A timestamp indicating the date and time that the bot was last built for
     -- this locale.
-    lastBuildSubmittedDateTime :: Prelude.Maybe Core.POSIX,
+    lastBuildSubmittedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The bot\'s build status. When the status is @ReadyExpressTesting@ you
     -- can test the bot using the utterances defined for the intents and slot
     -- types. When the status is @Built@, the bot is ready for use and can be
@@ -265,7 +266,7 @@ buildBotLocaleResponse_botId = Lens.lens (\BuildBotLocaleResponse' {botId} -> bo
 -- | A timestamp indicating the date and time that the bot was last built for
 -- this locale.
 buildBotLocaleResponse_lastBuildSubmittedDateTime :: Lens.Lens' BuildBotLocaleResponse (Prelude.Maybe Prelude.UTCTime)
-buildBotLocaleResponse_lastBuildSubmittedDateTime = Lens.lens (\BuildBotLocaleResponse' {lastBuildSubmittedDateTime} -> lastBuildSubmittedDateTime) (\s@BuildBotLocaleResponse' {} a -> s {lastBuildSubmittedDateTime = a} :: BuildBotLocaleResponse) Prelude.. Lens.mapping Core._Time
+buildBotLocaleResponse_lastBuildSubmittedDateTime = Lens.lens (\BuildBotLocaleResponse' {lastBuildSubmittedDateTime} -> lastBuildSubmittedDateTime) (\s@BuildBotLocaleResponse' {} a -> s {lastBuildSubmittedDateTime = a} :: BuildBotLocaleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The bot\'s build status. When the status is @ReadyExpressTesting@ you
 -- can test the bot using the utterances defined for the intents and slot

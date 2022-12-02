@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.AllowedInputTypes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the allowed input types.
@@ -68,14 +69,14 @@ allowedInputTypes_allowAudioInput = Lens.lens (\AllowedInputTypes' {allowAudioIn
 allowedInputTypes_allowDTMFInput :: Lens.Lens' AllowedInputTypes Prelude.Bool
 allowedInputTypes_allowDTMFInput = Lens.lens (\AllowedInputTypes' {allowDTMFInput} -> allowDTMFInput) (\s@AllowedInputTypes' {} a -> s {allowDTMFInput = a} :: AllowedInputTypes)
 
-instance Core.FromJSON AllowedInputTypes where
+instance Data.FromJSON AllowedInputTypes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AllowedInputTypes"
       ( \x ->
           AllowedInputTypes'
-            Prelude.<$> (x Core..: "allowAudioInput")
-            Prelude.<*> (x Core..: "allowDTMFInput")
+            Prelude.<$> (x Data..: "allowAudioInput")
+            Prelude.<*> (x Data..: "allowDTMFInput")
       )
 
 instance Prelude.Hashable AllowedInputTypes where
@@ -88,13 +89,13 @@ instance Prelude.NFData AllowedInputTypes where
     Prelude.rnf allowAudioInput
       `Prelude.seq` Prelude.rnf allowDTMFInput
 
-instance Core.ToJSON AllowedInputTypes where
+instance Data.ToJSON AllowedInputTypes where
   toJSON AllowedInputTypes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("allowAudioInput" Core..= allowAudioInput),
+              ("allowAudioInput" Data..= allowAudioInput),
             Prelude.Just
-              ("allowDTMFInput" Core..= allowDTMFInput)
+              ("allowDTMFInput" Data..= allowDTMFInput)
           ]
       )

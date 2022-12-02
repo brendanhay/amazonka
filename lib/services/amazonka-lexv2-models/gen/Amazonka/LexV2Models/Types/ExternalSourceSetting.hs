@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.ExternalSourceSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.GrammarSlotTypeSetting
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,13 +56,13 @@ newExternalSourceSetting =
 externalSourceSetting_grammarSlotTypeSetting :: Lens.Lens' ExternalSourceSetting (Prelude.Maybe GrammarSlotTypeSetting)
 externalSourceSetting_grammarSlotTypeSetting = Lens.lens (\ExternalSourceSetting' {grammarSlotTypeSetting} -> grammarSlotTypeSetting) (\s@ExternalSourceSetting' {} a -> s {grammarSlotTypeSetting = a} :: ExternalSourceSetting)
 
-instance Core.FromJSON ExternalSourceSetting where
+instance Data.FromJSON ExternalSourceSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExternalSourceSetting"
       ( \x ->
           ExternalSourceSetting'
-            Prelude.<$> (x Core..:? "grammarSlotTypeSetting")
+            Prelude.<$> (x Data..:? "grammarSlotTypeSetting")
       )
 
 instance Prelude.Hashable ExternalSourceSetting where
@@ -72,11 +73,11 @@ instance Prelude.NFData ExternalSourceSetting where
   rnf ExternalSourceSetting' {..} =
     Prelude.rnf grammarSlotTypeSetting
 
-instance Core.ToJSON ExternalSourceSetting where
+instance Data.ToJSON ExternalSourceSetting where
   toJSON ExternalSourceSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("grammarSlotTypeSetting" Core..=)
+          [ ("grammarSlotTypeSetting" Data..=)
               Prelude.<$> grammarSlotTypeSetting
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.BotVersionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.BotStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -34,7 +35,7 @@ data BotVersionSummary = BotVersionSummary'
     -- version of the bot that can be updated..
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the version was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the version.
     description :: Prelude.Maybe Prelude.Text,
     -- | The name of the bot associated with the version.
@@ -82,7 +83,7 @@ botVersionSummary_botVersion = Lens.lens (\BotVersionSummary' {botVersion} -> bo
 
 -- | A timestamp of the date and time that the version was created.
 botVersionSummary_creationDateTime :: Lens.Lens' BotVersionSummary (Prelude.Maybe Prelude.UTCTime)
-botVersionSummary_creationDateTime = Lens.lens (\BotVersionSummary' {creationDateTime} -> creationDateTime) (\s@BotVersionSummary' {} a -> s {creationDateTime = a} :: BotVersionSummary) Prelude.. Lens.mapping Core._Time
+botVersionSummary_creationDateTime = Lens.lens (\BotVersionSummary' {creationDateTime} -> creationDateTime) (\s@BotVersionSummary' {} a -> s {creationDateTime = a} :: BotVersionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the version.
 botVersionSummary_description :: Lens.Lens' BotVersionSummary (Prelude.Maybe Prelude.Text)
@@ -97,17 +98,17 @@ botVersionSummary_botName = Lens.lens (\BotVersionSummary' {botName} -> botName)
 botVersionSummary_botStatus :: Lens.Lens' BotVersionSummary (Prelude.Maybe BotStatus)
 botVersionSummary_botStatus = Lens.lens (\BotVersionSummary' {botStatus} -> botStatus) (\s@BotVersionSummary' {} a -> s {botStatus = a} :: BotVersionSummary)
 
-instance Core.FromJSON BotVersionSummary where
+instance Data.FromJSON BotVersionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BotVersionSummary"
       ( \x ->
           BotVersionSummary'
-            Prelude.<$> (x Core..:? "botVersion")
-            Prelude.<*> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "botName")
-            Prelude.<*> (x Core..:? "botStatus")
+            Prelude.<$> (x Data..:? "botVersion")
+            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "botName")
+            Prelude.<*> (x Data..:? "botStatus")
       )
 
 instance Prelude.Hashable BotVersionSummary where

@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.ElicitationCodeHookInvocationSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings that specify the dialog code hook that is called by Amazon Lex
@@ -71,16 +72,16 @@ elicitationCodeHookInvocationSetting_enableCodeHookInvocation :: Lens.Lens' Elic
 elicitationCodeHookInvocationSetting_enableCodeHookInvocation = Lens.lens (\ElicitationCodeHookInvocationSetting' {enableCodeHookInvocation} -> enableCodeHookInvocation) (\s@ElicitationCodeHookInvocationSetting' {} a -> s {enableCodeHookInvocation = a} :: ElicitationCodeHookInvocationSetting)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ElicitationCodeHookInvocationSetting
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ElicitationCodeHookInvocationSetting"
       ( \x ->
           ElicitationCodeHookInvocationSetting'
-            Prelude.<$> (x Core..:? "invocationLabel")
-            Prelude.<*> (x Core..: "enableCodeHookInvocation")
+            Prelude.<$> (x Data..:? "invocationLabel")
+            Prelude.<*> (x Data..: "enableCodeHookInvocation")
       )
 
 instance
@@ -102,17 +103,17 @@ instance
       `Prelude.seq` Prelude.rnf enableCodeHookInvocation
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ElicitationCodeHookInvocationSetting
   where
   toJSON ElicitationCodeHookInvocationSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("invocationLabel" Core..=)
+          [ ("invocationLabel" Data..=)
               Prelude.<$> invocationLabel,
             Prelude.Just
               ( "enableCodeHookInvocation"
-                  Core..= enableCodeHookInvocation
+                  Data..= enableCodeHookInvocation
               )
           ]
       )

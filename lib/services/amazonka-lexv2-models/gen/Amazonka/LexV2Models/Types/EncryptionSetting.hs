@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.EncryptionSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The object representing the passwords that were used to encrypt the data
@@ -33,9 +34,9 @@ data EncryptionSetting = EncryptionSetting'
     -- recommendation.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The password used to encrypt the associated transcript file.
-    associatedTranscriptsPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    associatedTranscriptsPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The password used to encrypt the recommended bot recommendation file.
-    botLocaleExportPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    botLocaleExportPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -69,21 +70,21 @@ encryptionSetting_kmsKeyArn = Lens.lens (\EncryptionSetting' {kmsKeyArn} -> kmsK
 
 -- | The password used to encrypt the associated transcript file.
 encryptionSetting_associatedTranscriptsPassword :: Lens.Lens' EncryptionSetting (Prelude.Maybe Prelude.Text)
-encryptionSetting_associatedTranscriptsPassword = Lens.lens (\EncryptionSetting' {associatedTranscriptsPassword} -> associatedTranscriptsPassword) (\s@EncryptionSetting' {} a -> s {associatedTranscriptsPassword = a} :: EncryptionSetting) Prelude.. Lens.mapping Core._Sensitive
+encryptionSetting_associatedTranscriptsPassword = Lens.lens (\EncryptionSetting' {associatedTranscriptsPassword} -> associatedTranscriptsPassword) (\s@EncryptionSetting' {} a -> s {associatedTranscriptsPassword = a} :: EncryptionSetting) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The password used to encrypt the recommended bot recommendation file.
 encryptionSetting_botLocaleExportPassword :: Lens.Lens' EncryptionSetting (Prelude.Maybe Prelude.Text)
-encryptionSetting_botLocaleExportPassword = Lens.lens (\EncryptionSetting' {botLocaleExportPassword} -> botLocaleExportPassword) (\s@EncryptionSetting' {} a -> s {botLocaleExportPassword = a} :: EncryptionSetting) Prelude.. Lens.mapping Core._Sensitive
+encryptionSetting_botLocaleExportPassword = Lens.lens (\EncryptionSetting' {botLocaleExportPassword} -> botLocaleExportPassword) (\s@EncryptionSetting' {} a -> s {botLocaleExportPassword = a} :: EncryptionSetting) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON EncryptionSetting where
+instance Data.FromJSON EncryptionSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EncryptionSetting"
       ( \x ->
           EncryptionSetting'
-            Prelude.<$> (x Core..:? "kmsKeyArn")
-            Prelude.<*> (x Core..:? "associatedTranscriptsPassword")
-            Prelude.<*> (x Core..:? "botLocaleExportPassword")
+            Prelude.<$> (x Data..:? "kmsKeyArn")
+            Prelude.<*> (x Data..:? "associatedTranscriptsPassword")
+            Prelude.<*> (x Data..:? "botLocaleExportPassword")
       )
 
 instance Prelude.Hashable EncryptionSetting where
@@ -98,14 +99,14 @@ instance Prelude.NFData EncryptionSetting where
       `Prelude.seq` Prelude.rnf associatedTranscriptsPassword
       `Prelude.seq` Prelude.rnf botLocaleExportPassword
 
-instance Core.ToJSON EncryptionSetting where
+instance Data.ToJSON EncryptionSetting where
   toJSON EncryptionSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("kmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            ("associatedTranscriptsPassword" Core..=)
+          [ ("kmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            ("associatedTranscriptsPassword" Data..=)
               Prelude.<$> associatedTranscriptsPassword,
-            ("botLocaleExportPassword" Core..=)
+            ("botLocaleExportPassword" Data..=)
               Prelude.<$> botLocaleExportPassword
           ]
       )

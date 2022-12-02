@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.BotRecommendationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.BotRecommendationStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -30,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 data BotRecommendationSummary = BotRecommendationSummary'
   { -- | A timestamp of the date and time that the bot recommendation was
     -- created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | A timestamp of the date and time that the bot recommendation was last
     -- updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The status of the bot recommendation.
     --
     -- If the status is Failed, then the reasons for the failure are listed in
@@ -85,12 +86,12 @@ newBotRecommendationSummary
 -- | A timestamp of the date and time that the bot recommendation was
 -- created.
 botRecommendationSummary_creationDateTime :: Lens.Lens' BotRecommendationSummary (Prelude.Maybe Prelude.UTCTime)
-botRecommendationSummary_creationDateTime = Lens.lens (\BotRecommendationSummary' {creationDateTime} -> creationDateTime) (\s@BotRecommendationSummary' {} a -> s {creationDateTime = a} :: BotRecommendationSummary) Prelude.. Lens.mapping Core._Time
+botRecommendationSummary_creationDateTime = Lens.lens (\BotRecommendationSummary' {creationDateTime} -> creationDateTime) (\s@BotRecommendationSummary' {} a -> s {creationDateTime = a} :: BotRecommendationSummary) Prelude.. Lens.mapping Data._Time
 
 -- | A timestamp of the date and time that the bot recommendation was last
 -- updated.
 botRecommendationSummary_lastUpdatedDateTime :: Lens.Lens' BotRecommendationSummary (Prelude.Maybe Prelude.UTCTime)
-botRecommendationSummary_lastUpdatedDateTime = Lens.lens (\BotRecommendationSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@BotRecommendationSummary' {} a -> s {lastUpdatedDateTime = a} :: BotRecommendationSummary) Prelude.. Lens.mapping Core._Time
+botRecommendationSummary_lastUpdatedDateTime = Lens.lens (\BotRecommendationSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@BotRecommendationSummary' {} a -> s {lastUpdatedDateTime = a} :: BotRecommendationSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the bot recommendation.
 --
@@ -103,16 +104,16 @@ botRecommendationSummary_botRecommendationStatus = Lens.lens (\BotRecommendation
 botRecommendationSummary_botRecommendationId :: Lens.Lens' BotRecommendationSummary Prelude.Text
 botRecommendationSummary_botRecommendationId = Lens.lens (\BotRecommendationSummary' {botRecommendationId} -> botRecommendationId) (\s@BotRecommendationSummary' {} a -> s {botRecommendationId = a} :: BotRecommendationSummary)
 
-instance Core.FromJSON BotRecommendationSummary where
+instance Data.FromJSON BotRecommendationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BotRecommendationSummary"
       ( \x ->
           BotRecommendationSummary'
-            Prelude.<$> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
-            Prelude.<*> (x Core..: "botRecommendationStatus")
-            Prelude.<*> (x Core..: "botRecommendationId")
+            Prelude.<$> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..: "botRecommendationStatus")
+            Prelude.<*> (x Data..: "botRecommendationId")
       )
 
 instance Prelude.Hashable BotRecommendationSummary where

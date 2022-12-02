@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.PromptAttemptSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.AllowedInputTypes
 import Amazonka.LexV2Models.Types.AudioAndDTMFInputSpecification
 import Amazonka.LexV2Models.Types.TextInputSpecification
@@ -89,16 +90,16 @@ promptAttemptSpecification_audioAndDTMFInputSpecification = Lens.lens (\PromptAt
 promptAttemptSpecification_allowedInputTypes :: Lens.Lens' PromptAttemptSpecification AllowedInputTypes
 promptAttemptSpecification_allowedInputTypes = Lens.lens (\PromptAttemptSpecification' {allowedInputTypes} -> allowedInputTypes) (\s@PromptAttemptSpecification' {} a -> s {allowedInputTypes = a} :: PromptAttemptSpecification)
 
-instance Core.FromJSON PromptAttemptSpecification where
+instance Data.FromJSON PromptAttemptSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PromptAttemptSpecification"
       ( \x ->
           PromptAttemptSpecification'
-            Prelude.<$> (x Core..:? "allowInterrupt")
-            Prelude.<*> (x Core..:? "textInputSpecification")
-            Prelude.<*> (x Core..:? "audioAndDTMFInputSpecification")
-            Prelude.<*> (x Core..: "allowedInputTypes")
+            Prelude.<$> (x Data..:? "allowInterrupt")
+            Prelude.<*> (x Data..:? "textInputSpecification")
+            Prelude.<*> (x Data..:? "audioAndDTMFInputSpecification")
+            Prelude.<*> (x Data..: "allowedInputTypes")
       )
 
 instance Prelude.Hashable PromptAttemptSpecification where
@@ -115,17 +116,17 @@ instance Prelude.NFData PromptAttemptSpecification where
       `Prelude.seq` Prelude.rnf audioAndDTMFInputSpecification
       `Prelude.seq` Prelude.rnf allowedInputTypes
 
-instance Core.ToJSON PromptAttemptSpecification where
+instance Data.ToJSON PromptAttemptSpecification where
   toJSON PromptAttemptSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("allowInterrupt" Core..=)
+          [ ("allowInterrupt" Data..=)
               Prelude.<$> allowInterrupt,
-            ("textInputSpecification" Core..=)
+            ("textInputSpecification" Data..=)
               Prelude.<$> textInputSpecification,
-            ("audioAndDTMFInputSpecification" Core..=)
+            ("audioAndDTMFInputSpecification" Data..=)
               Prelude.<$> audioAndDTMFInputSpecification,
             Prelude.Just
-              ("allowedInputTypes" Core..= allowedInputTypes)
+              ("allowedInputTypes" Data..= allowedInputTypes)
           ]
       )

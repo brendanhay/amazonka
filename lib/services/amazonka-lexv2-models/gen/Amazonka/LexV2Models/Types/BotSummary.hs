@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.BotSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.BotStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -45,7 +46,7 @@ data BotSummary = BotSummary'
     -- ready for use.
     botStatus :: Prelude.Maybe BotStatus,
     -- | The date and time that the bot was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -110,20 +111,20 @@ botSummary_botStatus = Lens.lens (\BotSummary' {botStatus} -> botStatus) (\s@Bot
 
 -- | The date and time that the bot was last updated.
 botSummary_lastUpdatedDateTime :: Lens.Lens' BotSummary (Prelude.Maybe Prelude.UTCTime)
-botSummary_lastUpdatedDateTime = Lens.lens (\BotSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@BotSummary' {} a -> s {lastUpdatedDateTime = a} :: BotSummary) Prelude.. Lens.mapping Core._Time
+botSummary_lastUpdatedDateTime = Lens.lens (\BotSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@BotSummary' {} a -> s {lastUpdatedDateTime = a} :: BotSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON BotSummary where
+instance Data.FromJSON BotSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BotSummary"
       ( \x ->
           BotSummary'
-            Prelude.<$> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "botId")
-            Prelude.<*> (x Core..:? "botName")
-            Prelude.<*> (x Core..:? "latestBotVersion")
-            Prelude.<*> (x Core..:? "botStatus")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "botId")
+            Prelude.<*> (x Data..:? "botName")
+            Prelude.<*> (x Data..:? "latestBotVersion")
+            Prelude.<*> (x Data..:? "botStatus")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
       )
 
 instance Prelude.Hashable BotSummary where

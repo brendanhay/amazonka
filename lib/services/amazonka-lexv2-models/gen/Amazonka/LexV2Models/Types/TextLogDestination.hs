@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.TextLogDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.CloudWatchLogGroupLogDestination
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newTextLogDestination pCloudWatch_ =
 textLogDestination_cloudWatch :: Lens.Lens' TextLogDestination CloudWatchLogGroupLogDestination
 textLogDestination_cloudWatch = Lens.lens (\TextLogDestination' {cloudWatch} -> cloudWatch) (\s@TextLogDestination' {} a -> s {cloudWatch = a} :: TextLogDestination)
 
-instance Core.FromJSON TextLogDestination where
+instance Data.FromJSON TextLogDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TextLogDestination"
       ( \x ->
           TextLogDestination'
-            Prelude.<$> (x Core..: "cloudWatch")
+            Prelude.<$> (x Data..: "cloudWatch")
       )
 
 instance Prelude.Hashable TextLogDestination where
@@ -73,9 +74,9 @@ instance Prelude.Hashable TextLogDestination where
 instance Prelude.NFData TextLogDestination where
   rnf TextLogDestination' {..} = Prelude.rnf cloudWatch
 
-instance Core.ToJSON TextLogDestination where
+instance Data.ToJSON TextLogDestination where
   toJSON TextLogDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("cloudWatch" Core..= cloudWatch)]
+          [Prelude.Just ("cloudWatch" Data..= cloudWatch)]
       )

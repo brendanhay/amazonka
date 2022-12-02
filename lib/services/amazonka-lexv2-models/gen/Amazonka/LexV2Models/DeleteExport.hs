@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,8 +84,8 @@ instance Core.AWSRequest DeleteExport where
     Response.receiveJSON
       ( \s h x ->
           DeleteExportResponse'
-            Prelude.<$> (x Core..?> "exportStatus")
-            Prelude.<*> (x Core..?> "exportId")
+            Prelude.<$> (x Data..?> "exportStatus")
+            Prelude.<*> (x Data..?> "exportId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,23 +96,23 @@ instance Prelude.Hashable DeleteExport where
 instance Prelude.NFData DeleteExport where
   rnf DeleteExport' {..} = Prelude.rnf exportId
 
-instance Core.ToHeaders DeleteExport where
+instance Data.ToHeaders DeleteExport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteExport where
+instance Data.ToPath DeleteExport where
   toPath DeleteExport' {..} =
     Prelude.mconcat
-      ["/exports/", Core.toBS exportId, "/"]
+      ["/exports/", Data.toBS exportId, "/"]
 
-instance Core.ToQuery DeleteExport where
+instance Data.ToQuery DeleteExport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteExportResponse' smart constructor.

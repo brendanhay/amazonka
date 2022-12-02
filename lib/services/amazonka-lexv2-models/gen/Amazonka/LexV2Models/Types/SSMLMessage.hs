@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.SSMLMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines a Speech Synthesis Markup Language (SSML) prompt.
@@ -52,11 +53,11 @@ newSSMLMessage pValue_ =
 sSMLMessage_value :: Lens.Lens' SSMLMessage Prelude.Text
 sSMLMessage_value = Lens.lens (\SSMLMessage' {value} -> value) (\s@SSMLMessage' {} a -> s {value = a} :: SSMLMessage)
 
-instance Core.FromJSON SSMLMessage where
+instance Data.FromJSON SSMLMessage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SSMLMessage"
-      (\x -> SSMLMessage' Prelude.<$> (x Core..: "value"))
+      (\x -> SSMLMessage' Prelude.<$> (x Data..: "value"))
 
 instance Prelude.Hashable SSMLMessage where
   hashWithSalt _salt SSMLMessage' {..} =
@@ -65,9 +66,9 @@ instance Prelude.Hashable SSMLMessage where
 instance Prelude.NFData SSMLMessage where
   rnf SSMLMessage' {..} = Prelude.rnf value
 
-instance Core.ToJSON SSMLMessage where
+instance Data.ToJSON SSMLMessage where
   toJSON SSMLMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("value" Core..= value)]
+          [Prelude.Just ("value" Data..= value)]
       )

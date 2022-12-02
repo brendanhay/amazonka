@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.CompositeSlotTypeSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.SubSlotTypeComposition
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,13 +56,13 @@ newCompositeSlotTypeSetting =
 compositeSlotTypeSetting_subSlots :: Lens.Lens' CompositeSlotTypeSetting (Prelude.Maybe [SubSlotTypeComposition])
 compositeSlotTypeSetting_subSlots = Lens.lens (\CompositeSlotTypeSetting' {subSlots} -> subSlots) (\s@CompositeSlotTypeSetting' {} a -> s {subSlots = a} :: CompositeSlotTypeSetting) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CompositeSlotTypeSetting where
+instance Data.FromJSON CompositeSlotTypeSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CompositeSlotTypeSetting"
       ( \x ->
           CompositeSlotTypeSetting'
-            Prelude.<$> (x Core..:? "subSlots" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "subSlots" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable CompositeSlotTypeSetting where
@@ -72,9 +73,9 @@ instance Prelude.NFData CompositeSlotTypeSetting where
   rnf CompositeSlotTypeSetting' {..} =
     Prelude.rnf subSlots
 
-instance Core.ToJSON CompositeSlotTypeSetting where
+instance Data.ToJSON CompositeSlotTypeSetting where
   toJSON CompositeSlotTypeSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("subSlots" Core..=) Prelude.<$> subSlots]
+          [("subSlots" Data..=) Prelude.<$> subSlots]
       )

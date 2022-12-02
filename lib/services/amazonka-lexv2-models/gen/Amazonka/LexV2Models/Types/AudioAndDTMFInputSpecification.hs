@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.AudioAndDTMFInputSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.AudioSpecification
 import Amazonka.LexV2Models.Types.DTMFSpecification
 import qualified Amazonka.Prelude as Prelude
@@ -81,15 +82,15 @@ audioAndDTMFInputSpecification_dtmfSpecification = Lens.lens (\AudioAndDTMFInput
 audioAndDTMFInputSpecification_startTimeoutMs :: Lens.Lens' AudioAndDTMFInputSpecification Prelude.Natural
 audioAndDTMFInputSpecification_startTimeoutMs = Lens.lens (\AudioAndDTMFInputSpecification' {startTimeoutMs} -> startTimeoutMs) (\s@AudioAndDTMFInputSpecification' {} a -> s {startTimeoutMs = a} :: AudioAndDTMFInputSpecification)
 
-instance Core.FromJSON AudioAndDTMFInputSpecification where
+instance Data.FromJSON AudioAndDTMFInputSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioAndDTMFInputSpecification"
       ( \x ->
           AudioAndDTMFInputSpecification'
-            Prelude.<$> (x Core..:? "audioSpecification")
-            Prelude.<*> (x Core..:? "dtmfSpecification")
-            Prelude.<*> (x Core..: "startTimeoutMs")
+            Prelude.<$> (x Data..:? "audioSpecification")
+            Prelude.<*> (x Data..:? "dtmfSpecification")
+            Prelude.<*> (x Data..: "startTimeoutMs")
       )
 
 instance
@@ -112,15 +113,15 @@ instance
       `Prelude.seq` Prelude.rnf dtmfSpecification
       `Prelude.seq` Prelude.rnf startTimeoutMs
 
-instance Core.ToJSON AudioAndDTMFInputSpecification where
+instance Data.ToJSON AudioAndDTMFInputSpecification where
   toJSON AudioAndDTMFInputSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("audioSpecification" Core..=)
+          [ ("audioSpecification" Data..=)
               Prelude.<$> audioSpecification,
-            ("dtmfSpecification" Core..=)
+            ("dtmfSpecification" Data..=)
               Prelude.<$> dtmfSpecification,
             Prelude.Just
-              ("startTimeoutMs" Core..= startTimeoutMs)
+              ("startTimeoutMs" Data..= startTimeoutMs)
           ]
       )

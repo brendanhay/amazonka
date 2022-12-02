@@ -21,6 +21,7 @@ module Amazonka.Shield.Types.Subscription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Shield.Types.AutoRenew
 import Amazonka.Shield.Types.Limit
@@ -44,12 +45,12 @@ data Subscription = Subscription'
     -- | Specifies how many protections of a given type you can create.
     limits :: Prelude.Maybe [Limit],
     -- | The date and time your subscription will end.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The length, in seconds, of the Shield Advanced subscription for the
     -- account.
     timeCommitmentInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The start time of the subscription, in Unix time in seconds.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | If @ENABLED@, the Shield Response Team (SRT) will use email and phone to
     -- notify contacts about escalations to the SRT and to initiate proactive
     -- customer support.
@@ -141,7 +142,7 @@ subscription_limits = Lens.lens (\Subscription' {limits} -> limits) (\s@Subscrip
 
 -- | The date and time your subscription will end.
 subscription_endTime :: Lens.Lens' Subscription (Prelude.Maybe Prelude.UTCTime)
-subscription_endTime = Lens.lens (\Subscription' {endTime} -> endTime) (\s@Subscription' {} a -> s {endTime = a} :: Subscription) Prelude.. Lens.mapping Core._Time
+subscription_endTime = Lens.lens (\Subscription' {endTime} -> endTime) (\s@Subscription' {} a -> s {endTime = a} :: Subscription) Prelude.. Lens.mapping Data._Time
 
 -- | The length, in seconds, of the Shield Advanced subscription for the
 -- account.
@@ -150,7 +151,7 @@ subscription_timeCommitmentInSeconds = Lens.lens (\Subscription' {timeCommitment
 
 -- | The start time of the subscription, in Unix time in seconds.
 subscription_startTime :: Lens.Lens' Subscription (Prelude.Maybe Prelude.UTCTime)
-subscription_startTime = Lens.lens (\Subscription' {startTime} -> startTime) (\s@Subscription' {} a -> s {startTime = a} :: Subscription) Prelude.. Lens.mapping Core._Time
+subscription_startTime = Lens.lens (\Subscription' {startTime} -> startTime) (\s@Subscription' {} a -> s {startTime = a} :: Subscription) Prelude.. Lens.mapping Data._Time
 
 -- | If @ENABLED@, the Shield Response Team (SRT) will use email and phone to
 -- notify contacts about escalations to the SRT and to initiate proactive
@@ -169,20 +170,20 @@ subscription_proactiveEngagementStatus = Lens.lens (\Subscription' {proactiveEng
 subscription_subscriptionLimits :: Lens.Lens' Subscription SubscriptionLimits
 subscription_subscriptionLimits = Lens.lens (\Subscription' {subscriptionLimits} -> subscriptionLimits) (\s@Subscription' {} a -> s {subscriptionLimits = a} :: Subscription)
 
-instance Core.FromJSON Subscription where
+instance Data.FromJSON Subscription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Subscription"
       ( \x ->
           Subscription'
-            Prelude.<$> (x Core..:? "SubscriptionArn")
-            Prelude.<*> (x Core..:? "AutoRenew")
-            Prelude.<*> (x Core..:? "Limits" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "TimeCommitmentInSeconds")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "ProactiveEngagementStatus")
-            Prelude.<*> (x Core..: "SubscriptionLimits")
+            Prelude.<$> (x Data..:? "SubscriptionArn")
+            Prelude.<*> (x Data..:? "AutoRenew")
+            Prelude.<*> (x Data..:? "Limits" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "TimeCommitmentInSeconds")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "ProactiveEngagementStatus")
+            Prelude.<*> (x Data..: "SubscriptionLimits")
       )
 
 instance Prelude.Hashable Subscription where

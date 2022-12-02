@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,28 +85,28 @@ instance Prelude.Hashable CreateSubscription where
 instance Prelude.NFData CreateSubscription where
   rnf _ = ()
 
-instance Core.ToHeaders CreateSubscription where
+instance Data.ToHeaders CreateSubscription where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShield_20160616.CreateSubscription" ::
+              Data.=# ( "AWSShield_20160616.CreateSubscription" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSubscription where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON CreateSubscription where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath CreateSubscription where
+instance Data.ToPath CreateSubscription where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateSubscription where
+instance Data.ToQuery CreateSubscription where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSubscriptionResponse' smart constructor.

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,7 +106,7 @@ instance Core.AWSRequest DescribeProtection where
     Response.receiveJSON
       ( \s h x ->
           DescribeProtectionResponse'
-            Prelude.<$> (x Core..?> "Protection")
+            Prelude.<$> (x Data..?> "Protection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,34 +120,34 @@ instance Prelude.NFData DescribeProtection where
     Prelude.rnf protectionId
       `Prelude.seq` Prelude.rnf resourceArn
 
-instance Core.ToHeaders DescribeProtection where
+instance Data.ToHeaders DescribeProtection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShield_20160616.DescribeProtection" ::
+              Data.=# ( "AWSShield_20160616.DescribeProtection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeProtection where
+instance Data.ToJSON DescribeProtection where
   toJSON DescribeProtection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProtectionId" Core..=) Prelude.<$> protectionId,
-            ("ResourceArn" Core..=) Prelude.<$> resourceArn
+          [ ("ProtectionId" Data..=) Prelude.<$> protectionId,
+            ("ResourceArn" Data..=) Prelude.<$> resourceArn
           ]
       )
 
-instance Core.ToPath DescribeProtection where
+instance Data.ToPath DescribeProtection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeProtection where
+instance Data.ToQuery DescribeProtection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeProtectionResponse' smart constructor.

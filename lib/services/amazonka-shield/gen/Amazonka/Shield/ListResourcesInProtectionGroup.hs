@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -176,9 +177,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListResourcesInProtectionGroupResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "ResourceArns" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ResourceArns" Core..!@ Prelude.mempty)
       )
 
 instance
@@ -202,38 +203,38 @@ instance
       `Prelude.seq` Prelude.rnf protectionGroupId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListResourcesInProtectionGroup
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShield_20160616.ListResourcesInProtectionGroup" ::
+              Data.=# ( "AWSShield_20160616.ListResourcesInProtectionGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListResourcesInProtectionGroup where
+instance Data.ToJSON ListResourcesInProtectionGroup where
   toJSON ListResourcesInProtectionGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("ProtectionGroupId" Core..= protectionGroupId)
+              ("ProtectionGroupId" Data..= protectionGroupId)
           ]
       )
 
-instance Core.ToPath ListResourcesInProtectionGroup where
+instance Data.ToPath ListResourcesInProtectionGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListResourcesInProtectionGroup where
+instance Data.ToQuery ListResourcesInProtectionGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListResourcesInProtectionGroupResponse' smart constructor.

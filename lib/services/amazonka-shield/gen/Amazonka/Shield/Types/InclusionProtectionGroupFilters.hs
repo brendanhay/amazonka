@@ -21,6 +21,7 @@ module Amazonka.Shield.Types.InclusionProtectionGroupFilters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Shield.Types.ProtectedResourceType
 import Amazonka.Shield.Types.ProtectionGroupAggregation
@@ -122,14 +123,14 @@ instance
       `Prelude.seq` Prelude.rnf resourceTypes
       `Prelude.seq` Prelude.rnf protectionGroupIds
 
-instance Core.ToJSON InclusionProtectionGroupFilters where
+instance Data.ToJSON InclusionProtectionGroupFilters where
   toJSON InclusionProtectionGroupFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Aggregations" Core..=) Prelude.<$> aggregations,
-            ("Patterns" Core..=) Prelude.<$> patterns,
-            ("ResourceTypes" Core..=) Prelude.<$> resourceTypes,
-            ("ProtectionGroupIds" Core..=)
+          [ ("Aggregations" Data..=) Prelude.<$> aggregations,
+            ("Patterns" Data..=) Prelude.<$> patterns,
+            ("ResourceTypes" Data..=) Prelude.<$> resourceTypes,
+            ("ProtectionGroupIds" Data..=)
               Prelude.<$> protectionGroupIds
           ]
       )

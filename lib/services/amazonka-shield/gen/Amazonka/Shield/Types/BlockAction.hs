@@ -21,6 +21,7 @@ module Amazonka.Shield.Types.BlockAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies that Shield Advanced should configure its WAF rules with the
@@ -44,9 +45,9 @@ newBlockAction ::
   BlockAction
 newBlockAction = BlockAction'
 
-instance Core.FromJSON BlockAction where
+instance Data.FromJSON BlockAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BlockAction"
       (\x -> Prelude.pure BlockAction')
 
@@ -57,5 +58,5 @@ instance Prelude.Hashable BlockAction where
 instance Prelude.NFData BlockAction where
   rnf _ = ()
 
-instance Core.ToJSON BlockAction where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON BlockAction where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

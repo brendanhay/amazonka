@@ -21,6 +21,7 @@ module Amazonka.Shield.Types.ProtectionGroupPatternTypeLimits where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Shield.Types.ProtectionGroupArbitraryPatternLimits
 
@@ -59,15 +60,15 @@ protectionGroupPatternTypeLimits_arbitraryPatternLimits :: Lens.Lens' Protection
 protectionGroupPatternTypeLimits_arbitraryPatternLimits = Lens.lens (\ProtectionGroupPatternTypeLimits' {arbitraryPatternLimits} -> arbitraryPatternLimits) (\s@ProtectionGroupPatternTypeLimits' {} a -> s {arbitraryPatternLimits = a} :: ProtectionGroupPatternTypeLimits)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ProtectionGroupPatternTypeLimits
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProtectionGroupPatternTypeLimits"
       ( \x ->
           ProtectionGroupPatternTypeLimits'
-            Prelude.<$> (x Core..: "ArbitraryPatternLimits")
+            Prelude.<$> (x Data..: "ArbitraryPatternLimits")
       )
 
 instance

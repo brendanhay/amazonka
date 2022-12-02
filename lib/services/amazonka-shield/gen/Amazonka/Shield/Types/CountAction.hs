@@ -21,6 +21,7 @@ module Amazonka.Shield.Types.CountAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies that Shield Advanced should configure its WAF rules with the
@@ -44,9 +45,9 @@ newCountAction ::
   CountAction
 newCountAction = CountAction'
 
-instance Core.FromJSON CountAction where
+instance Data.FromJSON CountAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CountAction"
       (\x -> Prelude.pure CountAction')
 
@@ -57,5 +58,5 @@ instance Prelude.Hashable CountAction where
 instance Prelude.NFData CountAction where
   rnf _ = ()
 
-instance Core.ToJSON CountAction where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON CountAction where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

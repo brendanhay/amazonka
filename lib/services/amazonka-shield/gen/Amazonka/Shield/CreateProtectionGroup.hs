@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -239,39 +240,39 @@ instance Prelude.NFData CreateProtectionGroup where
       `Prelude.seq` Prelude.rnf aggregation
       `Prelude.seq` Prelude.rnf pattern'
 
-instance Core.ToHeaders CreateProtectionGroup where
+instance Data.ToHeaders CreateProtectionGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShield_20160616.CreateProtectionGroup" ::
+              Data.=# ( "AWSShield_20160616.CreateProtectionGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateProtectionGroup where
+instance Data.ToJSON CreateProtectionGroup where
   toJSON CreateProtectionGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ResourceType" Core..=) Prelude.<$> resourceType,
-            ("Members" Core..=) Prelude.<$> members,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ResourceType" Data..=) Prelude.<$> resourceType,
+            ("Members" Data..=) Prelude.<$> members,
             Prelude.Just
-              ("ProtectionGroupId" Core..= protectionGroupId),
-            Prelude.Just ("Aggregation" Core..= aggregation),
-            Prelude.Just ("Pattern" Core..= pattern')
+              ("ProtectionGroupId" Data..= protectionGroupId),
+            Prelude.Just ("Aggregation" Data..= aggregation),
+            Prelude.Just ("Pattern" Data..= pattern')
           ]
       )
 
-instance Core.ToPath CreateProtectionGroup where
+instance Data.ToPath CreateProtectionGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateProtectionGroup where
+instance Data.ToQuery CreateProtectionGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateProtectionGroupResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Shield.Types.ResponseAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Shield.Types.BlockAction
 import Amazonka.Shield.Types.CountAction
@@ -87,14 +88,14 @@ responseAction_count = Lens.lens (\ResponseAction' {count} -> count) (\s@Respons
 responseAction_block :: Lens.Lens' ResponseAction (Prelude.Maybe BlockAction)
 responseAction_block = Lens.lens (\ResponseAction' {block} -> block) (\s@ResponseAction' {} a -> s {block = a} :: ResponseAction)
 
-instance Core.FromJSON ResponseAction where
+instance Data.FromJSON ResponseAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResponseAction"
       ( \x ->
           ResponseAction'
-            Prelude.<$> (x Core..:? "Count")
-            Prelude.<*> (x Core..:? "Block")
+            Prelude.<$> (x Data..:? "Count")
+            Prelude.<*> (x Data..:? "Block")
       )
 
 instance Prelude.Hashable ResponseAction where
@@ -106,11 +107,11 @@ instance Prelude.NFData ResponseAction where
   rnf ResponseAction' {..} =
     Prelude.rnf count `Prelude.seq` Prelude.rnf block
 
-instance Core.ToJSON ResponseAction where
+instance Data.ToJSON ResponseAction where
   toJSON ResponseAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Count" Core..=) Prelude.<$> count,
-            ("Block" Core..=) Prelude.<$> block
+          [ ("Count" Data..=) Prelude.<$> count,
+            ("Block" Data..=) Prelude.<$> block
           ]
       )

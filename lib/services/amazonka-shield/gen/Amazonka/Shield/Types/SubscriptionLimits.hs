@@ -21,6 +21,7 @@ module Amazonka.Shield.Types.SubscriptionLimits where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Shield.Types.ProtectionGroupLimits
 import Amazonka.Shield.Types.ProtectionLimits
@@ -70,14 +71,14 @@ subscriptionLimits_protectionLimits = Lens.lens (\SubscriptionLimits' {protectio
 subscriptionLimits_protectionGroupLimits :: Lens.Lens' SubscriptionLimits ProtectionGroupLimits
 subscriptionLimits_protectionGroupLimits = Lens.lens (\SubscriptionLimits' {protectionGroupLimits} -> protectionGroupLimits) (\s@SubscriptionLimits' {} a -> s {protectionGroupLimits = a} :: SubscriptionLimits)
 
-instance Core.FromJSON SubscriptionLimits where
+instance Data.FromJSON SubscriptionLimits where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SubscriptionLimits"
       ( \x ->
           SubscriptionLimits'
-            Prelude.<$> (x Core..: "ProtectionLimits")
-            Prelude.<*> (x Core..: "ProtectionGroupLimits")
+            Prelude.<$> (x Data..: "ProtectionLimits")
+            Prelude.<*> (x Data..: "ProtectionGroupLimits")
       )
 
 instance Prelude.Hashable SubscriptionLimits where

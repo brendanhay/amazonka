@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -181,9 +182,9 @@ instance Core.AWSRequest ListProtectionGroups where
     Response.receiveJSON
       ( \s h x ->
           ListProtectionGroupsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "ProtectionGroups"
+            Prelude.<*> ( x Data..?> "ProtectionGroups"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -200,36 +201,36 @@ instance Prelude.NFData ListProtectionGroups where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf inclusionFilters
 
-instance Core.ToHeaders ListProtectionGroups where
+instance Data.ToHeaders ListProtectionGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShield_20160616.ListProtectionGroups" ::
+              Data.=# ( "AWSShield_20160616.ListProtectionGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListProtectionGroups where
+instance Data.ToJSON ListProtectionGroups where
   toJSON ListProtectionGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("InclusionFilters" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("InclusionFilters" Data..=)
               Prelude.<$> inclusionFilters
           ]
       )
 
-instance Core.ToPath ListProtectionGroups where
+instance Data.ToPath ListProtectionGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListProtectionGroups where
+instance Data.ToQuery ListProtectionGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListProtectionGroupsResponse' smart constructor.

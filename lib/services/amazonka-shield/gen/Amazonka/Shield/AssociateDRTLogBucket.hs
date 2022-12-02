@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,32 +103,32 @@ instance Prelude.NFData AssociateDRTLogBucket where
   rnf AssociateDRTLogBucket' {..} =
     Prelude.rnf logBucket
 
-instance Core.ToHeaders AssociateDRTLogBucket where
+instance Data.ToHeaders AssociateDRTLogBucket where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShield_20160616.AssociateDRTLogBucket" ::
+              Data.=# ( "AWSShield_20160616.AssociateDRTLogBucket" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateDRTLogBucket where
+instance Data.ToJSON AssociateDRTLogBucket where
   toJSON AssociateDRTLogBucket' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("LogBucket" Core..= logBucket)]
+          [Prelude.Just ("LogBucket" Data..= logBucket)]
       )
 
-instance Core.ToPath AssociateDRTLogBucket where
+instance Data.ToPath AssociateDRTLogBucket where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateDRTLogBucket where
+instance Data.ToQuery AssociateDRTLogBucket where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateDRTLogBucketResponse' smart constructor.

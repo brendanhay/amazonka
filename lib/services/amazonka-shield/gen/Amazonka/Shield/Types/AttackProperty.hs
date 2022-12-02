@@ -21,6 +21,7 @@ module Amazonka.Shield.Types.AttackProperty where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Shield.Types.AttackLayer
 import Amazonka.Shield.Types.AttackPropertyIdentifier
@@ -125,19 +126,19 @@ attackProperty_attackPropertyIdentifier = Lens.lens (\AttackProperty' {attackPro
 attackProperty_unit :: Lens.Lens' AttackProperty (Prelude.Maybe Unit)
 attackProperty_unit = Lens.lens (\AttackProperty' {unit} -> unit) (\s@AttackProperty' {} a -> s {unit = a} :: AttackProperty)
 
-instance Core.FromJSON AttackProperty where
+instance Data.FromJSON AttackProperty where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AttackProperty"
       ( \x ->
           AttackProperty'
-            Prelude.<$> (x Core..:? "Total")
-            Prelude.<*> (x Core..:? "AttackLayer")
-            Prelude.<*> ( x Core..:? "TopContributors"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Total")
+            Prelude.<*> (x Data..:? "AttackLayer")
+            Prelude.<*> ( x Data..:? "TopContributors"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "AttackPropertyIdentifier")
-            Prelude.<*> (x Core..:? "Unit")
+            Prelude.<*> (x Data..:? "AttackPropertyIdentifier")
+            Prelude.<*> (x Data..:? "Unit")
       )
 
 instance Prelude.Hashable AttackProperty where

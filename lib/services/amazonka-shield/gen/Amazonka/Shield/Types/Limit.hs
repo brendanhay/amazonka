@@ -21,6 +21,7 @@ module Amazonka.Shield.Types.Limit where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies how many protections of a given type you can create.
@@ -64,13 +65,13 @@ limit_type = Lens.lens (\Limit' {type'} -> type') (\s@Limit' {} a -> s {type' = 
 limit_max :: Lens.Lens' Limit (Prelude.Maybe Prelude.Integer)
 limit_max = Lens.lens (\Limit' {max} -> max) (\s@Limit' {} a -> s {max = a} :: Limit)
 
-instance Core.FromJSON Limit where
+instance Data.FromJSON Limit where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Limit"
       ( \x ->
           Limit'
-            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "Max")
+            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..:? "Max")
       )
 
 instance Prelude.Hashable Limit where

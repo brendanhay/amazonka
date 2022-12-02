@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -74,7 +75,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeEmergencyContactSettingsResponse'
-            Prelude.<$> ( x Core..?> "EmergencyContactList"
+            Prelude.<$> ( x Data..?> "EmergencyContactList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -94,31 +95,31 @@ instance
   rnf _ = ()
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeEmergencyContactSettings
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShield_20160616.DescribeEmergencyContactSettings" ::
+              Data.=# ( "AWSShield_20160616.DescribeEmergencyContactSettings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEmergencyContactSettings where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DescribeEmergencyContactSettings where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DescribeEmergencyContactSettings where
+instance Data.ToPath DescribeEmergencyContactSettings where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeEmergencyContactSettings
   where
   toQuery = Prelude.const Prelude.mempty

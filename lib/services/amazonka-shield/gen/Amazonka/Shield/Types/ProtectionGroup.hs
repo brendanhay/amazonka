@@ -21,6 +21,7 @@ module Amazonka.Shield.Types.ProtectionGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Shield.Types.ProtectedResourceType
 import Amazonka.Shield.Types.ProtectionGroupAggregation
@@ -186,18 +187,18 @@ protectionGroup_pattern = Lens.lens (\ProtectionGroup' {pattern'} -> pattern') (
 protectionGroup_members :: Lens.Lens' ProtectionGroup [Prelude.Text]
 protectionGroup_members = Lens.lens (\ProtectionGroup' {members} -> members) (\s@ProtectionGroup' {} a -> s {members = a} :: ProtectionGroup) Prelude.. Lens.coerced
 
-instance Core.FromJSON ProtectionGroup where
+instance Data.FromJSON ProtectionGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProtectionGroup"
       ( \x ->
           ProtectionGroup'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "ProtectionGroupArn")
-            Prelude.<*> (x Core..: "ProtectionGroupId")
-            Prelude.<*> (x Core..: "Aggregation")
-            Prelude.<*> (x Core..: "Pattern")
-            Prelude.<*> (x Core..:? "Members" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "ProtectionGroupArn")
+            Prelude.<*> (x Data..: "ProtectionGroupId")
+            Prelude.<*> (x Data..: "Aggregation")
+            Prelude.<*> (x Data..: "Pattern")
+            Prelude.<*> (x Data..:? "Members" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ProtectionGroup where

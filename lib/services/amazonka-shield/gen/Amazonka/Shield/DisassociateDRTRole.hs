@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -77,28 +78,28 @@ instance Prelude.Hashable DisassociateDRTRole where
 instance Prelude.NFData DisassociateDRTRole where
   rnf _ = ()
 
-instance Core.ToHeaders DisassociateDRTRole where
+instance Data.ToHeaders DisassociateDRTRole where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShield_20160616.DisassociateDRTRole" ::
+              Data.=# ( "AWSShield_20160616.DisassociateDRTRole" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateDRTRole where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DisassociateDRTRole where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DisassociateDRTRole where
+instance Data.ToPath DisassociateDRTRole where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateDRTRole where
+instance Data.ToQuery DisassociateDRTRole where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateDRTRoleResponse' smart constructor.

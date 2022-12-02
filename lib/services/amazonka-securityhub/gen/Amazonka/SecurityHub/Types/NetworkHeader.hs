@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.NetworkHeader where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.NetworkPathComponentDetails
 
@@ -72,15 +73,15 @@ networkHeader_source = Lens.lens (\NetworkHeader' {source} -> source) (\s@Networ
 networkHeader_protocol :: Lens.Lens' NetworkHeader (Prelude.Maybe Prelude.Text)
 networkHeader_protocol = Lens.lens (\NetworkHeader' {protocol} -> protocol) (\s@NetworkHeader' {} a -> s {protocol = a} :: NetworkHeader)
 
-instance Core.FromJSON NetworkHeader where
+instance Data.FromJSON NetworkHeader where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkHeader"
       ( \x ->
           NetworkHeader'
-            Prelude.<$> (x Core..:? "Destination")
-            Prelude.<*> (x Core..:? "Source")
-            Prelude.<*> (x Core..:? "Protocol")
+            Prelude.<$> (x Data..:? "Destination")
+            Prelude.<*> (x Data..:? "Source")
+            Prelude.<*> (x Data..:? "Protocol")
       )
 
 instance Prelude.Hashable NetworkHeader where
@@ -95,12 +96,12 @@ instance Prelude.NFData NetworkHeader where
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf protocol
 
-instance Core.ToJSON NetworkHeader where
+instance Data.ToJSON NetworkHeader where
   toJSON NetworkHeader' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Destination" Core..=) Prelude.<$> destination,
-            ("Source" Core..=) Prelude.<$> source,
-            ("Protocol" Core..=) Prelude.<$> protocol
+          [ ("Destination" Data..=) Prelude.<$> destination,
+            ("Source" Data..=) Prelude.<$> source,
+            ("Protocol" Data..=) Prelude.<$> protocol
           ]
       )

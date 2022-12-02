@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEfsAccessPointRootDirectoryCreationInfoDeta
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the settings that Amazon EFS uses to create
@@ -78,17 +79,17 @@ awsEfsAccessPointRootDirectoryCreationInfoDetails_ownerUid :: Lens.Lens' AwsEfsA
 awsEfsAccessPointRootDirectoryCreationInfoDetails_ownerUid = Lens.lens (\AwsEfsAccessPointRootDirectoryCreationInfoDetails' {ownerUid} -> ownerUid) (\s@AwsEfsAccessPointRootDirectoryCreationInfoDetails' {} a -> s {ownerUid = a} :: AwsEfsAccessPointRootDirectoryCreationInfoDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEfsAccessPointRootDirectoryCreationInfoDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEfsAccessPointRootDirectoryCreationInfoDetails"
       ( \x ->
           AwsEfsAccessPointRootDirectoryCreationInfoDetails'
-            Prelude.<$> (x Core..:? "Permissions")
-              Prelude.<*> (x Core..:? "OwnerGid")
-              Prelude.<*> (x Core..:? "OwnerUid")
+            Prelude.<$> (x Data..:? "Permissions")
+              Prelude.<*> (x Data..:? "OwnerGid")
+              Prelude.<*> (x Data..:? "OwnerUid")
       )
 
 instance
@@ -113,15 +114,15 @@ instance
         `Prelude.seq` Prelude.rnf ownerUid
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEfsAccessPointRootDirectoryCreationInfoDetails
   where
   toJSON
     AwsEfsAccessPointRootDirectoryCreationInfoDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Permissions" Core..=) Prelude.<$> permissions,
-              ("OwnerGid" Core..=) Prelude.<$> ownerGid,
-              ("OwnerUid" Core..=) Prelude.<$> ownerUid
+            [ ("Permissions" Data..=) Prelude.<$> permissions,
+              ("OwnerGid" Data..=) Prelude.<$> ownerGid,
+              ("OwnerUid" Data..=) Prelude.<$> ownerUid
             ]
         )

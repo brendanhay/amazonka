@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.StatusReason where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides additional context for the value of @Compliance.Status@.
@@ -72,14 +73,14 @@ statusReason_description = Lens.lens (\StatusReason' {description} -> descriptio
 statusReason_reasonCode :: Lens.Lens' StatusReason Prelude.Text
 statusReason_reasonCode = Lens.lens (\StatusReason' {reasonCode} -> reasonCode) (\s@StatusReason' {} a -> s {reasonCode = a} :: StatusReason)
 
-instance Core.FromJSON StatusReason where
+instance Data.FromJSON StatusReason where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StatusReason"
       ( \x ->
           StatusReason'
-            Prelude.<$> (x Core..:? "Description")
-            Prelude.<*> (x Core..: "ReasonCode")
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..: "ReasonCode")
       )
 
 instance Prelude.Hashable StatusReason where
@@ -92,11 +93,11 @@ instance Prelude.NFData StatusReason where
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf reasonCode
 
-instance Core.ToJSON StatusReason where
+instance Data.ToJSON StatusReason where
   toJSON StatusReason' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("ReasonCode" Core..= reasonCode)
+          [ ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("ReasonCode" Data..= reasonCode)
           ]
       )

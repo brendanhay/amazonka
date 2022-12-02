@@ -85,6 +85,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -334,10 +335,10 @@ instance Core.AWSRequest BatchUpdateFindings where
       ( \s h x ->
           BatchUpdateFindingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "ProcessedFindings"
+            Prelude.<*> ( x Data..?> "ProcessedFindings"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "UnprocessedFindings"
+            Prelude.<*> ( x Data..?> "UnprocessedFindings"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -368,42 +369,42 @@ instance Prelude.NFData BatchUpdateFindings where
       `Prelude.seq` Prelude.rnf note
       `Prelude.seq` Prelude.rnf findingIdentifiers
 
-instance Core.ToHeaders BatchUpdateFindings where
+instance Data.ToHeaders BatchUpdateFindings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchUpdateFindings where
+instance Data.ToJSON BatchUpdateFindings where
   toJSON BatchUpdateFindings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Criticality" Core..=) Prelude.<$> criticality,
-            ("Severity" Core..=) Prelude.<$> severity,
-            ("RelatedFindings" Core..=)
+          [ ("Criticality" Data..=) Prelude.<$> criticality,
+            ("Severity" Data..=) Prelude.<$> severity,
+            ("RelatedFindings" Data..=)
               Prelude.<$> relatedFindings,
-            ("Confidence" Core..=) Prelude.<$> confidence,
-            ("UserDefinedFields" Core..=)
+            ("Confidence" Data..=) Prelude.<$> confidence,
+            ("UserDefinedFields" Data..=)
               Prelude.<$> userDefinedFields,
-            ("Types" Core..=) Prelude.<$> types,
-            ("VerificationState" Core..=)
+            ("Types" Data..=) Prelude.<$> types,
+            ("VerificationState" Data..=)
               Prelude.<$> verificationState,
-            ("Workflow" Core..=) Prelude.<$> workflow,
-            ("Note" Core..=) Prelude.<$> note,
+            ("Workflow" Data..=) Prelude.<$> workflow,
+            ("Note" Data..=) Prelude.<$> note,
             Prelude.Just
-              ("FindingIdentifiers" Core..= findingIdentifiers)
+              ("FindingIdentifiers" Data..= findingIdentifiers)
           ]
       )
 
-instance Core.ToPath BatchUpdateFindings where
+instance Data.ToPath BatchUpdateFindings where
   toPath = Prelude.const "/findings/batchupdate"
 
-instance Core.ToQuery BatchUpdateFindings where
+instance Data.ToQuery BatchUpdateFindings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchUpdateFindingsResponse' smart constructor.

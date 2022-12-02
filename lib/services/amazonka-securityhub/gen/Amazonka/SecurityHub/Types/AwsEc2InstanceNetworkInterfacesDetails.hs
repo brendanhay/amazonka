@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies a network interface for the Amazon EC2 instance.
@@ -57,15 +58,15 @@ awsEc2InstanceNetworkInterfacesDetails_networkInterfaceId :: Lens.Lens' AwsEc2In
 awsEc2InstanceNetworkInterfacesDetails_networkInterfaceId = Lens.lens (\AwsEc2InstanceNetworkInterfacesDetails' {networkInterfaceId} -> networkInterfaceId) (\s@AwsEc2InstanceNetworkInterfacesDetails' {} a -> s {networkInterfaceId = a} :: AwsEc2InstanceNetworkInterfacesDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEc2InstanceNetworkInterfacesDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2InstanceNetworkInterfacesDetails"
       ( \x ->
           AwsEc2InstanceNetworkInterfacesDetails'
-            Prelude.<$> (x Core..:? "NetworkInterfaceId")
+            Prelude.<$> (x Data..:? "NetworkInterfaceId")
       )
 
 instance
@@ -85,13 +86,13 @@ instance
     Prelude.rnf networkInterfaceId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEc2InstanceNetworkInterfacesDetails
   where
   toJSON AwsEc2InstanceNetworkInterfacesDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NetworkInterfaceId" Core..=)
+          [ ("NetworkInterfaceId" Data..=)
               Prelude.<$> networkInterfaceId
           ]
       )

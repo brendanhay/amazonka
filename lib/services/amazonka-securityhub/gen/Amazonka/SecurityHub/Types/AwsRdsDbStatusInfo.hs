@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRdsDbStatusInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the status of a read replica.
@@ -85,16 +86,16 @@ awsRdsDbStatusInfo_normal = Lens.lens (\AwsRdsDbStatusInfo' {normal} -> normal) 
 awsRdsDbStatusInfo_statusType :: Lens.Lens' AwsRdsDbStatusInfo (Prelude.Maybe Prelude.Text)
 awsRdsDbStatusInfo_statusType = Lens.lens (\AwsRdsDbStatusInfo' {statusType} -> statusType) (\s@AwsRdsDbStatusInfo' {} a -> s {statusType = a} :: AwsRdsDbStatusInfo)
 
-instance Core.FromJSON AwsRdsDbStatusInfo where
+instance Data.FromJSON AwsRdsDbStatusInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRdsDbStatusInfo"
       ( \x ->
           AwsRdsDbStatusInfo'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Normal")
-            Prelude.<*> (x Core..:? "StatusType")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Normal")
+            Prelude.<*> (x Data..:? "StatusType")
       )
 
 instance Prelude.Hashable AwsRdsDbStatusInfo where
@@ -111,13 +112,13 @@ instance Prelude.NFData AwsRdsDbStatusInfo where
       `Prelude.seq` Prelude.rnf normal
       `Prelude.seq` Prelude.rnf statusType
 
-instance Core.ToJSON AwsRdsDbStatusInfo where
+instance Data.ToJSON AwsRdsDbStatusInfo where
   toJSON AwsRdsDbStatusInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Message" Core..=) Prelude.<$> message,
-            ("Status" Core..=) Prelude.<$> status,
-            ("Normal" Core..=) Prelude.<$> normal,
-            ("StatusType" Core..=) Prelude.<$> statusType
+          [ ("Message" Data..=) Prelude.<$> message,
+            ("Status" Data..=) Prelude.<$> status,
+            ("Normal" Data..=) Prelude.<$> normal,
+            ("StatusType" Data..=) Prelude.<$> statusType
           ]
       )

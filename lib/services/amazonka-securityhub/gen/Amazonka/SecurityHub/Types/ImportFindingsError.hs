@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.ImportFindingsError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The list of the findings that cannot be imported. For each finding, the
@@ -83,15 +84,15 @@ importFindingsError_errorCode = Lens.lens (\ImportFindingsError' {errorCode} -> 
 importFindingsError_errorMessage :: Lens.Lens' ImportFindingsError Prelude.Text
 importFindingsError_errorMessage = Lens.lens (\ImportFindingsError' {errorMessage} -> errorMessage) (\s@ImportFindingsError' {} a -> s {errorMessage = a} :: ImportFindingsError)
 
-instance Core.FromJSON ImportFindingsError where
+instance Data.FromJSON ImportFindingsError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportFindingsError"
       ( \x ->
           ImportFindingsError'
-            Prelude.<$> (x Core..: "Id")
-            Prelude.<*> (x Core..: "ErrorCode")
-            Prelude.<*> (x Core..: "ErrorMessage")
+            Prelude.<$> (x Data..: "Id")
+            Prelude.<*> (x Data..: "ErrorCode")
+            Prelude.<*> (x Data..: "ErrorMessage")
       )
 
 instance Prelude.Hashable ImportFindingsError where

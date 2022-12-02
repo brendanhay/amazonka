@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2SecurityGroupIpPermission where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEc2SecurityGroupIpRange
 import Amazonka.SecurityHub.Types.AwsEc2SecurityGroupIpv6Range
@@ -178,23 +179,23 @@ awsEc2SecurityGroupIpPermission_fromPort :: Lens.Lens' AwsEc2SecurityGroupIpPerm
 awsEc2SecurityGroupIpPermission_fromPort = Lens.lens (\AwsEc2SecurityGroupIpPermission' {fromPort} -> fromPort) (\s@AwsEc2SecurityGroupIpPermission' {} a -> s {fromPort = a} :: AwsEc2SecurityGroupIpPermission)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEc2SecurityGroupIpPermission
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2SecurityGroupIpPermission"
       ( \x ->
           AwsEc2SecurityGroupIpPermission'
-            Prelude.<$> (x Core..:? "ToPort")
-            Prelude.<*> (x Core..:? "Ipv6Ranges" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "IpProtocol")
-            Prelude.<*> (x Core..:? "PrefixListIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "IpRanges" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "UserIdGroupPairs"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ToPort")
+            Prelude.<*> (x Data..:? "Ipv6Ranges" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "IpProtocol")
+            Prelude.<*> (x Data..:? "PrefixListIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "IpRanges" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "UserIdGroupPairs"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "FromPort")
+            Prelude.<*> (x Data..:? "FromPort")
       )
 
 instance
@@ -225,17 +226,17 @@ instance
       `Prelude.seq` Prelude.rnf userIdGroupPairs
       `Prelude.seq` Prelude.rnf fromPort
 
-instance Core.ToJSON AwsEc2SecurityGroupIpPermission where
+instance Data.ToJSON AwsEc2SecurityGroupIpPermission where
   toJSON AwsEc2SecurityGroupIpPermission' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ToPort" Core..=) Prelude.<$> toPort,
-            ("Ipv6Ranges" Core..=) Prelude.<$> ipv6Ranges,
-            ("IpProtocol" Core..=) Prelude.<$> ipProtocol,
-            ("PrefixListIds" Core..=) Prelude.<$> prefixListIds,
-            ("IpRanges" Core..=) Prelude.<$> ipRanges,
-            ("UserIdGroupPairs" Core..=)
+          [ ("ToPort" Data..=) Prelude.<$> toPort,
+            ("Ipv6Ranges" Data..=) Prelude.<$> ipv6Ranges,
+            ("IpProtocol" Data..=) Prelude.<$> ipProtocol,
+            ("PrefixListIds" Data..=) Prelude.<$> prefixListIds,
+            ("IpRanges" Data..=) Prelude.<$> ipRanges,
+            ("UserIdGroupPairs" Data..=)
               Prelude.<$> userIdGroupPairs,
-            ("FromPort" Core..=) Prelude.<$> fromPort
+            ("FromPort" Data..=) Prelude.<$> fromPort
           ]
       )

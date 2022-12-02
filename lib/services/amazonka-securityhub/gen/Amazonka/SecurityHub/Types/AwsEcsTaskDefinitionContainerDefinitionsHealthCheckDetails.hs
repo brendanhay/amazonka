@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsHealth
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The container health check command and associated configuration
@@ -110,19 +111,19 @@ awsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails_retries :: Lens.Lens'
 awsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails_retries = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails' {retries} -> retries) (\s@AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails' {} a -> s {retries = a} :: AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails'
-            Prelude.<$> (x Core..:? "Timeout")
-              Prelude.<*> (x Core..:? "StartPeriod")
-              Prelude.<*> (x Core..:? "Interval")
-              Prelude.<*> (x Core..:? "Command" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "Retries")
+            Prelude.<$> (x Data..:? "Timeout")
+              Prelude.<*> (x Data..:? "StartPeriod")
+              Prelude.<*> (x Data..:? "Interval")
+              Prelude.<*> (x Data..:? "Command" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "Retries")
       )
 
 instance
@@ -151,17 +152,17 @@ instance
         `Prelude.seq` Prelude.rnf retries
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails
   where
   toJSON
     AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Timeout" Core..=) Prelude.<$> timeout,
-              ("StartPeriod" Core..=) Prelude.<$> startPeriod,
-              ("Interval" Core..=) Prelude.<$> interval,
-              ("Command" Core..=) Prelude.<$> command,
-              ("Retries" Core..=) Prelude.<$> retries
+            [ ("Timeout" Data..=) Prelude.<$> timeout,
+              ("StartPeriod" Data..=) Prelude.<$> startPeriod,
+              ("Interval" Data..=) Prelude.<$> interval,
+              ("Command" Data..=) Prelude.<$> command,
+              ("Retries" Data..=) Prelude.<$> retries
             ]
         )

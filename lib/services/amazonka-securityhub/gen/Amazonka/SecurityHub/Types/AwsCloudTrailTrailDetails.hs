@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCloudTrailTrailDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides details about a CloudTrail trail.
@@ -200,27 +201,27 @@ awsCloudTrailTrailDetails_cloudWatchLogsLogGroupArn = Lens.lens (\AwsCloudTrailT
 awsCloudTrailTrailDetails_trailArn :: Lens.Lens' AwsCloudTrailTrailDetails (Prelude.Maybe Prelude.Text)
 awsCloudTrailTrailDetails_trailArn = Lens.lens (\AwsCloudTrailTrailDetails' {trailArn} -> trailArn) (\s@AwsCloudTrailTrailDetails' {} a -> s {trailArn = a} :: AwsCloudTrailTrailDetails)
 
-instance Core.FromJSON AwsCloudTrailTrailDetails where
+instance Data.FromJSON AwsCloudTrailTrailDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCloudTrailTrailDetails"
       ( \x ->
           AwsCloudTrailTrailDetails'
-            Prelude.<$> (x Core..:? "S3KeyPrefix")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LogFileValidationEnabled")
-            Prelude.<*> (x Core..:? "SnsTopicName")
-            Prelude.<*> (x Core..:? "IsOrganizationTrail")
-            Prelude.<*> (x Core..:? "IncludeGlobalServiceEvents")
-            Prelude.<*> (x Core..:? "S3BucketName")
-            Prelude.<*> (x Core..:? "HasCustomEventSelectors")
-            Prelude.<*> (x Core..:? "SnsTopicArn")
-            Prelude.<*> (x Core..:? "IsMultiRegionTrail")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "CloudWatchLogsRoleArn")
-            Prelude.<*> (x Core..:? "HomeRegion")
-            Prelude.<*> (x Core..:? "CloudWatchLogsLogGroupArn")
-            Prelude.<*> (x Core..:? "TrailArn")
+            Prelude.<$> (x Data..:? "S3KeyPrefix")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "LogFileValidationEnabled")
+            Prelude.<*> (x Data..:? "SnsTopicName")
+            Prelude.<*> (x Data..:? "IsOrganizationTrail")
+            Prelude.<*> (x Data..:? "IncludeGlobalServiceEvents")
+            Prelude.<*> (x Data..:? "S3BucketName")
+            Prelude.<*> (x Data..:? "HasCustomEventSelectors")
+            Prelude.<*> (x Data..:? "SnsTopicArn")
+            Prelude.<*> (x Data..:? "IsMultiRegionTrail")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "CloudWatchLogsRoleArn")
+            Prelude.<*> (x Data..:? "HomeRegion")
+            Prelude.<*> (x Data..:? "CloudWatchLogsLogGroupArn")
+            Prelude.<*> (x Data..:? "TrailArn")
       )
 
 instance Prelude.Hashable AwsCloudTrailTrailDetails where
@@ -259,31 +260,31 @@ instance Prelude.NFData AwsCloudTrailTrailDetails where
       `Prelude.seq` Prelude.rnf cloudWatchLogsLogGroupArn
       `Prelude.seq` Prelude.rnf trailArn
 
-instance Core.ToJSON AwsCloudTrailTrailDetails where
+instance Data.ToJSON AwsCloudTrailTrailDetails where
   toJSON AwsCloudTrailTrailDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3KeyPrefix" Core..=) Prelude.<$> s3KeyPrefix,
-            ("Name" Core..=) Prelude.<$> name,
-            ("LogFileValidationEnabled" Core..=)
+          [ ("S3KeyPrefix" Data..=) Prelude.<$> s3KeyPrefix,
+            ("Name" Data..=) Prelude.<$> name,
+            ("LogFileValidationEnabled" Data..=)
               Prelude.<$> logFileValidationEnabled,
-            ("SnsTopicName" Core..=) Prelude.<$> snsTopicName,
-            ("IsOrganizationTrail" Core..=)
+            ("SnsTopicName" Data..=) Prelude.<$> snsTopicName,
+            ("IsOrganizationTrail" Data..=)
               Prelude.<$> isOrganizationTrail,
-            ("IncludeGlobalServiceEvents" Core..=)
+            ("IncludeGlobalServiceEvents" Data..=)
               Prelude.<$> includeGlobalServiceEvents,
-            ("S3BucketName" Core..=) Prelude.<$> s3BucketName,
-            ("HasCustomEventSelectors" Core..=)
+            ("S3BucketName" Data..=) Prelude.<$> s3BucketName,
+            ("HasCustomEventSelectors" Data..=)
               Prelude.<$> hasCustomEventSelectors,
-            ("SnsTopicArn" Core..=) Prelude.<$> snsTopicArn,
-            ("IsMultiRegionTrail" Core..=)
+            ("SnsTopicArn" Data..=) Prelude.<$> snsTopicArn,
+            ("IsMultiRegionTrail" Data..=)
               Prelude.<$> isMultiRegionTrail,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("CloudWatchLogsRoleArn" Core..=)
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("CloudWatchLogsRoleArn" Data..=)
               Prelude.<$> cloudWatchLogsRoleArn,
-            ("HomeRegion" Core..=) Prelude.<$> homeRegion,
-            ("CloudWatchLogsLogGroupArn" Core..=)
+            ("HomeRegion" Data..=) Prelude.<$> homeRegion,
+            ("CloudWatchLogsLogGroupArn" Data..=)
               Prelude.<$> cloudWatchLogsLogGroupArn,
-            ("TrailArn" Core..=) Prelude.<$> trailArn
+            ("TrailArn" Data..=) Prelude.<$> trailArn
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRedshiftClusterHsmStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about whether an Amazon Redshift cluster finished applying
@@ -95,15 +96,15 @@ awsRedshiftClusterHsmStatus_hsmClientCertificateIdentifier = Lens.lens (\AwsReds
 awsRedshiftClusterHsmStatus_hsmConfigurationIdentifier :: Lens.Lens' AwsRedshiftClusterHsmStatus (Prelude.Maybe Prelude.Text)
 awsRedshiftClusterHsmStatus_hsmConfigurationIdentifier = Lens.lens (\AwsRedshiftClusterHsmStatus' {hsmConfigurationIdentifier} -> hsmConfigurationIdentifier) (\s@AwsRedshiftClusterHsmStatus' {} a -> s {hsmConfigurationIdentifier = a} :: AwsRedshiftClusterHsmStatus)
 
-instance Core.FromJSON AwsRedshiftClusterHsmStatus where
+instance Data.FromJSON AwsRedshiftClusterHsmStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRedshiftClusterHsmStatus"
       ( \x ->
           AwsRedshiftClusterHsmStatus'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "HsmClientCertificateIdentifier")
-            Prelude.<*> (x Core..:? "HsmConfigurationIdentifier")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "HsmClientCertificateIdentifier")
+            Prelude.<*> (x Data..:? "HsmConfigurationIdentifier")
       )
 
 instance Prelude.Hashable AwsRedshiftClusterHsmStatus where
@@ -118,14 +119,14 @@ instance Prelude.NFData AwsRedshiftClusterHsmStatus where
       `Prelude.seq` Prelude.rnf hsmClientCertificateIdentifier
       `Prelude.seq` Prelude.rnf hsmConfigurationIdentifier
 
-instance Core.ToJSON AwsRedshiftClusterHsmStatus where
+instance Data.ToJSON AwsRedshiftClusterHsmStatus where
   toJSON AwsRedshiftClusterHsmStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("HsmClientCertificateIdentifier" Core..=)
+          [ ("Status" Data..=) Prelude.<$> status,
+            ("HsmClientCertificateIdentifier" Data..=)
               Prelude.<$> hsmClientCertificateIdentifier,
-            ("HsmConfigurationIdentifier" Core..=)
+            ("HsmConfigurationIdentifier" Data..=)
               Prelude.<$> hsmConfigurationIdentifier
           ]
       )

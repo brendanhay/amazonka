@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.DateFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.DateRange
 
@@ -71,15 +72,15 @@ dateFilter_dateRange = Lens.lens (\DateFilter' {dateRange} -> dateRange) (\s@Dat
 dateFilter_end :: Lens.Lens' DateFilter (Prelude.Maybe Prelude.Text)
 dateFilter_end = Lens.lens (\DateFilter' {end} -> end) (\s@DateFilter' {} a -> s {end = a} :: DateFilter)
 
-instance Core.FromJSON DateFilter where
+instance Data.FromJSON DateFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DateFilter"
       ( \x ->
           DateFilter'
-            Prelude.<$> (x Core..:? "Start")
-            Prelude.<*> (x Core..:? "DateRange")
-            Prelude.<*> (x Core..:? "End")
+            Prelude.<$> (x Data..:? "Start")
+            Prelude.<*> (x Data..:? "DateRange")
+            Prelude.<*> (x Data..:? "End")
       )
 
 instance Prelude.Hashable DateFilter where
@@ -94,12 +95,12 @@ instance Prelude.NFData DateFilter where
       `Prelude.seq` Prelude.rnf dateRange
       `Prelude.seq` Prelude.rnf end
 
-instance Core.ToJSON DateFilter where
+instance Data.ToJSON DateFilter where
   toJSON DateFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Start" Core..=) Prelude.<$> start,
-            ("DateRange" Core..=) Prelude.<$> dateRange,
-            ("End" Core..=) Prelude.<$> end
+          [ ("Start" Data..=) Prelude.<$> start,
+            ("DateRange" Data..=) Prelude.<$> dateRange,
+            ("End" Data..=) Prelude.<$> end
           ]
       )

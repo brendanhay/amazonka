@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -141,9 +142,9 @@ instance Core.AWSRequest GetInsights where
     Response.receiveJSON
       ( \s h x ->
           GetInsightsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Insights" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Insights" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable GetInsights where
@@ -158,31 +159,31 @@ instance Prelude.NFData GetInsights where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf insightArns
 
-instance Core.ToHeaders GetInsights where
+instance Data.ToHeaders GetInsights where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetInsights where
+instance Data.ToJSON GetInsights where
   toJSON GetInsights' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("InsightArns" Core..=) Prelude.<$> insightArns
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("InsightArns" Data..=) Prelude.<$> insightArns
           ]
       )
 
-instance Core.ToPath GetInsights where
+instance Data.ToPath GetInsights where
   toPath = Prelude.const "/insights/get"
 
-instance Core.ToQuery GetInsights where
+instance Data.ToQuery GetInsights where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInsightsResponse' smart constructor.

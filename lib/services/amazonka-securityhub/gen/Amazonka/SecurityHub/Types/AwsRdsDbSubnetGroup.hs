@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRdsDbSubnetGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsRdsDbSubnetGroupSubnet
 
@@ -99,18 +100,18 @@ awsRdsDbSubnetGroup_dbSubnetGroupArn = Lens.lens (\AwsRdsDbSubnetGroup' {dbSubne
 awsRdsDbSubnetGroup_vpcId :: Lens.Lens' AwsRdsDbSubnetGroup (Prelude.Maybe Prelude.Text)
 awsRdsDbSubnetGroup_vpcId = Lens.lens (\AwsRdsDbSubnetGroup' {vpcId} -> vpcId) (\s@AwsRdsDbSubnetGroup' {} a -> s {vpcId = a} :: AwsRdsDbSubnetGroup)
 
-instance Core.FromJSON AwsRdsDbSubnetGroup where
+instance Data.FromJSON AwsRdsDbSubnetGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRdsDbSubnetGroup"
       ( \x ->
           AwsRdsDbSubnetGroup'
-            Prelude.<$> (x Core..:? "DbSubnetGroupName")
-            Prelude.<*> (x Core..:? "SubnetGroupStatus")
-            Prelude.<*> (x Core..:? "Subnets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DbSubnetGroupDescription")
-            Prelude.<*> (x Core..:? "DbSubnetGroupArn")
-            Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<$> (x Data..:? "DbSubnetGroupName")
+            Prelude.<*> (x Data..:? "SubnetGroupStatus")
+            Prelude.<*> (x Data..:? "Subnets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DbSubnetGroupDescription")
+            Prelude.<*> (x Data..:? "DbSubnetGroupArn")
+            Prelude.<*> (x Data..:? "VpcId")
       )
 
 instance Prelude.Hashable AwsRdsDbSubnetGroup where
@@ -131,19 +132,19 @@ instance Prelude.NFData AwsRdsDbSubnetGroup where
       `Prelude.seq` Prelude.rnf dbSubnetGroupArn
       `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToJSON AwsRdsDbSubnetGroup where
+instance Data.ToJSON AwsRdsDbSubnetGroup where
   toJSON AwsRdsDbSubnetGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DbSubnetGroupName" Core..=)
+          [ ("DbSubnetGroupName" Data..=)
               Prelude.<$> dbSubnetGroupName,
-            ("SubnetGroupStatus" Core..=)
+            ("SubnetGroupStatus" Data..=)
               Prelude.<$> subnetGroupStatus,
-            ("Subnets" Core..=) Prelude.<$> subnets,
-            ("DbSubnetGroupDescription" Core..=)
+            ("Subnets" Data..=) Prelude.<$> subnets,
+            ("DbSubnetGroupDescription" Data..=)
               Prelude.<$> dbSubnetGroupDescription,
-            ("DbSubnetGroupArn" Core..=)
+            ("DbSubnetGroupArn" Data..=)
               Prelude.<$> dbSubnetGroupArn,
-            ("VpcId" Core..=) Prelude.<$> vpcId
+            ("VpcId" Data..=) Prelude.<$> vpcId
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElbLoadBalancerAdditionalAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about additional attributes for the load balancer.
@@ -63,15 +64,15 @@ awsElbLoadBalancerAdditionalAttribute_value :: Lens.Lens' AwsElbLoadBalancerAddi
 awsElbLoadBalancerAdditionalAttribute_value = Lens.lens (\AwsElbLoadBalancerAdditionalAttribute' {value} -> value) (\s@AwsElbLoadBalancerAdditionalAttribute' {} a -> s {value = a} :: AwsElbLoadBalancerAdditionalAttribute)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsElbLoadBalancerAdditionalAttribute
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElbLoadBalancerAdditionalAttribute"
       ( \x ->
           AwsElbLoadBalancerAdditionalAttribute'
-            Prelude.<$> (x Core..:? "Key") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Key") Prelude.<*> (x Data..:? "Value")
       )
 
 instance
@@ -92,13 +93,13 @@ instance
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsElbLoadBalancerAdditionalAttribute
   where
   toJSON AwsElbLoadBalancerAdditionalAttribute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

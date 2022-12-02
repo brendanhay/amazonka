@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.Result where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the account that was not processed.
@@ -61,14 +62,14 @@ result_processingResult = Lens.lens (\Result' {processingResult} -> processingRe
 result_accountId :: Lens.Lens' Result (Prelude.Maybe Prelude.Text)
 result_accountId = Lens.lens (\Result' {accountId} -> accountId) (\s@Result' {} a -> s {accountId = a} :: Result)
 
-instance Core.FromJSON Result where
+instance Data.FromJSON Result where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Result"
       ( \x ->
           Result'
-            Prelude.<$> (x Core..:? "ProcessingResult")
-            Prelude.<*> (x Core..:? "AccountId")
+            Prelude.<$> (x Data..:? "ProcessingResult")
+            Prelude.<*> (x Data..:? "AccountId")
       )
 
 instance Prelude.Hashable Result where

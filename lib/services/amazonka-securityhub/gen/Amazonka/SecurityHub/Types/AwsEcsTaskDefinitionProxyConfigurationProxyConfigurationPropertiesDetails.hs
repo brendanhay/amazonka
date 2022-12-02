@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionProxyConfigurationProxyCon
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A network configuration parameter to provide to the Container Network
@@ -65,15 +66,15 @@ awsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails_value 
 awsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails_value = Lens.lens (\AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails' {value} -> value) (\s@AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails' {} a -> s {value = a} :: AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails"
       ( \x ->
           AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
       )
 
 instance
@@ -95,14 +96,14 @@ instance
       Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails
   where
   toJSON
     AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Name" Core..=) Prelude.<$> name,
-              ("Value" Core..=) Prelude.<$> value
+            [ ("Name" Data..=) Prelude.<$> name,
+              ("Value" Data..=) Prelude.<$> value
             ]
         )

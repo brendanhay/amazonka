@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.RuleGroupDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.RuleGroupSource
 import Amazonka.SecurityHub.Types.RuleGroupVariables
@@ -78,14 +79,14 @@ ruleGroupDetails_rulesSource = Lens.lens (\RuleGroupDetails' {rulesSource} -> ru
 ruleGroupDetails_ruleVariables :: Lens.Lens' RuleGroupDetails (Prelude.Maybe RuleGroupVariables)
 ruleGroupDetails_ruleVariables = Lens.lens (\RuleGroupDetails' {ruleVariables} -> ruleVariables) (\s@RuleGroupDetails' {} a -> s {ruleVariables = a} :: RuleGroupDetails)
 
-instance Core.FromJSON RuleGroupDetails where
+instance Data.FromJSON RuleGroupDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroupDetails"
       ( \x ->
           RuleGroupDetails'
-            Prelude.<$> (x Core..:? "RulesSource")
-            Prelude.<*> (x Core..:? "RuleVariables")
+            Prelude.<$> (x Data..:? "RulesSource")
+            Prelude.<*> (x Data..:? "RuleVariables")
       )
 
 instance Prelude.Hashable RuleGroupDetails where
@@ -98,11 +99,11 @@ instance Prelude.NFData RuleGroupDetails where
     Prelude.rnf rulesSource
       `Prelude.seq` Prelude.rnf ruleVariables
 
-instance Core.ToJSON RuleGroupDetails where
+instance Data.ToJSON RuleGroupDetails where
   toJSON RuleGroupDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RulesSource" Core..=) Prelude.<$> rulesSource,
-            ("RuleVariables" Core..=) Prelude.<$> ruleVariables
+          [ ("RulesSource" Data..=) Prelude.<$> rulesSource,
+            ("RuleVariables" Data..=) Prelude.<$> ruleVariables
           ]
       )

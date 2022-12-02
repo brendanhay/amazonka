@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.Product where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.IntegrationType
 
@@ -175,23 +176,23 @@ product_marketplaceUrl = Lens.lens (\Product' {marketplaceUrl} -> marketplaceUrl
 product_productArn :: Lens.Lens' Product Prelude.Text
 product_productArn = Lens.lens (\Product' {productArn} -> productArn) (\s@Product' {} a -> s {productArn = a} :: Product)
 
-instance Core.FromJSON Product where
+instance Data.FromJSON Product where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Product"
       ( \x ->
           Product'
-            Prelude.<$> ( x Core..:? "IntegrationTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "IntegrationTypes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ProductName")
-            Prelude.<*> (x Core..:? "CompanyName")
-            Prelude.<*> (x Core..:? "ActivationUrl")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ProductSubscriptionResourcePolicy")
-            Prelude.<*> (x Core..:? "Categories" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MarketplaceUrl")
-            Prelude.<*> (x Core..: "ProductArn")
+            Prelude.<*> (x Data..:? "ProductName")
+            Prelude.<*> (x Data..:? "CompanyName")
+            Prelude.<*> (x Data..:? "ActivationUrl")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ProductSubscriptionResourcePolicy")
+            Prelude.<*> (x Data..:? "Categories" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MarketplaceUrl")
+            Prelude.<*> (x Data..: "ProductArn")
       )
 
 instance Prelude.Hashable Product where

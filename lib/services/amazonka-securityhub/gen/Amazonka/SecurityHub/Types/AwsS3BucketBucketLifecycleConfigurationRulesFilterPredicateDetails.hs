@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationRulesFi
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails
 import Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails
@@ -89,17 +90,17 @@ awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails_operands :: L
 awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails_operands = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' {operands} -> operands) (\s@AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' {} a -> s {operands = a} :: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails"
       ( \x ->
           AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails'
-            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "Tag")
-              Prelude.<*> (x Core..:? "Prefix")
-              Prelude.<*> (x Core..:? "Operands" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..:? "Tag")
+              Prelude.<*> (x Data..:? "Prefix")
+              Prelude.<*> (x Data..:? "Operands" Data..!= Prelude.mempty)
       )
 
 instance
@@ -126,16 +127,16 @@ instance
         `Prelude.seq` Prelude.rnf operands
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails
   where
   toJSON
     AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Type" Core..=) Prelude.<$> type',
-              ("Tag" Core..=) Prelude.<$> tag,
-              ("Prefix" Core..=) Prelude.<$> prefix,
-              ("Operands" Core..=) Prelude.<$> operands
+            [ ("Type" Data..=) Prelude.<$> type',
+              ("Tag" Data..=) Prelude.<$> tag,
+              ("Prefix" Data..=) Prelude.<$> prefix,
+              ("Operands" Data..=) Prelude.<$> operands
             ]
         )

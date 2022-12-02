@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2TransitGatewayDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an Amazon Web Services Amazon EC2 Transit Gateway that
@@ -163,25 +164,25 @@ awsEc2TransitGatewayDetails_defaultRouteTablePropagation = Lens.lens (\AwsEc2Tra
 awsEc2TransitGatewayDetails_transitGatewayCidrBlocks :: Lens.Lens' AwsEc2TransitGatewayDetails (Prelude.Maybe [Prelude.Text])
 awsEc2TransitGatewayDetails_transitGatewayCidrBlocks = Lens.lens (\AwsEc2TransitGatewayDetails' {transitGatewayCidrBlocks} -> transitGatewayCidrBlocks) (\s@AwsEc2TransitGatewayDetails' {} a -> s {transitGatewayCidrBlocks = a} :: AwsEc2TransitGatewayDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AwsEc2TransitGatewayDetails where
+instance Data.FromJSON AwsEc2TransitGatewayDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2TransitGatewayDetails"
       ( \x ->
           AwsEc2TransitGatewayDetails'
-            Prelude.<$> (x Core..:? "AssociationDefaultRouteTableId")
-            Prelude.<*> (x Core..:? "DnsSupport")
-            Prelude.<*> (x Core..:? "DefaultRouteTableAssociation")
-            Prelude.<*> (x Core..:? "PropagationDefaultRouteTableId")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "AutoAcceptSharedAttachments")
-            Prelude.<*> (x Core..:? "MulticastSupport")
-            Prelude.<*> (x Core..:? "AmazonSideAsn")
-            Prelude.<*> (x Core..:? "VpnEcmpSupport")
-            Prelude.<*> (x Core..:? "DefaultRouteTablePropagation")
-            Prelude.<*> ( x Core..:? "TransitGatewayCidrBlocks"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "AssociationDefaultRouteTableId")
+            Prelude.<*> (x Data..:? "DnsSupport")
+            Prelude.<*> (x Data..:? "DefaultRouteTableAssociation")
+            Prelude.<*> (x Data..:? "PropagationDefaultRouteTableId")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "AutoAcceptSharedAttachments")
+            Prelude.<*> (x Data..:? "MulticastSupport")
+            Prelude.<*> (x Data..:? "AmazonSideAsn")
+            Prelude.<*> (x Data..:? "VpnEcmpSupport")
+            Prelude.<*> (x Data..:? "DefaultRouteTablePropagation")
+            Prelude.<*> ( x Data..:? "TransitGatewayCidrBlocks"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -216,29 +217,29 @@ instance Prelude.NFData AwsEc2TransitGatewayDetails where
       `Prelude.seq` Prelude.rnf defaultRouteTablePropagation
       `Prelude.seq` Prelude.rnf transitGatewayCidrBlocks
 
-instance Core.ToJSON AwsEc2TransitGatewayDetails where
+instance Data.ToJSON AwsEc2TransitGatewayDetails where
   toJSON AwsEc2TransitGatewayDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AssociationDefaultRouteTableId" Core..=)
+          [ ("AssociationDefaultRouteTableId" Data..=)
               Prelude.<$> associationDefaultRouteTableId,
-            ("DnsSupport" Core..=) Prelude.<$> dnsSupport,
-            ("DefaultRouteTableAssociation" Core..=)
+            ("DnsSupport" Data..=) Prelude.<$> dnsSupport,
+            ("DefaultRouteTableAssociation" Data..=)
               Prelude.<$> defaultRouteTableAssociation,
-            ("PropagationDefaultRouteTableId" Core..=)
+            ("PropagationDefaultRouteTableId" Data..=)
               Prelude.<$> propagationDefaultRouteTableId,
-            ("Id" Core..=) Prelude.<$> id,
-            ("Description" Core..=) Prelude.<$> description,
-            ("AutoAcceptSharedAttachments" Core..=)
+            ("Id" Data..=) Prelude.<$> id,
+            ("Description" Data..=) Prelude.<$> description,
+            ("AutoAcceptSharedAttachments" Data..=)
               Prelude.<$> autoAcceptSharedAttachments,
-            ("MulticastSupport" Core..=)
+            ("MulticastSupport" Data..=)
               Prelude.<$> multicastSupport,
-            ("AmazonSideAsn" Core..=) Prelude.<$> amazonSideAsn,
-            ("VpnEcmpSupport" Core..=)
+            ("AmazonSideAsn" Data..=) Prelude.<$> amazonSideAsn,
+            ("VpnEcmpSupport" Data..=)
               Prelude.<$> vpnEcmpSupport,
-            ("DefaultRouteTablePropagation" Core..=)
+            ("DefaultRouteTablePropagation" Data..=)
               Prelude.<$> defaultRouteTablePropagation,
-            ("TransitGatewayCidrBlocks" Core..=)
+            ("TransitGatewayCidrBlocks" Data..=)
               Prelude.<$> transitGatewayCidrBlocks
           ]
       )

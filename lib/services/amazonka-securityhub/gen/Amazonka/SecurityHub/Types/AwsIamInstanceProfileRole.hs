@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsIamInstanceProfileRole where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a role associated with an instance profile.
@@ -113,18 +114,18 @@ awsIamInstanceProfileRole_createDate = Lens.lens (\AwsIamInstanceProfileRole' {c
 awsIamInstanceProfileRole_roleId :: Lens.Lens' AwsIamInstanceProfileRole (Prelude.Maybe Prelude.Text)
 awsIamInstanceProfileRole_roleId = Lens.lens (\AwsIamInstanceProfileRole' {roleId} -> roleId) (\s@AwsIamInstanceProfileRole' {} a -> s {roleId = a} :: AwsIamInstanceProfileRole)
 
-instance Core.FromJSON AwsIamInstanceProfileRole where
+instance Data.FromJSON AwsIamInstanceProfileRole where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsIamInstanceProfileRole"
       ( \x ->
           AwsIamInstanceProfileRole'
-            Prelude.<$> (x Core..:? "RoleName")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Path")
-            Prelude.<*> (x Core..:? "AssumeRolePolicyDocument")
-            Prelude.<*> (x Core..:? "CreateDate")
-            Prelude.<*> (x Core..:? "RoleId")
+            Prelude.<$> (x Data..:? "RoleName")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Path")
+            Prelude.<*> (x Data..:? "AssumeRolePolicyDocument")
+            Prelude.<*> (x Data..:? "CreateDate")
+            Prelude.<*> (x Data..:? "RoleId")
       )
 
 instance Prelude.Hashable AwsIamInstanceProfileRole where
@@ -145,16 +146,16 @@ instance Prelude.NFData AwsIamInstanceProfileRole where
       `Prelude.seq` Prelude.rnf createDate
       `Prelude.seq` Prelude.rnf roleId
 
-instance Core.ToJSON AwsIamInstanceProfileRole where
+instance Data.ToJSON AwsIamInstanceProfileRole where
   toJSON AwsIamInstanceProfileRole' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleName" Core..=) Prelude.<$> roleName,
-            ("Arn" Core..=) Prelude.<$> arn,
-            ("Path" Core..=) Prelude.<$> path,
-            ("AssumeRolePolicyDocument" Core..=)
+          [ ("RoleName" Data..=) Prelude.<$> roleName,
+            ("Arn" Data..=) Prelude.<$> arn,
+            ("Path" Data..=) Prelude.<$> path,
+            ("AssumeRolePolicyDocument" Data..=)
               Prelude.<$> assumeRolePolicyDocument,
-            ("CreateDate" Core..=) Prelude.<$> createDate,
-            ("RoleId" Core..=) Prelude.<$> roleId
+            ("CreateDate" Data..=) Prelude.<$> createDate,
+            ("RoleId" Data..=) Prelude.<$> roleId
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.WafAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the action that CloudFront or WAF takes when a web request
@@ -86,11 +87,11 @@ newWafAction = WafAction' {type' = Prelude.Nothing}
 wafAction_type :: Lens.Lens' WafAction (Prelude.Maybe Prelude.Text)
 wafAction_type = Lens.lens (\WafAction' {type'} -> type') (\s@WafAction' {} a -> s {type' = a} :: WafAction)
 
-instance Core.FromJSON WafAction where
+instance Data.FromJSON WafAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WafAction"
-      (\x -> WafAction' Prelude.<$> (x Core..:? "Type"))
+      (\x -> WafAction' Prelude.<$> (x Data..:? "Type"))
 
 instance Prelude.Hashable WafAction where
   hashWithSalt _salt WafAction' {..} =
@@ -99,9 +100,9 @@ instance Prelude.Hashable WafAction where
 instance Prelude.NFData WafAction where
   rnf WafAction' {..} = Prelude.rnf type'
 
-instance Core.ToJSON WafAction where
+instance Data.ToJSON WafAction where
   toJSON WafAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Type" Core..=) Prelude.<$> type']
+          [("Type" Data..=) Prelude.<$> type']
       )

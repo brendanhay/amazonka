@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRdsDbSnapshotDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsRdsDbProcessorFeature
 
@@ -425,41 +426,41 @@ awsRdsDbSnapshotDetails_licenseModel = Lens.lens (\AwsRdsDbSnapshotDetails' {lic
 awsRdsDbSnapshotDetails_snapshotType :: Lens.Lens' AwsRdsDbSnapshotDetails (Prelude.Maybe Prelude.Text)
 awsRdsDbSnapshotDetails_snapshotType = Lens.lens (\AwsRdsDbSnapshotDetails' {snapshotType} -> snapshotType) (\s@AwsRdsDbSnapshotDetails' {} a -> s {snapshotType = a} :: AwsRdsDbSnapshotDetails)
 
-instance Core.FromJSON AwsRdsDbSnapshotDetails where
+instance Data.FromJSON AwsRdsDbSnapshotDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRdsDbSnapshotDetails"
       ( \x ->
           AwsRdsDbSnapshotDetails'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "PercentProgress")
-            Prelude.<*> (x Core..:? "MasterUsername")
-            Prelude.<*> (x Core..:? "SourceRegion")
-            Prelude.<*> (x Core..:? "DbInstanceIdentifier")
-            Prelude.<*> (x Core..:? "DbSnapshotIdentifier")
-            Prelude.<*> (x Core..:? "SourceDbSnapshotIdentifier")
-            Prelude.<*> (x Core..:? "OptionGroupName")
-            Prelude.<*> (x Core..:? "Timezone")
-            Prelude.<*> (x Core..:? "InstanceCreateTime")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "AvailabilityZone")
-            Prelude.<*> (x Core..:? "SnapshotCreateTime")
-            Prelude.<*> (x Core..:? "StorageType")
-            Prelude.<*> ( x Core..:? "ProcessorFeatures"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "PercentProgress")
+            Prelude.<*> (x Data..:? "MasterUsername")
+            Prelude.<*> (x Data..:? "SourceRegion")
+            Prelude.<*> (x Data..:? "DbInstanceIdentifier")
+            Prelude.<*> (x Data..:? "DbSnapshotIdentifier")
+            Prelude.<*> (x Data..:? "SourceDbSnapshotIdentifier")
+            Prelude.<*> (x Data..:? "OptionGroupName")
+            Prelude.<*> (x Data..:? "Timezone")
+            Prelude.<*> (x Data..:? "InstanceCreateTime")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "AvailabilityZone")
+            Prelude.<*> (x Data..:? "SnapshotCreateTime")
+            Prelude.<*> (x Data..:? "StorageType")
+            Prelude.<*> ( x Data..:? "ProcessorFeatures"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "TdeCredentialArn")
-            Prelude.<*> (x Core..:? "Encrypted")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "Engine")
-            Prelude.<*> (x Core..:? "AllocatedStorage")
-            Prelude.<*> (x Core..:? "IamDatabaseAuthenticationEnabled")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "DbiResourceId")
-            Prelude.<*> (x Core..:? "Iops")
-            Prelude.<*> (x Core..:? "EngineVersion")
-            Prelude.<*> (x Core..:? "LicenseModel")
-            Prelude.<*> (x Core..:? "SnapshotType")
+            Prelude.<*> (x Data..:? "TdeCredentialArn")
+            Prelude.<*> (x Data..:? "Encrypted")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "Engine")
+            Prelude.<*> (x Data..:? "AllocatedStorage")
+            Prelude.<*> (x Data..:? "IamDatabaseAuthenticationEnabled")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "DbiResourceId")
+            Prelude.<*> (x Data..:? "Iops")
+            Prelude.<*> (x Data..:? "EngineVersion")
+            Prelude.<*> (x Data..:? "LicenseModel")
+            Prelude.<*> (x Data..:? "SnapshotType")
       )
 
 instance Prelude.Hashable AwsRdsDbSnapshotDetails where
@@ -527,49 +528,49 @@ instance Prelude.NFData AwsRdsDbSnapshotDetails where
       `Prelude.seq` Prelude.rnf
         snapshotType
 
-instance Core.ToJSON AwsRdsDbSnapshotDetails where
+instance Data.ToJSON AwsRdsDbSnapshotDetails where
   toJSON AwsRdsDbSnapshotDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Port" Core..=) Prelude.<$> port,
-            ("PercentProgress" Core..=)
+          [ ("Port" Data..=) Prelude.<$> port,
+            ("PercentProgress" Data..=)
               Prelude.<$> percentProgress,
-            ("MasterUsername" Core..=)
+            ("MasterUsername" Data..=)
               Prelude.<$> masterUsername,
-            ("SourceRegion" Core..=) Prelude.<$> sourceRegion,
-            ("DbInstanceIdentifier" Core..=)
+            ("SourceRegion" Data..=) Prelude.<$> sourceRegion,
+            ("DbInstanceIdentifier" Data..=)
               Prelude.<$> dbInstanceIdentifier,
-            ("DbSnapshotIdentifier" Core..=)
+            ("DbSnapshotIdentifier" Data..=)
               Prelude.<$> dbSnapshotIdentifier,
-            ("SourceDbSnapshotIdentifier" Core..=)
+            ("SourceDbSnapshotIdentifier" Data..=)
               Prelude.<$> sourceDbSnapshotIdentifier,
-            ("OptionGroupName" Core..=)
+            ("OptionGroupName" Data..=)
               Prelude.<$> optionGroupName,
-            ("Timezone" Core..=) Prelude.<$> timezone,
-            ("InstanceCreateTime" Core..=)
+            ("Timezone" Data..=) Prelude.<$> timezone,
+            ("InstanceCreateTime" Data..=)
               Prelude.<$> instanceCreateTime,
-            ("Status" Core..=) Prelude.<$> status,
-            ("AvailabilityZone" Core..=)
+            ("Status" Data..=) Prelude.<$> status,
+            ("AvailabilityZone" Data..=)
               Prelude.<$> availabilityZone,
-            ("SnapshotCreateTime" Core..=)
+            ("SnapshotCreateTime" Data..=)
               Prelude.<$> snapshotCreateTime,
-            ("StorageType" Core..=) Prelude.<$> storageType,
-            ("ProcessorFeatures" Core..=)
+            ("StorageType" Data..=) Prelude.<$> storageType,
+            ("ProcessorFeatures" Data..=)
               Prelude.<$> processorFeatures,
-            ("TdeCredentialArn" Core..=)
+            ("TdeCredentialArn" Data..=)
               Prelude.<$> tdeCredentialArn,
-            ("Encrypted" Core..=) Prelude.<$> encrypted,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("Engine" Core..=) Prelude.<$> engine,
-            ("AllocatedStorage" Core..=)
+            ("Encrypted" Data..=) Prelude.<$> encrypted,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("Engine" Data..=) Prelude.<$> engine,
+            ("AllocatedStorage" Data..=)
               Prelude.<$> allocatedStorage,
-            ("IamDatabaseAuthenticationEnabled" Core..=)
+            ("IamDatabaseAuthenticationEnabled" Data..=)
               Prelude.<$> iamDatabaseAuthenticationEnabled,
-            ("VpcId" Core..=) Prelude.<$> vpcId,
-            ("DbiResourceId" Core..=) Prelude.<$> dbiResourceId,
-            ("Iops" Core..=) Prelude.<$> iops,
-            ("EngineVersion" Core..=) Prelude.<$> engineVersion,
-            ("LicenseModel" Core..=) Prelude.<$> licenseModel,
-            ("SnapshotType" Core..=) Prelude.<$> snapshotType
+            ("VpcId" Data..=) Prelude.<$> vpcId,
+            ("DbiResourceId" Data..=) Prelude.<$> dbiResourceId,
+            ("Iops" Data..=) Prelude.<$> iops,
+            ("EngineVersion" Data..=) Prelude.<$> engineVersion,
+            ("LicenseModel" Data..=) Prelude.<$> licenseModel,
+            ("SnapshotType" Data..=) Prelude.<$> snapshotType
           ]
       )

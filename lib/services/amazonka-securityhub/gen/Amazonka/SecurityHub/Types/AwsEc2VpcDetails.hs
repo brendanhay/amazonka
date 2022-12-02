@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2VpcDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.CidrBlockAssociation
 import Amazonka.SecurityHub.Types.Ipv6CidrBlockAssociation
@@ -87,19 +88,19 @@ awsEc2VpcDetails_ipv6CidrBlockAssociationSet = Lens.lens (\AwsEc2VpcDetails' {ip
 awsEc2VpcDetails_cidrBlockAssociationSet :: Lens.Lens' AwsEc2VpcDetails (Prelude.Maybe [CidrBlockAssociation])
 awsEc2VpcDetails_cidrBlockAssociationSet = Lens.lens (\AwsEc2VpcDetails' {cidrBlockAssociationSet} -> cidrBlockAssociationSet) (\s@AwsEc2VpcDetails' {} a -> s {cidrBlockAssociationSet = a} :: AwsEc2VpcDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AwsEc2VpcDetails where
+instance Data.FromJSON AwsEc2VpcDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2VpcDetails"
       ( \x ->
           AwsEc2VpcDetails'
-            Prelude.<$> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "DhcpOptionsId")
-            Prelude.<*> ( x Core..:? "Ipv6CidrBlockAssociationSet"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "DhcpOptionsId")
+            Prelude.<*> ( x Data..:? "Ipv6CidrBlockAssociationSet"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "CidrBlockAssociationSet"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "CidrBlockAssociationSet"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -117,15 +118,15 @@ instance Prelude.NFData AwsEc2VpcDetails where
       `Prelude.seq` Prelude.rnf ipv6CidrBlockAssociationSet
       `Prelude.seq` Prelude.rnf cidrBlockAssociationSet
 
-instance Core.ToJSON AwsEc2VpcDetails where
+instance Data.ToJSON AwsEc2VpcDetails where
   toJSON AwsEc2VpcDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("State" Core..=) Prelude.<$> state,
-            ("DhcpOptionsId" Core..=) Prelude.<$> dhcpOptionsId,
-            ("Ipv6CidrBlockAssociationSet" Core..=)
+          [ ("State" Data..=) Prelude.<$> state,
+            ("DhcpOptionsId" Data..=) Prelude.<$> dhcpOptionsId,
+            ("Ipv6CidrBlockAssociationSet" Data..=)
               Prelude.<$> ipv6CidrBlockAssociationSet,
-            ("CidrBlockAssociationSet" Core..=)
+            ("CidrBlockAssociationSet" Data..=)
               Prelude.<$> cidrBlockAssociationSet
           ]
       )

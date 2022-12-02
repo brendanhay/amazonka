@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsSnsTopicDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsSnsTopicSubscription
 
@@ -172,23 +173,23 @@ awsSnsTopicDetails_subscription = Lens.lens (\AwsSnsTopicDetails' {subscription}
 awsSnsTopicDetails_firehoseFailureFeedbackRoleArn :: Lens.Lens' AwsSnsTopicDetails (Prelude.Maybe Prelude.Text)
 awsSnsTopicDetails_firehoseFailureFeedbackRoleArn = Lens.lens (\AwsSnsTopicDetails' {firehoseFailureFeedbackRoleArn} -> firehoseFailureFeedbackRoleArn) (\s@AwsSnsTopicDetails' {} a -> s {firehoseFailureFeedbackRoleArn = a} :: AwsSnsTopicDetails)
 
-instance Core.FromJSON AwsSnsTopicDetails where
+instance Data.FromJSON AwsSnsTopicDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsSnsTopicDetails"
       ( \x ->
           AwsSnsTopicDetails'
-            Prelude.<$> (x Core..:? "KmsMasterKeyId")
-            Prelude.<*> (x Core..:? "SqsSuccessFeedbackRoleArn")
-            Prelude.<*> (x Core..:? "SqsFailureFeedbackRoleArn")
-            Prelude.<*> (x Core..:? "FirehoseSuccessFeedbackRoleArn")
-            Prelude.<*> (x Core..:? "HttpSuccessFeedbackRoleArn")
-            Prelude.<*> (x Core..:? "Owner")
-            Prelude.<*> (x Core..:? "HttpFailureFeedbackRoleArn")
-            Prelude.<*> (x Core..:? "ApplicationSuccessFeedbackRoleArn")
-            Prelude.<*> (x Core..:? "TopicName")
-            Prelude.<*> (x Core..:? "Subscription" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "FirehoseFailureFeedbackRoleArn")
+            Prelude.<$> (x Data..:? "KmsMasterKeyId")
+            Prelude.<*> (x Data..:? "SqsSuccessFeedbackRoleArn")
+            Prelude.<*> (x Data..:? "SqsFailureFeedbackRoleArn")
+            Prelude.<*> (x Data..:? "FirehoseSuccessFeedbackRoleArn")
+            Prelude.<*> (x Data..:? "HttpSuccessFeedbackRoleArn")
+            Prelude.<*> (x Data..:? "Owner")
+            Prelude.<*> (x Data..:? "HttpFailureFeedbackRoleArn")
+            Prelude.<*> (x Data..:? "ApplicationSuccessFeedbackRoleArn")
+            Prelude.<*> (x Data..:? "TopicName")
+            Prelude.<*> (x Data..:? "Subscription" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "FirehoseFailureFeedbackRoleArn")
       )
 
 instance Prelude.Hashable AwsSnsTopicDetails where
@@ -219,28 +220,28 @@ instance Prelude.NFData AwsSnsTopicDetails where
       `Prelude.seq` Prelude.rnf subscription
       `Prelude.seq` Prelude.rnf firehoseFailureFeedbackRoleArn
 
-instance Core.ToJSON AwsSnsTopicDetails where
+instance Data.ToJSON AwsSnsTopicDetails where
   toJSON AwsSnsTopicDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KmsMasterKeyId" Core..=)
+          [ ("KmsMasterKeyId" Data..=)
               Prelude.<$> kmsMasterKeyId,
-            ("SqsSuccessFeedbackRoleArn" Core..=)
+            ("SqsSuccessFeedbackRoleArn" Data..=)
               Prelude.<$> sqsSuccessFeedbackRoleArn,
-            ("SqsFailureFeedbackRoleArn" Core..=)
+            ("SqsFailureFeedbackRoleArn" Data..=)
               Prelude.<$> sqsFailureFeedbackRoleArn,
-            ("FirehoseSuccessFeedbackRoleArn" Core..=)
+            ("FirehoseSuccessFeedbackRoleArn" Data..=)
               Prelude.<$> firehoseSuccessFeedbackRoleArn,
-            ("HttpSuccessFeedbackRoleArn" Core..=)
+            ("HttpSuccessFeedbackRoleArn" Data..=)
               Prelude.<$> httpSuccessFeedbackRoleArn,
-            ("Owner" Core..=) Prelude.<$> owner,
-            ("HttpFailureFeedbackRoleArn" Core..=)
+            ("Owner" Data..=) Prelude.<$> owner,
+            ("HttpFailureFeedbackRoleArn" Data..=)
               Prelude.<$> httpFailureFeedbackRoleArn,
-            ("ApplicationSuccessFeedbackRoleArn" Core..=)
+            ("ApplicationSuccessFeedbackRoleArn" Data..=)
               Prelude.<$> applicationSuccessFeedbackRoleArn,
-            ("TopicName" Core..=) Prelude.<$> topicName,
-            ("Subscription" Core..=) Prelude.<$> subscription,
-            ("FirehoseFailureFeedbackRoleArn" Core..=)
+            ("TopicName" Data..=) Prelude.<$> topicName,
+            ("Subscription" Data..=) Prelude.<$> subscription,
+            ("FirehoseFailureFeedbackRoleArn" Data..=)
               Prelude.<$> firehoseFailureFeedbackRoleArn
           ]
       )

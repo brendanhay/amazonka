@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRdsDbClusterSnapshotDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an Amazon RDS DB cluster snapshot.
@@ -256,32 +257,32 @@ awsRdsDbClusterSnapshotDetails_licenseModel = Lens.lens (\AwsRdsDbClusterSnapsho
 awsRdsDbClusterSnapshotDetails_snapshotType :: Lens.Lens' AwsRdsDbClusterSnapshotDetails (Prelude.Maybe Prelude.Text)
 awsRdsDbClusterSnapshotDetails_snapshotType = Lens.lens (\AwsRdsDbClusterSnapshotDetails' {snapshotType} -> snapshotType) (\s@AwsRdsDbClusterSnapshotDetails' {} a -> s {snapshotType = a} :: AwsRdsDbClusterSnapshotDetails)
 
-instance Core.FromJSON AwsRdsDbClusterSnapshotDetails where
+instance Data.FromJSON AwsRdsDbClusterSnapshotDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRdsDbClusterSnapshotDetails"
       ( \x ->
           AwsRdsDbClusterSnapshotDetails'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "PercentProgress")
-            Prelude.<*> (x Core..:? "MasterUsername")
-            Prelude.<*> (x Core..:? "DbClusterSnapshotIdentifier")
-            Prelude.<*> (x Core..:? "DbClusterIdentifier")
-            Prelude.<*> ( x Core..:? "AvailabilityZones"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "PercentProgress")
+            Prelude.<*> (x Data..:? "MasterUsername")
+            Prelude.<*> (x Data..:? "DbClusterSnapshotIdentifier")
+            Prelude.<*> (x Data..:? "DbClusterIdentifier")
+            Prelude.<*> ( x Data..:? "AvailabilityZones"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "SnapshotCreateTime")
-            Prelude.<*> (x Core..:? "StorageEncrypted")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "Engine")
-            Prelude.<*> (x Core..:? "AllocatedStorage")
-            Prelude.<*> (x Core..:? "IamDatabaseAuthenticationEnabled")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "ClusterCreateTime")
-            Prelude.<*> (x Core..:? "EngineVersion")
-            Prelude.<*> (x Core..:? "LicenseModel")
-            Prelude.<*> (x Core..:? "SnapshotType")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "SnapshotCreateTime")
+            Prelude.<*> (x Data..:? "StorageEncrypted")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "Engine")
+            Prelude.<*> (x Data..:? "AllocatedStorage")
+            Prelude.<*> (x Data..:? "IamDatabaseAuthenticationEnabled")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "ClusterCreateTime")
+            Prelude.<*> (x Data..:? "EngineVersion")
+            Prelude.<*> (x Data..:? "LicenseModel")
+            Prelude.<*> (x Data..:? "SnapshotType")
       )
 
 instance
@@ -334,37 +335,37 @@ instance
       `Prelude.seq` Prelude.rnf licenseModel
       `Prelude.seq` Prelude.rnf snapshotType
 
-instance Core.ToJSON AwsRdsDbClusterSnapshotDetails where
+instance Data.ToJSON AwsRdsDbClusterSnapshotDetails where
   toJSON AwsRdsDbClusterSnapshotDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Port" Core..=) Prelude.<$> port,
-            ("PercentProgress" Core..=)
+          [ ("Port" Data..=) Prelude.<$> port,
+            ("PercentProgress" Data..=)
               Prelude.<$> percentProgress,
-            ("MasterUsername" Core..=)
+            ("MasterUsername" Data..=)
               Prelude.<$> masterUsername,
-            ("DbClusterSnapshotIdentifier" Core..=)
+            ("DbClusterSnapshotIdentifier" Data..=)
               Prelude.<$> dbClusterSnapshotIdentifier,
-            ("DbClusterIdentifier" Core..=)
+            ("DbClusterIdentifier" Data..=)
               Prelude.<$> dbClusterIdentifier,
-            ("AvailabilityZones" Core..=)
+            ("AvailabilityZones" Data..=)
               Prelude.<$> availabilityZones,
-            ("Status" Core..=) Prelude.<$> status,
-            ("SnapshotCreateTime" Core..=)
+            ("Status" Data..=) Prelude.<$> status,
+            ("SnapshotCreateTime" Data..=)
               Prelude.<$> snapshotCreateTime,
-            ("StorageEncrypted" Core..=)
+            ("StorageEncrypted" Data..=)
               Prelude.<$> storageEncrypted,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("Engine" Core..=) Prelude.<$> engine,
-            ("AllocatedStorage" Core..=)
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("Engine" Data..=) Prelude.<$> engine,
+            ("AllocatedStorage" Data..=)
               Prelude.<$> allocatedStorage,
-            ("IamDatabaseAuthenticationEnabled" Core..=)
+            ("IamDatabaseAuthenticationEnabled" Data..=)
               Prelude.<$> iamDatabaseAuthenticationEnabled,
-            ("VpcId" Core..=) Prelude.<$> vpcId,
-            ("ClusterCreateTime" Core..=)
+            ("VpcId" Data..=) Prelude.<$> vpcId,
+            ("ClusterCreateTime" Data..=)
               Prelude.<$> clusterCreateTime,
-            ("EngineVersion" Core..=) Prelude.<$> engineVersion,
-            ("LicenseModel" Core..=) Prelude.<$> licenseModel,
-            ("SnapshotType" Core..=) Prelude.<$> snapshotType
+            ("EngineVersion" Data..=) Prelude.<$> engineVersion,
+            ("LicenseModel" Data..=) Prelude.<$> licenseModel,
+            ("SnapshotType" Data..=) Prelude.<$> snapshotType
           ]
       )

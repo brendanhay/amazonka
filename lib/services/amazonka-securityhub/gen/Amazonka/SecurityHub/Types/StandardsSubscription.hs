@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.StandardsSubscription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.StandardsStatus
 import Amazonka.SecurityHub.Types.StandardsStatusReason
@@ -143,17 +144,17 @@ standardsSubscription_standardsInput = Lens.lens (\StandardsSubscription' {stand
 standardsSubscription_standardsStatus :: Lens.Lens' StandardsSubscription StandardsStatus
 standardsSubscription_standardsStatus = Lens.lens (\StandardsSubscription' {standardsStatus} -> standardsStatus) (\s@StandardsSubscription' {} a -> s {standardsStatus = a} :: StandardsSubscription)
 
-instance Core.FromJSON StandardsSubscription where
+instance Data.FromJSON StandardsSubscription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StandardsSubscription"
       ( \x ->
           StandardsSubscription'
-            Prelude.<$> (x Core..:? "StandardsStatusReason")
-            Prelude.<*> (x Core..: "StandardsSubscriptionArn")
-            Prelude.<*> (x Core..: "StandardsArn")
-            Prelude.<*> (x Core..:? "StandardsInput" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "StandardsStatus")
+            Prelude.<$> (x Data..:? "StandardsStatusReason")
+            Prelude.<*> (x Data..: "StandardsSubscriptionArn")
+            Prelude.<*> (x Data..: "StandardsArn")
+            Prelude.<*> (x Data..:? "StandardsInput" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "StandardsStatus")
       )
 
 instance Prelude.Hashable StandardsSubscription where

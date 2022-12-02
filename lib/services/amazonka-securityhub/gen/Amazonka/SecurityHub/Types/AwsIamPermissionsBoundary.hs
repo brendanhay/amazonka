@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsIamPermissionsBoundary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the policy used to set the permissions boundary for an
@@ -63,14 +64,14 @@ awsIamPermissionsBoundary_permissionsBoundaryType = Lens.lens (\AwsIamPermission
 awsIamPermissionsBoundary_permissionsBoundaryArn :: Lens.Lens' AwsIamPermissionsBoundary (Prelude.Maybe Prelude.Text)
 awsIamPermissionsBoundary_permissionsBoundaryArn = Lens.lens (\AwsIamPermissionsBoundary' {permissionsBoundaryArn} -> permissionsBoundaryArn) (\s@AwsIamPermissionsBoundary' {} a -> s {permissionsBoundaryArn = a} :: AwsIamPermissionsBoundary)
 
-instance Core.FromJSON AwsIamPermissionsBoundary where
+instance Data.FromJSON AwsIamPermissionsBoundary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsIamPermissionsBoundary"
       ( \x ->
           AwsIamPermissionsBoundary'
-            Prelude.<$> (x Core..:? "PermissionsBoundaryType")
-            Prelude.<*> (x Core..:? "PermissionsBoundaryArn")
+            Prelude.<$> (x Data..:? "PermissionsBoundaryType")
+            Prelude.<*> (x Data..:? "PermissionsBoundaryArn")
       )
 
 instance Prelude.Hashable AwsIamPermissionsBoundary where
@@ -84,13 +85,13 @@ instance Prelude.NFData AwsIamPermissionsBoundary where
     Prelude.rnf permissionsBoundaryType
       `Prelude.seq` Prelude.rnf permissionsBoundaryArn
 
-instance Core.ToJSON AwsIamPermissionsBoundary where
+instance Data.ToJSON AwsIamPermissionsBoundary where
   toJSON AwsIamPermissionsBoundary' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PermissionsBoundaryType" Core..=)
+          [ ("PermissionsBoundaryType" Data..=)
               Prelude.<$> permissionsBoundaryType,
-            ("PermissionsBoundaryArn" Core..=)
+            ("PermissionsBoundaryArn" Data..=)
               Prelude.<$> permissionsBoundaryArn
           ]
       )

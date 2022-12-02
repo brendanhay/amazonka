@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionProxyConfigurationDetails 
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails
 
@@ -77,18 +78,18 @@ awsEcsTaskDefinitionProxyConfigurationDetails_proxyConfigurationProperties :: Le
 awsEcsTaskDefinitionProxyConfigurationDetails_proxyConfigurationProperties = Lens.lens (\AwsEcsTaskDefinitionProxyConfigurationDetails' {proxyConfigurationProperties} -> proxyConfigurationProperties) (\s@AwsEcsTaskDefinitionProxyConfigurationDetails' {} a -> s {proxyConfigurationProperties = a} :: AwsEcsTaskDefinitionProxyConfigurationDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionProxyConfigurationDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionProxyConfigurationDetails"
       ( \x ->
           AwsEcsTaskDefinitionProxyConfigurationDetails'
-            Prelude.<$> (x Core..:? "ContainerName")
-              Prelude.<*> (x Core..:? "Type")
-              Prelude.<*> ( x Core..:? "ProxyConfigurationProperties"
-                              Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ContainerName")
+              Prelude.<*> (x Data..:? "Type")
+              Prelude.<*> ( x Data..:? "ProxyConfigurationProperties"
+                              Data..!= Prelude.mempty
                           )
       )
 
@@ -114,16 +115,16 @@ instance
         `Prelude.seq` Prelude.rnf proxyConfigurationProperties
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionProxyConfigurationDetails
   where
   toJSON
     AwsEcsTaskDefinitionProxyConfigurationDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("ContainerName" Core..=) Prelude.<$> containerName,
-              ("Type" Core..=) Prelude.<$> type',
-              ("ProxyConfigurationProperties" Core..=)
+            [ ("ContainerName" Data..=) Prelude.<$> containerName,
+              ("Type" Data..=) Prelude.<$> type',
+              ("ProxyConfigurationProperties" Data..=)
                 Prelude.<$> proxyConfigurationProperties
             ]
         )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupMixedInstancesPo
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification
 import Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails
@@ -66,16 +67,16 @@ awsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails_override
 awsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails_overrides = Lens.lens (\AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails' {overrides} -> overrides) (\s@AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails' {} a -> s {overrides = a} :: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails"
       ( \x ->
           AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails'
-            Prelude.<$> (x Core..:? "LaunchTemplateSpecification")
-              Prelude.<*> (x Core..:? "Overrides" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "LaunchTemplateSpecification")
+              Prelude.<*> (x Data..:? "Overrides" Data..!= Prelude.mempty)
       )
 
 instance
@@ -99,15 +100,15 @@ instance
         `Prelude.seq` Prelude.rnf overrides
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails
   where
   toJSON
     AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("LaunchTemplateSpecification" Core..=)
+            [ ("LaunchTemplateSpecification" Data..=)
                 Prelude.<$> launchTemplateSpecification,
-              ("Overrides" Core..=) Prelude.<$> overrides
+              ("Overrides" Data..=) Prelude.<$> overrides
             ]
         )

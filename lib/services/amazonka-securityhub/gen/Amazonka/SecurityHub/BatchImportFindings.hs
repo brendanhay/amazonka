@@ -91,6 +91,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -145,10 +146,10 @@ instance Core.AWSRequest BatchImportFindings where
     Response.receiveJSON
       ( \s h x ->
           BatchImportFindingsResponse'
-            Prelude.<$> (x Core..?> "FailedFindings" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "FailedFindings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "FailedCount")
-            Prelude.<*> (x Core..:> "SuccessCount")
+            Prelude.<*> (x Data..:> "FailedCount")
+            Prelude.<*> (x Data..:> "SuccessCount")
       )
 
 instance Prelude.Hashable BatchImportFindings where
@@ -158,28 +159,28 @@ instance Prelude.Hashable BatchImportFindings where
 instance Prelude.NFData BatchImportFindings where
   rnf BatchImportFindings' {..} = Prelude.rnf findings
 
-instance Core.ToHeaders BatchImportFindings where
+instance Data.ToHeaders BatchImportFindings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchImportFindings where
+instance Data.ToJSON BatchImportFindings where
   toJSON BatchImportFindings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Findings" Core..= findings)]
+          [Prelude.Just ("Findings" Data..= findings)]
       )
 
-instance Core.ToPath BatchImportFindings where
+instance Data.ToPath BatchImportFindings where
   toPath = Prelude.const "/findings/import"
 
-instance Core.ToQuery BatchImportFindings where
+instance Data.ToQuery BatchImportFindings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchImportFindingsResponse' smart constructor.

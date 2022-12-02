@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRdsDbClusterMember where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an instance in the DB cluster.
@@ -86,16 +87,16 @@ awsRdsDbClusterMember_dbClusterParameterGroupStatus = Lens.lens (\AwsRdsDbCluste
 awsRdsDbClusterMember_isClusterWriter :: Lens.Lens' AwsRdsDbClusterMember (Prelude.Maybe Prelude.Bool)
 awsRdsDbClusterMember_isClusterWriter = Lens.lens (\AwsRdsDbClusterMember' {isClusterWriter} -> isClusterWriter) (\s@AwsRdsDbClusterMember' {} a -> s {isClusterWriter = a} :: AwsRdsDbClusterMember)
 
-instance Core.FromJSON AwsRdsDbClusterMember where
+instance Data.FromJSON AwsRdsDbClusterMember where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRdsDbClusterMember"
       ( \x ->
           AwsRdsDbClusterMember'
-            Prelude.<$> (x Core..:? "PromotionTier")
-            Prelude.<*> (x Core..:? "DbInstanceIdentifier")
-            Prelude.<*> (x Core..:? "DbClusterParameterGroupStatus")
-            Prelude.<*> (x Core..:? "IsClusterWriter")
+            Prelude.<$> (x Data..:? "PromotionTier")
+            Prelude.<*> (x Data..:? "DbInstanceIdentifier")
+            Prelude.<*> (x Data..:? "DbClusterParameterGroupStatus")
+            Prelude.<*> (x Data..:? "IsClusterWriter")
       )
 
 instance Prelude.Hashable AwsRdsDbClusterMember where
@@ -112,16 +113,16 @@ instance Prelude.NFData AwsRdsDbClusterMember where
       `Prelude.seq` Prelude.rnf dbClusterParameterGroupStatus
       `Prelude.seq` Prelude.rnf isClusterWriter
 
-instance Core.ToJSON AwsRdsDbClusterMember where
+instance Data.ToJSON AwsRdsDbClusterMember where
   toJSON AwsRdsDbClusterMember' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PromotionTier" Core..=) Prelude.<$> promotionTier,
-            ("DbInstanceIdentifier" Core..=)
+          [ ("PromotionTier" Data..=) Prelude.<$> promotionTier,
+            ("DbInstanceIdentifier" Data..=)
               Prelude.<$> dbInstanceIdentifier,
-            ("DbClusterParameterGroupStatus" Core..=)
+            ("DbClusterParameterGroupStatus" Data..=)
               Prelude.<$> dbClusterParameterGroupStatus,
-            ("IsClusterWriter" Core..=)
+            ("IsClusterWriter" Data..=)
               Prelude.<$> isClusterWriter
           ]
       )

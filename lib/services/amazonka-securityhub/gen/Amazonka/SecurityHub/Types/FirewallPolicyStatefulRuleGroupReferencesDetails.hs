@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.FirewallPolicyStatefulRuleGroupReferencesDetai
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A stateful rule group that is used by the firewall policy.
@@ -54,15 +55,15 @@ firewallPolicyStatefulRuleGroupReferencesDetails_resourceArn :: Lens.Lens' Firew
 firewallPolicyStatefulRuleGroupReferencesDetails_resourceArn = Lens.lens (\FirewallPolicyStatefulRuleGroupReferencesDetails' {resourceArn} -> resourceArn) (\s@FirewallPolicyStatefulRuleGroupReferencesDetails' {} a -> s {resourceArn = a} :: FirewallPolicyStatefulRuleGroupReferencesDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     FirewallPolicyStatefulRuleGroupReferencesDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FirewallPolicyStatefulRuleGroupReferencesDetails"
       ( \x ->
           FirewallPolicyStatefulRuleGroupReferencesDetails'
-            Prelude.<$> (x Core..:? "ResourceArn")
+            Prelude.<$> (x Data..:? "ResourceArn")
       )
 
 instance
@@ -83,12 +84,12 @@ instance
       Prelude.rnf resourceArn
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     FirewallPolicyStatefulRuleGroupReferencesDetails
   where
   toJSON
     FirewallPolicyStatefulRuleGroupReferencesDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [("ResourceArn" Core..=) Prelude.<$> resourceArn]
+            [("ResourceArn" Data..=) Prelude.<$> resourceArn]
         )

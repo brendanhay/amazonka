@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2VpnConnectionDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEc2VpnConnectionOptionsDetails
 import Amazonka.SecurityHub.Types.AwsEc2VpnConnectionRoutesDetails
@@ -188,23 +189,23 @@ awsEc2VpnConnectionDetails_vgwTelemetry = Lens.lens (\AwsEc2VpnConnectionDetails
 awsEc2VpnConnectionDetails_routes :: Lens.Lens' AwsEc2VpnConnectionDetails (Prelude.Maybe [AwsEc2VpnConnectionRoutesDetails])
 awsEc2VpnConnectionDetails_routes = Lens.lens (\AwsEc2VpnConnectionDetails' {routes} -> routes) (\s@AwsEc2VpnConnectionDetails' {} a -> s {routes = a} :: AwsEc2VpnConnectionDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AwsEc2VpnConnectionDetails where
+instance Data.FromJSON AwsEc2VpnConnectionDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2VpnConnectionDetails"
       ( \x ->
           AwsEc2VpnConnectionDetails'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "TransitGatewayId")
-            Prelude.<*> (x Core..:? "CustomerGatewayConfiguration")
-            Prelude.<*> (x Core..:? "VpnConnectionId")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Options")
-            Prelude.<*> (x Core..:? "CustomerGatewayId")
-            Prelude.<*> (x Core..:? "VpnGatewayId")
-            Prelude.<*> (x Core..:? "Category")
-            Prelude.<*> (x Core..:? "VgwTelemetry" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Routes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "TransitGatewayId")
+            Prelude.<*> (x Data..:? "CustomerGatewayConfiguration")
+            Prelude.<*> (x Data..:? "VpnConnectionId")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Options")
+            Prelude.<*> (x Data..:? "CustomerGatewayId")
+            Prelude.<*> (x Data..:? "VpnGatewayId")
+            Prelude.<*> (x Data..:? "Category")
+            Prelude.<*> (x Data..:? "VgwTelemetry" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Routes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AwsEc2VpnConnectionDetails where
@@ -235,24 +236,24 @@ instance Prelude.NFData AwsEc2VpnConnectionDetails where
       `Prelude.seq` Prelude.rnf vgwTelemetry
       `Prelude.seq` Prelude.rnf routes
 
-instance Core.ToJSON AwsEc2VpnConnectionDetails where
+instance Data.ToJSON AwsEc2VpnConnectionDetails where
   toJSON AwsEc2VpnConnectionDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("TransitGatewayId" Core..=)
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("TransitGatewayId" Data..=)
               Prelude.<$> transitGatewayId,
-            ("CustomerGatewayConfiguration" Core..=)
+            ("CustomerGatewayConfiguration" Data..=)
               Prelude.<$> customerGatewayConfiguration,
-            ("VpnConnectionId" Core..=)
+            ("VpnConnectionId" Data..=)
               Prelude.<$> vpnConnectionId,
-            ("State" Core..=) Prelude.<$> state,
-            ("Options" Core..=) Prelude.<$> options,
-            ("CustomerGatewayId" Core..=)
+            ("State" Data..=) Prelude.<$> state,
+            ("Options" Data..=) Prelude.<$> options,
+            ("CustomerGatewayId" Data..=)
               Prelude.<$> customerGatewayId,
-            ("VpnGatewayId" Core..=) Prelude.<$> vpnGatewayId,
-            ("Category" Core..=) Prelude.<$> category,
-            ("VgwTelemetry" Core..=) Prelude.<$> vgwTelemetry,
-            ("Routes" Core..=) Prelude.<$> routes
+            ("VpnGatewayId" Data..=) Prelude.<$> vpnGatewayId,
+            ("Category" Data..=) Prelude.<$> category,
+            ("VgwTelemetry" Data..=) Prelude.<$> vgwTelemetry,
+            ("Routes" Data..=) Prelude.<$> routes
           ]
       )

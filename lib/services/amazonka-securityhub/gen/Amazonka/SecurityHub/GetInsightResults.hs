@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,7 +86,7 @@ instance Core.AWSRequest GetInsightResults where
       ( \s h x ->
           GetInsightResultsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "InsightResults")
+            Prelude.<*> (x Data..:> "InsightResults")
       )
 
 instance Prelude.Hashable GetInsightResults where
@@ -95,23 +96,23 @@ instance Prelude.Hashable GetInsightResults where
 instance Prelude.NFData GetInsightResults where
   rnf GetInsightResults' {..} = Prelude.rnf insightArn
 
-instance Core.ToHeaders GetInsightResults where
+instance Data.ToHeaders GetInsightResults where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetInsightResults where
+instance Data.ToPath GetInsightResults where
   toPath GetInsightResults' {..} =
     Prelude.mconcat
-      ["/insights/results/", Core.toBS insightArn]
+      ["/insights/results/", Data.toBS insightArn]
 
-instance Core.ToQuery GetInsightResults where
+instance Data.ToQuery GetInsightResults where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInsightResultsResponse' smart constructor.

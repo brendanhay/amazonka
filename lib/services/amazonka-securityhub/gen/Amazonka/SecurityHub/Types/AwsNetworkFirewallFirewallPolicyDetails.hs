@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsNetworkFirewallFirewallPolicyDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.FirewallPolicyDetails
 
@@ -93,19 +94,19 @@ awsNetworkFirewallFirewallPolicyDetails_firewallPolicy :: Lens.Lens' AwsNetworkF
 awsNetworkFirewallFirewallPolicyDetails_firewallPolicy = Lens.lens (\AwsNetworkFirewallFirewallPolicyDetails' {firewallPolicy} -> firewallPolicy) (\s@AwsNetworkFirewallFirewallPolicyDetails' {} a -> s {firewallPolicy = a} :: AwsNetworkFirewallFirewallPolicyDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsNetworkFirewallFirewallPolicyDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsNetworkFirewallFirewallPolicyDetails"
       ( \x ->
           AwsNetworkFirewallFirewallPolicyDetails'
-            Prelude.<$> (x Core..:? "FirewallPolicyName")
-            Prelude.<*> (x Core..:? "FirewallPolicyId")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "FirewallPolicyArn")
-            Prelude.<*> (x Core..:? "FirewallPolicy")
+            Prelude.<$> (x Data..:? "FirewallPolicyName")
+            Prelude.<*> (x Data..:? "FirewallPolicyId")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "FirewallPolicyArn")
+            Prelude.<*> (x Data..:? "FirewallPolicy")
       )
 
 instance
@@ -133,20 +134,20 @@ instance
       `Prelude.seq` Prelude.rnf firewallPolicy
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsNetworkFirewallFirewallPolicyDetails
   where
   toJSON AwsNetworkFirewallFirewallPolicyDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FirewallPolicyName" Core..=)
+          [ ("FirewallPolicyName" Data..=)
               Prelude.<$> firewallPolicyName,
-            ("FirewallPolicyId" Core..=)
+            ("FirewallPolicyId" Data..=)
               Prelude.<$> firewallPolicyId,
-            ("Description" Core..=) Prelude.<$> description,
-            ("FirewallPolicyArn" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("FirewallPolicyArn" Data..=)
               Prelude.<$> firewallPolicyArn,
-            ("FirewallPolicy" Core..=)
+            ("FirewallPolicy" Data..=)
               Prelude.<$> firewallPolicy
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElasticsearchDomainLogPublishingOptions whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsElasticsearchDomainLogPublishingOptionsLogConfig
 
@@ -73,17 +74,17 @@ awsElasticsearchDomainLogPublishingOptions_searchSlowLogs :: Lens.Lens' AwsElast
 awsElasticsearchDomainLogPublishingOptions_searchSlowLogs = Lens.lens (\AwsElasticsearchDomainLogPublishingOptions' {searchSlowLogs} -> searchSlowLogs) (\s@AwsElasticsearchDomainLogPublishingOptions' {} a -> s {searchSlowLogs = a} :: AwsElasticsearchDomainLogPublishingOptions)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsElasticsearchDomainLogPublishingOptions
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElasticsearchDomainLogPublishingOptions"
       ( \x ->
           AwsElasticsearchDomainLogPublishingOptions'
-            Prelude.<$> (x Core..:? "IndexSlowLogs")
-              Prelude.<*> (x Core..:? "AuditLogs")
-              Prelude.<*> (x Core..:? "SearchSlowLogs")
+            Prelude.<$> (x Data..:? "IndexSlowLogs")
+              Prelude.<*> (x Data..:? "AuditLogs")
+              Prelude.<*> (x Data..:? "SearchSlowLogs")
       )
 
 instance
@@ -107,16 +108,16 @@ instance
       `Prelude.seq` Prelude.rnf searchSlowLogs
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsElasticsearchDomainLogPublishingOptions
   where
   toJSON
     AwsElasticsearchDomainLogPublishingOptions' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("IndexSlowLogs" Core..=) Prelude.<$> indexSlowLogs,
-              ("AuditLogs" Core..=) Prelude.<$> auditLogs,
-              ("SearchSlowLogs" Core..=)
+            [ ("IndexSlowLogs" Data..=) Prelude.<$> indexSlowLogs,
+              ("AuditLogs" Data..=) Prelude.<$> auditLogs,
+              ("SearchSlowLogs" Data..=)
                 Prelude.<$> searchSlowLogs
             ]
         )

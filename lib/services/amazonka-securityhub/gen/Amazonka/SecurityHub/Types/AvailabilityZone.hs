@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AvailabilityZone where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an Availability Zone.
@@ -61,14 +62,14 @@ availabilityZone_zoneName = Lens.lens (\AvailabilityZone' {zoneName} -> zoneName
 availabilityZone_subnetId :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
 availabilityZone_subnetId = Lens.lens (\AvailabilityZone' {subnetId} -> subnetId) (\s@AvailabilityZone' {} a -> s {subnetId = a} :: AvailabilityZone)
 
-instance Core.FromJSON AvailabilityZone where
+instance Data.FromJSON AvailabilityZone where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AvailabilityZone"
       ( \x ->
           AvailabilityZone'
-            Prelude.<$> (x Core..:? "ZoneName")
-            Prelude.<*> (x Core..:? "SubnetId")
+            Prelude.<$> (x Data..:? "ZoneName")
+            Prelude.<*> (x Data..:? "SubnetId")
       )
 
 instance Prelude.Hashable AvailabilityZone where
@@ -81,11 +82,11 @@ instance Prelude.NFData AvailabilityZone where
     Prelude.rnf zoneName
       `Prelude.seq` Prelude.rnf subnetId
 
-instance Core.ToJSON AvailabilityZone where
+instance Data.ToJSON AvailabilityZone where
   toJSON AvailabilityZone' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ZoneName" Core..=) Prelude.<$> zoneName,
-            ("SubnetId" Core..=) Prelude.<$> subnetId
+          [ ("ZoneName" Data..=) Prelude.<$> zoneName,
+            ("SubnetId" Data..=) Prelude.<$> subnetId
           ]
       )

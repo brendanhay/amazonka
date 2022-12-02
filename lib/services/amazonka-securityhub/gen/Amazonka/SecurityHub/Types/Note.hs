@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.Note where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A user-defined note added to a finding.
@@ -91,15 +92,15 @@ note_updatedBy = Lens.lens (\Note' {updatedBy} -> updatedBy) (\s@Note' {} a -> s
 note_updatedAt :: Lens.Lens' Note Prelude.Text
 note_updatedAt = Lens.lens (\Note' {updatedAt} -> updatedAt) (\s@Note' {} a -> s {updatedAt = a} :: Note)
 
-instance Core.FromJSON Note where
+instance Data.FromJSON Note where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Note"
       ( \x ->
           Note'
-            Prelude.<$> (x Core..: "Text")
-            Prelude.<*> (x Core..: "UpdatedBy")
-            Prelude.<*> (x Core..: "UpdatedAt")
+            Prelude.<$> (x Data..: "Text")
+            Prelude.<*> (x Data..: "UpdatedBy")
+            Prelude.<*> (x Data..: "UpdatedAt")
       )
 
 instance Prelude.Hashable Note where
@@ -114,12 +115,12 @@ instance Prelude.NFData Note where
       `Prelude.seq` Prelude.rnf updatedBy
       `Prelude.seq` Prelude.rnf updatedAt
 
-instance Core.ToJSON Note where
+instance Data.ToJSON Note where
   toJSON Note' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Text" Core..= text),
-            Prelude.Just ("UpdatedBy" Core..= updatedBy),
-            Prelude.Just ("UpdatedAt" Core..= updatedAt)
+          [ Prelude.Just ("Text" Data..= text),
+            Prelude.Just ("UpdatedBy" Data..= updatedBy),
+            Prelude.Just ("UpdatedAt" Data..= updatedAt)
           ]
       )

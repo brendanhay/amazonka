@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,28 +98,28 @@ instance Prelude.Hashable DisassociateMembers where
 instance Prelude.NFData DisassociateMembers where
   rnf DisassociateMembers' {..} = Prelude.rnf accountIds
 
-instance Core.ToHeaders DisassociateMembers where
+instance Data.ToHeaders DisassociateMembers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateMembers where
+instance Data.ToJSON DisassociateMembers where
   toJSON DisassociateMembers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("AccountIds" Core..= accountIds)]
+          [Prelude.Just ("AccountIds" Data..= accountIds)]
       )
 
-instance Core.ToPath DisassociateMembers where
+instance Data.ToPath DisassociateMembers where
   toPath = Prelude.const "/members/disassociate"
 
-instance Core.ToQuery DisassociateMembers where
+instance Data.ToQuery DisassociateMembers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateMembersResponse' smart constructor.

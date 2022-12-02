@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsDynamoDbTableProjection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | For global and local secondary indexes, identifies the attributes that
@@ -87,15 +88,15 @@ awsDynamoDbTableProjection_projectionType = Lens.lens (\AwsDynamoDbTableProjecti
 awsDynamoDbTableProjection_nonKeyAttributes :: Lens.Lens' AwsDynamoDbTableProjection (Prelude.Maybe [Prelude.Text])
 awsDynamoDbTableProjection_nonKeyAttributes = Lens.lens (\AwsDynamoDbTableProjection' {nonKeyAttributes} -> nonKeyAttributes) (\s@AwsDynamoDbTableProjection' {} a -> s {nonKeyAttributes = a} :: AwsDynamoDbTableProjection) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AwsDynamoDbTableProjection where
+instance Data.FromJSON AwsDynamoDbTableProjection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsDynamoDbTableProjection"
       ( \x ->
           AwsDynamoDbTableProjection'
-            Prelude.<$> (x Core..:? "ProjectionType")
-            Prelude.<*> ( x Core..:? "NonKeyAttributes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ProjectionType")
+            Prelude.<*> ( x Data..:? "NonKeyAttributes"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -109,13 +110,13 @@ instance Prelude.NFData AwsDynamoDbTableProjection where
     Prelude.rnf projectionType
       `Prelude.seq` Prelude.rnf nonKeyAttributes
 
-instance Core.ToJSON AwsDynamoDbTableProjection where
+instance Data.ToJSON AwsDynamoDbTableProjection where
   toJSON AwsDynamoDbTableProjection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProjectionType" Core..=)
+          [ ("ProjectionType" Data..=)
               Prelude.<$> projectionType,
-            ("NonKeyAttributes" Core..=)
+            ("NonKeyAttributes" Data..=)
               Prelude.<$> nonKeyAttributes
           ]
       )

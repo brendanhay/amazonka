@@ -27,11 +27,12 @@ module Amazonka.SecurityHub.Types.AwsS3BucketNotificationConfigurationS3KeyFilte
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 newtype AwsS3BucketNotificationConfigurationS3KeyFilterRuleName = AwsS3BucketNotificationConfigurationS3KeyFilterRuleName'
   { fromAwsS3BucketNotificationConfigurationS3KeyFilterRuleName ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -43,18 +44,18 @@ newtype AwsS3BucketNotificationConfigurationS3KeyFilterRuleName = AwsS3BucketNot
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern AwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Prefix :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName

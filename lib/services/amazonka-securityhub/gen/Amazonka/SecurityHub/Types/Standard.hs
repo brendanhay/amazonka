@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.Standard where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a specific standard.
@@ -97,16 +98,16 @@ standard_description = Lens.lens (\Standard' {description} -> description) (\s@S
 standard_enabledByDefault :: Lens.Lens' Standard (Prelude.Maybe Prelude.Bool)
 standard_enabledByDefault = Lens.lens (\Standard' {enabledByDefault} -> enabledByDefault) (\s@Standard' {} a -> s {enabledByDefault = a} :: Standard)
 
-instance Core.FromJSON Standard where
+instance Data.FromJSON Standard where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Standard"
       ( \x ->
           Standard'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "StandardsArn")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "EnabledByDefault")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "StandardsArn")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "EnabledByDefault")
       )
 
 instance Prelude.Hashable Standard where

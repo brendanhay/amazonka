@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2NetworkInterfaceSecurityGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A security group associated with the network interface.
@@ -63,16 +64,16 @@ awsEc2NetworkInterfaceSecurityGroup_groupId :: Lens.Lens' AwsEc2NetworkInterface
 awsEc2NetworkInterfaceSecurityGroup_groupId = Lens.lens (\AwsEc2NetworkInterfaceSecurityGroup' {groupId} -> groupId) (\s@AwsEc2NetworkInterfaceSecurityGroup' {} a -> s {groupId = a} :: AwsEc2NetworkInterfaceSecurityGroup)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEc2NetworkInterfaceSecurityGroup
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2NetworkInterfaceSecurityGroup"
       ( \x ->
           AwsEc2NetworkInterfaceSecurityGroup'
-            Prelude.<$> (x Core..:? "GroupName")
-            Prelude.<*> (x Core..:? "GroupId")
+            Prelude.<$> (x Data..:? "GroupName")
+            Prelude.<*> (x Data..:? "GroupId")
       )
 
 instance
@@ -94,13 +95,13 @@ instance
       `Prelude.seq` Prelude.rnf groupId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEc2NetworkInterfaceSecurityGroup
   where
   toJSON AwsEc2NetworkInterfaceSecurityGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GroupName" Core..=) Prelude.<$> groupName,
-            ("GroupId" Core..=) Prelude.<$> groupId
+          [ ("GroupName" Data..=) Prelude.<$> groupName,
+            ("GroupId" Data..=) Prelude.<$> groupId
           ]
       )

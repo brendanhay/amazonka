@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail w
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a private IPv4 address that is with the
@@ -65,16 +66,16 @@ awsEc2NetworkInterfacePrivateIpAddressDetail_privateDnsName :: Lens.Lens' AwsEc2
 awsEc2NetworkInterfacePrivateIpAddressDetail_privateDnsName = Lens.lens (\AwsEc2NetworkInterfacePrivateIpAddressDetail' {privateDnsName} -> privateDnsName) (\s@AwsEc2NetworkInterfacePrivateIpAddressDetail' {} a -> s {privateDnsName = a} :: AwsEc2NetworkInterfacePrivateIpAddressDetail)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEc2NetworkInterfacePrivateIpAddressDetail
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2NetworkInterfacePrivateIpAddressDetail"
       ( \x ->
           AwsEc2NetworkInterfacePrivateIpAddressDetail'
-            Prelude.<$> (x Core..:? "PrivateIpAddress")
-              Prelude.<*> (x Core..:? "PrivateDnsName")
+            Prelude.<$> (x Data..:? "PrivateIpAddress")
+              Prelude.<*> (x Data..:? "PrivateDnsName")
       )
 
 instance
@@ -96,16 +97,16 @@ instance
       `Prelude.seq` Prelude.rnf privateDnsName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEc2NetworkInterfacePrivateIpAddressDetail
   where
   toJSON
     AwsEc2NetworkInterfacePrivateIpAddressDetail' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("PrivateIpAddress" Core..=)
+            [ ("PrivateIpAddress" Data..=)
                 Prelude.<$> privateIpAddress,
-              ("PrivateDnsName" Core..=)
+              ("PrivateDnsName" Data..=)
                 Prelude.<$> privateDnsName
             ]
         )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.Ipv6CidrBlockAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An IPV6 CIDR block association.
@@ -110,15 +111,15 @@ ipv6CidrBlockAssociation_associationId = Lens.lens (\Ipv6CidrBlockAssociation' {
 ipv6CidrBlockAssociation_ipv6CidrBlock :: Lens.Lens' Ipv6CidrBlockAssociation (Prelude.Maybe Prelude.Text)
 ipv6CidrBlockAssociation_ipv6CidrBlock = Lens.lens (\Ipv6CidrBlockAssociation' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@Ipv6CidrBlockAssociation' {} a -> s {ipv6CidrBlock = a} :: Ipv6CidrBlockAssociation)
 
-instance Core.FromJSON Ipv6CidrBlockAssociation where
+instance Data.FromJSON Ipv6CidrBlockAssociation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Ipv6CidrBlockAssociation"
       ( \x ->
           Ipv6CidrBlockAssociation'
-            Prelude.<$> (x Core..:? "CidrBlockState")
-            Prelude.<*> (x Core..:? "AssociationId")
-            Prelude.<*> (x Core..:? "Ipv6CidrBlock")
+            Prelude.<$> (x Data..:? "CidrBlockState")
+            Prelude.<*> (x Data..:? "AssociationId")
+            Prelude.<*> (x Data..:? "Ipv6CidrBlock")
       )
 
 instance Prelude.Hashable Ipv6CidrBlockAssociation where
@@ -133,13 +134,13 @@ instance Prelude.NFData Ipv6CidrBlockAssociation where
       `Prelude.seq` Prelude.rnf associationId
       `Prelude.seq` Prelude.rnf ipv6CidrBlock
 
-instance Core.ToJSON Ipv6CidrBlockAssociation where
+instance Data.ToJSON Ipv6CidrBlockAssociation where
   toJSON Ipv6CidrBlockAssociation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CidrBlockState" Core..=)
+          [ ("CidrBlockState" Data..=)
               Prelude.<$> cidrBlockState,
-            ("AssociationId" Core..=) Prelude.<$> associationId,
-            ("Ipv6CidrBlock" Core..=) Prelude.<$> ipv6CidrBlock
+            ("AssociationId" Data..=) Prelude.<$> associationId,
+            ("Ipv6CidrBlock" Data..=) Prelude.<$> ipv6CidrBlock
           ]
       )

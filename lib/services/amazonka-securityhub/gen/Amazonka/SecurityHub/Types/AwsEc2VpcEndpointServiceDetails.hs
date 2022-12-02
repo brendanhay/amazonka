@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2VpcEndpointServiceDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEc2VpcEndpointServiceServiceTypeDetails
 
@@ -179,33 +180,33 @@ awsEc2VpcEndpointServiceDetails_serviceId :: Lens.Lens' AwsEc2VpcEndpointService
 awsEc2VpcEndpointServiceDetails_serviceId = Lens.lens (\AwsEc2VpcEndpointServiceDetails' {serviceId} -> serviceId) (\s@AwsEc2VpcEndpointServiceDetails' {} a -> s {serviceId = a} :: AwsEc2VpcEndpointServiceDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEc2VpcEndpointServiceDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2VpcEndpointServiceDetails"
       ( \x ->
           AwsEc2VpcEndpointServiceDetails'
-            Prelude.<$> ( x Core..:? "GatewayLoadBalancerArns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "GatewayLoadBalancerArns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "AcceptanceRequired")
-            Prelude.<*> ( x Core..:? "AvailabilityZones"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "AcceptanceRequired")
+            Prelude.<*> ( x Data..:? "AvailabilityZones"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ServiceType" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ManagesVpcEndpoints")
-            Prelude.<*> ( x Core..:? "BaseEndpointDnsNames"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "ServiceType" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ManagesVpcEndpoints")
+            Prelude.<*> ( x Data..:? "BaseEndpointDnsNames"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "NetworkLoadBalancerArns"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "NetworkLoadBalancerArns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "PrivateDnsName")
-            Prelude.<*> (x Core..:? "ServiceState")
-            Prelude.<*> (x Core..:? "ServiceName")
-            Prelude.<*> (x Core..:? "ServiceId")
+            Prelude.<*> (x Data..:? "PrivateDnsName")
+            Prelude.<*> (x Data..:? "ServiceState")
+            Prelude.<*> (x Data..:? "ServiceName")
+            Prelude.<*> (x Data..:? "ServiceId")
       )
 
 instance
@@ -245,27 +246,27 @@ instance
       `Prelude.seq` Prelude.rnf serviceName
       `Prelude.seq` Prelude.rnf serviceId
 
-instance Core.ToJSON AwsEc2VpcEndpointServiceDetails where
+instance Data.ToJSON AwsEc2VpcEndpointServiceDetails where
   toJSON AwsEc2VpcEndpointServiceDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GatewayLoadBalancerArns" Core..=)
+          [ ("GatewayLoadBalancerArns" Data..=)
               Prelude.<$> gatewayLoadBalancerArns,
-            ("AcceptanceRequired" Core..=)
+            ("AcceptanceRequired" Data..=)
               Prelude.<$> acceptanceRequired,
-            ("AvailabilityZones" Core..=)
+            ("AvailabilityZones" Data..=)
               Prelude.<$> availabilityZones,
-            ("ServiceType" Core..=) Prelude.<$> serviceType,
-            ("ManagesVpcEndpoints" Core..=)
+            ("ServiceType" Data..=) Prelude.<$> serviceType,
+            ("ManagesVpcEndpoints" Data..=)
               Prelude.<$> managesVpcEndpoints,
-            ("BaseEndpointDnsNames" Core..=)
+            ("BaseEndpointDnsNames" Data..=)
               Prelude.<$> baseEndpointDnsNames,
-            ("NetworkLoadBalancerArns" Core..=)
+            ("NetworkLoadBalancerArns" Data..=)
               Prelude.<$> networkLoadBalancerArns,
-            ("PrivateDnsName" Core..=)
+            ("PrivateDnsName" Data..=)
               Prelude.<$> privateDnsName,
-            ("ServiceState" Core..=) Prelude.<$> serviceState,
-            ("ServiceName" Core..=) Prelude.<$> serviceName,
-            ("ServiceId" Core..=) Prelude.<$> serviceId
+            ("ServiceState" Data..=) Prelude.<$> serviceState,
+            ("ServiceName" Data..=) Prelude.<$> serviceName,
+            ("ServiceId" Data..=) Prelude.<$> serviceId
           ]
       )

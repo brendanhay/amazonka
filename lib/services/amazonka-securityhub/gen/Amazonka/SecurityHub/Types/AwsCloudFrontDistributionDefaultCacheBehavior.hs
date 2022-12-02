@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCloudFrontDistributionDefaultCacheBehavior 
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the default cache configuration for the
@@ -85,15 +86,15 @@ awsCloudFrontDistributionDefaultCacheBehavior_viewerProtocolPolicy :: Lens.Lens'
 awsCloudFrontDistributionDefaultCacheBehavior_viewerProtocolPolicy = Lens.lens (\AwsCloudFrontDistributionDefaultCacheBehavior' {viewerProtocolPolicy} -> viewerProtocolPolicy) (\s@AwsCloudFrontDistributionDefaultCacheBehavior' {} a -> s {viewerProtocolPolicy = a} :: AwsCloudFrontDistributionDefaultCacheBehavior)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCloudFrontDistributionDefaultCacheBehavior
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCloudFrontDistributionDefaultCacheBehavior"
       ( \x ->
           AwsCloudFrontDistributionDefaultCacheBehavior'
-            Prelude.<$> (x Core..:? "ViewerProtocolPolicy")
+            Prelude.<$> (x Data..:? "ViewerProtocolPolicy")
       )
 
 instance
@@ -114,14 +115,14 @@ instance
       Prelude.rnf viewerProtocolPolicy
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsCloudFrontDistributionDefaultCacheBehavior
   where
   toJSON
     AwsCloudFrontDistributionDefaultCacheBehavior' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("ViewerProtocolPolicy" Core..=)
+            [ ("ViewerProtocolPolicy" Data..=)
                 Prelude.<$> viewerProtocolPolicy
             ]
         )

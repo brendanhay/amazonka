@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsDynamoDbTableReplicaGlobalSecondaryIndex wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsDynamoDbTableProvisionedThroughputOverride
 
@@ -67,16 +68,16 @@ awsDynamoDbTableReplicaGlobalSecondaryIndex_indexName :: Lens.Lens' AwsDynamoDbT
 awsDynamoDbTableReplicaGlobalSecondaryIndex_indexName = Lens.lens (\AwsDynamoDbTableReplicaGlobalSecondaryIndex' {indexName} -> indexName) (\s@AwsDynamoDbTableReplicaGlobalSecondaryIndex' {} a -> s {indexName = a} :: AwsDynamoDbTableReplicaGlobalSecondaryIndex)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsDynamoDbTableReplicaGlobalSecondaryIndex
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsDynamoDbTableReplicaGlobalSecondaryIndex"
       ( \x ->
           AwsDynamoDbTableReplicaGlobalSecondaryIndex'
-            Prelude.<$> (x Core..:? "ProvisionedThroughputOverride")
-              Prelude.<*> (x Core..:? "IndexName")
+            Prelude.<$> (x Data..:? "ProvisionedThroughputOverride")
+              Prelude.<*> (x Data..:? "IndexName")
       )
 
 instance
@@ -99,15 +100,15 @@ instance
       `Prelude.seq` Prelude.rnf indexName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsDynamoDbTableReplicaGlobalSecondaryIndex
   where
   toJSON
     AwsDynamoDbTableReplicaGlobalSecondaryIndex' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("ProvisionedThroughputOverride" Core..=)
+            [ ("ProvisionedThroughputOverride" Data..=)
                 Prelude.<$> provisionedThroughputOverride,
-              ("IndexName" Core..=) Prelude.<$> indexName
+              ("IndexName" Data..=) Prelude.<$> indexName
             ]
         )

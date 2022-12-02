@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsIamUserPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an inline policy that is embedded in the user.
@@ -50,13 +51,13 @@ newAwsIamUserPolicy =
 awsIamUserPolicy_policyName :: Lens.Lens' AwsIamUserPolicy (Prelude.Maybe Prelude.Text)
 awsIamUserPolicy_policyName = Lens.lens (\AwsIamUserPolicy' {policyName} -> policyName) (\s@AwsIamUserPolicy' {} a -> s {policyName = a} :: AwsIamUserPolicy)
 
-instance Core.FromJSON AwsIamUserPolicy where
+instance Data.FromJSON AwsIamUserPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsIamUserPolicy"
       ( \x ->
           AwsIamUserPolicy'
-            Prelude.<$> (x Core..:? "PolicyName")
+            Prelude.<$> (x Data..:? "PolicyName")
       )
 
 instance Prelude.Hashable AwsIamUserPolicy where
@@ -66,9 +67,9 @@ instance Prelude.Hashable AwsIamUserPolicy where
 instance Prelude.NFData AwsIamUserPolicy where
   rnf AwsIamUserPolicy' {..} = Prelude.rnf policyName
 
-instance Core.ToJSON AwsIamUserPolicy where
+instance Data.ToJSON AwsIamUserPolicy where
   toJSON AwsIamUserPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("PolicyName" Core..=) Prelude.<$> policyName]
+          [("PolicyName" Data..=) Prelude.<$> policyName]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsResour
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A resource to assign to a container.
@@ -85,15 +86,15 @@ awsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails_value :: Len
 awsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails_value = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails' {value} -> value) (\s@AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails' {} a -> s {value = a} :: AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails'
-            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..:? "Value")
       )
 
 instance
@@ -115,14 +116,14 @@ instance
       Prelude.rnf type' `Prelude.seq` Prelude.rnf value
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails
   where
   toJSON
     AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Type" Core..=) Prelude.<$> type',
-              ("Value" Core..=) Prelude.<$> value
+            [ ("Type" Data..=) Prelude.<$> type',
+              ("Value" Data..=) Prelude.<$> value
             ]
         )

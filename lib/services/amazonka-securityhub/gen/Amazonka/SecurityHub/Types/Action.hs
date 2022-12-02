@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.Action where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsApiCallAction
 import Amazonka.SecurityHub.Types.DnsRequestAction
@@ -137,17 +138,17 @@ action_dnsRequestAction = Lens.lens (\Action' {dnsRequestAction} -> dnsRequestAc
 action_portProbeAction :: Lens.Lens' Action (Prelude.Maybe PortProbeAction)
 action_portProbeAction = Lens.lens (\Action' {portProbeAction} -> portProbeAction) (\s@Action' {} a -> s {portProbeAction = a} :: Action)
 
-instance Core.FromJSON Action where
+instance Data.FromJSON Action where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Action"
       ( \x ->
           Action'
-            Prelude.<$> (x Core..:? "ActionType")
-            Prelude.<*> (x Core..:? "NetworkConnectionAction")
-            Prelude.<*> (x Core..:? "AwsApiCallAction")
-            Prelude.<*> (x Core..:? "DnsRequestAction")
-            Prelude.<*> (x Core..:? "PortProbeAction")
+            Prelude.<$> (x Data..:? "ActionType")
+            Prelude.<*> (x Data..:? "NetworkConnectionAction")
+            Prelude.<*> (x Data..:? "AwsApiCallAction")
+            Prelude.<*> (x Data..:? "DnsRequestAction")
+            Prelude.<*> (x Data..:? "PortProbeAction")
       )
 
 instance Prelude.Hashable Action where
@@ -166,18 +167,18 @@ instance Prelude.NFData Action where
       `Prelude.seq` Prelude.rnf dnsRequestAction
       `Prelude.seq` Prelude.rnf portProbeAction
 
-instance Core.ToJSON Action where
+instance Data.ToJSON Action where
   toJSON Action' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ActionType" Core..=) Prelude.<$> actionType,
-            ("NetworkConnectionAction" Core..=)
+          [ ("ActionType" Data..=) Prelude.<$> actionType,
+            ("NetworkConnectionAction" Data..=)
               Prelude.<$> networkConnectionAction,
-            ("AwsApiCallAction" Core..=)
+            ("AwsApiCallAction" Data..=)
               Prelude.<$> awsApiCallAction,
-            ("DnsRequestAction" Core..=)
+            ("DnsRequestAction" Data..=)
               Prelude.<$> dnsRequestAction,
-            ("PortProbeAction" Core..=)
+            ("PortProbeAction" Data..=)
               Prelude.<$> portProbeAction
           ]
       )

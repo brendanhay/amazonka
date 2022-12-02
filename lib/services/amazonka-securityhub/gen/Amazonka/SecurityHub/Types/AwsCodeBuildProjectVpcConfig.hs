@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCodeBuildProjectVpcConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the VPC configuration that CodeBuild accesses.
@@ -71,17 +72,17 @@ awsCodeBuildProjectVpcConfig_subnets = Lens.lens (\AwsCodeBuildProjectVpcConfig'
 awsCodeBuildProjectVpcConfig_vpcId :: Lens.Lens' AwsCodeBuildProjectVpcConfig (Prelude.Maybe Prelude.Text)
 awsCodeBuildProjectVpcConfig_vpcId = Lens.lens (\AwsCodeBuildProjectVpcConfig' {vpcId} -> vpcId) (\s@AwsCodeBuildProjectVpcConfig' {} a -> s {vpcId = a} :: AwsCodeBuildProjectVpcConfig)
 
-instance Core.FromJSON AwsCodeBuildProjectVpcConfig where
+instance Data.FromJSON AwsCodeBuildProjectVpcConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCodeBuildProjectVpcConfig"
       ( \x ->
           AwsCodeBuildProjectVpcConfig'
-            Prelude.<$> ( x Core..:? "SecurityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "SecurityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Subnets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<*> (x Data..:? "Subnets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "VpcId")
       )
 
 instance
@@ -99,13 +100,13 @@ instance Prelude.NFData AwsCodeBuildProjectVpcConfig where
       `Prelude.seq` Prelude.rnf subnets
       `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToJSON AwsCodeBuildProjectVpcConfig where
+instance Data.ToJSON AwsCodeBuildProjectVpcConfig where
   toJSON AwsCodeBuildProjectVpcConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SecurityGroupIds" Core..=)
+          [ ("SecurityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("Subnets" Core..=) Prelude.<$> subnets,
-            ("VpcId" Core..=) Prelude.<$> vpcId
+            ("Subnets" Data..=) Prelude.<$> subnets,
+            ("VpcId" Data..=) Prelude.<$> vpcId
           ]
       )

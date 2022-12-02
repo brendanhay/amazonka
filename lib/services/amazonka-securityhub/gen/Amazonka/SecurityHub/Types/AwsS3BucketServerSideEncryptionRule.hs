@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsS3BucketServerSideEncryptionRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsS3BucketServerSideEncryptionByDefault
 
@@ -61,15 +62,15 @@ awsS3BucketServerSideEncryptionRule_applyServerSideEncryptionByDefault :: Lens.L
 awsS3BucketServerSideEncryptionRule_applyServerSideEncryptionByDefault = Lens.lens (\AwsS3BucketServerSideEncryptionRule' {applyServerSideEncryptionByDefault} -> applyServerSideEncryptionByDefault) (\s@AwsS3BucketServerSideEncryptionRule' {} a -> s {applyServerSideEncryptionByDefault = a} :: AwsS3BucketServerSideEncryptionRule)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsS3BucketServerSideEncryptionRule
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsS3BucketServerSideEncryptionRule"
       ( \x ->
           AwsS3BucketServerSideEncryptionRule'
-            Prelude.<$> (x Core..:? "ApplyServerSideEncryptionByDefault")
+            Prelude.<$> (x Data..:? "ApplyServerSideEncryptionByDefault")
       )
 
 instance
@@ -90,13 +91,13 @@ instance
     Prelude.rnf applyServerSideEncryptionByDefault
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsS3BucketServerSideEncryptionRule
   where
   toJSON AwsS3BucketServerSideEncryptionRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ApplyServerSideEncryptionByDefault" Core..=)
+          [ ("ApplyServerSideEncryptionByDefault" Data..=)
               Prelude.<$> applyServerSideEncryptionByDefault
           ]
       )

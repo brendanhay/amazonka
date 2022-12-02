@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationRulesFi
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A tag that is assigned to matching objects.
@@ -64,15 +65,15 @@ awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails_va
 awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails_value = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails' {value} -> value) (\s@AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails' {} a -> s {value = a} :: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails"
       ( \x ->
           AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails'
-            Prelude.<$> (x Core..:? "Key") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Key") Prelude.<*> (x Data..:? "Value")
       )
 
 instance
@@ -94,14 +95,14 @@ instance
       Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails
   where
   toJSON
     AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Key" Core..=) Prelude.<$> key,
-              ("Value" Core..=) Prelude.<$> value
+            [ ("Key" Data..=) Prelude.<$> key,
+              ("Value" Data..=) Prelude.<$> value
             ]
         )

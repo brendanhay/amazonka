@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -207,10 +208,10 @@ instance Core.AWSRequest UpdateFindingAggregator where
     Response.receiveJSON
       ( \s h x ->
           UpdateFindingAggregatorResponse'
-            Prelude.<$> (x Core..?> "Regions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "FindingAggregatorArn")
-            Prelude.<*> (x Core..?> "RegionLinkingMode")
-            Prelude.<*> (x Core..?> "FindingAggregationRegion")
+            Prelude.<$> (x Data..?> "Regions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "FindingAggregatorArn")
+            Prelude.<*> (x Data..?> "RegionLinkingMode")
+            Prelude.<*> (x Data..?> "FindingAggregationRegion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -226,35 +227,35 @@ instance Prelude.NFData UpdateFindingAggregator where
       `Prelude.seq` Prelude.rnf findingAggregatorArn
       `Prelude.seq` Prelude.rnf regionLinkingMode
 
-instance Core.ToHeaders UpdateFindingAggregator where
+instance Data.ToHeaders UpdateFindingAggregator where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFindingAggregator where
+instance Data.ToJSON UpdateFindingAggregator where
   toJSON UpdateFindingAggregator' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Regions" Core..=) Prelude.<$> regions,
+          [ ("Regions" Data..=) Prelude.<$> regions,
             Prelude.Just
               ( "FindingAggregatorArn"
-                  Core..= findingAggregatorArn
+                  Data..= findingAggregatorArn
               ),
             Prelude.Just
-              ("RegionLinkingMode" Core..= regionLinkingMode)
+              ("RegionLinkingMode" Data..= regionLinkingMode)
           ]
       )
 
-instance Core.ToPath UpdateFindingAggregator where
+instance Data.ToPath UpdateFindingAggregator where
   toPath = Prelude.const "/findingAggregator/update"
 
-instance Core.ToQuery UpdateFindingAggregator where
+instance Data.ToQuery UpdateFindingAggregator where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFindingAggregatorResponse' smart constructor.

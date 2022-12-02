@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.Record where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An occurrence of sensitive data in an Apache Avro object container or an
@@ -71,14 +72,14 @@ record_jsonPath = Lens.lens (\Record' {jsonPath} -> jsonPath) (\s@Record' {} a -
 record_recordIndex :: Lens.Lens' Record (Prelude.Maybe Prelude.Integer)
 record_recordIndex = Lens.lens (\Record' {recordIndex} -> recordIndex) (\s@Record' {} a -> s {recordIndex = a} :: Record)
 
-instance Core.FromJSON Record where
+instance Data.FromJSON Record where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Record"
       ( \x ->
           Record'
-            Prelude.<$> (x Core..:? "JsonPath")
-            Prelude.<*> (x Core..:? "RecordIndex")
+            Prelude.<$> (x Data..:? "JsonPath")
+            Prelude.<*> (x Data..:? "RecordIndex")
       )
 
 instance Prelude.Hashable Record where
@@ -91,11 +92,11 @@ instance Prelude.NFData Record where
     Prelude.rnf jsonPath
       `Prelude.seq` Prelude.rnf recordIndex
 
-instance Core.ToJSON Record where
+instance Data.ToJSON Record where
   toJSON Record' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("JsonPath" Core..=) Prelude.<$> jsonPath,
-            ("RecordIndex" Core..=) Prelude.<$> recordIndex
+          [ ("JsonPath" Data..=) Prelude.<$> jsonPath,
+            ("RecordIndex" Data..=) Prelude.<$> recordIndex
           ]
       )

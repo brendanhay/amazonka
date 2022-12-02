@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRdsDbSecurityGroupIpRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | IP range information for an RDS DB security group.
@@ -62,14 +63,14 @@ awsRdsDbSecurityGroupIpRange_status = Lens.lens (\AwsRdsDbSecurityGroupIpRange' 
 awsRdsDbSecurityGroupIpRange_cidrIp :: Lens.Lens' AwsRdsDbSecurityGroupIpRange (Prelude.Maybe Prelude.Text)
 awsRdsDbSecurityGroupIpRange_cidrIp = Lens.lens (\AwsRdsDbSecurityGroupIpRange' {cidrIp} -> cidrIp) (\s@AwsRdsDbSecurityGroupIpRange' {} a -> s {cidrIp = a} :: AwsRdsDbSecurityGroupIpRange)
 
-instance Core.FromJSON AwsRdsDbSecurityGroupIpRange where
+instance Data.FromJSON AwsRdsDbSecurityGroupIpRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRdsDbSecurityGroupIpRange"
       ( \x ->
           AwsRdsDbSecurityGroupIpRange'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CidrIp")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "CidrIp")
       )
 
 instance
@@ -84,11 +85,11 @@ instance Prelude.NFData AwsRdsDbSecurityGroupIpRange where
   rnf AwsRdsDbSecurityGroupIpRange' {..} =
     Prelude.rnf status `Prelude.seq` Prelude.rnf cidrIp
 
-instance Core.ToJSON AwsRdsDbSecurityGroupIpRange where
+instance Data.ToJSON AwsRdsDbSecurityGroupIpRange where
   toJSON AwsRdsDbSecurityGroupIpRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("CidrIp" Core..=) Prelude.<$> cidrIp
+          [ ("Status" Data..=) Prelude.<$> status,
+            ("CidrIp" Data..=) Prelude.<$> cidrIp
           ]
       )

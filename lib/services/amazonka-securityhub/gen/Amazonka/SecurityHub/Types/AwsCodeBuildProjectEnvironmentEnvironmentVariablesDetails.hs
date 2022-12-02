@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCodeBuildProjectEnvironmentEnvironmentVaria
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an environment variable that is available to builds
@@ -75,16 +76,16 @@ awsCodeBuildProjectEnvironmentEnvironmentVariablesDetails_value :: Lens.Lens' Aw
 awsCodeBuildProjectEnvironmentEnvironmentVariablesDetails_value = Lens.lens (\AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails' {value} -> value) (\s@AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails' {} a -> s {value = a} :: AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails"
       ( \x ->
           AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Type")
-              Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Type")
+              Prelude.<*> (x Data..:? "Value")
       )
 
 instance
@@ -109,15 +110,15 @@ instance
         `Prelude.seq` Prelude.rnf value
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails
   where
   toJSON
     AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Name" Core..=) Prelude.<$> name,
-              ("Type" Core..=) Prelude.<$> type',
-              ("Value" Core..=) Prelude.<$> value
+            [ ("Name" Data..=) Prelude.<$> name,
+              ("Type" Data..=) Prelude.<$> type',
+              ("Value" Data..=) Prelude.<$> value
             ]
         )

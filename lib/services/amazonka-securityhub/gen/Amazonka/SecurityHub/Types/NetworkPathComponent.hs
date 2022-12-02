@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.NetworkPathComponent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.NetworkHeader
 
@@ -86,16 +87,16 @@ networkPathComponent_componentId = Lens.lens (\NetworkPathComponent' {componentI
 networkPathComponent_componentType :: Lens.Lens' NetworkPathComponent (Prelude.Maybe Prelude.Text)
 networkPathComponent_componentType = Lens.lens (\NetworkPathComponent' {componentType} -> componentType) (\s@NetworkPathComponent' {} a -> s {componentType = a} :: NetworkPathComponent)
 
-instance Core.FromJSON NetworkPathComponent where
+instance Data.FromJSON NetworkPathComponent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkPathComponent"
       ( \x ->
           NetworkPathComponent'
-            Prelude.<$> (x Core..:? "Egress")
-            Prelude.<*> (x Core..:? "Ingress")
-            Prelude.<*> (x Core..:? "ComponentId")
-            Prelude.<*> (x Core..:? "ComponentType")
+            Prelude.<$> (x Data..:? "Egress")
+            Prelude.<*> (x Data..:? "Ingress")
+            Prelude.<*> (x Data..:? "ComponentId")
+            Prelude.<*> (x Data..:? "ComponentType")
       )
 
 instance Prelude.Hashable NetworkPathComponent where
@@ -112,13 +113,13 @@ instance Prelude.NFData NetworkPathComponent where
       `Prelude.seq` Prelude.rnf componentId
       `Prelude.seq` Prelude.rnf componentType
 
-instance Core.ToJSON NetworkPathComponent where
+instance Data.ToJSON NetworkPathComponent where
   toJSON NetworkPathComponent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Egress" Core..=) Prelude.<$> egress,
-            ("Ingress" Core..=) Prelude.<$> ingress,
-            ("ComponentId" Core..=) Prelude.<$> componentId,
-            ("ComponentType" Core..=) Prelude.<$> componentType
+          [ ("Egress" Data..=) Prelude.<$> egress,
+            ("Ingress" Data..=) Prelude.<$> ingress,
+            ("ComponentId" Data..=) Prelude.<$> componentId,
+            ("ComponentType" Data..=) Prelude.<$> componentType
           ]
       )

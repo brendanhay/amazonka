@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.NetworkPathComponentDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.PortRange
 
@@ -64,14 +65,14 @@ networkPathComponentDetails_address = Lens.lens (\NetworkPathComponentDetails' {
 networkPathComponentDetails_portRanges :: Lens.Lens' NetworkPathComponentDetails (Prelude.Maybe [PortRange])
 networkPathComponentDetails_portRanges = Lens.lens (\NetworkPathComponentDetails' {portRanges} -> portRanges) (\s@NetworkPathComponentDetails' {} a -> s {portRanges = a} :: NetworkPathComponentDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON NetworkPathComponentDetails where
+instance Data.FromJSON NetworkPathComponentDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkPathComponentDetails"
       ( \x ->
           NetworkPathComponentDetails'
-            Prelude.<$> (x Core..:? "Address" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "PortRanges" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Address" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "PortRanges" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable NetworkPathComponentDetails where
@@ -84,11 +85,11 @@ instance Prelude.NFData NetworkPathComponentDetails where
     Prelude.rnf address
       `Prelude.seq` Prelude.rnf portRanges
 
-instance Core.ToJSON NetworkPathComponentDetails where
+instance Data.ToJSON NetworkPathComponentDetails where
   toJSON NetworkPathComponentDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Address" Core..=) Prelude.<$> address,
-            ("PortRanges" Core..=) Prelude.<$> portRanges
+          [ ("Address" Data..=) Prelude.<$> address,
+            ("PortRanges" Data..=) Prelude.<$> portRanges
           ]
       )

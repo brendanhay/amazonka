@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.Remediation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.Recommendation
 
@@ -54,13 +55,13 @@ newRemediation =
 remediation_recommendation :: Lens.Lens' Remediation (Prelude.Maybe Recommendation)
 remediation_recommendation = Lens.lens (\Remediation' {recommendation} -> recommendation) (\s@Remediation' {} a -> s {recommendation = a} :: Remediation)
 
-instance Core.FromJSON Remediation where
+instance Data.FromJSON Remediation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Remediation"
       ( \x ->
           Remediation'
-            Prelude.<$> (x Core..:? "Recommendation")
+            Prelude.<$> (x Data..:? "Recommendation")
       )
 
 instance Prelude.Hashable Remediation where
@@ -70,11 +71,11 @@ instance Prelude.Hashable Remediation where
 instance Prelude.NFData Remediation where
   rnf Remediation' {..} = Prelude.rnf recommendation
 
-instance Core.ToJSON Remediation where
+instance Data.ToJSON Remediation where
   toJSON Remediation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Recommendation" Core..=)
+          [ ("Recommendation" Data..=)
               Prelude.<$> recommendation
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupMixedInstancesPo
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Property values to use to override the values in the launch template.
@@ -70,16 +71,16 @@ awsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDet
 awsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails_weightedCapacity = Lens.lens (\AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails' {weightedCapacity} -> weightedCapacity) (\s@AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails' {} a -> s {weightedCapacity = a} :: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails"
       ( \x ->
           AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails'
-            Prelude.<$> (x Core..:? "InstanceType")
-              Prelude.<*> (x Core..:? "WeightedCapacity")
+            Prelude.<$> (x Data..:? "InstanceType")
+              Prelude.<*> (x Data..:? "WeightedCapacity")
       )
 
 instance
@@ -102,15 +103,15 @@ instance
         `Prelude.seq` Prelude.rnf weightedCapacity
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails
   where
   toJSON
     AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("InstanceType" Core..=) Prelude.<$> instanceType,
-              ("WeightedCapacity" Core..=)
+            [ ("InstanceType" Data..=) Prelude.<$> instanceType,
+              ("WeightedCapacity" Data..=)
                 Prelude.<$> weightedCapacity
             ]
         )

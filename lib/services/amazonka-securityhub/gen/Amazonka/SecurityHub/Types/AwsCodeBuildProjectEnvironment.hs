@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCodeBuildProjectEnvironment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails
 import Amazonka.SecurityHub.Types.AwsCodeBuildProjectEnvironmentRegistryCredential
@@ -208,19 +209,19 @@ awsCodeBuildProjectEnvironment_registryCredential = Lens.lens (\AwsCodeBuildProj
 awsCodeBuildProjectEnvironment_environmentVariables :: Lens.Lens' AwsCodeBuildProjectEnvironment (Prelude.Maybe [AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails])
 awsCodeBuildProjectEnvironment_environmentVariables = Lens.lens (\AwsCodeBuildProjectEnvironment' {environmentVariables} -> environmentVariables) (\s@AwsCodeBuildProjectEnvironment' {} a -> s {environmentVariables = a} :: AwsCodeBuildProjectEnvironment) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AwsCodeBuildProjectEnvironment where
+instance Data.FromJSON AwsCodeBuildProjectEnvironment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCodeBuildProjectEnvironment"
       ( \x ->
           AwsCodeBuildProjectEnvironment'
-            Prelude.<$> (x Core..:? "PrivilegedMode")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "ImagePullCredentialsType")
-            Prelude.<*> (x Core..:? "Certificate")
-            Prelude.<*> (x Core..:? "RegistryCredential")
-            Prelude.<*> ( x Core..:? "EnvironmentVariables"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "PrivilegedMode")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "ImagePullCredentialsType")
+            Prelude.<*> (x Data..:? "Certificate")
+            Prelude.<*> (x Data..:? "RegistryCredential")
+            Prelude.<*> ( x Data..:? "EnvironmentVariables"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -250,19 +251,19 @@ instance
       `Prelude.seq` Prelude.rnf registryCredential
       `Prelude.seq` Prelude.rnf environmentVariables
 
-instance Core.ToJSON AwsCodeBuildProjectEnvironment where
+instance Data.ToJSON AwsCodeBuildProjectEnvironment where
   toJSON AwsCodeBuildProjectEnvironment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PrivilegedMode" Core..=)
+          [ ("PrivilegedMode" Data..=)
               Prelude.<$> privilegedMode,
-            ("Type" Core..=) Prelude.<$> type',
-            ("ImagePullCredentialsType" Core..=)
+            ("Type" Data..=) Prelude.<$> type',
+            ("ImagePullCredentialsType" Data..=)
               Prelude.<$> imagePullCredentialsType,
-            ("Certificate" Core..=) Prelude.<$> certificate,
-            ("RegistryCredential" Core..=)
+            ("Certificate" Data..=) Prelude.<$> certificate,
+            ("RegistryCredential" Data..=)
               Prelude.<$> registryCredential,
-            ("EnvironmentVariables" Core..=)
+            ("EnvironmentVariables" Data..=)
               Prelude.<$> environmentVariables
           ]
       )

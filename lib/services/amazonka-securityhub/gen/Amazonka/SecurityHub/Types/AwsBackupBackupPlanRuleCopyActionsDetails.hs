@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsBackupBackupPlanRuleCopyActionsDetails wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsBackupBackupPlanLifecycleDetails
 
@@ -90,16 +91,16 @@ awsBackupBackupPlanRuleCopyActionsDetails_destinationBackupVaultArn :: Lens.Lens
 awsBackupBackupPlanRuleCopyActionsDetails_destinationBackupVaultArn = Lens.lens (\AwsBackupBackupPlanRuleCopyActionsDetails' {destinationBackupVaultArn} -> destinationBackupVaultArn) (\s@AwsBackupBackupPlanRuleCopyActionsDetails' {} a -> s {destinationBackupVaultArn = a} :: AwsBackupBackupPlanRuleCopyActionsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsBackupBackupPlanRuleCopyActionsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsBackupBackupPlanRuleCopyActionsDetails"
       ( \x ->
           AwsBackupBackupPlanRuleCopyActionsDetails'
-            Prelude.<$> (x Core..:? "Lifecycle")
-              Prelude.<*> (x Core..:? "DestinationBackupVaultArn")
+            Prelude.<$> (x Data..:? "Lifecycle")
+              Prelude.<*> (x Data..:? "DestinationBackupVaultArn")
       )
 
 instance
@@ -121,14 +122,14 @@ instance
       `Prelude.seq` Prelude.rnf destinationBackupVaultArn
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsBackupBackupPlanRuleCopyActionsDetails
   where
   toJSON AwsBackupBackupPlanRuleCopyActionsDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Lifecycle" Core..=) Prelude.<$> lifecycle,
-            ("DestinationBackupVaultArn" Core..=)
+          [ ("Lifecycle" Data..=) Prelude.<$> lifecycle,
+            ("DestinationBackupVaultArn" Data..=)
               Prelude.<$> destinationBackupVaultArn
           ]
       )

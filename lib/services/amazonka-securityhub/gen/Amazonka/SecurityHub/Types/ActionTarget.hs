@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.ActionTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An @ActionTarget@ object.
@@ -79,15 +80,15 @@ actionTarget_name = Lens.lens (\ActionTarget' {name} -> name) (\s@ActionTarget' 
 actionTarget_description :: Lens.Lens' ActionTarget Prelude.Text
 actionTarget_description = Lens.lens (\ActionTarget' {description} -> description) (\s@ActionTarget' {} a -> s {description = a} :: ActionTarget)
 
-instance Core.FromJSON ActionTarget where
+instance Data.FromJSON ActionTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionTarget"
       ( \x ->
           ActionTarget'
-            Prelude.<$> (x Core..: "ActionTargetArn")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Description")
+            Prelude.<$> (x Data..: "ActionTargetArn")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Description")
       )
 
 instance Prelude.Hashable ActionTarget where

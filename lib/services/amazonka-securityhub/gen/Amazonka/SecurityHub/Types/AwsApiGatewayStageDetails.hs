@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsApiGatewayStageDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsApiGatewayAccessLogSettings
 import Amazonka.SecurityHub.Types.AwsApiGatewayCanarySettings
@@ -251,28 +252,28 @@ awsApiGatewayStageDetails_documentationVersion = Lens.lens (\AwsApiGatewayStageD
 awsApiGatewayStageDetails_variables :: Lens.Lens' AwsApiGatewayStageDetails (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 awsApiGatewayStageDetails_variables = Lens.lens (\AwsApiGatewayStageDetails' {variables} -> variables) (\s@AwsApiGatewayStageDetails' {} a -> s {variables = a} :: AwsApiGatewayStageDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AwsApiGatewayStageDetails where
+instance Data.FromJSON AwsApiGatewayStageDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsApiGatewayStageDetails"
       ( \x ->
           AwsApiGatewayStageDetails'
-            Prelude.<$> (x Core..:? "StageName")
-            Prelude.<*> (x Core..:? "WebAclArn")
-            Prelude.<*> (x Core..:? "AccessLogSettings")
-            Prelude.<*> (x Core..:? "CacheClusterEnabled")
-            Prelude.<*> (x Core..:? "CacheClusterStatus")
-            Prelude.<*> (x Core..:? "DeploymentId")
-            Prelude.<*> (x Core..:? "LastUpdatedDate")
-            Prelude.<*> (x Core..:? "MethodSettings" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "TracingEnabled")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ClientCertificateId")
-            Prelude.<*> (x Core..:? "CacheClusterSize")
-            Prelude.<*> (x Core..:? "CreatedDate")
-            Prelude.<*> (x Core..:? "CanarySettings")
-            Prelude.<*> (x Core..:? "DocumentationVersion")
-            Prelude.<*> (x Core..:? "Variables" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "StageName")
+            Prelude.<*> (x Data..:? "WebAclArn")
+            Prelude.<*> (x Data..:? "AccessLogSettings")
+            Prelude.<*> (x Data..:? "CacheClusterEnabled")
+            Prelude.<*> (x Data..:? "CacheClusterStatus")
+            Prelude.<*> (x Data..:? "DeploymentId")
+            Prelude.<*> (x Data..:? "LastUpdatedDate")
+            Prelude.<*> (x Data..:? "MethodSettings" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "TracingEnabled")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ClientCertificateId")
+            Prelude.<*> (x Data..:? "CacheClusterSize")
+            Prelude.<*> (x Data..:? "CreatedDate")
+            Prelude.<*> (x Data..:? "CanarySettings")
+            Prelude.<*> (x Data..:? "DocumentationVersion")
+            Prelude.<*> (x Data..:? "Variables" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AwsApiGatewayStageDetails where
@@ -313,35 +314,35 @@ instance Prelude.NFData AwsApiGatewayStageDetails where
       `Prelude.seq` Prelude.rnf documentationVersion
       `Prelude.seq` Prelude.rnf variables
 
-instance Core.ToJSON AwsApiGatewayStageDetails where
+instance Data.ToJSON AwsApiGatewayStageDetails where
   toJSON AwsApiGatewayStageDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StageName" Core..=) Prelude.<$> stageName,
-            ("WebAclArn" Core..=) Prelude.<$> webAclArn,
-            ("AccessLogSettings" Core..=)
+          [ ("StageName" Data..=) Prelude.<$> stageName,
+            ("WebAclArn" Data..=) Prelude.<$> webAclArn,
+            ("AccessLogSettings" Data..=)
               Prelude.<$> accessLogSettings,
-            ("CacheClusterEnabled" Core..=)
+            ("CacheClusterEnabled" Data..=)
               Prelude.<$> cacheClusterEnabled,
-            ("CacheClusterStatus" Core..=)
+            ("CacheClusterStatus" Data..=)
               Prelude.<$> cacheClusterStatus,
-            ("DeploymentId" Core..=) Prelude.<$> deploymentId,
-            ("LastUpdatedDate" Core..=)
+            ("DeploymentId" Data..=) Prelude.<$> deploymentId,
+            ("LastUpdatedDate" Data..=)
               Prelude.<$> lastUpdatedDate,
-            ("MethodSettings" Core..=)
+            ("MethodSettings" Data..=)
               Prelude.<$> methodSettings,
-            ("TracingEnabled" Core..=)
+            ("TracingEnabled" Data..=)
               Prelude.<$> tracingEnabled,
-            ("Description" Core..=) Prelude.<$> description,
-            ("ClientCertificateId" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("ClientCertificateId" Data..=)
               Prelude.<$> clientCertificateId,
-            ("CacheClusterSize" Core..=)
+            ("CacheClusterSize" Data..=)
               Prelude.<$> cacheClusterSize,
-            ("CreatedDate" Core..=) Prelude.<$> createdDate,
-            ("CanarySettings" Core..=)
+            ("CreatedDate" Data..=) Prelude.<$> createdDate,
+            ("CanarySettings" Data..=)
               Prelude.<$> canarySettings,
-            ("DocumentationVersion" Core..=)
+            ("DocumentationVersion" Data..=)
               Prelude.<$> documentationVersion,
-            ("Variables" Core..=) Prelude.<$> variables
+            ("Variables" Data..=) Prelude.<$> variables
           ]
       )

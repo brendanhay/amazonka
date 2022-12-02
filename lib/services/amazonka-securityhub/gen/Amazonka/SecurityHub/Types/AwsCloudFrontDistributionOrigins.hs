@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOrigins where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginItem
 
@@ -59,15 +60,15 @@ awsCloudFrontDistributionOrigins_items :: Lens.Lens' AwsCloudFrontDistributionOr
 awsCloudFrontDistributionOrigins_items = Lens.lens (\AwsCloudFrontDistributionOrigins' {items} -> items) (\s@AwsCloudFrontDistributionOrigins' {} a -> s {items = a} :: AwsCloudFrontDistributionOrigins) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCloudFrontDistributionOrigins
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCloudFrontDistributionOrigins"
       ( \x ->
           AwsCloudFrontDistributionOrigins'
-            Prelude.<$> (x Core..:? "Items" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Items" Data..!= Prelude.mempty)
       )
 
 instance
@@ -86,9 +87,9 @@ instance
   rnf AwsCloudFrontDistributionOrigins' {..} =
     Prelude.rnf items
 
-instance Core.ToJSON AwsCloudFrontDistributionOrigins where
+instance Data.ToJSON AwsCloudFrontDistributionOrigins where
   toJSON AwsCloudFrontDistributionOrigins' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Items" Core..=) Prelude.<$> items]
+          [("Items" Data..=) Prelude.<$> items]
       )

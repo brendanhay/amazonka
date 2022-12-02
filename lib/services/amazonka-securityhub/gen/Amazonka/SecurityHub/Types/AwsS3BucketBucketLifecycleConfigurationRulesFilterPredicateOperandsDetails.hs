@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationRulesFi
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails
 
@@ -78,16 +79,16 @@ awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails_prefi
 awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails_prefix = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails' {prefix} -> prefix) (\s@AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails' {} a -> s {prefix = a} :: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails"
       ( \x ->
           AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails'
-            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "Tag")
-              Prelude.<*> (x Core..:? "Prefix")
+            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..:? "Tag")
+              Prelude.<*> (x Data..:? "Prefix")
       )
 
 instance
@@ -112,15 +113,15 @@ instance
         `Prelude.seq` Prelude.rnf prefix
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails
   where
   toJSON
     AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Type" Core..=) Prelude.<$> type',
-              ("Tag" Core..=) Prelude.<$> tag,
-              ("Prefix" Core..=) Prelude.<$> prefix
+            [ ("Type" Data..=) Prelude.<$> type',
+              ("Tag" Data..=) Prelude.<$> tag,
+              ("Prefix" Data..=) Prelude.<$> prefix
             ]
         )

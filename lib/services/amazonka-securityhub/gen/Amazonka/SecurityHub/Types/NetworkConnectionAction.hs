@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.NetworkConnectionAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.ActionLocalPortDetails
 import Amazonka.SecurityHub.Types.ActionRemoteIpDetails
@@ -105,18 +106,18 @@ networkConnectionAction_protocol = Lens.lens (\NetworkConnectionAction' {protoco
 networkConnectionAction_remotePortDetails :: Lens.Lens' NetworkConnectionAction (Prelude.Maybe ActionRemotePortDetails)
 networkConnectionAction_remotePortDetails = Lens.lens (\NetworkConnectionAction' {remotePortDetails} -> remotePortDetails) (\s@NetworkConnectionAction' {} a -> s {remotePortDetails = a} :: NetworkConnectionAction)
 
-instance Core.FromJSON NetworkConnectionAction where
+instance Data.FromJSON NetworkConnectionAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkConnectionAction"
       ( \x ->
           NetworkConnectionAction'
-            Prelude.<$> (x Core..:? "ConnectionDirection")
-            Prelude.<*> (x Core..:? "RemoteIpDetails")
-            Prelude.<*> (x Core..:? "LocalPortDetails")
-            Prelude.<*> (x Core..:? "Blocked")
-            Prelude.<*> (x Core..:? "Protocol")
-            Prelude.<*> (x Core..:? "RemotePortDetails")
+            Prelude.<$> (x Data..:? "ConnectionDirection")
+            Prelude.<*> (x Data..:? "RemoteIpDetails")
+            Prelude.<*> (x Data..:? "LocalPortDetails")
+            Prelude.<*> (x Data..:? "Blocked")
+            Prelude.<*> (x Data..:? "Protocol")
+            Prelude.<*> (x Data..:? "RemotePortDetails")
       )
 
 instance Prelude.Hashable NetworkConnectionAction where
@@ -137,19 +138,19 @@ instance Prelude.NFData NetworkConnectionAction where
       `Prelude.seq` Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf remotePortDetails
 
-instance Core.ToJSON NetworkConnectionAction where
+instance Data.ToJSON NetworkConnectionAction where
   toJSON NetworkConnectionAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConnectionDirection" Core..=)
+          [ ("ConnectionDirection" Data..=)
               Prelude.<$> connectionDirection,
-            ("RemoteIpDetails" Core..=)
+            ("RemoteIpDetails" Data..=)
               Prelude.<$> remoteIpDetails,
-            ("LocalPortDetails" Core..=)
+            ("LocalPortDetails" Data..=)
               Prelude.<$> localPortDetails,
-            ("Blocked" Core..=) Prelude.<$> blocked,
-            ("Protocol" Core..=) Prelude.<$> protocol,
-            ("RemotePortDetails" Core..=)
+            ("Blocked" Data..=) Prelude.<$> blocked,
+            ("Protocol" Data..=) Prelude.<$> protocol,
+            ("RemotePortDetails" Data..=)
               Prelude.<$> remotePortDetails
           ]
       )

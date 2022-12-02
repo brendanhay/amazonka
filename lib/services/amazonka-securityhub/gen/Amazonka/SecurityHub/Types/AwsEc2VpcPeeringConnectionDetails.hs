@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2VpcPeeringConnectionDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEc2VpcPeeringConnectionStatusDetails
 import Amazonka.SecurityHub.Types.AwsEc2VpcPeeringConnectionVpcInfoDetails
@@ -94,19 +95,19 @@ awsEc2VpcPeeringConnectionDetails_status :: Lens.Lens' AwsEc2VpcPeeringConnectio
 awsEc2VpcPeeringConnectionDetails_status = Lens.lens (\AwsEc2VpcPeeringConnectionDetails' {status} -> status) (\s@AwsEc2VpcPeeringConnectionDetails' {} a -> s {status = a} :: AwsEc2VpcPeeringConnectionDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEc2VpcPeeringConnectionDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2VpcPeeringConnectionDetails"
       ( \x ->
           AwsEc2VpcPeeringConnectionDetails'
-            Prelude.<$> (x Core..:? "RequesterVpcInfo")
-            Prelude.<*> (x Core..:? "ExpirationTime")
-            Prelude.<*> (x Core..:? "AccepterVpcInfo")
-            Prelude.<*> (x Core..:? "VpcPeeringConnectionId")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Data..:? "RequesterVpcInfo")
+            Prelude.<*> (x Data..:? "ExpirationTime")
+            Prelude.<*> (x Data..:? "AccepterVpcInfo")
+            Prelude.<*> (x Data..:? "VpcPeeringConnectionId")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance
@@ -134,20 +135,20 @@ instance
       `Prelude.seq` Prelude.rnf status
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEc2VpcPeeringConnectionDetails
   where
   toJSON AwsEc2VpcPeeringConnectionDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RequesterVpcInfo" Core..=)
+          [ ("RequesterVpcInfo" Data..=)
               Prelude.<$> requesterVpcInfo,
-            ("ExpirationTime" Core..=)
+            ("ExpirationTime" Data..=)
               Prelude.<$> expirationTime,
-            ("AccepterVpcInfo" Core..=)
+            ("AccepterVpcInfo" Data..=)
               Prelude.<$> accepterVpcInfo,
-            ("VpcPeeringConnectionId" Core..=)
+            ("VpcPeeringConnectionId" Data..=)
               Prelude.<$> vpcPeeringConnectionId,
-            ("Status" Core..=) Prelude.<$> status
+            ("Status" Data..=) Prelude.<$> status
           ]
       )

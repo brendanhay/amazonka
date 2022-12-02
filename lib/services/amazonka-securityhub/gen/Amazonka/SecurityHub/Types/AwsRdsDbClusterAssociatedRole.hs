@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRdsDbClusterAssociatedRole where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An IAM role that is associated with the Amazon RDS DB cluster.
@@ -83,14 +84,14 @@ awsRdsDbClusterAssociatedRole_roleArn = Lens.lens (\AwsRdsDbClusterAssociatedRol
 awsRdsDbClusterAssociatedRole_status :: Lens.Lens' AwsRdsDbClusterAssociatedRole (Prelude.Maybe Prelude.Text)
 awsRdsDbClusterAssociatedRole_status = Lens.lens (\AwsRdsDbClusterAssociatedRole' {status} -> status) (\s@AwsRdsDbClusterAssociatedRole' {} a -> s {status = a} :: AwsRdsDbClusterAssociatedRole)
 
-instance Core.FromJSON AwsRdsDbClusterAssociatedRole where
+instance Data.FromJSON AwsRdsDbClusterAssociatedRole where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRdsDbClusterAssociatedRole"
       ( \x ->
           AwsRdsDbClusterAssociatedRole'
-            Prelude.<$> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance
@@ -106,11 +107,11 @@ instance Prelude.NFData AwsRdsDbClusterAssociatedRole where
     Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToJSON AwsRdsDbClusterAssociatedRole where
+instance Data.ToJSON AwsRdsDbClusterAssociatedRole where
   toJSON AwsRdsDbClusterAssociatedRole' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("Status" Core..=) Prelude.<$> status
+          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("Status" Data..=) Prelude.<$> status
           ]
       )

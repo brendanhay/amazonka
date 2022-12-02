@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupMixedInstancesPo
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the instances distribution.
@@ -140,20 +141,20 @@ awsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails_s
 awsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails_spotAllocationStrategy = Lens.lens (\AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails' {spotAllocationStrategy} -> spotAllocationStrategy) (\s@AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails' {} a -> s {spotAllocationStrategy = a} :: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails"
       ( \x ->
           AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails'
-            Prelude.<$> (x Core..:? "OnDemandBaseCapacity")
-              Prelude.<*> (x Core..:? "OnDemandPercentageAboveBaseCapacity")
-              Prelude.<*> (x Core..:? "OnDemandAllocationStrategy")
-              Prelude.<*> (x Core..:? "SpotInstancePools")
-              Prelude.<*> (x Core..:? "SpotMaxPrice")
-              Prelude.<*> (x Core..:? "SpotAllocationStrategy")
+            Prelude.<$> (x Data..:? "OnDemandBaseCapacity")
+              Prelude.<*> (x Data..:? "OnDemandPercentageAboveBaseCapacity")
+              Prelude.<*> (x Data..:? "OnDemandAllocationStrategy")
+              Prelude.<*> (x Data..:? "SpotInstancePools")
+              Prelude.<*> (x Data..:? "SpotMaxPrice")
+              Prelude.<*> (x Data..:? "SpotAllocationStrategy")
       )
 
 instance
@@ -184,23 +185,23 @@ instance
         `Prelude.seq` Prelude.rnf spotAllocationStrategy
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails
   where
   toJSON
     AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("OnDemandBaseCapacity" Core..=)
+            [ ("OnDemandBaseCapacity" Data..=)
                 Prelude.<$> onDemandBaseCapacity,
-              ("OnDemandPercentageAboveBaseCapacity" Core..=)
+              ("OnDemandPercentageAboveBaseCapacity" Data..=)
                 Prelude.<$> onDemandPercentageAboveBaseCapacity,
-              ("OnDemandAllocationStrategy" Core..=)
+              ("OnDemandAllocationStrategy" Data..=)
                 Prelude.<$> onDemandAllocationStrategy,
-              ("SpotInstancePools" Core..=)
+              ("SpotInstancePools" Data..=)
                 Prelude.<$> spotInstancePools,
-              ("SpotMaxPrice" Core..=) Prelude.<$> spotMaxPrice,
-              ("SpotAllocationStrategy" Core..=)
+              ("SpotMaxPrice" Data..=) Prelude.<$> spotMaxPrice,
+              ("SpotAllocationStrategy" Data..=)
                 Prelude.<$> spotAllocationStrategy
             ]
         )

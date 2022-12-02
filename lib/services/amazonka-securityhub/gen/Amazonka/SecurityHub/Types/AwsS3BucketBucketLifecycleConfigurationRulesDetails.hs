@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationRulesDe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails
 import Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails
@@ -208,27 +209,27 @@ awsS3BucketBucketLifecycleConfigurationRulesDetails_noncurrentVersionExpirationI
 awsS3BucketBucketLifecycleConfigurationRulesDetails_noncurrentVersionExpirationInDays = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesDetails' {noncurrentVersionExpirationInDays} -> noncurrentVersionExpirationInDays) (\s@AwsS3BucketBucketLifecycleConfigurationRulesDetails' {} a -> s {noncurrentVersionExpirationInDays = a} :: AwsS3BucketBucketLifecycleConfigurationRulesDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsS3BucketBucketLifecycleConfigurationRulesDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsS3BucketBucketLifecycleConfigurationRulesDetails"
       ( \x ->
           AwsS3BucketBucketLifecycleConfigurationRulesDetails'
-            Prelude.<$> (x Core..:? "Transitions" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "ExpiredObjectDeleteMarker")
-              Prelude.<*> (x Core..:? "Status")
-              Prelude.<*> (x Core..:? "ID")
-              Prelude.<*> (x Core..:? "Filter")
-              Prelude.<*> (x Core..:? "ExpirationInDays")
-              Prelude.<*> ( x Core..:? "NoncurrentVersionTransitions"
-                              Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Transitions" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "ExpiredObjectDeleteMarker")
+              Prelude.<*> (x Data..:? "Status")
+              Prelude.<*> (x Data..:? "ID")
+              Prelude.<*> (x Data..:? "Filter")
+              Prelude.<*> (x Data..:? "ExpirationInDays")
+              Prelude.<*> ( x Data..:? "NoncurrentVersionTransitions"
+                              Data..!= Prelude.mempty
                           )
-              Prelude.<*> (x Core..:? "AbortIncompleteMultipartUpload")
-              Prelude.<*> (x Core..:? "Prefix")
-              Prelude.<*> (x Core..:? "ExpirationDate")
-              Prelude.<*> (x Core..:? "NoncurrentVersionExpirationInDays")
+              Prelude.<*> (x Data..:? "AbortIncompleteMultipartUpload")
+              Prelude.<*> (x Data..:? "Prefix")
+              Prelude.<*> (x Data..:? "ExpirationDate")
+              Prelude.<*> (x Data..:? "NoncurrentVersionExpirationInDays")
       )
 
 instance
@@ -269,29 +270,29 @@ instance
         `Prelude.seq` Prelude.rnf noncurrentVersionExpirationInDays
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsS3BucketBucketLifecycleConfigurationRulesDetails
   where
   toJSON
     AwsS3BucketBucketLifecycleConfigurationRulesDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Transitions" Core..=) Prelude.<$> transitions,
-              ("ExpiredObjectDeleteMarker" Core..=)
+            [ ("Transitions" Data..=) Prelude.<$> transitions,
+              ("ExpiredObjectDeleteMarker" Data..=)
                 Prelude.<$> expiredObjectDeleteMarker,
-              ("Status" Core..=) Prelude.<$> status,
-              ("ID" Core..=) Prelude.<$> id,
-              ("Filter" Core..=) Prelude.<$> filter',
-              ("ExpirationInDays" Core..=)
+              ("Status" Data..=) Prelude.<$> status,
+              ("ID" Data..=) Prelude.<$> id,
+              ("Filter" Data..=) Prelude.<$> filter',
+              ("ExpirationInDays" Data..=)
                 Prelude.<$> expirationInDays,
-              ("NoncurrentVersionTransitions" Core..=)
+              ("NoncurrentVersionTransitions" Data..=)
                 Prelude.<$> noncurrentVersionTransitions,
-              ("AbortIncompleteMultipartUpload" Core..=)
+              ("AbortIncompleteMultipartUpload" Data..=)
                 Prelude.<$> abortIncompleteMultipartUpload,
-              ("Prefix" Core..=) Prelude.<$> prefix,
-              ("ExpirationDate" Core..=)
+              ("Prefix" Data..=) Prelude.<$> prefix,
+              ("ExpirationDate" Data..=)
                 Prelude.<$> expirationDate,
-              ("NoncurrentVersionExpirationInDays" Core..=)
+              ("NoncurrentVersionExpirationInDays" Data..=)
                 Prelude.<$> noncurrentVersionExpirationInDays
             ]
         )

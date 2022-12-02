@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainClusterConfigZoneAwa
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration options for zone awareness.
@@ -57,15 +58,15 @@ awsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails_availabilityZo
 awsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails_availabilityZoneCount = Lens.lens (\AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails' {availabilityZoneCount} -> availabilityZoneCount) (\s@AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails' {} a -> s {availabilityZoneCount = a} :: AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails"
       ( \x ->
           AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails'
-            Prelude.<$> (x Core..:? "AvailabilityZoneCount")
+            Prelude.<$> (x Data..:? "AvailabilityZoneCount")
       )
 
 instance
@@ -86,14 +87,14 @@ instance
       Prelude.rnf availabilityZoneCount
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails
   where
   toJSON
     AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("AvailabilityZoneCount" Core..=)
+            [ ("AvailabilityZoneCount" Data..=)
                 Prelude.<$> availabilityZoneCount
             ]
         )

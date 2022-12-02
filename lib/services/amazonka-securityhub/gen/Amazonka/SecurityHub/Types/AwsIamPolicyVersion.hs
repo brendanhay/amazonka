@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsIamPolicyVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A version of an IAM policy.
@@ -86,15 +87,15 @@ awsIamPolicyVersion_createDate = Lens.lens (\AwsIamPolicyVersion' {createDate} -
 awsIamPolicyVersion_versionId :: Lens.Lens' AwsIamPolicyVersion (Prelude.Maybe Prelude.Text)
 awsIamPolicyVersion_versionId = Lens.lens (\AwsIamPolicyVersion' {versionId} -> versionId) (\s@AwsIamPolicyVersion' {} a -> s {versionId = a} :: AwsIamPolicyVersion)
 
-instance Core.FromJSON AwsIamPolicyVersion where
+instance Data.FromJSON AwsIamPolicyVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsIamPolicyVersion"
       ( \x ->
           AwsIamPolicyVersion'
-            Prelude.<$> (x Core..:? "IsDefaultVersion")
-            Prelude.<*> (x Core..:? "CreateDate")
-            Prelude.<*> (x Core..:? "VersionId")
+            Prelude.<$> (x Data..:? "IsDefaultVersion")
+            Prelude.<*> (x Data..:? "CreateDate")
+            Prelude.<*> (x Data..:? "VersionId")
       )
 
 instance Prelude.Hashable AwsIamPolicyVersion where
@@ -109,13 +110,13 @@ instance Prelude.NFData AwsIamPolicyVersion where
       `Prelude.seq` Prelude.rnf createDate
       `Prelude.seq` Prelude.rnf versionId
 
-instance Core.ToJSON AwsIamPolicyVersion where
+instance Data.ToJSON AwsIamPolicyVersion where
   toJSON AwsIamPolicyVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IsDefaultVersion" Core..=)
+          [ ("IsDefaultVersion" Data..=)
               Prelude.<$> isDefaultVersion,
-            ("CreateDate" Core..=) Prelude.<$> createDate,
-            ("VersionId" Core..=) Prelude.<$> versionId
+            ("CreateDate" Data..=) Prelude.<$> createDate,
+            ("VersionId" Data..=) Prelude.<$> versionId
           ]
       )

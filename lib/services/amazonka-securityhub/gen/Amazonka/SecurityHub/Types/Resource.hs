@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.Resource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.DataClassificationDetails
 import Amazonka.SecurityHub.Types.Partition
@@ -152,20 +153,20 @@ resource_type = Lens.lens (\Resource' {type'} -> type') (\s@Resource' {} a -> s 
 resource_id :: Lens.Lens' Resource Prelude.Text
 resource_id = Lens.lens (\Resource' {id} -> id) (\s@Resource' {} a -> s {id = a} :: Resource)
 
-instance Core.FromJSON Resource where
+instance Data.FromJSON Resource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DataClassification")
-            Prelude.<*> (x Core..:? "ResourceRole")
-            Prelude.<*> (x Core..:? "Details")
-            Prelude.<*> (x Core..:? "Partition")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..: "Type")
-            Prelude.<*> (x Core..: "Id")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DataClassification")
+            Prelude.<*> (x Data..:? "ResourceRole")
+            Prelude.<*> (x Data..:? "Details")
+            Prelude.<*> (x Data..:? "Partition")
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..: "Type")
+            Prelude.<*> (x Data..: "Id")
       )
 
 instance Prelude.Hashable Resource where
@@ -190,18 +191,18 @@ instance Prelude.NFData Resource where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToJSON Resource where
+instance Data.ToJSON Resource where
   toJSON Resource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("DataClassification" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("DataClassification" Data..=)
               Prelude.<$> dataClassification,
-            ("ResourceRole" Core..=) Prelude.<$> resourceRole,
-            ("Details" Core..=) Prelude.<$> details,
-            ("Partition" Core..=) Prelude.<$> partition,
-            ("Region" Core..=) Prelude.<$> region,
-            Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("Id" Core..= id)
+            ("ResourceRole" Data..=) Prelude.<$> resourceRole,
+            ("Details" Data..=) Prelude.<$> details,
+            ("Partition" Data..=) Prelude.<$> partition,
+            ("Region" Data..=) Prelude.<$> region,
+            Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("Id" Data..= id)
           ]
       )

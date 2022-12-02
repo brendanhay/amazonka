@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRdsDbSecurityGroupEc2SecurityGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | EC2 security group information for an RDS DB security group.
@@ -86,18 +87,18 @@ awsRdsDbSecurityGroupEc2SecurityGroup_ec2SecurityGroupName :: Lens.Lens' AwsRdsD
 awsRdsDbSecurityGroupEc2SecurityGroup_ec2SecurityGroupName = Lens.lens (\AwsRdsDbSecurityGroupEc2SecurityGroup' {ec2SecurityGroupName} -> ec2SecurityGroupName) (\s@AwsRdsDbSecurityGroupEc2SecurityGroup' {} a -> s {ec2SecurityGroupName = a} :: AwsRdsDbSecurityGroupEc2SecurityGroup)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsRdsDbSecurityGroupEc2SecurityGroup
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRdsDbSecurityGroupEc2SecurityGroup"
       ( \x ->
           AwsRdsDbSecurityGroupEc2SecurityGroup'
-            Prelude.<$> (x Core..:? "Ec2SecurityGroupId")
-            Prelude.<*> (x Core..:? "Ec2SecurityGroupOwnerId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Ec2SecurityGroupName")
+            Prelude.<$> (x Data..:? "Ec2SecurityGroupId")
+            Prelude.<*> (x Data..:? "Ec2SecurityGroupOwnerId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Ec2SecurityGroupName")
       )
 
 instance
@@ -123,18 +124,18 @@ instance
       `Prelude.seq` Prelude.rnf ec2SecurityGroupName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsRdsDbSecurityGroupEc2SecurityGroup
   where
   toJSON AwsRdsDbSecurityGroupEc2SecurityGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Ec2SecurityGroupId" Core..=)
+          [ ("Ec2SecurityGroupId" Data..=)
               Prelude.<$> ec2SecurityGroupId,
-            ("Ec2SecurityGroupOwnerId" Core..=)
+            ("Ec2SecurityGroupOwnerId" Data..=)
               Prelude.<$> ec2SecurityGroupOwnerId,
-            ("Status" Core..=) Prelude.<$> status,
-            ("Ec2SecurityGroupName" Core..=)
+            ("Status" Data..=) Prelude.<$> status,
+            ("Ec2SecurityGroupName" Data..=)
               Prelude.<$> ec2SecurityGroupName
           ]
       )

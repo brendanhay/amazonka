@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionVolumesEfsVolumeConfigurat
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails
 
@@ -105,19 +106,19 @@ awsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails_authorizationConfig :: 
 awsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails_authorizationConfig = Lens.lens (\AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails' {authorizationConfig} -> authorizationConfig) (\s@AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails' {} a -> s {authorizationConfig = a} :: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails"
       ( \x ->
           AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails'
-            Prelude.<$> (x Core..:? "TransitEncryptionPort")
-              Prelude.<*> (x Core..:? "FilesystemId")
-              Prelude.<*> (x Core..:? "RootDirectory")
-              Prelude.<*> (x Core..:? "TransitEncryption")
-              Prelude.<*> (x Core..:? "AuthorizationConfig")
+            Prelude.<$> (x Data..:? "TransitEncryptionPort")
+              Prelude.<*> (x Data..:? "FilesystemId")
+              Prelude.<*> (x Data..:? "RootDirectory")
+              Prelude.<*> (x Data..:? "TransitEncryption")
+              Prelude.<*> (x Data..:? "AuthorizationConfig")
       )
 
 instance
@@ -146,20 +147,20 @@ instance
         `Prelude.seq` Prelude.rnf authorizationConfig
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails
   where
   toJSON
     AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("TransitEncryptionPort" Core..=)
+            [ ("TransitEncryptionPort" Data..=)
                 Prelude.<$> transitEncryptionPort,
-              ("FilesystemId" Core..=) Prelude.<$> filesystemId,
-              ("RootDirectory" Core..=) Prelude.<$> rootDirectory,
-              ("TransitEncryption" Core..=)
+              ("FilesystemId" Data..=) Prelude.<$> filesystemId,
+              ("RootDirectory" Data..=) Prelude.<$> rootDirectory,
+              ("TransitEncryption" Data..=)
                 Prelude.<$> transitEncryption,
-              ("AuthorizationConfig" Core..=)
+              ("AuthorizationConfig" Data..=)
                 Prelude.<$> authorizationConfig
             ]
         )

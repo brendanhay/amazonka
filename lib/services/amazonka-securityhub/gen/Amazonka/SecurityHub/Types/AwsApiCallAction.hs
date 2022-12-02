@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsApiCallAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.ActionRemoteIpDetails
 import Amazonka.SecurityHub.Types.AwsApiCallActionDomainDetails
@@ -137,22 +138,22 @@ awsApiCallAction_callerType = Lens.lens (\AwsApiCallAction' {callerType} -> call
 awsApiCallAction_firstSeen :: Lens.Lens' AwsApiCallAction (Prelude.Maybe Prelude.Text)
 awsApiCallAction_firstSeen = Lens.lens (\AwsApiCallAction' {firstSeen} -> firstSeen) (\s@AwsApiCallAction' {} a -> s {firstSeen = a} :: AwsApiCallAction)
 
-instance Core.FromJSON AwsApiCallAction where
+instance Data.FromJSON AwsApiCallAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsApiCallAction"
       ( \x ->
           AwsApiCallAction'
-            Prelude.<$> ( x Core..:? "AffectedResources"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "AffectedResources"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "RemoteIpDetails")
-            Prelude.<*> (x Core..:? "LastSeen")
-            Prelude.<*> (x Core..:? "DomainDetails")
-            Prelude.<*> (x Core..:? "Api")
-            Prelude.<*> (x Core..:? "ServiceName")
-            Prelude.<*> (x Core..:? "CallerType")
-            Prelude.<*> (x Core..:? "FirstSeen")
+            Prelude.<*> (x Data..:? "RemoteIpDetails")
+            Prelude.<*> (x Data..:? "LastSeen")
+            Prelude.<*> (x Data..:? "DomainDetails")
+            Prelude.<*> (x Data..:? "Api")
+            Prelude.<*> (x Data..:? "ServiceName")
+            Prelude.<*> (x Data..:? "CallerType")
+            Prelude.<*> (x Data..:? "FirstSeen")
       )
 
 instance Prelude.Hashable AwsApiCallAction where
@@ -177,19 +178,19 @@ instance Prelude.NFData AwsApiCallAction where
       `Prelude.seq` Prelude.rnf callerType
       `Prelude.seq` Prelude.rnf firstSeen
 
-instance Core.ToJSON AwsApiCallAction where
+instance Data.ToJSON AwsApiCallAction where
   toJSON AwsApiCallAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AffectedResources" Core..=)
+          [ ("AffectedResources" Data..=)
               Prelude.<$> affectedResources,
-            ("RemoteIpDetails" Core..=)
+            ("RemoteIpDetails" Data..=)
               Prelude.<$> remoteIpDetails,
-            ("LastSeen" Core..=) Prelude.<$> lastSeen,
-            ("DomainDetails" Core..=) Prelude.<$> domainDetails,
-            ("Api" Core..=) Prelude.<$> api,
-            ("ServiceName" Core..=) Prelude.<$> serviceName,
-            ("CallerType" Core..=) Prelude.<$> callerType,
-            ("FirstSeen" Core..=) Prelude.<$> firstSeen
+            ("LastSeen" Data..=) Prelude.<$> lastSeen,
+            ("DomainDetails" Data..=) Prelude.<$> domainDetails,
+            ("Api" Data..=) Prelude.<$> api,
+            ("ServiceName" Data..=) Prelude.<$> serviceName,
+            ("CallerType" Data..=) Prelude.<$> callerType,
+            ("FirstSeen" Data..=) Prelude.<$> firstSeen
           ]
       )

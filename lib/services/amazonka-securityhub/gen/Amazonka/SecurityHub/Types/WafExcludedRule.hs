@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.WafExcludedRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a rule to exclude from a rule group.
@@ -50,12 +51,12 @@ newWafExcludedRule =
 wafExcludedRule_ruleId :: Lens.Lens' WafExcludedRule (Prelude.Maybe Prelude.Text)
 wafExcludedRule_ruleId = Lens.lens (\WafExcludedRule' {ruleId} -> ruleId) (\s@WafExcludedRule' {} a -> s {ruleId = a} :: WafExcludedRule)
 
-instance Core.FromJSON WafExcludedRule where
+instance Data.FromJSON WafExcludedRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WafExcludedRule"
       ( \x ->
-          WafExcludedRule' Prelude.<$> (x Core..:? "RuleId")
+          WafExcludedRule' Prelude.<$> (x Data..:? "RuleId")
       )
 
 instance Prelude.Hashable WafExcludedRule where
@@ -65,9 +66,9 @@ instance Prelude.Hashable WafExcludedRule where
 instance Prelude.NFData WafExcludedRule where
   rnf WafExcludedRule' {..} = Prelude.rnf ruleId
 
-instance Core.ToJSON WafExcludedRule where
+instance Data.ToJSON WafExcludedRule where
   toJSON WafExcludedRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("RuleId" Core..=) Prelude.<$> ruleId]
+          [("RuleId" Data..=) Prelude.<$> ruleId]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsIamAccessKeyDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsIamAccessKeySessionContext
 import Amazonka.SecurityHub.Types.AwsIamAccessKeyStatus
@@ -154,21 +155,21 @@ awsIamAccessKeyDetails_createdAt = Lens.lens (\AwsIamAccessKeyDetails' {createdA
 awsIamAccessKeyDetails_accessKeyId :: Lens.Lens' AwsIamAccessKeyDetails (Prelude.Maybe Prelude.Text)
 awsIamAccessKeyDetails_accessKeyId = Lens.lens (\AwsIamAccessKeyDetails' {accessKeyId} -> accessKeyId) (\s@AwsIamAccessKeyDetails' {} a -> s {accessKeyId = a} :: AwsIamAccessKeyDetails)
 
-instance Core.FromJSON AwsIamAccessKeyDetails where
+instance Data.FromJSON AwsIamAccessKeyDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsIamAccessKeyDetails"
       ( \x ->
           AwsIamAccessKeyDetails'
-            Prelude.<$> (x Core..:? "PrincipalId")
-            Prelude.<*> (x Core..:? "PrincipalName")
-            Prelude.<*> (x Core..:? "UserName")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "SessionContext")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "PrincipalType")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "AccessKeyId")
+            Prelude.<$> (x Data..:? "PrincipalId")
+            Prelude.<*> (x Data..:? "PrincipalName")
+            Prelude.<*> (x Data..:? "UserName")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "SessionContext")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "PrincipalType")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "AccessKeyId")
       )
 
 instance Prelude.Hashable AwsIamAccessKeyDetails where
@@ -195,19 +196,19 @@ instance Prelude.NFData AwsIamAccessKeyDetails where
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf accessKeyId
 
-instance Core.ToJSON AwsIamAccessKeyDetails where
+instance Data.ToJSON AwsIamAccessKeyDetails where
   toJSON AwsIamAccessKeyDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PrincipalId" Core..=) Prelude.<$> principalId,
-            ("PrincipalName" Core..=) Prelude.<$> principalName,
-            ("UserName" Core..=) Prelude.<$> userName,
-            ("Status" Core..=) Prelude.<$> status,
-            ("SessionContext" Core..=)
+          [ ("PrincipalId" Data..=) Prelude.<$> principalId,
+            ("PrincipalName" Data..=) Prelude.<$> principalName,
+            ("UserName" Data..=) Prelude.<$> userName,
+            ("Status" Data..=) Prelude.<$> status,
+            ("SessionContext" Data..=)
               Prelude.<$> sessionContext,
-            ("AccountId" Core..=) Prelude.<$> accountId,
-            ("PrincipalType" Core..=) Prelude.<$> principalType,
-            ("CreatedAt" Core..=) Prelude.<$> createdAt,
-            ("AccessKeyId" Core..=) Prelude.<$> accessKeyId
+            ("AccountId" Data..=) Prelude.<$> accountId,
+            ("PrincipalType" Data..=) Prelude.<$> principalType,
+            ("CreatedAt" Data..=) Prelude.<$> createdAt,
+            ("AccessKeyId" Data..=) Prelude.<$> accessKeyId
           ]
       )

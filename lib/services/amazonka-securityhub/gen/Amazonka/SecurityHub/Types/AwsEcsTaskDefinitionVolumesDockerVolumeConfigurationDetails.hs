@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionVolumesDockerVolumeConfigu
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a Docker volume.
@@ -109,19 +110,19 @@ awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_driver :: Lens.Lens'
 awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_driver = Lens.lens (\AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails' {driver} -> driver) (\s@AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails' {} a -> s {driver = a} :: AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails"
       ( \x ->
           AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails'
-            Prelude.<$> (x Core..:? "DriverOpts" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "Autoprovision")
-              Prelude.<*> (x Core..:? "Labels" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "Scope")
-              Prelude.<*> (x Core..:? "Driver")
+            Prelude.<$> (x Data..:? "DriverOpts" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "Autoprovision")
+              Prelude.<*> (x Data..:? "Labels" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "Scope")
+              Prelude.<*> (x Data..:? "Driver")
       )
 
 instance
@@ -150,17 +151,17 @@ instance
         `Prelude.seq` Prelude.rnf driver
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails
   where
   toJSON
     AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("DriverOpts" Core..=) Prelude.<$> driverOpts,
-              ("Autoprovision" Core..=) Prelude.<$> autoprovision,
-              ("Labels" Core..=) Prelude.<$> labels,
-              ("Scope" Core..=) Prelude.<$> scope,
-              ("Driver" Core..=) Prelude.<$> driver
+            [ ("DriverOpts" Data..=) Prelude.<$> driverOpts,
+              ("Autoprovision" Data..=) Prelude.<$> autoprovision,
+              ("Labels" Data..=) Prelude.<$> labels,
+              ("Scope" Data..=) Prelude.<$> scope,
+              ("Driver" Data..=) Prelude.<$> driver
             ]
         )

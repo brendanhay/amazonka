@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,10 +93,10 @@ instance Core.AWSRequest GetFindingAggregator where
     Response.receiveJSON
       ( \s h x ->
           GetFindingAggregatorResponse'
-            Prelude.<$> (x Core..?> "Regions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "FindingAggregatorArn")
-            Prelude.<*> (x Core..?> "RegionLinkingMode")
-            Prelude.<*> (x Core..?> "FindingAggregationRegion")
+            Prelude.<$> (x Data..?> "Regions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "FindingAggregatorArn")
+            Prelude.<*> (x Data..?> "RegionLinkingMode")
+            Prelude.<*> (x Data..?> "FindingAggregationRegion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -107,25 +108,25 @@ instance Prelude.NFData GetFindingAggregator where
   rnf GetFindingAggregator' {..} =
     Prelude.rnf findingAggregatorArn
 
-instance Core.ToHeaders GetFindingAggregator where
+instance Data.ToHeaders GetFindingAggregator where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetFindingAggregator where
+instance Data.ToPath GetFindingAggregator where
   toPath GetFindingAggregator' {..} =
     Prelude.mconcat
       [ "/findingAggregator/get/",
-        Core.toBS findingAggregatorArn
+        Data.toBS findingAggregatorArn
       ]
 
-instance Core.ToQuery GetFindingAggregator where
+instance Data.ToQuery GetFindingAggregator where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFindingAggregatorResponse' smart constructor.

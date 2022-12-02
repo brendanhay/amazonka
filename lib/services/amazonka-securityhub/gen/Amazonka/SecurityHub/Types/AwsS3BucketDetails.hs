@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsS3BucketDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsS3AccountPublicAccessBlockDetails
 import Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationDetails
@@ -180,24 +181,24 @@ awsS3BucketDetails_createdAt = Lens.lens (\AwsS3BucketDetails' {createdAt} -> cr
 awsS3BucketDetails_publicAccessBlockConfiguration :: Lens.Lens' AwsS3BucketDetails (Prelude.Maybe AwsS3AccountPublicAccessBlockDetails)
 awsS3BucketDetails_publicAccessBlockConfiguration = Lens.lens (\AwsS3BucketDetails' {publicAccessBlockConfiguration} -> publicAccessBlockConfiguration) (\s@AwsS3BucketDetails' {} a -> s {publicAccessBlockConfiguration = a} :: AwsS3BucketDetails)
 
-instance Core.FromJSON AwsS3BucketDetails where
+instance Data.FromJSON AwsS3BucketDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsS3BucketDetails"
       ( \x ->
           AwsS3BucketDetails'
-            Prelude.<$> (x Core..:? "AccessControlList")
-            Prelude.<*> (x Core..:? "OwnerName")
-            Prelude.<*> (x Core..:? "OwnerId")
-            Prelude.<*> (x Core..:? "BucketVersioningConfiguration")
-            Prelude.<*> (x Core..:? "BucketNotificationConfiguration")
-            Prelude.<*> (x Core..:? "ServerSideEncryptionConfiguration")
-            Prelude.<*> (x Core..:? "BucketLoggingConfiguration")
-            Prelude.<*> (x Core..:? "OwnerAccountId")
-            Prelude.<*> (x Core..:? "BucketWebsiteConfiguration")
-            Prelude.<*> (x Core..:? "BucketLifecycleConfiguration")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "PublicAccessBlockConfiguration")
+            Prelude.<$> (x Data..:? "AccessControlList")
+            Prelude.<*> (x Data..:? "OwnerName")
+            Prelude.<*> (x Data..:? "OwnerId")
+            Prelude.<*> (x Data..:? "BucketVersioningConfiguration")
+            Prelude.<*> (x Data..:? "BucketNotificationConfiguration")
+            Prelude.<*> (x Data..:? "ServerSideEncryptionConfiguration")
+            Prelude.<*> (x Data..:? "BucketLoggingConfiguration")
+            Prelude.<*> (x Data..:? "OwnerAccountId")
+            Prelude.<*> (x Data..:? "BucketWebsiteConfiguration")
+            Prelude.<*> (x Data..:? "BucketLifecycleConfiguration")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "PublicAccessBlockConfiguration")
       )
 
 instance Prelude.Hashable AwsS3BucketDetails where
@@ -230,30 +231,30 @@ instance Prelude.NFData AwsS3BucketDetails where
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf publicAccessBlockConfiguration
 
-instance Core.ToJSON AwsS3BucketDetails where
+instance Data.ToJSON AwsS3BucketDetails where
   toJSON AwsS3BucketDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccessControlList" Core..=)
+          [ ("AccessControlList" Data..=)
               Prelude.<$> accessControlList,
-            ("OwnerName" Core..=) Prelude.<$> ownerName,
-            ("OwnerId" Core..=) Prelude.<$> ownerId,
-            ("BucketVersioningConfiguration" Core..=)
+            ("OwnerName" Data..=) Prelude.<$> ownerName,
+            ("OwnerId" Data..=) Prelude.<$> ownerId,
+            ("BucketVersioningConfiguration" Data..=)
               Prelude.<$> bucketVersioningConfiguration,
-            ("BucketNotificationConfiguration" Core..=)
+            ("BucketNotificationConfiguration" Data..=)
               Prelude.<$> bucketNotificationConfiguration,
-            ("ServerSideEncryptionConfiguration" Core..=)
+            ("ServerSideEncryptionConfiguration" Data..=)
               Prelude.<$> serverSideEncryptionConfiguration,
-            ("BucketLoggingConfiguration" Core..=)
+            ("BucketLoggingConfiguration" Data..=)
               Prelude.<$> bucketLoggingConfiguration,
-            ("OwnerAccountId" Core..=)
+            ("OwnerAccountId" Data..=)
               Prelude.<$> ownerAccountId,
-            ("BucketWebsiteConfiguration" Core..=)
+            ("BucketWebsiteConfiguration" Data..=)
               Prelude.<$> bucketWebsiteConfiguration,
-            ("BucketLifecycleConfiguration" Core..=)
+            ("BucketLifecycleConfiguration" Data..=)
               Prelude.<$> bucketLifecycleConfiguration,
-            ("CreatedAt" Core..=) Prelude.<$> createdAt,
-            ("PublicAccessBlockConfiguration" Core..=)
+            ("CreatedAt" Data..=) Prelude.<$> createdAt,
+            ("PublicAccessBlockConfiguration" Data..=)
               Prelude.<$> publicAccessBlockConfiguration
           ]
       )

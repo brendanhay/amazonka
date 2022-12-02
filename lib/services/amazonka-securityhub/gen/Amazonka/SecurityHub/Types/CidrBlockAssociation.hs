@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.CidrBlockAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An IPv4 CIDR block association.
@@ -71,15 +72,15 @@ cidrBlockAssociation_cidrBlock = Lens.lens (\CidrBlockAssociation' {cidrBlock} -
 cidrBlockAssociation_associationId :: Lens.Lens' CidrBlockAssociation (Prelude.Maybe Prelude.Text)
 cidrBlockAssociation_associationId = Lens.lens (\CidrBlockAssociation' {associationId} -> associationId) (\s@CidrBlockAssociation' {} a -> s {associationId = a} :: CidrBlockAssociation)
 
-instance Core.FromJSON CidrBlockAssociation where
+instance Data.FromJSON CidrBlockAssociation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CidrBlockAssociation"
       ( \x ->
           CidrBlockAssociation'
-            Prelude.<$> (x Core..:? "CidrBlockState")
-            Prelude.<*> (x Core..:? "CidrBlock")
-            Prelude.<*> (x Core..:? "AssociationId")
+            Prelude.<$> (x Data..:? "CidrBlockState")
+            Prelude.<*> (x Data..:? "CidrBlock")
+            Prelude.<*> (x Data..:? "AssociationId")
       )
 
 instance Prelude.Hashable CidrBlockAssociation where
@@ -94,13 +95,13 @@ instance Prelude.NFData CidrBlockAssociation where
       `Prelude.seq` Prelude.rnf cidrBlock
       `Prelude.seq` Prelude.rnf associationId
 
-instance Core.ToJSON CidrBlockAssociation where
+instance Data.ToJSON CidrBlockAssociation where
   toJSON CidrBlockAssociation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CidrBlockState" Core..=)
+          [ ("CidrBlockState" Data..=)
               Prelude.<$> cidrBlockState,
-            ("CidrBlock" Core..=) Prelude.<$> cidrBlock,
-            ("AssociationId" Core..=) Prelude.<$> associationId
+            ("CidrBlock" Data..=) Prelude.<$> cidrBlock,
+            ("AssociationId" Data..=) Prelude.<$> associationId
           ]
       )

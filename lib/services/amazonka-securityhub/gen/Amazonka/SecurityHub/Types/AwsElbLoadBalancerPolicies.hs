@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElbLoadBalancerPolicies where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsElbAppCookieStickinessPolicy
 import Amazonka.SecurityHub.Types.AwsElbLbCookieStickinessPolicy
@@ -79,18 +80,18 @@ awsElbLoadBalancerPolicies_lbCookieStickinessPolicies = Lens.lens (\AwsElbLoadBa
 awsElbLoadBalancerPolicies_appCookieStickinessPolicies :: Lens.Lens' AwsElbLoadBalancerPolicies (Prelude.Maybe [AwsElbAppCookieStickinessPolicy])
 awsElbLoadBalancerPolicies_appCookieStickinessPolicies = Lens.lens (\AwsElbLoadBalancerPolicies' {appCookieStickinessPolicies} -> appCookieStickinessPolicies) (\s@AwsElbLoadBalancerPolicies' {} a -> s {appCookieStickinessPolicies = a} :: AwsElbLoadBalancerPolicies) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AwsElbLoadBalancerPolicies where
+instance Data.FromJSON AwsElbLoadBalancerPolicies where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElbLoadBalancerPolicies"
       ( \x ->
           AwsElbLoadBalancerPolicies'
-            Prelude.<$> (x Core..:? "OtherPolicies" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "LbCookieStickinessPolicies"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "OtherPolicies" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "LbCookieStickinessPolicies"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "AppCookieStickinessPolicies"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "AppCookieStickinessPolicies"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -106,14 +107,14 @@ instance Prelude.NFData AwsElbLoadBalancerPolicies where
       `Prelude.seq` Prelude.rnf lbCookieStickinessPolicies
       `Prelude.seq` Prelude.rnf appCookieStickinessPolicies
 
-instance Core.ToJSON AwsElbLoadBalancerPolicies where
+instance Data.ToJSON AwsElbLoadBalancerPolicies where
   toJSON AwsElbLoadBalancerPolicies' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OtherPolicies" Core..=) Prelude.<$> otherPolicies,
-            ("LbCookieStickinessPolicies" Core..=)
+          [ ("OtherPolicies" Data..=) Prelude.<$> otherPolicies,
+            ("LbCookieStickinessPolicies" Data..=)
               Prelude.<$> lbCookieStickinessPolicies,
-            ("AppCookieStickinessPolicies" Core..=)
+            ("AppCookieStickinessPolicies" Data..=)
               Prelude.<$> appCookieStickinessPolicies
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRdsDbClusterDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsRdsDbClusterAssociatedRole
 import Amazonka.SecurityHub.Types.AwsRdsDbClusterMember
@@ -546,66 +547,66 @@ awsRdsDbClusterDetails_engineVersion = Lens.lens (\AwsRdsDbClusterDetails' {engi
 awsRdsDbClusterDetails_vpcSecurityGroups :: Lens.Lens' AwsRdsDbClusterDetails (Prelude.Maybe [AwsRdsDbInstanceVpcSecurityGroup])
 awsRdsDbClusterDetails_vpcSecurityGroups = Lens.lens (\AwsRdsDbClusterDetails' {vpcSecurityGroups} -> vpcSecurityGroups) (\s@AwsRdsDbClusterDetails' {} a -> s {vpcSecurityGroups = a} :: AwsRdsDbClusterDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AwsRdsDbClusterDetails where
+instance Data.FromJSON AwsRdsDbClusterDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRdsDbClusterDetails"
       ( \x ->
           AwsRdsDbClusterDetails'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "HostedZoneId")
-            Prelude.<*> (x Core..:? "PreferredBackupWindow")
-            Prelude.<*> (x Core..:? "BackupRetentionPeriod")
-            Prelude.<*> (x Core..:? "MasterUsername")
-            Prelude.<*> (x Core..:? "CopyTagsToSnapshot")
-            Prelude.<*> (x Core..:? "ActivityStreamStatus")
-            Prelude.<*> (x Core..:? "DbClusterParameterGroup")
-            Prelude.<*> ( x Core..:? "DbClusterMembers"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "HostedZoneId")
+            Prelude.<*> (x Data..:? "PreferredBackupWindow")
+            Prelude.<*> (x Data..:? "BackupRetentionPeriod")
+            Prelude.<*> (x Data..:? "MasterUsername")
+            Prelude.<*> (x Data..:? "CopyTagsToSnapshot")
+            Prelude.<*> (x Data..:? "ActivityStreamStatus")
+            Prelude.<*> (x Data..:? "DbClusterParameterGroup")
+            Prelude.<*> ( x Data..:? "DbClusterMembers"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "DbClusterIdentifier")
-            Prelude.<*> ( x Core..:? "DomainMemberships"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "DbClusterIdentifier")
+            Prelude.<*> ( x Data..:? "DomainMemberships"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "AvailabilityZones"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "AvailabilityZones"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CrossAccountClone")
-            Prelude.<*> ( x Core..:? "DbClusterOptionGroupMemberships"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "CrossAccountClone")
+            Prelude.<*> ( x Data..:? "DbClusterOptionGroupMemberships"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DbSubnetGroup")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "HttpEndpointEnabled")
-            Prelude.<*> ( x Core..:? "CustomEndpoints"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "DbSubnetGroup")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "HttpEndpointEnabled")
+            Prelude.<*> ( x Data..:? "CustomEndpoints"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EngineMode")
-            Prelude.<*> (x Core..:? "StorageEncrypted")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "Engine")
-            Prelude.<*> (x Core..:? "AllocatedStorage")
-            Prelude.<*> (x Core..:? "ReaderEndpoint")
-            Prelude.<*> (x Core..:? "DeletionProtection")
-            Prelude.<*> (x Core..:? "IamDatabaseAuthenticationEnabled")
-            Prelude.<*> (x Core..:? "PreferredMaintenanceWindow")
-            Prelude.<*> (x Core..:? "Endpoint")
-            Prelude.<*> (x Core..:? "ClusterCreateTime")
-            Prelude.<*> ( x Core..:? "ReadReplicaIdentifiers"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "EngineMode")
+            Prelude.<*> (x Data..:? "StorageEncrypted")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "Engine")
+            Prelude.<*> (x Data..:? "AllocatedStorage")
+            Prelude.<*> (x Data..:? "ReaderEndpoint")
+            Prelude.<*> (x Data..:? "DeletionProtection")
+            Prelude.<*> (x Data..:? "IamDatabaseAuthenticationEnabled")
+            Prelude.<*> (x Data..:? "PreferredMaintenanceWindow")
+            Prelude.<*> (x Data..:? "Endpoint")
+            Prelude.<*> (x Data..:? "ClusterCreateTime")
+            Prelude.<*> ( x Data..:? "ReadReplicaIdentifiers"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "EnabledCloudWatchLogsExports"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "EnabledCloudWatchLogsExports"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DbClusterResourceId")
-            Prelude.<*> ( x Core..:? "AssociatedRoles"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "DbClusterResourceId")
+            Prelude.<*> ( x Data..:? "AssociatedRoles"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "MultiAz")
-            Prelude.<*> (x Core..:? "EngineVersion")
-            Prelude.<*> ( x Core..:? "VpcSecurityGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "MultiAz")
+            Prelude.<*> (x Data..:? "EngineVersion")
+            Prelude.<*> ( x Data..:? "VpcSecurityGroups"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -704,72 +705,72 @@ instance Prelude.NFData AwsRdsDbClusterDetails where
       `Prelude.seq` Prelude.rnf
         vpcSecurityGroups
 
-instance Core.ToJSON AwsRdsDbClusterDetails where
+instance Data.ToJSON AwsRdsDbClusterDetails where
   toJSON AwsRdsDbClusterDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Port" Core..=) Prelude.<$> port,
-            ("HostedZoneId" Core..=) Prelude.<$> hostedZoneId,
-            ("PreferredBackupWindow" Core..=)
+          [ ("Port" Data..=) Prelude.<$> port,
+            ("HostedZoneId" Data..=) Prelude.<$> hostedZoneId,
+            ("PreferredBackupWindow" Data..=)
               Prelude.<$> preferredBackupWindow,
-            ("BackupRetentionPeriod" Core..=)
+            ("BackupRetentionPeriod" Data..=)
               Prelude.<$> backupRetentionPeriod,
-            ("MasterUsername" Core..=)
+            ("MasterUsername" Data..=)
               Prelude.<$> masterUsername,
-            ("CopyTagsToSnapshot" Core..=)
+            ("CopyTagsToSnapshot" Data..=)
               Prelude.<$> copyTagsToSnapshot,
-            ("ActivityStreamStatus" Core..=)
+            ("ActivityStreamStatus" Data..=)
               Prelude.<$> activityStreamStatus,
-            ("DbClusterParameterGroup" Core..=)
+            ("DbClusterParameterGroup" Data..=)
               Prelude.<$> dbClusterParameterGroup,
-            ("DbClusterMembers" Core..=)
+            ("DbClusterMembers" Data..=)
               Prelude.<$> dbClusterMembers,
-            ("DatabaseName" Core..=) Prelude.<$> databaseName,
-            ("DbClusterIdentifier" Core..=)
+            ("DatabaseName" Data..=) Prelude.<$> databaseName,
+            ("DbClusterIdentifier" Data..=)
               Prelude.<$> dbClusterIdentifier,
-            ("DomainMemberships" Core..=)
+            ("DomainMemberships" Data..=)
               Prelude.<$> domainMemberships,
-            ("AvailabilityZones" Core..=)
+            ("AvailabilityZones" Data..=)
               Prelude.<$> availabilityZones,
-            ("CrossAccountClone" Core..=)
+            ("CrossAccountClone" Data..=)
               Prelude.<$> crossAccountClone,
-            ("DbClusterOptionGroupMemberships" Core..=)
+            ("DbClusterOptionGroupMemberships" Data..=)
               Prelude.<$> dbClusterOptionGroupMemberships,
-            ("DbSubnetGroup" Core..=) Prelude.<$> dbSubnetGroup,
-            ("Status" Core..=) Prelude.<$> status,
-            ("HttpEndpointEnabled" Core..=)
+            ("DbSubnetGroup" Data..=) Prelude.<$> dbSubnetGroup,
+            ("Status" Data..=) Prelude.<$> status,
+            ("HttpEndpointEnabled" Data..=)
               Prelude.<$> httpEndpointEnabled,
-            ("CustomEndpoints" Core..=)
+            ("CustomEndpoints" Data..=)
               Prelude.<$> customEndpoints,
-            ("EngineMode" Core..=) Prelude.<$> engineMode,
-            ("StorageEncrypted" Core..=)
+            ("EngineMode" Data..=) Prelude.<$> engineMode,
+            ("StorageEncrypted" Data..=)
               Prelude.<$> storageEncrypted,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("Engine" Core..=) Prelude.<$> engine,
-            ("AllocatedStorage" Core..=)
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("Engine" Data..=) Prelude.<$> engine,
+            ("AllocatedStorage" Data..=)
               Prelude.<$> allocatedStorage,
-            ("ReaderEndpoint" Core..=)
+            ("ReaderEndpoint" Data..=)
               Prelude.<$> readerEndpoint,
-            ("DeletionProtection" Core..=)
+            ("DeletionProtection" Data..=)
               Prelude.<$> deletionProtection,
-            ("IamDatabaseAuthenticationEnabled" Core..=)
+            ("IamDatabaseAuthenticationEnabled" Data..=)
               Prelude.<$> iamDatabaseAuthenticationEnabled,
-            ("PreferredMaintenanceWindow" Core..=)
+            ("PreferredMaintenanceWindow" Data..=)
               Prelude.<$> preferredMaintenanceWindow,
-            ("Endpoint" Core..=) Prelude.<$> endpoint,
-            ("ClusterCreateTime" Core..=)
+            ("Endpoint" Data..=) Prelude.<$> endpoint,
+            ("ClusterCreateTime" Data..=)
               Prelude.<$> clusterCreateTime,
-            ("ReadReplicaIdentifiers" Core..=)
+            ("ReadReplicaIdentifiers" Data..=)
               Prelude.<$> readReplicaIdentifiers,
-            ("EnabledCloudWatchLogsExports" Core..=)
+            ("EnabledCloudWatchLogsExports" Data..=)
               Prelude.<$> enabledCloudWatchLogsExports,
-            ("DbClusterResourceId" Core..=)
+            ("DbClusterResourceId" Data..=)
               Prelude.<$> dbClusterResourceId,
-            ("AssociatedRoles" Core..=)
+            ("AssociatedRoles" Data..=)
               Prelude.<$> associatedRoles,
-            ("MultiAz" Core..=) Prelude.<$> multiAz,
-            ("EngineVersion" Core..=) Prelude.<$> engineVersion,
-            ("VpcSecurityGroups" Core..=)
+            ("MultiAz" Data..=) Prelude.<$> multiAz,
+            ("EngineVersion" Data..=) Prelude.<$> engineVersion,
+            ("VpcSecurityGroups" Data..=)
               Prelude.<$> vpcSecurityGroups
           ]
       )

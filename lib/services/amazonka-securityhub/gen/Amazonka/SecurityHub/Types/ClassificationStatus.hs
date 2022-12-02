@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.ClassificationStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides details about the current status of the sensitive data
@@ -65,14 +66,14 @@ classificationStatus_code = Lens.lens (\ClassificationStatus' {code} -> code) (\
 classificationStatus_reason :: Lens.Lens' ClassificationStatus (Prelude.Maybe Prelude.Text)
 classificationStatus_reason = Lens.lens (\ClassificationStatus' {reason} -> reason) (\s@ClassificationStatus' {} a -> s {reason = a} :: ClassificationStatus)
 
-instance Core.FromJSON ClassificationStatus where
+instance Data.FromJSON ClassificationStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClassificationStatus"
       ( \x ->
           ClassificationStatus'
-            Prelude.<$> (x Core..:? "Code")
-            Prelude.<*> (x Core..:? "Reason")
+            Prelude.<$> (x Data..:? "Code")
+            Prelude.<*> (x Data..:? "Reason")
       )
 
 instance Prelude.Hashable ClassificationStatus where
@@ -84,11 +85,11 @@ instance Prelude.NFData ClassificationStatus where
   rnf ClassificationStatus' {..} =
     Prelude.rnf code `Prelude.seq` Prelude.rnf reason
 
-instance Core.ToJSON ClassificationStatus where
+instance Data.ToJSON ClassificationStatus where
   toJSON ClassificationStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Code" Core..=) Prelude.<$> code,
-            ("Reason" Core..=) Prelude.<$> reason
+          [ ("Code" Data..=) Prelude.<$> code,
+            ("Reason" Data..=) Prelude.<$> reason
           ]
       )

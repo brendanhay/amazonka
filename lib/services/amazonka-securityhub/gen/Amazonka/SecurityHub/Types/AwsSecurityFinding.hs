@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsSecurityFinding where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.Action
 import Amazonka.SecurityHub.Types.Compliance
@@ -717,61 +718,61 @@ awsSecurityFinding_description = Lens.lens (\AwsSecurityFinding' {description} -
 awsSecurityFinding_resources :: Lens.Lens' AwsSecurityFinding [Resource]
 awsSecurityFinding_resources = Lens.lens (\AwsSecurityFinding' {resources} -> resources) (\s@AwsSecurityFinding' {} a -> s {resources = a} :: AwsSecurityFinding) Prelude.. Lens.coerced
 
-instance Core.FromJSON AwsSecurityFinding where
+instance Data.FromJSON AwsSecurityFinding where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsSecurityFinding"
       ( \x ->
           AwsSecurityFinding'
-            Prelude.<$> (x Core..:? "ProductName")
-            Prelude.<*> (x Core..:? "Criticality")
-            Prelude.<*> (x Core..:? "Severity")
-            Prelude.<*> (x Core..:? "Network")
-            Prelude.<*> (x Core..:? "RecordState")
-            Prelude.<*> ( x Core..:? "RelatedFindings"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ProductName")
+            Prelude.<*> (x Data..:? "Criticality")
+            Prelude.<*> (x Data..:? "Severity")
+            Prelude.<*> (x Data..:? "Network")
+            Prelude.<*> (x Data..:? "RecordState")
+            Prelude.<*> ( x Data..:? "RelatedFindings"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ProductFields" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CompanyName")
-            Prelude.<*> ( x Core..:? "Vulnerabilities"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "ProductFields" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CompanyName")
+            Prelude.<*> ( x Data..:? "Vulnerabilities"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ThreatIntelIndicators"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ThreatIntelIndicators"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Remediation")
-            Prelude.<*> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "PatchSummary")
-            Prelude.<*> ( x Core..:? "UserDefinedFields"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Remediation")
+            Prelude.<*> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "PatchSummary")
+            Prelude.<*> ( x Data..:? "UserDefinedFields"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Malware" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "NetworkPath" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Types" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "FirstObservedAt")
-            Prelude.<*> (x Core..:? "VerificationState")
-            Prelude.<*> (x Core..:? "LastObservedAt")
-            Prelude.<*> (x Core..:? "Threats" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Action")
-            Prelude.<*> (x Core..:? "FindingProviderFields")
-            Prelude.<*> (x Core..:? "Process")
-            Prelude.<*> (x Core..:? "Workflow")
-            Prelude.<*> (x Core..:? "Note")
-            Prelude.<*> (x Core..:? "SourceUrl")
-            Prelude.<*> (x Core..:? "WorkflowState")
-            Prelude.<*> (x Core..:? "Compliance")
-            Prelude.<*> (x Core..:? "Sample")
-            Prelude.<*> (x Core..: "SchemaVersion")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "ProductArn")
-            Prelude.<*> (x Core..: "GeneratorId")
-            Prelude.<*> (x Core..: "AwsAccountId")
-            Prelude.<*> (x Core..: "CreatedAt")
-            Prelude.<*> (x Core..: "UpdatedAt")
-            Prelude.<*> (x Core..: "Title")
-            Prelude.<*> (x Core..: "Description")
-            Prelude.<*> (x Core..:? "Resources" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Malware" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "NetworkPath" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Types" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "FirstObservedAt")
+            Prelude.<*> (x Data..:? "VerificationState")
+            Prelude.<*> (x Data..:? "LastObservedAt")
+            Prelude.<*> (x Data..:? "Threats" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Action")
+            Prelude.<*> (x Data..:? "FindingProviderFields")
+            Prelude.<*> (x Data..:? "Process")
+            Prelude.<*> (x Data..:? "Workflow")
+            Prelude.<*> (x Data..:? "Note")
+            Prelude.<*> (x Data..:? "SourceUrl")
+            Prelude.<*> (x Data..:? "WorkflowState")
+            Prelude.<*> (x Data..:? "Compliance")
+            Prelude.<*> (x Data..:? "Sample")
+            Prelude.<*> (x Data..: "SchemaVersion")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "ProductArn")
+            Prelude.<*> (x Data..: "GeneratorId")
+            Prelude.<*> (x Data..: "AwsAccountId")
+            Prelude.<*> (x Data..: "CreatedAt")
+            Prelude.<*> (x Data..: "UpdatedAt")
+            Prelude.<*> (x Data..: "Title")
+            Prelude.<*> (x Data..: "Description")
+            Prelude.<*> (x Data..:? "Resources" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AwsSecurityFinding where
@@ -878,58 +879,58 @@ instance Prelude.NFData AwsSecurityFinding where
       `Prelude.seq` Prelude.rnf
         resources
 
-instance Core.ToJSON AwsSecurityFinding where
+instance Data.ToJSON AwsSecurityFinding where
   toJSON AwsSecurityFinding' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProductName" Core..=) Prelude.<$> productName,
-            ("Criticality" Core..=) Prelude.<$> criticality,
-            ("Severity" Core..=) Prelude.<$> severity,
-            ("Network" Core..=) Prelude.<$> network,
-            ("RecordState" Core..=) Prelude.<$> recordState,
-            ("RelatedFindings" Core..=)
+          [ ("ProductName" Data..=) Prelude.<$> productName,
+            ("Criticality" Data..=) Prelude.<$> criticality,
+            ("Severity" Data..=) Prelude.<$> severity,
+            ("Network" Data..=) Prelude.<$> network,
+            ("RecordState" Data..=) Prelude.<$> recordState,
+            ("RelatedFindings" Data..=)
               Prelude.<$> relatedFindings,
-            ("ProductFields" Core..=) Prelude.<$> productFields,
-            ("CompanyName" Core..=) Prelude.<$> companyName,
-            ("Vulnerabilities" Core..=)
+            ("ProductFields" Data..=) Prelude.<$> productFields,
+            ("CompanyName" Data..=) Prelude.<$> companyName,
+            ("Vulnerabilities" Data..=)
               Prelude.<$> vulnerabilities,
-            ("ThreatIntelIndicators" Core..=)
+            ("ThreatIntelIndicators" Data..=)
               Prelude.<$> threatIntelIndicators,
-            ("Remediation" Core..=) Prelude.<$> remediation,
-            ("Confidence" Core..=) Prelude.<$> confidence,
-            ("PatchSummary" Core..=) Prelude.<$> patchSummary,
-            ("UserDefinedFields" Core..=)
+            ("Remediation" Data..=) Prelude.<$> remediation,
+            ("Confidence" Data..=) Prelude.<$> confidence,
+            ("PatchSummary" Data..=) Prelude.<$> patchSummary,
+            ("UserDefinedFields" Data..=)
               Prelude.<$> userDefinedFields,
-            ("Malware" Core..=) Prelude.<$> malware,
-            ("NetworkPath" Core..=) Prelude.<$> networkPath,
-            ("Types" Core..=) Prelude.<$> types,
-            ("Region" Core..=) Prelude.<$> region,
-            ("FirstObservedAt" Core..=)
+            ("Malware" Data..=) Prelude.<$> malware,
+            ("NetworkPath" Data..=) Prelude.<$> networkPath,
+            ("Types" Data..=) Prelude.<$> types,
+            ("Region" Data..=) Prelude.<$> region,
+            ("FirstObservedAt" Data..=)
               Prelude.<$> firstObservedAt,
-            ("VerificationState" Core..=)
+            ("VerificationState" Data..=)
               Prelude.<$> verificationState,
-            ("LastObservedAt" Core..=)
+            ("LastObservedAt" Data..=)
               Prelude.<$> lastObservedAt,
-            ("Threats" Core..=) Prelude.<$> threats,
-            ("Action" Core..=) Prelude.<$> action,
-            ("FindingProviderFields" Core..=)
+            ("Threats" Data..=) Prelude.<$> threats,
+            ("Action" Data..=) Prelude.<$> action,
+            ("FindingProviderFields" Data..=)
               Prelude.<$> findingProviderFields,
-            ("Process" Core..=) Prelude.<$> process,
-            ("Workflow" Core..=) Prelude.<$> workflow,
-            ("Note" Core..=) Prelude.<$> note,
-            ("SourceUrl" Core..=) Prelude.<$> sourceUrl,
-            ("WorkflowState" Core..=) Prelude.<$> workflowState,
-            ("Compliance" Core..=) Prelude.<$> compliance,
-            ("Sample" Core..=) Prelude.<$> sample,
-            Prelude.Just ("SchemaVersion" Core..= schemaVersion),
-            Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("ProductArn" Core..= productArn),
-            Prelude.Just ("GeneratorId" Core..= generatorId),
-            Prelude.Just ("AwsAccountId" Core..= awsAccountId),
-            Prelude.Just ("CreatedAt" Core..= createdAt),
-            Prelude.Just ("UpdatedAt" Core..= updatedAt),
-            Prelude.Just ("Title" Core..= title),
-            Prelude.Just ("Description" Core..= description),
-            Prelude.Just ("Resources" Core..= resources)
+            ("Process" Data..=) Prelude.<$> process,
+            ("Workflow" Data..=) Prelude.<$> workflow,
+            ("Note" Data..=) Prelude.<$> note,
+            ("SourceUrl" Data..=) Prelude.<$> sourceUrl,
+            ("WorkflowState" Data..=) Prelude.<$> workflowState,
+            ("Compliance" Data..=) Prelude.<$> compliance,
+            ("Sample" Data..=) Prelude.<$> sample,
+            Prelude.Just ("SchemaVersion" Data..= schemaVersion),
+            Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("ProductArn" Data..= productArn),
+            Prelude.Just ("GeneratorId" Data..= generatorId),
+            Prelude.Just ("AwsAccountId" Data..= awsAccountId),
+            Prelude.Just ("CreatedAt" Data..= createdAt),
+            Prelude.Just ("UpdatedAt" Data..= updatedAt),
+            Prelude.Just ("Title" Data..= title),
+            Prelude.Just ("Description" Data..= description),
+            Prelude.Just ("Resources" Data..= resources)
           ]
       )

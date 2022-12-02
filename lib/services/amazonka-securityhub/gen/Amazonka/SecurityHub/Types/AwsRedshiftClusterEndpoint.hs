@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRedshiftClusterEndpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connection endpoint for an Amazon Redshift cluster.
@@ -61,14 +62,14 @@ awsRedshiftClusterEndpoint_port = Lens.lens (\AwsRedshiftClusterEndpoint' {port}
 awsRedshiftClusterEndpoint_address :: Lens.Lens' AwsRedshiftClusterEndpoint (Prelude.Maybe Prelude.Text)
 awsRedshiftClusterEndpoint_address = Lens.lens (\AwsRedshiftClusterEndpoint' {address} -> address) (\s@AwsRedshiftClusterEndpoint' {} a -> s {address = a} :: AwsRedshiftClusterEndpoint)
 
-instance Core.FromJSON AwsRedshiftClusterEndpoint where
+instance Data.FromJSON AwsRedshiftClusterEndpoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRedshiftClusterEndpoint"
       ( \x ->
           AwsRedshiftClusterEndpoint'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "Address")
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "Address")
       )
 
 instance Prelude.Hashable AwsRedshiftClusterEndpoint where
@@ -80,11 +81,11 @@ instance Prelude.NFData AwsRedshiftClusterEndpoint where
   rnf AwsRedshiftClusterEndpoint' {..} =
     Prelude.rnf port `Prelude.seq` Prelude.rnf address
 
-instance Core.ToJSON AwsRedshiftClusterEndpoint where
+instance Data.ToJSON AwsRedshiftClusterEndpoint where
   toJSON AwsRedshiftClusterEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Port" Core..=) Prelude.<$> port,
-            ("Address" Core..=) Prelude.<$> address
+          [ ("Port" Data..=) Prelude.<$> port,
+            ("Address" Data..=) Prelude.<$> address
           ]
       )

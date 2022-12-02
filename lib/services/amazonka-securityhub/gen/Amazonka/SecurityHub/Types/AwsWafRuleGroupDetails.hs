@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsWafRuleGroupDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsWafRuleGroupRulesDetails
 
@@ -84,16 +85,16 @@ awsWafRuleGroupDetails_ruleGroupId = Lens.lens (\AwsWafRuleGroupDetails' {ruleGr
 awsWafRuleGroupDetails_metricName :: Lens.Lens' AwsWafRuleGroupDetails (Prelude.Maybe Prelude.Text)
 awsWafRuleGroupDetails_metricName = Lens.lens (\AwsWafRuleGroupDetails' {metricName} -> metricName) (\s@AwsWafRuleGroupDetails' {} a -> s {metricName = a} :: AwsWafRuleGroupDetails)
 
-instance Core.FromJSON AwsWafRuleGroupDetails where
+instance Data.FromJSON AwsWafRuleGroupDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsWafRuleGroupDetails"
       ( \x ->
           AwsWafRuleGroupDetails'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Rules" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "RuleGroupId")
-            Prelude.<*> (x Core..:? "MetricName")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Rules" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RuleGroupId")
+            Prelude.<*> (x Data..:? "MetricName")
       )
 
 instance Prelude.Hashable AwsWafRuleGroupDetails where
@@ -110,13 +111,13 @@ instance Prelude.NFData AwsWafRuleGroupDetails where
       `Prelude.seq` Prelude.rnf ruleGroupId
       `Prelude.seq` Prelude.rnf metricName
 
-instance Core.ToJSON AwsWafRuleGroupDetails where
+instance Data.ToJSON AwsWafRuleGroupDetails where
   toJSON AwsWafRuleGroupDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Rules" Core..=) Prelude.<$> rules,
-            ("RuleGroupId" Core..=) Prelude.<$> ruleGroupId,
-            ("MetricName" Core..=) Prelude.<$> metricName
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Rules" Data..=) Prelude.<$> rules,
+            ("RuleGroupId" Data..=) Prelude.<$> ruleGroupId,
+            ("MetricName" Data..=) Prelude.<$> metricName
           ]
       )

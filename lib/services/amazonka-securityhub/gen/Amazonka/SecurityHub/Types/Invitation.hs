@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.Invitation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about an invitation.
@@ -34,7 +35,7 @@ data Invitation = Invitation'
     -- invitation was sent from.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the invitation was sent.
-    invitedAt :: Prelude.Maybe Core.POSIX,
+    invitedAt :: Prelude.Maybe Data.POSIX,
     -- | The ID of the invitation sent to the member account.
     invitationId :: Prelude.Maybe Prelude.Text
   }
@@ -79,22 +80,22 @@ invitation_accountId = Lens.lens (\Invitation' {accountId} -> accountId) (\s@Inv
 
 -- | The timestamp of when the invitation was sent.
 invitation_invitedAt :: Lens.Lens' Invitation (Prelude.Maybe Prelude.UTCTime)
-invitation_invitedAt = Lens.lens (\Invitation' {invitedAt} -> invitedAt) (\s@Invitation' {} a -> s {invitedAt = a} :: Invitation) Prelude.. Lens.mapping Core._Time
+invitation_invitedAt = Lens.lens (\Invitation' {invitedAt} -> invitedAt) (\s@Invitation' {} a -> s {invitedAt = a} :: Invitation) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the invitation sent to the member account.
 invitation_invitationId :: Lens.Lens' Invitation (Prelude.Maybe Prelude.Text)
 invitation_invitationId = Lens.lens (\Invitation' {invitationId} -> invitationId) (\s@Invitation' {} a -> s {invitationId = a} :: Invitation)
 
-instance Core.FromJSON Invitation where
+instance Data.FromJSON Invitation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Invitation"
       ( \x ->
           Invitation'
-            Prelude.<$> (x Core..:? "MemberStatus")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "InvitedAt")
-            Prelude.<*> (x Core..:? "InvitationId")
+            Prelude.<$> (x Data..:? "MemberStatus")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "InvitedAt")
+            Prelude.<*> (x Data..:? "InvitationId")
       )
 
 instance Prelude.Hashable Invitation where

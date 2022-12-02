@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainAdvancedSecurityOpti
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainMasterUserOptionsDetails
 
@@ -75,17 +76,17 @@ awsOpenSearchServiceDomainAdvancedSecurityOptionsDetails_masterUserOptions :: Le
 awsOpenSearchServiceDomainAdvancedSecurityOptionsDetails_masterUserOptions = Lens.lens (\AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails' {masterUserOptions} -> masterUserOptions) (\s@AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails' {} a -> s {masterUserOptions = a} :: AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails"
       ( \x ->
           AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails'
-            Prelude.<$> (x Core..:? "InternalUserDatabaseEnabled")
-              Prelude.<*> (x Core..:? "Enabled")
-              Prelude.<*> (x Core..:? "MasterUserOptions")
+            Prelude.<$> (x Data..:? "InternalUserDatabaseEnabled")
+              Prelude.<*> (x Data..:? "Enabled")
+              Prelude.<*> (x Data..:? "MasterUserOptions")
       )
 
 instance
@@ -111,17 +112,17 @@ instance
         `Prelude.seq` Prelude.rnf masterUserOptions
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails
   where
   toJSON
     AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("InternalUserDatabaseEnabled" Core..=)
+            [ ("InternalUserDatabaseEnabled" Data..=)
                 Prelude.<$> internalUserDatabaseEnabled,
-              ("Enabled" Core..=) Prelude.<$> enabled,
-              ("MasterUserOptions" Core..=)
+              ("Enabled" Data..=) Prelude.<$> enabled,
+              ("MasterUserOptions" Data..=)
                 Prelude.<$> masterUserOptions
             ]
         )

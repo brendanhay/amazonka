@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateDomainValidati
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateResourceRecord
 
@@ -120,22 +121,22 @@ awsCertificateManagerCertificateDomainValidationOption_validationMethod :: Lens.
 awsCertificateManagerCertificateDomainValidationOption_validationMethod = Lens.lens (\AwsCertificateManagerCertificateDomainValidationOption' {validationMethod} -> validationMethod) (\s@AwsCertificateManagerCertificateDomainValidationOption' {} a -> s {validationMethod = a} :: AwsCertificateManagerCertificateDomainValidationOption)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCertificateManagerCertificateDomainValidationOption
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCertificateManagerCertificateDomainValidationOption"
       ( \x ->
           AwsCertificateManagerCertificateDomainValidationOption'
-            Prelude.<$> (x Core..:? "DomainName")
-              Prelude.<*> (x Core..:? "ValidationStatus")
-              Prelude.<*> (x Core..:? "ValidationDomain")
-              Prelude.<*> (x Core..:? "ResourceRecord")
-              Prelude.<*> ( x Core..:? "ValidationEmails"
-                              Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "DomainName")
+              Prelude.<*> (x Data..:? "ValidationStatus")
+              Prelude.<*> (x Data..:? "ValidationDomain")
+              Prelude.<*> (x Data..:? "ResourceRecord")
+              Prelude.<*> ( x Data..:? "ValidationEmails"
+                              Data..!= Prelude.mempty
                           )
-              Prelude.<*> (x Core..:? "ValidationMethod")
+              Prelude.<*> (x Data..:? "ValidationMethod")
       )
 
 instance
@@ -166,23 +167,23 @@ instance
         `Prelude.seq` Prelude.rnf validationMethod
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsCertificateManagerCertificateDomainValidationOption
   where
   toJSON
     AwsCertificateManagerCertificateDomainValidationOption' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("DomainName" Core..=) Prelude.<$> domainName,
-              ("ValidationStatus" Core..=)
+            [ ("DomainName" Data..=) Prelude.<$> domainName,
+              ("ValidationStatus" Data..=)
                 Prelude.<$> validationStatus,
-              ("ValidationDomain" Core..=)
+              ("ValidationDomain" Data..=)
                 Prelude.<$> validationDomain,
-              ("ResourceRecord" Core..=)
+              ("ResourceRecord" Data..=)
                 Prelude.<$> resourceRecord,
-              ("ValidationEmails" Core..=)
+              ("ValidationEmails" Data..=)
                 Prelude.<$> validationEmails,
-              ("ValidationMethod" Core..=)
+              ("ValidationMethod" Data..=)
                 Prelude.<$> validationMethod
             ]
         )

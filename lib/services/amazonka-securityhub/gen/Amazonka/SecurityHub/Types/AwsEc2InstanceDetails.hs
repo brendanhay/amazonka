@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2InstanceDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEc2InstanceMetadataOptions
 import Amazonka.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails
@@ -177,26 +178,26 @@ awsEc2InstanceDetails_networkInterfaces = Lens.lens (\AwsEc2InstanceDetails' {ne
 awsEc2InstanceDetails_metadataOptions :: Lens.Lens' AwsEc2InstanceDetails (Prelude.Maybe AwsEc2InstanceMetadataOptions)
 awsEc2InstanceDetails_metadataOptions = Lens.lens (\AwsEc2InstanceDetails' {metadataOptions} -> metadataOptions) (\s@AwsEc2InstanceDetails' {} a -> s {metadataOptions = a} :: AwsEc2InstanceDetails)
 
-instance Core.FromJSON AwsEc2InstanceDetails where
+instance Data.FromJSON AwsEc2InstanceDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2InstanceDetails"
       ( \x ->
           AwsEc2InstanceDetails'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "IpV4Addresses" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "VirtualizationType")
-            Prelude.<*> (x Core..:? "SubnetId")
-            Prelude.<*> (x Core..:? "IamInstanceProfileArn")
-            Prelude.<*> (x Core..:? "KeyName")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "LaunchedAt")
-            Prelude.<*> (x Core..:? "IpV6Addresses" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ImageId")
-            Prelude.<*> ( x Core..:? "NetworkInterfaces"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "IpV4Addresses" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "VirtualizationType")
+            Prelude.<*> (x Data..:? "SubnetId")
+            Prelude.<*> (x Data..:? "IamInstanceProfileArn")
+            Prelude.<*> (x Data..:? "KeyName")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "LaunchedAt")
+            Prelude.<*> (x Data..:? "IpV6Addresses" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ImageId")
+            Prelude.<*> ( x Data..:? "NetworkInterfaces"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "MetadataOptions")
+            Prelude.<*> (x Data..:? "MetadataOptions")
       )
 
 instance Prelude.Hashable AwsEc2InstanceDetails where
@@ -229,25 +230,25 @@ instance Prelude.NFData AwsEc2InstanceDetails where
       `Prelude.seq` Prelude.rnf networkInterfaces
       `Prelude.seq` Prelude.rnf metadataOptions
 
-instance Core.ToJSON AwsEc2InstanceDetails where
+instance Data.ToJSON AwsEc2InstanceDetails where
   toJSON AwsEc2InstanceDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("IpV4Addresses" Core..=) Prelude.<$> ipV4Addresses,
-            ("VirtualizationType" Core..=)
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("IpV4Addresses" Data..=) Prelude.<$> ipV4Addresses,
+            ("VirtualizationType" Data..=)
               Prelude.<$> virtualizationType,
-            ("SubnetId" Core..=) Prelude.<$> subnetId,
-            ("IamInstanceProfileArn" Core..=)
+            ("SubnetId" Data..=) Prelude.<$> subnetId,
+            ("IamInstanceProfileArn" Data..=)
               Prelude.<$> iamInstanceProfileArn,
-            ("KeyName" Core..=) Prelude.<$> keyName,
-            ("VpcId" Core..=) Prelude.<$> vpcId,
-            ("LaunchedAt" Core..=) Prelude.<$> launchedAt,
-            ("IpV6Addresses" Core..=) Prelude.<$> ipV6Addresses,
-            ("ImageId" Core..=) Prelude.<$> imageId,
-            ("NetworkInterfaces" Core..=)
+            ("KeyName" Data..=) Prelude.<$> keyName,
+            ("VpcId" Data..=) Prelude.<$> vpcId,
+            ("LaunchedAt" Data..=) Prelude.<$> launchedAt,
+            ("IpV6Addresses" Data..=) Prelude.<$> ipV6Addresses,
+            ("ImageId" Data..=) Prelude.<$> imageId,
+            ("NetworkInterfaces" Data..=)
               Prelude.<$> networkInterfaces,
-            ("MetadataOptions" Core..=)
+            ("MetadataOptions" Data..=)
               Prelude.<$> metadataOptions
           ]
       )

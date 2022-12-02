@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.ActionLocalPortDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | For @NetworkConnectionAction@ and @PortProbeDetails@, @LocalPortDetails@
@@ -63,14 +64,14 @@ actionLocalPortDetails_port = Lens.lens (\ActionLocalPortDetails' {port} -> port
 actionLocalPortDetails_portName :: Lens.Lens' ActionLocalPortDetails (Prelude.Maybe Prelude.Text)
 actionLocalPortDetails_portName = Lens.lens (\ActionLocalPortDetails' {portName} -> portName) (\s@ActionLocalPortDetails' {} a -> s {portName = a} :: ActionLocalPortDetails)
 
-instance Core.FromJSON ActionLocalPortDetails where
+instance Data.FromJSON ActionLocalPortDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionLocalPortDetails"
       ( \x ->
           ActionLocalPortDetails'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "PortName")
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "PortName")
       )
 
 instance Prelude.Hashable ActionLocalPortDetails where
@@ -82,11 +83,11 @@ instance Prelude.NFData ActionLocalPortDetails where
   rnf ActionLocalPortDetails' {..} =
     Prelude.rnf port `Prelude.seq` Prelude.rnf portName
 
-instance Core.ToJSON ActionLocalPortDetails where
+instance Data.ToJSON ActionLocalPortDetails where
   toJSON ActionLocalPortDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Port" Core..=) Prelude.<$> port,
-            ("PortName" Core..=) Prelude.<$> portName
+          [ ("Port" Data..=) Prelude.<$> port,
+            ("PortName" Data..=) Prelude.<$> portName
           ]
       )

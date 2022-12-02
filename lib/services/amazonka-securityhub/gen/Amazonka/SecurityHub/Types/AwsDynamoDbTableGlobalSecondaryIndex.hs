@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsDynamoDbTableGlobalSecondaryIndex where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsDynamoDbTableKeySchema
 import Amazonka.SecurityHub.Types.AwsDynamoDbTableProjection
@@ -154,23 +155,23 @@ awsDynamoDbTableGlobalSecondaryIndex_projection :: Lens.Lens' AwsDynamoDbTableGl
 awsDynamoDbTableGlobalSecondaryIndex_projection = Lens.lens (\AwsDynamoDbTableGlobalSecondaryIndex' {projection} -> projection) (\s@AwsDynamoDbTableGlobalSecondaryIndex' {} a -> s {projection = a} :: AwsDynamoDbTableGlobalSecondaryIndex)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsDynamoDbTableGlobalSecondaryIndex
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsDynamoDbTableGlobalSecondaryIndex"
       ( \x ->
           AwsDynamoDbTableGlobalSecondaryIndex'
-            Prelude.<$> (x Core..:? "ItemCount")
-            Prelude.<*> (x Core..:? "ProvisionedThroughput")
-            Prelude.<*> (x Core..:? "Backfilling")
-            Prelude.<*> (x Core..:? "IndexName")
-            Prelude.<*> (x Core..:? "IndexArn")
-            Prelude.<*> (x Core..:? "IndexStatus")
-            Prelude.<*> (x Core..:? "IndexSizeBytes")
-            Prelude.<*> (x Core..:? "KeySchema" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Projection")
+            Prelude.<$> (x Data..:? "ItemCount")
+            Prelude.<*> (x Data..:? "ProvisionedThroughput")
+            Prelude.<*> (x Data..:? "Backfilling")
+            Prelude.<*> (x Data..:? "IndexName")
+            Prelude.<*> (x Data..:? "IndexArn")
+            Prelude.<*> (x Data..:? "IndexStatus")
+            Prelude.<*> (x Data..:? "IndexSizeBytes")
+            Prelude.<*> (x Data..:? "KeySchema" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Projection")
       )
 
 instance
@@ -206,22 +207,22 @@ instance
       `Prelude.seq` Prelude.rnf projection
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsDynamoDbTableGlobalSecondaryIndex
   where
   toJSON AwsDynamoDbTableGlobalSecondaryIndex' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ItemCount" Core..=) Prelude.<$> itemCount,
-            ("ProvisionedThroughput" Core..=)
+          [ ("ItemCount" Data..=) Prelude.<$> itemCount,
+            ("ProvisionedThroughput" Data..=)
               Prelude.<$> provisionedThroughput,
-            ("Backfilling" Core..=) Prelude.<$> backfilling,
-            ("IndexName" Core..=) Prelude.<$> indexName,
-            ("IndexArn" Core..=) Prelude.<$> indexArn,
-            ("IndexStatus" Core..=) Prelude.<$> indexStatus,
-            ("IndexSizeBytes" Core..=)
+            ("Backfilling" Data..=) Prelude.<$> backfilling,
+            ("IndexName" Data..=) Prelude.<$> indexName,
+            ("IndexArn" Data..=) Prelude.<$> indexArn,
+            ("IndexStatus" Data..=) Prelude.<$> indexStatus,
+            ("IndexSizeBytes" Data..=)
               Prelude.<$> indexSizeBytes,
-            ("KeySchema" Core..=) Prelude.<$> keySchema,
-            ("Projection" Core..=) Prelude.<$> projection
+            ("KeySchema" Data..=) Prelude.<$> keySchema,
+            ("Projection" Data..=) Prelude.<$> projection
           ]
       )

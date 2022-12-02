@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRuleMatchAttributesSou
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A source IP addresses and address range to inspect for.
@@ -54,15 +55,15 @@ ruleGroupSourceStatelessRuleMatchAttributesSources_addressDefinition :: Lens.Len
 ruleGroupSourceStatelessRuleMatchAttributesSources_addressDefinition = Lens.lens (\RuleGroupSourceStatelessRuleMatchAttributesSources' {addressDefinition} -> addressDefinition) (\s@RuleGroupSourceStatelessRuleMatchAttributesSources' {} a -> s {addressDefinition = a} :: RuleGroupSourceStatelessRuleMatchAttributesSources)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RuleGroupSourceStatelessRuleMatchAttributesSources
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroupSourceStatelessRuleMatchAttributesSources"
       ( \x ->
           RuleGroupSourceStatelessRuleMatchAttributesSources'
-            Prelude.<$> (x Core..:? "AddressDefinition")
+            Prelude.<$> (x Data..:? "AddressDefinition")
       )
 
 instance
@@ -83,14 +84,14 @@ instance
       Prelude.rnf addressDefinition
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RuleGroupSourceStatelessRuleMatchAttributesSources
   where
   toJSON
     RuleGroupSourceStatelessRuleMatchAttributesSources' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("AddressDefinition" Core..=)
+            [ ("AddressDefinition" Data..=)
                 Prelude.<$> addressDefinition
             ]
         )

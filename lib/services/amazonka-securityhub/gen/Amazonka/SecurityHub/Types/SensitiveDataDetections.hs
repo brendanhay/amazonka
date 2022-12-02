@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.SensitiveDataDetections where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.Occurrences
 
@@ -75,15 +76,15 @@ sensitiveDataDetections_type = Lens.lens (\SensitiveDataDetections' {type'} -> t
 sensitiveDataDetections_count :: Lens.Lens' SensitiveDataDetections (Prelude.Maybe Prelude.Integer)
 sensitiveDataDetections_count = Lens.lens (\SensitiveDataDetections' {count} -> count) (\s@SensitiveDataDetections' {} a -> s {count = a} :: SensitiveDataDetections)
 
-instance Core.FromJSON SensitiveDataDetections where
+instance Data.FromJSON SensitiveDataDetections where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SensitiveDataDetections"
       ( \x ->
           SensitiveDataDetections'
-            Prelude.<$> (x Core..:? "Occurrences")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Count")
+            Prelude.<$> (x Data..:? "Occurrences")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Count")
       )
 
 instance Prelude.Hashable SensitiveDataDetections where
@@ -98,12 +99,12 @@ instance Prelude.NFData SensitiveDataDetections where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf count
 
-instance Core.ToJSON SensitiveDataDetections where
+instance Data.ToJSON SensitiveDataDetections where
   toJSON SensitiveDataDetections' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Occurrences" Core..=) Prelude.<$> occurrences,
-            ("Type" Core..=) Prelude.<$> type',
-            ("Count" Core..=) Prelude.<$> count
+          [ ("Occurrences" Data..=) Prelude.<$> occurrences,
+            ("Type" Data..=) Prelude.<$> type',
+            ("Count" Data..=) Prelude.<$> count
           ]
       )

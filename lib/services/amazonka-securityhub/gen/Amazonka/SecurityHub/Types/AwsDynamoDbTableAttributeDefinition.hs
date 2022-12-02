@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsDynamoDbTableAttributeDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a definition of an attribute for the table.
@@ -63,16 +64,16 @@ awsDynamoDbTableAttributeDefinition_attributeName :: Lens.Lens' AwsDynamoDbTable
 awsDynamoDbTableAttributeDefinition_attributeName = Lens.lens (\AwsDynamoDbTableAttributeDefinition' {attributeName} -> attributeName) (\s@AwsDynamoDbTableAttributeDefinition' {} a -> s {attributeName = a} :: AwsDynamoDbTableAttributeDefinition)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsDynamoDbTableAttributeDefinition
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsDynamoDbTableAttributeDefinition"
       ( \x ->
           AwsDynamoDbTableAttributeDefinition'
-            Prelude.<$> (x Core..:? "AttributeType")
-            Prelude.<*> (x Core..:? "AttributeName")
+            Prelude.<$> (x Data..:? "AttributeType")
+            Prelude.<*> (x Data..:? "AttributeName")
       )
 
 instance
@@ -94,13 +95,13 @@ instance
       `Prelude.seq` Prelude.rnf attributeName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsDynamoDbTableAttributeDefinition
   where
   toJSON AwsDynamoDbTableAttributeDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AttributeType" Core..=) Prelude.<$> attributeType,
-            ("AttributeName" Core..=) Prelude.<$> attributeName
+          [ ("AttributeType" Data..=) Prelude.<$> attributeType,
+            ("AttributeName" Data..=) Prelude.<$> attributeName
           ]
       )

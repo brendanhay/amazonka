@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.IpOrganizationDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an internet provider.
@@ -79,16 +80,16 @@ ipOrganizationDetails_asn = Lens.lens (\IpOrganizationDetails' {asn} -> asn) (\s
 ipOrganizationDetails_asnOrg :: Lens.Lens' IpOrganizationDetails (Prelude.Maybe Prelude.Text)
 ipOrganizationDetails_asnOrg = Lens.lens (\IpOrganizationDetails' {asnOrg} -> asnOrg) (\s@IpOrganizationDetails' {} a -> s {asnOrg = a} :: IpOrganizationDetails)
 
-instance Core.FromJSON IpOrganizationDetails where
+instance Data.FromJSON IpOrganizationDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IpOrganizationDetails"
       ( \x ->
           IpOrganizationDetails'
-            Prelude.<$> (x Core..:? "Isp")
-            Prelude.<*> (x Core..:? "Org")
-            Prelude.<*> (x Core..:? "Asn")
-            Prelude.<*> (x Core..:? "AsnOrg")
+            Prelude.<$> (x Data..:? "Isp")
+            Prelude.<*> (x Data..:? "Org")
+            Prelude.<*> (x Data..:? "Asn")
+            Prelude.<*> (x Data..:? "AsnOrg")
       )
 
 instance Prelude.Hashable IpOrganizationDetails where
@@ -105,13 +106,13 @@ instance Prelude.NFData IpOrganizationDetails where
       `Prelude.seq` Prelude.rnf asn
       `Prelude.seq` Prelude.rnf asnOrg
 
-instance Core.ToJSON IpOrganizationDetails where
+instance Data.ToJSON IpOrganizationDetails where
   toJSON IpOrganizationDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Isp" Core..=) Prelude.<$> isp,
-            ("Org" Core..=) Prelude.<$> org,
-            ("Asn" Core..=) Prelude.<$> asn,
-            ("AsnOrg" Core..=) Prelude.<$> asnOrg
+          [ ("Isp" Data..=) Prelude.<$> isp,
+            ("Org" Data..=) Prelude.<$> org,
+            ("Asn" Data..=) Prelude.<$> asn,
+            ("AsnOrg" Data..=) Prelude.<$> asnOrg
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEfsAccessPointPosixUserDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides details for all file system operations using this Amazon EFS
@@ -82,17 +83,17 @@ awsEfsAccessPointPosixUserDetails_uid :: Lens.Lens' AwsEfsAccessPointPosixUserDe
 awsEfsAccessPointPosixUserDetails_uid = Lens.lens (\AwsEfsAccessPointPosixUserDetails' {uid} -> uid) (\s@AwsEfsAccessPointPosixUserDetails' {} a -> s {uid = a} :: AwsEfsAccessPointPosixUserDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEfsAccessPointPosixUserDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEfsAccessPointPosixUserDetails"
       ( \x ->
           AwsEfsAccessPointPosixUserDetails'
-            Prelude.<$> (x Core..:? "Gid")
-            Prelude.<*> (x Core..:? "SecondaryGids" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Uid")
+            Prelude.<$> (x Data..:? "Gid")
+            Prelude.<*> (x Data..:? "SecondaryGids" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Uid")
       )
 
 instance
@@ -116,14 +117,14 @@ instance
       `Prelude.seq` Prelude.rnf uid
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEfsAccessPointPosixUserDetails
   where
   toJSON AwsEfsAccessPointPosixUserDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Gid" Core..=) Prelude.<$> gid,
-            ("SecondaryGids" Core..=) Prelude.<$> secondaryGids,
-            ("Uid" Core..=) Prelude.<$> uid
+          [ ("Gid" Data..=) Prelude.<$> gid,
+            ("SecondaryGids" Data..=) Prelude.<$> secondaryGids,
+            ("Uid" Data..=) Prelude.<$> uid
           ]
       )

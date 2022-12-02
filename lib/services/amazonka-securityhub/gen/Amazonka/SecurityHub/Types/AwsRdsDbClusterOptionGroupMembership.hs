@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRdsDbClusterOptionGroupMembership where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an option group membership for a DB cluster.
@@ -64,16 +65,16 @@ awsRdsDbClusterOptionGroupMembership_dbClusterOptionGroupName :: Lens.Lens' AwsR
 awsRdsDbClusterOptionGroupMembership_dbClusterOptionGroupName = Lens.lens (\AwsRdsDbClusterOptionGroupMembership' {dbClusterOptionGroupName} -> dbClusterOptionGroupName) (\s@AwsRdsDbClusterOptionGroupMembership' {} a -> s {dbClusterOptionGroupName = a} :: AwsRdsDbClusterOptionGroupMembership)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsRdsDbClusterOptionGroupMembership
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRdsDbClusterOptionGroupMembership"
       ( \x ->
           AwsRdsDbClusterOptionGroupMembership'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "DbClusterOptionGroupName")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "DbClusterOptionGroupName")
       )
 
 instance
@@ -95,14 +96,14 @@ instance
       `Prelude.seq` Prelude.rnf dbClusterOptionGroupName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsRdsDbClusterOptionGroupMembership
   where
   toJSON AwsRdsDbClusterOptionGroupMembership' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("DbClusterOptionGroupName" Core..=)
+          [ ("Status" Data..=) Prelude.<$> status,
+            ("DbClusterOptionGroupName" Data..=)
               Prelude.<$> dbClusterOptionGroupName
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRedshiftClusterDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsRedshiftClusterClusterNode
 import Amazonka.SecurityHub.Types.AwsRedshiftClusterClusterParameterGroup
@@ -683,63 +684,63 @@ awsRedshiftClusterDetails_clusterAvailabilityStatus = Lens.lens (\AwsRedshiftClu
 awsRedshiftClusterDetails_vpcSecurityGroups :: Lens.Lens' AwsRedshiftClusterDetails (Prelude.Maybe [AwsRedshiftClusterVpcSecurityGroup])
 awsRedshiftClusterDetails_vpcSecurityGroups = Lens.lens (\AwsRedshiftClusterDetails' {vpcSecurityGroups} -> vpcSecurityGroups) (\s@AwsRedshiftClusterDetails' {} a -> s {vpcSecurityGroups = a} :: AwsRedshiftClusterDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AwsRedshiftClusterDetails where
+instance Data.FromJSON AwsRedshiftClusterDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRedshiftClusterDetails"
       ( \x ->
           AwsRedshiftClusterDetails'
-            Prelude.<$> (x Core..:? "ClusterIdentifier")
-            Prelude.<*> (x Core..:? "ClusterPublicKey")
-            Prelude.<*> (x Core..:? "ManualSnapshotRetentionPeriod")
-            Prelude.<*> (x Core..:? "MasterUsername")
-            Prelude.<*> ( x Core..:? "ClusterParameterGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ClusterIdentifier")
+            Prelude.<*> (x Data..:? "ClusterPublicKey")
+            Prelude.<*> (x Data..:? "ManualSnapshotRetentionPeriod")
+            Prelude.<*> (x Data..:? "MasterUsername")
+            Prelude.<*> ( x Data..:? "ClusterParameterGroups"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "AllowVersionUpgrade")
-            Prelude.<*> (x Core..:? "ExpectedNextSnapshotScheduleTimeStatus")
-            Prelude.<*> (x Core..:? "ClusterSubnetGroupName")
-            Prelude.<*> (x Core..:? "SnapshotScheduleIdentifier")
-            Prelude.<*> (x Core..:? "NextMaintenanceWindowStartTime")
-            Prelude.<*> (x Core..:? "ElasticIpStatus")
-            Prelude.<*> (x Core..:? "ClusterNodes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ClusterVersion")
-            Prelude.<*> (x Core..:? "LoggingStatus")
-            Prelude.<*> (x Core..:? "PendingActions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ClusterRevisionNumber")
-            Prelude.<*> (x Core..:? "MaintenanceTrackName")
-            Prelude.<*> (x Core..:? "IamRoles" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AvailabilityZone")
-            Prelude.<*> (x Core..:? "NodeType")
-            Prelude.<*> (x Core..:? "PubliclyAccessible")
-            Prelude.<*> (x Core..:? "ClusterSnapshotCopyStatus")
-            Prelude.<*> (x Core..:? "SnapshotScheduleState")
-            Prelude.<*> (x Core..:? "HsmStatus")
-            Prelude.<*> (x Core..:? "ClusterStatus")
-            Prelude.<*> (x Core..:? "ResizeInfo")
-            Prelude.<*> ( x Core..:? "DeferredMaintenanceWindows"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "AllowVersionUpgrade")
+            Prelude.<*> (x Data..:? "ExpectedNextSnapshotScheduleTimeStatus")
+            Prelude.<*> (x Data..:? "ClusterSubnetGroupName")
+            Prelude.<*> (x Data..:? "SnapshotScheduleIdentifier")
+            Prelude.<*> (x Data..:? "NextMaintenanceWindowStartTime")
+            Prelude.<*> (x Data..:? "ElasticIpStatus")
+            Prelude.<*> (x Data..:? "ClusterNodes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ClusterVersion")
+            Prelude.<*> (x Data..:? "LoggingStatus")
+            Prelude.<*> (x Data..:? "PendingActions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ClusterRevisionNumber")
+            Prelude.<*> (x Data..:? "MaintenanceTrackName")
+            Prelude.<*> (x Data..:? "IamRoles" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AvailabilityZone")
+            Prelude.<*> (x Data..:? "NodeType")
+            Prelude.<*> (x Data..:? "PubliclyAccessible")
+            Prelude.<*> (x Data..:? "ClusterSnapshotCopyStatus")
+            Prelude.<*> (x Data..:? "SnapshotScheduleState")
+            Prelude.<*> (x Data..:? "HsmStatus")
+            Prelude.<*> (x Data..:? "ClusterStatus")
+            Prelude.<*> (x Data..:? "ResizeInfo")
+            Prelude.<*> ( x Data..:? "DeferredMaintenanceWindows"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Encrypted")
-            Prelude.<*> (x Core..:? "NumberOfNodes")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "ExpectedNextSnapshotScheduleTime")
-            Prelude.<*> (x Core..:? "ElasticResizeNumberOfNodeOptions")
-            Prelude.<*> (x Core..:? "PendingModifiedValues")
-            Prelude.<*> (x Core..:? "EnhancedVpcRouting")
-            Prelude.<*> (x Core..:? "PreferredMaintenanceWindow")
-            Prelude.<*> ( x Core..:? "ClusterSecurityGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Encrypted")
+            Prelude.<*> (x Data..:? "NumberOfNodes")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "ExpectedNextSnapshotScheduleTime")
+            Prelude.<*> (x Data..:? "ElasticResizeNumberOfNodeOptions")
+            Prelude.<*> (x Data..:? "PendingModifiedValues")
+            Prelude.<*> (x Data..:? "EnhancedVpcRouting")
+            Prelude.<*> (x Data..:? "PreferredMaintenanceWindow")
+            Prelude.<*> ( x Data..:? "ClusterSecurityGroups"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Endpoint")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "AutomatedSnapshotRetentionPeriod")
-            Prelude.<*> (x Core..:? "ClusterCreateTime")
-            Prelude.<*> (x Core..:? "DBName")
-            Prelude.<*> (x Core..:? "RestoreStatus")
-            Prelude.<*> (x Core..:? "ClusterAvailabilityStatus")
-            Prelude.<*> ( x Core..:? "VpcSecurityGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Endpoint")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "AutomatedSnapshotRetentionPeriod")
+            Prelude.<*> (x Data..:? "ClusterCreateTime")
+            Prelude.<*> (x Data..:? "DBName")
+            Prelude.<*> (x Data..:? "RestoreStatus")
+            Prelude.<*> (x Data..:? "ClusterAvailabilityStatus")
+            Prelude.<*> ( x Data..:? "VpcSecurityGroups"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -860,83 +861,83 @@ instance Prelude.NFData AwsRedshiftClusterDetails where
       `Prelude.seq` Prelude.rnf
         vpcSecurityGroups
 
-instance Core.ToJSON AwsRedshiftClusterDetails where
+instance Data.ToJSON AwsRedshiftClusterDetails where
   toJSON AwsRedshiftClusterDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClusterIdentifier" Core..=)
+          [ ("ClusterIdentifier" Data..=)
               Prelude.<$> clusterIdentifier,
-            ("ClusterPublicKey" Core..=)
+            ("ClusterPublicKey" Data..=)
               Prelude.<$> clusterPublicKey,
-            ("ManualSnapshotRetentionPeriod" Core..=)
+            ("ManualSnapshotRetentionPeriod" Data..=)
               Prelude.<$> manualSnapshotRetentionPeriod,
-            ("MasterUsername" Core..=)
+            ("MasterUsername" Data..=)
               Prelude.<$> masterUsername,
-            ("ClusterParameterGroups" Core..=)
+            ("ClusterParameterGroups" Data..=)
               Prelude.<$> clusterParameterGroups,
-            ("AllowVersionUpgrade" Core..=)
+            ("AllowVersionUpgrade" Data..=)
               Prelude.<$> allowVersionUpgrade,
-            ("ExpectedNextSnapshotScheduleTimeStatus" Core..=)
+            ("ExpectedNextSnapshotScheduleTimeStatus" Data..=)
               Prelude.<$> expectedNextSnapshotScheduleTimeStatus,
-            ("ClusterSubnetGroupName" Core..=)
+            ("ClusterSubnetGroupName" Data..=)
               Prelude.<$> clusterSubnetGroupName,
-            ("SnapshotScheduleIdentifier" Core..=)
+            ("SnapshotScheduleIdentifier" Data..=)
               Prelude.<$> snapshotScheduleIdentifier,
-            ("NextMaintenanceWindowStartTime" Core..=)
+            ("NextMaintenanceWindowStartTime" Data..=)
               Prelude.<$> nextMaintenanceWindowStartTime,
-            ("ElasticIpStatus" Core..=)
+            ("ElasticIpStatus" Data..=)
               Prelude.<$> elasticIpStatus,
-            ("ClusterNodes" Core..=) Prelude.<$> clusterNodes,
-            ("ClusterVersion" Core..=)
+            ("ClusterNodes" Data..=) Prelude.<$> clusterNodes,
+            ("ClusterVersion" Data..=)
               Prelude.<$> clusterVersion,
-            ("LoggingStatus" Core..=) Prelude.<$> loggingStatus,
-            ("PendingActions" Core..=)
+            ("LoggingStatus" Data..=) Prelude.<$> loggingStatus,
+            ("PendingActions" Data..=)
               Prelude.<$> pendingActions,
-            ("ClusterRevisionNumber" Core..=)
+            ("ClusterRevisionNumber" Data..=)
               Prelude.<$> clusterRevisionNumber,
-            ("MaintenanceTrackName" Core..=)
+            ("MaintenanceTrackName" Data..=)
               Prelude.<$> maintenanceTrackName,
-            ("IamRoles" Core..=) Prelude.<$> iamRoles,
-            ("AvailabilityZone" Core..=)
+            ("IamRoles" Data..=) Prelude.<$> iamRoles,
+            ("AvailabilityZone" Data..=)
               Prelude.<$> availabilityZone,
-            ("NodeType" Core..=) Prelude.<$> nodeType,
-            ("PubliclyAccessible" Core..=)
+            ("NodeType" Data..=) Prelude.<$> nodeType,
+            ("PubliclyAccessible" Data..=)
               Prelude.<$> publiclyAccessible,
-            ("ClusterSnapshotCopyStatus" Core..=)
+            ("ClusterSnapshotCopyStatus" Data..=)
               Prelude.<$> clusterSnapshotCopyStatus,
-            ("SnapshotScheduleState" Core..=)
+            ("SnapshotScheduleState" Data..=)
               Prelude.<$> snapshotScheduleState,
-            ("HsmStatus" Core..=) Prelude.<$> hsmStatus,
-            ("ClusterStatus" Core..=) Prelude.<$> clusterStatus,
-            ("ResizeInfo" Core..=) Prelude.<$> resizeInfo,
-            ("DeferredMaintenanceWindows" Core..=)
+            ("HsmStatus" Data..=) Prelude.<$> hsmStatus,
+            ("ClusterStatus" Data..=) Prelude.<$> clusterStatus,
+            ("ResizeInfo" Data..=) Prelude.<$> resizeInfo,
+            ("DeferredMaintenanceWindows" Data..=)
               Prelude.<$> deferredMaintenanceWindows,
-            ("Encrypted" Core..=) Prelude.<$> encrypted,
-            ("NumberOfNodes" Core..=) Prelude.<$> numberOfNodes,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("ExpectedNextSnapshotScheduleTime" Core..=)
+            ("Encrypted" Data..=) Prelude.<$> encrypted,
+            ("NumberOfNodes" Data..=) Prelude.<$> numberOfNodes,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("ExpectedNextSnapshotScheduleTime" Data..=)
               Prelude.<$> expectedNextSnapshotScheduleTime,
-            ("ElasticResizeNumberOfNodeOptions" Core..=)
+            ("ElasticResizeNumberOfNodeOptions" Data..=)
               Prelude.<$> elasticResizeNumberOfNodeOptions,
-            ("PendingModifiedValues" Core..=)
+            ("PendingModifiedValues" Data..=)
               Prelude.<$> pendingModifiedValues,
-            ("EnhancedVpcRouting" Core..=)
+            ("EnhancedVpcRouting" Data..=)
               Prelude.<$> enhancedVpcRouting,
-            ("PreferredMaintenanceWindow" Core..=)
+            ("PreferredMaintenanceWindow" Data..=)
               Prelude.<$> preferredMaintenanceWindow,
-            ("ClusterSecurityGroups" Core..=)
+            ("ClusterSecurityGroups" Data..=)
               Prelude.<$> clusterSecurityGroups,
-            ("Endpoint" Core..=) Prelude.<$> endpoint,
-            ("VpcId" Core..=) Prelude.<$> vpcId,
-            ("AutomatedSnapshotRetentionPeriod" Core..=)
+            ("Endpoint" Data..=) Prelude.<$> endpoint,
+            ("VpcId" Data..=) Prelude.<$> vpcId,
+            ("AutomatedSnapshotRetentionPeriod" Data..=)
               Prelude.<$> automatedSnapshotRetentionPeriod,
-            ("ClusterCreateTime" Core..=)
+            ("ClusterCreateTime" Data..=)
               Prelude.<$> clusterCreateTime,
-            ("DBName" Core..=) Prelude.<$> dbName,
-            ("RestoreStatus" Core..=) Prelude.<$> restoreStatus,
-            ("ClusterAvailabilityStatus" Core..=)
+            ("DBName" Data..=) Prelude.<$> dbName,
+            ("RestoreStatus" Data..=) Prelude.<$> restoreStatus,
+            ("ClusterAvailabilityStatus" Data..=)
               Prelude.<$> clusterAvailabilityStatus,
-            ("VpcSecurityGroups" Core..=)
+            ("VpcSecurityGroups" Data..=)
               Prelude.<$> vpcSecurityGroups
           ]
       )

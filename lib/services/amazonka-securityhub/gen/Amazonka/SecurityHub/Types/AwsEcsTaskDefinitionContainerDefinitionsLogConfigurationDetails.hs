@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLogCon
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails
 
@@ -162,17 +163,17 @@ awsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails_options :: Lens.
 awsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails_options = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails' {options} -> options) (\s@AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails' {} a -> s {options = a} :: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails'
-            Prelude.<$> (x Core..:? "SecretOptions" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "LogDriver")
-              Prelude.<*> (x Core..:? "Options" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "SecretOptions" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "LogDriver")
+              Prelude.<*> (x Data..:? "Options" Data..!= Prelude.mempty)
       )
 
 instance
@@ -197,15 +198,15 @@ instance
         `Prelude.seq` Prelude.rnf options
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails
   where
   toJSON
     AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("SecretOptions" Core..=) Prelude.<$> secretOptions,
-              ("LogDriver" Core..=) Prelude.<$> logDriver,
-              ("Options" Core..=) Prelude.<$> options
+            [ ("SecretOptions" Data..=) Prelude.<$> secretOptions,
+              ("LogDriver" Data..=) Prelude.<$> logDriver,
+              ("Options" Data..=) Prelude.<$> options
             ]
         )

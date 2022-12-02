@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsClusterDefaultCapacityProviderStrategyDe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The default capacity provider strategy for the cluster. The default
@@ -78,17 +79,17 @@ awsEcsClusterDefaultCapacityProviderStrategyDetails_weight :: Lens.Lens' AwsEcsC
 awsEcsClusterDefaultCapacityProviderStrategyDetails_weight = Lens.lens (\AwsEcsClusterDefaultCapacityProviderStrategyDetails' {weight} -> weight) (\s@AwsEcsClusterDefaultCapacityProviderStrategyDetails' {} a -> s {weight = a} :: AwsEcsClusterDefaultCapacityProviderStrategyDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsClusterDefaultCapacityProviderStrategyDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsClusterDefaultCapacityProviderStrategyDetails"
       ( \x ->
           AwsEcsClusterDefaultCapacityProviderStrategyDetails'
-            Prelude.<$> (x Core..:? "CapacityProvider")
-              Prelude.<*> (x Core..:? "Base")
-              Prelude.<*> (x Core..:? "Weight")
+            Prelude.<$> (x Data..:? "CapacityProvider")
+              Prelude.<*> (x Data..:? "Base")
+              Prelude.<*> (x Data..:? "Weight")
       )
 
 instance
@@ -113,16 +114,16 @@ instance
         `Prelude.seq` Prelude.rnf weight
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsClusterDefaultCapacityProviderStrategyDetails
   where
   toJSON
     AwsEcsClusterDefaultCapacityProviderStrategyDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("CapacityProvider" Core..=)
+            [ ("CapacityProvider" Data..=)
                 Prelude.<$> capacityProvider,
-              ("Base" Core..=) Prelude.<$> base,
-              ("Weight" Core..=) Prelude.<$> weight
+              ("Base" Data..=) Prelude.<$> base,
+              ("Weight" Data..=) Prelude.<$> weight
             ]
         )

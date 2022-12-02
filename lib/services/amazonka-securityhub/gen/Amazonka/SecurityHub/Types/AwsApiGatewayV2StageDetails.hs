@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsApiGatewayV2StageDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsApiGatewayAccessLogSettings
 import Amazonka.SecurityHub.Types.AwsApiGatewayV2RouteSettings
@@ -232,25 +233,25 @@ awsApiGatewayV2StageDetails_apiGatewayManaged = Lens.lens (\AwsApiGatewayV2Stage
 awsApiGatewayV2StageDetails_routeSettings :: Lens.Lens' AwsApiGatewayV2StageDetails (Prelude.Maybe AwsApiGatewayV2RouteSettings)
 awsApiGatewayV2StageDetails_routeSettings = Lens.lens (\AwsApiGatewayV2StageDetails' {routeSettings} -> routeSettings) (\s@AwsApiGatewayV2StageDetails' {} a -> s {routeSettings = a} :: AwsApiGatewayV2StageDetails)
 
-instance Core.FromJSON AwsApiGatewayV2StageDetails where
+instance Data.FromJSON AwsApiGatewayV2StageDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsApiGatewayV2StageDetails"
       ( \x ->
           AwsApiGatewayV2StageDetails'
-            Prelude.<$> (x Core..:? "StageName")
-            Prelude.<*> (x Core..:? "AccessLogSettings")
-            Prelude.<*> (x Core..:? "DeploymentId")
-            Prelude.<*> (x Core..:? "AutoDeploy")
-            Prelude.<*> (x Core..:? "LastUpdatedDate")
-            Prelude.<*> (x Core..:? "StageVariables" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ClientCertificateId")
-            Prelude.<*> (x Core..:? "LastDeploymentStatusMessage")
-            Prelude.<*> (x Core..:? "DefaultRouteSettings")
-            Prelude.<*> (x Core..:? "CreatedDate")
-            Prelude.<*> (x Core..:? "ApiGatewayManaged")
-            Prelude.<*> (x Core..:? "RouteSettings")
+            Prelude.<$> (x Data..:? "StageName")
+            Prelude.<*> (x Data..:? "AccessLogSettings")
+            Prelude.<*> (x Data..:? "DeploymentId")
+            Prelude.<*> (x Data..:? "AutoDeploy")
+            Prelude.<*> (x Data..:? "LastUpdatedDate")
+            Prelude.<*> (x Data..:? "StageVariables" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ClientCertificateId")
+            Prelude.<*> (x Data..:? "LastDeploymentStatusMessage")
+            Prelude.<*> (x Data..:? "DefaultRouteSettings")
+            Prelude.<*> (x Data..:? "CreatedDate")
+            Prelude.<*> (x Data..:? "ApiGatewayManaged")
+            Prelude.<*> (x Data..:? "RouteSettings")
       )
 
 instance Prelude.Hashable AwsApiGatewayV2StageDetails where
@@ -285,29 +286,29 @@ instance Prelude.NFData AwsApiGatewayV2StageDetails where
       `Prelude.seq` Prelude.rnf apiGatewayManaged
       `Prelude.seq` Prelude.rnf routeSettings
 
-instance Core.ToJSON AwsApiGatewayV2StageDetails where
+instance Data.ToJSON AwsApiGatewayV2StageDetails where
   toJSON AwsApiGatewayV2StageDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StageName" Core..=) Prelude.<$> stageName,
-            ("AccessLogSettings" Core..=)
+          [ ("StageName" Data..=) Prelude.<$> stageName,
+            ("AccessLogSettings" Data..=)
               Prelude.<$> accessLogSettings,
-            ("DeploymentId" Core..=) Prelude.<$> deploymentId,
-            ("AutoDeploy" Core..=) Prelude.<$> autoDeploy,
-            ("LastUpdatedDate" Core..=)
+            ("DeploymentId" Data..=) Prelude.<$> deploymentId,
+            ("AutoDeploy" Data..=) Prelude.<$> autoDeploy,
+            ("LastUpdatedDate" Data..=)
               Prelude.<$> lastUpdatedDate,
-            ("StageVariables" Core..=)
+            ("StageVariables" Data..=)
               Prelude.<$> stageVariables,
-            ("Description" Core..=) Prelude.<$> description,
-            ("ClientCertificateId" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("ClientCertificateId" Data..=)
               Prelude.<$> clientCertificateId,
-            ("LastDeploymentStatusMessage" Core..=)
+            ("LastDeploymentStatusMessage" Data..=)
               Prelude.<$> lastDeploymentStatusMessage,
-            ("DefaultRouteSettings" Core..=)
+            ("DefaultRouteSettings" Data..=)
               Prelude.<$> defaultRouteSettings,
-            ("CreatedDate" Core..=) Prelude.<$> createdDate,
-            ("ApiGatewayManaged" Core..=)
+            ("CreatedDate" Data..=) Prelude.<$> createdDate,
+            ("ApiGatewayManaged" Data..=)
               Prelude.<$> apiGatewayManaged,
-            ("RouteSettings" Core..=) Prelude.<$> routeSettings
+            ("RouteSettings" Data..=) Prelude.<$> routeSettings
           ]
       )

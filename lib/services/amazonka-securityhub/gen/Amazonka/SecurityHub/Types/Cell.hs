@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.Cell where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An occurrence of sensitive data detected in a Microsoft Excel workbook,
@@ -95,16 +96,16 @@ cell_columnName = Lens.lens (\Cell' {columnName} -> columnName) (\s@Cell' {} a -
 cell_column :: Lens.Lens' Cell (Prelude.Maybe Prelude.Integer)
 cell_column = Lens.lens (\Cell' {column} -> column) (\s@Cell' {} a -> s {column = a} :: Cell)
 
-instance Core.FromJSON Cell where
+instance Data.FromJSON Cell where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Cell"
       ( \x ->
           Cell'
-            Prelude.<$> (x Core..:? "Row")
-            Prelude.<*> (x Core..:? "CellReference")
-            Prelude.<*> (x Core..:? "ColumnName")
-            Prelude.<*> (x Core..:? "Column")
+            Prelude.<$> (x Data..:? "Row")
+            Prelude.<*> (x Data..:? "CellReference")
+            Prelude.<*> (x Data..:? "ColumnName")
+            Prelude.<*> (x Data..:? "Column")
       )
 
 instance Prelude.Hashable Cell where
@@ -121,13 +122,13 @@ instance Prelude.NFData Cell where
       `Prelude.seq` Prelude.rnf columnName
       `Prelude.seq` Prelude.rnf column
 
-instance Core.ToJSON Cell where
+instance Data.ToJSON Cell where
   toJSON Cell' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Row" Core..=) Prelude.<$> row,
-            ("CellReference" Core..=) Prelude.<$> cellReference,
-            ("ColumnName" Core..=) Prelude.<$> columnName,
-            ("Column" Core..=) Prelude.<$> column
+          [ ("Row" Data..=) Prelude.<$> row,
+            ("CellReference" Data..=) Prelude.<$> cellReference,
+            ("ColumnName" Data..=) Prelude.<$> columnName,
+            ("Column" Data..=) Prelude.<$> column
           ]
       )

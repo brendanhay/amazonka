@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRedshiftClusterClusterParameterStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The status of a parameter in a cluster parameter group for an Amazon
@@ -92,17 +93,17 @@ awsRedshiftClusterClusterParameterStatus_parameterApplyStatus :: Lens.Lens' AwsR
 awsRedshiftClusterClusterParameterStatus_parameterApplyStatus = Lens.lens (\AwsRedshiftClusterClusterParameterStatus' {parameterApplyStatus} -> parameterApplyStatus) (\s@AwsRedshiftClusterClusterParameterStatus' {} a -> s {parameterApplyStatus = a} :: AwsRedshiftClusterClusterParameterStatus)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsRedshiftClusterClusterParameterStatus
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRedshiftClusterClusterParameterStatus"
       ( \x ->
           AwsRedshiftClusterClusterParameterStatus'
-            Prelude.<$> (x Core..:? "ParameterApplyErrorDescription")
-            Prelude.<*> (x Core..:? "ParameterName")
-            Prelude.<*> (x Core..:? "ParameterApplyStatus")
+            Prelude.<$> (x Data..:? "ParameterApplyErrorDescription")
+            Prelude.<*> (x Data..:? "ParameterName")
+            Prelude.<*> (x Data..:? "ParameterApplyStatus")
       )
 
 instance
@@ -127,16 +128,16 @@ instance
       `Prelude.seq` Prelude.rnf parameterApplyStatus
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsRedshiftClusterClusterParameterStatus
   where
   toJSON AwsRedshiftClusterClusterParameterStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ParameterApplyErrorDescription" Core..=)
+          [ ("ParameterApplyErrorDescription" Data..=)
               Prelude.<$> parameterApplyErrorDescription,
-            ("ParameterName" Core..=) Prelude.<$> parameterName,
-            ("ParameterApplyStatus" Core..=)
+            ("ParameterName" Data..=) Prelude.<$> parameterName,
+            ("ParameterApplyStatus" Data..=)
               Prelude.<$> parameterApplyStatus
           ]
       )

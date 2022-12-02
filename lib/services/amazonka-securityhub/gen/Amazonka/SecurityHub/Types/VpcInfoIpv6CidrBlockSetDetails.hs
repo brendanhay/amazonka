@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.VpcInfoIpv6CidrBlockSetDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides details about the IPv6 CIDR blocks for the VPC.
@@ -53,13 +54,13 @@ newVpcInfoIpv6CidrBlockSetDetails =
 vpcInfoIpv6CidrBlockSetDetails_ipv6CidrBlock :: Lens.Lens' VpcInfoIpv6CidrBlockSetDetails (Prelude.Maybe Prelude.Text)
 vpcInfoIpv6CidrBlockSetDetails_ipv6CidrBlock = Lens.lens (\VpcInfoIpv6CidrBlockSetDetails' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@VpcInfoIpv6CidrBlockSetDetails' {} a -> s {ipv6CidrBlock = a} :: VpcInfoIpv6CidrBlockSetDetails)
 
-instance Core.FromJSON VpcInfoIpv6CidrBlockSetDetails where
+instance Data.FromJSON VpcInfoIpv6CidrBlockSetDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcInfoIpv6CidrBlockSetDetails"
       ( \x ->
           VpcInfoIpv6CidrBlockSetDetails'
-            Prelude.<$> (x Core..:? "Ipv6CidrBlock")
+            Prelude.<$> (x Data..:? "Ipv6CidrBlock")
       )
 
 instance
@@ -78,11 +79,11 @@ instance
   rnf VpcInfoIpv6CidrBlockSetDetails' {..} =
     Prelude.rnf ipv6CidrBlock
 
-instance Core.ToJSON VpcInfoIpv6CidrBlockSetDetails where
+instance Data.ToJSON VpcInfoIpv6CidrBlockSetDetails where
   toJSON VpcInfoIpv6CidrBlockSetDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Ipv6CidrBlock" Core..=)
+          [ ("Ipv6CidrBlock" Data..=)
               Prelude.<$> ipv6CidrBlock
           ]
       )

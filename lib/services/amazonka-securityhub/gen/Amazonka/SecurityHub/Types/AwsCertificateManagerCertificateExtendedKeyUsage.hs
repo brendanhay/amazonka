@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateExtendedKeyUsa
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an extended key usage X.509 v3 extension
@@ -73,15 +74,15 @@ awsCertificateManagerCertificateExtendedKeyUsage_oId :: Lens.Lens' AwsCertificat
 awsCertificateManagerCertificateExtendedKeyUsage_oId = Lens.lens (\AwsCertificateManagerCertificateExtendedKeyUsage' {oId} -> oId) (\s@AwsCertificateManagerCertificateExtendedKeyUsage' {} a -> s {oId = a} :: AwsCertificateManagerCertificateExtendedKeyUsage)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCertificateManagerCertificateExtendedKeyUsage
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCertificateManagerCertificateExtendedKeyUsage"
       ( \x ->
           AwsCertificateManagerCertificateExtendedKeyUsage'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "OId")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "OId")
       )
 
 instance
@@ -103,14 +104,14 @@ instance
       Prelude.rnf name `Prelude.seq` Prelude.rnf oId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsCertificateManagerCertificateExtendedKeyUsage
   where
   toJSON
     AwsCertificateManagerCertificateExtendedKeyUsage' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Name" Core..=) Prelude.<$> name,
-              ("OId" Core..=) Prelude.<$> oId
+            [ ("Name" Data..=) Prelude.<$> name,
+              ("OId" Data..=) Prelude.<$> oId
             ]
         )

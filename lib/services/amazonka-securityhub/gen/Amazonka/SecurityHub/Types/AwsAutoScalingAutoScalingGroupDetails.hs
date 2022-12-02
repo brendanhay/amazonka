@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails
 import Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification
@@ -156,27 +157,27 @@ awsAutoScalingAutoScalingGroupDetails_capacityRebalance :: Lens.Lens' AwsAutoSca
 awsAutoScalingAutoScalingGroupDetails_capacityRebalance = Lens.lens (\AwsAutoScalingAutoScalingGroupDetails' {capacityRebalance} -> capacityRebalance) (\s@AwsAutoScalingAutoScalingGroupDetails' {} a -> s {capacityRebalance = a} :: AwsAutoScalingAutoScalingGroupDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsAutoScalingAutoScalingGroupDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsAutoScalingAutoScalingGroupDetails"
       ( \x ->
           AwsAutoScalingAutoScalingGroupDetails'
-            Prelude.<$> (x Core..:? "CreatedTime")
-            Prelude.<*> ( x Core..:? "LoadBalancerNames"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "CreatedTime")
+            Prelude.<*> ( x Data..:? "LoadBalancerNames"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "AvailabilityZones"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "AvailabilityZones"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "HealthCheckGracePeriod")
-            Prelude.<*> (x Core..:? "LaunchTemplate")
-            Prelude.<*> (x Core..:? "LaunchConfigurationName")
-            Prelude.<*> (x Core..:? "MixedInstancesPolicy")
-            Prelude.<*> (x Core..:? "HealthCheckType")
-            Prelude.<*> (x Core..:? "CapacityRebalance")
+            Prelude.<*> (x Data..:? "HealthCheckGracePeriod")
+            Prelude.<*> (x Data..:? "LaunchTemplate")
+            Prelude.<*> (x Data..:? "LaunchConfigurationName")
+            Prelude.<*> (x Data..:? "MixedInstancesPolicy")
+            Prelude.<*> (x Data..:? "HealthCheckType")
+            Prelude.<*> (x Data..:? "CapacityRebalance")
       )
 
 instance
@@ -212,28 +213,28 @@ instance
       `Prelude.seq` Prelude.rnf capacityRebalance
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsAutoScalingAutoScalingGroupDetails
   where
   toJSON AwsAutoScalingAutoScalingGroupDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CreatedTime" Core..=) Prelude.<$> createdTime,
-            ("LoadBalancerNames" Core..=)
+          [ ("CreatedTime" Data..=) Prelude.<$> createdTime,
+            ("LoadBalancerNames" Data..=)
               Prelude.<$> loadBalancerNames,
-            ("AvailabilityZones" Core..=)
+            ("AvailabilityZones" Data..=)
               Prelude.<$> availabilityZones,
-            ("HealthCheckGracePeriod" Core..=)
+            ("HealthCheckGracePeriod" Data..=)
               Prelude.<$> healthCheckGracePeriod,
-            ("LaunchTemplate" Core..=)
+            ("LaunchTemplate" Data..=)
               Prelude.<$> launchTemplate,
-            ("LaunchConfigurationName" Core..=)
+            ("LaunchConfigurationName" Data..=)
               Prelude.<$> launchConfigurationName,
-            ("MixedInstancesPolicy" Core..=)
+            ("MixedInstancesPolicy" Data..=)
               Prelude.<$> mixedInstancesPolicy,
-            ("HealthCheckType" Core..=)
+            ("HealthCheckType" Data..=)
               Prelude.<$> healthCheckType,
-            ("CapacityRebalance" Core..=)
+            ("CapacityRebalance" Data..=)
               Prelude.<$> capacityRebalance
           ]
       )

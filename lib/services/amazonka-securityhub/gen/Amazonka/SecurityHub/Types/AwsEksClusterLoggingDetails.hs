@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEksClusterLoggingDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEksClusterLoggingClusterLoggingDetails
 
@@ -54,14 +55,14 @@ newAwsEksClusterLoggingDetails =
 awsEksClusterLoggingDetails_clusterLogging :: Lens.Lens' AwsEksClusterLoggingDetails (Prelude.Maybe [AwsEksClusterLoggingClusterLoggingDetails])
 awsEksClusterLoggingDetails_clusterLogging = Lens.lens (\AwsEksClusterLoggingDetails' {clusterLogging} -> clusterLogging) (\s@AwsEksClusterLoggingDetails' {} a -> s {clusterLogging = a} :: AwsEksClusterLoggingDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AwsEksClusterLoggingDetails where
+instance Data.FromJSON AwsEksClusterLoggingDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEksClusterLoggingDetails"
       ( \x ->
           AwsEksClusterLoggingDetails'
-            Prelude.<$> ( x Core..:? "ClusterLogging"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ClusterLogging"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -73,11 +74,11 @@ instance Prelude.NFData AwsEksClusterLoggingDetails where
   rnf AwsEksClusterLoggingDetails' {..} =
     Prelude.rnf clusterLogging
 
-instance Core.ToJSON AwsEksClusterLoggingDetails where
+instance Data.ToJSON AwsEksClusterLoggingDetails where
   toJSON AwsEksClusterLoggingDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClusterLogging" Core..=)
+          [ ("ClusterLogging" Data..=)
               Prelude.<$> clusterLogging
           ]
       )

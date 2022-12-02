@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElbv2LoadBalancerDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AvailabilityZone
 import Amazonka.SecurityHub.Types.AwsElbv2LoadBalancerAttribute
@@ -170,27 +171,27 @@ awsElbv2LoadBalancerDetails_canonicalHostedZoneId = Lens.lens (\AwsElbv2LoadBala
 awsElbv2LoadBalancerDetails_ipAddressType :: Lens.Lens' AwsElbv2LoadBalancerDetails (Prelude.Maybe Prelude.Text)
 awsElbv2LoadBalancerDetails_ipAddressType = Lens.lens (\AwsElbv2LoadBalancerDetails' {ipAddressType} -> ipAddressType) (\s@AwsElbv2LoadBalancerDetails' {} a -> s {ipAddressType = a} :: AwsElbv2LoadBalancerDetails)
 
-instance Core.FromJSON AwsElbv2LoadBalancerDetails where
+instance Data.FromJSON AwsElbv2LoadBalancerDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElbv2LoadBalancerDetails"
       ( \x ->
           AwsElbv2LoadBalancerDetails'
-            Prelude.<$> (x Core..:? "Scheme")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> ( x Core..:? "AvailabilityZones"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Scheme")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> ( x Data..:? "AvailabilityZones"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "SecurityGroups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DNSName")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> ( x Core..:? "LoadBalancerAttributes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "SecurityGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DNSName")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> ( x Data..:? "LoadBalancerAttributes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CanonicalHostedZoneId")
-            Prelude.<*> (x Core..:? "IpAddressType")
+            Prelude.<*> (x Data..:? "CanonicalHostedZoneId")
+            Prelude.<*> (x Data..:? "IpAddressType")
       )
 
 instance Prelude.Hashable AwsElbv2LoadBalancerDetails where
@@ -221,24 +222,24 @@ instance Prelude.NFData AwsElbv2LoadBalancerDetails where
       `Prelude.seq` Prelude.rnf canonicalHostedZoneId
       `Prelude.seq` Prelude.rnf ipAddressType
 
-instance Core.ToJSON AwsElbv2LoadBalancerDetails where
+instance Data.ToJSON AwsElbv2LoadBalancerDetails where
   toJSON AwsElbv2LoadBalancerDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Scheme" Core..=) Prelude.<$> scheme,
-            ("Type" Core..=) Prelude.<$> type',
-            ("CreatedTime" Core..=) Prelude.<$> createdTime,
-            ("AvailabilityZones" Core..=)
+          [ ("Scheme" Data..=) Prelude.<$> scheme,
+            ("Type" Data..=) Prelude.<$> type',
+            ("CreatedTime" Data..=) Prelude.<$> createdTime,
+            ("AvailabilityZones" Data..=)
               Prelude.<$> availabilityZones,
-            ("State" Core..=) Prelude.<$> state,
-            ("SecurityGroups" Core..=)
+            ("State" Data..=) Prelude.<$> state,
+            ("SecurityGroups" Data..=)
               Prelude.<$> securityGroups,
-            ("DNSName" Core..=) Prelude.<$> dNSName,
-            ("VpcId" Core..=) Prelude.<$> vpcId,
-            ("LoadBalancerAttributes" Core..=)
+            ("DNSName" Data..=) Prelude.<$> dNSName,
+            ("VpcId" Data..=) Prelude.<$> vpcId,
+            ("LoadBalancerAttributes" Data..=)
               Prelude.<$> loadBalancerAttributes,
-            ("CanonicalHostedZoneId" Core..=)
+            ("CanonicalHostedZoneId" Data..=)
               Prelude.<$> canonicalHostedZoneId,
-            ("IpAddressType" Core..=) Prelude.<$> ipAddressType
+            ("IpAddressType" Data..=) Prelude.<$> ipAddressType
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRdsDbPendingModifiedValues where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsRdsDbProcessorFeature
 import Amazonka.SecurityHub.Types.AwsRdsPendingCloudWatchLogsExports
@@ -185,29 +186,29 @@ awsRdsDbPendingModifiedValues_multiAZ = Lens.lens (\AwsRdsDbPendingModifiedValue
 awsRdsDbPendingModifiedValues_licenseModel :: Lens.Lens' AwsRdsDbPendingModifiedValues (Prelude.Maybe Prelude.Text)
 awsRdsDbPendingModifiedValues_licenseModel = Lens.lens (\AwsRdsDbPendingModifiedValues' {licenseModel} -> licenseModel) (\s@AwsRdsDbPendingModifiedValues' {} a -> s {licenseModel = a} :: AwsRdsDbPendingModifiedValues)
 
-instance Core.FromJSON AwsRdsDbPendingModifiedValues where
+instance Data.FromJSON AwsRdsDbPendingModifiedValues where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRdsDbPendingModifiedValues"
       ( \x ->
           AwsRdsDbPendingModifiedValues'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "BackupRetentionPeriod")
-            Prelude.<*> (x Core..:? "DbInstanceClass")
-            Prelude.<*> (x Core..:? "DbSubnetGroupName")
-            Prelude.<*> (x Core..:? "DbInstanceIdentifier")
-            Prelude.<*> (x Core..:? "PendingCloudWatchLogsExports")
-            Prelude.<*> (x Core..:? "MasterUserPassword")
-            Prelude.<*> (x Core..:? "StorageType")
-            Prelude.<*> ( x Core..:? "ProcessorFeatures"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "BackupRetentionPeriod")
+            Prelude.<*> (x Data..:? "DbInstanceClass")
+            Prelude.<*> (x Data..:? "DbSubnetGroupName")
+            Prelude.<*> (x Data..:? "DbInstanceIdentifier")
+            Prelude.<*> (x Data..:? "PendingCloudWatchLogsExports")
+            Prelude.<*> (x Data..:? "MasterUserPassword")
+            Prelude.<*> (x Data..:? "StorageType")
+            Prelude.<*> ( x Data..:? "ProcessorFeatures"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CaCertificateIdentifier")
-            Prelude.<*> (x Core..:? "AllocatedStorage")
-            Prelude.<*> (x Core..:? "Iops")
-            Prelude.<*> (x Core..:? "EngineVersion")
-            Prelude.<*> (x Core..:? "MultiAZ")
-            Prelude.<*> (x Core..:? "LicenseModel")
+            Prelude.<*> (x Data..:? "CaCertificateIdentifier")
+            Prelude.<*> (x Data..:? "AllocatedStorage")
+            Prelude.<*> (x Data..:? "Iops")
+            Prelude.<*> (x Data..:? "EngineVersion")
+            Prelude.<*> (x Data..:? "MultiAZ")
+            Prelude.<*> (x Data..:? "LicenseModel")
       )
 
 instance
@@ -249,33 +250,33 @@ instance Prelude.NFData AwsRdsDbPendingModifiedValues where
       `Prelude.seq` Prelude.rnf multiAZ
       `Prelude.seq` Prelude.rnf licenseModel
 
-instance Core.ToJSON AwsRdsDbPendingModifiedValues where
+instance Data.ToJSON AwsRdsDbPendingModifiedValues where
   toJSON AwsRdsDbPendingModifiedValues' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Port" Core..=) Prelude.<$> port,
-            ("BackupRetentionPeriod" Core..=)
+          [ ("Port" Data..=) Prelude.<$> port,
+            ("BackupRetentionPeriod" Data..=)
               Prelude.<$> backupRetentionPeriod,
-            ("DbInstanceClass" Core..=)
+            ("DbInstanceClass" Data..=)
               Prelude.<$> dbInstanceClass,
-            ("DbSubnetGroupName" Core..=)
+            ("DbSubnetGroupName" Data..=)
               Prelude.<$> dbSubnetGroupName,
-            ("DbInstanceIdentifier" Core..=)
+            ("DbInstanceIdentifier" Data..=)
               Prelude.<$> dbInstanceIdentifier,
-            ("PendingCloudWatchLogsExports" Core..=)
+            ("PendingCloudWatchLogsExports" Data..=)
               Prelude.<$> pendingCloudWatchLogsExports,
-            ("MasterUserPassword" Core..=)
+            ("MasterUserPassword" Data..=)
               Prelude.<$> masterUserPassword,
-            ("StorageType" Core..=) Prelude.<$> storageType,
-            ("ProcessorFeatures" Core..=)
+            ("StorageType" Data..=) Prelude.<$> storageType,
+            ("ProcessorFeatures" Data..=)
               Prelude.<$> processorFeatures,
-            ("CaCertificateIdentifier" Core..=)
+            ("CaCertificateIdentifier" Data..=)
               Prelude.<$> caCertificateIdentifier,
-            ("AllocatedStorage" Core..=)
+            ("AllocatedStorage" Data..=)
               Prelude.<$> allocatedStorage,
-            ("Iops" Core..=) Prelude.<$> iops,
-            ("EngineVersion" Core..=) Prelude.<$> engineVersion,
-            ("MultiAZ" Core..=) Prelude.<$> multiAZ,
-            ("LicenseModel" Core..=) Prelude.<$> licenseModel
+            ("Iops" Data..=) Prelude.<$> iops,
+            ("EngineVersion" Data..=) Prelude.<$> engineVersion,
+            ("MultiAZ" Data..=) Prelude.<$> multiAZ,
+            ("LicenseModel" Data..=) Prelude.<$> licenseModel
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2VpcPeeringConnectionStatusDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the status of the VPC peering connection.
@@ -66,16 +67,16 @@ awsEc2VpcPeeringConnectionStatusDetails_code :: Lens.Lens' AwsEc2VpcPeeringConne
 awsEc2VpcPeeringConnectionStatusDetails_code = Lens.lens (\AwsEc2VpcPeeringConnectionStatusDetails' {code} -> code) (\s@AwsEc2VpcPeeringConnectionStatusDetails' {} a -> s {code = a} :: AwsEc2VpcPeeringConnectionStatusDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEc2VpcPeeringConnectionStatusDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2VpcPeeringConnectionStatusDetails"
       ( \x ->
           AwsEc2VpcPeeringConnectionStatusDetails'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Code")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Code")
       )
 
 instance
@@ -96,13 +97,13 @@ instance
     Prelude.rnf message `Prelude.seq` Prelude.rnf code
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEc2VpcPeeringConnectionStatusDetails
   where
   toJSON AwsEc2VpcPeeringConnectionStatusDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Message" Core..=) Prelude.<$> message,
-            ("Code" Core..=) Prelude.<$> code
+          [ ("Message" Data..=) Prelude.<$> message,
+            ("Code" Data..=) Prelude.<$> code
           ]
       )

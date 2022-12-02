@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsDynamoDbTableStreamSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The current DynamoDB Streams configuration for the table.
@@ -63,16 +64,16 @@ awsDynamoDbTableStreamSpecification_streamEnabled :: Lens.Lens' AwsDynamoDbTable
 awsDynamoDbTableStreamSpecification_streamEnabled = Lens.lens (\AwsDynamoDbTableStreamSpecification' {streamEnabled} -> streamEnabled) (\s@AwsDynamoDbTableStreamSpecification' {} a -> s {streamEnabled = a} :: AwsDynamoDbTableStreamSpecification)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsDynamoDbTableStreamSpecification
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsDynamoDbTableStreamSpecification"
       ( \x ->
           AwsDynamoDbTableStreamSpecification'
-            Prelude.<$> (x Core..:? "StreamViewType")
-            Prelude.<*> (x Core..:? "StreamEnabled")
+            Prelude.<$> (x Data..:? "StreamViewType")
+            Prelude.<*> (x Data..:? "StreamEnabled")
       )
 
 instance
@@ -94,14 +95,14 @@ instance
       `Prelude.seq` Prelude.rnf streamEnabled
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsDynamoDbTableStreamSpecification
   where
   toJSON AwsDynamoDbTableStreamSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StreamViewType" Core..=)
+          [ ("StreamViewType" Data..=)
               Prelude.<$> streamViewType,
-            ("StreamEnabled" Core..=) Prelude.<$> streamEnabled
+            ("StreamEnabled" Data..=) Prelude.<$> streamEnabled
           ]
       )

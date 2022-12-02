@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsFirele
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The FireLens configuration for the container. The configuration
@@ -89,16 +90,16 @@ awsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails_options :: 
 awsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails_options = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails' {options} -> options) (\s@AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails' {} a -> s {options = a} :: AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails'
-            Prelude.<$> (x Core..:? "Type")
-              Prelude.<*> (x Core..:? "Options" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Type")
+              Prelude.<*> (x Data..:? "Options" Data..!= Prelude.mempty)
       )
 
 instance
@@ -120,14 +121,14 @@ instance
       Prelude.rnf type' `Prelude.seq` Prelude.rnf options
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails
   where
   toJSON
     AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Type" Core..=) Prelude.<$> type',
-              ("Options" Core..=) Prelude.<$> options
+            [ ("Type" Data..=) Prelude.<$> type',
+              ("Options" Data..=) Prelude.<$> options
             ]
         )

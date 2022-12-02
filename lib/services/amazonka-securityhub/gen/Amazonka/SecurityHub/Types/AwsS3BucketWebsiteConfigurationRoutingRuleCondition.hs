@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsS3BucketWebsiteConfigurationRoutingRuleCond
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The condition that must be met in order to apply the routing rule.
@@ -67,16 +68,16 @@ awsS3BucketWebsiteConfigurationRoutingRuleCondition_keyPrefixEquals :: Lens.Lens
 awsS3BucketWebsiteConfigurationRoutingRuleCondition_keyPrefixEquals = Lens.lens (\AwsS3BucketWebsiteConfigurationRoutingRuleCondition' {keyPrefixEquals} -> keyPrefixEquals) (\s@AwsS3BucketWebsiteConfigurationRoutingRuleCondition' {} a -> s {keyPrefixEquals = a} :: AwsS3BucketWebsiteConfigurationRoutingRuleCondition)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsS3BucketWebsiteConfigurationRoutingRuleCondition
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsS3BucketWebsiteConfigurationRoutingRuleCondition"
       ( \x ->
           AwsS3BucketWebsiteConfigurationRoutingRuleCondition'
-            Prelude.<$> (x Core..:? "HttpErrorCodeReturnedEquals")
-              Prelude.<*> (x Core..:? "KeyPrefixEquals")
+            Prelude.<$> (x Data..:? "HttpErrorCodeReturnedEquals")
+              Prelude.<*> (x Data..:? "KeyPrefixEquals")
       )
 
 instance
@@ -100,16 +101,16 @@ instance
         `Prelude.seq` Prelude.rnf keyPrefixEquals
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsS3BucketWebsiteConfigurationRoutingRuleCondition
   where
   toJSON
     AwsS3BucketWebsiteConfigurationRoutingRuleCondition' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("HttpErrorCodeReturnedEquals" Core..=)
+            [ ("HttpErrorCodeReturnedEquals" Data..=)
                 Prelude.<$> httpErrorCodeReturnedEquals,
-              ("KeyPrefixEquals" Core..=)
+              ("KeyPrefixEquals" Data..=)
                 Prelude.<$> keyPrefixEquals
             ]
         )

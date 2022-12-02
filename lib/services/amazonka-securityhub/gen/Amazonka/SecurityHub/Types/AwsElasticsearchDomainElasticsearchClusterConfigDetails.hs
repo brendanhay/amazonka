@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElasticsearchDomainElasticsearchClusterConf
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails
 
@@ -172,21 +173,21 @@ awsElasticsearchDomainElasticsearchClusterConfigDetails_dedicatedMasterCount :: 
 awsElasticsearchDomainElasticsearchClusterConfigDetails_dedicatedMasterCount = Lens.lens (\AwsElasticsearchDomainElasticsearchClusterConfigDetails' {dedicatedMasterCount} -> dedicatedMasterCount) (\s@AwsElasticsearchDomainElasticsearchClusterConfigDetails' {} a -> s {dedicatedMasterCount = a} :: AwsElasticsearchDomainElasticsearchClusterConfigDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsElasticsearchDomainElasticsearchClusterConfigDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElasticsearchDomainElasticsearchClusterConfigDetails"
       ( \x ->
           AwsElasticsearchDomainElasticsearchClusterConfigDetails'
-            Prelude.<$> (x Core..:? "DedicatedMasterType")
-              Prelude.<*> (x Core..:? "ZoneAwarenessEnabled")
-              Prelude.<*> (x Core..:? "DedicatedMasterEnabled")
-              Prelude.<*> (x Core..:? "InstanceType")
-              Prelude.<*> (x Core..:? "ZoneAwarenessConfig")
-              Prelude.<*> (x Core..:? "InstanceCount")
-              Prelude.<*> (x Core..:? "DedicatedMasterCount")
+            Prelude.<$> (x Data..:? "DedicatedMasterType")
+              Prelude.<*> (x Data..:? "ZoneAwarenessEnabled")
+              Prelude.<*> (x Data..:? "DedicatedMasterEnabled")
+              Prelude.<*> (x Data..:? "InstanceType")
+              Prelude.<*> (x Data..:? "ZoneAwarenessConfig")
+              Prelude.<*> (x Data..:? "InstanceCount")
+              Prelude.<*> (x Data..:? "DedicatedMasterCount")
       )
 
 instance
@@ -219,24 +220,24 @@ instance
         `Prelude.seq` Prelude.rnf dedicatedMasterCount
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsElasticsearchDomainElasticsearchClusterConfigDetails
   where
   toJSON
     AwsElasticsearchDomainElasticsearchClusterConfigDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("DedicatedMasterType" Core..=)
+            [ ("DedicatedMasterType" Data..=)
                 Prelude.<$> dedicatedMasterType,
-              ("ZoneAwarenessEnabled" Core..=)
+              ("ZoneAwarenessEnabled" Data..=)
                 Prelude.<$> zoneAwarenessEnabled,
-              ("DedicatedMasterEnabled" Core..=)
+              ("DedicatedMasterEnabled" Data..=)
                 Prelude.<$> dedicatedMasterEnabled,
-              ("InstanceType" Core..=) Prelude.<$> instanceType,
-              ("ZoneAwarenessConfig" Core..=)
+              ("InstanceType" Data..=) Prelude.<$> instanceType,
+              ("ZoneAwarenessConfig" Data..=)
                 Prelude.<$> zoneAwarenessConfig,
-              ("InstanceCount" Core..=) Prelude.<$> instanceCount,
-              ("DedicatedMasterCount" Core..=)
+              ("InstanceCount" Data..=) Prelude.<$> instanceCount,
+              ("DedicatedMasterCount" Data..=)
                 Prelude.<$> dedicatedMasterCount
             ]
         )

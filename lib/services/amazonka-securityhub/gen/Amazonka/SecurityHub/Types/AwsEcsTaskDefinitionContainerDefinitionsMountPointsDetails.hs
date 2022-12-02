@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsMountP
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A mount point for the data volumes in the container.
@@ -77,17 +78,17 @@ awsEcsTaskDefinitionContainerDefinitionsMountPointsDetails_readOnly :: Lens.Lens
 awsEcsTaskDefinitionContainerDefinitionsMountPointsDetails_readOnly = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails' {readOnly} -> readOnly) (\s@AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails' {} a -> s {readOnly = a} :: AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails'
-            Prelude.<$> (x Core..:? "ContainerPath")
-              Prelude.<*> (x Core..:? "SourceVolume")
-              Prelude.<*> (x Core..:? "ReadOnly")
+            Prelude.<$> (x Data..:? "ContainerPath")
+              Prelude.<*> (x Data..:? "SourceVolume")
+              Prelude.<*> (x Data..:? "ReadOnly")
       )
 
 instance
@@ -112,15 +113,15 @@ instance
         `Prelude.seq` Prelude.rnf readOnly
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails
   where
   toJSON
     AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("ContainerPath" Core..=) Prelude.<$> containerPath,
-              ("SourceVolume" Core..=) Prelude.<$> sourceVolume,
-              ("ReadOnly" Core..=) Prelude.<$> readOnly
+            [ ("ContainerPath" Data..=) Prelude.<$> containerPath,
+              ("SourceVolume" Data..=) Prelude.<$> sourceVolume,
+              ("ReadOnly" Data..=) Prelude.<$> readOnly
             ]
         )

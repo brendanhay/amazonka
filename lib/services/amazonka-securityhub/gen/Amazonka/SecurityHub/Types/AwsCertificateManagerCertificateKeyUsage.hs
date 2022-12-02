@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateKeyUsage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a key usage X.509 v3 extension object.
@@ -54,15 +55,15 @@ awsCertificateManagerCertificateKeyUsage_name :: Lens.Lens' AwsCertificateManage
 awsCertificateManagerCertificateKeyUsage_name = Lens.lens (\AwsCertificateManagerCertificateKeyUsage' {name} -> name) (\s@AwsCertificateManagerCertificateKeyUsage' {} a -> s {name = a} :: AwsCertificateManagerCertificateKeyUsage)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCertificateManagerCertificateKeyUsage
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCertificateManagerCertificateKeyUsage"
       ( \x ->
           AwsCertificateManagerCertificateKeyUsage'
-            Prelude.<$> (x Core..:? "Name")
+            Prelude.<$> (x Data..:? "Name")
       )
 
 instance
@@ -82,11 +83,11 @@ instance
     Prelude.rnf name
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsCertificateManagerCertificateKeyUsage
   where
   toJSON AwsCertificateManagerCertificateKeyUsage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Name" Core..=) Prelude.<$> name]
+          [("Name" Data..=) Prelude.<$> name]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsIamPolicyDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsIamPolicyVersion
 
@@ -176,25 +177,25 @@ awsIamPolicyDetails_permissionsBoundaryUsageCount = Lens.lens (\AwsIamPolicyDeta
 awsIamPolicyDetails_isAttachable :: Lens.Lens' AwsIamPolicyDetails (Prelude.Maybe Prelude.Bool)
 awsIamPolicyDetails_isAttachable = Lens.lens (\AwsIamPolicyDetails' {isAttachable} -> isAttachable) (\s@AwsIamPolicyDetails' {} a -> s {isAttachable = a} :: AwsIamPolicyDetails)
 
-instance Core.FromJSON AwsIamPolicyDetails where
+instance Data.FromJSON AwsIamPolicyDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsIamPolicyDetails"
       ( \x ->
           AwsIamPolicyDetails'
-            Prelude.<$> (x Core..:? "PolicyName")
-            Prelude.<*> (x Core..:? "PolicyId")
-            Prelude.<*> (x Core..:? "DefaultVersionId")
-            Prelude.<*> (x Core..:? "Path")
-            Prelude.<*> (x Core..:? "UpdateDate")
-            Prelude.<*> ( x Core..:? "PolicyVersionList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "PolicyName")
+            Prelude.<*> (x Data..:? "PolicyId")
+            Prelude.<*> (x Data..:? "DefaultVersionId")
+            Prelude.<*> (x Data..:? "Path")
+            Prelude.<*> (x Data..:? "UpdateDate")
+            Prelude.<*> ( x Data..:? "PolicyVersionList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "CreateDate")
-            Prelude.<*> (x Core..:? "AttachmentCount")
-            Prelude.<*> (x Core..:? "PermissionsBoundaryUsageCount")
-            Prelude.<*> (x Core..:? "IsAttachable")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "CreateDate")
+            Prelude.<*> (x Data..:? "AttachmentCount")
+            Prelude.<*> (x Data..:? "PermissionsBoundaryUsageCount")
+            Prelude.<*> (x Data..:? "IsAttachable")
       )
 
 instance Prelude.Hashable AwsIamPolicyDetails where
@@ -225,24 +226,24 @@ instance Prelude.NFData AwsIamPolicyDetails where
       `Prelude.seq` Prelude.rnf permissionsBoundaryUsageCount
       `Prelude.seq` Prelude.rnf isAttachable
 
-instance Core.ToJSON AwsIamPolicyDetails where
+instance Data.ToJSON AwsIamPolicyDetails where
   toJSON AwsIamPolicyDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PolicyName" Core..=) Prelude.<$> policyName,
-            ("PolicyId" Core..=) Prelude.<$> policyId,
-            ("DefaultVersionId" Core..=)
+          [ ("PolicyName" Data..=) Prelude.<$> policyName,
+            ("PolicyId" Data..=) Prelude.<$> policyId,
+            ("DefaultVersionId" Data..=)
               Prelude.<$> defaultVersionId,
-            ("Path" Core..=) Prelude.<$> path,
-            ("UpdateDate" Core..=) Prelude.<$> updateDate,
-            ("PolicyVersionList" Core..=)
+            ("Path" Data..=) Prelude.<$> path,
+            ("UpdateDate" Data..=) Prelude.<$> updateDate,
+            ("PolicyVersionList" Data..=)
               Prelude.<$> policyVersionList,
-            ("Description" Core..=) Prelude.<$> description,
-            ("CreateDate" Core..=) Prelude.<$> createDate,
-            ("AttachmentCount" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("CreateDate" Data..=) Prelude.<$> createDate,
+            ("AttachmentCount" Data..=)
               Prelude.<$> attachmentCount,
-            ("PermissionsBoundaryUsageCount" Core..=)
+            ("PermissionsBoundaryUsageCount" Data..=)
               Prelude.<$> permissionsBoundaryUsageCount,
-            ("IsAttachable" Core..=) Prelude.<$> isAttachable
+            ("IsAttachable" Data..=) Prelude.<$> isAttachable
           ]
       )

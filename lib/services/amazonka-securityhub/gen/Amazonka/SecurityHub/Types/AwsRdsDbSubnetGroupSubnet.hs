@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRdsDbSubnetGroupSubnet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsRdsDbSubnetGroupSubnetAvailabilityZone
 
@@ -75,15 +76,15 @@ awsRdsDbSubnetGroupSubnet_subnetStatus = Lens.lens (\AwsRdsDbSubnetGroupSubnet' 
 awsRdsDbSubnetGroupSubnet_subnetAvailabilityZone :: Lens.Lens' AwsRdsDbSubnetGroupSubnet (Prelude.Maybe AwsRdsDbSubnetGroupSubnetAvailabilityZone)
 awsRdsDbSubnetGroupSubnet_subnetAvailabilityZone = Lens.lens (\AwsRdsDbSubnetGroupSubnet' {subnetAvailabilityZone} -> subnetAvailabilityZone) (\s@AwsRdsDbSubnetGroupSubnet' {} a -> s {subnetAvailabilityZone = a} :: AwsRdsDbSubnetGroupSubnet)
 
-instance Core.FromJSON AwsRdsDbSubnetGroupSubnet where
+instance Data.FromJSON AwsRdsDbSubnetGroupSubnet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRdsDbSubnetGroupSubnet"
       ( \x ->
           AwsRdsDbSubnetGroupSubnet'
-            Prelude.<$> (x Core..:? "SubnetIdentifier")
-            Prelude.<*> (x Core..:? "SubnetStatus")
-            Prelude.<*> (x Core..:? "SubnetAvailabilityZone")
+            Prelude.<$> (x Data..:? "SubnetIdentifier")
+            Prelude.<*> (x Data..:? "SubnetStatus")
+            Prelude.<*> (x Data..:? "SubnetAvailabilityZone")
       )
 
 instance Prelude.Hashable AwsRdsDbSubnetGroupSubnet where
@@ -98,14 +99,14 @@ instance Prelude.NFData AwsRdsDbSubnetGroupSubnet where
       `Prelude.seq` Prelude.rnf subnetStatus
       `Prelude.seq` Prelude.rnf subnetAvailabilityZone
 
-instance Core.ToJSON AwsRdsDbSubnetGroupSubnet where
+instance Data.ToJSON AwsRdsDbSubnetGroupSubnet where
   toJSON AwsRdsDbSubnetGroupSubnet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SubnetIdentifier" Core..=)
+          [ ("SubnetIdentifier" Data..=)
               Prelude.<$> subnetIdentifier,
-            ("SubnetStatus" Core..=) Prelude.<$> subnetStatus,
-            ("SubnetAvailabilityZone" Core..=)
+            ("SubnetStatus" Data..=) Prelude.<$> subnetStatus,
+            ("SubnetAvailabilityZone" Data..=)
               Prelude.<$> subnetAvailabilityZone
           ]
       )

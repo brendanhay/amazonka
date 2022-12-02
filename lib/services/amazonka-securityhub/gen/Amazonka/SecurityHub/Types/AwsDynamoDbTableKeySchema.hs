@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsDynamoDbTableKeySchema where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A component of the key schema for the DynamoDB table, a global secondary
@@ -66,14 +67,14 @@ awsDynamoDbTableKeySchema_keyType = Lens.lens (\AwsDynamoDbTableKeySchema' {keyT
 awsDynamoDbTableKeySchema_attributeName :: Lens.Lens' AwsDynamoDbTableKeySchema (Prelude.Maybe Prelude.Text)
 awsDynamoDbTableKeySchema_attributeName = Lens.lens (\AwsDynamoDbTableKeySchema' {attributeName} -> attributeName) (\s@AwsDynamoDbTableKeySchema' {} a -> s {attributeName = a} :: AwsDynamoDbTableKeySchema)
 
-instance Core.FromJSON AwsDynamoDbTableKeySchema where
+instance Data.FromJSON AwsDynamoDbTableKeySchema where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsDynamoDbTableKeySchema"
       ( \x ->
           AwsDynamoDbTableKeySchema'
-            Prelude.<$> (x Core..:? "KeyType")
-            Prelude.<*> (x Core..:? "AttributeName")
+            Prelude.<$> (x Data..:? "KeyType")
+            Prelude.<*> (x Data..:? "AttributeName")
       )
 
 instance Prelude.Hashable AwsDynamoDbTableKeySchema where
@@ -86,11 +87,11 @@ instance Prelude.NFData AwsDynamoDbTableKeySchema where
     Prelude.rnf keyType
       `Prelude.seq` Prelude.rnf attributeName
 
-instance Core.ToJSON AwsDynamoDbTableKeySchema where
+instance Data.ToJSON AwsDynamoDbTableKeySchema where
   toJSON AwsDynamoDbTableKeySchema' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KeyType" Core..=) Prelude.<$> keyType,
-            ("AttributeName" Core..=) Prelude.<$> attributeName
+          [ ("KeyType" Data..=) Prelude.<$> keyType,
+            ("AttributeName" Data..=) Prelude.<$> attributeName
           ]
       )

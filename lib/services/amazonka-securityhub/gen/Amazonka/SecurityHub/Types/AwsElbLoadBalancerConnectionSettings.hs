@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElbLoadBalancerConnectionSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains connection settings for the load balancer.
@@ -57,15 +58,15 @@ awsElbLoadBalancerConnectionSettings_idleTimeout :: Lens.Lens' AwsElbLoadBalance
 awsElbLoadBalancerConnectionSettings_idleTimeout = Lens.lens (\AwsElbLoadBalancerConnectionSettings' {idleTimeout} -> idleTimeout) (\s@AwsElbLoadBalancerConnectionSettings' {} a -> s {idleTimeout = a} :: AwsElbLoadBalancerConnectionSettings)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsElbLoadBalancerConnectionSettings
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElbLoadBalancerConnectionSettings"
       ( \x ->
           AwsElbLoadBalancerConnectionSettings'
-            Prelude.<$> (x Core..:? "IdleTimeout")
+            Prelude.<$> (x Data..:? "IdleTimeout")
       )
 
 instance
@@ -85,11 +86,11 @@ instance
     Prelude.rnf idleTimeout
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsElbLoadBalancerConnectionSettings
   where
   toJSON AwsElbLoadBalancerConnectionSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("IdleTimeout" Core..=) Prelude.<$> idleTimeout]
+          [("IdleTimeout" Data..=) Prelude.<$> idleTimeout]
       )

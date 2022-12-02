@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,7 +85,7 @@ instance Core.AWSRequest DeleteInsight where
       ( \s h x ->
           DeleteInsightResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "InsightArn")
+            Prelude.<*> (x Data..:> "InsightArn")
       )
 
 instance Prelude.Hashable DeleteInsight where
@@ -94,23 +95,23 @@ instance Prelude.Hashable DeleteInsight where
 instance Prelude.NFData DeleteInsight where
   rnf DeleteInsight' {..} = Prelude.rnf insightArn
 
-instance Core.ToHeaders DeleteInsight where
+instance Data.ToHeaders DeleteInsight where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteInsight where
+instance Data.ToPath DeleteInsight where
   toPath DeleteInsight' {..} =
     Prelude.mconcat
-      ["/insights/", Core.toBS insightArn]
+      ["/insights/", Data.toBS insightArn]
 
-instance Core.ToQuery DeleteInsight where
+instance Data.ToQuery DeleteInsight where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteInsightResponse' smart constructor.

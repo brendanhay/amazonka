@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRdsDbDomainMembership where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an Active Directory domain membership record
@@ -86,16 +87,16 @@ awsRdsDbDomainMembership_status = Lens.lens (\AwsRdsDbDomainMembership' {status}
 awsRdsDbDomainMembership_iamRoleName :: Lens.Lens' AwsRdsDbDomainMembership (Prelude.Maybe Prelude.Text)
 awsRdsDbDomainMembership_iamRoleName = Lens.lens (\AwsRdsDbDomainMembership' {iamRoleName} -> iamRoleName) (\s@AwsRdsDbDomainMembership' {} a -> s {iamRoleName = a} :: AwsRdsDbDomainMembership)
 
-instance Core.FromJSON AwsRdsDbDomainMembership where
+instance Data.FromJSON AwsRdsDbDomainMembership where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRdsDbDomainMembership"
       ( \x ->
           AwsRdsDbDomainMembership'
-            Prelude.<$> (x Core..:? "Domain")
-            Prelude.<*> (x Core..:? "Fqdn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "IamRoleName")
+            Prelude.<$> (x Data..:? "Domain")
+            Prelude.<*> (x Data..:? "Fqdn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "IamRoleName")
       )
 
 instance Prelude.Hashable AwsRdsDbDomainMembership where
@@ -112,13 +113,13 @@ instance Prelude.NFData AwsRdsDbDomainMembership where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf iamRoleName
 
-instance Core.ToJSON AwsRdsDbDomainMembership where
+instance Data.ToJSON AwsRdsDbDomainMembership where
   toJSON AwsRdsDbDomainMembership' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Domain" Core..=) Prelude.<$> domain,
-            ("Fqdn" Core..=) Prelude.<$> fqdn,
-            ("Status" Core..=) Prelude.<$> status,
-            ("IamRoleName" Core..=) Prelude.<$> iamRoleName
+          [ ("Domain" Data..=) Prelude.<$> domain,
+            ("Fqdn" Data..=) Prelude.<$> fqdn,
+            ("Status" Data..=) Prelude.<$> status,
+            ("IamRoleName" Data..=) Prelude.<$> iamRoleName
           ]
       )

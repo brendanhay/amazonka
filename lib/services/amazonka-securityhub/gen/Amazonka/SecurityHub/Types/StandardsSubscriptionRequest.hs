@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.StandardsSubscriptionRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The standard that you want to enable.
@@ -83,12 +84,12 @@ instance Prelude.NFData StandardsSubscriptionRequest where
     Prelude.rnf standardsInput
       `Prelude.seq` Prelude.rnf standardsArn
 
-instance Core.ToJSON StandardsSubscriptionRequest where
+instance Data.ToJSON StandardsSubscriptionRequest where
   toJSON StandardsSubscriptionRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StandardsInput" Core..=)
+          [ ("StandardsInput" Data..=)
               Prelude.<$> standardsInput,
-            Prelude.Just ("StandardsArn" Core..= standardsArn)
+            Prelude.Just ("StandardsArn" Data..= standardsArn)
           ]
       )

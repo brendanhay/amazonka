@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsIamUserDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsIamAttachedManagedPolicy
 import Amazonka.SecurityHub.Types.AwsIamPermissionsBoundary
@@ -133,23 +134,23 @@ awsIamUserDetails_createDate = Lens.lens (\AwsIamUserDetails' {createDate} -> cr
 awsIamUserDetails_userPolicyList :: Lens.Lens' AwsIamUserDetails (Prelude.Maybe [AwsIamUserPolicy])
 awsIamUserDetails_userPolicyList = Lens.lens (\AwsIamUserDetails' {userPolicyList} -> userPolicyList) (\s@AwsIamUserDetails' {} a -> s {userPolicyList = a} :: AwsIamUserDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AwsIamUserDetails where
+instance Data.FromJSON AwsIamUserDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsIamUserDetails"
       ( \x ->
           AwsIamUserDetails'
-            Prelude.<$> (x Core..:? "UserName")
-            Prelude.<*> (x Core..:? "Path")
-            Prelude.<*> (x Core..:? "GroupList" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "AttachedManagedPolicies"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "UserName")
+            Prelude.<*> (x Data..:? "Path")
+            Prelude.<*> (x Data..:? "GroupList" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "AttachedManagedPolicies"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "PermissionsBoundary")
-            Prelude.<*> (x Core..:? "UserId")
-            Prelude.<*> (x Core..:? "CreateDate")
-            Prelude.<*> ( x Core..:? "UserPolicyList"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "PermissionsBoundary")
+            Prelude.<*> (x Data..:? "UserId")
+            Prelude.<*> (x Data..:? "CreateDate")
+            Prelude.<*> ( x Data..:? "UserPolicyList"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -175,20 +176,20 @@ instance Prelude.NFData AwsIamUserDetails where
       `Prelude.seq` Prelude.rnf createDate
       `Prelude.seq` Prelude.rnf userPolicyList
 
-instance Core.ToJSON AwsIamUserDetails where
+instance Data.ToJSON AwsIamUserDetails where
   toJSON AwsIamUserDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UserName" Core..=) Prelude.<$> userName,
-            ("Path" Core..=) Prelude.<$> path,
-            ("GroupList" Core..=) Prelude.<$> groupList,
-            ("AttachedManagedPolicies" Core..=)
+          [ ("UserName" Data..=) Prelude.<$> userName,
+            ("Path" Data..=) Prelude.<$> path,
+            ("GroupList" Data..=) Prelude.<$> groupList,
+            ("AttachedManagedPolicies" Data..=)
               Prelude.<$> attachedManagedPolicies,
-            ("PermissionsBoundary" Core..=)
+            ("PermissionsBoundary" Data..=)
               Prelude.<$> permissionsBoundary,
-            ("UserId" Core..=) Prelude.<$> userId,
-            ("CreateDate" Core..=) Prelude.<$> createDate,
-            ("UserPolicyList" Core..=)
+            ("UserId" Data..=) Prelude.<$> userId,
+            ("CreateDate" Data..=) Prelude.<$> createDate,
+            ("UserPolicyList" Data..=)
               Prelude.<$> userPolicyList
           ]
       )

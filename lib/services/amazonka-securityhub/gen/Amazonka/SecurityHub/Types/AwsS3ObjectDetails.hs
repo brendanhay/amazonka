@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsS3ObjectDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about an Amazon S3 object.
@@ -125,18 +126,18 @@ awsS3ObjectDetails_contentType = Lens.lens (\AwsS3ObjectDetails' {contentType} -
 awsS3ObjectDetails_versionId :: Lens.Lens' AwsS3ObjectDetails (Prelude.Maybe Prelude.Text)
 awsS3ObjectDetails_versionId = Lens.lens (\AwsS3ObjectDetails' {versionId} -> versionId) (\s@AwsS3ObjectDetails' {} a -> s {versionId = a} :: AwsS3ObjectDetails)
 
-instance Core.FromJSON AwsS3ObjectDetails where
+instance Data.FromJSON AwsS3ObjectDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsS3ObjectDetails"
       ( \x ->
           AwsS3ObjectDetails'
-            Prelude.<$> (x Core..:? "ServerSideEncryption")
-            Prelude.<*> (x Core..:? "SSEKMSKeyId")
-            Prelude.<*> (x Core..:? "LastModified")
-            Prelude.<*> (x Core..:? "ETag")
-            Prelude.<*> (x Core..:? "ContentType")
-            Prelude.<*> (x Core..:? "VersionId")
+            Prelude.<$> (x Data..:? "ServerSideEncryption")
+            Prelude.<*> (x Data..:? "SSEKMSKeyId")
+            Prelude.<*> (x Data..:? "LastModified")
+            Prelude.<*> (x Data..:? "ETag")
+            Prelude.<*> (x Data..:? "ContentType")
+            Prelude.<*> (x Data..:? "VersionId")
       )
 
 instance Prelude.Hashable AwsS3ObjectDetails where
@@ -157,16 +158,16 @@ instance Prelude.NFData AwsS3ObjectDetails where
       `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf versionId
 
-instance Core.ToJSON AwsS3ObjectDetails where
+instance Data.ToJSON AwsS3ObjectDetails where
   toJSON AwsS3ObjectDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ServerSideEncryption" Core..=)
+          [ ("ServerSideEncryption" Data..=)
               Prelude.<$> serverSideEncryption,
-            ("SSEKMSKeyId" Core..=) Prelude.<$> sSEKMSKeyId,
-            ("LastModified" Core..=) Prelude.<$> lastModified,
-            ("ETag" Core..=) Prelude.<$> eTag,
-            ("ContentType" Core..=) Prelude.<$> contentType,
-            ("VersionId" Core..=) Prelude.<$> versionId
+            ("SSEKMSKeyId" Data..=) Prelude.<$> sSEKMSKeyId,
+            ("LastModified" Data..=) Prelude.<$> lastModified,
+            ("ETag" Data..=) Prelude.<$> eTag,
+            ("ContentType" Data..=) Prelude.<$> contentType,
+            ("VersionId" Data..=) Prelude.<$> versionId
           ]
       )

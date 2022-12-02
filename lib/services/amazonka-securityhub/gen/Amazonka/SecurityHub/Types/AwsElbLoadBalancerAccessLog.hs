@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElbLoadBalancerAccessLog where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the access log configuration for the load
@@ -96,16 +97,16 @@ awsElbLoadBalancerAccessLog_enabled = Lens.lens (\AwsElbLoadBalancerAccessLog' {
 awsElbLoadBalancerAccessLog_emitInterval :: Lens.Lens' AwsElbLoadBalancerAccessLog (Prelude.Maybe Prelude.Int)
 awsElbLoadBalancerAccessLog_emitInterval = Lens.lens (\AwsElbLoadBalancerAccessLog' {emitInterval} -> emitInterval) (\s@AwsElbLoadBalancerAccessLog' {} a -> s {emitInterval = a} :: AwsElbLoadBalancerAccessLog)
 
-instance Core.FromJSON AwsElbLoadBalancerAccessLog where
+instance Data.FromJSON AwsElbLoadBalancerAccessLog where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElbLoadBalancerAccessLog"
       ( \x ->
           AwsElbLoadBalancerAccessLog'
-            Prelude.<$> (x Core..:? "S3BucketPrefix")
-            Prelude.<*> (x Core..:? "S3BucketName")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "EmitInterval")
+            Prelude.<$> (x Data..:? "S3BucketPrefix")
+            Prelude.<*> (x Data..:? "S3BucketName")
+            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "EmitInterval")
       )
 
 instance Prelude.Hashable AwsElbLoadBalancerAccessLog where
@@ -122,14 +123,14 @@ instance Prelude.NFData AwsElbLoadBalancerAccessLog where
       `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf emitInterval
 
-instance Core.ToJSON AwsElbLoadBalancerAccessLog where
+instance Data.ToJSON AwsElbLoadBalancerAccessLog where
   toJSON AwsElbLoadBalancerAccessLog' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3BucketPrefix" Core..=)
+          [ ("S3BucketPrefix" Data..=)
               Prelude.<$> s3BucketPrefix,
-            ("S3BucketName" Core..=) Prelude.<$> s3BucketName,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("EmitInterval" Core..=) Prelude.<$> emitInterval
+            ("S3BucketName" Data..=) Prelude.<$> s3BucketName,
+            ("Enabled" Data..=) Prelude.<$> enabled,
+            ("EmitInterval" Data..=) Prelude.<$> emitInterval
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An IAM role associated with the DB instance.
@@ -107,15 +108,15 @@ awsRdsDbInstanceAssociatedRole_featureName = Lens.lens (\AwsRdsDbInstanceAssocia
 awsRdsDbInstanceAssociatedRole_status :: Lens.Lens' AwsRdsDbInstanceAssociatedRole (Prelude.Maybe Prelude.Text)
 awsRdsDbInstanceAssociatedRole_status = Lens.lens (\AwsRdsDbInstanceAssociatedRole' {status} -> status) (\s@AwsRdsDbInstanceAssociatedRole' {} a -> s {status = a} :: AwsRdsDbInstanceAssociatedRole)
 
-instance Core.FromJSON AwsRdsDbInstanceAssociatedRole where
+instance Data.FromJSON AwsRdsDbInstanceAssociatedRole where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRdsDbInstanceAssociatedRole"
       ( \x ->
           AwsRdsDbInstanceAssociatedRole'
-            Prelude.<$> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "FeatureName")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "FeatureName")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance
@@ -138,12 +139,12 @@ instance
       `Prelude.seq` Prelude.rnf featureName
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToJSON AwsRdsDbInstanceAssociatedRole where
+instance Data.ToJSON AwsRdsDbInstanceAssociatedRole where
   toJSON AwsRdsDbInstanceAssociatedRole' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("FeatureName" Core..=) Prelude.<$> featureName,
-            ("Status" Core..=) Prelude.<$> status
+          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("FeatureName" Data..=) Prelude.<$> featureName,
+            ("Status" Data..=) Prelude.<$> status
           ]
       )

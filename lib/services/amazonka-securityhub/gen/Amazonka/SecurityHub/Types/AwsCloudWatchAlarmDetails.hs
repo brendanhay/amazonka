@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCloudWatchAlarmDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsCloudWatchAlarmDimensionsDetails
 
@@ -327,36 +328,36 @@ awsCloudWatchAlarmDetails_statistic = Lens.lens (\AwsCloudWatchAlarmDetails' {st
 awsCloudWatchAlarmDetails_unit :: Lens.Lens' AwsCloudWatchAlarmDetails (Prelude.Maybe Prelude.Text)
 awsCloudWatchAlarmDetails_unit = Lens.lens (\AwsCloudWatchAlarmDetails' {unit} -> unit) (\s@AwsCloudWatchAlarmDetails' {} a -> s {unit = a} :: AwsCloudWatchAlarmDetails)
 
-instance Core.FromJSON AwsCloudWatchAlarmDetails where
+instance Data.FromJSON AwsCloudWatchAlarmDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCloudWatchAlarmDetails"
       ( \x ->
           AwsCloudWatchAlarmDetails'
-            Prelude.<$> (x Core..:? "AlarmActions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AlarmDescription")
-            Prelude.<*> (x Core..:? "ExtendedStatistic")
-            Prelude.<*> (x Core..:? "ActionsEnabled")
-            Prelude.<*> (x Core..:? "Period")
-            Prelude.<*> (x Core..:? "EvaluateLowSampleCountPercentile")
-            Prelude.<*> (x Core..:? "Dimensions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ThresholdMetricId")
-            Prelude.<*> (x Core..:? "TreatMissingData")
-            Prelude.<*> (x Core..:? "EvaluationPeriods")
-            Prelude.<*> (x Core..:? "DatapointsToAlarm")
-            Prelude.<*> ( x Core..:? "InsufficientDataActions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "AlarmActions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AlarmDescription")
+            Prelude.<*> (x Data..:? "ExtendedStatistic")
+            Prelude.<*> (x Data..:? "ActionsEnabled")
+            Prelude.<*> (x Data..:? "Period")
+            Prelude.<*> (x Data..:? "EvaluateLowSampleCountPercentile")
+            Prelude.<*> (x Data..:? "Dimensions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ThresholdMetricId")
+            Prelude.<*> (x Data..:? "TreatMissingData")
+            Prelude.<*> (x Data..:? "EvaluationPeriods")
+            Prelude.<*> (x Data..:? "DatapointsToAlarm")
+            Prelude.<*> ( x Data..:? "InsufficientDataActions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "AlarmArn")
-            Prelude.<*> (x Core..:? "MetricName")
-            Prelude.<*> (x Core..:? "AlarmConfigurationUpdatedTimestamp")
-            Prelude.<*> (x Core..:? "Threshold")
-            Prelude.<*> (x Core..:? "OkActions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AlarmName")
-            Prelude.<*> (x Core..:? "ComparisonOperator")
-            Prelude.<*> (x Core..:? "Namespace")
-            Prelude.<*> (x Core..:? "Statistic")
-            Prelude.<*> (x Core..:? "Unit")
+            Prelude.<*> (x Data..:? "AlarmArn")
+            Prelude.<*> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..:? "AlarmConfigurationUpdatedTimestamp")
+            Prelude.<*> (x Data..:? "Threshold")
+            Prelude.<*> (x Data..:? "OkActions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AlarmName")
+            Prelude.<*> (x Data..:? "ComparisonOperator")
+            Prelude.<*> (x Data..:? "Namespace")
+            Prelude.<*> (x Data..:? "Statistic")
+            Prelude.<*> (x Data..:? "Unit")
       )
 
 instance Prelude.Hashable AwsCloudWatchAlarmDetails where
@@ -410,42 +411,42 @@ instance Prelude.NFData AwsCloudWatchAlarmDetails where
       `Prelude.seq` Prelude.rnf statistic
       `Prelude.seq` Prelude.rnf unit
 
-instance Core.ToJSON AwsCloudWatchAlarmDetails where
+instance Data.ToJSON AwsCloudWatchAlarmDetails where
   toJSON AwsCloudWatchAlarmDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AlarmActions" Core..=) Prelude.<$> alarmActions,
-            ("AlarmDescription" Core..=)
+          [ ("AlarmActions" Data..=) Prelude.<$> alarmActions,
+            ("AlarmDescription" Data..=)
               Prelude.<$> alarmDescription,
-            ("ExtendedStatistic" Core..=)
+            ("ExtendedStatistic" Data..=)
               Prelude.<$> extendedStatistic,
-            ("ActionsEnabled" Core..=)
+            ("ActionsEnabled" Data..=)
               Prelude.<$> actionsEnabled,
-            ("Period" Core..=) Prelude.<$> period,
-            ("EvaluateLowSampleCountPercentile" Core..=)
+            ("Period" Data..=) Prelude.<$> period,
+            ("EvaluateLowSampleCountPercentile" Data..=)
               Prelude.<$> evaluateLowSampleCountPercentile,
-            ("Dimensions" Core..=) Prelude.<$> dimensions,
-            ("ThresholdMetricId" Core..=)
+            ("Dimensions" Data..=) Prelude.<$> dimensions,
+            ("ThresholdMetricId" Data..=)
               Prelude.<$> thresholdMetricId,
-            ("TreatMissingData" Core..=)
+            ("TreatMissingData" Data..=)
               Prelude.<$> treatMissingData,
-            ("EvaluationPeriods" Core..=)
+            ("EvaluationPeriods" Data..=)
               Prelude.<$> evaluationPeriods,
-            ("DatapointsToAlarm" Core..=)
+            ("DatapointsToAlarm" Data..=)
               Prelude.<$> datapointsToAlarm,
-            ("InsufficientDataActions" Core..=)
+            ("InsufficientDataActions" Data..=)
               Prelude.<$> insufficientDataActions,
-            ("AlarmArn" Core..=) Prelude.<$> alarmArn,
-            ("MetricName" Core..=) Prelude.<$> metricName,
-            ("AlarmConfigurationUpdatedTimestamp" Core..=)
+            ("AlarmArn" Data..=) Prelude.<$> alarmArn,
+            ("MetricName" Data..=) Prelude.<$> metricName,
+            ("AlarmConfigurationUpdatedTimestamp" Data..=)
               Prelude.<$> alarmConfigurationUpdatedTimestamp,
-            ("Threshold" Core..=) Prelude.<$> threshold,
-            ("OkActions" Core..=) Prelude.<$> okActions,
-            ("AlarmName" Core..=) Prelude.<$> alarmName,
-            ("ComparisonOperator" Core..=)
+            ("Threshold" Data..=) Prelude.<$> threshold,
+            ("OkActions" Data..=) Prelude.<$> okActions,
+            ("AlarmName" Data..=) Prelude.<$> alarmName,
+            ("ComparisonOperator" Data..=)
               Prelude.<$> comparisonOperator,
-            ("Namespace" Core..=) Prelude.<$> namespace,
-            ("Statistic" Core..=) Prelude.<$> statistic,
-            ("Unit" Core..=) Prelude.<$> unit
+            ("Namespace" Data..=) Prelude.<$> namespace,
+            ("Statistic" Data..=) Prelude.<$> statistic,
+            ("Unit" Data..=) Prelude.<$> unit
           ]
       )

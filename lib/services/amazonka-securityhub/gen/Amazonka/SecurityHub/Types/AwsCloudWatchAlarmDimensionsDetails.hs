@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCloudWatchAlarmDimensionsDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the dimensions for the metric associated with the alarm.
@@ -63,15 +64,15 @@ awsCloudWatchAlarmDimensionsDetails_value :: Lens.Lens' AwsCloudWatchAlarmDimens
 awsCloudWatchAlarmDimensionsDetails_value = Lens.lens (\AwsCloudWatchAlarmDimensionsDetails' {value} -> value) (\s@AwsCloudWatchAlarmDimensionsDetails' {} a -> s {value = a} :: AwsCloudWatchAlarmDimensionsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCloudWatchAlarmDimensionsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCloudWatchAlarmDimensionsDetails"
       ( \x ->
           AwsCloudWatchAlarmDimensionsDetails'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
       )
 
 instance
@@ -92,13 +93,13 @@ instance
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsCloudWatchAlarmDimensionsDetails
   where
   toJSON AwsCloudWatchAlarmDimensionsDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

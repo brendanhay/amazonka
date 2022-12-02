@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.PatchSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides an overview of the patch compliance status for an instance
@@ -200,23 +201,23 @@ patchSummary_installedPendingReboot = Lens.lens (\PatchSummary' {installedPendin
 patchSummary_id :: Lens.Lens' PatchSummary Prelude.Text
 patchSummary_id = Lens.lens (\PatchSummary' {id} -> id) (\s@PatchSummary' {} a -> s {id = a} :: PatchSummary)
 
-instance Core.FromJSON PatchSummary where
+instance Data.FromJSON PatchSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PatchSummary"
       ( \x ->
           PatchSummary'
-            Prelude.<$> (x Core..:? "InstalledOtherCount")
-            Prelude.<*> (x Core..:? "RebootOption")
-            Prelude.<*> (x Core..:? "FailedCount")
-            Prelude.<*> (x Core..:? "OperationEndTime")
-            Prelude.<*> (x Core..:? "InstalledCount")
-            Prelude.<*> (x Core..:? "InstalledRejectedCount")
-            Prelude.<*> (x Core..:? "OperationStartTime")
-            Prelude.<*> (x Core..:? "MissingCount")
-            Prelude.<*> (x Core..:? "Operation")
-            Prelude.<*> (x Core..:? "InstalledPendingReboot")
-            Prelude.<*> (x Core..: "Id")
+            Prelude.<$> (x Data..:? "InstalledOtherCount")
+            Prelude.<*> (x Data..:? "RebootOption")
+            Prelude.<*> (x Data..:? "FailedCount")
+            Prelude.<*> (x Data..:? "OperationEndTime")
+            Prelude.<*> (x Data..:? "InstalledCount")
+            Prelude.<*> (x Data..:? "InstalledRejectedCount")
+            Prelude.<*> (x Data..:? "OperationStartTime")
+            Prelude.<*> (x Data..:? "MissingCount")
+            Prelude.<*> (x Data..:? "Operation")
+            Prelude.<*> (x Data..:? "InstalledPendingReboot")
+            Prelude.<*> (x Data..: "Id")
       )
 
 instance Prelude.Hashable PatchSummary where
@@ -247,26 +248,26 @@ instance Prelude.NFData PatchSummary where
       `Prelude.seq` Prelude.rnf installedPendingReboot
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToJSON PatchSummary where
+instance Data.ToJSON PatchSummary where
   toJSON PatchSummary' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InstalledOtherCount" Core..=)
+          [ ("InstalledOtherCount" Data..=)
               Prelude.<$> installedOtherCount,
-            ("RebootOption" Core..=) Prelude.<$> rebootOption,
-            ("FailedCount" Core..=) Prelude.<$> failedCount,
-            ("OperationEndTime" Core..=)
+            ("RebootOption" Data..=) Prelude.<$> rebootOption,
+            ("FailedCount" Data..=) Prelude.<$> failedCount,
+            ("OperationEndTime" Data..=)
               Prelude.<$> operationEndTime,
-            ("InstalledCount" Core..=)
+            ("InstalledCount" Data..=)
               Prelude.<$> installedCount,
-            ("InstalledRejectedCount" Core..=)
+            ("InstalledRejectedCount" Data..=)
               Prelude.<$> installedRejectedCount,
-            ("OperationStartTime" Core..=)
+            ("OperationStartTime" Data..=)
               Prelude.<$> operationStartTime,
-            ("MissingCount" Core..=) Prelude.<$> missingCount,
-            ("Operation" Core..=) Prelude.<$> operation,
-            ("InstalledPendingReboot" Core..=)
+            ("MissingCount" Data..=) Prelude.<$> missingCount,
+            ("Operation" Data..=) Prelude.<$> operation,
+            ("InstalledPendingReboot" Data..=)
               Prelude.<$> installedPendingReboot,
-            Prelude.Just ("Id" Core..= id)
+            Prelude.Just ("Id" Data..= id)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.FindingProviderFields where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.FindingProviderSeverity
 import Amazonka.SecurityHub.Types.RelatedFinding
@@ -132,19 +133,19 @@ findingProviderFields_confidence = Lens.lens (\FindingProviderFields' {confidenc
 findingProviderFields_types :: Lens.Lens' FindingProviderFields (Prelude.Maybe [Prelude.Text])
 findingProviderFields_types = Lens.lens (\FindingProviderFields' {types} -> types) (\s@FindingProviderFields' {} a -> s {types = a} :: FindingProviderFields) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON FindingProviderFields where
+instance Data.FromJSON FindingProviderFields where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FindingProviderFields"
       ( \x ->
           FindingProviderFields'
-            Prelude.<$> (x Core..:? "Criticality")
-            Prelude.<*> (x Core..:? "Severity")
-            Prelude.<*> ( x Core..:? "RelatedFindings"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Criticality")
+            Prelude.<*> (x Data..:? "Severity")
+            Prelude.<*> ( x Data..:? "RelatedFindings"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Types" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "Types" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable FindingProviderFields where
@@ -163,15 +164,15 @@ instance Prelude.NFData FindingProviderFields where
       `Prelude.seq` Prelude.rnf confidence
       `Prelude.seq` Prelude.rnf types
 
-instance Core.ToJSON FindingProviderFields where
+instance Data.ToJSON FindingProviderFields where
   toJSON FindingProviderFields' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Criticality" Core..=) Prelude.<$> criticality,
-            ("Severity" Core..=) Prelude.<$> severity,
-            ("RelatedFindings" Core..=)
+          [ ("Criticality" Data..=) Prelude.<$> criticality,
+            ("Severity" Data..=) Prelude.<$> severity,
+            ("RelatedFindings" Data..=)
               Prelude.<$> relatedFindings,
-            ("Confidence" Core..=) Prelude.<$> confidence,
-            ("Types" Core..=) Prelude.<$> types
+            ("Confidence" Data..=) Prelude.<$> confidence,
+            ("Types" Data..=) Prelude.<$> types
           ]
       )

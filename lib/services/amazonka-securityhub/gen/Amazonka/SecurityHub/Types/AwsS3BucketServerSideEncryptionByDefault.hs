@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsS3BucketServerSideEncryptionByDefault where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the default server-side encryption to apply to new objects in
@@ -67,16 +68,16 @@ awsS3BucketServerSideEncryptionByDefault_sSEAlgorithm :: Lens.Lens' AwsS3BucketS
 awsS3BucketServerSideEncryptionByDefault_sSEAlgorithm = Lens.lens (\AwsS3BucketServerSideEncryptionByDefault' {sSEAlgorithm} -> sSEAlgorithm) (\s@AwsS3BucketServerSideEncryptionByDefault' {} a -> s {sSEAlgorithm = a} :: AwsS3BucketServerSideEncryptionByDefault)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsS3BucketServerSideEncryptionByDefault
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsS3BucketServerSideEncryptionByDefault"
       ( \x ->
           AwsS3BucketServerSideEncryptionByDefault'
-            Prelude.<$> (x Core..:? "KMSMasterKeyID")
-            Prelude.<*> (x Core..:? "SSEAlgorithm")
+            Prelude.<$> (x Data..:? "KMSMasterKeyID")
+            Prelude.<*> (x Data..:? "SSEAlgorithm")
       )
 
 instance
@@ -98,14 +99,14 @@ instance
       `Prelude.seq` Prelude.rnf sSEAlgorithm
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsS3BucketServerSideEncryptionByDefault
   where
   toJSON AwsS3BucketServerSideEncryptionByDefault' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KMSMasterKeyID" Core..=)
+          [ ("KMSMasterKeyID" Data..=)
               Prelude.<$> kmsMasterKeyID,
-            ("SSEAlgorithm" Core..=) Prelude.<$> sSEAlgorithm
+            ("SSEAlgorithm" Data..=) Prelude.<$> sSEAlgorithm
           ]
       )

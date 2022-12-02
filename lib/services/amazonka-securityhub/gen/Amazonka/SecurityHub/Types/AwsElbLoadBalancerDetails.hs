@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElbLoadBalancerDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsElbLoadBalancerAttributes
 import Amazonka.SecurityHub.Types.AwsElbLoadBalancerBackendServerDescription
@@ -249,35 +250,35 @@ awsElbLoadBalancerDetails_dnsName = Lens.lens (\AwsElbLoadBalancerDetails' {dnsN
 awsElbLoadBalancerDetails_loadBalancerAttributes :: Lens.Lens' AwsElbLoadBalancerDetails (Prelude.Maybe AwsElbLoadBalancerAttributes)
 awsElbLoadBalancerDetails_loadBalancerAttributes = Lens.lens (\AwsElbLoadBalancerDetails' {loadBalancerAttributes} -> loadBalancerAttributes) (\s@AwsElbLoadBalancerDetails' {} a -> s {loadBalancerAttributes = a} :: AwsElbLoadBalancerDetails)
 
-instance Core.FromJSON AwsElbLoadBalancerDetails where
+instance Data.FromJSON AwsElbLoadBalancerDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElbLoadBalancerDetails"
       ( \x ->
           AwsElbLoadBalancerDetails'
-            Prelude.<$> (x Core..:? "Instances" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "HealthCheck")
-            Prelude.<*> (x Core..:? "Scheme")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "CanonicalHostedZoneName")
-            Prelude.<*> (x Core..:? "CanonicalHostedZoneNameID")
-            Prelude.<*> (x Core..:? "LoadBalancerName")
-            Prelude.<*> (x Core..:? "Subnets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SourceSecurityGroup")
-            Prelude.<*> ( x Core..:? "AvailabilityZones"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Instances" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "HealthCheck")
+            Prelude.<*> (x Data..:? "Scheme")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "CanonicalHostedZoneName")
+            Prelude.<*> (x Data..:? "CanonicalHostedZoneNameID")
+            Prelude.<*> (x Data..:? "LoadBalancerName")
+            Prelude.<*> (x Data..:? "Subnets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SourceSecurityGroup")
+            Prelude.<*> ( x Data..:? "AvailabilityZones"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ListenerDescriptions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ListenerDescriptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Policies")
-            Prelude.<*> ( x Core..:? "BackendServerDescriptions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Policies")
+            Prelude.<*> ( x Data..:? "BackendServerDescriptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SecurityGroups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "DnsName")
-            Prelude.<*> (x Core..:? "LoadBalancerAttributes")
+            Prelude.<*> (x Data..:? "SecurityGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "DnsName")
+            Prelude.<*> (x Data..:? "LoadBalancerAttributes")
       )
 
 instance Prelude.Hashable AwsElbLoadBalancerDetails where
@@ -320,35 +321,35 @@ instance Prelude.NFData AwsElbLoadBalancerDetails where
       `Prelude.seq` Prelude.rnf dnsName
       `Prelude.seq` Prelude.rnf loadBalancerAttributes
 
-instance Core.ToJSON AwsElbLoadBalancerDetails where
+instance Data.ToJSON AwsElbLoadBalancerDetails where
   toJSON AwsElbLoadBalancerDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Instances" Core..=) Prelude.<$> instances,
-            ("HealthCheck" Core..=) Prelude.<$> healthCheck,
-            ("Scheme" Core..=) Prelude.<$> scheme,
-            ("CreatedTime" Core..=) Prelude.<$> createdTime,
-            ("CanonicalHostedZoneName" Core..=)
+          [ ("Instances" Data..=) Prelude.<$> instances,
+            ("HealthCheck" Data..=) Prelude.<$> healthCheck,
+            ("Scheme" Data..=) Prelude.<$> scheme,
+            ("CreatedTime" Data..=) Prelude.<$> createdTime,
+            ("CanonicalHostedZoneName" Data..=)
               Prelude.<$> canonicalHostedZoneName,
-            ("CanonicalHostedZoneNameID" Core..=)
+            ("CanonicalHostedZoneNameID" Data..=)
               Prelude.<$> canonicalHostedZoneNameID,
-            ("LoadBalancerName" Core..=)
+            ("LoadBalancerName" Data..=)
               Prelude.<$> loadBalancerName,
-            ("Subnets" Core..=) Prelude.<$> subnets,
-            ("SourceSecurityGroup" Core..=)
+            ("Subnets" Data..=) Prelude.<$> subnets,
+            ("SourceSecurityGroup" Data..=)
               Prelude.<$> sourceSecurityGroup,
-            ("AvailabilityZones" Core..=)
+            ("AvailabilityZones" Data..=)
               Prelude.<$> availabilityZones,
-            ("ListenerDescriptions" Core..=)
+            ("ListenerDescriptions" Data..=)
               Prelude.<$> listenerDescriptions,
-            ("Policies" Core..=) Prelude.<$> policies,
-            ("BackendServerDescriptions" Core..=)
+            ("Policies" Data..=) Prelude.<$> policies,
+            ("BackendServerDescriptions" Data..=)
               Prelude.<$> backendServerDescriptions,
-            ("SecurityGroups" Core..=)
+            ("SecurityGroups" Data..=)
               Prelude.<$> securityGroups,
-            ("VpcId" Core..=) Prelude.<$> vpcId,
-            ("DnsName" Core..=) Prelude.<$> dnsName,
-            ("LoadBalancerAttributes" Core..=)
+            ("VpcId" Data..=) Prelude.<$> vpcId,
+            ("DnsName" Data..=) Prelude.<$> dnsName,
+            ("LoadBalancerAttributes" Data..=)
               Prelude.<$> loadBalancerAttributes
           ]
       )

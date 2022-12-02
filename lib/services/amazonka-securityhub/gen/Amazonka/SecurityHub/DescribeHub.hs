@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -82,9 +83,9 @@ instance Core.AWSRequest DescribeHub where
     Response.receiveJSON
       ( \s h x ->
           DescribeHubResponse'
-            Prelude.<$> (x Core..?> "HubArn")
-            Prelude.<*> (x Core..?> "AutoEnableControls")
-            Prelude.<*> (x Core..?> "SubscribedAt")
+            Prelude.<$> (x Data..?> "HubArn")
+            Prelude.<*> (x Data..?> "AutoEnableControls")
+            Prelude.<*> (x Data..?> "SubscribedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,23 +96,23 @@ instance Prelude.Hashable DescribeHub where
 instance Prelude.NFData DescribeHub where
   rnf DescribeHub' {..} = Prelude.rnf hubArn
 
-instance Core.ToHeaders DescribeHub where
+instance Data.ToHeaders DescribeHub where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeHub where
+instance Data.ToPath DescribeHub where
   toPath = Prelude.const "/accounts"
 
-instance Core.ToQuery DescribeHub where
+instance Data.ToQuery DescribeHub where
   toQuery DescribeHub' {..} =
-    Prelude.mconcat ["HubArn" Core.=: hubArn]
+    Prelude.mconcat ["HubArn" Data.=: hubArn]
 
 -- | /See:/ 'newDescribeHubResponse' smart constructor.
 data DescribeHubResponse = DescribeHubResponse'

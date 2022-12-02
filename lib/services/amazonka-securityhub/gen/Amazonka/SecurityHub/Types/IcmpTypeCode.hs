@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.IcmpTypeCode where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Internet Control Message Protocol (ICMP) type and code.
@@ -67,13 +68,13 @@ icmpTypeCode_type = Lens.lens (\IcmpTypeCode' {type'} -> type') (\s@IcmpTypeCode
 icmpTypeCode_code :: Lens.Lens' IcmpTypeCode (Prelude.Maybe Prelude.Int)
 icmpTypeCode_code = Lens.lens (\IcmpTypeCode' {code} -> code) (\s@IcmpTypeCode' {} a -> s {code = a} :: IcmpTypeCode)
 
-instance Core.FromJSON IcmpTypeCode where
+instance Data.FromJSON IcmpTypeCode where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IcmpTypeCode"
       ( \x ->
           IcmpTypeCode'
-            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "Code")
+            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..:? "Code")
       )
 
 instance Prelude.Hashable IcmpTypeCode where
@@ -85,11 +86,11 @@ instance Prelude.NFData IcmpTypeCode where
   rnf IcmpTypeCode' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf code
 
-instance Core.ToJSON IcmpTypeCode where
+instance Data.ToJSON IcmpTypeCode where
   toJSON IcmpTypeCode' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("Code" Core..=) Prelude.<$> code
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("Code" Data..=) Prelude.<$> code
           ]
       )

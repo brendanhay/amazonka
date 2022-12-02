@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElbLoadBalancerAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsElbLoadBalancerAccessLog
 import Amazonka.SecurityHub.Types.AwsElbLoadBalancerAdditionalAttribute
@@ -145,19 +146,19 @@ awsElbLoadBalancerAttributes_accessLog = Lens.lens (\AwsElbLoadBalancerAttribute
 awsElbLoadBalancerAttributes_crossZoneLoadBalancing :: Lens.Lens' AwsElbLoadBalancerAttributes (Prelude.Maybe AwsElbLoadBalancerCrossZoneLoadBalancing)
 awsElbLoadBalancerAttributes_crossZoneLoadBalancing = Lens.lens (\AwsElbLoadBalancerAttributes' {crossZoneLoadBalancing} -> crossZoneLoadBalancing) (\s@AwsElbLoadBalancerAttributes' {} a -> s {crossZoneLoadBalancing = a} :: AwsElbLoadBalancerAttributes)
 
-instance Core.FromJSON AwsElbLoadBalancerAttributes where
+instance Data.FromJSON AwsElbLoadBalancerAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElbLoadBalancerAttributes"
       ( \x ->
           AwsElbLoadBalancerAttributes'
-            Prelude.<$> (x Core..:? "ConnectionSettings")
-            Prelude.<*> (x Core..:? "ConnectionDraining")
-            Prelude.<*> ( x Core..:? "AdditionalAttributes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ConnectionSettings")
+            Prelude.<*> (x Data..:? "ConnectionDraining")
+            Prelude.<*> ( x Data..:? "AdditionalAttributes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "AccessLog")
-            Prelude.<*> (x Core..:? "CrossZoneLoadBalancing")
+            Prelude.<*> (x Data..:? "AccessLog")
+            Prelude.<*> (x Data..:? "CrossZoneLoadBalancing")
       )
 
 instance
@@ -179,18 +180,18 @@ instance Prelude.NFData AwsElbLoadBalancerAttributes where
       `Prelude.seq` Prelude.rnf accessLog
       `Prelude.seq` Prelude.rnf crossZoneLoadBalancing
 
-instance Core.ToJSON AwsElbLoadBalancerAttributes where
+instance Data.ToJSON AwsElbLoadBalancerAttributes where
   toJSON AwsElbLoadBalancerAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConnectionSettings" Core..=)
+          [ ("ConnectionSettings" Data..=)
               Prelude.<$> connectionSettings,
-            ("ConnectionDraining" Core..=)
+            ("ConnectionDraining" Data..=)
               Prelude.<$> connectionDraining,
-            ("AdditionalAttributes" Core..=)
+            ("AdditionalAttributes" Data..=)
               Prelude.<$> additionalAttributes,
-            ("AccessLog" Core..=) Prelude.<$> accessLog,
-            ("CrossZoneLoadBalancing" Core..=)
+            ("AccessLog" Data..=) Prelude.<$> accessLog,
+            ("CrossZoneLoadBalancing" Data..=)
               Prelude.<$> crossZoneLoadBalancing
           ]
       )

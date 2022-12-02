@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsBackupBackupPlanDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsBackupBackupPlanBackupPlanDetails
 
@@ -88,16 +89,16 @@ awsBackupBackupPlanDetails_backupPlanId = Lens.lens (\AwsBackupBackupPlanDetails
 awsBackupBackupPlanDetails_versionId :: Lens.Lens' AwsBackupBackupPlanDetails (Prelude.Maybe Prelude.Text)
 awsBackupBackupPlanDetails_versionId = Lens.lens (\AwsBackupBackupPlanDetails' {versionId} -> versionId) (\s@AwsBackupBackupPlanDetails' {} a -> s {versionId = a} :: AwsBackupBackupPlanDetails)
 
-instance Core.FromJSON AwsBackupBackupPlanDetails where
+instance Data.FromJSON AwsBackupBackupPlanDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsBackupBackupPlanDetails"
       ( \x ->
           AwsBackupBackupPlanDetails'
-            Prelude.<$> (x Core..:? "BackupPlan")
-            Prelude.<*> (x Core..:? "BackupPlanArn")
-            Prelude.<*> (x Core..:? "BackupPlanId")
-            Prelude.<*> (x Core..:? "VersionId")
+            Prelude.<$> (x Data..:? "BackupPlan")
+            Prelude.<*> (x Data..:? "BackupPlanArn")
+            Prelude.<*> (x Data..:? "BackupPlanId")
+            Prelude.<*> (x Data..:? "VersionId")
       )
 
 instance Prelude.Hashable AwsBackupBackupPlanDetails where
@@ -114,13 +115,13 @@ instance Prelude.NFData AwsBackupBackupPlanDetails where
       `Prelude.seq` Prelude.rnf backupPlanId
       `Prelude.seq` Prelude.rnf versionId
 
-instance Core.ToJSON AwsBackupBackupPlanDetails where
+instance Data.ToJSON AwsBackupBackupPlanDetails where
   toJSON AwsBackupBackupPlanDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BackupPlan" Core..=) Prelude.<$> backupPlan,
-            ("BackupPlanArn" Core..=) Prelude.<$> backupPlanArn,
-            ("BackupPlanId" Core..=) Prelude.<$> backupPlanId,
-            ("VersionId" Core..=) Prelude.<$> versionId
+          [ ("BackupPlan" Data..=) Prelude.<$> backupPlan,
+            ("BackupPlanArn" Data..=) Prelude.<$> backupPlanArn,
+            ("BackupPlanId" Data..=) Prelude.<$> backupPlanId,
+            ("VersionId" Data..=) Prelude.<$> versionId
           ]
       )

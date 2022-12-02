@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElasticsearchDomainDomainEndpointOptions wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Additional options for the domain endpoint, such as whether to require
@@ -85,16 +86,16 @@ awsElasticsearchDomainDomainEndpointOptions_enforceHTTPS :: Lens.Lens' AwsElasti
 awsElasticsearchDomainDomainEndpointOptions_enforceHTTPS = Lens.lens (\AwsElasticsearchDomainDomainEndpointOptions' {enforceHTTPS} -> enforceHTTPS) (\s@AwsElasticsearchDomainDomainEndpointOptions' {} a -> s {enforceHTTPS = a} :: AwsElasticsearchDomainDomainEndpointOptions)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsElasticsearchDomainDomainEndpointOptions
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElasticsearchDomainDomainEndpointOptions"
       ( \x ->
           AwsElasticsearchDomainDomainEndpointOptions'
-            Prelude.<$> (x Core..:? "TLSSecurityPolicy")
-              Prelude.<*> (x Core..:? "EnforceHTTPS")
+            Prelude.<$> (x Data..:? "TLSSecurityPolicy")
+              Prelude.<*> (x Data..:? "EnforceHTTPS")
       )
 
 instance
@@ -116,15 +117,15 @@ instance
       `Prelude.seq` Prelude.rnf enforceHTTPS
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsElasticsearchDomainDomainEndpointOptions
   where
   toJSON
     AwsElasticsearchDomainDomainEndpointOptions' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("TLSSecurityPolicy" Core..=)
+            [ ("TLSSecurityPolicy" Data..=)
                 Prelude.<$> tLSSecurityPolicy,
-              ("EnforceHTTPS" Core..=) Prelude.<$> enforceHTTPS
+              ("EnforceHTTPS" Data..=) Prelude.<$> enforceHTTPS
             ]
         )

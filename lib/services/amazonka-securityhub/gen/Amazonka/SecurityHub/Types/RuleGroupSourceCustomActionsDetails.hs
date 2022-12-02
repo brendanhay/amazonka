@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.RuleGroupSourceCustomActionsDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.StatelessCustomActionDefinition
 
@@ -65,16 +66,16 @@ ruleGroupSourceCustomActionsDetails_actionDefinition :: Lens.Lens' RuleGroupSour
 ruleGroupSourceCustomActionsDetails_actionDefinition = Lens.lens (\RuleGroupSourceCustomActionsDetails' {actionDefinition} -> actionDefinition) (\s@RuleGroupSourceCustomActionsDetails' {} a -> s {actionDefinition = a} :: RuleGroupSourceCustomActionsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RuleGroupSourceCustomActionsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroupSourceCustomActionsDetails"
       ( \x ->
           RuleGroupSourceCustomActionsDetails'
-            Prelude.<$> (x Core..:? "ActionName")
-            Prelude.<*> (x Core..:? "ActionDefinition")
+            Prelude.<$> (x Data..:? "ActionName")
+            Prelude.<*> (x Data..:? "ActionDefinition")
       )
 
 instance
@@ -96,14 +97,14 @@ instance
       `Prelude.seq` Prelude.rnf actionDefinition
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RuleGroupSourceCustomActionsDetails
   where
   toJSON RuleGroupSourceCustomActionsDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ActionName" Core..=) Prelude.<$> actionName,
-            ("ActionDefinition" Core..=)
+          [ ("ActionName" Data..=) Prelude.<$> actionName,
+            ("ActionDefinition" Data..=)
               Prelude.<$> actionDefinition
           ]
       )

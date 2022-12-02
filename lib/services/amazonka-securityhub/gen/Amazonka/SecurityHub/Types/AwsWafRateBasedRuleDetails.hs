@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsWafRateBasedRuleDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsWafRateBasedRuleMatchPredicate
 
@@ -116,20 +117,20 @@ awsWafRateBasedRuleDetails_metricName = Lens.lens (\AwsWafRateBasedRuleDetails' 
 awsWafRateBasedRuleDetails_rateKey :: Lens.Lens' AwsWafRateBasedRuleDetails (Prelude.Maybe Prelude.Text)
 awsWafRateBasedRuleDetails_rateKey = Lens.lens (\AwsWafRateBasedRuleDetails' {rateKey} -> rateKey) (\s@AwsWafRateBasedRuleDetails' {} a -> s {rateKey = a} :: AwsWafRateBasedRuleDetails)
 
-instance Core.FromJSON AwsWafRateBasedRuleDetails where
+instance Data.FromJSON AwsWafRateBasedRuleDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsWafRateBasedRuleDetails"
       ( \x ->
           AwsWafRateBasedRuleDetails'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "RuleId")
-            Prelude.<*> ( x Core..:? "MatchPredicates"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "RuleId")
+            Prelude.<*> ( x Data..:? "MatchPredicates"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "RateLimit")
-            Prelude.<*> (x Core..:? "MetricName")
-            Prelude.<*> (x Core..:? "RateKey")
+            Prelude.<*> (x Data..:? "RateLimit")
+            Prelude.<*> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..:? "RateKey")
       )
 
 instance Prelude.Hashable AwsWafRateBasedRuleDetails where
@@ -150,16 +151,16 @@ instance Prelude.NFData AwsWafRateBasedRuleDetails where
       `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf rateKey
 
-instance Core.ToJSON AwsWafRateBasedRuleDetails where
+instance Data.ToJSON AwsWafRateBasedRuleDetails where
   toJSON AwsWafRateBasedRuleDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("RuleId" Core..=) Prelude.<$> ruleId,
-            ("MatchPredicates" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("RuleId" Data..=) Prelude.<$> ruleId,
+            ("MatchPredicates" Data..=)
               Prelude.<$> matchPredicates,
-            ("RateLimit" Core..=) Prelude.<$> rateLimit,
-            ("MetricName" Core..=) Prelude.<$> metricName,
-            ("RateKey" Core..=) Prelude.<$> rateKey
+            ("RateLimit" Data..=) Prelude.<$> rateLimit,
+            ("MetricName" Data..=) Prelude.<$> metricName,
+            ("RateKey" Data..=) Prelude.<$> rateKey
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElasticBeanstalkEnvironmentOptionSetting wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A configuration option setting for the environment.
@@ -81,18 +82,18 @@ awsElasticBeanstalkEnvironmentOptionSetting_value :: Lens.Lens' AwsElasticBeanst
 awsElasticBeanstalkEnvironmentOptionSetting_value = Lens.lens (\AwsElasticBeanstalkEnvironmentOptionSetting' {value} -> value) (\s@AwsElasticBeanstalkEnvironmentOptionSetting' {} a -> s {value = a} :: AwsElasticBeanstalkEnvironmentOptionSetting)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsElasticBeanstalkEnvironmentOptionSetting
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElasticBeanstalkEnvironmentOptionSetting"
       ( \x ->
           AwsElasticBeanstalkEnvironmentOptionSetting'
-            Prelude.<$> (x Core..:? "ResourceName")
-              Prelude.<*> (x Core..:? "OptionName")
-              Prelude.<*> (x Core..:? "Namespace")
-              Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "ResourceName")
+              Prelude.<*> (x Data..:? "OptionName")
+              Prelude.<*> (x Data..:? "Namespace")
+              Prelude.<*> (x Data..:? "Value")
       )
 
 instance
@@ -118,16 +119,16 @@ instance
       `Prelude.seq` Prelude.rnf value
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsElasticBeanstalkEnvironmentOptionSetting
   where
   toJSON
     AwsElasticBeanstalkEnvironmentOptionSetting' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("ResourceName" Core..=) Prelude.<$> resourceName,
-              ("OptionName" Core..=) Prelude.<$> optionName,
-              ("Namespace" Core..=) Prelude.<$> namespace,
-              ("Value" Core..=) Prelude.<$> value
+            [ ("ResourceName" Data..=) Prelude.<$> resourceName,
+              ("OptionName" Data..=) Prelude.<$> optionName,
+              ("Namespace" Data..=) Prelude.<$> namespace,
+              ("Value" Data..=) Prelude.<$> value
             ]
         )

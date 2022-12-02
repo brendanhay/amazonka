@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCodeBuildProjectLogsConfigDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails
 import Amazonka.SecurityHub.Types.AwsCodeBuildProjectLogsConfigS3LogsDetails
@@ -65,16 +66,16 @@ awsCodeBuildProjectLogsConfigDetails_s3Logs :: Lens.Lens' AwsCodeBuildProjectLog
 awsCodeBuildProjectLogsConfigDetails_s3Logs = Lens.lens (\AwsCodeBuildProjectLogsConfigDetails' {s3Logs} -> s3Logs) (\s@AwsCodeBuildProjectLogsConfigDetails' {} a -> s {s3Logs = a} :: AwsCodeBuildProjectLogsConfigDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCodeBuildProjectLogsConfigDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCodeBuildProjectLogsConfigDetails"
       ( \x ->
           AwsCodeBuildProjectLogsConfigDetails'
-            Prelude.<$> (x Core..:? "CloudWatchLogs")
-            Prelude.<*> (x Core..:? "S3Logs")
+            Prelude.<$> (x Data..:? "CloudWatchLogs")
+            Prelude.<*> (x Data..:? "S3Logs")
       )
 
 instance
@@ -96,14 +97,14 @@ instance
       `Prelude.seq` Prelude.rnf s3Logs
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsCodeBuildProjectLogsConfigDetails
   where
   toJSON AwsCodeBuildProjectLogsConfigDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CloudWatchLogs" Core..=)
+          [ ("CloudWatchLogs" Data..=)
               Prelude.<$> cloudWatchLogs,
-            ("S3Logs" Core..=) Prelude.<$> s3Logs
+            ("S3Logs" Data..=) Prelude.<$> s3Logs
           ]
       )

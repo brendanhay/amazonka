@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEcsContainerDetails
 import Amazonka.SecurityHub.Types.AwsEcsTaskVolumeDetails
@@ -144,21 +145,21 @@ awsEcsTaskDetails_createdAt = Lens.lens (\AwsEcsTaskDetails' {createdAt} -> crea
 awsEcsTaskDetails_version :: Lens.Lens' AwsEcsTaskDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDetails_version = Lens.lens (\AwsEcsTaskDetails' {version} -> version) (\s@AwsEcsTaskDetails' {} a -> s {version = a} :: AwsEcsTaskDetails)
 
-instance Core.FromJSON AwsEcsTaskDetails where
+instance Data.FromJSON AwsEcsTaskDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDetails"
       ( \x ->
           AwsEcsTaskDetails'
-            Prelude.<$> (x Core..:? "ClusterArn")
-            Prelude.<*> (x Core..:? "Containers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "TaskDefinitionArn")
-            Prelude.<*> (x Core..:? "StartedBy")
-            Prelude.<*> (x Core..:? "Volumes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "StartedAt")
-            Prelude.<*> (x Core..:? "Group")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Data..:? "ClusterArn")
+            Prelude.<*> (x Data..:? "Containers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "TaskDefinitionArn")
+            Prelude.<*> (x Data..:? "StartedBy")
+            Prelude.<*> (x Data..:? "Volumes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "StartedAt")
+            Prelude.<*> (x Data..:? "Group")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable AwsEcsTaskDetails where
@@ -185,19 +186,19 @@ instance Prelude.NFData AwsEcsTaskDetails where
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON AwsEcsTaskDetails where
+instance Data.ToJSON AwsEcsTaskDetails where
   toJSON AwsEcsTaskDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClusterArn" Core..=) Prelude.<$> clusterArn,
-            ("Containers" Core..=) Prelude.<$> containers,
-            ("TaskDefinitionArn" Core..=)
+          [ ("ClusterArn" Data..=) Prelude.<$> clusterArn,
+            ("Containers" Data..=) Prelude.<$> containers,
+            ("TaskDefinitionArn" Data..=)
               Prelude.<$> taskDefinitionArn,
-            ("StartedBy" Core..=) Prelude.<$> startedBy,
-            ("Volumes" Core..=) Prelude.<$> volumes,
-            ("StartedAt" Core..=) Prelude.<$> startedAt,
-            ("Group" Core..=) Prelude.<$> group',
-            ("CreatedAt" Core..=) Prelude.<$> createdAt,
-            ("Version" Core..=) Prelude.<$> version
+            ("StartedBy" Data..=) Prelude.<$> startedBy,
+            ("Volumes" Data..=) Prelude.<$> volumes,
+            ("StartedAt" Data..=) Prelude.<$> startedAt,
+            ("Group" Data..=) Prelude.<$> group',
+            ("CreatedAt" Data..=) Prelude.<$> createdAt,
+            ("Version" Data..=) Prelude.<$> version
           ]
       )

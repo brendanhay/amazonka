@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElasticsearchDomainServiceSoftwareOptions w
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the state of the domain relative to the latest service
@@ -152,21 +153,21 @@ awsElasticsearchDomainServiceSoftwareOptions_currentVersion :: Lens.Lens' AwsEla
 awsElasticsearchDomainServiceSoftwareOptions_currentVersion = Lens.lens (\AwsElasticsearchDomainServiceSoftwareOptions' {currentVersion} -> currentVersion) (\s@AwsElasticsearchDomainServiceSoftwareOptions' {} a -> s {currentVersion = a} :: AwsElasticsearchDomainServiceSoftwareOptions)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsElasticsearchDomainServiceSoftwareOptions
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElasticsearchDomainServiceSoftwareOptions"
       ( \x ->
           AwsElasticsearchDomainServiceSoftwareOptions'
-            Prelude.<$> (x Core..:? "NewVersion")
-              Prelude.<*> (x Core..:? "UpdateAvailable")
-              Prelude.<*> (x Core..:? "Cancellable")
-              Prelude.<*> (x Core..:? "UpdateStatus")
-              Prelude.<*> (x Core..:? "AutomatedUpdateDate")
-              Prelude.<*> (x Core..:? "Description")
-              Prelude.<*> (x Core..:? "CurrentVersion")
+            Prelude.<$> (x Data..:? "NewVersion")
+              Prelude.<*> (x Data..:? "UpdateAvailable")
+              Prelude.<*> (x Data..:? "Cancellable")
+              Prelude.<*> (x Data..:? "UpdateStatus")
+              Prelude.<*> (x Data..:? "AutomatedUpdateDate")
+              Prelude.<*> (x Data..:? "Description")
+              Prelude.<*> (x Data..:? "CurrentVersion")
       )
 
 instance
@@ -198,22 +199,22 @@ instance
       `Prelude.seq` Prelude.rnf currentVersion
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsElasticsearchDomainServiceSoftwareOptions
   where
   toJSON
     AwsElasticsearchDomainServiceSoftwareOptions' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("NewVersion" Core..=) Prelude.<$> newVersion',
-              ("UpdateAvailable" Core..=)
+            [ ("NewVersion" Data..=) Prelude.<$> newVersion',
+              ("UpdateAvailable" Data..=)
                 Prelude.<$> updateAvailable,
-              ("Cancellable" Core..=) Prelude.<$> cancellable,
-              ("UpdateStatus" Core..=) Prelude.<$> updateStatus,
-              ("AutomatedUpdateDate" Core..=)
+              ("Cancellable" Data..=) Prelude.<$> cancellable,
+              ("UpdateStatus" Data..=) Prelude.<$> updateStatus,
+              ("AutomatedUpdateDate" Data..=)
                 Prelude.<$> automatedUpdateDate,
-              ("Description" Core..=) Prelude.<$> description,
-              ("CurrentVersion" Core..=)
+              ("Description" Data..=) Prelude.<$> description,
+              ("CurrentVersion" Data..=)
                 Prelude.<$> currentVersion
             ]
         )

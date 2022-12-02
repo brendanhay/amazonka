@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskVolumeHostDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides details on a container instance bind mount host volume.
@@ -56,13 +57,13 @@ newAwsEcsTaskVolumeHostDetails =
 awsEcsTaskVolumeHostDetails_sourcePath :: Lens.Lens' AwsEcsTaskVolumeHostDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskVolumeHostDetails_sourcePath = Lens.lens (\AwsEcsTaskVolumeHostDetails' {sourcePath} -> sourcePath) (\s@AwsEcsTaskVolumeHostDetails' {} a -> s {sourcePath = a} :: AwsEcsTaskVolumeHostDetails)
 
-instance Core.FromJSON AwsEcsTaskVolumeHostDetails where
+instance Data.FromJSON AwsEcsTaskVolumeHostDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskVolumeHostDetails"
       ( \x ->
           AwsEcsTaskVolumeHostDetails'
-            Prelude.<$> (x Core..:? "SourcePath")
+            Prelude.<$> (x Data..:? "SourcePath")
       )
 
 instance Prelude.Hashable AwsEcsTaskVolumeHostDetails where
@@ -73,9 +74,9 @@ instance Prelude.NFData AwsEcsTaskVolumeHostDetails where
   rnf AwsEcsTaskVolumeHostDetails' {..} =
     Prelude.rnf sourcePath
 
-instance Core.ToJSON AwsEcsTaskVolumeHostDetails where
+instance Data.ToJSON AwsEcsTaskVolumeHostDetails where
   toJSON AwsEcsTaskVolumeHostDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("SourcePath" Core..=) Prelude.<$> sourcePath]
+          [("SourcePath" Data..=) Prelude.<$> sourcePath]
       )

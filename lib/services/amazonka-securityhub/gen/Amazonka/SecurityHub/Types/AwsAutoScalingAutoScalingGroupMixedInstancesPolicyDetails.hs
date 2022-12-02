@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupMixedInstancesPo
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails
 import Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails
@@ -78,16 +79,16 @@ awsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails_launchTemplate :: Lens
 awsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails_launchTemplate = Lens.lens (\AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails' {launchTemplate} -> launchTemplate) (\s@AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails' {} a -> s {launchTemplate = a} :: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails"
       ( \x ->
           AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails'
-            Prelude.<$> (x Core..:? "InstancesDistribution")
-              Prelude.<*> (x Core..:? "LaunchTemplate")
+            Prelude.<$> (x Data..:? "InstancesDistribution")
+              Prelude.<*> (x Data..:? "LaunchTemplate")
       )
 
 instance
@@ -110,16 +111,16 @@ instance
         `Prelude.seq` Prelude.rnf launchTemplate
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails
   where
   toJSON
     AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("InstancesDistribution" Core..=)
+            [ ("InstancesDistribution" Data..=)
                 Prelude.<$> instancesDistribution,
-              ("LaunchTemplate" Core..=)
+              ("LaunchTemplate" Data..=)
                 Prelude.<$> launchTemplate
             ]
         )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.RuleGroupVariablesPortSetsDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of port ranges.
@@ -54,15 +55,15 @@ ruleGroupVariablesPortSetsDetails_definition :: Lens.Lens' RuleGroupVariablesPor
 ruleGroupVariablesPortSetsDetails_definition = Lens.lens (\RuleGroupVariablesPortSetsDetails' {definition} -> definition) (\s@RuleGroupVariablesPortSetsDetails' {} a -> s {definition = a} :: RuleGroupVariablesPortSetsDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RuleGroupVariablesPortSetsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroupVariablesPortSetsDetails"
       ( \x ->
           RuleGroupVariablesPortSetsDetails'
-            Prelude.<$> (x Core..:? "Definition" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Definition" Data..!= Prelude.mempty)
       )
 
 instance
@@ -82,11 +83,11 @@ instance
     Prelude.rnf definition
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RuleGroupVariablesPortSetsDetails
   where
   toJSON RuleGroupVariablesPortSetsDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Definition" Core..=) Prelude.<$> definition]
+          [("Definition" Data..=) Prelude.<$> definition]
       )

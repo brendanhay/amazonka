@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsDynamoDbTableReplica where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsDynamoDbTableProvisionedThroughputOverride
 import Amazonka.SecurityHub.Types.AwsDynamoDbTableReplicaGlobalSecondaryIndex
@@ -133,20 +134,20 @@ awsDynamoDbTableReplica_globalSecondaryIndexes = Lens.lens (\AwsDynamoDbTableRep
 awsDynamoDbTableReplica_replicaStatus :: Lens.Lens' AwsDynamoDbTableReplica (Prelude.Maybe Prelude.Text)
 awsDynamoDbTableReplica_replicaStatus = Lens.lens (\AwsDynamoDbTableReplica' {replicaStatus} -> replicaStatus) (\s@AwsDynamoDbTableReplica' {} a -> s {replicaStatus = a} :: AwsDynamoDbTableReplica)
 
-instance Core.FromJSON AwsDynamoDbTableReplica where
+instance Data.FromJSON AwsDynamoDbTableReplica where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsDynamoDbTableReplica"
       ( \x ->
           AwsDynamoDbTableReplica'
-            Prelude.<$> (x Core..:? "KmsMasterKeyId")
-            Prelude.<*> (x Core..:? "ProvisionedThroughputOverride")
-            Prelude.<*> (x Core..:? "RegionName")
-            Prelude.<*> (x Core..:? "ReplicaStatusDescription")
-            Prelude.<*> ( x Core..:? "GlobalSecondaryIndexes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "KmsMasterKeyId")
+            Prelude.<*> (x Data..:? "ProvisionedThroughputOverride")
+            Prelude.<*> (x Data..:? "RegionName")
+            Prelude.<*> (x Data..:? "ReplicaStatusDescription")
+            Prelude.<*> ( x Data..:? "GlobalSecondaryIndexes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ReplicaStatus")
+            Prelude.<*> (x Data..:? "ReplicaStatus")
       )
 
 instance Prelude.Hashable AwsDynamoDbTableReplica where
@@ -167,19 +168,19 @@ instance Prelude.NFData AwsDynamoDbTableReplica where
       `Prelude.seq` Prelude.rnf globalSecondaryIndexes
       `Prelude.seq` Prelude.rnf replicaStatus
 
-instance Core.ToJSON AwsDynamoDbTableReplica where
+instance Data.ToJSON AwsDynamoDbTableReplica where
   toJSON AwsDynamoDbTableReplica' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KmsMasterKeyId" Core..=)
+          [ ("KmsMasterKeyId" Data..=)
               Prelude.<$> kmsMasterKeyId,
-            ("ProvisionedThroughputOverride" Core..=)
+            ("ProvisionedThroughputOverride" Data..=)
               Prelude.<$> provisionedThroughputOverride,
-            ("RegionName" Core..=) Prelude.<$> regionName,
-            ("ReplicaStatusDescription" Core..=)
+            ("RegionName" Data..=) Prelude.<$> regionName,
+            ("ReplicaStatusDescription" Data..=)
               Prelude.<$> replicaStatusDescription,
-            ("GlobalSecondaryIndexes" Core..=)
+            ("GlobalSecondaryIndexes" Data..=)
               Prelude.<$> globalSecondaryIndexes,
-            ("ReplicaStatus" Core..=) Prelude.<$> replicaStatus
+            ("ReplicaStatus" Data..=) Prelude.<$> replicaStatus
           ]
       )

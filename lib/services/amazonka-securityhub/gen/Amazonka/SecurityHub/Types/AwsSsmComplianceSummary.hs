@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsSsmComplianceSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the details about the compliance status for a patch.
@@ -308,30 +309,30 @@ awsSsmComplianceSummary_complianceType = Lens.lens (\AwsSsmComplianceSummary' {c
 awsSsmComplianceSummary_overallSeverity :: Lens.Lens' AwsSsmComplianceSummary (Prelude.Maybe Prelude.Text)
 awsSsmComplianceSummary_overallSeverity = Lens.lens (\AwsSsmComplianceSummary' {overallSeverity} -> overallSeverity) (\s@AwsSsmComplianceSummary' {} a -> s {overallSeverity = a} :: AwsSsmComplianceSummary)
 
-instance Core.FromJSON AwsSsmComplianceSummary where
+instance Data.FromJSON AwsSsmComplianceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsSsmComplianceSummary"
       ( \x ->
           AwsSsmComplianceSummary'
-            Prelude.<$> (x Core..:? "CompliantInformationalCount")
-            Prelude.<*> (x Core..:? "ExecutionType")
-            Prelude.<*> (x Core..:? "CompliantCriticalCount")
-            Prelude.<*> (x Core..:? "CompliantUnspecifiedCount")
-            Prelude.<*> (x Core..:? "PatchBaselineId")
-            Prelude.<*> (x Core..:? "NonCompliantHighCount")
-            Prelude.<*> (x Core..:? "PatchGroup")
-            Prelude.<*> (x Core..:? "NonCompliantInformationalCount")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "NonCompliantCriticalCount")
-            Prelude.<*> (x Core..:? "CompliantHighCount")
-            Prelude.<*> (x Core..:? "CompliantMediumCount")
-            Prelude.<*> (x Core..:? "NonCompliantUnspecifiedCount")
-            Prelude.<*> (x Core..:? "NonCompliantMediumCount")
-            Prelude.<*> (x Core..:? "CompliantLowCount")
-            Prelude.<*> (x Core..:? "NonCompliantLowCount")
-            Prelude.<*> (x Core..:? "ComplianceType")
-            Prelude.<*> (x Core..:? "OverallSeverity")
+            Prelude.<$> (x Data..:? "CompliantInformationalCount")
+            Prelude.<*> (x Data..:? "ExecutionType")
+            Prelude.<*> (x Data..:? "CompliantCriticalCount")
+            Prelude.<*> (x Data..:? "CompliantUnspecifiedCount")
+            Prelude.<*> (x Data..:? "PatchBaselineId")
+            Prelude.<*> (x Data..:? "NonCompliantHighCount")
+            Prelude.<*> (x Data..:? "PatchGroup")
+            Prelude.<*> (x Data..:? "NonCompliantInformationalCount")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "NonCompliantCriticalCount")
+            Prelude.<*> (x Data..:? "CompliantHighCount")
+            Prelude.<*> (x Data..:? "CompliantMediumCount")
+            Prelude.<*> (x Data..:? "NonCompliantUnspecifiedCount")
+            Prelude.<*> (x Data..:? "NonCompliantMediumCount")
+            Prelude.<*> (x Data..:? "CompliantLowCount")
+            Prelude.<*> (x Data..:? "NonCompliantLowCount")
+            Prelude.<*> (x Data..:? "ComplianceType")
+            Prelude.<*> (x Data..:? "OverallSeverity")
       )
 
 instance Prelude.Hashable AwsSsmComplianceSummary where
@@ -377,42 +378,42 @@ instance Prelude.NFData AwsSsmComplianceSummary where
       `Prelude.seq` Prelude.rnf complianceType
       `Prelude.seq` Prelude.rnf overallSeverity
 
-instance Core.ToJSON AwsSsmComplianceSummary where
+instance Data.ToJSON AwsSsmComplianceSummary where
   toJSON AwsSsmComplianceSummary' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CompliantInformationalCount" Core..=)
+          [ ("CompliantInformationalCount" Data..=)
               Prelude.<$> compliantInformationalCount,
-            ("ExecutionType" Core..=) Prelude.<$> executionType,
-            ("CompliantCriticalCount" Core..=)
+            ("ExecutionType" Data..=) Prelude.<$> executionType,
+            ("CompliantCriticalCount" Data..=)
               Prelude.<$> compliantCriticalCount,
-            ("CompliantUnspecifiedCount" Core..=)
+            ("CompliantUnspecifiedCount" Data..=)
               Prelude.<$> compliantUnspecifiedCount,
-            ("PatchBaselineId" Core..=)
+            ("PatchBaselineId" Data..=)
               Prelude.<$> patchBaselineId,
-            ("NonCompliantHighCount" Core..=)
+            ("NonCompliantHighCount" Data..=)
               Prelude.<$> nonCompliantHighCount,
-            ("PatchGroup" Core..=) Prelude.<$> patchGroup,
-            ("NonCompliantInformationalCount" Core..=)
+            ("PatchGroup" Data..=) Prelude.<$> patchGroup,
+            ("NonCompliantInformationalCount" Data..=)
               Prelude.<$> nonCompliantInformationalCount,
-            ("Status" Core..=) Prelude.<$> status,
-            ("NonCompliantCriticalCount" Core..=)
+            ("Status" Data..=) Prelude.<$> status,
+            ("NonCompliantCriticalCount" Data..=)
               Prelude.<$> nonCompliantCriticalCount,
-            ("CompliantHighCount" Core..=)
+            ("CompliantHighCount" Data..=)
               Prelude.<$> compliantHighCount,
-            ("CompliantMediumCount" Core..=)
+            ("CompliantMediumCount" Data..=)
               Prelude.<$> compliantMediumCount,
-            ("NonCompliantUnspecifiedCount" Core..=)
+            ("NonCompliantUnspecifiedCount" Data..=)
               Prelude.<$> nonCompliantUnspecifiedCount,
-            ("NonCompliantMediumCount" Core..=)
+            ("NonCompliantMediumCount" Data..=)
               Prelude.<$> nonCompliantMediumCount,
-            ("CompliantLowCount" Core..=)
+            ("CompliantLowCount" Data..=)
               Prelude.<$> compliantLowCount,
-            ("NonCompliantLowCount" Core..=)
+            ("NonCompliantLowCount" Data..=)
               Prelude.<$> nonCompliantLowCount,
-            ("ComplianceType" Core..=)
+            ("ComplianceType" Data..=)
               Prelude.<$> complianceType,
-            ("OverallSeverity" Core..=)
+            ("OverallSeverity" Data..=)
               Prelude.<$> overallSeverity
           ]
       )

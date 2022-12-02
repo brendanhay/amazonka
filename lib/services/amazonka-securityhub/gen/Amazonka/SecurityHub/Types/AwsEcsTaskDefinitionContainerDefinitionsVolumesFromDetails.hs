@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsVolume
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A data volume to mount from another container.
@@ -67,16 +68,16 @@ awsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails_sourceContainer :: Le
 awsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails_sourceContainer = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails' {sourceContainer} -> sourceContainer) (\s@AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails' {} a -> s {sourceContainer = a} :: AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails'
-            Prelude.<$> (x Core..:? "ReadOnly")
-              Prelude.<*> (x Core..:? "SourceContainer")
+            Prelude.<$> (x Data..:? "ReadOnly")
+              Prelude.<*> (x Data..:? "SourceContainer")
       )
 
 instance
@@ -99,15 +100,15 @@ instance
         `Prelude.seq` Prelude.rnf sourceContainer
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails
   where
   toJSON
     AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("ReadOnly" Core..=) Prelude.<$> readOnly,
-              ("SourceContainer" Core..=)
+            [ ("ReadOnly" Data..=) Prelude.<$> readOnly,
+              ("SourceContainer" Data..=)
                 Prelude.<$> sourceContainer
             ]
         )

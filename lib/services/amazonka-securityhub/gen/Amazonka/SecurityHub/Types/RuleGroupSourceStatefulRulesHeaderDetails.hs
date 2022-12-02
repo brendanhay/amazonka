@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.RuleGroupSourceStatefulRulesHeaderDetails wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The inspection criteria for a stateful rule.
@@ -130,20 +131,20 @@ ruleGroupSourceStatefulRulesHeaderDetails_direction :: Lens.Lens' RuleGroupSourc
 ruleGroupSourceStatefulRulesHeaderDetails_direction = Lens.lens (\RuleGroupSourceStatefulRulesHeaderDetails' {direction} -> direction) (\s@RuleGroupSourceStatefulRulesHeaderDetails' {} a -> s {direction = a} :: RuleGroupSourceStatefulRulesHeaderDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RuleGroupSourceStatefulRulesHeaderDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroupSourceStatefulRulesHeaderDetails"
       ( \x ->
           RuleGroupSourceStatefulRulesHeaderDetails'
-            Prelude.<$> (x Core..:? "Destination")
-              Prelude.<*> (x Core..:? "DestinationPort")
-              Prelude.<*> (x Core..:? "SourcePort")
-              Prelude.<*> (x Core..:? "Source")
-              Prelude.<*> (x Core..:? "Protocol")
-              Prelude.<*> (x Core..:? "Direction")
+            Prelude.<$> (x Data..:? "Destination")
+              Prelude.<*> (x Data..:? "DestinationPort")
+              Prelude.<*> (x Data..:? "SourcePort")
+              Prelude.<*> (x Data..:? "Source")
+              Prelude.<*> (x Data..:? "Protocol")
+              Prelude.<*> (x Data..:? "Direction")
       )
 
 instance
@@ -173,18 +174,18 @@ instance
       `Prelude.seq` Prelude.rnf direction
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RuleGroupSourceStatefulRulesHeaderDetails
   where
   toJSON RuleGroupSourceStatefulRulesHeaderDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Destination" Core..=) Prelude.<$> destination,
-            ("DestinationPort" Core..=)
+          [ ("Destination" Data..=) Prelude.<$> destination,
+            ("DestinationPort" Data..=)
               Prelude.<$> destinationPort,
-            ("SourcePort" Core..=) Prelude.<$> sourcePort,
-            ("Source" Core..=) Prelude.<$> source,
-            ("Protocol" Core..=) Prelude.<$> protocol,
-            ("Direction" Core..=) Prelude.<$> direction
+            ("SourcePort" Data..=) Prelude.<$> sourcePort,
+            ("Source" Data..=) Prelude.<$> source,
+            ("Protocol" Data..=) Prelude.<$> protocol,
+            ("Direction" Data..=) Prelude.<$> direction
           ]
       )

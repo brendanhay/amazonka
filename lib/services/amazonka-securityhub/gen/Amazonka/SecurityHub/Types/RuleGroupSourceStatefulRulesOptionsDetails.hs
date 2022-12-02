@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.RuleGroupSourceStatefulRulesOptionsDetails whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A rule option for a stateful rule.
@@ -63,16 +64,16 @@ ruleGroupSourceStatefulRulesOptionsDetails_keyword :: Lens.Lens' RuleGroupSource
 ruleGroupSourceStatefulRulesOptionsDetails_keyword = Lens.lens (\RuleGroupSourceStatefulRulesOptionsDetails' {keyword} -> keyword) (\s@RuleGroupSourceStatefulRulesOptionsDetails' {} a -> s {keyword = a} :: RuleGroupSourceStatefulRulesOptionsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RuleGroupSourceStatefulRulesOptionsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroupSourceStatefulRulesOptionsDetails"
       ( \x ->
           RuleGroupSourceStatefulRulesOptionsDetails'
-            Prelude.<$> (x Core..:? "Settings" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "Keyword")
+            Prelude.<$> (x Data..:? "Settings" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "Keyword")
       )
 
 instance
@@ -94,14 +95,14 @@ instance
       `Prelude.seq` Prelude.rnf keyword
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RuleGroupSourceStatefulRulesOptionsDetails
   where
   toJSON
     RuleGroupSourceStatefulRulesOptionsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Settings" Core..=) Prelude.<$> settings,
-              ("Keyword" Core..=) Prelude.<$> keyword
+            [ ("Settings" Data..=) Prelude.<$> settings,
+              ("Keyword" Data..=) Prelude.<$> keyword
             ]
         )

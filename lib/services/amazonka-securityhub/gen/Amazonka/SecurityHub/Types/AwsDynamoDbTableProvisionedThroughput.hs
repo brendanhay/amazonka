@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsDynamoDbTableProvisionedThroughput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the provisioned throughput for the table or for a
@@ -133,19 +134,19 @@ awsDynamoDbTableProvisionedThroughput_lastDecreaseDateTime :: Lens.Lens' AwsDyna
 awsDynamoDbTableProvisionedThroughput_lastDecreaseDateTime = Lens.lens (\AwsDynamoDbTableProvisionedThroughput' {lastDecreaseDateTime} -> lastDecreaseDateTime) (\s@AwsDynamoDbTableProvisionedThroughput' {} a -> s {lastDecreaseDateTime = a} :: AwsDynamoDbTableProvisionedThroughput)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsDynamoDbTableProvisionedThroughput
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsDynamoDbTableProvisionedThroughput"
       ( \x ->
           AwsDynamoDbTableProvisionedThroughput'
-            Prelude.<$> (x Core..:? "ReadCapacityUnits")
-            Prelude.<*> (x Core..:? "NumberOfDecreasesToday")
-            Prelude.<*> (x Core..:? "WriteCapacityUnits")
-            Prelude.<*> (x Core..:? "LastIncreaseDateTime")
-            Prelude.<*> (x Core..:? "LastDecreaseDateTime")
+            Prelude.<$> (x Data..:? "ReadCapacityUnits")
+            Prelude.<*> (x Data..:? "NumberOfDecreasesToday")
+            Prelude.<*> (x Data..:? "WriteCapacityUnits")
+            Prelude.<*> (x Data..:? "LastIncreaseDateTime")
+            Prelude.<*> (x Data..:? "LastDecreaseDateTime")
       )
 
 instance
@@ -173,21 +174,21 @@ instance
       `Prelude.seq` Prelude.rnf lastDecreaseDateTime
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsDynamoDbTableProvisionedThroughput
   where
   toJSON AwsDynamoDbTableProvisionedThroughput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ReadCapacityUnits" Core..=)
+          [ ("ReadCapacityUnits" Data..=)
               Prelude.<$> readCapacityUnits,
-            ("NumberOfDecreasesToday" Core..=)
+            ("NumberOfDecreasesToday" Data..=)
               Prelude.<$> numberOfDecreasesToday,
-            ("WriteCapacityUnits" Core..=)
+            ("WriteCapacityUnits" Data..=)
               Prelude.<$> writeCapacityUnits,
-            ("LastIncreaseDateTime" Core..=)
+            ("LastIncreaseDateTime" Data..=)
               Prelude.<$> lastIncreaseDateTime,
-            ("LastDecreaseDateTime" Core..=)
+            ("LastDecreaseDateTime" Data..=)
               Prelude.<$> lastDecreaseDateTime
           ]
       )

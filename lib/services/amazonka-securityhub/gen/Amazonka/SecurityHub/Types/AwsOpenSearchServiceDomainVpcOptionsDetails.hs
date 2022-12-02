@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainVpcOptionsDetails wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information that OpenSearch Service derives based on the
@@ -70,18 +71,18 @@ awsOpenSearchServiceDomainVpcOptionsDetails_subnetIds :: Lens.Lens' AwsOpenSearc
 awsOpenSearchServiceDomainVpcOptionsDetails_subnetIds = Lens.lens (\AwsOpenSearchServiceDomainVpcOptionsDetails' {subnetIds} -> subnetIds) (\s@AwsOpenSearchServiceDomainVpcOptionsDetails' {} a -> s {subnetIds = a} :: AwsOpenSearchServiceDomainVpcOptionsDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsOpenSearchServiceDomainVpcOptionsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsOpenSearchServiceDomainVpcOptionsDetails"
       ( \x ->
           AwsOpenSearchServiceDomainVpcOptionsDetails'
-            Prelude.<$> ( x Core..:? "SecurityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "SecurityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-              Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
       )
 
 instance
@@ -103,15 +104,15 @@ instance
       `Prelude.seq` Prelude.rnf subnetIds
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsOpenSearchServiceDomainVpcOptionsDetails
   where
   toJSON
     AwsOpenSearchServiceDomainVpcOptionsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("SecurityGroupIds" Core..=)
+            [ ("SecurityGroupIds" Data..=)
                 Prelude.<$> securityGroupIds,
-              ("SubnetIds" Core..=) Prelude.<$> subnetIds
+              ("SubnetIds" Data..=) Prelude.<$> subnetIds
             ]
         )

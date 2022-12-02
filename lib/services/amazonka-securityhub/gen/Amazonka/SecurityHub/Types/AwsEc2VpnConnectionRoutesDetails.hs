@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2VpnConnectionRoutesDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A static routes associated with the VPN connection.
@@ -66,16 +67,16 @@ awsEc2VpnConnectionRoutesDetails_destinationCidrBlock :: Lens.Lens' AwsEc2VpnCon
 awsEc2VpnConnectionRoutesDetails_destinationCidrBlock = Lens.lens (\AwsEc2VpnConnectionRoutesDetails' {destinationCidrBlock} -> destinationCidrBlock) (\s@AwsEc2VpnConnectionRoutesDetails' {} a -> s {destinationCidrBlock = a} :: AwsEc2VpnConnectionRoutesDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEc2VpnConnectionRoutesDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2VpnConnectionRoutesDetails"
       ( \x ->
           AwsEc2VpnConnectionRoutesDetails'
-            Prelude.<$> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "DestinationCidrBlock")
+            Prelude.<$> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "DestinationCidrBlock")
       )
 
 instance
@@ -96,12 +97,12 @@ instance
     Prelude.rnf state
       `Prelude.seq` Prelude.rnf destinationCidrBlock
 
-instance Core.ToJSON AwsEc2VpnConnectionRoutesDetails where
+instance Data.ToJSON AwsEc2VpnConnectionRoutesDetails where
   toJSON AwsEc2VpnConnectionRoutesDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("State" Core..=) Prelude.<$> state,
-            ("DestinationCidrBlock" Core..=)
+          [ ("State" Data..=) Prelude.<$> state,
+            ("DestinationCidrBlock" Data..=)
               Prelude.<$> destinationCidrBlock
           ]
       )

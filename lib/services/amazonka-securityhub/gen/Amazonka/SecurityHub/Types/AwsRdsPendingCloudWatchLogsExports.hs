@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRdsPendingCloudWatchLogsExports where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies the log types to enable and disable.
@@ -63,19 +64,19 @@ awsRdsPendingCloudWatchLogsExports_logTypesToDisable :: Lens.Lens' AwsRdsPending
 awsRdsPendingCloudWatchLogsExports_logTypesToDisable = Lens.lens (\AwsRdsPendingCloudWatchLogsExports' {logTypesToDisable} -> logTypesToDisable) (\s@AwsRdsPendingCloudWatchLogsExports' {} a -> s {logTypesToDisable = a} :: AwsRdsPendingCloudWatchLogsExports) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsRdsPendingCloudWatchLogsExports
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRdsPendingCloudWatchLogsExports"
       ( \x ->
           AwsRdsPendingCloudWatchLogsExports'
-            Prelude.<$> ( x Core..:? "LogTypesToEnable"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "LogTypesToEnable"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "LogTypesToDisable"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "LogTypesToDisable"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -98,15 +99,15 @@ instance
       `Prelude.seq` Prelude.rnf logTypesToDisable
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsRdsPendingCloudWatchLogsExports
   where
   toJSON AwsRdsPendingCloudWatchLogsExports' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LogTypesToEnable" Core..=)
+          [ ("LogTypesToEnable" Data..=)
               Prelude.<$> logTypesToEnable,
-            ("LogTypesToDisable" Core..=)
+            ("LogTypesToDisable" Data..=)
               Prelude.<$> logTypesToDisable
           ]
       )

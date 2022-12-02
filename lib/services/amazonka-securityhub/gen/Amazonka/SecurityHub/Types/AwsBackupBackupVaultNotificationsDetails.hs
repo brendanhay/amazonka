@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsBackupBackupVaultNotificationsDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides details about the Amazon SNS event notifications for the
@@ -94,18 +95,18 @@ awsBackupBackupVaultNotificationsDetails_snsTopicArn :: Lens.Lens' AwsBackupBack
 awsBackupBackupVaultNotificationsDetails_snsTopicArn = Lens.lens (\AwsBackupBackupVaultNotificationsDetails' {snsTopicArn} -> snsTopicArn) (\s@AwsBackupBackupVaultNotificationsDetails' {} a -> s {snsTopicArn = a} :: AwsBackupBackupVaultNotificationsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsBackupBackupVaultNotificationsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsBackupBackupVaultNotificationsDetails"
       ( \x ->
           AwsBackupBackupVaultNotificationsDetails'
-            Prelude.<$> ( x Core..:? "BackupVaultEvents"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "BackupVaultEvents"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SnsTopicArn")
+            Prelude.<*> (x Data..:? "SnsTopicArn")
       )
 
 instance
@@ -127,14 +128,14 @@ instance
       `Prelude.seq` Prelude.rnf snsTopicArn
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsBackupBackupVaultNotificationsDetails
   where
   toJSON AwsBackupBackupVaultNotificationsDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BackupVaultEvents" Core..=)
+          [ ("BackupVaultEvents" Data..=)
               Prelude.<$> backupVaultEvents,
-            ("SnsTopicArn" Core..=) Prelude.<$> snsTopicArn
+            ("SnsTopicArn" Data..=) Prelude.<$> snsTopicArn
           ]
       )

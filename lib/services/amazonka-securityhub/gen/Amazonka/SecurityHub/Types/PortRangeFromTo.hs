@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.PortRangeFromTo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A range of ports.
@@ -61,13 +62,13 @@ portRangeFromTo_from = Lens.lens (\PortRangeFromTo' {from} -> from) (\s@PortRang
 portRangeFromTo_to :: Lens.Lens' PortRangeFromTo (Prelude.Maybe Prelude.Int)
 portRangeFromTo_to = Lens.lens (\PortRangeFromTo' {to} -> to) (\s@PortRangeFromTo' {} a -> s {to = a} :: PortRangeFromTo)
 
-instance Core.FromJSON PortRangeFromTo where
+instance Data.FromJSON PortRangeFromTo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PortRangeFromTo"
       ( \x ->
           PortRangeFromTo'
-            Prelude.<$> (x Core..:? "From") Prelude.<*> (x Core..:? "To")
+            Prelude.<$> (x Data..:? "From") Prelude.<*> (x Data..:? "To")
       )
 
 instance Prelude.Hashable PortRangeFromTo where
@@ -79,11 +80,11 @@ instance Prelude.NFData PortRangeFromTo where
   rnf PortRangeFromTo' {..} =
     Prelude.rnf from `Prelude.seq` Prelude.rnf to
 
-instance Core.ToJSON PortRangeFromTo where
+instance Data.ToJSON PortRangeFromTo where
   toJSON PortRangeFromTo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("From" Core..=) Prelude.<$> from,
-            ("To" Core..=) Prelude.<$> to
+          [ ("From" Data..=) Prelude.<$> from,
+            ("To" Data..=) Prelude.<$> to
           ]
       )

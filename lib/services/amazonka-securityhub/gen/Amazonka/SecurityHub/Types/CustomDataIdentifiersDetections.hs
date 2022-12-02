@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.CustomDataIdentifiersDetections where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.Occurrences
 
@@ -85,18 +86,18 @@ customDataIdentifiersDetections_count :: Lens.Lens' CustomDataIdentifiersDetecti
 customDataIdentifiersDetections_count = Lens.lens (\CustomDataIdentifiersDetections' {count} -> count) (\s@CustomDataIdentifiersDetections' {} a -> s {count = a} :: CustomDataIdentifiersDetections)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CustomDataIdentifiersDetections
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomDataIdentifiersDetections"
       ( \x ->
           CustomDataIdentifiersDetections'
-            Prelude.<$> (x Core..:? "Occurrences")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Count")
+            Prelude.<$> (x Data..:? "Occurrences")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Count")
       )
 
 instance
@@ -121,13 +122,13 @@ instance
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf count
 
-instance Core.ToJSON CustomDataIdentifiersDetections where
+instance Data.ToJSON CustomDataIdentifiersDetections where
   toJSON CustomDataIdentifiersDetections' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Occurrences" Core..=) Prelude.<$> occurrences,
-            ("Name" Core..=) Prelude.<$> name,
-            ("Arn" Core..=) Prelude.<$> arn,
-            ("Count" Core..=) Prelude.<$> count
+          [ ("Occurrences" Data..=) Prelude.<$> occurrences,
+            ("Name" Data..=) Prelude.<$> name,
+            ("Arn" Data..=) Prelude.<$> arn,
+            ("Count" Data..=) Prelude.<$> count
           ]
       )

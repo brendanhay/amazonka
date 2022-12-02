@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionInferenceAcceleratorsDetai
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Elastic Inference accelerator to use for the containers in the task.
@@ -64,16 +65,16 @@ awsEcsTaskDefinitionInferenceAcceleratorsDetails_deviceType :: Lens.Lens' AwsEcs
 awsEcsTaskDefinitionInferenceAcceleratorsDetails_deviceType = Lens.lens (\AwsEcsTaskDefinitionInferenceAcceleratorsDetails' {deviceType} -> deviceType) (\s@AwsEcsTaskDefinitionInferenceAcceleratorsDetails' {} a -> s {deviceType = a} :: AwsEcsTaskDefinitionInferenceAcceleratorsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionInferenceAcceleratorsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionInferenceAcceleratorsDetails"
       ( \x ->
           AwsEcsTaskDefinitionInferenceAcceleratorsDetails'
-            Prelude.<$> (x Core..:? "DeviceName")
-              Prelude.<*> (x Core..:? "DeviceType")
+            Prelude.<$> (x Data..:? "DeviceName")
+              Prelude.<*> (x Data..:? "DeviceType")
       )
 
 instance
@@ -96,14 +97,14 @@ instance
         `Prelude.seq` Prelude.rnf deviceType
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionInferenceAcceleratorsDetails
   where
   toJSON
     AwsEcsTaskDefinitionInferenceAcceleratorsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("DeviceName" Core..=) Prelude.<$> deviceName,
-              ("DeviceType" Core..=) Prelude.<$> deviceType
+            [ ("DeviceName" Data..=) Prelude.<$> deviceName,
+              ("DeviceType" Data..=) Prelude.<$> deviceType
             ]
         )

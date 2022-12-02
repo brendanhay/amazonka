@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCodeBuildProjectLogsConfigS3LogsDetails whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about logs built to an S3 bucket for a build project.
@@ -72,17 +73,17 @@ awsCodeBuildProjectLogsConfigS3LogsDetails_location :: Lens.Lens' AwsCodeBuildPr
 awsCodeBuildProjectLogsConfigS3LogsDetails_location = Lens.lens (\AwsCodeBuildProjectLogsConfigS3LogsDetails' {location} -> location) (\s@AwsCodeBuildProjectLogsConfigS3LogsDetails' {} a -> s {location = a} :: AwsCodeBuildProjectLogsConfigS3LogsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCodeBuildProjectLogsConfigS3LogsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCodeBuildProjectLogsConfigS3LogsDetails"
       ( \x ->
           AwsCodeBuildProjectLogsConfigS3LogsDetails'
-            Prelude.<$> (x Core..:? "EncryptionDisabled")
-              Prelude.<*> (x Core..:? "Status")
-              Prelude.<*> (x Core..:? "Location")
+            Prelude.<$> (x Data..:? "EncryptionDisabled")
+              Prelude.<*> (x Data..:? "Status")
+              Prelude.<*> (x Data..:? "Location")
       )
 
 instance
@@ -106,16 +107,16 @@ instance
       `Prelude.seq` Prelude.rnf location
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsCodeBuildProjectLogsConfigS3LogsDetails
   where
   toJSON
     AwsCodeBuildProjectLogsConfigS3LogsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("EncryptionDisabled" Core..=)
+            [ ("EncryptionDisabled" Data..=)
                 Prelude.<$> encryptionDisabled,
-              ("Status" Core..=) Prelude.<$> status,
-              ("Location" Core..=) Prelude.<$> location
+              ("Status" Data..=) Prelude.<$> status,
+              ("Location" Data..=) Prelude.<$> location
             ]
         )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCloudFormationStackOutputsDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the CloudFormation stack output.
@@ -72,17 +73,17 @@ awsCloudFormationStackOutputsDetails_outputValue :: Lens.Lens' AwsCloudFormation
 awsCloudFormationStackOutputsDetails_outputValue = Lens.lens (\AwsCloudFormationStackOutputsDetails' {outputValue} -> outputValue) (\s@AwsCloudFormationStackOutputsDetails' {} a -> s {outputValue = a} :: AwsCloudFormationStackOutputsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCloudFormationStackOutputsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCloudFormationStackOutputsDetails"
       ( \x ->
           AwsCloudFormationStackOutputsDetails'
-            Prelude.<$> (x Core..:? "OutputKey")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "OutputValue")
+            Prelude.<$> (x Data..:? "OutputKey")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "OutputValue")
       )
 
 instance
@@ -106,14 +107,14 @@ instance
       `Prelude.seq` Prelude.rnf outputValue
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsCloudFormationStackOutputsDetails
   where
   toJSON AwsCloudFormationStackOutputsDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OutputKey" Core..=) Prelude.<$> outputKey,
-            ("Description" Core..=) Prelude.<$> description,
-            ("OutputValue" Core..=) Prelude.<$> outputValue
+          [ ("OutputKey" Data..=) Prelude.<$> outputKey,
+            ("Description" Data..=) Prelude.<$> description,
+            ("OutputValue" Data..=) Prelude.<$> outputValue
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsApiGatewayMethodSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines settings for a method for the stage.
@@ -229,24 +230,24 @@ awsApiGatewayMethodSettings_cachingEnabled = Lens.lens (\AwsApiGatewayMethodSett
 awsApiGatewayMethodSettings_cacheDataEncrypted :: Lens.Lens' AwsApiGatewayMethodSettings (Prelude.Maybe Prelude.Bool)
 awsApiGatewayMethodSettings_cacheDataEncrypted = Lens.lens (\AwsApiGatewayMethodSettings' {cacheDataEncrypted} -> cacheDataEncrypted) (\s@AwsApiGatewayMethodSettings' {} a -> s {cacheDataEncrypted = a} :: AwsApiGatewayMethodSettings)
 
-instance Core.FromJSON AwsApiGatewayMethodSettings where
+instance Data.FromJSON AwsApiGatewayMethodSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsApiGatewayMethodSettings"
       ( \x ->
           AwsApiGatewayMethodSettings'
-            Prelude.<$> (x Core..:? "ThrottlingRateLimit")
-            Prelude.<*> (x Core..:? "LoggingLevel")
-            Prelude.<*> (x Core..:? "ThrottlingBurstLimit")
-            Prelude.<*> (x Core..:? "ResourcePath")
-            Prelude.<*> (x Core..:? "MetricsEnabled")
-            Prelude.<*> (x Core..:? "RequireAuthorizationForCacheControl")
-            Prelude.<*> (x Core..:? "UnauthorizedCacheControlHeaderStrategy")
-            Prelude.<*> (x Core..:? "HttpMethod")
-            Prelude.<*> (x Core..:? "CacheTtlInSeconds")
-            Prelude.<*> (x Core..:? "DataTraceEnabled")
-            Prelude.<*> (x Core..:? "CachingEnabled")
-            Prelude.<*> (x Core..:? "CacheDataEncrypted")
+            Prelude.<$> (x Data..:? "ThrottlingRateLimit")
+            Prelude.<*> (x Data..:? "LoggingLevel")
+            Prelude.<*> (x Data..:? "ThrottlingBurstLimit")
+            Prelude.<*> (x Data..:? "ResourcePath")
+            Prelude.<*> (x Data..:? "MetricsEnabled")
+            Prelude.<*> (x Data..:? "RequireAuthorizationForCacheControl")
+            Prelude.<*> (x Data..:? "UnauthorizedCacheControlHeaderStrategy")
+            Prelude.<*> (x Data..:? "HttpMethod")
+            Prelude.<*> (x Data..:? "CacheTtlInSeconds")
+            Prelude.<*> (x Data..:? "DataTraceEnabled")
+            Prelude.<*> (x Data..:? "CachingEnabled")
+            Prelude.<*> (x Data..:? "CacheDataEncrypted")
       )
 
 instance Prelude.Hashable AwsApiGatewayMethodSettings where
@@ -279,30 +280,30 @@ instance Prelude.NFData AwsApiGatewayMethodSettings where
       `Prelude.seq` Prelude.rnf cachingEnabled
       `Prelude.seq` Prelude.rnf cacheDataEncrypted
 
-instance Core.ToJSON AwsApiGatewayMethodSettings where
+instance Data.ToJSON AwsApiGatewayMethodSettings where
   toJSON AwsApiGatewayMethodSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ThrottlingRateLimit" Core..=)
+          [ ("ThrottlingRateLimit" Data..=)
               Prelude.<$> throttlingRateLimit,
-            ("LoggingLevel" Core..=) Prelude.<$> loggingLevel,
-            ("ThrottlingBurstLimit" Core..=)
+            ("LoggingLevel" Data..=) Prelude.<$> loggingLevel,
+            ("ThrottlingBurstLimit" Data..=)
               Prelude.<$> throttlingBurstLimit,
-            ("ResourcePath" Core..=) Prelude.<$> resourcePath,
-            ("MetricsEnabled" Core..=)
+            ("ResourcePath" Data..=) Prelude.<$> resourcePath,
+            ("MetricsEnabled" Data..=)
               Prelude.<$> metricsEnabled,
-            ("RequireAuthorizationForCacheControl" Core..=)
+            ("RequireAuthorizationForCacheControl" Data..=)
               Prelude.<$> requireAuthorizationForCacheControl,
-            ("UnauthorizedCacheControlHeaderStrategy" Core..=)
+            ("UnauthorizedCacheControlHeaderStrategy" Data..=)
               Prelude.<$> unauthorizedCacheControlHeaderStrategy,
-            ("HttpMethod" Core..=) Prelude.<$> httpMethod,
-            ("CacheTtlInSeconds" Core..=)
+            ("HttpMethod" Data..=) Prelude.<$> httpMethod,
+            ("CacheTtlInSeconds" Data..=)
               Prelude.<$> cacheTtlInSeconds,
-            ("DataTraceEnabled" Core..=)
+            ("DataTraceEnabled" Data..=)
               Prelude.<$> dataTraceEnabled,
-            ("CachingEnabled" Core..=)
+            ("CachingEnabled" Data..=)
               Prelude.<$> cachingEnabled,
-            ("CacheDataEncrypted" Core..=)
+            ("CacheDataEncrypted" Data..=)
               Prelude.<$> cacheDataEncrypted
           ]
       )

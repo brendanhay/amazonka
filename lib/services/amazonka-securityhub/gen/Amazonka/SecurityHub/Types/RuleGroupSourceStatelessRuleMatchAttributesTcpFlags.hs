@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRuleMatchAttributesTcp
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A set of TCP flags and masks to inspect for.
@@ -73,16 +74,16 @@ ruleGroupSourceStatelessRuleMatchAttributesTcpFlags_masks :: Lens.Lens' RuleGrou
 ruleGroupSourceStatelessRuleMatchAttributesTcpFlags_masks = Lens.lens (\RuleGroupSourceStatelessRuleMatchAttributesTcpFlags' {masks} -> masks) (\s@RuleGroupSourceStatelessRuleMatchAttributesTcpFlags' {} a -> s {masks = a} :: RuleGroupSourceStatelessRuleMatchAttributesTcpFlags) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RuleGroupSourceStatelessRuleMatchAttributesTcpFlags
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroupSourceStatelessRuleMatchAttributesTcpFlags"
       ( \x ->
           RuleGroupSourceStatelessRuleMatchAttributesTcpFlags'
-            Prelude.<$> (x Core..:? "Flags" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "Masks" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Flags" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "Masks" Data..!= Prelude.mempty)
       )
 
 instance
@@ -104,14 +105,14 @@ instance
       Prelude.rnf flags `Prelude.seq` Prelude.rnf masks
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RuleGroupSourceStatelessRuleMatchAttributesTcpFlags
   where
   toJSON
     RuleGroupSourceStatelessRuleMatchAttributesTcpFlags' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Flags" Core..=) Prelude.<$> flags,
-              ("Masks" Core..=) Prelude.<$> masks
+            [ ("Flags" Data..=) Prelude.<$> flags,
+              ("Masks" Data..=) Prelude.<$> masks
             ]
         )

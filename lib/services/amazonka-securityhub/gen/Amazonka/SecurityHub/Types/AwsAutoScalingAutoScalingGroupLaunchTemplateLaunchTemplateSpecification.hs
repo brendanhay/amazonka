@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupLaunchTemplateLa
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the launch template to use.
@@ -83,17 +84,17 @@ awsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification_launchTe
 awsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification_launchTemplateName = Lens.lens (\AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification' {launchTemplateName} -> launchTemplateName) (\s@AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification' {} a -> s {launchTemplateName = a} :: AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification"
       ( \x ->
           AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification'
-            Prelude.<$> (x Core..:? "LaunchTemplateId")
-              Prelude.<*> (x Core..:? "Version")
-              Prelude.<*> (x Core..:? "LaunchTemplateName")
+            Prelude.<$> (x Data..:? "LaunchTemplateId")
+              Prelude.<*> (x Data..:? "Version")
+              Prelude.<*> (x Data..:? "LaunchTemplateName")
       )
 
 instance
@@ -118,17 +119,17 @@ instance
         `Prelude.seq` Prelude.rnf launchTemplateName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification
   where
   toJSON
     AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("LaunchTemplateId" Core..=)
+            [ ("LaunchTemplateId" Data..=)
                 Prelude.<$> launchTemplateId,
-              ("Version" Core..=) Prelude.<$> version,
-              ("LaunchTemplateName" Core..=)
+              ("Version" Data..=) Prelude.<$> version,
+              ("LaunchTemplateName" Data..=)
                 Prelude.<$> launchTemplateName
             ]
         )

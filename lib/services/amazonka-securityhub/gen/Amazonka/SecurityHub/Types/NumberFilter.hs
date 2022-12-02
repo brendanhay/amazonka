@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.NumberFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A number filter for querying findings.
@@ -79,15 +80,15 @@ numberFilter_gte = Lens.lens (\NumberFilter' {gte} -> gte) (\s@NumberFilter' {} 
 numberFilter_eq :: Lens.Lens' NumberFilter (Prelude.Maybe Prelude.Double)
 numberFilter_eq = Lens.lens (\NumberFilter' {eq} -> eq) (\s@NumberFilter' {} a -> s {eq = a} :: NumberFilter)
 
-instance Core.FromJSON NumberFilter where
+instance Data.FromJSON NumberFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NumberFilter"
       ( \x ->
           NumberFilter'
-            Prelude.<$> (x Core..:? "Lte")
-            Prelude.<*> (x Core..:? "Gte")
-            Prelude.<*> (x Core..:? "Eq")
+            Prelude.<$> (x Data..:? "Lte")
+            Prelude.<*> (x Data..:? "Gte")
+            Prelude.<*> (x Data..:? "Eq")
       )
 
 instance Prelude.Hashable NumberFilter where
@@ -102,12 +103,12 @@ instance Prelude.NFData NumberFilter where
       `Prelude.seq` Prelude.rnf gte
       `Prelude.seq` Prelude.rnf eq
 
-instance Core.ToJSON NumberFilter where
+instance Data.ToJSON NumberFilter where
   toJSON NumberFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Lte" Core..=) Prelude.<$> lte,
-            ("Gte" Core..=) Prelude.<$> gte,
-            ("Eq" Core..=) Prelude.<$> eq
+          [ ("Lte" Data..=) Prelude.<$> lte,
+            ("Gte" Data..=) Prelude.<$> gte,
+            ("Eq" Data..=) Prelude.<$> eq
           ]
       )

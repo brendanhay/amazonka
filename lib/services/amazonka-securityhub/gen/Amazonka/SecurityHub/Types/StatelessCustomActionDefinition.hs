@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.StatelessCustomActionDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.StatelessCustomPublishMetricAction
 
@@ -56,15 +57,15 @@ statelessCustomActionDefinition_publishMetricAction :: Lens.Lens' StatelessCusto
 statelessCustomActionDefinition_publishMetricAction = Lens.lens (\StatelessCustomActionDefinition' {publishMetricAction} -> publishMetricAction) (\s@StatelessCustomActionDefinition' {} a -> s {publishMetricAction = a} :: StatelessCustomActionDefinition)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     StatelessCustomActionDefinition
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StatelessCustomActionDefinition"
       ( \x ->
           StatelessCustomActionDefinition'
-            Prelude.<$> (x Core..:? "PublishMetricAction")
+            Prelude.<$> (x Data..:? "PublishMetricAction")
       )
 
 instance
@@ -83,11 +84,11 @@ instance
   rnf StatelessCustomActionDefinition' {..} =
     Prelude.rnf publishMetricAction
 
-instance Core.ToJSON StatelessCustomActionDefinition where
+instance Data.ToJSON StatelessCustomActionDefinition where
   toJSON StatelessCustomActionDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PublishMetricAction" Core..=)
+          [ ("PublishMetricAction" Data..=)
               Prelude.<$> publishMetricAction
           ]
       )

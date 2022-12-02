@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsIamAccessKeySessionContext where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsIamAccessKeySessionContextAttributes
 import Amazonka.SecurityHub.Types.AwsIamAccessKeySessionContextSessionIssuer
@@ -64,14 +65,14 @@ awsIamAccessKeySessionContext_sessionIssuer = Lens.lens (\AwsIamAccessKeySession
 awsIamAccessKeySessionContext_attributes :: Lens.Lens' AwsIamAccessKeySessionContext (Prelude.Maybe AwsIamAccessKeySessionContextAttributes)
 awsIamAccessKeySessionContext_attributes = Lens.lens (\AwsIamAccessKeySessionContext' {attributes} -> attributes) (\s@AwsIamAccessKeySessionContext' {} a -> s {attributes = a} :: AwsIamAccessKeySessionContext)
 
-instance Core.FromJSON AwsIamAccessKeySessionContext where
+instance Data.FromJSON AwsIamAccessKeySessionContext where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsIamAccessKeySessionContext"
       ( \x ->
           AwsIamAccessKeySessionContext'
-            Prelude.<$> (x Core..:? "SessionIssuer")
-            Prelude.<*> (x Core..:? "Attributes")
+            Prelude.<$> (x Data..:? "SessionIssuer")
+            Prelude.<*> (x Data..:? "Attributes")
       )
 
 instance
@@ -87,11 +88,11 @@ instance Prelude.NFData AwsIamAccessKeySessionContext where
     Prelude.rnf sessionIssuer
       `Prelude.seq` Prelude.rnf attributes
 
-instance Core.ToJSON AwsIamAccessKeySessionContext where
+instance Data.ToJSON AwsIamAccessKeySessionContext where
   toJSON AwsIamAccessKeySessionContext' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SessionIssuer" Core..=) Prelude.<$> sessionIssuer,
-            ("Attributes" Core..=) Prelude.<$> attributes
+          [ ("SessionIssuer" Data..=) Prelude.<$> sessionIssuer,
+            ("Attributes" Data..=) Prelude.<$> attributes
           ]
       )

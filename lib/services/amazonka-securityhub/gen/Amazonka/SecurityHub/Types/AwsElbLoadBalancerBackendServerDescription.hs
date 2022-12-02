@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElbLoadBalancerBackendServerDescription whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the configuration of an EC2 instance for the
@@ -64,16 +65,16 @@ awsElbLoadBalancerBackendServerDescription_instancePort :: Lens.Lens' AwsElbLoad
 awsElbLoadBalancerBackendServerDescription_instancePort = Lens.lens (\AwsElbLoadBalancerBackendServerDescription' {instancePort} -> instancePort) (\s@AwsElbLoadBalancerBackendServerDescription' {} a -> s {instancePort = a} :: AwsElbLoadBalancerBackendServerDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsElbLoadBalancerBackendServerDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElbLoadBalancerBackendServerDescription"
       ( \x ->
           AwsElbLoadBalancerBackendServerDescription'
-            Prelude.<$> (x Core..:? "PolicyNames" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "InstancePort")
+            Prelude.<$> (x Data..:? "PolicyNames" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "InstancePort")
       )
 
 instance
@@ -95,14 +96,14 @@ instance
       `Prelude.seq` Prelude.rnf instancePort
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsElbLoadBalancerBackendServerDescription
   where
   toJSON
     AwsElbLoadBalancerBackendServerDescription' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("PolicyNames" Core..=) Prelude.<$> policyNames,
-              ("InstancePort" Core..=) Prelude.<$> instancePort
+            [ ("PolicyNames" Data..=) Prelude.<$> policyNames,
+              ("InstancePort" Data..=) Prelude.<$> instancePort
             ]
         )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupAvailabilityZone
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Availability Zone for the automatic scaling group.
@@ -54,15 +55,15 @@ awsAutoScalingAutoScalingGroupAvailabilityZonesListDetails_value :: Lens.Lens' A
 awsAutoScalingAutoScalingGroupAvailabilityZonesListDetails_value = Lens.lens (\AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails' {value} -> value) (\s@AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails' {} a -> s {value = a} :: AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails"
       ( \x ->
           AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails'
-            Prelude.<$> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Value")
       )
 
 instance
@@ -83,12 +84,12 @@ instance
       Prelude.rnf value
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails
   where
   toJSON
     AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [("Value" Core..=) Prelude.<$> value]
+            [("Value" Data..=) Prelude.<$> value]
         )

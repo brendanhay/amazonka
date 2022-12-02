@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2SecurityGroupUserIdGroupPair where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A relationship between a security group and a user.
@@ -120,20 +121,20 @@ awsEc2SecurityGroupUserIdGroupPair_groupId :: Lens.Lens' AwsEc2SecurityGroupUser
 awsEc2SecurityGroupUserIdGroupPair_groupId = Lens.lens (\AwsEc2SecurityGroupUserIdGroupPair' {groupId} -> groupId) (\s@AwsEc2SecurityGroupUserIdGroupPair' {} a -> s {groupId = a} :: AwsEc2SecurityGroupUserIdGroupPair)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEc2SecurityGroupUserIdGroupPair
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2SecurityGroupUserIdGroupPair"
       ( \x ->
           AwsEc2SecurityGroupUserIdGroupPair'
-            Prelude.<$> (x Core..:? "VpcPeeringConnectionId")
-            Prelude.<*> (x Core..:? "GroupName")
-            Prelude.<*> (x Core..:? "PeeringStatus")
-            Prelude.<*> (x Core..:? "UserId")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "GroupId")
+            Prelude.<$> (x Data..:? "VpcPeeringConnectionId")
+            Prelude.<*> (x Data..:? "GroupName")
+            Prelude.<*> (x Data..:? "PeeringStatus")
+            Prelude.<*> (x Data..:? "UserId")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "GroupId")
       )
 
 instance
@@ -163,18 +164,18 @@ instance
       `Prelude.seq` Prelude.rnf groupId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEc2SecurityGroupUserIdGroupPair
   where
   toJSON AwsEc2SecurityGroupUserIdGroupPair' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VpcPeeringConnectionId" Core..=)
+          [ ("VpcPeeringConnectionId" Data..=)
               Prelude.<$> vpcPeeringConnectionId,
-            ("GroupName" Core..=) Prelude.<$> groupName,
-            ("PeeringStatus" Core..=) Prelude.<$> peeringStatus,
-            ("UserId" Core..=) Prelude.<$> userId,
-            ("VpcId" Core..=) Prelude.<$> vpcId,
-            ("GroupId" Core..=) Prelude.<$> groupId
+            ("GroupName" Data..=) Prelude.<$> groupName,
+            ("PeeringStatus" Data..=) Prelude.<$> peeringStatus,
+            ("UserId" Data..=) Prelude.<$> userId,
+            ("VpcId" Data..=) Prelude.<$> vpcId,
+            ("GroupId" Data..=) Prelude.<$> groupId
           ]
       )

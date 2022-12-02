@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsS3BucketWebsiteConfigurationRoutingRule whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsS3BucketWebsiteConfigurationRoutingRuleCondition
 import Amazonka.SecurityHub.Types.AwsS3BucketWebsiteConfigurationRoutingRuleRedirect
@@ -71,16 +72,16 @@ awsS3BucketWebsiteConfigurationRoutingRule_redirect :: Lens.Lens' AwsS3BucketWeb
 awsS3BucketWebsiteConfigurationRoutingRule_redirect = Lens.lens (\AwsS3BucketWebsiteConfigurationRoutingRule' {redirect} -> redirect) (\s@AwsS3BucketWebsiteConfigurationRoutingRule' {} a -> s {redirect = a} :: AwsS3BucketWebsiteConfigurationRoutingRule)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsS3BucketWebsiteConfigurationRoutingRule
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsS3BucketWebsiteConfigurationRoutingRule"
       ( \x ->
           AwsS3BucketWebsiteConfigurationRoutingRule'
-            Prelude.<$> (x Core..:? "Condition")
-              Prelude.<*> (x Core..:? "Redirect")
+            Prelude.<$> (x Data..:? "Condition")
+              Prelude.<*> (x Data..:? "Redirect")
       )
 
 instance
@@ -102,14 +103,14 @@ instance
       `Prelude.seq` Prelude.rnf redirect
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsS3BucketWebsiteConfigurationRoutingRule
   where
   toJSON
     AwsS3BucketWebsiteConfigurationRoutingRule' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Condition" Core..=) Prelude.<$> condition,
-              ("Redirect" Core..=) Prelude.<$> redirect
+            [ ("Condition" Data..=) Prelude.<$> condition,
+              ("Redirect" Data..=) Prelude.<$> redirect
             ]
         )

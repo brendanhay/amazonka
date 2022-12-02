@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.BatchUpdateFindingsUnprocessedFinding where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsSecurityFindingIdentifier
 
@@ -194,17 +195,17 @@ batchUpdateFindingsUnprocessedFinding_errorMessage :: Lens.Lens' BatchUpdateFind
 batchUpdateFindingsUnprocessedFinding_errorMessage = Lens.lens (\BatchUpdateFindingsUnprocessedFinding' {errorMessage} -> errorMessage) (\s@BatchUpdateFindingsUnprocessedFinding' {} a -> s {errorMessage = a} :: BatchUpdateFindingsUnprocessedFinding)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchUpdateFindingsUnprocessedFinding
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchUpdateFindingsUnprocessedFinding"
       ( \x ->
           BatchUpdateFindingsUnprocessedFinding'
-            Prelude.<$> (x Core..: "FindingIdentifier")
-            Prelude.<*> (x Core..: "ErrorCode")
-            Prelude.<*> (x Core..: "ErrorMessage")
+            Prelude.<$> (x Data..: "FindingIdentifier")
+            Prelude.<*> (x Data..: "ErrorCode")
+            Prelude.<*> (x Data..: "ErrorMessage")
       )
 
 instance

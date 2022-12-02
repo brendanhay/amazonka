@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsBackupBackupPlanBackupPlanDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsBackupBackupPlanAdvancedBackupSettingsDetails
 import Amazonka.SecurityHub.Types.AwsBackupBackupPlanRuleDetails
@@ -79,18 +80,18 @@ awsBackupBackupPlanBackupPlanDetails_advancedBackupSettings :: Lens.Lens' AwsBac
 awsBackupBackupPlanBackupPlanDetails_advancedBackupSettings = Lens.lens (\AwsBackupBackupPlanBackupPlanDetails' {advancedBackupSettings} -> advancedBackupSettings) (\s@AwsBackupBackupPlanBackupPlanDetails' {} a -> s {advancedBackupSettings = a} :: AwsBackupBackupPlanBackupPlanDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsBackupBackupPlanBackupPlanDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsBackupBackupPlanBackupPlanDetails"
       ( \x ->
           AwsBackupBackupPlanBackupPlanDetails'
-            Prelude.<$> (x Core..:? "BackupPlanName")
-            Prelude.<*> (x Core..:? "BackupPlanRule" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "AdvancedBackupSettings"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "BackupPlanName")
+            Prelude.<*> (x Data..:? "BackupPlanRule" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "AdvancedBackupSettings"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -115,17 +116,17 @@ instance
       `Prelude.seq` Prelude.rnf advancedBackupSettings
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsBackupBackupPlanBackupPlanDetails
   where
   toJSON AwsBackupBackupPlanBackupPlanDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BackupPlanName" Core..=)
+          [ ("BackupPlanName" Data..=)
               Prelude.<$> backupPlanName,
-            ("BackupPlanRule" Core..=)
+            ("BackupPlanRule" Data..=)
               Prelude.<$> backupPlanRule,
-            ("AdvancedBackupSettings" Core..=)
+            ("AdvancedBackupSettings" Data..=)
               Prelude.<$> advancedBackupSettings
           ]
       )

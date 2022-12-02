@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.GeoLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the latitude and longitude coordinates of a location.
@@ -61,13 +62,13 @@ geoLocation_lat = Lens.lens (\GeoLocation' {lat} -> lat) (\s@GeoLocation' {} a -
 geoLocation_lon :: Lens.Lens' GeoLocation (Prelude.Maybe Prelude.Double)
 geoLocation_lon = Lens.lens (\GeoLocation' {lon} -> lon) (\s@GeoLocation' {} a -> s {lon = a} :: GeoLocation)
 
-instance Core.FromJSON GeoLocation where
+instance Data.FromJSON GeoLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GeoLocation"
       ( \x ->
           GeoLocation'
-            Prelude.<$> (x Core..:? "Lat") Prelude.<*> (x Core..:? "Lon")
+            Prelude.<$> (x Data..:? "Lat") Prelude.<*> (x Data..:? "Lon")
       )
 
 instance Prelude.Hashable GeoLocation where
@@ -79,11 +80,11 @@ instance Prelude.NFData GeoLocation where
   rnf GeoLocation' {..} =
     Prelude.rnf lat `Prelude.seq` Prelude.rnf lon
 
-instance Core.ToJSON GeoLocation where
+instance Data.ToJSON GeoLocation where
   toJSON GeoLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Lat" Core..=) Prelude.<$> lat,
-            ("Lon" Core..=) Prelude.<$> lon
+          [ ("Lat" Data..=) Prelude.<$> lat,
+            ("Lon" Data..=) Prelude.<$> lon
           ]
       )

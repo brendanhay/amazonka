@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsApiGatewayAccessLogSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about settings for logging access for the stage.
@@ -68,14 +69,14 @@ awsApiGatewayAccessLogSettings_format = Lens.lens (\AwsApiGatewayAccessLogSettin
 awsApiGatewayAccessLogSettings_destinationArn :: Lens.Lens' AwsApiGatewayAccessLogSettings (Prelude.Maybe Prelude.Text)
 awsApiGatewayAccessLogSettings_destinationArn = Lens.lens (\AwsApiGatewayAccessLogSettings' {destinationArn} -> destinationArn) (\s@AwsApiGatewayAccessLogSettings' {} a -> s {destinationArn = a} :: AwsApiGatewayAccessLogSettings)
 
-instance Core.FromJSON AwsApiGatewayAccessLogSettings where
+instance Data.FromJSON AwsApiGatewayAccessLogSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsApiGatewayAccessLogSettings"
       ( \x ->
           AwsApiGatewayAccessLogSettings'
-            Prelude.<$> (x Core..:? "Format")
-            Prelude.<*> (x Core..:? "DestinationArn")
+            Prelude.<$> (x Data..:? "Format")
+            Prelude.<*> (x Data..:? "DestinationArn")
       )
 
 instance
@@ -96,12 +97,12 @@ instance
     Prelude.rnf format
       `Prelude.seq` Prelude.rnf destinationArn
 
-instance Core.ToJSON AwsApiGatewayAccessLogSettings where
+instance Data.ToJSON AwsApiGatewayAccessLogSettings where
   toJSON AwsApiGatewayAccessLogSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Format" Core..=) Prelude.<$> format,
-            ("DestinationArn" Core..=)
+          [ ("Format" Data..=) Prelude.<$> format,
+            ("DestinationArn" Data..=)
               Prelude.<$> destinationArn
           ]
       )

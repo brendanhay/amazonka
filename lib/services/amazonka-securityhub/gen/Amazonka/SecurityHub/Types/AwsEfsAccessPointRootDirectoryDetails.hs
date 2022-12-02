@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEfsAccessPointRootDirectoryDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEfsAccessPointRootDirectoryCreationInfoDetails
 
@@ -78,16 +79,16 @@ awsEfsAccessPointRootDirectoryDetails_path :: Lens.Lens' AwsEfsAccessPointRootDi
 awsEfsAccessPointRootDirectoryDetails_path = Lens.lens (\AwsEfsAccessPointRootDirectoryDetails' {path} -> path) (\s@AwsEfsAccessPointRootDirectoryDetails' {} a -> s {path = a} :: AwsEfsAccessPointRootDirectoryDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEfsAccessPointRootDirectoryDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEfsAccessPointRootDirectoryDetails"
       ( \x ->
           AwsEfsAccessPointRootDirectoryDetails'
-            Prelude.<$> (x Core..:? "CreationInfo")
-            Prelude.<*> (x Core..:? "Path")
+            Prelude.<$> (x Data..:? "CreationInfo")
+            Prelude.<*> (x Data..:? "Path")
       )
 
 instance
@@ -109,13 +110,13 @@ instance
       `Prelude.seq` Prelude.rnf path
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEfsAccessPointRootDirectoryDetails
   where
   toJSON AwsEfsAccessPointRootDirectoryDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CreationInfo" Core..=) Prelude.<$> creationInfo,
-            ("Path" Core..=) Prelude.<$> path
+          [ ("CreationInfo" Data..=) Prelude.<$> creationInfo,
+            ("Path" Data..=) Prelude.<$> path
           ]
       )

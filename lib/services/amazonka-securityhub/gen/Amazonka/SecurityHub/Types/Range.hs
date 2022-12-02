@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.Range where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies where the sensitive data begins and ends.
@@ -79,15 +80,15 @@ range_end = Lens.lens (\Range' {end} -> end) (\s@Range' {} a -> s {end = a} :: R
 range_startColumn :: Lens.Lens' Range (Prelude.Maybe Prelude.Integer)
 range_startColumn = Lens.lens (\Range' {startColumn} -> startColumn) (\s@Range' {} a -> s {startColumn = a} :: Range)
 
-instance Core.FromJSON Range where
+instance Data.FromJSON Range where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Range"
       ( \x ->
           Range'
-            Prelude.<$> (x Core..:? "Start")
-            Prelude.<*> (x Core..:? "End")
-            Prelude.<*> (x Core..:? "StartColumn")
+            Prelude.<$> (x Data..:? "Start")
+            Prelude.<*> (x Data..:? "End")
+            Prelude.<*> (x Data..:? "StartColumn")
       )
 
 instance Prelude.Hashable Range where
@@ -102,12 +103,12 @@ instance Prelude.NFData Range where
       `Prelude.seq` Prelude.rnf end
       `Prelude.seq` Prelude.rnf startColumn
 
-instance Core.ToJSON Range where
+instance Data.ToJSON Range where
   toJSON Range' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Start" Core..=) Prelude.<$> start,
-            ("End" Core..=) Prelude.<$> end,
-            ("StartColumn" Core..=) Prelude.<$> startColumn
+          [ ("Start" Data..=) Prelude.<$> start,
+            ("End" Data..=) Prelude.<$> end,
+            ("StartColumn" Data..=) Prelude.<$> startColumn
           ]
       )

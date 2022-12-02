@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.Threat where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.FilePaths
 
@@ -84,16 +85,16 @@ threat_itemCount = Lens.lens (\Threat' {itemCount} -> itemCount) (\s@Threat' {} 
 threat_filePaths :: Lens.Lens' Threat (Prelude.Maybe [FilePaths])
 threat_filePaths = Lens.lens (\Threat' {filePaths} -> filePaths) (\s@Threat' {} a -> s {filePaths = a} :: Threat) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Threat where
+instance Data.FromJSON Threat where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Threat"
       ( \x ->
           Threat'
-            Prelude.<$> (x Core..:? "Severity")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ItemCount")
-            Prelude.<*> (x Core..:? "FilePaths" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Severity")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ItemCount")
+            Prelude.<*> (x Data..:? "FilePaths" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Threat where
@@ -110,13 +111,13 @@ instance Prelude.NFData Threat where
       `Prelude.seq` Prelude.rnf itemCount
       `Prelude.seq` Prelude.rnf filePaths
 
-instance Core.ToJSON Threat where
+instance Data.ToJSON Threat where
   toJSON Threat' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Severity" Core..=) Prelude.<$> severity,
-            ("Name" Core..=) Prelude.<$> name,
-            ("ItemCount" Core..=) Prelude.<$> itemCount,
-            ("FilePaths" Core..=) Prelude.<$> filePaths
+          [ ("Severity" Data..=) Prelude.<$> severity,
+            ("Name" Data..=) Prelude.<$> name,
+            ("ItemCount" Data..=) Prelude.<$> itemCount,
+            ("FilePaths" Data..=) Prelude.<$> filePaths
           ]
       )

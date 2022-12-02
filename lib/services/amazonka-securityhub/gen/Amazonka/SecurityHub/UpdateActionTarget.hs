@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,32 +121,32 @@ instance Prelude.NFData UpdateActionTarget where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf actionTargetArn
 
-instance Core.ToHeaders UpdateActionTarget where
+instance Data.ToHeaders UpdateActionTarget where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateActionTarget where
+instance Data.ToJSON UpdateActionTarget where
   toJSON UpdateActionTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Description" Core..=) Prelude.<$> description
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Description" Data..=) Prelude.<$> description
           ]
       )
 
-instance Core.ToPath UpdateActionTarget where
+instance Data.ToPath UpdateActionTarget where
   toPath UpdateActionTarget' {..} =
     Prelude.mconcat
-      ["/actionTargets/", Core.toBS actionTargetArn]
+      ["/actionTargets/", Data.toBS actionTargetArn]
 
-instance Core.ToQuery UpdateActionTarget where
+instance Data.ToQuery UpdateActionTarget where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateActionTargetResponse' smart constructor.

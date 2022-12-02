@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginGroupFailoverSt
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The status codes that cause an origin group to fail over.
@@ -67,16 +68,16 @@ awsCloudFrontDistributionOriginGroupFailoverStatusCodes_quantity :: Lens.Lens' A
 awsCloudFrontDistributionOriginGroupFailoverStatusCodes_quantity = Lens.lens (\AwsCloudFrontDistributionOriginGroupFailoverStatusCodes' {quantity} -> quantity) (\s@AwsCloudFrontDistributionOriginGroupFailoverStatusCodes' {} a -> s {quantity = a} :: AwsCloudFrontDistributionOriginGroupFailoverStatusCodes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCloudFrontDistributionOriginGroupFailoverStatusCodes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCloudFrontDistributionOriginGroupFailoverStatusCodes"
       ( \x ->
           AwsCloudFrontDistributionOriginGroupFailoverStatusCodes'
-            Prelude.<$> (x Core..:? "Items" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "Quantity")
+            Prelude.<$> (x Data..:? "Items" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "Quantity")
       )
 
 instance
@@ -99,14 +100,14 @@ instance
         `Prelude.seq` Prelude.rnf quantity
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsCloudFrontDistributionOriginGroupFailoverStatusCodes
   where
   toJSON
     AwsCloudFrontDistributionOriginGroupFailoverStatusCodes' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Items" Core..=) Prelude.<$> items,
-              ("Quantity" Core..=) Prelude.<$> quantity
+            [ ("Items" Data..=) Prelude.<$> items,
+              ("Quantity" Data..=) Prelude.<$> quantity
             ]
         )

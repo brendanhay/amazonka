@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcrRepositoryDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEcrRepositoryImageScanningConfigurationDetails
 import Amazonka.SecurityHub.Types.AwsEcrRepositoryLifecyclePolicyDetails
@@ -104,18 +105,18 @@ awsEcrRepositoryDetails_imageTagMutability = Lens.lens (\AwsEcrRepositoryDetails
 awsEcrRepositoryDetails_imageScanningConfiguration :: Lens.Lens' AwsEcrRepositoryDetails (Prelude.Maybe AwsEcrRepositoryImageScanningConfigurationDetails)
 awsEcrRepositoryDetails_imageScanningConfiguration = Lens.lens (\AwsEcrRepositoryDetails' {imageScanningConfiguration} -> imageScanningConfiguration) (\s@AwsEcrRepositoryDetails' {} a -> s {imageScanningConfiguration = a} :: AwsEcrRepositoryDetails)
 
-instance Core.FromJSON AwsEcrRepositoryDetails where
+instance Data.FromJSON AwsEcrRepositoryDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcrRepositoryDetails"
       ( \x ->
           AwsEcrRepositoryDetails'
-            Prelude.<$> (x Core..:? "RepositoryName")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "RepositoryPolicyText")
-            Prelude.<*> (x Core..:? "LifecyclePolicy")
-            Prelude.<*> (x Core..:? "ImageTagMutability")
-            Prelude.<*> (x Core..:? "ImageScanningConfiguration")
+            Prelude.<$> (x Data..:? "RepositoryName")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "RepositoryPolicyText")
+            Prelude.<*> (x Data..:? "LifecyclePolicy")
+            Prelude.<*> (x Data..:? "ImageTagMutability")
+            Prelude.<*> (x Data..:? "ImageScanningConfiguration")
       )
 
 instance Prelude.Hashable AwsEcrRepositoryDetails where
@@ -136,20 +137,20 @@ instance Prelude.NFData AwsEcrRepositoryDetails where
       `Prelude.seq` Prelude.rnf imageTagMutability
       `Prelude.seq` Prelude.rnf imageScanningConfiguration
 
-instance Core.ToJSON AwsEcrRepositoryDetails where
+instance Data.ToJSON AwsEcrRepositoryDetails where
   toJSON AwsEcrRepositoryDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RepositoryName" Core..=)
+          [ ("RepositoryName" Data..=)
               Prelude.<$> repositoryName,
-            ("Arn" Core..=) Prelude.<$> arn,
-            ("RepositoryPolicyText" Core..=)
+            ("Arn" Data..=) Prelude.<$> arn,
+            ("RepositoryPolicyText" Data..=)
               Prelude.<$> repositoryPolicyText,
-            ("LifecyclePolicy" Core..=)
+            ("LifecyclePolicy" Data..=)
               Prelude.<$> lifecyclePolicy,
-            ("ImageTagMutability" Core..=)
+            ("ImageTagMutability" Data..=)
               Prelude.<$> imageTagMutability,
-            ("ImageScanningConfiguration" Core..=)
+            ("ImageScanningConfiguration" Data..=)
               Prelude.<$> imageScanningConfiguration
           ]
       )

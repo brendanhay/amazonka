@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,7 +92,7 @@ instance Core.AWSRequest DeleteActionTarget where
       ( \s h x ->
           DeleteActionTargetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ActionTargetArn")
+            Prelude.<*> (x Data..:> "ActionTargetArn")
       )
 
 instance Prelude.Hashable DeleteActionTarget where
@@ -102,23 +103,23 @@ instance Prelude.NFData DeleteActionTarget where
   rnf DeleteActionTarget' {..} =
     Prelude.rnf actionTargetArn
 
-instance Core.ToHeaders DeleteActionTarget where
+instance Data.ToHeaders DeleteActionTarget where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteActionTarget where
+instance Data.ToPath DeleteActionTarget where
   toPath DeleteActionTarget' {..} =
     Prelude.mconcat
-      ["/actionTargets/", Core.toBS actionTargetArn]
+      ["/actionTargets/", Data.toBS actionTargetArn]
 
-instance Core.ToQuery DeleteActionTarget where
+instance Data.ToQuery DeleteActionTarget where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteActionTargetResponse' smart constructor.

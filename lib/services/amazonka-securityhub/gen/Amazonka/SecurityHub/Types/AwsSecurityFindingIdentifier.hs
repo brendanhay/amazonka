@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsSecurityFindingIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies a finding to update using @BatchUpdateFindings@.
@@ -77,14 +78,14 @@ awsSecurityFindingIdentifier_id = Lens.lens (\AwsSecurityFindingIdentifier' {id}
 awsSecurityFindingIdentifier_productArn :: Lens.Lens' AwsSecurityFindingIdentifier Prelude.Text
 awsSecurityFindingIdentifier_productArn = Lens.lens (\AwsSecurityFindingIdentifier' {productArn} -> productArn) (\s@AwsSecurityFindingIdentifier' {} a -> s {productArn = a} :: AwsSecurityFindingIdentifier)
 
-instance Core.FromJSON AwsSecurityFindingIdentifier where
+instance Data.FromJSON AwsSecurityFindingIdentifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsSecurityFindingIdentifier"
       ( \x ->
           AwsSecurityFindingIdentifier'
-            Prelude.<$> (x Core..: "Id")
-            Prelude.<*> (x Core..: "ProductArn")
+            Prelude.<$> (x Data..: "Id")
+            Prelude.<*> (x Data..: "ProductArn")
       )
 
 instance
@@ -99,11 +100,11 @@ instance Prelude.NFData AwsSecurityFindingIdentifier where
   rnf AwsSecurityFindingIdentifier' {..} =
     Prelude.rnf id `Prelude.seq` Prelude.rnf productArn
 
-instance Core.ToJSON AwsSecurityFindingIdentifier where
+instance Data.ToJSON AwsSecurityFindingIdentifier where
   toJSON AwsSecurityFindingIdentifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("ProductArn" Core..= productArn)
+          [ Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("ProductArn" Data..= productArn)
           ]
       )

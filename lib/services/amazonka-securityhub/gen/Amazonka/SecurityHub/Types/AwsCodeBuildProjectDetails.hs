@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCodeBuildProjectDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsCodeBuildProjectArtifactsDetails
 import Amazonka.SecurityHub.Types.AwsCodeBuildProjectEnvironment
@@ -144,23 +145,23 @@ awsCodeBuildProjectDetails_encryptionKey = Lens.lens (\AwsCodeBuildProjectDetail
 awsCodeBuildProjectDetails_artifacts :: Lens.Lens' AwsCodeBuildProjectDetails (Prelude.Maybe [AwsCodeBuildProjectArtifactsDetails])
 awsCodeBuildProjectDetails_artifacts = Lens.lens (\AwsCodeBuildProjectDetails' {artifacts} -> artifacts) (\s@AwsCodeBuildProjectDetails' {} a -> s {artifacts = a} :: AwsCodeBuildProjectDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AwsCodeBuildProjectDetails where
+instance Data.FromJSON AwsCodeBuildProjectDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCodeBuildProjectDetails"
       ( \x ->
           AwsCodeBuildProjectDetails'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Environment")
-            Prelude.<*> (x Core..:? "VpcConfig")
-            Prelude.<*> ( x Core..:? "SecondaryArtifacts"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Environment")
+            Prelude.<*> (x Data..:? "VpcConfig")
+            Prelude.<*> ( x Data..:? "SecondaryArtifacts"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ServiceRole")
-            Prelude.<*> (x Core..:? "Source")
-            Prelude.<*> (x Core..:? "LogsConfig")
-            Prelude.<*> (x Core..:? "EncryptionKey")
-            Prelude.<*> (x Core..:? "Artifacts" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ServiceRole")
+            Prelude.<*> (x Data..:? "Source")
+            Prelude.<*> (x Data..:? "LogsConfig")
+            Prelude.<*> (x Data..:? "EncryptionKey")
+            Prelude.<*> (x Data..:? "Artifacts" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AwsCodeBuildProjectDetails where
@@ -187,19 +188,19 @@ instance Prelude.NFData AwsCodeBuildProjectDetails where
       `Prelude.seq` Prelude.rnf encryptionKey
       `Prelude.seq` Prelude.rnf artifacts
 
-instance Core.ToJSON AwsCodeBuildProjectDetails where
+instance Data.ToJSON AwsCodeBuildProjectDetails where
   toJSON AwsCodeBuildProjectDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Environment" Core..=) Prelude.<$> environment,
-            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("SecondaryArtifacts" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Environment" Data..=) Prelude.<$> environment,
+            ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("SecondaryArtifacts" Data..=)
               Prelude.<$> secondaryArtifacts,
-            ("ServiceRole" Core..=) Prelude.<$> serviceRole,
-            ("Source" Core..=) Prelude.<$> source,
-            ("LogsConfig" Core..=) Prelude.<$> logsConfig,
-            ("EncryptionKey" Core..=) Prelude.<$> encryptionKey,
-            ("Artifacts" Core..=) Prelude.<$> artifacts
+            ("ServiceRole" Data..=) Prelude.<$> serviceRole,
+            ("Source" Data..=) Prelude.<$> source,
+            ("LogsConfig" Data..=) Prelude.<$> logsConfig,
+            ("EncryptionKey" Data..=) Prelude.<$> encryptionKey,
+            ("Artifacts" Data..=) Prelude.<$> artifacts
           ]
       )

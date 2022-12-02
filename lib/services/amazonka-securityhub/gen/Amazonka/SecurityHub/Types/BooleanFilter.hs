@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.BooleanFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Boolean filter for querying findings.
@@ -50,12 +51,12 @@ newBooleanFilter =
 booleanFilter_value :: Lens.Lens' BooleanFilter (Prelude.Maybe Prelude.Bool)
 booleanFilter_value = Lens.lens (\BooleanFilter' {value} -> value) (\s@BooleanFilter' {} a -> s {value = a} :: BooleanFilter)
 
-instance Core.FromJSON BooleanFilter where
+instance Data.FromJSON BooleanFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BooleanFilter"
       ( \x ->
-          BooleanFilter' Prelude.<$> (x Core..:? "Value")
+          BooleanFilter' Prelude.<$> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable BooleanFilter where
@@ -65,9 +66,9 @@ instance Prelude.Hashable BooleanFilter where
 instance Prelude.NFData BooleanFilter where
   rnf BooleanFilter' {..} = Prelude.rnf value
 
-instance Core.ToJSON BooleanFilter where
+instance Data.ToJSON BooleanFilter where
   toJSON BooleanFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Value" Core..=) Prelude.<$> value]
+          [("Value" Data..=) Prelude.<$> value]
       )

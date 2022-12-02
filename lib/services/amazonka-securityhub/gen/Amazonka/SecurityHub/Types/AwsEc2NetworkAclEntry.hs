@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2NetworkAclEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.IcmpTypeCode
 import Amazonka.SecurityHub.Types.PortRangeFromTo
@@ -128,20 +129,20 @@ awsEc2NetworkAclEntry_protocol = Lens.lens (\AwsEc2NetworkAclEntry' {protocol} -
 awsEc2NetworkAclEntry_ipv6CidrBlock :: Lens.Lens' AwsEc2NetworkAclEntry (Prelude.Maybe Prelude.Text)
 awsEc2NetworkAclEntry_ipv6CidrBlock = Lens.lens (\AwsEc2NetworkAclEntry' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@AwsEc2NetworkAclEntry' {} a -> s {ipv6CidrBlock = a} :: AwsEc2NetworkAclEntry)
 
-instance Core.FromJSON AwsEc2NetworkAclEntry where
+instance Data.FromJSON AwsEc2NetworkAclEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2NetworkAclEntry"
       ( \x ->
           AwsEc2NetworkAclEntry'
-            Prelude.<$> (x Core..:? "IcmpTypeCode")
-            Prelude.<*> (x Core..:? "Egress")
-            Prelude.<*> (x Core..:? "PortRange")
-            Prelude.<*> (x Core..:? "RuleNumber")
-            Prelude.<*> (x Core..:? "CidrBlock")
-            Prelude.<*> (x Core..:? "RuleAction")
-            Prelude.<*> (x Core..:? "Protocol")
-            Prelude.<*> (x Core..:? "Ipv6CidrBlock")
+            Prelude.<$> (x Data..:? "IcmpTypeCode")
+            Prelude.<*> (x Data..:? "Egress")
+            Prelude.<*> (x Data..:? "PortRange")
+            Prelude.<*> (x Data..:? "RuleNumber")
+            Prelude.<*> (x Data..:? "CidrBlock")
+            Prelude.<*> (x Data..:? "RuleAction")
+            Prelude.<*> (x Data..:? "Protocol")
+            Prelude.<*> (x Data..:? "Ipv6CidrBlock")
       )
 
 instance Prelude.Hashable AwsEc2NetworkAclEntry where
@@ -166,17 +167,17 @@ instance Prelude.NFData AwsEc2NetworkAclEntry where
       `Prelude.seq` Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf ipv6CidrBlock
 
-instance Core.ToJSON AwsEc2NetworkAclEntry where
+instance Data.ToJSON AwsEc2NetworkAclEntry where
   toJSON AwsEc2NetworkAclEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IcmpTypeCode" Core..=) Prelude.<$> icmpTypeCode,
-            ("Egress" Core..=) Prelude.<$> egress,
-            ("PortRange" Core..=) Prelude.<$> portRange,
-            ("RuleNumber" Core..=) Prelude.<$> ruleNumber,
-            ("CidrBlock" Core..=) Prelude.<$> cidrBlock,
-            ("RuleAction" Core..=) Prelude.<$> ruleAction,
-            ("Protocol" Core..=) Prelude.<$> protocol,
-            ("Ipv6CidrBlock" Core..=) Prelude.<$> ipv6CidrBlock
+          [ ("IcmpTypeCode" Data..=) Prelude.<$> icmpTypeCode,
+            ("Egress" Data..=) Prelude.<$> egress,
+            ("PortRange" Data..=) Prelude.<$> portRange,
+            ("RuleNumber" Data..=) Prelude.<$> ruleNumber,
+            ("CidrBlock" Data..=) Prelude.<$> cidrBlock,
+            ("RuleAction" Data..=) Prelude.<$> ruleAction,
+            ("Protocol" Data..=) Prelude.<$> protocol,
+            ("Ipv6CidrBlock" Data..=) Prelude.<$> ipv6CidrBlock
           ]
       )

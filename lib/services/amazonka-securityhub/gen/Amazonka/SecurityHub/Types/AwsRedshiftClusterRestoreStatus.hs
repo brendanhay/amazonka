@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRedshiftClusterRestoreStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the status of a cluster restore action. It only
@@ -150,20 +151,20 @@ awsRedshiftClusterRestoreStatus_estimatedTimeToCompletionInSeconds :: Lens.Lens'
 awsRedshiftClusterRestoreStatus_estimatedTimeToCompletionInSeconds = Lens.lens (\AwsRedshiftClusterRestoreStatus' {estimatedTimeToCompletionInSeconds} -> estimatedTimeToCompletionInSeconds) (\s@AwsRedshiftClusterRestoreStatus' {} a -> s {estimatedTimeToCompletionInSeconds = a} :: AwsRedshiftClusterRestoreStatus)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsRedshiftClusterRestoreStatus
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRedshiftClusterRestoreStatus"
       ( \x ->
           AwsRedshiftClusterRestoreStatus'
-            Prelude.<$> (x Core..:? "SnapshotSizeInMegaBytes")
-            Prelude.<*> (x Core..:? "CurrentRestoreRateInMegaBytesPerSecond")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ElapsedTimeInSeconds")
-            Prelude.<*> (x Core..:? "ProgressInMegaBytes")
-            Prelude.<*> (x Core..:? "EstimatedTimeToCompletionInSeconds")
+            Prelude.<$> (x Data..:? "SnapshotSizeInMegaBytes")
+            Prelude.<*> (x Data..:? "CurrentRestoreRateInMegaBytesPerSecond")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ElapsedTimeInSeconds")
+            Prelude.<*> (x Data..:? "ProgressInMegaBytes")
+            Prelude.<*> (x Data..:? "EstimatedTimeToCompletionInSeconds")
       )
 
 instance
@@ -193,20 +194,20 @@ instance
       `Prelude.seq` Prelude.rnf progressInMegaBytes
       `Prelude.seq` Prelude.rnf estimatedTimeToCompletionInSeconds
 
-instance Core.ToJSON AwsRedshiftClusterRestoreStatus where
+instance Data.ToJSON AwsRedshiftClusterRestoreStatus where
   toJSON AwsRedshiftClusterRestoreStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SnapshotSizeInMegaBytes" Core..=)
+          [ ("SnapshotSizeInMegaBytes" Data..=)
               Prelude.<$> snapshotSizeInMegaBytes,
-            ("CurrentRestoreRateInMegaBytesPerSecond" Core..=)
+            ("CurrentRestoreRateInMegaBytesPerSecond" Data..=)
               Prelude.<$> currentRestoreRateInMegaBytesPerSecond,
-            ("Status" Core..=) Prelude.<$> status,
-            ("ElapsedTimeInSeconds" Core..=)
+            ("Status" Data..=) Prelude.<$> status,
+            ("ElapsedTimeInSeconds" Data..=)
               Prelude.<$> elapsedTimeInSeconds,
-            ("ProgressInMegaBytes" Core..=)
+            ("ProgressInMegaBytes" Data..=)
               Prelude.<$> progressInMegaBytes,
-            ("EstimatedTimeToCompletionInSeconds" Core..=)
+            ("EstimatedTimeToCompletionInSeconds" Data..=)
               Prelude.<$> estimatedTimeToCompletionInSeconds
           ]
       )

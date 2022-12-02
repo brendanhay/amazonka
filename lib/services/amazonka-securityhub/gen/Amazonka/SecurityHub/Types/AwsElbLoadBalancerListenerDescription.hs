@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElbLoadBalancerListenerDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsElbLoadBalancerListener
 
@@ -64,16 +65,16 @@ awsElbLoadBalancerListenerDescription_policyNames :: Lens.Lens' AwsElbLoadBalanc
 awsElbLoadBalancerListenerDescription_policyNames = Lens.lens (\AwsElbLoadBalancerListenerDescription' {policyNames} -> policyNames) (\s@AwsElbLoadBalancerListenerDescription' {} a -> s {policyNames = a} :: AwsElbLoadBalancerListenerDescription) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsElbLoadBalancerListenerDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElbLoadBalancerListenerDescription"
       ( \x ->
           AwsElbLoadBalancerListenerDescription'
-            Prelude.<$> (x Core..:? "Listener")
-            Prelude.<*> (x Core..:? "PolicyNames" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Listener")
+            Prelude.<*> (x Data..:? "PolicyNames" Data..!= Prelude.mempty)
       )
 
 instance
@@ -95,13 +96,13 @@ instance
       `Prelude.seq` Prelude.rnf policyNames
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsElbLoadBalancerListenerDescription
   where
   toJSON AwsElbLoadBalancerListenerDescription' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Listener" Core..=) Prelude.<$> listener,
-            ("PolicyNames" Core..=) Prelude.<$> policyNames
+          [ ("Listener" Data..=) Prelude.<$> listener,
+            ("PolicyNames" Data..=) Prelude.<$> policyNames
           ]
       )

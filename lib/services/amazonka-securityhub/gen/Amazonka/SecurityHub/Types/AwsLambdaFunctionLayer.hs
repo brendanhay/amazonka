@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsLambdaFunctionLayer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Lambda layer.
@@ -61,14 +62,14 @@ awsLambdaFunctionLayer_arn = Lens.lens (\AwsLambdaFunctionLayer' {arn} -> arn) (
 awsLambdaFunctionLayer_codeSize :: Lens.Lens' AwsLambdaFunctionLayer (Prelude.Maybe Prelude.Int)
 awsLambdaFunctionLayer_codeSize = Lens.lens (\AwsLambdaFunctionLayer' {codeSize} -> codeSize) (\s@AwsLambdaFunctionLayer' {} a -> s {codeSize = a} :: AwsLambdaFunctionLayer)
 
-instance Core.FromJSON AwsLambdaFunctionLayer where
+instance Data.FromJSON AwsLambdaFunctionLayer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsLambdaFunctionLayer"
       ( \x ->
           AwsLambdaFunctionLayer'
-            Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "CodeSize")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "CodeSize")
       )
 
 instance Prelude.Hashable AwsLambdaFunctionLayer where
@@ -80,11 +81,11 @@ instance Prelude.NFData AwsLambdaFunctionLayer where
   rnf AwsLambdaFunctionLayer' {..} =
     Prelude.rnf arn `Prelude.seq` Prelude.rnf codeSize
 
-instance Core.ToJSON AwsLambdaFunctionLayer where
+instance Data.ToJSON AwsLambdaFunctionLayer where
   toJSON AwsLambdaFunctionLayer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Arn" Core..=) Prelude.<$> arn,
-            ("CodeSize" Core..=) Prelude.<$> codeSize
+          [ ("Arn" Data..=) Prelude.<$> arn,
+            ("CodeSize" Data..=) Prelude.<$> codeSize
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.ResourceDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsApiGatewayRestApiDetails
 import Amazonka.SecurityHub.Types.AwsApiGatewayStageDetails
@@ -916,91 +917,91 @@ resourceDetails_awsSecretsManagerSecret = Lens.lens (\ResourceDetails' {awsSecre
 resourceDetails_awsCloudFrontDistribution :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsCloudFrontDistributionDetails)
 resourceDetails_awsCloudFrontDistribution = Lens.lens (\ResourceDetails' {awsCloudFrontDistribution} -> awsCloudFrontDistribution) (\s@ResourceDetails' {} a -> s {awsCloudFrontDistribution = a} :: ResourceDetails)
 
-instance Core.FromJSON ResourceDetails where
+instance Data.FromJSON ResourceDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceDetails"
       ( \x ->
           ResourceDetails'
-            Prelude.<$> (x Core..:? "AwsNetworkFirewallRuleGroup")
-            Prelude.<*> (x Core..:? "AwsEc2Instance")
-            Prelude.<*> (x Core..:? "AwsIamRole")
-            Prelude.<*> (x Core..:? "AwsS3AccountPublicAccessBlock")
-            Prelude.<*> (x Core..:? "AwsSqsQueue")
-            Prelude.<*> (x Core..:? "AwsElbv2LoadBalancer")
-            Prelude.<*> (x Core..:? "AwsCloudWatchAlarm")
-            Prelude.<*> (x Core..:? "AwsIamPolicy")
-            Prelude.<*> (x Core..:? "AwsEc2NetworkInterface")
-            Prelude.<*> (x Core..:? "AwsEksCluster")
-            Prelude.<*> (x Core..:? "AwsWafRateBasedRule")
-            Prelude.<*> (x Core..:? "AwsEcsContainer")
-            Prelude.<*> (x Core..:? "AwsRdsEventSubscription")
-            Prelude.<*> (x Core..:? "AwsCloudFormationStack")
-            Prelude.<*> (x Core..:? "AwsWafWebAcl")
-            Prelude.<*> (x Core..:? "Other" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AwsSsmPatchCompliance")
-            Prelude.<*> (x Core..:? "AwsOpenSearchServiceDomain")
-            Prelude.<*> (x Core..:? "AwsDynamoDbTable")
-            Prelude.<*> (x Core..:? "AwsEc2Volume")
-            Prelude.<*> (x Core..:? "AwsCertificateManagerCertificate")
-            Prelude.<*> (x Core..:? "AwsEc2VpnConnection")
-            Prelude.<*> (x Core..:? "AwsEc2Subnet")
-            Prelude.<*> (x Core..:? "AwsIamGroup")
-            Prelude.<*> (x Core..:? "AwsIamUser")
-            Prelude.<*> (x Core..:? "AwsBackupBackupVault")
-            Prelude.<*> (x Core..:? "AwsApiGatewayV2Api")
-            Prelude.<*> (x Core..:? "AwsEcsTaskDefinition")
-            Prelude.<*> (x Core..:? "AwsAutoScalingAutoScalingGroup")
-            Prelude.<*> (x Core..:? "AwsEc2NetworkAcl")
-            Prelude.<*> (x Core..:? "AwsEfsAccessPoint")
-            Prelude.<*> (x Core..:? "AwsEc2VpcEndpointService")
-            Prelude.<*> (x Core..:? "AwsCodeBuildProject")
-            Prelude.<*> (x Core..:? "AwsRdsDbInstance")
-            Prelude.<*> (x Core..:? "AwsElasticsearchDomain")
-            Prelude.<*> (x Core..:? "AwsEcrContainerImage")
-            Prelude.<*> (x Core..:? "AwsAutoScalingLaunchConfiguration")
-            Prelude.<*> (x Core..:? "AwsIamAccessKey")
-            Prelude.<*> (x Core..:? "AwsRedshiftCluster")
-            Prelude.<*> (x Core..:? "AwsNetworkFirewallFirewallPolicy")
-            Prelude.<*> (x Core..:? "AwsEc2Vpc")
-            Prelude.<*> (x Core..:? "AwsEcrRepository")
-            Prelude.<*> (x Core..:? "AwsWafRegionalRuleGroup")
-            Prelude.<*> (x Core..:? "AwsWafRegionalRateBasedRule")
-            Prelude.<*> (x Core..:? "AwsWafRegionalRule")
-            Prelude.<*> (x Core..:? "AwsApiGatewayV2Stage")
-            Prelude.<*> (x Core..:? "AwsRdsDbCluster")
-            Prelude.<*> (x Core..:? "AwsS3Object")
-            Prelude.<*> (x Core..:? "AwsNetworkFirewallFirewall")
-            Prelude.<*> (x Core..:? "AwsWafRuleGroup")
-            Prelude.<*> (x Core..:? "AwsEc2VpcPeeringConnection")
-            Prelude.<*> (x Core..:? "AwsEc2TransitGateway")
-            Prelude.<*> (x Core..:? "AwsS3Bucket")
-            Prelude.<*> (x Core..:? "AwsWafRegionalWebAcl")
-            Prelude.<*> (x Core..:? "AwsEc2Eip")
-            Prelude.<*> (x Core..:? "AwsBackupBackupPlan")
-            Prelude.<*> (x Core..:? "AwsLambdaFunction")
-            Prelude.<*> (x Core..:? "Container")
-            Prelude.<*> (x Core..:? "AwsRdsDbClusterSnapshot")
-            Prelude.<*> (x Core..:? "AwsElbLoadBalancer")
-            Prelude.<*> (x Core..:? "AwsCloudTrailTrail")
-            Prelude.<*> (x Core..:? "AwsEcsService")
-            Prelude.<*> (x Core..:? "AwsApiGatewayStage")
-            Prelude.<*> (x Core..:? "AwsSnsTopic")
-            Prelude.<*> (x Core..:? "AwsRdsDbSecurityGroup")
-            Prelude.<*> (x Core..:? "AwsKinesisStream")
-            Prelude.<*> (x Core..:? "AwsEc2SecurityGroup")
-            Prelude.<*> (x Core..:? "AwsEcsCluster")
-            Prelude.<*> (x Core..:? "AwsApiGatewayRestApi")
-            Prelude.<*> (x Core..:? "AwsWafRule")
-            Prelude.<*> (x Core..:? "AwsBackupRecoveryPoint")
-            Prelude.<*> (x Core..:? "AwsRdsDbSnapshot")
-            Prelude.<*> (x Core..:? "AwsElasticBeanstalkEnvironment")
-            Prelude.<*> (x Core..:? "AwsEcsTask")
-            Prelude.<*> (x Core..:? "AwsXrayEncryptionConfig")
-            Prelude.<*> (x Core..:? "AwsLambdaLayerVersion")
-            Prelude.<*> (x Core..:? "AwsKmsKey")
-            Prelude.<*> (x Core..:? "AwsSecretsManagerSecret")
-            Prelude.<*> (x Core..:? "AwsCloudFrontDistribution")
+            Prelude.<$> (x Data..:? "AwsNetworkFirewallRuleGroup")
+            Prelude.<*> (x Data..:? "AwsEc2Instance")
+            Prelude.<*> (x Data..:? "AwsIamRole")
+            Prelude.<*> (x Data..:? "AwsS3AccountPublicAccessBlock")
+            Prelude.<*> (x Data..:? "AwsSqsQueue")
+            Prelude.<*> (x Data..:? "AwsElbv2LoadBalancer")
+            Prelude.<*> (x Data..:? "AwsCloudWatchAlarm")
+            Prelude.<*> (x Data..:? "AwsIamPolicy")
+            Prelude.<*> (x Data..:? "AwsEc2NetworkInterface")
+            Prelude.<*> (x Data..:? "AwsEksCluster")
+            Prelude.<*> (x Data..:? "AwsWafRateBasedRule")
+            Prelude.<*> (x Data..:? "AwsEcsContainer")
+            Prelude.<*> (x Data..:? "AwsRdsEventSubscription")
+            Prelude.<*> (x Data..:? "AwsCloudFormationStack")
+            Prelude.<*> (x Data..:? "AwsWafWebAcl")
+            Prelude.<*> (x Data..:? "Other" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AwsSsmPatchCompliance")
+            Prelude.<*> (x Data..:? "AwsOpenSearchServiceDomain")
+            Prelude.<*> (x Data..:? "AwsDynamoDbTable")
+            Prelude.<*> (x Data..:? "AwsEc2Volume")
+            Prelude.<*> (x Data..:? "AwsCertificateManagerCertificate")
+            Prelude.<*> (x Data..:? "AwsEc2VpnConnection")
+            Prelude.<*> (x Data..:? "AwsEc2Subnet")
+            Prelude.<*> (x Data..:? "AwsIamGroup")
+            Prelude.<*> (x Data..:? "AwsIamUser")
+            Prelude.<*> (x Data..:? "AwsBackupBackupVault")
+            Prelude.<*> (x Data..:? "AwsApiGatewayV2Api")
+            Prelude.<*> (x Data..:? "AwsEcsTaskDefinition")
+            Prelude.<*> (x Data..:? "AwsAutoScalingAutoScalingGroup")
+            Prelude.<*> (x Data..:? "AwsEc2NetworkAcl")
+            Prelude.<*> (x Data..:? "AwsEfsAccessPoint")
+            Prelude.<*> (x Data..:? "AwsEc2VpcEndpointService")
+            Prelude.<*> (x Data..:? "AwsCodeBuildProject")
+            Prelude.<*> (x Data..:? "AwsRdsDbInstance")
+            Prelude.<*> (x Data..:? "AwsElasticsearchDomain")
+            Prelude.<*> (x Data..:? "AwsEcrContainerImage")
+            Prelude.<*> (x Data..:? "AwsAutoScalingLaunchConfiguration")
+            Prelude.<*> (x Data..:? "AwsIamAccessKey")
+            Prelude.<*> (x Data..:? "AwsRedshiftCluster")
+            Prelude.<*> (x Data..:? "AwsNetworkFirewallFirewallPolicy")
+            Prelude.<*> (x Data..:? "AwsEc2Vpc")
+            Prelude.<*> (x Data..:? "AwsEcrRepository")
+            Prelude.<*> (x Data..:? "AwsWafRegionalRuleGroup")
+            Prelude.<*> (x Data..:? "AwsWafRegionalRateBasedRule")
+            Prelude.<*> (x Data..:? "AwsWafRegionalRule")
+            Prelude.<*> (x Data..:? "AwsApiGatewayV2Stage")
+            Prelude.<*> (x Data..:? "AwsRdsDbCluster")
+            Prelude.<*> (x Data..:? "AwsS3Object")
+            Prelude.<*> (x Data..:? "AwsNetworkFirewallFirewall")
+            Prelude.<*> (x Data..:? "AwsWafRuleGroup")
+            Prelude.<*> (x Data..:? "AwsEc2VpcPeeringConnection")
+            Prelude.<*> (x Data..:? "AwsEc2TransitGateway")
+            Prelude.<*> (x Data..:? "AwsS3Bucket")
+            Prelude.<*> (x Data..:? "AwsWafRegionalWebAcl")
+            Prelude.<*> (x Data..:? "AwsEc2Eip")
+            Prelude.<*> (x Data..:? "AwsBackupBackupPlan")
+            Prelude.<*> (x Data..:? "AwsLambdaFunction")
+            Prelude.<*> (x Data..:? "Container")
+            Prelude.<*> (x Data..:? "AwsRdsDbClusterSnapshot")
+            Prelude.<*> (x Data..:? "AwsElbLoadBalancer")
+            Prelude.<*> (x Data..:? "AwsCloudTrailTrail")
+            Prelude.<*> (x Data..:? "AwsEcsService")
+            Prelude.<*> (x Data..:? "AwsApiGatewayStage")
+            Prelude.<*> (x Data..:? "AwsSnsTopic")
+            Prelude.<*> (x Data..:? "AwsRdsDbSecurityGroup")
+            Prelude.<*> (x Data..:? "AwsKinesisStream")
+            Prelude.<*> (x Data..:? "AwsEc2SecurityGroup")
+            Prelude.<*> (x Data..:? "AwsEcsCluster")
+            Prelude.<*> (x Data..:? "AwsApiGatewayRestApi")
+            Prelude.<*> (x Data..:? "AwsWafRule")
+            Prelude.<*> (x Data..:? "AwsBackupRecoveryPoint")
+            Prelude.<*> (x Data..:? "AwsRdsDbSnapshot")
+            Prelude.<*> (x Data..:? "AwsElasticBeanstalkEnvironment")
+            Prelude.<*> (x Data..:? "AwsEcsTask")
+            Prelude.<*> (x Data..:? "AwsXrayEncryptionConfig")
+            Prelude.<*> (x Data..:? "AwsLambdaLayerVersion")
+            Prelude.<*> (x Data..:? "AwsKmsKey")
+            Prelude.<*> (x Data..:? "AwsSecretsManagerSecret")
+            Prelude.<*> (x Data..:? "AwsCloudFrontDistribution")
       )
 
 instance Prelude.Hashable ResourceDetails where
@@ -1227,146 +1228,146 @@ instance Prelude.NFData ResourceDetails where
       `Prelude.seq` Prelude.rnf
         awsCloudFrontDistribution
 
-instance Core.ToJSON ResourceDetails where
+instance Data.ToJSON ResourceDetails where
   toJSON ResourceDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AwsNetworkFirewallRuleGroup" Core..=)
+          [ ("AwsNetworkFirewallRuleGroup" Data..=)
               Prelude.<$> awsNetworkFirewallRuleGroup,
-            ("AwsEc2Instance" Core..=)
+            ("AwsEc2Instance" Data..=)
               Prelude.<$> awsEc2Instance,
-            ("AwsIamRole" Core..=) Prelude.<$> awsIamRole,
-            ("AwsS3AccountPublicAccessBlock" Core..=)
+            ("AwsIamRole" Data..=) Prelude.<$> awsIamRole,
+            ("AwsS3AccountPublicAccessBlock" Data..=)
               Prelude.<$> awsS3AccountPublicAccessBlock,
-            ("AwsSqsQueue" Core..=) Prelude.<$> awsSqsQueue,
-            ("AwsElbv2LoadBalancer" Core..=)
+            ("AwsSqsQueue" Data..=) Prelude.<$> awsSqsQueue,
+            ("AwsElbv2LoadBalancer" Data..=)
               Prelude.<$> awsElbv2LoadBalancer,
-            ("AwsCloudWatchAlarm" Core..=)
+            ("AwsCloudWatchAlarm" Data..=)
               Prelude.<$> awsCloudWatchAlarm,
-            ("AwsIamPolicy" Core..=) Prelude.<$> awsIamPolicy,
-            ("AwsEc2NetworkInterface" Core..=)
+            ("AwsIamPolicy" Data..=) Prelude.<$> awsIamPolicy,
+            ("AwsEc2NetworkInterface" Data..=)
               Prelude.<$> awsEc2NetworkInterface,
-            ("AwsEksCluster" Core..=) Prelude.<$> awsEksCluster,
-            ("AwsWafRateBasedRule" Core..=)
+            ("AwsEksCluster" Data..=) Prelude.<$> awsEksCluster,
+            ("AwsWafRateBasedRule" Data..=)
               Prelude.<$> awsWafRateBasedRule,
-            ("AwsEcsContainer" Core..=)
+            ("AwsEcsContainer" Data..=)
               Prelude.<$> awsEcsContainer,
-            ("AwsRdsEventSubscription" Core..=)
+            ("AwsRdsEventSubscription" Data..=)
               Prelude.<$> awsRdsEventSubscription,
-            ("AwsCloudFormationStack" Core..=)
+            ("AwsCloudFormationStack" Data..=)
               Prelude.<$> awsCloudFormationStack,
-            ("AwsWafWebAcl" Core..=) Prelude.<$> awsWafWebAcl,
-            ("Other" Core..=) Prelude.<$> other,
-            ("AwsSsmPatchCompliance" Core..=)
+            ("AwsWafWebAcl" Data..=) Prelude.<$> awsWafWebAcl,
+            ("Other" Data..=) Prelude.<$> other,
+            ("AwsSsmPatchCompliance" Data..=)
               Prelude.<$> awsSsmPatchCompliance,
-            ("AwsOpenSearchServiceDomain" Core..=)
+            ("AwsOpenSearchServiceDomain" Data..=)
               Prelude.<$> awsOpenSearchServiceDomain,
-            ("AwsDynamoDbTable" Core..=)
+            ("AwsDynamoDbTable" Data..=)
               Prelude.<$> awsDynamoDbTable,
-            ("AwsEc2Volume" Core..=) Prelude.<$> awsEc2Volume,
-            ("AwsCertificateManagerCertificate" Core..=)
+            ("AwsEc2Volume" Data..=) Prelude.<$> awsEc2Volume,
+            ("AwsCertificateManagerCertificate" Data..=)
               Prelude.<$> awsCertificateManagerCertificate,
-            ("AwsEc2VpnConnection" Core..=)
+            ("AwsEc2VpnConnection" Data..=)
               Prelude.<$> awsEc2VpnConnection,
-            ("AwsEc2Subnet" Core..=) Prelude.<$> awsEc2Subnet,
-            ("AwsIamGroup" Core..=) Prelude.<$> awsIamGroup,
-            ("AwsIamUser" Core..=) Prelude.<$> awsIamUser,
-            ("AwsBackupBackupVault" Core..=)
+            ("AwsEc2Subnet" Data..=) Prelude.<$> awsEc2Subnet,
+            ("AwsIamGroup" Data..=) Prelude.<$> awsIamGroup,
+            ("AwsIamUser" Data..=) Prelude.<$> awsIamUser,
+            ("AwsBackupBackupVault" Data..=)
               Prelude.<$> awsBackupBackupVault,
-            ("AwsApiGatewayV2Api" Core..=)
+            ("AwsApiGatewayV2Api" Data..=)
               Prelude.<$> awsApiGatewayV2Api,
-            ("AwsEcsTaskDefinition" Core..=)
+            ("AwsEcsTaskDefinition" Data..=)
               Prelude.<$> awsEcsTaskDefinition,
-            ("AwsAutoScalingAutoScalingGroup" Core..=)
+            ("AwsAutoScalingAutoScalingGroup" Data..=)
               Prelude.<$> awsAutoScalingAutoScalingGroup,
-            ("AwsEc2NetworkAcl" Core..=)
+            ("AwsEc2NetworkAcl" Data..=)
               Prelude.<$> awsEc2NetworkAcl,
-            ("AwsEfsAccessPoint" Core..=)
+            ("AwsEfsAccessPoint" Data..=)
               Prelude.<$> awsEfsAccessPoint,
-            ("AwsEc2VpcEndpointService" Core..=)
+            ("AwsEc2VpcEndpointService" Data..=)
               Prelude.<$> awsEc2VpcEndpointService,
-            ("AwsCodeBuildProject" Core..=)
+            ("AwsCodeBuildProject" Data..=)
               Prelude.<$> awsCodeBuildProject,
-            ("AwsRdsDbInstance" Core..=)
+            ("AwsRdsDbInstance" Data..=)
               Prelude.<$> awsRdsDbInstance,
-            ("AwsElasticsearchDomain" Core..=)
+            ("AwsElasticsearchDomain" Data..=)
               Prelude.<$> awsElasticsearchDomain,
-            ("AwsEcrContainerImage" Core..=)
+            ("AwsEcrContainerImage" Data..=)
               Prelude.<$> awsEcrContainerImage,
-            ("AwsAutoScalingLaunchConfiguration" Core..=)
+            ("AwsAutoScalingLaunchConfiguration" Data..=)
               Prelude.<$> awsAutoScalingLaunchConfiguration,
-            ("AwsIamAccessKey" Core..=)
+            ("AwsIamAccessKey" Data..=)
               Prelude.<$> awsIamAccessKey,
-            ("AwsRedshiftCluster" Core..=)
+            ("AwsRedshiftCluster" Data..=)
               Prelude.<$> awsRedshiftCluster,
-            ("AwsNetworkFirewallFirewallPolicy" Core..=)
+            ("AwsNetworkFirewallFirewallPolicy" Data..=)
               Prelude.<$> awsNetworkFirewallFirewallPolicy,
-            ("AwsEc2Vpc" Core..=) Prelude.<$> awsEc2Vpc,
-            ("AwsEcrRepository" Core..=)
+            ("AwsEc2Vpc" Data..=) Prelude.<$> awsEc2Vpc,
+            ("AwsEcrRepository" Data..=)
               Prelude.<$> awsEcrRepository,
-            ("AwsWafRegionalRuleGroup" Core..=)
+            ("AwsWafRegionalRuleGroup" Data..=)
               Prelude.<$> awsWafRegionalRuleGroup,
-            ("AwsWafRegionalRateBasedRule" Core..=)
+            ("AwsWafRegionalRateBasedRule" Data..=)
               Prelude.<$> awsWafRegionalRateBasedRule,
-            ("AwsWafRegionalRule" Core..=)
+            ("AwsWafRegionalRule" Data..=)
               Prelude.<$> awsWafRegionalRule,
-            ("AwsApiGatewayV2Stage" Core..=)
+            ("AwsApiGatewayV2Stage" Data..=)
               Prelude.<$> awsApiGatewayV2Stage,
-            ("AwsRdsDbCluster" Core..=)
+            ("AwsRdsDbCluster" Data..=)
               Prelude.<$> awsRdsDbCluster,
-            ("AwsS3Object" Core..=) Prelude.<$> awsS3Object,
-            ("AwsNetworkFirewallFirewall" Core..=)
+            ("AwsS3Object" Data..=) Prelude.<$> awsS3Object,
+            ("AwsNetworkFirewallFirewall" Data..=)
               Prelude.<$> awsNetworkFirewallFirewall,
-            ("AwsWafRuleGroup" Core..=)
+            ("AwsWafRuleGroup" Data..=)
               Prelude.<$> awsWafRuleGroup,
-            ("AwsEc2VpcPeeringConnection" Core..=)
+            ("AwsEc2VpcPeeringConnection" Data..=)
               Prelude.<$> awsEc2VpcPeeringConnection,
-            ("AwsEc2TransitGateway" Core..=)
+            ("AwsEc2TransitGateway" Data..=)
               Prelude.<$> awsEc2TransitGateway,
-            ("AwsS3Bucket" Core..=) Prelude.<$> awsS3Bucket,
-            ("AwsWafRegionalWebAcl" Core..=)
+            ("AwsS3Bucket" Data..=) Prelude.<$> awsS3Bucket,
+            ("AwsWafRegionalWebAcl" Data..=)
               Prelude.<$> awsWafRegionalWebAcl,
-            ("AwsEc2Eip" Core..=) Prelude.<$> awsEc2Eip,
-            ("AwsBackupBackupPlan" Core..=)
+            ("AwsEc2Eip" Data..=) Prelude.<$> awsEc2Eip,
+            ("AwsBackupBackupPlan" Data..=)
               Prelude.<$> awsBackupBackupPlan,
-            ("AwsLambdaFunction" Core..=)
+            ("AwsLambdaFunction" Data..=)
               Prelude.<$> awsLambdaFunction,
-            ("Container" Core..=) Prelude.<$> container,
-            ("AwsRdsDbClusterSnapshot" Core..=)
+            ("Container" Data..=) Prelude.<$> container,
+            ("AwsRdsDbClusterSnapshot" Data..=)
               Prelude.<$> awsRdsDbClusterSnapshot,
-            ("AwsElbLoadBalancer" Core..=)
+            ("AwsElbLoadBalancer" Data..=)
               Prelude.<$> awsElbLoadBalancer,
-            ("AwsCloudTrailTrail" Core..=)
+            ("AwsCloudTrailTrail" Data..=)
               Prelude.<$> awsCloudTrailTrail,
-            ("AwsEcsService" Core..=) Prelude.<$> awsEcsService,
-            ("AwsApiGatewayStage" Core..=)
+            ("AwsEcsService" Data..=) Prelude.<$> awsEcsService,
+            ("AwsApiGatewayStage" Data..=)
               Prelude.<$> awsApiGatewayStage,
-            ("AwsSnsTopic" Core..=) Prelude.<$> awsSnsTopic,
-            ("AwsRdsDbSecurityGroup" Core..=)
+            ("AwsSnsTopic" Data..=) Prelude.<$> awsSnsTopic,
+            ("AwsRdsDbSecurityGroup" Data..=)
               Prelude.<$> awsRdsDbSecurityGroup,
-            ("AwsKinesisStream" Core..=)
+            ("AwsKinesisStream" Data..=)
               Prelude.<$> awsKinesisStream,
-            ("AwsEc2SecurityGroup" Core..=)
+            ("AwsEc2SecurityGroup" Data..=)
               Prelude.<$> awsEc2SecurityGroup,
-            ("AwsEcsCluster" Core..=) Prelude.<$> awsEcsCluster,
-            ("AwsApiGatewayRestApi" Core..=)
+            ("AwsEcsCluster" Data..=) Prelude.<$> awsEcsCluster,
+            ("AwsApiGatewayRestApi" Data..=)
               Prelude.<$> awsApiGatewayRestApi,
-            ("AwsWafRule" Core..=) Prelude.<$> awsWafRule,
-            ("AwsBackupRecoveryPoint" Core..=)
+            ("AwsWafRule" Data..=) Prelude.<$> awsWafRule,
+            ("AwsBackupRecoveryPoint" Data..=)
               Prelude.<$> awsBackupRecoveryPoint,
-            ("AwsRdsDbSnapshot" Core..=)
+            ("AwsRdsDbSnapshot" Data..=)
               Prelude.<$> awsRdsDbSnapshot,
-            ("AwsElasticBeanstalkEnvironment" Core..=)
+            ("AwsElasticBeanstalkEnvironment" Data..=)
               Prelude.<$> awsElasticBeanstalkEnvironment,
-            ("AwsEcsTask" Core..=) Prelude.<$> awsEcsTask,
-            ("AwsXrayEncryptionConfig" Core..=)
+            ("AwsEcsTask" Data..=) Prelude.<$> awsEcsTask,
+            ("AwsXrayEncryptionConfig" Data..=)
               Prelude.<$> awsXrayEncryptionConfig,
-            ("AwsLambdaLayerVersion" Core..=)
+            ("AwsLambdaLayerVersion" Data..=)
               Prelude.<$> awsLambdaLayerVersion,
-            ("AwsKmsKey" Core..=) Prelude.<$> awsKmsKey,
-            ("AwsSecretsManagerSecret" Core..=)
+            ("AwsKmsKey" Data..=) Prelude.<$> awsKmsKey,
+            ("AwsSecretsManagerSecret" Data..=)
               Prelude.<$> awsSecretsManagerSecret,
-            ("AwsCloudFrontDistribution" Core..=)
+            ("AwsCloudFrontDistribution" Data..=)
               Prelude.<$> awsCloudFrontDistribution
           ]
       )

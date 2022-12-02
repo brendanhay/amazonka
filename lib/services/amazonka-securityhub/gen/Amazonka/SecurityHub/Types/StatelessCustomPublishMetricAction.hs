@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.StatelessCustomPublishMetricAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.StatelessCustomPublishMetricActionDimension
 
@@ -55,15 +56,15 @@ statelessCustomPublishMetricAction_dimensions :: Lens.Lens' StatelessCustomPubli
 statelessCustomPublishMetricAction_dimensions = Lens.lens (\StatelessCustomPublishMetricAction' {dimensions} -> dimensions) (\s@StatelessCustomPublishMetricAction' {} a -> s {dimensions = a} :: StatelessCustomPublishMetricAction) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     StatelessCustomPublishMetricAction
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StatelessCustomPublishMetricAction"
       ( \x ->
           StatelessCustomPublishMetricAction'
-            Prelude.<$> (x Core..:? "Dimensions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Dimensions" Data..!= Prelude.mempty)
       )
 
 instance
@@ -83,11 +84,11 @@ instance
     Prelude.rnf dimensions
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     StatelessCustomPublishMetricAction
   where
   toJSON StatelessCustomPublishMetricAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Dimensions" Core..=) Prelude.<$> dimensions]
+          [("Dimensions" Data..=) Prelude.<$> dimensions]
       )

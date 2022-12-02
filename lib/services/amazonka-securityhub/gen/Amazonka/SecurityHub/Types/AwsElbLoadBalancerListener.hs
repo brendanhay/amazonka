@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElbLoadBalancerListener where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a load balancer listener.
@@ -116,17 +117,17 @@ awsElbLoadBalancerListener_protocol = Lens.lens (\AwsElbLoadBalancerListener' {p
 awsElbLoadBalancerListener_loadBalancerPort :: Lens.Lens' AwsElbLoadBalancerListener (Prelude.Maybe Prelude.Int)
 awsElbLoadBalancerListener_loadBalancerPort = Lens.lens (\AwsElbLoadBalancerListener' {loadBalancerPort} -> loadBalancerPort) (\s@AwsElbLoadBalancerListener' {} a -> s {loadBalancerPort = a} :: AwsElbLoadBalancerListener)
 
-instance Core.FromJSON AwsElbLoadBalancerListener where
+instance Data.FromJSON AwsElbLoadBalancerListener where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElbLoadBalancerListener"
       ( \x ->
           AwsElbLoadBalancerListener'
-            Prelude.<$> (x Core..:? "SslCertificateId")
-            Prelude.<*> (x Core..:? "InstanceProtocol")
-            Prelude.<*> (x Core..:? "InstancePort")
-            Prelude.<*> (x Core..:? "Protocol")
-            Prelude.<*> (x Core..:? "LoadBalancerPort")
+            Prelude.<$> (x Data..:? "SslCertificateId")
+            Prelude.<*> (x Data..:? "InstanceProtocol")
+            Prelude.<*> (x Data..:? "InstancePort")
+            Prelude.<*> (x Data..:? "Protocol")
+            Prelude.<*> (x Data..:? "LoadBalancerPort")
       )
 
 instance Prelude.Hashable AwsElbLoadBalancerListener where
@@ -145,17 +146,17 @@ instance Prelude.NFData AwsElbLoadBalancerListener where
       `Prelude.seq` Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf loadBalancerPort
 
-instance Core.ToJSON AwsElbLoadBalancerListener where
+instance Data.ToJSON AwsElbLoadBalancerListener where
   toJSON AwsElbLoadBalancerListener' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SslCertificateId" Core..=)
+          [ ("SslCertificateId" Data..=)
               Prelude.<$> sslCertificateId,
-            ("InstanceProtocol" Core..=)
+            ("InstanceProtocol" Data..=)
               Prelude.<$> instanceProtocol,
-            ("InstancePort" Core..=) Prelude.<$> instancePort,
-            ("Protocol" Core..=) Prelude.<$> protocol,
-            ("LoadBalancerPort" Core..=)
+            ("InstancePort" Data..=) Prelude.<$> instancePort,
+            ("Protocol" Data..=) Prelude.<$> protocol,
+            ("LoadBalancerPort" Data..=)
               Prelude.<$> loadBalancerPort
           ]
       )

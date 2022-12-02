@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsS3BucketWebsiteConfigurationRoutingRuleRedi
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The rules to redirect the request if the condition in @Condition@ is
@@ -110,19 +111,19 @@ awsS3BucketWebsiteConfigurationRoutingRuleRedirect_httpRedirectCode :: Lens.Lens
 awsS3BucketWebsiteConfigurationRoutingRuleRedirect_httpRedirectCode = Lens.lens (\AwsS3BucketWebsiteConfigurationRoutingRuleRedirect' {httpRedirectCode} -> httpRedirectCode) (\s@AwsS3BucketWebsiteConfigurationRoutingRuleRedirect' {} a -> s {httpRedirectCode = a} :: AwsS3BucketWebsiteConfigurationRoutingRuleRedirect)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsS3BucketWebsiteConfigurationRoutingRuleRedirect
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsS3BucketWebsiteConfigurationRoutingRuleRedirect"
       ( \x ->
           AwsS3BucketWebsiteConfigurationRoutingRuleRedirect'
-            Prelude.<$> (x Core..:? "Hostname")
-              Prelude.<*> (x Core..:? "ReplaceKeyPrefixWith")
-              Prelude.<*> (x Core..:? "ReplaceKeyWith")
-              Prelude.<*> (x Core..:? "Protocol")
-              Prelude.<*> (x Core..:? "HttpRedirectCode")
+            Prelude.<$> (x Data..:? "Hostname")
+              Prelude.<*> (x Data..:? "ReplaceKeyPrefixWith")
+              Prelude.<*> (x Data..:? "ReplaceKeyWith")
+              Prelude.<*> (x Data..:? "Protocol")
+              Prelude.<*> (x Data..:? "HttpRedirectCode")
       )
 
 instance
@@ -151,20 +152,20 @@ instance
         `Prelude.seq` Prelude.rnf httpRedirectCode
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsS3BucketWebsiteConfigurationRoutingRuleRedirect
   where
   toJSON
     AwsS3BucketWebsiteConfigurationRoutingRuleRedirect' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Hostname" Core..=) Prelude.<$> hostname,
-              ("ReplaceKeyPrefixWith" Core..=)
+            [ ("Hostname" Data..=) Prelude.<$> hostname,
+              ("ReplaceKeyPrefixWith" Data..=)
                 Prelude.<$> replaceKeyPrefixWith,
-              ("ReplaceKeyWith" Core..=)
+              ("ReplaceKeyWith" Data..=)
                 Prelude.<$> replaceKeyWith,
-              ("Protocol" Core..=) Prelude.<$> protocol,
-              ("HttpRedirectCode" Core..=)
+              ("Protocol" Data..=) Prelude.<$> protocol,
+              ("HttpRedirectCode" Data..=)
                 Prelude.<$> httpRedirectCode
             ]
         )

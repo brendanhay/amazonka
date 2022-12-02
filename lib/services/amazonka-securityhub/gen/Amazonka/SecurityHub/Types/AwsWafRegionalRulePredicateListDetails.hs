@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsWafRegionalRulePredicateListDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides details about the @ByteMatchSet@, @IPSet@,
@@ -84,17 +85,17 @@ awsWafRegionalRulePredicateListDetails_negated :: Lens.Lens' AwsWafRegionalRuleP
 awsWafRegionalRulePredicateListDetails_negated = Lens.lens (\AwsWafRegionalRulePredicateListDetails' {negated} -> negated) (\s@AwsWafRegionalRulePredicateListDetails' {} a -> s {negated = a} :: AwsWafRegionalRulePredicateListDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsWafRegionalRulePredicateListDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsWafRegionalRulePredicateListDetails"
       ( \x ->
           AwsWafRegionalRulePredicateListDetails'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "DataId")
-            Prelude.<*> (x Core..:? "Negated")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "DataId")
+            Prelude.<*> (x Data..:? "Negated")
       )
 
 instance
@@ -118,14 +119,14 @@ instance
       `Prelude.seq` Prelude.rnf negated
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsWafRegionalRulePredicateListDetails
   where
   toJSON AwsWafRegionalRulePredicateListDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("DataId" Core..=) Prelude.<$> dataId,
-            ("Negated" Core..=) Prelude.<$> negated
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("DataId" Data..=) Prelude.<$> dataId,
+            ("Negated" Data..=) Prelude.<$> negated
           ]
       )

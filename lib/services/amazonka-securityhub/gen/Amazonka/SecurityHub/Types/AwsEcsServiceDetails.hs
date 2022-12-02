@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsServiceDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEcsServiceCapacityProviderStrategyDetails
 import Amazonka.SecurityHub.Types.AwsEcsServiceDeploymentConfigurationDetails
@@ -346,42 +347,42 @@ awsEcsServiceDetails_enableEcsManagedTags = Lens.lens (\AwsEcsServiceDetails' {e
 awsEcsServiceDetails_serviceArn :: Lens.Lens' AwsEcsServiceDetails (Prelude.Maybe Prelude.Text)
 awsEcsServiceDetails_serviceArn = Lens.lens (\AwsEcsServiceDetails' {serviceArn} -> serviceArn) (\s@AwsEcsServiceDetails' {} a -> s {serviceArn = a} :: AwsEcsServiceDetails)
 
-instance Core.FromJSON AwsEcsServiceDetails where
+instance Data.FromJSON AwsEcsServiceDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsServiceDetails"
       ( \x ->
           AwsEcsServiceDetails'
-            Prelude.<$> (x Core..:? "HealthCheckGracePeriodSeconds")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "DeploymentConfiguration")
-            Prelude.<*> (x Core..:? "SchedulingStrategy")
-            Prelude.<*> ( x Core..:? "ServiceRegistries"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "HealthCheckGracePeriodSeconds")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "DeploymentConfiguration")
+            Prelude.<*> (x Data..:? "SchedulingStrategy")
+            Prelude.<*> ( x Data..:? "ServiceRegistries"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Cluster")
-            Prelude.<*> ( x Core..:? "PlacementStrategies"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Cluster")
+            Prelude.<*> ( x Data..:? "PlacementStrategies"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "TaskDefinition")
-            Prelude.<*> (x Core..:? "NetworkConfiguration")
-            Prelude.<*> (x Core..:? "DesiredCount")
-            Prelude.<*> (x Core..:? "EnableExecuteCommand")
-            Prelude.<*> ( x Core..:? "CapacityProviderStrategy"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "TaskDefinition")
+            Prelude.<*> (x Data..:? "NetworkConfiguration")
+            Prelude.<*> (x Data..:? "DesiredCount")
+            Prelude.<*> (x Data..:? "EnableExecuteCommand")
+            Prelude.<*> ( x Data..:? "CapacityProviderStrategy"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "PlacementConstraints"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "PlacementConstraints"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "PropagateTags")
-            Prelude.<*> (x Core..:? "DeploymentController")
-            Prelude.<*> (x Core..:? "LoadBalancers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LaunchType")
-            Prelude.<*> (x Core..:? "PlatformVersion")
-            Prelude.<*> (x Core..:? "Role")
-            Prelude.<*> (x Core..:? "ServiceName")
-            Prelude.<*> (x Core..:? "EnableEcsManagedTags")
-            Prelude.<*> (x Core..:? "ServiceArn")
+            Prelude.<*> (x Data..:? "PropagateTags")
+            Prelude.<*> (x Data..:? "DeploymentController")
+            Prelude.<*> (x Data..:? "LoadBalancers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LaunchType")
+            Prelude.<*> (x Data..:? "PlatformVersion")
+            Prelude.<*> (x Data..:? "Role")
+            Prelude.<*> (x Data..:? "ServiceName")
+            Prelude.<*> (x Data..:? "EnableEcsManagedTags")
+            Prelude.<*> (x Data..:? "ServiceArn")
       )
 
 instance Prelude.Hashable AwsEcsServiceDetails where
@@ -436,44 +437,44 @@ instance Prelude.NFData AwsEcsServiceDetails where
         enableEcsManagedTags
       `Prelude.seq` Prelude.rnf serviceArn
 
-instance Core.ToJSON AwsEcsServiceDetails where
+instance Data.ToJSON AwsEcsServiceDetails where
   toJSON AwsEcsServiceDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HealthCheckGracePeriodSeconds" Core..=)
+          [ ("HealthCheckGracePeriodSeconds" Data..=)
               Prelude.<$> healthCheckGracePeriodSeconds,
-            ("Name" Core..=) Prelude.<$> name,
-            ("DeploymentConfiguration" Core..=)
+            ("Name" Data..=) Prelude.<$> name,
+            ("DeploymentConfiguration" Data..=)
               Prelude.<$> deploymentConfiguration,
-            ("SchedulingStrategy" Core..=)
+            ("SchedulingStrategy" Data..=)
               Prelude.<$> schedulingStrategy,
-            ("ServiceRegistries" Core..=)
+            ("ServiceRegistries" Data..=)
               Prelude.<$> serviceRegistries,
-            ("Cluster" Core..=) Prelude.<$> cluster,
-            ("PlacementStrategies" Core..=)
+            ("Cluster" Data..=) Prelude.<$> cluster,
+            ("PlacementStrategies" Data..=)
               Prelude.<$> placementStrategies,
-            ("TaskDefinition" Core..=)
+            ("TaskDefinition" Data..=)
               Prelude.<$> taskDefinition,
-            ("NetworkConfiguration" Core..=)
+            ("NetworkConfiguration" Data..=)
               Prelude.<$> networkConfiguration,
-            ("DesiredCount" Core..=) Prelude.<$> desiredCount,
-            ("EnableExecuteCommand" Core..=)
+            ("DesiredCount" Data..=) Prelude.<$> desiredCount,
+            ("EnableExecuteCommand" Data..=)
               Prelude.<$> enableExecuteCommand,
-            ("CapacityProviderStrategy" Core..=)
+            ("CapacityProviderStrategy" Data..=)
               Prelude.<$> capacityProviderStrategy,
-            ("PlacementConstraints" Core..=)
+            ("PlacementConstraints" Data..=)
               Prelude.<$> placementConstraints,
-            ("PropagateTags" Core..=) Prelude.<$> propagateTags,
-            ("DeploymentController" Core..=)
+            ("PropagateTags" Data..=) Prelude.<$> propagateTags,
+            ("DeploymentController" Data..=)
               Prelude.<$> deploymentController,
-            ("LoadBalancers" Core..=) Prelude.<$> loadBalancers,
-            ("LaunchType" Core..=) Prelude.<$> launchType,
-            ("PlatformVersion" Core..=)
+            ("LoadBalancers" Data..=) Prelude.<$> loadBalancers,
+            ("LaunchType" Data..=) Prelude.<$> launchType,
+            ("PlatformVersion" Data..=)
               Prelude.<$> platformVersion,
-            ("Role" Core..=) Prelude.<$> role',
-            ("ServiceName" Core..=) Prelude.<$> serviceName,
-            ("EnableEcsManagedTags" Core..=)
+            ("Role" Data..=) Prelude.<$> role',
+            ("ServiceName" Data..=) Prelude.<$> serviceName,
+            ("EnableEcsManagedTags" Data..=)
               Prelude.<$> enableEcsManagedTags,
-            ("ServiceArn" Core..=) Prelude.<$> serviceArn
+            ("ServiceArn" Data..=) Prelude.<$> serviceArn
           ]
       )

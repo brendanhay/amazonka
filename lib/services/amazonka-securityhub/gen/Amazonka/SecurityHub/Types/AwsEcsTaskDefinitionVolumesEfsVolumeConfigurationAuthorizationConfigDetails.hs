@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionVolumesEfsVolumeConfigurat
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- |
@@ -67,16 +68,16 @@ awsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails_acce
 awsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails_accessPointId = Lens.lens (\AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails' {accessPointId} -> accessPointId) (\s@AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails' {} a -> s {accessPointId = a} :: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails"
       ( \x ->
           AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails'
-            Prelude.<$> (x Core..:? "Iam")
-              Prelude.<*> (x Core..:? "AccessPointId")
+            Prelude.<$> (x Data..:? "Iam")
+              Prelude.<*> (x Data..:? "AccessPointId")
       )
 
 instance
@@ -99,14 +100,14 @@ instance
         `Prelude.seq` Prelude.rnf accessPointId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails
   where
   toJSON
     AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Iam" Core..=) Prelude.<$> iam,
-              ("AccessPointId" Core..=) Prelude.<$> accessPointId
+            [ ("Iam" Data..=) Prelude.<$> iam,
+              ("AccessPointId" Data..=) Prelude.<$> accessPointId
             ]
         )

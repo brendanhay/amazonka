@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElbLoadBalancerConnectionDraining where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the connection draining configuration for the
@@ -67,16 +68,16 @@ awsElbLoadBalancerConnectionDraining_enabled :: Lens.Lens' AwsElbLoadBalancerCon
 awsElbLoadBalancerConnectionDraining_enabled = Lens.lens (\AwsElbLoadBalancerConnectionDraining' {enabled} -> enabled) (\s@AwsElbLoadBalancerConnectionDraining' {} a -> s {enabled = a} :: AwsElbLoadBalancerConnectionDraining)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsElbLoadBalancerConnectionDraining
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElbLoadBalancerConnectionDraining"
       ( \x ->
           AwsElbLoadBalancerConnectionDraining'
-            Prelude.<$> (x Core..:? "Timeout")
-            Prelude.<*> (x Core..:? "Enabled")
+            Prelude.<$> (x Data..:? "Timeout")
+            Prelude.<*> (x Data..:? "Enabled")
       )
 
 instance
@@ -98,13 +99,13 @@ instance
       `Prelude.seq` Prelude.rnf enabled
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsElbLoadBalancerConnectionDraining
   where
   toJSON AwsElbLoadBalancerConnectionDraining' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Timeout" Core..=) Prelude.<$> timeout,
-            ("Enabled" Core..=) Prelude.<$> enabled
+          [ ("Timeout" Data..=) Prelude.<$> timeout,
+            ("Enabled" Data..=) Prelude.<$> enabled
           ]
       )

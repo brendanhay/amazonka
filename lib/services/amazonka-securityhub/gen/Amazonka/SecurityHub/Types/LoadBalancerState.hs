@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.LoadBalancerState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the state of the load balancer.
@@ -76,14 +77,14 @@ loadBalancerState_code = Lens.lens (\LoadBalancerState' {code} -> code) (\s@Load
 loadBalancerState_reason :: Lens.Lens' LoadBalancerState (Prelude.Maybe Prelude.Text)
 loadBalancerState_reason = Lens.lens (\LoadBalancerState' {reason} -> reason) (\s@LoadBalancerState' {} a -> s {reason = a} :: LoadBalancerState)
 
-instance Core.FromJSON LoadBalancerState where
+instance Data.FromJSON LoadBalancerState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoadBalancerState"
       ( \x ->
           LoadBalancerState'
-            Prelude.<$> (x Core..:? "Code")
-            Prelude.<*> (x Core..:? "Reason")
+            Prelude.<$> (x Data..:? "Code")
+            Prelude.<*> (x Data..:? "Reason")
       )
 
 instance Prelude.Hashable LoadBalancerState where
@@ -95,11 +96,11 @@ instance Prelude.NFData LoadBalancerState where
   rnf LoadBalancerState' {..} =
     Prelude.rnf code `Prelude.seq` Prelude.rnf reason
 
-instance Core.ToJSON LoadBalancerState where
+instance Data.ToJSON LoadBalancerState where
   toJSON LoadBalancerState' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Code" Core..=) Prelude.<$> code,
-            ("Reason" Core..=) Prelude.<$> reason
+          [ ("Code" Data..=) Prelude.<$> code,
+            ("Reason" Data..=) Prelude.<$> reason
           ]
       )

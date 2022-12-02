@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginS3OriginConfig 
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an origin that is an Amazon S3 bucket that is not
@@ -55,15 +56,15 @@ awsCloudFrontDistributionOriginS3OriginConfig_originAccessIdentity :: Lens.Lens'
 awsCloudFrontDistributionOriginS3OriginConfig_originAccessIdentity = Lens.lens (\AwsCloudFrontDistributionOriginS3OriginConfig' {originAccessIdentity} -> originAccessIdentity) (\s@AwsCloudFrontDistributionOriginS3OriginConfig' {} a -> s {originAccessIdentity = a} :: AwsCloudFrontDistributionOriginS3OriginConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCloudFrontDistributionOriginS3OriginConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCloudFrontDistributionOriginS3OriginConfig"
       ( \x ->
           AwsCloudFrontDistributionOriginS3OriginConfig'
-            Prelude.<$> (x Core..:? "OriginAccessIdentity")
+            Prelude.<$> (x Data..:? "OriginAccessIdentity")
       )
 
 instance
@@ -84,14 +85,14 @@ instance
       Prelude.rnf originAccessIdentity
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsCloudFrontDistributionOriginS3OriginConfig
   where
   toJSON
     AwsCloudFrontDistributionOriginS3OriginConfig' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("OriginAccessIdentity" Core..=)
+            [ ("OriginAccessIdentity" Data..=)
                 Prelude.<$> originAccessIdentity
             ]
         )

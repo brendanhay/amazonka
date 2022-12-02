@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskVolumeDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEcsTaskVolumeHostDetails
 
@@ -75,13 +76,13 @@ awsEcsTaskVolumeDetails_name = Lens.lens (\AwsEcsTaskVolumeDetails' {name} -> na
 awsEcsTaskVolumeDetails_host :: Lens.Lens' AwsEcsTaskVolumeDetails (Prelude.Maybe AwsEcsTaskVolumeHostDetails)
 awsEcsTaskVolumeDetails_host = Lens.lens (\AwsEcsTaskVolumeDetails' {host} -> host) (\s@AwsEcsTaskVolumeDetails' {} a -> s {host = a} :: AwsEcsTaskVolumeDetails)
 
-instance Core.FromJSON AwsEcsTaskVolumeDetails where
+instance Data.FromJSON AwsEcsTaskVolumeDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskVolumeDetails"
       ( \x ->
           AwsEcsTaskVolumeDetails'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Host")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Host")
       )
 
 instance Prelude.Hashable AwsEcsTaskVolumeDetails where
@@ -93,11 +94,11 @@ instance Prelude.NFData AwsEcsTaskVolumeDetails where
   rnf AwsEcsTaskVolumeDetails' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf host
 
-instance Core.ToJSON AwsEcsTaskVolumeDetails where
+instance Data.ToJSON AwsEcsTaskVolumeDetails where
   toJSON AwsEcsTaskVolumeDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Host" Core..=) Prelude.<$> host
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Host" Data..=) Prelude.<$> host
           ]
       )

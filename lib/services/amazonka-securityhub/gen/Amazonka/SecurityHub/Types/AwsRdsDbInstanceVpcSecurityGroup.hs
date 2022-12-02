@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRdsDbInstanceVpcSecurityGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A VPC security groups that the DB instance belongs to.
@@ -63,16 +64,16 @@ awsRdsDbInstanceVpcSecurityGroup_vpcSecurityGroupId :: Lens.Lens' AwsRdsDbInstan
 awsRdsDbInstanceVpcSecurityGroup_vpcSecurityGroupId = Lens.lens (\AwsRdsDbInstanceVpcSecurityGroup' {vpcSecurityGroupId} -> vpcSecurityGroupId) (\s@AwsRdsDbInstanceVpcSecurityGroup' {} a -> s {vpcSecurityGroupId = a} :: AwsRdsDbInstanceVpcSecurityGroup)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsRdsDbInstanceVpcSecurityGroup
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRdsDbInstanceVpcSecurityGroup"
       ( \x ->
           AwsRdsDbInstanceVpcSecurityGroup'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "VpcSecurityGroupId")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "VpcSecurityGroupId")
       )
 
 instance
@@ -93,12 +94,12 @@ instance
     Prelude.rnf status
       `Prelude.seq` Prelude.rnf vpcSecurityGroupId
 
-instance Core.ToJSON AwsRdsDbInstanceVpcSecurityGroup where
+instance Data.ToJSON AwsRdsDbInstanceVpcSecurityGroup where
   toJSON AwsRdsDbInstanceVpcSecurityGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("VpcSecurityGroupId" Core..=)
+          [ ("Status" Data..=) Prelude.<$> status,
+            ("VpcSecurityGroupId" Data..=)
               Prelude.<$> vpcSecurityGroupId
           ]
       )

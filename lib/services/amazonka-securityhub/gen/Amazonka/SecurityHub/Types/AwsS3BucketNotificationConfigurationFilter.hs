@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsS3BucketNotificationConfigurationFilter whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsS3BucketNotificationConfigurationS3KeyFilter
 
@@ -56,15 +57,15 @@ awsS3BucketNotificationConfigurationFilter_s3KeyFilter :: Lens.Lens' AwsS3Bucket
 awsS3BucketNotificationConfigurationFilter_s3KeyFilter = Lens.lens (\AwsS3BucketNotificationConfigurationFilter' {s3KeyFilter} -> s3KeyFilter) (\s@AwsS3BucketNotificationConfigurationFilter' {} a -> s {s3KeyFilter = a} :: AwsS3BucketNotificationConfigurationFilter)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsS3BucketNotificationConfigurationFilter
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsS3BucketNotificationConfigurationFilter"
       ( \x ->
           AwsS3BucketNotificationConfigurationFilter'
-            Prelude.<$> (x Core..:? "S3KeyFilter")
+            Prelude.<$> (x Data..:? "S3KeyFilter")
       )
 
 instance
@@ -84,12 +85,12 @@ instance
     Prelude.rnf s3KeyFilter
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsS3BucketNotificationConfigurationFilter
   where
   toJSON
     AwsS3BucketNotificationConfigurationFilter' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [("S3KeyFilter" Core..=) Prelude.<$> s3KeyFilter]
+            [("S3KeyFilter" Data..=) Prelude.<$> s3KeyFilter]
         )

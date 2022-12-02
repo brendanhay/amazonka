@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.FirewallPolicyDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.FirewallPolicyStatefulRuleGroupReferencesDetails
 import Amazonka.SecurityHub.Types.FirewallPolicyStatelessCustomActionsDetails
@@ -125,26 +126,26 @@ firewallPolicyDetails_statelessDefaultActions = Lens.lens (\FirewallPolicyDetail
 firewallPolicyDetails_statelessFragmentDefaultActions :: Lens.Lens' FirewallPolicyDetails (Prelude.Maybe [Prelude.Text])
 firewallPolicyDetails_statelessFragmentDefaultActions = Lens.lens (\FirewallPolicyDetails' {statelessFragmentDefaultActions} -> statelessFragmentDefaultActions) (\s@FirewallPolicyDetails' {} a -> s {statelessFragmentDefaultActions = a} :: FirewallPolicyDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON FirewallPolicyDetails where
+instance Data.FromJSON FirewallPolicyDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FirewallPolicyDetails"
       ( \x ->
           FirewallPolicyDetails'
-            Prelude.<$> ( x Core..:? "StatelessCustomActions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "StatelessCustomActions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "StatefulRuleGroupReferences"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "StatefulRuleGroupReferences"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "StatelessRuleGroupReferences"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "StatelessRuleGroupReferences"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "StatelessDefaultActions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "StatelessDefaultActions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "StatelessFragmentDefaultActions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "StatelessFragmentDefaultActions"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -164,19 +165,19 @@ instance Prelude.NFData FirewallPolicyDetails where
       `Prelude.seq` Prelude.rnf statelessDefaultActions
       `Prelude.seq` Prelude.rnf statelessFragmentDefaultActions
 
-instance Core.ToJSON FirewallPolicyDetails where
+instance Data.ToJSON FirewallPolicyDetails where
   toJSON FirewallPolicyDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StatelessCustomActions" Core..=)
+          [ ("StatelessCustomActions" Data..=)
               Prelude.<$> statelessCustomActions,
-            ("StatefulRuleGroupReferences" Core..=)
+            ("StatefulRuleGroupReferences" Data..=)
               Prelude.<$> statefulRuleGroupReferences,
-            ("StatelessRuleGroupReferences" Core..=)
+            ("StatelessRuleGroupReferences" Data..=)
               Prelude.<$> statelessRuleGroupReferences,
-            ("StatelessDefaultActions" Core..=)
+            ("StatelessDefaultActions" Data..=)
               Prelude.<$> statelessDefaultActions,
-            ("StatelessFragmentDefaultActions" Core..=)
+            ("StatelessFragmentDefaultActions" Data..=)
               Prelude.<$> statelessFragmentDefaultActions
           ]
       )

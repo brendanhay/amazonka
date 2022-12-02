@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.Severity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.SeverityLabel
 
@@ -215,16 +216,16 @@ severity_normalized = Lens.lens (\Severity' {normalized} -> normalized) (\s@Seve
 severity_original :: Lens.Lens' Severity (Prelude.Maybe Prelude.Text)
 severity_original = Lens.lens (\Severity' {original} -> original) (\s@Severity' {} a -> s {original = a} :: Severity)
 
-instance Core.FromJSON Severity where
+instance Data.FromJSON Severity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Severity"
       ( \x ->
           Severity'
-            Prelude.<$> (x Core..:? "Product")
-            Prelude.<*> (x Core..:? "Label")
-            Prelude.<*> (x Core..:? "Normalized")
-            Prelude.<*> (x Core..:? "Original")
+            Prelude.<$> (x Data..:? "Product")
+            Prelude.<*> (x Data..:? "Label")
+            Prelude.<*> (x Data..:? "Normalized")
+            Prelude.<*> (x Data..:? "Original")
       )
 
 instance Prelude.Hashable Severity where
@@ -241,13 +242,13 @@ instance Prelude.NFData Severity where
       `Prelude.seq` Prelude.rnf normalized
       `Prelude.seq` Prelude.rnf original
 
-instance Core.ToJSON Severity where
+instance Data.ToJSON Severity where
   toJSON Severity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Product" Core..=) Prelude.<$> product,
-            ("Label" Core..=) Prelude.<$> label,
-            ("Normalized" Core..=) Prelude.<$> normalized,
-            ("Original" Core..=) Prelude.<$> original
+          [ ("Product" Data..=) Prelude.<$> product,
+            ("Label" Data..=) Prelude.<$> label,
+            ("Normalized" Data..=) Prelude.<$> normalized,
+            ("Original" Data..=) Prelude.<$> original
           ]
       )

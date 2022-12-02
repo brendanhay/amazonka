@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsAutoScalingLaunchConfigurationMetadataOptio
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata options for the instances.
@@ -83,17 +84,17 @@ awsAutoScalingLaunchConfigurationMetadataOptions_httpEndpoint :: Lens.Lens' AwsA
 awsAutoScalingLaunchConfigurationMetadataOptions_httpEndpoint = Lens.lens (\AwsAutoScalingLaunchConfigurationMetadataOptions' {httpEndpoint} -> httpEndpoint) (\s@AwsAutoScalingLaunchConfigurationMetadataOptions' {} a -> s {httpEndpoint = a} :: AwsAutoScalingLaunchConfigurationMetadataOptions)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsAutoScalingLaunchConfigurationMetadataOptions
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsAutoScalingLaunchConfigurationMetadataOptions"
       ( \x ->
           AwsAutoScalingLaunchConfigurationMetadataOptions'
-            Prelude.<$> (x Core..:? "HttpPutResponseHopLimit")
-              Prelude.<*> (x Core..:? "HttpTokens")
-              Prelude.<*> (x Core..:? "HttpEndpoint")
+            Prelude.<$> (x Data..:? "HttpPutResponseHopLimit")
+              Prelude.<*> (x Data..:? "HttpTokens")
+              Prelude.<*> (x Data..:? "HttpEndpoint")
       )
 
 instance
@@ -119,16 +120,16 @@ instance
         `Prelude.seq` Prelude.rnf httpEndpoint
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsAutoScalingLaunchConfigurationMetadataOptions
   where
   toJSON
     AwsAutoScalingLaunchConfigurationMetadataOptions' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("HttpPutResponseHopLimit" Core..=)
+            [ ("HttpPutResponseHopLimit" Data..=)
                 Prelude.<$> httpPutResponseHopLimit,
-              ("HttpTokens" Core..=) Prelude.<$> httpTokens,
-              ("HttpEndpoint" Core..=) Prelude.<$> httpEndpoint
+              ("HttpTokens" Data..=) Prelude.<$> httpTokens,
+              ("HttpEndpoint" Data..=) Prelude.<$> httpEndpoint
             ]
         )

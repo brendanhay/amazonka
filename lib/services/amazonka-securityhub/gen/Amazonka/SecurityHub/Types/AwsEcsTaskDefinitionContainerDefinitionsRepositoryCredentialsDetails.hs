@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsReposi
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The private repository authentication credentials to use.
@@ -54,15 +55,15 @@ awsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails_credentials
 awsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails_credentialsParameter = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails' {credentialsParameter} -> credentialsParameter) (\s@AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails' {} a -> s {credentialsParameter = a} :: AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails'
-            Prelude.<$> (x Core..:? "CredentialsParameter")
+            Prelude.<$> (x Data..:? "CredentialsParameter")
       )
 
 instance
@@ -83,14 +84,14 @@ instance
       Prelude.rnf credentialsParameter
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails
   where
   toJSON
     AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("CredentialsParameter" Core..=)
+            [ ("CredentialsParameter" Data..=)
                 Prelude.<$> credentialsParameter
             ]
         )

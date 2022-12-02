@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsS3BucketServerSideEncryptionConfiguration w
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsS3BucketServerSideEncryptionRule
 
@@ -55,15 +56,15 @@ awsS3BucketServerSideEncryptionConfiguration_rules :: Lens.Lens' AwsS3BucketServ
 awsS3BucketServerSideEncryptionConfiguration_rules = Lens.lens (\AwsS3BucketServerSideEncryptionConfiguration' {rules} -> rules) (\s@AwsS3BucketServerSideEncryptionConfiguration' {} a -> s {rules = a} :: AwsS3BucketServerSideEncryptionConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsS3BucketServerSideEncryptionConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsS3BucketServerSideEncryptionConfiguration"
       ( \x ->
           AwsS3BucketServerSideEncryptionConfiguration'
-            Prelude.<$> (x Core..:? "Rules" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Rules" Data..!= Prelude.mempty)
       )
 
 instance
@@ -83,12 +84,12 @@ instance
     Prelude.rnf rules
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsS3BucketServerSideEncryptionConfiguration
   where
   toJSON
     AwsS3BucketServerSideEncryptionConfiguration' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [("Rules" Core..=) Prelude.<$> rules]
+            [("Rules" Data..=) Prelude.<$> rules]
         )

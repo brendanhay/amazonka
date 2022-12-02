@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2VolumeAttachment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An attachment to an Amazon EC2 volume.
@@ -110,16 +111,16 @@ awsEc2VolumeAttachment_instanceId = Lens.lens (\AwsEc2VolumeAttachment' {instanc
 awsEc2VolumeAttachment_attachTime :: Lens.Lens' AwsEc2VolumeAttachment (Prelude.Maybe Prelude.Text)
 awsEc2VolumeAttachment_attachTime = Lens.lens (\AwsEc2VolumeAttachment' {attachTime} -> attachTime) (\s@AwsEc2VolumeAttachment' {} a -> s {attachTime = a} :: AwsEc2VolumeAttachment)
 
-instance Core.FromJSON AwsEc2VolumeAttachment where
+instance Data.FromJSON AwsEc2VolumeAttachment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2VolumeAttachment"
       ( \x ->
           AwsEc2VolumeAttachment'
-            Prelude.<$> (x Core..:? "DeleteOnTermination")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "AttachTime")
+            Prelude.<$> (x Data..:? "DeleteOnTermination")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "InstanceId")
+            Prelude.<*> (x Data..:? "AttachTime")
       )
 
 instance Prelude.Hashable AwsEc2VolumeAttachment where
@@ -136,14 +137,14 @@ instance Prelude.NFData AwsEc2VolumeAttachment where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf attachTime
 
-instance Core.ToJSON AwsEc2VolumeAttachment where
+instance Data.ToJSON AwsEc2VolumeAttachment where
   toJSON AwsEc2VolumeAttachment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeleteOnTermination" Core..=)
+          [ ("DeleteOnTermination" Data..=)
               Prelude.<$> deleteOnTermination,
-            ("Status" Core..=) Prelude.<$> status,
-            ("InstanceId" Core..=) Prelude.<$> instanceId,
-            ("AttachTime" Core..=) Prelude.<$> attachTime
+            ("Status" Data..=) Prelude.<$> status,
+            ("InstanceId" Data..=) Prelude.<$> instanceId,
+            ("AttachTime" Data..=) Prelude.<$> attachTime
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginSslProtocols wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that contains information about the SSL\/TLS protocols
@@ -68,16 +69,16 @@ awsCloudFrontDistributionOriginSslProtocols_quantity :: Lens.Lens' AwsCloudFront
 awsCloudFrontDistributionOriginSslProtocols_quantity = Lens.lens (\AwsCloudFrontDistributionOriginSslProtocols' {quantity} -> quantity) (\s@AwsCloudFrontDistributionOriginSslProtocols' {} a -> s {quantity = a} :: AwsCloudFrontDistributionOriginSslProtocols)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCloudFrontDistributionOriginSslProtocols
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCloudFrontDistributionOriginSslProtocols"
       ( \x ->
           AwsCloudFrontDistributionOriginSslProtocols'
-            Prelude.<$> (x Core..:? "Items" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "Quantity")
+            Prelude.<$> (x Data..:? "Items" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "Quantity")
       )
 
 instance
@@ -99,14 +100,14 @@ instance
       `Prelude.seq` Prelude.rnf quantity
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsCloudFrontDistributionOriginSslProtocols
   where
   toJSON
     AwsCloudFrontDistributionOriginSslProtocols' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Items" Core..=) Prelude.<$> items,
-              ("Quantity" Core..=) Prelude.<$> quantity
+            [ ("Items" Data..=) Prelude.<$> items,
+              ("Quantity" Data..=) Prelude.<$> quantity
             ]
         )

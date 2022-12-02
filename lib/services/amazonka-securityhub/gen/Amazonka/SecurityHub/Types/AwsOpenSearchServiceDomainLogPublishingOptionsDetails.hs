@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainLogPublishingOptions
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainLogPublishingOption
 
@@ -75,17 +76,17 @@ awsOpenSearchServiceDomainLogPublishingOptionsDetails_searchSlowLogs :: Lens.Len
 awsOpenSearchServiceDomainLogPublishingOptionsDetails_searchSlowLogs = Lens.lens (\AwsOpenSearchServiceDomainLogPublishingOptionsDetails' {searchSlowLogs} -> searchSlowLogs) (\s@AwsOpenSearchServiceDomainLogPublishingOptionsDetails' {} a -> s {searchSlowLogs = a} :: AwsOpenSearchServiceDomainLogPublishingOptionsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsOpenSearchServiceDomainLogPublishingOptionsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsOpenSearchServiceDomainLogPublishingOptionsDetails"
       ( \x ->
           AwsOpenSearchServiceDomainLogPublishingOptionsDetails'
-            Prelude.<$> (x Core..:? "IndexSlowLogs")
-              Prelude.<*> (x Core..:? "AuditLogs")
-              Prelude.<*> (x Core..:? "SearchSlowLogs")
+            Prelude.<$> (x Data..:? "IndexSlowLogs")
+              Prelude.<*> (x Data..:? "AuditLogs")
+              Prelude.<*> (x Data..:? "SearchSlowLogs")
       )
 
 instance
@@ -110,16 +111,16 @@ instance
         `Prelude.seq` Prelude.rnf searchSlowLogs
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsOpenSearchServiceDomainLogPublishingOptionsDetails
   where
   toJSON
     AwsOpenSearchServiceDomainLogPublishingOptionsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("IndexSlowLogs" Core..=) Prelude.<$> indexSlowLogs,
-              ("AuditLogs" Core..=) Prelude.<$> auditLogs,
-              ("SearchSlowLogs" Core..=)
+            [ ("IndexSlowLogs" Data..=) Prelude.<$> indexSlowLogs,
+              ("AuditLogs" Data..=) Prelude.<$> auditLogs,
+              ("SearchSlowLogs" Data..=)
                 Prelude.<$> searchSlowLogs
             ]
         )

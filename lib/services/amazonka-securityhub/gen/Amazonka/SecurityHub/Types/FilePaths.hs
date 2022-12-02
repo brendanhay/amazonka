@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.FilePaths where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the file paths that were affected by the
@@ -86,16 +87,16 @@ filePaths_hash = Lens.lens (\FilePaths' {hash} -> hash) (\s@FilePaths' {} a -> s
 filePaths_fileName :: Lens.Lens' FilePaths (Prelude.Maybe Prelude.Text)
 filePaths_fileName = Lens.lens (\FilePaths' {fileName} -> fileName) (\s@FilePaths' {} a -> s {fileName = a} :: FilePaths)
 
-instance Core.FromJSON FilePaths where
+instance Data.FromJSON FilePaths where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FilePaths"
       ( \x ->
           FilePaths'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "FilePath")
-            Prelude.<*> (x Core..:? "Hash")
-            Prelude.<*> (x Core..:? "FileName")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "FilePath")
+            Prelude.<*> (x Data..:? "Hash")
+            Prelude.<*> (x Data..:? "FileName")
       )
 
 instance Prelude.Hashable FilePaths where
@@ -112,13 +113,13 @@ instance Prelude.NFData FilePaths where
       `Prelude.seq` Prelude.rnf hash
       `Prelude.seq` Prelude.rnf fileName
 
-instance Core.ToJSON FilePaths where
+instance Data.ToJSON FilePaths where
   toJSON FilePaths' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceId" Core..=) Prelude.<$> resourceId,
-            ("FilePath" Core..=) Prelude.<$> filePath,
-            ("Hash" Core..=) Prelude.<$> hash,
-            ("FileName" Core..=) Prelude.<$> fileName
+          [ ("ResourceId" Data..=) Prelude.<$> resourceId,
+            ("FilePath" Data..=) Prelude.<$> filePath,
+            ("Hash" Data..=) Prelude.<$> hash,
+            ("FileName" Data..=) Prelude.<$> fileName
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCloudFrontDistributionLogging where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that controls whether access logs are written for the
@@ -85,18 +86,18 @@ awsCloudFrontDistributionLogging_prefix :: Lens.Lens' AwsCloudFrontDistributionL
 awsCloudFrontDistributionLogging_prefix = Lens.lens (\AwsCloudFrontDistributionLogging' {prefix} -> prefix) (\s@AwsCloudFrontDistributionLogging' {} a -> s {prefix = a} :: AwsCloudFrontDistributionLogging)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCloudFrontDistributionLogging
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCloudFrontDistributionLogging"
       ( \x ->
           AwsCloudFrontDistributionLogging'
-            Prelude.<$> (x Core..:? "Bucket")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "IncludeCookies")
-            Prelude.<*> (x Core..:? "Prefix")
+            Prelude.<$> (x Data..:? "Bucket")
+            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "IncludeCookies")
+            Prelude.<*> (x Data..:? "Prefix")
       )
 
 instance
@@ -121,14 +122,14 @@ instance
       `Prelude.seq` Prelude.rnf includeCookies
       `Prelude.seq` Prelude.rnf prefix
 
-instance Core.ToJSON AwsCloudFrontDistributionLogging where
+instance Data.ToJSON AwsCloudFrontDistributionLogging where
   toJSON AwsCloudFrontDistributionLogging' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Bucket" Core..=) Prelude.<$> bucket,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("IncludeCookies" Core..=)
+          [ ("Bucket" Data..=) Prelude.<$> bucket,
+            ("Enabled" Data..=) Prelude.<$> enabled,
+            ("IncludeCookies" Data..=)
               Prelude.<$> includeCookies,
-            ("Prefix" Core..=) Prelude.<$> prefix
+            ("Prefix" Data..=) Prelude.<$> prefix
           ]
       )

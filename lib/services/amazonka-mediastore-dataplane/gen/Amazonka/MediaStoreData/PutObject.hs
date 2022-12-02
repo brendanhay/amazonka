@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaStoreData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,7 +109,7 @@ data PutObject = PutObject'
     -- omit an extension.
     path :: Prelude.Text,
     -- | The bytes to be stored.
-    body :: Core.HashedBody
+    body :: Data.HashedBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -175,7 +176,7 @@ newPutObject ::
   -- | 'path'
   Prelude.Text ->
   -- | 'body'
-  Core.HashedBody ->
+  Data.HashedBody ->
   PutObject
 newPutObject pPath_ pBody_ =
   PutObject'
@@ -248,7 +249,7 @@ putObject_path :: Lens.Lens' PutObject Prelude.Text
 putObject_path = Lens.lens (\PutObject' {path} -> path) (\s@PutObject' {} a -> s {path = a} :: PutObject)
 
 -- | The bytes to be stored.
-putObject_body :: Lens.Lens' PutObject Core.HashedBody
+putObject_body :: Lens.Lens' PutObject Data.HashedBody
 putObject_body = Lens.lens (\PutObject' {body} -> body) (\s@PutObject' {} a -> s {body = a} :: PutObject)
 
 instance Core.AWSRequest PutObject where
@@ -259,30 +260,30 @@ instance Core.AWSRequest PutObject where
     Response.receiveJSON
       ( \s h x ->
           PutObjectResponse'
-            Prelude.<$> (x Core..?> "StorageClass")
-            Prelude.<*> (x Core..?> "ETag")
-            Prelude.<*> (x Core..?> "ContentSHA256")
+            Prelude.<$> (x Data..?> "StorageClass")
+            Prelude.<*> (x Data..?> "ETag")
+            Prelude.<*> (x Data..?> "ContentSHA256")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.ToBody PutObject where
-  toBody PutObject' {..} = Core.toBody body
+instance Data.ToBody PutObject where
+  toBody PutObject' {..} = Data.toBody body
 
-instance Core.ToHeaders PutObject where
+instance Data.ToHeaders PutObject where
   toHeaders PutObject' {..} =
     Prelude.mconcat
       [ "x-amz-upload-availability"
-          Core.=# uploadAvailability,
-        "Cache-Control" Core.=# cacheControl,
-        "x-amz-storage-class" Core.=# storageClass,
-        "Content-Type" Core.=# contentType
+          Data.=# uploadAvailability,
+        "Cache-Control" Data.=# cacheControl,
+        "x-amz-storage-class" Data.=# storageClass,
+        "Content-Type" Data.=# contentType
       ]
 
-instance Core.ToPath PutObject where
+instance Data.ToPath PutObject where
   toPath PutObject' {..} =
-    Prelude.mconcat ["/", Core.toBS path]
+    Prelude.mconcat ["/", Data.toBS path]
 
-instance Core.ToQuery PutObject where
+instance Data.ToQuery PutObject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutObjectResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.MediaStoreData.Types.Item where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaStoreData.Types.ItemType
 import qualified Amazonka.Prelude as Prelude
 
@@ -35,7 +36,7 @@ data Item = Item'
     -- | The length of the item in bytes.
     contentLength :: Prelude.Maybe Prelude.Natural,
     -- | The date and time that the item was last modified.
-    lastModified :: Prelude.Maybe Core.POSIX,
+    lastModified :: Prelude.Maybe Data.POSIX,
     -- | The ETag that represents a unique instance of the item.
     eTag :: Prelude.Maybe Prelude.Text,
     -- | The content type of the item.
@@ -88,7 +89,7 @@ item_contentLength = Lens.lens (\Item' {contentLength} -> contentLength) (\s@Ite
 
 -- | The date and time that the item was last modified.
 item_lastModified :: Lens.Lens' Item (Prelude.Maybe Prelude.UTCTime)
-item_lastModified = Lens.lens (\Item' {lastModified} -> lastModified) (\s@Item' {} a -> s {lastModified = a} :: Item) Prelude.. Lens.mapping Core._Time
+item_lastModified = Lens.lens (\Item' {lastModified} -> lastModified) (\s@Item' {} a -> s {lastModified = a} :: Item) Prelude.. Lens.mapping Data._Time
 
 -- | The ETag that represents a unique instance of the item.
 item_eTag :: Lens.Lens' Item (Prelude.Maybe Prelude.Text)
@@ -98,18 +99,18 @@ item_eTag = Lens.lens (\Item' {eTag} -> eTag) (\s@Item' {} a -> s {eTag = a} :: 
 item_contentType :: Lens.Lens' Item (Prelude.Maybe Prelude.Text)
 item_contentType = Lens.lens (\Item' {contentType} -> contentType) (\s@Item' {} a -> s {contentType = a} :: Item)
 
-instance Core.FromJSON Item where
+instance Data.FromJSON Item where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Item"
       ( \x ->
           Item'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "ContentLength")
-            Prelude.<*> (x Core..:? "LastModified")
-            Prelude.<*> (x Core..:? "ETag")
-            Prelude.<*> (x Core..:? "ContentType")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "ContentLength")
+            Prelude.<*> (x Data..:? "LastModified")
+            Prelude.<*> (x Data..:? "ETag")
+            Prelude.<*> (x Data..:? "ContentType")
       )
 
 instance Prelude.Hashable Item where

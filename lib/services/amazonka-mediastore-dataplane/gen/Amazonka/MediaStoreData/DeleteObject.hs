@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaStoreData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,14 +93,14 @@ instance Prelude.Hashable DeleteObject where
 instance Prelude.NFData DeleteObject where
   rnf DeleteObject' {..} = Prelude.rnf path
 
-instance Core.ToHeaders DeleteObject where
+instance Data.ToHeaders DeleteObject where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteObject where
+instance Data.ToPath DeleteObject where
   toPath DeleteObject' {..} =
-    Prelude.mconcat ["/", Core.toBS path]
+    Prelude.mconcat ["/", Data.toBS path]
 
-instance Core.ToQuery DeleteObject where
+instance Data.ToQuery DeleteObject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteObjectResponse' smart constructor.

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -129,11 +130,11 @@ instance Core.AWSRequest ListWorkloadShares where
     Response.receiveJSON
       ( \s h x ->
           ListWorkloadSharesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "WorkloadShareSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "WorkloadShareSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "WorkloadId")
+            Prelude.<*> (x Data..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,29 +154,29 @@ instance Prelude.NFData ListWorkloadShares where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf workloadId
 
-instance Core.ToHeaders ListWorkloadShares where
+instance Data.ToHeaders ListWorkloadShares where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListWorkloadShares where
+instance Data.ToPath ListWorkloadShares where
   toPath ListWorkloadShares' {..} =
     Prelude.mconcat
-      ["/workloads/", Core.toBS workloadId, "/shares"]
+      ["/workloads/", Data.toBS workloadId, "/shares"]
 
-instance Core.ToQuery ListWorkloadShares where
+instance Data.ToQuery ListWorkloadShares where
   toQuery ListWorkloadShares' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "SharedWithPrefix" Core.=: sharedWithPrefix,
-        "Status" Core.=: status,
-        "MaxResults" Core.=: maxResults
+      [ "NextToken" Data.=: nextToken,
+        "SharedWithPrefix" Data.=: sharedWithPrefix,
+        "Status" Data.=: status,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | Input for List Workload Share

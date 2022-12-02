@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -256,8 +257,8 @@ instance Core.AWSRequest CreateWorkload where
     Response.receiveJSON
       ( \s h x ->
           CreateWorkloadResponse'
-            Prelude.<$> (x Core..?> "WorkloadArn")
-            Prelude.<*> (x Core..?> "WorkloadId")
+            Prelude.<$> (x Data..?> "WorkloadArn")
+            Prelude.<*> (x Data..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -301,49 +302,49 @@ instance Prelude.NFData CreateWorkload where
       `Prelude.seq` Prelude.rnf lenses
       `Prelude.seq` Prelude.rnf clientRequestToken
 
-instance Core.ToHeaders CreateWorkload where
+instance Data.ToHeaders CreateWorkload where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWorkload where
+instance Data.ToJSON CreateWorkload where
   toJSON CreateWorkload' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DiscoveryConfig" Core..=)
+          [ ("DiscoveryConfig" Data..=)
               Prelude.<$> discoveryConfig,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("AccountIds" Core..=) Prelude.<$> accountIds,
-            ("Industry" Core..=) Prelude.<$> industry,
-            ("Applications" Core..=) Prelude.<$> applications,
-            ("AwsRegions" Core..=) Prelude.<$> awsRegions,
-            ("ReviewOwner" Core..=) Prelude.<$> reviewOwner,
-            ("NonAwsRegions" Core..=) Prelude.<$> nonAwsRegions,
-            ("Notes" Core..=) Prelude.<$> notes,
-            ("IndustryType" Core..=) Prelude.<$> industryType,
-            ("ArchitecturalDesign" Core..=)
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("AccountIds" Data..=) Prelude.<$> accountIds,
+            ("Industry" Data..=) Prelude.<$> industry,
+            ("Applications" Data..=) Prelude.<$> applications,
+            ("AwsRegions" Data..=) Prelude.<$> awsRegions,
+            ("ReviewOwner" Data..=) Prelude.<$> reviewOwner,
+            ("NonAwsRegions" Data..=) Prelude.<$> nonAwsRegions,
+            ("Notes" Data..=) Prelude.<$> notes,
+            ("IndustryType" Data..=) Prelude.<$> industryType,
+            ("ArchitecturalDesign" Data..=)
               Prelude.<$> architecturalDesign,
-            ("PillarPriorities" Core..=)
+            ("PillarPriorities" Data..=)
               Prelude.<$> pillarPriorities,
-            Prelude.Just ("WorkloadName" Core..= workloadName),
-            Prelude.Just ("Description" Core..= description),
-            Prelude.Just ("Environment" Core..= environment),
-            Prelude.Just ("Lenses" Core..= lenses),
+            Prelude.Just ("WorkloadName" Data..= workloadName),
+            Prelude.Just ("Description" Data..= description),
+            Prelude.Just ("Environment" Data..= environment),
+            Prelude.Just ("Lenses" Data..= lenses),
             Prelude.Just
-              ("ClientRequestToken" Core..= clientRequestToken)
+              ("ClientRequestToken" Data..= clientRequestToken)
           ]
       )
 
-instance Core.ToPath CreateWorkload where
+instance Data.ToPath CreateWorkload where
   toPath = Prelude.const "/workloads"
 
-instance Core.ToQuery CreateWorkload where
+instance Data.ToQuery CreateWorkload where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Output of a create workload call.

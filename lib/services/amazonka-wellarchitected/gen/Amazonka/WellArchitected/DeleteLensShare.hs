@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,30 +131,30 @@ instance Prelude.NFData DeleteLensShare where
       `Prelude.seq` Prelude.rnf lensAlias
       `Prelude.seq` Prelude.rnf clientRequestToken
 
-instance Core.ToHeaders DeleteLensShare where
+instance Data.ToHeaders DeleteLensShare where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteLensShare where
+instance Data.ToPath DeleteLensShare where
   toPath DeleteLensShare' {..} =
     Prelude.mconcat
       [ "/lenses/",
-        Core.toBS lensAlias,
+        Data.toBS lensAlias,
         "/shares/",
-        Core.toBS shareId
+        Data.toBS shareId
       ]
 
-instance Core.ToQuery DeleteLensShare where
+instance Data.ToQuery DeleteLensShare where
   toQuery DeleteLensShare' {..} =
     Prelude.mconcat
-      ["ClientRequestToken" Core.=: clientRequestToken]
+      ["ClientRequestToken" Data.=: clientRequestToken]
 
 -- | /See:/ 'newDeleteLensShareResponse' smart constructor.
 data DeleteLensShareResponse = DeleteLensShareResponse'

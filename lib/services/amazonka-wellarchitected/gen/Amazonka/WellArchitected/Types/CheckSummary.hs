@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.CheckSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.CheckProvider
 import Amazonka.WellArchitected.Types.CheckStatus
@@ -46,7 +47,7 @@ data CheckSummary = CheckSummary'
     description :: Prelude.Maybe Prelude.Text,
     choiceId :: Prelude.Maybe Prelude.Text,
     pillarId :: Prelude.Maybe Prelude.Text,
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -138,25 +139,25 @@ checkSummary_pillarId = Lens.lens (\CheckSummary' {pillarId} -> pillarId) (\s@Ch
 
 -- | Undocumented member.
 checkSummary_updatedAt :: Lens.Lens' CheckSummary (Prelude.Maybe Prelude.UTCTime)
-checkSummary_updatedAt = Lens.lens (\CheckSummary' {updatedAt} -> updatedAt) (\s@CheckSummary' {} a -> s {updatedAt = a} :: CheckSummary) Prelude.. Lens.mapping Core._Time
+checkSummary_updatedAt = Lens.lens (\CheckSummary' {updatedAt} -> updatedAt) (\s@CheckSummary' {} a -> s {updatedAt = a} :: CheckSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON CheckSummary where
+instance Data.FromJSON CheckSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CheckSummary"
       ( \x ->
           CheckSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LensArn")
-            Prelude.<*> (x Core..:? "AccountSummary" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Provider")
-            Prelude.<*> (x Core..:? "QuestionId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ChoiceId")
-            Prelude.<*> (x Core..:? "PillarId")
-            Prelude.<*> (x Core..:? "UpdatedAt")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "LensArn")
+            Prelude.<*> (x Data..:? "AccountSummary" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Provider")
+            Prelude.<*> (x Data..:? "QuestionId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ChoiceId")
+            Prelude.<*> (x Data..:? "PillarId")
+            Prelude.<*> (x Data..:? "UpdatedAt")
       )
 
 instance Prelude.Hashable CheckSummary where

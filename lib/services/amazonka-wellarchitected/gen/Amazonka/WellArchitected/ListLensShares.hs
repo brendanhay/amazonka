@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,8 +127,8 @@ instance Core.AWSRequest ListLensShares where
     Response.receiveJSON
       ( \s h x ->
           ListLensSharesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "LensShareSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "LensShareSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -149,29 +150,29 @@ instance Prelude.NFData ListLensShares where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf lensAlias
 
-instance Core.ToHeaders ListLensShares where
+instance Data.ToHeaders ListLensShares where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListLensShares where
+instance Data.ToPath ListLensShares where
   toPath ListLensShares' {..} =
     Prelude.mconcat
-      ["/lenses/", Core.toBS lensAlias, "/shares"]
+      ["/lenses/", Data.toBS lensAlias, "/shares"]
 
-instance Core.ToQuery ListLensShares where
+instance Data.ToQuery ListLensShares where
   toQuery ListLensShares' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "SharedWithPrefix" Core.=: sharedWithPrefix,
-        "Status" Core.=: status,
-        "MaxResults" Core.=: maxResults
+      [ "NextToken" Data.=: nextToken,
+        "SharedWithPrefix" Data.=: sharedWithPrefix,
+        "Status" Data.=: status,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListLensSharesResponse' smart constructor.

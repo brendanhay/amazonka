@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,8 +97,8 @@ instance Core.AWSRequest GetMilestone where
     Response.receiveJSON
       ( \s h x ->
           GetMilestoneResponse'
-            Prelude.<$> (x Core..?> "Milestone")
-            Prelude.<*> (x Core..?> "WorkloadId")
+            Prelude.<$> (x Data..?> "Milestone")
+            Prelude.<*> (x Data..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,27 +112,27 @@ instance Prelude.NFData GetMilestone where
     Prelude.rnf workloadId
       `Prelude.seq` Prelude.rnf milestoneNumber
 
-instance Core.ToHeaders GetMilestone where
+instance Data.ToHeaders GetMilestone where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetMilestone where
+instance Data.ToPath GetMilestone where
   toPath GetMilestone' {..} =
     Prelude.mconcat
       [ "/workloads/",
-        Core.toBS workloadId,
+        Data.toBS workloadId,
         "/milestones/",
-        Core.toBS milestoneNumber
+        Data.toBS milestoneNumber
       ]
 
-instance Core.ToQuery GetMilestone where
+instance Data.ToQuery GetMilestone where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Output of a get milestone call.

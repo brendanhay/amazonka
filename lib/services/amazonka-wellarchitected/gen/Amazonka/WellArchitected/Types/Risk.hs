@@ -30,10 +30,11 @@ module Amazonka.WellArchitected.Types.Risk
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The risk for a given workload, lens review, pillar, or question.
-newtype Risk = Risk' {fromRisk :: Core.Text}
+newtype Risk = Risk' {fromRisk :: Data.Text}
   deriving stock
     ( Prelude.Show,
       Prelude.Read,
@@ -44,18 +45,18 @@ newtype Risk = Risk' {fromRisk :: Core.Text}
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern Risk_HIGH :: Risk

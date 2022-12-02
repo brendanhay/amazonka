@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,8 +105,8 @@ instance Core.AWSRequest ListWorkloads where
     Response.receiveJSON
       ( \s h x ->
           ListWorkloadsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "WorkloadSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "WorkloadSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -123,32 +124,32 @@ instance Prelude.NFData ListWorkloads where
       `Prelude.seq` Prelude.rnf workloadNamePrefix
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListWorkloads where
+instance Data.ToHeaders ListWorkloads where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListWorkloads where
+instance Data.ToJSON ListWorkloads where
   toJSON ListWorkloads' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("WorkloadNamePrefix" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("WorkloadNamePrefix" Data..=)
               Prelude.<$> workloadNamePrefix,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListWorkloads where
+instance Data.ToPath ListWorkloads where
   toPath = Prelude.const "/workloadsSummaries"
 
-instance Core.ToQuery ListWorkloads where
+instance Data.ToQuery ListWorkloads where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Output of a list workloads call.

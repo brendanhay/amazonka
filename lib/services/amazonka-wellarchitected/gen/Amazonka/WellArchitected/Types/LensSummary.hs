@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.LensSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.LensStatus
 import Amazonka.WellArchitected.Types.LensType
@@ -41,8 +42,8 @@ data LensSummary = LensSummary'
     lensType :: Prelude.Maybe LensType,
     -- | The status of the lens.
     lensStatus :: Prelude.Maybe LensStatus,
-    createdAt :: Prelude.Maybe Core.POSIX,
-    updatedAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -123,28 +124,28 @@ lensSummary_lensStatus = Lens.lens (\LensSummary' {lensStatus} -> lensStatus) (\
 
 -- | Undocumented member.
 lensSummary_createdAt :: Lens.Lens' LensSummary (Prelude.Maybe Prelude.UTCTime)
-lensSummary_createdAt = Lens.lens (\LensSummary' {createdAt} -> createdAt) (\s@LensSummary' {} a -> s {createdAt = a} :: LensSummary) Prelude.. Lens.mapping Core._Time
+lensSummary_createdAt = Lens.lens (\LensSummary' {createdAt} -> createdAt) (\s@LensSummary' {} a -> s {createdAt = a} :: LensSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 lensSummary_updatedAt :: Lens.Lens' LensSummary (Prelude.Maybe Prelude.UTCTime)
-lensSummary_updatedAt = Lens.lens (\LensSummary' {updatedAt} -> updatedAt) (\s@LensSummary' {} a -> s {updatedAt = a} :: LensSummary) Prelude.. Lens.mapping Core._Time
+lensSummary_updatedAt = Lens.lens (\LensSummary' {updatedAt} -> updatedAt) (\s@LensSummary' {} a -> s {updatedAt = a} :: LensSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON LensSummary where
+instance Data.FromJSON LensSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LensSummary"
       ( \x ->
           LensSummary'
-            Prelude.<$> (x Core..:? "LensArn")
-            Prelude.<*> (x Core..:? "LensAlias")
-            Prelude.<*> (x Core..:? "Owner")
-            Prelude.<*> (x Core..:? "LensVersion")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LensName")
-            Prelude.<*> (x Core..:? "LensType")
-            Prelude.<*> (x Core..:? "LensStatus")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "UpdatedAt")
+            Prelude.<$> (x Data..:? "LensArn")
+            Prelude.<*> (x Data..:? "LensAlias")
+            Prelude.<*> (x Data..:? "Owner")
+            Prelude.<*> (x Data..:? "LensVersion")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LensName")
+            Prelude.<*> (x Data..:? "LensType")
+            Prelude.<*> (x Data..:? "LensStatus")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "UpdatedAt")
       )
 
 instance Prelude.Hashable LensSummary where

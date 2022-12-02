@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,7 +108,7 @@ instance Core.AWSRequest ExportLens where
     Response.receiveJSON
       ( \s h x ->
           ExportLensResponse'
-            Prelude.<$> (x Core..?> "LensJSON")
+            Prelude.<$> (x Data..?> "LensJSON")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,25 +122,25 @@ instance Prelude.NFData ExportLens where
     Prelude.rnf lensVersion
       `Prelude.seq` Prelude.rnf lensAlias
 
-instance Core.ToHeaders ExportLens where
+instance Data.ToHeaders ExportLens where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ExportLens where
+instance Data.ToPath ExportLens where
   toPath ExportLens' {..} =
     Prelude.mconcat
-      ["/lenses/", Core.toBS lensAlias, "/export"]
+      ["/lenses/", Data.toBS lensAlias, "/export"]
 
-instance Core.ToQuery ExportLens where
+instance Data.ToQuery ExportLens where
   toQuery ExportLens' {..} =
-    Prelude.mconcat ["LensVersion" Core.=: lensVersion]
+    Prelude.mconcat ["LensVersion" Data.=: lensVersion]
 
 -- | /See:/ 'newExportLensResponse' smart constructor.
 data ExportLensResponse = ExportLensResponse'

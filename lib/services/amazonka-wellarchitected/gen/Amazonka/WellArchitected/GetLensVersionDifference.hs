@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,12 +111,12 @@ instance Core.AWSRequest GetLensVersionDifference where
     Response.receiveJSON
       ( \s h x ->
           GetLensVersionDifferenceResponse'
-            Prelude.<$> (x Core..?> "LensArn")
-            Prelude.<*> (x Core..?> "TargetLensVersion")
-            Prelude.<*> (x Core..?> "LensAlias")
-            Prelude.<*> (x Core..?> "BaseLensVersion")
-            Prelude.<*> (x Core..?> "VersionDifferences")
-            Prelude.<*> (x Core..?> "LatestLensVersion")
+            Prelude.<$> (x Data..?> "LensArn")
+            Prelude.<*> (x Data..?> "TargetLensVersion")
+            Prelude.<*> (x Data..?> "LensAlias")
+            Prelude.<*> (x Data..?> "BaseLensVersion")
+            Prelude.<*> (x Data..?> "VersionDifferences")
+            Prelude.<*> (x Data..?> "LatestLensVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,30 +132,30 @@ instance Prelude.NFData GetLensVersionDifference where
       `Prelude.seq` Prelude.rnf baseLensVersion
       `Prelude.seq` Prelude.rnf lensAlias
 
-instance Core.ToHeaders GetLensVersionDifference where
+instance Data.ToHeaders GetLensVersionDifference where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetLensVersionDifference where
+instance Data.ToPath GetLensVersionDifference where
   toPath GetLensVersionDifference' {..} =
     Prelude.mconcat
       [ "/lenses/",
-        Core.toBS lensAlias,
+        Data.toBS lensAlias,
         "/versionDifference"
       ]
 
-instance Core.ToQuery GetLensVersionDifference where
+instance Data.ToQuery GetLensVersionDifference where
   toQuery GetLensVersionDifference' {..} =
     Prelude.mconcat
-      [ "TargetLensVersion" Core.=: targetLensVersion,
-        "BaseLensVersion" Core.=: baseLensVersion
+      [ "TargetLensVersion" Data.=: targetLensVersion,
+        "BaseLensVersion" Data.=: baseLensVersion
       ]
 
 -- | /See:/ 'newGetLensVersionDifferenceResponse' smart constructor.

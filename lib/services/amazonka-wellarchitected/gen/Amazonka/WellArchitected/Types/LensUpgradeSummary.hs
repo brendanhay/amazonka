@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.LensUpgradeSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Lens upgrade summary return object.
@@ -95,18 +96,18 @@ lensUpgradeSummary_latestLensVersion = Lens.lens (\LensUpgradeSummary' {latestLe
 lensUpgradeSummary_workloadId :: Lens.Lens' LensUpgradeSummary (Prelude.Maybe Prelude.Text)
 lensUpgradeSummary_workloadId = Lens.lens (\LensUpgradeSummary' {workloadId} -> workloadId) (\s@LensUpgradeSummary' {} a -> s {workloadId = a} :: LensUpgradeSummary)
 
-instance Core.FromJSON LensUpgradeSummary where
+instance Data.FromJSON LensUpgradeSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LensUpgradeSummary"
       ( \x ->
           LensUpgradeSummary'
-            Prelude.<$> (x Core..:? "CurrentLensVersion")
-            Prelude.<*> (x Core..:? "LensArn")
-            Prelude.<*> (x Core..:? "LensAlias")
-            Prelude.<*> (x Core..:? "WorkloadName")
-            Prelude.<*> (x Core..:? "LatestLensVersion")
-            Prelude.<*> (x Core..:? "WorkloadId")
+            Prelude.<$> (x Data..:? "CurrentLensVersion")
+            Prelude.<*> (x Data..:? "LensArn")
+            Prelude.<*> (x Data..:? "LensAlias")
+            Prelude.<*> (x Data..:? "WorkloadName")
+            Prelude.<*> (x Data..:? "LatestLensVersion")
+            Prelude.<*> (x Data..:? "WorkloadId")
       )
 
 instance Prelude.Hashable LensUpgradeSummary where

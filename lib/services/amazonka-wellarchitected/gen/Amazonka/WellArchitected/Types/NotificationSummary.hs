@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.NotificationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.LensUpgradeSummary
 import Amazonka.WellArchitected.Types.NotificationType
@@ -63,14 +64,14 @@ notificationSummary_type = Lens.lens (\NotificationSummary' {type'} -> type') (\
 notificationSummary_lensUpgradeSummary :: Lens.Lens' NotificationSummary (Prelude.Maybe LensUpgradeSummary)
 notificationSummary_lensUpgradeSummary = Lens.lens (\NotificationSummary' {lensUpgradeSummary} -> lensUpgradeSummary) (\s@NotificationSummary' {} a -> s {lensUpgradeSummary = a} :: NotificationSummary)
 
-instance Core.FromJSON NotificationSummary where
+instance Data.FromJSON NotificationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NotificationSummary"
       ( \x ->
           NotificationSummary'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "LensUpgradeSummary")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "LensUpgradeSummary")
       )
 
 instance Prelude.Hashable NotificationSummary where

@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.Lens where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A lens return object.
@@ -104,19 +105,19 @@ lens_lensVersion = Lens.lens (\Lens' {lensVersion} -> lensVersion) (\s@Lens' {} 
 lens_description :: Lens.Lens' Lens (Prelude.Maybe Prelude.Text)
 lens_description = Lens.lens (\Lens' {description} -> description) (\s@Lens' {} a -> s {description = a} :: Lens)
 
-instance Core.FromJSON Lens where
+instance Data.FromJSON Lens where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Lens"
       ( \x ->
           Lens'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LensArn")
-            Prelude.<*> (x Core..:? "ShareInvitationId")
-            Prelude.<*> (x Core..:? "Owner")
-            Prelude.<*> (x Core..:? "LensVersion")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "LensArn")
+            Prelude.<*> (x Data..:? "ShareInvitationId")
+            Prelude.<*> (x Data..:? "Owner")
+            Prelude.<*> (x Data..:? "LensVersion")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable Lens where

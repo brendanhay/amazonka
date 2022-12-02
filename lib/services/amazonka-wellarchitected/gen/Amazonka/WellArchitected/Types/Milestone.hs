@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.Milestone where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.Workload
 
@@ -28,7 +29,7 @@ import Amazonka.WellArchitected.Types.Workload
 --
 -- /See:/ 'newMilestone' smart constructor.
 data Milestone = Milestone'
-  { recordedAt :: Prelude.Maybe Core.POSIX,
+  { recordedAt :: Prelude.Maybe Data.POSIX,
     milestoneName :: Prelude.Maybe Prelude.Text,
     milestoneNumber :: Prelude.Maybe Prelude.Natural,
     workload :: Prelude.Maybe Workload
@@ -62,7 +63,7 @@ newMilestone =
 
 -- | Undocumented member.
 milestone_recordedAt :: Lens.Lens' Milestone (Prelude.Maybe Prelude.UTCTime)
-milestone_recordedAt = Lens.lens (\Milestone' {recordedAt} -> recordedAt) (\s@Milestone' {} a -> s {recordedAt = a} :: Milestone) Prelude.. Lens.mapping Core._Time
+milestone_recordedAt = Lens.lens (\Milestone' {recordedAt} -> recordedAt) (\s@Milestone' {} a -> s {recordedAt = a} :: Milestone) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 milestone_milestoneName :: Lens.Lens' Milestone (Prelude.Maybe Prelude.Text)
@@ -76,16 +77,16 @@ milestone_milestoneNumber = Lens.lens (\Milestone' {milestoneNumber} -> mileston
 milestone_workload :: Lens.Lens' Milestone (Prelude.Maybe Workload)
 milestone_workload = Lens.lens (\Milestone' {workload} -> workload) (\s@Milestone' {} a -> s {workload = a} :: Milestone)
 
-instance Core.FromJSON Milestone where
+instance Data.FromJSON Milestone where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Milestone"
       ( \x ->
           Milestone'
-            Prelude.<$> (x Core..:? "RecordedAt")
-            Prelude.<*> (x Core..:? "MilestoneName")
-            Prelude.<*> (x Core..:? "MilestoneNumber")
-            Prelude.<*> (x Core..:? "Workload")
+            Prelude.<$> (x Data..:? "RecordedAt")
+            Prelude.<*> (x Data..:? "MilestoneName")
+            Prelude.<*> (x Data..:? "MilestoneNumber")
+            Prelude.<*> (x Data..:? "Workload")
       )
 
 instance Prelude.Hashable Milestone where

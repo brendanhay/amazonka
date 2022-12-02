@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.ChoiceAnswerSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.ChoiceReason
 import Amazonka.WellArchitected.Types.ChoiceStatus
@@ -74,15 +75,15 @@ choiceAnswerSummary_choiceId = Lens.lens (\ChoiceAnswerSummary' {choiceId} -> ch
 choiceAnswerSummary_reason :: Lens.Lens' ChoiceAnswerSummary (Prelude.Maybe ChoiceReason)
 choiceAnswerSummary_reason = Lens.lens (\ChoiceAnswerSummary' {reason} -> reason) (\s@ChoiceAnswerSummary' {} a -> s {reason = a} :: ChoiceAnswerSummary)
 
-instance Core.FromJSON ChoiceAnswerSummary where
+instance Data.FromJSON ChoiceAnswerSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChoiceAnswerSummary"
       ( \x ->
           ChoiceAnswerSummary'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ChoiceId")
-            Prelude.<*> (x Core..:? "Reason")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ChoiceId")
+            Prelude.<*> (x Data..:? "Reason")
       )
 
 instance Prelude.Hashable ChoiceAnswerSummary where

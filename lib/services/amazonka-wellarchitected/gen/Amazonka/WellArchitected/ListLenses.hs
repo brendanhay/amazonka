@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,8 +122,8 @@ instance Core.AWSRequest ListLenses where
     Response.receiveJSON
       ( \s h x ->
           ListLensesResponse'
-            Prelude.<$> (x Core..?> "LensSummaries" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "LensSummaries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,28 +143,28 @@ instance Prelude.NFData ListLenses where
       `Prelude.seq` Prelude.rnf lensType
       `Prelude.seq` Prelude.rnf lensStatus
 
-instance Core.ToHeaders ListLenses where
+instance Data.ToHeaders ListLenses where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListLenses where
+instance Data.ToPath ListLenses where
   toPath = Prelude.const "/lenses"
 
-instance Core.ToQuery ListLenses where
+instance Data.ToQuery ListLenses where
   toQuery ListLenses' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "LensName" Core.=: lensName,
-        "MaxResults" Core.=: maxResults,
-        "LensType" Core.=: lensType,
-        "LensStatus" Core.=: lensStatus
+      [ "NextToken" Data.=: nextToken,
+        "LensName" Data.=: lensName,
+        "MaxResults" Data.=: maxResults,
+        "LensType" Data.=: lensType,
+        "LensStatus" Data.=: lensStatus
       ]
 
 -- | Output of a list lenses call.

@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.WorkloadShare where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.PermissionType
 import Amazonka.WellArchitected.Types.ShareStatus
@@ -101,19 +102,19 @@ workloadShare_sharedBy = Lens.lens (\WorkloadShare' {sharedBy} -> sharedBy) (\s@
 workloadShare_workloadId :: Lens.Lens' WorkloadShare (Prelude.Maybe Prelude.Text)
 workloadShare_workloadId = Lens.lens (\WorkloadShare' {workloadId} -> workloadId) (\s@WorkloadShare' {} a -> s {workloadId = a} :: WorkloadShare)
 
-instance Core.FromJSON WorkloadShare where
+instance Data.FromJSON WorkloadShare where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkloadShare"
       ( \x ->
           WorkloadShare'
-            Prelude.<$> (x Core..:? "PermissionType")
-            Prelude.<*> (x Core..:? "SharedWith")
-            Prelude.<*> (x Core..:? "WorkloadName")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ShareId")
-            Prelude.<*> (x Core..:? "SharedBy")
-            Prelude.<*> (x Core..:? "WorkloadId")
+            Prelude.<$> (x Data..:? "PermissionType")
+            Prelude.<*> (x Data..:? "SharedWith")
+            Prelude.<*> (x Data..:? "WorkloadName")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ShareId")
+            Prelude.<*> (x Data..:? "SharedBy")
+            Prelude.<*> (x Data..:? "WorkloadId")
       )
 
 instance Prelude.Hashable WorkloadShare where

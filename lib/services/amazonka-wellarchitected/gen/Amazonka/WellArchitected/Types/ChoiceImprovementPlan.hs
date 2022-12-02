@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.ChoiceImprovementPlan where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The choice level improvement plan.
@@ -69,15 +70,15 @@ choiceImprovementPlan_improvementPlanUrl = Lens.lens (\ChoiceImprovementPlan' {i
 choiceImprovementPlan_choiceId :: Lens.Lens' ChoiceImprovementPlan (Prelude.Maybe Prelude.Text)
 choiceImprovementPlan_choiceId = Lens.lens (\ChoiceImprovementPlan' {choiceId} -> choiceId) (\s@ChoiceImprovementPlan' {} a -> s {choiceId = a} :: ChoiceImprovementPlan)
 
-instance Core.FromJSON ChoiceImprovementPlan where
+instance Data.FromJSON ChoiceImprovementPlan where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChoiceImprovementPlan"
       ( \x ->
           ChoiceImprovementPlan'
-            Prelude.<$> (x Core..:? "DisplayText")
-            Prelude.<*> (x Core..:? "ImprovementPlanUrl")
-            Prelude.<*> (x Core..:? "ChoiceId")
+            Prelude.<$> (x Data..:? "DisplayText")
+            Prelude.<*> (x Data..:? "ImprovementPlanUrl")
+            Prelude.<*> (x Data..:? "ChoiceId")
       )
 
 instance Prelude.Hashable ChoiceImprovementPlan where

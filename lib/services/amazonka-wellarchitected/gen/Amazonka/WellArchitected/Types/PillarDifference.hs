@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.PillarDifference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.DifferenceStatus
 import Amazonka.WellArchitected.Types.QuestionDifference
@@ -80,18 +81,18 @@ pillarDifference_pillarId = Lens.lens (\PillarDifference' {pillarId} -> pillarId
 pillarDifference_pillarName :: Lens.Lens' PillarDifference (Prelude.Maybe Prelude.Text)
 pillarDifference_pillarName = Lens.lens (\PillarDifference' {pillarName} -> pillarName) (\s@PillarDifference' {} a -> s {pillarName = a} :: PillarDifference)
 
-instance Core.FromJSON PillarDifference where
+instance Data.FromJSON PillarDifference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PillarDifference"
       ( \x ->
           PillarDifference'
-            Prelude.<$> (x Core..:? "DifferenceStatus")
-            Prelude.<*> ( x Core..:? "QuestionDifferences"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "DifferenceStatus")
+            Prelude.<*> ( x Data..:? "QuestionDifferences"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "PillarId")
-            Prelude.<*> (x Core..:? "PillarName")
+            Prelude.<*> (x Data..:? "PillarId")
+            Prelude.<*> (x Data..:? "PillarName")
       )
 
 instance Prelude.Hashable PillarDifference where

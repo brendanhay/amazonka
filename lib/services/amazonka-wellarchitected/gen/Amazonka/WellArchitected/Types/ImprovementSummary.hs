@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.ImprovementSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.ChoiceImprovementPlan
 import Amazonka.WellArchitected.Types.Risk
@@ -94,20 +95,20 @@ improvementSummary_questionTitle = Lens.lens (\ImprovementSummary' {questionTitl
 improvementSummary_pillarId :: Lens.Lens' ImprovementSummary (Prelude.Maybe Prelude.Text)
 improvementSummary_pillarId = Lens.lens (\ImprovementSummary' {pillarId} -> pillarId) (\s@ImprovementSummary' {} a -> s {pillarId = a} :: ImprovementSummary)
 
-instance Core.FromJSON ImprovementSummary where
+instance Data.FromJSON ImprovementSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImprovementSummary"
       ( \x ->
           ImprovementSummary'
-            Prelude.<$> (x Core..:? "Risk")
-            Prelude.<*> (x Core..:? "QuestionId")
-            Prelude.<*> (x Core..:? "ImprovementPlanUrl")
-            Prelude.<*> ( x Core..:? "ImprovementPlans"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Risk")
+            Prelude.<*> (x Data..:? "QuestionId")
+            Prelude.<*> (x Data..:? "ImprovementPlanUrl")
+            Prelude.<*> ( x Data..:? "ImprovementPlans"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "QuestionTitle")
-            Prelude.<*> (x Core..:? "PillarId")
+            Prelude.<*> (x Data..:? "QuestionTitle")
+            Prelude.<*> (x Data..:? "PillarId")
       )
 
 instance Prelude.Hashable ImprovementSummary where

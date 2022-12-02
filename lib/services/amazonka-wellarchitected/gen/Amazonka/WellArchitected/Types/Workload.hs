@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.Workload where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.Risk
 import Amazonka.WellArchitected.Types.WorkloadDiscoveryConfig
@@ -63,8 +64,8 @@ data Workload = Workload'
     pillarPriorities :: Prelude.Maybe [Prelude.Text],
     improvementStatus :: Prelude.Maybe WorkloadImprovementStatus,
     lenses :: Prelude.Maybe [Prelude.Text],
-    reviewRestrictionDate :: Prelude.Maybe Core.POSIX,
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    reviewRestrictionDate :: Prelude.Maybe Data.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     workloadId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -257,49 +258,49 @@ workload_lenses = Lens.lens (\Workload' {lenses} -> lenses) (\s@Workload' {} a -
 
 -- | Undocumented member.
 workload_reviewRestrictionDate :: Lens.Lens' Workload (Prelude.Maybe Prelude.UTCTime)
-workload_reviewRestrictionDate = Lens.lens (\Workload' {reviewRestrictionDate} -> reviewRestrictionDate) (\s@Workload' {} a -> s {reviewRestrictionDate = a} :: Workload) Prelude.. Lens.mapping Core._Time
+workload_reviewRestrictionDate = Lens.lens (\Workload' {reviewRestrictionDate} -> reviewRestrictionDate) (\s@Workload' {} a -> s {reviewRestrictionDate = a} :: Workload) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 workload_updatedAt :: Lens.Lens' Workload (Prelude.Maybe Prelude.UTCTime)
-workload_updatedAt = Lens.lens (\Workload' {updatedAt} -> updatedAt) (\s@Workload' {} a -> s {updatedAt = a} :: Workload) Prelude.. Lens.mapping Core._Time
+workload_updatedAt = Lens.lens (\Workload' {updatedAt} -> updatedAt) (\s@Workload' {} a -> s {updatedAt = a} :: Workload) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 workload_workloadId :: Lens.Lens' Workload (Prelude.Maybe Prelude.Text)
 workload_workloadId = Lens.lens (\Workload' {workloadId} -> workloadId) (\s@Workload' {} a -> s {workloadId = a} :: Workload)
 
-instance Core.FromJSON Workload where
+instance Data.FromJSON Workload where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Workload"
       ( \x ->
           Workload'
-            Prelude.<$> (x Core..:? "DiscoveryConfig")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AccountIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Environment")
-            Prelude.<*> (x Core..:? "RiskCounts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "IsReviewOwnerUpdateAcknowledged")
-            Prelude.<*> (x Core..:? "Industry")
-            Prelude.<*> (x Core..:? "Applications" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ShareInvitationId")
-            Prelude.<*> (x Core..:? "WorkloadArn")
-            Prelude.<*> (x Core..:? "AwsRegions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "WorkloadName")
-            Prelude.<*> (x Core..:? "ReviewOwner")
-            Prelude.<*> (x Core..:? "Owner")
-            Prelude.<*> (x Core..:? "NonAwsRegions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Notes")
-            Prelude.<*> (x Core..:? "IndustryType")
-            Prelude.<*> (x Core..:? "ArchitecturalDesign")
-            Prelude.<*> ( x Core..:? "PillarPriorities"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "DiscoveryConfig")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AccountIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Environment")
+            Prelude.<*> (x Data..:? "RiskCounts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "IsReviewOwnerUpdateAcknowledged")
+            Prelude.<*> (x Data..:? "Industry")
+            Prelude.<*> (x Data..:? "Applications" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ShareInvitationId")
+            Prelude.<*> (x Data..:? "WorkloadArn")
+            Prelude.<*> (x Data..:? "AwsRegions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "WorkloadName")
+            Prelude.<*> (x Data..:? "ReviewOwner")
+            Prelude.<*> (x Data..:? "Owner")
+            Prelude.<*> (x Data..:? "NonAwsRegions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Notes")
+            Prelude.<*> (x Data..:? "IndustryType")
+            Prelude.<*> (x Data..:? "ArchitecturalDesign")
+            Prelude.<*> ( x Data..:? "PillarPriorities"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ImprovementStatus")
-            Prelude.<*> (x Core..:? "Lenses" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ReviewRestrictionDate")
-            Prelude.<*> (x Core..:? "UpdatedAt")
-            Prelude.<*> (x Core..:? "WorkloadId")
+            Prelude.<*> (x Data..:? "ImprovementStatus")
+            Prelude.<*> (x Data..:? "Lenses" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ReviewRestrictionDate")
+            Prelude.<*> (x Data..:? "UpdatedAt")
+            Prelude.<*> (x Data..:? "WorkloadId")
       )
 
 instance Prelude.Hashable Workload where

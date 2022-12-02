@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,8 +103,8 @@ instance Core.AWSRequest ListNotifications where
     Response.receiveJSON
       ( \s h x ->
           ListNotificationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "NotificationSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "NotificationSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -121,31 +122,31 @@ instance Prelude.NFData ListNotifications where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf workloadId
 
-instance Core.ToHeaders ListNotifications where
+instance Data.ToHeaders ListNotifications where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListNotifications where
+instance Data.ToJSON ListNotifications where
   toJSON ListNotifications' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("WorkloadId" Core..=) Prelude.<$> workloadId
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("WorkloadId" Data..=) Prelude.<$> workloadId
           ]
       )
 
-instance Core.ToPath ListNotifications where
+instance Data.ToPath ListNotifications where
   toPath = Prelude.const "/notifications"
 
-instance Core.ToQuery ListNotifications where
+instance Data.ToQuery ListNotifications where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListNotificationsResponse' smart constructor.

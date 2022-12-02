@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,39 +129,39 @@ instance Prelude.NFData UpgradeLensReview where
       `Prelude.seq` Prelude.rnf lensAlias
       `Prelude.seq` Prelude.rnf milestoneName
 
-instance Core.ToHeaders UpgradeLensReview where
+instance Data.ToHeaders UpgradeLensReview where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpgradeLensReview where
+instance Data.ToJSON UpgradeLensReview where
   toJSON UpgradeLensReview' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
             Prelude.Just
-              ("MilestoneName" Core..= milestoneName)
+              ("MilestoneName" Data..= milestoneName)
           ]
       )
 
-instance Core.ToPath UpgradeLensReview where
+instance Data.ToPath UpgradeLensReview where
   toPath UpgradeLensReview' {..} =
     Prelude.mconcat
       [ "/workloads/",
-        Core.toBS workloadId,
+        Data.toBS workloadId,
         "/lensReviews/",
-        Core.toBS lensAlias,
+        Data.toBS lensAlias,
         "/upgrade"
       ]
 
-instance Core.ToQuery UpgradeLensReview where
+instance Data.ToQuery UpgradeLensReview where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpgradeLensReviewResponse' smart constructor.

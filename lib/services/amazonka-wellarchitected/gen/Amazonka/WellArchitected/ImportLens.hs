@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,8 +134,8 @@ instance Core.AWSRequest ImportLens where
     Response.receiveJSON
       ( \s h x ->
           ImportLensResponse'
-            Prelude.<$> (x Core..?> "LensArn")
-            Prelude.<*> (x Core..?> "Status")
+            Prelude.<$> (x Data..?> "LensArn")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,33 +153,33 @@ instance Prelude.NFData ImportLens where
       `Prelude.seq` Prelude.rnf jSONString
       `Prelude.seq` Prelude.rnf clientRequestToken
 
-instance Core.ToHeaders ImportLens where
+instance Data.ToHeaders ImportLens where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportLens where
+instance Data.ToJSON ImportLens where
   toJSON ImportLens' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("LensAlias" Core..=) Prelude.<$> lensAlias,
-            Prelude.Just ("JSONString" Core..= jSONString),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("LensAlias" Data..=) Prelude.<$> lensAlias,
+            Prelude.Just ("JSONString" Data..= jSONString),
             Prelude.Just
-              ("ClientRequestToken" Core..= clientRequestToken)
+              ("ClientRequestToken" Data..= clientRequestToken)
           ]
       )
 
-instance Core.ToPath ImportLens where
+instance Data.ToPath ImportLens where
   toPath = Prelude.const "/importLens"
 
-instance Core.ToQuery ImportLens where
+instance Data.ToQuery ImportLens where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportLensResponse' smart constructor.

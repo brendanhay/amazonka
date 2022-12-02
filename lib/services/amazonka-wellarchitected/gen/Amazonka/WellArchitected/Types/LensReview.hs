@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.LensReview where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.LensStatus
 import Amazonka.WellArchitected.Types.PillarReviewSummary
@@ -42,7 +43,7 @@ data LensReview = LensReview'
     notes :: Prelude.Maybe Prelude.Text,
     -- | The status of the lens.
     lensStatus :: Prelude.Maybe LensStatus,
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -127,26 +128,26 @@ lensReview_lensStatus = Lens.lens (\LensReview' {lensStatus} -> lensStatus) (\s@
 
 -- | Undocumented member.
 lensReview_updatedAt :: Lens.Lens' LensReview (Prelude.Maybe Prelude.UTCTime)
-lensReview_updatedAt = Lens.lens (\LensReview' {updatedAt} -> updatedAt) (\s@LensReview' {} a -> s {updatedAt = a} :: LensReview) Prelude.. Lens.mapping Core._Time
+lensReview_updatedAt = Lens.lens (\LensReview' {updatedAt} -> updatedAt) (\s@LensReview' {} a -> s {updatedAt = a} :: LensReview) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON LensReview where
+instance Data.FromJSON LensReview where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LensReview"
       ( \x ->
           LensReview'
-            Prelude.<$> (x Core..:? "NextToken")
-            Prelude.<*> (x Core..:? "LensArn")
-            Prelude.<*> (x Core..:? "RiskCounts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LensAlias")
-            Prelude.<*> (x Core..:? "LensVersion")
-            Prelude.<*> (x Core..:? "LensName")
-            Prelude.<*> ( x Core..:? "PillarReviewSummaries"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "NextToken")
+            Prelude.<*> (x Data..:? "LensArn")
+            Prelude.<*> (x Data..:? "RiskCounts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LensAlias")
+            Prelude.<*> (x Data..:? "LensVersion")
+            Prelude.<*> (x Data..:? "LensName")
+            Prelude.<*> ( x Data..:? "PillarReviewSummaries"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Notes")
-            Prelude.<*> (x Core..:? "LensStatus")
-            Prelude.<*> (x Core..:? "UpdatedAt")
+            Prelude.<*> (x Data..:? "Notes")
+            Prelude.<*> (x Data..:? "LensStatus")
+            Prelude.<*> (x Data..:? "UpdatedAt")
       )
 
 instance Prelude.Hashable LensReview where

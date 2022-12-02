@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.AdditionalResources where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.AdditionalResourceType
 import Amazonka.WellArchitected.Types.ChoiceContent
@@ -66,14 +67,14 @@ additionalResources_type = Lens.lens (\AdditionalResources' {type'} -> type') (\
 additionalResources_content :: Lens.Lens' AdditionalResources (Prelude.Maybe [ChoiceContent])
 additionalResources_content = Lens.lens (\AdditionalResources' {content} -> content) (\s@AdditionalResources' {} a -> s {content = a} :: AdditionalResources) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AdditionalResources where
+instance Data.FromJSON AdditionalResources where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AdditionalResources"
       ( \x ->
           AdditionalResources'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Content" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Content" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AdditionalResources where

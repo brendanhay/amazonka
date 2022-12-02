@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,7 +93,7 @@ instance Core.AWSRequest GetLens where
     Response.receiveJSON
       ( \s h x ->
           GetLensResponse'
-            Prelude.<$> (x Core..?> "Lens")
+            Prelude.<$> (x Data..?> "Lens")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,24 +107,24 @@ instance Prelude.NFData GetLens where
     Prelude.rnf lensVersion
       `Prelude.seq` Prelude.rnf lensAlias
 
-instance Core.ToHeaders GetLens where
+instance Data.ToHeaders GetLens where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetLens where
+instance Data.ToPath GetLens where
   toPath GetLens' {..} =
-    Prelude.mconcat ["/lenses/", Core.toBS lensAlias]
+    Prelude.mconcat ["/lenses/", Data.toBS lensAlias]
 
-instance Core.ToQuery GetLens where
+instance Data.ToQuery GetLens where
   toQuery GetLens' {..} =
-    Prelude.mconcat ["LensVersion" Core.=: lensVersion]
+    Prelude.mconcat ["LensVersion" Data.=: lensVersion]
 
 -- | /See:/ 'newGetLensResponse' smart constructor.
 data GetLensResponse = GetLensResponse'

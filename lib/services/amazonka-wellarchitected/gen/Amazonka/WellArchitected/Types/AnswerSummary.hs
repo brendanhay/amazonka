@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.AnswerSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.AnswerReason
 import Amazonka.WellArchitected.Types.Choice
@@ -124,25 +125,25 @@ answerSummary_questionTitle = Lens.lens (\AnswerSummary' {questionTitle} -> ques
 answerSummary_pillarId :: Lens.Lens' AnswerSummary (Prelude.Maybe Prelude.Text)
 answerSummary_pillarId = Lens.lens (\AnswerSummary' {pillarId} -> pillarId) (\s@AnswerSummary' {} a -> s {pillarId = a} :: AnswerSummary)
 
-instance Core.FromJSON AnswerSummary where
+instance Data.FromJSON AnswerSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AnswerSummary"
       ( \x ->
           AnswerSummary'
-            Prelude.<$> (x Core..:? "Choices" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "SelectedChoices"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Choices" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "SelectedChoices"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Risk")
-            Prelude.<*> ( x Core..:? "ChoiceAnswerSummaries"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Risk")
+            Prelude.<*> ( x Data..:? "ChoiceAnswerSummaries"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "QuestionId")
-            Prelude.<*> (x Core..:? "IsApplicable")
-            Prelude.<*> (x Core..:? "Reason")
-            Prelude.<*> (x Core..:? "QuestionTitle")
-            Prelude.<*> (x Core..:? "PillarId")
+            Prelude.<*> (x Data..:? "QuestionId")
+            Prelude.<*> (x Data..:? "IsApplicable")
+            Prelude.<*> (x Data..:? "Reason")
+            Prelude.<*> (x Data..:? "QuestionTitle")
+            Prelude.<*> (x Data..:? "PillarId")
       )
 
 instance Prelude.Hashable AnswerSummary where

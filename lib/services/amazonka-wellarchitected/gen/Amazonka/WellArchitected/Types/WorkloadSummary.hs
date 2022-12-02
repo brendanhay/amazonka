@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.WorkloadSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.Risk
 import Amazonka.WellArchitected.Types.WorkloadImprovementStatus
@@ -35,7 +36,7 @@ data WorkloadSummary = WorkloadSummary'
     owner :: Prelude.Maybe Prelude.Text,
     improvementStatus :: Prelude.Maybe WorkloadImprovementStatus,
     lenses :: Prelude.Maybe [Prelude.Text],
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     workloadId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -103,26 +104,26 @@ workloadSummary_lenses = Lens.lens (\WorkloadSummary' {lenses} -> lenses) (\s@Wo
 
 -- | Undocumented member.
 workloadSummary_updatedAt :: Lens.Lens' WorkloadSummary (Prelude.Maybe Prelude.UTCTime)
-workloadSummary_updatedAt = Lens.lens (\WorkloadSummary' {updatedAt} -> updatedAt) (\s@WorkloadSummary' {} a -> s {updatedAt = a} :: WorkloadSummary) Prelude.. Lens.mapping Core._Time
+workloadSummary_updatedAt = Lens.lens (\WorkloadSummary' {updatedAt} -> updatedAt) (\s@WorkloadSummary' {} a -> s {updatedAt = a} :: WorkloadSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 workloadSummary_workloadId :: Lens.Lens' WorkloadSummary (Prelude.Maybe Prelude.Text)
 workloadSummary_workloadId = Lens.lens (\WorkloadSummary' {workloadId} -> workloadId) (\s@WorkloadSummary' {} a -> s {workloadId = a} :: WorkloadSummary)
 
-instance Core.FromJSON WorkloadSummary where
+instance Data.FromJSON WorkloadSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkloadSummary"
       ( \x ->
           WorkloadSummary'
-            Prelude.<$> (x Core..:? "RiskCounts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "WorkloadArn")
-            Prelude.<*> (x Core..:? "WorkloadName")
-            Prelude.<*> (x Core..:? "Owner")
-            Prelude.<*> (x Core..:? "ImprovementStatus")
-            Prelude.<*> (x Core..:? "Lenses" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "UpdatedAt")
-            Prelude.<*> (x Core..:? "WorkloadId")
+            Prelude.<$> (x Data..:? "RiskCounts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "WorkloadArn")
+            Prelude.<*> (x Data..:? "WorkloadName")
+            Prelude.<*> (x Data..:? "Owner")
+            Prelude.<*> (x Data..:? "ImprovementStatus")
+            Prelude.<*> (x Data..:? "Lenses" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "UpdatedAt")
+            Prelude.<*> (x Data..:? "WorkloadId")
       )
 
 instance Prelude.Hashable WorkloadSummary where

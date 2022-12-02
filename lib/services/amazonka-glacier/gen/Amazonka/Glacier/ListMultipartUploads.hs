@@ -79,6 +79,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -208,8 +209,8 @@ instance Core.AWSRequest ListMultipartUploads where
     Response.receiveJSON
       ( \s h x ->
           ListMultipartUploadsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "UploadsList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "UploadsList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -227,23 +228,23 @@ instance Prelude.NFData ListMultipartUploads where
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf vaultName
 
-instance Core.ToHeaders ListMultipartUploads where
+instance Data.ToHeaders ListMultipartUploads where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListMultipartUploads where
+instance Data.ToPath ListMultipartUploads where
   toPath ListMultipartUploads' {..} =
     Prelude.mconcat
       [ "/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/vaults/",
-        Core.toBS vaultName,
+        Data.toBS vaultName,
         "/multipart-uploads"
       ]
 
-instance Core.ToQuery ListMultipartUploads where
+instance Data.ToQuery ListMultipartUploads where
   toQuery ListMultipartUploads' {..} =
     Prelude.mconcat
-      ["marker" Core.=: marker, "limit" Core.=: limit]
+      ["marker" Data.=: marker, "limit" Data.=: limit]
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --

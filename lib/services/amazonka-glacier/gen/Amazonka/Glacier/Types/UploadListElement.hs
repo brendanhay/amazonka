@@ -21,6 +21,7 @@ module Amazonka.Glacier.Types.UploadListElement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of in-progress multipart uploads for a vault.
@@ -97,17 +98,17 @@ uploadListElement_vaultARN = Lens.lens (\UploadListElement' {vaultARN} -> vaultA
 uploadListElement_partSizeInBytes :: Lens.Lens' UploadListElement (Prelude.Maybe Prelude.Integer)
 uploadListElement_partSizeInBytes = Lens.lens (\UploadListElement' {partSizeInBytes} -> partSizeInBytes) (\s@UploadListElement' {} a -> s {partSizeInBytes = a} :: UploadListElement)
 
-instance Core.FromJSON UploadListElement where
+instance Data.FromJSON UploadListElement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UploadListElement"
       ( \x ->
           UploadListElement'
-            Prelude.<$> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "MultipartUploadId")
-            Prelude.<*> (x Core..:? "ArchiveDescription")
-            Prelude.<*> (x Core..:? "VaultARN")
-            Prelude.<*> (x Core..:? "PartSizeInBytes")
+            Prelude.<$> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "MultipartUploadId")
+            Prelude.<*> (x Data..:? "ArchiveDescription")
+            Prelude.<*> (x Data..:? "VaultARN")
+            Prelude.<*> (x Data..:? "PartSizeInBytes")
       )
 
 instance Prelude.Hashable UploadListElement where

@@ -21,6 +21,7 @@ module Amazonka.Glacier.Types.S3Location where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types.CannedACL
 import Amazonka.Glacier.Types.Encryption
 import Amazonka.Glacier.Types.Grant
@@ -123,22 +124,22 @@ s3Location_cannedACL = Lens.lens (\S3Location' {cannedACL} -> cannedACL) (\s@S3L
 s3Location_userMetadata :: Lens.Lens' S3Location (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 s3Location_userMetadata = Lens.lens (\S3Location' {userMetadata} -> userMetadata) (\s@S3Location' {} a -> s {userMetadata = a} :: S3Location) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON S3Location where
+instance Data.FromJSON S3Location where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Location"
       ( \x ->
           S3Location'
-            Prelude.<$> ( x Core..:? "AccessControlList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "AccessControlList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "BucketName")
-            Prelude.<*> (x Core..:? "Tagging" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Encryption")
-            Prelude.<*> (x Core..:? "Prefix")
-            Prelude.<*> (x Core..:? "StorageClass")
-            Prelude.<*> (x Core..:? "CannedACL")
-            Prelude.<*> (x Core..:? "UserMetadata" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "BucketName")
+            Prelude.<*> (x Data..:? "Tagging" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Encryption")
+            Prelude.<*> (x Data..:? "Prefix")
+            Prelude.<*> (x Data..:? "StorageClass")
+            Prelude.<*> (x Data..:? "CannedACL")
+            Prelude.<*> (x Data..:? "UserMetadata" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable S3Location where
@@ -163,18 +164,18 @@ instance Prelude.NFData S3Location where
       `Prelude.seq` Prelude.rnf cannedACL
       `Prelude.seq` Prelude.rnf userMetadata
 
-instance Core.ToJSON S3Location where
+instance Data.ToJSON S3Location where
   toJSON S3Location' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccessControlList" Core..=)
+          [ ("AccessControlList" Data..=)
               Prelude.<$> accessControlList,
-            ("BucketName" Core..=) Prelude.<$> bucketName,
-            ("Tagging" Core..=) Prelude.<$> tagging,
-            ("Encryption" Core..=) Prelude.<$> encryption,
-            ("Prefix" Core..=) Prelude.<$> prefix,
-            ("StorageClass" Core..=) Prelude.<$> storageClass,
-            ("CannedACL" Core..=) Prelude.<$> cannedACL,
-            ("UserMetadata" Core..=) Prelude.<$> userMetadata
+            ("BucketName" Data..=) Prelude.<$> bucketName,
+            ("Tagging" Data..=) Prelude.<$> tagging,
+            ("Encryption" Data..=) Prelude.<$> encryption,
+            ("Prefix" Data..=) Prelude.<$> prefix,
+            ("StorageClass" Data..=) Prelude.<$> storageClass,
+            ("CannedACL" Data..=) Prelude.<$> cannedACL,
+            ("UserMetadata" Data..=) Prelude.<$> userMetadata
           ]
       )

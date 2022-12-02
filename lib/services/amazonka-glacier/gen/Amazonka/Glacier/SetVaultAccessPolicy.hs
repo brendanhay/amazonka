@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,23 +136,23 @@ instance Prelude.NFData SetVaultAccessPolicy where
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf vaultName
 
-instance Core.ToHeaders SetVaultAccessPolicy where
+instance Data.ToHeaders SetVaultAccessPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON SetVaultAccessPolicy where
-  toJSON SetVaultAccessPolicy' {..} = Core.toJSON policy
+instance Data.ToJSON SetVaultAccessPolicy where
+  toJSON SetVaultAccessPolicy' {..} = Data.toJSON policy
 
-instance Core.ToPath SetVaultAccessPolicy where
+instance Data.ToPath SetVaultAccessPolicy where
   toPath SetVaultAccessPolicy' {..} =
     Prelude.mconcat
       [ "/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/vaults/",
-        Core.toBS vaultName,
+        Data.toBS vaultName,
         "/access-policy"
       ]
 
-instance Core.ToQuery SetVaultAccessPolicy where
+instance Data.ToQuery SetVaultAccessPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetVaultAccessPolicyResponse' smart constructor.

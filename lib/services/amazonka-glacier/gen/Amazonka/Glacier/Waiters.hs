@@ -18,6 +18,7 @@ module Amazonka.Glacier.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.DescribeVault
 import Amazonka.Glacier.Lens
 import Amazonka.Glacier.Types

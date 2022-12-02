@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,7 +119,7 @@ instance Core.AWSRequest GetVaultAccessPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetVaultAccessPolicyResponse'
-            Prelude.<$> (Core.eitherParseJSON x)
+            Prelude.<$> (Data.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,20 +133,20 @@ instance Prelude.NFData GetVaultAccessPolicy where
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf vaultName
 
-instance Core.ToHeaders GetVaultAccessPolicy where
+instance Data.ToHeaders GetVaultAccessPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetVaultAccessPolicy where
+instance Data.ToPath GetVaultAccessPolicy where
   toPath GetVaultAccessPolicy' {..} =
     Prelude.mconcat
       [ "/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/vaults/",
-        Core.toBS vaultName,
+        Data.toBS vaultName,
         "/access-policy"
       ]
 
-instance Core.ToQuery GetVaultAccessPolicy where
+instance Data.ToQuery GetVaultAccessPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Output for GetVaultAccessPolicy.

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,7 +116,7 @@ instance Core.AWSRequest ListTagsForVault where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForVaultResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,20 +130,20 @@ instance Prelude.NFData ListTagsForVault where
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf vaultName
 
-instance Core.ToHeaders ListTagsForVault where
+instance Data.ToHeaders ListTagsForVault where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListTagsForVault where
+instance Data.ToPath ListTagsForVault where
   toPath ListTagsForVault' {..} =
     Prelude.mconcat
       [ "/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/vaults/",
-        Core.toBS vaultName,
+        Data.toBS vaultName,
         "/tags"
       ]
 
-instance Core.ToQuery ListTagsForVault where
+instance Data.ToQuery ListTagsForVault where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the Amazon S3 Glacier response to your request.

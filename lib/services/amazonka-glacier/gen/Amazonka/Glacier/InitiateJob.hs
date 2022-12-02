@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,9 +127,9 @@ instance Core.AWSRequest InitiateJob where
     Response.receiveEmpty
       ( \s h x ->
           InitiateJobResponse'
-            Prelude.<$> (h Core..#? "x-amz-job-id")
-            Prelude.<*> (h Core..#? "Location")
-            Prelude.<*> (h Core..#? "x-amz-job-output-path")
+            Prelude.<$> (h Data..#? "x-amz-job-id")
+            Prelude.<*> (h Data..#? "Location")
+            Prelude.<*> (h Data..#? "x-amz-job-output-path")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,23 +145,23 @@ instance Prelude.NFData InitiateJob where
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf vaultName
 
-instance Core.ToHeaders InitiateJob where
+instance Data.ToHeaders InitiateJob where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON InitiateJob where
-  toJSON InitiateJob' {..} = Core.toJSON jobParameters
+instance Data.ToJSON InitiateJob where
+  toJSON InitiateJob' {..} = Data.toJSON jobParameters
 
-instance Core.ToPath InitiateJob where
+instance Data.ToPath InitiateJob where
   toPath InitiateJob' {..} =
     Prelude.mconcat
       [ "/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/vaults/",
-        Core.toBS vaultName,
+        Data.toBS vaultName,
         "/jobs"
       ]
 
-instance Core.ToQuery InitiateJob where
+instance Data.ToQuery InitiateJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the Amazon S3 Glacier response to your request.

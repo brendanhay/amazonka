@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,25 +128,25 @@ instance Prelude.NFData SetDataRetrievalPolicy where
     Prelude.rnf policy
       `Prelude.seq` Prelude.rnf accountId
 
-instance Core.ToHeaders SetDataRetrievalPolicy where
+instance Data.ToHeaders SetDataRetrievalPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON SetDataRetrievalPolicy where
+instance Data.ToJSON SetDataRetrievalPolicy where
   toJSON SetDataRetrievalPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Policy" Core..=) Prelude.<$> policy]
+          [("Policy" Data..=) Prelude.<$> policy]
       )
 
-instance Core.ToPath SetDataRetrievalPolicy where
+instance Data.ToPath SetDataRetrievalPolicy where
   toPath SetDataRetrievalPolicy' {..} =
     Prelude.mconcat
       [ "/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/policies/data-retrieval"
       ]
 
-instance Core.ToQuery SetDataRetrievalPolicy where
+instance Data.ToQuery SetDataRetrievalPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetDataRetrievalPolicyResponse' smart constructor.

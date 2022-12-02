@@ -85,6 +85,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -162,7 +163,7 @@ instance Core.AWSRequest DescribeJob where
       Prelude.. Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable DescribeJob where
   hashWithSalt _salt DescribeJob' {..} =
@@ -176,19 +177,19 @@ instance Prelude.NFData DescribeJob where
       `Prelude.seq` Prelude.rnf vaultName
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders DescribeJob where
+instance Data.ToHeaders DescribeJob where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeJob where
+instance Data.ToPath DescribeJob where
   toPath DescribeJob' {..} =
     Prelude.mconcat
       [ "/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/vaults/",
-        Core.toBS vaultName,
+        Data.toBS vaultName,
         "/jobs/",
-        Core.toBS jobId
+        Data.toBS jobId
       ]
 
-instance Core.ToQuery DescribeJob where
+instance Data.ToQuery DescribeJob where
   toQuery = Prelude.const Prelude.mempty

@@ -85,6 +85,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -230,8 +231,8 @@ instance Core.AWSRequest ListJobs where
     Response.receiveJSON
       ( \s h x ->
           ListJobsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "JobList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "JobList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -253,26 +254,26 @@ instance Prelude.NFData ListJobs where
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf vaultName
 
-instance Core.ToHeaders ListJobs where
+instance Data.ToHeaders ListJobs where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListJobs where
+instance Data.ToPath ListJobs where
   toPath ListJobs' {..} =
     Prelude.mconcat
       [ "/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/vaults/",
-        Core.toBS vaultName,
+        Data.toBS vaultName,
         "/jobs"
       ]
 
-instance Core.ToQuery ListJobs where
+instance Data.ToQuery ListJobs where
   toQuery ListJobs' {..} =
     Prelude.mconcat
-      [ "marker" Core.=: marker,
-        "limit" Core.=: limit,
-        "completed" Core.=: completed,
-        "statuscode" Core.=: statuscode
+      [ "marker" Data.=: marker,
+        "limit" Data.=: limit,
+        "completed" Data.=: completed,
+        "statuscode" Data.=: statuscode
       ]
 
 -- | Contains the Amazon S3 Glacier response to your request.

@@ -68,6 +68,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -175,8 +176,8 @@ instance Core.AWSRequest ListVaults where
     Response.receiveJSON
       ( \s h x ->
           ListVaultsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "VaultList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "VaultList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,18 +193,18 @@ instance Prelude.NFData ListVaults where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf accountId
 
-instance Core.ToHeaders ListVaults where
+instance Data.ToHeaders ListVaults where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListVaults where
+instance Data.ToPath ListVaults where
   toPath ListVaults' {..} =
     Prelude.mconcat
-      ["/", Core.toBS accountId, "/vaults"]
+      ["/", Data.toBS accountId, "/vaults"]
 
-instance Core.ToQuery ListVaults where
+instance Data.ToQuery ListVaults where
   toQuery ListVaults' {..} =
     Prelude.mconcat
-      ["marker" Core.=: marker, "limit" Core.=: limit]
+      ["marker" Data.=: marker, "limit" Data.=: limit]
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --

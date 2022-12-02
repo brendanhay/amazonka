@@ -86,6 +86,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,7 +109,7 @@ data UploadArchive = UploadArchive'
     -- an account ID, do not include any hyphens (\'-\') in the ID.
     accountId :: Prelude.Text,
     -- | The data to upload.
-    body :: Core.HashedBody
+    body :: Data.HashedBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -139,7 +140,7 @@ newUploadArchive ::
   -- | 'accountId'
   Prelude.Text ->
   -- | 'body'
-  Core.HashedBody ->
+  Data.HashedBody ->
   UploadArchive
 newUploadArchive pVaultName_ pAccountId_ pBody_ =
   UploadArchive'
@@ -171,7 +172,7 @@ uploadArchive_accountId :: Lens.Lens' UploadArchive Prelude.Text
 uploadArchive_accountId = Lens.lens (\UploadArchive' {accountId} -> accountId) (\s@UploadArchive' {} a -> s {accountId = a} :: UploadArchive)
 
 -- | The data to upload.
-uploadArchive_body :: Lens.Lens' UploadArchive Core.HashedBody
+uploadArchive_body :: Lens.Lens' UploadArchive Data.HashedBody
 uploadArchive_body = Lens.lens (\UploadArchive' {body} -> body) (\s@UploadArchive' {} a -> s {body = a} :: UploadArchive)
 
 instance Core.AWSRequest UploadArchive where
@@ -185,31 +186,31 @@ instance Core.AWSRequest UploadArchive where
     Response.receiveEmpty
       ( \s h x ->
           ArchiveCreationOutput'
-            Prelude.<$> (h Core..#? "x-amz-archive-id")
-            Prelude.<*> (h Core..#? "x-amz-sha256-tree-hash")
-            Prelude.<*> (h Core..#? "Location")
+            Prelude.<$> (h Data..#? "x-amz-archive-id")
+            Prelude.<*> (h Data..#? "x-amz-sha256-tree-hash")
+            Prelude.<*> (h Data..#? "Location")
       )
 
-instance Core.ToBody UploadArchive where
-  toBody UploadArchive' {..} = Core.toBody body
+instance Data.ToBody UploadArchive where
+  toBody UploadArchive' {..} = Data.toBody body
 
-instance Core.ToHeaders UploadArchive where
+instance Data.ToHeaders UploadArchive where
   toHeaders UploadArchive' {..} =
     Prelude.mconcat
-      [ "x-amz-sha256-tree-hash" Core.=# checksum,
+      [ "x-amz-sha256-tree-hash" Data.=# checksum,
         "x-amz-archive-description"
-          Core.=# archiveDescription
+          Data.=# archiveDescription
       ]
 
-instance Core.ToPath UploadArchive where
+instance Data.ToPath UploadArchive where
   toPath UploadArchive' {..} =
     Prelude.mconcat
       [ "/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/vaults/",
-        Core.toBS vaultName,
+        Data.toBS vaultName,
         "/archives"
       ]
 
-instance Core.ToQuery UploadArchive where
+instance Data.ToQuery UploadArchive where
   toQuery = Prelude.const Prelude.mempty

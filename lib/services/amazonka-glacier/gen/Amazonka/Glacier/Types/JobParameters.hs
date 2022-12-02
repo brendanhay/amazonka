@@ -21,6 +21,7 @@ module Amazonka.Glacier.Types.JobParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types.InventoryRetrievalJobInput
 import Amazonka.Glacier.Types.OutputLocation
 import Amazonka.Glacier.Types.SelectParameters
@@ -243,23 +244,23 @@ instance Prelude.NFData JobParameters where
       `Prelude.seq` Prelude.rnf archiveId
       `Prelude.seq` Prelude.rnf tier
 
-instance Core.ToJSON JobParameters where
+instance Data.ToJSON JobParameters where
   toJSON JobParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("SNSTopic" Core..=) Prelude.<$> sNSTopic,
-            ("Format" Core..=) Prelude.<$> format,
-            ("OutputLocation" Core..=)
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("SNSTopic" Data..=) Prelude.<$> sNSTopic,
+            ("Format" Data..=) Prelude.<$> format,
+            ("OutputLocation" Data..=)
               Prelude.<$> outputLocation,
-            ("RetrievalByteRange" Core..=)
+            ("RetrievalByteRange" Data..=)
               Prelude.<$> retrievalByteRange,
-            ("InventoryRetrievalParameters" Core..=)
+            ("InventoryRetrievalParameters" Data..=)
               Prelude.<$> inventoryRetrievalParameters,
-            ("SelectParameters" Core..=)
+            ("SelectParameters" Data..=)
               Prelude.<$> selectParameters,
-            ("Description" Core..=) Prelude.<$> description,
-            ("ArchiveId" Core..=) Prelude.<$> archiveId,
-            ("Tier" Core..=) Prelude.<$> tier
+            ("Description" Data..=) Prelude.<$> description,
+            ("ArchiveId" Data..=) Prelude.<$> archiveId,
+            ("Tier" Data..=) Prelude.<$> tier
           ]
       )

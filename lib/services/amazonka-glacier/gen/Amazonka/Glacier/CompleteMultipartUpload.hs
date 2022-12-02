@@ -92,6 +92,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -219,9 +220,9 @@ instance Core.AWSRequest CompleteMultipartUpload where
     Response.receiveEmpty
       ( \s h x ->
           ArchiveCreationOutput'
-            Prelude.<$> (h Core..#? "x-amz-archive-id")
-            Prelude.<*> (h Core..#? "x-amz-sha256-tree-hash")
-            Prelude.<*> (h Core..#? "Location")
+            Prelude.<$> (h Data..#? "x-amz-archive-id")
+            Prelude.<*> (h Data..#? "x-amz-sha256-tree-hash")
+            Prelude.<*> (h Data..#? "Location")
       )
 
 instance Prelude.Hashable CompleteMultipartUpload where
@@ -240,26 +241,26 @@ instance Prelude.NFData CompleteMultipartUpload where
       `Prelude.seq` Prelude.rnf archiveSize
       `Prelude.seq` Prelude.rnf checksum
 
-instance Core.ToHeaders CompleteMultipartUpload where
+instance Data.ToHeaders CompleteMultipartUpload where
   toHeaders CompleteMultipartUpload' {..} =
     Prelude.mconcat
-      [ "x-amz-archive-size" Core.=# archiveSize,
-        "x-amz-sha256-tree-hash" Core.=# checksum
+      [ "x-amz-archive-size" Data.=# archiveSize,
+        "x-amz-sha256-tree-hash" Data.=# checksum
       ]
 
-instance Core.ToJSON CompleteMultipartUpload where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON CompleteMultipartUpload where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath CompleteMultipartUpload where
+instance Data.ToPath CompleteMultipartUpload where
   toPath CompleteMultipartUpload' {..} =
     Prelude.mconcat
       [ "/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/vaults/",
-        Core.toBS vaultName,
+        Data.toBS vaultName,
         "/multipart-uploads/",
-        Core.toBS uploadId
+        Data.toBS uploadId
       ]
 
-instance Core.ToQuery CompleteMultipartUpload where
+instance Data.ToQuery CompleteMultipartUpload where
   toQuery = Prelude.const Prelude.mempty

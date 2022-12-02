@@ -21,6 +21,7 @@ module Amazonka.Glacier.Types.VaultLockPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the vault lock policy.
@@ -57,9 +58,9 @@ instance Prelude.Hashable VaultLockPolicy where
 instance Prelude.NFData VaultLockPolicy where
   rnf VaultLockPolicy' {..} = Prelude.rnf policy
 
-instance Core.ToJSON VaultLockPolicy where
+instance Data.ToJSON VaultLockPolicy where
   toJSON VaultLockPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Policy" Core..=) Prelude.<$> policy]
+          [("Policy" Data..=) Prelude.<$> policy]
       )

@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,20 +138,20 @@ instance Prelude.NFData AbortVaultLock where
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf vaultName
 
-instance Core.ToHeaders AbortVaultLock where
+instance Data.ToHeaders AbortVaultLock where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AbortVaultLock where
+instance Data.ToPath AbortVaultLock where
   toPath AbortVaultLock' {..} =
     Prelude.mconcat
       [ "/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/vaults/",
-        Core.toBS vaultName,
+        Data.toBS vaultName,
         "/lock-policy"
       ]
 
-instance Core.ToQuery AbortVaultLock where
+instance Data.ToQuery AbortVaultLock where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAbortVaultLockResponse' smart constructor.

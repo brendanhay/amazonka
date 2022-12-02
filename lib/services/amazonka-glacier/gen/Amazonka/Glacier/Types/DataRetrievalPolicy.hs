@@ -21,6 +21,7 @@ module Amazonka.Glacier.Types.DataRetrievalPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types.DataRetrievalRule
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newDataRetrievalPolicy =
 dataRetrievalPolicy_rules :: Lens.Lens' DataRetrievalPolicy (Prelude.Maybe [DataRetrievalRule])
 dataRetrievalPolicy_rules = Lens.lens (\DataRetrievalPolicy' {rules} -> rules) (\s@DataRetrievalPolicy' {} a -> s {rules = a} :: DataRetrievalPolicy) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DataRetrievalPolicy where
+instance Data.FromJSON DataRetrievalPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataRetrievalPolicy"
       ( \x ->
           DataRetrievalPolicy'
-            Prelude.<$> (x Core..:? "Rules" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Rules" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DataRetrievalPolicy where
@@ -73,9 +74,9 @@ instance Prelude.Hashable DataRetrievalPolicy where
 instance Prelude.NFData DataRetrievalPolicy where
   rnf DataRetrievalPolicy' {..} = Prelude.rnf rules
 
-instance Core.ToJSON DataRetrievalPolicy where
+instance Data.ToJSON DataRetrievalPolicy where
   toJSON DataRetrievalPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Rules" Core..=) Prelude.<$> rules]
+          [("Rules" Data..=) Prelude.<$> rules]
       )

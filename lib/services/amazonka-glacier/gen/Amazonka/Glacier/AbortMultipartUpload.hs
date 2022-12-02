@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -161,21 +162,21 @@ instance Prelude.NFData AbortMultipartUpload where
       `Prelude.seq` Prelude.rnf vaultName
       `Prelude.seq` Prelude.rnf uploadId
 
-instance Core.ToHeaders AbortMultipartUpload where
+instance Data.ToHeaders AbortMultipartUpload where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AbortMultipartUpload where
+instance Data.ToPath AbortMultipartUpload where
   toPath AbortMultipartUpload' {..} =
     Prelude.mconcat
       [ "/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/vaults/",
-        Core.toBS vaultName,
+        Data.toBS vaultName,
         "/multipart-uploads/",
-        Core.toBS uploadId
+        Data.toBS uploadId
       ]
 
-instance Core.ToQuery AbortMultipartUpload where
+instance Data.ToQuery AbortMultipartUpload where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAbortMultipartUploadResponse' smart constructor.

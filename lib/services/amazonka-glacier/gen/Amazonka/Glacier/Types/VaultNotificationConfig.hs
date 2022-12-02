@@ -21,6 +21,7 @@ module Amazonka.Glacier.Types.VaultNotificationConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a vault\'s notification configuration.
@@ -68,14 +69,14 @@ vaultNotificationConfig_sNSTopic = Lens.lens (\VaultNotificationConfig' {sNSTopi
 vaultNotificationConfig_events :: Lens.Lens' VaultNotificationConfig (Prelude.Maybe [Prelude.Text])
 vaultNotificationConfig_events = Lens.lens (\VaultNotificationConfig' {events} -> events) (\s@VaultNotificationConfig' {} a -> s {events = a} :: VaultNotificationConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON VaultNotificationConfig where
+instance Data.FromJSON VaultNotificationConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VaultNotificationConfig"
       ( \x ->
           VaultNotificationConfig'
-            Prelude.<$> (x Core..:? "SNSTopic")
-            Prelude.<*> (x Core..:? "Events" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "SNSTopic")
+            Prelude.<*> (x Data..:? "Events" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable VaultNotificationConfig where
@@ -88,11 +89,11 @@ instance Prelude.NFData VaultNotificationConfig where
     Prelude.rnf sNSTopic
       `Prelude.seq` Prelude.rnf events
 
-instance Core.ToJSON VaultNotificationConfig where
+instance Data.ToJSON VaultNotificationConfig where
   toJSON VaultNotificationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SNSTopic" Core..=) Prelude.<$> sNSTopic,
-            ("Events" Core..=) Prelude.<$> events
+          [ ("SNSTopic" Data..=) Prelude.<$> sNSTopic,
+            ("Events" Data..=) Prelude.<$> events
           ]
       )

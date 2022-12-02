@@ -21,6 +21,7 @@ module Amazonka.Glacier.Types.DescribeVaultOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the Amazon S3 Glacier response to your request.
@@ -122,18 +123,18 @@ describeVaultOutput_sizeInBytes = Lens.lens (\DescribeVaultOutput' {sizeInBytes}
 describeVaultOutput_vaultARN :: Lens.Lens' DescribeVaultOutput (Prelude.Maybe Prelude.Text)
 describeVaultOutput_vaultARN = Lens.lens (\DescribeVaultOutput' {vaultARN} -> vaultARN) (\s@DescribeVaultOutput' {} a -> s {vaultARN = a} :: DescribeVaultOutput)
 
-instance Core.FromJSON DescribeVaultOutput where
+instance Data.FromJSON DescribeVaultOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DescribeVaultOutput"
       ( \x ->
           DescribeVaultOutput'
-            Prelude.<$> (x Core..:? "LastInventoryDate")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "VaultName")
-            Prelude.<*> (x Core..:? "NumberOfArchives")
-            Prelude.<*> (x Core..:? "SizeInBytes")
-            Prelude.<*> (x Core..:? "VaultARN")
+            Prelude.<$> (x Data..:? "LastInventoryDate")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "VaultName")
+            Prelude.<*> (x Data..:? "NumberOfArchives")
+            Prelude.<*> (x Data..:? "SizeInBytes")
+            Prelude.<*> (x Data..:? "VaultARN")
       )
 
 instance Prelude.Hashable DescribeVaultOutput where

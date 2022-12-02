@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,7 +98,7 @@ instance Core.AWSRequest ListProvisionedCapacity where
     Response.receiveJSON
       ( \s h x ->
           ListProvisionedCapacityResponse'
-            Prelude.<$> ( x Core..?> "ProvisionedCapacityList"
+            Prelude.<$> ( x Data..?> "ProvisionedCapacityList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -111,15 +112,15 @@ instance Prelude.NFData ListProvisionedCapacity where
   rnf ListProvisionedCapacity' {..} =
     Prelude.rnf accountId
 
-instance Core.ToHeaders ListProvisionedCapacity where
+instance Data.ToHeaders ListProvisionedCapacity where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListProvisionedCapacity where
+instance Data.ToPath ListProvisionedCapacity where
   toPath ListProvisionedCapacity' {..} =
     Prelude.mconcat
-      ["/", Core.toBS accountId, "/provisioned-capacity"]
+      ["/", Data.toBS accountId, "/provisioned-capacity"]
 
-instance Core.ToQuery ListProvisionedCapacity where
+instance Data.ToQuery ListProvisionedCapacity where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListProvisionedCapacityResponse' smart constructor.

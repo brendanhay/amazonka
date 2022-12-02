@@ -21,6 +21,7 @@ module Amazonka.Glacier.Types.InventoryRetrievalJobDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the options for a range inventory retrieval job.
@@ -132,19 +133,19 @@ inventoryRetrievalJobDescription_startDate :: Lens.Lens' InventoryRetrievalJobDe
 inventoryRetrievalJobDescription_startDate = Lens.lens (\InventoryRetrievalJobDescription' {startDate} -> startDate) (\s@InventoryRetrievalJobDescription' {} a -> s {startDate = a} :: InventoryRetrievalJobDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     InventoryRetrievalJobDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InventoryRetrievalJobDescription"
       ( \x ->
           InventoryRetrievalJobDescription'
-            Prelude.<$> (x Core..:? "Marker")
-            Prelude.<*> (x Core..:? "Format")
-            Prelude.<*> (x Core..:? "EndDate")
-            Prelude.<*> (x Core..:? "Limit")
-            Prelude.<*> (x Core..:? "StartDate")
+            Prelude.<$> (x Data..:? "Marker")
+            Prelude.<*> (x Data..:? "Format")
+            Prelude.<*> (x Data..:? "EndDate")
+            Prelude.<*> (x Data..:? "Limit")
+            Prelude.<*> (x Data..:? "StartDate")
       )
 
 instance

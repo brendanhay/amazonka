@@ -68,6 +68,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,10 +137,10 @@ instance Core.AWSRequest GetVaultLock where
     Response.receiveJSON
       ( \s h x ->
           GetVaultLockResponse'
-            Prelude.<$> (x Core..?> "Policy")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "CreationDate")
-            Prelude.<*> (x Core..?> "ExpirationDate")
+            Prelude.<$> (x Data..?> "Policy")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "CreationDate")
+            Prelude.<*> (x Data..?> "ExpirationDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,20 +154,20 @@ instance Prelude.NFData GetVaultLock where
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf vaultName
 
-instance Core.ToHeaders GetVaultLock where
+instance Data.ToHeaders GetVaultLock where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetVaultLock where
+instance Data.ToPath GetVaultLock where
   toPath GetVaultLock' {..} =
     Prelude.mconcat
       [ "/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/vaults/",
-        Core.toBS vaultName,
+        Data.toBS vaultName,
         "/lock-policy"
       ]
 
-instance Core.ToQuery GetVaultLock where
+instance Data.ToQuery GetVaultLock where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the Amazon S3 Glacier response to your request.

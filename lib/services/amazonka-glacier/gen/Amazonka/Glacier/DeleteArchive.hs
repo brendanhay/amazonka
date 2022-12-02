@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -158,21 +159,21 @@ instance Prelude.NFData DeleteArchive where
       `Prelude.seq` Prelude.rnf vaultName
       `Prelude.seq` Prelude.rnf archiveId
 
-instance Core.ToHeaders DeleteArchive where
+instance Data.ToHeaders DeleteArchive where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteArchive where
+instance Data.ToPath DeleteArchive where
   toPath DeleteArchive' {..} =
     Prelude.mconcat
       [ "/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/vaults/",
-        Core.toBS vaultName,
+        Data.toBS vaultName,
         "/archives/",
-        Core.toBS archiveId
+        Data.toBS archiveId
       ]
 
-instance Core.ToQuery DeleteArchive where
+instance Data.ToQuery DeleteArchive where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteArchiveResponse' smart constructor.

@@ -95,6 +95,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -273,11 +274,11 @@ instance Core.AWSRequest GetJobOutput where
     Response.receiveBody
       ( \s h x ->
           GetJobOutputResponse'
-            Prelude.<$> (h Core..#? "Accept-Ranges")
-            Prelude.<*> (h Core..#? "x-amz-sha256-tree-hash")
-            Prelude.<*> (h Core..#? "x-amz-archive-description")
-            Prelude.<*> (h Core..#? "Content-Range")
-            Prelude.<*> (h Core..#? "Content-Type")
+            Prelude.<$> (h Data..#? "Accept-Ranges")
+            Prelude.<*> (h Data..#? "x-amz-sha256-tree-hash")
+            Prelude.<*> (h Data..#? "x-amz-archive-description")
+            Prelude.<*> (h Data..#? "Content-Range")
+            Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
@@ -296,23 +297,23 @@ instance Prelude.NFData GetJobOutput where
       `Prelude.seq` Prelude.rnf vaultName
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders GetJobOutput where
+instance Data.ToHeaders GetJobOutput where
   toHeaders GetJobOutput' {..} =
-    Prelude.mconcat ["Range" Core.=# range]
+    Prelude.mconcat ["Range" Data.=# range]
 
-instance Core.ToPath GetJobOutput where
+instance Data.ToPath GetJobOutput where
   toPath GetJobOutput' {..} =
     Prelude.mconcat
       [ "/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/vaults/",
-        Core.toBS vaultName,
+        Data.toBS vaultName,
         "/jobs/",
-        Core.toBS jobId,
+        Data.toBS jobId,
         "/output"
       ]
 
-instance Core.ToQuery GetJobOutput where
+instance Data.ToQuery GetJobOutput where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the Amazon S3 Glacier response to your request.
@@ -357,7 +358,7 @@ data GetJobOutputResponse = GetJobOutputResponse'
     -- whether a range was specified in the request.
     status :: Prelude.Int,
     -- | The job data, either archive data or inventory data.
-    body :: Core.ResponseBody
+    body :: Data.ResponseBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -411,7 +412,7 @@ newGetJobOutputResponse ::
   -- | 'status'
   Prelude.Int ->
   -- | 'body'
-  Core.ResponseBody ->
+  Data.ResponseBody ->
   GetJobOutputResponse
 newGetJobOutputResponse pStatus_ pBody_ =
   GetJobOutputResponse'
@@ -475,5 +476,5 @@ getJobOutputResponse_status :: Lens.Lens' GetJobOutputResponse Prelude.Int
 getJobOutputResponse_status = Lens.lens (\GetJobOutputResponse' {status} -> status) (\s@GetJobOutputResponse' {} a -> s {status = a} :: GetJobOutputResponse)
 
 -- | The job data, either archive data or inventory data.
-getJobOutputResponse_body :: Lens.Lens' GetJobOutputResponse Core.ResponseBody
+getJobOutputResponse_body :: Lens.Lens' GetJobOutputResponse Data.ResponseBody
 getJobOutputResponse_body = Lens.lens (\GetJobOutputResponse' {body} -> body) (\s@GetJobOutputResponse' {} a -> s {body = a} :: GetJobOutputResponse)

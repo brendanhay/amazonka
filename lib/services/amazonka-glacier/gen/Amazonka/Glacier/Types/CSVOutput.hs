@@ -21,6 +21,7 @@ module Amazonka.Glacier.Types.CSVOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types.QuoteFields
 import qualified Amazonka.Prelude as Prelude
 
@@ -102,17 +103,17 @@ cSVOutput_fieldDelimiter = Lens.lens (\CSVOutput' {fieldDelimiter} -> fieldDelim
 cSVOutput_recordDelimiter :: Lens.Lens' CSVOutput (Prelude.Maybe Prelude.Text)
 cSVOutput_recordDelimiter = Lens.lens (\CSVOutput' {recordDelimiter} -> recordDelimiter) (\s@CSVOutput' {} a -> s {recordDelimiter = a} :: CSVOutput)
 
-instance Core.FromJSON CSVOutput where
+instance Data.FromJSON CSVOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CSVOutput"
       ( \x ->
           CSVOutput'
-            Prelude.<$> (x Core..:? "QuoteCharacter")
-            Prelude.<*> (x Core..:? "QuoteFields")
-            Prelude.<*> (x Core..:? "QuoteEscapeCharacter")
-            Prelude.<*> (x Core..:? "FieldDelimiter")
-            Prelude.<*> (x Core..:? "RecordDelimiter")
+            Prelude.<$> (x Data..:? "QuoteCharacter")
+            Prelude.<*> (x Data..:? "QuoteFields")
+            Prelude.<*> (x Data..:? "QuoteEscapeCharacter")
+            Prelude.<*> (x Data..:? "FieldDelimiter")
+            Prelude.<*> (x Data..:? "RecordDelimiter")
       )
 
 instance Prelude.Hashable CSVOutput where
@@ -131,18 +132,18 @@ instance Prelude.NFData CSVOutput where
       `Prelude.seq` Prelude.rnf fieldDelimiter
       `Prelude.seq` Prelude.rnf recordDelimiter
 
-instance Core.ToJSON CSVOutput where
+instance Data.ToJSON CSVOutput where
   toJSON CSVOutput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("QuoteCharacter" Core..=)
+          [ ("QuoteCharacter" Data..=)
               Prelude.<$> quoteCharacter,
-            ("QuoteFields" Core..=) Prelude.<$> quoteFields,
-            ("QuoteEscapeCharacter" Core..=)
+            ("QuoteFields" Data..=) Prelude.<$> quoteFields,
+            ("QuoteEscapeCharacter" Data..=)
               Prelude.<$> quoteEscapeCharacter,
-            ("FieldDelimiter" Core..=)
+            ("FieldDelimiter" Data..=)
               Prelude.<$> fieldDelimiter,
-            ("RecordDelimiter" Core..=)
+            ("RecordDelimiter" Data..=)
               Prelude.<$> recordDelimiter
           ]
       )

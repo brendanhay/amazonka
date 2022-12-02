@@ -47,6 +47,7 @@ where
 import Amazonka.BackupGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -56,9 +57,9 @@ data ImportHypervisorConfiguration = ImportHypervisorConfiguration'
   { -- | The tags of the hypervisor configuration to import.
     tags :: Prelude.Maybe [Tag],
     -- | The password for the hypervisor.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The username for the hypervisor.
-    username :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    username :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Key Management Service for the hypervisor.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The server host of the hypervisor. This can be either an IP address or a
@@ -112,11 +113,11 @@ importHypervisorConfiguration_tags = Lens.lens (\ImportHypervisorConfiguration' 
 
 -- | The password for the hypervisor.
 importHypervisorConfiguration_password :: Lens.Lens' ImportHypervisorConfiguration (Prelude.Maybe Prelude.Text)
-importHypervisorConfiguration_password = Lens.lens (\ImportHypervisorConfiguration' {password} -> password) (\s@ImportHypervisorConfiguration' {} a -> s {password = a} :: ImportHypervisorConfiguration) Prelude.. Lens.mapping Core._Sensitive
+importHypervisorConfiguration_password = Lens.lens (\ImportHypervisorConfiguration' {password} -> password) (\s@ImportHypervisorConfiguration' {} a -> s {password = a} :: ImportHypervisorConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The username for the hypervisor.
 importHypervisorConfiguration_username :: Lens.Lens' ImportHypervisorConfiguration (Prelude.Maybe Prelude.Text)
-importHypervisorConfiguration_username = Lens.lens (\ImportHypervisorConfiguration' {username} -> username) (\s@ImportHypervisorConfiguration' {} a -> s {username = a} :: ImportHypervisorConfiguration) Prelude.. Lens.mapping Core._Sensitive
+importHypervisorConfiguration_username = Lens.lens (\ImportHypervisorConfiguration' {username} -> username) (\s@ImportHypervisorConfiguration' {} a -> s {username = a} :: ImportHypervisorConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Key Management Service for the hypervisor.
 importHypervisorConfiguration_kmsKeyArn :: Lens.Lens' ImportHypervisorConfiguration (Prelude.Maybe Prelude.Text)
@@ -144,7 +145,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ImportHypervisorConfigurationResponse'
-            Prelude.<$> (x Core..?> "HypervisorArn")
+            Prelude.<$> (x Data..?> "HypervisorArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,38 +170,38 @@ instance Prelude.NFData ImportHypervisorConfiguration where
       `Prelude.seq` Prelude.rnf host
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders ImportHypervisorConfiguration where
+instance Data.ToHeaders ImportHypervisorConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "BackupOnPremises_v20210101.ImportHypervisorConfiguration" ::
+              Data.=# ( "BackupOnPremises_v20210101.ImportHypervisorConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportHypervisorConfiguration where
+instance Data.ToJSON ImportHypervisorConfiguration where
   toJSON ImportHypervisorConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Password" Core..=) Prelude.<$> password,
-            ("Username" Core..=) Prelude.<$> username,
-            ("KmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            Prelude.Just ("Host" Core..= host),
-            Prelude.Just ("Name" Core..= name)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Password" Data..=) Prelude.<$> password,
+            ("Username" Data..=) Prelude.<$> username,
+            ("KmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            Prelude.Just ("Host" Data..= host),
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath ImportHypervisorConfiguration where
+instance Data.ToPath ImportHypervisorConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ImportHypervisorConfiguration where
+instance Data.ToQuery ImportHypervisorConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportHypervisorConfigurationResponse' smart constructor.

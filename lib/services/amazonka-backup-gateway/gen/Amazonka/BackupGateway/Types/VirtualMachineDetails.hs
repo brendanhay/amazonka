@@ -21,6 +21,7 @@ module Amazonka.BackupGateway.Types.VirtualMachineDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Your @VirtualMachine@ objects, ordered by their Amazon Resource Names
@@ -41,7 +42,7 @@ data VirtualMachineDetails = VirtualMachineDetails'
     hypervisorId :: Prelude.Maybe Prelude.Text,
     -- | The most recent date a virtual machine was backed up, in Unix format and
     -- UTC time.
-    lastBackupDate :: Prelude.Maybe Core.POSIX
+    lastBackupDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -102,20 +103,20 @@ virtualMachineDetails_hypervisorId = Lens.lens (\VirtualMachineDetails' {hypervi
 -- | The most recent date a virtual machine was backed up, in Unix format and
 -- UTC time.
 virtualMachineDetails_lastBackupDate :: Lens.Lens' VirtualMachineDetails (Prelude.Maybe Prelude.UTCTime)
-virtualMachineDetails_lastBackupDate = Lens.lens (\VirtualMachineDetails' {lastBackupDate} -> lastBackupDate) (\s@VirtualMachineDetails' {} a -> s {lastBackupDate = a} :: VirtualMachineDetails) Prelude.. Lens.mapping Core._Time
+virtualMachineDetails_lastBackupDate = Lens.lens (\VirtualMachineDetails' {lastBackupDate} -> lastBackupDate) (\s@VirtualMachineDetails' {} a -> s {lastBackupDate = a} :: VirtualMachineDetails) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON VirtualMachineDetails where
+instance Data.FromJSON VirtualMachineDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualMachineDetails"
       ( \x ->
           VirtualMachineDetails'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Path")
-            Prelude.<*> (x Core..:? "HostName")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "HypervisorId")
-            Prelude.<*> (x Core..:? "LastBackupDate")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Path")
+            Prelude.<*> (x Data..:? "HostName")
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "HypervisorId")
+            Prelude.<*> (x Data..:? "LastBackupDate")
       )
 
 instance Prelude.Hashable VirtualMachineDetails where

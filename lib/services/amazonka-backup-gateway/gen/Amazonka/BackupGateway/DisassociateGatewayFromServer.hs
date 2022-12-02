@@ -44,6 +44,7 @@ where
 import Amazonka.BackupGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,7 +92,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DisassociateGatewayFromServerResponse'
-            Prelude.<$> (x Core..?> "GatewayArn")
+            Prelude.<$> (x Data..?> "GatewayArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,32 +107,32 @@ instance Prelude.NFData DisassociateGatewayFromServer where
   rnf DisassociateGatewayFromServer' {..} =
     Prelude.rnf gatewayArn
 
-instance Core.ToHeaders DisassociateGatewayFromServer where
+instance Data.ToHeaders DisassociateGatewayFromServer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "BackupOnPremises_v20210101.DisassociateGatewayFromServer" ::
+              Data.=# ( "BackupOnPremises_v20210101.DisassociateGatewayFromServer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateGatewayFromServer where
+instance Data.ToJSON DisassociateGatewayFromServer where
   toJSON DisassociateGatewayFromServer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GatewayArn" Core..= gatewayArn)]
+          [Prelude.Just ("GatewayArn" Data..= gatewayArn)]
       )
 
-instance Core.ToPath DisassociateGatewayFromServer where
+instance Data.ToPath DisassociateGatewayFromServer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateGatewayFromServer where
+instance Data.ToQuery DisassociateGatewayFromServer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateGatewayFromServerResponse' smart constructor.

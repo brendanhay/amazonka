@@ -43,6 +43,7 @@ where
 import Amazonka.BackupGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,7 +85,7 @@ instance Core.AWSRequest GetVirtualMachine where
     Response.receiveJSON
       ( \s h x ->
           GetVirtualMachineResponse'
-            Prelude.<$> (x Core..?> "VirtualMachine")
+            Prelude.<$> (x Data..?> "VirtualMachine")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,32 +96,32 @@ instance Prelude.Hashable GetVirtualMachine where
 instance Prelude.NFData GetVirtualMachine where
   rnf GetVirtualMachine' {..} = Prelude.rnf resourceArn
 
-instance Core.ToHeaders GetVirtualMachine where
+instance Data.ToHeaders GetVirtualMachine where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "BackupOnPremises_v20210101.GetVirtualMachine" ::
+              Data.=# ( "BackupOnPremises_v20210101.GetVirtualMachine" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetVirtualMachine where
+instance Data.ToJSON GetVirtualMachine where
   toJSON GetVirtualMachine' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ResourceArn" Core..= resourceArn)]
+          [Prelude.Just ("ResourceArn" Data..= resourceArn)]
       )
 
-instance Core.ToPath GetVirtualMachine where
+instance Data.ToPath GetVirtualMachine where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetVirtualMachine where
+instance Data.ToQuery GetVirtualMachine where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetVirtualMachineResponse' smart constructor.

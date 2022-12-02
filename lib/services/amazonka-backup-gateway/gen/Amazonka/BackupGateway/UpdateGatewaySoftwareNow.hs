@@ -47,6 +47,7 @@ where
 import Amazonka.BackupGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,7 +92,7 @@ instance Core.AWSRequest UpdateGatewaySoftwareNow where
     Response.receiveJSON
       ( \s h x ->
           UpdateGatewaySoftwareNowResponse'
-            Prelude.<$> (x Core..?> "GatewayArn")
+            Prelude.<$> (x Data..?> "GatewayArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,32 +104,32 @@ instance Prelude.NFData UpdateGatewaySoftwareNow where
   rnf UpdateGatewaySoftwareNow' {..} =
     Prelude.rnf gatewayArn
 
-instance Core.ToHeaders UpdateGatewaySoftwareNow where
+instance Data.ToHeaders UpdateGatewaySoftwareNow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "BackupOnPremises_v20210101.UpdateGatewaySoftwareNow" ::
+              Data.=# ( "BackupOnPremises_v20210101.UpdateGatewaySoftwareNow" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateGatewaySoftwareNow where
+instance Data.ToJSON UpdateGatewaySoftwareNow where
   toJSON UpdateGatewaySoftwareNow' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GatewayArn" Core..= gatewayArn)]
+          [Prelude.Just ("GatewayArn" Data..= gatewayArn)]
       )
 
-instance Core.ToPath UpdateGatewaySoftwareNow where
+instance Data.ToPath UpdateGatewaySoftwareNow where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateGatewaySoftwareNow where
+instance Data.ToQuery UpdateGatewaySoftwareNow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateGatewaySoftwareNowResponse' smart constructor.

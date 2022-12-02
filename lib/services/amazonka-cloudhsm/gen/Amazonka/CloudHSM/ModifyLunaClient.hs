@@ -60,6 +60,7 @@ where
 import Amazonka.CloudHSM.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,7 +115,7 @@ instance Core.AWSRequest ModifyLunaClient where
     Response.receiveJSON
       ( \s h x ->
           ModifyLunaClientResponse'
-            Prelude.<$> (x Core..?> "ClientArn")
+            Prelude.<$> (x Data..?> "ClientArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,34 +129,34 @@ instance Prelude.NFData ModifyLunaClient where
     Prelude.rnf clientArn
       `Prelude.seq` Prelude.rnf certificate
 
-instance Core.ToHeaders ModifyLunaClient where
+instance Data.ToHeaders ModifyLunaClient where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CloudHsmFrontendService.ModifyLunaClient" ::
+              Data.=# ( "CloudHsmFrontendService.ModifyLunaClient" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ModifyLunaClient where
+instance Data.ToJSON ModifyLunaClient where
   toJSON ModifyLunaClient' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ClientArn" Core..= clientArn),
-            Prelude.Just ("Certificate" Core..= certificate)
+          [ Prelude.Just ("ClientArn" Data..= clientArn),
+            Prelude.Just ("Certificate" Data..= certificate)
           ]
       )
 
-instance Core.ToPath ModifyLunaClient where
+instance Data.ToPath ModifyLunaClient where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyLunaClient where
+instance Data.ToQuery ModifyLunaClient where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newModifyLunaClientResponse' smart constructor.

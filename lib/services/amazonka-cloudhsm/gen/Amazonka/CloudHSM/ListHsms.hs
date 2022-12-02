@@ -65,6 +65,7 @@ where
 import Amazonka.CloudHSM.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,8 +124,8 @@ instance Core.AWSRequest ListHsms where
     Response.receiveJSON
       ( \s h x ->
           ListHsmsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "HsmList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "HsmList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,32 +136,32 @@ instance Prelude.Hashable ListHsms where
 instance Prelude.NFData ListHsms where
   rnf ListHsms' {..} = Prelude.rnf nextToken
 
-instance Core.ToHeaders ListHsms where
+instance Data.ToHeaders ListHsms where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CloudHsmFrontendService.ListHsms" ::
+              Data.=# ( "CloudHsmFrontendService.ListHsms" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListHsms where
+instance Data.ToJSON ListHsms where
   toJSON ListHsms' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("NextToken" Core..=) Prelude.<$> nextToken]
+          [("NextToken" Data..=) Prelude.<$> nextToken]
       )
 
-instance Core.ToPath ListHsms where
+instance Data.ToPath ListHsms where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListHsms where
+instance Data.ToQuery ListHsms where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of the @ListHsms@ operation.

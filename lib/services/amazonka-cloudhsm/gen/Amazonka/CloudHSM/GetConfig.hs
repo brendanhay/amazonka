@@ -61,6 +61,7 @@ where
 import Amazonka.CloudHSM.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -125,9 +126,9 @@ instance Core.AWSRequest GetConfig where
     Response.receiveJSON
       ( \s h x ->
           GetConfigResponse'
-            Prelude.<$> (x Core..?> "ConfigCred")
-            Prelude.<*> (x Core..?> "ConfigFile")
-            Prelude.<*> (x Core..?> "ConfigType")
+            Prelude.<$> (x Data..?> "ConfigCred")
+            Prelude.<*> (x Data..?> "ConfigFile")
+            Prelude.<*> (x Data..?> "ConfigType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,35 +144,35 @@ instance Prelude.NFData GetConfig where
       `Prelude.seq` Prelude.rnf clientVersion
       `Prelude.seq` Prelude.rnf hapgList
 
-instance Core.ToHeaders GetConfig where
+instance Data.ToHeaders GetConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CloudHsmFrontendService.GetConfig" ::
+              Data.=# ( "CloudHsmFrontendService.GetConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetConfig where
+instance Data.ToJSON GetConfig where
   toJSON GetConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ClientArn" Core..= clientArn),
-            Prelude.Just ("ClientVersion" Core..= clientVersion),
-            Prelude.Just ("HapgList" Core..= hapgList)
+          [ Prelude.Just ("ClientArn" Data..= clientArn),
+            Prelude.Just ("ClientVersion" Data..= clientVersion),
+            Prelude.Just ("HapgList" Data..= hapgList)
           ]
       )
 
-instance Core.ToPath GetConfig where
+instance Data.ToPath GetConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetConfig where
+instance Data.ToQuery GetConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetConfigResponse' smart constructor.

@@ -67,6 +67,7 @@ where
 import Amazonka.CloudHSM.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -176,7 +177,7 @@ instance Core.AWSRequest ModifyHsm where
     Response.receiveJSON
       ( \s h x ->
           ModifyHsmResponse'
-            Prelude.<$> (x Core..?> "HsmArn")
+            Prelude.<$> (x Data..?> "HsmArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -198,38 +199,38 @@ instance Prelude.NFData ModifyHsm where
       `Prelude.seq` Prelude.rnf syslogIp
       `Prelude.seq` Prelude.rnf hsmArn
 
-instance Core.ToHeaders ModifyHsm where
+instance Data.ToHeaders ModifyHsm where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CloudHsmFrontendService.ModifyHsm" ::
+              Data.=# ( "CloudHsmFrontendService.ModifyHsm" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ModifyHsm where
+instance Data.ToJSON ModifyHsm where
   toJSON ModifyHsm' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SubnetId" Core..=) Prelude.<$> subnetId,
-            ("ExternalId" Core..=) Prelude.<$> externalId,
-            ("IamRoleArn" Core..=) Prelude.<$> iamRoleArn,
-            ("EniIp" Core..=) Prelude.<$> eniIp,
-            ("SyslogIp" Core..=) Prelude.<$> syslogIp,
-            Prelude.Just ("HsmArn" Core..= hsmArn)
+          [ ("SubnetId" Data..=) Prelude.<$> subnetId,
+            ("ExternalId" Data..=) Prelude.<$> externalId,
+            ("IamRoleArn" Data..=) Prelude.<$> iamRoleArn,
+            ("EniIp" Data..=) Prelude.<$> eniIp,
+            ("SyslogIp" Data..=) Prelude.<$> syslogIp,
+            Prelude.Just ("HsmArn" Data..= hsmArn)
           ]
       )
 
-instance Core.ToPath ModifyHsm where
+instance Data.ToPath ModifyHsm where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyHsm where
+instance Data.ToQuery ModifyHsm where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of the ModifyHsm operation.

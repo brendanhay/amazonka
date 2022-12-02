@@ -64,6 +64,7 @@ where
 import Amazonka.CloudHSM.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,21 +106,21 @@ instance Core.AWSRequest DescribeHapg where
     Response.receiveJSON
       ( \s h x ->
           DescribeHapgResponse'
-            Prelude.<$> ( x Core..?> "HsmsLastActionFailed"
+            Prelude.<$> ( x Data..?> "HsmsLastActionFailed"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "PartitionSerialList"
+            Prelude.<*> ( x Data..?> "PartitionSerialList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Label")
-            Prelude.<*> ( x Core..?> "HsmsPendingRegistration"
+            Prelude.<*> (x Data..?> "Label")
+            Prelude.<*> ( x Data..?> "HsmsPendingRegistration"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "LastModifiedTimestamp")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "HapgArn")
-            Prelude.<*> (x Core..?> "HapgSerial")
-            Prelude.<*> ( x Core..?> "HsmsPendingDeletion"
+            Prelude.<*> (x Data..?> "LastModifiedTimestamp")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "HapgArn")
+            Prelude.<*> (x Data..?> "HapgSerial")
+            Prelude.<*> ( x Data..?> "HsmsPendingDeletion"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -132,32 +133,32 @@ instance Prelude.Hashable DescribeHapg where
 instance Prelude.NFData DescribeHapg where
   rnf DescribeHapg' {..} = Prelude.rnf hapgArn
 
-instance Core.ToHeaders DescribeHapg where
+instance Data.ToHeaders DescribeHapg where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CloudHsmFrontendService.DescribeHapg" ::
+              Data.=# ( "CloudHsmFrontendService.DescribeHapg" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeHapg where
+instance Data.ToJSON DescribeHapg where
   toJSON DescribeHapg' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("HapgArn" Core..= hapgArn)]
+          [Prelude.Just ("HapgArn" Data..= hapgArn)]
       )
 
-instance Core.ToPath DescribeHapg where
+instance Data.ToPath DescribeHapg where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeHapg where
+instance Data.ToQuery DescribeHapg where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of the DescribeHapg action.

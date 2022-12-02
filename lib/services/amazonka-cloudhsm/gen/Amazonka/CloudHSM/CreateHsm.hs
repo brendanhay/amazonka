@@ -74,6 +74,7 @@ where
 import Amazonka.CloudHSM.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -207,7 +208,7 @@ instance Core.AWSRequest CreateHsm where
     Response.receiveJSON
       ( \s h x ->
           CreateHsmResponse'
-            Prelude.<$> (x Core..?> "HsmArn")
+            Prelude.<$> (x Data..?> "HsmArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -233,41 +234,41 @@ instance Prelude.NFData CreateHsm where
       `Prelude.seq` Prelude.rnf iamRoleArn
       `Prelude.seq` Prelude.rnf subscriptionType
 
-instance Core.ToHeaders CreateHsm where
+instance Data.ToHeaders CreateHsm where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CloudHsmFrontendService.CreateHsm" ::
+              Data.=# ( "CloudHsmFrontendService.CreateHsm" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateHsm where
+instance Data.ToJSON CreateHsm where
   toJSON CreateHsm' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("ExternalId" Core..=) Prelude.<$> externalId,
-            ("EniIp" Core..=) Prelude.<$> eniIp,
-            ("SyslogIp" Core..=) Prelude.<$> syslogIp,
-            Prelude.Just ("SubnetId" Core..= subnetId),
-            Prelude.Just ("SshKey" Core..= sshKey),
-            Prelude.Just ("IamRoleArn" Core..= iamRoleArn),
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("ExternalId" Data..=) Prelude.<$> externalId,
+            ("EniIp" Data..=) Prelude.<$> eniIp,
+            ("SyslogIp" Data..=) Prelude.<$> syslogIp,
+            Prelude.Just ("SubnetId" Data..= subnetId),
+            Prelude.Just ("SshKey" Data..= sshKey),
+            Prelude.Just ("IamRoleArn" Data..= iamRoleArn),
             Prelude.Just
-              ("SubscriptionType" Core..= subscriptionType)
+              ("SubscriptionType" Data..= subscriptionType)
           ]
       )
 
-instance Core.ToPath CreateHsm where
+instance Data.ToPath CreateHsm where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateHsm where
+instance Data.ToQuery CreateHsm where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of the @CreateHsm@ operation.

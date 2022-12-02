@@ -53,6 +53,7 @@ where
 import Amazonka.CloudHSM.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest ListAvailableZones where
     Response.receiveJSON
       ( \s h x ->
           ListAvailableZonesResponse'
-            Prelude.<$> (x Core..?> "AZList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "AZList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,28 +95,28 @@ instance Prelude.Hashable ListAvailableZones where
 instance Prelude.NFData ListAvailableZones where
   rnf _ = ()
 
-instance Core.ToHeaders ListAvailableZones where
+instance Data.ToHeaders ListAvailableZones where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CloudHsmFrontendService.ListAvailableZones" ::
+              Data.=# ( "CloudHsmFrontendService.ListAvailableZones" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAvailableZones where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON ListAvailableZones where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath ListAvailableZones where
+instance Data.ToPath ListAvailableZones where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAvailableZones where
+instance Data.ToQuery ListAvailableZones where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAvailableZonesResponse' smart constructor.

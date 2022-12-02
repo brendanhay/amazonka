@@ -61,6 +61,7 @@ where
 import Amazonka.CloudHSM.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,7 +115,7 @@ instance Core.AWSRequest AddTagsToResource where
       ( \s h x ->
           AddTagsToResourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Status")
+            Prelude.<*> (x Data..:> "Status")
       )
 
 instance Prelude.Hashable AddTagsToResource where
@@ -127,34 +128,34 @@ instance Prelude.NFData AddTagsToResource where
     Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf tagList
 
-instance Core.ToHeaders AddTagsToResource where
+instance Data.ToHeaders AddTagsToResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CloudHsmFrontendService.AddTagsToResource" ::
+              Data.=# ( "CloudHsmFrontendService.AddTagsToResource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AddTagsToResource where
+instance Data.ToJSON AddTagsToResource where
   toJSON AddTagsToResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceArn" Core..= resourceArn),
-            Prelude.Just ("TagList" Core..= tagList)
+          [ Prelude.Just ("ResourceArn" Data..= resourceArn),
+            Prelude.Just ("TagList" Data..= tagList)
           ]
       )
 
-instance Core.ToPath AddTagsToResource where
+instance Data.ToPath AddTagsToResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddTagsToResource where
+instance Data.ToQuery AddTagsToResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddTagsToResourceResponse' smart constructor.

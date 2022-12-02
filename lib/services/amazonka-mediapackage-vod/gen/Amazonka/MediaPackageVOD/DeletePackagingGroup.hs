@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackageVOD.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,23 +93,23 @@ instance Prelude.Hashable DeletePackagingGroup where
 instance Prelude.NFData DeletePackagingGroup where
   rnf DeletePackagingGroup' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DeletePackagingGroup where
+instance Data.ToHeaders DeletePackagingGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeletePackagingGroup where
+instance Data.ToPath DeletePackagingGroup where
   toPath DeletePackagingGroup' {..} =
     Prelude.mconcat
-      ["/packaging_groups/", Core.toBS id]
+      ["/packaging_groups/", Data.toBS id]
 
-instance Core.ToQuery DeletePackagingGroup where
+instance Data.ToQuery DeletePackagingGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePackagingGroupResponse' smart constructor.

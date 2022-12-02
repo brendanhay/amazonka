@@ -21,6 +21,7 @@ module Amazonka.MediaPackageVOD.Types.PackagingGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackageVOD.Types.Authorization
 import Amazonka.MediaPackageVOD.Types.EgressAccessLogs
 import qualified Amazonka.Prelude as Prelude
@@ -96,18 +97,18 @@ packagingGroup_authorization = Lens.lens (\PackagingGroup' {authorization} -> au
 packagingGroup_egressAccessLogs :: Lens.Lens' PackagingGroup (Prelude.Maybe EgressAccessLogs)
 packagingGroup_egressAccessLogs = Lens.lens (\PackagingGroup' {egressAccessLogs} -> egressAccessLogs) (\s@PackagingGroup' {} a -> s {egressAccessLogs = a} :: PackagingGroup)
 
-instance Core.FromJSON PackagingGroup where
+instance Data.FromJSON PackagingGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PackagingGroup"
       ( \x ->
           PackagingGroup'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "domainName")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "authorization")
-            Prelude.<*> (x Core..:? "egressAccessLogs")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "domainName")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "authorization")
+            Prelude.<*> (x Data..:? "egressAccessLogs")
       )
 
 instance Prelude.Hashable PackagingGroup where

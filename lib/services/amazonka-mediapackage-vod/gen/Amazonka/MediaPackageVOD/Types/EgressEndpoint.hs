@@ -21,6 +21,7 @@ module Amazonka.MediaPackageVOD.Types.EgressEndpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The endpoint URL used to access an Asset using one
@@ -80,15 +81,15 @@ egressEndpoint_status = Lens.lens (\EgressEndpoint' {status} -> status) (\s@Egre
 egressEndpoint_packagingConfigurationId :: Lens.Lens' EgressEndpoint (Prelude.Maybe Prelude.Text)
 egressEndpoint_packagingConfigurationId = Lens.lens (\EgressEndpoint' {packagingConfigurationId} -> packagingConfigurationId) (\s@EgressEndpoint' {} a -> s {packagingConfigurationId = a} :: EgressEndpoint)
 
-instance Core.FromJSON EgressEndpoint where
+instance Data.FromJSON EgressEndpoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EgressEndpoint"
       ( \x ->
           EgressEndpoint'
-            Prelude.<$> (x Core..:? "url")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "packagingConfigurationId")
+            Prelude.<$> (x Data..:? "url")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "packagingConfigurationId")
       )
 
 instance Prelude.Hashable EgressEndpoint where

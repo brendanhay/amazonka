@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackageVOD.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -154,14 +155,14 @@ instance Core.AWSRequest CreatePackagingConfiguration where
     Response.receiveJSON
       ( \s h x ->
           CreatePackagingConfigurationResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "mssPackage")
-            Prelude.<*> (x Core..?> "packagingGroupId")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "dashPackage")
-            Prelude.<*> (x Core..?> "cmafPackage")
-            Prelude.<*> (x Core..?> "hlsPackage")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "mssPackage")
+            Prelude.<*> (x Data..?> "packagingGroupId")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "dashPackage")
+            Prelude.<*> (x Data..?> "cmafPackage")
+            Prelude.<*> (x Data..?> "hlsPackage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -188,36 +189,36 @@ instance Prelude.NFData CreatePackagingConfiguration where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf packagingGroupId
 
-instance Core.ToHeaders CreatePackagingConfiguration where
+instance Data.ToHeaders CreatePackagingConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePackagingConfiguration where
+instance Data.ToJSON CreatePackagingConfiguration where
   toJSON CreatePackagingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("mssPackage" Core..=) Prelude.<$> mssPackage,
-            ("dashPackage" Core..=) Prelude.<$> dashPackage,
-            ("cmafPackage" Core..=) Prelude.<$> cmafPackage,
-            ("hlsPackage" Core..=) Prelude.<$> hlsPackage,
-            Prelude.Just ("id" Core..= id),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("mssPackage" Data..=) Prelude.<$> mssPackage,
+            ("dashPackage" Data..=) Prelude.<$> dashPackage,
+            ("cmafPackage" Data..=) Prelude.<$> cmafPackage,
+            ("hlsPackage" Data..=) Prelude.<$> hlsPackage,
+            Prelude.Just ("id" Data..= id),
             Prelude.Just
-              ("packagingGroupId" Core..= packagingGroupId)
+              ("packagingGroupId" Data..= packagingGroupId)
           ]
       )
 
-instance Core.ToPath CreatePackagingConfiguration where
+instance Data.ToPath CreatePackagingConfiguration where
   toPath = Prelude.const "/packaging_configurations"
 
-instance Core.ToQuery CreatePackagingConfiguration where
+instance Data.ToQuery CreatePackagingConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePackagingConfigurationResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.MediaPackageVOD.Types.HlsManifest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackageVOD.Types.AdMarkers
 import Amazonka.MediaPackageVOD.Types.StreamSelection
 import qualified Amazonka.Prelude as Prelude
@@ -137,18 +138,18 @@ hlsManifest_adMarkers = Lens.lens (\HlsManifest' {adMarkers} -> adMarkers) (\s@H
 hlsManifest_manifestName :: Lens.Lens' HlsManifest (Prelude.Maybe Prelude.Text)
 hlsManifest_manifestName = Lens.lens (\HlsManifest' {manifestName} -> manifestName) (\s@HlsManifest' {} a -> s {manifestName = a} :: HlsManifest)
 
-instance Core.FromJSON HlsManifest where
+instance Data.FromJSON HlsManifest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HlsManifest"
       ( \x ->
           HlsManifest'
-            Prelude.<$> (x Core..:? "streamSelection")
-            Prelude.<*> (x Core..:? "repeatExtXKey")
-            Prelude.<*> (x Core..:? "programDateTimeIntervalSeconds")
-            Prelude.<*> (x Core..:? "includeIframeOnlyStream")
-            Prelude.<*> (x Core..:? "adMarkers")
-            Prelude.<*> (x Core..:? "manifestName")
+            Prelude.<$> (x Data..:? "streamSelection")
+            Prelude.<*> (x Data..:? "repeatExtXKey")
+            Prelude.<*> (x Data..:? "programDateTimeIntervalSeconds")
+            Prelude.<*> (x Data..:? "includeIframeOnlyStream")
+            Prelude.<*> (x Data..:? "adMarkers")
+            Prelude.<*> (x Data..:? "manifestName")
       )
 
 instance Prelude.Hashable HlsManifest where
@@ -169,18 +170,18 @@ instance Prelude.NFData HlsManifest where
       `Prelude.seq` Prelude.rnf adMarkers
       `Prelude.seq` Prelude.rnf manifestName
 
-instance Core.ToJSON HlsManifest where
+instance Data.ToJSON HlsManifest where
   toJSON HlsManifest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("streamSelection" Core..=)
+          [ ("streamSelection" Data..=)
               Prelude.<$> streamSelection,
-            ("repeatExtXKey" Core..=) Prelude.<$> repeatExtXKey,
-            ("programDateTimeIntervalSeconds" Core..=)
+            ("repeatExtXKey" Data..=) Prelude.<$> repeatExtXKey,
+            ("programDateTimeIntervalSeconds" Data..=)
               Prelude.<$> programDateTimeIntervalSeconds,
-            ("includeIframeOnlyStream" Core..=)
+            ("includeIframeOnlyStream" Data..=)
               Prelude.<$> includeIframeOnlyStream,
-            ("adMarkers" Core..=) Prelude.<$> adMarkers,
-            ("manifestName" Core..=) Prelude.<$> manifestName
+            ("adMarkers" Data..=) Prelude.<$> adMarkers,
+            ("manifestName" Data..=) Prelude.<$> manifestName
           ]
       )

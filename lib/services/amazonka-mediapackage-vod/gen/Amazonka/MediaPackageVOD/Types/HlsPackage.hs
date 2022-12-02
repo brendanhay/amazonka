@@ -21,6 +21,7 @@ module Amazonka.MediaPackageVOD.Types.HlsPackage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackageVOD.Types.HlsEncryption
 import Amazonka.MediaPackageVOD.Types.HlsManifest
 import qualified Amazonka.Prelude as Prelude
@@ -99,17 +100,17 @@ hlsPackage_includeDvbSubtitles = Lens.lens (\HlsPackage' {includeDvbSubtitles} -
 hlsPackage_hlsManifests :: Lens.Lens' HlsPackage [HlsManifest]
 hlsPackage_hlsManifests = Lens.lens (\HlsPackage' {hlsManifests} -> hlsManifests) (\s@HlsPackage' {} a -> s {hlsManifests = a} :: HlsPackage) Prelude.. Lens.coerced
 
-instance Core.FromJSON HlsPackage where
+instance Data.FromJSON HlsPackage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HlsPackage"
       ( \x ->
           HlsPackage'
-            Prelude.<$> (x Core..:? "useAudioRenditionGroup")
-            Prelude.<*> (x Core..:? "segmentDurationSeconds")
-            Prelude.<*> (x Core..:? "encryption")
-            Prelude.<*> (x Core..:? "includeDvbSubtitles")
-            Prelude.<*> (x Core..:? "hlsManifests" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "useAudioRenditionGroup")
+            Prelude.<*> (x Data..:? "segmentDurationSeconds")
+            Prelude.<*> (x Data..:? "encryption")
+            Prelude.<*> (x Data..:? "includeDvbSubtitles")
+            Prelude.<*> (x Data..:? "hlsManifests" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable HlsPackage where
@@ -128,17 +129,17 @@ instance Prelude.NFData HlsPackage where
       `Prelude.seq` Prelude.rnf includeDvbSubtitles
       `Prelude.seq` Prelude.rnf hlsManifests
 
-instance Core.ToJSON HlsPackage where
+instance Data.ToJSON HlsPackage where
   toJSON HlsPackage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("useAudioRenditionGroup" Core..=)
+          [ ("useAudioRenditionGroup" Data..=)
               Prelude.<$> useAudioRenditionGroup,
-            ("segmentDurationSeconds" Core..=)
+            ("segmentDurationSeconds" Data..=)
               Prelude.<$> segmentDurationSeconds,
-            ("encryption" Core..=) Prelude.<$> encryption,
-            ("includeDvbSubtitles" Core..=)
+            ("encryption" Data..=) Prelude.<$> encryption,
+            ("includeDvbSubtitles" Data..=)
               Prelude.<$> includeDvbSubtitles,
-            Prelude.Just ("hlsManifests" Core..= hlsManifests)
+            Prelude.Just ("hlsManifests" Data..= hlsManifests)
           ]
       )

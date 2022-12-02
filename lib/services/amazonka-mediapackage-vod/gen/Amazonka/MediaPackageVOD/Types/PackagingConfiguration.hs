@@ -21,6 +21,7 @@ module Amazonka.MediaPackageVOD.Types.PackagingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackageVOD.Types.CmafPackage
 import Amazonka.MediaPackageVOD.Types.DashPackage
 import Amazonka.MediaPackageVOD.Types.HlsPackage
@@ -114,20 +115,20 @@ packagingConfiguration_cmafPackage = Lens.lens (\PackagingConfiguration' {cmafPa
 packagingConfiguration_hlsPackage :: Lens.Lens' PackagingConfiguration (Prelude.Maybe HlsPackage)
 packagingConfiguration_hlsPackage = Lens.lens (\PackagingConfiguration' {hlsPackage} -> hlsPackage) (\s@PackagingConfiguration' {} a -> s {hlsPackage = a} :: PackagingConfiguration)
 
-instance Core.FromJSON PackagingConfiguration where
+instance Data.FromJSON PackagingConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PackagingConfiguration"
       ( \x ->
           PackagingConfiguration'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "mssPackage")
-            Prelude.<*> (x Core..:? "packagingGroupId")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "dashPackage")
-            Prelude.<*> (x Core..:? "cmafPackage")
-            Prelude.<*> (x Core..:? "hlsPackage")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "mssPackage")
+            Prelude.<*> (x Data..:? "packagingGroupId")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "dashPackage")
+            Prelude.<*> (x Data..:? "cmafPackage")
+            Prelude.<*> (x Data..:? "hlsPackage")
       )
 
 instance Prelude.Hashable PackagingConfiguration where

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackageVOD.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,12 +120,12 @@ instance Core.AWSRequest CreatePackagingGroup where
     Response.receiveJSON
       ( \s h x ->
           CreatePackagingGroupResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "domainName")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "authorization")
-            Prelude.<*> (x Core..?> "egressAccessLogs")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "domainName")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "authorization")
+            Prelude.<*> (x Data..?> "egressAccessLogs")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,33 +143,33 @@ instance Prelude.NFData CreatePackagingGroup where
       `Prelude.seq` Prelude.rnf egressAccessLogs
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders CreatePackagingGroup where
+instance Data.ToHeaders CreatePackagingGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePackagingGroup where
+instance Data.ToJSON CreatePackagingGroup where
   toJSON CreatePackagingGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("authorization" Core..=) Prelude.<$> authorization,
-            ("egressAccessLogs" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("authorization" Data..=) Prelude.<$> authorization,
+            ("egressAccessLogs" Data..=)
               Prelude.<$> egressAccessLogs,
-            Prelude.Just ("id" Core..= id)
+            Prelude.Just ("id" Data..= id)
           ]
       )
 
-instance Core.ToPath CreatePackagingGroup where
+instance Data.ToPath CreatePackagingGroup where
   toPath = Prelude.const "/packaging_groups"
 
-instance Core.ToQuery CreatePackagingGroup where
+instance Data.ToQuery CreatePackagingGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePackagingGroupResponse' smart constructor.

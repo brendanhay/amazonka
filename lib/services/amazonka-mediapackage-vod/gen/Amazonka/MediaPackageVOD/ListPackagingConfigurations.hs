@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackageVOD.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,8 +134,8 @@ instance Core.AWSRequest ListPackagingConfigurations where
     Response.receiveJSON
       ( \s h x ->
           ListPackagingConfigurationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "packagingConfigurations"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "packagingConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -152,26 +153,26 @@ instance Prelude.NFData ListPackagingConfigurations where
       `Prelude.seq` Prelude.rnf packagingGroupId
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListPackagingConfigurations where
+instance Data.ToHeaders ListPackagingConfigurations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListPackagingConfigurations where
+instance Data.ToPath ListPackagingConfigurations where
   toPath = Prelude.const "/packaging_configurations"
 
-instance Core.ToQuery ListPackagingConfigurations where
+instance Data.ToQuery ListPackagingConfigurations where
   toQuery ListPackagingConfigurations' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "packagingGroupId" Core.=: packagingGroupId,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "packagingGroupId" Data.=: packagingGroupId,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListPackagingConfigurationsResponse' smart constructor.

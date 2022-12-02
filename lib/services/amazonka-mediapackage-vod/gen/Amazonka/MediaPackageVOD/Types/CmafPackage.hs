@@ -21,6 +21,7 @@ module Amazonka.MediaPackageVOD.Types.CmafPackage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackageVOD.Types.CmafEncryption
 import Amazonka.MediaPackageVOD.Types.HlsManifest
 import qualified Amazonka.Prelude as Prelude
@@ -97,16 +98,16 @@ cmafPackage_includeEncoderConfigurationInSegments = Lens.lens (\CmafPackage' {in
 cmafPackage_hlsManifests :: Lens.Lens' CmafPackage [HlsManifest]
 cmafPackage_hlsManifests = Lens.lens (\CmafPackage' {hlsManifests} -> hlsManifests) (\s@CmafPackage' {} a -> s {hlsManifests = a} :: CmafPackage) Prelude.. Lens.coerced
 
-instance Core.FromJSON CmafPackage where
+instance Data.FromJSON CmafPackage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CmafPackage"
       ( \x ->
           CmafPackage'
-            Prelude.<$> (x Core..:? "segmentDurationSeconds")
-            Prelude.<*> (x Core..:? "encryption")
-            Prelude.<*> (x Core..:? "includeEncoderConfigurationInSegments")
-            Prelude.<*> (x Core..:? "hlsManifests" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "segmentDurationSeconds")
+            Prelude.<*> (x Data..:? "encryption")
+            Prelude.<*> (x Data..:? "includeEncoderConfigurationInSegments")
+            Prelude.<*> (x Data..:? "hlsManifests" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable CmafPackage where
@@ -123,15 +124,15 @@ instance Prelude.NFData CmafPackage where
       `Prelude.seq` Prelude.rnf includeEncoderConfigurationInSegments
       `Prelude.seq` Prelude.rnf hlsManifests
 
-instance Core.ToJSON CmafPackage where
+instance Data.ToJSON CmafPackage where
   toJSON CmafPackage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("segmentDurationSeconds" Core..=)
+          [ ("segmentDurationSeconds" Data..=)
               Prelude.<$> segmentDurationSeconds,
-            ("encryption" Core..=) Prelude.<$> encryption,
-            ("includeEncoderConfigurationInSegments" Core..=)
+            ("encryption" Data..=) Prelude.<$> encryption,
+            ("includeEncoderConfigurationInSegments" Data..=)
               Prelude.<$> includeEncoderConfigurationInSegments,
-            Prelude.Just ("hlsManifests" Core..= hlsManifests)
+            Prelude.Just ("hlsManifests" Data..= hlsManifests)
           ]
       )

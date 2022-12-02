@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,11 +88,11 @@ instance Core.AWSRequest GetScheduleGroup where
     Response.receiveJSON
       ( \s h x ->
           GetScheduleGroupResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "CreationDate")
-            Prelude.<*> (x Core..?> "LastModificationDate")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "CreationDate")
+            Prelude.<*> (x Data..?> "LastModificationDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -102,23 +103,23 @@ instance Prelude.Hashable GetScheduleGroup where
 instance Prelude.NFData GetScheduleGroup where
   rnf GetScheduleGroup' {..} = Prelude.rnf name
 
-instance Core.ToHeaders GetScheduleGroup where
+instance Data.ToHeaders GetScheduleGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetScheduleGroup where
+instance Data.ToPath GetScheduleGroup where
   toPath GetScheduleGroup' {..} =
     Prelude.mconcat
-      ["/schedule-groups/", Core.toBS name]
+      ["/schedule-groups/", Data.toBS name]
 
-instance Core.ToQuery GetScheduleGroup where
+instance Data.ToQuery GetScheduleGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetScheduleGroupResponse' smart constructor.
@@ -130,9 +131,9 @@ data GetScheduleGroupResponse = GetScheduleGroupResponse'
     -- | Specifies the state of the schedule group.
     state :: Prelude.Maybe ScheduleGroupState,
     -- | The time at which the schedule group was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The time at which the schedule group was last modified.
-    lastModificationDate :: Prelude.Maybe Core.POSIX,
+    lastModificationDate :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -185,11 +186,11 @@ getScheduleGroupResponse_state = Lens.lens (\GetScheduleGroupResponse' {state} -
 
 -- | The time at which the schedule group was created.
 getScheduleGroupResponse_creationDate :: Lens.Lens' GetScheduleGroupResponse (Prelude.Maybe Prelude.UTCTime)
-getScheduleGroupResponse_creationDate = Lens.lens (\GetScheduleGroupResponse' {creationDate} -> creationDate) (\s@GetScheduleGroupResponse' {} a -> s {creationDate = a} :: GetScheduleGroupResponse) Prelude.. Lens.mapping Core._Time
+getScheduleGroupResponse_creationDate = Lens.lens (\GetScheduleGroupResponse' {creationDate} -> creationDate) (\s@GetScheduleGroupResponse' {} a -> s {creationDate = a} :: GetScheduleGroupResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The time at which the schedule group was last modified.
 getScheduleGroupResponse_lastModificationDate :: Lens.Lens' GetScheduleGroupResponse (Prelude.Maybe Prelude.UTCTime)
-getScheduleGroupResponse_lastModificationDate = Lens.lens (\GetScheduleGroupResponse' {lastModificationDate} -> lastModificationDate) (\s@GetScheduleGroupResponse' {} a -> s {lastModificationDate = a} :: GetScheduleGroupResponse) Prelude.. Lens.mapping Core._Time
+getScheduleGroupResponse_lastModificationDate = Lens.lens (\GetScheduleGroupResponse' {lastModificationDate} -> lastModificationDate) (\s@GetScheduleGroupResponse' {} a -> s {lastModificationDate = a} :: GetScheduleGroupResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getScheduleGroupResponse_httpStatus :: Lens.Lens' GetScheduleGroupResponse Prelude.Int

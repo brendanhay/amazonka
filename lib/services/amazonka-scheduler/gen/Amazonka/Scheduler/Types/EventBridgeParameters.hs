@@ -21,6 +21,7 @@ module Amazonka.Scheduler.Types.EventBridgeParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The templated target type for the EventBridge
@@ -70,14 +71,14 @@ eventBridgeParameters_detailType = Lens.lens (\EventBridgeParameters' {detailTyp
 eventBridgeParameters_source :: Lens.Lens' EventBridgeParameters Prelude.Text
 eventBridgeParameters_source = Lens.lens (\EventBridgeParameters' {source} -> source) (\s@EventBridgeParameters' {} a -> s {source = a} :: EventBridgeParameters)
 
-instance Core.FromJSON EventBridgeParameters where
+instance Data.FromJSON EventBridgeParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventBridgeParameters"
       ( \x ->
           EventBridgeParameters'
-            Prelude.<$> (x Core..: "DetailType")
-            Prelude.<*> (x Core..: "Source")
+            Prelude.<$> (x Data..: "DetailType")
+            Prelude.<*> (x Data..: "Source")
       )
 
 instance Prelude.Hashable EventBridgeParameters where
@@ -90,11 +91,11 @@ instance Prelude.NFData EventBridgeParameters where
     Prelude.rnf detailType
       `Prelude.seq` Prelude.rnf source
 
-instance Core.ToJSON EventBridgeParameters where
+instance Data.ToJSON EventBridgeParameters where
   toJSON EventBridgeParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DetailType" Core..= detailType),
-            Prelude.Just ("Source" Core..= source)
+          [ Prelude.Just ("DetailType" Data..= detailType),
+            Prelude.Just ("Source" Data..= source)
           ]
       )

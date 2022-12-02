@@ -21,6 +21,7 @@ module Amazonka.Scheduler.Types.RetryPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A @RetryPolicy@ object that includes information about the retry policy
@@ -77,14 +78,14 @@ retryPolicy_maximumEventAgeInSeconds = Lens.lens (\RetryPolicy' {maximumEventAge
 retryPolicy_maximumRetryAttempts :: Lens.Lens' RetryPolicy (Prelude.Maybe Prelude.Natural)
 retryPolicy_maximumRetryAttempts = Lens.lens (\RetryPolicy' {maximumRetryAttempts} -> maximumRetryAttempts) (\s@RetryPolicy' {} a -> s {maximumRetryAttempts = a} :: RetryPolicy)
 
-instance Core.FromJSON RetryPolicy where
+instance Data.FromJSON RetryPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RetryPolicy"
       ( \x ->
           RetryPolicy'
-            Prelude.<$> (x Core..:? "MaximumEventAgeInSeconds")
-            Prelude.<*> (x Core..:? "MaximumRetryAttempts")
+            Prelude.<$> (x Data..:? "MaximumEventAgeInSeconds")
+            Prelude.<*> (x Data..:? "MaximumRetryAttempts")
       )
 
 instance Prelude.Hashable RetryPolicy where
@@ -98,13 +99,13 @@ instance Prelude.NFData RetryPolicy where
     Prelude.rnf maximumEventAgeInSeconds
       `Prelude.seq` Prelude.rnf maximumRetryAttempts
 
-instance Core.ToJSON RetryPolicy where
+instance Data.ToJSON RetryPolicy where
   toJSON RetryPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaximumEventAgeInSeconds" Core..=)
+          [ ("MaximumEventAgeInSeconds" Data..=)
               Prelude.<$> maximumEventAgeInSeconds,
-            ("MaximumRetryAttempts" Core..=)
+            ("MaximumRetryAttempts" Data..=)
               Prelude.<$> maximumRetryAttempts
           ]
       )

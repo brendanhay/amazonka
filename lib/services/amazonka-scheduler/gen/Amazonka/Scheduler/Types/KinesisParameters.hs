@@ -21,6 +21,7 @@ module Amazonka.Scheduler.Types.KinesisParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The templated target type for the Amazon Kinesis
@@ -63,13 +64,13 @@ newKinesisParameters pPartitionKey_ =
 kinesisParameters_partitionKey :: Lens.Lens' KinesisParameters Prelude.Text
 kinesisParameters_partitionKey = Lens.lens (\KinesisParameters' {partitionKey} -> partitionKey) (\s@KinesisParameters' {} a -> s {partitionKey = a} :: KinesisParameters)
 
-instance Core.FromJSON KinesisParameters where
+instance Data.FromJSON KinesisParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KinesisParameters"
       ( \x ->
           KinesisParameters'
-            Prelude.<$> (x Core..: "PartitionKey")
+            Prelude.<$> (x Data..: "PartitionKey")
       )
 
 instance Prelude.Hashable KinesisParameters where
@@ -79,9 +80,9 @@ instance Prelude.Hashable KinesisParameters where
 instance Prelude.NFData KinesisParameters where
   rnf KinesisParameters' {..} = Prelude.rnf partitionKey
 
-instance Core.ToJSON KinesisParameters where
+instance Data.ToJSON KinesisParameters where
   toJSON KinesisParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("PartitionKey" Core..= partitionKey)]
+          [Prelude.Just ("PartitionKey" Data..= partitionKey)]
       )

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -139,9 +140,9 @@ instance Core.AWSRequest ListScheduleGroups where
     Response.receiveJSON
       ( \s h x ->
           ListScheduleGroupsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "ScheduleGroups"
+            Prelude.<*> ( x Data..?> "ScheduleGroups"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -158,26 +159,26 @@ instance Prelude.NFData ListScheduleGroups where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf namePrefix
 
-instance Core.ToHeaders ListScheduleGroups where
+instance Data.ToHeaders ListScheduleGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListScheduleGroups where
+instance Data.ToPath ListScheduleGroups where
   toPath = Prelude.const "/schedule-groups"
 
-instance Core.ToQuery ListScheduleGroups where
+instance Data.ToQuery ListScheduleGroups where
   toQuery ListScheduleGroups' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
-        "NamePrefix" Core.=: namePrefix
+      [ "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults,
+        "NamePrefix" Data.=: namePrefix
       ]
 
 -- | /See:/ 'newListScheduleGroupsResponse' smart constructor.

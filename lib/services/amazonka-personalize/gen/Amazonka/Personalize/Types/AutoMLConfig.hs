@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.AutoMLConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | When the solution performs AutoML (@performAutoML@ is true in
@@ -65,14 +66,14 @@ autoMLConfig_recipeList = Lens.lens (\AutoMLConfig' {recipeList} -> recipeList) 
 autoMLConfig_metricName :: Lens.Lens' AutoMLConfig (Prelude.Maybe Prelude.Text)
 autoMLConfig_metricName = Lens.lens (\AutoMLConfig' {metricName} -> metricName) (\s@AutoMLConfig' {} a -> s {metricName = a} :: AutoMLConfig)
 
-instance Core.FromJSON AutoMLConfig where
+instance Data.FromJSON AutoMLConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoMLConfig"
       ( \x ->
           AutoMLConfig'
-            Prelude.<$> (x Core..:? "recipeList" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "metricName")
+            Prelude.<$> (x Data..:? "recipeList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "metricName")
       )
 
 instance Prelude.Hashable AutoMLConfig where
@@ -85,11 +86,11 @@ instance Prelude.NFData AutoMLConfig where
     Prelude.rnf recipeList
       `Prelude.seq` Prelude.rnf metricName
 
-instance Core.ToJSON AutoMLConfig where
+instance Data.ToJSON AutoMLConfig where
   toJSON AutoMLConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("recipeList" Core..=) Prelude.<$> recipeList,
-            ("metricName" Core..=) Prelude.<$> metricName
+          [ ("recipeList" Data..=) Prelude.<$> recipeList,
+            ("metricName" Data..=) Prelude.<$> metricName
           ]
       )

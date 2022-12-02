@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest DescribeSolution where
     Response.receiveJSON
       ( \s h x ->
           DescribeSolutionResponse'
-            Prelude.<$> (x Core..?> "solution")
+            Prelude.<$> (x Data..?> "solution")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,32 +96,32 @@ instance Prelude.Hashable DescribeSolution where
 instance Prelude.NFData DescribeSolution where
   rnf DescribeSolution' {..} = Prelude.rnf solutionArn
 
-instance Core.ToHeaders DescribeSolution where
+instance Data.ToHeaders DescribeSolution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.DescribeSolution" ::
+              Data.=# ( "AmazonPersonalize.DescribeSolution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeSolution where
+instance Data.ToJSON DescribeSolution where
   toJSON DescribeSolution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("solutionArn" Core..= solutionArn)]
+          [Prelude.Just ("solutionArn" Data..= solutionArn)]
       )
 
-instance Core.ToPath DescribeSolution where
+instance Data.ToPath DescribeSolution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSolution where
+instance Data.ToQuery DescribeSolution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSolutionResponse' smart constructor.

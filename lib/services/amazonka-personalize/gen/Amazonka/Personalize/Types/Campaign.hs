@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.Campaign where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types.CampaignConfig
 import Amazonka.Personalize.Types.CampaignUpdateSummary
 import qualified Amazonka.Prelude as Prelude
@@ -34,7 +35,7 @@ data Campaign = Campaign'
   { -- | The name of the campaign.
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix format) that the campaign was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     latestCampaignUpdate :: Prelude.Maybe CampaignUpdateSummary,
     -- | The configuration details of a campaign.
     campaignConfig :: Prelude.Maybe CampaignConfig,
@@ -54,7 +55,7 @@ data Campaign = Campaign'
     -- | The Amazon Resource Name (ARN) of the campaign.
     campaignArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix format) that the campaign was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | If a campaign fails, the reason behind the failure.
     failureReason :: Prelude.Maybe Prelude.Text
   }
@@ -116,7 +117,7 @@ campaign_name = Lens.lens (\Campaign' {name} -> name) (\s@Campaign' {} a -> s {n
 
 -- | The date and time (in Unix format) that the campaign was created.
 campaign_creationDateTime :: Lens.Lens' Campaign (Prelude.Maybe Prelude.UTCTime)
-campaign_creationDateTime = Lens.lens (\Campaign' {creationDateTime} -> creationDateTime) (\s@Campaign' {} a -> s {creationDateTime = a} :: Campaign) Prelude.. Lens.mapping Core._Time
+campaign_creationDateTime = Lens.lens (\Campaign' {creationDateTime} -> creationDateTime) (\s@Campaign' {} a -> s {creationDateTime = a} :: Campaign) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 campaign_latestCampaignUpdate :: Lens.Lens' Campaign (Prelude.Maybe CampaignUpdateSummary)
@@ -151,28 +152,28 @@ campaign_campaignArn = Lens.lens (\Campaign' {campaignArn} -> campaignArn) (\s@C
 
 -- | The date and time (in Unix format) that the campaign was last updated.
 campaign_lastUpdatedDateTime :: Lens.Lens' Campaign (Prelude.Maybe Prelude.UTCTime)
-campaign_lastUpdatedDateTime = Lens.lens (\Campaign' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@Campaign' {} a -> s {lastUpdatedDateTime = a} :: Campaign) Prelude.. Lens.mapping Core._Time
+campaign_lastUpdatedDateTime = Lens.lens (\Campaign' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@Campaign' {} a -> s {lastUpdatedDateTime = a} :: Campaign) Prelude.. Lens.mapping Data._Time
 
 -- | If a campaign fails, the reason behind the failure.
 campaign_failureReason :: Lens.Lens' Campaign (Prelude.Maybe Prelude.Text)
 campaign_failureReason = Lens.lens (\Campaign' {failureReason} -> failureReason) (\s@Campaign' {} a -> s {failureReason = a} :: Campaign)
 
-instance Core.FromJSON Campaign where
+instance Data.FromJSON Campaign where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Campaign"
       ( \x ->
           Campaign'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "latestCampaignUpdate")
-            Prelude.<*> (x Core..:? "campaignConfig")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "minProvisionedTPS")
-            Prelude.<*> (x Core..:? "solutionVersionArn")
-            Prelude.<*> (x Core..:? "campaignArn")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "latestCampaignUpdate")
+            Prelude.<*> (x Data..:? "campaignConfig")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "minProvisionedTPS")
+            Prelude.<*> (x Data..:? "solutionVersionArn")
+            Prelude.<*> (x Data..:? "campaignArn")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance Prelude.Hashable Campaign where

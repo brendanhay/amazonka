@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.DatasetSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of the properties of a dataset. For a complete
@@ -33,7 +34,7 @@ data DatasetSummary = DatasetSummary'
   { -- | The name of the dataset.
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the dataset was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The dataset type. One of the following values:
     --
     -- -   Interactions
@@ -55,7 +56,7 @@ data DatasetSummary = DatasetSummary'
     -- | The Amazon Resource Name (ARN) of the dataset.
     datasetArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the dataset was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -110,7 +111,7 @@ datasetSummary_name = Lens.lens (\DatasetSummary' {name} -> name) (\s@DatasetSum
 
 -- | The date and time (in Unix time) that the dataset was created.
 datasetSummary_creationDateTime :: Lens.Lens' DatasetSummary (Prelude.Maybe Prelude.UTCTime)
-datasetSummary_creationDateTime = Lens.lens (\DatasetSummary' {creationDateTime} -> creationDateTime) (\s@DatasetSummary' {} a -> s {creationDateTime = a} :: DatasetSummary) Prelude.. Lens.mapping Core._Time
+datasetSummary_creationDateTime = Lens.lens (\DatasetSummary' {creationDateTime} -> creationDateTime) (\s@DatasetSummary' {} a -> s {creationDateTime = a} :: DatasetSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The dataset type. One of the following values:
 --
@@ -140,20 +141,20 @@ datasetSummary_datasetArn = Lens.lens (\DatasetSummary' {datasetArn} -> datasetA
 
 -- | The date and time (in Unix time) that the dataset was last updated.
 datasetSummary_lastUpdatedDateTime :: Lens.Lens' DatasetSummary (Prelude.Maybe Prelude.UTCTime)
-datasetSummary_lastUpdatedDateTime = Lens.lens (\DatasetSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DatasetSummary' {} a -> s {lastUpdatedDateTime = a} :: DatasetSummary) Prelude.. Lens.mapping Core._Time
+datasetSummary_lastUpdatedDateTime = Lens.lens (\DatasetSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DatasetSummary' {} a -> s {lastUpdatedDateTime = a} :: DatasetSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON DatasetSummary where
+instance Data.FromJSON DatasetSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetSummary"
       ( \x ->
           DatasetSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "datasetType")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "datasetArn")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "datasetType")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "datasetArn")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
       )
 
 instance Prelude.Hashable DatasetSummary where

@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.MetricAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information on a metric that a metric attribution reports on.
@@ -93,15 +94,15 @@ metricAttribute_metricName = Lens.lens (\MetricAttribute' {metricName} -> metric
 metricAttribute_expression :: Lens.Lens' MetricAttribute Prelude.Text
 metricAttribute_expression = Lens.lens (\MetricAttribute' {expression} -> expression) (\s@MetricAttribute' {} a -> s {expression = a} :: MetricAttribute)
 
-instance Core.FromJSON MetricAttribute where
+instance Data.FromJSON MetricAttribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricAttribute"
       ( \x ->
           MetricAttribute'
-            Prelude.<$> (x Core..: "eventType")
-            Prelude.<*> (x Core..: "metricName")
-            Prelude.<*> (x Core..: "expression")
+            Prelude.<$> (x Data..: "eventType")
+            Prelude.<*> (x Data..: "metricName")
+            Prelude.<*> (x Data..: "expression")
       )
 
 instance Prelude.Hashable MetricAttribute where
@@ -116,12 +117,12 @@ instance Prelude.NFData MetricAttribute where
       `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf expression
 
-instance Core.ToJSON MetricAttribute where
+instance Data.ToJSON MetricAttribute where
   toJSON MetricAttribute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("eventType" Core..= eventType),
-            Prelude.Just ("metricName" Core..= metricName),
-            Prelude.Just ("expression" Core..= expression)
+          [ Prelude.Just ("eventType" Data..= eventType),
+            Prelude.Just ("metricName" Data..= metricName),
+            Prelude.Just ("expression" Data..= expression)
           ]
       )

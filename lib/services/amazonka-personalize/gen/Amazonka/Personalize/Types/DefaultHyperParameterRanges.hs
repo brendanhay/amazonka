@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.DefaultHyperParameterRanges where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types.DefaultCategoricalHyperParameterRange
 import Amazonka.Personalize.Types.DefaultContinuousHyperParameterRange
 import Amazonka.Personalize.Types.DefaultIntegerHyperParameterRange
@@ -77,20 +78,20 @@ defaultHyperParameterRanges_categoricalHyperParameterRanges = Lens.lens (\Defaul
 defaultHyperParameterRanges_continuousHyperParameterRanges :: Lens.Lens' DefaultHyperParameterRanges (Prelude.Maybe [DefaultContinuousHyperParameterRange])
 defaultHyperParameterRanges_continuousHyperParameterRanges = Lens.lens (\DefaultHyperParameterRanges' {continuousHyperParameterRanges} -> continuousHyperParameterRanges) (\s@DefaultHyperParameterRanges' {} a -> s {continuousHyperParameterRanges = a} :: DefaultHyperParameterRanges) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DefaultHyperParameterRanges where
+instance Data.FromJSON DefaultHyperParameterRanges where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DefaultHyperParameterRanges"
       ( \x ->
           DefaultHyperParameterRanges'
-            Prelude.<$> ( x Core..:? "integerHyperParameterRanges"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "integerHyperParameterRanges"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "categoricalHyperParameterRanges"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "categoricalHyperParameterRanges"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "continuousHyperParameterRanges"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "continuousHyperParameterRanges"
+                            Data..!= Prelude.mempty
                         )
       )
 

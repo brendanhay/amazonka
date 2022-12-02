@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest StopRecommender where
     Response.receiveJSON
       ( \s h x ->
           StopRecommenderResponse'
-            Prelude.<$> (x Core..?> "recommenderArn")
+            Prelude.<$> (x Data..?> "recommenderArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,34 +96,34 @@ instance Prelude.Hashable StopRecommender where
 instance Prelude.NFData StopRecommender where
   rnf StopRecommender' {..} = Prelude.rnf recommenderArn
 
-instance Core.ToHeaders StopRecommender where
+instance Data.ToHeaders StopRecommender where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.StopRecommender" ::
+              Data.=# ( "AmazonPersonalize.StopRecommender" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopRecommender where
+instance Data.ToJSON StopRecommender where
   toJSON StopRecommender' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("recommenderArn" Core..= recommenderArn)
+              ("recommenderArn" Data..= recommenderArn)
           ]
       )
 
-instance Core.ToPath StopRecommender where
+instance Data.ToPath StopRecommender where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopRecommender where
+instance Data.ToQuery StopRecommender where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopRecommenderResponse' smart constructor.

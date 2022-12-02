@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.SolutionConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types.AutoMLConfig
 import Amazonka.Personalize.Types.HPOConfig
 import Amazonka.Personalize.Types.OptimizationObjective
@@ -116,22 +117,22 @@ solutionConfig_eventValueThreshold = Lens.lens (\SolutionConfig' {eventValueThre
 solutionConfig_hpoConfig :: Lens.Lens' SolutionConfig (Prelude.Maybe HPOConfig)
 solutionConfig_hpoConfig = Lens.lens (\SolutionConfig' {hpoConfig} -> hpoConfig) (\s@SolutionConfig' {} a -> s {hpoConfig = a} :: SolutionConfig)
 
-instance Core.FromJSON SolutionConfig where
+instance Data.FromJSON SolutionConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SolutionConfig"
       ( \x ->
           SolutionConfig'
-            Prelude.<$> ( x Core..:? "featureTransformationParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "featureTransformationParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "optimizationObjective")
-            Prelude.<*> ( x Core..:? "algorithmHyperParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "optimizationObjective")
+            Prelude.<*> ( x Data..:? "algorithmHyperParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "autoMLConfig")
-            Prelude.<*> (x Core..:? "eventValueThreshold")
-            Prelude.<*> (x Core..:? "hpoConfig")
+            Prelude.<*> (x Data..:? "autoMLConfig")
+            Prelude.<*> (x Data..:? "eventValueThreshold")
+            Prelude.<*> (x Data..:? "hpoConfig")
       )
 
 instance Prelude.Hashable SolutionConfig where
@@ -153,19 +154,19 @@ instance Prelude.NFData SolutionConfig where
       `Prelude.seq` Prelude.rnf eventValueThreshold
       `Prelude.seq` Prelude.rnf hpoConfig
 
-instance Core.ToJSON SolutionConfig where
+instance Data.ToJSON SolutionConfig where
   toJSON SolutionConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("featureTransformationParameters" Core..=)
+          [ ("featureTransformationParameters" Data..=)
               Prelude.<$> featureTransformationParameters,
-            ("optimizationObjective" Core..=)
+            ("optimizationObjective" Data..=)
               Prelude.<$> optimizationObjective,
-            ("algorithmHyperParameters" Core..=)
+            ("algorithmHyperParameters" Data..=)
               Prelude.<$> algorithmHyperParameters,
-            ("autoMLConfig" Core..=) Prelude.<$> autoMLConfig,
-            ("eventValueThreshold" Core..=)
+            ("autoMLConfig" Data..=) Prelude.<$> autoMLConfig,
+            ("eventValueThreshold" Data..=)
               Prelude.<$> eventValueThreshold,
-            ("hpoConfig" Core..=) Prelude.<$> hpoConfig
+            ("hpoConfig" Data..=) Prelude.<$> hpoConfig
           ]
       )

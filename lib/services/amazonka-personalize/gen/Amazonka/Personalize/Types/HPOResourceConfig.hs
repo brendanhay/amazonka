@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.HPOResourceConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the resource configuration for hyperparameter optimization
@@ -69,14 +70,14 @@ hPOResourceConfig_maxParallelTrainingJobs = Lens.lens (\HPOResourceConfig' {maxP
 hPOResourceConfig_maxNumberOfTrainingJobs :: Lens.Lens' HPOResourceConfig (Prelude.Maybe Prelude.Text)
 hPOResourceConfig_maxNumberOfTrainingJobs = Lens.lens (\HPOResourceConfig' {maxNumberOfTrainingJobs} -> maxNumberOfTrainingJobs) (\s@HPOResourceConfig' {} a -> s {maxNumberOfTrainingJobs = a} :: HPOResourceConfig)
 
-instance Core.FromJSON HPOResourceConfig where
+instance Data.FromJSON HPOResourceConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HPOResourceConfig"
       ( \x ->
           HPOResourceConfig'
-            Prelude.<$> (x Core..:? "maxParallelTrainingJobs")
-            Prelude.<*> (x Core..:? "maxNumberOfTrainingJobs")
+            Prelude.<$> (x Data..:? "maxParallelTrainingJobs")
+            Prelude.<*> (x Data..:? "maxNumberOfTrainingJobs")
       )
 
 instance Prelude.Hashable HPOResourceConfig where
@@ -90,13 +91,13 @@ instance Prelude.NFData HPOResourceConfig where
     Prelude.rnf maxParallelTrainingJobs
       `Prelude.seq` Prelude.rnf maxNumberOfTrainingJobs
 
-instance Core.ToJSON HPOResourceConfig where
+instance Data.ToJSON HPOResourceConfig where
   toJSON HPOResourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("maxParallelTrainingJobs" Core..=)
+          [ ("maxParallelTrainingJobs" Data..=)
               Prelude.<$> maxParallelTrainingJobs,
-            ("maxNumberOfTrainingJobs" Core..=)
+            ("maxNumberOfTrainingJobs" Data..=)
               Prelude.<$> maxNumberOfTrainingJobs
           ]
       )

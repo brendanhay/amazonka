@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -187,7 +188,7 @@ instance Core.AWSRequest CreateDatasetExportJob where
     Response.receiveJSON
       ( \s h x ->
           CreateDatasetExportJobResponse'
-            Prelude.<$> (x Core..?> "datasetExportJobArn")
+            Prelude.<$> (x Data..?> "datasetExportJobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -209,38 +210,38 @@ instance Prelude.NFData CreateDatasetExportJob where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf jobOutput
 
-instance Core.ToHeaders CreateDatasetExportJob where
+instance Data.ToHeaders CreateDatasetExportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.CreateDatasetExportJob" ::
+              Data.=# ( "AmazonPersonalize.CreateDatasetExportJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDatasetExportJob where
+instance Data.ToJSON CreateDatasetExportJob where
   toJSON CreateDatasetExportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("ingestionMode" Core..=) Prelude.<$> ingestionMode,
-            Prelude.Just ("jobName" Core..= jobName),
-            Prelude.Just ("datasetArn" Core..= datasetArn),
-            Prelude.Just ("roleArn" Core..= roleArn),
-            Prelude.Just ("jobOutput" Core..= jobOutput)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("ingestionMode" Data..=) Prelude.<$> ingestionMode,
+            Prelude.Just ("jobName" Data..= jobName),
+            Prelude.Just ("datasetArn" Data..= datasetArn),
+            Prelude.Just ("roleArn" Data..= roleArn),
+            Prelude.Just ("jobOutput" Data..= jobOutput)
           ]
       )
 
-instance Core.ToPath CreateDatasetExportJob where
+instance Data.ToPath CreateDatasetExportJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDatasetExportJob where
+instance Data.ToQuery CreateDatasetExportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDatasetExportJobResponse' smart constructor.

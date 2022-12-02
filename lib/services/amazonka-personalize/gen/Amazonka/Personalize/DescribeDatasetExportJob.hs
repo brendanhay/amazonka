@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest DescribeDatasetExportJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeDatasetExportJobResponse'
-            Prelude.<$> (x Core..?> "datasetExportJob")
+            Prelude.<$> (x Data..?> "datasetExportJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,34 +101,34 @@ instance Prelude.NFData DescribeDatasetExportJob where
   rnf DescribeDatasetExportJob' {..} =
     Prelude.rnf datasetExportJobArn
 
-instance Core.ToHeaders DescribeDatasetExportJob where
+instance Data.ToHeaders DescribeDatasetExportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.DescribeDatasetExportJob" ::
+              Data.=# ( "AmazonPersonalize.DescribeDatasetExportJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDatasetExportJob where
+instance Data.ToJSON DescribeDatasetExportJob where
   toJSON DescribeDatasetExportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("datasetExportJobArn" Core..= datasetExportJobArn)
+              ("datasetExportJobArn" Data..= datasetExportJobArn)
           ]
       )
 
-instance Core.ToPath DescribeDatasetExportJob where
+instance Data.ToPath DescribeDatasetExportJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDatasetExportJob where
+instance Data.ToQuery DescribeDatasetExportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDatasetExportJobResponse' smart constructor.

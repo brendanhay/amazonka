@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.BatchSegmentJobInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types.S3DataConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,13 +56,13 @@ newBatchSegmentJobInput pS3DataSource_ =
 batchSegmentJobInput_s3DataSource :: Lens.Lens' BatchSegmentJobInput S3DataConfig
 batchSegmentJobInput_s3DataSource = Lens.lens (\BatchSegmentJobInput' {s3DataSource} -> s3DataSource) (\s@BatchSegmentJobInput' {} a -> s {s3DataSource = a} :: BatchSegmentJobInput)
 
-instance Core.FromJSON BatchSegmentJobInput where
+instance Data.FromJSON BatchSegmentJobInput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchSegmentJobInput"
       ( \x ->
           BatchSegmentJobInput'
-            Prelude.<$> (x Core..: "s3DataSource")
+            Prelude.<$> (x Data..: "s3DataSource")
       )
 
 instance Prelude.Hashable BatchSegmentJobInput where
@@ -72,9 +73,9 @@ instance Prelude.NFData BatchSegmentJobInput where
   rnf BatchSegmentJobInput' {..} =
     Prelude.rnf s3DataSource
 
-instance Core.ToJSON BatchSegmentJobInput where
+instance Data.ToJSON BatchSegmentJobInput where
   toJSON BatchSegmentJobInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("s3DataSource" Core..= s3DataSource)]
+          [Prelude.Just ("s3DataSource" Data..= s3DataSource)]
       )

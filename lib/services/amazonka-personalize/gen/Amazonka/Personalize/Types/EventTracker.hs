@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.EventTracker where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an event tracker.
@@ -30,7 +31,7 @@ data EventTracker = EventTracker'
   { -- | The name of the event tracker.
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix format) that the event tracker was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the event tracker. Include this ID in requests to the
     -- <https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html PutEvents>
     -- API.
@@ -52,7 +53,7 @@ data EventTracker = EventTracker'
     datasetGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the event tracker was last
     -- updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -109,7 +110,7 @@ eventTracker_name = Lens.lens (\EventTracker' {name} -> name) (\s@EventTracker' 
 
 -- | The date and time (in Unix format) that the event tracker was created.
 eventTracker_creationDateTime :: Lens.Lens' EventTracker (Prelude.Maybe Prelude.UTCTime)
-eventTracker_creationDateTime = Lens.lens (\EventTracker' {creationDateTime} -> creationDateTime) (\s@EventTracker' {} a -> s {creationDateTime = a} :: EventTracker) Prelude.. Lens.mapping Core._Time
+eventTracker_creationDateTime = Lens.lens (\EventTracker' {creationDateTime} -> creationDateTime) (\s@EventTracker' {} a -> s {creationDateTime = a} :: EventTracker) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the event tracker. Include this ID in requests to the
 -- <https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html PutEvents>
@@ -143,22 +144,22 @@ eventTracker_datasetGroupArn = Lens.lens (\EventTracker' {datasetGroupArn} -> da
 -- | The date and time (in Unix time) that the event tracker was last
 -- updated.
 eventTracker_lastUpdatedDateTime :: Lens.Lens' EventTracker (Prelude.Maybe Prelude.UTCTime)
-eventTracker_lastUpdatedDateTime = Lens.lens (\EventTracker' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@EventTracker' {} a -> s {lastUpdatedDateTime = a} :: EventTracker) Prelude.. Lens.mapping Core._Time
+eventTracker_lastUpdatedDateTime = Lens.lens (\EventTracker' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@EventTracker' {} a -> s {lastUpdatedDateTime = a} :: EventTracker) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON EventTracker where
+instance Data.FromJSON EventTracker where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventTracker"
       ( \x ->
           EventTracker'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "trackingId")
-            Prelude.<*> (x Core..:? "eventTrackerArn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "datasetGroupArn")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "trackingId")
+            Prelude.<*> (x Data..:? "eventTrackerArn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "datasetGroupArn")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
       )
 
 instance Prelude.Hashable EventTracker where

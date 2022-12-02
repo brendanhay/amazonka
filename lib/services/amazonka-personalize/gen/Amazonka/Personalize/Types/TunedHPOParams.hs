@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.TunedHPOParams where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | If hyperparameter optimization (HPO) was performed, contains the
@@ -54,14 +55,14 @@ newTunedHPOParams =
 tunedHPOParams_algorithmHyperParameters :: Lens.Lens' TunedHPOParams (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 tunedHPOParams_algorithmHyperParameters = Lens.lens (\TunedHPOParams' {algorithmHyperParameters} -> algorithmHyperParameters) (\s@TunedHPOParams' {} a -> s {algorithmHyperParameters = a} :: TunedHPOParams) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TunedHPOParams where
+instance Data.FromJSON TunedHPOParams where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TunedHPOParams"
       ( \x ->
           TunedHPOParams'
-            Prelude.<$> ( x Core..:? "algorithmHyperParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "algorithmHyperParameters"
+                            Data..!= Prelude.mempty
                         )
       )
 

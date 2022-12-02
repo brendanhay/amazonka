@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,32 +91,32 @@ instance Prelude.Hashable DeleteCampaign where
 instance Prelude.NFData DeleteCampaign where
   rnf DeleteCampaign' {..} = Prelude.rnf campaignArn
 
-instance Core.ToHeaders DeleteCampaign where
+instance Data.ToHeaders DeleteCampaign where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.DeleteCampaign" ::
+              Data.=# ( "AmazonPersonalize.DeleteCampaign" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteCampaign where
+instance Data.ToJSON DeleteCampaign where
   toJSON DeleteCampaign' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("campaignArn" Core..= campaignArn)]
+          [Prelude.Just ("campaignArn" Data..= campaignArn)]
       )
 
-instance Core.ToPath DeleteCampaign where
+instance Data.ToPath DeleteCampaign where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteCampaign where
+instance Data.ToQuery DeleteCampaign where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCampaignResponse' smart constructor.

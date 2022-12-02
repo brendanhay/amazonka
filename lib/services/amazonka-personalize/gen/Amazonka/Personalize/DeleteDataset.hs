@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,32 +89,32 @@ instance Prelude.Hashable DeleteDataset where
 instance Prelude.NFData DeleteDataset where
   rnf DeleteDataset' {..} = Prelude.rnf datasetArn
 
-instance Core.ToHeaders DeleteDataset where
+instance Data.ToHeaders DeleteDataset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.DeleteDataset" ::
+              Data.=# ( "AmazonPersonalize.DeleteDataset" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteDataset where
+instance Data.ToJSON DeleteDataset where
   toJSON DeleteDataset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("datasetArn" Core..= datasetArn)]
+          [Prelude.Just ("datasetArn" Data..= datasetArn)]
       )
 
-instance Core.ToPath DeleteDataset where
+instance Data.ToPath DeleteDataset where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDataset where
+instance Data.ToQuery DeleteDataset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDatasetResponse' smart constructor.

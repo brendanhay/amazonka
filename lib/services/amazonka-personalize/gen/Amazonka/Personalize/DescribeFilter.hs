@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest DescribeFilter where
     Response.receiveJSON
       ( \s h x ->
           DescribeFilterResponse'
-            Prelude.<$> (x Core..?> "filter")
+            Prelude.<$> (x Data..?> "filter")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,32 +95,32 @@ instance Prelude.Hashable DescribeFilter where
 instance Prelude.NFData DescribeFilter where
   rnf DescribeFilter' {..} = Prelude.rnf filterArn
 
-instance Core.ToHeaders DescribeFilter where
+instance Data.ToHeaders DescribeFilter where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.DescribeFilter" ::
+              Data.=# ( "AmazonPersonalize.DescribeFilter" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFilter where
+instance Data.ToJSON DescribeFilter where
   toJSON DescribeFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("filterArn" Core..= filterArn)]
+          [Prelude.Just ("filterArn" Data..= filterArn)]
       )
 
-instance Core.ToPath DescribeFilter where
+instance Data.ToPath DescribeFilter where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFilter where
+instance Data.ToQuery DescribeFilter where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeFilterResponse' smart constructor.

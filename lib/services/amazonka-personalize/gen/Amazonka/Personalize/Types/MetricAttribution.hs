@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.MetricAttribution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types.MetricAttributionOutput
 import qualified Amazonka.Prelude as Prelude
 
@@ -35,7 +36,7 @@ data MetricAttribution = MetricAttribution'
   { -- | The metric attribution\'s name.
     name :: Prelude.Maybe Prelude.Text,
     -- | The metric attribution\'s creation date time.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The metric attribution\'s status.
     status :: Prelude.Maybe Prelude.Text,
     -- | The metric attribution\'s output configuration.
@@ -45,7 +46,7 @@ data MetricAttribution = MetricAttribution'
     -- | The metric attribution\'s dataset group Amazon Resource Name (ARN).
     datasetGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The metric attribution\'s last updated date time.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The metric attribution\'s failure reason.
     failureReason :: Prelude.Maybe Prelude.Text
   }
@@ -94,7 +95,7 @@ metricAttribution_name = Lens.lens (\MetricAttribution' {name} -> name) (\s@Metr
 
 -- | The metric attribution\'s creation date time.
 metricAttribution_creationDateTime :: Lens.Lens' MetricAttribution (Prelude.Maybe Prelude.UTCTime)
-metricAttribution_creationDateTime = Lens.lens (\MetricAttribution' {creationDateTime} -> creationDateTime) (\s@MetricAttribution' {} a -> s {creationDateTime = a} :: MetricAttribution) Prelude.. Lens.mapping Core._Time
+metricAttribution_creationDateTime = Lens.lens (\MetricAttribution' {creationDateTime} -> creationDateTime) (\s@MetricAttribution' {} a -> s {creationDateTime = a} :: MetricAttribution) Prelude.. Lens.mapping Data._Time
 
 -- | The metric attribution\'s status.
 metricAttribution_status :: Lens.Lens' MetricAttribution (Prelude.Maybe Prelude.Text)
@@ -114,26 +115,26 @@ metricAttribution_datasetGroupArn = Lens.lens (\MetricAttribution' {datasetGroup
 
 -- | The metric attribution\'s last updated date time.
 metricAttribution_lastUpdatedDateTime :: Lens.Lens' MetricAttribution (Prelude.Maybe Prelude.UTCTime)
-metricAttribution_lastUpdatedDateTime = Lens.lens (\MetricAttribution' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@MetricAttribution' {} a -> s {lastUpdatedDateTime = a} :: MetricAttribution) Prelude.. Lens.mapping Core._Time
+metricAttribution_lastUpdatedDateTime = Lens.lens (\MetricAttribution' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@MetricAttribution' {} a -> s {lastUpdatedDateTime = a} :: MetricAttribution) Prelude.. Lens.mapping Data._Time
 
 -- | The metric attribution\'s failure reason.
 metricAttribution_failureReason :: Lens.Lens' MetricAttribution (Prelude.Maybe Prelude.Text)
 metricAttribution_failureReason = Lens.lens (\MetricAttribution' {failureReason} -> failureReason) (\s@MetricAttribution' {} a -> s {failureReason = a} :: MetricAttribution)
 
-instance Core.FromJSON MetricAttribution where
+instance Data.FromJSON MetricAttribution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricAttribution"
       ( \x ->
           MetricAttribution'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "metricsOutputConfig")
-            Prelude.<*> (x Core..:? "metricAttributionArn")
-            Prelude.<*> (x Core..:? "datasetGroupArn")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "metricsOutputConfig")
+            Prelude.<*> (x Data..:? "metricAttributionArn")
+            Prelude.<*> (x Data..:? "datasetGroupArn")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance Prelude.Hashable MetricAttribution where

@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.RecommenderUpdateSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types.RecommenderConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,7 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 data RecommenderUpdateSummary = RecommenderUpdateSummary'
   { -- | The date and time (in Unix format) that the recommender update was
     -- created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The configuration details of the recommender update.
     recommenderConfig :: Prelude.Maybe RecommenderConfig,
     -- | The status of the recommender update.
@@ -49,7 +50,7 @@ data RecommenderUpdateSummary = RecommenderUpdateSummary'
     status :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the recommender update was last
     -- updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | If a recommender update fails, the reason behind the failure.
     failureReason :: Prelude.Maybe Prelude.Text
   }
@@ -98,7 +99,7 @@ newRecommenderUpdateSummary =
 -- | The date and time (in Unix format) that the recommender update was
 -- created.
 recommenderUpdateSummary_creationDateTime :: Lens.Lens' RecommenderUpdateSummary (Prelude.Maybe Prelude.UTCTime)
-recommenderUpdateSummary_creationDateTime = Lens.lens (\RecommenderUpdateSummary' {creationDateTime} -> creationDateTime) (\s@RecommenderUpdateSummary' {} a -> s {creationDateTime = a} :: RecommenderUpdateSummary) Prelude.. Lens.mapping Core._Time
+recommenderUpdateSummary_creationDateTime = Lens.lens (\RecommenderUpdateSummary' {creationDateTime} -> creationDateTime) (\s@RecommenderUpdateSummary' {} a -> s {creationDateTime = a} :: RecommenderUpdateSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The configuration details of the recommender update.
 recommenderUpdateSummary_recommenderConfig :: Lens.Lens' RecommenderUpdateSummary (Prelude.Maybe RecommenderConfig)
@@ -120,23 +121,23 @@ recommenderUpdateSummary_status = Lens.lens (\RecommenderUpdateSummary' {status}
 -- | The date and time (in Unix time) that the recommender update was last
 -- updated.
 recommenderUpdateSummary_lastUpdatedDateTime :: Lens.Lens' RecommenderUpdateSummary (Prelude.Maybe Prelude.UTCTime)
-recommenderUpdateSummary_lastUpdatedDateTime = Lens.lens (\RecommenderUpdateSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@RecommenderUpdateSummary' {} a -> s {lastUpdatedDateTime = a} :: RecommenderUpdateSummary) Prelude.. Lens.mapping Core._Time
+recommenderUpdateSummary_lastUpdatedDateTime = Lens.lens (\RecommenderUpdateSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@RecommenderUpdateSummary' {} a -> s {lastUpdatedDateTime = a} :: RecommenderUpdateSummary) Prelude.. Lens.mapping Data._Time
 
 -- | If a recommender update fails, the reason behind the failure.
 recommenderUpdateSummary_failureReason :: Lens.Lens' RecommenderUpdateSummary (Prelude.Maybe Prelude.Text)
 recommenderUpdateSummary_failureReason = Lens.lens (\RecommenderUpdateSummary' {failureReason} -> failureReason) (\s@RecommenderUpdateSummary' {} a -> s {failureReason = a} :: RecommenderUpdateSummary)
 
-instance Core.FromJSON RecommenderUpdateSummary where
+instance Data.FromJSON RecommenderUpdateSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommenderUpdateSummary"
       ( \x ->
           RecommenderUpdateSummary'
-            Prelude.<$> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "recommenderConfig")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<$> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "recommenderConfig")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance Prelude.Hashable RecommenderUpdateSummary where

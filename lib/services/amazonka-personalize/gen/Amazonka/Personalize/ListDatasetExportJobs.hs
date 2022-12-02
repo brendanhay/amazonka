@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,8 +142,8 @@ instance Core.AWSRequest ListDatasetExportJobs where
     Response.receiveJSON
       ( \s h x ->
           ListDatasetExportJobsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "datasetExportJobs"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "datasetExportJobs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -160,35 +161,35 @@ instance Prelude.NFData ListDatasetExportJobs where
       `Prelude.seq` Prelude.rnf datasetArn
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListDatasetExportJobs where
+instance Data.ToHeaders ListDatasetExportJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.ListDatasetExportJobs" ::
+              Data.=# ( "AmazonPersonalize.ListDatasetExportJobs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDatasetExportJobs where
+instance Data.ToJSON ListDatasetExportJobs where
   toJSON ListDatasetExportJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("datasetArn" Core..=) Prelude.<$> datasetArn,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("datasetArn" Data..=) Prelude.<$> datasetArn,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListDatasetExportJobs where
+instance Data.ToPath ListDatasetExportJobs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDatasetExportJobs where
+instance Data.ToQuery ListDatasetExportJobs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDatasetExportJobsResponse' smart constructor.

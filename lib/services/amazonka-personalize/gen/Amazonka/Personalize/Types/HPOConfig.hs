@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.HPOConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types.HPOObjective
 import Amazonka.Personalize.Types.HPOResourceConfig
 import Amazonka.Personalize.Types.HyperParameterRanges
@@ -83,15 +84,15 @@ hPOConfig_hpoObjective = Lens.lens (\HPOConfig' {hpoObjective} -> hpoObjective) 
 hPOConfig_hpoResourceConfig :: Lens.Lens' HPOConfig (Prelude.Maybe HPOResourceConfig)
 hPOConfig_hpoResourceConfig = Lens.lens (\HPOConfig' {hpoResourceConfig} -> hpoResourceConfig) (\s@HPOConfig' {} a -> s {hpoResourceConfig = a} :: HPOConfig)
 
-instance Core.FromJSON HPOConfig where
+instance Data.FromJSON HPOConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HPOConfig"
       ( \x ->
           HPOConfig'
-            Prelude.<$> (x Core..:? "algorithmHyperParameterRanges")
-            Prelude.<*> (x Core..:? "hpoObjective")
-            Prelude.<*> (x Core..:? "hpoResourceConfig")
+            Prelude.<$> (x Data..:? "algorithmHyperParameterRanges")
+            Prelude.<*> (x Data..:? "hpoObjective")
+            Prelude.<*> (x Data..:? "hpoResourceConfig")
       )
 
 instance Prelude.Hashable HPOConfig where
@@ -107,14 +108,14 @@ instance Prelude.NFData HPOConfig where
       `Prelude.seq` Prelude.rnf hpoObjective
       `Prelude.seq` Prelude.rnf hpoResourceConfig
 
-instance Core.ToJSON HPOConfig where
+instance Data.ToJSON HPOConfig where
   toJSON HPOConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("algorithmHyperParameterRanges" Core..=)
+          [ ("algorithmHyperParameterRanges" Data..=)
               Prelude.<$> algorithmHyperParameterRanges,
-            ("hpoObjective" Core..=) Prelude.<$> hpoObjective,
-            ("hpoResourceConfig" Core..=)
+            ("hpoObjective" Data..=) Prelude.<$> hpoObjective,
+            ("hpoResourceConfig" Data..=)
               Prelude.<$> hpoResourceConfig
           ]
       )

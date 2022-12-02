@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,8 +136,8 @@ instance Core.AWSRequest ListMetricAttributionMetrics where
     Response.receiveJSON
       ( \s h x ->
           ListMetricAttributionMetricsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "metrics" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "metrics" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,36 +156,36 @@ instance Prelude.NFData ListMetricAttributionMetrics where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf metricAttributionArn
 
-instance Core.ToHeaders ListMetricAttributionMetrics where
+instance Data.ToHeaders ListMetricAttributionMetrics where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.ListMetricAttributionMetrics" ::
+              Data.=# ( "AmazonPersonalize.ListMetricAttributionMetrics" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListMetricAttributionMetrics where
+instance Data.ToJSON ListMetricAttributionMetrics where
   toJSON ListMetricAttributionMetrics' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("metricAttributionArn" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("metricAttributionArn" Data..=)
               Prelude.<$> metricAttributionArn
           ]
       )
 
-instance Core.ToPath ListMetricAttributionMetrics where
+instance Data.ToPath ListMetricAttributionMetrics where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListMetricAttributionMetrics where
+instance Data.ToQuery ListMetricAttributionMetrics where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListMetricAttributionMetricsResponse' smart constructor.

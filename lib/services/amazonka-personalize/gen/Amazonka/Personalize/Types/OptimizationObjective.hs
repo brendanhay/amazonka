@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.OptimizationObjective where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types.ObjectiveSensitivity
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,14 +75,14 @@ optimizationObjective_objectiveSensitivity = Lens.lens (\OptimizationObjective' 
 optimizationObjective_itemAttribute :: Lens.Lens' OptimizationObjective (Prelude.Maybe Prelude.Text)
 optimizationObjective_itemAttribute = Lens.lens (\OptimizationObjective' {itemAttribute} -> itemAttribute) (\s@OptimizationObjective' {} a -> s {itemAttribute = a} :: OptimizationObjective)
 
-instance Core.FromJSON OptimizationObjective where
+instance Data.FromJSON OptimizationObjective where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OptimizationObjective"
       ( \x ->
           OptimizationObjective'
-            Prelude.<$> (x Core..:? "objectiveSensitivity")
-            Prelude.<*> (x Core..:? "itemAttribute")
+            Prelude.<$> (x Data..:? "objectiveSensitivity")
+            Prelude.<*> (x Data..:? "itemAttribute")
       )
 
 instance Prelude.Hashable OptimizationObjective where
@@ -94,12 +95,12 @@ instance Prelude.NFData OptimizationObjective where
     Prelude.rnf objectiveSensitivity
       `Prelude.seq` Prelude.rnf itemAttribute
 
-instance Core.ToJSON OptimizationObjective where
+instance Data.ToJSON OptimizationObjective where
   toJSON OptimizationObjective' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("objectiveSensitivity" Core..=)
+          [ ("objectiveSensitivity" Data..=)
               Prelude.<$> objectiveSensitivity,
-            ("itemAttribute" Core..=) Prelude.<$> itemAttribute
+            ("itemAttribute" Data..=) Prelude.<$> itemAttribute
           ]
       )

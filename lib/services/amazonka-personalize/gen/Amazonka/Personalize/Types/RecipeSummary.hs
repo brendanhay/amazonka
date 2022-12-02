@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.RecipeSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types.Domain
 import qualified Amazonka.Prelude as Prelude
 
@@ -34,7 +35,7 @@ data RecipeSummary = RecipeSummary'
   { -- | The name of the recipe.
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the recipe was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The domain of the recipe (if the recipe is a Domain dataset group use
     -- case).
     domain :: Prelude.Maybe Domain,
@@ -43,7 +44,7 @@ data RecipeSummary = RecipeSummary'
     -- | The Amazon Resource Name (ARN) of the recipe.
     recipeArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the recipe was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,7 +86,7 @@ recipeSummary_name = Lens.lens (\RecipeSummary' {name} -> name) (\s@RecipeSummar
 
 -- | The date and time (in Unix time) that the recipe was created.
 recipeSummary_creationDateTime :: Lens.Lens' RecipeSummary (Prelude.Maybe Prelude.UTCTime)
-recipeSummary_creationDateTime = Lens.lens (\RecipeSummary' {creationDateTime} -> creationDateTime) (\s@RecipeSummary' {} a -> s {creationDateTime = a} :: RecipeSummary) Prelude.. Lens.mapping Core._Time
+recipeSummary_creationDateTime = Lens.lens (\RecipeSummary' {creationDateTime} -> creationDateTime) (\s@RecipeSummary' {} a -> s {creationDateTime = a} :: RecipeSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The domain of the recipe (if the recipe is a Domain dataset group use
 -- case).
@@ -102,20 +103,20 @@ recipeSummary_recipeArn = Lens.lens (\RecipeSummary' {recipeArn} -> recipeArn) (
 
 -- | The date and time (in Unix time) that the recipe was last updated.
 recipeSummary_lastUpdatedDateTime :: Lens.Lens' RecipeSummary (Prelude.Maybe Prelude.UTCTime)
-recipeSummary_lastUpdatedDateTime = Lens.lens (\RecipeSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@RecipeSummary' {} a -> s {lastUpdatedDateTime = a} :: RecipeSummary) Prelude.. Lens.mapping Core._Time
+recipeSummary_lastUpdatedDateTime = Lens.lens (\RecipeSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@RecipeSummary' {} a -> s {lastUpdatedDateTime = a} :: RecipeSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON RecipeSummary where
+instance Data.FromJSON RecipeSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecipeSummary"
       ( \x ->
           RecipeSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "domain")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "recipeArn")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "domain")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "recipeArn")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
       )
 
 instance Prelude.Hashable RecipeSummary where

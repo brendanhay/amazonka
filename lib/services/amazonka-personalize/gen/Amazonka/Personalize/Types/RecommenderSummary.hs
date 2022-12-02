@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.RecommenderSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types.RecommenderConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,7 +32,7 @@ data RecommenderSummary = RecommenderSummary'
   { -- | The name of the recommender.
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix format) that the recommender was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the recommender.
     recommenderArn :: Prelude.Maybe Prelude.Text,
     -- | The configuration details of the recommender.
@@ -54,7 +55,7 @@ data RecommenderSummary = RecommenderSummary'
     recipeArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix format) that the recommender was last
     -- updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -112,7 +113,7 @@ recommenderSummary_name = Lens.lens (\RecommenderSummary' {name} -> name) (\s@Re
 
 -- | The date and time (in Unix format) that the recommender was created.
 recommenderSummary_creationDateTime :: Lens.Lens' RecommenderSummary (Prelude.Maybe Prelude.UTCTime)
-recommenderSummary_creationDateTime = Lens.lens (\RecommenderSummary' {creationDateTime} -> creationDateTime) (\s@RecommenderSummary' {} a -> s {creationDateTime = a} :: RecommenderSummary) Prelude.. Lens.mapping Core._Time
+recommenderSummary_creationDateTime = Lens.lens (\RecommenderSummary' {creationDateTime} -> creationDateTime) (\s@RecommenderSummary' {} a -> s {creationDateTime = a} :: RecommenderSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the recommender.
 recommenderSummary_recommenderArn :: Lens.Lens' RecommenderSummary (Prelude.Maybe Prelude.Text)
@@ -147,22 +148,22 @@ recommenderSummary_recipeArn = Lens.lens (\RecommenderSummary' {recipeArn} -> re
 -- | The date and time (in Unix format) that the recommender was last
 -- updated.
 recommenderSummary_lastUpdatedDateTime :: Lens.Lens' RecommenderSummary (Prelude.Maybe Prelude.UTCTime)
-recommenderSummary_lastUpdatedDateTime = Lens.lens (\RecommenderSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@RecommenderSummary' {} a -> s {lastUpdatedDateTime = a} :: RecommenderSummary) Prelude.. Lens.mapping Core._Time
+recommenderSummary_lastUpdatedDateTime = Lens.lens (\RecommenderSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@RecommenderSummary' {} a -> s {lastUpdatedDateTime = a} :: RecommenderSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON RecommenderSummary where
+instance Data.FromJSON RecommenderSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommenderSummary"
       ( \x ->
           RecommenderSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "recommenderArn")
-            Prelude.<*> (x Core..:? "recommenderConfig")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "datasetGroupArn")
-            Prelude.<*> (x Core..:? "recipeArn")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "recommenderArn")
+            Prelude.<*> (x Data..:? "recommenderConfig")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "datasetGroupArn")
+            Prelude.<*> (x Data..:? "recipeArn")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
       )
 
 instance Prelude.Hashable RecommenderSummary where

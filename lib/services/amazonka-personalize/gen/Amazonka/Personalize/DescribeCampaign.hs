@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,7 +96,7 @@ instance Core.AWSRequest DescribeCampaign where
     Response.receiveJSON
       ( \s h x ->
           DescribeCampaignResponse'
-            Prelude.<$> (x Core..?> "campaign")
+            Prelude.<$> (x Data..?> "campaign")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,32 +107,32 @@ instance Prelude.Hashable DescribeCampaign where
 instance Prelude.NFData DescribeCampaign where
   rnf DescribeCampaign' {..} = Prelude.rnf campaignArn
 
-instance Core.ToHeaders DescribeCampaign where
+instance Data.ToHeaders DescribeCampaign where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.DescribeCampaign" ::
+              Data.=# ( "AmazonPersonalize.DescribeCampaign" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeCampaign where
+instance Data.ToJSON DescribeCampaign where
   toJSON DescribeCampaign' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("campaignArn" Core..= campaignArn)]
+          [Prelude.Just ("campaignArn" Data..= campaignArn)]
       )
 
-instance Core.ToPath DescribeCampaign where
+instance Data.ToPath DescribeCampaign where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCampaign where
+instance Data.ToQuery DescribeCampaign where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeCampaignResponse' smart constructor.

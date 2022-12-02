@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,7 +94,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeFeatureTransformationResponse'
-            Prelude.<$> (x Core..?> "featureTransformation")
+            Prelude.<$> (x Data..?> "featureTransformation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,36 +110,36 @@ instance Prelude.NFData DescribeFeatureTransformation where
   rnf DescribeFeatureTransformation' {..} =
     Prelude.rnf featureTransformationArn
 
-instance Core.ToHeaders DescribeFeatureTransformation where
+instance Data.ToHeaders DescribeFeatureTransformation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.DescribeFeatureTransformation" ::
+              Data.=# ( "AmazonPersonalize.DescribeFeatureTransformation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFeatureTransformation where
+instance Data.ToJSON DescribeFeatureTransformation where
   toJSON DescribeFeatureTransformation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "featureTransformationArn"
-                  Core..= featureTransformationArn
+                  Data..= featureTransformationArn
               )
           ]
       )
 
-instance Core.ToPath DescribeFeatureTransformation where
+instance Data.ToPath DescribeFeatureTransformation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFeatureTransformation where
+instance Data.ToQuery DescribeFeatureTransformation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeFeatureTransformationResponse' smart constructor.

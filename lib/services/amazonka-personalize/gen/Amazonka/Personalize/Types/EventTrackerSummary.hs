@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.EventTrackerSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of the properties of an event tracker. For a complete
@@ -33,7 +34,7 @@ data EventTrackerSummary = EventTrackerSummary'
   { -- | The name of the event tracker.
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the event tracker was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the event tracker.
     eventTrackerArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the event tracker.
@@ -46,7 +47,7 @@ data EventTrackerSummary = EventTrackerSummary'
     status :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the event tracker was last
     -- updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,7 +92,7 @@ eventTrackerSummary_name = Lens.lens (\EventTrackerSummary' {name} -> name) (\s@
 
 -- | The date and time (in Unix time) that the event tracker was created.
 eventTrackerSummary_creationDateTime :: Lens.Lens' EventTrackerSummary (Prelude.Maybe Prelude.UTCTime)
-eventTrackerSummary_creationDateTime = Lens.lens (\EventTrackerSummary' {creationDateTime} -> creationDateTime) (\s@EventTrackerSummary' {} a -> s {creationDateTime = a} :: EventTrackerSummary) Prelude.. Lens.mapping Core._Time
+eventTrackerSummary_creationDateTime = Lens.lens (\EventTrackerSummary' {creationDateTime} -> creationDateTime) (\s@EventTrackerSummary' {} a -> s {creationDateTime = a} :: EventTrackerSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the event tracker.
 eventTrackerSummary_eventTrackerArn :: Lens.Lens' EventTrackerSummary (Prelude.Maybe Prelude.Text)
@@ -110,19 +111,19 @@ eventTrackerSummary_status = Lens.lens (\EventTrackerSummary' {status} -> status
 -- | The date and time (in Unix time) that the event tracker was last
 -- updated.
 eventTrackerSummary_lastUpdatedDateTime :: Lens.Lens' EventTrackerSummary (Prelude.Maybe Prelude.UTCTime)
-eventTrackerSummary_lastUpdatedDateTime = Lens.lens (\EventTrackerSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@EventTrackerSummary' {} a -> s {lastUpdatedDateTime = a} :: EventTrackerSummary) Prelude.. Lens.mapping Core._Time
+eventTrackerSummary_lastUpdatedDateTime = Lens.lens (\EventTrackerSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@EventTrackerSummary' {} a -> s {lastUpdatedDateTime = a} :: EventTrackerSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON EventTrackerSummary where
+instance Data.FromJSON EventTrackerSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventTrackerSummary"
       ( \x ->
           EventTrackerSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "eventTrackerArn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "eventTrackerArn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
       )
 
 instance Prelude.Hashable EventTrackerSummary where

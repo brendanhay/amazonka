@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.DefaultCategoricalHyperParameterRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the name and default range of a categorical hyperparameter and
@@ -74,17 +75,17 @@ defaultCategoricalHyperParameterRange_values :: Lens.Lens' DefaultCategoricalHyp
 defaultCategoricalHyperParameterRange_values = Lens.lens (\DefaultCategoricalHyperParameterRange' {values} -> values) (\s@DefaultCategoricalHyperParameterRange' {} a -> s {values = a} :: DefaultCategoricalHyperParameterRange) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DefaultCategoricalHyperParameterRange
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DefaultCategoricalHyperParameterRange"
       ( \x ->
           DefaultCategoricalHyperParameterRange'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "isTunable")
-            Prelude.<*> (x Core..:? "values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "isTunable")
+            Prelude.<*> (x Data..:? "values" Data..!= Prelude.mempty)
       )
 
 instance

@@ -102,6 +102,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -210,7 +211,7 @@ instance Core.AWSRequest CreateRecommender where
     Response.receiveJSON
       ( \s h x ->
           CreateRecommenderResponse'
-            Prelude.<$> (x Core..?> "recommenderArn")
+            Prelude.<$> (x Data..?> "recommenderArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -230,39 +231,39 @@ instance Prelude.NFData CreateRecommender where
       `Prelude.seq` Prelude.rnf datasetGroupArn
       `Prelude.seq` Prelude.rnf recipeArn
 
-instance Core.ToHeaders CreateRecommender where
+instance Data.ToHeaders CreateRecommender where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.CreateRecommender" ::
+              Data.=# ( "AmazonPersonalize.CreateRecommender" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRecommender where
+instance Data.ToJSON CreateRecommender where
   toJSON CreateRecommender' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("recommenderConfig" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("recommenderConfig" Data..=)
               Prelude.<$> recommenderConfig,
-            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("datasetGroupArn" Core..= datasetGroupArn),
-            Prelude.Just ("recipeArn" Core..= recipeArn)
+              ("datasetGroupArn" Data..= datasetGroupArn),
+            Prelude.Just ("recipeArn" Data..= recipeArn)
           ]
       )
 
-instance Core.ToPath CreateRecommender where
+instance Data.ToPath CreateRecommender where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateRecommender where
+instance Data.ToQuery CreateRecommender where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRecommenderResponse' smart constructor.

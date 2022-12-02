@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.DatasetSchema where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types.Domain
 import qualified Amazonka.Prelude as Prelude
 
@@ -32,7 +33,7 @@ data DatasetSchema = DatasetSchema'
   { -- | The name of the schema.
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the schema was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The domain of a schema that you created for a dataset in a Domain
     -- dataset group.
     domain :: Prelude.Maybe Domain,
@@ -41,7 +42,7 @@ data DatasetSchema = DatasetSchema'
     -- | The schema.
     schema :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the schema was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,7 +84,7 @@ datasetSchema_name = Lens.lens (\DatasetSchema' {name} -> name) (\s@DatasetSchem
 
 -- | The date and time (in Unix time) that the schema was created.
 datasetSchema_creationDateTime :: Lens.Lens' DatasetSchema (Prelude.Maybe Prelude.UTCTime)
-datasetSchema_creationDateTime = Lens.lens (\DatasetSchema' {creationDateTime} -> creationDateTime) (\s@DatasetSchema' {} a -> s {creationDateTime = a} :: DatasetSchema) Prelude.. Lens.mapping Core._Time
+datasetSchema_creationDateTime = Lens.lens (\DatasetSchema' {creationDateTime} -> creationDateTime) (\s@DatasetSchema' {} a -> s {creationDateTime = a} :: DatasetSchema) Prelude.. Lens.mapping Data._Time
 
 -- | The domain of a schema that you created for a dataset in a Domain
 -- dataset group.
@@ -100,20 +101,20 @@ datasetSchema_schema = Lens.lens (\DatasetSchema' {schema} -> schema) (\s@Datase
 
 -- | The date and time (in Unix time) that the schema was last updated.
 datasetSchema_lastUpdatedDateTime :: Lens.Lens' DatasetSchema (Prelude.Maybe Prelude.UTCTime)
-datasetSchema_lastUpdatedDateTime = Lens.lens (\DatasetSchema' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DatasetSchema' {} a -> s {lastUpdatedDateTime = a} :: DatasetSchema) Prelude.. Lens.mapping Core._Time
+datasetSchema_lastUpdatedDateTime = Lens.lens (\DatasetSchema' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DatasetSchema' {} a -> s {lastUpdatedDateTime = a} :: DatasetSchema) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON DatasetSchema where
+instance Data.FromJSON DatasetSchema where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetSchema"
       ( \x ->
           DatasetSchema'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "domain")
-            Prelude.<*> (x Core..:? "schemaArn")
-            Prelude.<*> (x Core..:? "schema")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "domain")
+            Prelude.<*> (x Data..:? "schemaArn")
+            Prelude.<*> (x Data..:? "schema")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
       )
 
 instance Prelude.Hashable DatasetSchema where

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -142,8 +143,8 @@ instance Core.AWSRequest ListCampaigns where
     Response.receiveJSON
       ( \s h x ->
           ListCampaignsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "campaigns" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "campaigns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,35 +160,35 @@ instance Prelude.NFData ListCampaigns where
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListCampaigns where
+instance Data.ToHeaders ListCampaigns where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.ListCampaigns" ::
+              Data.=# ( "AmazonPersonalize.ListCampaigns" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListCampaigns where
+instance Data.ToJSON ListCampaigns where
   toJSON ListCampaigns' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("solutionArn" Core..=) Prelude.<$> solutionArn,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("solutionArn" Data..=) Prelude.<$> solutionArn,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListCampaigns where
+instance Data.ToPath ListCampaigns where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListCampaigns where
+instance Data.ToQuery ListCampaigns where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCampaignsResponse' smart constructor.

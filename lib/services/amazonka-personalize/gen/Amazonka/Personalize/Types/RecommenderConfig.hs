@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.RecommenderConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration details of the recommender.
@@ -80,15 +81,15 @@ recommenderConfig_minRecommendationRequestsPerSecond = Lens.lens (\RecommenderCo
 recommenderConfig_itemExplorationConfig :: Lens.Lens' RecommenderConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 recommenderConfig_itemExplorationConfig = Lens.lens (\RecommenderConfig' {itemExplorationConfig} -> itemExplorationConfig) (\s@RecommenderConfig' {} a -> s {itemExplorationConfig = a} :: RecommenderConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON RecommenderConfig where
+instance Data.FromJSON RecommenderConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommenderConfig"
       ( \x ->
           RecommenderConfig'
-            Prelude.<$> (x Core..:? "minRecommendationRequestsPerSecond")
-            Prelude.<*> ( x Core..:? "itemExplorationConfig"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "minRecommendationRequestsPerSecond")
+            Prelude.<*> ( x Data..:? "itemExplorationConfig"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -103,13 +104,13 @@ instance Prelude.NFData RecommenderConfig where
     Prelude.rnf minRecommendationRequestsPerSecond
       `Prelude.seq` Prelude.rnf itemExplorationConfig
 
-instance Core.ToJSON RecommenderConfig where
+instance Data.ToJSON RecommenderConfig where
   toJSON RecommenderConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("minRecommendationRequestsPerSecond" Core..=)
+          [ ("minRecommendationRequestsPerSecond" Data..=)
               Prelude.<$> minRecommendationRequestsPerSecond,
-            ("itemExplorationConfig" Core..=)
+            ("itemExplorationConfig" Data..=)
               Prelude.<$> itemExplorationConfig
           ]
       )

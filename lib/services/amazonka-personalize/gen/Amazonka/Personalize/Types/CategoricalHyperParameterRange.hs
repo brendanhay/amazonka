@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.CategoricalHyperParameterRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the name and range of a categorical hyperparameter.
@@ -62,14 +63,14 @@ categoricalHyperParameterRange_name = Lens.lens (\CategoricalHyperParameterRange
 categoricalHyperParameterRange_values :: Lens.Lens' CategoricalHyperParameterRange (Prelude.Maybe [Prelude.Text])
 categoricalHyperParameterRange_values = Lens.lens (\CategoricalHyperParameterRange' {values} -> values) (\s@CategoricalHyperParameterRange' {} a -> s {values = a} :: CategoricalHyperParameterRange) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CategoricalHyperParameterRange where
+instance Data.FromJSON CategoricalHyperParameterRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CategoricalHyperParameterRange"
       ( \x ->
           CategoricalHyperParameterRange'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "values" Data..!= Prelude.mempty)
       )
 
 instance
@@ -89,11 +90,11 @@ instance
   rnf CategoricalHyperParameterRange' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON CategoricalHyperParameterRange where
+instance Data.ToJSON CategoricalHyperParameterRange where
   toJSON CategoricalHyperParameterRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("values" Core..=) Prelude.<$> values
+          [ ("name" Data..=) Prelude.<$> name,
+            ("values" Data..=) Prelude.<$> values
           ]
       )

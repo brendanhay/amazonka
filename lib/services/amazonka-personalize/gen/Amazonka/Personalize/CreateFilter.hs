@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -64,7 +65,7 @@ data CreateFilter = CreateFilter'
     -- recommendations. Filter expression must follow specific format rules.
     -- For information about filter expression structure and syntax, see
     -- <https://docs.aws.amazon.com/personalize/latest/dg/filter-expressions.html Filter expressions>.
-    filterExpression :: Core.Sensitive Prelude.Text
+    filterExpression :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -105,7 +106,7 @@ newCreateFilter
         name = pName_,
         datasetGroupArn = pDatasetGroupArn_,
         filterExpression =
-          Core._Sensitive Lens.# pFilterExpression_
+          Data._Sensitive Lens.# pFilterExpression_
       }
 
 -- | A list of
@@ -127,7 +128,7 @@ createFilter_datasetGroupArn = Lens.lens (\CreateFilter' {datasetGroupArn} -> da
 -- For information about filter expression structure and syntax, see
 -- <https://docs.aws.amazon.com/personalize/latest/dg/filter-expressions.html Filter expressions>.
 createFilter_filterExpression :: Lens.Lens' CreateFilter Prelude.Text
-createFilter_filterExpression = Lens.lens (\CreateFilter' {filterExpression} -> filterExpression) (\s@CreateFilter' {} a -> s {filterExpression = a} :: CreateFilter) Prelude.. Core._Sensitive
+createFilter_filterExpression = Lens.lens (\CreateFilter' {filterExpression} -> filterExpression) (\s@CreateFilter' {} a -> s {filterExpression = a} :: CreateFilter) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest CreateFilter where
   type AWSResponse CreateFilter = CreateFilterResponse
@@ -137,7 +138,7 @@ instance Core.AWSRequest CreateFilter where
     Response.receiveJSON
       ( \s h x ->
           CreateFilterResponse'
-            Prelude.<$> (x Core..?> "filterArn")
+            Prelude.<$> (x Data..?> "filterArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,38 +156,38 @@ instance Prelude.NFData CreateFilter where
       `Prelude.seq` Prelude.rnf datasetGroupArn
       `Prelude.seq` Prelude.rnf filterExpression
 
-instance Core.ToHeaders CreateFilter where
+instance Data.ToHeaders CreateFilter where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.CreateFilter" ::
+              Data.=# ( "AmazonPersonalize.CreateFilter" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFilter where
+instance Data.ToJSON CreateFilter where
   toJSON CreateFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("name" Core..= name),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("datasetGroupArn" Core..= datasetGroupArn),
+              ("datasetGroupArn" Data..= datasetGroupArn),
             Prelude.Just
-              ("filterExpression" Core..= filterExpression)
+              ("filterExpression" Data..= filterExpression)
           ]
       )
 
-instance Core.ToPath CreateFilter where
+instance Data.ToPath CreateFilter where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateFilter where
+instance Data.ToQuery CreateFilter where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFilterResponse' smart constructor.

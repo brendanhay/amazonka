@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.CampaignConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration details of a campaign.
@@ -71,14 +72,14 @@ newCampaignConfig =
 campaignConfig_itemExplorationConfig :: Lens.Lens' CampaignConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 campaignConfig_itemExplorationConfig = Lens.lens (\CampaignConfig' {itemExplorationConfig} -> itemExplorationConfig) (\s@CampaignConfig' {} a -> s {itemExplorationConfig = a} :: CampaignConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CampaignConfig where
+instance Data.FromJSON CampaignConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CampaignConfig"
       ( \x ->
           CampaignConfig'
-            Prelude.<$> ( x Core..:? "itemExplorationConfig"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "itemExplorationConfig"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -90,11 +91,11 @@ instance Prelude.NFData CampaignConfig where
   rnf CampaignConfig' {..} =
     Prelude.rnf itemExplorationConfig
 
-instance Core.ToJSON CampaignConfig where
+instance Data.ToJSON CampaignConfig where
   toJSON CampaignConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("itemExplorationConfig" Core..=)
+          [ ("itemExplorationConfig" Data..=)
               Prelude.<$> itemExplorationConfig
           ]
       )

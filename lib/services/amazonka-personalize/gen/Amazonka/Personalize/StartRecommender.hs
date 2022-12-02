@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest StartRecommender where
     Response.receiveJSON
       ( \s h x ->
           StartRecommenderResponse'
-            Prelude.<$> (x Core..?> "recommenderArn")
+            Prelude.<$> (x Data..?> "recommenderArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,34 +101,34 @@ instance Prelude.NFData StartRecommender where
   rnf StartRecommender' {..} =
     Prelude.rnf recommenderArn
 
-instance Core.ToHeaders StartRecommender where
+instance Data.ToHeaders StartRecommender where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.StartRecommender" ::
+              Data.=# ( "AmazonPersonalize.StartRecommender" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartRecommender where
+instance Data.ToJSON StartRecommender where
   toJSON StartRecommender' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("recommenderArn" Core..= recommenderArn)
+              ("recommenderArn" Data..= recommenderArn)
           ]
       )
 
-instance Core.ToPath StartRecommender where
+instance Data.ToPath StartRecommender where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartRecommender where
+instance Data.ToQuery StartRecommender where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartRecommenderResponse' smart constructor.

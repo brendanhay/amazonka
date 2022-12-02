@@ -86,6 +86,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -205,7 +206,7 @@ instance Core.AWSRequest CreateSolutionVersion where
     Response.receiveJSON
       ( \s h x ->
           CreateSolutionVersionResponse'
-            Prelude.<$> (x Core..?> "solutionVersionArn")
+            Prelude.<$> (x Data..?> "solutionVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -223,36 +224,36 @@ instance Prelude.NFData CreateSolutionVersion where
       `Prelude.seq` Prelude.rnf trainingMode
       `Prelude.seq` Prelude.rnf solutionArn
 
-instance Core.ToHeaders CreateSolutionVersion where
+instance Data.ToHeaders CreateSolutionVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.CreateSolutionVersion" ::
+              Data.=# ( "AmazonPersonalize.CreateSolutionVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSolutionVersion where
+instance Data.ToJSON CreateSolutionVersion where
   toJSON CreateSolutionVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("name" Core..=) Prelude.<$> name,
-            ("trainingMode" Core..=) Prelude.<$> trainingMode,
-            Prelude.Just ("solutionArn" Core..= solutionArn)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("name" Data..=) Prelude.<$> name,
+            ("trainingMode" Data..=) Prelude.<$> trainingMode,
+            Prelude.Just ("solutionArn" Data..= solutionArn)
           ]
       )
 
-instance Core.ToPath CreateSolutionVersion where
+instance Data.ToPath CreateSolutionVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateSolutionVersion where
+instance Data.ToQuery CreateSolutionVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSolutionVersionResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.BatchInferenceJobSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A truncated version of the
@@ -32,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newBatchInferenceJobSummary' smart constructor.
 data BatchInferenceJobSummary = BatchInferenceJobSummary'
   { -- | The time at which the batch inference job was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the batch inference job.
     jobName :: Prelude.Maybe Prelude.Text,
     -- | The status of the batch inference job. The status is one of the
@@ -51,7 +52,7 @@ data BatchInferenceJobSummary = BatchInferenceJobSummary'
     -- | The ARN of the solution version used by the batch inference job.
     solutionVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The time at which the batch inference job was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | If the batch inference job failed, the reason for the failure.
     failureReason :: Prelude.Maybe Prelude.Text
   }
@@ -103,7 +104,7 @@ newBatchInferenceJobSummary =
 
 -- | The time at which the batch inference job was created.
 batchInferenceJobSummary_creationDateTime :: Lens.Lens' BatchInferenceJobSummary (Prelude.Maybe Prelude.UTCTime)
-batchInferenceJobSummary_creationDateTime = Lens.lens (\BatchInferenceJobSummary' {creationDateTime} -> creationDateTime) (\s@BatchInferenceJobSummary' {} a -> s {creationDateTime = a} :: BatchInferenceJobSummary) Prelude.. Lens.mapping Core._Time
+batchInferenceJobSummary_creationDateTime = Lens.lens (\BatchInferenceJobSummary' {creationDateTime} -> creationDateTime) (\s@BatchInferenceJobSummary' {} a -> s {creationDateTime = a} :: BatchInferenceJobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the batch inference job.
 batchInferenceJobSummary_jobName :: Lens.Lens' BatchInferenceJobSummary (Prelude.Maybe Prelude.Text)
@@ -132,25 +133,25 @@ batchInferenceJobSummary_solutionVersionArn = Lens.lens (\BatchInferenceJobSumma
 
 -- | The time at which the batch inference job was last updated.
 batchInferenceJobSummary_lastUpdatedDateTime :: Lens.Lens' BatchInferenceJobSummary (Prelude.Maybe Prelude.UTCTime)
-batchInferenceJobSummary_lastUpdatedDateTime = Lens.lens (\BatchInferenceJobSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@BatchInferenceJobSummary' {} a -> s {lastUpdatedDateTime = a} :: BatchInferenceJobSummary) Prelude.. Lens.mapping Core._Time
+batchInferenceJobSummary_lastUpdatedDateTime = Lens.lens (\BatchInferenceJobSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@BatchInferenceJobSummary' {} a -> s {lastUpdatedDateTime = a} :: BatchInferenceJobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | If the batch inference job failed, the reason for the failure.
 batchInferenceJobSummary_failureReason :: Lens.Lens' BatchInferenceJobSummary (Prelude.Maybe Prelude.Text)
 batchInferenceJobSummary_failureReason = Lens.lens (\BatchInferenceJobSummary' {failureReason} -> failureReason) (\s@BatchInferenceJobSummary' {} a -> s {failureReason = a} :: BatchInferenceJobSummary)
 
-instance Core.FromJSON BatchInferenceJobSummary where
+instance Data.FromJSON BatchInferenceJobSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchInferenceJobSummary"
       ( \x ->
           BatchInferenceJobSummary'
-            Prelude.<$> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "jobName")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "batchInferenceJobArn")
-            Prelude.<*> (x Core..:? "solutionVersionArn")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<$> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "jobName")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "batchInferenceJobArn")
+            Prelude.<*> (x Data..:? "solutionVersionArn")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance Prelude.Hashable BatchInferenceJobSummary where

@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.Tag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The optional metadata that you apply to resources to help you categorize
@@ -71,14 +72,14 @@ tag_tagKey = Lens.lens (\Tag' {tagKey} -> tagKey) (\s@Tag' {} a -> s {tagKey = a
 tag_tagValue :: Lens.Lens' Tag Prelude.Text
 tag_tagValue = Lens.lens (\Tag' {tagValue} -> tagValue) (\s@Tag' {} a -> s {tagValue = a} :: Tag)
 
-instance Core.FromJSON Tag where
+instance Data.FromJSON Tag where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Core..: "tagKey")
-            Prelude.<*> (x Core..: "tagValue")
+            Prelude.<$> (x Data..: "tagKey")
+            Prelude.<*> (x Data..: "tagValue")
       )
 
 instance Prelude.Hashable Tag where
@@ -91,11 +92,11 @@ instance Prelude.NFData Tag where
     Prelude.rnf tagKey
       `Prelude.seq` Prelude.rnf tagValue
 
-instance Core.ToJSON Tag where
+instance Data.ToJSON Tag where
   toJSON Tag' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("tagKey" Core..= tagKey),
-            Prelude.Just ("tagValue" Core..= tagValue)
+          [ Prelude.Just ("tagKey" Data..= tagKey),
+            Prelude.Just ("tagValue" Data..= tagValue)
           ]
       )

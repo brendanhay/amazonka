@@ -21,6 +21,7 @@ module Amazonka.IVSChat.Types.FirehoseDestinationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a Kinesis Firehose location where chat logs will be stored.
@@ -60,15 +61,15 @@ firehoseDestinationConfiguration_deliveryStreamName :: Lens.Lens' FirehoseDestin
 firehoseDestinationConfiguration_deliveryStreamName = Lens.lens (\FirehoseDestinationConfiguration' {deliveryStreamName} -> deliveryStreamName) (\s@FirehoseDestinationConfiguration' {} a -> s {deliveryStreamName = a} :: FirehoseDestinationConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     FirehoseDestinationConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FirehoseDestinationConfiguration"
       ( \x ->
           FirehoseDestinationConfiguration'
-            Prelude.<$> (x Core..: "deliveryStreamName")
+            Prelude.<$> (x Data..: "deliveryStreamName")
       )
 
 instance
@@ -87,11 +88,11 @@ instance
   rnf FirehoseDestinationConfiguration' {..} =
     Prelude.rnf deliveryStreamName
 
-instance Core.ToJSON FirehoseDestinationConfiguration where
+instance Data.ToJSON FirehoseDestinationConfiguration where
   toJSON FirehoseDestinationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("deliveryStreamName" Core..= deliveryStreamName)
+              ("deliveryStreamName" Data..= deliveryStreamName)
           ]
       )

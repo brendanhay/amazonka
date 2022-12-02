@@ -21,6 +21,7 @@ module Amazonka.IVSChat.Types.MessageReviewHandler where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVSChat.Types.FallbackResult
 import qualified Amazonka.Prelude as Prelude
 
@@ -83,14 +84,14 @@ messageReviewHandler_uri = Lens.lens (\MessageReviewHandler' {uri} -> uri) (\s@M
 messageReviewHandler_fallbackResult :: Lens.Lens' MessageReviewHandler (Prelude.Maybe FallbackResult)
 messageReviewHandler_fallbackResult = Lens.lens (\MessageReviewHandler' {fallbackResult} -> fallbackResult) (\s@MessageReviewHandler' {} a -> s {fallbackResult = a} :: MessageReviewHandler)
 
-instance Core.FromJSON MessageReviewHandler where
+instance Data.FromJSON MessageReviewHandler where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MessageReviewHandler"
       ( \x ->
           MessageReviewHandler'
-            Prelude.<$> (x Core..:? "uri")
-            Prelude.<*> (x Core..:? "fallbackResult")
+            Prelude.<$> (x Data..:? "uri")
+            Prelude.<*> (x Data..:? "fallbackResult")
       )
 
 instance Prelude.Hashable MessageReviewHandler where
@@ -103,12 +104,12 @@ instance Prelude.NFData MessageReviewHandler where
     Prelude.rnf uri
       `Prelude.seq` Prelude.rnf fallbackResult
 
-instance Core.ToJSON MessageReviewHandler where
+instance Data.ToJSON MessageReviewHandler where
   toJSON MessageReviewHandler' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("uri" Core..=) Prelude.<$> uri,
-            ("fallbackResult" Core..=)
+          [ ("uri" Data..=) Prelude.<$> uri,
+            ("fallbackResult" Data..=)
               Prelude.<$> fallbackResult
           ]
       )

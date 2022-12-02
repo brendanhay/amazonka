@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVSChat.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -166,9 +167,9 @@ instance Core.AWSRequest CreateChatToken where
     Response.receiveJSON
       ( \s h x ->
           CreateChatTokenResponse'
-            Prelude.<$> (x Core..?> "sessionExpirationTime")
-            Prelude.<*> (x Core..?> "tokenExpirationTime")
-            Prelude.<*> (x Core..?> "token")
+            Prelude.<$> (x Data..?> "sessionExpirationTime")
+            Prelude.<*> (x Data..?> "tokenExpirationTime")
+            Prelude.<*> (x Data..?> "token")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -188,46 +189,46 @@ instance Prelude.NFData CreateChatToken where
       `Prelude.seq` Prelude.rnf roomIdentifier
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToHeaders CreateChatToken where
+instance Data.ToHeaders CreateChatToken where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateChatToken where
+instance Data.ToJSON CreateChatToken where
   toJSON CreateChatToken' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("capabilities" Core..=) Prelude.<$> capabilities,
-            ("attributes" Core..=) Prelude.<$> attributes,
-            ("sessionDurationInMinutes" Core..=)
+          [ ("capabilities" Data..=) Prelude.<$> capabilities,
+            ("attributes" Data..=) Prelude.<$> attributes,
+            ("sessionDurationInMinutes" Data..=)
               Prelude.<$> sessionDurationInMinutes,
             Prelude.Just
-              ("roomIdentifier" Core..= roomIdentifier),
-            Prelude.Just ("userId" Core..= userId)
+              ("roomIdentifier" Data..= roomIdentifier),
+            Prelude.Just ("userId" Data..= userId)
           ]
       )
 
-instance Core.ToPath CreateChatToken where
+instance Data.ToPath CreateChatToken where
   toPath = Prelude.const "/CreateChatToken"
 
-instance Core.ToQuery CreateChatToken where
+instance Data.ToQuery CreateChatToken where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateChatTokenResponse' smart constructor.
 data CreateChatTokenResponse = CreateChatTokenResponse'
   { -- | Time after which an end user\'s session is no longer valid. This is an
     -- ISO 8601 timestamp; /note that this is returned as a string/.
-    sessionExpirationTime :: Prelude.Maybe Core.POSIX,
+    sessionExpirationTime :: Prelude.Maybe Data.POSIX,
     -- | Time after which the token is no longer valid and cannot be used to
     -- connect to a room. This is an ISO 8601 timestamp; /note that this is
     -- returned as a string/.
-    tokenExpirationTime :: Prelude.Maybe Core.POSIX,
+    tokenExpirationTime :: Prelude.Maybe Data.POSIX,
     -- | The issued client token, encrypted.
     token :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -269,13 +270,13 @@ newCreateChatTokenResponse pHttpStatus_ =
 -- | Time after which an end user\'s session is no longer valid. This is an
 -- ISO 8601 timestamp; /note that this is returned as a string/.
 createChatTokenResponse_sessionExpirationTime :: Lens.Lens' CreateChatTokenResponse (Prelude.Maybe Prelude.UTCTime)
-createChatTokenResponse_sessionExpirationTime = Lens.lens (\CreateChatTokenResponse' {sessionExpirationTime} -> sessionExpirationTime) (\s@CreateChatTokenResponse' {} a -> s {sessionExpirationTime = a} :: CreateChatTokenResponse) Prelude.. Lens.mapping Core._Time
+createChatTokenResponse_sessionExpirationTime = Lens.lens (\CreateChatTokenResponse' {sessionExpirationTime} -> sessionExpirationTime) (\s@CreateChatTokenResponse' {} a -> s {sessionExpirationTime = a} :: CreateChatTokenResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Time after which the token is no longer valid and cannot be used to
 -- connect to a room. This is an ISO 8601 timestamp; /note that this is
 -- returned as a string/.
 createChatTokenResponse_tokenExpirationTime :: Lens.Lens' CreateChatTokenResponse (Prelude.Maybe Prelude.UTCTime)
-createChatTokenResponse_tokenExpirationTime = Lens.lens (\CreateChatTokenResponse' {tokenExpirationTime} -> tokenExpirationTime) (\s@CreateChatTokenResponse' {} a -> s {tokenExpirationTime = a} :: CreateChatTokenResponse) Prelude.. Lens.mapping Core._Time
+createChatTokenResponse_tokenExpirationTime = Lens.lens (\CreateChatTokenResponse' {tokenExpirationTime} -> tokenExpirationTime) (\s@CreateChatTokenResponse' {} a -> s {tokenExpirationTime = a} :: CreateChatTokenResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The issued client token, encrypted.
 createChatTokenResponse_token :: Lens.Lens' CreateChatTokenResponse (Prelude.Maybe Prelude.Text)

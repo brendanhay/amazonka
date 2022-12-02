@@ -21,6 +21,7 @@ module Amazonka.IVSChat.Types.LoggingConfigurationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVSChat.Types.DestinationConfiguration
 import Amazonka.IVSChat.Types.LoggingConfigurationState
 import qualified Amazonka.Prelude as Prelude
@@ -48,10 +49,10 @@ data LoggingConfigurationSummary = LoggingConfigurationSummary'
     id :: Prelude.Maybe Prelude.Text,
     -- | Time of the logging configuration’s last update. This is an ISO 8601
     -- timestamp; /note that this is returned as a string/.
-    updateTime :: Prelude.Maybe Core.POSIX,
+    updateTime :: Prelude.Maybe Data.POSIX,
     -- | Time when the logging configuration was created. This is an ISO 8601
     -- timestamp; /note that this is returned as a string/.
-    createTime :: Prelude.Maybe Core.POSIX,
+    createTime :: Prelude.Maybe Data.POSIX,
     -- | A complex type that contains a destination configuration for where chat
     -- content will be logged.
     destinationConfiguration :: Prelude.Maybe DestinationConfiguration
@@ -136,32 +137,32 @@ loggingConfigurationSummary_id = Lens.lens (\LoggingConfigurationSummary' {id} -
 -- | Time of the logging configuration’s last update. This is an ISO 8601
 -- timestamp; /note that this is returned as a string/.
 loggingConfigurationSummary_updateTime :: Lens.Lens' LoggingConfigurationSummary (Prelude.Maybe Prelude.UTCTime)
-loggingConfigurationSummary_updateTime = Lens.lens (\LoggingConfigurationSummary' {updateTime} -> updateTime) (\s@LoggingConfigurationSummary' {} a -> s {updateTime = a} :: LoggingConfigurationSummary) Prelude.. Lens.mapping Core._Time
+loggingConfigurationSummary_updateTime = Lens.lens (\LoggingConfigurationSummary' {updateTime} -> updateTime) (\s@LoggingConfigurationSummary' {} a -> s {updateTime = a} :: LoggingConfigurationSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Time when the logging configuration was created. This is an ISO 8601
 -- timestamp; /note that this is returned as a string/.
 loggingConfigurationSummary_createTime :: Lens.Lens' LoggingConfigurationSummary (Prelude.Maybe Prelude.UTCTime)
-loggingConfigurationSummary_createTime = Lens.lens (\LoggingConfigurationSummary' {createTime} -> createTime) (\s@LoggingConfigurationSummary' {} a -> s {createTime = a} :: LoggingConfigurationSummary) Prelude.. Lens.mapping Core._Time
+loggingConfigurationSummary_createTime = Lens.lens (\LoggingConfigurationSummary' {createTime} -> createTime) (\s@LoggingConfigurationSummary' {} a -> s {createTime = a} :: LoggingConfigurationSummary) Prelude.. Lens.mapping Data._Time
 
 -- | A complex type that contains a destination configuration for where chat
 -- content will be logged.
 loggingConfigurationSummary_destinationConfiguration :: Lens.Lens' LoggingConfigurationSummary (Prelude.Maybe DestinationConfiguration)
 loggingConfigurationSummary_destinationConfiguration = Lens.lens (\LoggingConfigurationSummary' {destinationConfiguration} -> destinationConfiguration) (\s@LoggingConfigurationSummary' {} a -> s {destinationConfiguration = a} :: LoggingConfigurationSummary)
 
-instance Core.FromJSON LoggingConfigurationSummary where
+instance Data.FromJSON LoggingConfigurationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoggingConfigurationSummary"
       ( \x ->
           LoggingConfigurationSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "updateTime")
-            Prelude.<*> (x Core..:? "createTime")
-            Prelude.<*> (x Core..:? "destinationConfiguration")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "updateTime")
+            Prelude.<*> (x Data..:? "createTime")
+            Prelude.<*> (x Data..:? "destinationConfiguration")
       )
 
 instance Prelude.Hashable LoggingConfigurationSummary where

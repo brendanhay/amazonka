@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVSChat.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,32 +128,32 @@ instance Prelude.NFData DisconnectUser where
       `Prelude.seq` Prelude.rnf roomIdentifier
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToHeaders DisconnectUser where
+instance Data.ToHeaders DisconnectUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisconnectUser where
+instance Data.ToJSON DisconnectUser where
   toJSON DisconnectUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("reason" Core..=) Prelude.<$> reason,
+          [ ("reason" Data..=) Prelude.<$> reason,
             Prelude.Just
-              ("roomIdentifier" Core..= roomIdentifier),
-            Prelude.Just ("userId" Core..= userId)
+              ("roomIdentifier" Data..= roomIdentifier),
+            Prelude.Just ("userId" Data..= userId)
           ]
       )
 
-instance Core.ToPath DisconnectUser where
+instance Data.ToPath DisconnectUser where
   toPath = Prelude.const "/DisconnectUser"
 
-instance Core.ToQuery DisconnectUser where
+instance Data.ToQuery DisconnectUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisconnectUserResponse' smart constructor.

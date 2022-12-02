@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVSChat.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,14 +137,14 @@ instance Core.AWSRequest CreateLoggingConfiguration where
     Response.receiveJSON
       ( \s h x ->
           CreateLoggingConfigurationResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "state")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "updateTime")
-            Prelude.<*> (x Core..?> "createTime")
-            Prelude.<*> (x Core..?> "destinationConfiguration")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "state")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "updateTime")
+            Prelude.<*> (x Data..?> "createTime")
+            Prelude.<*> (x Data..?> "destinationConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,34 +160,34 @@ instance Prelude.NFData CreateLoggingConfiguration where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf destinationConfiguration
 
-instance Core.ToHeaders CreateLoggingConfiguration where
+instance Data.ToHeaders CreateLoggingConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLoggingConfiguration where
+instance Data.ToJSON CreateLoggingConfiguration where
   toJSON CreateLoggingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("name" Core..=) Prelude.<$> name,
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("name" Data..=) Prelude.<$> name,
             Prelude.Just
               ( "destinationConfiguration"
-                  Core..= destinationConfiguration
+                  Data..= destinationConfiguration
               )
           ]
       )
 
-instance Core.ToPath CreateLoggingConfiguration where
+instance Data.ToPath CreateLoggingConfiguration where
   toPath = Prelude.const "/CreateLoggingConfiguration"
 
-instance Core.ToQuery CreateLoggingConfiguration where
+instance Data.ToQuery CreateLoggingConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLoggingConfigurationResponse' smart constructor.
@@ -207,10 +208,10 @@ data CreateLoggingConfigurationResponse = CreateLoggingConfigurationResponse'
     id :: Prelude.Maybe Prelude.Text,
     -- | Time of the logging configuration’s last update. This is an ISO 8601
     -- timestamp; /note that this is returned as a string/.
-    updateTime :: Prelude.Maybe Core.POSIX,
+    updateTime :: Prelude.Maybe Data.POSIX,
     -- | Time when the logging configuration was created. This is an ISO 8601
     -- timestamp; /note that this is returned as a string/.
-    createTime :: Prelude.Maybe Core.POSIX,
+    createTime :: Prelude.Maybe Data.POSIX,
     -- | A complex type that contains a destination configuration for where chat
     -- content will be logged, from the request. There is only one type of
     -- destination (@cloudWatchLogs@, @firehose@, or @s3@) in a
@@ -301,12 +302,12 @@ createLoggingConfigurationResponse_id = Lens.lens (\CreateLoggingConfigurationRe
 -- | Time of the logging configuration’s last update. This is an ISO 8601
 -- timestamp; /note that this is returned as a string/.
 createLoggingConfigurationResponse_updateTime :: Lens.Lens' CreateLoggingConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
-createLoggingConfigurationResponse_updateTime = Lens.lens (\CreateLoggingConfigurationResponse' {updateTime} -> updateTime) (\s@CreateLoggingConfigurationResponse' {} a -> s {updateTime = a} :: CreateLoggingConfigurationResponse) Prelude.. Lens.mapping Core._Time
+createLoggingConfigurationResponse_updateTime = Lens.lens (\CreateLoggingConfigurationResponse' {updateTime} -> updateTime) (\s@CreateLoggingConfigurationResponse' {} a -> s {updateTime = a} :: CreateLoggingConfigurationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Time when the logging configuration was created. This is an ISO 8601
 -- timestamp; /note that this is returned as a string/.
 createLoggingConfigurationResponse_createTime :: Lens.Lens' CreateLoggingConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
-createLoggingConfigurationResponse_createTime = Lens.lens (\CreateLoggingConfigurationResponse' {createTime} -> createTime) (\s@CreateLoggingConfigurationResponse' {} a -> s {createTime = a} :: CreateLoggingConfigurationResponse) Prelude.. Lens.mapping Core._Time
+createLoggingConfigurationResponse_createTime = Lens.lens (\CreateLoggingConfigurationResponse' {createTime} -> createTime) (\s@CreateLoggingConfigurationResponse' {} a -> s {createTime = a} :: CreateLoggingConfigurationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A complex type that contains a destination configuration for where chat
 -- content will be logged, from the request. There is only one type of

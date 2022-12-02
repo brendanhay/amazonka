@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVSChat.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,7 +114,7 @@ instance Core.AWSRequest SendEvent where
     Response.receiveJSON
       ( \s h x ->
           SendEventResponse'
-            Prelude.<$> (x Core..?> "id")
+            Prelude.<$> (x Data..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,32 +130,32 @@ instance Prelude.NFData SendEvent where
       `Prelude.seq` Prelude.rnf eventName
       `Prelude.seq` Prelude.rnf roomIdentifier
 
-instance Core.ToHeaders SendEvent where
+instance Data.ToHeaders SendEvent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SendEvent where
+instance Data.ToJSON SendEvent where
   toJSON SendEvent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("attributes" Core..=) Prelude.<$> attributes,
-            Prelude.Just ("eventName" Core..= eventName),
+          [ ("attributes" Data..=) Prelude.<$> attributes,
+            Prelude.Just ("eventName" Data..= eventName),
             Prelude.Just
-              ("roomIdentifier" Core..= roomIdentifier)
+              ("roomIdentifier" Data..= roomIdentifier)
           ]
       )
 
-instance Core.ToPath SendEvent where
+instance Data.ToPath SendEvent where
   toPath = Prelude.const "/SendEvent"
 
-instance Core.ToQuery SendEvent where
+instance Data.ToQuery SendEvent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSendEventResponse' smart constructor.

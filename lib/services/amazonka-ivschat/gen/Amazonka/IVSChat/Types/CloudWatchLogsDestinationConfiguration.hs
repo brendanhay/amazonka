@@ -21,6 +21,7 @@ module Amazonka.IVSChat.Types.CloudWatchLogsDestinationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a CloudWatch Logs location where chat logs will be stored.
@@ -60,15 +61,15 @@ cloudWatchLogsDestinationConfiguration_logGroupName :: Lens.Lens' CloudWatchLogs
 cloudWatchLogsDestinationConfiguration_logGroupName = Lens.lens (\CloudWatchLogsDestinationConfiguration' {logGroupName} -> logGroupName) (\s@CloudWatchLogsDestinationConfiguration' {} a -> s {logGroupName = a} :: CloudWatchLogsDestinationConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CloudWatchLogsDestinationConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudWatchLogsDestinationConfiguration"
       ( \x ->
           CloudWatchLogsDestinationConfiguration'
-            Prelude.<$> (x Core..: "logGroupName")
+            Prelude.<$> (x Data..: "logGroupName")
       )
 
 instance
@@ -88,11 +89,11 @@ instance
     Prelude.rnf logGroupName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CloudWatchLogsDestinationConfiguration
   where
   toJSON CloudWatchLogsDestinationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("logGroupName" Core..= logGroupName)]
+          [Prelude.Just ("logGroupName" Data..= logGroupName)]
       )

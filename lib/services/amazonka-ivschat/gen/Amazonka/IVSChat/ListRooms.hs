@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVSChat.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,9 +128,9 @@ instance Core.AWSRequest ListRooms where
     Response.receiveJSON
       ( \s h x ->
           ListRoomsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "rooms" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "rooms" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListRooms where
@@ -148,35 +149,35 @@ instance Prelude.NFData ListRooms where
       `Prelude.seq` Prelude.rnf messageReviewHandlerUri
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListRooms where
+instance Data.ToHeaders ListRooms where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListRooms where
+instance Data.ToJSON ListRooms where
   toJSON ListRooms' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("loggingConfigurationIdentifier" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("loggingConfigurationIdentifier" Data..=)
               Prelude.<$> loggingConfigurationIdentifier,
-            ("messageReviewHandlerUri" Core..=)
+            ("messageReviewHandlerUri" Data..=)
               Prelude.<$> messageReviewHandlerUri,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListRooms where
+instance Data.ToPath ListRooms where
   toPath = Prelude.const "/ListRooms"
 
-instance Core.ToQuery ListRooms where
+instance Data.ToQuery ListRooms where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListRoomsResponse' smart constructor.

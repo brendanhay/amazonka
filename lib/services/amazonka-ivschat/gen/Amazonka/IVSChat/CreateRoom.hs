@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVSChat.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -164,18 +165,18 @@ instance Core.AWSRequest CreateRoom where
     Response.receiveJSON
       ( \s h x ->
           CreateRoomResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "loggingConfigurationIdentifiers"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "loggingConfigurationIdentifiers"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "messageReviewHandler")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "maximumMessageRatePerSecond")
-            Prelude.<*> (x Core..?> "maximumMessageLength")
-            Prelude.<*> (x Core..?> "updateTime")
-            Prelude.<*> (x Core..?> "createTime")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "messageReviewHandler")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "maximumMessageRatePerSecond")
+            Prelude.<*> (x Data..?> "maximumMessageLength")
+            Prelude.<*> (x Data..?> "updateTime")
+            Prelude.<*> (x Data..?> "createTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -197,38 +198,38 @@ instance Prelude.NFData CreateRoom where
       `Prelude.seq` Prelude.rnf maximumMessageRatePerSecond
       `Prelude.seq` Prelude.rnf maximumMessageLength
 
-instance Core.ToHeaders CreateRoom where
+instance Data.ToHeaders CreateRoom where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRoom where
+instance Data.ToJSON CreateRoom where
   toJSON CreateRoom' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("loggingConfigurationIdentifiers" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("loggingConfigurationIdentifiers" Data..=)
               Prelude.<$> loggingConfigurationIdentifiers,
-            ("name" Core..=) Prelude.<$> name,
-            ("messageReviewHandler" Core..=)
+            ("name" Data..=) Prelude.<$> name,
+            ("messageReviewHandler" Data..=)
               Prelude.<$> messageReviewHandler,
-            ("maximumMessageRatePerSecond" Core..=)
+            ("maximumMessageRatePerSecond" Data..=)
               Prelude.<$> maximumMessageRatePerSecond,
-            ("maximumMessageLength" Core..=)
+            ("maximumMessageLength" Data..=)
               Prelude.<$> maximumMessageLength
           ]
       )
 
-instance Core.ToPath CreateRoom where
+instance Data.ToPath CreateRoom where
   toPath = Prelude.const "/CreateRoom"
 
-instance Core.ToQuery CreateRoom where
+instance Data.ToQuery CreateRoom where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRoomResponse' smart constructor.
@@ -255,10 +256,10 @@ data CreateRoomResponse = CreateRoomResponse'
     maximumMessageLength :: Prelude.Maybe Prelude.Natural,
     -- | Time of the room’s last update. This is an ISO 8601 timestamp; /note
     -- that this is returned as a string/.
-    updateTime :: Prelude.Maybe Core.POSIX,
+    updateTime :: Prelude.Maybe Data.POSIX,
     -- | Time when the room was created. This is an ISO 8601 timestamp; /note
     -- that this is returned as a string/.
-    createTime :: Prelude.Maybe Core.POSIX,
+    createTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -357,12 +358,12 @@ createRoomResponse_maximumMessageLength = Lens.lens (\CreateRoomResponse' {maxim
 -- | Time of the room’s last update. This is an ISO 8601 timestamp; /note
 -- that this is returned as a string/.
 createRoomResponse_updateTime :: Lens.Lens' CreateRoomResponse (Prelude.Maybe Prelude.UTCTime)
-createRoomResponse_updateTime = Lens.lens (\CreateRoomResponse' {updateTime} -> updateTime) (\s@CreateRoomResponse' {} a -> s {updateTime = a} :: CreateRoomResponse) Prelude.. Lens.mapping Core._Time
+createRoomResponse_updateTime = Lens.lens (\CreateRoomResponse' {updateTime} -> updateTime) (\s@CreateRoomResponse' {} a -> s {updateTime = a} :: CreateRoomResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Time when the room was created. This is an ISO 8601 timestamp; /note
 -- that this is returned as a string/.
 createRoomResponse_createTime :: Lens.Lens' CreateRoomResponse (Prelude.Maybe Prelude.UTCTime)
-createRoomResponse_createTime = Lens.lens (\CreateRoomResponse' {createTime} -> createTime) (\s@CreateRoomResponse' {} a -> s {createTime = a} :: CreateRoomResponse) Prelude.. Lens.mapping Core._Time
+createRoomResponse_createTime = Lens.lens (\CreateRoomResponse' {createTime} -> createTime) (\s@CreateRoomResponse' {} a -> s {createTime = a} :: CreateRoomResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 createRoomResponse_httpStatus :: Lens.Lens' CreateRoomResponse Prelude.Int

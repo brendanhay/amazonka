@@ -21,6 +21,7 @@ module Amazonka.Support.Types.SupportService where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Support.Types.Category
 
@@ -90,15 +91,15 @@ supportService_code = Lens.lens (\SupportService' {code} -> code) (\s@SupportSer
 supportService_categories :: Lens.Lens' SupportService (Prelude.Maybe [Category])
 supportService_categories = Lens.lens (\SupportService' {categories} -> categories) (\s@SupportService' {} a -> s {categories = a} :: SupportService) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SupportService where
+instance Data.FromJSON SupportService where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SupportService"
       ( \x ->
           SupportService'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "code")
-            Prelude.<*> (x Core..:? "categories" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "categories" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SupportService where

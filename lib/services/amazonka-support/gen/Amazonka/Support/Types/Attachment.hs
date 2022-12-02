@@ -21,6 +21,7 @@ module Amazonka.Support.Types.Attachment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An attachment to a case communication. The attachment consists of the
@@ -31,7 +32,7 @@ data Attachment = Attachment'
   { -- | The name of the attachment file.
     fileName :: Prelude.Maybe Prelude.Text,
     -- | The content of the attachment file.
-    data' :: Prelude.Maybe Core.Base64
+    data' :: Prelude.Maybe Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,16 +69,16 @@ attachment_fileName = Lens.lens (\Attachment' {fileName} -> fileName) (\s@Attach
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 attachment_data :: Lens.Lens' Attachment (Prelude.Maybe Prelude.ByteString)
-attachment_data = Lens.lens (\Attachment' {data'} -> data') (\s@Attachment' {} a -> s {data' = a} :: Attachment) Prelude.. Lens.mapping Core._Base64
+attachment_data = Lens.lens (\Attachment' {data'} -> data') (\s@Attachment' {} a -> s {data' = a} :: Attachment) Prelude.. Lens.mapping Data._Base64
 
-instance Core.FromJSON Attachment where
+instance Data.FromJSON Attachment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Attachment"
       ( \x ->
           Attachment'
-            Prelude.<$> (x Core..:? "fileName")
-            Prelude.<*> (x Core..:? "data")
+            Prelude.<$> (x Data..:? "fileName")
+            Prelude.<*> (x Data..:? "data")
       )
 
 instance Prelude.Hashable Attachment where
@@ -90,11 +91,11 @@ instance Prelude.NFData Attachment where
     Prelude.rnf fileName
       `Prelude.seq` Prelude.rnf data'
 
-instance Core.ToJSON Attachment where
+instance Data.ToJSON Attachment where
   toJSON Attachment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("fileName" Core..=) Prelude.<$> fileName,
-            ("data" Core..=) Prelude.<$> data'
+          [ ("fileName" Data..=) Prelude.<$> fileName,
+            ("data" Data..=) Prelude.<$> data'
           ]
       )

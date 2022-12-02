@@ -21,6 +21,7 @@ module Amazonka.Support.Types.SeverityLevel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A code and name pair that represents the severity level of a support
@@ -134,13 +135,13 @@ severityLevel_name = Lens.lens (\SeverityLevel' {name} -> name) (\s@SeverityLeve
 severityLevel_code :: Lens.Lens' SeverityLevel (Prelude.Maybe Prelude.Text)
 severityLevel_code = Lens.lens (\SeverityLevel' {code} -> code) (\s@SeverityLevel' {} a -> s {code = a} :: SeverityLevel)
 
-instance Core.FromJSON SeverityLevel where
+instance Data.FromJSON SeverityLevel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SeverityLevel"
       ( \x ->
           SeverityLevel'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "code")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "code")
       )
 
 instance Prelude.Hashable SeverityLevel where

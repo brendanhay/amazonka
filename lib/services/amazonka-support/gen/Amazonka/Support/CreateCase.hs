@@ -84,6 +84,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -284,7 +285,7 @@ instance Core.AWSRequest CreateCase where
     Response.receiveJSON
       ( \s h x ->
           CreateCaseResponse'
-            Prelude.<$> (x Core..?> "caseId")
+            Prelude.<$> (x Data..?> "caseId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -312,44 +313,44 @@ instance Prelude.NFData CreateCase where
       `Prelude.seq` Prelude.rnf subject
       `Prelude.seq` Prelude.rnf communicationBody
 
-instance Core.ToHeaders CreateCase where
+instance Data.ToHeaders CreateCase where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSupport_20130415.CreateCase" ::
+              Data.=# ( "AWSSupport_20130415.CreateCase" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCase where
+instance Data.ToJSON CreateCase where
   toJSON CreateCase' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ccEmailAddresses" Core..=)
+          [ ("ccEmailAddresses" Data..=)
               Prelude.<$> ccEmailAddresses,
-            ("issueType" Core..=) Prelude.<$> issueType,
-            ("categoryCode" Core..=) Prelude.<$> categoryCode,
-            ("serviceCode" Core..=) Prelude.<$> serviceCode,
-            ("attachmentSetId" Core..=)
+            ("issueType" Data..=) Prelude.<$> issueType,
+            ("categoryCode" Data..=) Prelude.<$> categoryCode,
+            ("serviceCode" Data..=) Prelude.<$> serviceCode,
+            ("attachmentSetId" Data..=)
               Prelude.<$> attachmentSetId,
-            ("language" Core..=) Prelude.<$> language,
-            ("severityCode" Core..=) Prelude.<$> severityCode,
-            Prelude.Just ("subject" Core..= subject),
+            ("language" Data..=) Prelude.<$> language,
+            ("severityCode" Data..=) Prelude.<$> severityCode,
+            Prelude.Just ("subject" Data..= subject),
             Prelude.Just
-              ("communicationBody" Core..= communicationBody)
+              ("communicationBody" Data..= communicationBody)
           ]
       )
 
-instance Core.ToPath CreateCase where
+instance Data.ToPath CreateCase where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCase where
+instance Data.ToQuery CreateCase where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The support case ID returned by a successful completion of the

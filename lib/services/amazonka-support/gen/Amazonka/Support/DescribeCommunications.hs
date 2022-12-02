@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -187,8 +188,8 @@ instance Core.AWSRequest DescribeCommunications where
     Response.receiveJSON
       ( \s h x ->
           DescribeCommunicationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "communications" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "communications" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -208,37 +209,37 @@ instance Prelude.NFData DescribeCommunications where
       `Prelude.seq` Prelude.rnf beforeTime
       `Prelude.seq` Prelude.rnf caseId
 
-instance Core.ToHeaders DescribeCommunications where
+instance Data.ToHeaders DescribeCommunications where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSupport_20130415.DescribeCommunications" ::
+              Data.=# ( "AWSSupport_20130415.DescribeCommunications" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeCommunications where
+instance Data.ToJSON DescribeCommunications where
   toJSON DescribeCommunications' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("afterTime" Core..=) Prelude.<$> afterTime,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("beforeTime" Core..=) Prelude.<$> beforeTime,
-            Prelude.Just ("caseId" Core..= caseId)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("afterTime" Data..=) Prelude.<$> afterTime,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("beforeTime" Data..=) Prelude.<$> beforeTime,
+            Prelude.Just ("caseId" Data..= caseId)
           ]
       )
 
-instance Core.ToPath DescribeCommunications where
+instance Data.ToPath DescribeCommunications where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCommunications where
+instance Data.ToQuery DescribeCommunications where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The communications returned by the DescribeCommunications operation.

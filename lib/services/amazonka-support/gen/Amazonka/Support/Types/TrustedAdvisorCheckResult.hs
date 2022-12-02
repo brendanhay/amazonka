@@ -21,6 +21,7 @@ module Amazonka.Support.Types.TrustedAdvisorCheckResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Support.Types.TrustedAdvisorCategorySpecificSummary
 import Amazonka.Support.Types.TrustedAdvisorResourceDetail
@@ -122,19 +123,19 @@ trustedAdvisorCheckResult_categorySpecificSummary = Lens.lens (\TrustedAdvisorCh
 trustedAdvisorCheckResult_flaggedResources :: Lens.Lens' TrustedAdvisorCheckResult [TrustedAdvisorResourceDetail]
 trustedAdvisorCheckResult_flaggedResources = Lens.lens (\TrustedAdvisorCheckResult' {flaggedResources} -> flaggedResources) (\s@TrustedAdvisorCheckResult' {} a -> s {flaggedResources = a} :: TrustedAdvisorCheckResult) Prelude.. Lens.coerced
 
-instance Core.FromJSON TrustedAdvisorCheckResult where
+instance Data.FromJSON TrustedAdvisorCheckResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrustedAdvisorCheckResult"
       ( \x ->
           TrustedAdvisorCheckResult'
-            Prelude.<$> (x Core..: "checkId")
-            Prelude.<*> (x Core..: "timestamp")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "resourcesSummary")
-            Prelude.<*> (x Core..: "categorySpecificSummary")
-            Prelude.<*> ( x Core..:? "flaggedResources"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..: "checkId")
+            Prelude.<*> (x Data..: "timestamp")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "resourcesSummary")
+            Prelude.<*> (x Data..: "categorySpecificSummary")
+            Prelude.<*> ( x Data..:? "flaggedResources"
+                            Data..!= Prelude.mempty
                         )
       )
 

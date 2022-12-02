@@ -21,6 +21,7 @@ module Amazonka.Support.Types.TrustedAdvisorResourcesSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about Amazon Web Services resources that were analyzed in a call
@@ -105,16 +106,16 @@ trustedAdvisorResourcesSummary_resourcesIgnored = Lens.lens (\TrustedAdvisorReso
 trustedAdvisorResourcesSummary_resourcesSuppressed :: Lens.Lens' TrustedAdvisorResourcesSummary Prelude.Integer
 trustedAdvisorResourcesSummary_resourcesSuppressed = Lens.lens (\TrustedAdvisorResourcesSummary' {resourcesSuppressed} -> resourcesSuppressed) (\s@TrustedAdvisorResourcesSummary' {} a -> s {resourcesSuppressed = a} :: TrustedAdvisorResourcesSummary)
 
-instance Core.FromJSON TrustedAdvisorResourcesSummary where
+instance Data.FromJSON TrustedAdvisorResourcesSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrustedAdvisorResourcesSummary"
       ( \x ->
           TrustedAdvisorResourcesSummary'
-            Prelude.<$> (x Core..: "resourcesProcessed")
-            Prelude.<*> (x Core..: "resourcesFlagged")
-            Prelude.<*> (x Core..: "resourcesIgnored")
-            Prelude.<*> (x Core..: "resourcesSuppressed")
+            Prelude.<$> (x Data..: "resourcesProcessed")
+            Prelude.<*> (x Data..: "resourcesFlagged")
+            Prelude.<*> (x Data..: "resourcesIgnored")
+            Prelude.<*> (x Data..: "resourcesSuppressed")
       )
 
 instance

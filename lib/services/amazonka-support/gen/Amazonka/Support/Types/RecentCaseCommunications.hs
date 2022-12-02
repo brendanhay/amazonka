@@ -21,6 +21,7 @@ module Amazonka.Support.Types.RecentCaseCommunications where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Support.Types.Communication
 
@@ -63,15 +64,15 @@ recentCaseCommunications_nextToken = Lens.lens (\RecentCaseCommunications' {next
 recentCaseCommunications_communications :: Lens.Lens' RecentCaseCommunications (Prelude.Maybe [Communication])
 recentCaseCommunications_communications = Lens.lens (\RecentCaseCommunications' {communications} -> communications) (\s@RecentCaseCommunications' {} a -> s {communications = a} :: RecentCaseCommunications) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON RecentCaseCommunications where
+instance Data.FromJSON RecentCaseCommunications where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecentCaseCommunications"
       ( \x ->
           RecentCaseCommunications'
-            Prelude.<$> (x Core..:? "nextToken")
-            Prelude.<*> ( x Core..:? "communications"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "nextToken")
+            Prelude.<*> ( x Data..:? "communications"
+                            Data..!= Prelude.mempty
                         )
       )
 

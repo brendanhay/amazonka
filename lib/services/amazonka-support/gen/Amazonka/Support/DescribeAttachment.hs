@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,7 +101,7 @@ instance Core.AWSRequest DescribeAttachment where
     Response.receiveJSON
       ( \s h x ->
           DescribeAttachmentResponse'
-            Prelude.<$> (x Core..?> "attachment")
+            Prelude.<$> (x Data..?> "attachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,32 +113,32 @@ instance Prelude.NFData DescribeAttachment where
   rnf DescribeAttachment' {..} =
     Prelude.rnf attachmentId
 
-instance Core.ToHeaders DescribeAttachment where
+instance Data.ToHeaders DescribeAttachment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSupport_20130415.DescribeAttachment" ::
+              Data.=# ( "AWSSupport_20130415.DescribeAttachment" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAttachment where
+instance Data.ToJSON DescribeAttachment where
   toJSON DescribeAttachment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("attachmentId" Core..= attachmentId)]
+          [Prelude.Just ("attachmentId" Data..= attachmentId)]
       )
 
-instance Core.ToPath DescribeAttachment where
+instance Data.ToPath DescribeAttachment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAttachment where
+instance Data.ToQuery DescribeAttachment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The content and file name of the attachment returned by the

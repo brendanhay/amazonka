@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -139,8 +140,8 @@ instance Core.AWSRequest AddAttachmentsToSet where
     Response.receiveJSON
       ( \s h x ->
           AddAttachmentsToSetResponse'
-            Prelude.<$> (x Core..?> "expiryTime")
-            Prelude.<*> (x Core..?> "attachmentSetId")
+            Prelude.<$> (x Data..?> "expiryTime")
+            Prelude.<*> (x Data..?> "attachmentSetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,35 +155,35 @@ instance Prelude.NFData AddAttachmentsToSet where
     Prelude.rnf attachmentSetId
       `Prelude.seq` Prelude.rnf attachments
 
-instance Core.ToHeaders AddAttachmentsToSet where
+instance Data.ToHeaders AddAttachmentsToSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSupport_20130415.AddAttachmentsToSet" ::
+              Data.=# ( "AWSSupport_20130415.AddAttachmentsToSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AddAttachmentsToSet where
+instance Data.ToJSON AddAttachmentsToSet where
   toJSON AddAttachmentsToSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("attachmentSetId" Core..=)
+          [ ("attachmentSetId" Data..=)
               Prelude.<$> attachmentSetId,
-            Prelude.Just ("attachments" Core..= attachments)
+            Prelude.Just ("attachments" Data..= attachments)
           ]
       )
 
-instance Core.ToPath AddAttachmentsToSet where
+instance Data.ToPath AddAttachmentsToSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddAttachmentsToSet where
+instance Data.ToQuery AddAttachmentsToSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The ID and expiry time of the attachment set returned by the

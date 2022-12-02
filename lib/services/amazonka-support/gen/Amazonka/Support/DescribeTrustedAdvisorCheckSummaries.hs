@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,7 +102,7 @@ instance
       ( \s h x ->
           DescribeTrustedAdvisorCheckSummariesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..?> "summaries" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "summaries" Core..!@ Prelude.mempty)
       )
 
 instance
@@ -121,41 +122,41 @@ instance
     Prelude.rnf checkIds
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeTrustedAdvisorCheckSummaries
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSupport_20130415.DescribeTrustedAdvisorCheckSummaries" ::
+              Data.=# ( "AWSSupport_20130415.DescribeTrustedAdvisorCheckSummaries" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeTrustedAdvisorCheckSummaries
   where
   toJSON DescribeTrustedAdvisorCheckSummaries' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("checkIds" Core..= checkIds)]
+          [Prelude.Just ("checkIds" Data..= checkIds)]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeTrustedAdvisorCheckSummaries
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeTrustedAdvisorCheckSummaries
   where
   toQuery = Prelude.const Prelude.mempty

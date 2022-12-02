@@ -21,6 +21,7 @@ module Amazonka.Support.Types.Category where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A JSON-formatted name\/value pair that represents the category name and
@@ -63,13 +64,13 @@ category_name = Lens.lens (\Category' {name} -> name) (\s@Category' {} a -> s {n
 category_code :: Lens.Lens' Category (Prelude.Maybe Prelude.Text)
 category_code = Lens.lens (\Category' {code} -> code) (\s@Category' {} a -> s {code = a} :: Category)
 
-instance Core.FromJSON Category where
+instance Data.FromJSON Category where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Category"
       ( \x ->
           Category'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "code")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "code")
       )
 
 instance Prelude.Hashable Category where

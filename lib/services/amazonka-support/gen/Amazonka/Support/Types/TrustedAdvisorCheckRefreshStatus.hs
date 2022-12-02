@@ -21,6 +21,7 @@ module Amazonka.Support.Types.TrustedAdvisorCheckRefreshStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The refresh status of a Trusted Advisor check.
@@ -127,17 +128,17 @@ trustedAdvisorCheckRefreshStatus_millisUntilNextRefreshable :: Lens.Lens' Truste
 trustedAdvisorCheckRefreshStatus_millisUntilNextRefreshable = Lens.lens (\TrustedAdvisorCheckRefreshStatus' {millisUntilNextRefreshable} -> millisUntilNextRefreshable) (\s@TrustedAdvisorCheckRefreshStatus' {} a -> s {millisUntilNextRefreshable = a} :: TrustedAdvisorCheckRefreshStatus)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     TrustedAdvisorCheckRefreshStatus
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrustedAdvisorCheckRefreshStatus"
       ( \x ->
           TrustedAdvisorCheckRefreshStatus'
-            Prelude.<$> (x Core..: "checkId")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "millisUntilNextRefreshable")
+            Prelude.<$> (x Data..: "checkId")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "millisUntilNextRefreshable")
       )
 
 instance

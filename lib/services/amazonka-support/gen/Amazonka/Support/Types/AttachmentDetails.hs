@@ -21,6 +21,7 @@ module Amazonka.Support.Types.AttachmentDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The file name and ID of an attachment to a case communication. You can
@@ -63,14 +64,14 @@ attachmentDetails_fileName = Lens.lens (\AttachmentDetails' {fileName} -> fileNa
 attachmentDetails_attachmentId :: Lens.Lens' AttachmentDetails (Prelude.Maybe Prelude.Text)
 attachmentDetails_attachmentId = Lens.lens (\AttachmentDetails' {attachmentId} -> attachmentId) (\s@AttachmentDetails' {} a -> s {attachmentId = a} :: AttachmentDetails)
 
-instance Core.FromJSON AttachmentDetails where
+instance Data.FromJSON AttachmentDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AttachmentDetails"
       ( \x ->
           AttachmentDetails'
-            Prelude.<$> (x Core..:? "fileName")
-            Prelude.<*> (x Core..:? "attachmentId")
+            Prelude.<$> (x Data..:? "fileName")
+            Prelude.<*> (x Data..:? "attachmentId")
       )
 
 instance Prelude.Hashable AttachmentDetails where

@@ -77,6 +77,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -240,8 +241,8 @@ instance Core.AWSRequest DescribeCases where
     Response.receiveJSON
       ( \s h x ->
           DescribeCasesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "cases" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "cases" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -269,43 +270,43 @@ instance Prelude.NFData DescribeCases where
       `Prelude.seq` Prelude.rnf beforeTime
       `Prelude.seq` Prelude.rnf language
 
-instance Core.ToHeaders DescribeCases where
+instance Data.ToHeaders DescribeCases where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSupport_20130415.DescribeCases" ::
+              Data.=# ( "AWSSupport_20130415.DescribeCases" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeCases where
+instance Data.ToJSON DescribeCases where
   toJSON DescribeCases' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("caseIdList" Core..=) Prelude.<$> caseIdList,
-            ("includeResolvedCases" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("caseIdList" Data..=) Prelude.<$> caseIdList,
+            ("includeResolvedCases" Data..=)
               Prelude.<$> includeResolvedCases,
-            ("displayId" Core..=) Prelude.<$> displayId,
-            ("afterTime" Core..=) Prelude.<$> afterTime,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("includeCommunications" Core..=)
+            ("displayId" Data..=) Prelude.<$> displayId,
+            ("afterTime" Data..=) Prelude.<$> afterTime,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("includeCommunications" Data..=)
               Prelude.<$> includeCommunications,
-            ("beforeTime" Core..=) Prelude.<$> beforeTime,
-            ("language" Core..=) Prelude.<$> language
+            ("beforeTime" Data..=) Prelude.<$> beforeTime,
+            ("language" Data..=) Prelude.<$> language
           ]
       )
 
-instance Core.ToPath DescribeCases where
+instance Data.ToPath DescribeCases where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCases where
+instance Data.ToQuery DescribeCases where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Returns an array of

@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.LogsAnomalyDetectionIntegrationConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.OptInStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -76,11 +77,11 @@ instance
     Prelude.rnf optInStatus
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     LogsAnomalyDetectionIntegrationConfig
   where
   toJSON LogsAnomalyDetectionIntegrationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("OptInStatus" Core..=) Prelude.<$> optInStatus]
+          [("OptInStatus" Data..=) Prelude.<$> optInStatus]
       )

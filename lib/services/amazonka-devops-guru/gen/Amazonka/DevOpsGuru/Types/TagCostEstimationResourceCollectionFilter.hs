@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.TagCostEstimationResourceCollectionFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a collection of Amazon Web Services resources that are
@@ -142,16 +143,16 @@ tagCostEstimationResourceCollectionFilter_tagValues :: Lens.Lens' TagCostEstimat
 tagCostEstimationResourceCollectionFilter_tagValues = Lens.lens (\TagCostEstimationResourceCollectionFilter' {tagValues} -> tagValues) (\s@TagCostEstimationResourceCollectionFilter' {} a -> s {tagValues = a} :: TagCostEstimationResourceCollectionFilter) Prelude.. Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     TagCostEstimationResourceCollectionFilter
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TagCostEstimationResourceCollectionFilter"
       ( \x ->
           TagCostEstimationResourceCollectionFilter'
-            Prelude.<$> (x Core..: "AppBoundaryKey")
-              Prelude.<*> (x Core..: "TagValues")
+            Prelude.<$> (x Data..: "AppBoundaryKey")
+              Prelude.<*> (x Data..: "TagValues")
       )
 
 instance
@@ -173,14 +174,14 @@ instance
       `Prelude.seq` Prelude.rnf tagValues
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     TagCostEstimationResourceCollectionFilter
   where
   toJSON TagCostEstimationResourceCollectionFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AppBoundaryKey" Core..= appBoundaryKey),
-            Prelude.Just ("TagValues" Core..= tagValues)
+              ("AppBoundaryKey" Data..= appBoundaryKey),
+            Prelude.Just ("TagValues" Data..= tagValues)
           ]
       )

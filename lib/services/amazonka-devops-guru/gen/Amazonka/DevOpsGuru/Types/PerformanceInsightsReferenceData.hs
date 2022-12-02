@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.PerformanceInsightsReferenceData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.PerformanceInsightsReferenceComparisonValues
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,16 +72,16 @@ performanceInsightsReferenceData_comparisonValues :: Lens.Lens' PerformanceInsig
 performanceInsightsReferenceData_comparisonValues = Lens.lens (\PerformanceInsightsReferenceData' {comparisonValues} -> comparisonValues) (\s@PerformanceInsightsReferenceData' {} a -> s {comparisonValues = a} :: PerformanceInsightsReferenceData)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     PerformanceInsightsReferenceData
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PerformanceInsightsReferenceData"
       ( \x ->
           PerformanceInsightsReferenceData'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ComparisonValues")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ComparisonValues")
       )
 
 instance

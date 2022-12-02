@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.NotificationChannel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.NotificationChannelConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -85,13 +86,13 @@ notificationChannel_id = Lens.lens (\NotificationChannel' {id} -> id) (\s@Notifi
 notificationChannel_config :: Lens.Lens' NotificationChannel (Prelude.Maybe NotificationChannelConfig)
 notificationChannel_config = Lens.lens (\NotificationChannel' {config} -> config) (\s@NotificationChannel' {} a -> s {config = a} :: NotificationChannel)
 
-instance Core.FromJSON NotificationChannel where
+instance Data.FromJSON NotificationChannel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NotificationChannel"
       ( \x ->
           NotificationChannel'
-            Prelude.<$> (x Core..:? "Id") Prelude.<*> (x Core..:? "Config")
+            Prelude.<$> (x Data..:? "Id") Prelude.<*> (x Data..:? "Config")
       )
 
 instance Prelude.Hashable NotificationChannel where

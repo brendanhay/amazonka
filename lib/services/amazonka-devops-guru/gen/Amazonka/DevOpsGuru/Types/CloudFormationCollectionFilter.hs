@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.CloudFormationCollectionFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about Amazon Web Services CloudFormation stacks. You can use
@@ -57,13 +58,13 @@ newCloudFormationCollectionFilter =
 cloudFormationCollectionFilter_stackNames :: Lens.Lens' CloudFormationCollectionFilter (Prelude.Maybe [Prelude.Text])
 cloudFormationCollectionFilter_stackNames = Lens.lens (\CloudFormationCollectionFilter' {stackNames} -> stackNames) (\s@CloudFormationCollectionFilter' {} a -> s {stackNames = a} :: CloudFormationCollectionFilter) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CloudFormationCollectionFilter where
+instance Data.FromJSON CloudFormationCollectionFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudFormationCollectionFilter"
       ( \x ->
           CloudFormationCollectionFilter'
-            Prelude.<$> (x Core..:? "StackNames" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "StackNames" Data..!= Prelude.mempty)
       )
 
 instance

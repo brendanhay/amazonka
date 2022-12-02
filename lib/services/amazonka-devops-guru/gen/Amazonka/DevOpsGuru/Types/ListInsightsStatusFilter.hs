@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.ListInsightsAnyStatusFilter
 import Amazonka.DevOpsGuru.Types.ListInsightsClosedStatusFilter
 import Amazonka.DevOpsGuru.Types.ListInsightsOngoingStatusFilter
@@ -94,12 +95,12 @@ instance Prelude.NFData ListInsightsStatusFilter where
       `Prelude.seq` Prelude.rnf any
       `Prelude.seq` Prelude.rnf ongoing
 
-instance Core.ToJSON ListInsightsStatusFilter where
+instance Data.ToJSON ListInsightsStatusFilter where
   toJSON ListInsightsStatusFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Closed" Core..=) Prelude.<$> closed,
-            ("Any" Core..=) Prelude.<$> any,
-            ("Ongoing" Core..=) Prelude.<$> ongoing
+          [ ("Closed" Data..=) Prelude.<$> closed,
+            ("Any" Data..=) Prelude.<$> any,
+            ("Ongoing" Data..=) Prelude.<$> ongoing
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.EventSourcesConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.AmazonCodeGuruProfilerIntegration
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,13 +59,13 @@ newEventSourcesConfig =
 eventSourcesConfig_amazonCodeGuruProfiler :: Lens.Lens' EventSourcesConfig (Prelude.Maybe AmazonCodeGuruProfilerIntegration)
 eventSourcesConfig_amazonCodeGuruProfiler = Lens.lens (\EventSourcesConfig' {amazonCodeGuruProfiler} -> amazonCodeGuruProfiler) (\s@EventSourcesConfig' {} a -> s {amazonCodeGuruProfiler = a} :: EventSourcesConfig)
 
-instance Core.FromJSON EventSourcesConfig where
+instance Data.FromJSON EventSourcesConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventSourcesConfig"
       ( \x ->
           EventSourcesConfig'
-            Prelude.<$> (x Core..:? "AmazonCodeGuruProfiler")
+            Prelude.<$> (x Data..:? "AmazonCodeGuruProfiler")
       )
 
 instance Prelude.Hashable EventSourcesConfig where
@@ -75,11 +76,11 @@ instance Prelude.NFData EventSourcesConfig where
   rnf EventSourcesConfig' {..} =
     Prelude.rnf amazonCodeGuruProfiler
 
-instance Core.ToJSON EventSourcesConfig where
+instance Data.ToJSON EventSourcesConfig where
   toJSON EventSourcesConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AmazonCodeGuruProfiler" Core..=)
+          [ ("AmazonCodeGuruProfiler" Data..=)
               Prelude.<$> amazonCodeGuruProfiler
           ]
       )

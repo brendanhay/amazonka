@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -143,9 +144,9 @@ instance Core.AWSRequest ListEvents where
     Response.receiveJSON
       ( \s h x ->
           ListEventsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Events" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Events" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListEvents where
@@ -162,32 +163,32 @@ instance Prelude.NFData ListEvents where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf filters
 
-instance Core.ToHeaders ListEvents where
+instance Data.ToHeaders ListEvents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListEvents where
+instance Data.ToJSON ListEvents where
   toJSON ListEvents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("AccountId" Core..=) Prelude.<$> accountId,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("Filters" Core..= filters)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("AccountId" Data..=) Prelude.<$> accountId,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("Filters" Data..= filters)
           ]
       )
 
-instance Core.ToPath ListEvents where
+instance Data.ToPath ListEvents where
   toPath = Prelude.const "/events"
 
-instance Core.ToQuery ListEvents where
+instance Data.ToQuery ListEvents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListEventsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.ReactiveAnomaly where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.AnomalyReportedTimeRange
 import Amazonka.DevOpsGuru.Types.AnomalyResource
 import Amazonka.DevOpsGuru.Types.AnomalySeverity
@@ -207,27 +208,27 @@ reactiveAnomaly_description = Lens.lens (\ReactiveAnomaly' {description} -> desc
 reactiveAnomaly_causalAnomalyId :: Lens.Lens' ReactiveAnomaly (Prelude.Maybe Prelude.Text)
 reactiveAnomaly_causalAnomalyId = Lens.lens (\ReactiveAnomaly' {causalAnomalyId} -> causalAnomalyId) (\s@ReactiveAnomaly' {} a -> s {causalAnomalyId = a} :: ReactiveAnomaly)
 
-instance Core.FromJSON ReactiveAnomaly where
+instance Data.FromJSON ReactiveAnomaly where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReactiveAnomaly"
       ( \x ->
           ReactiveAnomaly'
-            Prelude.<$> (x Core..:? "AnomalyTimeRange")
-            Prelude.<*> (x Core..:? "Severity")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "AnomalyReportedTimeRange")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "AssociatedInsightId")
-            Prelude.<*> ( x Core..:? "AnomalyResources"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "AnomalyTimeRange")
+            Prelude.<*> (x Data..:? "Severity")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "AnomalyReportedTimeRange")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "AssociatedInsightId")
+            Prelude.<*> ( x Data..:? "AnomalyResources"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ResourceCollection")
-            Prelude.<*> (x Core..:? "SourceDetails")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "CausalAnomalyId")
+            Prelude.<*> (x Data..:? "ResourceCollection")
+            Prelude.<*> (x Data..:? "SourceDetails")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "CausalAnomalyId")
       )
 
 instance Prelude.Hashable ReactiveAnomaly where

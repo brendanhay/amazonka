@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.AnomalySourceMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata about the detection source that generates proactive anomalies.
@@ -73,15 +74,15 @@ anomalySourceMetadata_sourceResourceType = Lens.lens (\AnomalySourceMetadata' {s
 anomalySourceMetadata_source :: Lens.Lens' AnomalySourceMetadata (Prelude.Maybe Prelude.Text)
 anomalySourceMetadata_source = Lens.lens (\AnomalySourceMetadata' {source} -> source) (\s@AnomalySourceMetadata' {} a -> s {source = a} :: AnomalySourceMetadata)
 
-instance Core.FromJSON AnomalySourceMetadata where
+instance Data.FromJSON AnomalySourceMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AnomalySourceMetadata"
       ( \x ->
           AnomalySourceMetadata'
-            Prelude.<$> (x Core..:? "SourceResourceName")
-            Prelude.<*> (x Core..:? "SourceResourceType")
-            Prelude.<*> (x Core..:? "Source")
+            Prelude.<$> (x Data..:? "SourceResourceName")
+            Prelude.<*> (x Data..:? "SourceResourceType")
+            Prelude.<*> (x Data..:? "Source")
       )
 
 instance Prelude.Hashable AnomalySourceMetadata where

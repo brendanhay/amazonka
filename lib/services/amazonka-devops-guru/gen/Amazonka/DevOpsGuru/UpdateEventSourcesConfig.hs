@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,28 +101,28 @@ instance Prelude.NFData UpdateEventSourcesConfig where
   rnf UpdateEventSourcesConfig' {..} =
     Prelude.rnf eventSources
 
-instance Core.ToHeaders UpdateEventSourcesConfig where
+instance Data.ToHeaders UpdateEventSourcesConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateEventSourcesConfig where
+instance Data.ToJSON UpdateEventSourcesConfig where
   toJSON UpdateEventSourcesConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("EventSources" Core..=) Prelude.<$> eventSources]
+          [("EventSources" Data..=) Prelude.<$> eventSources]
       )
 
-instance Core.ToPath UpdateEventSourcesConfig where
+instance Data.ToPath UpdateEventSourcesConfig where
   toPath = Prelude.const "/event-sources"
 
-instance Core.ToQuery UpdateEventSourcesConfig where
+instance Data.ToQuery UpdateEventSourcesConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEventSourcesConfigResponse' smart constructor.

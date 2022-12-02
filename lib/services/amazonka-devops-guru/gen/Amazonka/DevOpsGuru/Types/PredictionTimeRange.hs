@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.PredictionTimeRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The time range during which anomalous behavior in a proactive anomaly or
@@ -29,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newPredictionTimeRange' smart constructor.
 data PredictionTimeRange = PredictionTimeRange'
   { -- | The time when the behavior in a proactive insight is expected to end.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The time range during which a metric limit is expected to be exceeded.
     -- This applies to proactive insights only.
-    startTime :: Core.POSIX
+    startTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,26 +56,26 @@ newPredictionTimeRange ::
 newPredictionTimeRange pStartTime_ =
   PredictionTimeRange'
     { endTime = Prelude.Nothing,
-      startTime = Core._Time Lens.# pStartTime_
+      startTime = Data._Time Lens.# pStartTime_
     }
 
 -- | The time when the behavior in a proactive insight is expected to end.
 predictionTimeRange_endTime :: Lens.Lens' PredictionTimeRange (Prelude.Maybe Prelude.UTCTime)
-predictionTimeRange_endTime = Lens.lens (\PredictionTimeRange' {endTime} -> endTime) (\s@PredictionTimeRange' {} a -> s {endTime = a} :: PredictionTimeRange) Prelude.. Lens.mapping Core._Time
+predictionTimeRange_endTime = Lens.lens (\PredictionTimeRange' {endTime} -> endTime) (\s@PredictionTimeRange' {} a -> s {endTime = a} :: PredictionTimeRange) Prelude.. Lens.mapping Data._Time
 
 -- | The time range during which a metric limit is expected to be exceeded.
 -- This applies to proactive insights only.
 predictionTimeRange_startTime :: Lens.Lens' PredictionTimeRange Prelude.UTCTime
-predictionTimeRange_startTime = Lens.lens (\PredictionTimeRange' {startTime} -> startTime) (\s@PredictionTimeRange' {} a -> s {startTime = a} :: PredictionTimeRange) Prelude.. Core._Time
+predictionTimeRange_startTime = Lens.lens (\PredictionTimeRange' {startTime} -> startTime) (\s@PredictionTimeRange' {} a -> s {startTime = a} :: PredictionTimeRange) Prelude.. Data._Time
 
-instance Core.FromJSON PredictionTimeRange where
+instance Data.FromJSON PredictionTimeRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PredictionTimeRange"
       ( \x ->
           PredictionTimeRange'
-            Prelude.<$> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..: "StartTime")
+            Prelude.<$> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..: "StartTime")
       )
 
 instance Prelude.Hashable PredictionTimeRange where

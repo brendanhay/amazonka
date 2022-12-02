@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.ServiceResourceCost where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.CostEstimationServiceResourceState
 import qualified Amazonka.Prelude as Prelude
 
@@ -120,17 +121,17 @@ serviceResourceCost_unitCost = Lens.lens (\ServiceResourceCost' {unitCost} -> un
 serviceResourceCost_cost :: Lens.Lens' ServiceResourceCost (Prelude.Maybe Prelude.Double)
 serviceResourceCost_cost = Lens.lens (\ServiceResourceCost' {cost} -> cost) (\s@ServiceResourceCost' {} a -> s {cost = a} :: ServiceResourceCost)
 
-instance Core.FromJSON ServiceResourceCost where
+instance Data.FromJSON ServiceResourceCost where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceResourceCost"
       ( \x ->
           ServiceResourceCost'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Count")
-            Prelude.<*> (x Core..:? "UnitCost")
-            Prelude.<*> (x Core..:? "Cost")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Count")
+            Prelude.<*> (x Data..:? "UnitCost")
+            Prelude.<*> (x Data..:? "Cost")
       )
 
 instance Prelude.Hashable ServiceResourceCost where

@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.SnsChannelConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the Amazon Resource Name (ARN) of an Amazon Simple Notification
@@ -72,13 +73,13 @@ newSnsChannelConfig =
 snsChannelConfig_topicArn :: Lens.Lens' SnsChannelConfig (Prelude.Maybe Prelude.Text)
 snsChannelConfig_topicArn = Lens.lens (\SnsChannelConfig' {topicArn} -> topicArn) (\s@SnsChannelConfig' {} a -> s {topicArn = a} :: SnsChannelConfig)
 
-instance Core.FromJSON SnsChannelConfig where
+instance Data.FromJSON SnsChannelConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SnsChannelConfig"
       ( \x ->
           SnsChannelConfig'
-            Prelude.<$> (x Core..:? "TopicArn")
+            Prelude.<$> (x Data..:? "TopicArn")
       )
 
 instance Prelude.Hashable SnsChannelConfig where
@@ -88,9 +89,9 @@ instance Prelude.Hashable SnsChannelConfig where
 instance Prelude.NFData SnsChannelConfig where
   rnf SnsChannelConfig' {..} = Prelude.rnf topicArn
 
-instance Core.ToJSON SnsChannelConfig where
+instance Data.ToJSON SnsChannelConfig where
   toJSON SnsChannelConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("TopicArn" Core..=) Prelude.<$> topicArn]
+          [("TopicArn" Data..=) Prelude.<$> topicArn]
       )

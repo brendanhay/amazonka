@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.CloudWatchMetricsDataSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.CloudWatchMetricDataStatusCode
 import Amazonka.DevOpsGuru.Types.TimestampMetricValuePair
 import qualified Amazonka.Prelude as Prelude
@@ -68,16 +69,16 @@ cloudWatchMetricsDataSummary_timestampMetricValuePairList = Lens.lens (\CloudWat
 cloudWatchMetricsDataSummary_statusCode :: Lens.Lens' CloudWatchMetricsDataSummary (Prelude.Maybe CloudWatchMetricDataStatusCode)
 cloudWatchMetricsDataSummary_statusCode = Lens.lens (\CloudWatchMetricsDataSummary' {statusCode} -> statusCode) (\s@CloudWatchMetricsDataSummary' {} a -> s {statusCode = a} :: CloudWatchMetricsDataSummary)
 
-instance Core.FromJSON CloudWatchMetricsDataSummary where
+instance Data.FromJSON CloudWatchMetricsDataSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudWatchMetricsDataSummary"
       ( \x ->
           CloudWatchMetricsDataSummary'
-            Prelude.<$> ( x Core..:? "TimestampMetricValuePairList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "TimestampMetricValuePairList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "StatusCode")
+            Prelude.<*> (x Data..:? "StatusCode")
       )
 
 instance

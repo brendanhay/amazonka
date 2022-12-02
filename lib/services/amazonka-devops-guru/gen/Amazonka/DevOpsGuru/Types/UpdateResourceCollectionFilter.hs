@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.UpdateResourceCollectionFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.UpdateCloudFormationCollectionFilter
 import Amazonka.DevOpsGuru.Types.UpdateTagCollectionFilter
 import qualified Amazonka.Prelude as Prelude
@@ -185,12 +186,12 @@ instance
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf cloudFormation
 
-instance Core.ToJSON UpdateResourceCollectionFilter where
+instance Data.ToJSON UpdateResourceCollectionFilter where
   toJSON UpdateResourceCollectionFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("CloudFormation" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("CloudFormation" Data..=)
               Prelude.<$> cloudFormation
           ]
       )

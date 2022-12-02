@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -171,11 +172,11 @@ instance Core.AWSRequest ListAnomaliesForInsight where
     Response.receiveJSON
       ( \s h x ->
           ListAnomaliesForInsightResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ProactiveAnomalies"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ProactiveAnomalies"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "ReactiveAnomalies"
+            Prelude.<*> ( x Data..?> "ReactiveAnomalies"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -197,35 +198,35 @@ instance Prelude.NFData ListAnomaliesForInsight where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf insightId
 
-instance Core.ToHeaders ListAnomaliesForInsight where
+instance Data.ToHeaders ListAnomaliesForInsight where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAnomaliesForInsight where
+instance Data.ToJSON ListAnomaliesForInsight where
   toJSON ListAnomaliesForInsight' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("StartTimeRange" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("StartTimeRange" Data..=)
               Prelude.<$> startTimeRange,
-            ("AccountId" Core..=) Prelude.<$> accountId,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("AccountId" Data..=) Prelude.<$> accountId,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListAnomaliesForInsight where
+instance Data.ToPath ListAnomaliesForInsight where
   toPath ListAnomaliesForInsight' {..} =
     Prelude.mconcat
-      ["/anomalies/insight/", Core.toBS insightId]
+      ["/anomalies/insight/", Data.toBS insightId]
 
-instance Core.ToQuery ListAnomaliesForInsight where
+instance Data.ToQuery ListAnomaliesForInsight where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAnomaliesForInsightResponse' smart constructor.

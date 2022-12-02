@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.CloudFormationCollection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about Amazon Web Services CloudFormation stacks. You can use
@@ -57,13 +58,13 @@ newCloudFormationCollection =
 cloudFormationCollection_stackNames :: Lens.Lens' CloudFormationCollection (Prelude.Maybe [Prelude.Text])
 cloudFormationCollection_stackNames = Lens.lens (\CloudFormationCollection' {stackNames} -> stackNames) (\s@CloudFormationCollection' {} a -> s {stackNames = a} :: CloudFormationCollection) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CloudFormationCollection where
+instance Data.FromJSON CloudFormationCollection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudFormationCollection"
       ( \x ->
           CloudFormationCollection'
-            Prelude.<$> (x Core..:? "StackNames" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "StackNames" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable CloudFormationCollection where
@@ -74,9 +75,9 @@ instance Prelude.NFData CloudFormationCollection where
   rnf CloudFormationCollection' {..} =
     Prelude.rnf stackNames
 
-instance Core.ToJSON CloudFormationCollection where
+instance Data.ToJSON CloudFormationCollection where
   toJSON CloudFormationCollection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("StackNames" Core..=) Prelude.<$> stackNames]
+          [("StackNames" Data..=) Prelude.<$> stackNames]
       )

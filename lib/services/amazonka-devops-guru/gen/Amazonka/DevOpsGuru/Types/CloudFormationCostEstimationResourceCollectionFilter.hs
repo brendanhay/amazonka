@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.CloudFormationCostEstimationResourceCollectionF
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an Amazon Web Services CloudFormation stack used to
@@ -61,15 +62,15 @@ cloudFormationCostEstimationResourceCollectionFilter_stackNames :: Lens.Lens' Cl
 cloudFormationCostEstimationResourceCollectionFilter_stackNames = Lens.lens (\CloudFormationCostEstimationResourceCollectionFilter' {stackNames} -> stackNames) (\s@CloudFormationCostEstimationResourceCollectionFilter' {} a -> s {stackNames = a} :: CloudFormationCostEstimationResourceCollectionFilter) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CloudFormationCostEstimationResourceCollectionFilter
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudFormationCostEstimationResourceCollectionFilter"
       ( \x ->
           CloudFormationCostEstimationResourceCollectionFilter'
-            Prelude.<$> (x Core..:? "StackNames")
+            Prelude.<$> (x Data..:? "StackNames")
       )
 
 instance
@@ -90,12 +91,12 @@ instance
       Prelude.rnf stackNames
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CloudFormationCostEstimationResourceCollectionFilter
   where
   toJSON
     CloudFormationCostEstimationResourceCollectionFilter' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [("StackNames" Core..=) Prelude.<$> stackNames]
+            [("StackNames" Data..=) Prelude.<$> stackNames]
         )

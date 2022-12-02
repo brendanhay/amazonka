@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.SearchOrganizationInsightsFilters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.InsightSeverity
 import Amazonka.DevOpsGuru.Types.InsightStatus
 import Amazonka.DevOpsGuru.Types.ResourceCollection
@@ -106,17 +107,17 @@ instance
       `Prelude.seq` Prelude.rnf statuses
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SearchOrganizationInsightsFilters
   where
   toJSON SearchOrganizationInsightsFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Severities" Core..=) Prelude.<$> severities,
-            ("ResourceCollection" Core..=)
+          [ ("Severities" Data..=) Prelude.<$> severities,
+            ("ResourceCollection" Data..=)
               Prelude.<$> resourceCollection,
-            ("ServiceCollection" Core..=)
+            ("ServiceCollection" Data..=)
               Prelude.<$> serviceCollection,
-            ("Statuses" Core..=) Prelude.<$> statuses
+            ("Statuses" Data..=) Prelude.<$> statuses
           ]
       )

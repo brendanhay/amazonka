@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.RecommendationRelatedEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.RecommendationRelatedEventResource
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,14 +72,14 @@ recommendationRelatedEvent_name = Lens.lens (\RecommendationRelatedEvent' {name}
 recommendationRelatedEvent_resources :: Lens.Lens' RecommendationRelatedEvent (Prelude.Maybe [RecommendationRelatedEventResource])
 recommendationRelatedEvent_resources = Lens.lens (\RecommendationRelatedEvent' {resources} -> resources) (\s@RecommendationRelatedEvent' {} a -> s {resources = a} :: RecommendationRelatedEvent) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON RecommendationRelatedEvent where
+instance Data.FromJSON RecommendationRelatedEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationRelatedEvent"
       ( \x ->
           RecommendationRelatedEvent'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Resources" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Resources" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable RecommendationRelatedEvent where

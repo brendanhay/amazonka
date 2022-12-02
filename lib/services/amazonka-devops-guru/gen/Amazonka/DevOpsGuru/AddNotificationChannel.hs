@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,7 +111,7 @@ instance Core.AWSRequest AddNotificationChannel where
       ( \s h x ->
           AddNotificationChannelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Id")
+            Prelude.<*> (x Data..:> "Id")
       )
 
 instance Prelude.Hashable AddNotificationChannel where
@@ -120,28 +121,28 @@ instance Prelude.Hashable AddNotificationChannel where
 instance Prelude.NFData AddNotificationChannel where
   rnf AddNotificationChannel' {..} = Prelude.rnf config
 
-instance Core.ToHeaders AddNotificationChannel where
+instance Data.ToHeaders AddNotificationChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AddNotificationChannel where
+instance Data.ToJSON AddNotificationChannel where
   toJSON AddNotificationChannel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Config" Core..= config)]
+          [Prelude.Just ("Config" Data..= config)]
       )
 
-instance Core.ToPath AddNotificationChannel where
+instance Data.ToPath AddNotificationChannel where
   toPath = Prelude.const "/channels"
 
-instance Core.ToQuery AddNotificationChannel where
+instance Data.ToQuery AddNotificationChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddNotificationChannelResponse' smart constructor.

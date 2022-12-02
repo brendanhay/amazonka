@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.ListMonitoredResourcesFilters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.ResourcePermission
 import Amazonka.DevOpsGuru.Types.ResourceTypeFilter
 import qualified Amazonka.Prelude as Prelude
@@ -80,13 +81,13 @@ instance Prelude.NFData ListMonitoredResourcesFilters where
     Prelude.rnf resourcePermission
       `Prelude.seq` Prelude.rnf resourceTypeFilters
 
-instance Core.ToJSON ListMonitoredResourcesFilters where
+instance Data.ToJSON ListMonitoredResourcesFilters where
   toJSON ListMonitoredResourcesFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ResourcePermission" Core..= resourcePermission),
+              ("ResourcePermission" Data..= resourcePermission),
             Prelude.Just
-              ("ResourceTypeFilters" Core..= resourceTypeFilters)
+              ("ResourceTypeFilters" Data..= resourceTypeFilters)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.CloudWatchMetricsDimension where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The dimension of an Amazon CloudWatch metric that is used when DevOps
@@ -67,13 +68,13 @@ cloudWatchMetricsDimension_name = Lens.lens (\CloudWatchMetricsDimension' {name}
 cloudWatchMetricsDimension_value :: Lens.Lens' CloudWatchMetricsDimension (Prelude.Maybe Prelude.Text)
 cloudWatchMetricsDimension_value = Lens.lens (\CloudWatchMetricsDimension' {value} -> value) (\s@CloudWatchMetricsDimension' {} a -> s {value = a} :: CloudWatchMetricsDimension)
 
-instance Core.FromJSON CloudWatchMetricsDimension where
+instance Data.FromJSON CloudWatchMetricsDimension where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudWatchMetricsDimension"
       ( \x ->
           CloudWatchMetricsDimension'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable CloudWatchMetricsDimension where

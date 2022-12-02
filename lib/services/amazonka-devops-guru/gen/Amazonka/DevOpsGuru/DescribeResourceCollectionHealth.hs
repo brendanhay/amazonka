@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -176,10 +177,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeResourceCollectionHealthResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Service" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "CloudFormation" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Service" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "CloudFormation" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,32 +203,32 @@ instance
       `Prelude.seq` Prelude.rnf resourceCollectionType
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeResourceCollectionHealth
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeResourceCollectionHealth where
+instance Data.ToPath DescribeResourceCollectionHealth where
   toPath DescribeResourceCollectionHealth' {..} =
     Prelude.mconcat
       [ "/accounts/health/resource-collection/",
-        Core.toBS resourceCollectionType
+        Data.toBS resourceCollectionType
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeResourceCollectionHealth
   where
   toQuery DescribeResourceCollectionHealth' {..} =
-    Prelude.mconcat ["NextToken" Core.=: nextToken]
+    Prelude.mconcat ["NextToken" Data.=: nextToken]
 
 -- | /See:/ 'newDescribeResourceCollectionHealthResponse' smart constructor.
 data DescribeResourceCollectionHealthResponse = DescribeResourceCollectionHealthResponse'

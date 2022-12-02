@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.ListInsightsClosedStatusFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.EndTimeRange
 import Amazonka.DevOpsGuru.Types.InsightType
 import qualified Amazonka.Prelude as Prelude
@@ -90,11 +91,11 @@ instance
     Prelude.rnf type'
       `Prelude.seq` Prelude.rnf endTimeRange
 
-instance Core.ToJSON ListInsightsClosedStatusFilter where
+instance Data.ToJSON ListInsightsClosedStatusFilter where
   toJSON ListInsightsClosedStatusFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("EndTimeRange" Core..= endTimeRange)
+          [ Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("EndTimeRange" Data..= endTimeRange)
           ]
       )

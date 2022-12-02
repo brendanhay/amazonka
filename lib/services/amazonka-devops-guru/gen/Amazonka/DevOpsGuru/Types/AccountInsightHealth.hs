@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.AccountInsightHealth where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the number of open reactive and proactive insights
@@ -69,14 +70,14 @@ accountInsightHealth_openReactiveInsights = Lens.lens (\AccountInsightHealth' {o
 accountInsightHealth_openProactiveInsights :: Lens.Lens' AccountInsightHealth (Prelude.Maybe Prelude.Int)
 accountInsightHealth_openProactiveInsights = Lens.lens (\AccountInsightHealth' {openProactiveInsights} -> openProactiveInsights) (\s@AccountInsightHealth' {} a -> s {openProactiveInsights = a} :: AccountInsightHealth)
 
-instance Core.FromJSON AccountInsightHealth where
+instance Data.FromJSON AccountInsightHealth where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountInsightHealth"
       ( \x ->
           AccountInsightHealth'
-            Prelude.<$> (x Core..:? "OpenReactiveInsights")
-            Prelude.<*> (x Core..:? "OpenProactiveInsights")
+            Prelude.<$> (x Data..:? "OpenReactiveInsights")
+            Prelude.<*> (x Data..:? "OpenProactiveInsights")
       )
 
 instance Prelude.Hashable AccountInsightHealth where

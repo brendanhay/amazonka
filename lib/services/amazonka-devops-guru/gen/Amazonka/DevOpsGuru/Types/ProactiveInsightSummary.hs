@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.ProactiveInsightSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.InsightSeverity
 import Amazonka.DevOpsGuru.Types.InsightStatus
 import Amazonka.DevOpsGuru.Types.InsightTimeRange
@@ -138,23 +139,23 @@ proactiveInsightSummary_predictionTimeRange = Lens.lens (\ProactiveInsightSummar
 proactiveInsightSummary_insightTimeRange :: Lens.Lens' ProactiveInsightSummary (Prelude.Maybe InsightTimeRange)
 proactiveInsightSummary_insightTimeRange = Lens.lens (\ProactiveInsightSummary' {insightTimeRange} -> insightTimeRange) (\s@ProactiveInsightSummary' {} a -> s {insightTimeRange = a} :: ProactiveInsightSummary)
 
-instance Core.FromJSON ProactiveInsightSummary where
+instance Data.FromJSON ProactiveInsightSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProactiveInsightSummary"
       ( \x ->
           ProactiveInsightSummary'
-            Prelude.<$> (x Core..:? "Severity")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ResourceCollection")
-            Prelude.<*> (x Core..:? "ServiceCollection")
-            Prelude.<*> ( x Core..:? "AssociatedResourceArns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Severity")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ResourceCollection")
+            Prelude.<*> (x Data..:? "ServiceCollection")
+            Prelude.<*> ( x Data..:? "AssociatedResourceArns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "PredictionTimeRange")
-            Prelude.<*> (x Core..:? "InsightTimeRange")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "PredictionTimeRange")
+            Prelude.<*> (x Data..:? "InsightTimeRange")
       )
 
 instance Prelude.Hashable ProactiveInsightSummary where

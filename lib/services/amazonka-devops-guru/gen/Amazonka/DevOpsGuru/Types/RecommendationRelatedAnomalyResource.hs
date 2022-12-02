@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.RecommendationRelatedAnomalyResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a resource in which DevOps Guru detected anomalous
@@ -79,15 +80,15 @@ recommendationRelatedAnomalyResource_type :: Lens.Lens' RecommendationRelatedAno
 recommendationRelatedAnomalyResource_type = Lens.lens (\RecommendationRelatedAnomalyResource' {type'} -> type') (\s@RecommendationRelatedAnomalyResource' {} a -> s {type' = a} :: RecommendationRelatedAnomalyResource)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RecommendationRelatedAnomalyResource
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationRelatedAnomalyResource"
       ( \x ->
           RecommendationRelatedAnomalyResource'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Type")
       )
 
 instance

@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.PerformanceInsightsMetricsDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.PerformanceInsightsMetricQuery
 import Amazonka.DevOpsGuru.Types.PerformanceInsightsReferenceData
 import Amazonka.DevOpsGuru.Types.PerformanceInsightsStat
@@ -132,22 +133,22 @@ performanceInsightsMetricsDetail_metricQuery :: Lens.Lens' PerformanceInsightsMe
 performanceInsightsMetricsDetail_metricQuery = Lens.lens (\PerformanceInsightsMetricsDetail' {metricQuery} -> metricQuery) (\s@PerformanceInsightsMetricsDetail' {} a -> s {metricQuery = a} :: PerformanceInsightsMetricsDetail)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     PerformanceInsightsMetricsDetail
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PerformanceInsightsMetricsDetail"
       ( \x ->
           PerformanceInsightsMetricsDetail'
-            Prelude.<$> (x Core..:? "MetricDisplayName")
-            Prelude.<*> (x Core..:? "ReferenceData" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "StatsAtAnomaly" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Unit")
-            Prelude.<*> ( x Core..:? "StatsAtBaseline"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "MetricDisplayName")
+            Prelude.<*> (x Data..:? "ReferenceData" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "StatsAtAnomaly" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Unit")
+            Prelude.<*> ( x Data..:? "StatsAtBaseline"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "MetricQuery")
+            Prelude.<*> (x Data..:? "MetricQuery")
       )
 
 instance

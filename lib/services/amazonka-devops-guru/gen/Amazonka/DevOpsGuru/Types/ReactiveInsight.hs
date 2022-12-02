@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.ReactiveInsight where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.InsightSeverity
 import Amazonka.DevOpsGuru.Types.InsightStatus
 import Amazonka.DevOpsGuru.Types.InsightTimeRange
@@ -130,20 +131,20 @@ reactiveInsight_ssmOpsItemId = Lens.lens (\ReactiveInsight' {ssmOpsItemId} -> ss
 reactiveInsight_insightTimeRange :: Lens.Lens' ReactiveInsight (Prelude.Maybe InsightTimeRange)
 reactiveInsight_insightTimeRange = Lens.lens (\ReactiveInsight' {insightTimeRange} -> insightTimeRange) (\s@ReactiveInsight' {} a -> s {insightTimeRange = a} :: ReactiveInsight)
 
-instance Core.FromJSON ReactiveInsight where
+instance Data.FromJSON ReactiveInsight where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReactiveInsight"
       ( \x ->
           ReactiveInsight'
-            Prelude.<$> (x Core..:? "Severity")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ResourceCollection")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "SsmOpsItemId")
-            Prelude.<*> (x Core..:? "InsightTimeRange")
+            Prelude.<$> (x Data..:? "Severity")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ResourceCollection")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "SsmOpsItemId")
+            Prelude.<*> (x Data..:? "InsightTimeRange")
       )
 
 instance Prelude.Hashable ReactiveInsight where

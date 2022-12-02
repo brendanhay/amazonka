@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -214,11 +215,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeOrganizationResourceCollectionHealthResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Core..?> "NextToken")
-              Prelude.<*> (x Core..?> "Account" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Core..?> "Service" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Core..?> "CloudFormation" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "NextToken")
+              Prelude.<*> (x Data..?> "Account" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "Service" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "CloudFormation" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -247,41 +248,41 @@ instance
       `Prelude.seq` Prelude.rnf organizationResourceCollectionType
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeOrganizationResourceCollectionHealth
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeOrganizationResourceCollectionHealth
   where
   toJSON
     DescribeOrganizationResourceCollectionHealth' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("AccountIds" Core..=) Prelude.<$> accountIds,
-              ("NextToken" Core..=) Prelude.<$> nextToken,
-              ("OrganizationalUnitIds" Core..=)
+            [ ("AccountIds" Data..=) Prelude.<$> accountIds,
+              ("NextToken" Data..=) Prelude.<$> nextToken,
+              ("OrganizationalUnitIds" Data..=)
                 Prelude.<$> organizationalUnitIds,
-              ("MaxResults" Core..=) Prelude.<$> maxResults,
+              ("MaxResults" Data..=) Prelude.<$> maxResults,
               Prelude.Just
                 ( "OrganizationResourceCollectionType"
-                    Core..= organizationResourceCollectionType
+                    Data..= organizationResourceCollectionType
                 )
             ]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeOrganizationResourceCollectionHealth
   where
   toPath =
@@ -289,7 +290,7 @@ instance
       "/organization/health/resource-collection"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeOrganizationResourceCollectionHealth
   where
   toQuery = Prelude.const Prelude.mempty

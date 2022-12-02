@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.ServiceInsightHealth where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the number of open proactive and reactive insights in an
@@ -63,14 +64,14 @@ serviceInsightHealth_openReactiveInsights = Lens.lens (\ServiceInsightHealth' {o
 serviceInsightHealth_openProactiveInsights :: Lens.Lens' ServiceInsightHealth (Prelude.Maybe Prelude.Int)
 serviceInsightHealth_openProactiveInsights = Lens.lens (\ServiceInsightHealth' {openProactiveInsights} -> openProactiveInsights) (\s@ServiceInsightHealth' {} a -> s {openProactiveInsights = a} :: ServiceInsightHealth)
 
-instance Core.FromJSON ServiceInsightHealth where
+instance Data.FromJSON ServiceInsightHealth where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceInsightHealth"
       ( \x ->
           ServiceInsightHealth'
-            Prelude.<$> (x Core..:? "OpenReactiveInsights")
-            Prelude.<*> (x Core..:? "OpenProactiveInsights")
+            Prelude.<$> (x Data..:? "OpenReactiveInsights")
+            Prelude.<*> (x Data..:? "OpenProactiveInsights")
       )
 
 instance Prelude.Hashable ServiceInsightHealth where

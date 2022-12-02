@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.InsightHealth where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the number of open reactive and proactive insights
@@ -72,15 +73,15 @@ insightHealth_meanTimeToRecoverInMilliseconds = Lens.lens (\InsightHealth' {mean
 insightHealth_openProactiveInsights :: Lens.Lens' InsightHealth (Prelude.Maybe Prelude.Int)
 insightHealth_openProactiveInsights = Lens.lens (\InsightHealth' {openProactiveInsights} -> openProactiveInsights) (\s@InsightHealth' {} a -> s {openProactiveInsights = a} :: InsightHealth)
 
-instance Core.FromJSON InsightHealth where
+instance Data.FromJSON InsightHealth where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InsightHealth"
       ( \x ->
           InsightHealth'
-            Prelude.<$> (x Core..:? "OpenReactiveInsights")
-            Prelude.<*> (x Core..:? "MeanTimeToRecoverInMilliseconds")
-            Prelude.<*> (x Core..:? "OpenProactiveInsights")
+            Prelude.<$> (x Data..:? "OpenReactiveInsights")
+            Prelude.<*> (x Data..:? "MeanTimeToRecoverInMilliseconds")
+            Prelude.<*> (x Data..:? "OpenProactiveInsights")
       )
 
 instance Prelude.Hashable InsightHealth where

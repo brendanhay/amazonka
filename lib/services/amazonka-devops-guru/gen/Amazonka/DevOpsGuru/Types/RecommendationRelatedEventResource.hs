@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.RecommendationRelatedEventResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an Amazon Web Services resource that emitted and event
@@ -70,15 +71,15 @@ recommendationRelatedEventResource_type :: Lens.Lens' RecommendationRelatedEvent
 recommendationRelatedEventResource_type = Lens.lens (\RecommendationRelatedEventResource' {type'} -> type') (\s@RecommendationRelatedEventResource' {} a -> s {type' = a} :: RecommendationRelatedEventResource)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RecommendationRelatedEventResource
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationRelatedEventResource"
       ( \x ->
           RecommendationRelatedEventResource'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Type")
       )
 
 instance

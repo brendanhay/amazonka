@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.ProactiveAnomalySummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.AnomalyReportedTimeRange
 import Amazonka.DevOpsGuru.Types.AnomalyResource
 import Amazonka.DevOpsGuru.Types.AnomalySeverity
@@ -68,7 +69,7 @@ data ProactiveAnomalySummary = ProactiveAnomalySummary'
     -- | The metadata of the source which detects proactive anomalies.
     sourceMetadata :: Prelude.Maybe AnomalySourceMetadata,
     -- | The time of the anomaly\'s most recent update.
-    updateTime :: Prelude.Maybe Core.POSIX
+    updateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -193,29 +194,29 @@ proactiveAnomalySummary_sourceMetadata = Lens.lens (\ProactiveAnomalySummary' {s
 
 -- | The time of the anomaly\'s most recent update.
 proactiveAnomalySummary_updateTime :: Lens.Lens' ProactiveAnomalySummary (Prelude.Maybe Prelude.UTCTime)
-proactiveAnomalySummary_updateTime = Lens.lens (\ProactiveAnomalySummary' {updateTime} -> updateTime) (\s@ProactiveAnomalySummary' {} a -> s {updateTime = a} :: ProactiveAnomalySummary) Prelude.. Lens.mapping Core._Time
+proactiveAnomalySummary_updateTime = Lens.lens (\ProactiveAnomalySummary' {updateTime} -> updateTime) (\s@ProactiveAnomalySummary' {} a -> s {updateTime = a} :: ProactiveAnomalySummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ProactiveAnomalySummary where
+instance Data.FromJSON ProactiveAnomalySummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProactiveAnomalySummary"
       ( \x ->
           ProactiveAnomalySummary'
-            Prelude.<$> (x Core..:? "AnomalyTimeRange")
-            Prelude.<*> (x Core..:? "Severity")
-            Prelude.<*> (x Core..:? "AnomalyReportedTimeRange")
-            Prelude.<*> (x Core..:? "AssociatedInsightId")
-            Prelude.<*> ( x Core..:? "AnomalyResources"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "AnomalyTimeRange")
+            Prelude.<*> (x Data..:? "Severity")
+            Prelude.<*> (x Data..:? "AnomalyReportedTimeRange")
+            Prelude.<*> (x Data..:? "AssociatedInsightId")
+            Prelude.<*> ( x Data..:? "AnomalyResources"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ResourceCollection")
-            Prelude.<*> (x Core..:? "SourceDetails")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "PredictionTimeRange")
-            Prelude.<*> (x Core..:? "Limit")
-            Prelude.<*> (x Core..:? "SourceMetadata")
-            Prelude.<*> (x Core..:? "UpdateTime")
+            Prelude.<*> (x Data..:? "ResourceCollection")
+            Prelude.<*> (x Data..:? "SourceDetails")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "PredictionTimeRange")
+            Prelude.<*> (x Data..:? "Limit")
+            Prelude.<*> (x Data..:? "SourceMetadata")
+            Prelude.<*> (x Data..:? "UpdateTime")
       )
 
 instance Prelude.Hashable ProactiveAnomalySummary where

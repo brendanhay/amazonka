@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.PerformanceInsightsReferenceMetric where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.PerformanceInsightsMetricQuery
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,15 +57,15 @@ performanceInsightsReferenceMetric_metricQuery :: Lens.Lens' PerformanceInsights
 performanceInsightsReferenceMetric_metricQuery = Lens.lens (\PerformanceInsightsReferenceMetric' {metricQuery} -> metricQuery) (\s@PerformanceInsightsReferenceMetric' {} a -> s {metricQuery = a} :: PerformanceInsightsReferenceMetric)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     PerformanceInsightsReferenceMetric
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PerformanceInsightsReferenceMetric"
       ( \x ->
           PerformanceInsightsReferenceMetric'
-            Prelude.<$> (x Core..:? "MetricQuery")
+            Prelude.<$> (x Data..:? "MetricQuery")
       )
 
 instance

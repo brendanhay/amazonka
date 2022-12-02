@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.AnomalyTimeRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A time range that specifies when the observed unusual behavior in an
@@ -31,9 +32,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAnomalyTimeRange' smart constructor.
 data AnomalyTimeRange = AnomalyTimeRange'
   { -- | The time when the anomalous behavior ended.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The time when the anomalous behavior started.
-    startTime :: Core.POSIX
+    startTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,25 +56,25 @@ newAnomalyTimeRange ::
 newAnomalyTimeRange pStartTime_ =
   AnomalyTimeRange'
     { endTime = Prelude.Nothing,
-      startTime = Core._Time Lens.# pStartTime_
+      startTime = Data._Time Lens.# pStartTime_
     }
 
 -- | The time when the anomalous behavior ended.
 anomalyTimeRange_endTime :: Lens.Lens' AnomalyTimeRange (Prelude.Maybe Prelude.UTCTime)
-anomalyTimeRange_endTime = Lens.lens (\AnomalyTimeRange' {endTime} -> endTime) (\s@AnomalyTimeRange' {} a -> s {endTime = a} :: AnomalyTimeRange) Prelude.. Lens.mapping Core._Time
+anomalyTimeRange_endTime = Lens.lens (\AnomalyTimeRange' {endTime} -> endTime) (\s@AnomalyTimeRange' {} a -> s {endTime = a} :: AnomalyTimeRange) Prelude.. Lens.mapping Data._Time
 
 -- | The time when the anomalous behavior started.
 anomalyTimeRange_startTime :: Lens.Lens' AnomalyTimeRange Prelude.UTCTime
-anomalyTimeRange_startTime = Lens.lens (\AnomalyTimeRange' {startTime} -> startTime) (\s@AnomalyTimeRange' {} a -> s {startTime = a} :: AnomalyTimeRange) Prelude.. Core._Time
+anomalyTimeRange_startTime = Lens.lens (\AnomalyTimeRange' {startTime} -> startTime) (\s@AnomalyTimeRange' {} a -> s {startTime = a} :: AnomalyTimeRange) Prelude.. Data._Time
 
-instance Core.FromJSON AnomalyTimeRange where
+instance Data.FromJSON AnomalyTimeRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AnomalyTimeRange"
       ( \x ->
           AnomalyTimeRange'
-            Prelude.<$> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..: "StartTime")
+            Prelude.<$> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..: "StartTime")
       )
 
 instance Prelude.Hashable AnomalyTimeRange where

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,10 +141,10 @@ instance Core.AWSRequest ListAnomalousLogGroups where
     Response.receiveJSON
       ( \s h x ->
           ListAnomalousLogGroupsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "InsightId")
-            Prelude.<*> ( x Core..?> "AnomalousLogGroups"
+            Prelude.<*> (x Data..:> "InsightId")
+            Prelude.<*> ( x Data..?> "AnomalousLogGroups"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -160,31 +161,31 @@ instance Prelude.NFData ListAnomalousLogGroups where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf insightId
 
-instance Core.ToHeaders ListAnomalousLogGroups where
+instance Data.ToHeaders ListAnomalousLogGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAnomalousLogGroups where
+instance Data.ToJSON ListAnomalousLogGroups where
   toJSON ListAnomalousLogGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("InsightId" Core..= insightId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("InsightId" Data..= insightId)
           ]
       )
 
-instance Core.ToPath ListAnomalousLogGroups where
+instance Data.ToPath ListAnomalousLogGroups where
   toPath = Prelude.const "/list-log-anomalies"
 
-instance Core.ToQuery ListAnomalousLogGroups where
+instance Data.ToQuery ListAnomalousLogGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAnomalousLogGroupsResponse' smart constructor.

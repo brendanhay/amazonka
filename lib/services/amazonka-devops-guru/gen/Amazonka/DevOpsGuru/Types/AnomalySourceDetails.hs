@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.AnomalySourceDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.CloudWatchMetricsDetail
 import Amazonka.DevOpsGuru.Types.PerformanceInsightsMetricsDetail
 import qualified Amazonka.Prelude as Prelude
@@ -74,17 +75,17 @@ anomalySourceDetails_cloudWatchMetrics = Lens.lens (\AnomalySourceDetails' {clou
 anomalySourceDetails_performanceInsightsMetrics :: Lens.Lens' AnomalySourceDetails (Prelude.Maybe [PerformanceInsightsMetricsDetail])
 anomalySourceDetails_performanceInsightsMetrics = Lens.lens (\AnomalySourceDetails' {performanceInsightsMetrics} -> performanceInsightsMetrics) (\s@AnomalySourceDetails' {} a -> s {performanceInsightsMetrics = a} :: AnomalySourceDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AnomalySourceDetails where
+instance Data.FromJSON AnomalySourceDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AnomalySourceDetails"
       ( \x ->
           AnomalySourceDetails'
-            Prelude.<$> ( x Core..:? "CloudWatchMetrics"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "CloudWatchMetrics"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "PerformanceInsightsMetrics"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "PerformanceInsightsMetrics"
+                            Data..!= Prelude.mempty
                         )
       )
 

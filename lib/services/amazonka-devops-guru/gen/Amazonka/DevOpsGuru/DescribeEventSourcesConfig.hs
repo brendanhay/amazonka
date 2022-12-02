@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -72,7 +73,7 @@ instance Core.AWSRequest DescribeEventSourcesConfig where
     Response.receiveJSON
       ( \s h x ->
           DescribeEventSourcesConfigResponse'
-            Prelude.<$> (x Core..?> "EventSources")
+            Prelude.<$> (x Data..?> "EventSources")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -83,24 +84,24 @@ instance Prelude.Hashable DescribeEventSourcesConfig where
 instance Prelude.NFData DescribeEventSourcesConfig where
   rnf _ = ()
 
-instance Core.ToHeaders DescribeEventSourcesConfig where
+instance Data.ToHeaders DescribeEventSourcesConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEventSourcesConfig where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DescribeEventSourcesConfig where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DescribeEventSourcesConfig where
+instance Data.ToPath DescribeEventSourcesConfig where
   toPath = Prelude.const "/event-sources"
 
-instance Core.ToQuery DescribeEventSourcesConfig where
+instance Data.ToQuery DescribeEventSourcesConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEventSourcesConfigResponse' smart constructor.

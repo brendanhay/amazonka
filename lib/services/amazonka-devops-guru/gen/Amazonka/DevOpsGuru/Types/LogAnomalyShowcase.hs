@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.LogAnomalyShowcase where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.LogAnomalyClass
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,14 +55,14 @@ newLogAnomalyShowcase =
 logAnomalyShowcase_logAnomalyClasses :: Lens.Lens' LogAnomalyShowcase (Prelude.Maybe [LogAnomalyClass])
 logAnomalyShowcase_logAnomalyClasses = Lens.lens (\LogAnomalyShowcase' {logAnomalyClasses} -> logAnomalyClasses) (\s@LogAnomalyShowcase' {} a -> s {logAnomalyClasses = a} :: LogAnomalyShowcase) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON LogAnomalyShowcase where
+instance Data.FromJSON LogAnomalyShowcase where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogAnomalyShowcase"
       ( \x ->
           LogAnomalyShowcase'
-            Prelude.<$> ( x Core..:? "LogAnomalyClasses"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "LogAnomalyClasses"
+                            Data..!= Prelude.mempty
                         )
       )
 

@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.NotificationFilterConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.InsightSeverity
 import Amazonka.DevOpsGuru.Types.NotificationMessageType
 import qualified Amazonka.Prelude as Prelude
@@ -82,14 +83,14 @@ notificationFilterConfig_messageTypes = Lens.lens (\NotificationFilterConfig' {m
 notificationFilterConfig_severities :: Lens.Lens' NotificationFilterConfig (Prelude.Maybe [InsightSeverity])
 notificationFilterConfig_severities = Lens.lens (\NotificationFilterConfig' {severities} -> severities) (\s@NotificationFilterConfig' {} a -> s {severities = a} :: NotificationFilterConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON NotificationFilterConfig where
+instance Data.FromJSON NotificationFilterConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NotificationFilterConfig"
       ( \x ->
           NotificationFilterConfig'
-            Prelude.<$> (x Core..:? "MessageTypes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Severities" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "MessageTypes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Severities" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable NotificationFilterConfig where
@@ -102,11 +103,11 @@ instance Prelude.NFData NotificationFilterConfig where
     Prelude.rnf messageTypes
       `Prelude.seq` Prelude.rnf severities
 
-instance Core.ToJSON NotificationFilterConfig where
+instance Data.ToJSON NotificationFilterConfig where
   toJSON NotificationFilterConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MessageTypes" Core..=) Prelude.<$> messageTypes,
-            ("Severities" Core..=) Prelude.<$> severities
+          [ ("MessageTypes" Data..=) Prelude.<$> messageTypes,
+            ("Severities" Data..=) Prelude.<$> severities
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.CostEstimationResourceCollectionFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.CloudFormationCostEstimationResourceCollectionFilter
 import Amazonka.DevOpsGuru.Types.TagCostEstimationResourceCollectionFilter
 import qualified Amazonka.Prelude as Prelude
@@ -175,16 +176,16 @@ costEstimationResourceCollectionFilter_cloudFormation :: Lens.Lens' CostEstimati
 costEstimationResourceCollectionFilter_cloudFormation = Lens.lens (\CostEstimationResourceCollectionFilter' {cloudFormation} -> cloudFormation) (\s@CostEstimationResourceCollectionFilter' {} a -> s {cloudFormation = a} :: CostEstimationResourceCollectionFilter)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CostEstimationResourceCollectionFilter
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CostEstimationResourceCollectionFilter"
       ( \x ->
           CostEstimationResourceCollectionFilter'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CloudFormation")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CloudFormation")
       )
 
 instance
@@ -206,14 +207,14 @@ instance
       `Prelude.seq` Prelude.rnf cloudFormation
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CostEstimationResourceCollectionFilter
   where
   toJSON CostEstimationResourceCollectionFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("CloudFormation" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("CloudFormation" Data..=)
               Prelude.<$> cloudFormation
           ]
       )

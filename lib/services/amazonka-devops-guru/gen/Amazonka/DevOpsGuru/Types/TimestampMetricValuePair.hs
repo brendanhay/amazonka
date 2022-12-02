@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.TimestampMetricValuePair where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A pair that contains metric values at the respective timestamp.
@@ -30,7 +31,7 @@ data TimestampMetricValuePair = TimestampMetricValuePair'
   { -- | Value of the anomalous metric data point at respective Timestamp.
     metricValue :: Prelude.Maybe Prelude.Double,
     -- | A @Timestamp@ that specifies the time the event occurred.
-    timestamp :: Prelude.Maybe Core.POSIX
+    timestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,16 +61,16 @@ timestampMetricValuePair_metricValue = Lens.lens (\TimestampMetricValuePair' {me
 
 -- | A @Timestamp@ that specifies the time the event occurred.
 timestampMetricValuePair_timestamp :: Lens.Lens' TimestampMetricValuePair (Prelude.Maybe Prelude.UTCTime)
-timestampMetricValuePair_timestamp = Lens.lens (\TimestampMetricValuePair' {timestamp} -> timestamp) (\s@TimestampMetricValuePair' {} a -> s {timestamp = a} :: TimestampMetricValuePair) Prelude.. Lens.mapping Core._Time
+timestampMetricValuePair_timestamp = Lens.lens (\TimestampMetricValuePair' {timestamp} -> timestamp) (\s@TimestampMetricValuePair' {} a -> s {timestamp = a} :: TimestampMetricValuePair) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON TimestampMetricValuePair where
+instance Data.FromJSON TimestampMetricValuePair where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimestampMetricValuePair"
       ( \x ->
           TimestampMetricValuePair'
-            Prelude.<$> (x Core..:? "MetricValue")
-            Prelude.<*> (x Core..:? "Timestamp")
+            Prelude.<$> (x Data..:? "MetricValue")
+            Prelude.<*> (x Data..:? "Timestamp")
       )
 
 instance Prelude.Hashable TimestampMetricValuePair where

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,8 +97,8 @@ instance Core.AWSRequest DescribeAnomaly where
     Response.receiveJSON
       ( \s h x ->
           DescribeAnomalyResponse'
-            Prelude.<$> (x Core..?> "ReactiveAnomaly")
-            Prelude.<*> (x Core..?> "ProactiveAnomaly")
+            Prelude.<$> (x Data..?> "ReactiveAnomaly")
+            Prelude.<*> (x Data..?> "ProactiveAnomaly")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,24 +111,24 @@ instance Prelude.NFData DescribeAnomaly where
   rnf DescribeAnomaly' {..} =
     Prelude.rnf accountId `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders DescribeAnomaly where
+instance Data.ToHeaders DescribeAnomaly where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeAnomaly where
+instance Data.ToPath DescribeAnomaly where
   toPath DescribeAnomaly' {..} =
-    Prelude.mconcat ["/anomalies/", Core.toBS id]
+    Prelude.mconcat ["/anomalies/", Data.toBS id]
 
-instance Core.ToQuery DescribeAnomaly where
+instance Data.ToQuery DescribeAnomaly where
   toQuery DescribeAnomaly' {..} =
-    Prelude.mconcat ["AccountId" Core.=: accountId]
+    Prelude.mconcat ["AccountId" Data.=: accountId]
 
 -- | /See:/ 'newDescribeAnomalyResponse' smart constructor.
 data DescribeAnomalyResponse = DescribeAnomalyResponse'

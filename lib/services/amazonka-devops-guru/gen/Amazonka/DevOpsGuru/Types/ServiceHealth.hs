@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.ServiceHealth where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.ServiceInsightHealth
 import Amazonka.DevOpsGuru.Types.ServiceName
 import qualified Amazonka.Prelude as Prelude
@@ -81,15 +82,15 @@ serviceHealth_analyzedResourceCount = Lens.lens (\ServiceHealth' {analyzedResour
 serviceHealth_serviceName :: Lens.Lens' ServiceHealth (Prelude.Maybe ServiceName)
 serviceHealth_serviceName = Lens.lens (\ServiceHealth' {serviceName} -> serviceName) (\s@ServiceHealth' {} a -> s {serviceName = a} :: ServiceHealth)
 
-instance Core.FromJSON ServiceHealth where
+instance Data.FromJSON ServiceHealth where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceHealth"
       ( \x ->
           ServiceHealth'
-            Prelude.<$> (x Core..:? "Insight")
-            Prelude.<*> (x Core..:? "AnalyzedResourceCount")
-            Prelude.<*> (x Core..:? "ServiceName")
+            Prelude.<$> (x Data..:? "Insight")
+            Prelude.<*> (x Data..:? "AnalyzedResourceCount")
+            Prelude.<*> (x Data..:? "ServiceName")
       )
 
 instance Prelude.Hashable ServiceHealth where

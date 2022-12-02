@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.ListInsightsOngoingStatusFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.InsightType
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,9 +70,9 @@ instance
   rnf ListInsightsOngoingStatusFilter' {..} =
     Prelude.rnf type'
 
-instance Core.ToJSON ListInsightsOngoingStatusFilter where
+instance Data.ToJSON ListInsightsOngoingStatusFilter where
   toJSON ListInsightsOngoingStatusFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Type" Core..= type')]
+          [Prelude.Just ("Type" Data..= type')]
       )

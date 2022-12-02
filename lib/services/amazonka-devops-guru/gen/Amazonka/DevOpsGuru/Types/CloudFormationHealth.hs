@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.CloudFormationHealth where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.InsightHealth
 import qualified Amazonka.Prelude as Prelude
 
@@ -85,15 +86,15 @@ cloudFormationHealth_analyzedResourceCount = Lens.lens (\CloudFormationHealth' {
 cloudFormationHealth_stackName :: Lens.Lens' CloudFormationHealth (Prelude.Maybe Prelude.Text)
 cloudFormationHealth_stackName = Lens.lens (\CloudFormationHealth' {stackName} -> stackName) (\s@CloudFormationHealth' {} a -> s {stackName = a} :: CloudFormationHealth)
 
-instance Core.FromJSON CloudFormationHealth where
+instance Data.FromJSON CloudFormationHealth where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudFormationHealth"
       ( \x ->
           CloudFormationHealth'
-            Prelude.<$> (x Core..:? "Insight")
-            Prelude.<*> (x Core..:? "AnalyzedResourceCount")
-            Prelude.<*> (x Core..:? "StackName")
+            Prelude.<$> (x Data..:? "Insight")
+            Prelude.<*> (x Data..:? "AnalyzedResourceCount")
+            Prelude.<*> (x Data..:? "StackName")
       )
 
 instance Prelude.Hashable CloudFormationHealth where

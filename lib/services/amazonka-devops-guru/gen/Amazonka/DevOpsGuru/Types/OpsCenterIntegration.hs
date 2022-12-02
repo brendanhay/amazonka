@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.OpsCenterIntegration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.OptInStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -59,13 +60,13 @@ newOpsCenterIntegration =
 opsCenterIntegration_optInStatus :: Lens.Lens' OpsCenterIntegration (Prelude.Maybe OptInStatus)
 opsCenterIntegration_optInStatus = Lens.lens (\OpsCenterIntegration' {optInStatus} -> optInStatus) (\s@OpsCenterIntegration' {} a -> s {optInStatus = a} :: OpsCenterIntegration)
 
-instance Core.FromJSON OpsCenterIntegration where
+instance Data.FromJSON OpsCenterIntegration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OpsCenterIntegration"
       ( \x ->
           OpsCenterIntegration'
-            Prelude.<$> (x Core..:? "OptInStatus")
+            Prelude.<$> (x Data..:? "OptInStatus")
       )
 
 instance Prelude.Hashable OpsCenterIntegration where

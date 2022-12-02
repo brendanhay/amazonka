@@ -24,6 +24,7 @@ import Amazonka.ChimeSDKIdentity.Types.AppInstanceUserEndpointType
 import Amazonka.ChimeSDKIdentity.Types.EndpointState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of the details of an @AppInstanceUserEndpoint@.
@@ -31,13 +32,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAppInstanceUserEndpointSummary' smart constructor.
 data AppInstanceUserEndpointSummary = AppInstanceUserEndpointSummary'
   { -- | The name of the @AppInstanceUserEndpoint@.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The type of the @AppInstanceUserEndpoint@.
     type' :: Prelude.Maybe AppInstanceUserEndpointType,
     -- | The unique identifier of the @AppInstanceUserEndpoint@.
-    endpointId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    endpointId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the @AppInstanceUser@.
-    appInstanceUserArn :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    appInstanceUserArn :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A read-only field that represent the state of an
     -- @AppInstanceUserEndpoint@.
     endpointState :: Prelude.Maybe EndpointState,
@@ -85,7 +86,7 @@ newAppInstanceUserEndpointSummary =
 
 -- | The name of the @AppInstanceUserEndpoint@.
 appInstanceUserEndpointSummary_name :: Lens.Lens' AppInstanceUserEndpointSummary (Prelude.Maybe Prelude.Text)
-appInstanceUserEndpointSummary_name = Lens.lens (\AppInstanceUserEndpointSummary' {name} -> name) (\s@AppInstanceUserEndpointSummary' {} a -> s {name = a} :: AppInstanceUserEndpointSummary) Prelude.. Lens.mapping Core._Sensitive
+appInstanceUserEndpointSummary_name = Lens.lens (\AppInstanceUserEndpointSummary' {name} -> name) (\s@AppInstanceUserEndpointSummary' {} a -> s {name = a} :: AppInstanceUserEndpointSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The type of the @AppInstanceUserEndpoint@.
 appInstanceUserEndpointSummary_type :: Lens.Lens' AppInstanceUserEndpointSummary (Prelude.Maybe AppInstanceUserEndpointType)
@@ -93,11 +94,11 @@ appInstanceUserEndpointSummary_type = Lens.lens (\AppInstanceUserEndpointSummary
 
 -- | The unique identifier of the @AppInstanceUserEndpoint@.
 appInstanceUserEndpointSummary_endpointId :: Lens.Lens' AppInstanceUserEndpointSummary (Prelude.Maybe Prelude.Text)
-appInstanceUserEndpointSummary_endpointId = Lens.lens (\AppInstanceUserEndpointSummary' {endpointId} -> endpointId) (\s@AppInstanceUserEndpointSummary' {} a -> s {endpointId = a} :: AppInstanceUserEndpointSummary) Prelude.. Lens.mapping Core._Sensitive
+appInstanceUserEndpointSummary_endpointId = Lens.lens (\AppInstanceUserEndpointSummary' {endpointId} -> endpointId) (\s@AppInstanceUserEndpointSummary' {} a -> s {endpointId = a} :: AppInstanceUserEndpointSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARN of the @AppInstanceUser@.
 appInstanceUserEndpointSummary_appInstanceUserArn :: Lens.Lens' AppInstanceUserEndpointSummary (Prelude.Maybe Prelude.Text)
-appInstanceUserEndpointSummary_appInstanceUserArn = Lens.lens (\AppInstanceUserEndpointSummary' {appInstanceUserArn} -> appInstanceUserArn) (\s@AppInstanceUserEndpointSummary' {} a -> s {appInstanceUserArn = a} :: AppInstanceUserEndpointSummary) Prelude.. Lens.mapping Core._Sensitive
+appInstanceUserEndpointSummary_appInstanceUserArn = Lens.lens (\AppInstanceUserEndpointSummary' {appInstanceUserArn} -> appInstanceUserArn) (\s@AppInstanceUserEndpointSummary' {} a -> s {appInstanceUserArn = a} :: AppInstanceUserEndpointSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A read-only field that represent the state of an
 -- @AppInstanceUserEndpoint@.
@@ -110,18 +111,18 @@ appInstanceUserEndpointSummary_endpointState = Lens.lens (\AppInstanceUserEndpoi
 appInstanceUserEndpointSummary_allowMessages :: Lens.Lens' AppInstanceUserEndpointSummary (Prelude.Maybe AllowMessages)
 appInstanceUserEndpointSummary_allowMessages = Lens.lens (\AppInstanceUserEndpointSummary' {allowMessages} -> allowMessages) (\s@AppInstanceUserEndpointSummary' {} a -> s {allowMessages = a} :: AppInstanceUserEndpointSummary)
 
-instance Core.FromJSON AppInstanceUserEndpointSummary where
+instance Data.FromJSON AppInstanceUserEndpointSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppInstanceUserEndpointSummary"
       ( \x ->
           AppInstanceUserEndpointSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "EndpointId")
-            Prelude.<*> (x Core..:? "AppInstanceUserArn")
-            Prelude.<*> (x Core..:? "EndpointState")
-            Prelude.<*> (x Core..:? "AllowMessages")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "EndpointId")
+            Prelude.<*> (x Data..:? "AppInstanceUserArn")
+            Prelude.<*> (x Data..:? "EndpointState")
+            Prelude.<*> (x Data..:? "AllowMessages")
       )
 
 instance

@@ -21,6 +21,7 @@ module Amazonka.ChimeSDKIdentity.Types.AppInstanceSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of the data for an @AppInstance@.
@@ -28,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAppInstanceSummary' smart constructor.
 data AppInstanceSummary = AppInstanceSummary'
   { -- | The name of the @AppInstance@.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The metadata of the @AppInstance@.
-    metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    metadata :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The @AppInstance@ ARN.
     appInstanceArn :: Prelude.Maybe Prelude.Text
   }
@@ -60,25 +61,25 @@ newAppInstanceSummary =
 
 -- | The name of the @AppInstance@.
 appInstanceSummary_name :: Lens.Lens' AppInstanceSummary (Prelude.Maybe Prelude.Text)
-appInstanceSummary_name = Lens.lens (\AppInstanceSummary' {name} -> name) (\s@AppInstanceSummary' {} a -> s {name = a} :: AppInstanceSummary) Prelude.. Lens.mapping Core._Sensitive
+appInstanceSummary_name = Lens.lens (\AppInstanceSummary' {name} -> name) (\s@AppInstanceSummary' {} a -> s {name = a} :: AppInstanceSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The metadata of the @AppInstance@.
 appInstanceSummary_metadata :: Lens.Lens' AppInstanceSummary (Prelude.Maybe Prelude.Text)
-appInstanceSummary_metadata = Lens.lens (\AppInstanceSummary' {metadata} -> metadata) (\s@AppInstanceSummary' {} a -> s {metadata = a} :: AppInstanceSummary) Prelude.. Lens.mapping Core._Sensitive
+appInstanceSummary_metadata = Lens.lens (\AppInstanceSummary' {metadata} -> metadata) (\s@AppInstanceSummary' {} a -> s {metadata = a} :: AppInstanceSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The @AppInstance@ ARN.
 appInstanceSummary_appInstanceArn :: Lens.Lens' AppInstanceSummary (Prelude.Maybe Prelude.Text)
 appInstanceSummary_appInstanceArn = Lens.lens (\AppInstanceSummary' {appInstanceArn} -> appInstanceArn) (\s@AppInstanceSummary' {} a -> s {appInstanceArn = a} :: AppInstanceSummary)
 
-instance Core.FromJSON AppInstanceSummary where
+instance Data.FromJSON AppInstanceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppInstanceSummary"
       ( \x ->
           AppInstanceSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Metadata")
-            Prelude.<*> (x Core..:? "AppInstanceArn")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Metadata")
+            Prelude.<*> (x Data..:? "AppInstanceArn")
       )
 
 instance Prelude.Hashable AppInstanceSummary where

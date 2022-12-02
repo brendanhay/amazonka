@@ -51,6 +51,7 @@ where
 import Amazonka.ChimeSDKIdentity.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,8 +109,8 @@ instance Core.AWSRequest CreateAppInstanceAdmin where
     Response.receiveJSON
       ( \s h x ->
           CreateAppInstanceAdminResponse'
-            Prelude.<$> (x Core..?> "AppInstanceArn")
-            Prelude.<*> (x Core..?> "AppInstanceAdmin")
+            Prelude.<$> (x Data..?> "AppInstanceArn")
+            Prelude.<*> (x Data..?> "AppInstanceAdmin")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,27 +124,27 @@ instance Prelude.NFData CreateAppInstanceAdmin where
     Prelude.rnf appInstanceAdminArn
       `Prelude.seq` Prelude.rnf appInstanceArn
 
-instance Core.ToHeaders CreateAppInstanceAdmin where
+instance Data.ToHeaders CreateAppInstanceAdmin where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateAppInstanceAdmin where
+instance Data.ToJSON CreateAppInstanceAdmin where
   toJSON CreateAppInstanceAdmin' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AppInstanceAdminArn" Core..= appInstanceAdminArn)
+              ("AppInstanceAdminArn" Data..= appInstanceAdminArn)
           ]
       )
 
-instance Core.ToPath CreateAppInstanceAdmin where
+instance Data.ToPath CreateAppInstanceAdmin where
   toPath CreateAppInstanceAdmin' {..} =
     Prelude.mconcat
       [ "/app-instances/",
-        Core.toBS appInstanceArn,
+        Data.toBS appInstanceArn,
         "/admins"
       ]
 
-instance Core.ToQuery CreateAppInstanceAdmin where
+instance Data.ToQuery CreateAppInstanceAdmin where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAppInstanceAdminResponse' smart constructor.

@@ -39,6 +39,7 @@ where
 import Amazonka.ChimeSDKIdentity.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -46,9 +47,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDeregisterAppInstanceUserEndpoint' smart constructor.
 data DeregisterAppInstanceUserEndpoint = DeregisterAppInstanceUserEndpoint'
   { -- | The ARN of the @AppInstanceUser@.
-    appInstanceUserArn :: Core.Sensitive Prelude.Text,
+    appInstanceUserArn :: Data.Sensitive Prelude.Text,
     -- | The unique identifier of the @AppInstanceUserEndpoint@.
-    endpointId :: Core.Sensitive Prelude.Text
+    endpointId :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -74,19 +75,19 @@ newDeregisterAppInstanceUserEndpoint
   pEndpointId_ =
     DeregisterAppInstanceUserEndpoint'
       { appInstanceUserArn =
-          Core._Sensitive
+          Data._Sensitive
             Lens.# pAppInstanceUserArn_,
         endpointId =
-          Core._Sensitive Lens.# pEndpointId_
+          Data._Sensitive Lens.# pEndpointId_
       }
 
 -- | The ARN of the @AppInstanceUser@.
 deregisterAppInstanceUserEndpoint_appInstanceUserArn :: Lens.Lens' DeregisterAppInstanceUserEndpoint Prelude.Text
-deregisterAppInstanceUserEndpoint_appInstanceUserArn = Lens.lens (\DeregisterAppInstanceUserEndpoint' {appInstanceUserArn} -> appInstanceUserArn) (\s@DeregisterAppInstanceUserEndpoint' {} a -> s {appInstanceUserArn = a} :: DeregisterAppInstanceUserEndpoint) Prelude.. Core._Sensitive
+deregisterAppInstanceUserEndpoint_appInstanceUserArn = Lens.lens (\DeregisterAppInstanceUserEndpoint' {appInstanceUserArn} -> appInstanceUserArn) (\s@DeregisterAppInstanceUserEndpoint' {} a -> s {appInstanceUserArn = a} :: DeregisterAppInstanceUserEndpoint) Prelude.. Data._Sensitive
 
 -- | The unique identifier of the @AppInstanceUserEndpoint@.
 deregisterAppInstanceUserEndpoint_endpointId :: Lens.Lens' DeregisterAppInstanceUserEndpoint Prelude.Text
-deregisterAppInstanceUserEndpoint_endpointId = Lens.lens (\DeregisterAppInstanceUserEndpoint' {endpointId} -> endpointId) (\s@DeregisterAppInstanceUserEndpoint' {} a -> s {endpointId = a} :: DeregisterAppInstanceUserEndpoint) Prelude.. Core._Sensitive
+deregisterAppInstanceUserEndpoint_endpointId = Lens.lens (\DeregisterAppInstanceUserEndpoint' {endpointId} -> endpointId) (\s@DeregisterAppInstanceUserEndpoint' {} a -> s {endpointId = a} :: DeregisterAppInstanceUserEndpoint) Prelude.. Data._Sensitive
 
 instance
   Core.AWSRequest
@@ -120,25 +121,25 @@ instance
       `Prelude.seq` Prelude.rnf endpointId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeregisterAppInstanceUserEndpoint
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeregisterAppInstanceUserEndpoint
   where
   toPath DeregisterAppInstanceUserEndpoint' {..} =
     Prelude.mconcat
       [ "/app-instance-users/",
-        Core.toBS appInstanceUserArn,
+        Data.toBS appInstanceUserArn,
         "/endpoints/",
-        Core.toBS endpointId
+        Data.toBS endpointId
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeregisterAppInstanceUserEndpoint
   where
   toQuery = Prelude.const Prelude.mempty

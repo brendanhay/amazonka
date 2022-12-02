@@ -43,6 +43,7 @@ where
 import Amazonka.ChimeSDKIdentity.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,8 +91,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetAppInstanceRetentionSettingsResponse'
-            Prelude.<$> (x Core..?> "AppInstanceRetentionSettings")
-            Prelude.<*> (x Core..?> "InitiateDeletionTimestamp")
+            Prelude.<$> (x Data..?> "AppInstanceRetentionSettings")
+            Prelude.<*> (x Data..?> "InitiateDeletionTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,20 +113,20 @@ instance
     Prelude.rnf appInstanceArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetAppInstanceRetentionSettings
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetAppInstanceRetentionSettings where
+instance Data.ToPath GetAppInstanceRetentionSettings where
   toPath GetAppInstanceRetentionSettings' {..} =
     Prelude.mconcat
       [ "/app-instances/",
-        Core.toBS appInstanceArn,
+        Data.toBS appInstanceArn,
         "/retention-settings"
       ]
 
-instance Core.ToQuery GetAppInstanceRetentionSettings where
+instance Data.ToQuery GetAppInstanceRetentionSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAppInstanceRetentionSettingsResponse' smart constructor.
@@ -134,7 +135,7 @@ data GetAppInstanceRetentionSettingsResponse = GetAppInstanceRetentionSettingsRe
     appInstanceRetentionSettings :: Prelude.Maybe AppInstanceRetentionSettings,
     -- | The timestamp representing the time at which the specified items are
     -- retained, in Epoch Seconds.
-    initiateDeletionTimestamp :: Prelude.Maybe Core.POSIX,
+    initiateDeletionTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,7 +176,7 @@ getAppInstanceRetentionSettingsResponse_appInstanceRetentionSettings = Lens.lens
 -- | The timestamp representing the time at which the specified items are
 -- retained, in Epoch Seconds.
 getAppInstanceRetentionSettingsResponse_initiateDeletionTimestamp :: Lens.Lens' GetAppInstanceRetentionSettingsResponse (Prelude.Maybe Prelude.UTCTime)
-getAppInstanceRetentionSettingsResponse_initiateDeletionTimestamp = Lens.lens (\GetAppInstanceRetentionSettingsResponse' {initiateDeletionTimestamp} -> initiateDeletionTimestamp) (\s@GetAppInstanceRetentionSettingsResponse' {} a -> s {initiateDeletionTimestamp = a} :: GetAppInstanceRetentionSettingsResponse) Prelude.. Lens.mapping Core._Time
+getAppInstanceRetentionSettingsResponse_initiateDeletionTimestamp = Lens.lens (\GetAppInstanceRetentionSettingsResponse' {initiateDeletionTimestamp} -> initiateDeletionTimestamp) (\s@GetAppInstanceRetentionSettingsResponse' {} a -> s {initiateDeletionTimestamp = a} :: GetAppInstanceRetentionSettingsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getAppInstanceRetentionSettingsResponse_httpStatus :: Lens.Lens' GetAppInstanceRetentionSettingsResponse Prelude.Int

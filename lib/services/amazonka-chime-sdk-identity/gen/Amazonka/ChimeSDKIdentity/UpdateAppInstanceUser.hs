@@ -45,6 +45,7 @@ where
 import Amazonka.ChimeSDKIdentity.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -54,9 +55,9 @@ data UpdateAppInstanceUser = UpdateAppInstanceUser'
   { -- | The ARN of the @AppInstanceUser@.
     appInstanceUserArn :: Prelude.Text,
     -- | The name of the @AppInstanceUser@.
-    name :: Core.Sensitive Prelude.Text,
+    name :: Data.Sensitive Prelude.Text,
     -- | The metadata of the @AppInstanceUser@.
-    metadata :: Core.Sensitive Prelude.Text
+    metadata :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -88,8 +89,8 @@ newUpdateAppInstanceUser
     UpdateAppInstanceUser'
       { appInstanceUserArn =
           pAppInstanceUserArn_,
-        name = Core._Sensitive Lens.# pName_,
-        metadata = Core._Sensitive Lens.# pMetadata_
+        name = Data._Sensitive Lens.# pName_,
+        metadata = Data._Sensitive Lens.# pMetadata_
       }
 
 -- | The ARN of the @AppInstanceUser@.
@@ -98,11 +99,11 @@ updateAppInstanceUser_appInstanceUserArn = Lens.lens (\UpdateAppInstanceUser' {a
 
 -- | The name of the @AppInstanceUser@.
 updateAppInstanceUser_name :: Lens.Lens' UpdateAppInstanceUser Prelude.Text
-updateAppInstanceUser_name = Lens.lens (\UpdateAppInstanceUser' {name} -> name) (\s@UpdateAppInstanceUser' {} a -> s {name = a} :: UpdateAppInstanceUser) Prelude.. Core._Sensitive
+updateAppInstanceUser_name = Lens.lens (\UpdateAppInstanceUser' {name} -> name) (\s@UpdateAppInstanceUser' {} a -> s {name = a} :: UpdateAppInstanceUser) Prelude.. Data._Sensitive
 
 -- | The metadata of the @AppInstanceUser@.
 updateAppInstanceUser_metadata :: Lens.Lens' UpdateAppInstanceUser Prelude.Text
-updateAppInstanceUser_metadata = Lens.lens (\UpdateAppInstanceUser' {metadata} -> metadata) (\s@UpdateAppInstanceUser' {} a -> s {metadata = a} :: UpdateAppInstanceUser) Prelude.. Core._Sensitive
+updateAppInstanceUser_metadata = Lens.lens (\UpdateAppInstanceUser' {metadata} -> metadata) (\s@UpdateAppInstanceUser' {} a -> s {metadata = a} :: UpdateAppInstanceUser) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest UpdateAppInstanceUser where
   type
@@ -114,7 +115,7 @@ instance Core.AWSRequest UpdateAppInstanceUser where
     Response.receiveJSON
       ( \s h x ->
           UpdateAppInstanceUserResponse'
-            Prelude.<$> (x Core..?> "AppInstanceUserArn")
+            Prelude.<$> (x Data..?> "AppInstanceUserArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,26 +131,26 @@ instance Prelude.NFData UpdateAppInstanceUser where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf metadata
 
-instance Core.ToHeaders UpdateAppInstanceUser where
+instance Data.ToHeaders UpdateAppInstanceUser where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateAppInstanceUser where
+instance Data.ToJSON UpdateAppInstanceUser where
   toJSON UpdateAppInstanceUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Metadata" Core..= metadata)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Metadata" Data..= metadata)
           ]
       )
 
-instance Core.ToPath UpdateAppInstanceUser where
+instance Data.ToPath UpdateAppInstanceUser where
   toPath UpdateAppInstanceUser' {..} =
     Prelude.mconcat
       [ "/app-instance-users/",
-        Core.toBS appInstanceUserArn
+        Data.toBS appInstanceUserArn
       ]
 
-instance Core.ToQuery UpdateAppInstanceUser where
+instance Data.ToQuery UpdateAppInstanceUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAppInstanceUserResponse' smart constructor.

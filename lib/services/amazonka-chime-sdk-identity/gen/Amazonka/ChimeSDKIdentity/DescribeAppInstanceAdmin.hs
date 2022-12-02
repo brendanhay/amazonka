@@ -43,6 +43,7 @@ where
 import Amazonka.ChimeSDKIdentity.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,7 +101,7 @@ instance Core.AWSRequest DescribeAppInstanceAdmin where
     Response.receiveJSON
       ( \s h x ->
           DescribeAppInstanceAdminResponse'
-            Prelude.<$> (x Core..?> "AppInstanceAdmin")
+            Prelude.<$> (x Data..?> "AppInstanceAdmin")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,19 +115,19 @@ instance Prelude.NFData DescribeAppInstanceAdmin where
     Prelude.rnf appInstanceAdminArn
       `Prelude.seq` Prelude.rnf appInstanceArn
 
-instance Core.ToHeaders DescribeAppInstanceAdmin where
+instance Data.ToHeaders DescribeAppInstanceAdmin where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAppInstanceAdmin where
+instance Data.ToPath DescribeAppInstanceAdmin where
   toPath DescribeAppInstanceAdmin' {..} =
     Prelude.mconcat
       [ "/app-instances/",
-        Core.toBS appInstanceArn,
+        Data.toBS appInstanceArn,
         "/admins/",
-        Core.toBS appInstanceAdminArn
+        Data.toBS appInstanceAdminArn
       ]
 
-instance Core.ToQuery DescribeAppInstanceAdmin where
+instance Data.ToQuery DescribeAppInstanceAdmin where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAppInstanceAdminResponse' smart constructor.

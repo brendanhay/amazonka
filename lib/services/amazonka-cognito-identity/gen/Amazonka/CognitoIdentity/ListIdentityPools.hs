@@ -48,6 +48,7 @@ where
 import Amazonka.CognitoIdentity.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,8 +125,8 @@ instance Core.AWSRequest ListIdentityPools where
     Response.receiveJSON
       ( \s h x ->
           ListIdentityPoolsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "IdentityPools" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "IdentityPools" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,34 +140,34 @@ instance Prelude.NFData ListIdentityPools where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListIdentityPools where
+instance Data.ToHeaders ListIdentityPools where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityService.ListIdentityPools" ::
+              Data.=# ( "AWSCognitoIdentityService.ListIdentityPools" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListIdentityPools where
+instance Data.ToJSON ListIdentityPools where
   toJSON ListIdentityPools' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            Prelude.Just ("MaxResults" Core..= maxResults)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            Prelude.Just ("MaxResults" Data..= maxResults)
           ]
       )
 
-instance Core.ToPath ListIdentityPools where
+instance Data.ToPath ListIdentityPools where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListIdentityPools where
+instance Data.ToQuery ListIdentityPools where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result of a successful ListIdentityPools action.

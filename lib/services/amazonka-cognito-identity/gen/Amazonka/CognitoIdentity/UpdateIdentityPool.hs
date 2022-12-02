@@ -61,6 +61,7 @@ where
 import Amazonka.CognitoIdentity.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -213,7 +214,7 @@ instance Core.AWSRequest UpdateIdentityPool where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateIdentityPool where
   hashWithSalt _salt UpdateIdentityPool' {..} =
@@ -241,52 +242,52 @@ instance Prelude.NFData UpdateIdentityPool where
       `Prelude.seq` Prelude.rnf identityPoolName
       `Prelude.seq` Prelude.rnf allowUnauthenticatedIdentities
 
-instance Core.ToHeaders UpdateIdentityPool where
+instance Data.ToHeaders UpdateIdentityPool where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityService.UpdateIdentityPool" ::
+              Data.=# ( "AWSCognitoIdentityService.UpdateIdentityPool" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateIdentityPool where
+instance Data.ToJSON UpdateIdentityPool where
   toJSON UpdateIdentityPool' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AllowClassicFlow" Core..=)
+          [ ("AllowClassicFlow" Data..=)
               Prelude.<$> allowClassicFlow,
-            ("IdentityPoolTags" Core..=)
+            ("IdentityPoolTags" Data..=)
               Prelude.<$> identityPoolTags,
-            ("CognitoIdentityProviders" Core..=)
+            ("CognitoIdentityProviders" Data..=)
               Prelude.<$> cognitoIdentityProviders,
-            ("SamlProviderARNs" Core..=)
+            ("SamlProviderARNs" Data..=)
               Prelude.<$> samlProviderARNs,
-            ("SupportedLoginProviders" Core..=)
+            ("SupportedLoginProviders" Data..=)
               Prelude.<$> supportedLoginProviders,
-            ("OpenIdConnectProviderARNs" Core..=)
+            ("OpenIdConnectProviderARNs" Data..=)
               Prelude.<$> openIdConnectProviderARNs,
-            ("DeveloperProviderName" Core..=)
+            ("DeveloperProviderName" Data..=)
               Prelude.<$> developerProviderName,
             Prelude.Just
-              ("IdentityPoolId" Core..= identityPoolId),
+              ("IdentityPoolId" Data..= identityPoolId),
             Prelude.Just
-              ("IdentityPoolName" Core..= identityPoolName),
+              ("IdentityPoolName" Data..= identityPoolName),
             Prelude.Just
               ( "AllowUnauthenticatedIdentities"
-                  Core..= allowUnauthenticatedIdentities
+                  Data..= allowUnauthenticatedIdentities
               )
           ]
       )
 
-instance Core.ToPath UpdateIdentityPool where
+instance Data.ToPath UpdateIdentityPool where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateIdentityPool where
+instance Data.ToQuery UpdateIdentityPool where
   toQuery = Prelude.const Prelude.mempty

@@ -63,6 +63,7 @@ where
 import Amazonka.CognitoIdentity.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -209,8 +210,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetOpenIdTokenForDeveloperIdentityResponse'
-            Prelude.<$> (x Core..?> "IdentityId")
-              Prelude.<*> (x Core..?> "Token")
+            Prelude.<$> (x Data..?> "IdentityId")
+              Prelude.<*> (x Data..?> "Token")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -239,47 +240,47 @@ instance
       `Prelude.seq` Prelude.rnf logins
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetOpenIdTokenForDeveloperIdentity
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityService.GetOpenIdTokenForDeveloperIdentity" ::
+              Data.=# ( "AWSCognitoIdentityService.GetOpenIdTokenForDeveloperIdentity" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     GetOpenIdTokenForDeveloperIdentity
   where
   toJSON GetOpenIdTokenForDeveloperIdentity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TokenDuration" Core..=) Prelude.<$> tokenDuration,
-            ("PrincipalTags" Core..=) Prelude.<$> principalTags,
-            ("IdentityId" Core..=) Prelude.<$> identityId,
+          [ ("TokenDuration" Data..=) Prelude.<$> tokenDuration,
+            ("PrincipalTags" Data..=) Prelude.<$> principalTags,
+            ("IdentityId" Data..=) Prelude.<$> identityId,
             Prelude.Just
-              ("IdentityPoolId" Core..= identityPoolId),
-            Prelude.Just ("Logins" Core..= logins)
+              ("IdentityPoolId" Data..= identityPoolId),
+            Prelude.Just ("Logins" Data..= logins)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetOpenIdTokenForDeveloperIdentity
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetOpenIdTokenForDeveloperIdentity
   where
   toQuery = Prelude.const Prelude.mempty

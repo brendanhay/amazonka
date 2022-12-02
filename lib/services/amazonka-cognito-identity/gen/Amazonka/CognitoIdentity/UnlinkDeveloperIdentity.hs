@@ -47,6 +47,7 @@ where
 import Amazonka.CognitoIdentity.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -147,43 +148,43 @@ instance Prelude.NFData UnlinkDeveloperIdentity where
       `Prelude.seq` Prelude.rnf developerProviderName
       `Prelude.seq` Prelude.rnf developerUserIdentifier
 
-instance Core.ToHeaders UnlinkDeveloperIdentity where
+instance Data.ToHeaders UnlinkDeveloperIdentity where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityService.UnlinkDeveloperIdentity" ::
+              Data.=# ( "AWSCognitoIdentityService.UnlinkDeveloperIdentity" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UnlinkDeveloperIdentity where
+instance Data.ToJSON UnlinkDeveloperIdentity where
   toJSON UnlinkDeveloperIdentity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("IdentityId" Core..= identityId),
+          [ Prelude.Just ("IdentityId" Data..= identityId),
             Prelude.Just
-              ("IdentityPoolId" Core..= identityPoolId),
+              ("IdentityPoolId" Data..= identityPoolId),
             Prelude.Just
               ( "DeveloperProviderName"
-                  Core..= developerProviderName
+                  Data..= developerProviderName
               ),
             Prelude.Just
               ( "DeveloperUserIdentifier"
-                  Core..= developerUserIdentifier
+                  Data..= developerUserIdentifier
               )
           ]
       )
 
-instance Core.ToPath UnlinkDeveloperIdentity where
+instance Data.ToPath UnlinkDeveloperIdentity where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UnlinkDeveloperIdentity where
+instance Data.ToQuery UnlinkDeveloperIdentity where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUnlinkDeveloperIdentityResponse' smart constructor.

@@ -49,6 +49,7 @@ where
 import Amazonka.CognitoIdentity.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -129,9 +130,9 @@ instance Core.AWSRequest ListIdentities where
     Response.receiveJSON
       ( \s h x ->
           ListIdentitiesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Identities" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "IdentityPoolId")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Identities" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "IdentityPoolId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,37 +150,37 @@ instance Prelude.NFData ListIdentities where
       `Prelude.seq` Prelude.rnf identityPoolId
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListIdentities where
+instance Data.ToHeaders ListIdentities where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityService.ListIdentities" ::
+              Data.=# ( "AWSCognitoIdentityService.ListIdentities" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListIdentities where
+instance Data.ToJSON ListIdentities where
   toJSON ListIdentities' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("HideDisabled" Core..=) Prelude.<$> hideDisabled,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("HideDisabled" Data..=) Prelude.<$> hideDisabled,
             Prelude.Just
-              ("IdentityPoolId" Core..= identityPoolId),
-            Prelude.Just ("MaxResults" Core..= maxResults)
+              ("IdentityPoolId" Data..= identityPoolId),
+            Prelude.Just ("MaxResults" Data..= maxResults)
           ]
       )
 
-instance Core.ToPath ListIdentities where
+instance Data.ToPath ListIdentities where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListIdentities where
+instance Data.ToQuery ListIdentities where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response to a ListIdentities request.

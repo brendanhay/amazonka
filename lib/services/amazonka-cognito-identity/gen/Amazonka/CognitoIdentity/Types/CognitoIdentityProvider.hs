@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentity.Types.CognitoIdentityProvider where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A provider representing an Amazon Cognito user pool and its client ID.
@@ -101,15 +102,15 @@ cognitoIdentityProvider_providerName = Lens.lens (\CognitoIdentityProvider' {pro
 cognitoIdentityProvider_serverSideTokenCheck :: Lens.Lens' CognitoIdentityProvider (Prelude.Maybe Prelude.Bool)
 cognitoIdentityProvider_serverSideTokenCheck = Lens.lens (\CognitoIdentityProvider' {serverSideTokenCheck} -> serverSideTokenCheck) (\s@CognitoIdentityProvider' {} a -> s {serverSideTokenCheck = a} :: CognitoIdentityProvider)
 
-instance Core.FromJSON CognitoIdentityProvider where
+instance Data.FromJSON CognitoIdentityProvider where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CognitoIdentityProvider"
       ( \x ->
           CognitoIdentityProvider'
-            Prelude.<$> (x Core..:? "ClientId")
-            Prelude.<*> (x Core..:? "ProviderName")
-            Prelude.<*> (x Core..:? "ServerSideTokenCheck")
+            Prelude.<$> (x Data..:? "ClientId")
+            Prelude.<*> (x Data..:? "ProviderName")
+            Prelude.<*> (x Data..:? "ServerSideTokenCheck")
       )
 
 instance Prelude.Hashable CognitoIdentityProvider where
@@ -124,13 +125,13 @@ instance Prelude.NFData CognitoIdentityProvider where
       `Prelude.seq` Prelude.rnf providerName
       `Prelude.seq` Prelude.rnf serverSideTokenCheck
 
-instance Core.ToJSON CognitoIdentityProvider where
+instance Data.ToJSON CognitoIdentityProvider where
   toJSON CognitoIdentityProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientId" Core..=) Prelude.<$> clientId,
-            ("ProviderName" Core..=) Prelude.<$> providerName,
-            ("ServerSideTokenCheck" Core..=)
+          [ ("ClientId" Data..=) Prelude.<$> clientId,
+            ("ProviderName" Data..=) Prelude.<$> providerName,
+            ("ServerSideTokenCheck" Data..=)
               Prelude.<$> serverSideTokenCheck
           ]
       )

@@ -24,6 +24,7 @@ import Amazonka.CognitoIdentity.Types.RoleMappingType
 import Amazonka.CognitoIdentity.Types.RulesConfigurationType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A role mapping.
@@ -112,15 +113,15 @@ roleMapping_rulesConfiguration = Lens.lens (\RoleMapping' {rulesConfiguration} -
 roleMapping_type :: Lens.Lens' RoleMapping RoleMappingType
 roleMapping_type = Lens.lens (\RoleMapping' {type'} -> type') (\s@RoleMapping' {} a -> s {type' = a} :: RoleMapping)
 
-instance Core.FromJSON RoleMapping where
+instance Data.FromJSON RoleMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RoleMapping"
       ( \x ->
           RoleMapping'
-            Prelude.<$> (x Core..:? "AmbiguousRoleResolution")
-            Prelude.<*> (x Core..:? "RulesConfiguration")
-            Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..:? "AmbiguousRoleResolution")
+            Prelude.<*> (x Data..:? "RulesConfiguration")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable RoleMapping where
@@ -136,14 +137,14 @@ instance Prelude.NFData RoleMapping where
       `Prelude.seq` Prelude.rnf rulesConfiguration
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON RoleMapping where
+instance Data.ToJSON RoleMapping where
   toJSON RoleMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AmbiguousRoleResolution" Core..=)
+          [ ("AmbiguousRoleResolution" Data..=)
               Prelude.<$> ambiguousRoleResolution,
-            ("RulesConfiguration" Core..=)
+            ("RulesConfiguration" Data..=)
               Prelude.<$> rulesConfiguration,
-            Prelude.Just ("Type" Core..= type')
+            Prelude.Just ("Type" Data..= type')
           ]
       )

@@ -45,6 +45,7 @@ where
 import Amazonka.CognitoIdentity.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,7 +92,7 @@ instance Core.AWSRequest DeleteIdentities where
     Response.receiveJSON
       ( \s h x ->
           DeleteIdentitiesResponse'
-            Prelude.<$> ( x Core..?> "UnprocessedIdentityIds"
+            Prelude.<$> ( x Data..?> "UnprocessedIdentityIds"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -105,34 +106,34 @@ instance Prelude.NFData DeleteIdentities where
   rnf DeleteIdentities' {..} =
     Prelude.rnf identityIdsToDelete
 
-instance Core.ToHeaders DeleteIdentities where
+instance Data.ToHeaders DeleteIdentities where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityService.DeleteIdentities" ::
+              Data.=# ( "AWSCognitoIdentityService.DeleteIdentities" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteIdentities where
+instance Data.ToJSON DeleteIdentities where
   toJSON DeleteIdentities' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("IdentityIdsToDelete" Core..= identityIdsToDelete)
+              ("IdentityIdsToDelete" Data..= identityIdsToDelete)
           ]
       )
 
-instance Core.ToPath DeleteIdentities where
+instance Data.ToPath DeleteIdentities where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteIdentities where
+instance Data.ToQuery DeleteIdentities where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Returned in response to a successful @DeleteIdentities@ operation.

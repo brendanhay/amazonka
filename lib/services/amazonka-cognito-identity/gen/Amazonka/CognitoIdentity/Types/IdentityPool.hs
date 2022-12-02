@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentity.Types.IdentityPool where
 import Amazonka.CognitoIdentity.Types.CognitoIdentityProvider
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing an Amazon Cognito identity pool.
@@ -165,32 +166,32 @@ identityPool_identityPoolName = Lens.lens (\IdentityPool' {identityPoolName} -> 
 identityPool_allowUnauthenticatedIdentities :: Lens.Lens' IdentityPool Prelude.Bool
 identityPool_allowUnauthenticatedIdentities = Lens.lens (\IdentityPool' {allowUnauthenticatedIdentities} -> allowUnauthenticatedIdentities) (\s@IdentityPool' {} a -> s {allowUnauthenticatedIdentities = a} :: IdentityPool)
 
-instance Core.FromJSON IdentityPool where
+instance Data.FromJSON IdentityPool where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IdentityPool"
       ( \x ->
           IdentityPool'
-            Prelude.<$> (x Core..:? "AllowClassicFlow")
-            Prelude.<*> ( x Core..:? "IdentityPoolTags"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "AllowClassicFlow")
+            Prelude.<*> ( x Data..:? "IdentityPoolTags"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "CognitoIdentityProviders"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "CognitoIdentityProviders"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "SamlProviderARNs"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "SamlProviderARNs"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "SupportedLoginProviders"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "SupportedLoginProviders"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "OpenIdConnectProviderARNs"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "OpenIdConnectProviderARNs"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DeveloperProviderName")
-            Prelude.<*> (x Core..: "IdentityPoolId")
-            Prelude.<*> (x Core..: "IdentityPoolName")
-            Prelude.<*> (x Core..: "AllowUnauthenticatedIdentities")
+            Prelude.<*> (x Data..:? "DeveloperProviderName")
+            Prelude.<*> (x Data..: "IdentityPoolId")
+            Prelude.<*> (x Data..: "IdentityPoolName")
+            Prelude.<*> (x Data..: "AllowUnauthenticatedIdentities")
       )
 
 instance Prelude.Hashable IdentityPool where
@@ -219,31 +220,31 @@ instance Prelude.NFData IdentityPool where
       `Prelude.seq` Prelude.rnf identityPoolName
       `Prelude.seq` Prelude.rnf allowUnauthenticatedIdentities
 
-instance Core.ToJSON IdentityPool where
+instance Data.ToJSON IdentityPool where
   toJSON IdentityPool' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AllowClassicFlow" Core..=)
+          [ ("AllowClassicFlow" Data..=)
               Prelude.<$> allowClassicFlow,
-            ("IdentityPoolTags" Core..=)
+            ("IdentityPoolTags" Data..=)
               Prelude.<$> identityPoolTags,
-            ("CognitoIdentityProviders" Core..=)
+            ("CognitoIdentityProviders" Data..=)
               Prelude.<$> cognitoIdentityProviders,
-            ("SamlProviderARNs" Core..=)
+            ("SamlProviderARNs" Data..=)
               Prelude.<$> samlProviderARNs,
-            ("SupportedLoginProviders" Core..=)
+            ("SupportedLoginProviders" Data..=)
               Prelude.<$> supportedLoginProviders,
-            ("OpenIdConnectProviderARNs" Core..=)
+            ("OpenIdConnectProviderARNs" Data..=)
               Prelude.<$> openIdConnectProviderARNs,
-            ("DeveloperProviderName" Core..=)
+            ("DeveloperProviderName" Data..=)
               Prelude.<$> developerProviderName,
             Prelude.Just
-              ("IdentityPoolId" Core..= identityPoolId),
+              ("IdentityPoolId" Data..= identityPoolId),
             Prelude.Just
-              ("IdentityPoolName" Core..= identityPoolName),
+              ("IdentityPoolName" Data..= identityPoolName),
             Prelude.Just
               ( "AllowUnauthenticatedIdentities"
-                  Core..= allowUnauthenticatedIdentities
+                  Data..= allowUnauthenticatedIdentities
               )
           ]
       )

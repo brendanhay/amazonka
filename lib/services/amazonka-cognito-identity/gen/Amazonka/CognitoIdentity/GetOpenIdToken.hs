@@ -50,6 +50,7 @@ where
 import Amazonka.CognitoIdentity.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,8 +117,8 @@ instance Core.AWSRequest GetOpenIdToken where
     Response.receiveJSON
       ( \s h x ->
           GetOpenIdTokenResponse'
-            Prelude.<$> (x Core..?> "IdentityId")
-            Prelude.<*> (x Core..?> "Token")
+            Prelude.<$> (x Data..?> "IdentityId")
+            Prelude.<*> (x Data..?> "Token")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,34 +132,34 @@ instance Prelude.NFData GetOpenIdToken where
     Prelude.rnf logins
       `Prelude.seq` Prelude.rnf identityId
 
-instance Core.ToHeaders GetOpenIdToken where
+instance Data.ToHeaders GetOpenIdToken where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityService.GetOpenIdToken" ::
+              Data.=# ( "AWSCognitoIdentityService.GetOpenIdToken" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetOpenIdToken where
+instance Data.ToJSON GetOpenIdToken where
   toJSON GetOpenIdToken' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Logins" Core..=) Prelude.<$> logins,
-            Prelude.Just ("IdentityId" Core..= identityId)
+          [ ("Logins" Data..=) Prelude.<$> logins,
+            Prelude.Just ("IdentityId" Data..= identityId)
           ]
       )
 
-instance Core.ToPath GetOpenIdToken where
+instance Data.ToPath GetOpenIdToken where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetOpenIdToken where
+instance Data.ToQuery GetOpenIdToken where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Returned in response to a successful GetOpenIdToken request.

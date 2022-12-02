@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentity.Types.UnprocessedIdentityId where
 import Amazonka.CognitoIdentity.Types.CognitoErrorCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An array of UnprocessedIdentityId objects, each of which contains an
@@ -63,14 +64,14 @@ unprocessedIdentityId_errorCode = Lens.lens (\UnprocessedIdentityId' {errorCode}
 unprocessedIdentityId_identityId :: Lens.Lens' UnprocessedIdentityId (Prelude.Maybe Prelude.Text)
 unprocessedIdentityId_identityId = Lens.lens (\UnprocessedIdentityId' {identityId} -> identityId) (\s@UnprocessedIdentityId' {} a -> s {identityId = a} :: UnprocessedIdentityId)
 
-instance Core.FromJSON UnprocessedIdentityId where
+instance Data.FromJSON UnprocessedIdentityId where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UnprocessedIdentityId"
       ( \x ->
           UnprocessedIdentityId'
-            Prelude.<$> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "IdentityId")
+            Prelude.<$> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "IdentityId")
       )
 
 instance Prelude.Hashable UnprocessedIdentityId where

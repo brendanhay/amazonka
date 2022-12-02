@@ -44,6 +44,7 @@ where
 import Amazonka.CognitoIdentity.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,36 +122,36 @@ instance Prelude.NFData UnlinkIdentity where
       `Prelude.seq` Prelude.rnf logins
       `Prelude.seq` Prelude.rnf loginsToRemove
 
-instance Core.ToHeaders UnlinkIdentity where
+instance Data.ToHeaders UnlinkIdentity where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityService.UnlinkIdentity" ::
+              Data.=# ( "AWSCognitoIdentityService.UnlinkIdentity" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UnlinkIdentity where
+instance Data.ToJSON UnlinkIdentity where
   toJSON UnlinkIdentity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("IdentityId" Core..= identityId),
-            Prelude.Just ("Logins" Core..= logins),
+          [ Prelude.Just ("IdentityId" Data..= identityId),
+            Prelude.Just ("Logins" Data..= logins),
             Prelude.Just
-              ("LoginsToRemove" Core..= loginsToRemove)
+              ("LoginsToRemove" Data..= loginsToRemove)
           ]
       )
 
-instance Core.ToPath UnlinkIdentity where
+instance Data.ToPath UnlinkIdentity where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UnlinkIdentity where
+instance Data.ToQuery UnlinkIdentity where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUnlinkIdentityResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentity.Types.IdentityPoolShortDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A description of the identity pool.
@@ -62,14 +63,14 @@ identityPoolShortDescription_identityPoolName = Lens.lens (\IdentityPoolShortDes
 identityPoolShortDescription_identityPoolId :: Lens.Lens' IdentityPoolShortDescription (Prelude.Maybe Prelude.Text)
 identityPoolShortDescription_identityPoolId = Lens.lens (\IdentityPoolShortDescription' {identityPoolId} -> identityPoolId) (\s@IdentityPoolShortDescription' {} a -> s {identityPoolId = a} :: IdentityPoolShortDescription)
 
-instance Core.FromJSON IdentityPoolShortDescription where
+instance Data.FromJSON IdentityPoolShortDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IdentityPoolShortDescription"
       ( \x ->
           IdentityPoolShortDescription'
-            Prelude.<$> (x Core..:? "IdentityPoolName")
-            Prelude.<*> (x Core..:? "IdentityPoolId")
+            Prelude.<$> (x Data..:? "IdentityPoolName")
+            Prelude.<*> (x Data..:? "IdentityPoolId")
       )
 
 instance

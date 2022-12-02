@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.BatchGetVariableError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the error of the batch get variable API.
@@ -70,15 +71,15 @@ batchGetVariableError_name = Lens.lens (\BatchGetVariableError' {name} -> name) 
 batchGetVariableError_code :: Lens.Lens' BatchGetVariableError (Prelude.Maybe Prelude.Int)
 batchGetVariableError_code = Lens.lens (\BatchGetVariableError' {code} -> code) (\s@BatchGetVariableError' {} a -> s {code = a} :: BatchGetVariableError)
 
-instance Core.FromJSON BatchGetVariableError where
+instance Data.FromJSON BatchGetVariableError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchGetVariableError"
       ( \x ->
           BatchGetVariableError'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "code")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "code")
       )
 
 instance Prelude.Hashable BatchGetVariableError where

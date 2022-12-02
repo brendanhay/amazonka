@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.PredictionTimeRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The time period for when the predictions were generated.
@@ -78,11 +79,11 @@ instance Prelude.NFData PredictionTimeRange where
     Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf endTime
 
-instance Core.ToJSON PredictionTimeRange where
+instance Data.ToJSON PredictionTimeRange where
   toJSON PredictionTimeRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("startTime" Core..= startTime),
-            Prelude.Just ("endTime" Core..= endTime)
+          [ Prelude.Just ("startTime" Data..= startTime),
+            Prelude.Just ("endTime" Data..= endTime)
           ]
       )

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,34 +101,34 @@ instance Prelude.NFData DeleteExternalModel where
   rnf DeleteExternalModel' {..} =
     Prelude.rnf modelEndpoint
 
-instance Core.ToHeaders DeleteExternalModel where
+instance Data.ToHeaders DeleteExternalModel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.DeleteExternalModel" ::
+              Data.=# ( "AWSHawksNestServiceFacade.DeleteExternalModel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteExternalModel where
+instance Data.ToJSON DeleteExternalModel where
   toJSON DeleteExternalModel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("modelEndpoint" Core..= modelEndpoint)
+              ("modelEndpoint" Data..= modelEndpoint)
           ]
       )
 
-instance Core.ToPath DeleteExternalModel where
+instance Data.ToPath DeleteExternalModel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteExternalModel where
+instance Data.ToQuery DeleteExternalModel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteExternalModelResponse' smart constructor.

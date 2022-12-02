@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.EvaluatedModelVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.ModelVersionEvaluation
 import qualified Amazonka.Prelude as Prelude
 
@@ -87,16 +88,16 @@ evaluatedModelVersion_modelType = Lens.lens (\EvaluatedModelVersion' {modelType}
 evaluatedModelVersion_modelId :: Lens.Lens' EvaluatedModelVersion (Prelude.Maybe Prelude.Text)
 evaluatedModelVersion_modelId = Lens.lens (\EvaluatedModelVersion' {modelId} -> modelId) (\s@EvaluatedModelVersion' {} a -> s {modelId = a} :: EvaluatedModelVersion)
 
-instance Core.FromJSON EvaluatedModelVersion where
+instance Data.FromJSON EvaluatedModelVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EvaluatedModelVersion"
       ( \x ->
           EvaluatedModelVersion'
-            Prelude.<$> (x Core..:? "evaluations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "modelVersion")
-            Prelude.<*> (x Core..:? "modelType")
-            Prelude.<*> (x Core..:? "modelId")
+            Prelude.<$> (x Data..:? "evaluations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "modelVersion")
+            Prelude.<*> (x Data..:? "modelType")
+            Prelude.<*> (x Data..:? "modelId")
       )
 
 instance Prelude.Hashable EvaluatedModelVersion where

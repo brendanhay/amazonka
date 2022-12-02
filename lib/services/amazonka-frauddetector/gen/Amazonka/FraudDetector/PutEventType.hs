@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -179,41 +180,41 @@ instance Prelude.NFData PutEventType where
       `Prelude.seq` Prelude.rnf eventVariables
       `Prelude.seq` Prelude.rnf entityTypes
 
-instance Core.ToHeaders PutEventType where
+instance Data.ToHeaders PutEventType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.PutEventType" ::
+              Data.=# ( "AWSHawksNestServiceFacade.PutEventType" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutEventType where
+instance Data.ToJSON PutEventType where
   toJSON PutEventType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description,
-            ("labels" Core..=) Prelude.<$> labels,
-            ("eventIngestion" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("description" Data..=) Prelude.<$> description,
+            ("labels" Data..=) Prelude.<$> labels,
+            ("eventIngestion" Data..=)
               Prelude.<$> eventIngestion,
-            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("eventVariables" Core..= eventVariables),
-            Prelude.Just ("entityTypes" Core..= entityTypes)
+              ("eventVariables" Data..= eventVariables),
+            Prelude.Just ("entityTypes" Data..= entityTypes)
           ]
       )
 
-instance Core.ToPath PutEventType where
+instance Data.ToPath PutEventType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutEventType where
+instance Data.ToQuery PutEventType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutEventTypeResponse' smart constructor.

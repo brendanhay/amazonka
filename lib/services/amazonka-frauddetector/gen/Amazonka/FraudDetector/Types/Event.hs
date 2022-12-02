@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.Event where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.Entity
 import qualified Amazonka.Prelude as Prelude
 
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEvent' smart constructor.
 data Event = Event'
   { -- | The event entities.
-    entities :: Prelude.Maybe [Core.Sensitive Entity],
+    entities :: Prelude.Maybe [Data.Sensitive Entity],
     -- | The timestamp associated with the label to update. The timestamp must be
     -- specified using ISO 8601 standard in UTC.
     labelTimestamp :: Prelude.Maybe Prelude.Text,
@@ -45,7 +46,7 @@ data Event = Event'
     -- | Names of the event type\'s variables you defined in Amazon Fraud
     -- Detector to represent data elements and their corresponding values for
     -- the event you are sending for evaluation.
-    eventVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text))
+    eventVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -119,20 +120,20 @@ event_currentLabel = Lens.lens (\Event' {currentLabel} -> currentLabel) (\s@Even
 event_eventVariables :: Lens.Lens' Event (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 event_eventVariables = Lens.lens (\Event' {eventVariables} -> eventVariables) (\s@Event' {} a -> s {eventVariables = a} :: Event) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Event where
+instance Data.FromJSON Event where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Event"
       ( \x ->
           Event'
-            Prelude.<$> (x Core..:? "entities" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "labelTimestamp")
-            Prelude.<*> (x Core..:? "eventTimestamp")
-            Prelude.<*> (x Core..:? "eventId")
-            Prelude.<*> (x Core..:? "eventTypeName")
-            Prelude.<*> (x Core..:? "currentLabel")
-            Prelude.<*> ( x Core..:? "eventVariables"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "entities" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "labelTimestamp")
+            Prelude.<*> (x Data..:? "eventTimestamp")
+            Prelude.<*> (x Data..:? "eventId")
+            Prelude.<*> (x Data..:? "eventTypeName")
+            Prelude.<*> (x Data..:? "currentLabel")
+            Prelude.<*> ( x Data..:? "eventVariables"
+                            Data..!= Prelude.mempty
                         )
       )
 

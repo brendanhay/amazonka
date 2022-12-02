@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -175,25 +176,25 @@ instance Core.AWSRequest GetEventPredictionMetadata where
     Response.receiveJSON
       ( \s h x ->
           GetEventPredictionMetadataResponse'
-            Prelude.<$> (x Core..?> "entityId")
-            Prelude.<*> (x Core..?> "eventTimestamp")
-            Prelude.<*> (x Core..?> "detectorVersionId")
-            Prelude.<*> (x Core..?> "rules" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "evaluatedExternalModels"
+            Prelude.<$> (x Data..?> "entityId")
+            Prelude.<*> (x Data..?> "eventTimestamp")
+            Prelude.<*> (x Data..?> "detectorVersionId")
+            Prelude.<*> (x Data..?> "rules" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "evaluatedExternalModels"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "detectorVersionStatus")
-            Prelude.<*> ( x Core..?> "evaluatedModelVersions"
+            Prelude.<*> (x Data..?> "detectorVersionStatus")
+            Prelude.<*> ( x Data..?> "evaluatedModelVersions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "eventId")
-            Prelude.<*> (x Core..?> "outcomes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "entityType")
-            Prelude.<*> (x Core..?> "predictionTimestamp")
-            Prelude.<*> (x Core..?> "ruleExecutionMode")
-            Prelude.<*> (x Core..?> "eventTypeName")
-            Prelude.<*> (x Core..?> "detectorId")
-            Prelude.<*> (x Core..?> "eventVariables" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "eventId")
+            Prelude.<*> (x Data..?> "outcomes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "entityType")
+            Prelude.<*> (x Data..?> "predictionTimestamp")
+            Prelude.<*> (x Data..?> "ruleExecutionMode")
+            Prelude.<*> (x Data..?> "eventTypeName")
+            Prelude.<*> (x Data..?> "detectorId")
+            Prelude.<*> (x Data..?> "eventVariables" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -213,39 +214,39 @@ instance Prelude.NFData GetEventPredictionMetadata where
       `Prelude.seq` Prelude.rnf detectorVersionId
       `Prelude.seq` Prelude.rnf predictionTimestamp
 
-instance Core.ToHeaders GetEventPredictionMetadata where
+instance Data.ToHeaders GetEventPredictionMetadata where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.GetEventPredictionMetadata" ::
+              Data.=# ( "AWSHawksNestServiceFacade.GetEventPredictionMetadata" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetEventPredictionMetadata where
+instance Data.ToJSON GetEventPredictionMetadata where
   toJSON GetEventPredictionMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("eventId" Core..= eventId),
-            Prelude.Just ("eventTypeName" Core..= eventTypeName),
-            Prelude.Just ("detectorId" Core..= detectorId),
+          [ Prelude.Just ("eventId" Data..= eventId),
+            Prelude.Just ("eventTypeName" Data..= eventTypeName),
+            Prelude.Just ("detectorId" Data..= detectorId),
             Prelude.Just
-              ("detectorVersionId" Core..= detectorVersionId),
+              ("detectorVersionId" Data..= detectorVersionId),
             Prelude.Just
-              ("predictionTimestamp" Core..= predictionTimestamp)
+              ("predictionTimestamp" Data..= predictionTimestamp)
           ]
       )
 
-instance Core.ToPath GetEventPredictionMetadata where
+instance Data.ToPath GetEventPredictionMetadata where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetEventPredictionMetadata where
+instance Data.ToQuery GetEventPredictionMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEventPredictionMetadataResponse' smart constructor.

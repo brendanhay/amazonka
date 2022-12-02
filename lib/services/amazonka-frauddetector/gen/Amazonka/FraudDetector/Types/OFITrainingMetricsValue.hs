@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.OFITrainingMetricsValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.OFIMetricDataPoint
 import Amazonka.FraudDetector.Types.OFIModelPerformance
 import qualified Amazonka.Prelude as Prelude
@@ -64,16 +65,16 @@ oFITrainingMetricsValue_metricDataPoints = Lens.lens (\OFITrainingMetricsValue' 
 oFITrainingMetricsValue_modelPerformance :: Lens.Lens' OFITrainingMetricsValue (Prelude.Maybe OFIModelPerformance)
 oFITrainingMetricsValue_modelPerformance = Lens.lens (\OFITrainingMetricsValue' {modelPerformance} -> modelPerformance) (\s@OFITrainingMetricsValue' {} a -> s {modelPerformance = a} :: OFITrainingMetricsValue)
 
-instance Core.FromJSON OFITrainingMetricsValue where
+instance Data.FromJSON OFITrainingMetricsValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OFITrainingMetricsValue"
       ( \x ->
           OFITrainingMetricsValue'
-            Prelude.<$> ( x Core..:? "metricDataPoints"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "metricDataPoints"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "modelPerformance")
+            Prelude.<*> (x Data..:? "modelPerformance")
       )
 
 instance Prelude.Hashable OFITrainingMetricsValue where

@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.TFIModelPerformance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Transaction Fraud Insights (TFI) model performance score.
@@ -56,12 +57,12 @@ newTFIModelPerformance =
 tFIModelPerformance_auc :: Lens.Lens' TFIModelPerformance (Prelude.Maybe Prelude.Double)
 tFIModelPerformance_auc = Lens.lens (\TFIModelPerformance' {auc} -> auc) (\s@TFIModelPerformance' {} a -> s {auc = a} :: TFIModelPerformance)
 
-instance Core.FromJSON TFIModelPerformance where
+instance Data.FromJSON TFIModelPerformance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TFIModelPerformance"
       ( \x ->
-          TFIModelPerformance' Prelude.<$> (x Core..:? "auc")
+          TFIModelPerformance' Prelude.<$> (x Data..:? "auc")
       )
 
 instance Prelude.Hashable TFIModelPerformance where

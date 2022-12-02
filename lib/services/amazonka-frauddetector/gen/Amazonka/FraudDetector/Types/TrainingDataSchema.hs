@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.TrainingDataSchema where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.LabelSchema
 import qualified Amazonka.Prelude as Prelude
 
@@ -61,15 +62,15 @@ trainingDataSchema_labelSchema = Lens.lens (\TrainingDataSchema' {labelSchema} -
 trainingDataSchema_modelVariables :: Lens.Lens' TrainingDataSchema [Prelude.Text]
 trainingDataSchema_modelVariables = Lens.lens (\TrainingDataSchema' {modelVariables} -> modelVariables) (\s@TrainingDataSchema' {} a -> s {modelVariables = a} :: TrainingDataSchema) Prelude.. Lens.coerced
 
-instance Core.FromJSON TrainingDataSchema where
+instance Data.FromJSON TrainingDataSchema where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrainingDataSchema"
       ( \x ->
           TrainingDataSchema'
-            Prelude.<$> (x Core..:? "labelSchema")
-            Prelude.<*> ( x Core..:? "modelVariables"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "labelSchema")
+            Prelude.<*> ( x Data..:? "modelVariables"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -83,12 +84,12 @@ instance Prelude.NFData TrainingDataSchema where
     Prelude.rnf labelSchema
       `Prelude.seq` Prelude.rnf modelVariables
 
-instance Core.ToJSON TrainingDataSchema where
+instance Data.ToJSON TrainingDataSchema where
   toJSON TrainingDataSchema' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("labelSchema" Core..=) Prelude.<$> labelSchema,
+          [ ("labelSchema" Data..=) Prelude.<$> labelSchema,
             Prelude.Just
-              ("modelVariables" Core..= modelVariables)
+              ("modelVariables" Data..= modelVariables)
           ]
       )

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,32 +103,32 @@ instance Prelude.Hashable DeleteVariable where
 instance Prelude.NFData DeleteVariable where
   rnf DeleteVariable' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteVariable where
+instance Data.ToHeaders DeleteVariable where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.DeleteVariable" ::
+              Data.=# ( "AWSHawksNestServiceFacade.DeleteVariable" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteVariable where
+instance Data.ToJSON DeleteVariable where
   toJSON DeleteVariable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )
 
-instance Core.ToPath DeleteVariable where
+instance Data.ToPath DeleteVariable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteVariable where
+instance Data.ToQuery DeleteVariable where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteVariableResponse' smart constructor.

@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -68,7 +69,7 @@ instance Core.AWSRequest GetKMSEncryptionKey where
     Response.receiveJSON
       ( \s h x ->
           GetKMSEncryptionKeyResponse'
-            Prelude.<$> (x Core..?> "kmsKey")
+            Prelude.<$> (x Data..?> "kmsKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -79,28 +80,28 @@ instance Prelude.Hashable GetKMSEncryptionKey where
 instance Prelude.NFData GetKMSEncryptionKey where
   rnf _ = ()
 
-instance Core.ToHeaders GetKMSEncryptionKey where
+instance Data.ToHeaders GetKMSEncryptionKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.GetKMSEncryptionKey" ::
+              Data.=# ( "AWSHawksNestServiceFacade.GetKMSEncryptionKey" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetKMSEncryptionKey where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetKMSEncryptionKey where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetKMSEncryptionKey where
+instance Data.ToPath GetKMSEncryptionKey where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetKMSEncryptionKey where
+instance Data.ToQuery GetKMSEncryptionKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetKMSEncryptionKeyResponse' smart constructor.

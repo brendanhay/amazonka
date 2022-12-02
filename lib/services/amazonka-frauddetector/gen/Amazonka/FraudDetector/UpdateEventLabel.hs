@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,37 +145,37 @@ instance Prelude.NFData UpdateEventLabel where
       `Prelude.seq` Prelude.rnf assignedLabel
       `Prelude.seq` Prelude.rnf labelTimestamp
 
-instance Core.ToHeaders UpdateEventLabel where
+instance Data.ToHeaders UpdateEventLabel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.UpdateEventLabel" ::
+              Data.=# ( "AWSHawksNestServiceFacade.UpdateEventLabel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateEventLabel where
+instance Data.ToJSON UpdateEventLabel where
   toJSON UpdateEventLabel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("eventId" Core..= eventId),
-            Prelude.Just ("eventTypeName" Core..= eventTypeName),
-            Prelude.Just ("assignedLabel" Core..= assignedLabel),
+          [ Prelude.Just ("eventId" Data..= eventId),
+            Prelude.Just ("eventTypeName" Data..= eventTypeName),
+            Prelude.Just ("assignedLabel" Data..= assignedLabel),
             Prelude.Just
-              ("labelTimestamp" Core..= labelTimestamp)
+              ("labelTimestamp" Data..= labelTimestamp)
           ]
       )
 
-instance Core.ToPath UpdateEventLabel where
+instance Data.ToPath UpdateEventLabel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateEventLabel where
+instance Data.ToQuery UpdateEventLabel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEventLabelResponse' smart constructor.

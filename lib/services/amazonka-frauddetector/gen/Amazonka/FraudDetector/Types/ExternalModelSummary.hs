@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.ExternalModelSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.ModelSource
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ externalModelSummary_modelEndpoint = Lens.lens (\ExternalModelSummary' {modelEnd
 externalModelSummary_modelSource :: Lens.Lens' ExternalModelSummary (Prelude.Maybe ModelSource)
 externalModelSummary_modelSource = Lens.lens (\ExternalModelSummary' {modelSource} -> modelSource) (\s@ExternalModelSummary' {} a -> s {modelSource = a} :: ExternalModelSummary)
 
-instance Core.FromJSON ExternalModelSummary where
+instance Data.FromJSON ExternalModelSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExternalModelSummary"
       ( \x ->
           ExternalModelSummary'
-            Prelude.<$> (x Core..:? "modelEndpoint")
-            Prelude.<*> (x Core..:? "modelSource")
+            Prelude.<$> (x Data..:? "modelEndpoint")
+            Prelude.<*> (x Data..:? "modelSource")
       )
 
 instance Prelude.Hashable ExternalModelSummary where

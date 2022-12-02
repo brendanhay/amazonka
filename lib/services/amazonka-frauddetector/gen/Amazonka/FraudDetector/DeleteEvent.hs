@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,37 +126,37 @@ instance Prelude.NFData DeleteEvent where
       `Prelude.seq` Prelude.rnf eventId
       `Prelude.seq` Prelude.rnf eventTypeName
 
-instance Core.ToHeaders DeleteEvent where
+instance Data.ToHeaders DeleteEvent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.DeleteEvent" ::
+              Data.=# ( "AWSHawksNestServiceFacade.DeleteEvent" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteEvent where
+instance Data.ToJSON DeleteEvent where
   toJSON DeleteEvent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("deleteAuditHistory" Core..=)
+          [ ("deleteAuditHistory" Data..=)
               Prelude.<$> deleteAuditHistory,
-            Prelude.Just ("eventId" Core..= eventId),
+            Prelude.Just ("eventId" Data..= eventId),
             Prelude.Just
-              ("eventTypeName" Core..= eventTypeName)
+              ("eventTypeName" Data..= eventTypeName)
           ]
       )
 
-instance Core.ToPath DeleteEvent where
+instance Data.ToPath DeleteEvent where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteEvent where
+instance Data.ToQuery DeleteEvent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteEventResponse' smart constructor.

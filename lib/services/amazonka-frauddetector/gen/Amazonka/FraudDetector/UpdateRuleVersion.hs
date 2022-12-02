@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -61,7 +62,7 @@ data UpdateRuleVersion = UpdateRuleVersion'
     -- | The rule to update.
     rule :: Rule,
     -- | The rule expression.
-    expression :: Core.Sensitive Prelude.Text,
+    expression :: Data.Sensitive Prelude.Text,
     -- | The language.
     language :: Language,
     -- | The outcomes.
@@ -107,7 +108,7 @@ newUpdateRuleVersion
       { tags = Prelude.Nothing,
         description = Prelude.Nothing,
         rule = pRule_,
-        expression = Core._Sensitive Lens.# pExpression_,
+        expression = Data._Sensitive Lens.# pExpression_,
         language = pLanguage_,
         outcomes = Lens.coerced Lens.# pOutcomes_
       }
@@ -126,7 +127,7 @@ updateRuleVersion_rule = Lens.lens (\UpdateRuleVersion' {rule} -> rule) (\s@Upda
 
 -- | The rule expression.
 updateRuleVersion_expression :: Lens.Lens' UpdateRuleVersion Prelude.Text
-updateRuleVersion_expression = Lens.lens (\UpdateRuleVersion' {expression} -> expression) (\s@UpdateRuleVersion' {} a -> s {expression = a} :: UpdateRuleVersion) Prelude.. Core._Sensitive
+updateRuleVersion_expression = Lens.lens (\UpdateRuleVersion' {expression} -> expression) (\s@UpdateRuleVersion' {} a -> s {expression = a} :: UpdateRuleVersion) Prelude.. Data._Sensitive
 
 -- | The language.
 updateRuleVersion_language :: Lens.Lens' UpdateRuleVersion Language
@@ -146,7 +147,7 @@ instance Core.AWSRequest UpdateRuleVersion where
     Response.receiveJSON
       ( \s h x ->
           UpdateRuleVersionResponse'
-            Prelude.<$> (x Core..?> "rule")
+            Prelude.<$> (x Data..?> "rule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,38 +169,38 @@ instance Prelude.NFData UpdateRuleVersion where
       `Prelude.seq` Prelude.rnf language
       `Prelude.seq` Prelude.rnf outcomes
 
-instance Core.ToHeaders UpdateRuleVersion where
+instance Data.ToHeaders UpdateRuleVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.UpdateRuleVersion" ::
+              Data.=# ( "AWSHawksNestServiceFacade.UpdateRuleVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRuleVersion where
+instance Data.ToJSON UpdateRuleVersion where
   toJSON UpdateRuleVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("rule" Core..= rule),
-            Prelude.Just ("expression" Core..= expression),
-            Prelude.Just ("language" Core..= language),
-            Prelude.Just ("outcomes" Core..= outcomes)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("rule" Data..= rule),
+            Prelude.Just ("expression" Data..= expression),
+            Prelude.Just ("language" Data..= language),
+            Prelude.Just ("outcomes" Data..= outcomes)
           ]
       )
 
-instance Core.ToPath UpdateRuleVersion where
+instance Data.ToPath UpdateRuleVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateRuleVersion where
+instance Data.ToQuery UpdateRuleVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRuleVersionResponse' smart constructor.

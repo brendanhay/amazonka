@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.Rule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A rule.
@@ -76,15 +77,15 @@ rule_ruleId = Lens.lens (\Rule' {ruleId} -> ruleId) (\s@Rule' {} a -> s {ruleId 
 rule_ruleVersion :: Lens.Lens' Rule Prelude.Text
 rule_ruleVersion = Lens.lens (\Rule' {ruleVersion} -> ruleVersion) (\s@Rule' {} a -> s {ruleVersion = a} :: Rule)
 
-instance Core.FromJSON Rule where
+instance Data.FromJSON Rule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Rule"
       ( \x ->
           Rule'
-            Prelude.<$> (x Core..: "detectorId")
-            Prelude.<*> (x Core..: "ruleId")
-            Prelude.<*> (x Core..: "ruleVersion")
+            Prelude.<$> (x Data..: "detectorId")
+            Prelude.<*> (x Data..: "ruleId")
+            Prelude.<*> (x Data..: "ruleVersion")
       )
 
 instance Prelude.Hashable Rule where
@@ -99,12 +100,12 @@ instance Prelude.NFData Rule where
       `Prelude.seq` Prelude.rnf ruleId
       `Prelude.seq` Prelude.rnf ruleVersion
 
-instance Core.ToJSON Rule where
+instance Data.ToJSON Rule where
   toJSON Rule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("detectorId" Core..= detectorId),
-            Prelude.Just ("ruleId" Core..= ruleId),
-            Prelude.Just ("ruleVersion" Core..= ruleVersion)
+          [ Prelude.Just ("detectorId" Data..= detectorId),
+            Prelude.Just ("ruleId" Data..= ruleId),
+            Prelude.Just ("ruleVersion" Data..= ruleVersion)
           ]
       )

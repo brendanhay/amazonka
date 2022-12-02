@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,32 +93,32 @@ instance Prelude.Hashable DeleteRule where
 instance Prelude.NFData DeleteRule where
   rnf DeleteRule' {..} = Prelude.rnf rule
 
-instance Core.ToHeaders DeleteRule where
+instance Data.ToHeaders DeleteRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.DeleteRule" ::
+              Data.=# ( "AWSHawksNestServiceFacade.DeleteRule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteRule where
+instance Data.ToJSON DeleteRule where
   toJSON DeleteRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("rule" Core..= rule)]
+          [Prelude.Just ("rule" Data..= rule)]
       )
 
-instance Core.ToPath DeleteRule where
+instance Data.ToPath DeleteRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteRule where
+instance Data.ToQuery DeleteRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRuleResponse' smart constructor.

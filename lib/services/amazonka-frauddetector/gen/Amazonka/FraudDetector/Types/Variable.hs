@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.Variable where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.DataSource
 import Amazonka.FraudDetector.Types.DataType
 import qualified Amazonka.Prelude as Prelude
@@ -138,21 +139,21 @@ variable_dataSource = Lens.lens (\Variable' {dataSource} -> dataSource) (\s@Vari
 variable_dataType :: Lens.Lens' Variable (Prelude.Maybe DataType)
 variable_dataType = Lens.lens (\Variable' {dataType} -> dataType) (\s@Variable' {} a -> s {dataType = a} :: Variable)
 
-instance Core.FromJSON Variable where
+instance Data.FromJSON Variable where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Variable"
       ( \x ->
           Variable'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "createdTime")
-            Prelude.<*> (x Core..:? "variableType")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "defaultValue")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "lastUpdatedTime")
-            Prelude.<*> (x Core..:? "dataSource")
-            Prelude.<*> (x Core..:? "dataType")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "createdTime")
+            Prelude.<*> (x Data..:? "variableType")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "defaultValue")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "lastUpdatedTime")
+            Prelude.<*> (x Data..:? "dataSource")
+            Prelude.<*> (x Data..:? "dataType")
       )
 
 instance Prelude.Hashable Variable where

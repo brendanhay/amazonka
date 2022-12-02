@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,8 +111,8 @@ instance Core.AWSRequest GetEventTypes where
     Response.receiveJSON
       ( \s h x ->
           GetEventTypesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "eventTypes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "eventTypes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,35 +128,35 @@ instance Prelude.NFData GetEventTypes where
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders GetEventTypes where
+instance Data.ToHeaders GetEventTypes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.GetEventTypes" ::
+              Data.=# ( "AWSHawksNestServiceFacade.GetEventTypes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetEventTypes where
+instance Data.ToJSON GetEventTypes where
   toJSON GetEventTypes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("name" Data..=) Prelude.<$> name,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath GetEventTypes where
+instance Data.ToPath GetEventTypes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetEventTypes where
+instance Data.ToQuery GetEventTypes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEventTypesResponse' smart constructor.
@@ -163,7 +164,7 @@ data GetEventTypesResponse = GetEventTypesResponse'
   { -- | The next page token.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array of event types.
-    eventTypes :: Prelude.Maybe [Core.Sensitive EventType],
+    eventTypes :: Prelude.Maybe [Data.Sensitive EventType],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }

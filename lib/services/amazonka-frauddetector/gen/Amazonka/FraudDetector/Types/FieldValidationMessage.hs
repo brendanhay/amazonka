@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.FieldValidationMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The message details.
@@ -88,17 +89,17 @@ fieldValidationMessage_identifier = Lens.lens (\FieldValidationMessage' {identif
 fieldValidationMessage_content :: Lens.Lens' FieldValidationMessage (Prelude.Maybe Prelude.Text)
 fieldValidationMessage_content = Lens.lens (\FieldValidationMessage' {content} -> content) (\s@FieldValidationMessage' {} a -> s {content = a} :: FieldValidationMessage)
 
-instance Core.FromJSON FieldValidationMessage where
+instance Data.FromJSON FieldValidationMessage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FieldValidationMessage"
       ( \x ->
           FieldValidationMessage'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "fieldName")
-            Prelude.<*> (x Core..:? "title")
-            Prelude.<*> (x Core..:? "identifier")
-            Prelude.<*> (x Core..:? "content")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "fieldName")
+            Prelude.<*> (x Data..:? "title")
+            Prelude.<*> (x Data..:? "identifier")
+            Prelude.<*> (x Data..:? "content")
       )
 
 instance Prelude.Hashable FieldValidationMessage where

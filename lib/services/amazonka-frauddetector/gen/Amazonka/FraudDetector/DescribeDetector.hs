@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,12 +109,12 @@ instance Core.AWSRequest DescribeDetector where
     Response.receiveJSON
       ( \s h x ->
           DescribeDetectorResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> ( x Core..?> "detectorVersionSummaries"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> ( x Data..?> "detectorVersionSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "detectorId")
+            Prelude.<*> (x Data..?> "detectorId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,35 +130,35 @@ instance Prelude.NFData DescribeDetector where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf detectorId
 
-instance Core.ToHeaders DescribeDetector where
+instance Data.ToHeaders DescribeDetector where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.DescribeDetector" ::
+              Data.=# ( "AWSHawksNestServiceFacade.DescribeDetector" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDetector where
+instance Data.ToJSON DescribeDetector where
   toJSON DescribeDetector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("detectorId" Core..= detectorId)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("detectorId" Data..= detectorId)
           ]
       )
 
-instance Core.ToPath DescribeDetector where
+instance Data.ToPath DescribeDetector where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDetector where
+instance Data.ToQuery DescribeDetector where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDetectorResponse' smart constructor.

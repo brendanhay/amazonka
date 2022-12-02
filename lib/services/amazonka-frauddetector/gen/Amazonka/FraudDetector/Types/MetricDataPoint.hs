@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.MetricDataPoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Model performance metrics data points.
@@ -94,16 +95,16 @@ metricDataPoint_precision = Lens.lens (\MetricDataPoint' {precision} -> precisio
 metricDataPoint_threshold :: Lens.Lens' MetricDataPoint (Prelude.Maybe Prelude.Double)
 metricDataPoint_threshold = Lens.lens (\MetricDataPoint' {threshold} -> threshold) (\s@MetricDataPoint' {} a -> s {threshold = a} :: MetricDataPoint)
 
-instance Core.FromJSON MetricDataPoint where
+instance Data.FromJSON MetricDataPoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricDataPoint"
       ( \x ->
           MetricDataPoint'
-            Prelude.<$> (x Core..:? "tpr")
-            Prelude.<*> (x Core..:? "fpr")
-            Prelude.<*> (x Core..:? "precision")
-            Prelude.<*> (x Core..:? "threshold")
+            Prelude.<$> (x Data..:? "tpr")
+            Prelude.<*> (x Data..:? "fpr")
+            Prelude.<*> (x Data..:? "precision")
+            Prelude.<*> (x Data..:? "threshold")
       )
 
 instance Prelude.Hashable MetricDataPoint where

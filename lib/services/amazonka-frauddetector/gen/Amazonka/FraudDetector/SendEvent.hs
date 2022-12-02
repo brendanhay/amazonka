@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -72,9 +73,9 @@ data SendEvent = SendEvent'
     -- | Names of the event type\'s variables you defined in Amazon Fraud
     -- Detector to represent data elements and their corresponding values for
     -- the event you are sending for evaluation.
-    eventVariables :: Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text),
+    eventVariables :: Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text),
     -- | An array of entities.
-    entities :: [Core.Sensitive Entity]
+    entities :: [Data.Sensitive Entity]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -190,42 +191,42 @@ instance Prelude.NFData SendEvent where
       `Prelude.seq` Prelude.rnf eventVariables
       `Prelude.seq` Prelude.rnf entities
 
-instance Core.ToHeaders SendEvent where
+instance Data.ToHeaders SendEvent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.SendEvent" ::
+              Data.=# ( "AWSHawksNestServiceFacade.SendEvent" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SendEvent where
+instance Data.ToJSON SendEvent where
   toJSON SendEvent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("labelTimestamp" Core..=)
+          [ ("labelTimestamp" Data..=)
               Prelude.<$> labelTimestamp,
-            ("assignedLabel" Core..=) Prelude.<$> assignedLabel,
-            Prelude.Just ("eventId" Core..= eventId),
-            Prelude.Just ("eventTypeName" Core..= eventTypeName),
+            ("assignedLabel" Data..=) Prelude.<$> assignedLabel,
+            Prelude.Just ("eventId" Data..= eventId),
+            Prelude.Just ("eventTypeName" Data..= eventTypeName),
             Prelude.Just
-              ("eventTimestamp" Core..= eventTimestamp),
+              ("eventTimestamp" Data..= eventTimestamp),
             Prelude.Just
-              ("eventVariables" Core..= eventVariables),
-            Prelude.Just ("entities" Core..= entities)
+              ("eventVariables" Data..= eventVariables),
+            Prelude.Just ("entities" Data..= entities)
           ]
       )
 
-instance Core.ToPath SendEvent where
+instance Data.ToPath SendEvent where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SendEvent where
+instance Data.ToQuery SendEvent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSendEventResponse' smart constructor.

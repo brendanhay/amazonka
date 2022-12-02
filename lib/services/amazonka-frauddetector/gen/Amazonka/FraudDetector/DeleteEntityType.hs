@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,32 +99,32 @@ instance Prelude.Hashable DeleteEntityType where
 instance Prelude.NFData DeleteEntityType where
   rnf DeleteEntityType' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteEntityType where
+instance Data.ToHeaders DeleteEntityType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.DeleteEntityType" ::
+              Data.=# ( "AWSHawksNestServiceFacade.DeleteEntityType" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteEntityType where
+instance Data.ToJSON DeleteEntityType where
   toJSON DeleteEntityType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )
 
-instance Core.ToPath DeleteEntityType where
+instance Data.ToPath DeleteEntityType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteEntityType where
+instance Data.ToQuery DeleteEntityType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteEntityTypeResponse' smart constructor.

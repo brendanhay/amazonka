@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.RuleDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.Language
 import qualified Amazonka.Prelude as Prelude
 
@@ -41,7 +42,7 @@ data RuleDetail = RuleDetail'
     -- | Timestamp of the last time the rule was updated.
     lastUpdatedTime :: Prelude.Maybe Prelude.Text,
     -- | The rule expression.
-    expression :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    expression :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The rule outcomes.
     outcomes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The detector for which the rule is associated.
@@ -120,7 +121,7 @@ ruleDetail_lastUpdatedTime = Lens.lens (\RuleDetail' {lastUpdatedTime} -> lastUp
 
 -- | The rule expression.
 ruleDetail_expression :: Lens.Lens' RuleDetail (Prelude.Maybe Prelude.Text)
-ruleDetail_expression = Lens.lens (\RuleDetail' {expression} -> expression) (\s@RuleDetail' {} a -> s {expression = a} :: RuleDetail) Prelude.. Lens.mapping Core._Sensitive
+ruleDetail_expression = Lens.lens (\RuleDetail' {expression} -> expression) (\s@RuleDetail' {} a -> s {expression = a} :: RuleDetail) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The rule outcomes.
 ruleDetail_outcomes :: Lens.Lens' RuleDetail (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
@@ -134,22 +135,22 @@ ruleDetail_detectorId = Lens.lens (\RuleDetail' {detectorId} -> detectorId) (\s@
 ruleDetail_language :: Lens.Lens' RuleDetail (Prelude.Maybe Language)
 ruleDetail_language = Lens.lens (\RuleDetail' {language} -> language) (\s@RuleDetail' {} a -> s {language = a} :: RuleDetail)
 
-instance Core.FromJSON RuleDetail where
+instance Data.FromJSON RuleDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleDetail"
       ( \x ->
           RuleDetail'
-            Prelude.<$> (x Core..:? "ruleVersion")
-            Prelude.<*> (x Core..:? "createdTime")
-            Prelude.<*> (x Core..:? "ruleId")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "lastUpdatedTime")
-            Prelude.<*> (x Core..:? "expression")
-            Prelude.<*> (x Core..:? "outcomes")
-            Prelude.<*> (x Core..:? "detectorId")
-            Prelude.<*> (x Core..:? "language")
+            Prelude.<$> (x Data..:? "ruleVersion")
+            Prelude.<*> (x Data..:? "createdTime")
+            Prelude.<*> (x Data..:? "ruleId")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "lastUpdatedTime")
+            Prelude.<*> (x Data..:? "expression")
+            Prelude.<*> (x Data..:? "outcomes")
+            Prelude.<*> (x Data..:? "detectorId")
+            Prelude.<*> (x Data..:? "language")
       )
 
 instance Prelude.Hashable RuleDetail where

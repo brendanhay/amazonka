@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.PredictionExplanations where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.AggregatedVariablesImpactExplanation
 import Amazonka.FraudDetector.Types.VariableImpactExplanation
 import qualified Amazonka.Prelude as Prelude
@@ -87,17 +88,17 @@ predictionExplanations_variableImpactExplanations = Lens.lens (\PredictionExplan
 predictionExplanations_aggregatedVariablesImpactExplanations :: Lens.Lens' PredictionExplanations (Prelude.Maybe [AggregatedVariablesImpactExplanation])
 predictionExplanations_aggregatedVariablesImpactExplanations = Lens.lens (\PredictionExplanations' {aggregatedVariablesImpactExplanations} -> aggregatedVariablesImpactExplanations) (\s@PredictionExplanations' {} a -> s {aggregatedVariablesImpactExplanations = a} :: PredictionExplanations) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PredictionExplanations where
+instance Data.FromJSON PredictionExplanations where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PredictionExplanations"
       ( \x ->
           PredictionExplanations'
-            Prelude.<$> ( x Core..:? "variableImpactExplanations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "variableImpactExplanations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "aggregatedVariablesImpactExplanations"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "aggregatedVariablesImpactExplanations"
+                            Data..!= Prelude.mempty
                         )
       )
 

@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.IngestedEventStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Data about the stored events.
@@ -89,17 +90,17 @@ ingestedEventStatistics_mostRecentEvent = Lens.lens (\IngestedEventStatistics' {
 ingestedEventStatistics_leastRecentEvent :: Lens.Lens' IngestedEventStatistics (Prelude.Maybe Prelude.Text)
 ingestedEventStatistics_leastRecentEvent = Lens.lens (\IngestedEventStatistics' {leastRecentEvent} -> leastRecentEvent) (\s@IngestedEventStatistics' {} a -> s {leastRecentEvent = a} :: IngestedEventStatistics)
 
-instance Core.FromJSON IngestedEventStatistics where
+instance Data.FromJSON IngestedEventStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IngestedEventStatistics"
       ( \x ->
           IngestedEventStatistics'
-            Prelude.<$> (x Core..:? "eventDataSizeInBytes")
-            Prelude.<*> (x Core..:? "lastUpdatedTime")
-            Prelude.<*> (x Core..:? "numberOfEvents")
-            Prelude.<*> (x Core..:? "mostRecentEvent")
-            Prelude.<*> (x Core..:? "leastRecentEvent")
+            Prelude.<$> (x Data..:? "eventDataSizeInBytes")
+            Prelude.<*> (x Data..:? "lastUpdatedTime")
+            Prelude.<*> (x Data..:? "numberOfEvents")
+            Prelude.<*> (x Data..:? "mostRecentEvent")
+            Prelude.<*> (x Data..:? "leastRecentEvent")
       )
 
 instance Prelude.Hashable IngestedEventStatistics where

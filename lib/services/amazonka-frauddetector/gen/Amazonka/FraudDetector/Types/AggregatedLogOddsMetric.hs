@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.AggregatedLogOddsMetric where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The log odds metric details.
@@ -76,14 +77,14 @@ aggregatedLogOddsMetric_variableNames = Lens.lens (\AggregatedLogOddsMetric' {va
 aggregatedLogOddsMetric_aggregatedVariablesImportance :: Lens.Lens' AggregatedLogOddsMetric Prelude.Double
 aggregatedLogOddsMetric_aggregatedVariablesImportance = Lens.lens (\AggregatedLogOddsMetric' {aggregatedVariablesImportance} -> aggregatedVariablesImportance) (\s@AggregatedLogOddsMetric' {} a -> s {aggregatedVariablesImportance = a} :: AggregatedLogOddsMetric)
 
-instance Core.FromJSON AggregatedLogOddsMetric where
+instance Data.FromJSON AggregatedLogOddsMetric where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AggregatedLogOddsMetric"
       ( \x ->
           AggregatedLogOddsMetric'
-            Prelude.<$> (x Core..:? "variableNames" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "aggregatedVariablesImportance")
+            Prelude.<$> (x Data..:? "variableNames" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "aggregatedVariablesImportance")
       )
 
 instance Prelude.Hashable AggregatedLogOddsMetric where

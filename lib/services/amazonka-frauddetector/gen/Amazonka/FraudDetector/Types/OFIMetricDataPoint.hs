@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.OFIMetricDataPoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Online Fraud Insights (OFI) model performance metrics data points.
@@ -94,16 +95,16 @@ oFIMetricDataPoint_precision = Lens.lens (\OFIMetricDataPoint' {precision} -> pr
 oFIMetricDataPoint_threshold :: Lens.Lens' OFIMetricDataPoint (Prelude.Maybe Prelude.Double)
 oFIMetricDataPoint_threshold = Lens.lens (\OFIMetricDataPoint' {threshold} -> threshold) (\s@OFIMetricDataPoint' {} a -> s {threshold = a} :: OFIMetricDataPoint)
 
-instance Core.FromJSON OFIMetricDataPoint where
+instance Data.FromJSON OFIMetricDataPoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OFIMetricDataPoint"
       ( \x ->
           OFIMetricDataPoint'
-            Prelude.<$> (x Core..:? "tpr")
-            Prelude.<*> (x Core..:? "fpr")
-            Prelude.<*> (x Core..:? "precision")
-            Prelude.<*> (x Core..:? "threshold")
+            Prelude.<$> (x Data..:? "tpr")
+            Prelude.<*> (x Data..:? "fpr")
+            Prelude.<*> (x Data..:? "precision")
+            Prelude.<*> (x Data..:? "threshold")
       )
 
 instance Prelude.Hashable OFIMetricDataPoint where

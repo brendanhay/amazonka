@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,36 +135,36 @@ instance Prelude.NFData UpdateVariable where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateVariable where
+instance Data.ToHeaders UpdateVariable where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.UpdateVariable" ::
+              Data.=# ( "AWSHawksNestServiceFacade.UpdateVariable" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateVariable where
+instance Data.ToJSON UpdateVariable where
   toJSON UpdateVariable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("variableType" Core..=) Prelude.<$> variableType,
-            ("defaultValue" Core..=) Prelude.<$> defaultValue,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("name" Core..= name)
+          [ ("variableType" Data..=) Prelude.<$> variableType,
+            ("defaultValue" Data..=) Prelude.<$> defaultValue,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateVariable where
+instance Data.ToPath UpdateVariable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateVariable where
+instance Data.ToQuery UpdateVariable where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateVariableResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.RuleResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The rule results.
@@ -61,14 +62,14 @@ ruleResult_ruleId = Lens.lens (\RuleResult' {ruleId} -> ruleId) (\s@RuleResult' 
 ruleResult_outcomes :: Lens.Lens' RuleResult (Prelude.Maybe [Prelude.Text])
 ruleResult_outcomes = Lens.lens (\RuleResult' {outcomes} -> outcomes) (\s@RuleResult' {} a -> s {outcomes = a} :: RuleResult) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON RuleResult where
+instance Data.FromJSON RuleResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleResult"
       ( \x ->
           RuleResult'
-            Prelude.<$> (x Core..:? "ruleId")
-            Prelude.<*> (x Core..:? "outcomes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ruleId")
+            Prelude.<*> (x Data..:? "outcomes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable RuleResult where

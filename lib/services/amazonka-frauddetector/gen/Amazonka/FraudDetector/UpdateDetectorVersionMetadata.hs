@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,36 +135,36 @@ instance Prelude.NFData UpdateDetectorVersionMetadata where
       `Prelude.seq` Prelude.rnf detectorVersionId
       `Prelude.seq` Prelude.rnf description
 
-instance Core.ToHeaders UpdateDetectorVersionMetadata where
+instance Data.ToHeaders UpdateDetectorVersionMetadata where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.UpdateDetectorVersionMetadata" ::
+              Data.=# ( "AWSHawksNestServiceFacade.UpdateDetectorVersionMetadata" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDetectorVersionMetadata where
+instance Data.ToJSON UpdateDetectorVersionMetadata where
   toJSON UpdateDetectorVersionMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("detectorId" Core..= detectorId),
+          [ Prelude.Just ("detectorId" Data..= detectorId),
             Prelude.Just
-              ("detectorVersionId" Core..= detectorVersionId),
-            Prelude.Just ("description" Core..= description)
+              ("detectorVersionId" Data..= detectorVersionId),
+            Prelude.Just ("description" Data..= description)
           ]
       )
 
-instance Core.ToPath UpdateDetectorVersionMetadata where
+instance Data.ToPath UpdateDetectorVersionMetadata where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDetectorVersionMetadata where
+instance Data.ToQuery UpdateDetectorVersionMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDetectorVersionMetadataResponse' smart constructor.

@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,8 +123,8 @@ instance Core.AWSRequest GetModels where
     Response.receiveJSON
       ( \s h x ->
           GetModelsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "models" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "models" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,36 +142,36 @@ instance Prelude.NFData GetModels where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf modelId
 
-instance Core.ToHeaders GetModels where
+instance Data.ToHeaders GetModels where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.GetModels" ::
+              Data.=# ( "AWSHawksNestServiceFacade.GetModels" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetModels where
+instance Data.ToJSON GetModels where
   toJSON GetModels' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("modelType" Core..=) Prelude.<$> modelType,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("modelId" Core..=) Prelude.<$> modelId
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("modelType" Data..=) Prelude.<$> modelType,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("modelId" Data..=) Prelude.<$> modelId
           ]
       )
 
-instance Core.ToPath GetModels where
+instance Data.ToPath GetModels where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetModels where
+instance Data.ToQuery GetModels where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetModelsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.ATITrainingMetricsValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.ATIMetricDataPoint
 import Amazonka.FraudDetector.Types.ATIModelPerformance
 import qualified Amazonka.Prelude as Prelude
@@ -64,16 +65,16 @@ aTITrainingMetricsValue_metricDataPoints = Lens.lens (\ATITrainingMetricsValue' 
 aTITrainingMetricsValue_modelPerformance :: Lens.Lens' ATITrainingMetricsValue (Prelude.Maybe ATIModelPerformance)
 aTITrainingMetricsValue_modelPerformance = Lens.lens (\ATITrainingMetricsValue' {modelPerformance} -> modelPerformance) (\s@ATITrainingMetricsValue' {} a -> s {modelPerformance = a} :: ATITrainingMetricsValue)
 
-instance Core.FromJSON ATITrainingMetricsValue where
+instance Data.FromJSON ATITrainingMetricsValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ATITrainingMetricsValue"
       ( \x ->
           ATITrainingMetricsValue'
-            Prelude.<$> ( x Core..:? "metricDataPoints"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "metricDataPoints"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "modelPerformance")
+            Prelude.<*> (x Data..:? "modelPerformance")
       )
 
 instance Prelude.Hashable ATITrainingMetricsValue where

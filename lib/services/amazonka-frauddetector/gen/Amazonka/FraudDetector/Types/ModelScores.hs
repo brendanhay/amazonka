@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.ModelScores where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.ModelVersion
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ modelScores_modelVersion = Lens.lens (\ModelScores' {modelVersion} -> modelVersi
 modelScores_scores :: Lens.Lens' ModelScores (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
 modelScores_scores = Lens.lens (\ModelScores' {scores} -> scores) (\s@ModelScores' {} a -> s {scores = a} :: ModelScores) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ModelScores where
+instance Data.FromJSON ModelScores where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelScores"
       ( \x ->
           ModelScores'
-            Prelude.<$> (x Core..:? "modelVersion")
-            Prelude.<*> (x Core..:? "scores" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "modelVersion")
+            Prelude.<*> (x Data..:? "scores" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ModelScores where

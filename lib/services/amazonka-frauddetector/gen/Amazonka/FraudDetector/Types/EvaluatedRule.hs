@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.EvaluatedRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of the rule used for evaluating variable values.
@@ -30,13 +31,13 @@ data EvaluatedRule = EvaluatedRule'
   { -- | The rule version.
     ruleVersion :: Prelude.Maybe Prelude.Text,
     -- | The rule expression value.
-    expressionWithValues :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    expressionWithValues :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Indicates whether the rule matched.
     matched :: Prelude.Maybe Prelude.Bool,
     -- | The rule ID.
     ruleId :: Prelude.Maybe Prelude.Text,
     -- | The rule expression.
-    expression :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    expression :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The rule outcome.
     outcomes :: Prelude.Maybe [Prelude.Text],
     -- | Indicates whether the rule was evaluated.
@@ -84,7 +85,7 @@ evaluatedRule_ruleVersion = Lens.lens (\EvaluatedRule' {ruleVersion} -> ruleVers
 
 -- | The rule expression value.
 evaluatedRule_expressionWithValues :: Lens.Lens' EvaluatedRule (Prelude.Maybe Prelude.Text)
-evaluatedRule_expressionWithValues = Lens.lens (\EvaluatedRule' {expressionWithValues} -> expressionWithValues) (\s@EvaluatedRule' {} a -> s {expressionWithValues = a} :: EvaluatedRule) Prelude.. Lens.mapping Core._Sensitive
+evaluatedRule_expressionWithValues = Lens.lens (\EvaluatedRule' {expressionWithValues} -> expressionWithValues) (\s@EvaluatedRule' {} a -> s {expressionWithValues = a} :: EvaluatedRule) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Indicates whether the rule matched.
 evaluatedRule_matched :: Lens.Lens' EvaluatedRule (Prelude.Maybe Prelude.Bool)
@@ -96,7 +97,7 @@ evaluatedRule_ruleId = Lens.lens (\EvaluatedRule' {ruleId} -> ruleId) (\s@Evalua
 
 -- | The rule expression.
 evaluatedRule_expression :: Lens.Lens' EvaluatedRule (Prelude.Maybe Prelude.Text)
-evaluatedRule_expression = Lens.lens (\EvaluatedRule' {expression} -> expression) (\s@EvaluatedRule' {} a -> s {expression = a} :: EvaluatedRule) Prelude.. Lens.mapping Core._Sensitive
+evaluatedRule_expression = Lens.lens (\EvaluatedRule' {expression} -> expression) (\s@EvaluatedRule' {} a -> s {expression = a} :: EvaluatedRule) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The rule outcome.
 evaluatedRule_outcomes :: Lens.Lens' EvaluatedRule (Prelude.Maybe [Prelude.Text])
@@ -106,19 +107,19 @@ evaluatedRule_outcomes = Lens.lens (\EvaluatedRule' {outcomes} -> outcomes) (\s@
 evaluatedRule_evaluated :: Lens.Lens' EvaluatedRule (Prelude.Maybe Prelude.Bool)
 evaluatedRule_evaluated = Lens.lens (\EvaluatedRule' {evaluated} -> evaluated) (\s@EvaluatedRule' {} a -> s {evaluated = a} :: EvaluatedRule)
 
-instance Core.FromJSON EvaluatedRule where
+instance Data.FromJSON EvaluatedRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EvaluatedRule"
       ( \x ->
           EvaluatedRule'
-            Prelude.<$> (x Core..:? "ruleVersion")
-            Prelude.<*> (x Core..:? "expressionWithValues")
-            Prelude.<*> (x Core..:? "matched")
-            Prelude.<*> (x Core..:? "ruleId")
-            Prelude.<*> (x Core..:? "expression")
-            Prelude.<*> (x Core..:? "outcomes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "evaluated")
+            Prelude.<$> (x Data..:? "ruleVersion")
+            Prelude.<*> (x Data..:? "expressionWithValues")
+            Prelude.<*> (x Data..:? "matched")
+            Prelude.<*> (x Data..:? "ruleId")
+            Prelude.<*> (x Data..:? "expression")
+            Prelude.<*> (x Data..:? "outcomes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "evaluated")
       )
 
 instance Prelude.Hashable EvaluatedRule where

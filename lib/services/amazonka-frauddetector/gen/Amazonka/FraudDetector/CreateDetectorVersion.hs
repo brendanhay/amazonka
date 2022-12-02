@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -184,9 +185,9 @@ instance Core.AWSRequest CreateDetectorVersion where
     Response.receiveJSON
       ( \s h x ->
           CreateDetectorVersionResponse'
-            Prelude.<$> (x Core..?> "detectorVersionId")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "detectorId")
+            Prelude.<$> (x Data..?> "detectorVersionId")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "detectorId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -210,41 +211,41 @@ instance Prelude.NFData CreateDetectorVersion where
       `Prelude.seq` Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf rules
 
-instance Core.ToHeaders CreateDetectorVersion where
+instance Data.ToHeaders CreateDetectorVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.CreateDetectorVersion" ::
+              Data.=# ( "AWSHawksNestServiceFacade.CreateDetectorVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDetectorVersion where
+instance Data.ToJSON CreateDetectorVersion where
   toJSON CreateDetectorVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("modelVersions" Core..=) Prelude.<$> modelVersions,
-            ("description" Core..=) Prelude.<$> description,
-            ("externalModelEndpoints" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("modelVersions" Data..=) Prelude.<$> modelVersions,
+            ("description" Data..=) Prelude.<$> description,
+            ("externalModelEndpoints" Data..=)
               Prelude.<$> externalModelEndpoints,
-            ("ruleExecutionMode" Core..=)
+            ("ruleExecutionMode" Data..=)
               Prelude.<$> ruleExecutionMode,
-            Prelude.Just ("detectorId" Core..= detectorId),
-            Prelude.Just ("rules" Core..= rules)
+            Prelude.Just ("detectorId" Data..= detectorId),
+            Prelude.Just ("rules" Data..= rules)
           ]
       )
 
-instance Core.ToPath CreateDetectorVersion where
+instance Data.ToPath CreateDetectorVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDetectorVersion where
+instance Data.ToQuery CreateDetectorVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDetectorVersionResponse' smart constructor.

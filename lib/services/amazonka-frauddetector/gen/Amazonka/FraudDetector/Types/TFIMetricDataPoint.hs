@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.TFIMetricDataPoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The performance metrics data points for Transaction Fraud Insights (TFI)
@@ -95,16 +96,16 @@ tFIMetricDataPoint_precision = Lens.lens (\TFIMetricDataPoint' {precision} -> pr
 tFIMetricDataPoint_threshold :: Lens.Lens' TFIMetricDataPoint (Prelude.Maybe Prelude.Double)
 tFIMetricDataPoint_threshold = Lens.lens (\TFIMetricDataPoint' {threshold} -> threshold) (\s@TFIMetricDataPoint' {} a -> s {threshold = a} :: TFIMetricDataPoint)
 
-instance Core.FromJSON TFIMetricDataPoint where
+instance Data.FromJSON TFIMetricDataPoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TFIMetricDataPoint"
       ( \x ->
           TFIMetricDataPoint'
-            Prelude.<$> (x Core..:? "tpr")
-            Prelude.<*> (x Core..:? "fpr")
-            Prelude.<*> (x Core..:? "precision")
-            Prelude.<*> (x Core..:? "threshold")
+            Prelude.<$> (x Data..:? "tpr")
+            Prelude.<*> (x Data..:? "fpr")
+            Prelude.<*> (x Data..:? "precision")
+            Prelude.<*> (x Data..:? "threshold")
       )
 
 instance Prelude.Hashable TFIMetricDataPoint where

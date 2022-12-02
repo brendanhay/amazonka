@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.AggregatedVariablesImpactExplanation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of the impact of aggregated variables on the prediction
@@ -110,18 +111,18 @@ aggregatedVariablesImpactExplanation_eventVariableNames :: Lens.Lens' Aggregated
 aggregatedVariablesImpactExplanation_eventVariableNames = Lens.lens (\AggregatedVariablesImpactExplanation' {eventVariableNames} -> eventVariableNames) (\s@AggregatedVariablesImpactExplanation' {} a -> s {eventVariableNames = a} :: AggregatedVariablesImpactExplanation) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AggregatedVariablesImpactExplanation
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AggregatedVariablesImpactExplanation"
       ( \x ->
           AggregatedVariablesImpactExplanation'
-            Prelude.<$> (x Core..:? "logOddsImpact")
-            Prelude.<*> (x Core..:? "relativeImpact")
-            Prelude.<*> ( x Core..:? "eventVariableNames"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "logOddsImpact")
+            Prelude.<*> (x Data..:? "relativeImpact")
+            Prelude.<*> ( x Data..:? "eventVariableNames"
+                            Data..!= Prelude.mempty
                         )
       )
 

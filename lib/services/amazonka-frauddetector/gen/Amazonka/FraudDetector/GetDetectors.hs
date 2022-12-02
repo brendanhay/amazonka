@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,8 +109,8 @@ instance Core.AWSRequest GetDetectors where
     Response.receiveJSON
       ( \s h x ->
           GetDetectorsResponse'
-            Prelude.<$> (x Core..?> "detectors" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "detectors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,35 +126,35 @@ instance Prelude.NFData GetDetectors where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf detectorId
 
-instance Core.ToHeaders GetDetectors where
+instance Data.ToHeaders GetDetectors where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.GetDetectors" ::
+              Data.=# ( "AWSHawksNestServiceFacade.GetDetectors" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDetectors where
+instance Data.ToJSON GetDetectors where
   toJSON GetDetectors' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("detectorId" Core..=) Prelude.<$> detectorId
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("detectorId" Data..=) Prelude.<$> detectorId
           ]
       )
 
-instance Core.ToPath GetDetectors where
+instance Data.ToPath GetDetectors where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDetectors where
+instance Data.ToQuery GetDetectors where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDetectorsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.EventVariableSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the summary of an event variable that was evaluated
@@ -29,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEventVariableSummary' smart constructor.
 data EventVariableSummary = EventVariableSummary'
   { -- | The event variable name.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The event variable source.
-    source :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    source :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The value of the event variable.
-    value :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    value :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -61,25 +62,25 @@ newEventVariableSummary =
 
 -- | The event variable name.
 eventVariableSummary_name :: Lens.Lens' EventVariableSummary (Prelude.Maybe Prelude.Text)
-eventVariableSummary_name = Lens.lens (\EventVariableSummary' {name} -> name) (\s@EventVariableSummary' {} a -> s {name = a} :: EventVariableSummary) Prelude.. Lens.mapping Core._Sensitive
+eventVariableSummary_name = Lens.lens (\EventVariableSummary' {name} -> name) (\s@EventVariableSummary' {} a -> s {name = a} :: EventVariableSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The event variable source.
 eventVariableSummary_source :: Lens.Lens' EventVariableSummary (Prelude.Maybe Prelude.Text)
-eventVariableSummary_source = Lens.lens (\EventVariableSummary' {source} -> source) (\s@EventVariableSummary' {} a -> s {source = a} :: EventVariableSummary) Prelude.. Lens.mapping Core._Sensitive
+eventVariableSummary_source = Lens.lens (\EventVariableSummary' {source} -> source) (\s@EventVariableSummary' {} a -> s {source = a} :: EventVariableSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The value of the event variable.
 eventVariableSummary_value :: Lens.Lens' EventVariableSummary (Prelude.Maybe Prelude.Text)
-eventVariableSummary_value = Lens.lens (\EventVariableSummary' {value} -> value) (\s@EventVariableSummary' {} a -> s {value = a} :: EventVariableSummary) Prelude.. Lens.mapping Core._Sensitive
+eventVariableSummary_value = Lens.lens (\EventVariableSummary' {value} -> value) (\s@EventVariableSummary' {} a -> s {value = a} :: EventVariableSummary) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON EventVariableSummary where
+instance Data.FromJSON EventVariableSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventVariableSummary"
       ( \x ->
           EventVariableSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "source")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "source")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable EventVariableSummary where

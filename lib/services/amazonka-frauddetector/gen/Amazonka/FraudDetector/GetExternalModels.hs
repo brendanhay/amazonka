@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,8 +111,8 @@ instance Core.AWSRequest GetExternalModels where
     Response.receiveJSON
       ( \s h x ->
           GetExternalModelsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "externalModels" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "externalModels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,35 +128,35 @@ instance Prelude.NFData GetExternalModels where
       `Prelude.seq` Prelude.rnf modelEndpoint
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders GetExternalModels where
+instance Data.ToHeaders GetExternalModels where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.GetExternalModels" ::
+              Data.=# ( "AWSHawksNestServiceFacade.GetExternalModels" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetExternalModels where
+instance Data.ToJSON GetExternalModels where
   toJSON GetExternalModels' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("modelEndpoint" Core..=) Prelude.<$> modelEndpoint,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("modelEndpoint" Data..=) Prelude.<$> modelEndpoint,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath GetExternalModels where
+instance Data.ToPath GetExternalModels where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetExternalModels where
+instance Data.ToQuery GetExternalModels where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetExternalModelsResponse' smart constructor.

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,7 +97,7 @@ instance Core.AWSRequest GetEvent where
     Response.receiveJSON
       ( \s h x ->
           GetEventResponse'
-            Prelude.<$> (x Core..?> "event")
+            Prelude.<$> (x Data..?> "event")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,35 +111,35 @@ instance Prelude.NFData GetEvent where
     Prelude.rnf eventId
       `Prelude.seq` Prelude.rnf eventTypeName
 
-instance Core.ToHeaders GetEvent where
+instance Data.ToHeaders GetEvent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.GetEvent" ::
+              Data.=# ( "AWSHawksNestServiceFacade.GetEvent" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetEvent where
+instance Data.ToJSON GetEvent where
   toJSON GetEvent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("eventId" Core..= eventId),
+          [ Prelude.Just ("eventId" Data..= eventId),
             Prelude.Just
-              ("eventTypeName" Core..= eventTypeName)
+              ("eventTypeName" Data..= eventTypeName)
           ]
       )
 
-instance Core.ToPath GetEvent where
+instance Data.ToPath GetEvent where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetEvent where
+instance Data.ToQuery GetEvent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEventResponse' smart constructor.

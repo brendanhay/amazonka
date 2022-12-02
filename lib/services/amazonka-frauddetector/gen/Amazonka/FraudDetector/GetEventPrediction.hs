@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -61,7 +62,7 @@ data GetEventPrediction = GetEventPrediction'
   { -- | The detector version ID.
     detectorVersionId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon SageMaker model endpoint input data blobs.
-    externalModelEndpointDataBlobs :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text ModelEndpointDataBlob)),
+    externalModelEndpointDataBlobs :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text ModelEndpointDataBlob)),
     -- | The detector ID.
     detectorId :: Prelude.Text,
     -- | The unique ID used to identify the event.
@@ -72,7 +73,7 @@ data GetEventPrediction = GetEventPrediction'
     -- | The entity type (associated with the detector\'s event type) and
     -- specific entity ID representing who performed the event. If an entity id
     -- is not available, use \"UNKNOWN.\"
-    entities :: [Core.Sensitive Entity],
+    entities :: [Data.Sensitive Entity],
     -- | Timestamp that defines when the event under evaluation occurred. The
     -- timestamp must be specified using ISO 8601 standard in UTC.
     eventTimestamp :: Prelude.Text,
@@ -100,7 +101,7 @@ data GetEventPrediction = GetEventPrediction'
     -- rules will use “null” as the value. If a variable is not provided (no
     -- variable name in the eventVariables map), model and rules will use the
     -- default value that is provided for the variable.
-    eventVariables :: Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text)
+    eventVariables :: Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -187,7 +188,7 @@ getEventPrediction_detectorVersionId = Lens.lens (\GetEventPrediction' {detector
 
 -- | The Amazon SageMaker model endpoint input data blobs.
 getEventPrediction_externalModelEndpointDataBlobs :: Lens.Lens' GetEventPrediction (Prelude.Maybe (Prelude.HashMap Prelude.Text ModelEndpointDataBlob))
-getEventPrediction_externalModelEndpointDataBlobs = Lens.lens (\GetEventPrediction' {externalModelEndpointDataBlobs} -> externalModelEndpointDataBlobs) (\s@GetEventPrediction' {} a -> s {externalModelEndpointDataBlobs = a} :: GetEventPrediction) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+getEventPrediction_externalModelEndpointDataBlobs = Lens.lens (\GetEventPrediction' {externalModelEndpointDataBlobs} -> externalModelEndpointDataBlobs) (\s@GetEventPrediction' {} a -> s {externalModelEndpointDataBlobs = a} :: GetEventPrediction) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The detector ID.
 getEventPrediction_detectorId :: Lens.Lens' GetEventPrediction Prelude.Text
@@ -250,11 +251,11 @@ instance Core.AWSRequest GetEventPrediction where
     Response.receiveJSON
       ( \s h x ->
           GetEventPredictionResponse'
-            Prelude.<$> (x Core..?> "modelScores" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "externalModelOutputs"
+            Prelude.<$> (x Data..?> "modelScores" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "externalModelOutputs"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ruleResults" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ruleResults" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -280,44 +281,44 @@ instance Prelude.NFData GetEventPrediction where
       `Prelude.seq` Prelude.rnf eventTimestamp
       `Prelude.seq` Prelude.rnf eventVariables
 
-instance Core.ToHeaders GetEventPrediction where
+instance Data.ToHeaders GetEventPrediction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.GetEventPrediction" ::
+              Data.=# ( "AWSHawksNestServiceFacade.GetEventPrediction" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetEventPrediction where
+instance Data.ToJSON GetEventPrediction where
   toJSON GetEventPrediction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("detectorVersionId" Core..=)
+          [ ("detectorVersionId" Data..=)
               Prelude.<$> detectorVersionId,
-            ("externalModelEndpointDataBlobs" Core..=)
+            ("externalModelEndpointDataBlobs" Data..=)
               Prelude.<$> externalModelEndpointDataBlobs,
-            Prelude.Just ("detectorId" Core..= detectorId),
-            Prelude.Just ("eventId" Core..= eventId),
-            Prelude.Just ("eventTypeName" Core..= eventTypeName),
-            Prelude.Just ("entities" Core..= entities),
+            Prelude.Just ("detectorId" Data..= detectorId),
+            Prelude.Just ("eventId" Data..= eventId),
+            Prelude.Just ("eventTypeName" Data..= eventTypeName),
+            Prelude.Just ("entities" Data..= entities),
             Prelude.Just
-              ("eventTimestamp" Core..= eventTimestamp),
+              ("eventTimestamp" Data..= eventTimestamp),
             Prelude.Just
-              ("eventVariables" Core..= eventVariables)
+              ("eventVariables" Data..= eventVariables)
           ]
       )
 
-instance Core.ToPath GetEventPrediction where
+instance Data.ToPath GetEventPrediction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetEventPrediction where
+instance Data.ToQuery GetEventPrediction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEventPredictionResponse' smart constructor.

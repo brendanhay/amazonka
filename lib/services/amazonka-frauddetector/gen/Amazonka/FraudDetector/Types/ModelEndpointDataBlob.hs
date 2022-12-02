@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.ModelEndpointDataBlob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A pre-formed Amazon SageMaker model input you can include if your
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newModelEndpointDataBlob' smart constructor.
 data ModelEndpointDataBlob = ModelEndpointDataBlob'
   { -- | The byte buffer of the Amazon SageMaker model endpoint input data blob.
-    byteBuffer :: Prelude.Maybe Core.Base64,
+    byteBuffer :: Prelude.Maybe Data.Base64,
     -- | The content type of the Amazon SageMaker model endpoint input data blob.
     contentType :: Prelude.Maybe Prelude.Text
   }
@@ -66,7 +67,7 @@ newModelEndpointDataBlob =
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 modelEndpointDataBlob_byteBuffer :: Lens.Lens' ModelEndpointDataBlob (Prelude.Maybe Prelude.ByteString)
-modelEndpointDataBlob_byteBuffer = Lens.lens (\ModelEndpointDataBlob' {byteBuffer} -> byteBuffer) (\s@ModelEndpointDataBlob' {} a -> s {byteBuffer = a} :: ModelEndpointDataBlob) Prelude.. Lens.mapping Core._Base64
+modelEndpointDataBlob_byteBuffer = Lens.lens (\ModelEndpointDataBlob' {byteBuffer} -> byteBuffer) (\s@ModelEndpointDataBlob' {} a -> s {byteBuffer = a} :: ModelEndpointDataBlob) Prelude.. Lens.mapping Data._Base64
 
 -- | The content type of the Amazon SageMaker model endpoint input data blob.
 modelEndpointDataBlob_contentType :: Lens.Lens' ModelEndpointDataBlob (Prelude.Maybe Prelude.Text)
@@ -82,11 +83,11 @@ instance Prelude.NFData ModelEndpointDataBlob where
     Prelude.rnf byteBuffer
       `Prelude.seq` Prelude.rnf contentType
 
-instance Core.ToJSON ModelEndpointDataBlob where
+instance Data.ToJSON ModelEndpointDataBlob where
   toJSON ModelEndpointDataBlob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("byteBuffer" Core..=) Prelude.<$> byteBuffer,
-            ("contentType" Core..=) Prelude.<$> contentType
+          [ ("byteBuffer" Data..=) Prelude.<$> byteBuffer,
+            ("contentType" Data..=) Prelude.<$> contentType
           ]
       )

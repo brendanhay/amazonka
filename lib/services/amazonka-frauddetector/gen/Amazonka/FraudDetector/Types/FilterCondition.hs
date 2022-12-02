@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.FilterCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A conditional statement for filtering a list of past predictions.
@@ -60,9 +61,9 @@ instance Prelude.Hashable FilterCondition where
 instance Prelude.NFData FilterCondition where
   rnf FilterCondition' {..} = Prelude.rnf value
 
-instance Core.ToJSON FilterCondition where
+instance Data.ToJSON FilterCondition where
   toJSON FilterCondition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("value" Core..=) Prelude.<$> value]
+          [("value" Data..=) Prelude.<$> value]
       )

@@ -51,6 +51,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,16 +105,16 @@ instance Core.AWSRequest DescribeBackupVault where
     Response.receiveJSON
       ( \s h x ->
           DescribeBackupVaultResponse'
-            Prelude.<$> (x Core..?> "EncryptionKeyArn")
-            Prelude.<*> (x Core..?> "MinRetentionDays")
-            Prelude.<*> (x Core..?> "MaxRetentionDays")
-            Prelude.<*> (x Core..?> "BackupVaultName")
-            Prelude.<*> (x Core..?> "CreationDate")
-            Prelude.<*> (x Core..?> "BackupVaultArn")
-            Prelude.<*> (x Core..?> "CreatorRequestId")
-            Prelude.<*> (x Core..?> "NumberOfRecoveryPoints")
-            Prelude.<*> (x Core..?> "Locked")
-            Prelude.<*> (x Core..?> "LockDate")
+            Prelude.<$> (x Data..?> "EncryptionKeyArn")
+            Prelude.<*> (x Data..?> "MinRetentionDays")
+            Prelude.<*> (x Data..?> "MaxRetentionDays")
+            Prelude.<*> (x Data..?> "BackupVaultName")
+            Prelude.<*> (x Data..?> "CreationDate")
+            Prelude.<*> (x Data..?> "BackupVaultArn")
+            Prelude.<*> (x Data..?> "CreatorRequestId")
+            Prelude.<*> (x Data..?> "NumberOfRecoveryPoints")
+            Prelude.<*> (x Data..?> "Locked")
+            Prelude.<*> (x Data..?> "LockDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,23 +126,23 @@ instance Prelude.NFData DescribeBackupVault where
   rnf DescribeBackupVault' {..} =
     Prelude.rnf backupVaultName
 
-instance Core.ToHeaders DescribeBackupVault where
+instance Data.ToHeaders DescribeBackupVault where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeBackupVault where
+instance Data.ToPath DescribeBackupVault where
   toPath DescribeBackupVault' {..} =
     Prelude.mconcat
-      ["/backup-vaults/", Core.toBS backupVaultName]
+      ["/backup-vaults/", Data.toBS backupVaultName]
 
-instance Core.ToQuery DescribeBackupVault where
+instance Data.ToQuery DescribeBackupVault where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeBackupVaultResponse' smart constructor.
@@ -184,7 +185,7 @@ data DescribeBackupVaultResponse = DescribeBackupVaultResponse'
     -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | An Amazon Resource Name (ARN) that uniquely identifies a backup vault;
     -- for example, @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
     backupVaultArn :: Prelude.Maybe Prelude.Text,
@@ -207,7 +208,7 @@ data DescribeBackupVaultResponse = DescribeBackupVaultResponse'
     -- This value is in Unix format, Coordinated Universal Time (UTC), and
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    lockDate :: Prelude.Maybe Core.POSIX,
+    lockDate :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -351,7 +352,7 @@ describeBackupVaultResponse_backupVaultName = Lens.lens (\DescribeBackupVaultRes
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 describeBackupVaultResponse_creationDate :: Lens.Lens' DescribeBackupVaultResponse (Prelude.Maybe Prelude.UTCTime)
-describeBackupVaultResponse_creationDate = Lens.lens (\DescribeBackupVaultResponse' {creationDate} -> creationDate) (\s@DescribeBackupVaultResponse' {} a -> s {creationDate = a} :: DescribeBackupVaultResponse) Prelude.. Lens.mapping Core._Time
+describeBackupVaultResponse_creationDate = Lens.lens (\DescribeBackupVaultResponse' {creationDate} -> creationDate) (\s@DescribeBackupVaultResponse' {} a -> s {creationDate = a} :: DescribeBackupVaultResponse) Prelude.. Lens.mapping Data._Time
 
 -- | An Amazon Resource Name (ARN) that uniquely identifies a backup vault;
 -- for example, @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
@@ -384,7 +385,7 @@ describeBackupVaultResponse_locked = Lens.lens (\DescribeBackupVaultResponse' {l
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 describeBackupVaultResponse_lockDate :: Lens.Lens' DescribeBackupVaultResponse (Prelude.Maybe Prelude.UTCTime)
-describeBackupVaultResponse_lockDate = Lens.lens (\DescribeBackupVaultResponse' {lockDate} -> lockDate) (\s@DescribeBackupVaultResponse' {} a -> s {lockDate = a} :: DescribeBackupVaultResponse) Prelude.. Lens.mapping Core._Time
+describeBackupVaultResponse_lockDate = Lens.lens (\DescribeBackupVaultResponse' {lockDate} -> lockDate) (\s@DescribeBackupVaultResponse' {} a -> s {lockDate = a} :: DescribeBackupVaultResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeBackupVaultResponse_httpStatus :: Lens.Lens' DescribeBackupVaultResponse Prelude.Int

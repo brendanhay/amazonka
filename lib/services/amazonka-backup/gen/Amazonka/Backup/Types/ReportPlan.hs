@@ -23,6 +23,7 @@ import Amazonka.Backup.Types.ReportDeliveryChannel
 import Amazonka.Backup.Types.ReportSetting
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains detailed information about a report plan.
@@ -45,7 +46,7 @@ data ReportPlan = ReportPlan'
     -- (UTC). The value of @LastSuccessfulExecutionTime@ is accurate to
     -- milliseconds. For example, the value 1516925490.087 represents Friday,
     -- January 26, 2018 12:11:30.087 AM.
-    lastSuccessfulExecutionTime :: Prelude.Maybe Core.POSIX,
+    lastSuccessfulExecutionTime :: Prelude.Maybe Data.POSIX,
     -- | Identifies the report template for the report. Reports are built using a
     -- report template. The report templates are:
     --
@@ -60,7 +61,7 @@ data ReportPlan = ReportPlan'
     -- (UTC). The value of @LastAttemptedExecutionTime@ is accurate to
     -- milliseconds. For example, the value 1516925490.087 represents Friday,
     -- January 26, 2018 12:11:30.087 AM.
-    lastAttemptedExecutionTime :: Prelude.Maybe Core.POSIX,
+    lastAttemptedExecutionTime :: Prelude.Maybe Data.POSIX,
     -- | The unique name of the report plan. This name is between 1 and 256
     -- characters starting with a letter, and consisting of letters (a-z, A-Z),
     -- numbers (0-9), and underscores (_).
@@ -69,7 +70,7 @@ data ReportPlan = ReportPlan'
     -- Coordinated Universal Time (UTC). The value of @CreationTime@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | An optional description of the report plan with a maximum 1,024
     -- characters.
     reportPlanDescription :: Prelude.Maybe Prelude.Text
@@ -165,7 +166,7 @@ reportPlan_reportDeliveryChannel = Lens.lens (\ReportPlan' {reportDeliveryChanne
 -- milliseconds. For example, the value 1516925490.087 represents Friday,
 -- January 26, 2018 12:11:30.087 AM.
 reportPlan_lastSuccessfulExecutionTime :: Lens.Lens' ReportPlan (Prelude.Maybe Prelude.UTCTime)
-reportPlan_lastSuccessfulExecutionTime = Lens.lens (\ReportPlan' {lastSuccessfulExecutionTime} -> lastSuccessfulExecutionTime) (\s@ReportPlan' {} a -> s {lastSuccessfulExecutionTime = a} :: ReportPlan) Prelude.. Lens.mapping Core._Time
+reportPlan_lastSuccessfulExecutionTime = Lens.lens (\ReportPlan' {lastSuccessfulExecutionTime} -> lastSuccessfulExecutionTime) (\s@ReportPlan' {} a -> s {lastSuccessfulExecutionTime = a} :: ReportPlan) Prelude.. Lens.mapping Data._Time
 
 -- | Identifies the report template for the report. Reports are built using a
 -- report template. The report templates are:
@@ -184,7 +185,7 @@ reportPlan_reportSetting = Lens.lens (\ReportPlan' {reportSetting} -> reportSett
 -- milliseconds. For example, the value 1516925490.087 represents Friday,
 -- January 26, 2018 12:11:30.087 AM.
 reportPlan_lastAttemptedExecutionTime :: Lens.Lens' ReportPlan (Prelude.Maybe Prelude.UTCTime)
-reportPlan_lastAttemptedExecutionTime = Lens.lens (\ReportPlan' {lastAttemptedExecutionTime} -> lastAttemptedExecutionTime) (\s@ReportPlan' {} a -> s {lastAttemptedExecutionTime = a} :: ReportPlan) Prelude.. Lens.mapping Core._Time
+reportPlan_lastAttemptedExecutionTime = Lens.lens (\ReportPlan' {lastAttemptedExecutionTime} -> lastAttemptedExecutionTime) (\s@ReportPlan' {} a -> s {lastAttemptedExecutionTime = a} :: ReportPlan) Prelude.. Lens.mapping Data._Time
 
 -- | The unique name of the report plan. This name is between 1 and 256
 -- characters starting with a letter, and consisting of letters (a-z, A-Z),
@@ -197,28 +198,28 @@ reportPlan_reportPlanName = Lens.lens (\ReportPlan' {reportPlanName} -> reportPl
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 reportPlan_creationTime :: Lens.Lens' ReportPlan (Prelude.Maybe Prelude.UTCTime)
-reportPlan_creationTime = Lens.lens (\ReportPlan' {creationTime} -> creationTime) (\s@ReportPlan' {} a -> s {creationTime = a} :: ReportPlan) Prelude.. Lens.mapping Core._Time
+reportPlan_creationTime = Lens.lens (\ReportPlan' {creationTime} -> creationTime) (\s@ReportPlan' {} a -> s {creationTime = a} :: ReportPlan) Prelude.. Lens.mapping Data._Time
 
 -- | An optional description of the report plan with a maximum 1,024
 -- characters.
 reportPlan_reportPlanDescription :: Lens.Lens' ReportPlan (Prelude.Maybe Prelude.Text)
 reportPlan_reportPlanDescription = Lens.lens (\ReportPlan' {reportPlanDescription} -> reportPlanDescription) (\s@ReportPlan' {} a -> s {reportPlanDescription = a} :: ReportPlan)
 
-instance Core.FromJSON ReportPlan where
+instance Data.FromJSON ReportPlan where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReportPlan"
       ( \x ->
           ReportPlan'
-            Prelude.<$> (x Core..:? "DeploymentStatus")
-            Prelude.<*> (x Core..:? "ReportPlanArn")
-            Prelude.<*> (x Core..:? "ReportDeliveryChannel")
-            Prelude.<*> (x Core..:? "LastSuccessfulExecutionTime")
-            Prelude.<*> (x Core..:? "ReportSetting")
-            Prelude.<*> (x Core..:? "LastAttemptedExecutionTime")
-            Prelude.<*> (x Core..:? "ReportPlanName")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "ReportPlanDescription")
+            Prelude.<$> (x Data..:? "DeploymentStatus")
+            Prelude.<*> (x Data..:? "ReportPlanArn")
+            Prelude.<*> (x Data..:? "ReportDeliveryChannel")
+            Prelude.<*> (x Data..:? "LastSuccessfulExecutionTime")
+            Prelude.<*> (x Data..:? "ReportSetting")
+            Prelude.<*> (x Data..:? "LastAttemptedExecutionTime")
+            Prelude.<*> (x Data..:? "ReportPlanName")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "ReportPlanDescription")
       )
 
 instance Prelude.Hashable ReportPlan where

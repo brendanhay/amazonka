@@ -21,6 +21,7 @@ module Amazonka.Backup.Types.BackupPlanTemplatesListMember where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object specifying metadata associated with a backup plan template.
@@ -62,14 +63,14 @@ backupPlanTemplatesListMember_backupPlanTemplateName = Lens.lens (\BackupPlanTem
 backupPlanTemplatesListMember_backupPlanTemplateId :: Lens.Lens' BackupPlanTemplatesListMember (Prelude.Maybe Prelude.Text)
 backupPlanTemplatesListMember_backupPlanTemplateId = Lens.lens (\BackupPlanTemplatesListMember' {backupPlanTemplateId} -> backupPlanTemplateId) (\s@BackupPlanTemplatesListMember' {} a -> s {backupPlanTemplateId = a} :: BackupPlanTemplatesListMember)
 
-instance Core.FromJSON BackupPlanTemplatesListMember where
+instance Data.FromJSON BackupPlanTemplatesListMember where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackupPlanTemplatesListMember"
       ( \x ->
           BackupPlanTemplatesListMember'
-            Prelude.<$> (x Core..:? "BackupPlanTemplateName")
-            Prelude.<*> (x Core..:? "BackupPlanTemplateId")
+            Prelude.<$> (x Data..:? "BackupPlanTemplateName")
+            Prelude.<*> (x Data..:? "BackupPlanTemplateId")
       )
 
 instance

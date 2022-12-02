@@ -21,6 +21,7 @@ module Amazonka.Backup.Types.ConditionParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Includes information about tags you define to assign tagged resources to
@@ -69,14 +70,14 @@ conditionParameter_conditionValue = Lens.lens (\ConditionParameter' {conditionVa
 conditionParameter_conditionKey :: Lens.Lens' ConditionParameter (Prelude.Maybe Prelude.Text)
 conditionParameter_conditionKey = Lens.lens (\ConditionParameter' {conditionKey} -> conditionKey) (\s@ConditionParameter' {} a -> s {conditionKey = a} :: ConditionParameter)
 
-instance Core.FromJSON ConditionParameter where
+instance Data.FromJSON ConditionParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConditionParameter"
       ( \x ->
           ConditionParameter'
-            Prelude.<$> (x Core..:? "ConditionValue")
-            Prelude.<*> (x Core..:? "ConditionKey")
+            Prelude.<$> (x Data..:? "ConditionValue")
+            Prelude.<*> (x Data..:? "ConditionKey")
       )
 
 instance Prelude.Hashable ConditionParameter where
@@ -89,12 +90,12 @@ instance Prelude.NFData ConditionParameter where
     Prelude.rnf conditionValue
       `Prelude.seq` Prelude.rnf conditionKey
 
-instance Core.ToJSON ConditionParameter where
+instance Data.ToJSON ConditionParameter where
   toJSON ConditionParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConditionValue" Core..=)
+          [ ("ConditionValue" Data..=)
               Prelude.<$> conditionValue,
-            ("ConditionKey" Core..=) Prelude.<$> conditionKey
+            ("ConditionKey" Data..=) Prelude.<$> conditionKey
           ]
       )

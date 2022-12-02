@@ -45,6 +45,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,31 +116,31 @@ instance Prelude.NFData DisassociateRecoveryPoint where
     Prelude.rnf backupVaultName
       `Prelude.seq` Prelude.rnf recoveryPointArn
 
-instance Core.ToHeaders DisassociateRecoveryPoint where
+instance Data.ToHeaders DisassociateRecoveryPoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateRecoveryPoint where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DisassociateRecoveryPoint where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DisassociateRecoveryPoint where
+instance Data.ToPath DisassociateRecoveryPoint where
   toPath DisassociateRecoveryPoint' {..} =
     Prelude.mconcat
       [ "/backup-vaults/",
-        Core.toBS backupVaultName,
+        Data.toBS backupVaultName,
         "/recovery-points/",
-        Core.toBS recoveryPointArn,
+        Data.toBS recoveryPointArn,
         "/disassociate"
       ]
 
-instance Core.ToQuery DisassociateRecoveryPoint where
+instance Data.ToQuery DisassociateRecoveryPoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateRecoveryPointResponse' smart constructor.

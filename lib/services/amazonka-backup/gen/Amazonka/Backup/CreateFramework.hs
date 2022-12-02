@@ -51,6 +51,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -155,8 +156,8 @@ instance Core.AWSRequest CreateFramework where
     Response.receiveJSON
       ( \s h x ->
           CreateFrameworkResponse'
-            Prelude.<$> (x Core..?> "FrameworkArn")
-            Prelude.<*> (x Core..?> "FrameworkName")
+            Prelude.<$> (x Data..?> "FrameworkArn")
+            Prelude.<*> (x Data..?> "FrameworkName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,36 +177,36 @@ instance Prelude.NFData CreateFramework where
       `Prelude.seq` Prelude.rnf frameworkName
       `Prelude.seq` Prelude.rnf frameworkControls
 
-instance Core.ToHeaders CreateFramework where
+instance Data.ToHeaders CreateFramework where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFramework where
+instance Data.ToJSON CreateFramework where
   toJSON CreateFramework' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FrameworkDescription" Core..=)
+          [ ("FrameworkDescription" Data..=)
               Prelude.<$> frameworkDescription,
-            ("IdempotencyToken" Core..=)
+            ("IdempotencyToken" Data..=)
               Prelude.<$> idempotencyToken,
-            ("FrameworkTags" Core..=) Prelude.<$> frameworkTags,
-            Prelude.Just ("FrameworkName" Core..= frameworkName),
+            ("FrameworkTags" Data..=) Prelude.<$> frameworkTags,
+            Prelude.Just ("FrameworkName" Data..= frameworkName),
             Prelude.Just
-              ("FrameworkControls" Core..= frameworkControls)
+              ("FrameworkControls" Data..= frameworkControls)
           ]
       )
 
-instance Core.ToPath CreateFramework where
+instance Data.ToPath CreateFramework where
   toPath = Prelude.const "/audit/frameworks"
 
-instance Core.ToQuery CreateFramework where
+instance Data.ToQuery CreateFramework where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFrameworkResponse' smart constructor.

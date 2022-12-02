@@ -21,6 +21,7 @@ module Amazonka.Backup.Types.BackupVaultListMember where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains metadata about a backup vault.
@@ -72,7 +73,7 @@ data BackupVaultListMember = BackupVaultListMember'
     -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | An Amazon Resource Name (ARN) that uniquely identifies a backup vault;
     -- for example, @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
     backupVaultArn :: Prelude.Maybe Prelude.Text,
@@ -99,7 +100,7 @@ data BackupVaultListMember = BackupVaultListMember'
     -- This value is in Unix format, Coordinated Universal Time (UTC), and
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    lockDate :: Prelude.Maybe Core.POSIX
+    lockDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -254,7 +255,7 @@ backupVaultListMember_backupVaultName = Lens.lens (\BackupVaultListMember' {back
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 backupVaultListMember_creationDate :: Lens.Lens' BackupVaultListMember (Prelude.Maybe Prelude.UTCTime)
-backupVaultListMember_creationDate = Lens.lens (\BackupVaultListMember' {creationDate} -> creationDate) (\s@BackupVaultListMember' {} a -> s {creationDate = a} :: BackupVaultListMember) Prelude.. Lens.mapping Core._Time
+backupVaultListMember_creationDate = Lens.lens (\BackupVaultListMember' {creationDate} -> creationDate) (\s@BackupVaultListMember' {} a -> s {creationDate = a} :: BackupVaultListMember) Prelude.. Lens.mapping Data._Time
 
 -- | An Amazon Resource Name (ARN) that uniquely identifies a backup vault;
 -- for example, @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
@@ -291,24 +292,24 @@ backupVaultListMember_locked = Lens.lens (\BackupVaultListMember' {locked} -> lo
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 backupVaultListMember_lockDate :: Lens.Lens' BackupVaultListMember (Prelude.Maybe Prelude.UTCTime)
-backupVaultListMember_lockDate = Lens.lens (\BackupVaultListMember' {lockDate} -> lockDate) (\s@BackupVaultListMember' {} a -> s {lockDate = a} :: BackupVaultListMember) Prelude.. Lens.mapping Core._Time
+backupVaultListMember_lockDate = Lens.lens (\BackupVaultListMember' {lockDate} -> lockDate) (\s@BackupVaultListMember' {} a -> s {lockDate = a} :: BackupVaultListMember) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON BackupVaultListMember where
+instance Data.FromJSON BackupVaultListMember where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackupVaultListMember"
       ( \x ->
           BackupVaultListMember'
-            Prelude.<$> (x Core..:? "EncryptionKeyArn")
-            Prelude.<*> (x Core..:? "MinRetentionDays")
-            Prelude.<*> (x Core..:? "MaxRetentionDays")
-            Prelude.<*> (x Core..:? "BackupVaultName")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "BackupVaultArn")
-            Prelude.<*> (x Core..:? "CreatorRequestId")
-            Prelude.<*> (x Core..:? "NumberOfRecoveryPoints")
-            Prelude.<*> (x Core..:? "Locked")
-            Prelude.<*> (x Core..:? "LockDate")
+            Prelude.<$> (x Data..:? "EncryptionKeyArn")
+            Prelude.<*> (x Data..:? "MinRetentionDays")
+            Prelude.<*> (x Data..:? "MaxRetentionDays")
+            Prelude.<*> (x Data..:? "BackupVaultName")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "BackupVaultArn")
+            Prelude.<*> (x Data..:? "CreatorRequestId")
+            Prelude.<*> (x Data..:? "NumberOfRecoveryPoints")
+            Prelude.<*> (x Data..:? "Locked")
+            Prelude.<*> (x Data..:? "LockDate")
       )
 
 instance Prelude.Hashable BackupVaultListMember where

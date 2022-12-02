@@ -43,6 +43,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -71,8 +72,8 @@ instance Core.AWSRequest DescribeGlobalSettings where
     Response.receiveJSON
       ( \s h x ->
           DescribeGlobalSettingsResponse'
-            Prelude.<$> (x Core..?> "GlobalSettings" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "LastUpdateTime")
+            Prelude.<$> (x Data..?> "GlobalSettings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "LastUpdateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -83,21 +84,21 @@ instance Prelude.Hashable DescribeGlobalSettings where
 instance Prelude.NFData DescribeGlobalSettings where
   rnf _ = ()
 
-instance Core.ToHeaders DescribeGlobalSettings where
+instance Data.ToHeaders DescribeGlobalSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeGlobalSettings where
+instance Data.ToPath DescribeGlobalSettings where
   toPath = Prelude.const "/global-settings"
 
-instance Core.ToQuery DescribeGlobalSettings where
+instance Data.ToQuery DescribeGlobalSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeGlobalSettingsResponse' smart constructor.
@@ -109,7 +110,7 @@ data DescribeGlobalSettingsResponse = DescribeGlobalSettingsResponse'
     -- (UTC). The value of @LastUpdateTime@ is accurate to milliseconds. For
     -- example, the value 1516925490.087 represents Friday, January 26, 2018
     -- 12:11:30.087 AM.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -154,7 +155,7 @@ describeGlobalSettingsResponse_globalSettings = Lens.lens (\DescribeGlobalSettin
 -- example, the value 1516925490.087 represents Friday, January 26, 2018
 -- 12:11:30.087 AM.
 describeGlobalSettingsResponse_lastUpdateTime :: Lens.Lens' DescribeGlobalSettingsResponse (Prelude.Maybe Prelude.UTCTime)
-describeGlobalSettingsResponse_lastUpdateTime = Lens.lens (\DescribeGlobalSettingsResponse' {lastUpdateTime} -> lastUpdateTime) (\s@DescribeGlobalSettingsResponse' {} a -> s {lastUpdateTime = a} :: DescribeGlobalSettingsResponse) Prelude.. Lens.mapping Core._Time
+describeGlobalSettingsResponse_lastUpdateTime = Lens.lens (\DescribeGlobalSettingsResponse' {lastUpdateTime} -> lastUpdateTime) (\s@DescribeGlobalSettingsResponse' {} a -> s {lastUpdateTime = a} :: DescribeGlobalSettingsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeGlobalSettingsResponse_httpStatus :: Lens.Lens' DescribeGlobalSettingsResponse Prelude.Int

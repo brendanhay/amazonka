@@ -21,6 +21,7 @@ module Amazonka.Backup.Types.ControlScope where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A framework consists of one or more controls. Each control has its own
@@ -97,16 +98,16 @@ controlScope_complianceResourceIds = Lens.lens (\ControlScope' {complianceResour
 controlScope_complianceResourceTypes :: Lens.Lens' ControlScope (Prelude.Maybe [Prelude.Text])
 controlScope_complianceResourceTypes = Lens.lens (\ControlScope' {complianceResourceTypes} -> complianceResourceTypes) (\s@ControlScope' {} a -> s {complianceResourceTypes = a} :: ControlScope) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ControlScope where
+instance Data.FromJSON ControlScope where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ControlScope"
       ( \x ->
           ControlScope'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ComplianceResourceIds")
-            Prelude.<*> ( x Core..:? "ComplianceResourceTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ComplianceResourceIds")
+            Prelude.<*> ( x Data..:? "ComplianceResourceTypes"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -122,14 +123,14 @@ instance Prelude.NFData ControlScope where
       `Prelude.seq` Prelude.rnf complianceResourceIds
       `Prelude.seq` Prelude.rnf complianceResourceTypes
 
-instance Core.ToJSON ControlScope where
+instance Data.ToJSON ControlScope where
   toJSON ControlScope' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ComplianceResourceIds" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ComplianceResourceIds" Data..=)
               Prelude.<$> complianceResourceIds,
-            ("ComplianceResourceTypes" Core..=)
+            ("ComplianceResourceTypes" Data..=)
               Prelude.<$> complianceResourceTypes
           ]
       )

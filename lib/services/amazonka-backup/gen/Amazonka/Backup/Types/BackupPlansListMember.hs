@@ -22,6 +22,7 @@ module Amazonka.Backup.Types.BackupPlansListMember where
 import Amazonka.Backup.Types.AdvancedBackupSetting
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains metadata about a backup plan.
@@ -34,7 +35,7 @@ data BackupPlansListMember = BackupPlansListMember'
     -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | A unique string that identifies the request and allows failed requests
     -- to be retried without the risk of running the operation twice. This
     -- parameter is optional.
@@ -55,12 +56,12 @@ data BackupPlansListMember = BackupPlansListMember'
     -- of @LastExecutionDate@ is accurate to milliseconds. For example, the
     -- value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
     -- AM.
-    lastExecutionDate :: Prelude.Maybe Core.POSIX,
+    lastExecutionDate :: Prelude.Maybe Data.POSIX,
     -- | The date and time a backup plan is deleted, in Unix format and
     -- Coordinated Universal Time (UTC). The value of @DeletionDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    deletionDate :: Prelude.Maybe Core.POSIX,
+    deletionDate :: Prelude.Maybe Data.POSIX,
     -- | Unique, randomly generated, Unicode, UTF-8 encoded strings that are at
     -- most 1,024 bytes long. Version IDs cannot be edited.
     versionId :: Prelude.Maybe Prelude.Text
@@ -135,7 +136,7 @@ backupPlansListMember_backupPlanName = Lens.lens (\BackupPlansListMember' {backu
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 backupPlansListMember_creationDate :: Lens.Lens' BackupPlansListMember (Prelude.Maybe Prelude.UTCTime)
-backupPlansListMember_creationDate = Lens.lens (\BackupPlansListMember' {creationDate} -> creationDate) (\s@BackupPlansListMember' {} a -> s {creationDate = a} :: BackupPlansListMember) Prelude.. Lens.mapping Core._Time
+backupPlansListMember_creationDate = Lens.lens (\BackupPlansListMember' {creationDate} -> creationDate) (\s@BackupPlansListMember' {} a -> s {creationDate = a} :: BackupPlansListMember) Prelude.. Lens.mapping Data._Time
 
 -- | A unique string that identifies the request and allows failed requests
 -- to be retried without the risk of running the operation twice. This
@@ -166,37 +167,37 @@ backupPlansListMember_advancedBackupSettings = Lens.lens (\BackupPlansListMember
 -- value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
 -- AM.
 backupPlansListMember_lastExecutionDate :: Lens.Lens' BackupPlansListMember (Prelude.Maybe Prelude.UTCTime)
-backupPlansListMember_lastExecutionDate = Lens.lens (\BackupPlansListMember' {lastExecutionDate} -> lastExecutionDate) (\s@BackupPlansListMember' {} a -> s {lastExecutionDate = a} :: BackupPlansListMember) Prelude.. Lens.mapping Core._Time
+backupPlansListMember_lastExecutionDate = Lens.lens (\BackupPlansListMember' {lastExecutionDate} -> lastExecutionDate) (\s@BackupPlansListMember' {} a -> s {lastExecutionDate = a} :: BackupPlansListMember) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time a backup plan is deleted, in Unix format and
 -- Coordinated Universal Time (UTC). The value of @DeletionDate@ is
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 backupPlansListMember_deletionDate :: Lens.Lens' BackupPlansListMember (Prelude.Maybe Prelude.UTCTime)
-backupPlansListMember_deletionDate = Lens.lens (\BackupPlansListMember' {deletionDate} -> deletionDate) (\s@BackupPlansListMember' {} a -> s {deletionDate = a} :: BackupPlansListMember) Prelude.. Lens.mapping Core._Time
+backupPlansListMember_deletionDate = Lens.lens (\BackupPlansListMember' {deletionDate} -> deletionDate) (\s@BackupPlansListMember' {} a -> s {deletionDate = a} :: BackupPlansListMember) Prelude.. Lens.mapping Data._Time
 
 -- | Unique, randomly generated, Unicode, UTF-8 encoded strings that are at
 -- most 1,024 bytes long. Version IDs cannot be edited.
 backupPlansListMember_versionId :: Lens.Lens' BackupPlansListMember (Prelude.Maybe Prelude.Text)
 backupPlansListMember_versionId = Lens.lens (\BackupPlansListMember' {versionId} -> versionId) (\s@BackupPlansListMember' {} a -> s {versionId = a} :: BackupPlansListMember)
 
-instance Core.FromJSON BackupPlansListMember where
+instance Data.FromJSON BackupPlansListMember where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackupPlansListMember"
       ( \x ->
           BackupPlansListMember'
-            Prelude.<$> (x Core..:? "BackupPlanName")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "CreatorRequestId")
-            Prelude.<*> (x Core..:? "BackupPlanArn")
-            Prelude.<*> (x Core..:? "BackupPlanId")
-            Prelude.<*> ( x Core..:? "AdvancedBackupSettings"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "BackupPlanName")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "CreatorRequestId")
+            Prelude.<*> (x Data..:? "BackupPlanArn")
+            Prelude.<*> (x Data..:? "BackupPlanId")
+            Prelude.<*> ( x Data..:? "AdvancedBackupSettings"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LastExecutionDate")
-            Prelude.<*> (x Core..:? "DeletionDate")
-            Prelude.<*> (x Core..:? "VersionId")
+            Prelude.<*> (x Data..:? "LastExecutionDate")
+            Prelude.<*> (x Data..:? "DeletionDate")
+            Prelude.<*> (x Data..:? "VersionId")
       )
 
 instance Prelude.Hashable BackupPlansListMember where

@@ -49,6 +49,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -174,9 +175,9 @@ instance Core.AWSRequest UpdateReportPlan where
     Response.receiveJSON
       ( \s h x ->
           UpdateReportPlanResponse'
-            Prelude.<$> (x Core..?> "ReportPlanArn")
-            Prelude.<*> (x Core..?> "ReportPlanName")
-            Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<$> (x Data..?> "ReportPlanArn")
+            Prelude.<*> (x Data..?> "ReportPlanName")
+            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -196,37 +197,37 @@ instance Prelude.NFData UpdateReportPlan where
       `Prelude.seq` Prelude.rnf reportPlanDescription
       `Prelude.seq` Prelude.rnf reportPlanName
 
-instance Core.ToHeaders UpdateReportPlan where
+instance Data.ToHeaders UpdateReportPlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateReportPlan where
+instance Data.ToJSON UpdateReportPlan where
   toJSON UpdateReportPlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ReportDeliveryChannel" Core..=)
+          [ ("ReportDeliveryChannel" Data..=)
               Prelude.<$> reportDeliveryChannel,
-            ("IdempotencyToken" Core..=)
+            ("IdempotencyToken" Data..=)
               Prelude.<$> idempotencyToken,
-            ("ReportSetting" Core..=) Prelude.<$> reportSetting,
-            ("ReportPlanDescription" Core..=)
+            ("ReportSetting" Data..=) Prelude.<$> reportSetting,
+            ("ReportPlanDescription" Data..=)
               Prelude.<$> reportPlanDescription
           ]
       )
 
-instance Core.ToPath UpdateReportPlan where
+instance Data.ToPath UpdateReportPlan where
   toPath UpdateReportPlan' {..} =
     Prelude.mconcat
-      ["/audit/report-plans/", Core.toBS reportPlanName]
+      ["/audit/report-plans/", Data.toBS reportPlanName]
 
-instance Core.ToQuery UpdateReportPlan where
+instance Data.ToQuery UpdateReportPlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateReportPlanResponse' smart constructor.
@@ -240,7 +241,7 @@ data UpdateReportPlanResponse = UpdateReportPlanResponse'
     -- Coordinated Universal Time (UTC). The value of @CreationTime@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -292,7 +293,7 @@ updateReportPlanResponse_reportPlanName = Lens.lens (\UpdateReportPlanResponse' 
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 updateReportPlanResponse_creationTime :: Lens.Lens' UpdateReportPlanResponse (Prelude.Maybe Prelude.UTCTime)
-updateReportPlanResponse_creationTime = Lens.lens (\UpdateReportPlanResponse' {creationTime} -> creationTime) (\s@UpdateReportPlanResponse' {} a -> s {creationTime = a} :: UpdateReportPlanResponse) Prelude.. Lens.mapping Core._Time
+updateReportPlanResponse_creationTime = Lens.lens (\UpdateReportPlanResponse' {creationTime} -> creationTime) (\s@UpdateReportPlanResponse' {} a -> s {creationTime = a} :: UpdateReportPlanResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 updateReportPlanResponse_httpStatus :: Lens.Lens' UpdateReportPlanResponse Prelude.Int

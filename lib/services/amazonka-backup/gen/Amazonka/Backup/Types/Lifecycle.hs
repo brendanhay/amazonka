@@ -21,6 +21,7 @@ module Amazonka.Backup.Types.Lifecycle where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an array of @Transition@ objects specifying how long in days
@@ -79,14 +80,14 @@ lifecycle_deleteAfterDays = Lens.lens (\Lifecycle' {deleteAfterDays} -> deleteAf
 lifecycle_moveToColdStorageAfterDays :: Lens.Lens' Lifecycle (Prelude.Maybe Prelude.Integer)
 lifecycle_moveToColdStorageAfterDays = Lens.lens (\Lifecycle' {moveToColdStorageAfterDays} -> moveToColdStorageAfterDays) (\s@Lifecycle' {} a -> s {moveToColdStorageAfterDays = a} :: Lifecycle)
 
-instance Core.FromJSON Lifecycle where
+instance Data.FromJSON Lifecycle where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Lifecycle"
       ( \x ->
           Lifecycle'
-            Prelude.<$> (x Core..:? "DeleteAfterDays")
-            Prelude.<*> (x Core..:? "MoveToColdStorageAfterDays")
+            Prelude.<$> (x Data..:? "DeleteAfterDays")
+            Prelude.<*> (x Data..:? "MoveToColdStorageAfterDays")
       )
 
 instance Prelude.Hashable Lifecycle where
@@ -99,13 +100,13 @@ instance Prelude.NFData Lifecycle where
     Prelude.rnf deleteAfterDays
       `Prelude.seq` Prelude.rnf moveToColdStorageAfterDays
 
-instance Core.ToJSON Lifecycle where
+instance Data.ToJSON Lifecycle where
   toJSON Lifecycle' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeleteAfterDays" Core..=)
+          [ ("DeleteAfterDays" Data..=)
               Prelude.<$> deleteAfterDays,
-            ("MoveToColdStorageAfterDays" Core..=)
+            ("MoveToColdStorageAfterDays" Data..=)
               Prelude.<$> moveToColdStorageAfterDays
           ]
       )

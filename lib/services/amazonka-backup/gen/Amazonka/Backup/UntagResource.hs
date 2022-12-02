@@ -40,6 +40,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -51,7 +52,7 @@ data UntagResource = UntagResource'
     resourceArn :: Prelude.Text,
     -- | A list of keys to identify which key-value tags to remove from a
     -- resource.
-    tagKeyList :: Core.Sensitive [Prelude.Text]
+    tagKeyList :: Data.Sensitive [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -86,7 +87,7 @@ untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resource
 -- | A list of keys to identify which key-value tags to remove from a
 -- resource.
 untagResource_tagKeyList :: Lens.Lens' UntagResource [Prelude.Text]
-untagResource_tagKeyList = Lens.lens (\UntagResource' {tagKeyList} -> tagKeyList) (\s@UntagResource' {} a -> s {tagKeyList = a} :: UntagResource) Prelude.. Core._Sensitive Prelude.. Lens.coerced
+untagResource_tagKeyList = Lens.lens (\UntagResource' {tagKeyList} -> tagKeyList) (\s@UntagResource' {} a -> s {tagKeyList = a} :: UntagResource) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagResource where
   type
@@ -107,29 +108,29 @@ instance Prelude.NFData UntagResource where
     Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf tagKeyList
 
-instance Core.ToHeaders UntagResource where
+instance Data.ToHeaders UntagResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UntagResource where
+instance Data.ToJSON UntagResource where
   toJSON UntagResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TagKeyList" Core..= tagKeyList)]
+          [Prelude.Just ("TagKeyList" Data..= tagKeyList)]
       )
 
-instance Core.ToPath UntagResource where
+instance Data.ToPath UntagResource where
   toPath UntagResource' {..} =
-    Prelude.mconcat ["/untag/", Core.toBS resourceArn]
+    Prelude.mconcat ["/untag/", Data.toBS resourceArn]
 
-instance Core.ToQuery UntagResource where
+instance Data.ToQuery UntagResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUntagResourceResponse' smart constructor.

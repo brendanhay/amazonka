@@ -52,6 +52,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,7 +99,7 @@ data StartBackupJob = StartBackupJob'
     completeWindowMinutes :: Prelude.Maybe Prelude.Integer,
     -- | To help organize your resources, you can assign your own metadata to the
     -- resources that you create. Each tag is a key-value pair.
-    recoveryPointTags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    recoveryPointTags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The name of a logical container where backups are stored. Backup vaults
     -- are identified by names that are unique to the account used to create
     -- them and the Amazon Web Services Region where they are created. They
@@ -248,7 +249,7 @@ startBackupJob_completeWindowMinutes = Lens.lens (\StartBackupJob' {completeWind
 -- | To help organize your resources, you can assign your own metadata to the
 -- resources that you create. Each tag is a key-value pair.
 startBackupJob_recoveryPointTags :: Lens.Lens' StartBackupJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-startBackupJob_recoveryPointTags = Lens.lens (\StartBackupJob' {recoveryPointTags} -> recoveryPointTags) (\s@StartBackupJob' {} a -> s {recoveryPointTags = a} :: StartBackupJob) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+startBackupJob_recoveryPointTags = Lens.lens (\StartBackupJob' {recoveryPointTags} -> recoveryPointTags) (\s@StartBackupJob' {} a -> s {recoveryPointTags = a} :: StartBackupJob) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The name of a logical container where backups are stored. Backup vaults
 -- are identified by names that are unique to the account used to create
@@ -277,9 +278,9 @@ instance Core.AWSRequest StartBackupJob where
     Response.receiveJSON
       ( \s h x ->
           StartBackupJobResponse'
-            Prelude.<$> (x Core..?> "RecoveryPointArn")
-            Prelude.<*> (x Core..?> "CreationDate")
-            Prelude.<*> (x Core..?> "BackupJobId")
+            Prelude.<$> (x Data..?> "RecoveryPointArn")
+            Prelude.<*> (x Data..?> "CreationDate")
+            Prelude.<*> (x Data..?> "BackupJobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -307,42 +308,42 @@ instance Prelude.NFData StartBackupJob where
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf iamRoleArn
 
-instance Core.ToHeaders StartBackupJob where
+instance Data.ToHeaders StartBackupJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartBackupJob where
+instance Data.ToJSON StartBackupJob where
   toJSON StartBackupJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StartWindowMinutes" Core..=)
+          [ ("StartWindowMinutes" Data..=)
               Prelude.<$> startWindowMinutes,
-            ("Lifecycle" Core..=) Prelude.<$> lifecycle,
-            ("IdempotencyToken" Core..=)
+            ("Lifecycle" Data..=) Prelude.<$> lifecycle,
+            ("IdempotencyToken" Data..=)
               Prelude.<$> idempotencyToken,
-            ("BackupOptions" Core..=) Prelude.<$> backupOptions,
-            ("CompleteWindowMinutes" Core..=)
+            ("BackupOptions" Data..=) Prelude.<$> backupOptions,
+            ("CompleteWindowMinutes" Data..=)
               Prelude.<$> completeWindowMinutes,
-            ("RecoveryPointTags" Core..=)
+            ("RecoveryPointTags" Data..=)
               Prelude.<$> recoveryPointTags,
             Prelude.Just
-              ("BackupVaultName" Core..= backupVaultName),
-            Prelude.Just ("ResourceArn" Core..= resourceArn),
-            Prelude.Just ("IamRoleArn" Core..= iamRoleArn)
+              ("BackupVaultName" Data..= backupVaultName),
+            Prelude.Just ("ResourceArn" Data..= resourceArn),
+            Prelude.Just ("IamRoleArn" Data..= iamRoleArn)
           ]
       )
 
-instance Core.ToPath StartBackupJob where
+instance Data.ToPath StartBackupJob where
   toPath = Prelude.const "/backup-jobs"
 
-instance Core.ToQuery StartBackupJob where
+instance Data.ToQuery StartBackupJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartBackupJobResponse' smart constructor.
@@ -354,7 +355,7 @@ data StartBackupJobResponse = StartBackupJobResponse'
     -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | Uniquely identifies a request to Backup to back up a resource.
     backupJobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -404,7 +405,7 @@ startBackupJobResponse_recoveryPointArn = Lens.lens (\StartBackupJobResponse' {r
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 startBackupJobResponse_creationDate :: Lens.Lens' StartBackupJobResponse (Prelude.Maybe Prelude.UTCTime)
-startBackupJobResponse_creationDate = Lens.lens (\StartBackupJobResponse' {creationDate} -> creationDate) (\s@StartBackupJobResponse' {} a -> s {creationDate = a} :: StartBackupJobResponse) Prelude.. Lens.mapping Core._Time
+startBackupJobResponse_creationDate = Lens.lens (\StartBackupJobResponse' {creationDate} -> creationDate) (\s@StartBackupJobResponse' {} a -> s {creationDate = a} :: StartBackupJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Uniquely identifies a request to Backup to back up a resource.
 startBackupJobResponse_backupJobId :: Lens.Lens' StartBackupJobResponse (Prelude.Maybe Prelude.Text)

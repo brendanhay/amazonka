@@ -54,6 +54,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -198,9 +199,9 @@ instance Core.AWSRequest CreateReportPlan where
     Response.receiveJSON
       ( \s h x ->
           CreateReportPlanResponse'
-            Prelude.<$> (x Core..?> "ReportPlanArn")
-            Prelude.<*> (x Core..?> "ReportPlanName")
-            Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<$> (x Data..?> "ReportPlanArn")
+            Prelude.<*> (x Data..?> "ReportPlanName")
+            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -222,42 +223,42 @@ instance Prelude.NFData CreateReportPlan where
       `Prelude.seq` Prelude.rnf reportDeliveryChannel
       `Prelude.seq` Prelude.rnf reportSetting
 
-instance Core.ToHeaders CreateReportPlan where
+instance Data.ToHeaders CreateReportPlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateReportPlan where
+instance Data.ToJSON CreateReportPlan where
   toJSON CreateReportPlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IdempotencyToken" Core..=)
+          [ ("IdempotencyToken" Data..=)
               Prelude.<$> idempotencyToken,
-            ("ReportPlanTags" Core..=)
+            ("ReportPlanTags" Data..=)
               Prelude.<$> reportPlanTags,
-            ("ReportPlanDescription" Core..=)
+            ("ReportPlanDescription" Data..=)
               Prelude.<$> reportPlanDescription,
             Prelude.Just
-              ("ReportPlanName" Core..= reportPlanName),
+              ("ReportPlanName" Data..= reportPlanName),
             Prelude.Just
               ( "ReportDeliveryChannel"
-                  Core..= reportDeliveryChannel
+                  Data..= reportDeliveryChannel
               ),
             Prelude.Just
-              ("ReportSetting" Core..= reportSetting)
+              ("ReportSetting" Data..= reportSetting)
           ]
       )
 
-instance Core.ToPath CreateReportPlan where
+instance Data.ToPath CreateReportPlan where
   toPath = Prelude.const "/audit/report-plans"
 
-instance Core.ToQuery CreateReportPlan where
+instance Data.ToQuery CreateReportPlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateReportPlanResponse' smart constructor.
@@ -271,7 +272,7 @@ data CreateReportPlanResponse = CreateReportPlanResponse'
     -- Coordinated Universal Time (UTC). The value of @CreationTime@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -323,7 +324,7 @@ createReportPlanResponse_reportPlanName = Lens.lens (\CreateReportPlanResponse' 
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 createReportPlanResponse_creationTime :: Lens.Lens' CreateReportPlanResponse (Prelude.Maybe Prelude.UTCTime)
-createReportPlanResponse_creationTime = Lens.lens (\CreateReportPlanResponse' {creationTime} -> creationTime) (\s@CreateReportPlanResponse' {} a -> s {creationTime = a} :: CreateReportPlanResponse) Prelude.. Lens.mapping Core._Time
+createReportPlanResponse_creationTime = Lens.lens (\CreateReportPlanResponse' {creationTime} -> creationTime) (\s@CreateReportPlanResponse' {} a -> s {creationTime = a} :: CreateReportPlanResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 createReportPlanResponse_httpStatus :: Lens.Lens' CreateReportPlanResponse Prelude.Int

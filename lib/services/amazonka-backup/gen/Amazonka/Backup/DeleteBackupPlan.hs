@@ -48,6 +48,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,10 +90,10 @@ instance Core.AWSRequest DeleteBackupPlan where
     Response.receiveJSON
       ( \s h x ->
           DeleteBackupPlanResponse'
-            Prelude.<$> (x Core..?> "BackupPlanArn")
-            Prelude.<*> (x Core..?> "BackupPlanId")
-            Prelude.<*> (x Core..?> "DeletionDate")
-            Prelude.<*> (x Core..?> "VersionId")
+            Prelude.<$> (x Data..?> "BackupPlanArn")
+            Prelude.<*> (x Data..?> "BackupPlanId")
+            Prelude.<*> (x Data..?> "DeletionDate")
+            Prelude.<*> (x Data..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,23 +104,23 @@ instance Prelude.Hashable DeleteBackupPlan where
 instance Prelude.NFData DeleteBackupPlan where
   rnf DeleteBackupPlan' {..} = Prelude.rnf backupPlanId
 
-instance Core.ToHeaders DeleteBackupPlan where
+instance Data.ToHeaders DeleteBackupPlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteBackupPlan where
+instance Data.ToPath DeleteBackupPlan where
   toPath DeleteBackupPlan' {..} =
     Prelude.mconcat
-      ["/backup/plans/", Core.toBS backupPlanId]
+      ["/backup/plans/", Data.toBS backupPlanId]
 
-instance Core.ToQuery DeleteBackupPlan where
+instance Data.ToQuery DeleteBackupPlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteBackupPlanResponse' smart constructor.
@@ -134,7 +135,7 @@ data DeleteBackupPlanResponse = DeleteBackupPlanResponse'
     -- Coordinated Universal Time (UTC). The value of @DeletionDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    deletionDate :: Prelude.Maybe Core.POSIX,
+    deletionDate :: Prelude.Maybe Data.POSIX,
     -- | Unique, randomly generated, Unicode, UTF-8 encoded strings that are at
     -- most 1,024 bytes long. Version IDs cannot be edited.
     versionId :: Prelude.Maybe Prelude.Text,
@@ -195,7 +196,7 @@ deleteBackupPlanResponse_backupPlanId = Lens.lens (\DeleteBackupPlanResponse' {b
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 deleteBackupPlanResponse_deletionDate :: Lens.Lens' DeleteBackupPlanResponse (Prelude.Maybe Prelude.UTCTime)
-deleteBackupPlanResponse_deletionDate = Lens.lens (\DeleteBackupPlanResponse' {deletionDate} -> deletionDate) (\s@DeleteBackupPlanResponse' {} a -> s {deletionDate = a} :: DeleteBackupPlanResponse) Prelude.. Lens.mapping Core._Time
+deleteBackupPlanResponse_deletionDate = Lens.lens (\DeleteBackupPlanResponse' {deletionDate} -> deletionDate) (\s@DeleteBackupPlanResponse' {} a -> s {deletionDate = a} :: DeleteBackupPlanResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Unique, randomly generated, Unicode, UTF-8 encoded strings that are at
 -- most 1,024 bytes long. Version IDs cannot be edited.

@@ -48,6 +48,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -58,7 +59,7 @@ data ListReportJobs = ListReportJobs'
     -- specified in Unix format and Coordinated Universal Time (UTC). For
     -- example, the value 1516925490 represents Friday, January 26, 2018
     -- 12:11:30 AM.
-    byCreationBefore :: Prelude.Maybe Core.POSIX,
+    byCreationBefore :: Prelude.Maybe Data.POSIX,
     -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
@@ -67,7 +68,7 @@ data ListReportJobs = ListReportJobs'
     -- specified in Unix format and Coordinated Universal Time (UTC). For
     -- example, the value 1516925490 represents Friday, January 26, 2018
     -- 12:11:30 AM.
-    byCreationAfter :: Prelude.Maybe Core.POSIX,
+    byCreationAfter :: Prelude.Maybe Data.POSIX,
     -- | The number of desired results from 1 to 1000. Optional. If unspecified,
     -- the query will return 1 MB of data.
     maxResults :: Prelude.Maybe Prelude.Natural,
@@ -129,7 +130,7 @@ newListReportJobs =
 -- example, the value 1516925490 represents Friday, January 26, 2018
 -- 12:11:30 AM.
 listReportJobs_byCreationBefore :: Lens.Lens' ListReportJobs (Prelude.Maybe Prelude.UTCTime)
-listReportJobs_byCreationBefore = Lens.lens (\ListReportJobs' {byCreationBefore} -> byCreationBefore) (\s@ListReportJobs' {} a -> s {byCreationBefore = a} :: ListReportJobs) Prelude.. Lens.mapping Core._Time
+listReportJobs_byCreationBefore = Lens.lens (\ListReportJobs' {byCreationBefore} -> byCreationBefore) (\s@ListReportJobs' {} a -> s {byCreationBefore = a} :: ListReportJobs) Prelude.. Lens.mapping Data._Time
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
@@ -142,7 +143,7 @@ listReportJobs_nextToken = Lens.lens (\ListReportJobs' {nextToken} -> nextToken)
 -- example, the value 1516925490 represents Friday, January 26, 2018
 -- 12:11:30 AM.
 listReportJobs_byCreationAfter :: Lens.Lens' ListReportJobs (Prelude.Maybe Prelude.UTCTime)
-listReportJobs_byCreationAfter = Lens.lens (\ListReportJobs' {byCreationAfter} -> byCreationAfter) (\s@ListReportJobs' {} a -> s {byCreationAfter = a} :: ListReportJobs) Prelude.. Lens.mapping Core._Time
+listReportJobs_byCreationAfter = Lens.lens (\ListReportJobs' {byCreationAfter} -> byCreationAfter) (\s@ListReportJobs' {} a -> s {byCreationAfter = a} :: ListReportJobs) Prelude.. Lens.mapping Data._Time
 
 -- | The number of desired results from 1 to 1000. Optional. If unspecified,
 -- the query will return 1 MB of data.
@@ -170,8 +171,8 @@ instance Core.AWSRequest ListReportJobs where
     Response.receiveJSON
       ( \s h x ->
           ListReportJobsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ReportJobs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ReportJobs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,29 +194,29 @@ instance Prelude.NFData ListReportJobs where
       `Prelude.seq` Prelude.rnf byReportPlanName
       `Prelude.seq` Prelude.rnf byStatus
 
-instance Core.ToHeaders ListReportJobs where
+instance Data.ToHeaders ListReportJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListReportJobs where
+instance Data.ToPath ListReportJobs where
   toPath = Prelude.const "/audit/report-jobs"
 
-instance Core.ToQuery ListReportJobs where
+instance Data.ToQuery ListReportJobs where
   toQuery ListReportJobs' {..} =
     Prelude.mconcat
-      [ "CreationBefore" Core.=: byCreationBefore,
-        "NextToken" Core.=: nextToken,
-        "CreationAfter" Core.=: byCreationAfter,
-        "MaxResults" Core.=: maxResults,
-        "ReportPlanName" Core.=: byReportPlanName,
-        "Status" Core.=: byStatus
+      [ "CreationBefore" Data.=: byCreationBefore,
+        "NextToken" Data.=: nextToken,
+        "CreationAfter" Data.=: byCreationAfter,
+        "MaxResults" Data.=: maxResults,
+        "ReportPlanName" Data.=: byReportPlanName,
+        "Status" Data.=: byStatus
       ]
 
 -- | /See:/ 'newListReportJobsResponse' smart constructor.

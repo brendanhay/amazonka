@@ -23,6 +23,7 @@ import Amazonka.Backup.Types.CopyAction
 import Amazonka.Backup.Types.Lifecycle
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a scheduled task used to back up a selection of resources.
@@ -72,7 +73,7 @@ data BackupRule = BackupRule'
     completionWindowMinutes :: Prelude.Maybe Prelude.Integer,
     -- | An array of key-value pair strings that are assigned to resources that
     -- are associated with this rule when restored from backup.
-    recoveryPointTags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    recoveryPointTags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | A display name for a backup rule. Must contain 1 to 50 alphanumeric or
     -- \'-_.\' characters.
     ruleName :: Prelude.Text,
@@ -221,7 +222,7 @@ backupRule_completionWindowMinutes = Lens.lens (\BackupRule' {completionWindowMi
 -- | An array of key-value pair strings that are assigned to resources that
 -- are associated with this rule when restored from backup.
 backupRule_recoveryPointTags :: Lens.Lens' BackupRule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-backupRule_recoveryPointTags = Lens.lens (\BackupRule' {recoveryPointTags} -> recoveryPointTags) (\s@BackupRule' {} a -> s {recoveryPointTags = a} :: BackupRule) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+backupRule_recoveryPointTags = Lens.lens (\BackupRule' {recoveryPointTags} -> recoveryPointTags) (\s@BackupRule' {} a -> s {recoveryPointTags = a} :: BackupRule) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | A display name for a backup rule. Must contain 1 to 50 alphanumeric or
 -- \'-_.\' characters.
@@ -235,24 +236,24 @@ backupRule_ruleName = Lens.lens (\BackupRule' {ruleName} -> ruleName) (\s@Backup
 backupRule_targetBackupVaultName :: Lens.Lens' BackupRule Prelude.Text
 backupRule_targetBackupVaultName = Lens.lens (\BackupRule' {targetBackupVaultName} -> targetBackupVaultName) (\s@BackupRule' {} a -> s {targetBackupVaultName = a} :: BackupRule)
 
-instance Core.FromJSON BackupRule where
+instance Data.FromJSON BackupRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackupRule"
       ( \x ->
           BackupRule'
-            Prelude.<$> (x Core..:? "StartWindowMinutes")
-            Prelude.<*> (x Core..:? "Lifecycle")
-            Prelude.<*> (x Core..:? "RuleId")
-            Prelude.<*> (x Core..:? "CopyActions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ScheduleExpression")
-            Prelude.<*> (x Core..:? "EnableContinuousBackup")
-            Prelude.<*> (x Core..:? "CompletionWindowMinutes")
-            Prelude.<*> ( x Core..:? "RecoveryPointTags"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "StartWindowMinutes")
+            Prelude.<*> (x Data..:? "Lifecycle")
+            Prelude.<*> (x Data..:? "RuleId")
+            Prelude.<*> (x Data..:? "CopyActions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ScheduleExpression")
+            Prelude.<*> (x Data..:? "EnableContinuousBackup")
+            Prelude.<*> (x Data..:? "CompletionWindowMinutes")
+            Prelude.<*> ( x Data..:? "RecoveryPointTags"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "RuleName")
-            Prelude.<*> (x Core..: "TargetBackupVaultName")
+            Prelude.<*> (x Data..: "RuleName")
+            Prelude.<*> (x Data..: "TargetBackupVaultName")
       )
 
 instance Prelude.Hashable BackupRule where

@@ -22,6 +22,7 @@ module Amazonka.Backup.Types.RecoveryPointByResource where
 import Amazonka.Backup.Types.RecoveryPointStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains detailed information about a saved recovery point.
@@ -47,7 +48,7 @@ data RecoveryPointByResource = RecoveryPointByResource'
     -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | A status code specifying the state of the recovery point.
     status :: Prelude.Maybe RecoveryPointStatus,
     -- | A message explaining the reason of the recovery point deletion failure.
@@ -128,7 +129,7 @@ recoveryPointByResource_backupVaultName = Lens.lens (\RecoveryPointByResource' {
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 recoveryPointByResource_creationDate :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe Prelude.UTCTime)
-recoveryPointByResource_creationDate = Lens.lens (\RecoveryPointByResource' {creationDate} -> creationDate) (\s@RecoveryPointByResource' {} a -> s {creationDate = a} :: RecoveryPointByResource) Prelude.. Lens.mapping Core._Time
+recoveryPointByResource_creationDate = Lens.lens (\RecoveryPointByResource' {creationDate} -> creationDate) (\s@RecoveryPointByResource' {} a -> s {creationDate = a} :: RecoveryPointByResource) Prelude.. Lens.mapping Data._Time
 
 -- | A status code specifying the state of the recovery point.
 recoveryPointByResource_status :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe RecoveryPointStatus)
@@ -138,19 +139,19 @@ recoveryPointByResource_status = Lens.lens (\RecoveryPointByResource' {status} -
 recoveryPointByResource_statusMessage :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe Prelude.Text)
 recoveryPointByResource_statusMessage = Lens.lens (\RecoveryPointByResource' {statusMessage} -> statusMessage) (\s@RecoveryPointByResource' {} a -> s {statusMessage = a} :: RecoveryPointByResource)
 
-instance Core.FromJSON RecoveryPointByResource where
+instance Data.FromJSON RecoveryPointByResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecoveryPointByResource"
       ( \x ->
           RecoveryPointByResource'
-            Prelude.<$> (x Core..:? "EncryptionKeyArn")
-            Prelude.<*> (x Core..:? "RecoveryPointArn")
-            Prelude.<*> (x Core..:? "BackupSizeBytes")
-            Prelude.<*> (x Core..:? "BackupVaultName")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "StatusMessage")
+            Prelude.<$> (x Data..:? "EncryptionKeyArn")
+            Prelude.<*> (x Data..:? "RecoveryPointArn")
+            Prelude.<*> (x Data..:? "BackupSizeBytes")
+            Prelude.<*> (x Data..:? "BackupVaultName")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "StatusMessage")
       )
 
 instance Prelude.Hashable RecoveryPointByResource where

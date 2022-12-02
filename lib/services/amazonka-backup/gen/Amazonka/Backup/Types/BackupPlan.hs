@@ -23,6 +23,7 @@ import Amazonka.Backup.Types.AdvancedBackupSetting
 import Amazonka.Backup.Types.BackupRule
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an optional backup plan display name and an array of
@@ -84,17 +85,17 @@ backupPlan_backupPlanName = Lens.lens (\BackupPlan' {backupPlanName} -> backupPl
 backupPlan_rules :: Lens.Lens' BackupPlan [BackupRule]
 backupPlan_rules = Lens.lens (\BackupPlan' {rules} -> rules) (\s@BackupPlan' {} a -> s {rules = a} :: BackupPlan) Prelude.. Lens.coerced
 
-instance Core.FromJSON BackupPlan where
+instance Data.FromJSON BackupPlan where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackupPlan"
       ( \x ->
           BackupPlan'
-            Prelude.<$> ( x Core..:? "AdvancedBackupSettings"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "AdvancedBackupSettings"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "BackupPlanName")
-            Prelude.<*> (x Core..:? "Rules" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "BackupPlanName")
+            Prelude.<*> (x Data..:? "Rules" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable BackupPlan where

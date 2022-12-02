@@ -41,6 +41,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,30 +94,30 @@ instance Prelude.NFData UpdateGlobalSettings where
   rnf UpdateGlobalSettings' {..} =
     Prelude.rnf globalSettings
 
-instance Core.ToHeaders UpdateGlobalSettings where
+instance Data.ToHeaders UpdateGlobalSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateGlobalSettings where
+instance Data.ToJSON UpdateGlobalSettings where
   toJSON UpdateGlobalSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GlobalSettings" Core..=)
+          [ ("GlobalSettings" Data..=)
               Prelude.<$> globalSettings
           ]
       )
 
-instance Core.ToPath UpdateGlobalSettings where
+instance Data.ToPath UpdateGlobalSettings where
   toPath = Prelude.const "/global-settings"
 
-instance Core.ToQuery UpdateGlobalSettings where
+instance Data.ToQuery UpdateGlobalSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateGlobalSettingsResponse' smart constructor.

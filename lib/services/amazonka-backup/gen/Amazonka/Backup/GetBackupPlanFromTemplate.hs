@@ -42,6 +42,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ instance Core.AWSRequest GetBackupPlanFromTemplate where
     Response.receiveJSON
       ( \s h x ->
           GetBackupPlanFromTemplateResponse'
-            Prelude.<$> (x Core..?> "BackupPlanDocument")
+            Prelude.<$> (x Data..?> "BackupPlanDocument")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,26 +99,26 @@ instance Prelude.NFData GetBackupPlanFromTemplate where
   rnf GetBackupPlanFromTemplate' {..} =
     Prelude.rnf backupPlanTemplateId
 
-instance Core.ToHeaders GetBackupPlanFromTemplate where
+instance Data.ToHeaders GetBackupPlanFromTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetBackupPlanFromTemplate where
+instance Data.ToPath GetBackupPlanFromTemplate where
   toPath GetBackupPlanFromTemplate' {..} =
     Prelude.mconcat
       [ "/backup/template/plans/",
-        Core.toBS backupPlanTemplateId,
+        Data.toBS backupPlanTemplateId,
         "/toPlan"
       ]
 
-instance Core.ToQuery GetBackupPlanFromTemplate where
+instance Data.ToQuery GetBackupPlanFromTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetBackupPlanFromTemplateResponse' smart constructor.

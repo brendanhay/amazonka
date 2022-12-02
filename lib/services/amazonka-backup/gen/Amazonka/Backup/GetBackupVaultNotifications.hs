@@ -45,6 +45,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,12 +99,12 @@ instance Core.AWSRequest GetBackupVaultNotifications where
     Response.receiveJSON
       ( \s h x ->
           GetBackupVaultNotificationsResponse'
-            Prelude.<$> (x Core..?> "BackupVaultName")
-            Prelude.<*> ( x Core..?> "BackupVaultEvents"
+            Prelude.<$> (x Data..?> "BackupVaultName")
+            Prelude.<*> ( x Data..?> "BackupVaultEvents"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "BackupVaultArn")
-            Prelude.<*> (x Core..?> "SNSTopicArn")
+            Prelude.<*> (x Data..?> "BackupVaultArn")
+            Prelude.<*> (x Data..?> "SNSTopicArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,26 +116,26 @@ instance Prelude.NFData GetBackupVaultNotifications where
   rnf GetBackupVaultNotifications' {..} =
     Prelude.rnf backupVaultName
 
-instance Core.ToHeaders GetBackupVaultNotifications where
+instance Data.ToHeaders GetBackupVaultNotifications where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetBackupVaultNotifications where
+instance Data.ToPath GetBackupVaultNotifications where
   toPath GetBackupVaultNotifications' {..} =
     Prelude.mconcat
       [ "/backup-vaults/",
-        Core.toBS backupVaultName,
+        Data.toBS backupVaultName,
         "/notification-configuration"
       ]
 
-instance Core.ToQuery GetBackupVaultNotifications where
+instance Data.ToQuery GetBackupVaultNotifications where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetBackupVaultNotificationsResponse' smart constructor.

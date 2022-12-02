@@ -48,6 +48,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,11 +106,11 @@ instance Core.AWSRequest GetBackupSelection where
     Response.receiveJSON
       ( \s h x ->
           GetBackupSelectionResponse'
-            Prelude.<$> (x Core..?> "CreationDate")
-            Prelude.<*> (x Core..?> "CreatorRequestId")
-            Prelude.<*> (x Core..?> "BackupSelection")
-            Prelude.<*> (x Core..?> "SelectionId")
-            Prelude.<*> (x Core..?> "BackupPlanId")
+            Prelude.<$> (x Data..?> "CreationDate")
+            Prelude.<*> (x Data..?> "CreatorRequestId")
+            Prelude.<*> (x Data..?> "BackupSelection")
+            Prelude.<*> (x Data..?> "SelectionId")
+            Prelude.<*> (x Data..?> "BackupPlanId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,27 +124,27 @@ instance Prelude.NFData GetBackupSelection where
     Prelude.rnf backupPlanId
       `Prelude.seq` Prelude.rnf selectionId
 
-instance Core.ToHeaders GetBackupSelection where
+instance Data.ToHeaders GetBackupSelection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetBackupSelection where
+instance Data.ToPath GetBackupSelection where
   toPath GetBackupSelection' {..} =
     Prelude.mconcat
       [ "/backup/plans/",
-        Core.toBS backupPlanId,
+        Data.toBS backupPlanId,
         "/selections/",
-        Core.toBS selectionId
+        Data.toBS selectionId
       ]
 
-instance Core.ToQuery GetBackupSelection where
+instance Data.ToQuery GetBackupSelection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetBackupSelectionResponse' smart constructor.
@@ -152,7 +153,7 @@ data GetBackupSelectionResponse = GetBackupSelectionResponse'
     -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | A unique string that identifies the request and allows failed requests
     -- to be retried without the risk of running the operation twice.
     creatorRequestId :: Prelude.Maybe Prelude.Text,
@@ -214,7 +215,7 @@ newGetBackupSelectionResponse pHttpStatus_ =
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 getBackupSelectionResponse_creationDate :: Lens.Lens' GetBackupSelectionResponse (Prelude.Maybe Prelude.UTCTime)
-getBackupSelectionResponse_creationDate = Lens.lens (\GetBackupSelectionResponse' {creationDate} -> creationDate) (\s@GetBackupSelectionResponse' {} a -> s {creationDate = a} :: GetBackupSelectionResponse) Prelude.. Lens.mapping Core._Time
+getBackupSelectionResponse_creationDate = Lens.lens (\GetBackupSelectionResponse' {creationDate} -> creationDate) (\s@GetBackupSelectionResponse' {} a -> s {creationDate = a} :: GetBackupSelectionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A unique string that identifies the request and allows failed requests
 -- to be retried without the risk of running the operation twice.

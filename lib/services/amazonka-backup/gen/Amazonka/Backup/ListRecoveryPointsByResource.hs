@@ -51,6 +51,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -153,8 +154,8 @@ instance Core.AWSRequest ListRecoveryPointsByResource where
     Response.receiveJSON
       ( \s h x ->
           ListRecoveryPointsByResourceResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "RecoveryPoints" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "RecoveryPoints" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,30 +174,30 @@ instance Prelude.NFData ListRecoveryPointsByResource where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf resourceArn
 
-instance Core.ToHeaders ListRecoveryPointsByResource where
+instance Data.ToHeaders ListRecoveryPointsByResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListRecoveryPointsByResource where
+instance Data.ToPath ListRecoveryPointsByResource where
   toPath ListRecoveryPointsByResource' {..} =
     Prelude.mconcat
       [ "/resources/",
-        Core.toBS resourceArn,
+        Data.toBS resourceArn,
         "/recovery-points/"
       ]
 
-instance Core.ToQuery ListRecoveryPointsByResource where
+instance Data.ToQuery ListRecoveryPointsByResource where
   toQuery ListRecoveryPointsByResource' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListRecoveryPointsByResourceResponse' smart constructor.

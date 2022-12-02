@@ -55,6 +55,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -70,17 +71,17 @@ data ListCopyJobs = ListCopyJobs'
     -- pointed to by the next token.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Returns only copy jobs that were created after the specified date.
-    byCreatedAfter :: Prelude.Maybe Core.POSIX,
+    byCreatedAfter :: Prelude.Maybe Data.POSIX,
     -- | Returns only copy jobs completed after a date expressed in Unix format
     -- and Coordinated Universal Time (UTC).
-    byCompleteAfter :: Prelude.Maybe Core.POSIX,
+    byCompleteAfter :: Prelude.Maybe Data.POSIX,
     -- | An Amazon Resource Name (ARN) that uniquely identifies a source backup
     -- vault to copy from; for example,
     -- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
     byDestinationVaultArn :: Prelude.Maybe Prelude.Text,
     -- | Returns only copy jobs completed before a date expressed in Unix format
     -- and Coordinated Universal Time (UTC).
-    byCompleteBefore :: Prelude.Maybe Core.POSIX,
+    byCompleteBefore :: Prelude.Maybe Data.POSIX,
     -- | Returns only backup jobs for the specified resources:
     --
     -- -   @Aurora@ for Amazon Aurora
@@ -108,7 +109,7 @@ data ListCopyJobs = ListCopyJobs'
     -- -   @VirtualMachine@ for virtual machines
     byResourceType :: Prelude.Maybe Prelude.Text,
     -- | Returns only copy jobs that were created before the specified date.
-    byCreatedBefore :: Prelude.Maybe Core.POSIX,
+    byCreatedBefore :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of items to be returned.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Returns only copy jobs that are in the specified state.
@@ -212,12 +213,12 @@ listCopyJobs_nextToken = Lens.lens (\ListCopyJobs' {nextToken} -> nextToken) (\s
 
 -- | Returns only copy jobs that were created after the specified date.
 listCopyJobs_byCreatedAfter :: Lens.Lens' ListCopyJobs (Prelude.Maybe Prelude.UTCTime)
-listCopyJobs_byCreatedAfter = Lens.lens (\ListCopyJobs' {byCreatedAfter} -> byCreatedAfter) (\s@ListCopyJobs' {} a -> s {byCreatedAfter = a} :: ListCopyJobs) Prelude.. Lens.mapping Core._Time
+listCopyJobs_byCreatedAfter = Lens.lens (\ListCopyJobs' {byCreatedAfter} -> byCreatedAfter) (\s@ListCopyJobs' {} a -> s {byCreatedAfter = a} :: ListCopyJobs) Prelude.. Lens.mapping Data._Time
 
 -- | Returns only copy jobs completed after a date expressed in Unix format
 -- and Coordinated Universal Time (UTC).
 listCopyJobs_byCompleteAfter :: Lens.Lens' ListCopyJobs (Prelude.Maybe Prelude.UTCTime)
-listCopyJobs_byCompleteAfter = Lens.lens (\ListCopyJobs' {byCompleteAfter} -> byCompleteAfter) (\s@ListCopyJobs' {} a -> s {byCompleteAfter = a} :: ListCopyJobs) Prelude.. Lens.mapping Core._Time
+listCopyJobs_byCompleteAfter = Lens.lens (\ListCopyJobs' {byCompleteAfter} -> byCompleteAfter) (\s@ListCopyJobs' {} a -> s {byCompleteAfter = a} :: ListCopyJobs) Prelude.. Lens.mapping Data._Time
 
 -- | An Amazon Resource Name (ARN) that uniquely identifies a source backup
 -- vault to copy from; for example,
@@ -228,7 +229,7 @@ listCopyJobs_byDestinationVaultArn = Lens.lens (\ListCopyJobs' {byDestinationVau
 -- | Returns only copy jobs completed before a date expressed in Unix format
 -- and Coordinated Universal Time (UTC).
 listCopyJobs_byCompleteBefore :: Lens.Lens' ListCopyJobs (Prelude.Maybe Prelude.UTCTime)
-listCopyJobs_byCompleteBefore = Lens.lens (\ListCopyJobs' {byCompleteBefore} -> byCompleteBefore) (\s@ListCopyJobs' {} a -> s {byCompleteBefore = a} :: ListCopyJobs) Prelude.. Lens.mapping Core._Time
+listCopyJobs_byCompleteBefore = Lens.lens (\ListCopyJobs' {byCompleteBefore} -> byCompleteBefore) (\s@ListCopyJobs' {} a -> s {byCompleteBefore = a} :: ListCopyJobs) Prelude.. Lens.mapping Data._Time
 
 -- | Returns only backup jobs for the specified resources:
 --
@@ -260,7 +261,7 @@ listCopyJobs_byResourceType = Lens.lens (\ListCopyJobs' {byResourceType} -> byRe
 
 -- | Returns only copy jobs that were created before the specified date.
 listCopyJobs_byCreatedBefore :: Lens.Lens' ListCopyJobs (Prelude.Maybe Prelude.UTCTime)
-listCopyJobs_byCreatedBefore = Lens.lens (\ListCopyJobs' {byCreatedBefore} -> byCreatedBefore) (\s@ListCopyJobs' {} a -> s {byCreatedBefore = a} :: ListCopyJobs) Prelude.. Lens.mapping Core._Time
+listCopyJobs_byCreatedBefore = Lens.lens (\ListCopyJobs' {byCreatedBefore} -> byCreatedBefore) (\s@ListCopyJobs' {} a -> s {byCreatedBefore = a} :: ListCopyJobs) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of items to be returned.
 listCopyJobs_maxResults :: Lens.Lens' ListCopyJobs (Prelude.Maybe Prelude.Natural)
@@ -302,8 +303,8 @@ instance Core.AWSRequest ListCopyJobs where
     Response.receiveJSON
       ( \s h x ->
           ListCopyJobsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "CopyJobs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "CopyJobs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -335,34 +336,34 @@ instance Prelude.NFData ListCopyJobs where
       `Prelude.seq` Prelude.rnf byState
       `Prelude.seq` Prelude.rnf byResourceArn
 
-instance Core.ToHeaders ListCopyJobs where
+instance Data.ToHeaders ListCopyJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListCopyJobs where
+instance Data.ToPath ListCopyJobs where
   toPath = Prelude.const "/copy-jobs/"
 
-instance Core.ToQuery ListCopyJobs where
+instance Data.ToQuery ListCopyJobs where
   toQuery ListCopyJobs' {..} =
     Prelude.mconcat
-      [ "accountId" Core.=: byAccountId,
-        "nextToken" Core.=: nextToken,
-        "createdAfter" Core.=: byCreatedAfter,
-        "completeAfter" Core.=: byCompleteAfter,
-        "destinationVaultArn" Core.=: byDestinationVaultArn,
-        "completeBefore" Core.=: byCompleteBefore,
-        "resourceType" Core.=: byResourceType,
-        "createdBefore" Core.=: byCreatedBefore,
-        "maxResults" Core.=: maxResults,
-        "state" Core.=: byState,
-        "resourceArn" Core.=: byResourceArn
+      [ "accountId" Data.=: byAccountId,
+        "nextToken" Data.=: nextToken,
+        "createdAfter" Data.=: byCreatedAfter,
+        "completeAfter" Data.=: byCompleteAfter,
+        "destinationVaultArn" Data.=: byDestinationVaultArn,
+        "completeBefore" Data.=: byCompleteBefore,
+        "resourceType" Data.=: byResourceType,
+        "createdBefore" Data.=: byCreatedBefore,
+        "maxResults" Data.=: maxResults,
+        "state" Data.=: byState,
+        "resourceArn" Data.=: byResourceArn
       ]
 
 -- | /See:/ 'newListCopyJobsResponse' smart constructor.

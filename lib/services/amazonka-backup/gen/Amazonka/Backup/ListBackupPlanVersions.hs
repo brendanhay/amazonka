@@ -49,6 +49,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -142,8 +143,8 @@ instance Core.AWSRequest ListBackupPlanVersions where
     Response.receiveJSON
       ( \s h x ->
           ListBackupPlanVersionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "BackupPlanVersionsList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "BackupPlanVersionsList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -161,30 +162,30 @@ instance Prelude.NFData ListBackupPlanVersions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf backupPlanId
 
-instance Core.ToHeaders ListBackupPlanVersions where
+instance Data.ToHeaders ListBackupPlanVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListBackupPlanVersions where
+instance Data.ToPath ListBackupPlanVersions where
   toPath ListBackupPlanVersions' {..} =
     Prelude.mconcat
       [ "/backup/plans/",
-        Core.toBS backupPlanId,
+        Data.toBS backupPlanId,
         "/versions/"
       ]
 
-instance Core.ToQuery ListBackupPlanVersions where
+instance Data.ToQuery ListBackupPlanVersions where
   toQuery ListBackupPlanVersions' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListBackupPlanVersionsResponse' smart constructor.

@@ -23,6 +23,7 @@ import Amazonka.Backup.Types.Condition
 import Amazonka.Backup.Types.Conditions
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used to specify a set of resources to a backup plan.
@@ -225,18 +226,18 @@ backupSelection_selectionName = Lens.lens (\BackupSelection' {selectionName} -> 
 backupSelection_iamRoleArn :: Lens.Lens' BackupSelection Prelude.Text
 backupSelection_iamRoleArn = Lens.lens (\BackupSelection' {iamRoleArn} -> iamRoleArn) (\s@BackupSelection' {} a -> s {iamRoleArn = a} :: BackupSelection)
 
-instance Core.FromJSON BackupSelection where
+instance Data.FromJSON BackupSelection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackupSelection"
       ( \x ->
           BackupSelection'
-            Prelude.<$> (x Core..:? "Conditions")
-            Prelude.<*> (x Core..:? "Resources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ListOfTags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "NotResources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "SelectionName")
-            Prelude.<*> (x Core..: "IamRoleArn")
+            Prelude.<$> (x Data..:? "Conditions")
+            Prelude.<*> (x Data..:? "Resources" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ListOfTags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "NotResources" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "SelectionName")
+            Prelude.<*> (x Data..: "IamRoleArn")
       )
 
 instance Prelude.Hashable BackupSelection where
@@ -257,15 +258,15 @@ instance Prelude.NFData BackupSelection where
       `Prelude.seq` Prelude.rnf selectionName
       `Prelude.seq` Prelude.rnf iamRoleArn
 
-instance Core.ToJSON BackupSelection where
+instance Data.ToJSON BackupSelection where
   toJSON BackupSelection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Conditions" Core..=) Prelude.<$> conditions,
-            ("Resources" Core..=) Prelude.<$> resources,
-            ("ListOfTags" Core..=) Prelude.<$> listOfTags,
-            ("NotResources" Core..=) Prelude.<$> notResources,
-            Prelude.Just ("SelectionName" Core..= selectionName),
-            Prelude.Just ("IamRoleArn" Core..= iamRoleArn)
+          [ ("Conditions" Data..=) Prelude.<$> conditions,
+            ("Resources" Data..=) Prelude.<$> resources,
+            ("ListOfTags" Data..=) Prelude.<$> listOfTags,
+            ("NotResources" Data..=) Prelude.<$> notResources,
+            Prelude.Just ("SelectionName" Data..= selectionName),
+            Prelude.Just ("IamRoleArn" Data..= iamRoleArn)
           ]
       )

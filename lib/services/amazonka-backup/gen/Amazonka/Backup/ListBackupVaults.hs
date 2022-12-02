@@ -47,6 +47,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,8 +129,8 @@ instance Core.AWSRequest ListBackupVaults where
     Response.receiveJSON
       ( \s h x ->
           ListBackupVaultsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "BackupVaultList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "BackupVaultList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -145,25 +146,25 @@ instance Prelude.NFData ListBackupVaults where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListBackupVaults where
+instance Data.ToHeaders ListBackupVaults where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListBackupVaults where
+instance Data.ToPath ListBackupVaults where
   toPath = Prelude.const "/backup-vaults/"
 
-instance Core.ToQuery ListBackupVaults where
+instance Data.ToQuery ListBackupVaults where
   toQuery ListBackupVaults' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListBackupVaultsResponse' smart constructor.

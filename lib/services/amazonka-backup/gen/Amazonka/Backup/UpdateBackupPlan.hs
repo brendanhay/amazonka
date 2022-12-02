@@ -49,6 +49,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,13 +107,13 @@ instance Core.AWSRequest UpdateBackupPlan where
     Response.receiveJSON
       ( \s h x ->
           UpdateBackupPlanResponse'
-            Prelude.<$> (x Core..?> "CreationDate")
-            Prelude.<*> (x Core..?> "BackupPlanArn")
-            Prelude.<*> (x Core..?> "BackupPlanId")
-            Prelude.<*> ( x Core..?> "AdvancedBackupSettings"
+            Prelude.<$> (x Data..?> "CreationDate")
+            Prelude.<*> (x Data..?> "BackupPlanArn")
+            Prelude.<*> (x Data..?> "BackupPlanId")
+            Prelude.<*> ( x Data..?> "AdvancedBackupSettings"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "VersionId")
+            Prelude.<*> (x Data..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,30 +127,30 @@ instance Prelude.NFData UpdateBackupPlan where
     Prelude.rnf backupPlanId
       `Prelude.seq` Prelude.rnf backupPlan
 
-instance Core.ToHeaders UpdateBackupPlan where
+instance Data.ToHeaders UpdateBackupPlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateBackupPlan where
+instance Data.ToJSON UpdateBackupPlan where
   toJSON UpdateBackupPlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("BackupPlan" Core..= backupPlan)]
+          [Prelude.Just ("BackupPlan" Data..= backupPlan)]
       )
 
-instance Core.ToPath UpdateBackupPlan where
+instance Data.ToPath UpdateBackupPlan where
   toPath UpdateBackupPlan' {..} =
     Prelude.mconcat
-      ["/backup/plans/", Core.toBS backupPlanId]
+      ["/backup/plans/", Data.toBS backupPlanId]
 
-instance Core.ToQuery UpdateBackupPlan where
+instance Data.ToQuery UpdateBackupPlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateBackupPlanResponse' smart constructor.
@@ -158,7 +159,7 @@ data UpdateBackupPlanResponse = UpdateBackupPlanResponse'
     -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | An Amazon Resource Name (ARN) that uniquely identifies a backup plan;
     -- for example,
     -- @arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50@.
@@ -220,7 +221,7 @@ newUpdateBackupPlanResponse pHttpStatus_ =
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 updateBackupPlanResponse_creationDate :: Lens.Lens' UpdateBackupPlanResponse (Prelude.Maybe Prelude.UTCTime)
-updateBackupPlanResponse_creationDate = Lens.lens (\UpdateBackupPlanResponse' {creationDate} -> creationDate) (\s@UpdateBackupPlanResponse' {} a -> s {creationDate = a} :: UpdateBackupPlanResponse) Prelude.. Lens.mapping Core._Time
+updateBackupPlanResponse_creationDate = Lens.lens (\UpdateBackupPlanResponse' {creationDate} -> creationDate) (\s@UpdateBackupPlanResponse' {} a -> s {creationDate = a} :: UpdateBackupPlanResponse) Prelude.. Lens.mapping Data._Time
 
 -- | An Amazon Resource Name (ARN) that uniquely identifies a backup plan;
 -- for example,

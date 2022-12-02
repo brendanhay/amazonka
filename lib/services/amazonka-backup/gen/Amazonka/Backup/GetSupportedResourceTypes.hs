@@ -39,6 +39,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -68,7 +69,7 @@ instance Core.AWSRequest GetSupportedResourceTypes where
     Response.receiveJSON
       ( \s h x ->
           GetSupportedResourceTypesResponse'
-            Prelude.<$> (x Core..?> "ResourceTypes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "ResourceTypes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -79,21 +80,21 @@ instance Prelude.Hashable GetSupportedResourceTypes where
 instance Prelude.NFData GetSupportedResourceTypes where
   rnf _ = ()
 
-instance Core.ToHeaders GetSupportedResourceTypes where
+instance Data.ToHeaders GetSupportedResourceTypes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSupportedResourceTypes where
+instance Data.ToPath GetSupportedResourceTypes where
   toPath = Prelude.const "/supported-resource-types"
 
-instance Core.ToQuery GetSupportedResourceTypes where
+instance Data.ToQuery GetSupportedResourceTypes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSupportedResourceTypesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SSOAdmin.Types.AttachedManagedPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that stores the details of the AWS managed policy.
@@ -67,13 +68,13 @@ attachedManagedPolicy_name = Lens.lens (\AttachedManagedPolicy' {name} -> name) 
 attachedManagedPolicy_arn :: Lens.Lens' AttachedManagedPolicy (Prelude.Maybe Prelude.Text)
 attachedManagedPolicy_arn = Lens.lens (\AttachedManagedPolicy' {arn} -> arn) (\s@AttachedManagedPolicy' {} a -> s {arn = a} :: AttachedManagedPolicy)
 
-instance Core.FromJSON AttachedManagedPolicy where
+instance Data.FromJSON AttachedManagedPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AttachedManagedPolicy"
       ( \x ->
           AttachedManagedPolicy'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Arn")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Arn")
       )
 
 instance Prelude.Hashable AttachedManagedPolicy where

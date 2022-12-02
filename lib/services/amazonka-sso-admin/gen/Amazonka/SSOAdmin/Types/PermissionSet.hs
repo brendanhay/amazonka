@@ -21,6 +21,7 @@ module Amazonka.SSOAdmin.Types.PermissionSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An entity that contains IAM policies.
@@ -42,7 +43,7 @@ data PermissionSet = PermissionSet'
     -- in the /AWS General Reference/.
     permissionSetArn :: Prelude.Maybe Prelude.Text,
     -- | The date that the permission set was created.
-    createdDate :: Prelude.Maybe Core.POSIX
+    createdDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -107,20 +108,20 @@ permissionSet_permissionSetArn = Lens.lens (\PermissionSet' {permissionSetArn} -
 
 -- | The date that the permission set was created.
 permissionSet_createdDate :: Lens.Lens' PermissionSet (Prelude.Maybe Prelude.UTCTime)
-permissionSet_createdDate = Lens.lens (\PermissionSet' {createdDate} -> createdDate) (\s@PermissionSet' {} a -> s {createdDate = a} :: PermissionSet) Prelude.. Lens.mapping Core._Time
+permissionSet_createdDate = Lens.lens (\PermissionSet' {createdDate} -> createdDate) (\s@PermissionSet' {} a -> s {createdDate = a} :: PermissionSet) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON PermissionSet where
+instance Data.FromJSON PermissionSet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PermissionSet"
       ( \x ->
           PermissionSet'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "SessionDuration")
-            Prelude.<*> (x Core..:? "RelayState")
-            Prelude.<*> (x Core..:? "PermissionSetArn")
-            Prelude.<*> (x Core..:? "CreatedDate")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "SessionDuration")
+            Prelude.<*> (x Data..:? "RelayState")
+            Prelude.<*> (x Data..:? "PermissionSetArn")
+            Prelude.<*> (x Data..:? "CreatedDate")
       )
 
 instance Prelude.Hashable PermissionSet where

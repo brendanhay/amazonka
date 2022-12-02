@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,7 +136,7 @@ instance Core.AWSRequest ProvisionPermissionSet where
     Response.receiveJSON
       ( \s h x ->
           ProvisionPermissionSetResponse'
-            Prelude.<$> (x Core..?> "PermissionSetProvisioningStatus")
+            Prelude.<$> (x Data..?> "PermissionSetProvisioningStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,37 +154,37 @@ instance Prelude.NFData ProvisionPermissionSet where
       `Prelude.seq` Prelude.rnf permissionSetArn
       `Prelude.seq` Prelude.rnf targetType
 
-instance Core.ToHeaders ProvisionPermissionSet where
+instance Data.ToHeaders ProvisionPermissionSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SWBExternalService.ProvisionPermissionSet" ::
+              Data.=# ( "SWBExternalService.ProvisionPermissionSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ProvisionPermissionSet where
+instance Data.ToJSON ProvisionPermissionSet where
   toJSON ProvisionPermissionSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TargetId" Core..=) Prelude.<$> targetId,
-            Prelude.Just ("InstanceArn" Core..= instanceArn),
+          [ ("TargetId" Data..=) Prelude.<$> targetId,
+            Prelude.Just ("InstanceArn" Data..= instanceArn),
             Prelude.Just
-              ("PermissionSetArn" Core..= permissionSetArn),
-            Prelude.Just ("TargetType" Core..= targetType)
+              ("PermissionSetArn" Data..= permissionSetArn),
+            Prelude.Just ("TargetType" Data..= targetType)
           ]
       )
 
-instance Core.ToPath ProvisionPermissionSet where
+instance Data.ToPath ProvisionPermissionSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ProvisionPermissionSet where
+instance Data.ToQuery ProvisionPermissionSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newProvisionPermissionSetResponse' smart constructor.

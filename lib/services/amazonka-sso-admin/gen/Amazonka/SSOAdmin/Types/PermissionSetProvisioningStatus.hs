@@ -21,6 +21,7 @@ module Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSOAdmin.Types.StatusValues
 
@@ -42,7 +43,7 @@ data PermissionSetProvisioningStatus = PermissionSetProvisioningStatus'
     -- in the /AWS General Reference/.
     permissionSetArn :: Prelude.Maybe Prelude.Text,
     -- | The date that the permission set was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The message that contains an error or exception in case of an operation
     -- failure.
     failureReason :: Prelude.Maybe Prelude.Text
@@ -108,7 +109,7 @@ permissionSetProvisioningStatus_permissionSetArn = Lens.lens (\PermissionSetProv
 
 -- | The date that the permission set was created.
 permissionSetProvisioningStatus_createdDate :: Lens.Lens' PermissionSetProvisioningStatus (Prelude.Maybe Prelude.UTCTime)
-permissionSetProvisioningStatus_createdDate = Lens.lens (\PermissionSetProvisioningStatus' {createdDate} -> createdDate) (\s@PermissionSetProvisioningStatus' {} a -> s {createdDate = a} :: PermissionSetProvisioningStatus) Prelude.. Lens.mapping Core._Time
+permissionSetProvisioningStatus_createdDate = Lens.lens (\PermissionSetProvisioningStatus' {createdDate} -> createdDate) (\s@PermissionSetProvisioningStatus' {} a -> s {createdDate = a} :: PermissionSetProvisioningStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The message that contains an error or exception in case of an operation
 -- failure.
@@ -116,20 +117,20 @@ permissionSetProvisioningStatus_failureReason :: Lens.Lens' PermissionSetProvisi
 permissionSetProvisioningStatus_failureReason = Lens.lens (\PermissionSetProvisioningStatus' {failureReason} -> failureReason) (\s@PermissionSetProvisioningStatus' {} a -> s {failureReason = a} :: PermissionSetProvisioningStatus)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     PermissionSetProvisioningStatus
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PermissionSetProvisioningStatus"
       ( \x ->
           PermissionSetProvisioningStatus'
-            Prelude.<$> (x Core..:? "RequestId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "PermissionSetArn")
-            Prelude.<*> (x Core..:? "CreatedDate")
-            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<$> (x Data..:? "RequestId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "PermissionSetArn")
+            Prelude.<*> (x Data..:? "CreatedDate")
+            Prelude.<*> (x Data..:? "FailureReason")
       )
 
 instance

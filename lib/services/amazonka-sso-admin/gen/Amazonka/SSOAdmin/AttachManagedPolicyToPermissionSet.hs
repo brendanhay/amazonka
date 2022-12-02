@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -156,46 +157,46 @@ instance
       `Prelude.seq` Prelude.rnf managedPolicyArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AttachManagedPolicyToPermissionSet
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SWBExternalService.AttachManagedPolicyToPermissionSet" ::
+              Data.=# ( "SWBExternalService.AttachManagedPolicyToPermissionSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AttachManagedPolicyToPermissionSet
   where
   toJSON AttachManagedPolicyToPermissionSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("InstanceArn" Core..= instanceArn),
+          [ Prelude.Just ("InstanceArn" Data..= instanceArn),
             Prelude.Just
-              ("PermissionSetArn" Core..= permissionSetArn),
+              ("PermissionSetArn" Data..= permissionSetArn),
             Prelude.Just
-              ("ManagedPolicyArn" Core..= managedPolicyArn)
+              ("ManagedPolicyArn" Data..= managedPolicyArn)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     AttachManagedPolicyToPermissionSet
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     AttachManagedPolicyToPermissionSet
   where
   toQuery = Prelude.const Prelude.mempty

@@ -21,6 +21,7 @@ module Amazonka.SSOAdmin.Types.AccessControlAttributeValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The value used for mapping a specified attribute to an identity source.
@@ -61,13 +62,13 @@ newAccessControlAttributeValue pSource_ =
 accessControlAttributeValue_source :: Lens.Lens' AccessControlAttributeValue (Prelude.NonEmpty Prelude.Text)
 accessControlAttributeValue_source = Lens.lens (\AccessControlAttributeValue' {source} -> source) (\s@AccessControlAttributeValue' {} a -> s {source = a} :: AccessControlAttributeValue) Prelude.. Lens.coerced
 
-instance Core.FromJSON AccessControlAttributeValue where
+instance Data.FromJSON AccessControlAttributeValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccessControlAttributeValue"
       ( \x ->
           AccessControlAttributeValue'
-            Prelude.<$> (x Core..: "Source")
+            Prelude.<$> (x Data..: "Source")
       )
 
 instance Prelude.Hashable AccessControlAttributeValue where
@@ -78,9 +79,9 @@ instance Prelude.NFData AccessControlAttributeValue where
   rnf AccessControlAttributeValue' {..} =
     Prelude.rnf source
 
-instance Core.ToJSON AccessControlAttributeValue where
+instance Data.ToJSON AccessControlAttributeValue where
   toJSON AccessControlAttributeValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Source" Core..= source)]
+          [Prelude.Just ("Source" Data..= source)]
       )

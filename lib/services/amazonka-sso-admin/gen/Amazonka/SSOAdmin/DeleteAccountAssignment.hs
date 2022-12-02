@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -181,7 +182,7 @@ instance Core.AWSRequest DeleteAccountAssignment where
     Response.receiveJSON
       ( \s h x ->
           DeleteAccountAssignmentResponse'
-            Prelude.<$> (x Core..?> "AccountAssignmentDeletionStatus")
+            Prelude.<$> (x Data..?> "AccountAssignmentDeletionStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,39 +204,39 @@ instance Prelude.NFData DeleteAccountAssignment where
       `Prelude.seq` Prelude.rnf principalType
       `Prelude.seq` Prelude.rnf principalId
 
-instance Core.ToHeaders DeleteAccountAssignment where
+instance Data.ToHeaders DeleteAccountAssignment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SWBExternalService.DeleteAccountAssignment" ::
+              Data.=# ( "SWBExternalService.DeleteAccountAssignment" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAccountAssignment where
+instance Data.ToJSON DeleteAccountAssignment where
   toJSON DeleteAccountAssignment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("InstanceArn" Core..= instanceArn),
-            Prelude.Just ("TargetId" Core..= targetId),
-            Prelude.Just ("TargetType" Core..= targetType),
+          [ Prelude.Just ("InstanceArn" Data..= instanceArn),
+            Prelude.Just ("TargetId" Data..= targetId),
+            Prelude.Just ("TargetType" Data..= targetType),
             Prelude.Just
-              ("PermissionSetArn" Core..= permissionSetArn),
-            Prelude.Just ("PrincipalType" Core..= principalType),
-            Prelude.Just ("PrincipalId" Core..= principalId)
+              ("PermissionSetArn" Data..= permissionSetArn),
+            Prelude.Just ("PrincipalType" Data..= principalType),
+            Prelude.Just ("PrincipalId" Data..= principalId)
           ]
       )
 
-instance Core.ToPath DeleteAccountAssignment where
+instance Data.ToPath DeleteAccountAssignment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAccountAssignment where
+instance Data.ToQuery DeleteAccountAssignment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAccountAssignmentResponse' smart constructor.

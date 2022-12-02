@@ -21,6 +21,7 @@ module Amazonka.SSOAdmin.Types.CustomerManagedPolicyReference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the name and path of a customer managed policy. You must have
@@ -81,13 +82,13 @@ customerManagedPolicyReference_path = Lens.lens (\CustomerManagedPolicyReference
 customerManagedPolicyReference_name :: Lens.Lens' CustomerManagedPolicyReference Prelude.Text
 customerManagedPolicyReference_name = Lens.lens (\CustomerManagedPolicyReference' {name} -> name) (\s@CustomerManagedPolicyReference' {} a -> s {name = a} :: CustomerManagedPolicyReference)
 
-instance Core.FromJSON CustomerManagedPolicyReference where
+instance Data.FromJSON CustomerManagedPolicyReference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomerManagedPolicyReference"
       ( \x ->
           CustomerManagedPolicyReference'
-            Prelude.<$> (x Core..:? "Path") Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "Path") Prelude.<*> (x Data..: "Name")
       )
 
 instance
@@ -107,11 +108,11 @@ instance
   rnf CustomerManagedPolicyReference' {..} =
     Prelude.rnf path `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON CustomerManagedPolicyReference where
+instance Data.ToJSON CustomerManagedPolicyReference where
   toJSON CustomerManagedPolicyReference' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Path" Core..=) Prelude.<$> path,
-            Prelude.Just ("Name" Core..= name)
+          [ ("Path" Data..=) Prelude.<$> path,
+            Prelude.Just ("Name" Data..= name)
           ]
       )

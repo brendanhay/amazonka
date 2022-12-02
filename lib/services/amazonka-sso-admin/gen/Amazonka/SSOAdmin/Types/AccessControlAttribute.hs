@@ -21,6 +21,7 @@ module Amazonka.SSOAdmin.Types.AccessControlAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSOAdmin.Types.AccessControlAttributeValue
 
@@ -78,13 +79,13 @@ accessControlAttribute_key = Lens.lens (\AccessControlAttribute' {key} -> key) (
 accessControlAttribute_value :: Lens.Lens' AccessControlAttribute AccessControlAttributeValue
 accessControlAttribute_value = Lens.lens (\AccessControlAttribute' {value} -> value) (\s@AccessControlAttribute' {} a -> s {value = a} :: AccessControlAttribute)
 
-instance Core.FromJSON AccessControlAttribute where
+instance Data.FromJSON AccessControlAttribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccessControlAttribute"
       ( \x ->
           AccessControlAttribute'
-            Prelude.<$> (x Core..: "Key") Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Key") Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable AccessControlAttribute where
@@ -96,11 +97,11 @@ instance Prelude.NFData AccessControlAttribute where
   rnf AccessControlAttribute' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON AccessControlAttribute where
+instance Data.ToJSON AccessControlAttribute where
   toJSON AccessControlAttribute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Core..= key),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Key" Data..= key),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

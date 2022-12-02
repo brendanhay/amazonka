@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -195,7 +196,7 @@ instance Core.AWSRequest CreateAccountAssignment where
     Response.receiveJSON
       ( \s h x ->
           CreateAccountAssignmentResponse'
-            Prelude.<$> (x Core..?> "AccountAssignmentCreationStatus")
+            Prelude.<$> (x Data..?> "AccountAssignmentCreationStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -217,39 +218,39 @@ instance Prelude.NFData CreateAccountAssignment where
       `Prelude.seq` Prelude.rnf principalType
       `Prelude.seq` Prelude.rnf principalId
 
-instance Core.ToHeaders CreateAccountAssignment where
+instance Data.ToHeaders CreateAccountAssignment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SWBExternalService.CreateAccountAssignment" ::
+              Data.=# ( "SWBExternalService.CreateAccountAssignment" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAccountAssignment where
+instance Data.ToJSON CreateAccountAssignment where
   toJSON CreateAccountAssignment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("InstanceArn" Core..= instanceArn),
-            Prelude.Just ("TargetId" Core..= targetId),
-            Prelude.Just ("TargetType" Core..= targetType),
+          [ Prelude.Just ("InstanceArn" Data..= instanceArn),
+            Prelude.Just ("TargetId" Data..= targetId),
+            Prelude.Just ("TargetType" Data..= targetType),
             Prelude.Just
-              ("PermissionSetArn" Core..= permissionSetArn),
-            Prelude.Just ("PrincipalType" Core..= principalType),
-            Prelude.Just ("PrincipalId" Core..= principalId)
+              ("PermissionSetArn" Data..= permissionSetArn),
+            Prelude.Just ("PrincipalType" Data..= principalType),
+            Prelude.Just ("PrincipalId" Data..= principalId)
           ]
       )
 
-instance Core.ToPath CreateAccountAssignment where
+instance Data.ToPath CreateAccountAssignment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateAccountAssignment where
+instance Data.ToQuery CreateAccountAssignment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAccountAssignmentResponse' smart constructor.

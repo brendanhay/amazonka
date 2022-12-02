@@ -21,6 +21,7 @@ module Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSOAdmin.Types.PrincipalType
 import Amazonka.SSOAdmin.Types.StatusValues
@@ -54,7 +55,7 @@ data AccountAssignmentOperationStatus = AccountAssignmentOperationStatus'
     -- | The entity type for which the assignment will be created.
     principalType :: Prelude.Maybe PrincipalType,
     -- | The date that the permission set was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The message that contains an error or exception in case of an operation
     -- failure.
     failureReason :: Prelude.Maybe Prelude.Text
@@ -149,7 +150,7 @@ accountAssignmentOperationStatus_principalType = Lens.lens (\AccountAssignmentOp
 
 -- | The date that the permission set was created.
 accountAssignmentOperationStatus_createdDate :: Lens.Lens' AccountAssignmentOperationStatus (Prelude.Maybe Prelude.UTCTime)
-accountAssignmentOperationStatus_createdDate = Lens.lens (\AccountAssignmentOperationStatus' {createdDate} -> createdDate) (\s@AccountAssignmentOperationStatus' {} a -> s {createdDate = a} :: AccountAssignmentOperationStatus) Prelude.. Lens.mapping Core._Time
+accountAssignmentOperationStatus_createdDate = Lens.lens (\AccountAssignmentOperationStatus' {createdDate} -> createdDate) (\s@AccountAssignmentOperationStatus' {} a -> s {createdDate = a} :: AccountAssignmentOperationStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The message that contains an error or exception in case of an operation
 -- failure.
@@ -157,23 +158,23 @@ accountAssignmentOperationStatus_failureReason :: Lens.Lens' AccountAssignmentOp
 accountAssignmentOperationStatus_failureReason = Lens.lens (\AccountAssignmentOperationStatus' {failureReason} -> failureReason) (\s@AccountAssignmentOperationStatus' {} a -> s {failureReason = a} :: AccountAssignmentOperationStatus)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AccountAssignmentOperationStatus
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountAssignmentOperationStatus"
       ( \x ->
           AccountAssignmentOperationStatus'
-            Prelude.<$> (x Core..:? "PrincipalId")
-            Prelude.<*> (x Core..:? "TargetId")
-            Prelude.<*> (x Core..:? "RequestId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "TargetType")
-            Prelude.<*> (x Core..:? "PermissionSetArn")
-            Prelude.<*> (x Core..:? "PrincipalType")
-            Prelude.<*> (x Core..:? "CreatedDate")
-            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<$> (x Data..:? "PrincipalId")
+            Prelude.<*> (x Data..:? "TargetId")
+            Prelude.<*> (x Data..:? "RequestId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "TargetType")
+            Prelude.<*> (x Data..:? "PermissionSetArn")
+            Prelude.<*> (x Data..:? "PrincipalType")
+            Prelude.<*> (x Data..:? "CreatedDate")
+            Prelude.<*> (x Data..:? "FailureReason")
       )
 
 instance

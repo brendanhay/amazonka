@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,10 +104,10 @@ instance
       ( \s h x ->
           DescribeInstanceAccessControlAttributeConfigurationResponse'
             Prelude.<$> ( x
-                            Core..?> "InstanceAccessControlAttributeConfiguration"
+                            Data..?> "InstanceAccessControlAttributeConfiguration"
                         )
-              Prelude.<*> (x Core..?> "StatusReason")
-              Prelude.<*> (x Core..?> "Status")
+              Prelude.<*> (x Data..?> "StatusReason")
+              Prelude.<*> (x Data..?> "Status")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,42 +129,42 @@ instance
       Prelude.rnf instanceArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeInstanceAccessControlAttributeConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SWBExternalService.DescribeInstanceAccessControlAttributeConfiguration" ::
+              Data.=# ( "SWBExternalService.DescribeInstanceAccessControlAttributeConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeInstanceAccessControlAttributeConfiguration
   where
   toJSON
     DescribeInstanceAccessControlAttributeConfiguration' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [Prelude.Just ("InstanceArn" Core..= instanceArn)]
+            [Prelude.Just ("InstanceArn" Data..= instanceArn)]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeInstanceAccessControlAttributeConfiguration
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeInstanceAccessControlAttributeConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

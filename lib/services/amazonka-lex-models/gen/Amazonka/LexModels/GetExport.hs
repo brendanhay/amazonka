@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,13 +130,13 @@ instance Core.AWSRequest GetExport where
     Response.receiveJSON
       ( \s h x ->
           GetExportResponse'
-            Prelude.<$> (x Core..?> "resourceType")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "exportType")
-            Prelude.<*> (x Core..?> "url")
-            Prelude.<*> (x Core..?> "exportStatus")
-            Prelude.<*> (x Core..?> "failureReason")
-            Prelude.<*> (x Core..?> "version")
+            Prelude.<$> (x Data..?> "resourceType")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "exportType")
+            Prelude.<*> (x Data..?> "url")
+            Prelude.<*> (x Data..?> "exportStatus")
+            Prelude.<*> (x Data..?> "failureReason")
+            Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,27 +154,27 @@ instance Prelude.NFData GetExport where
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf exportType
 
-instance Core.ToHeaders GetExport where
+instance Data.ToHeaders GetExport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetExport where
+instance Data.ToPath GetExport where
   toPath = Prelude.const "/exports/"
 
-instance Core.ToQuery GetExport where
+instance Data.ToQuery GetExport where
   toQuery GetExport' {..} =
     Prelude.mconcat
-      [ "name" Core.=: name,
-        "version" Core.=: version,
-        "resourceType" Core.=: resourceType,
-        "exportType" Core.=: exportType
+      [ "name" Data.=: name,
+        "version" Data.=: version,
+        "resourceType" Data.=: resourceType,
+        "exportType" Data.=: exportType
       ]
 
 -- | /See:/ 'newGetExportResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.LexModels.Types.MigrationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types.Locale
 import Amazonka.LexModels.Types.MigrationStatus
 import Amazonka.LexModels.Types.MigrationStrategy
@@ -50,7 +51,7 @@ data MigrationSummary = MigrationSummary'
     -- | The name of the Amazon Lex V1 bot that is the source of the migration.
     v1BotName :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the migration started.
-    migrationTimestamp :: Prelude.Maybe Core.POSIX,
+    migrationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier that Amazon Lex assigned to the migration.
     migrationId :: Prelude.Maybe Prelude.Text
   }
@@ -134,27 +135,27 @@ migrationSummary_v1BotName = Lens.lens (\MigrationSummary' {v1BotName} -> v1BotN
 
 -- | The date and time that the migration started.
 migrationSummary_migrationTimestamp :: Lens.Lens' MigrationSummary (Prelude.Maybe Prelude.UTCTime)
-migrationSummary_migrationTimestamp = Lens.lens (\MigrationSummary' {migrationTimestamp} -> migrationTimestamp) (\s@MigrationSummary' {} a -> s {migrationTimestamp = a} :: MigrationSummary) Prelude.. Lens.mapping Core._Time
+migrationSummary_migrationTimestamp = Lens.lens (\MigrationSummary' {migrationTimestamp} -> migrationTimestamp) (\s@MigrationSummary' {} a -> s {migrationTimestamp = a} :: MigrationSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier that Amazon Lex assigned to the migration.
 migrationSummary_migrationId :: Lens.Lens' MigrationSummary (Prelude.Maybe Prelude.Text)
 migrationSummary_migrationId = Lens.lens (\MigrationSummary' {migrationId} -> migrationId) (\s@MigrationSummary' {} a -> s {migrationId = a} :: MigrationSummary)
 
-instance Core.FromJSON MigrationSummary where
+instance Data.FromJSON MigrationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MigrationSummary"
       ( \x ->
           MigrationSummary'
-            Prelude.<$> (x Core..:? "v2BotRole")
-            Prelude.<*> (x Core..:? "migrationStatus")
-            Prelude.<*> (x Core..:? "v1BotLocale")
-            Prelude.<*> (x Core..:? "v1BotVersion")
-            Prelude.<*> (x Core..:? "migrationStrategy")
-            Prelude.<*> (x Core..:? "v2BotId")
-            Prelude.<*> (x Core..:? "v1BotName")
-            Prelude.<*> (x Core..:? "migrationTimestamp")
-            Prelude.<*> (x Core..:? "migrationId")
+            Prelude.<$> (x Data..:? "v2BotRole")
+            Prelude.<*> (x Data..:? "migrationStatus")
+            Prelude.<*> (x Data..:? "v1BotLocale")
+            Prelude.<*> (x Data..:? "v1BotVersion")
+            Prelude.<*> (x Data..:? "migrationStrategy")
+            Prelude.<*> (x Data..:? "v2BotId")
+            Prelude.<*> (x Data..:? "v1BotName")
+            Prelude.<*> (x Data..:? "migrationTimestamp")
+            Prelude.<*> (x Data..:? "migrationId")
       )
 
 instance Prelude.Hashable MigrationSummary where

@@ -21,6 +21,7 @@ module Amazonka.LexModels.Types.Prompt where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types.Message
 import qualified Amazonka.Prelude as Prelude
 
@@ -94,15 +95,15 @@ prompt_messages = Lens.lens (\Prompt' {messages} -> messages) (\s@Prompt' {} a -
 prompt_maxAttempts :: Lens.Lens' Prompt Prelude.Natural
 prompt_maxAttempts = Lens.lens (\Prompt' {maxAttempts} -> maxAttempts) (\s@Prompt' {} a -> s {maxAttempts = a} :: Prompt)
 
-instance Core.FromJSON Prompt where
+instance Data.FromJSON Prompt where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Prompt"
       ( \x ->
           Prompt'
-            Prelude.<$> (x Core..:? "responseCard")
-            Prelude.<*> (x Core..: "messages")
-            Prelude.<*> (x Core..: "maxAttempts")
+            Prelude.<$> (x Data..:? "responseCard")
+            Prelude.<*> (x Data..: "messages")
+            Prelude.<*> (x Data..: "maxAttempts")
       )
 
 instance Prelude.Hashable Prompt where
@@ -117,12 +118,12 @@ instance Prelude.NFData Prompt where
       `Prelude.seq` Prelude.rnf messages
       `Prelude.seq` Prelude.rnf maxAttempts
 
-instance Core.ToJSON Prompt where
+instance Data.ToJSON Prompt where
   toJSON Prompt' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("responseCard" Core..=) Prelude.<$> responseCard,
-            Prelude.Just ("messages" Core..= messages),
-            Prelude.Just ("maxAttempts" Core..= maxAttempts)
+          [ ("responseCard" Data..=) Prelude.<$> responseCard,
+            Prelude.Just ("messages" Data..= messages),
+            Prelude.Just ("maxAttempts" Data..= maxAttempts)
           ]
       )

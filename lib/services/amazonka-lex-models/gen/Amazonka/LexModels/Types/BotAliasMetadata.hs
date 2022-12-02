@@ -21,6 +21,7 @@ module Amazonka.LexModels.Types.BotAliasMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types.ConversationLogsResponse
 import qualified Amazonka.Prelude as Prelude
 
@@ -34,7 +35,7 @@ data BotAliasMetadata = BotAliasMetadata'
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | The date that the bot alias was updated. When you create a resource, the
     -- creation date and last updated date are the same.
-    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDate :: Prelude.Maybe Data.POSIX,
     -- | A description of the bot alias.
     description :: Prelude.Maybe Prelude.Text,
     -- | Checksum of the bot alias.
@@ -45,7 +46,7 @@ data BotAliasMetadata = BotAliasMetadata'
     -- alias.
     conversationLogs :: Prelude.Maybe ConversationLogsResponse,
     -- | The date that the bot alias was created.
-    createdDate :: Prelude.Maybe Core.POSIX
+    createdDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -99,7 +100,7 @@ botAliasMetadata_botVersion = Lens.lens (\BotAliasMetadata' {botVersion} -> botV
 -- | The date that the bot alias was updated. When you create a resource, the
 -- creation date and last updated date are the same.
 botAliasMetadata_lastUpdatedDate :: Lens.Lens' BotAliasMetadata (Prelude.Maybe Prelude.UTCTime)
-botAliasMetadata_lastUpdatedDate = Lens.lens (\BotAliasMetadata' {lastUpdatedDate} -> lastUpdatedDate) (\s@BotAliasMetadata' {} a -> s {lastUpdatedDate = a} :: BotAliasMetadata) Prelude.. Lens.mapping Core._Time
+botAliasMetadata_lastUpdatedDate = Lens.lens (\BotAliasMetadata' {lastUpdatedDate} -> lastUpdatedDate) (\s@BotAliasMetadata' {} a -> s {lastUpdatedDate = a} :: BotAliasMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | A description of the bot alias.
 botAliasMetadata_description :: Lens.Lens' BotAliasMetadata (Prelude.Maybe Prelude.Text)
@@ -120,22 +121,22 @@ botAliasMetadata_conversationLogs = Lens.lens (\BotAliasMetadata' {conversationL
 
 -- | The date that the bot alias was created.
 botAliasMetadata_createdDate :: Lens.Lens' BotAliasMetadata (Prelude.Maybe Prelude.UTCTime)
-botAliasMetadata_createdDate = Lens.lens (\BotAliasMetadata' {createdDate} -> createdDate) (\s@BotAliasMetadata' {} a -> s {createdDate = a} :: BotAliasMetadata) Prelude.. Lens.mapping Core._Time
+botAliasMetadata_createdDate = Lens.lens (\BotAliasMetadata' {createdDate} -> createdDate) (\s@BotAliasMetadata' {} a -> s {createdDate = a} :: BotAliasMetadata) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON BotAliasMetadata where
+instance Data.FromJSON BotAliasMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BotAliasMetadata"
       ( \x ->
           BotAliasMetadata'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "botVersion")
-            Prelude.<*> (x Core..:? "lastUpdatedDate")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "checksum")
-            Prelude.<*> (x Core..:? "botName")
-            Prelude.<*> (x Core..:? "conversationLogs")
-            Prelude.<*> (x Core..:? "createdDate")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "botVersion")
+            Prelude.<*> (x Data..:? "lastUpdatedDate")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "checksum")
+            Prelude.<*> (x Data..:? "botName")
+            Prelude.<*> (x Data..:? "conversationLogs")
+            Prelude.<*> (x Data..:? "createdDate")
       )
 
 instance Prelude.Hashable BotAliasMetadata where

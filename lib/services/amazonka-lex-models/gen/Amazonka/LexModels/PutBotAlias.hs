@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -196,15 +197,15 @@ instance Core.AWSRequest PutBotAlias where
     Response.receiveJSON
       ( \s h x ->
           PutBotAliasResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "lastUpdatedDate")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "checksum")
-            Prelude.<*> (x Core..?> "botName")
-            Prelude.<*> (x Core..?> "conversationLogs")
-            Prelude.<*> (x Core..?> "createdDate")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "lastUpdatedDate")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "checksum")
+            Prelude.<*> (x Data..?> "botName")
+            Prelude.<*> (x Data..?> "conversationLogs")
+            Prelude.<*> (x Data..?> "createdDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -228,40 +229,40 @@ instance Prelude.NFData PutBotAlias where
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf botName
 
-instance Core.ToHeaders PutBotAlias where
+instance Data.ToHeaders PutBotAlias where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutBotAlias where
+instance Data.ToJSON PutBotAlias where
   toJSON PutBotAlias' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description,
-            ("checksum" Core..=) Prelude.<$> checksum,
-            ("conversationLogs" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("description" Data..=) Prelude.<$> description,
+            ("checksum" Data..=) Prelude.<$> checksum,
+            ("conversationLogs" Data..=)
               Prelude.<$> conversationLogs,
-            Prelude.Just ("botVersion" Core..= botVersion)
+            Prelude.Just ("botVersion" Data..= botVersion)
           ]
       )
 
-instance Core.ToPath PutBotAlias where
+instance Data.ToPath PutBotAlias where
   toPath PutBotAlias' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botName,
+        Data.toBS botName,
         "/aliases/",
-        Core.toBS name
+        Data.toBS name
       ]
 
-instance Core.ToQuery PutBotAlias where
+instance Data.ToQuery PutBotAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutBotAliasResponse' smart constructor.
@@ -274,7 +275,7 @@ data PutBotAliasResponse = PutBotAliasResponse'
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | The date that the bot alias was updated. When you create a resource, the
     -- creation date and the last updated date are the same.
-    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDate :: Prelude.Maybe Data.POSIX,
     -- | A description of the alias.
     description :: Prelude.Maybe Prelude.Text,
     -- | The checksum for the current version of the alias.
@@ -285,7 +286,7 @@ data PutBotAliasResponse = PutBotAliasResponse'
     -- the alias.
     conversationLogs :: Prelude.Maybe ConversationLogsResponse,
     -- | The date that the bot alias was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -353,7 +354,7 @@ putBotAliasResponse_botVersion = Lens.lens (\PutBotAliasResponse' {botVersion} -
 -- | The date that the bot alias was updated. When you create a resource, the
 -- creation date and the last updated date are the same.
 putBotAliasResponse_lastUpdatedDate :: Lens.Lens' PutBotAliasResponse (Prelude.Maybe Prelude.UTCTime)
-putBotAliasResponse_lastUpdatedDate = Lens.lens (\PutBotAliasResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@PutBotAliasResponse' {} a -> s {lastUpdatedDate = a} :: PutBotAliasResponse) Prelude.. Lens.mapping Core._Time
+putBotAliasResponse_lastUpdatedDate = Lens.lens (\PutBotAliasResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@PutBotAliasResponse' {} a -> s {lastUpdatedDate = a} :: PutBotAliasResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A description of the alias.
 putBotAliasResponse_description :: Lens.Lens' PutBotAliasResponse (Prelude.Maybe Prelude.Text)
@@ -374,7 +375,7 @@ putBotAliasResponse_conversationLogs = Lens.lens (\PutBotAliasResponse' {convers
 
 -- | The date that the bot alias was created.
 putBotAliasResponse_createdDate :: Lens.Lens' PutBotAliasResponse (Prelude.Maybe Prelude.UTCTime)
-putBotAliasResponse_createdDate = Lens.lens (\PutBotAliasResponse' {createdDate} -> createdDate) (\s@PutBotAliasResponse' {} a -> s {createdDate = a} :: PutBotAliasResponse) Prelude.. Lens.mapping Core._Time
+putBotAliasResponse_createdDate = Lens.lens (\PutBotAliasResponse' {createdDate} -> createdDate) (\s@PutBotAliasResponse' {} a -> s {createdDate = a} :: PutBotAliasResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 putBotAliasResponse_httpStatus :: Lens.Lens' PutBotAliasResponse Prelude.Int

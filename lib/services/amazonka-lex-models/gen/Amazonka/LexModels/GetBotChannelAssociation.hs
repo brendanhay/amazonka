@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,17 +131,17 @@ instance Core.AWSRequest GetBotChannelAssociation where
     Response.receiveJSON
       ( \s h x ->
           GetBotChannelAssociationResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "type")
-            Prelude.<*> ( x Core..?> "botConfiguration"
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "type")
+            Prelude.<*> ( x Data..?> "botConfiguration"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "botName")
-            Prelude.<*> (x Core..?> "createdDate")
-            Prelude.<*> (x Core..?> "botAlias")
-            Prelude.<*> (x Core..?> "failureReason")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "botName")
+            Prelude.<*> (x Data..?> "createdDate")
+            Prelude.<*> (x Data..?> "botAlias")
+            Prelude.<*> (x Data..?> "failureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,29 +157,29 @@ instance Prelude.NFData GetBotChannelAssociation where
       `Prelude.seq` Prelude.rnf botName
       `Prelude.seq` Prelude.rnf botAlias
 
-instance Core.ToHeaders GetBotChannelAssociation where
+instance Data.ToHeaders GetBotChannelAssociation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetBotChannelAssociation where
+instance Data.ToPath GetBotChannelAssociation where
   toPath GetBotChannelAssociation' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botName,
+        Data.toBS botName,
         "/aliases/",
-        Core.toBS botAlias,
+        Data.toBS botAlias,
         "/channels/",
-        Core.toBS name
+        Data.toBS name
       ]
 
-instance Core.ToQuery GetBotChannelAssociation where
+instance Data.ToQuery GetBotChannelAssociation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetBotChannelAssociationResponse' smart constructor.
@@ -189,7 +190,7 @@ data GetBotChannelAssociationResponse = GetBotChannelAssociationResponse'
     type' :: Prelude.Maybe ChannelType,
     -- | Provides information that the messaging platform needs to communicate
     -- with the Amazon Lex bot.
-    botConfiguration :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    botConfiguration :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The status of the bot channel.
     --
     -- -   @CREATED@ - The channel has been created and is ready for use.
@@ -205,7 +206,7 @@ data GetBotChannelAssociationResponse = GetBotChannelAssociationResponse'
     botName :: Prelude.Maybe Prelude.Text,
     -- | The date that the association between the bot and the channel was
     -- created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | An alias pointing to the specific version of the Amazon Lex bot to which
     -- this association is being made.
     botAlias :: Prelude.Maybe Prelude.Text,
@@ -285,7 +286,7 @@ getBotChannelAssociationResponse_type = Lens.lens (\GetBotChannelAssociationResp
 -- | Provides information that the messaging platform needs to communicate
 -- with the Amazon Lex bot.
 getBotChannelAssociationResponse_botConfiguration :: Lens.Lens' GetBotChannelAssociationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getBotChannelAssociationResponse_botConfiguration = Lens.lens (\GetBotChannelAssociationResponse' {botConfiguration} -> botConfiguration) (\s@GetBotChannelAssociationResponse' {} a -> s {botConfiguration = a} :: GetBotChannelAssociationResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+getBotChannelAssociationResponse_botConfiguration = Lens.lens (\GetBotChannelAssociationResponse' {botConfiguration} -> botConfiguration) (\s@GetBotChannelAssociationResponse' {} a -> s {botConfiguration = a} :: GetBotChannelAssociationResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The status of the bot channel.
 --
@@ -309,7 +310,7 @@ getBotChannelAssociationResponse_botName = Lens.lens (\GetBotChannelAssociationR
 -- | The date that the association between the bot and the channel was
 -- created.
 getBotChannelAssociationResponse_createdDate :: Lens.Lens' GetBotChannelAssociationResponse (Prelude.Maybe Prelude.UTCTime)
-getBotChannelAssociationResponse_createdDate = Lens.lens (\GetBotChannelAssociationResponse' {createdDate} -> createdDate) (\s@GetBotChannelAssociationResponse' {} a -> s {createdDate = a} :: GetBotChannelAssociationResponse) Prelude.. Lens.mapping Core._Time
+getBotChannelAssociationResponse_createdDate = Lens.lens (\GetBotChannelAssociationResponse' {createdDate} -> createdDate) (\s@GetBotChannelAssociationResponse' {} a -> s {createdDate = a} :: GetBotChannelAssociationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | An alias pointing to the specific version of the Amazon Lex bot to which
 -- this association is being made.

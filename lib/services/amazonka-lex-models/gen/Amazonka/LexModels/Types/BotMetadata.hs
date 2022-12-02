@@ -21,6 +21,7 @@ module Amazonka.LexModels.Types.BotMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types.LexStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -32,13 +33,13 @@ data BotMetadata = BotMetadata'
     name :: Prelude.Maybe Prelude.Text,
     -- | The date that the bot was updated. When you create a bot, the creation
     -- date and last updated date are the same.
-    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDate :: Prelude.Maybe Data.POSIX,
     -- | The status of the bot.
     status :: Prelude.Maybe LexStatus,
     -- | A description of the bot.
     description :: Prelude.Maybe Prelude.Text,
     -- | The date that the bot was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The version of the bot. For a new bot, the version is always @$LATEST@.
     version :: Prelude.Maybe Prelude.Text
   }
@@ -83,7 +84,7 @@ botMetadata_name = Lens.lens (\BotMetadata' {name} -> name) (\s@BotMetadata' {} 
 -- | The date that the bot was updated. When you create a bot, the creation
 -- date and last updated date are the same.
 botMetadata_lastUpdatedDate :: Lens.Lens' BotMetadata (Prelude.Maybe Prelude.UTCTime)
-botMetadata_lastUpdatedDate = Lens.lens (\BotMetadata' {lastUpdatedDate} -> lastUpdatedDate) (\s@BotMetadata' {} a -> s {lastUpdatedDate = a} :: BotMetadata) Prelude.. Lens.mapping Core._Time
+botMetadata_lastUpdatedDate = Lens.lens (\BotMetadata' {lastUpdatedDate} -> lastUpdatedDate) (\s@BotMetadata' {} a -> s {lastUpdatedDate = a} :: BotMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the bot.
 botMetadata_status :: Lens.Lens' BotMetadata (Prelude.Maybe LexStatus)
@@ -95,24 +96,24 @@ botMetadata_description = Lens.lens (\BotMetadata' {description} -> description)
 
 -- | The date that the bot was created.
 botMetadata_createdDate :: Lens.Lens' BotMetadata (Prelude.Maybe Prelude.UTCTime)
-botMetadata_createdDate = Lens.lens (\BotMetadata' {createdDate} -> createdDate) (\s@BotMetadata' {} a -> s {createdDate = a} :: BotMetadata) Prelude.. Lens.mapping Core._Time
+botMetadata_createdDate = Lens.lens (\BotMetadata' {createdDate} -> createdDate) (\s@BotMetadata' {} a -> s {createdDate = a} :: BotMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The version of the bot. For a new bot, the version is always @$LATEST@.
 botMetadata_version :: Lens.Lens' BotMetadata (Prelude.Maybe Prelude.Text)
 botMetadata_version = Lens.lens (\BotMetadata' {version} -> version) (\s@BotMetadata' {} a -> s {version = a} :: BotMetadata)
 
-instance Core.FromJSON BotMetadata where
+instance Data.FromJSON BotMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BotMetadata"
       ( \x ->
           BotMetadata'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "lastUpdatedDate")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "createdDate")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "lastUpdatedDate")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "createdDate")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable BotMetadata where

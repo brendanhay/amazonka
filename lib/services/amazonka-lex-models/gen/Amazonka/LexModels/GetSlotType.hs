@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,20 +106,20 @@ instance Core.AWSRequest GetSlotType where
     Response.receiveJSON
       ( \s h x ->
           GetSlotTypeResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "valueSelectionStrategy")
-            Prelude.<*> (x Core..?> "lastUpdatedDate")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "checksum")
-            Prelude.<*> (x Core..?> "createdDate")
-            Prelude.<*> ( x Core..?> "enumerationValues"
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "valueSelectionStrategy")
+            Prelude.<*> (x Data..?> "lastUpdatedDate")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "checksum")
+            Prelude.<*> (x Data..?> "createdDate")
+            Prelude.<*> ( x Data..?> "enumerationValues"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "slotTypeConfigurations"
+            Prelude.<*> ( x Data..?> "slotTypeConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "parentSlotTypeSignature")
-            Prelude.<*> (x Core..?> "version")
+            Prelude.<*> (x Data..?> "parentSlotTypeSignature")
+            Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,27 +132,27 @@ instance Prelude.NFData GetSlotType where
   rnf GetSlotType' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf version
 
-instance Core.ToHeaders GetSlotType where
+instance Data.ToHeaders GetSlotType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSlotType where
+instance Data.ToPath GetSlotType where
   toPath GetSlotType' {..} =
     Prelude.mconcat
       [ "/slottypes/",
-        Core.toBS name,
+        Data.toBS name,
         "/versions/",
-        Core.toBS version
+        Data.toBS version
       ]
 
-instance Core.ToQuery GetSlotType where
+instance Data.ToQuery GetSlotType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSlotTypeResponse' smart constructor.
@@ -163,13 +164,13 @@ data GetSlotTypeResponse = GetSlotTypeResponse'
     valueSelectionStrategy :: Prelude.Maybe SlotValueSelectionStrategy,
     -- | The date that the slot type was updated. When you create a resource, the
     -- creation date and last update date are the same.
-    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDate :: Prelude.Maybe Data.POSIX,
     -- | A description of the slot type.
     description :: Prelude.Maybe Prelude.Text,
     -- | Checksum of the @$LATEST@ version of the slot type.
     checksum :: Prelude.Maybe Prelude.Text,
     -- | The date that the slot type was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | A list of @EnumerationValue@ objects that defines the values that the
     -- slot type can take.
     enumerationValues :: Prelude.Maybe [EnumerationValue],
@@ -247,7 +248,7 @@ getSlotTypeResponse_valueSelectionStrategy = Lens.lens (\GetSlotTypeResponse' {v
 -- | The date that the slot type was updated. When you create a resource, the
 -- creation date and last update date are the same.
 getSlotTypeResponse_lastUpdatedDate :: Lens.Lens' GetSlotTypeResponse (Prelude.Maybe Prelude.UTCTime)
-getSlotTypeResponse_lastUpdatedDate = Lens.lens (\GetSlotTypeResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@GetSlotTypeResponse' {} a -> s {lastUpdatedDate = a} :: GetSlotTypeResponse) Prelude.. Lens.mapping Core._Time
+getSlotTypeResponse_lastUpdatedDate = Lens.lens (\GetSlotTypeResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@GetSlotTypeResponse' {} a -> s {lastUpdatedDate = a} :: GetSlotTypeResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A description of the slot type.
 getSlotTypeResponse_description :: Lens.Lens' GetSlotTypeResponse (Prelude.Maybe Prelude.Text)
@@ -259,7 +260,7 @@ getSlotTypeResponse_checksum = Lens.lens (\GetSlotTypeResponse' {checksum} -> ch
 
 -- | The date that the slot type was created.
 getSlotTypeResponse_createdDate :: Lens.Lens' GetSlotTypeResponse (Prelude.Maybe Prelude.UTCTime)
-getSlotTypeResponse_createdDate = Lens.lens (\GetSlotTypeResponse' {createdDate} -> createdDate) (\s@GetSlotTypeResponse' {} a -> s {createdDate = a} :: GetSlotTypeResponse) Prelude.. Lens.mapping Core._Time
+getSlotTypeResponse_createdDate = Lens.lens (\GetSlotTypeResponse' {createdDate} -> createdDate) (\s@GetSlotTypeResponse' {} a -> s {createdDate = a} :: GetSlotTypeResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A list of @EnumerationValue@ objects that defines the values that the
 -- slot type can take.

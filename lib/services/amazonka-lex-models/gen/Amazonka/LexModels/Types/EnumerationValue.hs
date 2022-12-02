@@ -21,6 +21,7 @@ module Amazonka.LexModels.Types.EnumerationValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Each slot type can have a set of values. Each enumeration value
@@ -74,14 +75,14 @@ enumerationValue_synonyms = Lens.lens (\EnumerationValue' {synonyms} -> synonyms
 enumerationValue_value :: Lens.Lens' EnumerationValue Prelude.Text
 enumerationValue_value = Lens.lens (\EnumerationValue' {value} -> value) (\s@EnumerationValue' {} a -> s {value = a} :: EnumerationValue)
 
-instance Core.FromJSON EnumerationValue where
+instance Data.FromJSON EnumerationValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnumerationValue"
       ( \x ->
           EnumerationValue'
-            Prelude.<$> (x Core..:? "synonyms" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "value")
+            Prelude.<$> (x Data..:? "synonyms" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable EnumerationValue where
@@ -94,11 +95,11 @@ instance Prelude.NFData EnumerationValue where
     Prelude.rnf synonyms
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON EnumerationValue where
+instance Data.ToJSON EnumerationValue where
   toJSON EnumerationValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("synonyms" Core..=) Prelude.<$> synonyms,
-            Prelude.Just ("value" Core..= value)
+          [ ("synonyms" Data..=) Prelude.<$> synonyms,
+            Prelude.Just ("value" Data..= value)
           ]
       )

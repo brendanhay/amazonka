@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,23 +141,23 @@ instance Core.AWSRequest CreateBotVersion where
     Response.receiveJSON
       ( \s h x ->
           CreateBotVersionResponse'
-            Prelude.<$> (x Core..?> "detectSentiment")
-            Prelude.<*> (x Core..?> "voiceId")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "locale")
-            Prelude.<*> (x Core..?> "lastUpdatedDate")
-            Prelude.<*> (x Core..?> "intents" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "idleSessionTTLInSeconds")
-            Prelude.<*> (x Core..?> "enableModelImprovements")
-            Prelude.<*> (x Core..?> "checksum")
-            Prelude.<*> (x Core..?> "childDirected")
-            Prelude.<*> (x Core..?> "abortStatement")
-            Prelude.<*> (x Core..?> "clarificationPrompt")
-            Prelude.<*> (x Core..?> "createdDate")
-            Prelude.<*> (x Core..?> "failureReason")
-            Prelude.<*> (x Core..?> "version")
+            Prelude.<$> (x Data..?> "detectSentiment")
+            Prelude.<*> (x Data..?> "voiceId")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "locale")
+            Prelude.<*> (x Data..?> "lastUpdatedDate")
+            Prelude.<*> (x Data..?> "intents" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "idleSessionTTLInSeconds")
+            Prelude.<*> (x Data..?> "enableModelImprovements")
+            Prelude.<*> (x Data..?> "checksum")
+            Prelude.<*> (x Data..?> "childDirected")
+            Prelude.<*> (x Data..?> "abortStatement")
+            Prelude.<*> (x Data..?> "clarificationPrompt")
+            Prelude.<*> (x Data..?> "createdDate")
+            Prelude.<*> (x Data..?> "failureReason")
+            Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,30 +170,30 @@ instance Prelude.NFData CreateBotVersion where
   rnf CreateBotVersion' {..} =
     Prelude.rnf checksum `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateBotVersion where
+instance Data.ToHeaders CreateBotVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBotVersion where
+instance Data.ToJSON CreateBotVersion where
   toJSON CreateBotVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("checksum" Core..=) Prelude.<$> checksum]
+          [("checksum" Data..=) Prelude.<$> checksum]
       )
 
-instance Core.ToPath CreateBotVersion where
+instance Data.ToPath CreateBotVersion where
   toPath CreateBotVersion' {..} =
     Prelude.mconcat
-      ["/bots/", Core.toBS name, "/versions"]
+      ["/bots/", Data.toBS name, "/versions"]
 
-instance Core.ToQuery CreateBotVersion where
+instance Data.ToQuery CreateBotVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBotVersionResponse' smart constructor.
@@ -208,7 +209,7 @@ data CreateBotVersionResponse = CreateBotVersionResponse'
     -- | Specifies the target locale for the bot.
     locale :: Prelude.Maybe Locale,
     -- | The date when the @$LATEST@ version of this bot was updated.
-    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDate :: Prelude.Maybe Data.POSIX,
     -- | An array of @Intent@ objects. For more information, see PutBot.
     intents :: Prelude.Maybe [Intent],
     -- | When you send a request to create or update a bot, Amazon Lex sets the
@@ -260,7 +261,7 @@ data CreateBotVersionResponse = CreateBotVersionResponse'
     -- request. For more information, see PutBot.
     clarificationPrompt :: Prelude.Maybe Prompt,
     -- | The date when the bot version was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
     -- to build the bot.
     failureReason :: Prelude.Maybe Prelude.Text,
@@ -396,7 +397,7 @@ createBotVersionResponse_locale = Lens.lens (\CreateBotVersionResponse' {locale}
 
 -- | The date when the @$LATEST@ version of this bot was updated.
 createBotVersionResponse_lastUpdatedDate :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.UTCTime)
-createBotVersionResponse_lastUpdatedDate = Lens.lens (\CreateBotVersionResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@CreateBotVersionResponse' {} a -> s {lastUpdatedDate = a} :: CreateBotVersionResponse) Prelude.. Lens.mapping Core._Time
+createBotVersionResponse_lastUpdatedDate = Lens.lens (\CreateBotVersionResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@CreateBotVersionResponse' {} a -> s {lastUpdatedDate = a} :: CreateBotVersionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | An array of @Intent@ objects. For more information, see PutBot.
 createBotVersionResponse_intents :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe [Intent])
@@ -468,7 +469,7 @@ createBotVersionResponse_clarificationPrompt = Lens.lens (\CreateBotVersionRespo
 
 -- | The date when the bot version was created.
 createBotVersionResponse_createdDate :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.UTCTime)
-createBotVersionResponse_createdDate = Lens.lens (\CreateBotVersionResponse' {createdDate} -> createdDate) (\s@CreateBotVersionResponse' {} a -> s {createdDate = a} :: CreateBotVersionResponse) Prelude.. Lens.mapping Core._Time
+createBotVersionResponse_createdDate = Lens.lens (\CreateBotVersionResponse' {createdDate} -> createdDate) (\s@CreateBotVersionResponse' {} a -> s {createdDate = a} :: CreateBotVersionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
 -- to build the bot.

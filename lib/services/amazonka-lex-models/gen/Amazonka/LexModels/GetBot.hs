@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,24 +116,24 @@ instance Core.AWSRequest GetBot where
     Response.receiveJSON
       ( \s h x ->
           GetBotResponse'
-            Prelude.<$> (x Core..?> "detectSentiment")
-            Prelude.<*> (x Core..?> "voiceId")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "nluIntentConfidenceThreshold")
-            Prelude.<*> (x Core..?> "locale")
-            Prelude.<*> (x Core..?> "lastUpdatedDate")
-            Prelude.<*> (x Core..?> "intents" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "idleSessionTTLInSeconds")
-            Prelude.<*> (x Core..?> "enableModelImprovements")
-            Prelude.<*> (x Core..?> "checksum")
-            Prelude.<*> (x Core..?> "childDirected")
-            Prelude.<*> (x Core..?> "abortStatement")
-            Prelude.<*> (x Core..?> "clarificationPrompt")
-            Prelude.<*> (x Core..?> "createdDate")
-            Prelude.<*> (x Core..?> "failureReason")
-            Prelude.<*> (x Core..?> "version")
+            Prelude.<$> (x Data..?> "detectSentiment")
+            Prelude.<*> (x Data..?> "voiceId")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "nluIntentConfidenceThreshold")
+            Prelude.<*> (x Data..?> "locale")
+            Prelude.<*> (x Data..?> "lastUpdatedDate")
+            Prelude.<*> (x Data..?> "intents" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "idleSessionTTLInSeconds")
+            Prelude.<*> (x Data..?> "enableModelImprovements")
+            Prelude.<*> (x Data..?> "checksum")
+            Prelude.<*> (x Data..?> "childDirected")
+            Prelude.<*> (x Data..?> "abortStatement")
+            Prelude.<*> (x Data..?> "clarificationPrompt")
+            Prelude.<*> (x Data..?> "createdDate")
+            Prelude.<*> (x Data..?> "failureReason")
+            Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,27 +147,27 @@ instance Prelude.NFData GetBot where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf versionOrAlias
 
-instance Core.ToHeaders GetBot where
+instance Data.ToHeaders GetBot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetBot where
+instance Data.ToPath GetBot where
   toPath GetBot' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS name,
+        Data.toBS name,
         "/versions/",
-        Core.toBS versionOrAlias
+        Data.toBS versionOrAlias
       ]
 
-instance Core.ToQuery GetBot where
+instance Data.ToQuery GetBot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetBotResponse' smart constructor.
@@ -193,7 +194,7 @@ data GetBotResponse = GetBotResponse'
     locale :: Prelude.Maybe Locale,
     -- | The date that the bot was updated. When you create a resource, the
     -- creation date and last updated date are the same.
-    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDate :: Prelude.Maybe Data.POSIX,
     -- | An array of @intent@ objects. For more information, see PutBot.
     intents :: Prelude.Maybe [Intent],
     -- | The status of the bot.
@@ -254,7 +255,7 @@ data GetBotResponse = GetBotResponse'
     -- request. For more information, see PutBot.
     clarificationPrompt :: Prelude.Maybe Prompt,
     -- | The date that the bot was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | If @status@ is @FAILED@, Amazon Lex explains why it failed to build the
     -- bot.
     failureReason :: Prelude.Maybe Prelude.Text,
@@ -423,7 +424,7 @@ getBotResponse_locale = Lens.lens (\GetBotResponse' {locale} -> locale) (\s@GetB
 -- | The date that the bot was updated. When you create a resource, the
 -- creation date and last updated date are the same.
 getBotResponse_lastUpdatedDate :: Lens.Lens' GetBotResponse (Prelude.Maybe Prelude.UTCTime)
-getBotResponse_lastUpdatedDate = Lens.lens (\GetBotResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@GetBotResponse' {} a -> s {lastUpdatedDate = a} :: GetBotResponse) Prelude.. Lens.mapping Core._Time
+getBotResponse_lastUpdatedDate = Lens.lens (\GetBotResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@GetBotResponse' {} a -> s {lastUpdatedDate = a} :: GetBotResponse) Prelude.. Lens.mapping Data._Time
 
 -- | An array of @intent@ objects. For more information, see PutBot.
 getBotResponse_intents :: Lens.Lens' GetBotResponse (Prelude.Maybe [Intent])
@@ -504,7 +505,7 @@ getBotResponse_clarificationPrompt = Lens.lens (\GetBotResponse' {clarificationP
 
 -- | The date that the bot was created.
 getBotResponse_createdDate :: Lens.Lens' GetBotResponse (Prelude.Maybe Prelude.UTCTime)
-getBotResponse_createdDate = Lens.lens (\GetBotResponse' {createdDate} -> createdDate) (\s@GetBotResponse' {} a -> s {createdDate = a} :: GetBotResponse) Prelude.. Lens.mapping Core._Time
+getBotResponse_createdDate = Lens.lens (\GetBotResponse' {createdDate} -> createdDate) (\s@GetBotResponse' {} a -> s {createdDate = a} :: GetBotResponse) Prelude.. Lens.mapping Data._Time
 
 -- | If @status@ is @FAILED@, Amazon Lex explains why it failed to build the
 -- bot.

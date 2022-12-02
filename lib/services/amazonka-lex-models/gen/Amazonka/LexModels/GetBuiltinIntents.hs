@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -168,8 +169,8 @@ instance Core.AWSRequest GetBuiltinIntents where
     Response.receiveJSON
       ( \s h x ->
           GetBuiltinIntentsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "intents" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "intents" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,27 +188,27 @@ instance Prelude.NFData GetBuiltinIntents where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf signatureContains
 
-instance Core.ToHeaders GetBuiltinIntents where
+instance Data.ToHeaders GetBuiltinIntents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetBuiltinIntents where
+instance Data.ToPath GetBuiltinIntents where
   toPath = Prelude.const "/builtins/intents/"
 
-instance Core.ToQuery GetBuiltinIntents where
+instance Data.ToQuery GetBuiltinIntents where
   toQuery GetBuiltinIntents' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "locale" Core.=: locale,
-        "maxResults" Core.=: maxResults,
-        "signatureContains" Core.=: signatureContains
+      [ "nextToken" Data.=: nextToken,
+        "locale" Data.=: locale,
+        "maxResults" Data.=: maxResults,
+        "signatureContains" Data.=: signatureContains
       ]
 
 -- | /See:/ 'newGetBuiltinIntentsResponse' smart constructor.

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,27 +107,27 @@ instance Prelude.NFData DeleteBotAlias where
   rnf DeleteBotAlias' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf botName
 
-instance Core.ToHeaders DeleteBotAlias where
+instance Data.ToHeaders DeleteBotAlias where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteBotAlias where
+instance Data.ToPath DeleteBotAlias where
   toPath DeleteBotAlias' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botName,
+        Data.toBS botName,
         "/aliases/",
-        Core.toBS name
+        Data.toBS name
       ]
 
-instance Core.ToQuery DeleteBotAlias where
+instance Data.ToQuery DeleteBotAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteBotAliasResponse' smart constructor.

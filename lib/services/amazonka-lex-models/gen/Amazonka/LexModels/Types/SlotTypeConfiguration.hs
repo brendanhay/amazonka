@@ -21,6 +21,7 @@ module Amazonka.LexModels.Types.SlotTypeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types.SlotTypeRegexConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newSlotTypeConfiguration =
 slotTypeConfiguration_regexConfiguration :: Lens.Lens' SlotTypeConfiguration (Prelude.Maybe SlotTypeRegexConfiguration)
 slotTypeConfiguration_regexConfiguration = Lens.lens (\SlotTypeConfiguration' {regexConfiguration} -> regexConfiguration) (\s@SlotTypeConfiguration' {} a -> s {regexConfiguration = a} :: SlotTypeConfiguration)
 
-instance Core.FromJSON SlotTypeConfiguration where
+instance Data.FromJSON SlotTypeConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SlotTypeConfiguration"
       ( \x ->
           SlotTypeConfiguration'
-            Prelude.<$> (x Core..:? "regexConfiguration")
+            Prelude.<$> (x Data..:? "regexConfiguration")
       )
 
 instance Prelude.Hashable SlotTypeConfiguration where
@@ -71,11 +72,11 @@ instance Prelude.NFData SlotTypeConfiguration where
   rnf SlotTypeConfiguration' {..} =
     Prelude.rnf regexConfiguration
 
-instance Core.ToJSON SlotTypeConfiguration where
+instance Data.ToJSON SlotTypeConfiguration where
   toJSON SlotTypeConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("regexConfiguration" Core..=)
+          [ ("regexConfiguration" Data..=)
               Prelude.<$> regexConfiguration
           ]
       )

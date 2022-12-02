@@ -21,6 +21,7 @@ module Amazonka.LexModels.Types.FulfillmentActivity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types.CodeHook
 import Amazonka.LexModels.Types.FulfillmentActivityType
 import qualified Amazonka.Prelude as Prelude
@@ -86,14 +87,14 @@ fulfillmentActivity_codeHook = Lens.lens (\FulfillmentActivity' {codeHook} -> co
 fulfillmentActivity_type :: Lens.Lens' FulfillmentActivity FulfillmentActivityType
 fulfillmentActivity_type = Lens.lens (\FulfillmentActivity' {type'} -> type') (\s@FulfillmentActivity' {} a -> s {type' = a} :: FulfillmentActivity)
 
-instance Core.FromJSON FulfillmentActivity where
+instance Data.FromJSON FulfillmentActivity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FulfillmentActivity"
       ( \x ->
           FulfillmentActivity'
-            Prelude.<$> (x Core..:? "codeHook")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "codeHook")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable FulfillmentActivity where
@@ -106,11 +107,11 @@ instance Prelude.NFData FulfillmentActivity where
     Prelude.rnf codeHook
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON FulfillmentActivity where
+instance Data.ToJSON FulfillmentActivity where
   toJSON FulfillmentActivity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("codeHook" Core..=) Prelude.<$> codeHook,
-            Prelude.Just ("type" Core..= type')
+          [ ("codeHook" Data..=) Prelude.<$> codeHook,
+            Prelude.Just ("type" Data..= type')
           ]
       )

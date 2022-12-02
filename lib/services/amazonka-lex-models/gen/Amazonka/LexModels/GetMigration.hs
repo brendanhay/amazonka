@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,16 +96,16 @@ instance Core.AWSRequest GetMigration where
     Response.receiveJSON
       ( \s h x ->
           GetMigrationResponse'
-            Prelude.<$> (x Core..?> "v2BotRole")
-            Prelude.<*> (x Core..?> "alerts" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "migrationStatus")
-            Prelude.<*> (x Core..?> "v1BotLocale")
-            Prelude.<*> (x Core..?> "v1BotVersion")
-            Prelude.<*> (x Core..?> "migrationStrategy")
-            Prelude.<*> (x Core..?> "v2BotId")
-            Prelude.<*> (x Core..?> "v1BotName")
-            Prelude.<*> (x Core..?> "migrationTimestamp")
-            Prelude.<*> (x Core..?> "migrationId")
+            Prelude.<$> (x Data..?> "v2BotRole")
+            Prelude.<*> (x Data..?> "alerts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "migrationStatus")
+            Prelude.<*> (x Data..?> "v1BotLocale")
+            Prelude.<*> (x Data..?> "v1BotVersion")
+            Prelude.<*> (x Data..?> "migrationStrategy")
+            Prelude.<*> (x Data..?> "v2BotId")
+            Prelude.<*> (x Data..?> "v1BotName")
+            Prelude.<*> (x Data..?> "migrationTimestamp")
+            Prelude.<*> (x Data..?> "migrationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,23 +116,23 @@ instance Prelude.Hashable GetMigration where
 instance Prelude.NFData GetMigration where
   rnf GetMigration' {..} = Prelude.rnf migrationId
 
-instance Core.ToHeaders GetMigration where
+instance Data.ToHeaders GetMigration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetMigration where
+instance Data.ToPath GetMigration where
   toPath GetMigration' {..} =
     Prelude.mconcat
-      ["/migrations/", Core.toBS migrationId]
+      ["/migrations/", Data.toBS migrationId]
 
-instance Core.ToQuery GetMigration where
+instance Data.ToQuery GetMigration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMigrationResponse' smart constructor.
@@ -172,7 +173,7 @@ data GetMigrationResponse = GetMigrationResponse'
     -- | The name of the Amazon Lex V1 bot migrated to Amazon Lex V2.
     v1BotName :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the migration started.
-    migrationTimestamp :: Prelude.Maybe Core.POSIX,
+    migrationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of the migration. This is the same as the
     -- identifier used when calling the @GetMigration@ operation.
     migrationId :: Prelude.Maybe Prelude.Text,
@@ -302,7 +303,7 @@ getMigrationResponse_v1BotName = Lens.lens (\GetMigrationResponse' {v1BotName} -
 
 -- | The date and time that the migration started.
 getMigrationResponse_migrationTimestamp :: Lens.Lens' GetMigrationResponse (Prelude.Maybe Prelude.UTCTime)
-getMigrationResponse_migrationTimestamp = Lens.lens (\GetMigrationResponse' {migrationTimestamp} -> migrationTimestamp) (\s@GetMigrationResponse' {} a -> s {migrationTimestamp = a} :: GetMigrationResponse) Prelude.. Lens.mapping Core._Time
+getMigrationResponse_migrationTimestamp = Lens.lens (\GetMigrationResponse' {migrationTimestamp} -> migrationTimestamp) (\s@GetMigrationResponse' {} a -> s {migrationTimestamp = a} :: GetMigrationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier of the migration. This is the same as the
 -- identifier used when calling the @GetMigration@ operation.

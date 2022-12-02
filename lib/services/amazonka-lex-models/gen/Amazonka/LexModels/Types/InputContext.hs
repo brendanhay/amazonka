@@ -21,6 +21,7 @@ module Amazonka.LexModels.Types.InputContext where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The name of a context that must be active for an intent to be selected
@@ -52,11 +53,11 @@ newInputContext pName_ = InputContext' {name = pName_}
 inputContext_name :: Lens.Lens' InputContext Prelude.Text
 inputContext_name = Lens.lens (\InputContext' {name} -> name) (\s@InputContext' {} a -> s {name = a} :: InputContext)
 
-instance Core.FromJSON InputContext where
+instance Data.FromJSON InputContext where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputContext"
-      (\x -> InputContext' Prelude.<$> (x Core..: "name"))
+      (\x -> InputContext' Prelude.<$> (x Data..: "name"))
 
 instance Prelude.Hashable InputContext where
   hashWithSalt _salt InputContext' {..} =
@@ -65,9 +66,9 @@ instance Prelude.Hashable InputContext where
 instance Prelude.NFData InputContext where
   rnf InputContext' {..} = Prelude.rnf name
 
-instance Core.ToJSON InputContext where
+instance Data.ToJSON InputContext where
   toJSON InputContext' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )

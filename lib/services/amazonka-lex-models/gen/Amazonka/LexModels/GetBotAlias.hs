@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,14 +103,14 @@ instance Core.AWSRequest GetBotAlias where
     Response.receiveJSON
       ( \s h x ->
           GetBotAliasResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "lastUpdatedDate")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "checksum")
-            Prelude.<*> (x Core..?> "botName")
-            Prelude.<*> (x Core..?> "conversationLogs")
-            Prelude.<*> (x Core..?> "createdDate")
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "lastUpdatedDate")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "checksum")
+            Prelude.<*> (x Data..?> "botName")
+            Prelude.<*> (x Data..?> "conversationLogs")
+            Prelude.<*> (x Data..?> "createdDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,27 +123,27 @@ instance Prelude.NFData GetBotAlias where
   rnf GetBotAlias' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf botName
 
-instance Core.ToHeaders GetBotAlias where
+instance Data.ToHeaders GetBotAlias where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetBotAlias where
+instance Data.ToPath GetBotAlias where
   toPath GetBotAlias' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botName,
+        Data.toBS botName,
         "/aliases/",
-        Core.toBS name
+        Data.toBS name
       ]
 
-instance Core.ToQuery GetBotAlias where
+instance Data.ToQuery GetBotAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetBotAliasResponse' smart constructor.
@@ -153,7 +154,7 @@ data GetBotAliasResponse = GetBotAliasResponse'
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | The date that the bot alias was updated. When you create a resource, the
     -- creation date and the last updated date are the same.
-    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDate :: Prelude.Maybe Data.POSIX,
     -- | A description of the bot alias.
     description :: Prelude.Maybe Prelude.Text,
     -- | Checksum of the bot alias.
@@ -164,7 +165,7 @@ data GetBotAliasResponse = GetBotAliasResponse'
     -- the alias.
     conversationLogs :: Prelude.Maybe ConversationLogsResponse,
     -- | The date that the bot alias was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -225,7 +226,7 @@ getBotAliasResponse_botVersion = Lens.lens (\GetBotAliasResponse' {botVersion} -
 -- | The date that the bot alias was updated. When you create a resource, the
 -- creation date and the last updated date are the same.
 getBotAliasResponse_lastUpdatedDate :: Lens.Lens' GetBotAliasResponse (Prelude.Maybe Prelude.UTCTime)
-getBotAliasResponse_lastUpdatedDate = Lens.lens (\GetBotAliasResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@GetBotAliasResponse' {} a -> s {lastUpdatedDate = a} :: GetBotAliasResponse) Prelude.. Lens.mapping Core._Time
+getBotAliasResponse_lastUpdatedDate = Lens.lens (\GetBotAliasResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@GetBotAliasResponse' {} a -> s {lastUpdatedDate = a} :: GetBotAliasResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A description of the bot alias.
 getBotAliasResponse_description :: Lens.Lens' GetBotAliasResponse (Prelude.Maybe Prelude.Text)
@@ -246,7 +247,7 @@ getBotAliasResponse_conversationLogs = Lens.lens (\GetBotAliasResponse' {convers
 
 -- | The date that the bot alias was created.
 getBotAliasResponse_createdDate :: Lens.Lens' GetBotAliasResponse (Prelude.Maybe Prelude.UTCTime)
-getBotAliasResponse_createdDate = Lens.lens (\GetBotAliasResponse' {createdDate} -> createdDate) (\s@GetBotAliasResponse' {} a -> s {createdDate = a} :: GetBotAliasResponse) Prelude.. Lens.mapping Core._Time
+getBotAliasResponse_createdDate = Lens.lens (\GetBotAliasResponse' {createdDate} -> createdDate) (\s@GetBotAliasResponse' {} a -> s {createdDate = a} :: GetBotAliasResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getBotAliasResponse_httpStatus :: Lens.Lens' GetBotAliasResponse Prelude.Int

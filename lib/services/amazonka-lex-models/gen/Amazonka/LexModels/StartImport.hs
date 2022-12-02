@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -63,7 +64,7 @@ data StartImport = StartImport'
     -- | A zip archive in binary format. The archive should contain one file, a
     -- JSON file containing the resource to import. The resource should match
     -- the type specified in the @resourceType@ field.
-    payload :: Core.Base64,
+    payload :: Data.Base64,
     -- | Specifies the type of resource to export. Each resource also exports any
     -- resources that it depends on.
     --
@@ -137,7 +138,7 @@ newStartImport
   pMergeStrategy_ =
     StartImport'
       { tags = Prelude.Nothing,
-        payload = Core._Base64 Lens.# pPayload_,
+        payload = Data._Base64 Lens.# pPayload_,
         resourceType = pResourceType_,
         mergeStrategy = pMergeStrategy_
       }
@@ -155,7 +156,7 @@ startImport_tags = Lens.lens (\StartImport' {tags} -> tags) (\s@StartImport' {} 
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 startImport_payload :: Lens.Lens' StartImport Prelude.ByteString
-startImport_payload = Lens.lens (\StartImport' {payload} -> payload) (\s@StartImport' {} a -> s {payload = a} :: StartImport) Prelude.. Core._Base64
+startImport_payload = Lens.lens (\StartImport' {payload} -> payload) (\s@StartImport' {} a -> s {payload = a} :: StartImport) Prelude.. Data._Base64
 
 -- | Specifies the type of resource to export. Each resource also exports any
 -- resources that it depends on.
@@ -188,13 +189,13 @@ instance Core.AWSRequest StartImport where
     Response.receiveJSON
       ( \s h x ->
           StartImportResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "resourceType")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "importId")
-            Prelude.<*> (x Core..?> "createdDate")
-            Prelude.<*> (x Core..?> "importStatus")
-            Prelude.<*> (x Core..?> "mergeStrategy")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "resourceType")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "importId")
+            Prelude.<*> (x Data..?> "createdDate")
+            Prelude.<*> (x Data..?> "importStatus")
+            Prelude.<*> (x Data..?> "mergeStrategy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -212,33 +213,33 @@ instance Prelude.NFData StartImport where
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf mergeStrategy
 
-instance Core.ToHeaders StartImport where
+instance Data.ToHeaders StartImport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartImport where
+instance Data.ToJSON StartImport where
   toJSON StartImport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("payload" Core..= payload),
-            Prelude.Just ("resourceType" Core..= resourceType),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("payload" Data..= payload),
+            Prelude.Just ("resourceType" Data..= resourceType),
             Prelude.Just
-              ("mergeStrategy" Core..= mergeStrategy)
+              ("mergeStrategy" Data..= mergeStrategy)
           ]
       )
 
-instance Core.ToPath StartImport where
+instance Data.ToPath StartImport where
   toPath = Prelude.const "/imports/"
 
-instance Core.ToQuery StartImport where
+instance Data.ToQuery StartImport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartImportResponse' smart constructor.
@@ -252,7 +253,7 @@ data StartImportResponse = StartImportResponse'
     -- | The identifier for the specific import job.
     importId :: Prelude.Maybe Prelude.Text,
     -- | A timestamp for the date and time that the import job was requested.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The status of the import job. If the status is @FAILED@, you can get the
     -- reason for the failure using the @GetImport@ operation.
     importStatus :: Prelude.Maybe ImportStatus,
@@ -321,7 +322,7 @@ startImportResponse_importId = Lens.lens (\StartImportResponse' {importId} -> im
 
 -- | A timestamp for the date and time that the import job was requested.
 startImportResponse_createdDate :: Lens.Lens' StartImportResponse (Prelude.Maybe Prelude.UTCTime)
-startImportResponse_createdDate = Lens.lens (\StartImportResponse' {createdDate} -> createdDate) (\s@StartImportResponse' {} a -> s {createdDate = a} :: StartImportResponse) Prelude.. Lens.mapping Core._Time
+startImportResponse_createdDate = Lens.lens (\StartImportResponse' {createdDate} -> createdDate) (\s@StartImportResponse' {} a -> s {createdDate = a} :: StartImportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the import job. If the status is @FAILED@, you can get the
 -- reason for the failure using the @GetImport@ operation.

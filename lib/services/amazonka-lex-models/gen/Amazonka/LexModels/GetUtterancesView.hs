@@ -71,6 +71,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -146,8 +147,8 @@ instance Core.AWSRequest GetUtterancesView where
     Response.receiveJSON
       ( \s h x ->
           GetUtterancesViewResponse'
-            Prelude.<$> (x Core..?> "utterances" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "botName")
+            Prelude.<$> (x Data..?> "utterances" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "botName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,28 +164,28 @@ instance Prelude.NFData GetUtterancesView where
       `Prelude.seq` Prelude.rnf botVersions
       `Prelude.seq` Prelude.rnf statusType
 
-instance Core.ToHeaders GetUtterancesView where
+instance Data.ToHeaders GetUtterancesView where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetUtterancesView where
+instance Data.ToPath GetUtterancesView where
   toPath GetUtterancesView' {..} =
     Prelude.mconcat
-      ["/bots/", Core.toBS botName, "/utterances"]
+      ["/bots/", Data.toBS botName, "/utterances"]
 
-instance Core.ToQuery GetUtterancesView where
+instance Data.ToQuery GetUtterancesView where
   toQuery GetUtterancesView' {..} =
     Prelude.mconcat
       [ "bot_versions"
-          Core.=: Core.toQueryList "member" botVersions,
-        "status_type" Core.=: statusType,
+          Data.=: Data.toQueryList "member" botVersions,
+        "status_type" Data.=: statusType,
         "view=aggregation"
       ]
 

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -158,8 +159,8 @@ instance Core.AWSRequest GetBotAliases where
     Response.receiveJSON
       ( \s h x ->
           GetBotAliasesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "BotAliases" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "BotAliases" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,28 +178,28 @@ instance Prelude.NFData GetBotAliases where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf botName
 
-instance Core.ToHeaders GetBotAliases where
+instance Data.ToHeaders GetBotAliases where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetBotAliases where
+instance Data.ToPath GetBotAliases where
   toPath GetBotAliases' {..} =
     Prelude.mconcat
-      ["/bots/", Core.toBS botName, "/aliases/"]
+      ["/bots/", Data.toBS botName, "/aliases/"]
 
-instance Core.ToQuery GetBotAliases where
+instance Data.ToQuery GetBotAliases where
   toQuery GetBotAliases' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "nameContains" Core.=: nameContains,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "nameContains" Data.=: nameContains,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newGetBotAliasesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.LexModels.Types.MigrationAlert where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types.MigrationAlertType
 import qualified Amazonka.Prelude as Prelude
 
@@ -103,16 +104,16 @@ migrationAlert_referenceURLs = Lens.lens (\MigrationAlert' {referenceURLs} -> re
 migrationAlert_details :: Lens.Lens' MigrationAlert (Prelude.Maybe [Prelude.Text])
 migrationAlert_details = Lens.lens (\MigrationAlert' {details} -> details) (\s@MigrationAlert' {} a -> s {details = a} :: MigrationAlert) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON MigrationAlert where
+instance Data.FromJSON MigrationAlert where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MigrationAlert"
       ( \x ->
           MigrationAlert'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "referenceURLs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "details" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "referenceURLs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "details" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable MigrationAlert where

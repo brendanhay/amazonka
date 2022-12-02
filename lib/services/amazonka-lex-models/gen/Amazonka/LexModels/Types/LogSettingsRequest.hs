@@ -21,6 +21,7 @@ module Amazonka.LexModels.Types.LogSettingsRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types.Destination
 import Amazonka.LexModels.Types.LogType
 import qualified Amazonka.Prelude as Prelude
@@ -120,13 +121,13 @@ instance Prelude.NFData LogSettingsRequest where
       `Prelude.seq` Prelude.rnf destination
       `Prelude.seq` Prelude.rnf resourceArn
 
-instance Core.ToJSON LogSettingsRequest where
+instance Data.ToJSON LogSettingsRequest where
   toJSON LogSettingsRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("kmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            Prelude.Just ("logType" Core..= logType),
-            Prelude.Just ("destination" Core..= destination),
-            Prelude.Just ("resourceArn" Core..= resourceArn)
+          [ ("kmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            Prelude.Just ("logType" Data..= logType),
+            Prelude.Just ("destination" Data..= destination),
+            Prelude.Just ("resourceArn" Data..= resourceArn)
           ]
       )

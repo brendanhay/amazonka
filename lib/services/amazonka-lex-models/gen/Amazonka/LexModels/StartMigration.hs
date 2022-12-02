@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -202,14 +203,14 @@ instance Core.AWSRequest StartMigration where
     Response.receiveJSON
       ( \s h x ->
           StartMigrationResponse'
-            Prelude.<$> (x Core..?> "v2BotRole")
-            Prelude.<*> (x Core..?> "v1BotLocale")
-            Prelude.<*> (x Core..?> "v1BotVersion")
-            Prelude.<*> (x Core..?> "migrationStrategy")
-            Prelude.<*> (x Core..?> "v2BotId")
-            Prelude.<*> (x Core..?> "v1BotName")
-            Prelude.<*> (x Core..?> "migrationTimestamp")
-            Prelude.<*> (x Core..?> "migrationId")
+            Prelude.<$> (x Data..?> "v2BotRole")
+            Prelude.<*> (x Data..?> "v1BotLocale")
+            Prelude.<*> (x Data..?> "v1BotVersion")
+            Prelude.<*> (x Data..?> "migrationStrategy")
+            Prelude.<*> (x Data..?> "v2BotId")
+            Prelude.<*> (x Data..?> "v1BotName")
+            Prelude.<*> (x Data..?> "migrationTimestamp")
+            Prelude.<*> (x Data..?> "migrationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -229,34 +230,34 @@ instance Prelude.NFData StartMigration where
       `Prelude.seq` Prelude.rnf v2BotRole
       `Prelude.seq` Prelude.rnf migrationStrategy
 
-instance Core.ToHeaders StartMigration where
+instance Data.ToHeaders StartMigration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartMigration where
+instance Data.ToJSON StartMigration where
   toJSON StartMigration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("v1BotName" Core..= v1BotName),
-            Prelude.Just ("v1BotVersion" Core..= v1BotVersion),
-            Prelude.Just ("v2BotName" Core..= v2BotName),
-            Prelude.Just ("v2BotRole" Core..= v2BotRole),
+          [ Prelude.Just ("v1BotName" Data..= v1BotName),
+            Prelude.Just ("v1BotVersion" Data..= v1BotVersion),
+            Prelude.Just ("v2BotName" Data..= v2BotName),
+            Prelude.Just ("v2BotRole" Data..= v2BotRole),
             Prelude.Just
-              ("migrationStrategy" Core..= migrationStrategy)
+              ("migrationStrategy" Data..= migrationStrategy)
           ]
       )
 
-instance Core.ToPath StartMigration where
+instance Data.ToPath StartMigration where
   toPath = Prelude.const "/migrations"
 
-instance Core.ToQuery StartMigration where
+instance Data.ToQuery StartMigration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartMigrationResponse' smart constructor.
@@ -275,7 +276,7 @@ data StartMigrationResponse = StartMigrationResponse'
     -- V2.
     v1BotName :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the migration started.
-    migrationTimestamp :: Prelude.Maybe Core.POSIX,
+    migrationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier that Amazon Lex assigned to the migration.
     migrationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -354,7 +355,7 @@ startMigrationResponse_v1BotName = Lens.lens (\StartMigrationResponse' {v1BotNam
 
 -- | The date and time that the migration started.
 startMigrationResponse_migrationTimestamp :: Lens.Lens' StartMigrationResponse (Prelude.Maybe Prelude.UTCTime)
-startMigrationResponse_migrationTimestamp = Lens.lens (\StartMigrationResponse' {migrationTimestamp} -> migrationTimestamp) (\s@StartMigrationResponse' {} a -> s {migrationTimestamp = a} :: StartMigrationResponse) Prelude.. Lens.mapping Core._Time
+startMigrationResponse_migrationTimestamp = Lens.lens (\StartMigrationResponse' {migrationTimestamp} -> migrationTimestamp) (\s@StartMigrationResponse' {} a -> s {migrationTimestamp = a} :: StartMigrationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier that Amazon Lex assigned to the migration.
 startMigrationResponse_migrationId :: Lens.Lens' StartMigrationResponse (Prelude.Maybe Prelude.Text)

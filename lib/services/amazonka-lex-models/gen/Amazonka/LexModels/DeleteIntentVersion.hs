@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,27 +112,27 @@ instance Prelude.NFData DeleteIntentVersion where
   rnf DeleteIntentVersion' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf version
 
-instance Core.ToHeaders DeleteIntentVersion where
+instance Data.ToHeaders DeleteIntentVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteIntentVersion where
+instance Data.ToPath DeleteIntentVersion where
   toPath DeleteIntentVersion' {..} =
     Prelude.mconcat
       [ "/intents/",
-        Core.toBS name,
+        Data.toBS name,
         "/versions/",
-        Core.toBS version
+        Data.toBS version
       ]
 
-instance Core.ToQuery DeleteIntentVersion where
+instance Data.ToQuery DeleteIntentVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteIntentVersionResponse' smart constructor.

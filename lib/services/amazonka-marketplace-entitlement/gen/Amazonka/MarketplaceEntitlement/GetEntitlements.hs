@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MarketplaceEntitlement.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -169,8 +170,8 @@ instance Core.AWSRequest GetEntitlements where
     Response.receiveJSON
       ( \s h x ->
           GetEntitlementsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Entitlements" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Entitlements" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -188,36 +189,36 @@ instance Prelude.NFData GetEntitlements where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf productCode
 
-instance Core.ToHeaders GetEntitlements where
+instance Data.ToHeaders GetEntitlements where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSMPEntitlementService.GetEntitlements" ::
+              Data.=# ( "AWSMPEntitlementService.GetEntitlements" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetEntitlements where
+instance Data.ToJSON GetEntitlements where
   toJSON GetEntitlements' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filter" Core..=) Prelude.<$> filter',
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("ProductCode" Core..= productCode)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("ProductCode" Data..= productCode)
           ]
       )
 
-instance Core.ToPath GetEntitlements where
+instance Data.ToPath GetEntitlements where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetEntitlements where
+instance Data.ToQuery GetEntitlements where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The GetEntitlementsRequest contains results from the GetEntitlements

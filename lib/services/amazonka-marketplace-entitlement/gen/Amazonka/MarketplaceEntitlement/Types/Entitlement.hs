@@ -21,6 +21,7 @@ module Amazonka.MarketplaceEntitlement.Types.Entitlement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MarketplaceEntitlement.Types.EntitlementValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -48,7 +49,7 @@ data Entitlement = Entitlement'
     -- customer will renew or cancel their contract. Customers who are opting
     -- to renew their contract will still have entitlements with an expiration
     -- date.
-    expirationDate :: Prelude.Maybe Core.POSIX,
+    expirationDate :: Prelude.Maybe Data.POSIX,
     -- | The EntitlementValue represents the amount of capacity that the customer
     -- is entitled to for the product.
     value :: Prelude.Maybe EntitlementValue
@@ -118,24 +119,24 @@ entitlement_dimension = Lens.lens (\Entitlement' {dimension} -> dimension) (\s@E
 -- to renew their contract will still have entitlements with an expiration
 -- date.
 entitlement_expirationDate :: Lens.Lens' Entitlement (Prelude.Maybe Prelude.UTCTime)
-entitlement_expirationDate = Lens.lens (\Entitlement' {expirationDate} -> expirationDate) (\s@Entitlement' {} a -> s {expirationDate = a} :: Entitlement) Prelude.. Lens.mapping Core._Time
+entitlement_expirationDate = Lens.lens (\Entitlement' {expirationDate} -> expirationDate) (\s@Entitlement' {} a -> s {expirationDate = a} :: Entitlement) Prelude.. Lens.mapping Data._Time
 
 -- | The EntitlementValue represents the amount of capacity that the customer
 -- is entitled to for the product.
 entitlement_value :: Lens.Lens' Entitlement (Prelude.Maybe EntitlementValue)
 entitlement_value = Lens.lens (\Entitlement' {value} -> value) (\s@Entitlement' {} a -> s {value = a} :: Entitlement)
 
-instance Core.FromJSON Entitlement where
+instance Data.FromJSON Entitlement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Entitlement"
       ( \x ->
           Entitlement'
-            Prelude.<$> (x Core..:? "CustomerIdentifier")
-            Prelude.<*> (x Core..:? "ProductCode")
-            Prelude.<*> (x Core..:? "Dimension")
-            Prelude.<*> (x Core..:? "ExpirationDate")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "CustomerIdentifier")
+            Prelude.<*> (x Data..:? "ProductCode")
+            Prelude.<*> (x Data..:? "Dimension")
+            Prelude.<*> (x Data..:? "ExpirationDate")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable Entitlement where

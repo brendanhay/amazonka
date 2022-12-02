@@ -21,6 +21,7 @@ module Amazonka.MarketplaceEntitlement.Types.EntitlementValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The EntitlementValue represents the amount of capacity that the customer
@@ -92,16 +93,16 @@ entitlementValue_booleanValue = Lens.lens (\EntitlementValue' {booleanValue} -> 
 entitlementValue_stringValue :: Lens.Lens' EntitlementValue (Prelude.Maybe Prelude.Text)
 entitlementValue_stringValue = Lens.lens (\EntitlementValue' {stringValue} -> stringValue) (\s@EntitlementValue' {} a -> s {stringValue = a} :: EntitlementValue)
 
-instance Core.FromJSON EntitlementValue where
+instance Data.FromJSON EntitlementValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EntitlementValue"
       ( \x ->
           EntitlementValue'
-            Prelude.<$> (x Core..:? "IntegerValue")
-            Prelude.<*> (x Core..:? "DoubleValue")
-            Prelude.<*> (x Core..:? "BooleanValue")
-            Prelude.<*> (x Core..:? "StringValue")
+            Prelude.<$> (x Data..:? "IntegerValue")
+            Prelude.<*> (x Data..:? "DoubleValue")
+            Prelude.<*> (x Data..:? "BooleanValue")
+            Prelude.<*> (x Data..:? "StringValue")
       )
 
 instance Prelude.Hashable EntitlementValue where

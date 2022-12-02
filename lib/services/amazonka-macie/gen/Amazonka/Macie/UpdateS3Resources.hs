@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Macie.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,7 +110,7 @@ instance Core.AWSRequest UpdateS3Resources where
     Response.receiveJSON
       ( \s h x ->
           UpdateS3ResourcesResponse'
-            Prelude.<$> ( x Core..?> "failedS3Resources"
+            Prelude.<$> ( x Data..?> "failedS3Resources"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -125,36 +126,36 @@ instance Prelude.NFData UpdateS3Resources where
     Prelude.rnf memberAccountId
       `Prelude.seq` Prelude.rnf s3ResourcesUpdate
 
-instance Core.ToHeaders UpdateS3Resources where
+instance Data.ToHeaders UpdateS3Resources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MacieService.UpdateS3Resources" ::
+              Data.=# ( "MacieService.UpdateS3Resources" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateS3Resources where
+instance Data.ToJSON UpdateS3Resources where
   toJSON UpdateS3Resources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("memberAccountId" Core..=)
+          [ ("memberAccountId" Data..=)
               Prelude.<$> memberAccountId,
             Prelude.Just
-              ("s3ResourcesUpdate" Core..= s3ResourcesUpdate)
+              ("s3ResourcesUpdate" Data..= s3ResourcesUpdate)
           ]
       )
 
-instance Core.ToPath UpdateS3Resources where
+instance Data.ToPath UpdateS3Resources where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateS3Resources where
+instance Data.ToQuery UpdateS3Resources where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateS3ResourcesResponse' smart constructor.

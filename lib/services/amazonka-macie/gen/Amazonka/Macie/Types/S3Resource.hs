@@ -21,6 +21,7 @@ module Amazonka.Macie.Types.S3Resource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | (Discontinued) Contains information about the S3 resource. This data
@@ -66,14 +67,14 @@ s3Resource_prefix = Lens.lens (\S3Resource' {prefix} -> prefix) (\s@S3Resource' 
 s3Resource_bucketName :: Lens.Lens' S3Resource Prelude.Text
 s3Resource_bucketName = Lens.lens (\S3Resource' {bucketName} -> bucketName) (\s@S3Resource' {} a -> s {bucketName = a} :: S3Resource)
 
-instance Core.FromJSON S3Resource where
+instance Data.FromJSON S3Resource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Resource"
       ( \x ->
           S3Resource'
-            Prelude.<$> (x Core..:? "prefix")
-            Prelude.<*> (x Core..: "bucketName")
+            Prelude.<$> (x Data..:? "prefix")
+            Prelude.<*> (x Data..: "bucketName")
       )
 
 instance Prelude.Hashable S3Resource where
@@ -86,11 +87,11 @@ instance Prelude.NFData S3Resource where
     Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf bucketName
 
-instance Core.ToJSON S3Resource where
+instance Data.ToJSON S3Resource where
   toJSON S3Resource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("prefix" Core..=) Prelude.<$> prefix,
-            Prelude.Just ("bucketName" Core..= bucketName)
+          [ ("prefix" Data..=) Prelude.<$> prefix,
+            Prelude.Just ("bucketName" Data..= bucketName)
           ]
       )

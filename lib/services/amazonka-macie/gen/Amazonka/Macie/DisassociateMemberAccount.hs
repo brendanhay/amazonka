@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Macie.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,34 +95,34 @@ instance Prelude.NFData DisassociateMemberAccount where
   rnf DisassociateMemberAccount' {..} =
     Prelude.rnf memberAccountId
 
-instance Core.ToHeaders DisassociateMemberAccount where
+instance Data.ToHeaders DisassociateMemberAccount where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MacieService.DisassociateMemberAccount" ::
+              Data.=# ( "MacieService.DisassociateMemberAccount" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateMemberAccount where
+instance Data.ToJSON DisassociateMemberAccount where
   toJSON DisassociateMemberAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("memberAccountId" Core..= memberAccountId)
+              ("memberAccountId" Data..= memberAccountId)
           ]
       )
 
-instance Core.ToPath DisassociateMemberAccount where
+instance Data.ToPath DisassociateMemberAccount where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateMemberAccount where
+instance Data.ToQuery DisassociateMemberAccount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateMemberAccountResponse' smart constructor.

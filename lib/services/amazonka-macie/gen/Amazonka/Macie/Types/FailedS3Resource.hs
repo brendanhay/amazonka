@@ -21,6 +21,7 @@ module Amazonka.Macie.Types.FailedS3Resource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Macie.Types.S3Resource
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,15 +72,15 @@ failedS3Resource_errorMessage = Lens.lens (\FailedS3Resource' {errorMessage} -> 
 failedS3Resource_errorCode :: Lens.Lens' FailedS3Resource (Prelude.Maybe Prelude.Text)
 failedS3Resource_errorCode = Lens.lens (\FailedS3Resource' {errorCode} -> errorCode) (\s@FailedS3Resource' {} a -> s {errorCode = a} :: FailedS3Resource)
 
-instance Core.FromJSON FailedS3Resource where
+instance Data.FromJSON FailedS3Resource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailedS3Resource"
       ( \x ->
           FailedS3Resource'
-            Prelude.<$> (x Core..:? "failedItem")
-            Prelude.<*> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "errorCode")
+            Prelude.<$> (x Data..:? "failedItem")
+            Prelude.<*> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "errorCode")
       )
 
 instance Prelude.Hashable FailedS3Resource where

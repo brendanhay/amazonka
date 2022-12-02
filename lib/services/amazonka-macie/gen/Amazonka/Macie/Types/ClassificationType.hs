@@ -21,6 +21,7 @@ module Amazonka.Macie.Types.ClassificationType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Macie.Types.S3ContinuousClassificationType
 import Amazonka.Macie.Types.S3OneTimeClassificationType
 import qualified Amazonka.Prelude as Prelude
@@ -80,14 +81,14 @@ classificationType_oneTime = Lens.lens (\ClassificationType' {oneTime} -> oneTim
 classificationType_continuous :: Lens.Lens' ClassificationType S3ContinuousClassificationType
 classificationType_continuous = Lens.lens (\ClassificationType' {continuous} -> continuous) (\s@ClassificationType' {} a -> s {continuous = a} :: ClassificationType)
 
-instance Core.FromJSON ClassificationType where
+instance Data.FromJSON ClassificationType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClassificationType"
       ( \x ->
           ClassificationType'
-            Prelude.<$> (x Core..: "oneTime")
-            Prelude.<*> (x Core..: "continuous")
+            Prelude.<$> (x Data..: "oneTime")
+            Prelude.<*> (x Data..: "continuous")
       )
 
 instance Prelude.Hashable ClassificationType where
@@ -100,11 +101,11 @@ instance Prelude.NFData ClassificationType where
     Prelude.rnf oneTime
       `Prelude.seq` Prelude.rnf continuous
 
-instance Core.ToJSON ClassificationType where
+instance Data.ToJSON ClassificationType where
   toJSON ClassificationType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("oneTime" Core..= oneTime),
-            Prelude.Just ("continuous" Core..= continuous)
+          [ Prelude.Just ("oneTime" Data..= oneTime),
+            Prelude.Just ("continuous" Data..= continuous)
           ]
       )

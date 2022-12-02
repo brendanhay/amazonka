@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,15 +108,15 @@ instance Core.AWSRequest GetDataSetDetails where
     Response.receiveJSON
       ( \s h x ->
           GetDataSetDetailsResponse'
-            Prelude.<$> (x Core..?> "lastUpdatedTime")
-            Prelude.<*> (x Core..?> "location")
-            Prelude.<*> (x Core..?> "dataSetOrg")
-            Prelude.<*> (x Core..?> "lastReferencedTime")
-            Prelude.<*> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "recordLength")
-            Prelude.<*> (x Core..?> "blocksize")
+            Prelude.<$> (x Data..?> "lastUpdatedTime")
+            Prelude.<*> (x Data..?> "location")
+            Prelude.<*> (x Data..?> "dataSetOrg")
+            Prelude.<*> (x Data..?> "lastReferencedTime")
+            Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "recordLength")
+            Prelude.<*> (x Data..?> "blocksize")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "dataSetName")
+            Prelude.<*> (x Data..:> "dataSetName")
       )
 
 instance Prelude.Hashable GetDataSetDetails where
@@ -128,42 +129,42 @@ instance Prelude.NFData GetDataSetDetails where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf dataSetName
 
-instance Core.ToHeaders GetDataSetDetails where
+instance Data.ToHeaders GetDataSetDetails where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDataSetDetails where
+instance Data.ToPath GetDataSetDetails where
   toPath GetDataSetDetails' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/datasets/",
-        Core.toBS dataSetName
+        Data.toBS dataSetName
       ]
 
-instance Core.ToQuery GetDataSetDetails where
+instance Data.ToQuery GetDataSetDetails where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDataSetDetailsResponse' smart constructor.
 data GetDataSetDetailsResponse = GetDataSetDetailsResponse'
   { -- | The last time the data set was updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The locaion where the data set is stored.
     location :: Prelude.Maybe Prelude.Text,
     -- | The type of data set. Possible values include VSAM, IS, PS, GDG, PO, PS,
     -- or unknown.
     dataSetOrg :: Prelude.Maybe DatasetDetailOrgAttributes,
     -- | The last time the data set was referenced.
-    lastReferencedTime :: Prelude.Maybe Core.POSIX,
+    lastReferencedTime :: Prelude.Maybe Data.POSIX,
     -- | The timestamp when the data set was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The length of records in the data set.
     recordLength :: Prelude.Maybe Prelude.Int,
     -- | The size of the block on disk.
@@ -225,7 +226,7 @@ newGetDataSetDetailsResponse
 
 -- | The last time the data set was updated.
 getDataSetDetailsResponse_lastUpdatedTime :: Lens.Lens' GetDataSetDetailsResponse (Prelude.Maybe Prelude.UTCTime)
-getDataSetDetailsResponse_lastUpdatedTime = Lens.lens (\GetDataSetDetailsResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@GetDataSetDetailsResponse' {} a -> s {lastUpdatedTime = a} :: GetDataSetDetailsResponse) Prelude.. Lens.mapping Core._Time
+getDataSetDetailsResponse_lastUpdatedTime = Lens.lens (\GetDataSetDetailsResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@GetDataSetDetailsResponse' {} a -> s {lastUpdatedTime = a} :: GetDataSetDetailsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The locaion where the data set is stored.
 getDataSetDetailsResponse_location :: Lens.Lens' GetDataSetDetailsResponse (Prelude.Maybe Prelude.Text)
@@ -238,11 +239,11 @@ getDataSetDetailsResponse_dataSetOrg = Lens.lens (\GetDataSetDetailsResponse' {d
 
 -- | The last time the data set was referenced.
 getDataSetDetailsResponse_lastReferencedTime :: Lens.Lens' GetDataSetDetailsResponse (Prelude.Maybe Prelude.UTCTime)
-getDataSetDetailsResponse_lastReferencedTime = Lens.lens (\GetDataSetDetailsResponse' {lastReferencedTime} -> lastReferencedTime) (\s@GetDataSetDetailsResponse' {} a -> s {lastReferencedTime = a} :: GetDataSetDetailsResponse) Prelude.. Lens.mapping Core._Time
+getDataSetDetailsResponse_lastReferencedTime = Lens.lens (\GetDataSetDetailsResponse' {lastReferencedTime} -> lastReferencedTime) (\s@GetDataSetDetailsResponse' {} a -> s {lastReferencedTime = a} :: GetDataSetDetailsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp when the data set was created.
 getDataSetDetailsResponse_creationTime :: Lens.Lens' GetDataSetDetailsResponse (Prelude.Maybe Prelude.UTCTime)
-getDataSetDetailsResponse_creationTime = Lens.lens (\GetDataSetDetailsResponse' {creationTime} -> creationTime) (\s@GetDataSetDetailsResponse' {} a -> s {creationTime = a} :: GetDataSetDetailsResponse) Prelude.. Lens.mapping Core._Time
+getDataSetDetailsResponse_creationTime = Lens.lens (\GetDataSetDetailsResponse' {creationTime} -> creationTime) (\s@GetDataSetDetailsResponse' {} a -> s {creationTime = a} :: GetDataSetDetailsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The length of records in the data set.
 getDataSetDetailsResponse_recordLength :: Lens.Lens' GetDataSetDetailsResponse (Prelude.Maybe Prelude.Int)

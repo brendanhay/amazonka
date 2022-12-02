@@ -21,6 +21,7 @@ module Amazonka.M2.Types.BatchJobIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types.FileBatchJobIdentifier
 import Amazonka.M2.Types.ScriptBatchJobIdentifier
 import qualified Amazonka.Prelude as Prelude
@@ -78,13 +79,13 @@ instance Prelude.NFData BatchJobIdentifier where
     Prelude.rnf scriptBatchJobIdentifier
       `Prelude.seq` Prelude.rnf fileBatchJobIdentifier
 
-instance Core.ToJSON BatchJobIdentifier where
+instance Data.ToJSON BatchJobIdentifier where
   toJSON BatchJobIdentifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("scriptBatchJobIdentifier" Core..=)
+          [ ("scriptBatchJobIdentifier" Data..=)
               Prelude.<$> scriptBatchJobIdentifier,
-            ("fileBatchJobIdentifier" Core..=)
+            ("fileBatchJobIdentifier" Data..=)
               Prelude.<$> fileBatchJobIdentifier
           ]
       )

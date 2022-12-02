@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,26 +93,26 @@ instance Prelude.Hashable StartApplication where
 instance Prelude.NFData StartApplication where
   rnf StartApplication' {..} = Prelude.rnf applicationId
 
-instance Core.ToHeaders StartApplication where
+instance Data.ToHeaders StartApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartApplication where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON StartApplication where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath StartApplication where
+instance Data.ToPath StartApplication where
   toPath StartApplication' {..} =
     Prelude.mconcat
-      ["/applications/", Core.toBS applicationId, "/start"]
+      ["/applications/", Data.toBS applicationId, "/start"]
 
-instance Core.ToQuery StartApplication where
+instance Data.ToQuery StartApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartApplicationResponse' smart constructor.

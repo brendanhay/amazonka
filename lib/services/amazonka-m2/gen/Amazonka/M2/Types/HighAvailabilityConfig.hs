@@ -21,6 +21,7 @@ module Amazonka.M2.Types.HighAvailabilityConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the details of a high availability configuration.
@@ -55,13 +56,13 @@ newHighAvailabilityConfig pDesiredCapacity_ =
 highAvailabilityConfig_desiredCapacity :: Lens.Lens' HighAvailabilityConfig Prelude.Natural
 highAvailabilityConfig_desiredCapacity = Lens.lens (\HighAvailabilityConfig' {desiredCapacity} -> desiredCapacity) (\s@HighAvailabilityConfig' {} a -> s {desiredCapacity = a} :: HighAvailabilityConfig)
 
-instance Core.FromJSON HighAvailabilityConfig where
+instance Data.FromJSON HighAvailabilityConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HighAvailabilityConfig"
       ( \x ->
           HighAvailabilityConfig'
-            Prelude.<$> (x Core..: "desiredCapacity")
+            Prelude.<$> (x Data..: "desiredCapacity")
       )
 
 instance Prelude.Hashable HighAvailabilityConfig where
@@ -72,11 +73,11 @@ instance Prelude.NFData HighAvailabilityConfig where
   rnf HighAvailabilityConfig' {..} =
     Prelude.rnf desiredCapacity
 
-instance Core.ToJSON HighAvailabilityConfig where
+instance Data.ToJSON HighAvailabilityConfig where
   toJSON HighAvailabilityConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("desiredCapacity" Core..= desiredCapacity)
+              ("desiredCapacity" Data..= desiredCapacity)
           ]
       )

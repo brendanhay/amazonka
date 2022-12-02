@@ -21,6 +21,7 @@ module Amazonka.M2.Types.DeployedVersionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types.DeploymentLifecycle
 import qualified Amazonka.Prelude as Prelude
 
@@ -78,15 +79,15 @@ deployedVersionSummary_applicationVersion = Lens.lens (\DeployedVersionSummary' 
 deployedVersionSummary_status :: Lens.Lens' DeployedVersionSummary DeploymentLifecycle
 deployedVersionSummary_status = Lens.lens (\DeployedVersionSummary' {status} -> status) (\s@DeployedVersionSummary' {} a -> s {status = a} :: DeployedVersionSummary)
 
-instance Core.FromJSON DeployedVersionSummary where
+instance Data.FromJSON DeployedVersionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeployedVersionSummary"
       ( \x ->
           DeployedVersionSummary'
-            Prelude.<$> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..: "applicationVersion")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..: "applicationVersion")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable DeployedVersionSummary where

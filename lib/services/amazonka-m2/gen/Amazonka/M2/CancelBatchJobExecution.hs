@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,31 +113,31 @@ instance Prelude.NFData CancelBatchJobExecution where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf executionId
 
-instance Core.ToHeaders CancelBatchJobExecution where
+instance Data.ToHeaders CancelBatchJobExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelBatchJobExecution where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON CancelBatchJobExecution where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath CancelBatchJobExecution where
+instance Data.ToPath CancelBatchJobExecution where
   toPath CancelBatchJobExecution' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/batch-job-executions/",
-        Core.toBS executionId,
+        Data.toBS executionId,
         "/cancel"
       ]
 
-instance Core.ToQuery CancelBatchJobExecution where
+instance Data.ToQuery CancelBatchJobExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelBatchJobExecutionResponse' smart constructor.

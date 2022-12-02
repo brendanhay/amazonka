@@ -21,6 +21,7 @@ module Amazonka.M2.Types.StorageConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types.EfsStorageConfiguration
 import Amazonka.M2.Types.FsxStorageConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -63,13 +64,13 @@ storageConfiguration_efs = Lens.lens (\StorageConfiguration' {efs} -> efs) (\s@S
 storageConfiguration_fsx :: Lens.Lens' StorageConfiguration (Prelude.Maybe FsxStorageConfiguration)
 storageConfiguration_fsx = Lens.lens (\StorageConfiguration' {fsx} -> fsx) (\s@StorageConfiguration' {} a -> s {fsx = a} :: StorageConfiguration)
 
-instance Core.FromJSON StorageConfiguration where
+instance Data.FromJSON StorageConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StorageConfiguration"
       ( \x ->
           StorageConfiguration'
-            Prelude.<$> (x Core..:? "efs") Prelude.<*> (x Core..:? "fsx")
+            Prelude.<$> (x Data..:? "efs") Prelude.<*> (x Data..:? "fsx")
       )
 
 instance Prelude.Hashable StorageConfiguration where
@@ -81,11 +82,11 @@ instance Prelude.NFData StorageConfiguration where
   rnf StorageConfiguration' {..} =
     Prelude.rnf efs `Prelude.seq` Prelude.rnf fsx
 
-instance Core.ToJSON StorageConfiguration where
+instance Data.ToJSON StorageConfiguration where
   toJSON StorageConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("efs" Core..=) Prelude.<$> efs,
-            ("fsx" Core..=) Prelude.<$> fsx
+          [ ("efs" Data..=) Prelude.<$> efs,
+            ("fsx" Data..=) Prelude.<$> fsx
           ]
       )

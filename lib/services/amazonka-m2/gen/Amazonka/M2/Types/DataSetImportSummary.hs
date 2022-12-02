@@ -21,6 +21,7 @@ module Amazonka.M2.Types.DataSetImportSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a summary of data set imports.
@@ -103,17 +104,17 @@ dataSetImportSummary_succeeded = Lens.lens (\DataSetImportSummary' {succeeded} -
 dataSetImportSummary_total :: Lens.Lens' DataSetImportSummary Prelude.Int
 dataSetImportSummary_total = Lens.lens (\DataSetImportSummary' {total} -> total) (\s@DataSetImportSummary' {} a -> s {total = a} :: DataSetImportSummary)
 
-instance Core.FromJSON DataSetImportSummary where
+instance Data.FromJSON DataSetImportSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSetImportSummary"
       ( \x ->
           DataSetImportSummary'
-            Prelude.<$> (x Core..: "failed")
-            Prelude.<*> (x Core..: "inProgress")
-            Prelude.<*> (x Core..: "pending")
-            Prelude.<*> (x Core..: "succeeded")
-            Prelude.<*> (x Core..: "total")
+            Prelude.<$> (x Data..: "failed")
+            Prelude.<*> (x Data..: "inProgress")
+            Prelude.<*> (x Data..: "pending")
+            Prelude.<*> (x Data..: "succeeded")
+            Prelude.<*> (x Data..: "total")
       )
 
 instance Prelude.Hashable DataSetImportSummary where

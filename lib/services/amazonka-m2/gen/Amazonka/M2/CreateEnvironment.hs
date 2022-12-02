@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -237,7 +238,7 @@ instance Core.AWSRequest CreateEnvironment where
       ( \s h x ->
           CreateEnvironmentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "environmentId")
+            Prelude.<*> (x Data..:> "environmentId")
       )
 
 instance Prelude.Hashable CreateEnvironment where
@@ -272,46 +273,46 @@ instance Prelude.NFData CreateEnvironment where
       `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateEnvironment where
+instance Data.ToHeaders CreateEnvironment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEnvironment where
+instance Data.ToJSON CreateEnvironment where
   toJSON CreateEnvironment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("securityGroupIds" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("securityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("storageConfigurations" Core..=)
+            ("storageConfigurations" Data..=)
               Prelude.<$> storageConfigurations,
-            ("description" Core..=) Prelude.<$> description,
-            ("publiclyAccessible" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("publiclyAccessible" Data..=)
               Prelude.<$> publiclyAccessible,
-            ("preferredMaintenanceWindow" Core..=)
+            ("preferredMaintenanceWindow" Data..=)
               Prelude.<$> preferredMaintenanceWindow,
-            ("highAvailabilityConfig" Core..=)
+            ("highAvailabilityConfig" Data..=)
               Prelude.<$> highAvailabilityConfig,
-            ("subnetIds" Core..=) Prelude.<$> subnetIds,
-            ("engineVersion" Core..=) Prelude.<$> engineVersion,
-            Prelude.Just ("engineType" Core..= engineType),
-            Prelude.Just ("instanceType" Core..= instanceType),
-            Prelude.Just ("name" Core..= name)
+            ("subnetIds" Data..=) Prelude.<$> subnetIds,
+            ("engineVersion" Data..=) Prelude.<$> engineVersion,
+            Prelude.Just ("engineType" Data..= engineType),
+            Prelude.Just ("instanceType" Data..= instanceType),
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateEnvironment where
+instance Data.ToPath CreateEnvironment where
   toPath = Prelude.const "/environments"
 
-instance Core.ToQuery CreateEnvironment where
+instance Data.ToQuery CreateEnvironment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEnvironmentResponse' smart constructor.

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,9 +145,9 @@ instance Core.AWSRequest ListApplications where
     Response.receiveJSON
       ( \s h x ->
           ListApplicationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "applications" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "applications" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListApplications where
@@ -163,29 +164,29 @@ instance Prelude.NFData ListApplications where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf environmentId
 
-instance Core.ToHeaders ListApplications where
+instance Data.ToHeaders ListApplications where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListApplications where
+instance Data.ToPath ListApplications where
   toPath = Prelude.const "/applications"
 
-instance Core.ToQuery ListApplications where
+instance Data.ToQuery ListApplications where
   toQuery ListApplications' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
+      [ "nextToken" Data.=: nextToken,
         "names"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> names),
-        "maxResults" Core.=: maxResults,
-        "environmentId" Core.=: environmentId
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> names),
+        "maxResults" Data.=: maxResults,
+        "environmentId" Data.=: environmentId
       ]
 
 -- | /See:/ 'newListApplicationsResponse' smart constructor.

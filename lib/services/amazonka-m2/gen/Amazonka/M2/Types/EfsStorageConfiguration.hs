@@ -21,6 +21,7 @@ module Amazonka.M2.Types.EfsStorageConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the storage configuration for an Amazon EFS file system.
@@ -68,14 +69,14 @@ efsStorageConfiguration_fileSystemId = Lens.lens (\EfsStorageConfiguration' {fil
 efsStorageConfiguration_mountPoint :: Lens.Lens' EfsStorageConfiguration Prelude.Text
 efsStorageConfiguration_mountPoint = Lens.lens (\EfsStorageConfiguration' {mountPoint} -> mountPoint) (\s@EfsStorageConfiguration' {} a -> s {mountPoint = a} :: EfsStorageConfiguration)
 
-instance Core.FromJSON EfsStorageConfiguration where
+instance Data.FromJSON EfsStorageConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EfsStorageConfiguration"
       ( \x ->
           EfsStorageConfiguration'
-            Prelude.<$> (x Core..: "file-system-id")
-            Prelude.<*> (x Core..: "mount-point")
+            Prelude.<$> (x Data..: "file-system-id")
+            Prelude.<*> (x Data..: "mount-point")
       )
 
 instance Prelude.Hashable EfsStorageConfiguration where
@@ -88,12 +89,12 @@ instance Prelude.NFData EfsStorageConfiguration where
     Prelude.rnf fileSystemId
       `Prelude.seq` Prelude.rnf mountPoint
 
-instance Core.ToJSON EfsStorageConfiguration where
+instance Data.ToJSON EfsStorageConfiguration where
   toJSON EfsStorageConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("file-system-id" Core..= fileSystemId),
-            Prelude.Just ("mount-point" Core..= mountPoint)
+              ("file-system-id" Data..= fileSystemId),
+            Prelude.Just ("mount-point" Data..= mountPoint)
           ]
       )

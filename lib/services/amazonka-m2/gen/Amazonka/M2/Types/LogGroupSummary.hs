@@ -21,6 +21,7 @@ module Amazonka.M2.Types.LogGroupSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A subset of the attributes about a log group. In CloudWatch a log group
@@ -67,14 +68,14 @@ logGroupSummary_logGroupName = Lens.lens (\LogGroupSummary' {logGroupName} -> lo
 logGroupSummary_logType :: Lens.Lens' LogGroupSummary Prelude.Text
 logGroupSummary_logType = Lens.lens (\LogGroupSummary' {logType} -> logType) (\s@LogGroupSummary' {} a -> s {logType = a} :: LogGroupSummary)
 
-instance Core.FromJSON LogGroupSummary where
+instance Data.FromJSON LogGroupSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogGroupSummary"
       ( \x ->
           LogGroupSummary'
-            Prelude.<$> (x Core..: "logGroupName")
-            Prelude.<*> (x Core..: "logType")
+            Prelude.<$> (x Data..: "logGroupName")
+            Prelude.<*> (x Data..: "logType")
       )
 
 instance Prelude.Hashable LogGroupSummary where

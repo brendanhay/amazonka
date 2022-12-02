@@ -21,6 +21,7 @@ module Amazonka.M2.Types.EnvironmentSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types.EngineType
 import Amazonka.M2.Types.EnvironmentLifecycle
 import qualified Amazonka.Prelude as Prelude
@@ -31,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEnvironmentSummary' smart constructor.
 data EnvironmentSummary = EnvironmentSummary'
   { -- | The timestamp when the environment was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The target platform for the environment.
     engineType :: EngineType,
     -- | The version of the runtime engine.
@@ -101,7 +102,7 @@ newEnvironmentSummary
   pStatus_ =
     EnvironmentSummary'
       { creationTime =
-          Core._Time Lens.# pCreationTime_,
+          Data._Time Lens.# pCreationTime_,
         engineType = pEngineType_,
         engineVersion = pEngineVersion_,
         environmentArn = pEnvironmentArn_,
@@ -113,7 +114,7 @@ newEnvironmentSummary
 
 -- | The timestamp when the environment was created.
 environmentSummary_creationTime :: Lens.Lens' EnvironmentSummary Prelude.UTCTime
-environmentSummary_creationTime = Lens.lens (\EnvironmentSummary' {creationTime} -> creationTime) (\s@EnvironmentSummary' {} a -> s {creationTime = a} :: EnvironmentSummary) Prelude.. Core._Time
+environmentSummary_creationTime = Lens.lens (\EnvironmentSummary' {creationTime} -> creationTime) (\s@EnvironmentSummary' {} a -> s {creationTime = a} :: EnvironmentSummary) Prelude.. Data._Time
 
 -- | The target platform for the environment.
 environmentSummary_engineType :: Lens.Lens' EnvironmentSummary EngineType
@@ -143,20 +144,20 @@ environmentSummary_name = Lens.lens (\EnvironmentSummary' {name} -> name) (\s@En
 environmentSummary_status :: Lens.Lens' EnvironmentSummary EnvironmentLifecycle
 environmentSummary_status = Lens.lens (\EnvironmentSummary' {status} -> status) (\s@EnvironmentSummary' {} a -> s {status = a} :: EnvironmentSummary)
 
-instance Core.FromJSON EnvironmentSummary where
+instance Data.FromJSON EnvironmentSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnvironmentSummary"
       ( \x ->
           EnvironmentSummary'
-            Prelude.<$> (x Core..: "creationTime")
-            Prelude.<*> (x Core..: "engineType")
-            Prelude.<*> (x Core..: "engineVersion")
-            Prelude.<*> (x Core..: "environmentArn")
-            Prelude.<*> (x Core..: "environmentId")
-            Prelude.<*> (x Core..: "instanceType")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..: "creationTime")
+            Prelude.<*> (x Data..: "engineType")
+            Prelude.<*> (x Data..: "engineVersion")
+            Prelude.<*> (x Data..: "environmentArn")
+            Prelude.<*> (x Data..: "environmentId")
+            Prelude.<*> (x Data..: "instanceType")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable EnvironmentSummary where

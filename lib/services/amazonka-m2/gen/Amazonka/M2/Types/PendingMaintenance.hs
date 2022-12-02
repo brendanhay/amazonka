@@ -21,6 +21,7 @@ module Amazonka.M2.Types.PendingMaintenance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types.MaintenanceSchedule
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ pendingMaintenance_schedule = Lens.lens (\PendingMaintenance' {schedule} -> sche
 pendingMaintenance_engineVersion :: Lens.Lens' PendingMaintenance (Prelude.Maybe Prelude.Text)
 pendingMaintenance_engineVersion = Lens.lens (\PendingMaintenance' {engineVersion} -> engineVersion) (\s@PendingMaintenance' {} a -> s {engineVersion = a} :: PendingMaintenance)
 
-instance Core.FromJSON PendingMaintenance where
+instance Data.FromJSON PendingMaintenance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PendingMaintenance"
       ( \x ->
           PendingMaintenance'
-            Prelude.<$> (x Core..:? "schedule")
-            Prelude.<*> (x Core..:? "engineVersion")
+            Prelude.<$> (x Data..:? "schedule")
+            Prelude.<*> (x Data..:? "engineVersion")
       )
 
 instance Prelude.Hashable PendingMaintenance where

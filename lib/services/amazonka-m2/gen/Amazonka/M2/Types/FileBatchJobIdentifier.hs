@@ -21,6 +21,7 @@ module Amazonka.M2.Types.FileBatchJobIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A batch job identifier in which the batch job to run is identified by
@@ -75,11 +76,11 @@ instance Prelude.NFData FileBatchJobIdentifier where
     Prelude.rnf folderPath
       `Prelude.seq` Prelude.rnf fileName
 
-instance Core.ToJSON FileBatchJobIdentifier where
+instance Data.ToJSON FileBatchJobIdentifier where
   toJSON FileBatchJobIdentifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("folderPath" Core..=) Prelude.<$> folderPath,
-            Prelude.Just ("fileName" Core..= fileName)
+          [ ("folderPath" Data..=) Prelude.<$> folderPath,
+            Prelude.Just ("fileName" Data..= fileName)
           ]
       )

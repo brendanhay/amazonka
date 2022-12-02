@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,7 +125,7 @@ instance Core.AWSRequest UpdateApplication where
       ( \s h x ->
           UpdateApplicationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "applicationVersion")
+            Prelude.<*> (x Data..:> "applicationVersion")
       )
 
 instance Prelude.Hashable UpdateApplication where
@@ -141,36 +142,36 @@ instance Prelude.NFData UpdateApplication where
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf currentApplicationVersion
 
-instance Core.ToHeaders UpdateApplication where
+instance Data.ToHeaders UpdateApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateApplication where
+instance Data.ToJSON UpdateApplication where
   toJSON UpdateApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("definition" Core..=) Prelude.<$> definition,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("definition" Data..=) Prelude.<$> definition,
             Prelude.Just
               ( "currentApplicationVersion"
-                  Core..= currentApplicationVersion
+                  Data..= currentApplicationVersion
               )
           ]
       )
 
-instance Core.ToPath UpdateApplication where
+instance Data.ToPath UpdateApplication where
   toPath UpdateApplication' {..} =
     Prelude.mconcat
-      ["/applications/", Core.toBS applicationId]
+      ["/applications/", Data.toBS applicationId]
 
-instance Core.ToQuery UpdateApplication where
+instance Data.ToQuery UpdateApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateApplicationResponse' smart constructor.

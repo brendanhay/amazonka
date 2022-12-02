@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,30 +132,30 @@ instance
       `Prelude.seq` Prelude.rnf environmentId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteApplicationFromEnvironment
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteApplicationFromEnvironment where
+instance Data.ToPath DeleteApplicationFromEnvironment where
   toPath DeleteApplicationFromEnvironment' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/environment/",
-        Core.toBS environmentId
+        Data.toBS environmentId
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteApplicationFromEnvironment
   where
   toQuery = Prelude.const Prelude.mempty

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,7 +130,7 @@ instance Core.AWSRequest CreateDataSetImportTask where
       ( \s h x ->
           CreateDataSetImportTaskResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "taskId")
+            Prelude.<*> (x Data..:> "taskId")
       )
 
 instance Prelude.Hashable CreateDataSetImportTask where
@@ -144,35 +145,35 @@ instance Prelude.NFData CreateDataSetImportTask where
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf importConfig
 
-instance Core.ToHeaders CreateDataSetImportTask where
+instance Data.ToHeaders CreateDataSetImportTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDataSetImportTask where
+instance Data.ToJSON CreateDataSetImportTask where
   toJSON CreateDataSetImportTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("importConfig" Core..= importConfig)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("importConfig" Data..= importConfig)
           ]
       )
 
-instance Core.ToPath CreateDataSetImportTask where
+instance Data.ToPath CreateDataSetImportTask where
   toPath CreateDataSetImportTask' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/dataset-import-task"
       ]
 
-instance Core.ToQuery CreateDataSetImportTask where
+instance Data.ToQuery CreateDataSetImportTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDataSetImportTaskResponse' smart constructor.

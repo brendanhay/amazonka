@@ -21,6 +21,7 @@ module Amazonka.M2.Types.ScriptBatchJobDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A batch job definition contained in a script.
@@ -55,13 +56,13 @@ newScriptBatchJobDefinition pScriptName_ =
 scriptBatchJobDefinition_scriptName :: Lens.Lens' ScriptBatchJobDefinition Prelude.Text
 scriptBatchJobDefinition_scriptName = Lens.lens (\ScriptBatchJobDefinition' {scriptName} -> scriptName) (\s@ScriptBatchJobDefinition' {} a -> s {scriptName = a} :: ScriptBatchJobDefinition)
 
-instance Core.FromJSON ScriptBatchJobDefinition where
+instance Data.FromJSON ScriptBatchJobDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScriptBatchJobDefinition"
       ( \x ->
           ScriptBatchJobDefinition'
-            Prelude.<$> (x Core..: "scriptName")
+            Prelude.<$> (x Data..: "scriptName")
       )
 
 instance Prelude.Hashable ScriptBatchJobDefinition where

@@ -21,6 +21,7 @@ module Amazonka.M2.Types.DataSetImportConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types.DataSetImportItem
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,11 +74,11 @@ instance Prelude.NFData DataSetImportConfig where
     Prelude.rnf dataSets
       `Prelude.seq` Prelude.rnf s3Location
 
-instance Core.ToJSON DataSetImportConfig where
+instance Data.ToJSON DataSetImportConfig where
   toJSON DataSetImportConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("dataSets" Core..=) Prelude.<$> dataSets,
-            ("s3Location" Core..=) Prelude.<$> s3Location
+          [ ("dataSets" Data..=) Prelude.<$> dataSets,
+            ("s3Location" Data..=) Prelude.<$> s3Location
           ]
       )

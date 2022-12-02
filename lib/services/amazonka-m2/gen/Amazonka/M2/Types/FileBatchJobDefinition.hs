@@ -21,6 +21,7 @@ module Amazonka.M2.Types.FileBatchJobDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A file containing a batch job definition.
@@ -64,14 +65,14 @@ fileBatchJobDefinition_folderPath = Lens.lens (\FileBatchJobDefinition' {folderP
 fileBatchJobDefinition_fileName :: Lens.Lens' FileBatchJobDefinition Prelude.Text
 fileBatchJobDefinition_fileName = Lens.lens (\FileBatchJobDefinition' {fileName} -> fileName) (\s@FileBatchJobDefinition' {} a -> s {fileName = a} :: FileBatchJobDefinition)
 
-instance Core.FromJSON FileBatchJobDefinition where
+instance Data.FromJSON FileBatchJobDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileBatchJobDefinition"
       ( \x ->
           FileBatchJobDefinition'
-            Prelude.<$> (x Core..:? "folderPath")
-            Prelude.<*> (x Core..: "fileName")
+            Prelude.<$> (x Data..:? "folderPath")
+            Prelude.<*> (x Data..: "fileName")
       )
 
 instance Prelude.Hashable FileBatchJobDefinition where

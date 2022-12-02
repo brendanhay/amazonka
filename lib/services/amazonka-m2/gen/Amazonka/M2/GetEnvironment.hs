@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,32 +104,32 @@ instance Core.AWSRequest GetEnvironment where
     Response.receiveJSON
       ( \s h x ->
           GetEnvironmentResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "actualCapacity")
-            Prelude.<*> (x Core..?> "pendingMaintenance")
-            Prelude.<*> (x Core..?> "statusReason")
-            Prelude.<*> ( x Core..?> "storageConfigurations"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "actualCapacity")
+            Prelude.<*> (x Data..?> "pendingMaintenance")
+            Prelude.<*> (x Data..?> "statusReason")
+            Prelude.<*> ( x Data..?> "storageConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "loadBalancerArn")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "publiclyAccessible")
-            Prelude.<*> (x Core..?> "preferredMaintenanceWindow")
-            Prelude.<*> (x Core..?> "highAvailabilityConfig")
+            Prelude.<*> (x Data..?> "loadBalancerArn")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "publiclyAccessible")
+            Prelude.<*> (x Data..?> "preferredMaintenanceWindow")
+            Prelude.<*> (x Data..?> "highAvailabilityConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "creationTime")
-            Prelude.<*> (x Core..:> "engineType")
-            Prelude.<*> (x Core..:> "engineVersion")
-            Prelude.<*> (x Core..:> "environmentArn")
-            Prelude.<*> (x Core..:> "environmentId")
-            Prelude.<*> (x Core..:> "instanceType")
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> ( x Core..?> "securityGroupIds"
+            Prelude.<*> (x Data..:> "creationTime")
+            Prelude.<*> (x Data..:> "engineType")
+            Prelude.<*> (x Data..:> "engineVersion")
+            Prelude.<*> (x Data..:> "environmentArn")
+            Prelude.<*> (x Data..:> "environmentId")
+            Prelude.<*> (x Data..:> "instanceType")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> ( x Data..?> "securityGroupIds"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..:> "status")
-            Prelude.<*> (x Core..?> "subnetIds" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..:> "vpcId")
+            Prelude.<*> (x Data..:> "status")
+            Prelude.<*> (x Data..?> "subnetIds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "vpcId")
       )
 
 instance Prelude.Hashable GetEnvironment where
@@ -138,23 +139,23 @@ instance Prelude.Hashable GetEnvironment where
 instance Prelude.NFData GetEnvironment where
   rnf GetEnvironment' {..} = Prelude.rnf environmentId
 
-instance Core.ToHeaders GetEnvironment where
+instance Data.ToHeaders GetEnvironment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetEnvironment where
+instance Data.ToPath GetEnvironment where
   toPath GetEnvironment' {..} =
     Prelude.mconcat
-      ["/environments/", Core.toBS environmentId]
+      ["/environments/", Data.toBS environmentId]
 
-instance Core.ToQuery GetEnvironment where
+instance Data.ToQuery GetEnvironment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEnvironmentResponse' smart constructor.
@@ -189,7 +190,7 @@ data GetEnvironmentResponse = GetEnvironmentResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The timestamp when the runtime environment was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The target platform for the runtime environment.
     engineType :: EngineType,
     -- | The version of the runtime engine.
@@ -320,7 +321,7 @@ newGetEnvironmentResponse
         preferredMaintenanceWindow = Prelude.Nothing,
         highAvailabilityConfig = Prelude.Nothing,
         httpStatus = pHttpStatus_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         engineType = pEngineType_,
         engineVersion = pEngineVersion_,
         environmentArn = pEnvironmentArn_,
@@ -386,7 +387,7 @@ getEnvironmentResponse_httpStatus = Lens.lens (\GetEnvironmentResponse' {httpSta
 
 -- | The timestamp when the runtime environment was created.
 getEnvironmentResponse_creationTime :: Lens.Lens' GetEnvironmentResponse Prelude.UTCTime
-getEnvironmentResponse_creationTime = Lens.lens (\GetEnvironmentResponse' {creationTime} -> creationTime) (\s@GetEnvironmentResponse' {} a -> s {creationTime = a} :: GetEnvironmentResponse) Prelude.. Core._Time
+getEnvironmentResponse_creationTime = Lens.lens (\GetEnvironmentResponse' {creationTime} -> creationTime) (\s@GetEnvironmentResponse' {} a -> s {creationTime = a} :: GetEnvironmentResponse) Prelude.. Data._Time
 
 -- | The target platform for the runtime environment.
 getEnvironmentResponse_engineType :: Lens.Lens' GetEnvironmentResponse EngineType

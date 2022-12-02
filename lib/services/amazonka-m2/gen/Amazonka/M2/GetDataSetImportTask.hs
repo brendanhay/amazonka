@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,10 +102,10 @@ instance Core.AWSRequest GetDataSetImportTask where
     Response.receiveJSON
       ( \s h x ->
           GetDataSetImportTaskResponse'
-            Prelude.<$> (x Core..?> "summary")
+            Prelude.<$> (x Data..?> "summary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "status")
-            Prelude.<*> (x Core..:> "taskId")
+            Prelude.<*> (x Data..:> "status")
+            Prelude.<*> (x Data..:> "taskId")
       )
 
 instance Prelude.Hashable GetDataSetImportTask where
@@ -117,27 +118,27 @@ instance Prelude.NFData GetDataSetImportTask where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf taskId
 
-instance Core.ToHeaders GetDataSetImportTask where
+instance Data.ToHeaders GetDataSetImportTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDataSetImportTask where
+instance Data.ToPath GetDataSetImportTask where
   toPath GetDataSetImportTask' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/dataset-import-tasks/",
-        Core.toBS taskId
+        Data.toBS taskId
       ]
 
-instance Core.ToQuery GetDataSetImportTask where
+instance Data.ToQuery GetDataSetImportTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDataSetImportTaskResponse' smart constructor.

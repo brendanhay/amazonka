@@ -21,6 +21,7 @@ module Amazonka.M2.Types.BatchJobExecutionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types.BatchJobExecutionStatus
 import Amazonka.M2.Types.BatchJobType
 import qualified Amazonka.Prelude as Prelude
@@ -35,7 +36,7 @@ data BatchJobExecutionSummary = BatchJobExecutionSummary'
     -- | The unique identifier of a particular batch job.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when this batch job execution ended.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The type of a particular batch job execution.
     jobType :: Prelude.Maybe BatchJobType,
     -- | The unique identifier of the application that hosts this batch job.
@@ -43,7 +44,7 @@ data BatchJobExecutionSummary = BatchJobExecutionSummary'
     -- | The unique identifier of this execution of the batch job.
     executionId :: Prelude.Text,
     -- | The timestamp when a particular batch job execution started.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The status of a particular batch job execution.
     status :: BatchJobExecutionStatus
   }
@@ -95,7 +96,7 @@ newBatchJobExecutionSummary
         jobType = Prelude.Nothing,
         applicationId = pApplicationId_,
         executionId = pExecutionId_,
-        startTime = Core._Time Lens.# pStartTime_,
+        startTime = Data._Time Lens.# pStartTime_,
         status = pStatus_
       }
 
@@ -109,7 +110,7 @@ batchJobExecutionSummary_jobId = Lens.lens (\BatchJobExecutionSummary' {jobId} -
 
 -- | The timestamp when this batch job execution ended.
 batchJobExecutionSummary_endTime :: Lens.Lens' BatchJobExecutionSummary (Prelude.Maybe Prelude.UTCTime)
-batchJobExecutionSummary_endTime = Lens.lens (\BatchJobExecutionSummary' {endTime} -> endTime) (\s@BatchJobExecutionSummary' {} a -> s {endTime = a} :: BatchJobExecutionSummary) Prelude.. Lens.mapping Core._Time
+batchJobExecutionSummary_endTime = Lens.lens (\BatchJobExecutionSummary' {endTime} -> endTime) (\s@BatchJobExecutionSummary' {} a -> s {endTime = a} :: BatchJobExecutionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The type of a particular batch job execution.
 batchJobExecutionSummary_jobType :: Lens.Lens' BatchJobExecutionSummary (Prelude.Maybe BatchJobType)
@@ -125,26 +126,26 @@ batchJobExecutionSummary_executionId = Lens.lens (\BatchJobExecutionSummary' {ex
 
 -- | The timestamp when a particular batch job execution started.
 batchJobExecutionSummary_startTime :: Lens.Lens' BatchJobExecutionSummary Prelude.UTCTime
-batchJobExecutionSummary_startTime = Lens.lens (\BatchJobExecutionSummary' {startTime} -> startTime) (\s@BatchJobExecutionSummary' {} a -> s {startTime = a} :: BatchJobExecutionSummary) Prelude.. Core._Time
+batchJobExecutionSummary_startTime = Lens.lens (\BatchJobExecutionSummary' {startTime} -> startTime) (\s@BatchJobExecutionSummary' {} a -> s {startTime = a} :: BatchJobExecutionSummary) Prelude.. Data._Time
 
 -- | The status of a particular batch job execution.
 batchJobExecutionSummary_status :: Lens.Lens' BatchJobExecutionSummary BatchJobExecutionStatus
 batchJobExecutionSummary_status = Lens.lens (\BatchJobExecutionSummary' {status} -> status) (\s@BatchJobExecutionSummary' {} a -> s {status = a} :: BatchJobExecutionSummary)
 
-instance Core.FromJSON BatchJobExecutionSummary where
+instance Data.FromJSON BatchJobExecutionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchJobExecutionSummary"
       ( \x ->
           BatchJobExecutionSummary'
-            Prelude.<$> (x Core..:? "jobName")
-            Prelude.<*> (x Core..:? "jobId")
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "jobType")
-            Prelude.<*> (x Core..: "applicationId")
-            Prelude.<*> (x Core..: "executionId")
-            Prelude.<*> (x Core..: "startTime")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "jobName")
+            Prelude.<*> (x Data..:? "jobId")
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "jobType")
+            Prelude.<*> (x Data..: "applicationId")
+            Prelude.<*> (x Data..: "executionId")
+            Prelude.<*> (x Data..: "startTime")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable BatchJobExecutionSummary where

@@ -21,6 +21,7 @@ module Amazonka.M2.Types.VsamAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types.AlternateKey
 import Amazonka.M2.Types.PrimaryKey
 import qualified Amazonka.Prelude as Prelude
@@ -123,14 +124,14 @@ instance Prelude.NFData VsamAttributes where
       `Prelude.seq` Prelude.rnf alternateKeys
       `Prelude.seq` Prelude.rnf format
 
-instance Core.ToJSON VsamAttributes where
+instance Data.ToJSON VsamAttributes where
   toJSON VsamAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("primaryKey" Core..=) Prelude.<$> primaryKey,
-            ("encoding" Core..=) Prelude.<$> encoding,
-            ("compressed" Core..=) Prelude.<$> compressed,
-            ("alternateKeys" Core..=) Prelude.<$> alternateKeys,
-            Prelude.Just ("format" Core..= format)
+          [ ("primaryKey" Data..=) Prelude.<$> primaryKey,
+            ("encoding" Data..=) Prelude.<$> encoding,
+            ("compressed" Data..=) Prelude.<$> compressed,
+            ("alternateKeys" Data..=) Prelude.<$> alternateKeys,
+            Prelude.Just ("format" Data..= format)
           ]
       )

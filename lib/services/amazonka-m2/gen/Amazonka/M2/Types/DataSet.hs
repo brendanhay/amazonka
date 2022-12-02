@@ -21,6 +21,7 @@ module Amazonka.M2.Types.DataSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types.DatasetOrgAttributes
 import Amazonka.M2.Types.RecordLength
 import qualified Amazonka.Prelude as Prelude
@@ -124,14 +125,14 @@ instance Prelude.NFData DataSet where
       `Prelude.seq` Prelude.rnf datasetOrg
       `Prelude.seq` Prelude.rnf recordLength
 
-instance Core.ToJSON DataSet where
+instance Data.ToJSON DataSet where
   toJSON DataSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("storageType" Core..=) Prelude.<$> storageType,
-            ("relativePath" Core..=) Prelude.<$> relativePath,
-            Prelude.Just ("datasetName" Core..= datasetName),
-            Prelude.Just ("datasetOrg" Core..= datasetOrg),
-            Prelude.Just ("recordLength" Core..= recordLength)
+          [ ("storageType" Data..=) Prelude.<$> storageType,
+            ("relativePath" Data..=) Prelude.<$> relativePath,
+            Prelude.Just ("datasetName" Data..= datasetName),
+            Prelude.Just ("datasetOrg" Data..= datasetOrg),
+            Prelude.Just ("recordLength" Data..= recordLength)
           ]
       )

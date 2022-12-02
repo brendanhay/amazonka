@@ -21,6 +21,7 @@ module Amazonka.M2.Types.ScriptBatchJobIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A batch job identifier in which the batch job to run is identified by
@@ -64,9 +65,9 @@ instance Prelude.NFData ScriptBatchJobIdentifier where
   rnf ScriptBatchJobIdentifier' {..} =
     Prelude.rnf scriptName
 
-instance Core.ToJSON ScriptBatchJobIdentifier where
+instance Data.ToJSON ScriptBatchJobIdentifier where
   toJSON ScriptBatchJobIdentifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("scriptName" Core..= scriptName)]
+          [Prelude.Just ("scriptName" Data..= scriptName)]
       )

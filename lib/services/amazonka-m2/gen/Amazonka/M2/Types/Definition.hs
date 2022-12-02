@@ -21,6 +21,7 @@ module Amazonka.M2.Types.Definition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The application definition for a particular application.
@@ -77,11 +78,11 @@ instance Prelude.NFData Definition where
     Prelude.rnf s3Location
       `Prelude.seq` Prelude.rnf content
 
-instance Core.ToJSON Definition where
+instance Data.ToJSON Definition where
   toJSON Definition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("s3Location" Core..=) Prelude.<$> s3Location,
-            ("content" Core..=) Prelude.<$> content
+          [ ("s3Location" Data..=) Prelude.<$> s3Location,
+            ("content" Data..=) Prelude.<$> content
           ]
       )

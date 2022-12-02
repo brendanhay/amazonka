@@ -21,6 +21,7 @@ module Amazonka.M2.Types.BatchJobDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types.FileBatchJobDefinition
 import Amazonka.M2.Types.ScriptBatchJobDefinition
 import qualified Amazonka.Prelude as Prelude
@@ -64,14 +65,14 @@ batchJobDefinition_fileBatchJobDefinition = Lens.lens (\BatchJobDefinition' {fil
 batchJobDefinition_scriptBatchJobDefinition :: Lens.Lens' BatchJobDefinition (Prelude.Maybe ScriptBatchJobDefinition)
 batchJobDefinition_scriptBatchJobDefinition = Lens.lens (\BatchJobDefinition' {scriptBatchJobDefinition} -> scriptBatchJobDefinition) (\s@BatchJobDefinition' {} a -> s {scriptBatchJobDefinition = a} :: BatchJobDefinition)
 
-instance Core.FromJSON BatchJobDefinition where
+instance Data.FromJSON BatchJobDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchJobDefinition"
       ( \x ->
           BatchJobDefinition'
-            Prelude.<$> (x Core..:? "fileBatchJobDefinition")
-            Prelude.<*> (x Core..:? "scriptBatchJobDefinition")
+            Prelude.<$> (x Data..:? "fileBatchJobDefinition")
+            Prelude.<*> (x Data..:? "scriptBatchJobDefinition")
       )
 
 instance Prelude.Hashable BatchJobDefinition where

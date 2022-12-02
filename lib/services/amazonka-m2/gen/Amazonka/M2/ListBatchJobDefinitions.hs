@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -151,9 +152,9 @@ instance Core.AWSRequest ListBatchJobDefinitions where
     Response.receiveJSON
       ( \s h x ->
           ListBatchJobDefinitionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "batchJobDefinitions"
+            Prelude.<*> ( x Data..?> "batchJobDefinitions"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -172,31 +173,31 @@ instance Prelude.NFData ListBatchJobDefinitions where
       `Prelude.seq` Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf applicationId
 
-instance Core.ToHeaders ListBatchJobDefinitions where
+instance Data.ToHeaders ListBatchJobDefinitions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListBatchJobDefinitions where
+instance Data.ToPath ListBatchJobDefinitions where
   toPath ListBatchJobDefinitions' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/batch-job-definitions"
       ]
 
-instance Core.ToQuery ListBatchJobDefinitions where
+instance Data.ToQuery ListBatchJobDefinitions where
   toQuery ListBatchJobDefinitions' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "prefix" Core.=: prefix
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "prefix" Data.=: prefix
       ]
 
 -- | /See:/ 'newListBatchJobDefinitionsResponse' smart constructor.

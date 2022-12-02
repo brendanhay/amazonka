@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.MediaStreamOutputConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.DestinationConfiguration
 import Amazonka.MediaConnect.Types.EncodingName
 import Amazonka.MediaConnect.Types.EncodingParameters
@@ -102,18 +103,18 @@ mediaStreamOutputConfiguration_mediaStreamName = Lens.lens (\MediaStreamOutputCo
 mediaStreamOutputConfiguration_encodingName :: Lens.Lens' MediaStreamOutputConfiguration EncodingName
 mediaStreamOutputConfiguration_encodingName = Lens.lens (\MediaStreamOutputConfiguration' {encodingName} -> encodingName) (\s@MediaStreamOutputConfiguration' {} a -> s {encodingName = a} :: MediaStreamOutputConfiguration)
 
-instance Core.FromJSON MediaStreamOutputConfiguration where
+instance Data.FromJSON MediaStreamOutputConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MediaStreamOutputConfiguration"
       ( \x ->
           MediaStreamOutputConfiguration'
-            Prelude.<$> (x Core..:? "encodingParameters")
-            Prelude.<*> ( x Core..:? "destinationConfigurations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "encodingParameters")
+            Prelude.<*> ( x Data..:? "destinationConfigurations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "mediaStreamName")
-            Prelude.<*> (x Core..: "encodingName")
+            Prelude.<*> (x Data..: "mediaStreamName")
+            Prelude.<*> (x Data..: "encodingName")
       )
 
 instance

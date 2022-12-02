@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.Fmtp where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.Colorimetry
 import Amazonka.MediaConnect.Types.Range
 import Amazonka.MediaConnect.Types.ScanMode
@@ -119,19 +120,19 @@ fmtp_tcs = Lens.lens (\Fmtp' {tcs} -> tcs) (\s@Fmtp' {} a -> s {tcs = a} :: Fmtp
 fmtp_channelOrder :: Lens.Lens' Fmtp (Prelude.Maybe Prelude.Text)
 fmtp_channelOrder = Lens.lens (\Fmtp' {channelOrder} -> channelOrder) (\s@Fmtp' {} a -> s {channelOrder = a} :: Fmtp)
 
-instance Core.FromJSON Fmtp where
+instance Data.FromJSON Fmtp where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Fmtp"
       ( \x ->
           Fmtp'
-            Prelude.<$> (x Core..:? "exactFramerate")
-            Prelude.<*> (x Core..:? "scanMode")
-            Prelude.<*> (x Core..:? "colorimetry")
-            Prelude.<*> (x Core..:? "par")
-            Prelude.<*> (x Core..:? "range")
-            Prelude.<*> (x Core..:? "tcs")
-            Prelude.<*> (x Core..:? "channelOrder")
+            Prelude.<$> (x Data..:? "exactFramerate")
+            Prelude.<*> (x Data..:? "scanMode")
+            Prelude.<*> (x Data..:? "colorimetry")
+            Prelude.<*> (x Data..:? "par")
+            Prelude.<*> (x Data..:? "range")
+            Prelude.<*> (x Data..:? "tcs")
+            Prelude.<*> (x Data..:? "channelOrder")
       )
 
 instance Prelude.Hashable Fmtp where

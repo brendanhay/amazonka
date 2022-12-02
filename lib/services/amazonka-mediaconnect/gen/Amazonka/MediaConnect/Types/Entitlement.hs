@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.Entitlement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.Encryption
 import Amazonka.MediaConnect.Types.EntitlementStatus
 import qualified Amazonka.Prelude as Prelude
@@ -124,19 +125,19 @@ entitlement_subscribers = Lens.lens (\Entitlement' {subscribers} -> subscribers)
 entitlement_name :: Lens.Lens' Entitlement Prelude.Text
 entitlement_name = Lens.lens (\Entitlement' {name} -> name) (\s@Entitlement' {} a -> s {name = a} :: Entitlement)
 
-instance Core.FromJSON Entitlement where
+instance Data.FromJSON Entitlement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Entitlement"
       ( \x ->
           Entitlement'
-            Prelude.<$> (x Core..:? "entitlementStatus")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "encryption")
-            Prelude.<*> (x Core..:? "dataTransferSubscriberFeePercent")
-            Prelude.<*> (x Core..: "entitlementArn")
-            Prelude.<*> (x Core..:? "subscribers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "entitlementStatus")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "encryption")
+            Prelude.<*> (x Data..:? "dataTransferSubscriberFeePercent")
+            Prelude.<*> (x Data..: "entitlementArn")
+            Prelude.<*> (x Data..:? "subscribers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable Entitlement where

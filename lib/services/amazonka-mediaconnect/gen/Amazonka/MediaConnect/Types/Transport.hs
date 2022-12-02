@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.Transport where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.Protocol
 import qualified Amazonka.Prelude as Prelude
 
@@ -200,25 +201,25 @@ transport_sourceListenerPort = Lens.lens (\Transport' {sourceListenerPort} -> so
 transport_protocol :: Lens.Lens' Transport Protocol
 transport_protocol = Lens.lens (\Transport' {protocol} -> protocol) (\s@Transport' {} a -> s {protocol = a} :: Transport)
 
-instance Core.FromJSON Transport where
+instance Data.FromJSON Transport where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Transport"
       ( \x ->
           Transport'
-            Prelude.<$> (x Core..:? "maxLatency")
-            Prelude.<*> (x Core..:? "smoothingLatency")
-            Prelude.<*> (x Core..:? "maxSyncBuffer")
-            Prelude.<*> (x Core..:? "maxBitrate")
-            Prelude.<*> (x Core..:? "cidrAllowList" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "streamId")
-            Prelude.<*> (x Core..:? "remoteId")
-            Prelude.<*> (x Core..:? "senderIpAddress")
-            Prelude.<*> (x Core..:? "sourceListenerAddress")
-            Prelude.<*> (x Core..:? "senderControlPort")
-            Prelude.<*> (x Core..:? "minLatency")
-            Prelude.<*> (x Core..:? "sourceListenerPort")
-            Prelude.<*> (x Core..: "protocol")
+            Prelude.<$> (x Data..:? "maxLatency")
+            Prelude.<*> (x Data..:? "smoothingLatency")
+            Prelude.<*> (x Data..:? "maxSyncBuffer")
+            Prelude.<*> (x Data..:? "maxBitrate")
+            Prelude.<*> (x Data..:? "cidrAllowList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "streamId")
+            Prelude.<*> (x Data..:? "remoteId")
+            Prelude.<*> (x Data..:? "senderIpAddress")
+            Prelude.<*> (x Data..:? "sourceListenerAddress")
+            Prelude.<*> (x Data..:? "senderControlPort")
+            Prelude.<*> (x Data..:? "minLatency")
+            Prelude.<*> (x Data..:? "sourceListenerPort")
+            Prelude.<*> (x Data..: "protocol")
       )
 
 instance Prelude.Hashable Transport where

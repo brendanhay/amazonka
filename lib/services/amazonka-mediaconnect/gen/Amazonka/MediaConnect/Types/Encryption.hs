@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.Encryption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.Algorithm
 import Amazonka.MediaConnect.Types.KeyType
 import qualified Amazonka.Prelude as Prelude
@@ -179,21 +180,21 @@ encryption_algorithm = Lens.lens (\Encryption' {algorithm} -> algorithm) (\s@Enc
 encryption_roleArn :: Lens.Lens' Encryption Prelude.Text
 encryption_roleArn = Lens.lens (\Encryption' {roleArn} -> roleArn) (\s@Encryption' {} a -> s {roleArn = a} :: Encryption)
 
-instance Core.FromJSON Encryption where
+instance Data.FromJSON Encryption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Encryption"
       ( \x ->
           Encryption'
-            Prelude.<$> (x Core..:? "resourceId")
-            Prelude.<*> (x Core..:? "deviceId")
-            Prelude.<*> (x Core..:? "constantInitializationVector")
-            Prelude.<*> (x Core..:? "keyType")
-            Prelude.<*> (x Core..:? "url")
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..:? "secretArn")
-            Prelude.<*> (x Core..:? "algorithm")
-            Prelude.<*> (x Core..: "roleArn")
+            Prelude.<$> (x Data..:? "resourceId")
+            Prelude.<*> (x Data..:? "deviceId")
+            Prelude.<*> (x Data..:? "constantInitializationVector")
+            Prelude.<*> (x Data..:? "keyType")
+            Prelude.<*> (x Data..:? "url")
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..:? "secretArn")
+            Prelude.<*> (x Data..:? "algorithm")
+            Prelude.<*> (x Data..: "roleArn")
       )
 
 instance Prelude.Hashable Encryption where
@@ -220,19 +221,19 @@ instance Prelude.NFData Encryption where
       `Prelude.seq` Prelude.rnf algorithm
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToJSON Encryption where
+instance Data.ToJSON Encryption where
   toJSON Encryption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("resourceId" Core..=) Prelude.<$> resourceId,
-            ("deviceId" Core..=) Prelude.<$> deviceId,
-            ("constantInitializationVector" Core..=)
+          [ ("resourceId" Data..=) Prelude.<$> resourceId,
+            ("deviceId" Data..=) Prelude.<$> deviceId,
+            ("constantInitializationVector" Data..=)
               Prelude.<$> constantInitializationVector,
-            ("keyType" Core..=) Prelude.<$> keyType,
-            ("url" Core..=) Prelude.<$> url,
-            ("region" Core..=) Prelude.<$> region,
-            ("secretArn" Core..=) Prelude.<$> secretArn,
-            ("algorithm" Core..=) Prelude.<$> algorithm,
-            Prelude.Just ("roleArn" Core..= roleArn)
+            ("keyType" Data..=) Prelude.<$> keyType,
+            ("url" Data..=) Prelude.<$> url,
+            ("region" Data..=) Prelude.<$> region,
+            ("secretArn" Data..=) Prelude.<$> secretArn,
+            ("algorithm" Data..=) Prelude.<$> algorithm,
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )

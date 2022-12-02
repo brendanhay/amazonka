@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.UpdateEncryption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.Algorithm
 import Amazonka.MediaConnect.Types.KeyType
 import qualified Amazonka.Prelude as Prelude
@@ -201,19 +202,19 @@ instance Prelude.NFData UpdateEncryption where
       `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf algorithm
 
-instance Core.ToJSON UpdateEncryption where
+instance Data.ToJSON UpdateEncryption where
   toJSON UpdateEncryption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("resourceId" Core..=) Prelude.<$> resourceId,
-            ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("deviceId" Core..=) Prelude.<$> deviceId,
-            ("constantInitializationVector" Core..=)
+          [ ("resourceId" Data..=) Prelude.<$> resourceId,
+            ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("deviceId" Data..=) Prelude.<$> deviceId,
+            ("constantInitializationVector" Data..=)
               Prelude.<$> constantInitializationVector,
-            ("keyType" Core..=) Prelude.<$> keyType,
-            ("url" Core..=) Prelude.<$> url,
-            ("region" Core..=) Prelude.<$> region,
-            ("secretArn" Core..=) Prelude.<$> secretArn,
-            ("algorithm" Core..=) Prelude.<$> algorithm
+            ("keyType" Data..=) Prelude.<$> keyType,
+            ("url" Data..=) Prelude.<$> url,
+            ("region" Data..=) Prelude.<$> region,
+            ("secretArn" Data..=) Prelude.<$> secretArn,
+            ("algorithm" Data..=) Prelude.<$> algorithm
           ]
       )

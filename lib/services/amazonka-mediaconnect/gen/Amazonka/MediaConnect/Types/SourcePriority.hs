@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.SourcePriority where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The priority you want to assign to a source. You can have a primary
@@ -51,13 +52,13 @@ newSourcePriority =
 sourcePriority_primarySource :: Lens.Lens' SourcePriority (Prelude.Maybe Prelude.Text)
 sourcePriority_primarySource = Lens.lens (\SourcePriority' {primarySource} -> primarySource) (\s@SourcePriority' {} a -> s {primarySource = a} :: SourcePriority)
 
-instance Core.FromJSON SourcePriority where
+instance Data.FromJSON SourcePriority where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourcePriority"
       ( \x ->
           SourcePriority'
-            Prelude.<$> (x Core..:? "primarySource")
+            Prelude.<$> (x Data..:? "primarySource")
       )
 
 instance Prelude.Hashable SourcePriority where
@@ -67,11 +68,11 @@ instance Prelude.Hashable SourcePriority where
 instance Prelude.NFData SourcePriority where
   rnf SourcePriority' {..} = Prelude.rnf primarySource
 
-instance Core.ToJSON SourcePriority where
+instance Data.ToJSON SourcePriority where
   toJSON SourcePriority' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("primarySource" Core..=)
+          [ ("primarySource" Data..=)
               Prelude.<$> primarySource
           ]
       )

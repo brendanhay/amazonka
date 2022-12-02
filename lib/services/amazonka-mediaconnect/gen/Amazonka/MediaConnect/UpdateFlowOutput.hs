@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -292,8 +293,8 @@ instance Core.AWSRequest UpdateFlowOutput where
     Response.receiveJSON
       ( \s h x ->
           UpdateFlowOutputResponse'
-            Prelude.<$> (x Core..?> "output")
-            Prelude.<*> (x Core..?> "flowArn")
+            Prelude.<$> (x Data..?> "output")
+            Prelude.<*> (x Data..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -337,54 +338,54 @@ instance Prelude.NFData UpdateFlowOutput where
       `Prelude.seq` Prelude.rnf flowArn
       `Prelude.seq` Prelude.rnf outputArn
 
-instance Core.ToHeaders UpdateFlowOutput where
+instance Data.ToHeaders UpdateFlowOutput where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFlowOutput where
+instance Data.ToJSON UpdateFlowOutput where
   toJSON UpdateFlowOutput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("destination" Core..=) Prelude.<$> destination,
-            ("port" Core..=) Prelude.<$> port,
-            ("maxLatency" Core..=) Prelude.<$> maxLatency,
-            ("mediaStreamOutputConfigurations" Core..=)
+          [ ("destination" Data..=) Prelude.<$> destination,
+            ("port" Data..=) Prelude.<$> port,
+            ("maxLatency" Data..=) Prelude.<$> maxLatency,
+            ("mediaStreamOutputConfigurations" Data..=)
               Prelude.<$> mediaStreamOutputConfigurations,
-            ("smoothingLatency" Core..=)
+            ("smoothingLatency" Data..=)
               Prelude.<$> smoothingLatency,
-            ("cidrAllowList" Core..=) Prelude.<$> cidrAllowList,
-            ("streamId" Core..=) Prelude.<$> streamId,
-            ("remoteId" Core..=) Prelude.<$> remoteId,
-            ("senderIpAddress" Core..=)
+            ("cidrAllowList" Data..=) Prelude.<$> cidrAllowList,
+            ("streamId" Data..=) Prelude.<$> streamId,
+            ("remoteId" Data..=) Prelude.<$> remoteId,
+            ("senderIpAddress" Data..=)
               Prelude.<$> senderIpAddress,
-            ("vpcInterfaceAttachment" Core..=)
+            ("vpcInterfaceAttachment" Data..=)
               Prelude.<$> vpcInterfaceAttachment,
-            ("description" Core..=) Prelude.<$> description,
-            ("senderControlPort" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("senderControlPort" Data..=)
               Prelude.<$> senderControlPort,
-            ("encryption" Core..=) Prelude.<$> encryption,
-            ("protocol" Core..=) Prelude.<$> protocol,
-            ("minLatency" Core..=) Prelude.<$> minLatency
+            ("encryption" Data..=) Prelude.<$> encryption,
+            ("protocol" Data..=) Prelude.<$> protocol,
+            ("minLatency" Data..=) Prelude.<$> minLatency
           ]
       )
 
-instance Core.ToPath UpdateFlowOutput where
+instance Data.ToPath UpdateFlowOutput where
   toPath UpdateFlowOutput' {..} =
     Prelude.mconcat
       [ "/v1/flows/",
-        Core.toBS flowArn,
+        Data.toBS flowArn,
         "/outputs/",
-        Core.toBS outputArn
+        Data.toBS outputArn
       ]
 
-instance Core.ToQuery UpdateFlowOutput where
+instance Data.ToQuery UpdateFlowOutput where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFlowOutputResponse' smart constructor.

@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -315,8 +316,8 @@ instance Core.AWSRequest UpdateFlowSource where
     Response.receiveJSON
       ( \s h x ->
           UpdateFlowSourceResponse'
-            Prelude.<$> (x Core..?> "source")
-            Prelude.<*> (x Core..?> "flowArn")
+            Prelude.<$> (x Data..?> "source")
+            Prelude.<*> (x Data..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -364,58 +365,58 @@ instance Prelude.NFData UpdateFlowSource where
       `Prelude.seq` Prelude.rnf flowArn
       `Prelude.seq` Prelude.rnf sourceArn
 
-instance Core.ToHeaders UpdateFlowSource where
+instance Data.ToHeaders UpdateFlowSource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFlowSource where
+instance Data.ToJSON UpdateFlowSource where
   toJSON UpdateFlowSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("maxLatency" Core..=) Prelude.<$> maxLatency,
-            ("mediaStreamSourceConfigurations" Core..=)
+          [ ("maxLatency" Data..=) Prelude.<$> maxLatency,
+            ("mediaStreamSourceConfigurations" Data..=)
               Prelude.<$> mediaStreamSourceConfigurations,
-            ("entitlementArn" Core..=)
+            ("entitlementArn" Data..=)
               Prelude.<$> entitlementArn,
-            ("vpcInterfaceName" Core..=)
+            ("vpcInterfaceName" Data..=)
               Prelude.<$> vpcInterfaceName,
-            ("maxSyncBuffer" Core..=) Prelude.<$> maxSyncBuffer,
-            ("maxBitrate" Core..=) Prelude.<$> maxBitrate,
-            ("streamId" Core..=) Prelude.<$> streamId,
-            ("senderIpAddress" Core..=)
+            ("maxSyncBuffer" Data..=) Prelude.<$> maxSyncBuffer,
+            ("maxBitrate" Data..=) Prelude.<$> maxBitrate,
+            ("streamId" Data..=) Prelude.<$> streamId,
+            ("senderIpAddress" Data..=)
               Prelude.<$> senderIpAddress,
-            ("decryption" Core..=) Prelude.<$> decryption,
-            ("description" Core..=) Prelude.<$> description,
-            ("sourceListenerAddress" Core..=)
+            ("decryption" Data..=) Prelude.<$> decryption,
+            ("description" Data..=) Prelude.<$> description,
+            ("sourceListenerAddress" Data..=)
               Prelude.<$> sourceListenerAddress,
-            ("senderControlPort" Core..=)
+            ("senderControlPort" Data..=)
               Prelude.<$> senderControlPort,
-            ("protocol" Core..=) Prelude.<$> protocol,
-            ("ingestPort" Core..=) Prelude.<$> ingestPort,
-            ("whitelistCidr" Core..=) Prelude.<$> whitelistCidr,
-            ("minLatency" Core..=) Prelude.<$> minLatency,
-            ("sourceListenerPort" Core..=)
+            ("protocol" Data..=) Prelude.<$> protocol,
+            ("ingestPort" Data..=) Prelude.<$> ingestPort,
+            ("whitelistCidr" Data..=) Prelude.<$> whitelistCidr,
+            ("minLatency" Data..=) Prelude.<$> minLatency,
+            ("sourceListenerPort" Data..=)
               Prelude.<$> sourceListenerPort
           ]
       )
 
-instance Core.ToPath UpdateFlowSource where
+instance Data.ToPath UpdateFlowSource where
   toPath UpdateFlowSource' {..} =
     Prelude.mconcat
       [ "/v1/flows/",
-        Core.toBS flowArn,
+        Data.toBS flowArn,
         "/source/",
-        Core.toBS sourceArn
+        Data.toBS sourceArn
       ]
 
-instance Core.ToQuery UpdateFlowSource where
+instance Data.ToQuery UpdateFlowSource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFlowSourceResponse' smart constructor.

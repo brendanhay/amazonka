@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.AddMaintenance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.MaintenanceDay
 import qualified Amazonka.Prelude as Prelude
 
@@ -84,15 +85,15 @@ instance Prelude.NFData AddMaintenance where
     Prelude.rnf maintenanceDay
       `Prelude.seq` Prelude.rnf maintenanceStartHour
 
-instance Core.ToJSON AddMaintenance where
+instance Data.ToJSON AddMaintenance where
   toJSON AddMaintenance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("maintenanceDay" Core..= maintenanceDay),
+              ("maintenanceDay" Data..= maintenanceDay),
             Prelude.Just
               ( "maintenanceStartHour"
-                  Core..= maintenanceStartHour
+                  Data..= maintenanceStartHour
               )
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.Maintenance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.MaintenanceDay
 import qualified Amazonka.Prelude as Prelude
 
@@ -92,16 +93,16 @@ maintenance_maintenanceStartHour = Lens.lens (\Maintenance' {maintenanceStartHou
 maintenance_maintenanceDay :: Lens.Lens' Maintenance (Prelude.Maybe MaintenanceDay)
 maintenance_maintenanceDay = Lens.lens (\Maintenance' {maintenanceDay} -> maintenanceDay) (\s@Maintenance' {} a -> s {maintenanceDay = a} :: Maintenance)
 
-instance Core.FromJSON Maintenance where
+instance Data.FromJSON Maintenance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Maintenance"
       ( \x ->
           Maintenance'
-            Prelude.<$> (x Core..:? "maintenanceDeadline")
-            Prelude.<*> (x Core..:? "maintenanceScheduledDate")
-            Prelude.<*> (x Core..:? "maintenanceStartHour")
-            Prelude.<*> (x Core..:? "maintenanceDay")
+            Prelude.<$> (x Data..:? "maintenanceDeadline")
+            Prelude.<*> (x Data..:? "maintenanceScheduledDate")
+            Prelude.<*> (x Data..:? "maintenanceStartHour")
+            Prelude.<*> (x Data..:? "maintenanceDay")
       )
 
 instance Prelude.Hashable Maintenance where

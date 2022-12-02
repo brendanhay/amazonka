@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.EncodingParametersRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.EncoderProfile
 import qualified Amazonka.Prelude as Prelude
 
@@ -105,13 +106,13 @@ instance Prelude.NFData EncodingParametersRequest where
     Prelude.rnf encoderProfile
       `Prelude.seq` Prelude.rnf compressionFactor
 
-instance Core.ToJSON EncodingParametersRequest where
+instance Data.ToJSON EncodingParametersRequest where
   toJSON EncodingParametersRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("encoderProfile" Core..= encoderProfile),
+              ("encoderProfile" Data..= encoderProfile),
             Prelude.Just
-              ("compressionFactor" Core..= compressionFactor)
+              ("compressionFactor" Data..= compressionFactor)
           ]
       )

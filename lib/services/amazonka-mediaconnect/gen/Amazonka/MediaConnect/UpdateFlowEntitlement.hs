@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -170,8 +171,8 @@ instance Core.AWSRequest UpdateFlowEntitlement where
     Response.receiveJSON
       ( \s h x ->
           UpdateFlowEntitlementResponse'
-            Prelude.<$> (x Core..?> "entitlement")
-            Prelude.<*> (x Core..?> "flowArn")
+            Prelude.<$> (x Data..?> "entitlement")
+            Prelude.<*> (x Data..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,39 +194,39 @@ instance Prelude.NFData UpdateFlowEntitlement where
       `Prelude.seq` Prelude.rnf flowArn
       `Prelude.seq` Prelude.rnf entitlementArn
 
-instance Core.ToHeaders UpdateFlowEntitlement where
+instance Data.ToHeaders UpdateFlowEntitlement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFlowEntitlement where
+instance Data.ToJSON UpdateFlowEntitlement where
   toJSON UpdateFlowEntitlement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("entitlementStatus" Core..=)
+          [ ("entitlementStatus" Data..=)
               Prelude.<$> entitlementStatus,
-            ("description" Core..=) Prelude.<$> description,
-            ("subscribers" Core..=) Prelude.<$> subscribers,
-            ("encryption" Core..=) Prelude.<$> encryption
+            ("description" Data..=) Prelude.<$> description,
+            ("subscribers" Data..=) Prelude.<$> subscribers,
+            ("encryption" Data..=) Prelude.<$> encryption
           ]
       )
 
-instance Core.ToPath UpdateFlowEntitlement where
+instance Data.ToPath UpdateFlowEntitlement where
   toPath UpdateFlowEntitlement' {..} =
     Prelude.mconcat
       [ "/v1/flows/",
-        Core.toBS flowArn,
+        Data.toBS flowArn,
         "/entitlements/",
-        Core.toBS entitlementArn
+        Data.toBS entitlementArn
       ]
 
-instance Core.ToQuery UpdateFlowEntitlement where
+instance Data.ToQuery UpdateFlowEntitlement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFlowEntitlementResponse' smart constructor.

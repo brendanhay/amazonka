@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.DestinationConfigurationRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.InterfaceRequest
 import qualified Amazonka.Prelude as Prelude
 
@@ -111,14 +112,14 @@ instance
       `Prelude.seq` Prelude.rnf destinationPort
       `Prelude.seq` Prelude.rnf interface
 
-instance Core.ToJSON DestinationConfigurationRequest where
+instance Data.ToJSON DestinationConfigurationRequest where
   toJSON DestinationConfigurationRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("destinationIp" Core..= destinationIp),
+              ("destinationIp" Data..= destinationIp),
             Prelude.Just
-              ("destinationPort" Core..= destinationPort),
-            Prelude.Just ("interface" Core..= interface)
+              ("destinationPort" Data..= destinationPort),
+            Prelude.Just ("interface" Data..= interface)
           ]
       )

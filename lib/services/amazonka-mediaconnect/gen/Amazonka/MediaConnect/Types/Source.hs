@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.Source where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.Encryption
 import Amazonka.MediaConnect.Types.MediaStreamSourceConfiguration
 import Amazonka.MediaConnect.Types.Transport
@@ -207,28 +208,28 @@ source_sourceArn = Lens.lens (\Source' {sourceArn} -> sourceArn) (\s@Source' {} 
 source_name :: Lens.Lens' Source Prelude.Text
 source_name = Lens.lens (\Source' {name} -> name) (\s@Source' {} a -> s {name = a} :: Source)
 
-instance Core.FromJSON Source where
+instance Data.FromJSON Source where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Source"
       ( \x ->
           Source'
-            Prelude.<$> ( x Core..:? "mediaStreamSourceConfigurations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "mediaStreamSourceConfigurations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ingestIp")
-            Prelude.<*> (x Core..:? "entitlementArn")
-            Prelude.<*> (x Core..:? "vpcInterfaceName")
-            Prelude.<*> (x Core..:? "senderIpAddress")
-            Prelude.<*> (x Core..:? "decryption")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "transport")
-            Prelude.<*> (x Core..:? "senderControlPort")
-            Prelude.<*> (x Core..:? "dataTransferSubscriberFeePercent")
-            Prelude.<*> (x Core..:? "ingestPort")
-            Prelude.<*> (x Core..:? "whitelistCidr")
-            Prelude.<*> (x Core..: "sourceArn")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<*> (x Data..:? "ingestIp")
+            Prelude.<*> (x Data..:? "entitlementArn")
+            Prelude.<*> (x Data..:? "vpcInterfaceName")
+            Prelude.<*> (x Data..:? "senderIpAddress")
+            Prelude.<*> (x Data..:? "decryption")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "transport")
+            Prelude.<*> (x Data..:? "senderControlPort")
+            Prelude.<*> (x Data..:? "dataTransferSubscriberFeePercent")
+            Prelude.<*> (x Data..:? "ingestPort")
+            Prelude.<*> (x Data..:? "whitelistCidr")
+            Prelude.<*> (x Data..: "sourceArn")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable Source where

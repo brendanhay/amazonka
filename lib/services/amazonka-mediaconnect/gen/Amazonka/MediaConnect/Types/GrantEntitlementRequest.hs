@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.GrantEntitlementRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.Encryption
 import Amazonka.MediaConnect.Types.EntitlementStatus
 import qualified Amazonka.Prelude as Prelude
@@ -147,17 +148,17 @@ instance Prelude.NFData GrantEntitlementRequest where
       `Prelude.seq` Prelude.rnf dataTransferSubscriberFeePercent
       `Prelude.seq` Prelude.rnf subscribers
 
-instance Core.ToJSON GrantEntitlementRequest where
+instance Data.ToJSON GrantEntitlementRequest where
   toJSON GrantEntitlementRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("entitlementStatus" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("entitlementStatus" Data..=)
               Prelude.<$> entitlementStatus,
-            ("description" Core..=) Prelude.<$> description,
-            ("encryption" Core..=) Prelude.<$> encryption,
-            ("dataTransferSubscriberFeePercent" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("encryption" Data..=) Prelude.<$> encryption,
+            ("dataTransferSubscriberFeePercent" Data..=)
               Prelude.<$> dataTransferSubscriberFeePercent,
-            Prelude.Just ("subscribers" Core..= subscribers)
+            Prelude.Just ("subscribers" Data..= subscribers)
           ]
       )

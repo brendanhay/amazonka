@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,8 +100,8 @@ instance Core.AWSRequest AddFlowOutputs where
     Response.receiveJSON
       ( \s h x ->
           AddFlowOutputsResponse'
-            Prelude.<$> (x Core..?> "outputs" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "flowArn")
+            Prelude.<$> (x Data..?> "outputs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,30 +115,30 @@ instance Prelude.NFData AddFlowOutputs where
     Prelude.rnf flowArn
       `Prelude.seq` Prelude.rnf outputs
 
-instance Core.ToHeaders AddFlowOutputs where
+instance Data.ToHeaders AddFlowOutputs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AddFlowOutputs where
+instance Data.ToJSON AddFlowOutputs where
   toJSON AddFlowOutputs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("outputs" Core..= outputs)]
+          [Prelude.Just ("outputs" Data..= outputs)]
       )
 
-instance Core.ToPath AddFlowOutputs where
+instance Data.ToPath AddFlowOutputs where
   toPath AddFlowOutputs' {..} =
     Prelude.mconcat
-      ["/v1/flows/", Core.toBS flowArn, "/outputs"]
+      ["/v1/flows/", Data.toBS flowArn, "/outputs"]
 
-instance Core.ToQuery AddFlowOutputs where
+instance Data.ToQuery AddFlowOutputs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddFlowOutputsResponse' smart constructor.

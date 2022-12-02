@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,8 +100,8 @@ instance Core.AWSRequest RemoveFlowSource where
     Response.receiveJSON
       ( \s h x ->
           RemoveFlowSourceResponse'
-            Prelude.<$> (x Core..?> "sourceArn")
-            Prelude.<*> (x Core..?> "flowArn")
+            Prelude.<$> (x Data..?> "sourceArn")
+            Prelude.<*> (x Data..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,27 +115,27 @@ instance Prelude.NFData RemoveFlowSource where
     Prelude.rnf flowArn
       `Prelude.seq` Prelude.rnf sourceArn
 
-instance Core.ToHeaders RemoveFlowSource where
+instance Data.ToHeaders RemoveFlowSource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath RemoveFlowSource where
+instance Data.ToPath RemoveFlowSource where
   toPath RemoveFlowSource' {..} =
     Prelude.mconcat
       [ "/v1/flows/",
-        Core.toBS flowArn,
+        Data.toBS flowArn,
         "/source/",
-        Core.toBS sourceArn
+        Data.toBS sourceArn
       ]
 
-instance Core.ToQuery RemoveFlowSource where
+instance Data.ToQuery RemoveFlowSource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveFlowSourceResponse' smart constructor.

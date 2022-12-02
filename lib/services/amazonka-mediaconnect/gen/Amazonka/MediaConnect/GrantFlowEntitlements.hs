@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,8 +99,8 @@ instance Core.AWSRequest GrantFlowEntitlements where
     Response.receiveJSON
       ( \s h x ->
           GrantFlowEntitlementsResponse'
-            Prelude.<$> (x Core..?> "entitlements" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "flowArn")
+            Prelude.<$> (x Data..?> "entitlements" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,30 +114,30 @@ instance Prelude.NFData GrantFlowEntitlements where
     Prelude.rnf flowArn
       `Prelude.seq` Prelude.rnf entitlements
 
-instance Core.ToHeaders GrantFlowEntitlements where
+instance Data.ToHeaders GrantFlowEntitlements where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GrantFlowEntitlements where
+instance Data.ToJSON GrantFlowEntitlements where
   toJSON GrantFlowEntitlements' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("entitlements" Core..= entitlements)]
+          [Prelude.Just ("entitlements" Data..= entitlements)]
       )
 
-instance Core.ToPath GrantFlowEntitlements where
+instance Data.ToPath GrantFlowEntitlements where
   toPath GrantFlowEntitlements' {..} =
     Prelude.mconcat
-      ["/v1/flows/", Core.toBS flowArn, "/entitlements"]
+      ["/v1/flows/", Data.toBS flowArn, "/entitlements"]
 
-instance Core.ToQuery GrantFlowEntitlements where
+instance Data.ToQuery GrantFlowEntitlements where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGrantFlowEntitlementsResponse' smart constructor.

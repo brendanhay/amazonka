@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.Reservation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.DurationUnits
 import Amazonka.MediaConnect.Types.PriceUnits
 import Amazonka.MediaConnect.Types.ReservationState
@@ -254,25 +255,25 @@ reservation_resourceSpecification = Lens.lens (\Reservation' {resourceSpecificat
 reservation_priceUnits :: Lens.Lens' Reservation PriceUnits
 reservation_priceUnits = Lens.lens (\Reservation' {priceUnits} -> priceUnits) (\s@Reservation' {} a -> s {priceUnits = a} :: Reservation)
 
-instance Core.FromJSON Reservation where
+instance Data.FromJSON Reservation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Reservation"
       ( \x ->
           Reservation'
-            Prelude.<$> (x Core..: "currencyCode")
-            Prelude.<*> (x Core..: "reservationState")
-            Prelude.<*> (x Core..: "offeringArn")
-            Prelude.<*> (x Core..: "reservationArn")
-            Prelude.<*> (x Core..: "start")
-            Prelude.<*> (x Core..: "offeringDescription")
-            Prelude.<*> (x Core..: "reservationName")
-            Prelude.<*> (x Core..: "end")
-            Prelude.<*> (x Core..: "duration")
-            Prelude.<*> (x Core..: "durationUnits")
-            Prelude.<*> (x Core..: "pricePerUnit")
-            Prelude.<*> (x Core..: "resourceSpecification")
-            Prelude.<*> (x Core..: "priceUnits")
+            Prelude.<$> (x Data..: "currencyCode")
+            Prelude.<*> (x Data..: "reservationState")
+            Prelude.<*> (x Data..: "offeringArn")
+            Prelude.<*> (x Data..: "reservationArn")
+            Prelude.<*> (x Data..: "start")
+            Prelude.<*> (x Data..: "offeringDescription")
+            Prelude.<*> (x Data..: "reservationName")
+            Prelude.<*> (x Data..: "end")
+            Prelude.<*> (x Data..: "duration")
+            Prelude.<*> (x Data..: "durationUnits")
+            Prelude.<*> (x Data..: "pricePerUnit")
+            Prelude.<*> (x Data..: "resourceSpecification")
+            Prelude.<*> (x Data..: "priceUnits")
       )
 
 instance Prelude.Hashable Reservation where

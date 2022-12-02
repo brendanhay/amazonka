@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,11 +106,11 @@ instance Core.AWSRequest RemoveFlowVpcInterface where
     Response.receiveJSON
       ( \s h x ->
           RemoveFlowVpcInterfaceResponse'
-            Prelude.<$> (x Core..?> "vpcInterfaceName")
-            Prelude.<*> ( x Core..?> "nonDeletedNetworkInterfaceIds"
+            Prelude.<$> (x Data..?> "vpcInterfaceName")
+            Prelude.<*> ( x Data..?> "nonDeletedNetworkInterfaceIds"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "flowArn")
+            Prelude.<*> (x Data..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,27 +124,27 @@ instance Prelude.NFData RemoveFlowVpcInterface where
     Prelude.rnf flowArn
       `Prelude.seq` Prelude.rnf vpcInterfaceName
 
-instance Core.ToHeaders RemoveFlowVpcInterface where
+instance Data.ToHeaders RemoveFlowVpcInterface where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath RemoveFlowVpcInterface where
+instance Data.ToPath RemoveFlowVpcInterface where
   toPath RemoveFlowVpcInterface' {..} =
     Prelude.mconcat
       [ "/v1/flows/",
-        Core.toBS flowArn,
+        Data.toBS flowArn,
         "/vpcInterfaces/",
-        Core.toBS vpcInterfaceName
+        Data.toBS vpcInterfaceName
       ]
 
-instance Core.ToQuery RemoveFlowVpcInterface where
+instance Data.ToQuery RemoveFlowVpcInterface where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveFlowVpcInterfaceResponse' smart constructor.

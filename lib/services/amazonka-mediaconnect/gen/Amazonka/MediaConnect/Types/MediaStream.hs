@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.MediaStream where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.MediaStreamAttributes
 import Amazonka.MediaConnect.Types.MediaStreamType
 import qualified Amazonka.Prelude as Prelude
@@ -145,20 +146,20 @@ mediaStream_mediaStreamName = Lens.lens (\MediaStream' {mediaStreamName} -> medi
 mediaStream_fmt :: Lens.Lens' MediaStream Prelude.Int
 mediaStream_fmt = Lens.lens (\MediaStream' {fmt} -> fmt) (\s@MediaStream' {} a -> s {fmt = a} :: MediaStream)
 
-instance Core.FromJSON MediaStream where
+instance Data.FromJSON MediaStream where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MediaStream"
       ( \x ->
           MediaStream'
-            Prelude.<$> (x Core..:? "videoFormat")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "clockRate")
-            Prelude.<*> (x Core..:? "attributes")
-            Prelude.<*> (x Core..: "mediaStreamType")
-            Prelude.<*> (x Core..: "mediaStreamId")
-            Prelude.<*> (x Core..: "mediaStreamName")
-            Prelude.<*> (x Core..: "fmt")
+            Prelude.<$> (x Data..:? "videoFormat")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "clockRate")
+            Prelude.<*> (x Data..:? "attributes")
+            Prelude.<*> (x Data..: "mediaStreamType")
+            Prelude.<*> (x Data..: "mediaStreamId")
+            Prelude.<*> (x Data..: "mediaStreamName")
+            Prelude.<*> (x Data..: "fmt")
       )
 
 instance Prelude.Hashable MediaStream where

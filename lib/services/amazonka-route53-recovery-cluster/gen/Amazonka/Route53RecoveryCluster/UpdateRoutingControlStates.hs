@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -159,38 +160,38 @@ instance Prelude.NFData UpdateRoutingControlStates where
     Prelude.rnf safetyRulesToOverride
       `Prelude.seq` Prelude.rnf updateRoutingControlStateEntries
 
-instance Core.ToHeaders UpdateRoutingControlStates where
+instance Data.ToHeaders UpdateRoutingControlStates where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ToggleCustomerAPI.UpdateRoutingControlStates" ::
+              Data.=# ( "ToggleCustomerAPI.UpdateRoutingControlStates" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRoutingControlStates where
+instance Data.ToJSON UpdateRoutingControlStates where
   toJSON UpdateRoutingControlStates' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SafetyRulesToOverride" Core..=)
+          [ ("SafetyRulesToOverride" Data..=)
               Prelude.<$> safetyRulesToOverride,
             Prelude.Just
               ( "UpdateRoutingControlStateEntries"
-                  Core..= updateRoutingControlStateEntries
+                  Data..= updateRoutingControlStateEntries
               )
           ]
       )
 
-instance Core.ToPath UpdateRoutingControlStates where
+instance Data.ToPath UpdateRoutingControlStates where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateRoutingControlStates where
+instance Data.ToQuery UpdateRoutingControlStates where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRoutingControlStatesResponse' smart constructor.

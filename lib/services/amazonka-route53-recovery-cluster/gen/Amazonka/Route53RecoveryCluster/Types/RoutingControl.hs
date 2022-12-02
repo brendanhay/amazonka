@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryCluster.Types.RoutingControl where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryCluster.Types.RoutingControlState
 
@@ -100,17 +101,17 @@ routingControl_routingControlArn = Lens.lens (\RoutingControl' {routingControlAr
 routingControl_routingControlName :: Lens.Lens' RoutingControl (Prelude.Maybe Prelude.Text)
 routingControl_routingControlName = Lens.lens (\RoutingControl' {routingControlName} -> routingControlName) (\s@RoutingControl' {} a -> s {routingControlName = a} :: RoutingControl)
 
-instance Core.FromJSON RoutingControl where
+instance Data.FromJSON RoutingControl where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RoutingControl"
       ( \x ->
           RoutingControl'
-            Prelude.<$> (x Core..:? "ControlPanelArn")
-            Prelude.<*> (x Core..:? "RoutingControlState")
-            Prelude.<*> (x Core..:? "ControlPanelName")
-            Prelude.<*> (x Core..:? "RoutingControlArn")
-            Prelude.<*> (x Core..:? "RoutingControlName")
+            Prelude.<$> (x Data..:? "ControlPanelArn")
+            Prelude.<*> (x Data..:? "RoutingControlState")
+            Prelude.<*> (x Data..:? "ControlPanelName")
+            Prelude.<*> (x Data..:? "RoutingControlArn")
+            Prelude.<*> (x Data..:? "RoutingControlName")
       )
 
 instance Prelude.Hashable RoutingControl where

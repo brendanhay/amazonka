@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,10 +118,10 @@ instance Core.AWSRequest GetRoutingControlState where
     Response.receiveJSON
       ( \s h x ->
           GetRoutingControlStateResponse'
-            Prelude.<$> (x Core..?> "RoutingControlName")
+            Prelude.<$> (x Data..?> "RoutingControlName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "RoutingControlArn")
-            Prelude.<*> (x Core..:> "RoutingControlState")
+            Prelude.<*> (x Data..:> "RoutingControlArn")
+            Prelude.<*> (x Data..:> "RoutingControlState")
       )
 
 instance Prelude.Hashable GetRoutingControlState where
@@ -131,34 +132,34 @@ instance Prelude.NFData GetRoutingControlState where
   rnf GetRoutingControlState' {..} =
     Prelude.rnf routingControlArn
 
-instance Core.ToHeaders GetRoutingControlState where
+instance Data.ToHeaders GetRoutingControlState where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ToggleCustomerAPI.GetRoutingControlState" ::
+              Data.=# ( "ToggleCustomerAPI.GetRoutingControlState" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRoutingControlState where
+instance Data.ToJSON GetRoutingControlState where
   toJSON GetRoutingControlState' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("RoutingControlArn" Core..= routingControlArn)
+              ("RoutingControlArn" Data..= routingControlArn)
           ]
       )
 
-instance Core.ToPath GetRoutingControlState where
+instance Data.ToPath GetRoutingControlState where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRoutingControlState where
+instance Data.ToQuery GetRoutingControlState where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRoutingControlStateResponse' smart constructor.

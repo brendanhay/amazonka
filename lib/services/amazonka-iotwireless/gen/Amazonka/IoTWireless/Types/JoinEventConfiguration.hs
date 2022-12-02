@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.JoinEventConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.EventNotificationTopicStatus
 import Amazonka.IoTWireless.Types.LoRaWANJoinEventNotificationConfigurations
 import qualified Amazonka.Prelude as Prelude
@@ -69,14 +70,14 @@ joinEventConfiguration_loRaWAN = Lens.lens (\JoinEventConfiguration' {loRaWAN} -
 joinEventConfiguration_wirelessDeviceIdEventTopic :: Lens.Lens' JoinEventConfiguration (Prelude.Maybe EventNotificationTopicStatus)
 joinEventConfiguration_wirelessDeviceIdEventTopic = Lens.lens (\JoinEventConfiguration' {wirelessDeviceIdEventTopic} -> wirelessDeviceIdEventTopic) (\s@JoinEventConfiguration' {} a -> s {wirelessDeviceIdEventTopic = a} :: JoinEventConfiguration)
 
-instance Core.FromJSON JoinEventConfiguration where
+instance Data.FromJSON JoinEventConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JoinEventConfiguration"
       ( \x ->
           JoinEventConfiguration'
-            Prelude.<$> (x Core..:? "LoRaWAN")
-            Prelude.<*> (x Core..:? "WirelessDeviceIdEventTopic")
+            Prelude.<$> (x Data..:? "LoRaWAN")
+            Prelude.<*> (x Data..:? "WirelessDeviceIdEventTopic")
       )
 
 instance Prelude.Hashable JoinEventConfiguration where
@@ -89,12 +90,12 @@ instance Prelude.NFData JoinEventConfiguration where
     Prelude.rnf loRaWAN
       `Prelude.seq` Prelude.rnf wirelessDeviceIdEventTopic
 
-instance Core.ToJSON JoinEventConfiguration where
+instance Data.ToJSON JoinEventConfiguration where
   toJSON JoinEventConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LoRaWAN" Core..=) Prelude.<$> loRaWAN,
-            ("WirelessDeviceIdEventTopic" Core..=)
+          [ ("LoRaWAN" Data..=) Prelude.<$> loRaWAN,
+            ("WirelessDeviceIdEventTopic" Data..=)
               Prelude.<$> wirelessDeviceIdEventTopic
           ]
       )

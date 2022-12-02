@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.LoRaWANGatewayCurrentVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.LoRaWANGatewayVersion
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newLoRaWANGatewayCurrentVersion =
 loRaWANGatewayCurrentVersion_currentVersion :: Lens.Lens' LoRaWANGatewayCurrentVersion (Prelude.Maybe LoRaWANGatewayVersion)
 loRaWANGatewayCurrentVersion_currentVersion = Lens.lens (\LoRaWANGatewayCurrentVersion' {currentVersion} -> currentVersion) (\s@LoRaWANGatewayCurrentVersion' {} a -> s {currentVersion = a} :: LoRaWANGatewayCurrentVersion)
 
-instance Core.FromJSON LoRaWANGatewayCurrentVersion where
+instance Data.FromJSON LoRaWANGatewayCurrentVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoRaWANGatewayCurrentVersion"
       ( \x ->
           LoRaWANGatewayCurrentVersion'
-            Prelude.<$> (x Core..:? "CurrentVersion")
+            Prelude.<$> (x Data..:? "CurrentVersion")
       )
 
 instance

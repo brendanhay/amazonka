@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.OtaaV1_1 where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | OTAA device object for v1.1
@@ -70,15 +71,15 @@ otaaV1_1_nwkKey = Lens.lens (\OtaaV1_1' {nwkKey} -> nwkKey) (\s@OtaaV1_1' {} a -
 otaaV1_1_joinEui :: Lens.Lens' OtaaV1_1 (Prelude.Maybe Prelude.Text)
 otaaV1_1_joinEui = Lens.lens (\OtaaV1_1' {joinEui} -> joinEui) (\s@OtaaV1_1' {} a -> s {joinEui = a} :: OtaaV1_1)
 
-instance Core.FromJSON OtaaV1_1 where
+instance Data.FromJSON OtaaV1_1 where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OtaaV1_1"
       ( \x ->
           OtaaV1_1'
-            Prelude.<$> (x Core..:? "AppKey")
-            Prelude.<*> (x Core..:? "NwkKey")
-            Prelude.<*> (x Core..:? "JoinEui")
+            Prelude.<$> (x Data..:? "AppKey")
+            Prelude.<*> (x Data..:? "NwkKey")
+            Prelude.<*> (x Data..:? "JoinEui")
       )
 
 instance Prelude.Hashable OtaaV1_1 where
@@ -93,12 +94,12 @@ instance Prelude.NFData OtaaV1_1 where
       `Prelude.seq` Prelude.rnf nwkKey
       `Prelude.seq` Prelude.rnf joinEui
 
-instance Core.ToJSON OtaaV1_1 where
+instance Data.ToJSON OtaaV1_1 where
   toJSON OtaaV1_1' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AppKey" Core..=) Prelude.<$> appKey,
-            ("NwkKey" Core..=) Prelude.<$> nwkKey,
-            ("JoinEui" Core..=) Prelude.<$> joinEui
+          [ ("AppKey" Data..=) Prelude.<$> appKey,
+            ("NwkKey" Data..=) Prelude.<$> nwkKey,
+            ("JoinEui" Data..=) Prelude.<$> joinEui
           ]
       )

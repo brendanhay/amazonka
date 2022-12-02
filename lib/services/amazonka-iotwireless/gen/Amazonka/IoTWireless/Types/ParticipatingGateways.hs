@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.ParticipatingGateways where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.DownlinkMode
 import Amazonka.IoTWireless.Types.GatewayListItem
 import qualified Amazonka.Prelude as Prelude
@@ -92,15 +93,15 @@ participatingGateways_gatewayList = Lens.lens (\ParticipatingGateways' {gatewayL
 participatingGateways_transmissionInterval :: Lens.Lens' ParticipatingGateways Prelude.Natural
 participatingGateways_transmissionInterval = Lens.lens (\ParticipatingGateways' {transmissionInterval} -> transmissionInterval) (\s@ParticipatingGateways' {} a -> s {transmissionInterval = a} :: ParticipatingGateways)
 
-instance Core.FromJSON ParticipatingGateways where
+instance Data.FromJSON ParticipatingGateways where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParticipatingGateways"
       ( \x ->
           ParticipatingGateways'
-            Prelude.<$> (x Core..: "DownlinkMode")
-            Prelude.<*> (x Core..:? "GatewayList" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "TransmissionInterval")
+            Prelude.<$> (x Data..: "DownlinkMode")
+            Prelude.<*> (x Data..:? "GatewayList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "TransmissionInterval")
       )
 
 instance Prelude.Hashable ParticipatingGateways where
@@ -115,15 +116,15 @@ instance Prelude.NFData ParticipatingGateways where
       `Prelude.seq` Prelude.rnf gatewayList
       `Prelude.seq` Prelude.rnf transmissionInterval
 
-instance Core.ToJSON ParticipatingGateways where
+instance Data.ToJSON ParticipatingGateways where
   toJSON ParticipatingGateways' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DownlinkMode" Core..= downlinkMode),
-            Prelude.Just ("GatewayList" Core..= gatewayList),
+          [ Prelude.Just ("DownlinkMode" Data..= downlinkMode),
+            Prelude.Just ("GatewayList" Data..= gatewayList),
             Prelude.Just
               ( "TransmissionInterval"
-                  Core..= transmissionInterval
+                  Data..= transmissionInterval
               )
           ]
       )

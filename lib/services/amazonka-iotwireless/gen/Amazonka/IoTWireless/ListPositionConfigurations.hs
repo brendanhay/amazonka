@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,8 +112,8 @@ instance Core.AWSRequest ListPositionConfigurations where
     Response.receiveJSON
       ( \s h x ->
           ListPositionConfigurationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "PositionConfigurationList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "PositionConfigurationList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -130,18 +131,18 @@ instance Prelude.NFData ListPositionConfigurations where
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListPositionConfigurations where
+instance Data.ToHeaders ListPositionConfigurations where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListPositionConfigurations where
+instance Data.ToPath ListPositionConfigurations where
   toPath = Prelude.const "/position-configurations"
 
-instance Core.ToQuery ListPositionConfigurations where
+instance Data.ToQuery ListPositionConfigurations where
   toQuery ListPositionConfigurations' {..} =
     Prelude.mconcat
-      [ "resourceType" Core.=: resourceType,
-        "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "resourceType" Data.=: resourceType,
+        "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListPositionConfigurationsResponse' smart constructor.

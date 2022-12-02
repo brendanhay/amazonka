@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -157,7 +158,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateNetworkAnalyzerConfigurationResponse'
-            Prelude.<$> (x Core..?> "Name") Prelude.<*> (x Core..?> "Arn")
+            Prelude.<$> (x Data..?> "Name") Prelude.<*> (x Data..?> "Arn")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,40 +191,40 @@ instance
       `Prelude.seq` Prelude.rnf name
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateNetworkAnalyzerConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateNetworkAnalyzerConfiguration
   where
   toJSON CreateNetworkAnalyzerConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("WirelessGateways" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("WirelessGateways" Data..=)
               Prelude.<$> wirelessGateways,
-            ("ClientRequestToken" Core..=)
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("WirelessDevices" Core..=)
+            ("WirelessDevices" Data..=)
               Prelude.<$> wirelessDevices,
-            ("Description" Core..=) Prelude.<$> description,
-            ("TraceContent" Core..=) Prelude.<$> traceContent,
-            Prelude.Just ("Name" Core..= name)
+            ("Description" Data..=) Prelude.<$> description,
+            ("TraceContent" Data..=) Prelude.<$> traceContent,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateNetworkAnalyzerConfiguration
   where
   toPath =
     Prelude.const "/network-analyzer-configurations"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateNetworkAnalyzerConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

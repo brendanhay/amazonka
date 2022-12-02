@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.LoRaWANJoinEventNotificationConfigurations whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.EventNotificationTopicStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,15 +56,15 @@ loRaWANJoinEventNotificationConfigurations_devEuiEventTopic :: Lens.Lens' LoRaWA
 loRaWANJoinEventNotificationConfigurations_devEuiEventTopic = Lens.lens (\LoRaWANJoinEventNotificationConfigurations' {devEuiEventTopic} -> devEuiEventTopic) (\s@LoRaWANJoinEventNotificationConfigurations' {} a -> s {devEuiEventTopic = a} :: LoRaWANJoinEventNotificationConfigurations)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LoRaWANJoinEventNotificationConfigurations
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoRaWANJoinEventNotificationConfigurations"
       ( \x ->
           LoRaWANJoinEventNotificationConfigurations'
-            Prelude.<$> (x Core..:? "DevEuiEventTopic")
+            Prelude.<$> (x Data..:? "DevEuiEventTopic")
       )
 
 instance
@@ -83,14 +84,14 @@ instance
     Prelude.rnf devEuiEventTopic
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     LoRaWANJoinEventNotificationConfigurations
   where
   toJSON
     LoRaWANJoinEventNotificationConfigurations' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("DevEuiEventTopic" Core..=)
+            [ ("DevEuiEventTopic" Data..=)
                 Prelude.<$> devEuiEventTopic
             ]
         )

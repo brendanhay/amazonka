@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,9 +91,9 @@ instance Core.AWSRequest GetServiceEndpoint where
     Response.receiveJSON
       ( \s h x ->
           GetServiceEndpointResponse'
-            Prelude.<$> (x Core..?> "ServerTrust")
-            Prelude.<*> (x Core..?> "ServiceType")
-            Prelude.<*> (x Core..?> "ServiceEndpoint")
+            Prelude.<$> (x Data..?> "ServerTrust")
+            Prelude.<*> (x Data..?> "ServiceType")
+            Prelude.<*> (x Data..?> "ServiceEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,15 +104,15 @@ instance Prelude.Hashable GetServiceEndpoint where
 instance Prelude.NFData GetServiceEndpoint where
   rnf GetServiceEndpoint' {..} = Prelude.rnf serviceType
 
-instance Core.ToHeaders GetServiceEndpoint where
+instance Data.ToHeaders GetServiceEndpoint where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetServiceEndpoint where
+instance Data.ToPath GetServiceEndpoint where
   toPath = Prelude.const "/service-endpoint"
 
-instance Core.ToQuery GetServiceEndpoint where
+instance Data.ToQuery GetServiceEndpoint where
   toQuery GetServiceEndpoint' {..} =
-    Prelude.mconcat ["serviceType" Core.=: serviceType]
+    Prelude.mconcat ["serviceType" Data.=: serviceType]
 
 -- | /See:/ 'newGetServiceEndpointResponse' smart constructor.
 data GetServiceEndpointResponse = GetServiceEndpointResponse'

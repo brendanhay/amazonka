@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,8 +126,8 @@ instance Core.AWSRequest ListQueuedMessages where
     Response.receiveJSON
       ( \s h x ->
           ListQueuedMessagesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "DownlinkQueueMessagesList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "DownlinkQueueMessagesList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -146,20 +147,20 @@ instance Prelude.NFData ListQueuedMessages where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders ListQueuedMessages where
+instance Data.ToHeaders ListQueuedMessages where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListQueuedMessages where
+instance Data.ToPath ListQueuedMessages where
   toPath ListQueuedMessages' {..} =
     Prelude.mconcat
-      ["/wireless-devices/", Core.toBS id, "/data"]
+      ["/wireless-devices/", Data.toBS id, "/data"]
 
-instance Core.ToQuery ListQueuedMessages where
+instance Data.ToQuery ListQueuedMessages where
   toQuery ListQueuedMessages' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "WirelessDeviceType" Core.=: wirelessDeviceType,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "WirelessDeviceType" Data.=: wirelessDeviceType,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListQueuedMessagesResponse' smart constructor.

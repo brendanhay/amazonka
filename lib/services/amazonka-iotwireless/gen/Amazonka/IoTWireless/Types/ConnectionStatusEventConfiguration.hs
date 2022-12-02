@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.ConnectionStatusEventConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.EventNotificationTopicStatus
 import Amazonka.IoTWireless.Types.LoRaWANConnectionStatusEventNotificationConfigurations
 import qualified Amazonka.Prelude as Prelude
@@ -73,16 +74,16 @@ connectionStatusEventConfiguration_wirelessGatewayIdEventTopic :: Lens.Lens' Con
 connectionStatusEventConfiguration_wirelessGatewayIdEventTopic = Lens.lens (\ConnectionStatusEventConfiguration' {wirelessGatewayIdEventTopic} -> wirelessGatewayIdEventTopic) (\s@ConnectionStatusEventConfiguration' {} a -> s {wirelessGatewayIdEventTopic = a} :: ConnectionStatusEventConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ConnectionStatusEventConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectionStatusEventConfiguration"
       ( \x ->
           ConnectionStatusEventConfiguration'
-            Prelude.<$> (x Core..:? "LoRaWAN")
-            Prelude.<*> (x Core..:? "WirelessGatewayIdEventTopic")
+            Prelude.<$> (x Data..:? "LoRaWAN")
+            Prelude.<*> (x Data..:? "WirelessGatewayIdEventTopic")
       )
 
 instance
@@ -104,14 +105,14 @@ instance
       `Prelude.seq` Prelude.rnf wirelessGatewayIdEventTopic
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ConnectionStatusEventConfiguration
   where
   toJSON ConnectionStatusEventConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LoRaWAN" Core..=) Prelude.<$> loRaWAN,
-            ("WirelessGatewayIdEventTopic" Core..=)
+          [ ("LoRaWAN" Data..=) Prelude.<$> loRaWAN,
+            ("WirelessGatewayIdEventTopic" Data..=)
               Prelude.<$> wirelessGatewayIdEventTopic
           ]
       )

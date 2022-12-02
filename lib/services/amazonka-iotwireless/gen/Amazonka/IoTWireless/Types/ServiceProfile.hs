@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.ServiceProfile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a service profile.
@@ -70,15 +71,15 @@ serviceProfile_arn = Lens.lens (\ServiceProfile' {arn} -> arn) (\s@ServiceProfil
 serviceProfile_id :: Lens.Lens' ServiceProfile (Prelude.Maybe Prelude.Text)
 serviceProfile_id = Lens.lens (\ServiceProfile' {id} -> id) (\s@ServiceProfile' {} a -> s {id = a} :: ServiceProfile)
 
-instance Core.FromJSON ServiceProfile where
+instance Data.FromJSON ServiceProfile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceProfile"
       ( \x ->
           ServiceProfile'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable ServiceProfile where

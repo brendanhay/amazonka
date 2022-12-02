@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.LoRaWANUpdateDevice where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.UpdateAbpV1_0_x
 import Amazonka.IoTWireless.Types.UpdateAbpV1_1
 import Amazonka.IoTWireless.Types.UpdateFPorts
@@ -107,16 +108,16 @@ instance Prelude.NFData LoRaWANUpdateDevice where
       `Prelude.seq` Prelude.rnf serviceProfileId
       `Prelude.seq` Prelude.rnf abpV1_1
 
-instance Core.ToJSON LoRaWANUpdateDevice where
+instance Data.ToJSON LoRaWANUpdateDevice where
   toJSON LoRaWANUpdateDevice' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AbpV1_0_x" Core..=) Prelude.<$> abpV1_0_x,
-            ("DeviceProfileId" Core..=)
+          [ ("AbpV1_0_x" Data..=) Prelude.<$> abpV1_0_x,
+            ("DeviceProfileId" Data..=)
               Prelude.<$> deviceProfileId,
-            ("FPorts" Core..=) Prelude.<$> fPorts,
-            ("ServiceProfileId" Core..=)
+            ("FPorts" Data..=) Prelude.<$> fPorts,
+            ("ServiceProfileId" Data..=)
               Prelude.<$> serviceProfileId,
-            ("AbpV1_1" Core..=) Prelude.<$> abpV1_1
+            ("AbpV1_1" Data..=) Prelude.<$> abpV1_1
           ]
       )

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,19 +132,19 @@ instance Prelude.NFData DeleteQueuedMessages where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf messageId
 
-instance Core.ToHeaders DeleteQueuedMessages where
+instance Data.ToHeaders DeleteQueuedMessages where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteQueuedMessages where
+instance Data.ToPath DeleteQueuedMessages where
   toPath DeleteQueuedMessages' {..} =
     Prelude.mconcat
-      ["/wireless-devices/", Core.toBS id, "/data"]
+      ["/wireless-devices/", Data.toBS id, "/data"]
 
-instance Core.ToQuery DeleteQueuedMessages where
+instance Data.ToQuery DeleteQueuedMessages where
   toQuery DeleteQueuedMessages' {..} =
     Prelude.mconcat
-      [ "WirelessDeviceType" Core.=: wirelessDeviceType,
-        "messageId" Core.=: messageId
+      [ "WirelessDeviceType" Data.=: wirelessDeviceType,
+        "messageId" Data.=: messageId
       ]
 
 -- | /See:/ 'newDeleteQueuedMessagesResponse' smart constructor.

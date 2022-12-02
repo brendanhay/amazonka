@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.WirelessMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.LoRaWANSendDataToDevice
 import Amazonka.IoTWireless.Types.SidewalkSendDataToDevice
 import qualified Amazonka.Prelude as Prelude
@@ -73,11 +74,11 @@ instance Prelude.NFData WirelessMetadata where
     Prelude.rnf loRaWAN
       `Prelude.seq` Prelude.rnf sidewalk
 
-instance Core.ToJSON WirelessMetadata where
+instance Data.ToJSON WirelessMetadata where
   toJSON WirelessMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LoRaWAN" Core..=) Prelude.<$> loRaWAN,
-            ("Sidewalk" Core..=) Prelude.<$> sidewalk
+          [ ("LoRaWAN" Data..=) Prelude.<$> loRaWAN,
+            ("Sidewalk" Data..=) Prelude.<$> sidewalk
           ]
       )

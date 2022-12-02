@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.Destinations where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.ExpressionType
 import qualified Amazonka.Prelude as Prelude
 
@@ -98,18 +99,18 @@ destinations_expression = Lens.lens (\Destinations' {expression} -> expression) 
 destinations_expressionType :: Lens.Lens' Destinations (Prelude.Maybe ExpressionType)
 destinations_expressionType = Lens.lens (\Destinations' {expressionType} -> expressionType) (\s@Destinations' {} a -> s {expressionType = a} :: Destinations)
 
-instance Core.FromJSON Destinations where
+instance Data.FromJSON Destinations where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Destinations"
       ( \x ->
           Destinations'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Expression")
-            Prelude.<*> (x Core..:? "ExpressionType")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Expression")
+            Prelude.<*> (x Data..:? "ExpressionType")
       )
 
 instance Prelude.Hashable Destinations where

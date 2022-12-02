@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,23 +109,23 @@ instance
     Prelude.rnf configurationName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteNetworkAnalyzerConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeleteNetworkAnalyzerConfiguration
   where
   toPath DeleteNetworkAnalyzerConfiguration' {..} =
     Prelude.mconcat
       [ "/network-analyzer-configurations/",
-        Core.toBS configurationName
+        Data.toBS configurationName
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteNetworkAnalyzerConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

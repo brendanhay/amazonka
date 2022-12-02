@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,8 +127,8 @@ instance Core.AWSRequest CreateDeviceProfile where
     Response.receiveJSON
       ( \s h x ->
           CreateDeviceProfileResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,25 +146,25 @@ instance Prelude.NFData CreateDeviceProfile where
       `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf loRaWAN
 
-instance Core.ToHeaders CreateDeviceProfile where
+instance Data.ToHeaders CreateDeviceProfile where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateDeviceProfile where
+instance Data.ToJSON CreateDeviceProfile where
   toJSON CreateDeviceProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Name" Core..=) Prelude.<$> name,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Name" Data..=) Prelude.<$> name,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("LoRaWAN" Core..=) Prelude.<$> loRaWAN
+            ("LoRaWAN" Data..=) Prelude.<$> loRaWAN
           ]
       )
 
-instance Core.ToPath CreateDeviceProfile where
+instance Data.ToPath CreateDeviceProfile where
   toPath = Prelude.const "/device-profiles"
 
-instance Core.ToQuery CreateDeviceProfile where
+instance Data.ToQuery CreateDeviceProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDeviceProfileResponse' smart constructor.

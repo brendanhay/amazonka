@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.LoRaWANServiceProfile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | LoRaWANServiceProfile object.
@@ -83,12 +84,12 @@ instance Prelude.NFData LoRaWANServiceProfile where
       `Prelude.seq` Prelude.rnf drMax
       `Prelude.seq` Prelude.rnf drMin
 
-instance Core.ToJSON LoRaWANServiceProfile where
+instance Data.ToJSON LoRaWANServiceProfile where
   toJSON LoRaWANServiceProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AddGwMetadata" Core..=) Prelude.<$> addGwMetadata,
-            ("DrMax" Core..=) Prelude.<$> drMax,
-            ("DrMin" Core..=) Prelude.<$> drMin
+          [ ("AddGwMetadata" Data..=) Prelude.<$> addGwMetadata,
+            ("DrMax" Data..=) Prelude.<$> drMax,
+            ("DrMin" Data..=) Prelude.<$> drMin
           ]
       )

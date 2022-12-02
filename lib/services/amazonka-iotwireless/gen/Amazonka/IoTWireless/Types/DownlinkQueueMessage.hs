@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.DownlinkQueueMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.LoRaWANSendDataToDevice
 import qualified Amazonka.Prelude as Prelude
 
@@ -85,16 +86,16 @@ downlinkQueueMessage_receivedAt = Lens.lens (\DownlinkQueueMessage' {receivedAt}
 downlinkQueueMessage_transmitMode :: Lens.Lens' DownlinkQueueMessage (Prelude.Maybe Prelude.Natural)
 downlinkQueueMessage_transmitMode = Lens.lens (\DownlinkQueueMessage' {transmitMode} -> transmitMode) (\s@DownlinkQueueMessage' {} a -> s {transmitMode = a} :: DownlinkQueueMessage)
 
-instance Core.FromJSON DownlinkQueueMessage where
+instance Data.FromJSON DownlinkQueueMessage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DownlinkQueueMessage"
       ( \x ->
           DownlinkQueueMessage'
-            Prelude.<$> (x Core..:? "LoRaWAN")
-            Prelude.<*> (x Core..:? "MessageId")
-            Prelude.<*> (x Core..:? "ReceivedAt")
-            Prelude.<*> (x Core..:? "TransmitMode")
+            Prelude.<$> (x Data..:? "LoRaWAN")
+            Prelude.<*> (x Data..:? "MessageId")
+            Prelude.<*> (x Data..:? "ReceivedAt")
+            Prelude.<*> (x Data..:? "TransmitMode")
       )
 
 instance Prelude.Hashable DownlinkQueueMessage where

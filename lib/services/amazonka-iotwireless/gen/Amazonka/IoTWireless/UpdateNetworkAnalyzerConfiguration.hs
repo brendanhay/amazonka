@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -204,43 +205,43 @@ instance
       `Prelude.seq` Prelude.rnf configurationName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateNetworkAnalyzerConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateNetworkAnalyzerConfiguration
   where
   toJSON UpdateNetworkAnalyzerConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("WirelessGatewaysToRemove" Core..=)
+          [ ("WirelessGatewaysToRemove" Data..=)
               Prelude.<$> wirelessGatewaysToRemove,
-            ("WirelessGatewaysToAdd" Core..=)
+            ("WirelessGatewaysToAdd" Data..=)
               Prelude.<$> wirelessGatewaysToAdd,
-            ("Description" Core..=) Prelude.<$> description,
-            ("WirelessDevicesToAdd" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("WirelessDevicesToAdd" Data..=)
               Prelude.<$> wirelessDevicesToAdd,
-            ("TraceContent" Core..=) Prelude.<$> traceContent,
-            ("WirelessDevicesToRemove" Core..=)
+            ("TraceContent" Data..=) Prelude.<$> traceContent,
+            ("WirelessDevicesToRemove" Data..=)
               Prelude.<$> wirelessDevicesToRemove
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateNetworkAnalyzerConfiguration
   where
   toPath UpdateNetworkAnalyzerConfiguration' {..} =
     Prelude.mconcat
       [ "/network-analyzer-configurations/",
-        Core.toBS configurationName
+        Data.toBS configurationName
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateNetworkAnalyzerConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

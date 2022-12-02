@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.MulticastWirelessMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.LoRaWANMulticastMetadata
 import qualified Amazonka.Prelude as Prelude
 
@@ -61,9 +62,9 @@ instance Prelude.NFData MulticastWirelessMetadata where
   rnf MulticastWirelessMetadata' {..} =
     Prelude.rnf loRaWAN
 
-instance Core.ToJSON MulticastWirelessMetadata where
+instance Data.ToJSON MulticastWirelessMetadata where
   toJSON MulticastWirelessMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("LoRaWAN" Core..=) Prelude.<$> loRaWAN]
+          [("LoRaWAN" Data..=) Prelude.<$> loRaWAN]
       )

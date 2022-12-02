@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.SemtechGnssDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.PositionConfigurationFec
 import Amazonka.IoTWireless.Types.PositionConfigurationStatus
 import Amazonka.IoTWireless.Types.PositionSolverProvider
@@ -83,16 +84,16 @@ semtechGnssDetail_status = Lens.lens (\SemtechGnssDetail' {status} -> status) (\
 semtechGnssDetail_fec :: Lens.Lens' SemtechGnssDetail (Prelude.Maybe PositionConfigurationFec)
 semtechGnssDetail_fec = Lens.lens (\SemtechGnssDetail' {fec} -> fec) (\s@SemtechGnssDetail' {} a -> s {fec = a} :: SemtechGnssDetail)
 
-instance Core.FromJSON SemtechGnssDetail where
+instance Data.FromJSON SemtechGnssDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SemtechGnssDetail"
       ( \x ->
           SemtechGnssDetail'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Provider")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Fec")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Provider")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Fec")
       )
 
 instance Prelude.Hashable SemtechGnssDetail where

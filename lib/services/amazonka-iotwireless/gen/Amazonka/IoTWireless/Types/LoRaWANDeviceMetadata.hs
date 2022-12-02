@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.LoRaWANDeviceMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.LoRaWANGatewayMetadata
 import qualified Amazonka.Prelude as Prelude
 
@@ -98,18 +99,18 @@ loRaWANDeviceMetadata_dataRate = Lens.lens (\LoRaWANDeviceMetadata' {dataRate} -
 loRaWANDeviceMetadata_devEui :: Lens.Lens' LoRaWANDeviceMetadata (Prelude.Maybe Prelude.Text)
 loRaWANDeviceMetadata_devEui = Lens.lens (\LoRaWANDeviceMetadata' {devEui} -> devEui) (\s@LoRaWANDeviceMetadata' {} a -> s {devEui = a} :: LoRaWANDeviceMetadata)
 
-instance Core.FromJSON LoRaWANDeviceMetadata where
+instance Data.FromJSON LoRaWANDeviceMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoRaWANDeviceMetadata"
       ( \x ->
           LoRaWANDeviceMetadata'
-            Prelude.<$> (x Core..:? "FPort")
-            Prelude.<*> (x Core..:? "Frequency")
-            Prelude.<*> (x Core..:? "Gateways" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Timestamp")
-            Prelude.<*> (x Core..:? "DataRate")
-            Prelude.<*> (x Core..:? "DevEui")
+            Prelude.<$> (x Data..:? "FPort")
+            Prelude.<*> (x Data..:? "Frequency")
+            Prelude.<*> (x Data..:? "Gateways" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Timestamp")
+            Prelude.<*> (x Data..:? "DataRate")
+            Prelude.<*> (x Data..:? "DevEui")
       )
 
 instance Prelude.Hashable LoRaWANDeviceMetadata where

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,8 +101,8 @@ instance Core.AWSRequest GetPartnerAccount where
     Response.receiveJSON
       ( \s h x ->
           GetPartnerAccountResponse'
-            Prelude.<$> (x Core..?> "AccountLinked")
-            Prelude.<*> (x Core..?> "Sidewalk")
+            Prelude.<$> (x Data..?> "AccountLinked")
+            Prelude.<*> (x Data..?> "Sidewalk")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,17 +116,17 @@ instance Prelude.NFData GetPartnerAccount where
     Prelude.rnf partnerAccountId
       `Prelude.seq` Prelude.rnf partnerType
 
-instance Core.ToHeaders GetPartnerAccount where
+instance Data.ToHeaders GetPartnerAccount where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetPartnerAccount where
+instance Data.ToPath GetPartnerAccount where
   toPath GetPartnerAccount' {..} =
     Prelude.mconcat
-      ["/partner-accounts/", Core.toBS partnerAccountId]
+      ["/partner-accounts/", Data.toBS partnerAccountId]
 
-instance Core.ToQuery GetPartnerAccount where
+instance Data.ToQuery GetPartnerAccount where
   toQuery GetPartnerAccount' {..} =
-    Prelude.mconcat ["partnerType" Core.=: partnerType]
+    Prelude.mconcat ["partnerType" Data.=: partnerType]
 
 -- | /See:/ 'newGetPartnerAccountResponse' smart constructor.
 data GetPartnerAccountResponse = GetPartnerAccountResponse'

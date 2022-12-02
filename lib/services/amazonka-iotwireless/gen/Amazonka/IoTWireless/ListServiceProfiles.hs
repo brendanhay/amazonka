@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,8 +101,8 @@ instance Core.AWSRequest ListServiceProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListServiceProfilesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ServiceProfileList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ServiceProfileList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -117,17 +118,17 @@ instance Prelude.NFData ListServiceProfiles where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListServiceProfiles where
+instance Data.ToHeaders ListServiceProfiles where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListServiceProfiles where
+instance Data.ToPath ListServiceProfiles where
   toPath = Prelude.const "/service-profiles"
 
-instance Core.ToQuery ListServiceProfiles where
+instance Data.ToQuery ListServiceProfiles where
   toQuery ListServiceProfiles' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListServiceProfilesResponse' smart constructor.

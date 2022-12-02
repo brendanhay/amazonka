@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.FPorts where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.Positioning
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,16 +81,16 @@ fPorts_multicast = Lens.lens (\FPorts' {multicast} -> multicast) (\s@FPorts' {} 
 fPorts_positioning :: Lens.Lens' FPorts (Prelude.Maybe Positioning)
 fPorts_positioning = Lens.lens (\FPorts' {positioning} -> positioning) (\s@FPorts' {} a -> s {positioning = a} :: FPorts)
 
-instance Core.FromJSON FPorts where
+instance Data.FromJSON FPorts where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FPorts"
       ( \x ->
           FPorts'
-            Prelude.<$> (x Core..:? "ClockSync")
-            Prelude.<*> (x Core..:? "Fuota")
-            Prelude.<*> (x Core..:? "Multicast")
-            Prelude.<*> (x Core..:? "Positioning")
+            Prelude.<$> (x Data..:? "ClockSync")
+            Prelude.<*> (x Data..:? "Fuota")
+            Prelude.<*> (x Data..:? "Multicast")
+            Prelude.<*> (x Data..:? "Positioning")
       )
 
 instance Prelude.Hashable FPorts where
@@ -106,13 +107,13 @@ instance Prelude.NFData FPorts where
       `Prelude.seq` Prelude.rnf multicast
       `Prelude.seq` Prelude.rnf positioning
 
-instance Core.ToJSON FPorts where
+instance Data.ToJSON FPorts where
   toJSON FPorts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClockSync" Core..=) Prelude.<$> clockSync,
-            ("Fuota" Core..=) Prelude.<$> fuota,
-            ("Multicast" Core..=) Prelude.<$> multicast,
-            ("Positioning" Core..=) Prelude.<$> positioning
+          [ ("ClockSync" Data..=) Prelude.<$> clockSync,
+            ("Fuota" Data..=) Prelude.<$> fuota,
+            ("Multicast" Data..=) Prelude.<$> multicast,
+            ("Positioning" Data..=) Prelude.<$> positioning
           ]
       )

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,13 +89,13 @@ instance Core.AWSRequest GetMulticastGroup where
     Response.receiveJSON
       ( \s h x ->
           GetMulticastGroupResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "LoRaWAN")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "CreatedAt")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "LoRaWAN")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "CreatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -105,15 +106,15 @@ instance Prelude.Hashable GetMulticastGroup where
 instance Prelude.NFData GetMulticastGroup where
   rnf GetMulticastGroup' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetMulticastGroup where
+instance Data.ToHeaders GetMulticastGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetMulticastGroup where
+instance Data.ToPath GetMulticastGroup where
   toPath GetMulticastGroup' {..} =
     Prelude.mconcat
-      ["/multicast-groups/", Core.toBS id]
+      ["/multicast-groups/", Data.toBS id]
 
-instance Core.ToQuery GetMulticastGroup where
+instance Data.ToQuery GetMulticastGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMulticastGroupResponse' smart constructor.
@@ -124,7 +125,7 @@ data GetMulticastGroupResponse = GetMulticastGroupResponse'
     status :: Prelude.Maybe Prelude.Text,
     id :: Prelude.Maybe Prelude.Text,
     description :: Prelude.Maybe Prelude.Text,
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,7 +196,7 @@ getMulticastGroupResponse_description = Lens.lens (\GetMulticastGroupResponse' {
 
 -- | Undocumented member.
 getMulticastGroupResponse_createdAt :: Lens.Lens' GetMulticastGroupResponse (Prelude.Maybe Prelude.UTCTime)
-getMulticastGroupResponse_createdAt = Lens.lens (\GetMulticastGroupResponse' {createdAt} -> createdAt) (\s@GetMulticastGroupResponse' {} a -> s {createdAt = a} :: GetMulticastGroupResponse) Prelude.. Lens.mapping Core._Time
+getMulticastGroupResponse_createdAt = Lens.lens (\GetMulticastGroupResponse' {createdAt} -> createdAt) (\s@GetMulticastGroupResponse' {} a -> s {createdAt = a} :: GetMulticastGroupResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getMulticastGroupResponse_httpStatus :: Lens.Lens' GetMulticastGroupResponse Prelude.Int

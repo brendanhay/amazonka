@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.LoRaWANDevice where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.AbpV1_0_x
 import Amazonka.IoTWireless.Types.AbpV1_1
 import Amazonka.IoTWireless.Types.FPorts
@@ -119,20 +120,20 @@ loRaWANDevice_abpV1_1 = Lens.lens (\LoRaWANDevice' {abpV1_1} -> abpV1_1) (\s@LoR
 loRaWANDevice_devEui :: Lens.Lens' LoRaWANDevice (Prelude.Maybe Prelude.Text)
 loRaWANDevice_devEui = Lens.lens (\LoRaWANDevice' {devEui} -> devEui) (\s@LoRaWANDevice' {} a -> s {devEui = a} :: LoRaWANDevice)
 
-instance Core.FromJSON LoRaWANDevice where
+instance Data.FromJSON LoRaWANDevice where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoRaWANDevice"
       ( \x ->
           LoRaWANDevice'
-            Prelude.<$> (x Core..:? "OtaaV1_1")
-            Prelude.<*> (x Core..:? "OtaaV1_0_x")
-            Prelude.<*> (x Core..:? "AbpV1_0_x")
-            Prelude.<*> (x Core..:? "DeviceProfileId")
-            Prelude.<*> (x Core..:? "FPorts")
-            Prelude.<*> (x Core..:? "ServiceProfileId")
-            Prelude.<*> (x Core..:? "AbpV1_1")
-            Prelude.<*> (x Core..:? "DevEui")
+            Prelude.<$> (x Data..:? "OtaaV1_1")
+            Prelude.<*> (x Data..:? "OtaaV1_0_x")
+            Prelude.<*> (x Data..:? "AbpV1_0_x")
+            Prelude.<*> (x Data..:? "DeviceProfileId")
+            Prelude.<*> (x Data..:? "FPorts")
+            Prelude.<*> (x Data..:? "ServiceProfileId")
+            Prelude.<*> (x Data..:? "AbpV1_1")
+            Prelude.<*> (x Data..:? "DevEui")
       )
 
 instance Prelude.Hashable LoRaWANDevice where
@@ -157,19 +158,19 @@ instance Prelude.NFData LoRaWANDevice where
       `Prelude.seq` Prelude.rnf abpV1_1
       `Prelude.seq` Prelude.rnf devEui
 
-instance Core.ToJSON LoRaWANDevice where
+instance Data.ToJSON LoRaWANDevice where
   toJSON LoRaWANDevice' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OtaaV1_1" Core..=) Prelude.<$> otaaV1_1,
-            ("OtaaV1_0_x" Core..=) Prelude.<$> otaaV1_0_x,
-            ("AbpV1_0_x" Core..=) Prelude.<$> abpV1_0_x,
-            ("DeviceProfileId" Core..=)
+          [ ("OtaaV1_1" Data..=) Prelude.<$> otaaV1_1,
+            ("OtaaV1_0_x" Data..=) Prelude.<$> otaaV1_0_x,
+            ("AbpV1_0_x" Data..=) Prelude.<$> abpV1_0_x,
+            ("DeviceProfileId" Data..=)
               Prelude.<$> deviceProfileId,
-            ("FPorts" Core..=) Prelude.<$> fPorts,
-            ("ServiceProfileId" Core..=)
+            ("FPorts" Data..=) Prelude.<$> fPorts,
+            ("ServiceProfileId" Data..=)
               Prelude.<$> serviceProfileId,
-            ("AbpV1_1" Core..=) Prelude.<$> abpV1_1,
-            ("DevEui" Core..=) Prelude.<$> devEui
+            ("AbpV1_1" Data..=) Prelude.<$> abpV1_1,
+            ("DevEui" Data..=) Prelude.<$> devEui
           ]
       )

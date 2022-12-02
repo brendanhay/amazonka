@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,8 +124,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           AssociateAwsAccountWithPartnerAccountResponse'
-            Prelude.<$> (x Core..?> "Arn")
-              Prelude.<*> (x Core..?> "Sidewalk")
+            Prelude.<$> (x Data..?> "Arn")
+              Prelude.<*> (x Data..?> "Sidewalk")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,33 +150,33 @@ instance
       `Prelude.seq` Prelude.rnf sidewalk
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AssociateAwsAccountWithPartnerAccount
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AssociateAwsAccountWithPartnerAccount
   where
   toJSON AssociateAwsAccountWithPartnerAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            Prelude.Just ("Sidewalk" Core..= sidewalk)
+            Prelude.Just ("Sidewalk" Data..= sidewalk)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     AssociateAwsAccountWithPartnerAccount
   where
   toPath = Prelude.const "/partner-accounts"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     AssociateAwsAccountWithPartnerAccount
   where
   toQuery = Prelude.const Prelude.mempty

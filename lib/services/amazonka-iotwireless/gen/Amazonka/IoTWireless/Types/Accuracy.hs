@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.Accuracy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The accuracy of the estimated position in meters. An empty value
@@ -65,14 +66,14 @@ accuracy_verticalAccuracy = Lens.lens (\Accuracy' {verticalAccuracy} -> vertical
 accuracy_horizontalAccuracy :: Lens.Lens' Accuracy (Prelude.Maybe Prelude.Double)
 accuracy_horizontalAccuracy = Lens.lens (\Accuracy' {horizontalAccuracy} -> horizontalAccuracy) (\s@Accuracy' {} a -> s {horizontalAccuracy = a} :: Accuracy)
 
-instance Core.FromJSON Accuracy where
+instance Data.FromJSON Accuracy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Accuracy"
       ( \x ->
           Accuracy'
-            Prelude.<$> (x Core..:? "VerticalAccuracy")
-            Prelude.<*> (x Core..:? "HorizontalAccuracy")
+            Prelude.<$> (x Data..:? "VerticalAccuracy")
+            Prelude.<*> (x Data..:? "HorizontalAccuracy")
       )
 
 instance Prelude.Hashable Accuracy where

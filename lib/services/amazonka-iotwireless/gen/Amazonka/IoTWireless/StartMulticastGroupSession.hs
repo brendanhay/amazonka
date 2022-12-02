@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,22 +107,22 @@ instance Prelude.NFData StartMulticastGroupSession where
   rnf StartMulticastGroupSession' {..} =
     Prelude.rnf id `Prelude.seq` Prelude.rnf loRaWAN
 
-instance Core.ToHeaders StartMulticastGroupSession where
+instance Data.ToHeaders StartMulticastGroupSession where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON StartMulticastGroupSession where
+instance Data.ToJSON StartMulticastGroupSession where
   toJSON StartMulticastGroupSession' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("LoRaWAN" Core..= loRaWAN)]
+          [Prelude.Just ("LoRaWAN" Data..= loRaWAN)]
       )
 
-instance Core.ToPath StartMulticastGroupSession where
+instance Data.ToPath StartMulticastGroupSession where
   toPath StartMulticastGroupSession' {..} =
     Prelude.mconcat
-      ["/multicast-groups/", Core.toBS id, "/session"]
+      ["/multicast-groups/", Data.toBS id, "/session"]
 
-instance Core.ToQuery StartMulticastGroupSession where
+instance Data.ToQuery StartMulticastGroupSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartMulticastGroupSessionResponse' smart constructor.

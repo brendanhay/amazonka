@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest TestWirelessDevice where
     Response.receiveJSON
       ( \s h x ->
           TestWirelessDeviceResponse'
-            Prelude.<$> (x Core..?> "Result")
+            Prelude.<$> (x Data..?> "Result")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,18 +96,18 @@ instance Prelude.Hashable TestWirelessDevice where
 instance Prelude.NFData TestWirelessDevice where
   rnf TestWirelessDevice' {..} = Prelude.rnf id
 
-instance Core.ToHeaders TestWirelessDevice where
+instance Data.ToHeaders TestWirelessDevice where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON TestWirelessDevice where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON TestWirelessDevice where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath TestWirelessDevice where
+instance Data.ToPath TestWirelessDevice where
   toPath TestWirelessDevice' {..} =
     Prelude.mconcat
-      ["/wireless-devices/", Core.toBS id, "/test"]
+      ["/wireless-devices/", Data.toBS id, "/test"]
 
-instance Core.ToQuery TestWirelessDevice where
+instance Data.ToQuery TestWirelessDevice where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTestWirelessDeviceResponse' smart constructor.

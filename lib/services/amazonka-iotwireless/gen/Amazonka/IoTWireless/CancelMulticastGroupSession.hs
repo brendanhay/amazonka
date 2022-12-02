@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,15 +92,15 @@ instance Prelude.Hashable CancelMulticastGroupSession where
 instance Prelude.NFData CancelMulticastGroupSession where
   rnf CancelMulticastGroupSession' {..} = Prelude.rnf id
 
-instance Core.ToHeaders CancelMulticastGroupSession where
+instance Data.ToHeaders CancelMulticastGroupSession where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CancelMulticastGroupSession where
+instance Data.ToPath CancelMulticastGroupSession where
   toPath CancelMulticastGroupSession' {..} =
     Prelude.mconcat
-      ["/multicast-groups/", Core.toBS id, "/session"]
+      ["/multicast-groups/", Data.toBS id, "/session"]
 
-instance Core.ToQuery CancelMulticastGroupSession where
+instance Data.ToQuery CancelMulticastGroupSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelMulticastGroupSessionResponse' smart constructor.

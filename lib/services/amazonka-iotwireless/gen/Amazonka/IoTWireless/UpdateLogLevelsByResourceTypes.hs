@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,28 +131,28 @@ instance
       `Prelude.seq` Prelude.rnf defaultLogLevel
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateLogLevelsByResourceTypes
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateLogLevelsByResourceTypes where
+instance Data.ToJSON UpdateLogLevelsByResourceTypes where
   toJSON UpdateLogLevelsByResourceTypes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("WirelessGatewayLogOptions" Core..=)
+          [ ("WirelessGatewayLogOptions" Data..=)
               Prelude.<$> wirelessGatewayLogOptions,
-            ("WirelessDeviceLogOptions" Core..=)
+            ("WirelessDeviceLogOptions" Data..=)
               Prelude.<$> wirelessDeviceLogOptions,
-            ("DefaultLogLevel" Core..=)
+            ("DefaultLogLevel" Data..=)
               Prelude.<$> defaultLogLevel
           ]
       )
 
-instance Core.ToPath UpdateLogLevelsByResourceTypes where
+instance Data.ToPath UpdateLogLevelsByResourceTypes where
   toPath = Prelude.const "/log-levels"
 
-instance Core.ToQuery UpdateLogLevelsByResourceTypes where
+instance Data.ToQuery UpdateLogLevelsByResourceTypes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLogLevelsByResourceTypesResponse' smart constructor.

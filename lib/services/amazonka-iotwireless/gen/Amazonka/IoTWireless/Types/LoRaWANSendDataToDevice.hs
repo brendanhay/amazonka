@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.LoRaWANSendDataToDevice where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.ParticipatingGateways
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,14 +65,14 @@ loRaWANSendDataToDevice_fPort = Lens.lens (\LoRaWANSendDataToDevice' {fPort} -> 
 loRaWANSendDataToDevice_participatingGateways :: Lens.Lens' LoRaWANSendDataToDevice (Prelude.Maybe ParticipatingGateways)
 loRaWANSendDataToDevice_participatingGateways = Lens.lens (\LoRaWANSendDataToDevice' {participatingGateways} -> participatingGateways) (\s@LoRaWANSendDataToDevice' {} a -> s {participatingGateways = a} :: LoRaWANSendDataToDevice)
 
-instance Core.FromJSON LoRaWANSendDataToDevice where
+instance Data.FromJSON LoRaWANSendDataToDevice where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoRaWANSendDataToDevice"
       ( \x ->
           LoRaWANSendDataToDevice'
-            Prelude.<$> (x Core..:? "FPort")
-            Prelude.<*> (x Core..:? "ParticipatingGateways")
+            Prelude.<$> (x Data..:? "FPort")
+            Prelude.<*> (x Data..:? "ParticipatingGateways")
       )
 
 instance Prelude.Hashable LoRaWANSendDataToDevice where
@@ -84,12 +85,12 @@ instance Prelude.NFData LoRaWANSendDataToDevice where
     Prelude.rnf fPort
       `Prelude.seq` Prelude.rnf participatingGateways
 
-instance Core.ToJSON LoRaWANSendDataToDevice where
+instance Data.ToJSON LoRaWANSendDataToDevice where
   toJSON LoRaWANSendDataToDevice' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FPort" Core..=) Prelude.<$> fPort,
-            ("ParticipatingGateways" Core..=)
+          [ ("FPort" Data..=) Prelude.<$> fPort,
+            ("ParticipatingGateways" Data..=)
               Prelude.<$> participatingGateways
           ]
       )

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,24 +127,24 @@ instance Prelude.NFData UpdatePartnerAccount where
       `Prelude.seq` Prelude.rnf partnerAccountId
       `Prelude.seq` Prelude.rnf partnerType
 
-instance Core.ToHeaders UpdatePartnerAccount where
+instance Data.ToHeaders UpdatePartnerAccount where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdatePartnerAccount where
+instance Data.ToJSON UpdatePartnerAccount where
   toJSON UpdatePartnerAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Sidewalk" Core..= sidewalk)]
+          [Prelude.Just ("Sidewalk" Data..= sidewalk)]
       )
 
-instance Core.ToPath UpdatePartnerAccount where
+instance Data.ToPath UpdatePartnerAccount where
   toPath UpdatePartnerAccount' {..} =
     Prelude.mconcat
-      ["/partner-accounts/", Core.toBS partnerAccountId]
+      ["/partner-accounts/", Data.toBS partnerAccountId]
 
-instance Core.ToQuery UpdatePartnerAccount where
+instance Data.ToQuery UpdatePartnerAccount where
   toQuery UpdatePartnerAccount' {..} =
-    Prelude.mconcat ["partnerType" Core.=: partnerType]
+    Prelude.mconcat ["partnerType" Data.=: partnerType]
 
 -- | /See:/ 'newUpdatePartnerAccountResponse' smart constructor.
 data UpdatePartnerAccountResponse = UpdatePartnerAccountResponse'

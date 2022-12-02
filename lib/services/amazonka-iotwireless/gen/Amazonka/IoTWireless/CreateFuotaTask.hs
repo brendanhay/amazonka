@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -143,8 +144,8 @@ instance Core.AWSRequest CreateFuotaTask where
     Response.receiveJSON
       ( \s h x ->
           CreateFuotaTaskResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,30 +169,30 @@ instance Prelude.NFData CreateFuotaTask where
       `Prelude.seq` Prelude.rnf firmwareUpdateImage
       `Prelude.seq` Prelude.rnf firmwareUpdateRole
 
-instance Core.ToHeaders CreateFuotaTask where
+instance Data.ToHeaders CreateFuotaTask where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateFuotaTask where
+instance Data.ToJSON CreateFuotaTask where
   toJSON CreateFuotaTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Name" Core..=) Prelude.<$> name,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Name" Data..=) Prelude.<$> name,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("LoRaWAN" Core..=) Prelude.<$> loRaWAN,
-            ("Description" Core..=) Prelude.<$> description,
+            ("LoRaWAN" Data..=) Prelude.<$> loRaWAN,
+            ("Description" Data..=) Prelude.<$> description,
             Prelude.Just
-              ("FirmwareUpdateImage" Core..= firmwareUpdateImage),
+              ("FirmwareUpdateImage" Data..= firmwareUpdateImage),
             Prelude.Just
-              ("FirmwareUpdateRole" Core..= firmwareUpdateRole)
+              ("FirmwareUpdateRole" Data..= firmwareUpdateRole)
           ]
       )
 
-instance Core.ToPath CreateFuotaTask where
+instance Data.ToPath CreateFuotaTask where
   toPath = Prelude.const "/fuota-tasks"
 
-instance Core.ToQuery CreateFuotaTask where
+instance Data.ToQuery CreateFuotaTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFuotaTaskResponse' smart constructor.

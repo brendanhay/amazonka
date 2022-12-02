@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,15 +92,15 @@ instance Prelude.Hashable DeleteMulticastGroup where
 instance Prelude.NFData DeleteMulticastGroup where
   rnf DeleteMulticastGroup' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DeleteMulticastGroup where
+instance Data.ToHeaders DeleteMulticastGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteMulticastGroup where
+instance Data.ToPath DeleteMulticastGroup where
   toPath DeleteMulticastGroup' {..} =
     Prelude.mconcat
-      ["/multicast-groups/", Core.toBS id]
+      ["/multicast-groups/", Data.toBS id]
 
-instance Core.ToQuery DeleteMulticastGroup where
+instance Data.ToQuery DeleteMulticastGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMulticastGroupResponse' smart constructor.

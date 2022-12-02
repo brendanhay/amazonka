@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.UpdateAbpV1_0_x where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | ABP device object for LoRaWAN specification v1.0.x
@@ -57,9 +58,9 @@ instance Prelude.Hashable UpdateAbpV1_0_x where
 instance Prelude.NFData UpdateAbpV1_0_x where
   rnf UpdateAbpV1_0_x' {..} = Prelude.rnf fCntStart
 
-instance Core.ToJSON UpdateAbpV1_0_x where
+instance Data.ToJSON UpdateAbpV1_0_x where
   toJSON UpdateAbpV1_0_x' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("FCntStart" Core..=) Prelude.<$> fCntStart]
+          [("FCntStart" Data..=) Prelude.<$> fCntStart]
       )

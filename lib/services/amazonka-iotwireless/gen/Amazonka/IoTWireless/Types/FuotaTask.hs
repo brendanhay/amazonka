@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.FuotaTask where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A FUOTA task.
@@ -67,15 +68,15 @@ fuotaTask_arn = Lens.lens (\FuotaTask' {arn} -> arn) (\s@FuotaTask' {} a -> s {a
 fuotaTask_id :: Lens.Lens' FuotaTask (Prelude.Maybe Prelude.Text)
 fuotaTask_id = Lens.lens (\FuotaTask' {id} -> id) (\s@FuotaTask' {} a -> s {id = a} :: FuotaTask)
 
-instance Core.FromJSON FuotaTask where
+instance Data.FromJSON FuotaTask where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FuotaTask"
       ( \x ->
           FuotaTask'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable FuotaTask where

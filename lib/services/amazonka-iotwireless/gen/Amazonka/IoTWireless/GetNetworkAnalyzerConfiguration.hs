@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,16 +95,16 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetNetworkAnalyzerConfigurationResponse'
-            Prelude.<$> ( x Core..?> "WirelessGateways"
+            Prelude.<$> ( x Data..?> "WirelessGateways"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> ( x Core..?> "WirelessDevices"
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> ( x Data..?> "WirelessDevices"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "TraceContent")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "TraceContent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,19 +125,19 @@ instance
     Prelude.rnf configurationName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetNetworkAnalyzerConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetNetworkAnalyzerConfiguration where
+instance Data.ToPath GetNetworkAnalyzerConfiguration where
   toPath GetNetworkAnalyzerConfiguration' {..} =
     Prelude.mconcat
       [ "/network-analyzer-configurations/",
-        Core.toBS configurationName
+        Data.toBS configurationName
       ]
 
-instance Core.ToQuery GetNetworkAnalyzerConfiguration where
+instance Data.ToQuery GetNetworkAnalyzerConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetNetworkAnalyzerConfigurationResponse' smart constructor.

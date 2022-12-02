@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,8 +101,8 @@ instance Core.AWSRequest ListDeviceProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListDeviceProfilesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "DeviceProfileList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "DeviceProfileList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -117,17 +118,17 @@ instance Prelude.NFData ListDeviceProfiles where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListDeviceProfiles where
+instance Data.ToHeaders ListDeviceProfiles where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListDeviceProfiles where
+instance Data.ToPath ListDeviceProfiles where
   toPath = Prelude.const "/device-profiles"
 
-instance Core.ToQuery ListDeviceProfiles where
+instance Data.ToQuery ListDeviceProfiles where
   toQuery ListDeviceProfiles' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListDeviceProfilesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.MulticastGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A multicast group.
@@ -67,15 +68,15 @@ multicastGroup_arn = Lens.lens (\MulticastGroup' {arn} -> arn) (\s@MulticastGrou
 multicastGroup_id :: Lens.Lens' MulticastGroup (Prelude.Maybe Prelude.Text)
 multicastGroup_id = Lens.lens (\MulticastGroup' {id} -> id) (\s@MulticastGroup' {} a -> s {id = a} :: MulticastGroup)
 
-instance Core.FromJSON MulticastGroup where
+instance Data.FromJSON MulticastGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MulticastGroup"
       ( \x ->
           MulticastGroup'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable MulticastGroup where

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,15 +88,15 @@ instance Core.AWSRequest GetFuotaTask where
     Response.receiveJSON
       ( \s h x ->
           GetFuotaTaskResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "LoRaWAN")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "FirmwareUpdateRole")
-            Prelude.<*> (x Core..?> "FirmwareUpdateImage")
-            Prelude.<*> (x Core..?> "CreatedAt")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "LoRaWAN")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "FirmwareUpdateRole")
+            Prelude.<*> (x Data..?> "FirmwareUpdateImage")
+            Prelude.<*> (x Data..?> "CreatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,14 +107,14 @@ instance Prelude.Hashable GetFuotaTask where
 instance Prelude.NFData GetFuotaTask where
   rnf GetFuotaTask' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetFuotaTask where
+instance Data.ToHeaders GetFuotaTask where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetFuotaTask where
+instance Data.ToPath GetFuotaTask where
   toPath GetFuotaTask' {..} =
-    Prelude.mconcat ["/fuota-tasks/", Core.toBS id]
+    Prelude.mconcat ["/fuota-tasks/", Data.toBS id]
 
-instance Core.ToQuery GetFuotaTask where
+instance Data.ToQuery GetFuotaTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFuotaTaskResponse' smart constructor.
@@ -126,7 +127,7 @@ data GetFuotaTaskResponse = GetFuotaTaskResponse'
     description :: Prelude.Maybe Prelude.Text,
     firmwareUpdateRole :: Prelude.Maybe Prelude.Text,
     firmwareUpdateImage :: Prelude.Maybe Prelude.Text,
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -211,7 +212,7 @@ getFuotaTaskResponse_firmwareUpdateImage = Lens.lens (\GetFuotaTaskResponse' {fi
 
 -- | Undocumented member.
 getFuotaTaskResponse_createdAt :: Lens.Lens' GetFuotaTaskResponse (Prelude.Maybe Prelude.UTCTime)
-getFuotaTaskResponse_createdAt = Lens.lens (\GetFuotaTaskResponse' {createdAt} -> createdAt) (\s@GetFuotaTaskResponse' {} a -> s {createdAt = a} :: GetFuotaTaskResponse) Prelude.. Lens.mapping Core._Time
+getFuotaTaskResponse_createdAt = Lens.lens (\GetFuotaTaskResponse' {createdAt} -> createdAt) (\s@GetFuotaTaskResponse' {} a -> s {createdAt = a} :: GetFuotaTaskResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getFuotaTaskResponse_httpStatus :: Lens.Lens' GetFuotaTaskResponse Prelude.Int

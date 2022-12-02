@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,10 +90,10 @@ instance Core.AWSRequest GetWirelessDeviceStatistics where
     Response.receiveJSON
       ( \s h x ->
           GetWirelessDeviceStatisticsResponse'
-            Prelude.<$> (x Core..?> "LastUplinkReceivedAt")
-            Prelude.<*> (x Core..?> "LoRaWAN")
-            Prelude.<*> (x Core..?> "WirelessDeviceId")
-            Prelude.<*> (x Core..?> "Sidewalk")
+            Prelude.<$> (x Data..?> "LastUplinkReceivedAt")
+            Prelude.<*> (x Data..?> "LoRaWAN")
+            Prelude.<*> (x Data..?> "WirelessDeviceId")
+            Prelude.<*> (x Data..?> "Sidewalk")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,18 +105,18 @@ instance Prelude.NFData GetWirelessDeviceStatistics where
   rnf GetWirelessDeviceStatistics' {..} =
     Prelude.rnf wirelessDeviceId
 
-instance Core.ToHeaders GetWirelessDeviceStatistics where
+instance Data.ToHeaders GetWirelessDeviceStatistics where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetWirelessDeviceStatistics where
+instance Data.ToPath GetWirelessDeviceStatistics where
   toPath GetWirelessDeviceStatistics' {..} =
     Prelude.mconcat
       [ "/wireless-devices/",
-        Core.toBS wirelessDeviceId,
+        Data.toBS wirelessDeviceId,
         "/statistics"
       ]
 
-instance Core.ToQuery GetWirelessDeviceStatistics where
+instance Data.ToQuery GetWirelessDeviceStatistics where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetWirelessDeviceStatisticsResponse' smart constructor.

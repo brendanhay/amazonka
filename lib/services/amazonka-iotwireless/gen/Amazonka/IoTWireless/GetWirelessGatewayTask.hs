@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,11 +88,11 @@ instance Core.AWSRequest GetWirelessGatewayTask where
     Response.receiveJSON
       ( \s h x ->
           GetWirelessGatewayTaskResponse'
-            Prelude.<$> (x Core..?> "LastUplinkReceivedAt")
-            Prelude.<*> (x Core..?> "WirelessGatewayId")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "TaskCreatedAt")
-            Prelude.<*> (x Core..?> "WirelessGatewayTaskDefinitionId")
+            Prelude.<$> (x Data..?> "LastUplinkReceivedAt")
+            Prelude.<*> (x Data..?> "WirelessGatewayId")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "TaskCreatedAt")
+            Prelude.<*> (x Data..?> "WirelessGatewayTaskDefinitionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -102,15 +103,15 @@ instance Prelude.Hashable GetWirelessGatewayTask where
 instance Prelude.NFData GetWirelessGatewayTask where
   rnf GetWirelessGatewayTask' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetWirelessGatewayTask where
+instance Data.ToHeaders GetWirelessGatewayTask where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetWirelessGatewayTask where
+instance Data.ToPath GetWirelessGatewayTask where
   toPath GetWirelessGatewayTask' {..} =
     Prelude.mconcat
-      ["/wireless-gateways/", Core.toBS id, "/tasks"]
+      ["/wireless-gateways/", Data.toBS id, "/tasks"]
 
-instance Core.ToQuery GetWirelessGatewayTask where
+instance Data.ToQuery GetWirelessGatewayTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetWirelessGatewayTaskResponse' smart constructor.

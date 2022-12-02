@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,21 +105,21 @@ instance Prelude.NFData StartFuotaTask where
   rnf StartFuotaTask' {..} =
     Prelude.rnf loRaWAN `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders StartFuotaTask where
+instance Data.ToHeaders StartFuotaTask where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON StartFuotaTask where
+instance Data.ToJSON StartFuotaTask where
   toJSON StartFuotaTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("LoRaWAN" Core..=) Prelude.<$> loRaWAN]
+          [("LoRaWAN" Data..=) Prelude.<$> loRaWAN]
       )
 
-instance Core.ToPath StartFuotaTask where
+instance Data.ToPath StartFuotaTask where
   toPath StartFuotaTask' {..} =
-    Prelude.mconcat ["/fuota-tasks/", Core.toBS id]
+    Prelude.mconcat ["/fuota-tasks/", Data.toBS id]
 
-instance Core.ToQuery StartFuotaTask where
+instance Data.ToQuery StartFuotaTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartFuotaTaskResponse' smart constructor.

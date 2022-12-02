@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,25 +123,25 @@ instance Prelude.NFData UpdatePosition where
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf position
 
-instance Core.ToHeaders UpdatePosition where
+instance Data.ToHeaders UpdatePosition where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdatePosition where
+instance Data.ToJSON UpdatePosition where
   toJSON UpdatePosition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Position" Core..= position)]
+          [Prelude.Just ("Position" Data..= position)]
       )
 
-instance Core.ToPath UpdatePosition where
+instance Data.ToPath UpdatePosition where
   toPath UpdatePosition' {..} =
     Prelude.mconcat
-      ["/positions/", Core.toBS resourceIdentifier]
+      ["/positions/", Data.toBS resourceIdentifier]
 
-instance Core.ToQuery UpdatePosition where
+instance Data.ToQuery UpdatePosition where
   toQuery UpdatePosition' {..} =
     Prelude.mconcat
-      ["resourceType" Core.=: resourceType]
+      ["resourceType" Data.=: resourceType]
 
 -- | /See:/ 'newUpdatePositionResponse' smart constructor.
 data UpdatePositionResponse = UpdatePositionResponse'

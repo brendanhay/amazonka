@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.LoRaWANGatewayMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | LoRaWAN gateway metatdata.
@@ -70,15 +71,15 @@ loRaWANGatewayMetadata_gatewayEui = Lens.lens (\LoRaWANGatewayMetadata' {gateway
 loRaWANGatewayMetadata_rssi :: Lens.Lens' LoRaWANGatewayMetadata (Prelude.Maybe Prelude.Double)
 loRaWANGatewayMetadata_rssi = Lens.lens (\LoRaWANGatewayMetadata' {rssi} -> rssi) (\s@LoRaWANGatewayMetadata' {} a -> s {rssi = a} :: LoRaWANGatewayMetadata)
 
-instance Core.FromJSON LoRaWANGatewayMetadata where
+instance Data.FromJSON LoRaWANGatewayMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoRaWANGatewayMetadata"
       ( \x ->
           LoRaWANGatewayMetadata'
-            Prelude.<$> (x Core..:? "Snr")
-            Prelude.<*> (x Core..:? "GatewayEui")
-            Prelude.<*> (x Core..:? "Rssi")
+            Prelude.<$> (x Data..:? "Snr")
+            Prelude.<*> (x Data..:? "GatewayEui")
+            Prelude.<*> (x Data..:? "Rssi")
       )
 
 instance Prelude.Hashable LoRaWANGatewayMetadata where

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,12 +89,12 @@ instance Core.AWSRequest GetDestination where
     Response.receiveJSON
       ( \s h x ->
           GetDestinationResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "Expression")
-            Prelude.<*> (x Core..?> "ExpressionType")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "Expression")
+            Prelude.<*> (x Data..?> "ExpressionType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,14 +105,14 @@ instance Prelude.Hashable GetDestination where
 instance Prelude.NFData GetDestination where
   rnf GetDestination' {..} = Prelude.rnf name
 
-instance Core.ToHeaders GetDestination where
+instance Data.ToHeaders GetDestination where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetDestination where
+instance Data.ToPath GetDestination where
   toPath GetDestination' {..} =
-    Prelude.mconcat ["/destinations/", Core.toBS name]
+    Prelude.mconcat ["/destinations/", Data.toBS name]
 
-instance Core.ToQuery GetDestination where
+instance Data.ToQuery GetDestination where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDestinationResponse' smart constructor.

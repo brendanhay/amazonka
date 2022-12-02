@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.WirelessDeviceLogOption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.LogLevel
 import Amazonka.IoTWireless.Types.WirelessDeviceEventLogOption
 import Amazonka.IoTWireless.Types.WirelessDeviceType
@@ -76,15 +77,15 @@ wirelessDeviceLogOption_type = Lens.lens (\WirelessDeviceLogOption' {type'} -> t
 wirelessDeviceLogOption_logLevel :: Lens.Lens' WirelessDeviceLogOption LogLevel
 wirelessDeviceLogOption_logLevel = Lens.lens (\WirelessDeviceLogOption' {logLevel} -> logLevel) (\s@WirelessDeviceLogOption' {} a -> s {logLevel = a} :: WirelessDeviceLogOption)
 
-instance Core.FromJSON WirelessDeviceLogOption where
+instance Data.FromJSON WirelessDeviceLogOption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WirelessDeviceLogOption"
       ( \x ->
           WirelessDeviceLogOption'
-            Prelude.<$> (x Core..:? "Events" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Type")
-            Prelude.<*> (x Core..: "LogLevel")
+            Prelude.<$> (x Data..:? "Events" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Type")
+            Prelude.<*> (x Data..: "LogLevel")
       )
 
 instance Prelude.Hashable WirelessDeviceLogOption where
@@ -99,12 +100,12 @@ instance Prelude.NFData WirelessDeviceLogOption where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf logLevel
 
-instance Core.ToJSON WirelessDeviceLogOption where
+instance Data.ToJSON WirelessDeviceLogOption where
   toJSON WirelessDeviceLogOption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Events" Core..=) Prelude.<$> events,
-            Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("LogLevel" Core..= logLevel)
+          [ ("Events" Data..=) Prelude.<$> events,
+            Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("LogLevel" Data..= logLevel)
           ]
       )

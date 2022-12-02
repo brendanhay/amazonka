@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.WirelessGatewayStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.LoRaWANGateway
 import qualified Amazonka.Prelude as Prelude
 
@@ -98,18 +99,18 @@ wirelessGatewayStatistics_id = Lens.lens (\WirelessGatewayStatistics' {id} -> id
 wirelessGatewayStatistics_description :: Lens.Lens' WirelessGatewayStatistics (Prelude.Maybe Prelude.Text)
 wirelessGatewayStatistics_description = Lens.lens (\WirelessGatewayStatistics' {description} -> description) (\s@WirelessGatewayStatistics' {} a -> s {description = a} :: WirelessGatewayStatistics)
 
-instance Core.FromJSON WirelessGatewayStatistics where
+instance Data.FromJSON WirelessGatewayStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WirelessGatewayStatistics"
       ( \x ->
           WirelessGatewayStatistics'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LastUplinkReceivedAt")
-            Prelude.<*> (x Core..:? "LoRaWAN")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "LastUplinkReceivedAt")
+            Prelude.<*> (x Data..:? "LoRaWAN")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable WirelessGatewayStatistics where

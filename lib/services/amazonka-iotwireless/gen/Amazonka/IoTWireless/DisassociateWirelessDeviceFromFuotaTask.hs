@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,25 +124,25 @@ instance
       `Prelude.seq` Prelude.rnf wirelessDeviceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateWirelessDeviceFromFuotaTask
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DisassociateWirelessDeviceFromFuotaTask
   where
   toPath DisassociateWirelessDeviceFromFuotaTask' {..} =
     Prelude.mconcat
       [ "/fuota-tasks/",
-        Core.toBS id,
+        Data.toBS id,
         "/wireless-devices/",
-        Core.toBS wirelessDeviceId
+        Data.toBS wirelessDeviceId
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisassociateWirelessDeviceFromFuotaTask
   where
   toQuery = Prelude.const Prelude.mempty

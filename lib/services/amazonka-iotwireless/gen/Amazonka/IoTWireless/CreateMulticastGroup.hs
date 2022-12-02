@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,8 +133,8 @@ instance Core.AWSRequest CreateMulticastGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateMulticastGroupResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,26 +154,26 @@ instance Prelude.NFData CreateMulticastGroup where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf loRaWAN
 
-instance Core.ToHeaders CreateMulticastGroup where
+instance Data.ToHeaders CreateMulticastGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateMulticastGroup where
+instance Data.ToJSON CreateMulticastGroup where
   toJSON CreateMulticastGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Name" Core..=) Prelude.<$> name,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Name" Data..=) Prelude.<$> name,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("LoRaWAN" Core..= loRaWAN)
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("LoRaWAN" Data..= loRaWAN)
           ]
       )
 
-instance Core.ToPath CreateMulticastGroup where
+instance Data.ToPath CreateMulticastGroup where
   toPath = Prelude.const "/multicast-groups"
 
-instance Core.ToQuery CreateMulticastGroup where
+instance Data.ToQuery CreateMulticastGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateMulticastGroupResponse' smart constructor.

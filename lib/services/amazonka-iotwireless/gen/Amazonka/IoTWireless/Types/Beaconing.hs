@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.Beaconing where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Beaconing parameters for configuring the wireless gateways.
@@ -61,14 +62,14 @@ beaconing_frequencies = Lens.lens (\Beaconing' {frequencies} -> frequencies) (\s
 beaconing_dataRate :: Lens.Lens' Beaconing (Prelude.Maybe Prelude.Natural)
 beaconing_dataRate = Lens.lens (\Beaconing' {dataRate} -> dataRate) (\s@Beaconing' {} a -> s {dataRate = a} :: Beaconing)
 
-instance Core.FromJSON Beaconing where
+instance Data.FromJSON Beaconing where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Beaconing"
       ( \x ->
           Beaconing'
-            Prelude.<$> (x Core..:? "Frequencies" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DataRate")
+            Prelude.<$> (x Data..:? "Frequencies" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DataRate")
       )
 
 instance Prelude.Hashable Beaconing where
@@ -81,11 +82,11 @@ instance Prelude.NFData Beaconing where
     Prelude.rnf frequencies
       `Prelude.seq` Prelude.rnf dataRate
 
-instance Core.ToJSON Beaconing where
+instance Data.ToJSON Beaconing where
   toJSON Beaconing' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Frequencies" Core..=) Prelude.<$> frequencies,
-            ("DataRate" Core..=) Prelude.<$> dataRate
+          [ ("Frequencies" Data..=) Prelude.<$> frequencies,
+            ("DataRate" Data..=) Prelude.<$> dataRate
           ]
       )

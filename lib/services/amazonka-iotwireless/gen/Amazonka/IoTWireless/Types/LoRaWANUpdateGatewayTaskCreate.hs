@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.LoRaWANUpdateGatewayTaskCreate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.LoRaWANGatewayVersion
 import qualified Amazonka.Prelude as Prelude
 
@@ -81,16 +82,16 @@ loRaWANUpdateGatewayTaskCreate_updateSignature = Lens.lens (\LoRaWANUpdateGatewa
 loRaWANUpdateGatewayTaskCreate_updateVersion :: Lens.Lens' LoRaWANUpdateGatewayTaskCreate (Prelude.Maybe LoRaWANGatewayVersion)
 loRaWANUpdateGatewayTaskCreate_updateVersion = Lens.lens (\LoRaWANUpdateGatewayTaskCreate' {updateVersion} -> updateVersion) (\s@LoRaWANUpdateGatewayTaskCreate' {} a -> s {updateVersion = a} :: LoRaWANUpdateGatewayTaskCreate)
 
-instance Core.FromJSON LoRaWANUpdateGatewayTaskCreate where
+instance Data.FromJSON LoRaWANUpdateGatewayTaskCreate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoRaWANUpdateGatewayTaskCreate"
       ( \x ->
           LoRaWANUpdateGatewayTaskCreate'
-            Prelude.<$> (x Core..:? "SigKeyCrc")
-            Prelude.<*> (x Core..:? "CurrentVersion")
-            Prelude.<*> (x Core..:? "UpdateSignature")
-            Prelude.<*> (x Core..:? "UpdateVersion")
+            Prelude.<$> (x Data..:? "SigKeyCrc")
+            Prelude.<*> (x Data..:? "CurrentVersion")
+            Prelude.<*> (x Data..:? "UpdateSignature")
+            Prelude.<*> (x Data..:? "UpdateVersion")
       )
 
 instance
@@ -115,15 +116,15 @@ instance
       `Prelude.seq` Prelude.rnf updateSignature
       `Prelude.seq` Prelude.rnf updateVersion
 
-instance Core.ToJSON LoRaWANUpdateGatewayTaskCreate where
+instance Data.ToJSON LoRaWANUpdateGatewayTaskCreate where
   toJSON LoRaWANUpdateGatewayTaskCreate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SigKeyCrc" Core..=) Prelude.<$> sigKeyCrc,
-            ("CurrentVersion" Core..=)
+          [ ("SigKeyCrc" Data..=) Prelude.<$> sigKeyCrc,
+            ("CurrentVersion" Data..=)
               Prelude.<$> currentVersion,
-            ("UpdateSignature" Core..=)
+            ("UpdateSignature" Data..=)
               Prelude.<$> updateSignature,
-            ("UpdateVersion" Core..=) Prelude.<$> updateVersion
+            ("UpdateVersion" Data..=) Prelude.<$> updateVersion
           ]
       )

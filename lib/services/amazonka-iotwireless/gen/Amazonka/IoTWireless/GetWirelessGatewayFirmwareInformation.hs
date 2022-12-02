@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetWirelessGatewayFirmwareInformationResponse'
-            Prelude.<$> (x Core..?> "LoRaWAN")
+            Prelude.<$> (x Data..?> "LoRaWAN")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,24 +110,24 @@ instance
     Prelude.rnf id
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetWirelessGatewayFirmwareInformation
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetWirelessGatewayFirmwareInformation
   where
   toPath GetWirelessGatewayFirmwareInformation' {..} =
     Prelude.mconcat
       [ "/wireless-gateways/",
-        Core.toBS id,
+        Data.toBS id,
         "/firmware-information"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetWirelessGatewayFirmwareInformation
   where
   toQuery = Prelude.const Prelude.mempty

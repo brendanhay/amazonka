@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -149,28 +150,28 @@ instance Prelude.NFData UpdateFuotaTask where
       `Prelude.seq` Prelude.rnf firmwareUpdateImage
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders UpdateFuotaTask where
+instance Data.ToHeaders UpdateFuotaTask where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateFuotaTask where
+instance Data.ToJSON UpdateFuotaTask where
   toJSON UpdateFuotaTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("LoRaWAN" Core..=) Prelude.<$> loRaWAN,
-            ("Description" Core..=) Prelude.<$> description,
-            ("FirmwareUpdateRole" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("LoRaWAN" Data..=) Prelude.<$> loRaWAN,
+            ("Description" Data..=) Prelude.<$> description,
+            ("FirmwareUpdateRole" Data..=)
               Prelude.<$> firmwareUpdateRole,
-            ("FirmwareUpdateImage" Core..=)
+            ("FirmwareUpdateImage" Data..=)
               Prelude.<$> firmwareUpdateImage
           ]
       )
 
-instance Core.ToPath UpdateFuotaTask where
+instance Data.ToPath UpdateFuotaTask where
   toPath UpdateFuotaTask' {..} =
-    Prelude.mconcat ["/fuota-tasks/", Core.toBS id]
+    Prelude.mconcat ["/fuota-tasks/", Data.toBS id]
 
-instance Core.ToQuery UpdateFuotaTask where
+instance Data.ToQuery UpdateFuotaTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFuotaTaskResponse' smart constructor.

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -163,8 +164,8 @@ instance Core.AWSRequest CreateWirelessDevice where
     Response.receiveJSON
       ( \s h x ->
           CreateWirelessDeviceResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -188,29 +189,29 @@ instance Prelude.NFData CreateWirelessDevice where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf destinationName
 
-instance Core.ToHeaders CreateWirelessDevice where
+instance Data.ToHeaders CreateWirelessDevice where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateWirelessDevice where
+instance Data.ToJSON CreateWirelessDevice where
   toJSON CreateWirelessDevice' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Name" Core..=) Prelude.<$> name,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Name" Data..=) Prelude.<$> name,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("LoRaWAN" Core..=) Prelude.<$> loRaWAN,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Type" Core..= type'),
+            ("LoRaWAN" Data..=) Prelude.<$> loRaWAN,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Type" Data..= type'),
             Prelude.Just
-              ("DestinationName" Core..= destinationName)
+              ("DestinationName" Data..= destinationName)
           ]
       )
 
-instance Core.ToPath CreateWirelessDevice where
+instance Data.ToPath CreateWirelessDevice where
   toPath = Prelude.const "/wireless-devices"
 
-instance Core.ToQuery CreateWirelessDevice where
+instance Data.ToQuery CreateWirelessDevice where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWirelessDeviceResponse' smart constructor.

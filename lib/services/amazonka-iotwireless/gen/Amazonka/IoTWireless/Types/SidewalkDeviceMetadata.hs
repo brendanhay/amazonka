@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.SidewalkDeviceMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.BatteryLevel
 import Amazonka.IoTWireless.Types.DeviceState
 import Amazonka.IoTWireless.Types.Event
@@ -83,16 +84,16 @@ sidewalkDeviceMetadata_event = Lens.lens (\SidewalkDeviceMetadata' {event} -> ev
 sidewalkDeviceMetadata_rssi :: Lens.Lens' SidewalkDeviceMetadata (Prelude.Maybe Prelude.Int)
 sidewalkDeviceMetadata_rssi = Lens.lens (\SidewalkDeviceMetadata' {rssi} -> rssi) (\s@SidewalkDeviceMetadata' {} a -> s {rssi = a} :: SidewalkDeviceMetadata)
 
-instance Core.FromJSON SidewalkDeviceMetadata where
+instance Data.FromJSON SidewalkDeviceMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SidewalkDeviceMetadata"
       ( \x ->
           SidewalkDeviceMetadata'
-            Prelude.<$> (x Core..:? "DeviceState")
-            Prelude.<*> (x Core..:? "BatteryLevel")
-            Prelude.<*> (x Core..:? "Event")
-            Prelude.<*> (x Core..:? "Rssi")
+            Prelude.<$> (x Data..:? "DeviceState")
+            Prelude.<*> (x Data..:? "BatteryLevel")
+            Prelude.<*> (x Data..:? "Event")
+            Prelude.<*> (x Data..:? "Rssi")
       )
 
 instance Prelude.Hashable SidewalkDeviceMetadata where

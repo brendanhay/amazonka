@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,10 +100,10 @@ instance Core.AWSRequest ListMulticastGroups where
     Response.receiveJSON
       ( \s h x ->
           ListMulticastGroupsResponse'
-            Prelude.<$> ( x Core..?> "MulticastGroupList"
+            Prelude.<$> ( x Data..?> "MulticastGroupList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,17 +117,17 @@ instance Prelude.NFData ListMulticastGroups where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListMulticastGroups where
+instance Data.ToHeaders ListMulticastGroups where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListMulticastGroups where
+instance Data.ToPath ListMulticastGroups where
   toPath = Prelude.const "/multicast-groups"
 
-instance Core.ToQuery ListMulticastGroups where
+instance Data.ToQuery ListMulticastGroups where
   toQuery ListMulticastGroups' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListMulticastGroupsResponse' smart constructor.

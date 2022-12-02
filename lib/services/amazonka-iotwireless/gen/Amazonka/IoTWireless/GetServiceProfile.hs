@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,10 +87,10 @@ instance Core.AWSRequest GetServiceProfile where
     Response.receiveJSON
       ( \s h x ->
           GetServiceProfileResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "LoRaWAN")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "LoRaWAN")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,15 +101,15 @@ instance Prelude.Hashable GetServiceProfile where
 instance Prelude.NFData GetServiceProfile where
   rnf GetServiceProfile' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetServiceProfile where
+instance Data.ToHeaders GetServiceProfile where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetServiceProfile where
+instance Data.ToPath GetServiceProfile where
   toPath GetServiceProfile' {..} =
     Prelude.mconcat
-      ["/service-profiles/", Core.toBS id]
+      ["/service-profiles/", Data.toBS id]
 
-instance Core.ToQuery GetServiceProfile where
+instance Data.ToQuery GetServiceProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetServiceProfileResponse' smart constructor.

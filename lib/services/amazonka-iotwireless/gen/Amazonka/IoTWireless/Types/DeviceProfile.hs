@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.DeviceProfile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a device profile.
@@ -70,15 +71,15 @@ deviceProfile_arn = Lens.lens (\DeviceProfile' {arn} -> arn) (\s@DeviceProfile' 
 deviceProfile_id :: Lens.Lens' DeviceProfile (Prelude.Maybe Prelude.Text)
 deviceProfile_id = Lens.lens (\DeviceProfile' {id} -> id) (\s@DeviceProfile' {} a -> s {id = a} :: DeviceProfile)
 
-instance Core.FromJSON DeviceProfile where
+instance Data.FromJSON DeviceProfile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceProfile"
       ( \x ->
           DeviceProfile'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable DeviceProfile where

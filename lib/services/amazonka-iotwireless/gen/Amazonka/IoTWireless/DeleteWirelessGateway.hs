@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,15 +93,15 @@ instance Prelude.Hashable DeleteWirelessGateway where
 instance Prelude.NFData DeleteWirelessGateway where
   rnf DeleteWirelessGateway' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DeleteWirelessGateway where
+instance Data.ToHeaders DeleteWirelessGateway where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteWirelessGateway where
+instance Data.ToPath DeleteWirelessGateway where
   toPath DeleteWirelessGateway' {..} =
     Prelude.mconcat
-      ["/wireless-gateways/", Core.toBS id]
+      ["/wireless-gateways/", Data.toBS id]
 
-instance Core.ToQuery DeleteWirelessGateway where
+instance Data.ToQuery DeleteWirelessGateway where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteWirelessGatewayResponse' smart constructor.

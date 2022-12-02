@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -143,26 +144,26 @@ instance Prelude.NFData UpdateDestination where
       `Prelude.seq` Prelude.rnf expressionType
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateDestination where
+instance Data.ToHeaders UpdateDestination where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateDestination where
+instance Data.ToJSON UpdateDestination where
   toJSON UpdateDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Expression" Core..=) Prelude.<$> expression,
-            ("ExpressionType" Core..=)
+          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Expression" Data..=) Prelude.<$> expression,
+            ("ExpressionType" Data..=)
               Prelude.<$> expressionType
           ]
       )
 
-instance Core.ToPath UpdateDestination where
+instance Data.ToPath UpdateDestination where
   toPath UpdateDestination' {..} =
-    Prelude.mconcat ["/destinations/", Core.toBS name]
+    Prelude.mconcat ["/destinations/", Data.toBS name]
 
-instance Core.ToQuery UpdateDestination where
+instance Data.ToQuery UpdateDestination where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDestinationResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.LoRaWANJoinResourceTypeEventConfiguration wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.EventNotificationTopicStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,15 +59,15 @@ loRaWANJoinResourceTypeEventConfiguration_wirelessDeviceEventTopic :: Lens.Lens'
 loRaWANJoinResourceTypeEventConfiguration_wirelessDeviceEventTopic = Lens.lens (\LoRaWANJoinResourceTypeEventConfiguration' {wirelessDeviceEventTopic} -> wirelessDeviceEventTopic) (\s@LoRaWANJoinResourceTypeEventConfiguration' {} a -> s {wirelessDeviceEventTopic = a} :: LoRaWANJoinResourceTypeEventConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LoRaWANJoinResourceTypeEventConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoRaWANJoinResourceTypeEventConfiguration"
       ( \x ->
           LoRaWANJoinResourceTypeEventConfiguration'
-            Prelude.<$> (x Core..:? "WirelessDeviceEventTopic")
+            Prelude.<$> (x Data..:? "WirelessDeviceEventTopic")
       )
 
 instance
@@ -87,13 +88,13 @@ instance
     Prelude.rnf wirelessDeviceEventTopic
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     LoRaWANJoinResourceTypeEventConfiguration
   where
   toJSON LoRaWANJoinResourceTypeEventConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("WirelessDeviceEventTopic" Core..=)
+          [ ("WirelessDeviceEventTopic" Data..=)
               Prelude.<$> wirelessDeviceEventTopic
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.ProximityResourceTypeEventConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.SidewalkResourceTypeEventConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -59,15 +60,15 @@ proximityResourceTypeEventConfiguration_sidewalk :: Lens.Lens' ProximityResource
 proximityResourceTypeEventConfiguration_sidewalk = Lens.lens (\ProximityResourceTypeEventConfiguration' {sidewalk} -> sidewalk) (\s@ProximityResourceTypeEventConfiguration' {} a -> s {sidewalk = a} :: ProximityResourceTypeEventConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ProximityResourceTypeEventConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProximityResourceTypeEventConfiguration"
       ( \x ->
           ProximityResourceTypeEventConfiguration'
-            Prelude.<$> (x Core..:? "Sidewalk")
+            Prelude.<$> (x Data..:? "Sidewalk")
       )
 
 instance
@@ -87,11 +88,11 @@ instance
     Prelude.rnf sidewalk
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ProximityResourceTypeEventConfiguration
   where
   toJSON ProximityResourceTypeEventConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Sidewalk" Core..=) Prelude.<$> sidewalk]
+          [("Sidewalk" Data..=) Prelude.<$> sidewalk]
       )

@@ -21,6 +21,7 @@ module Amazonka.SmsVoice.Types.PlainTextMessageType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that defines a message that contains unformatted text.
@@ -88,12 +89,12 @@ instance Prelude.NFData PlainTextMessageType where
       `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf text
 
-instance Core.ToJSON PlainTextMessageType where
+instance Data.ToJSON PlainTextMessageType where
   toJSON PlainTextMessageType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VoiceId" Core..=) Prelude.<$> voiceId,
-            ("LanguageCode" Core..=) Prelude.<$> languageCode,
-            ("Text" Core..=) Prelude.<$> text
+          [ ("VoiceId" Data..=) Prelude.<$> voiceId,
+            ("LanguageCode" Data..=) Prelude.<$> languageCode,
+            ("Text" Data..=) Prelude.<$> text
           ]
       )

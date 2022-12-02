@@ -21,6 +21,7 @@ module Amazonka.SmsVoice.Types.VoiceMessageContent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SmsVoice.Types.CallInstructionsMessageType
 import Amazonka.SmsVoice.Types.PlainTextMessageType
@@ -83,14 +84,14 @@ instance Prelude.NFData VoiceMessageContent where
       `Prelude.seq` Prelude.rnf callInstructionsMessage
       `Prelude.seq` Prelude.rnf plainTextMessage
 
-instance Core.ToJSON VoiceMessageContent where
+instance Data.ToJSON VoiceMessageContent where
   toJSON VoiceMessageContent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SSMLMessage" Core..=) Prelude.<$> sSMLMessage,
-            ("CallInstructionsMessage" Core..=)
+          [ ("SSMLMessage" Data..=) Prelude.<$> sSMLMessage,
+            ("CallInstructionsMessage" Data..=)
               Prelude.<$> callInstructionsMessage,
-            ("PlainTextMessage" Core..=)
+            ("PlainTextMessage" Data..=)
               Prelude.<$> plainTextMessage
           ]
       )

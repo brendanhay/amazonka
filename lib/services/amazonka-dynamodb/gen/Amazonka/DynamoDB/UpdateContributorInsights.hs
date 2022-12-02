@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,9 +121,9 @@ instance Core.AWSRequest UpdateContributorInsights where
     Response.receiveJSON
       ( \s h x ->
           UpdateContributorInsightsResponse'
-            Prelude.<$> (x Core..?> "ContributorInsightsStatus")
-            Prelude.<*> (x Core..?> "TableName")
-            Prelude.<*> (x Core..?> "IndexName")
+            Prelude.<$> (x Data..?> "ContributorInsightsStatus")
+            Prelude.<*> (x Data..?> "TableName")
+            Prelude.<*> (x Data..?> "IndexName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,38 +139,38 @@ instance Prelude.NFData UpdateContributorInsights where
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf contributorInsightsAction
 
-instance Core.ToHeaders UpdateContributorInsights where
+instance Data.ToHeaders UpdateContributorInsights where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.UpdateContributorInsights" ::
+              Data.=# ( "DynamoDB_20120810.UpdateContributorInsights" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateContributorInsights where
+instance Data.ToJSON UpdateContributorInsights where
   toJSON UpdateContributorInsights' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IndexName" Core..=) Prelude.<$> indexName,
-            Prelude.Just ("TableName" Core..= tableName),
+          [ ("IndexName" Data..=) Prelude.<$> indexName,
+            Prelude.Just ("TableName" Data..= tableName),
             Prelude.Just
               ( "ContributorInsightsAction"
-                  Core..= contributorInsightsAction
+                  Data..= contributorInsightsAction
               )
           ]
       )
 
-instance Core.ToPath UpdateContributorInsights where
+instance Data.ToPath UpdateContributorInsights where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateContributorInsights where
+instance Data.ToQuery UpdateContributorInsights where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateContributorInsightsResponse' smart constructor.

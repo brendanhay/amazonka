@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.GlobalTable where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.Replica
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -64,16 +65,16 @@ globalTable_replicationGroup = Lens.lens (\GlobalTable' {replicationGroup} -> re
 globalTable_globalTableName :: Lens.Lens' GlobalTable (Prelude.Maybe Prelude.Text)
 globalTable_globalTableName = Lens.lens (\GlobalTable' {globalTableName} -> globalTableName) (\s@GlobalTable' {} a -> s {globalTableName = a} :: GlobalTable)
 
-instance Core.FromJSON GlobalTable where
+instance Data.FromJSON GlobalTable where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GlobalTable"
       ( \x ->
           GlobalTable'
-            Prelude.<$> ( x Core..:? "ReplicationGroup"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ReplicationGroup"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "GlobalTableName")
+            Prelude.<*> (x Data..:? "GlobalTableName")
       )
 
 instance Prelude.Hashable GlobalTable where

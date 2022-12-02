@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.GlobalSecondaryIndex where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.KeySchemaElement
 import Amazonka.DynamoDB.Types.Projection
@@ -163,16 +164,16 @@ globalSecondaryIndex_keySchema = Lens.lens (\GlobalSecondaryIndex' {keySchema} -
 globalSecondaryIndex_projection :: Lens.Lens' GlobalSecondaryIndex Projection
 globalSecondaryIndex_projection = Lens.lens (\GlobalSecondaryIndex' {projection} -> projection) (\s@GlobalSecondaryIndex' {} a -> s {projection = a} :: GlobalSecondaryIndex)
 
-instance Core.FromJSON GlobalSecondaryIndex where
+instance Data.FromJSON GlobalSecondaryIndex where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GlobalSecondaryIndex"
       ( \x ->
           GlobalSecondaryIndex'
-            Prelude.<$> (x Core..:? "ProvisionedThroughput")
-            Prelude.<*> (x Core..: "IndexName")
-            Prelude.<*> (x Core..: "KeySchema")
-            Prelude.<*> (x Core..: "Projection")
+            Prelude.<$> (x Data..:? "ProvisionedThroughput")
+            Prelude.<*> (x Data..: "IndexName")
+            Prelude.<*> (x Data..: "KeySchema")
+            Prelude.<*> (x Data..: "Projection")
       )
 
 instance Prelude.Hashable GlobalSecondaryIndex where
@@ -189,14 +190,14 @@ instance Prelude.NFData GlobalSecondaryIndex where
       `Prelude.seq` Prelude.rnf keySchema
       `Prelude.seq` Prelude.rnf projection
 
-instance Core.ToJSON GlobalSecondaryIndex where
+instance Data.ToJSON GlobalSecondaryIndex where
   toJSON GlobalSecondaryIndex' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProvisionedThroughput" Core..=)
+          [ ("ProvisionedThroughput" Data..=)
               Prelude.<$> provisionedThroughput,
-            Prelude.Just ("IndexName" Core..= indexName),
-            Prelude.Just ("KeySchema" Core..= keySchema),
-            Prelude.Just ("Projection" Core..= projection)
+            Prelude.Just ("IndexName" Data..= indexName),
+            Prelude.Just ("KeySchema" Data..= keySchema),
+            Prelude.Just ("Projection" Data..= projection)
           ]
       )

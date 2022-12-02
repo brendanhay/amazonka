@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.KinesisStreamingDestinationInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
@@ -86,11 +87,11 @@ instance
     Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf streamArn
 
-instance Core.ToJSON KinesisStreamingDestinationInput where
+instance Data.ToJSON KinesisStreamingDestinationInput where
   toJSON KinesisStreamingDestinationInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("TableName" Core..= tableName),
-            Prelude.Just ("StreamArn" Core..= streamArn)
+          [ Prelude.Just ("TableName" Data..= tableName),
+            Prelude.Just ("StreamArn" Data..= streamArn)
           ]
       )

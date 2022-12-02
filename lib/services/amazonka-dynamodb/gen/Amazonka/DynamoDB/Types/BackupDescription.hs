@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.BackupDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.BackupDetails
 import Amazonka.DynamoDB.Types.SourceTableDetails
@@ -79,15 +80,15 @@ backupDescription_backupDetails = Lens.lens (\BackupDescription' {backupDetails}
 backupDescription_sourceTableFeatureDetails :: Lens.Lens' BackupDescription (Prelude.Maybe SourceTableFeatureDetails)
 backupDescription_sourceTableFeatureDetails = Lens.lens (\BackupDescription' {sourceTableFeatureDetails} -> sourceTableFeatureDetails) (\s@BackupDescription' {} a -> s {sourceTableFeatureDetails = a} :: BackupDescription)
 
-instance Core.FromJSON BackupDescription where
+instance Data.FromJSON BackupDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackupDescription"
       ( \x ->
           BackupDescription'
-            Prelude.<$> (x Core..:? "SourceTableDetails")
-            Prelude.<*> (x Core..:? "BackupDetails")
-            Prelude.<*> (x Core..:? "SourceTableFeatureDetails")
+            Prelude.<$> (x Data..:? "SourceTableDetails")
+            Prelude.<*> (x Data..:? "BackupDetails")
+            Prelude.<*> (x Data..:? "SourceTableFeatureDetails")
       )
 
 instance Prelude.Hashable BackupDescription where

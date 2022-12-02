@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -785,9 +786,9 @@ instance Core.AWSRequest UpdateItem where
     Response.receiveJSON
       ( \s h x ->
           UpdateItemResponse'
-            Prelude.<$> (x Core..?> "ConsumedCapacity")
-            Prelude.<*> (x Core..?> "Attributes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ItemCollectionMetrics")
+            Prelude.<$> (x Data..?> "ConsumedCapacity")
+            Prelude.<*> (x Data..?> "Attributes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ItemCollectionMetrics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -821,52 +822,52 @@ instance Prelude.NFData UpdateItem where
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf key
 
-instance Core.ToHeaders UpdateItem where
+instance Data.ToHeaders UpdateItem where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.UpdateItem" ::
+              Data.=# ( "DynamoDB_20120810.UpdateItem" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateItem where
+instance Data.ToJSON UpdateItem where
   toJSON UpdateItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ReturnValues" Core..=) Prelude.<$> returnValues,
-            ("ExpressionAttributeValues" Core..=)
+          [ ("ReturnValues" Data..=) Prelude.<$> returnValues,
+            ("ExpressionAttributeValues" Data..=)
               Prelude.<$> expressionAttributeValues,
-            ("ExpressionAttributeNames" Core..=)
+            ("ExpressionAttributeNames" Data..=)
               Prelude.<$> expressionAttributeNames,
-            ("ConditionalOperator" Core..=)
+            ("ConditionalOperator" Data..=)
               Prelude.<$> conditionalOperator,
-            ("ReturnConsumedCapacity" Core..=)
+            ("ReturnConsumedCapacity" Data..=)
               Prelude.<$> returnConsumedCapacity,
-            ("Expected" Core..=) Prelude.<$> expected,
-            ("AttributeUpdates" Core..=)
+            ("Expected" Data..=) Prelude.<$> expected,
+            ("AttributeUpdates" Data..=)
               Prelude.<$> attributeUpdates,
-            ("ReturnItemCollectionMetrics" Core..=)
+            ("ReturnItemCollectionMetrics" Data..=)
               Prelude.<$> returnItemCollectionMetrics,
-            ("UpdateExpression" Core..=)
+            ("UpdateExpression" Data..=)
               Prelude.<$> updateExpression,
-            ("ConditionExpression" Core..=)
+            ("ConditionExpression" Data..=)
               Prelude.<$> conditionExpression,
-            Prelude.Just ("TableName" Core..= tableName),
-            Prelude.Just ("Key" Core..= key)
+            Prelude.Just ("TableName" Data..= tableName),
+            Prelude.Just ("Key" Data..= key)
           ]
       )
 
-instance Core.ToPath UpdateItem where
+instance Data.ToPath UpdateItem where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateItem where
+instance Data.ToQuery UpdateItem where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of an @UpdateItem@ operation.

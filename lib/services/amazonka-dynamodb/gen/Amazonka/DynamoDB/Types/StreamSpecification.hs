@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.StreamSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.StreamViewType
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -112,14 +113,14 @@ streamSpecification_streamViewType = Lens.lens (\StreamSpecification' {streamVie
 streamSpecification_streamEnabled :: Lens.Lens' StreamSpecification Prelude.Bool
 streamSpecification_streamEnabled = Lens.lens (\StreamSpecification' {streamEnabled} -> streamEnabled) (\s@StreamSpecification' {} a -> s {streamEnabled = a} :: StreamSpecification)
 
-instance Core.FromJSON StreamSpecification where
+instance Data.FromJSON StreamSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamSpecification"
       ( \x ->
           StreamSpecification'
-            Prelude.<$> (x Core..:? "StreamViewType")
-            Prelude.<*> (x Core..: "StreamEnabled")
+            Prelude.<$> (x Data..:? "StreamViewType")
+            Prelude.<*> (x Data..: "StreamEnabled")
       )
 
 instance Prelude.Hashable StreamSpecification where
@@ -132,13 +133,13 @@ instance Prelude.NFData StreamSpecification where
     Prelude.rnf streamViewType
       `Prelude.seq` Prelude.rnf streamEnabled
 
-instance Core.ToJSON StreamSpecification where
+instance Data.ToJSON StreamSpecification where
   toJSON StreamSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StreamViewType" Core..=)
+          [ ("StreamViewType" Data..=)
               Prelude.<$> streamViewType,
             Prelude.Just
-              ("StreamEnabled" Core..= streamEnabled)
+              ("StreamEnabled" Data..= streamEnabled)
           ]
       )

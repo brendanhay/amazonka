@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.BatchStatementRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
@@ -87,13 +88,13 @@ instance Prelude.NFData BatchStatementRequest where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf statement
 
-instance Core.ToJSON BatchStatementRequest where
+instance Data.ToJSON BatchStatementRequest where
   toJSON BatchStatementRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConsistentRead" Core..=)
+          [ ("ConsistentRead" Data..=)
               Prelude.<$> consistentRead,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("Statement" Core..= statement)
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("Statement" Data..= statement)
           ]
       )

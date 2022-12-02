@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.ProvisionedThroughputDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
@@ -48,10 +49,10 @@ data ProvisionedThroughputDescription = ProvisionedThroughputDescription'
     writeCapacityUnits :: Prelude.Maybe Prelude.Natural,
     -- | The date and time of the last provisioned throughput increase for this
     -- table.
-    lastIncreaseDateTime :: Prelude.Maybe Core.POSIX,
+    lastIncreaseDateTime :: Prelude.Maybe Data.POSIX,
     -- | The date and time of the last provisioned throughput decrease for this
     -- table.
-    lastDecreaseDateTime :: Prelude.Maybe Core.POSIX
+    lastDecreaseDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -119,27 +120,27 @@ provisionedThroughputDescription_writeCapacityUnits = Lens.lens (\ProvisionedThr
 -- | The date and time of the last provisioned throughput increase for this
 -- table.
 provisionedThroughputDescription_lastIncreaseDateTime :: Lens.Lens' ProvisionedThroughputDescription (Prelude.Maybe Prelude.UTCTime)
-provisionedThroughputDescription_lastIncreaseDateTime = Lens.lens (\ProvisionedThroughputDescription' {lastIncreaseDateTime} -> lastIncreaseDateTime) (\s@ProvisionedThroughputDescription' {} a -> s {lastIncreaseDateTime = a} :: ProvisionedThroughputDescription) Prelude.. Lens.mapping Core._Time
+provisionedThroughputDescription_lastIncreaseDateTime = Lens.lens (\ProvisionedThroughputDescription' {lastIncreaseDateTime} -> lastIncreaseDateTime) (\s@ProvisionedThroughputDescription' {} a -> s {lastIncreaseDateTime = a} :: ProvisionedThroughputDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time of the last provisioned throughput decrease for this
 -- table.
 provisionedThroughputDescription_lastDecreaseDateTime :: Lens.Lens' ProvisionedThroughputDescription (Prelude.Maybe Prelude.UTCTime)
-provisionedThroughputDescription_lastDecreaseDateTime = Lens.lens (\ProvisionedThroughputDescription' {lastDecreaseDateTime} -> lastDecreaseDateTime) (\s@ProvisionedThroughputDescription' {} a -> s {lastDecreaseDateTime = a} :: ProvisionedThroughputDescription) Prelude.. Lens.mapping Core._Time
+provisionedThroughputDescription_lastDecreaseDateTime = Lens.lens (\ProvisionedThroughputDescription' {lastDecreaseDateTime} -> lastDecreaseDateTime) (\s@ProvisionedThroughputDescription' {} a -> s {lastDecreaseDateTime = a} :: ProvisionedThroughputDescription) Prelude.. Lens.mapping Data._Time
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ProvisionedThroughputDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProvisionedThroughputDescription"
       ( \x ->
           ProvisionedThroughputDescription'
-            Prelude.<$> (x Core..:? "ReadCapacityUnits")
-            Prelude.<*> (x Core..:? "NumberOfDecreasesToday")
-            Prelude.<*> (x Core..:? "WriteCapacityUnits")
-            Prelude.<*> (x Core..:? "LastIncreaseDateTime")
-            Prelude.<*> (x Core..:? "LastDecreaseDateTime")
+            Prelude.<$> (x Data..:? "ReadCapacityUnits")
+            Prelude.<*> (x Data..:? "NumberOfDecreasesToday")
+            Prelude.<*> (x Data..:? "WriteCapacityUnits")
+            Prelude.<*> (x Data..:? "LastIncreaseDateTime")
+            Prelude.<*> (x Data..:? "LastDecreaseDateTime")
       )
 
 instance

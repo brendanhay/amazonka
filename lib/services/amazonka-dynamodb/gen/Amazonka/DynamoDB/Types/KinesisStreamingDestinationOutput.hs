@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.DestinationStatus
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -73,17 +74,17 @@ kinesisStreamingDestinationOutput_destinationStatus :: Lens.Lens' KinesisStreami
 kinesisStreamingDestinationOutput_destinationStatus = Lens.lens (\KinesisStreamingDestinationOutput' {destinationStatus} -> destinationStatus) (\s@KinesisStreamingDestinationOutput' {} a -> s {destinationStatus = a} :: KinesisStreamingDestinationOutput)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     KinesisStreamingDestinationOutput
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KinesisStreamingDestinationOutput"
       ( \x ->
           KinesisStreamingDestinationOutput'
-            Prelude.<$> (x Core..:? "TableName")
-            Prelude.<*> (x Core..:? "StreamArn")
-            Prelude.<*> (x Core..:? "DestinationStatus")
+            Prelude.<$> (x Data..:? "TableName")
+            Prelude.<*> (x Data..:? "StreamArn")
+            Prelude.<*> (x Data..:? "DestinationStatus")
       )
 
 instance

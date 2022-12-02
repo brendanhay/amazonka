@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.ArchivalSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
@@ -38,7 +39,7 @@ data ArchivalSummary = ArchivalSummary'
     archivalReason :: Prelude.Maybe Prelude.Text,
     -- | The date and time when table archival was initiated by DynamoDB, in UNIX
     -- epoch time format.
-    archivalDateTime :: Prelude.Maybe Core.POSIX,
+    archivalDateTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the backup the table was archived to,
     -- when applicable in the archival reason. If you wish to restore this
     -- backup to the same table name, you will need to delete the original
@@ -90,7 +91,7 @@ archivalSummary_archivalReason = Lens.lens (\ArchivalSummary' {archivalReason} -
 -- | The date and time when table archival was initiated by DynamoDB, in UNIX
 -- epoch time format.
 archivalSummary_archivalDateTime :: Lens.Lens' ArchivalSummary (Prelude.Maybe Prelude.UTCTime)
-archivalSummary_archivalDateTime = Lens.lens (\ArchivalSummary' {archivalDateTime} -> archivalDateTime) (\s@ArchivalSummary' {} a -> s {archivalDateTime = a} :: ArchivalSummary) Prelude.. Lens.mapping Core._Time
+archivalSummary_archivalDateTime = Lens.lens (\ArchivalSummary' {archivalDateTime} -> archivalDateTime) (\s@ArchivalSummary' {} a -> s {archivalDateTime = a} :: ArchivalSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the backup the table was archived to,
 -- when applicable in the archival reason. If you wish to restore this
@@ -99,15 +100,15 @@ archivalSummary_archivalDateTime = Lens.lens (\ArchivalSummary' {archivalDateTim
 archivalSummary_archivalBackupArn :: Lens.Lens' ArchivalSummary (Prelude.Maybe Prelude.Text)
 archivalSummary_archivalBackupArn = Lens.lens (\ArchivalSummary' {archivalBackupArn} -> archivalBackupArn) (\s@ArchivalSummary' {} a -> s {archivalBackupArn = a} :: ArchivalSummary)
 
-instance Core.FromJSON ArchivalSummary where
+instance Data.FromJSON ArchivalSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ArchivalSummary"
       ( \x ->
           ArchivalSummary'
-            Prelude.<$> (x Core..:? "ArchivalReason")
-            Prelude.<*> (x Core..:? "ArchivalDateTime")
-            Prelude.<*> (x Core..:? "ArchivalBackupArn")
+            Prelude.<$> (x Data..:? "ArchivalReason")
+            Prelude.<*> (x Data..:? "ArchivalDateTime")
+            Prelude.<*> (x Data..:? "ArchivalBackupArn")
       )
 
 instance Prelude.Hashable ArchivalSummary where

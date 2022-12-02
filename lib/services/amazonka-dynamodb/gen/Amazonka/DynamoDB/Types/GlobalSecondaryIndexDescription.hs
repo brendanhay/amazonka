@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.GlobalSecondaryIndexDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.IndexStatus
 import Amazonka.DynamoDB.Types.KeySchemaElement
@@ -273,23 +274,23 @@ globalSecondaryIndexDescription_projection :: Lens.Lens' GlobalSecondaryIndexDes
 globalSecondaryIndexDescription_projection = Lens.lens (\GlobalSecondaryIndexDescription' {projection} -> projection) (\s@GlobalSecondaryIndexDescription' {} a -> s {projection = a} :: GlobalSecondaryIndexDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     GlobalSecondaryIndexDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GlobalSecondaryIndexDescription"
       ( \x ->
           GlobalSecondaryIndexDescription'
-            Prelude.<$> (x Core..:? "ItemCount")
-            Prelude.<*> (x Core..:? "ProvisionedThroughput")
-            Prelude.<*> (x Core..:? "Backfilling")
-            Prelude.<*> (x Core..:? "IndexName")
-            Prelude.<*> (x Core..:? "IndexArn")
-            Prelude.<*> (x Core..:? "IndexStatus")
-            Prelude.<*> (x Core..:? "IndexSizeBytes")
-            Prelude.<*> (x Core..:? "KeySchema")
-            Prelude.<*> (x Core..:? "Projection")
+            Prelude.<$> (x Data..:? "ItemCount")
+            Prelude.<*> (x Data..:? "ProvisionedThroughput")
+            Prelude.<*> (x Data..:? "Backfilling")
+            Prelude.<*> (x Data..:? "IndexName")
+            Prelude.<*> (x Data..:? "IndexArn")
+            Prelude.<*> (x Data..:? "IndexStatus")
+            Prelude.<*> (x Data..:? "IndexSizeBytes")
+            Prelude.<*> (x Data..:? "KeySchema")
+            Prelude.<*> (x Data..:? "Projection")
       )
 
 instance

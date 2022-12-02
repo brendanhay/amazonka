@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.KeysAndAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
@@ -258,19 +259,19 @@ keysAndAttributes_projectionExpression = Lens.lens (\KeysAndAttributes' {project
 keysAndAttributes_keys :: Lens.Lens' KeysAndAttributes (Prelude.NonEmpty (Prelude.HashMap Prelude.Text AttributeValue))
 keysAndAttributes_keys = Lens.lens (\KeysAndAttributes' {keys} -> keys) (\s@KeysAndAttributes' {} a -> s {keys = a} :: KeysAndAttributes) Prelude.. Lens.coerced
 
-instance Core.FromJSON KeysAndAttributes where
+instance Data.FromJSON KeysAndAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KeysAndAttributes"
       ( \x ->
           KeysAndAttributes'
-            Prelude.<$> (x Core..:? "ConsistentRead")
-            Prelude.<*> ( x Core..:? "ExpressionAttributeNames"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ConsistentRead")
+            Prelude.<*> ( x Data..:? "ExpressionAttributeNames"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "AttributesToGet")
-            Prelude.<*> (x Core..:? "ProjectionExpression")
-            Prelude.<*> (x Core..: "Keys")
+            Prelude.<*> (x Data..:? "AttributesToGet")
+            Prelude.<*> (x Data..:? "ProjectionExpression")
+            Prelude.<*> (x Data..: "Keys")
       )
 
 instance Prelude.Hashable KeysAndAttributes where
@@ -289,18 +290,18 @@ instance Prelude.NFData KeysAndAttributes where
       `Prelude.seq` Prelude.rnf projectionExpression
       `Prelude.seq` Prelude.rnf keys
 
-instance Core.ToJSON KeysAndAttributes where
+instance Data.ToJSON KeysAndAttributes where
   toJSON KeysAndAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConsistentRead" Core..=)
+          [ ("ConsistentRead" Data..=)
               Prelude.<$> consistentRead,
-            ("ExpressionAttributeNames" Core..=)
+            ("ExpressionAttributeNames" Data..=)
               Prelude.<$> expressionAttributeNames,
-            ("AttributesToGet" Core..=)
+            ("AttributesToGet" Data..=)
               Prelude.<$> attributesToGet,
-            ("ProjectionExpression" Core..=)
+            ("ProjectionExpression" Data..=)
               Prelude.<$> projectionExpression,
-            Prelude.Just ("Keys" Core..= keys)
+            Prelude.Just ("Keys" Data..= keys)
           ]
       )

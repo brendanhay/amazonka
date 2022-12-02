@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.TableCreationParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeDefinition
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.BillingMode
@@ -126,23 +127,23 @@ tableCreationParameters_attributeDefinitions = Lens.lens (\TableCreationParamete
 tableCreationParameters_keySchema :: Lens.Lens' TableCreationParameters (Prelude.NonEmpty KeySchemaElement)
 tableCreationParameters_keySchema = Lens.lens (\TableCreationParameters' {keySchema} -> keySchema) (\s@TableCreationParameters' {} a -> s {keySchema = a} :: TableCreationParameters) Prelude.. Lens.coerced
 
-instance Core.FromJSON TableCreationParameters where
+instance Data.FromJSON TableCreationParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TableCreationParameters"
       ( \x ->
           TableCreationParameters'
-            Prelude.<$> (x Core..:? "BillingMode")
-            Prelude.<*> (x Core..:? "ProvisionedThroughput")
-            Prelude.<*> (x Core..:? "SSESpecification")
-            Prelude.<*> ( x Core..:? "GlobalSecondaryIndexes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "BillingMode")
+            Prelude.<*> (x Data..:? "ProvisionedThroughput")
+            Prelude.<*> (x Data..:? "SSESpecification")
+            Prelude.<*> ( x Data..:? "GlobalSecondaryIndexes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "TableName")
-            Prelude.<*> ( x Core..:? "AttributeDefinitions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..: "TableName")
+            Prelude.<*> ( x Data..:? "AttributeDefinitions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "KeySchema")
+            Prelude.<*> (x Data..: "KeySchema")
       )
 
 instance Prelude.Hashable TableCreationParameters where
@@ -165,22 +166,22 @@ instance Prelude.NFData TableCreationParameters where
       `Prelude.seq` Prelude.rnf attributeDefinitions
       `Prelude.seq` Prelude.rnf keySchema
 
-instance Core.ToJSON TableCreationParameters where
+instance Data.ToJSON TableCreationParameters where
   toJSON TableCreationParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BillingMode" Core..=) Prelude.<$> billingMode,
-            ("ProvisionedThroughput" Core..=)
+          [ ("BillingMode" Data..=) Prelude.<$> billingMode,
+            ("ProvisionedThroughput" Data..=)
               Prelude.<$> provisionedThroughput,
-            ("SSESpecification" Core..=)
+            ("SSESpecification" Data..=)
               Prelude.<$> sSESpecification,
-            ("GlobalSecondaryIndexes" Core..=)
+            ("GlobalSecondaryIndexes" Data..=)
               Prelude.<$> globalSecondaryIndexes,
-            Prelude.Just ("TableName" Core..= tableName),
+            Prelude.Just ("TableName" Data..= tableName),
             Prelude.Just
               ( "AttributeDefinitions"
-                  Core..= attributeDefinitions
+                  Data..= attributeDefinitions
               ),
-            Prelude.Just ("KeySchema" Core..= keySchema)
+            Prelude.Just ("KeySchema" Data..= keySchema)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.ImportTableDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ImportStatus
 import Amazonka.DynamoDB.Types.InputCompressionType
@@ -60,7 +61,7 @@ data ImportTableDescription = ImportTableDescription'
     cloudWatchLogGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The time at which the creation of the table associated with this import
     -- task completed.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The error message corresponding to the failure that the import job ran
     -- into during execution.
     failureMessage :: Prelude.Maybe Prelude.Text,
@@ -79,7 +80,7 @@ data ImportTableDescription = ImportTableDescription'
     -- | The format of the source data going into the target table.
     inputFormat :: Prelude.Maybe InputFormat,
     -- | The time when this import task started.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The format options for the data that was imported into the target table.
     -- There is one value, CsvOption.
     inputFormatOptions :: Prelude.Maybe InputFormatOptions
@@ -211,7 +212,7 @@ importTableDescription_cloudWatchLogGroupArn = Lens.lens (\ImportTableDescriptio
 -- | The time at which the creation of the table associated with this import
 -- task completed.
 importTableDescription_endTime :: Lens.Lens' ImportTableDescription (Prelude.Maybe Prelude.UTCTime)
-importTableDescription_endTime = Lens.lens (\ImportTableDescription' {endTime} -> endTime) (\s@ImportTableDescription' {} a -> s {endTime = a} :: ImportTableDescription) Prelude.. Lens.mapping Core._Time
+importTableDescription_endTime = Lens.lens (\ImportTableDescription' {endTime} -> endTime) (\s@ImportTableDescription' {} a -> s {endTime = a} :: ImportTableDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The error message corresponding to the failure that the import job ran
 -- into during execution.
@@ -246,38 +247,38 @@ importTableDescription_inputFormat = Lens.lens (\ImportTableDescription' {inputF
 
 -- | The time when this import task started.
 importTableDescription_startTime :: Lens.Lens' ImportTableDescription (Prelude.Maybe Prelude.UTCTime)
-importTableDescription_startTime = Lens.lens (\ImportTableDescription' {startTime} -> startTime) (\s@ImportTableDescription' {} a -> s {startTime = a} :: ImportTableDescription) Prelude.. Lens.mapping Core._Time
+importTableDescription_startTime = Lens.lens (\ImportTableDescription' {startTime} -> startTime) (\s@ImportTableDescription' {} a -> s {startTime = a} :: ImportTableDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The format options for the data that was imported into the target table.
 -- There is one value, CsvOption.
 importTableDescription_inputFormatOptions :: Lens.Lens' ImportTableDescription (Prelude.Maybe InputFormatOptions)
 importTableDescription_inputFormatOptions = Lens.lens (\ImportTableDescription' {inputFormatOptions} -> inputFormatOptions) (\s@ImportTableDescription' {} a -> s {inputFormatOptions = a} :: ImportTableDescription)
 
-instance Core.FromJSON ImportTableDescription where
+instance Data.FromJSON ImportTableDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportTableDescription"
       ( \x ->
           ImportTableDescription'
-            Prelude.<$> (x Core..:? "ImportedItemCount")
-            Prelude.<*> (x Core..:? "ClientToken")
-            Prelude.<*> (x Core..:? "TableArn")
-            Prelude.<*> (x Core..:? "FailureCode")
-            Prelude.<*> (x Core..:? "ProcessedSizeBytes")
-            Prelude.<*> (x Core..:? "InputCompressionType")
-            Prelude.<*> (x Core..:? "ErrorCount")
-            Prelude.<*> (x Core..:? "ImportArn")
-            Prelude.<*> (x Core..:? "CloudWatchLogGroupArn")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "FailureMessage")
-            Prelude.<*> (x Core..:? "TableId")
-            Prelude.<*> (x Core..:? "ProcessedItemCount")
-            Prelude.<*> (x Core..:? "TableCreationParameters")
-            Prelude.<*> (x Core..:? "S3BucketSource")
-            Prelude.<*> (x Core..:? "ImportStatus")
-            Prelude.<*> (x Core..:? "InputFormat")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "InputFormatOptions")
+            Prelude.<$> (x Data..:? "ImportedItemCount")
+            Prelude.<*> (x Data..:? "ClientToken")
+            Prelude.<*> (x Data..:? "TableArn")
+            Prelude.<*> (x Data..:? "FailureCode")
+            Prelude.<*> (x Data..:? "ProcessedSizeBytes")
+            Prelude.<*> (x Data..:? "InputCompressionType")
+            Prelude.<*> (x Data..:? "ErrorCount")
+            Prelude.<*> (x Data..:? "ImportArn")
+            Prelude.<*> (x Data..:? "CloudWatchLogGroupArn")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "FailureMessage")
+            Prelude.<*> (x Data..:? "TableId")
+            Prelude.<*> (x Data..:? "ProcessedItemCount")
+            Prelude.<*> (x Data..:? "TableCreationParameters")
+            Prelude.<*> (x Data..:? "S3BucketSource")
+            Prelude.<*> (x Data..:? "ImportStatus")
+            Prelude.<*> (x Data..:? "InputFormat")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "InputFormatOptions")
       )
 
 instance Prelude.Hashable ImportTableDescription where

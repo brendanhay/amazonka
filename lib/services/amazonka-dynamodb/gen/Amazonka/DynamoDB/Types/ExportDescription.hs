@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.ExportDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ExportFormat
 import Amazonka.DynamoDB.Types.ExportStatus
@@ -56,7 +57,7 @@ data ExportDescription = ExportDescription'
     -- | The number of items exported.
     itemCount :: Prelude.Maybe Prelude.Natural,
     -- | The time at which the export task completed.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | Export failure reason description.
     failureMessage :: Prelude.Maybe Prelude.Text,
     -- | Unique ID of the table that was exported.
@@ -65,7 +66,7 @@ data ExportDescription = ExportDescription'
     -- @DYNAMODB_JSON@ or @ION@.
     exportFormat :: Prelude.Maybe ExportFormat,
     -- | Point in time from which table data was exported.
-    exportTime :: Prelude.Maybe Core.POSIX,
+    exportTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the Amazon Web Services account that owns the bucket
     -- containing the export.
     s3BucketOwner :: Prelude.Maybe Prelude.Text,
@@ -78,7 +79,7 @@ data ExportDescription = ExportDescription'
     -- | The name of the manifest file for the export task.
     exportManifest :: Prelude.Maybe Prelude.Text,
     -- | The time at which the export task began.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon S3 bucket prefix used as the file name and path of the
     -- exported snapshot.
     s3Prefix :: Prelude.Maybe Prelude.Text
@@ -208,7 +209,7 @@ exportDescription_itemCount = Lens.lens (\ExportDescription' {itemCount} -> item
 
 -- | The time at which the export task completed.
 exportDescription_endTime :: Lens.Lens' ExportDescription (Prelude.Maybe Prelude.UTCTime)
-exportDescription_endTime = Lens.lens (\ExportDescription' {endTime} -> endTime) (\s@ExportDescription' {} a -> s {endTime = a} :: ExportDescription) Prelude.. Lens.mapping Core._Time
+exportDescription_endTime = Lens.lens (\ExportDescription' {endTime} -> endTime) (\s@ExportDescription' {} a -> s {endTime = a} :: ExportDescription) Prelude.. Lens.mapping Data._Time
 
 -- | Export failure reason description.
 exportDescription_failureMessage :: Lens.Lens' ExportDescription (Prelude.Maybe Prelude.Text)
@@ -225,7 +226,7 @@ exportDescription_exportFormat = Lens.lens (\ExportDescription' {exportFormat} -
 
 -- | Point in time from which table data was exported.
 exportDescription_exportTime :: Lens.Lens' ExportDescription (Prelude.Maybe Prelude.UTCTime)
-exportDescription_exportTime = Lens.lens (\ExportDescription' {exportTime} -> exportTime) (\s@ExportDescription' {} a -> s {exportTime = a} :: ExportDescription) Prelude.. Lens.mapping Core._Time
+exportDescription_exportTime = Lens.lens (\ExportDescription' {exportTime} -> exportTime) (\s@ExportDescription' {} a -> s {exportTime = a} :: ExportDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the Amazon Web Services account that owns the bucket
 -- containing the export.
@@ -248,38 +249,38 @@ exportDescription_exportManifest = Lens.lens (\ExportDescription' {exportManifes
 
 -- | The time at which the export task began.
 exportDescription_startTime :: Lens.Lens' ExportDescription (Prelude.Maybe Prelude.UTCTime)
-exportDescription_startTime = Lens.lens (\ExportDescription' {startTime} -> startTime) (\s@ExportDescription' {} a -> s {startTime = a} :: ExportDescription) Prelude.. Lens.mapping Core._Time
+exportDescription_startTime = Lens.lens (\ExportDescription' {startTime} -> startTime) (\s@ExportDescription' {} a -> s {startTime = a} :: ExportDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon S3 bucket prefix used as the file name and path of the
 -- exported snapshot.
 exportDescription_s3Prefix :: Lens.Lens' ExportDescription (Prelude.Maybe Prelude.Text)
 exportDescription_s3Prefix = Lens.lens (\ExportDescription' {s3Prefix} -> s3Prefix) (\s@ExportDescription' {} a -> s {s3Prefix = a} :: ExportDescription)
 
-instance Core.FromJSON ExportDescription where
+instance Data.FromJSON ExportDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExportDescription"
       ( \x ->
           ExportDescription'
-            Prelude.<$> (x Core..:? "S3Bucket")
-            Prelude.<*> (x Core..:? "ClientToken")
-            Prelude.<*> (x Core..:? "TableArn")
-            Prelude.<*> (x Core..:? "FailureCode")
-            Prelude.<*> (x Core..:? "ExportArn")
-            Prelude.<*> (x Core..:? "BilledSizeBytes")
-            Prelude.<*> (x Core..:? "S3SseAlgorithm")
-            Prelude.<*> (x Core..:? "ItemCount")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "FailureMessage")
-            Prelude.<*> (x Core..:? "TableId")
-            Prelude.<*> (x Core..:? "ExportFormat")
-            Prelude.<*> (x Core..:? "ExportTime")
-            Prelude.<*> (x Core..:? "S3BucketOwner")
-            Prelude.<*> (x Core..:? "ExportStatus")
-            Prelude.<*> (x Core..:? "S3SseKmsKeyId")
-            Prelude.<*> (x Core..:? "ExportManifest")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "S3Prefix")
+            Prelude.<$> (x Data..:? "S3Bucket")
+            Prelude.<*> (x Data..:? "ClientToken")
+            Prelude.<*> (x Data..:? "TableArn")
+            Prelude.<*> (x Data..:? "FailureCode")
+            Prelude.<*> (x Data..:? "ExportArn")
+            Prelude.<*> (x Data..:? "BilledSizeBytes")
+            Prelude.<*> (x Data..:? "S3SseAlgorithm")
+            Prelude.<*> (x Data..:? "ItemCount")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "FailureMessage")
+            Prelude.<*> (x Data..:? "TableId")
+            Prelude.<*> (x Data..:? "ExportFormat")
+            Prelude.<*> (x Data..:? "ExportTime")
+            Prelude.<*> (x Data..:? "S3BucketOwner")
+            Prelude.<*> (x Data..:? "ExportStatus")
+            Prelude.<*> (x Data..:? "S3SseKmsKeyId")
+            Prelude.<*> (x Data..:? "ExportManifest")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "S3Prefix")
       )
 
 instance Prelude.Hashable ExportDescription where

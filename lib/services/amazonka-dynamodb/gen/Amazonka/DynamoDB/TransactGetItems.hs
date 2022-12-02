@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,10 +128,10 @@ instance Core.AWSRequest TransactGetItems where
     Response.receiveJSON
       ( \s h x ->
           TransactGetItemsResponse'
-            Prelude.<$> ( x Core..?> "ConsumedCapacity"
+            Prelude.<$> ( x Data..?> "ConsumedCapacity"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Responses")
+            Prelude.<*> (x Data..?> "Responses")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,36 +145,36 @@ instance Prelude.NFData TransactGetItems where
     Prelude.rnf returnConsumedCapacity
       `Prelude.seq` Prelude.rnf transactItems
 
-instance Core.ToHeaders TransactGetItems where
+instance Data.ToHeaders TransactGetItems where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.TransactGetItems" ::
+              Data.=# ( "DynamoDB_20120810.TransactGetItems" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON TransactGetItems where
+instance Data.ToJSON TransactGetItems where
   toJSON TransactGetItems' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ReturnConsumedCapacity" Core..=)
+          [ ("ReturnConsumedCapacity" Data..=)
               Prelude.<$> returnConsumedCapacity,
             Prelude.Just
-              ("TransactItems" Core..= transactItems)
+              ("TransactItems" Data..= transactItems)
           ]
       )
 
-instance Core.ToPath TransactGetItems where
+instance Data.ToPath TransactGetItems where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery TransactGetItems where
+instance Data.ToQuery TransactGetItems where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTransactGetItemsResponse' smart constructor.

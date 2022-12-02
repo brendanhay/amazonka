@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.KinesisDataStreamDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.DestinationStatus
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -74,15 +75,15 @@ kinesisDataStreamDestination_streamArn = Lens.lens (\KinesisDataStreamDestinatio
 kinesisDataStreamDestination_destinationStatus :: Lens.Lens' KinesisDataStreamDestination (Prelude.Maybe DestinationStatus)
 kinesisDataStreamDestination_destinationStatus = Lens.lens (\KinesisDataStreamDestination' {destinationStatus} -> destinationStatus) (\s@KinesisDataStreamDestination' {} a -> s {destinationStatus = a} :: KinesisDataStreamDestination)
 
-instance Core.FromJSON KinesisDataStreamDestination where
+instance Data.FromJSON KinesisDataStreamDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KinesisDataStreamDestination"
       ( \x ->
           KinesisDataStreamDestination'
-            Prelude.<$> (x Core..:? "DestinationStatusDescription")
-            Prelude.<*> (x Core..:? "StreamArn")
-            Prelude.<*> (x Core..:? "DestinationStatus")
+            Prelude.<$> (x Data..:? "DestinationStatusDescription")
+            Prelude.<*> (x Data..:? "StreamArn")
+            Prelude.<*> (x Data..:? "DestinationStatus")
       )
 
 instance

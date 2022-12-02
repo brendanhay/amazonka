@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.CreateReplicaAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
@@ -61,9 +62,9 @@ instance Prelude.Hashable CreateReplicaAction where
 instance Prelude.NFData CreateReplicaAction where
   rnf CreateReplicaAction' {..} = Prelude.rnf regionName
 
-instance Core.ToJSON CreateReplicaAction where
+instance Data.ToJSON CreateReplicaAction where
   toJSON CreateReplicaAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("RegionName" Core..= regionName)]
+          [Prelude.Just ("RegionName" Data..= regionName)]
       )

@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.TimeToLiveDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.TimeToLiveStatus
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -65,14 +66,14 @@ timeToLiveDescription_timeToLiveStatus = Lens.lens (\TimeToLiveDescription' {tim
 timeToLiveDescription_attributeName :: Lens.Lens' TimeToLiveDescription (Prelude.Maybe Prelude.Text)
 timeToLiveDescription_attributeName = Lens.lens (\TimeToLiveDescription' {attributeName} -> attributeName) (\s@TimeToLiveDescription' {} a -> s {attributeName = a} :: TimeToLiveDescription)
 
-instance Core.FromJSON TimeToLiveDescription where
+instance Data.FromJSON TimeToLiveDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimeToLiveDescription"
       ( \x ->
           TimeToLiveDescription'
-            Prelude.<$> (x Core..:? "TimeToLiveStatus")
-            Prelude.<*> (x Core..:? "AttributeName")
+            Prelude.<$> (x Data..:? "TimeToLiveStatus")
+            Prelude.<*> (x Data..:? "AttributeName")
       )
 
 instance Prelude.Hashable TimeToLiveDescription where

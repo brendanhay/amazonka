@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.ReplicaUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.CreateReplicaAction
 import Amazonka.DynamoDB.Types.DeleteReplicaAction
@@ -84,11 +85,11 @@ instance Prelude.NFData ReplicaUpdate where
     Prelude.rnf create
       `Prelude.seq` Prelude.rnf delete'
 
-instance Core.ToJSON ReplicaUpdate where
+instance Data.ToJSON ReplicaUpdate where
   toJSON ReplicaUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Create" Core..=) Prelude.<$> create,
-            ("Delete" Core..=) Prelude.<$> delete'
+          [ ("Create" Data..=) Prelude.<$> create,
+            ("Delete" Data..=) Prelude.<$> delete'
           ]
       )

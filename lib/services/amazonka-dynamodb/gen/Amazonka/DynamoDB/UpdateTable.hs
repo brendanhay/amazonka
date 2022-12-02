@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -306,7 +307,7 @@ instance Core.AWSRequest UpdateTable where
     Response.receiveJSON
       ( \s h x ->
           UpdateTableResponse'
-            Prelude.<$> (x Core..?> "TableDescription")
+            Prelude.<$> (x Data..?> "TableDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -335,47 +336,47 @@ instance Prelude.NFData UpdateTable where
       `Prelude.seq` Prelude.rnf attributeDefinitions
       `Prelude.seq` Prelude.rnf tableName
 
-instance Core.ToHeaders UpdateTable where
+instance Data.ToHeaders UpdateTable where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.UpdateTable" ::
+              Data.=# ( "DynamoDB_20120810.UpdateTable" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTable where
+instance Data.ToJSON UpdateTable where
   toJSON UpdateTable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GlobalSecondaryIndexUpdates" Core..=)
+          [ ("GlobalSecondaryIndexUpdates" Data..=)
               Prelude.<$> globalSecondaryIndexUpdates,
-            ("ReplicaUpdates" Core..=)
+            ("ReplicaUpdates" Data..=)
               Prelude.<$> replicaUpdates,
-            ("BillingMode" Core..=) Prelude.<$> billingMode,
-            ("ProvisionedThroughput" Core..=)
+            ("BillingMode" Data..=) Prelude.<$> billingMode,
+            ("ProvisionedThroughput" Data..=)
               Prelude.<$> provisionedThroughput,
-            ("SSESpecification" Core..=)
+            ("SSESpecification" Data..=)
               Prelude.<$> sSESpecification,
-            ("TableClass" Core..=) Prelude.<$> tableClass,
-            ("StreamSpecification" Core..=)
+            ("TableClass" Data..=) Prelude.<$> tableClass,
+            ("StreamSpecification" Data..=)
               Prelude.<$> streamSpecification,
-            ("AttributeDefinitions" Core..=)
+            ("AttributeDefinitions" Data..=)
               Prelude.<$> attributeDefinitions,
-            Prelude.Just ("TableName" Core..= tableName)
+            Prelude.Just ("TableName" Data..= tableName)
           ]
       )
 
-instance Core.ToPath UpdateTable where
+instance Data.ToPath UpdateTable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateTable where
+instance Data.ToQuery UpdateTable where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of an @UpdateTable@ operation.

@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.SourceTableDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.BillingMode
 import Amazonka.DynamoDB.Types.KeySchemaElement
@@ -55,7 +56,7 @@ data SourceTableDetails = SourceTableDetails'
     -- | Schema of the table.
     keySchema :: Prelude.NonEmpty KeySchemaElement,
     -- | Time when the source table was created.
-    tableCreationDateTime :: Core.POSIX,
+    tableCreationDateTime :: Data.POSIX,
     -- | Read IOPs and Write IOPS on the table when the backup was created.
     provisionedThroughput :: ProvisionedThroughput
   }
@@ -121,7 +122,7 @@ newSourceTableDetails
         tableId = pTableId_,
         keySchema = Lens.coerced Lens.# pKeySchema_,
         tableCreationDateTime =
-          Core._Time Lens.# pTableCreationDateTime_,
+          Data._Time Lens.# pTableCreationDateTime_,
         provisionedThroughput = pProvisionedThroughput_
       }
 
@@ -163,27 +164,27 @@ sourceTableDetails_keySchema = Lens.lens (\SourceTableDetails' {keySchema} -> ke
 
 -- | Time when the source table was created.
 sourceTableDetails_tableCreationDateTime :: Lens.Lens' SourceTableDetails Prelude.UTCTime
-sourceTableDetails_tableCreationDateTime = Lens.lens (\SourceTableDetails' {tableCreationDateTime} -> tableCreationDateTime) (\s@SourceTableDetails' {} a -> s {tableCreationDateTime = a} :: SourceTableDetails) Prelude.. Core._Time
+sourceTableDetails_tableCreationDateTime = Lens.lens (\SourceTableDetails' {tableCreationDateTime} -> tableCreationDateTime) (\s@SourceTableDetails' {} a -> s {tableCreationDateTime = a} :: SourceTableDetails) Prelude.. Data._Time
 
 -- | Read IOPs and Write IOPS on the table when the backup was created.
 sourceTableDetails_provisionedThroughput :: Lens.Lens' SourceTableDetails ProvisionedThroughput
 sourceTableDetails_provisionedThroughput = Lens.lens (\SourceTableDetails' {provisionedThroughput} -> provisionedThroughput) (\s@SourceTableDetails' {} a -> s {provisionedThroughput = a} :: SourceTableDetails)
 
-instance Core.FromJSON SourceTableDetails where
+instance Data.FromJSON SourceTableDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceTableDetails"
       ( \x ->
           SourceTableDetails'
-            Prelude.<$> (x Core..:? "TableArn")
-            Prelude.<*> (x Core..:? "TableSizeBytes")
-            Prelude.<*> (x Core..:? "BillingMode")
-            Prelude.<*> (x Core..:? "ItemCount")
-            Prelude.<*> (x Core..: "TableName")
-            Prelude.<*> (x Core..: "TableId")
-            Prelude.<*> (x Core..: "KeySchema")
-            Prelude.<*> (x Core..: "TableCreationDateTime")
-            Prelude.<*> (x Core..: "ProvisionedThroughput")
+            Prelude.<$> (x Data..:? "TableArn")
+            Prelude.<*> (x Data..:? "TableSizeBytes")
+            Prelude.<*> (x Data..:? "BillingMode")
+            Prelude.<*> (x Data..:? "ItemCount")
+            Prelude.<*> (x Data..: "TableName")
+            Prelude.<*> (x Data..: "TableId")
+            Prelude.<*> (x Data..: "KeySchema")
+            Prelude.<*> (x Data..: "TableCreationDateTime")
+            Prelude.<*> (x Data..: "ProvisionedThroughput")
       )
 
 instance Prelude.Hashable SourceTableDetails where

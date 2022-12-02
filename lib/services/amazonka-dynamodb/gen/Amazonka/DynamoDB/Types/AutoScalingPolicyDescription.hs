@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.AutoScalingPolicyDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.AutoScalingTargetTrackingScalingPolicyConfigurationDescription
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -66,15 +67,15 @@ autoScalingPolicyDescription_policyName = Lens.lens (\AutoScalingPolicyDescripti
 autoScalingPolicyDescription_targetTrackingScalingPolicyConfiguration :: Lens.Lens' AutoScalingPolicyDescription (Prelude.Maybe AutoScalingTargetTrackingScalingPolicyConfigurationDescription)
 autoScalingPolicyDescription_targetTrackingScalingPolicyConfiguration = Lens.lens (\AutoScalingPolicyDescription' {targetTrackingScalingPolicyConfiguration} -> targetTrackingScalingPolicyConfiguration) (\s@AutoScalingPolicyDescription' {} a -> s {targetTrackingScalingPolicyConfiguration = a} :: AutoScalingPolicyDescription)
 
-instance Core.FromJSON AutoScalingPolicyDescription where
+instance Data.FromJSON AutoScalingPolicyDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoScalingPolicyDescription"
       ( \x ->
           AutoScalingPolicyDescription'
-            Prelude.<$> (x Core..:? "PolicyName")
+            Prelude.<$> (x Data..:? "PolicyName")
             Prelude.<*> ( x
-                            Core..:? "TargetTrackingScalingPolicyConfiguration"
+                            Data..:? "TargetTrackingScalingPolicyConfiguration"
                         )
       )
 

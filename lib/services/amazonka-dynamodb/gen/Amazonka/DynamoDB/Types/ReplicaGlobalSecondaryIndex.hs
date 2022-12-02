@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndex where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ProvisionedThroughputOverride
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -81,12 +82,12 @@ instance Prelude.NFData ReplicaGlobalSecondaryIndex where
     Prelude.rnf provisionedThroughputOverride
       `Prelude.seq` Prelude.rnf indexName
 
-instance Core.ToJSON ReplicaGlobalSecondaryIndex where
+instance Data.ToJSON ReplicaGlobalSecondaryIndex where
   toJSON ReplicaGlobalSecondaryIndex' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProvisionedThroughputOverride" Core..=)
+          [ ("ProvisionedThroughputOverride" Data..=)
               Prelude.<$> provisionedThroughputOverride,
-            Prelude.Just ("IndexName" Core..= indexName)
+            Prelude.Just ("IndexName" Data..= indexName)
           ]
       )

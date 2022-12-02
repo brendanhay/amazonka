@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.CsvOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
@@ -75,14 +76,14 @@ csvOptions_delimiter = Lens.lens (\CsvOptions' {delimiter} -> delimiter) (\s@Csv
 csvOptions_headerList :: Lens.Lens' CsvOptions (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 csvOptions_headerList = Lens.lens (\CsvOptions' {headerList} -> headerList) (\s@CsvOptions' {} a -> s {headerList = a} :: CsvOptions) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CsvOptions where
+instance Data.FromJSON CsvOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CsvOptions"
       ( \x ->
           CsvOptions'
-            Prelude.<$> (x Core..:? "Delimiter")
-            Prelude.<*> (x Core..:? "HeaderList")
+            Prelude.<$> (x Data..:? "Delimiter")
+            Prelude.<*> (x Data..:? "HeaderList")
       )
 
 instance Prelude.Hashable CsvOptions where
@@ -95,11 +96,11 @@ instance Prelude.NFData CsvOptions where
     Prelude.rnf delimiter
       `Prelude.seq` Prelude.rnf headerList
 
-instance Core.ToJSON CsvOptions where
+instance Data.ToJSON CsvOptions where
   toJSON CsvOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Delimiter" Core..=) Prelude.<$> delimiter,
-            ("HeaderList" Core..=) Prelude.<$> headerList
+          [ ("Delimiter" Data..=) Prelude.<$> delimiter,
+            ("HeaderList" Data..=) Prelude.<$> headerList
           ]
       )

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,7 +95,7 @@ instance Core.AWSRequest DescribeGlobalTable where
     Response.receiveJSON
       ( \s h x ->
           DescribeGlobalTableResponse'
-            Prelude.<$> (x Core..?> "GlobalTableDescription")
+            Prelude.<$> (x Data..?> "GlobalTableDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,34 +107,34 @@ instance Prelude.NFData DescribeGlobalTable where
   rnf DescribeGlobalTable' {..} =
     Prelude.rnf globalTableName
 
-instance Core.ToHeaders DescribeGlobalTable where
+instance Data.ToHeaders DescribeGlobalTable where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.DescribeGlobalTable" ::
+              Data.=# ( "DynamoDB_20120810.DescribeGlobalTable" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeGlobalTable where
+instance Data.ToJSON DescribeGlobalTable where
   toJSON DescribeGlobalTable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("GlobalTableName" Core..= globalTableName)
+              ("GlobalTableName" Data..= globalTableName)
           ]
       )
 
-instance Core.ToPath DescribeGlobalTable where
+instance Data.ToPath DescribeGlobalTable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeGlobalTable where
+instance Data.ToQuery DescribeGlobalTable where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeGlobalTableResponse' smart constructor.

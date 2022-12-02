@@ -91,6 +91,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -865,13 +866,13 @@ instance Core.AWSRequest Scan where
     Response.receiveJSON
       ( \s h x ->
           ScanResponse'
-            Prelude.<$> (x Core..?> "Items" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "LastEvaluatedKey"
+            Prelude.<$> (x Data..?> "Items" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "LastEvaluatedKey"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Count")
-            Prelude.<*> (x Core..?> "ConsumedCapacity")
-            Prelude.<*> (x Core..?> "ScannedCount")
+            Prelude.<*> (x Data..?> "Count")
+            Prelude.<*> (x Data..?> "ConsumedCapacity")
+            Prelude.<*> (x Data..?> "ScannedCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -913,55 +914,55 @@ instance Prelude.NFData Scan where
       `Prelude.seq` Prelude.rnf projectionExpression
       `Prelude.seq` Prelude.rnf tableName
 
-instance Core.ToHeaders Scan where
+instance Data.ToHeaders Scan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("DynamoDB_20120810.Scan" :: Prelude.ByteString),
+              Data.=# ("DynamoDB_20120810.Scan" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON Scan where
+instance Data.ToJSON Scan where
   toJSON Scan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ScanFilter" Core..=) Prelude.<$> scanFilter,
-            ("ConsistentRead" Core..=)
+          [ ("ScanFilter" Data..=) Prelude.<$> scanFilter,
+            ("ConsistentRead" Data..=)
               Prelude.<$> consistentRead,
-            ("ExpressionAttributeValues" Core..=)
+            ("ExpressionAttributeValues" Data..=)
               Prelude.<$> expressionAttributeValues,
-            ("ExpressionAttributeNames" Core..=)
+            ("ExpressionAttributeNames" Data..=)
               Prelude.<$> expressionAttributeNames,
-            ("ConditionalOperator" Core..=)
+            ("ConditionalOperator" Data..=)
               Prelude.<$> conditionalOperator,
-            ("ReturnConsumedCapacity" Core..=)
+            ("ReturnConsumedCapacity" Data..=)
               Prelude.<$> returnConsumedCapacity,
-            ("ExclusiveStartKey" Core..=)
+            ("ExclusiveStartKey" Data..=)
               Prelude.<$> exclusiveStartKey,
-            ("FilterExpression" Core..=)
+            ("FilterExpression" Data..=)
               Prelude.<$> filterExpression,
-            ("AttributesToGet" Core..=)
+            ("AttributesToGet" Data..=)
               Prelude.<$> attributesToGet,
-            ("Select" Core..=) Prelude.<$> select,
-            ("Segment" Core..=) Prelude.<$> segment,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("IndexName" Core..=) Prelude.<$> indexName,
-            ("TotalSegments" Core..=) Prelude.<$> totalSegments,
-            ("ProjectionExpression" Core..=)
+            ("Select" Data..=) Prelude.<$> select,
+            ("Segment" Data..=) Prelude.<$> segment,
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("IndexName" Data..=) Prelude.<$> indexName,
+            ("TotalSegments" Data..=) Prelude.<$> totalSegments,
+            ("ProjectionExpression" Data..=)
               Prelude.<$> projectionExpression,
-            Prelude.Just ("TableName" Core..= tableName)
+            Prelude.Just ("TableName" Data..= tableName)
           ]
       )
 
-instance Core.ToPath Scan where
+instance Data.ToPath Scan where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery Scan where
+instance Data.ToQuery Scan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @Scan@ operation.

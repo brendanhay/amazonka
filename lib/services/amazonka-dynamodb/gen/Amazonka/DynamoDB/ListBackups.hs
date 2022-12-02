@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -76,7 +77,7 @@ data ListBackups = ListBackups'
     exclusiveStartBackupArn :: Prelude.Maybe Prelude.Text,
     -- | Only backups created before this time are listed. @TimeRangeUpperBound@
     -- is exclusive.
-    timeRangeUpperBound :: Prelude.Maybe Core.POSIX,
+    timeRangeUpperBound :: Prelude.Maybe Data.POSIX,
     -- | Maximum number of backups to return at once.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | The backups from the table specified by @BackupType@ are listed.
@@ -92,7 +93,7 @@ data ListBackups = ListBackups'
     backupType :: Prelude.Maybe BackupTypeFilter,
     -- | Only backups created after this time are listed. @TimeRangeLowerBound@
     -- is inclusive.
-    timeRangeLowerBound :: Prelude.Maybe Core.POSIX
+    timeRangeLowerBound :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -157,7 +158,7 @@ listBackups_exclusiveStartBackupArn = Lens.lens (\ListBackups' {exclusiveStartBa
 -- | Only backups created before this time are listed. @TimeRangeUpperBound@
 -- is exclusive.
 listBackups_timeRangeUpperBound :: Lens.Lens' ListBackups (Prelude.Maybe Prelude.UTCTime)
-listBackups_timeRangeUpperBound = Lens.lens (\ListBackups' {timeRangeUpperBound} -> timeRangeUpperBound) (\s@ListBackups' {} a -> s {timeRangeUpperBound = a} :: ListBackups) Prelude.. Lens.mapping Core._Time
+listBackups_timeRangeUpperBound = Lens.lens (\ListBackups' {timeRangeUpperBound} -> timeRangeUpperBound) (\s@ListBackups' {} a -> s {timeRangeUpperBound = a} :: ListBackups) Prelude.. Lens.mapping Data._Time
 
 -- | Maximum number of backups to return at once.
 listBackups_limit :: Lens.Lens' ListBackups (Prelude.Maybe Prelude.Natural)
@@ -179,7 +180,7 @@ listBackups_backupType = Lens.lens (\ListBackups' {backupType} -> backupType) (\
 -- | Only backups created after this time are listed. @TimeRangeLowerBound@
 -- is inclusive.
 listBackups_timeRangeLowerBound :: Lens.Lens' ListBackups (Prelude.Maybe Prelude.UTCTime)
-listBackups_timeRangeLowerBound = Lens.lens (\ListBackups' {timeRangeLowerBound} -> timeRangeLowerBound) (\s@ListBackups' {} a -> s {timeRangeLowerBound = a} :: ListBackups) Prelude.. Lens.mapping Core._Time
+listBackups_timeRangeLowerBound = Lens.lens (\ListBackups' {timeRangeLowerBound} -> timeRangeLowerBound) (\s@ListBackups' {} a -> s {timeRangeLowerBound = a} :: ListBackups) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListBackups where
   page rq rs
@@ -211,10 +212,10 @@ instance Core.AWSRequest ListBackups where
     Response.receiveJSON
       ( \s h x ->
           ListBackupsResponse'
-            Prelude.<$> ( x Core..?> "BackupSummaries"
+            Prelude.<$> ( x Data..?> "BackupSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "LastEvaluatedBackupArn")
+            Prelude.<*> (x Data..?> "LastEvaluatedBackupArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -236,41 +237,41 @@ instance Prelude.NFData ListBackups where
       `Prelude.seq` Prelude.rnf backupType
       `Prelude.seq` Prelude.rnf timeRangeLowerBound
 
-instance Core.ToHeaders ListBackups where
+instance Data.ToHeaders ListBackups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.ListBackups" ::
+              Data.=# ( "DynamoDB_20120810.ListBackups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListBackups where
+instance Data.ToJSON ListBackups where
   toJSON ListBackups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TableName" Core..=) Prelude.<$> tableName,
-            ("ExclusiveStartBackupArn" Core..=)
+          [ ("TableName" Data..=) Prelude.<$> tableName,
+            ("ExclusiveStartBackupArn" Data..=)
               Prelude.<$> exclusiveStartBackupArn,
-            ("TimeRangeUpperBound" Core..=)
+            ("TimeRangeUpperBound" Data..=)
               Prelude.<$> timeRangeUpperBound,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("BackupType" Core..=) Prelude.<$> backupType,
-            ("TimeRangeLowerBound" Core..=)
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("BackupType" Data..=) Prelude.<$> backupType,
+            ("TimeRangeLowerBound" Data..=)
               Prelude.<$> timeRangeLowerBound
           ]
       )
 
-instance Core.ToPath ListBackups where
+instance Data.ToPath ListBackups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListBackups where
+instance Data.ToQuery ListBackups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListBackupsResponse' smart constructor.

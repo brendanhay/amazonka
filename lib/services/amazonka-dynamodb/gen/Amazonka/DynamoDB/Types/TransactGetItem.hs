@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.TransactGetItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.Get
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -68,9 +69,9 @@ instance Prelude.Hashable TransactGetItem where
 instance Prelude.NFData TransactGetItem where
   rnf TransactGetItem' {..} = Prelude.rnf get'
 
-instance Core.ToJSON TransactGetItem where
+instance Data.ToJSON TransactGetItem where
   toJSON TransactGetItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Get" Core..= get')]
+          [Prelude.Just ("Get" Data..= get')]
       )

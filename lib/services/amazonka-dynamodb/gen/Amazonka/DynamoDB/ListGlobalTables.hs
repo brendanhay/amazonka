@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,8 +131,8 @@ instance Core.AWSRequest ListGlobalTables where
     Response.receiveJSON
       ( \s h x ->
           ListGlobalTablesResponse'
-            Prelude.<$> (x Core..?> "GlobalTables" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "LastEvaluatedGlobalTableName")
+            Prelude.<$> (x Data..?> "GlobalTables" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "LastEvaluatedGlobalTableName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,36 +149,36 @@ instance Prelude.NFData ListGlobalTables where
       `Prelude.seq` Prelude.rnf regionName
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders ListGlobalTables where
+instance Data.ToHeaders ListGlobalTables where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.ListGlobalTables" ::
+              Data.=# ( "DynamoDB_20120810.ListGlobalTables" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListGlobalTables where
+instance Data.ToJSON ListGlobalTables where
   toJSON ListGlobalTables' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExclusiveStartGlobalTableName" Core..=)
+          [ ("ExclusiveStartGlobalTableName" Data..=)
               Prelude.<$> exclusiveStartGlobalTableName,
-            ("RegionName" Core..=) Prelude.<$> regionName,
-            ("Limit" Core..=) Prelude.<$> limit
+            ("RegionName" Data..=) Prelude.<$> regionName,
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
-instance Core.ToPath ListGlobalTables where
+instance Data.ToPath ListGlobalTables where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListGlobalTables where
+instance Data.ToQuery ListGlobalTables where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListGlobalTablesResponse' smart constructor.

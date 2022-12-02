@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,7 +116,7 @@ instance Core.AWSRequest UpdateGlobalTable where
     Response.receiveJSON
       ( \s h x ->
           UpdateGlobalTableResponse'
-            Prelude.<$> (x Core..?> "GlobalTableDescription")
+            Prelude.<$> (x Data..?> "GlobalTableDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,36 +130,36 @@ instance Prelude.NFData UpdateGlobalTable where
     Prelude.rnf globalTableName
       `Prelude.seq` Prelude.rnf replicaUpdates
 
-instance Core.ToHeaders UpdateGlobalTable where
+instance Data.ToHeaders UpdateGlobalTable where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.UpdateGlobalTable" ::
+              Data.=# ( "DynamoDB_20120810.UpdateGlobalTable" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateGlobalTable where
+instance Data.ToJSON UpdateGlobalTable where
   toJSON UpdateGlobalTable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("GlobalTableName" Core..= globalTableName),
+              ("GlobalTableName" Data..= globalTableName),
             Prelude.Just
-              ("ReplicaUpdates" Core..= replicaUpdates)
+              ("ReplicaUpdates" Data..= replicaUpdates)
           ]
       )
 
-instance Core.ToPath UpdateGlobalTable where
+instance Data.ToPath UpdateGlobalTable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateGlobalTable where
+instance Data.ToQuery UpdateGlobalTable where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateGlobalTableResponse' smart constructor.

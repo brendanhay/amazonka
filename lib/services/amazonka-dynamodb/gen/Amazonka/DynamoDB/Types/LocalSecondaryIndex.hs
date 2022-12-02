@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.LocalSecondaryIndex where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.KeySchemaElement
 import Amazonka.DynamoDB.Types.Projection
@@ -149,12 +150,12 @@ instance Prelude.NFData LocalSecondaryIndex where
       `Prelude.seq` Prelude.rnf keySchema
       `Prelude.seq` Prelude.rnf projection
 
-instance Core.ToJSON LocalSecondaryIndex where
+instance Data.ToJSON LocalSecondaryIndex where
   toJSON LocalSecondaryIndex' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("IndexName" Core..= indexName),
-            Prelude.Just ("KeySchema" Core..= keySchema),
-            Prelude.Just ("Projection" Core..= projection)
+          [ Prelude.Just ("IndexName" Data..= indexName),
+            Prelude.Just ("KeySchema" Data..= keySchema),
+            Prelude.Just ("Projection" Data..= projection)
           ]
       )

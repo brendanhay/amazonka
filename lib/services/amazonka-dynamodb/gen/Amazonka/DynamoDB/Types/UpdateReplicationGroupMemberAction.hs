@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.UpdateReplicationGroupMemberAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ProvisionedThroughputOverride
 import Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndex
@@ -141,20 +142,20 @@ instance
       `Prelude.seq` Prelude.rnf regionName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateReplicationGroupMemberAction
   where
   toJSON UpdateReplicationGroupMemberAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KMSMasterKeyId" Core..=)
+          [ ("KMSMasterKeyId" Data..=)
               Prelude.<$> kmsMasterKeyId,
-            ("TableClassOverride" Core..=)
+            ("TableClassOverride" Data..=)
               Prelude.<$> tableClassOverride,
-            ("ProvisionedThroughputOverride" Core..=)
+            ("ProvisionedThroughputOverride" Data..=)
               Prelude.<$> provisionedThroughputOverride,
-            ("GlobalSecondaryIndexes" Core..=)
+            ("GlobalSecondaryIndexes" Data..=)
               Prelude.<$> globalSecondaryIndexes,
-            Prelude.Just ("RegionName" Core..= regionName)
+            Prelude.Just ("RegionName" Data..= regionName)
           ]
       )

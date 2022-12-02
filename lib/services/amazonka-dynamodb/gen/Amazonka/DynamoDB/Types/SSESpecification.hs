@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.SSESpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.SSEType
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -109,15 +110,15 @@ sSESpecification_enabled = Lens.lens (\SSESpecification' {enabled} -> enabled) (
 sSESpecification_sSEType :: Lens.Lens' SSESpecification (Prelude.Maybe SSEType)
 sSESpecification_sSEType = Lens.lens (\SSESpecification' {sSEType} -> sSEType) (\s@SSESpecification' {} a -> s {sSEType = a} :: SSESpecification)
 
-instance Core.FromJSON SSESpecification where
+instance Data.FromJSON SSESpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SSESpecification"
       ( \x ->
           SSESpecification'
-            Prelude.<$> (x Core..:? "KMSMasterKeyId")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "SSEType")
+            Prelude.<$> (x Data..:? "KMSMasterKeyId")
+            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "SSEType")
       )
 
 instance Prelude.Hashable SSESpecification where
@@ -132,13 +133,13 @@ instance Prelude.NFData SSESpecification where
       `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf sSEType
 
-instance Core.ToJSON SSESpecification where
+instance Data.ToJSON SSESpecification where
   toJSON SSESpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KMSMasterKeyId" Core..=)
+          [ ("KMSMasterKeyId" Data..=)
               Prelude.<$> kmsMasterKeyId,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("SSEType" Core..=) Prelude.<$> sSEType
+            ("Enabled" Data..=) Prelude.<$> enabled,
+            ("SSEType" Data..=) Prelude.<$> sSEType
           ]
       )

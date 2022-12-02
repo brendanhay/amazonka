@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,8 +130,8 @@ instance Core.AWSRequest ListTables where
     Response.receiveJSON
       ( \s h x ->
           ListTablesResponse'
-            Prelude.<$> (x Core..?> "LastEvaluatedTableName")
-            Prelude.<*> (x Core..?> "TableNames" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "LastEvaluatedTableName")
+            Prelude.<*> (x Data..?> "TableNames" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,35 +146,35 @@ instance Prelude.NFData ListTables where
     Prelude.rnf exclusiveStartTableName
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders ListTables where
+instance Data.ToHeaders ListTables where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.ListTables" ::
+              Data.=# ( "DynamoDB_20120810.ListTables" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListTables where
+instance Data.ToJSON ListTables where
   toJSON ListTables' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExclusiveStartTableName" Core..=)
+          [ ("ExclusiveStartTableName" Data..=)
               Prelude.<$> exclusiveStartTableName,
-            ("Limit" Core..=) Prelude.<$> limit
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
-instance Core.ToPath ListTables where
+instance Data.ToPath ListTables where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTables where
+instance Data.ToQuery ListTables where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @ListTables@ operation.

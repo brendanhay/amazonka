@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -184,12 +185,12 @@ instance Core.AWSRequest ExecuteStatement where
     Response.receiveJSON
       ( \s h x ->
           ExecuteStatementResponse'
-            Prelude.<$> (x Core..?> "Items" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "LastEvaluatedKey"
+            Prelude.<$> (x Data..?> "Items" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "LastEvaluatedKey"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ConsumedCapacity")
+            Prelude.<*> (x Data..?> "ConsumedCapacity")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -211,40 +212,40 @@ instance Prelude.NFData ExecuteStatement where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf statement
 
-instance Core.ToHeaders ExecuteStatement where
+instance Data.ToHeaders ExecuteStatement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.ExecuteStatement" ::
+              Data.=# ( "DynamoDB_20120810.ExecuteStatement" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ExecuteStatement where
+instance Data.ToJSON ExecuteStatement where
   toJSON ExecuteStatement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ConsistentRead" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ConsistentRead" Data..=)
               Prelude.<$> consistentRead,
-            ("ReturnConsumedCapacity" Core..=)
+            ("ReturnConsumedCapacity" Data..=)
               Prelude.<$> returnConsumedCapacity,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("Statement" Core..= statement)
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("Statement" Data..= statement)
           ]
       )
 
-instance Core.ToPath ExecuteStatement where
+instance Data.ToPath ExecuteStatement where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ExecuteStatement where
+instance Data.ToQuery ExecuteStatement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newExecuteStatementResponse' smart constructor.

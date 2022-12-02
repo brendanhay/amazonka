@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.AttributeValueUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeAction
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -311,11 +312,11 @@ instance Prelude.NFData AttributeValueUpdate where
   rnf AttributeValueUpdate' {..} =
     Prelude.rnf action `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON AttributeValueUpdate where
+instance Data.ToJSON AttributeValueUpdate where
   toJSON AttributeValueUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Action" Core..=) Prelude.<$> action,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Action" Data..=) Prelude.<$> action,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

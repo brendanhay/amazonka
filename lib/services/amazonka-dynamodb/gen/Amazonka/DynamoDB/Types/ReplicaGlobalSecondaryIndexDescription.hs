@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndexDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ProvisionedThroughputOverride
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -66,16 +67,16 @@ replicaGlobalSecondaryIndexDescription_indexName :: Lens.Lens' ReplicaGlobalSeco
 replicaGlobalSecondaryIndexDescription_indexName = Lens.lens (\ReplicaGlobalSecondaryIndexDescription' {indexName} -> indexName) (\s@ReplicaGlobalSecondaryIndexDescription' {} a -> s {indexName = a} :: ReplicaGlobalSecondaryIndexDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ReplicaGlobalSecondaryIndexDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicaGlobalSecondaryIndexDescription"
       ( \x ->
           ReplicaGlobalSecondaryIndexDescription'
-            Prelude.<$> (x Core..:? "ProvisionedThroughputOverride")
-            Prelude.<*> (x Core..:? "IndexName")
+            Prelude.<$> (x Data..:? "ProvisionedThroughputOverride")
+            Prelude.<*> (x Data..:? "IndexName")
       )
 
 instance

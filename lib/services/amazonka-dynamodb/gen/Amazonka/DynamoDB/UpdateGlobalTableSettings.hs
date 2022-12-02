@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -181,8 +182,8 @@ instance Core.AWSRequest UpdateGlobalTableSettings where
     Response.receiveJSON
       ( \s h x ->
           UpdateGlobalTableSettingsResponse'
-            Prelude.<$> (x Core..?> "GlobalTableName")
-            Prelude.<*> ( x Core..?> "ReplicaSettings"
+            Prelude.<$> (x Data..?> "GlobalTableName")
+            Prelude.<*> ( x Data..?> "ReplicaSettings"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -209,48 +210,48 @@ instance Prelude.NFData UpdateGlobalTableSettings where
       `Prelude.seq` Prelude.rnf replicaSettingsUpdate
       `Prelude.seq` Prelude.rnf globalTableName
 
-instance Core.ToHeaders UpdateGlobalTableSettings where
+instance Data.ToHeaders UpdateGlobalTableSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.UpdateGlobalTableSettings" ::
+              Data.=# ( "DynamoDB_20120810.UpdateGlobalTableSettings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateGlobalTableSettings where
+instance Data.ToJSON UpdateGlobalTableSettings where
   toJSON UpdateGlobalTableSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ ( "GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate"
-                Core..=
+                Data..=
             )
               Prelude.<$> globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate,
-            ("GlobalTableProvisionedWriteCapacityUnits" Core..=)
+            ("GlobalTableProvisionedWriteCapacityUnits" Data..=)
               Prelude.<$> globalTableProvisionedWriteCapacityUnits,
             ( "GlobalTableGlobalSecondaryIndexSettingsUpdate"
-                Core..=
+                Data..=
             )
               Prelude.<$> globalTableGlobalSecondaryIndexSettingsUpdate,
-            ("GlobalTableBillingMode" Core..=)
+            ("GlobalTableBillingMode" Data..=)
               Prelude.<$> globalTableBillingMode,
-            ("ReplicaSettingsUpdate" Core..=)
+            ("ReplicaSettingsUpdate" Data..=)
               Prelude.<$> replicaSettingsUpdate,
             Prelude.Just
-              ("GlobalTableName" Core..= globalTableName)
+              ("GlobalTableName" Data..= globalTableName)
           ]
       )
 
-instance Core.ToPath UpdateGlobalTableSettings where
+instance Data.ToPath UpdateGlobalTableSettings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateGlobalTableSettings where
+instance Data.ToQuery UpdateGlobalTableSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateGlobalTableSettingsResponse' smart constructor.

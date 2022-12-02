@@ -68,6 +68,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -651,7 +652,7 @@ instance Core.AWSRequest CreateTable where
     Response.receiveJSON
       ( \s h x ->
           CreateTableResponse'
-            Prelude.<$> (x Core..?> "TableDescription")
+            Prelude.<$> (x Data..?> "TableDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -683,51 +684,51 @@ instance Prelude.NFData CreateTable where
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf keySchema
 
-instance Core.ToHeaders CreateTable where
+instance Data.ToHeaders CreateTable where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.CreateTable" ::
+              Data.=# ( "DynamoDB_20120810.CreateTable" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTable where
+instance Data.ToJSON CreateTable where
   toJSON CreateTable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("LocalSecondaryIndexes" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("LocalSecondaryIndexes" Data..=)
               Prelude.<$> localSecondaryIndexes,
-            ("BillingMode" Core..=) Prelude.<$> billingMode,
-            ("ProvisionedThroughput" Core..=)
+            ("BillingMode" Data..=) Prelude.<$> billingMode,
+            ("ProvisionedThroughput" Data..=)
               Prelude.<$> provisionedThroughput,
-            ("SSESpecification" Core..=)
+            ("SSESpecification" Data..=)
               Prelude.<$> sSESpecification,
-            ("TableClass" Core..=) Prelude.<$> tableClass,
-            ("GlobalSecondaryIndexes" Core..=)
+            ("TableClass" Data..=) Prelude.<$> tableClass,
+            ("GlobalSecondaryIndexes" Data..=)
               Prelude.<$> globalSecondaryIndexes,
-            ("StreamSpecification" Core..=)
+            ("StreamSpecification" Data..=)
               Prelude.<$> streamSpecification,
             Prelude.Just
               ( "AttributeDefinitions"
-                  Core..= attributeDefinitions
+                  Data..= attributeDefinitions
               ),
-            Prelude.Just ("TableName" Core..= tableName),
-            Prelude.Just ("KeySchema" Core..= keySchema)
+            Prelude.Just ("TableName" Data..= tableName),
+            Prelude.Just ("KeySchema" Data..= keySchema)
           ]
       )
 
-instance Core.ToPath CreateTable where
+instance Data.ToPath CreateTable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTable where
+instance Data.ToQuery CreateTable where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @CreateTable@ operation.

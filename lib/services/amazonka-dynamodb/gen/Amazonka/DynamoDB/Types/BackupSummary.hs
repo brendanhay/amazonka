@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.BackupSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.BackupStatus
 import Amazonka.DynamoDB.Types.BackupType
@@ -61,9 +62,9 @@ data BackupSummary = BackupSummary'
     -- | Time at which the automatic on-demand backup created by DynamoDB will
     -- expire. This @SYSTEM@ on-demand backup expires automatically 35 days
     -- after its creation.
-    backupExpiryDateTime :: Prelude.Maybe Core.POSIX,
+    backupExpiryDateTime :: Prelude.Maybe Data.POSIX,
     -- | Time at which the backup was created.
-    backupCreationDateTime :: Prelude.Maybe Core.POSIX
+    backupCreationDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -170,28 +171,28 @@ backupSummary_backupArn = Lens.lens (\BackupSummary' {backupArn} -> backupArn) (
 -- expire. This @SYSTEM@ on-demand backup expires automatically 35 days
 -- after its creation.
 backupSummary_backupExpiryDateTime :: Lens.Lens' BackupSummary (Prelude.Maybe Prelude.UTCTime)
-backupSummary_backupExpiryDateTime = Lens.lens (\BackupSummary' {backupExpiryDateTime} -> backupExpiryDateTime) (\s@BackupSummary' {} a -> s {backupExpiryDateTime = a} :: BackupSummary) Prelude.. Lens.mapping Core._Time
+backupSummary_backupExpiryDateTime = Lens.lens (\BackupSummary' {backupExpiryDateTime} -> backupExpiryDateTime) (\s@BackupSummary' {} a -> s {backupExpiryDateTime = a} :: BackupSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Time at which the backup was created.
 backupSummary_backupCreationDateTime :: Lens.Lens' BackupSummary (Prelude.Maybe Prelude.UTCTime)
-backupSummary_backupCreationDateTime = Lens.lens (\BackupSummary' {backupCreationDateTime} -> backupCreationDateTime) (\s@BackupSummary' {} a -> s {backupCreationDateTime = a} :: BackupSummary) Prelude.. Lens.mapping Core._Time
+backupSummary_backupCreationDateTime = Lens.lens (\BackupSummary' {backupCreationDateTime} -> backupCreationDateTime) (\s@BackupSummary' {} a -> s {backupCreationDateTime = a} :: BackupSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON BackupSummary where
+instance Data.FromJSON BackupSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackupSummary"
       ( \x ->
           BackupSummary'
-            Prelude.<$> (x Core..:? "TableName")
-            Prelude.<*> (x Core..:? "TableArn")
-            Prelude.<*> (x Core..:? "BackupSizeBytes")
-            Prelude.<*> (x Core..:? "BackupStatus")
-            Prelude.<*> (x Core..:? "TableId")
-            Prelude.<*> (x Core..:? "BackupName")
-            Prelude.<*> (x Core..:? "BackupType")
-            Prelude.<*> (x Core..:? "BackupArn")
-            Prelude.<*> (x Core..:? "BackupExpiryDateTime")
-            Prelude.<*> (x Core..:? "BackupCreationDateTime")
+            Prelude.<$> (x Data..:? "TableName")
+            Prelude.<*> (x Data..:? "TableArn")
+            Prelude.<*> (x Data..:? "BackupSizeBytes")
+            Prelude.<*> (x Data..:? "BackupStatus")
+            Prelude.<*> (x Data..:? "TableId")
+            Prelude.<*> (x Data..:? "BackupName")
+            Prelude.<*> (x Data..:? "BackupType")
+            Prelude.<*> (x Data..:? "BackupArn")
+            Prelude.<*> (x Data..:? "BackupExpiryDateTime")
+            Prelude.<*> (x Data..:? "BackupCreationDateTime")
       )
 
 instance Prelude.Hashable BackupSummary where

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -183,7 +184,7 @@ instance Core.AWSRequest ImportTable where
       ( \s h x ->
           ImportTableResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ImportTableDescription")
+            Prelude.<*> (x Data..:> "ImportTableDescription")
       )
 
 instance Prelude.Hashable ImportTable where
@@ -204,44 +205,44 @@ instance Prelude.NFData ImportTable where
       `Prelude.seq` Prelude.rnf inputFormat
       `Prelude.seq` Prelude.rnf tableCreationParameters
 
-instance Core.ToHeaders ImportTable where
+instance Data.ToHeaders ImportTable where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.ImportTable" ::
+              Data.=# ( "DynamoDB_20120810.ImportTable" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportTable where
+instance Data.ToJSON ImportTable where
   toJSON ImportTable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("InputCompressionType" Core..=)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("InputCompressionType" Data..=)
               Prelude.<$> inputCompressionType,
-            ("InputFormatOptions" Core..=)
+            ("InputFormatOptions" Data..=)
               Prelude.<$> inputFormatOptions,
             Prelude.Just
-              ("S3BucketSource" Core..= s3BucketSource),
-            Prelude.Just ("InputFormat" Core..= inputFormat),
+              ("S3BucketSource" Data..= s3BucketSource),
+            Prelude.Just ("InputFormat" Data..= inputFormat),
             Prelude.Just
               ( "TableCreationParameters"
-                  Core..= tableCreationParameters
+                  Data..= tableCreationParameters
               )
           ]
       )
 
-instance Core.ToPath ImportTable where
+instance Data.ToPath ImportTable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ImportTable where
+instance Data.ToQuery ImportTable where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportTableResponse' smart constructor.

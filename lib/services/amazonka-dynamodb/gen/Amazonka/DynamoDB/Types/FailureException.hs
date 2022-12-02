@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.FailureException where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
@@ -64,14 +65,14 @@ failureException_exceptionDescription = Lens.lens (\FailureException' {exception
 failureException_exceptionName :: Lens.Lens' FailureException (Prelude.Maybe Prelude.Text)
 failureException_exceptionName = Lens.lens (\FailureException' {exceptionName} -> exceptionName) (\s@FailureException' {} a -> s {exceptionName = a} :: FailureException)
 
-instance Core.FromJSON FailureException where
+instance Data.FromJSON FailureException where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailureException"
       ( \x ->
           FailureException'
-            Prelude.<$> (x Core..:? "ExceptionDescription")
-            Prelude.<*> (x Core..:? "ExceptionName")
+            Prelude.<$> (x Data..:? "ExceptionDescription")
+            Prelude.<*> (x Data..:? "ExceptionName")
       )
 
 instance Prelude.Hashable FailureException where

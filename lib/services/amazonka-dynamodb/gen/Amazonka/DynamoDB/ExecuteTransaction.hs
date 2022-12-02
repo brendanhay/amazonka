@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,10 +135,10 @@ instance Core.AWSRequest ExecuteTransaction where
     Response.receiveJSON
       ( \s h x ->
           ExecuteTransactionResponse'
-            Prelude.<$> ( x Core..?> "ConsumedCapacity"
+            Prelude.<$> ( x Data..?> "ConsumedCapacity"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Responses")
+            Prelude.<*> (x Data..?> "Responses")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,38 +154,38 @@ instance Prelude.NFData ExecuteTransaction where
       `Prelude.seq` Prelude.rnf returnConsumedCapacity
       `Prelude.seq` Prelude.rnf transactStatements
 
-instance Core.ToHeaders ExecuteTransaction where
+instance Data.ToHeaders ExecuteTransaction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.ExecuteTransaction" ::
+              Data.=# ( "DynamoDB_20120810.ExecuteTransaction" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ExecuteTransaction where
+instance Data.ToJSON ExecuteTransaction where
   toJSON ExecuteTransaction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("ReturnConsumedCapacity" Core..=)
+            ("ReturnConsumedCapacity" Data..=)
               Prelude.<$> returnConsumedCapacity,
             Prelude.Just
-              ("TransactStatements" Core..= transactStatements)
+              ("TransactStatements" Data..= transactStatements)
           ]
       )
 
-instance Core.ToPath ExecuteTransaction where
+instance Data.ToPath ExecuteTransaction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ExecuteTransaction where
+instance Data.ToQuery ExecuteTransaction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newExecuteTransactionResponse' smart constructor.

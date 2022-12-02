@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -181,7 +182,7 @@ instance Core.AWSRequest RestoreTableFromBackup where
     Response.receiveJSON
       ( \s h x ->
           RestoreTableFromBackupResponse'
-            Prelude.<$> (x Core..?> "TableDescription")
+            Prelude.<$> (x Data..?> "TableDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -206,45 +207,45 @@ instance Prelude.NFData RestoreTableFromBackup where
       `Prelude.seq` Prelude.rnf targetTableName
       `Prelude.seq` Prelude.rnf backupArn
 
-instance Core.ToHeaders RestoreTableFromBackup where
+instance Data.ToHeaders RestoreTableFromBackup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.RestoreTableFromBackup" ::
+              Data.=# ( "DynamoDB_20120810.RestoreTableFromBackup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RestoreTableFromBackup where
+instance Data.ToJSON RestoreTableFromBackup where
   toJSON RestoreTableFromBackup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProvisionedThroughputOverride" Core..=)
+          [ ("ProvisionedThroughputOverride" Data..=)
               Prelude.<$> provisionedThroughputOverride,
-            ("LocalSecondaryIndexOverride" Core..=)
+            ("LocalSecondaryIndexOverride" Data..=)
               Prelude.<$> localSecondaryIndexOverride,
-            ("SSESpecificationOverride" Core..=)
+            ("SSESpecificationOverride" Data..=)
               Prelude.<$> sSESpecificationOverride,
-            ("BillingModeOverride" Core..=)
+            ("BillingModeOverride" Data..=)
               Prelude.<$> billingModeOverride,
-            ("GlobalSecondaryIndexOverride" Core..=)
+            ("GlobalSecondaryIndexOverride" Data..=)
               Prelude.<$> globalSecondaryIndexOverride,
             Prelude.Just
-              ("TargetTableName" Core..= targetTableName),
-            Prelude.Just ("BackupArn" Core..= backupArn)
+              ("TargetTableName" Data..= targetTableName),
+            Prelude.Just ("BackupArn" Data..= backupArn)
           ]
       )
 
-instance Core.ToPath RestoreTableFromBackup where
+instance Data.ToPath RestoreTableFromBackup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestoreTableFromBackup where
+instance Data.ToQuery RestoreTableFromBackup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRestoreTableFromBackupResponse' smart constructor.

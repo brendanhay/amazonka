@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.SourceTableFeatureDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.GlobalSecondaryIndexInfo
 import Amazonka.DynamoDB.Types.LocalSecondaryIndexInfo
@@ -112,21 +113,21 @@ sourceTableFeatureDetails_globalSecondaryIndexes = Lens.lens (\SourceTableFeatur
 sourceTableFeatureDetails_sSEDescription :: Lens.Lens' SourceTableFeatureDetails (Prelude.Maybe SSEDescription)
 sourceTableFeatureDetails_sSEDescription = Lens.lens (\SourceTableFeatureDetails' {sSEDescription} -> sSEDescription) (\s@SourceTableFeatureDetails' {} a -> s {sSEDescription = a} :: SourceTableFeatureDetails)
 
-instance Core.FromJSON SourceTableFeatureDetails where
+instance Data.FromJSON SourceTableFeatureDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceTableFeatureDetails"
       ( \x ->
           SourceTableFeatureDetails'
-            Prelude.<$> ( x Core..:? "LocalSecondaryIndexes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "LocalSecondaryIndexes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "TimeToLiveDescription")
-            Prelude.<*> (x Core..:? "StreamDescription")
-            Prelude.<*> ( x Core..:? "GlobalSecondaryIndexes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "TimeToLiveDescription")
+            Prelude.<*> (x Data..:? "StreamDescription")
+            Prelude.<*> ( x Data..:? "GlobalSecondaryIndexes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SSEDescription")
+            Prelude.<*> (x Data..:? "SSEDescription")
       )
 
 instance Prelude.Hashable SourceTableFeatureDetails where

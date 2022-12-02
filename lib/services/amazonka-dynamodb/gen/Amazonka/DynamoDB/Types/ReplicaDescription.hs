@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.ReplicaDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ProvisionedThroughputOverride
 import Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndexDescription
@@ -37,7 +38,7 @@ data ReplicaDescription = ReplicaDescription'
     kmsMasterKeyId :: Prelude.Maybe Prelude.Text,
     -- | The time at which the replica was first detected as inaccessible. To
     -- determine cause of inaccessibility check the @ReplicaStatus@ property.
-    replicaInaccessibleDateTime :: Prelude.Maybe Core.POSIX,
+    replicaInaccessibleDateTime :: Prelude.Maybe Data.POSIX,
     -- | Replica-specific provisioned throughput. If not described, uses the
     -- source table\'s provisioned throughput settings.
     provisionedThroughputOverride :: Prelude.Maybe ProvisionedThroughputOverride,
@@ -155,7 +156,7 @@ replicaDescription_kmsMasterKeyId = Lens.lens (\ReplicaDescription' {kmsMasterKe
 -- | The time at which the replica was first detected as inaccessible. To
 -- determine cause of inaccessibility check the @ReplicaStatus@ property.
 replicaDescription_replicaInaccessibleDateTime :: Lens.Lens' ReplicaDescription (Prelude.Maybe Prelude.UTCTime)
-replicaDescription_replicaInaccessibleDateTime = Lens.lens (\ReplicaDescription' {replicaInaccessibleDateTime} -> replicaInaccessibleDateTime) (\s@ReplicaDescription' {} a -> s {replicaInaccessibleDateTime = a} :: ReplicaDescription) Prelude.. Lens.mapping Core._Time
+replicaDescription_replicaInaccessibleDateTime = Lens.lens (\ReplicaDescription' {replicaInaccessibleDateTime} -> replicaInaccessibleDateTime) (\s@ReplicaDescription' {} a -> s {replicaInaccessibleDateTime = a} :: ReplicaDescription) Prelude.. Lens.mapping Data._Time
 
 -- | Replica-specific provisioned throughput. If not described, uses the
 -- source table\'s provisioned throughput settings.
@@ -211,23 +212,23 @@ replicaDescription_globalSecondaryIndexes = Lens.lens (\ReplicaDescription' {glo
 replicaDescription_replicaStatus :: Lens.Lens' ReplicaDescription (Prelude.Maybe ReplicaStatus)
 replicaDescription_replicaStatus = Lens.lens (\ReplicaDescription' {replicaStatus} -> replicaStatus) (\s@ReplicaDescription' {} a -> s {replicaStatus = a} :: ReplicaDescription)
 
-instance Core.FromJSON ReplicaDescription where
+instance Data.FromJSON ReplicaDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicaDescription"
       ( \x ->
           ReplicaDescription'
-            Prelude.<$> (x Core..:? "KMSMasterKeyId")
-            Prelude.<*> (x Core..:? "ReplicaInaccessibleDateTime")
-            Prelude.<*> (x Core..:? "ProvisionedThroughputOverride")
-            Prelude.<*> (x Core..:? "RegionName")
-            Prelude.<*> (x Core..:? "ReplicaStatusPercentProgress")
-            Prelude.<*> (x Core..:? "ReplicaTableClassSummary")
-            Prelude.<*> (x Core..:? "ReplicaStatusDescription")
-            Prelude.<*> ( x Core..:? "GlobalSecondaryIndexes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "KMSMasterKeyId")
+            Prelude.<*> (x Data..:? "ReplicaInaccessibleDateTime")
+            Prelude.<*> (x Data..:? "ProvisionedThroughputOverride")
+            Prelude.<*> (x Data..:? "RegionName")
+            Prelude.<*> (x Data..:? "ReplicaStatusPercentProgress")
+            Prelude.<*> (x Data..:? "ReplicaTableClassSummary")
+            Prelude.<*> (x Data..:? "ReplicaStatusDescription")
+            Prelude.<*> ( x Data..:? "GlobalSecondaryIndexes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ReplicaStatus")
+            Prelude.<*> (x Data..:? "ReplicaStatus")
       )
 
 instance Prelude.Hashable ReplicaDescription where

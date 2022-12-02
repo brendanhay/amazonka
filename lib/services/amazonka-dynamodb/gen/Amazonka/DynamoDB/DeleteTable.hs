@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,7 +103,7 @@ instance Core.AWSRequest DeleteTable where
     Response.receiveJSON
       ( \s h x ->
           DeleteTableResponse'
-            Prelude.<$> (x Core..?> "TableDescription")
+            Prelude.<$> (x Data..?> "TableDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,32 +114,32 @@ instance Prelude.Hashable DeleteTable where
 instance Prelude.NFData DeleteTable where
   rnf DeleteTable' {..} = Prelude.rnf tableName
 
-instance Core.ToHeaders DeleteTable where
+instance Data.ToHeaders DeleteTable where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.DeleteTable" ::
+              Data.=# ( "DynamoDB_20120810.DeleteTable" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteTable where
+instance Data.ToJSON DeleteTable where
   toJSON DeleteTable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TableName" Core..= tableName)]
+          [Prelude.Just ("TableName" Data..= tableName)]
       )
 
-instance Core.ToPath DeleteTable where
+instance Data.ToPath DeleteTable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteTable where
+instance Data.ToQuery DeleteTable where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @DeleteTable@ operation.

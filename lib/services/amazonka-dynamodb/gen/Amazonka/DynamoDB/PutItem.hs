@@ -80,6 +80,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -561,9 +562,9 @@ instance Core.AWSRequest PutItem where
     Response.receiveJSON
       ( \s h x ->
           PutItemResponse'
-            Prelude.<$> (x Core..?> "ConsumedCapacity")
-            Prelude.<*> (x Core..?> "Attributes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ItemCollectionMetrics")
+            Prelude.<$> (x Data..?> "ConsumedCapacity")
+            Prelude.<*> (x Data..?> "Attributes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ItemCollectionMetrics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -593,46 +594,46 @@ instance Prelude.NFData PutItem where
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf item
 
-instance Core.ToHeaders PutItem where
+instance Data.ToHeaders PutItem where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("DynamoDB_20120810.PutItem" :: Prelude.ByteString),
+              Data.=# ("DynamoDB_20120810.PutItem" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutItem where
+instance Data.ToJSON PutItem where
   toJSON PutItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ReturnValues" Core..=) Prelude.<$> returnValues,
-            ("ExpressionAttributeValues" Core..=)
+          [ ("ReturnValues" Data..=) Prelude.<$> returnValues,
+            ("ExpressionAttributeValues" Data..=)
               Prelude.<$> expressionAttributeValues,
-            ("ExpressionAttributeNames" Core..=)
+            ("ExpressionAttributeNames" Data..=)
               Prelude.<$> expressionAttributeNames,
-            ("ConditionalOperator" Core..=)
+            ("ConditionalOperator" Data..=)
               Prelude.<$> conditionalOperator,
-            ("ReturnConsumedCapacity" Core..=)
+            ("ReturnConsumedCapacity" Data..=)
               Prelude.<$> returnConsumedCapacity,
-            ("Expected" Core..=) Prelude.<$> expected,
-            ("ReturnItemCollectionMetrics" Core..=)
+            ("Expected" Data..=) Prelude.<$> expected,
+            ("ReturnItemCollectionMetrics" Data..=)
               Prelude.<$> returnItemCollectionMetrics,
-            ("ConditionExpression" Core..=)
+            ("ConditionExpression" Data..=)
               Prelude.<$> conditionExpression,
-            Prelude.Just ("TableName" Core..= tableName),
-            Prelude.Just ("Item" Core..= item)
+            Prelude.Just ("TableName" Data..= tableName),
+            Prelude.Just ("Item" Data..= item)
           ]
       )
 
-instance Core.ToPath PutItem where
+instance Data.ToPath PutItem where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutItem where
+instance Data.ToQuery PutItem where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @PutItem@ operation.

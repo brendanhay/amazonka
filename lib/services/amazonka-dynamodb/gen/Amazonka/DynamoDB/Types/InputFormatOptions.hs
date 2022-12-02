@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.InputFormatOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.CsvOptions
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -57,12 +58,12 @@ newInputFormatOptions =
 inputFormatOptions_csv :: Lens.Lens' InputFormatOptions (Prelude.Maybe CsvOptions)
 inputFormatOptions_csv = Lens.lens (\InputFormatOptions' {csv} -> csv) (\s@InputFormatOptions' {} a -> s {csv = a} :: InputFormatOptions)
 
-instance Core.FromJSON InputFormatOptions where
+instance Data.FromJSON InputFormatOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputFormatOptions"
       ( \x ->
-          InputFormatOptions' Prelude.<$> (x Core..:? "Csv")
+          InputFormatOptions' Prelude.<$> (x Data..:? "Csv")
       )
 
 instance Prelude.Hashable InputFormatOptions where
@@ -72,7 +73,7 @@ instance Prelude.Hashable InputFormatOptions where
 instance Prelude.NFData InputFormatOptions where
   rnf InputFormatOptions' {..} = Prelude.rnf csv
 
-instance Core.ToJSON InputFormatOptions where
+instance Data.ToJSON InputFormatOptions where
   toJSON InputFormatOptions' {..} =
-    Core.object
-      (Prelude.catMaybes [("Csv" Core..=) Prelude.<$> csv])
+    Data.object
+      (Prelude.catMaybes [("Csv" Data..=) Prelude.<$> csv])

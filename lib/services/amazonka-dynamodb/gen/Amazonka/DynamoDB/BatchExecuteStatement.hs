@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,10 +110,10 @@ instance Core.AWSRequest BatchExecuteStatement where
     Response.receiveJSON
       ( \s h x ->
           BatchExecuteStatementResponse'
-            Prelude.<$> ( x Core..?> "ConsumedCapacity"
+            Prelude.<$> ( x Data..?> "ConsumedCapacity"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Responses" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Responses" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,35 +127,35 @@ instance Prelude.NFData BatchExecuteStatement where
     Prelude.rnf returnConsumedCapacity
       `Prelude.seq` Prelude.rnf statements
 
-instance Core.ToHeaders BatchExecuteStatement where
+instance Data.ToHeaders BatchExecuteStatement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.BatchExecuteStatement" ::
+              Data.=# ( "DynamoDB_20120810.BatchExecuteStatement" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchExecuteStatement where
+instance Data.ToJSON BatchExecuteStatement where
   toJSON BatchExecuteStatement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ReturnConsumedCapacity" Core..=)
+          [ ("ReturnConsumedCapacity" Data..=)
               Prelude.<$> returnConsumedCapacity,
-            Prelude.Just ("Statements" Core..= statements)
+            Prelude.Just ("Statements" Data..= statements)
           ]
       )
 
-instance Core.ToPath BatchExecuteStatement where
+instance Data.ToPath BatchExecuteStatement where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchExecuteStatement where
+instance Data.ToQuery BatchExecuteStatement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchExecuteStatementResponse' smart constructor.

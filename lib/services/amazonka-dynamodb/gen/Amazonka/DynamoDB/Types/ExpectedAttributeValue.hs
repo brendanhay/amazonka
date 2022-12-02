@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.ExpectedAttributeValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ComparisonOperator
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -699,15 +700,15 @@ instance Prelude.NFData ExpectedAttributeValue where
       `Prelude.seq` Prelude.rnf comparisonOperator
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ExpectedAttributeValue where
+instance Data.ToJSON ExpectedAttributeValue where
   toJSON ExpectedAttributeValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Exists" Core..=) Prelude.<$> exists,
-            ("AttributeValueList" Core..=)
+          [ ("Exists" Data..=) Prelude.<$> exists,
+            ("AttributeValueList" Data..=)
               Prelude.<$> attributeValueList,
-            ("ComparisonOperator" Core..=)
+            ("ComparisonOperator" Data..=)
               Prelude.<$> comparisonOperator,
-            ("Value" Core..=) Prelude.<$> value
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

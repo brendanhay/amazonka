@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.RestoreSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
@@ -35,7 +36,7 @@ data RestoreSummary = RestoreSummary'
     -- | The ARN of the source table of the backup that is being restored.
     sourceTableArn :: Prelude.Maybe Prelude.Text,
     -- | Point in time or source backup time.
-    restoreDateTime :: Core.POSIX,
+    restoreDateTime :: Data.POSIX,
     -- | Indicates if a restore is in progress or not.
     restoreInProgress :: Prelude.Bool
   }
@@ -70,7 +71,7 @@ newRestoreSummary
       { sourceBackupArn = Prelude.Nothing,
         sourceTableArn = Prelude.Nothing,
         restoreDateTime =
-          Core._Time Lens.# pRestoreDateTime_,
+          Data._Time Lens.# pRestoreDateTime_,
         restoreInProgress = pRestoreInProgress_
       }
 
@@ -85,22 +86,22 @@ restoreSummary_sourceTableArn = Lens.lens (\RestoreSummary' {sourceTableArn} -> 
 
 -- | Point in time or source backup time.
 restoreSummary_restoreDateTime :: Lens.Lens' RestoreSummary Prelude.UTCTime
-restoreSummary_restoreDateTime = Lens.lens (\RestoreSummary' {restoreDateTime} -> restoreDateTime) (\s@RestoreSummary' {} a -> s {restoreDateTime = a} :: RestoreSummary) Prelude.. Core._Time
+restoreSummary_restoreDateTime = Lens.lens (\RestoreSummary' {restoreDateTime} -> restoreDateTime) (\s@RestoreSummary' {} a -> s {restoreDateTime = a} :: RestoreSummary) Prelude.. Data._Time
 
 -- | Indicates if a restore is in progress or not.
 restoreSummary_restoreInProgress :: Lens.Lens' RestoreSummary Prelude.Bool
 restoreSummary_restoreInProgress = Lens.lens (\RestoreSummary' {restoreInProgress} -> restoreInProgress) (\s@RestoreSummary' {} a -> s {restoreInProgress = a} :: RestoreSummary)
 
-instance Core.FromJSON RestoreSummary where
+instance Data.FromJSON RestoreSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RestoreSummary"
       ( \x ->
           RestoreSummary'
-            Prelude.<$> (x Core..:? "SourceBackupArn")
-            Prelude.<*> (x Core..:? "SourceTableArn")
-            Prelude.<*> (x Core..: "RestoreDateTime")
-            Prelude.<*> (x Core..: "RestoreInProgress")
+            Prelude.<$> (x Data..:? "SourceBackupArn")
+            Prelude.<*> (x Data..:? "SourceTableArn")
+            Prelude.<*> (x Data..: "RestoreDateTime")
+            Prelude.<*> (x Data..: "RestoreInProgress")
       )
 
 instance Prelude.Hashable RestoreSummary where

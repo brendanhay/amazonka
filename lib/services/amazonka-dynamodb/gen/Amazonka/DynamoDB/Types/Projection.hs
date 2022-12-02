@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.Projection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ProjectionType
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -111,14 +112,14 @@ projection_projectionType = Lens.lens (\Projection' {projectionType} -> projecti
 projection_nonKeyAttributes :: Lens.Lens' Projection (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 projection_nonKeyAttributes = Lens.lens (\Projection' {nonKeyAttributes} -> nonKeyAttributes) (\s@Projection' {} a -> s {nonKeyAttributes = a} :: Projection) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Projection where
+instance Data.FromJSON Projection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Projection"
       ( \x ->
           Projection'
-            Prelude.<$> (x Core..:? "ProjectionType")
-            Prelude.<*> (x Core..:? "NonKeyAttributes")
+            Prelude.<$> (x Data..:? "ProjectionType")
+            Prelude.<*> (x Data..:? "NonKeyAttributes")
       )
 
 instance Prelude.Hashable Projection where
@@ -131,13 +132,13 @@ instance Prelude.NFData Projection where
     Prelude.rnf projectionType
       `Prelude.seq` Prelude.rnf nonKeyAttributes
 
-instance Core.ToJSON Projection where
+instance Data.ToJSON Projection where
   toJSON Projection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProjectionType" Core..=)
+          [ ("ProjectionType" Data..=)
               Prelude.<$> projectionType,
-            ("NonKeyAttributes" Core..=)
+            ("NonKeyAttributes" Data..=)
               Prelude.<$> nonKeyAttributes
           ]
       )

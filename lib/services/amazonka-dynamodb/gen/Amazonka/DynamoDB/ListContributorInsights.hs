@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,8 +107,8 @@ instance Core.AWSRequest ListContributorInsights where
     Response.receiveJSON
       ( \s h x ->
           ListContributorInsightsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ContributorInsightsSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ContributorInsightsSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -125,35 +126,35 @@ instance Prelude.NFData ListContributorInsights where
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListContributorInsights where
+instance Data.ToHeaders ListContributorInsights where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.ListContributorInsights" ::
+              Data.=# ( "DynamoDB_20120810.ListContributorInsights" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListContributorInsights where
+instance Data.ToJSON ListContributorInsights where
   toJSON ListContributorInsights' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TableName" Core..=) Prelude.<$> tableName,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("TableName" Data..=) Prelude.<$> tableName,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListContributorInsights where
+instance Data.ToPath ListContributorInsights where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListContributorInsights where
+instance Data.ToQuery ListContributorInsights where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListContributorInsightsResponse' smart constructor.

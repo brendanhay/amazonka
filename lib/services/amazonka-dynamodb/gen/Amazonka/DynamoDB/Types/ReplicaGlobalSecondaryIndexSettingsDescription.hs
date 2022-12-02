@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.AutoScalingSettingsDescription
 import Amazonka.DynamoDB.Types.IndexStatus
@@ -149,24 +150,24 @@ replicaGlobalSecondaryIndexSettingsDescription_indexName :: Lens.Lens' ReplicaGl
 replicaGlobalSecondaryIndexSettingsDescription_indexName = Lens.lens (\ReplicaGlobalSecondaryIndexSettingsDescription' {indexName} -> indexName) (\s@ReplicaGlobalSecondaryIndexSettingsDescription' {} a -> s {indexName = a} :: ReplicaGlobalSecondaryIndexSettingsDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ReplicaGlobalSecondaryIndexSettingsDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicaGlobalSecondaryIndexSettingsDescription"
       ( \x ->
           ReplicaGlobalSecondaryIndexSettingsDescription'
-            Prelude.<$> (x Core..:? "ProvisionedReadCapacityUnits")
-              Prelude.<*> (x Core..:? "IndexStatus")
-              Prelude.<*> (x Core..:? "ProvisionedWriteCapacityUnits")
+            Prelude.<$> (x Data..:? "ProvisionedReadCapacityUnits")
+              Prelude.<*> (x Data..:? "IndexStatus")
+              Prelude.<*> (x Data..:? "ProvisionedWriteCapacityUnits")
               Prelude.<*> ( x
-                              Core..:? "ProvisionedReadCapacityAutoScalingSettings"
+                              Data..:? "ProvisionedReadCapacityAutoScalingSettings"
                           )
               Prelude.<*> ( x
-                              Core..:? "ProvisionedWriteCapacityAutoScalingSettings"
+                              Data..:? "ProvisionedWriteCapacityAutoScalingSettings"
                           )
-              Prelude.<*> (x Core..: "IndexName")
+              Prelude.<*> (x Data..: "IndexName")
       )
 
 instance

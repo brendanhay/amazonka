@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.TableDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.ArchivalSummary
 import Amazonka.DynamoDB.Types.AttributeDefinition
 import Amazonka.DynamoDB.Types.AttributeValue
@@ -140,7 +141,7 @@ data TableDescription = TableDescription'
     tableSizeBytes :: Prelude.Maybe Prelude.Integer,
     -- | The date and time when the table was created, in
     -- <http://www.epochconverter.com/ UNIX epoch time> format.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | Represents replicas of the table.
     replicas :: Prelude.Maybe [ReplicaDescription],
     -- | The number of items in the specified table. DynamoDB updates this value
@@ -661,7 +662,7 @@ tableDescription_tableSizeBytes = Lens.lens (\TableDescription' {tableSizeBytes}
 -- | The date and time when the table was created, in
 -- <http://www.epochconverter.com/ UNIX epoch time> format.
 tableDescription_creationDateTime :: Lens.Lens' TableDescription (Prelude.Maybe Prelude.UTCTime)
-tableDescription_creationDateTime = Lens.lens (\TableDescription' {creationDateTime} -> creationDateTime) (\s@TableDescription' {} a -> s {creationDateTime = a} :: TableDescription) Prelude.. Lens.mapping Core._Time
+tableDescription_creationDateTime = Lens.lens (\TableDescription' {creationDateTime} -> creationDateTime) (\s@TableDescription' {} a -> s {creationDateTime = a} :: TableDescription) Prelude.. Lens.mapping Data._Time
 
 -- | Represents replicas of the table.
 tableDescription_replicas :: Lens.Lens' TableDescription (Prelude.Maybe [ReplicaDescription])
@@ -823,39 +824,39 @@ tableDescription_sSEDescription = Lens.lens (\TableDescription' {sSEDescription}
 tableDescription_attributeDefinitions :: Lens.Lens' TableDescription (Prelude.Maybe [AttributeDefinition])
 tableDescription_attributeDefinitions = Lens.lens (\TableDescription' {attributeDefinitions} -> attributeDefinitions) (\s@TableDescription' {} a -> s {attributeDefinitions = a} :: TableDescription) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TableDescription where
+instance Data.FromJSON TableDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TableDescription"
       ( \x ->
           TableDescription'
-            Prelude.<$> (x Core..:? "TableName")
-            Prelude.<*> (x Core..:? "LatestStreamLabel")
-            Prelude.<*> (x Core..:? "BillingModeSummary")
-            Prelude.<*> (x Core..:? "TableStatus")
-            Prelude.<*> (x Core..:? "ArchivalSummary")
-            Prelude.<*> (x Core..:? "TableArn")
-            Prelude.<*> ( x Core..:? "LocalSecondaryIndexes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "TableName")
+            Prelude.<*> (x Data..:? "LatestStreamLabel")
+            Prelude.<*> (x Data..:? "BillingModeSummary")
+            Prelude.<*> (x Data..:? "TableStatus")
+            Prelude.<*> (x Data..:? "ArchivalSummary")
+            Prelude.<*> (x Data..:? "TableArn")
+            Prelude.<*> ( x Data..:? "LocalSecondaryIndexes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "TableSizeBytes")
-            Prelude.<*> (x Core..:? "CreationDateTime")
-            Prelude.<*> (x Core..:? "Replicas" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ItemCount")
-            Prelude.<*> (x Core..:? "ProvisionedThroughput")
-            Prelude.<*> (x Core..:? "LatestStreamArn")
-            Prelude.<*> (x Core..:? "TableId")
-            Prelude.<*> (x Core..:? "TableClassSummary")
-            Prelude.<*> (x Core..:? "KeySchema")
-            Prelude.<*> (x Core..:? "RestoreSummary")
-            Prelude.<*> ( x Core..:? "GlobalSecondaryIndexes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "TableSizeBytes")
+            Prelude.<*> (x Data..:? "CreationDateTime")
+            Prelude.<*> (x Data..:? "Replicas" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ItemCount")
+            Prelude.<*> (x Data..:? "ProvisionedThroughput")
+            Prelude.<*> (x Data..:? "LatestStreamArn")
+            Prelude.<*> (x Data..:? "TableId")
+            Prelude.<*> (x Data..:? "TableClassSummary")
+            Prelude.<*> (x Data..:? "KeySchema")
+            Prelude.<*> (x Data..:? "RestoreSummary")
+            Prelude.<*> ( x Data..:? "GlobalSecondaryIndexes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "StreamSpecification")
-            Prelude.<*> (x Core..:? "GlobalTableVersion")
-            Prelude.<*> (x Core..:? "SSEDescription")
-            Prelude.<*> ( x Core..:? "AttributeDefinitions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "StreamSpecification")
+            Prelude.<*> (x Data..:? "GlobalTableVersion")
+            Prelude.<*> (x Data..:? "SSEDescription")
+            Prelude.<*> ( x Data..:? "AttributeDefinitions"
+                            Data..!= Prelude.mempty
                         )
       )
 

@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.PointInTimeRecoverySpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
@@ -78,13 +79,13 @@ instance
   rnf PointInTimeRecoverySpecification' {..} =
     Prelude.rnf pointInTimeRecoveryEnabled
 
-instance Core.ToJSON PointInTimeRecoverySpecification where
+instance Data.ToJSON PointInTimeRecoverySpecification where
   toJSON PointInTimeRecoverySpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "PointInTimeRecoveryEnabled"
-                  Core..= pointInTimeRecoveryEnabled
+                  Data..= pointInTimeRecoveryEnabled
               )
           ]
       )

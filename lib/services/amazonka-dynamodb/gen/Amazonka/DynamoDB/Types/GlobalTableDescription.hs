@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.GlobalTableDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.GlobalTableStatus
 import Amazonka.DynamoDB.Types.ReplicaDescription
@@ -46,7 +47,7 @@ data GlobalTableDescription = GlobalTableDescription'
     -- | The global table name.
     globalTableName :: Prelude.Maybe Prelude.Text,
     -- | The creation time of the global table.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of the global table.
     globalTableArn :: Prelude.Maybe Prelude.Text
   }
@@ -111,25 +112,25 @@ globalTableDescription_globalTableName = Lens.lens (\GlobalTableDescription' {gl
 
 -- | The creation time of the global table.
 globalTableDescription_creationDateTime :: Lens.Lens' GlobalTableDescription (Prelude.Maybe Prelude.UTCTime)
-globalTableDescription_creationDateTime = Lens.lens (\GlobalTableDescription' {creationDateTime} -> creationDateTime) (\s@GlobalTableDescription' {} a -> s {creationDateTime = a} :: GlobalTableDescription) Prelude.. Lens.mapping Core._Time
+globalTableDescription_creationDateTime = Lens.lens (\GlobalTableDescription' {creationDateTime} -> creationDateTime) (\s@GlobalTableDescription' {} a -> s {creationDateTime = a} :: GlobalTableDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier of the global table.
 globalTableDescription_globalTableArn :: Lens.Lens' GlobalTableDescription (Prelude.Maybe Prelude.Text)
 globalTableDescription_globalTableArn = Lens.lens (\GlobalTableDescription' {globalTableArn} -> globalTableArn) (\s@GlobalTableDescription' {} a -> s {globalTableArn = a} :: GlobalTableDescription)
 
-instance Core.FromJSON GlobalTableDescription where
+instance Data.FromJSON GlobalTableDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GlobalTableDescription"
       ( \x ->
           GlobalTableDescription'
-            Prelude.<$> (x Core..:? "GlobalTableStatus")
-            Prelude.<*> ( x Core..:? "ReplicationGroup"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "GlobalTableStatus")
+            Prelude.<*> ( x Data..:? "ReplicationGroup"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "GlobalTableName")
-            Prelude.<*> (x Core..:? "CreationDateTime")
-            Prelude.<*> (x Core..:? "GlobalTableArn")
+            Prelude.<*> (x Data..:? "GlobalTableName")
+            Prelude.<*> (x Data..:? "CreationDateTime")
+            Prelude.<*> (x Data..:? "GlobalTableArn")
       )
 
 instance Prelude.Hashable GlobalTableDescription where

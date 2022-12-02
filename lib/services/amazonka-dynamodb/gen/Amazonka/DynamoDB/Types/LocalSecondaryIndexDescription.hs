@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.LocalSecondaryIndexDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.KeySchemaElement
 import Amazonka.DynamoDB.Types.Projection
@@ -165,18 +166,18 @@ localSecondaryIndexDescription_keySchema = Lens.lens (\LocalSecondaryIndexDescri
 localSecondaryIndexDescription_projection :: Lens.Lens' LocalSecondaryIndexDescription (Prelude.Maybe Projection)
 localSecondaryIndexDescription_projection = Lens.lens (\LocalSecondaryIndexDescription' {projection} -> projection) (\s@LocalSecondaryIndexDescription' {} a -> s {projection = a} :: LocalSecondaryIndexDescription)
 
-instance Core.FromJSON LocalSecondaryIndexDescription where
+instance Data.FromJSON LocalSecondaryIndexDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LocalSecondaryIndexDescription"
       ( \x ->
           LocalSecondaryIndexDescription'
-            Prelude.<$> (x Core..:? "ItemCount")
-            Prelude.<*> (x Core..:? "IndexName")
-            Prelude.<*> (x Core..:? "IndexArn")
-            Prelude.<*> (x Core..:? "IndexSizeBytes")
-            Prelude.<*> (x Core..:? "KeySchema")
-            Prelude.<*> (x Core..:? "Projection")
+            Prelude.<$> (x Data..:? "ItemCount")
+            Prelude.<*> (x Data..:? "IndexName")
+            Prelude.<*> (x Data..:? "IndexArn")
+            Prelude.<*> (x Data..:? "IndexSizeBytes")
+            Prelude.<*> (x Data..:? "KeySchema")
+            Prelude.<*> (x Data..:? "Projection")
       )
 
 instance

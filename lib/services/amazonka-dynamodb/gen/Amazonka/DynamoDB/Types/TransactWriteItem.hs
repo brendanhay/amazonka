@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.TransactWriteItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ConditionCheck
 import Amazonka.DynamoDB.Types.Delete
@@ -101,14 +102,14 @@ instance Prelude.NFData TransactWriteItem where
       `Prelude.seq` Prelude.rnf put
       `Prelude.seq` Prelude.rnf update
 
-instance Core.ToJSON TransactWriteItem where
+instance Data.ToJSON TransactWriteItem where
   toJSON TransactWriteItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConditionCheck" Core..=)
+          [ ("ConditionCheck" Data..=)
               Prelude.<$> conditionCheck,
-            ("Delete" Core..=) Prelude.<$> delete',
-            ("Put" Core..=) Prelude.<$> put,
-            ("Update" Core..=) Prelude.<$> update
+            ("Delete" Data..=) Prelude.<$> delete',
+            ("Put" Data..=) Prelude.<$> put,
+            ("Update" Data..=) Prelude.<$> update
           ]
       )

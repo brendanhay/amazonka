@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.BatchStatementResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.BatchStatementError
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -74,15 +75,15 @@ batchStatementResponse_item = Lens.lens (\BatchStatementResponse' {item} -> item
 batchStatementResponse_error :: Lens.Lens' BatchStatementResponse (Prelude.Maybe BatchStatementError)
 batchStatementResponse_error = Lens.lens (\BatchStatementResponse' {error} -> error) (\s@BatchStatementResponse' {} a -> s {error = a} :: BatchStatementResponse)
 
-instance Core.FromJSON BatchStatementResponse where
+instance Data.FromJSON BatchStatementResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchStatementResponse"
       ( \x ->
           BatchStatementResponse'
-            Prelude.<$> (x Core..:? "TableName")
-            Prelude.<*> (x Core..:? "Item" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Error")
+            Prelude.<$> (x Data..:? "TableName")
+            Prelude.<*> (x Data..:? "Item" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Error")
       )
 
 instance Prelude.Hashable BatchStatementResponse where

@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndexAutoScalingUpdate wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.AutoScalingSettingsUpdate
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -86,15 +87,15 @@ instance
       `Prelude.seq` Prelude.rnf indexName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ReplicaGlobalSecondaryIndexAutoScalingUpdate
   where
   toJSON
     ReplicaGlobalSecondaryIndexAutoScalingUpdate' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("ProvisionedReadCapacityAutoScalingUpdate" Core..=)
+            [ ("ProvisionedReadCapacityAutoScalingUpdate" Data..=)
                 Prelude.<$> provisionedReadCapacityAutoScalingUpdate,
-              ("IndexName" Core..=) Prelude.<$> indexName
+              ("IndexName" Data..=) Prelude.<$> indexName
             ]
         )

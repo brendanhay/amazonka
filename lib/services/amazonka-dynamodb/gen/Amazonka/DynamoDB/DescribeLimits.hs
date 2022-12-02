@@ -103,6 +103,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,10 +135,10 @@ instance Core.AWSRequest DescribeLimits where
     Response.receiveJSON
       ( \s h x ->
           DescribeLimitsResponse'
-            Prelude.<$> (x Core..?> "TableMaxReadCapacityUnits")
-            Prelude.<*> (x Core..?> "AccountMaxWriteCapacityUnits")
-            Prelude.<*> (x Core..?> "TableMaxWriteCapacityUnits")
-            Prelude.<*> (x Core..?> "AccountMaxReadCapacityUnits")
+            Prelude.<$> (x Data..?> "TableMaxReadCapacityUnits")
+            Prelude.<*> (x Data..?> "AccountMaxWriteCapacityUnits")
+            Prelude.<*> (x Data..?> "TableMaxWriteCapacityUnits")
+            Prelude.<*> (x Data..?> "AccountMaxReadCapacityUnits")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,28 +149,28 @@ instance Prelude.Hashable DescribeLimits where
 instance Prelude.NFData DescribeLimits where
   rnf _ = ()
 
-instance Core.ToHeaders DescribeLimits where
+instance Data.ToHeaders DescribeLimits where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.DescribeLimits" ::
+              Data.=# ( "DynamoDB_20120810.DescribeLimits" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeLimits where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DescribeLimits where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DescribeLimits where
+instance Data.ToPath DescribeLimits where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLimits where
+instance Data.ToQuery DescribeLimits where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @DescribeLimits@ operation.

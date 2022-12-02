@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,7 +106,7 @@ instance
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance
   Prelude.Hashable
@@ -126,43 +127,43 @@ instance
       `Prelude.seq` Prelude.rnf streamArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     EnableKinesisStreamingDestination
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.EnableKinesisStreamingDestination" ::
+              Data.=# ( "DynamoDB_20120810.EnableKinesisStreamingDestination" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     EnableKinesisStreamingDestination
   where
   toJSON EnableKinesisStreamingDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("TableName" Core..= tableName),
-            Prelude.Just ("StreamArn" Core..= streamArn)
+          [ Prelude.Just ("TableName" Data..= tableName),
+            Prelude.Just ("StreamArn" Data..= streamArn)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     EnableKinesisStreamingDestination
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     EnableKinesisStreamingDestination
   where
   toQuery = Prelude.const Prelude.mempty

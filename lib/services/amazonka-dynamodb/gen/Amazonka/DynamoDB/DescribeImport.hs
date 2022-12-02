@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,7 +88,7 @@ instance Core.AWSRequest DescribeImport where
       ( \s h x ->
           DescribeImportResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ImportTableDescription")
+            Prelude.<*> (x Data..:> "ImportTableDescription")
       )
 
 instance Prelude.Hashable DescribeImport where
@@ -97,32 +98,32 @@ instance Prelude.Hashable DescribeImport where
 instance Prelude.NFData DescribeImport where
   rnf DescribeImport' {..} = Prelude.rnf importArn
 
-instance Core.ToHeaders DescribeImport where
+instance Data.ToHeaders DescribeImport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.DescribeImport" ::
+              Data.=# ( "DynamoDB_20120810.DescribeImport" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeImport where
+instance Data.ToJSON DescribeImport where
   toJSON DescribeImport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ImportArn" Core..= importArn)]
+          [Prelude.Just ("ImportArn" Data..= importArn)]
       )
 
-instance Core.ToPath DescribeImport where
+instance Data.ToPath DescribeImport where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeImport where
+instance Data.ToQuery DescribeImport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeImportResponse' smart constructor.

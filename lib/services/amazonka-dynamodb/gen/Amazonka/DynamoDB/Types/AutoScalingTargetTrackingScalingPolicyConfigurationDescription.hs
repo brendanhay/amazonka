@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.AutoScalingTargetTrackingScalingPolicyConfigurati
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
@@ -137,18 +138,18 @@ autoScalingTargetTrackingScalingPolicyConfigurationDescription_targetValue :: Le
 autoScalingTargetTrackingScalingPolicyConfigurationDescription_targetValue = Lens.lens (\AutoScalingTargetTrackingScalingPolicyConfigurationDescription' {targetValue} -> targetValue) (\s@AutoScalingTargetTrackingScalingPolicyConfigurationDescription' {} a -> s {targetValue = a} :: AutoScalingTargetTrackingScalingPolicyConfigurationDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AutoScalingTargetTrackingScalingPolicyConfigurationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoScalingTargetTrackingScalingPolicyConfigurationDescription"
       ( \x ->
           AutoScalingTargetTrackingScalingPolicyConfigurationDescription'
-            Prelude.<$> (x Core..:? "DisableScaleIn")
-              Prelude.<*> (x Core..:? "ScaleInCooldown")
-              Prelude.<*> (x Core..:? "ScaleOutCooldown")
-              Prelude.<*> (x Core..: "TargetValue")
+            Prelude.<$> (x Data..:? "DisableScaleIn")
+              Prelude.<*> (x Data..:? "ScaleInCooldown")
+              Prelude.<*> (x Data..:? "ScaleOutCooldown")
+              Prelude.<*> (x Data..: "TargetValue")
       )
 
 instance

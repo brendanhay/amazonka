@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,7 +113,7 @@ instance Core.AWSRequest UpdateContinuousBackups where
     Response.receiveJSON
       ( \s h x ->
           UpdateContinuousBackupsResponse'
-            Prelude.<$> (x Core..?> "ContinuousBackupsDescription")
+            Prelude.<$> (x Data..?> "ContinuousBackupsDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,37 +127,37 @@ instance Prelude.NFData UpdateContinuousBackups where
     Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf pointInTimeRecoverySpecification
 
-instance Core.ToHeaders UpdateContinuousBackups where
+instance Data.ToHeaders UpdateContinuousBackups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.UpdateContinuousBackups" ::
+              Data.=# ( "DynamoDB_20120810.UpdateContinuousBackups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateContinuousBackups where
+instance Data.ToJSON UpdateContinuousBackups where
   toJSON UpdateContinuousBackups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("TableName" Core..= tableName),
+          [ Prelude.Just ("TableName" Data..= tableName),
             Prelude.Just
               ( "PointInTimeRecoverySpecification"
-                  Core..= pointInTimeRecoverySpecification
+                  Data..= pointInTimeRecoverySpecification
               )
           ]
       )
 
-instance Core.ToPath UpdateContinuousBackups where
+instance Data.ToPath UpdateContinuousBackups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateContinuousBackups where
+instance Data.ToQuery UpdateContinuousBackups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateContinuousBackupsResponse' smart constructor.

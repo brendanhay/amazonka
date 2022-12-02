@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.S3BucketSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
@@ -77,15 +78,15 @@ s3BucketSource_s3BucketOwner = Lens.lens (\S3BucketSource' {s3BucketOwner} -> s3
 s3BucketSource_s3Bucket :: Lens.Lens' S3BucketSource Prelude.Text
 s3BucketSource_s3Bucket = Lens.lens (\S3BucketSource' {s3Bucket} -> s3Bucket) (\s@S3BucketSource' {} a -> s {s3Bucket = a} :: S3BucketSource)
 
-instance Core.FromJSON S3BucketSource where
+instance Data.FromJSON S3BucketSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3BucketSource"
       ( \x ->
           S3BucketSource'
-            Prelude.<$> (x Core..:? "S3KeyPrefix")
-            Prelude.<*> (x Core..:? "S3BucketOwner")
-            Prelude.<*> (x Core..: "S3Bucket")
+            Prelude.<$> (x Data..:? "S3KeyPrefix")
+            Prelude.<*> (x Data..:? "S3BucketOwner")
+            Prelude.<*> (x Data..: "S3Bucket")
       )
 
 instance Prelude.Hashable S3BucketSource where
@@ -100,12 +101,12 @@ instance Prelude.NFData S3BucketSource where
       `Prelude.seq` Prelude.rnf s3BucketOwner
       `Prelude.seq` Prelude.rnf s3Bucket
 
-instance Core.ToJSON S3BucketSource where
+instance Data.ToJSON S3BucketSource where
   toJSON S3BucketSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3KeyPrefix" Core..=) Prelude.<$> s3KeyPrefix,
-            ("S3BucketOwner" Core..=) Prelude.<$> s3BucketOwner,
-            Prelude.Just ("S3Bucket" Core..= s3Bucket)
+          [ ("S3KeyPrefix" Data..=) Prelude.<$> s3KeyPrefix,
+            ("S3BucketOwner" Data..=) Prelude.<$> s3BucketOwner,
+            Prelude.Just ("S3Bucket" Data..= s3Bucket)
           ]
       )

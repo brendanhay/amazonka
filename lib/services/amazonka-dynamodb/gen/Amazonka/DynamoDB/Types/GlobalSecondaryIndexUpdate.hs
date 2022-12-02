@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.GlobalSecondaryIndexUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.CreateGlobalSecondaryIndexAction
 import Amazonka.DynamoDB.Types.DeleteGlobalSecondaryIndexAction
@@ -132,12 +133,12 @@ instance Prelude.NFData GlobalSecondaryIndexUpdate where
       `Prelude.seq` Prelude.rnf delete'
       `Prelude.seq` Prelude.rnf update
 
-instance Core.ToJSON GlobalSecondaryIndexUpdate where
+instance Data.ToJSON GlobalSecondaryIndexUpdate where
   toJSON GlobalSecondaryIndexUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Create" Core..=) Prelude.<$> create,
-            ("Delete" Core..=) Prelude.<$> delete',
-            ("Update" Core..=) Prelude.<$> update
+          [ ("Create" Data..=) Prelude.<$> create,
+            ("Delete" Data..=) Prelude.<$> delete',
+            ("Update" Data..=) Prelude.<$> update
           ]
       )

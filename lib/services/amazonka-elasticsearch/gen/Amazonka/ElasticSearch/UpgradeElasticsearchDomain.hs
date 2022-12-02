@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,10 +120,10 @@ instance Core.AWSRequest UpgradeElasticsearchDomain where
     Response.receiveJSON
       ( \s h x ->
           UpgradeElasticsearchDomainResponse'
-            Prelude.<$> (x Core..?> "ChangeProgressDetails")
-            Prelude.<*> (x Core..?> "DomainName")
-            Prelude.<*> (x Core..?> "TargetVersion")
-            Prelude.<*> (x Core..?> "PerformCheckOnly")
+            Prelude.<$> (x Data..?> "ChangeProgressDetails")
+            Prelude.<*> (x Data..?> "DomainName")
+            Prelude.<*> (x Data..?> "TargetVersion")
+            Prelude.<*> (x Data..?> "PerformCheckOnly")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,25 +139,25 @@ instance Prelude.NFData UpgradeElasticsearchDomain where
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf targetVersion
 
-instance Core.ToHeaders UpgradeElasticsearchDomain where
+instance Data.ToHeaders UpgradeElasticsearchDomain where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpgradeElasticsearchDomain where
+instance Data.ToJSON UpgradeElasticsearchDomain where
   toJSON UpgradeElasticsearchDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PerformCheckOnly" Core..=)
+          [ ("PerformCheckOnly" Data..=)
               Prelude.<$> performCheckOnly,
-            Prelude.Just ("DomainName" Core..= domainName),
+            Prelude.Just ("DomainName" Data..= domainName),
             Prelude.Just
-              ("TargetVersion" Core..= targetVersion)
+              ("TargetVersion" Data..= targetVersion)
           ]
       )
 
-instance Core.ToPath UpgradeElasticsearchDomain where
+instance Data.ToPath UpgradeElasticsearchDomain where
   toPath = Prelude.const "/2015-01-01/es/upgradeDomain"
 
-instance Core.ToQuery UpgradeElasticsearchDomain where
+instance Data.ToQuery UpgradeElasticsearchDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Container for response returned by @ UpgradeElasticsearchDomain @

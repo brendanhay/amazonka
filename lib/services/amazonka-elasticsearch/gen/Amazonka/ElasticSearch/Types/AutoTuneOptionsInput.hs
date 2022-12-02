@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.AutoTuneOptionsInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types.AutoTuneDesiredState
 import Amazonka.ElasticSearch.Types.AutoTuneMaintenanceSchedule
 import qualified Amazonka.Prelude as Prelude
@@ -84,12 +85,12 @@ instance Prelude.NFData AutoTuneOptionsInput where
     Prelude.rnf maintenanceSchedules
       `Prelude.seq` Prelude.rnf desiredState
 
-instance Core.ToJSON AutoTuneOptionsInput where
+instance Data.ToJSON AutoTuneOptionsInput where
   toJSON AutoTuneOptionsInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaintenanceSchedules" Core..=)
+          [ ("MaintenanceSchedules" Data..=)
               Prelude.<$> maintenanceSchedules,
-            ("DesiredState" Core..=) Prelude.<$> desiredState
+            ("DesiredState" Data..=) Prelude.<$> desiredState
           ]
       )

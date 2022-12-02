@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -151,8 +152,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeReservedElasticsearchInstancesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> ( x Core..?> "ReservedElasticsearchInstances"
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> ( x Data..?> "ReservedElasticsearchInstances"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -180,28 +181,28 @@ instance
       `Prelude.seq` Prelude.rnf maxResults
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeReservedElasticsearchInstances
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeReservedElasticsearchInstances
   where
   toPath =
     Prelude.const "/2015-01-01/es/reservedInstances"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeReservedElasticsearchInstances
   where
   toQuery DescribeReservedElasticsearchInstances' {..} =
     Prelude.mconcat
       [ "reservationId"
-          Core.=: reservedElasticsearchInstanceId,
-        "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+          Data.=: reservedElasticsearchInstanceId,
+        "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | Container for results from @DescribeReservedElasticsearchInstances@

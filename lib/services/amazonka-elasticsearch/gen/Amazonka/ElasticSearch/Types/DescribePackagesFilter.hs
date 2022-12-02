@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.DescribePackagesFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types.DescribePackagesFilterName
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,11 +72,11 @@ instance Prelude.NFData DescribePackagesFilter where
   rnf DescribePackagesFilter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON DescribePackagesFilter where
+instance Data.ToJSON DescribePackagesFilter where
   toJSON DescribePackagesFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

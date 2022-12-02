@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.OptionStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types.OptionState
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,9 +34,9 @@ data OptionStatus = OptionStatus'
     -- | Specifies the latest version for the entity.
     updateVersion :: Prelude.Maybe Prelude.Natural,
     -- | Timestamp which tells the creation date for the entity.
-    creationDate :: Core.POSIX,
+    creationDate :: Data.POSIX,
     -- | Timestamp which tells the last updated time for the entity.
-    updateDate :: Core.POSIX,
+    updateDate :: Data.POSIX,
     -- | Provides the @OptionState@ for the Elasticsearch domain.
     state :: OptionState
   }
@@ -70,8 +71,8 @@ newOptionStatus pCreationDate_ pUpdateDate_ pState_ =
   OptionStatus'
     { pendingDeletion = Prelude.Nothing,
       updateVersion = Prelude.Nothing,
-      creationDate = Core._Time Lens.# pCreationDate_,
-      updateDate = Core._Time Lens.# pUpdateDate_,
+      creationDate = Data._Time Lens.# pCreationDate_,
+      updateDate = Data._Time Lens.# pUpdateDate_,
       state = pState_
     }
 
@@ -85,27 +86,27 @@ optionStatus_updateVersion = Lens.lens (\OptionStatus' {updateVersion} -> update
 
 -- | Timestamp which tells the creation date for the entity.
 optionStatus_creationDate :: Lens.Lens' OptionStatus Prelude.UTCTime
-optionStatus_creationDate = Lens.lens (\OptionStatus' {creationDate} -> creationDate) (\s@OptionStatus' {} a -> s {creationDate = a} :: OptionStatus) Prelude.. Core._Time
+optionStatus_creationDate = Lens.lens (\OptionStatus' {creationDate} -> creationDate) (\s@OptionStatus' {} a -> s {creationDate = a} :: OptionStatus) Prelude.. Data._Time
 
 -- | Timestamp which tells the last updated time for the entity.
 optionStatus_updateDate :: Lens.Lens' OptionStatus Prelude.UTCTime
-optionStatus_updateDate = Lens.lens (\OptionStatus' {updateDate} -> updateDate) (\s@OptionStatus' {} a -> s {updateDate = a} :: OptionStatus) Prelude.. Core._Time
+optionStatus_updateDate = Lens.lens (\OptionStatus' {updateDate} -> updateDate) (\s@OptionStatus' {} a -> s {updateDate = a} :: OptionStatus) Prelude.. Data._Time
 
 -- | Provides the @OptionState@ for the Elasticsearch domain.
 optionStatus_state :: Lens.Lens' OptionStatus OptionState
 optionStatus_state = Lens.lens (\OptionStatus' {state} -> state) (\s@OptionStatus' {} a -> s {state = a} :: OptionStatus)
 
-instance Core.FromJSON OptionStatus where
+instance Data.FromJSON OptionStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OptionStatus"
       ( \x ->
           OptionStatus'
-            Prelude.<$> (x Core..:? "PendingDeletion")
-            Prelude.<*> (x Core..:? "UpdateVersion")
-            Prelude.<*> (x Core..: "CreationDate")
-            Prelude.<*> (x Core..: "UpdateDate")
-            Prelude.<*> (x Core..: "State")
+            Prelude.<$> (x Data..:? "PendingDeletion")
+            Prelude.<*> (x Data..:? "UpdateVersion")
+            Prelude.<*> (x Data..: "CreationDate")
+            Prelude.<*> (x Data..: "UpdateDate")
+            Prelude.<*> (x Data..: "State")
       )
 
 instance Prelude.Hashable OptionStatus where

@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.DomainInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newDomainInformation' smart constructor.
@@ -67,15 +68,15 @@ domainInformation_region = Lens.lens (\DomainInformation' {region} -> region) (\
 domainInformation_domainName :: Lens.Lens' DomainInformation Prelude.Text
 domainInformation_domainName = Lens.lens (\DomainInformation' {domainName} -> domainName) (\s@DomainInformation' {} a -> s {domainName = a} :: DomainInformation)
 
-instance Core.FromJSON DomainInformation where
+instance Data.FromJSON DomainInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainInformation"
       ( \x ->
           DomainInformation'
-            Prelude.<$> (x Core..:? "OwnerId")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..: "DomainName")
+            Prelude.<$> (x Data..:? "OwnerId")
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..: "DomainName")
       )
 
 instance Prelude.Hashable DomainInformation where
@@ -90,12 +91,12 @@ instance Prelude.NFData DomainInformation where
       `Prelude.seq` Prelude.rnf region
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToJSON DomainInformation where
+instance Data.ToJSON DomainInformation where
   toJSON DomainInformation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OwnerId" Core..=) Prelude.<$> ownerId,
-            ("Region" Core..=) Prelude.<$> region,
-            Prelude.Just ("DomainName" Core..= domainName)
+          [ ("OwnerId" Data..=) Prelude.<$> ownerId,
+            ("Region" Data..=) Prelude.<$> region,
+            Prelude.Just ("DomainName" Data..= domainName)
           ]
       )

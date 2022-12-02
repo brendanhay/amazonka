@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.AutoTuneMaintenanceSchedule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types.Duration
 import qualified Amazonka.Prelude as Prelude
 
@@ -40,7 +41,7 @@ data AutoTuneMaintenanceSchedule = AutoTuneMaintenanceSchedule'
     -- for more information.
     cronExpressionForRecurrence :: Prelude.Maybe Prelude.Text,
     -- | Specifies timestamp at which Auto-Tune maintenance schedule start.
-    startAt :: Prelude.Maybe Core.POSIX
+    startAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,17 +88,17 @@ autoTuneMaintenanceSchedule_cronExpressionForRecurrence = Lens.lens (\AutoTuneMa
 
 -- | Specifies timestamp at which Auto-Tune maintenance schedule start.
 autoTuneMaintenanceSchedule_startAt :: Lens.Lens' AutoTuneMaintenanceSchedule (Prelude.Maybe Prelude.UTCTime)
-autoTuneMaintenanceSchedule_startAt = Lens.lens (\AutoTuneMaintenanceSchedule' {startAt} -> startAt) (\s@AutoTuneMaintenanceSchedule' {} a -> s {startAt = a} :: AutoTuneMaintenanceSchedule) Prelude.. Lens.mapping Core._Time
+autoTuneMaintenanceSchedule_startAt = Lens.lens (\AutoTuneMaintenanceSchedule' {startAt} -> startAt) (\s@AutoTuneMaintenanceSchedule' {} a -> s {startAt = a} :: AutoTuneMaintenanceSchedule) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AutoTuneMaintenanceSchedule where
+instance Data.FromJSON AutoTuneMaintenanceSchedule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoTuneMaintenanceSchedule"
       ( \x ->
           AutoTuneMaintenanceSchedule'
-            Prelude.<$> (x Core..:? "Duration")
-            Prelude.<*> (x Core..:? "CronExpressionForRecurrence")
-            Prelude.<*> (x Core..:? "StartAt")
+            Prelude.<$> (x Data..:? "Duration")
+            Prelude.<*> (x Data..:? "CronExpressionForRecurrence")
+            Prelude.<*> (x Data..:? "StartAt")
       )
 
 instance Prelude.Hashable AutoTuneMaintenanceSchedule where
@@ -112,13 +113,13 @@ instance Prelude.NFData AutoTuneMaintenanceSchedule where
       `Prelude.seq` Prelude.rnf cronExpressionForRecurrence
       `Prelude.seq` Prelude.rnf startAt
 
-instance Core.ToJSON AutoTuneMaintenanceSchedule where
+instance Data.ToJSON AutoTuneMaintenanceSchedule where
   toJSON AutoTuneMaintenanceSchedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Duration" Core..=) Prelude.<$> duration,
-            ("CronExpressionForRecurrence" Core..=)
+          [ ("Duration" Data..=) Prelude.<$> duration,
+            ("CronExpressionForRecurrence" Data..=)
               Prelude.<$> cronExpressionForRecurrence,
-            ("StartAt" Core..=) Prelude.<$> startAt
+            ("StartAt" Data..=) Prelude.<$> startAt
           ]
       )

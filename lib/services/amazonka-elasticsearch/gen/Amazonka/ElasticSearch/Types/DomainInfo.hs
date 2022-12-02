@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.DomainInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types.EngineType
 import qualified Amazonka.Prelude as Prelude
 
@@ -60,14 +61,14 @@ domainInfo_engineType = Lens.lens (\DomainInfo' {engineType} -> engineType) (\s@
 domainInfo_domainName :: Lens.Lens' DomainInfo (Prelude.Maybe Prelude.Text)
 domainInfo_domainName = Lens.lens (\DomainInfo' {domainName} -> domainName) (\s@DomainInfo' {} a -> s {domainName = a} :: DomainInfo)
 
-instance Core.FromJSON DomainInfo where
+instance Data.FromJSON DomainInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainInfo"
       ( \x ->
           DomainInfo'
-            Prelude.<$> (x Core..:? "EngineType")
-            Prelude.<*> (x Core..:? "DomainName")
+            Prelude.<$> (x Data..:? "EngineType")
+            Prelude.<*> (x Data..:? "DomainName")
       )
 
 instance Prelude.Hashable DomainInfo where

@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.ElasticsearchClusterConfigStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig
 import Amazonka.ElasticSearch.Types.OptionStatus
 import qualified Amazonka.Prelude as Prelude
@@ -78,16 +79,16 @@ elasticsearchClusterConfigStatus_status :: Lens.Lens' ElasticsearchClusterConfig
 elasticsearchClusterConfigStatus_status = Lens.lens (\ElasticsearchClusterConfigStatus' {status} -> status) (\s@ElasticsearchClusterConfigStatus' {} a -> s {status = a} :: ElasticsearchClusterConfigStatus)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ElasticsearchClusterConfigStatus
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ElasticsearchClusterConfigStatus"
       ( \x ->
           ElasticsearchClusterConfigStatus'
-            Prelude.<$> (x Core..: "Options")
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..: "Options")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance

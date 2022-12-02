@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,7 +123,7 @@ instance Core.AWSRequest UpdatePackage where
     Response.receiveJSON
       ( \s h x ->
           UpdatePackageResponse'
-            Prelude.<$> (x Core..?> "PackageDetails")
+            Prelude.<$> (x Data..?> "PackageDetails")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,26 +141,26 @@ instance Prelude.NFData UpdatePackage where
       `Prelude.seq` Prelude.rnf packageID
       `Prelude.seq` Prelude.rnf packageSource
 
-instance Core.ToHeaders UpdatePackage where
+instance Data.ToHeaders UpdatePackage where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdatePackage where
+instance Data.ToJSON UpdatePackage where
   toJSON UpdatePackage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PackageDescription" Core..=)
+          [ ("PackageDescription" Data..=)
               Prelude.<$> packageDescription,
-            ("CommitMessage" Core..=) Prelude.<$> commitMessage,
-            Prelude.Just ("PackageID" Core..= packageID),
+            ("CommitMessage" Data..=) Prelude.<$> commitMessage,
+            Prelude.Just ("PackageID" Data..= packageID),
             Prelude.Just
-              ("PackageSource" Core..= packageSource)
+              ("PackageSource" Data..= packageSource)
           ]
       )
 
-instance Core.ToPath UpdatePackage where
+instance Data.ToPath UpdatePackage where
   toPath = Prelude.const "/2015-01-01/packages/update"
 
-instance Core.ToQuery UpdatePackage where
+instance Data.ToQuery UpdatePackage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Container for response returned by @ UpdatePackage @ operation.

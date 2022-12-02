@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.AdvancedSecurityOptionsStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types.AdvancedSecurityOptions
 import Amazonka.ElasticSearch.Types.OptionStatus
 import qualified Amazonka.Prelude as Prelude
@@ -74,14 +75,14 @@ advancedSecurityOptionsStatus_options = Lens.lens (\AdvancedSecurityOptionsStatu
 advancedSecurityOptionsStatus_status :: Lens.Lens' AdvancedSecurityOptionsStatus OptionStatus
 advancedSecurityOptionsStatus_status = Lens.lens (\AdvancedSecurityOptionsStatus' {status} -> status) (\s@AdvancedSecurityOptionsStatus' {} a -> s {status = a} :: AdvancedSecurityOptionsStatus)
 
-instance Core.FromJSON AdvancedSecurityOptionsStatus where
+instance Data.FromJSON AdvancedSecurityOptionsStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AdvancedSecurityOptionsStatus"
       ( \x ->
           AdvancedSecurityOptionsStatus'
-            Prelude.<$> (x Core..: "Options")
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..: "Options")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance

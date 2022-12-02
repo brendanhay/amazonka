@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.ServiceSoftwareOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types.DeploymentStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -46,7 +47,7 @@ data ServiceSoftwareOptions = ServiceSoftwareOptions'
     -- | Timestamp, in Epoch time, until which you can manually request a service
     -- software update. After this date, we automatically update your service
     -- software.
-    automatedUpdateDate :: Prelude.Maybe Core.POSIX,
+    automatedUpdateDate :: Prelude.Maybe Data.POSIX,
     -- | The description of the @UpdateStatus@.
     description :: Prelude.Maybe Prelude.Text,
     -- | The current service software version that is present on the domain.
@@ -128,7 +129,7 @@ serviceSoftwareOptions_updateStatus = Lens.lens (\ServiceSoftwareOptions' {updat
 -- software update. After this date, we automatically update your service
 -- software.
 serviceSoftwareOptions_automatedUpdateDate :: Lens.Lens' ServiceSoftwareOptions (Prelude.Maybe Prelude.UTCTime)
-serviceSoftwareOptions_automatedUpdateDate = Lens.lens (\ServiceSoftwareOptions' {automatedUpdateDate} -> automatedUpdateDate) (\s@ServiceSoftwareOptions' {} a -> s {automatedUpdateDate = a} :: ServiceSoftwareOptions) Prelude.. Lens.mapping Core._Time
+serviceSoftwareOptions_automatedUpdateDate = Lens.lens (\ServiceSoftwareOptions' {automatedUpdateDate} -> automatedUpdateDate) (\s@ServiceSoftwareOptions' {} a -> s {automatedUpdateDate = a} :: ServiceSoftwareOptions) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the @UpdateStatus@.
 serviceSoftwareOptions_description :: Lens.Lens' ServiceSoftwareOptions (Prelude.Maybe Prelude.Text)
@@ -138,20 +139,20 @@ serviceSoftwareOptions_description = Lens.lens (\ServiceSoftwareOptions' {descri
 serviceSoftwareOptions_currentVersion :: Lens.Lens' ServiceSoftwareOptions (Prelude.Maybe Prelude.Text)
 serviceSoftwareOptions_currentVersion = Lens.lens (\ServiceSoftwareOptions' {currentVersion} -> currentVersion) (\s@ServiceSoftwareOptions' {} a -> s {currentVersion = a} :: ServiceSoftwareOptions)
 
-instance Core.FromJSON ServiceSoftwareOptions where
+instance Data.FromJSON ServiceSoftwareOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceSoftwareOptions"
       ( \x ->
           ServiceSoftwareOptions'
-            Prelude.<$> (x Core..:? "OptionalDeployment")
-            Prelude.<*> (x Core..:? "NewVersion")
-            Prelude.<*> (x Core..:? "UpdateAvailable")
-            Prelude.<*> (x Core..:? "Cancellable")
-            Prelude.<*> (x Core..:? "UpdateStatus")
-            Prelude.<*> (x Core..:? "AutomatedUpdateDate")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "CurrentVersion")
+            Prelude.<$> (x Data..:? "OptionalDeployment")
+            Prelude.<*> (x Data..:? "NewVersion")
+            Prelude.<*> (x Data..:? "UpdateAvailable")
+            Prelude.<*> (x Data..:? "Cancellable")
+            Prelude.<*> (x Data..:? "UpdateStatus")
+            Prelude.<*> (x Data..:? "AutomatedUpdateDate")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "CurrentVersion")
       )
 
 instance Prelude.Hashable ServiceSoftwareOptions where

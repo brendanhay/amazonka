@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,7 +92,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetCompatibleElasticsearchVersionsResponse'
-            Prelude.<$> ( x Core..?> "CompatibleElasticsearchVersions"
+            Prelude.<$> ( x Data..?> "CompatibleElasticsearchVersions"
                             Core..!@ Prelude.mempty
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -114,24 +115,24 @@ instance
     Prelude.rnf domainName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetCompatibleElasticsearchVersions
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetCompatibleElasticsearchVersions
   where
   toPath =
     Prelude.const "/2015-01-01/es/compatibleVersions"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetCompatibleElasticsearchVersions
   where
   toQuery GetCompatibleElasticsearchVersions' {..} =
-    Prelude.mconcat ["domainName" Core.=: domainName]
+    Prelude.mconcat ["domainName" Data.=: domainName]
 
 -- | Container for response returned by
 -- @ GetCompatibleElasticsearchVersions @ operation.

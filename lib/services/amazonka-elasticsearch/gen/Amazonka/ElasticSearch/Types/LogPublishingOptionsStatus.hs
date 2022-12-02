@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.LogPublishingOptionsStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types.LogPublishingOption
 import Amazonka.ElasticSearch.Types.LogType
 import Amazonka.ElasticSearch.Types.OptionStatus
@@ -69,14 +70,14 @@ logPublishingOptionsStatus_status = Lens.lens (\LogPublishingOptionsStatus' {sta
 logPublishingOptionsStatus_options :: Lens.Lens' LogPublishingOptionsStatus (Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption))
 logPublishingOptionsStatus_options = Lens.lens (\LogPublishingOptionsStatus' {options} -> options) (\s@LogPublishingOptionsStatus' {} a -> s {options = a} :: LogPublishingOptionsStatus) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON LogPublishingOptionsStatus where
+instance Data.FromJSON LogPublishingOptionsStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogPublishingOptionsStatus"
       ( \x ->
           LogPublishingOptionsStatus'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Options" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Options" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable LogPublishingOptionsStatus where

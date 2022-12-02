@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.VpcEndpointError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types.VpcEndpointErrorCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,15 +73,15 @@ vpcEndpointError_vpcEndpointId = Lens.lens (\VpcEndpointError' {vpcEndpointId} -
 vpcEndpointError_errorCode :: Lens.Lens' VpcEndpointError (Prelude.Maybe VpcEndpointErrorCode)
 vpcEndpointError_errorCode = Lens.lens (\VpcEndpointError' {errorCode} -> errorCode) (\s@VpcEndpointError' {} a -> s {errorCode = a} :: VpcEndpointError)
 
-instance Core.FromJSON VpcEndpointError where
+instance Data.FromJSON VpcEndpointError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcEndpointError"
       ( \x ->
           VpcEndpointError'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "VpcEndpointId")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "VpcEndpointId")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable VpcEndpointError where

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,7 +108,7 @@ instance Core.AWSRequest DescribeDomainChangeProgress where
     Response.receiveJSON
       ( \s h x ->
           DescribeDomainChangeProgressResponse'
-            Prelude.<$> (x Core..?> "ChangeProgressStatus")
+            Prelude.<$> (x Data..?> "ChangeProgressStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,20 +125,20 @@ instance Prelude.NFData DescribeDomainChangeProgress where
     Prelude.rnf changeId
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders DescribeDomainChangeProgress where
+instance Data.ToHeaders DescribeDomainChangeProgress where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDomainChangeProgress where
+instance Data.ToPath DescribeDomainChangeProgress where
   toPath DescribeDomainChangeProgress' {..} =
     Prelude.mconcat
       [ "/2015-01-01/es/domain/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/progress"
       ]
 
-instance Core.ToQuery DescribeDomainChangeProgress where
+instance Data.ToQuery DescribeDomainChangeProgress where
   toQuery DescribeDomainChangeProgress' {..} =
-    Prelude.mconcat ["changeid" Core.=: changeId]
+    Prelude.mconcat ["changeid" Data.=: changeId]
 
 -- | The result of a @DescribeDomainChangeProgress@ request. Contains the
 -- progress information of the requested domain change.

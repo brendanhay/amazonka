@@ -29,6 +29,7 @@ module Amazonka.ElasticSearch.Types.LogType
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Type of Log File, it can be one of the following:
@@ -42,7 +43,7 @@ import qualified Amazonka.Prelude as Prelude
 --     the service and can be useful for troubleshooting.
 -- -   AUDIT_LOGS: Audit logs contain records of user requests for access
 --     from the domain.
-newtype LogType = LogType' {fromLogType :: Core.Text}
+newtype LogType = LogType' {fromLogType :: Data.Text}
   deriving stock
     ( Prelude.Show,
       Prelude.Read,
@@ -53,18 +54,18 @@ newtype LogType = LogType' {fromLogType :: Core.Text}
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern LogType_AUDIT_LOGS :: LogType

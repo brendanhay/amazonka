@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.UpgradeStepItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types.UpgradeStatus
 import Amazonka.ElasticSearch.Types.UpgradeStep
 import qualified Amazonka.Prelude as Prelude
@@ -121,16 +122,16 @@ upgradeStepItem_progressPercent = Lens.lens (\UpgradeStepItem' {progressPercent}
 upgradeStepItem_upgradeStepStatus :: Lens.Lens' UpgradeStepItem (Prelude.Maybe UpgradeStatus)
 upgradeStepItem_upgradeStepStatus = Lens.lens (\UpgradeStepItem' {upgradeStepStatus} -> upgradeStepStatus) (\s@UpgradeStepItem' {} a -> s {upgradeStepStatus = a} :: UpgradeStepItem)
 
-instance Core.FromJSON UpgradeStepItem where
+instance Data.FromJSON UpgradeStepItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UpgradeStepItem"
       ( \x ->
           UpgradeStepItem'
-            Prelude.<$> (x Core..:? "UpgradeStep")
-            Prelude.<*> (x Core..:? "Issues" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ProgressPercent")
-            Prelude.<*> (x Core..:? "UpgradeStepStatus")
+            Prelude.<$> (x Data..:? "UpgradeStep")
+            Prelude.<*> (x Data..:? "Issues" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ProgressPercent")
+            Prelude.<*> (x Data..:? "UpgradeStepStatus")
       )
 
 instance Prelude.Hashable UpgradeStepItem where

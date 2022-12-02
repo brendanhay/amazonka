@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,7 +96,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DeleteInboundCrossClusterSearchConnectionResponse'
-            Prelude.<$> (x Core..?> "CrossClusterSearchConnection")
+            Prelude.<$> (x Data..?> "CrossClusterSearchConnection")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,23 +118,23 @@ instance
     Prelude.rnf crossClusterSearchConnectionId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteInboundCrossClusterSearchConnection
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeleteInboundCrossClusterSearchConnection
   where
   toPath DeleteInboundCrossClusterSearchConnection' {..} =
     Prelude.mconcat
       [ "/2015-01-01/es/ccs/inboundConnection/",
-        Core.toBS crossClusterSearchConnectionId
+        Data.toBS crossClusterSearchConnectionId
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteInboundCrossClusterSearchConnection
   where
   toQuery = Prelude.const Prelude.mempty

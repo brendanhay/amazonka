@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.ElasticsearchVersionStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types.OptionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,14 +74,14 @@ elasticsearchVersionStatus_options = Lens.lens (\ElasticsearchVersionStatus' {op
 elasticsearchVersionStatus_status :: Lens.Lens' ElasticsearchVersionStatus OptionStatus
 elasticsearchVersionStatus_status = Lens.lens (\ElasticsearchVersionStatus' {status} -> status) (\s@ElasticsearchVersionStatus' {} a -> s {status = a} :: ElasticsearchVersionStatus)
 
-instance Core.FromJSON ElasticsearchVersionStatus where
+instance Data.FromJSON ElasticsearchVersionStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ElasticsearchVersionStatus"
       ( \x ->
           ElasticsearchVersionStatus'
-            Prelude.<$> (x Core..: "Options")
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..: "Options")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance Prelude.Hashable ElasticsearchVersionStatus where

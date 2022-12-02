@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -165,8 +166,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListElasticsearchInstanceTypesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ElasticsearchInstanceTypes"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ElasticsearchInstanceTypes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -195,24 +196,24 @@ instance
       `Prelude.seq` Prelude.rnf elasticsearchVersion
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListElasticsearchInstanceTypes
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListElasticsearchInstanceTypes where
+instance Data.ToPath ListElasticsearchInstanceTypes where
   toPath ListElasticsearchInstanceTypes' {..} =
     Prelude.mconcat
       [ "/2015-01-01/es/instanceTypes/",
-        Core.toBS elasticsearchVersion
+        Data.toBS elasticsearchVersion
       ]
 
-instance Core.ToQuery ListElasticsearchInstanceTypes where
+instance Data.ToQuery ListElasticsearchInstanceTypes where
   toQuery ListElasticsearchInstanceTypes' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "domainName" Core.=: domainName,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "domainName" Data.=: domainName,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | Container for the parameters returned by

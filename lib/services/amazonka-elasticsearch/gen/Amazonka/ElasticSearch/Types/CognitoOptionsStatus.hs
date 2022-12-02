@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.CognitoOptionsStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types.CognitoOptions
 import Amazonka.ElasticSearch.Types.OptionStatus
 import qualified Amazonka.Prelude as Prelude
@@ -70,14 +71,14 @@ cognitoOptionsStatus_options = Lens.lens (\CognitoOptionsStatus' {options} -> op
 cognitoOptionsStatus_status :: Lens.Lens' CognitoOptionsStatus OptionStatus
 cognitoOptionsStatus_status = Lens.lens (\CognitoOptionsStatus' {status} -> status) (\s@CognitoOptionsStatus' {} a -> s {status = a} :: CognitoOptionsStatus)
 
-instance Core.FromJSON CognitoOptionsStatus where
+instance Data.FromJSON CognitoOptionsStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CognitoOptionsStatus"
       ( \x ->
           CognitoOptionsStatus'
-            Prelude.<$> (x Core..: "Options")
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..: "Options")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance Prelude.Hashable CognitoOptionsStatus where

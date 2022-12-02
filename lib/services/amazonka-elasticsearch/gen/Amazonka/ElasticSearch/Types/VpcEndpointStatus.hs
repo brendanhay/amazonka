@@ -32,6 +32,7 @@ module Amazonka.ElasticSearch.Types.VpcEndpointStatus
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the current status of the VPC endpoint:
@@ -48,7 +49,7 @@ import qualified Amazonka.Prelude as Prelude
 -- -   DELETE_FAILED: Indicates that the VPC endpoint deletion failed.
 newtype VpcEndpointStatus = VpcEndpointStatus'
   { fromVpcEndpointStatus ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -60,18 +61,18 @@ newtype VpcEndpointStatus = VpcEndpointStatus'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern VpcEndpointStatus_ACTIVE :: VpcEndpointStatus

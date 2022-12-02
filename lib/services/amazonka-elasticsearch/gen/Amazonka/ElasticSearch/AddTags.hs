@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,22 +100,22 @@ instance Prelude.NFData AddTags where
   rnf AddTags' {..} =
     Prelude.rnf arn `Prelude.seq` Prelude.rnf tagList
 
-instance Core.ToHeaders AddTags where
+instance Data.ToHeaders AddTags where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON AddTags where
+instance Data.ToJSON AddTags where
   toJSON AddTags' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ARN" Core..= arn),
-            Prelude.Just ("TagList" Core..= tagList)
+          [ Prelude.Just ("ARN" Data..= arn),
+            Prelude.Just ("TagList" Data..= tagList)
           ]
       )
 
-instance Core.ToPath AddTags where
+instance Data.ToPath AddTags where
   toPath = Prelude.const "/2015-01-01/tags"
 
-instance Core.ToQuery AddTags where
+instance Data.ToQuery AddTags where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddTagsResponse' smart constructor.

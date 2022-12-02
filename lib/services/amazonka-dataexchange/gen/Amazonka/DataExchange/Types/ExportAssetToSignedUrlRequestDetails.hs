@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.ExportAssetToSignedUrlRequestDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of the operation to be performed by the job.
@@ -104,14 +105,14 @@ instance
       `Prelude.seq` Prelude.rnf revisionId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ExportAssetToSignedUrlRequestDetails
   where
   toJSON ExportAssetToSignedUrlRequestDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AssetId" Core..= assetId),
-            Prelude.Just ("DataSetId" Core..= dataSetId),
-            Prelude.Just ("RevisionId" Core..= revisionId)
+          [ Prelude.Just ("AssetId" Data..= assetId),
+            Prelude.Just ("DataSetId" Data..= dataSetId),
+            Prelude.Just ("RevisionId" Data..= revisionId)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.ImportAssetsFromS3ResponseDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types.AssetSourceEntry
 import qualified Amazonka.Prelude as Prelude
 
@@ -82,17 +83,17 @@ importAssetsFromS3ResponseDetails_revisionId :: Lens.Lens' ImportAssetsFromS3Res
 importAssetsFromS3ResponseDetails_revisionId = Lens.lens (\ImportAssetsFromS3ResponseDetails' {revisionId} -> revisionId) (\s@ImportAssetsFromS3ResponseDetails' {} a -> s {revisionId = a} :: ImportAssetsFromS3ResponseDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ImportAssetsFromS3ResponseDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportAssetsFromS3ResponseDetails"
       ( \x ->
           ImportAssetsFromS3ResponseDetails'
-            Prelude.<$> (x Core..:? "AssetSources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "DataSetId")
-            Prelude.<*> (x Core..: "RevisionId")
+            Prelude.<$> (x Data..:? "AssetSources" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "DataSetId")
+            Prelude.<*> (x Data..: "RevisionId")
       )
 
 instance

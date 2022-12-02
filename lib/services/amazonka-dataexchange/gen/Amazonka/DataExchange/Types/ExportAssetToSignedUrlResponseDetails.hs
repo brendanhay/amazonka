@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of the export to signed URL response.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newExportAssetToSignedUrlResponseDetails' smart constructor.
 data ExportAssetToSignedUrlResponseDetails = ExportAssetToSignedUrlResponseDetails'
   { -- | The date and time that the signed URL expires, in ISO 8601 format.
-    signedUrlExpiresAt :: Prelude.Maybe Core.POSIX,
+    signedUrlExpiresAt :: Prelude.Maybe Data.POSIX,
     -- | The signed URL for the export request.
     signedUrl :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the asset associated with this export job.
@@ -82,7 +83,7 @@ newExportAssetToSignedUrlResponseDetails
 
 -- | The date and time that the signed URL expires, in ISO 8601 format.
 exportAssetToSignedUrlResponseDetails_signedUrlExpiresAt :: Lens.Lens' ExportAssetToSignedUrlResponseDetails (Prelude.Maybe Prelude.UTCTime)
-exportAssetToSignedUrlResponseDetails_signedUrlExpiresAt = Lens.lens (\ExportAssetToSignedUrlResponseDetails' {signedUrlExpiresAt} -> signedUrlExpiresAt) (\s@ExportAssetToSignedUrlResponseDetails' {} a -> s {signedUrlExpiresAt = a} :: ExportAssetToSignedUrlResponseDetails) Prelude.. Lens.mapping Core._Time
+exportAssetToSignedUrlResponseDetails_signedUrlExpiresAt = Lens.lens (\ExportAssetToSignedUrlResponseDetails' {signedUrlExpiresAt} -> signedUrlExpiresAt) (\s@ExportAssetToSignedUrlResponseDetails' {} a -> s {signedUrlExpiresAt = a} :: ExportAssetToSignedUrlResponseDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The signed URL for the export request.
 exportAssetToSignedUrlResponseDetails_signedUrl :: Lens.Lens' ExportAssetToSignedUrlResponseDetails (Prelude.Maybe Prelude.Text)
@@ -102,19 +103,19 @@ exportAssetToSignedUrlResponseDetails_revisionId :: Lens.Lens' ExportAssetToSign
 exportAssetToSignedUrlResponseDetails_revisionId = Lens.lens (\ExportAssetToSignedUrlResponseDetails' {revisionId} -> revisionId) (\s@ExportAssetToSignedUrlResponseDetails' {} a -> s {revisionId = a} :: ExportAssetToSignedUrlResponseDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ExportAssetToSignedUrlResponseDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExportAssetToSignedUrlResponseDetails"
       ( \x ->
           ExportAssetToSignedUrlResponseDetails'
-            Prelude.<$> (x Core..:? "SignedUrlExpiresAt")
-            Prelude.<*> (x Core..:? "SignedUrl")
-            Prelude.<*> (x Core..: "AssetId")
-            Prelude.<*> (x Core..: "DataSetId")
-            Prelude.<*> (x Core..: "RevisionId")
+            Prelude.<$> (x Data..:? "SignedUrlExpiresAt")
+            Prelude.<*> (x Data..:? "SignedUrl")
+            Prelude.<*> (x Data..: "AssetId")
+            Prelude.<*> (x Data..: "DataSetId")
+            Prelude.<*> (x Data..: "RevisionId")
       )
 
 instance

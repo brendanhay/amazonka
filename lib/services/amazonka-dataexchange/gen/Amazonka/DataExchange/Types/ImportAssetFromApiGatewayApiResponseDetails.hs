@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.ImportAssetFromApiGatewayApiResponseDetails w
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types.ProtocolType
 import qualified Amazonka.Prelude as Prelude
 
@@ -42,7 +43,7 @@ data ImportAssetFromApiGatewayApiResponseDetails = ImportAssetFromApiGatewayApiR
     -- | The upload URL of the API specification.
     apiSpecificationUploadUrl :: Prelude.Text,
     -- | The date and time that the upload URL expires, in ISO 8601 format.
-    apiSpecificationUploadUrlExpiresAt :: Core.POSIX,
+    apiSpecificationUploadUrlExpiresAt :: Data.POSIX,
     -- | The data set ID.
     dataSetId :: Prelude.Text,
     -- | The protocol type.
@@ -126,7 +127,7 @@ newImportAssetFromApiGatewayApiResponseDetails
         apiSpecificationUploadUrl =
           pApiSpecificationUploadUrl_,
         apiSpecificationUploadUrlExpiresAt =
-          Core._Time
+          Data._Time
             Lens.# pApiSpecificationUploadUrlExpiresAt_,
         dataSetId = pDataSetId_,
         protocolType = pProtocolType_,
@@ -161,7 +162,7 @@ importAssetFromApiGatewayApiResponseDetails_apiSpecificationUploadUrl = Lens.len
 
 -- | The date and time that the upload URL expires, in ISO 8601 format.
 importAssetFromApiGatewayApiResponseDetails_apiSpecificationUploadUrlExpiresAt :: Lens.Lens' ImportAssetFromApiGatewayApiResponseDetails Prelude.UTCTime
-importAssetFromApiGatewayApiResponseDetails_apiSpecificationUploadUrlExpiresAt = Lens.lens (\ImportAssetFromApiGatewayApiResponseDetails' {apiSpecificationUploadUrlExpiresAt} -> apiSpecificationUploadUrlExpiresAt) (\s@ImportAssetFromApiGatewayApiResponseDetails' {} a -> s {apiSpecificationUploadUrlExpiresAt = a} :: ImportAssetFromApiGatewayApiResponseDetails) Prelude.. Core._Time
+importAssetFromApiGatewayApiResponseDetails_apiSpecificationUploadUrlExpiresAt = Lens.lens (\ImportAssetFromApiGatewayApiResponseDetails' {apiSpecificationUploadUrlExpiresAt} -> apiSpecificationUploadUrlExpiresAt) (\s@ImportAssetFromApiGatewayApiResponseDetails' {} a -> s {apiSpecificationUploadUrlExpiresAt = a} :: ImportAssetFromApiGatewayApiResponseDetails) Prelude.. Data._Time
 
 -- | The data set ID.
 importAssetFromApiGatewayApiResponseDetails_dataSetId :: Lens.Lens' ImportAssetFromApiGatewayApiResponseDetails Prelude.Text
@@ -180,25 +181,25 @@ importAssetFromApiGatewayApiResponseDetails_stage :: Lens.Lens' ImportAssetFromA
 importAssetFromApiGatewayApiResponseDetails_stage = Lens.lens (\ImportAssetFromApiGatewayApiResponseDetails' {stage} -> stage) (\s@ImportAssetFromApiGatewayApiResponseDetails' {} a -> s {stage = a} :: ImportAssetFromApiGatewayApiResponseDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ImportAssetFromApiGatewayApiResponseDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportAssetFromApiGatewayApiResponseDetails"
       ( \x ->
           ImportAssetFromApiGatewayApiResponseDetails'
-            Prelude.<$> (x Core..:? "ApiKey")
-              Prelude.<*> (x Core..:? "ApiDescription")
-              Prelude.<*> (x Core..: "ApiId")
-              Prelude.<*> (x Core..: "ApiName")
-              Prelude.<*> (x Core..: "ApiSpecificationMd5Hash")
-              Prelude.<*> (x Core..: "ApiSpecificationUploadUrl")
-              Prelude.<*> (x Core..: "ApiSpecificationUploadUrlExpiresAt")
-              Prelude.<*> (x Core..: "DataSetId")
-              Prelude.<*> (x Core..: "ProtocolType")
-              Prelude.<*> (x Core..: "RevisionId")
-              Prelude.<*> (x Core..: "Stage")
+            Prelude.<$> (x Data..:? "ApiKey")
+              Prelude.<*> (x Data..:? "ApiDescription")
+              Prelude.<*> (x Data..: "ApiId")
+              Prelude.<*> (x Data..: "ApiName")
+              Prelude.<*> (x Data..: "ApiSpecificationMd5Hash")
+              Prelude.<*> (x Data..: "ApiSpecificationUploadUrl")
+              Prelude.<*> (x Data..: "ApiSpecificationUploadUrlExpiresAt")
+              Prelude.<*> (x Data..: "DataSetId")
+              Prelude.<*> (x Data..: "ProtocolType")
+              Prelude.<*> (x Data..: "RevisionId")
+              Prelude.<*> (x Data..: "Stage")
       )
 
 instance

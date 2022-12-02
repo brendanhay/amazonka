@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.RevisionDestinationEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The destination where the assets in the revision will be exported.
@@ -81,15 +82,15 @@ revisionDestinationEntry_bucket = Lens.lens (\RevisionDestinationEntry' {bucket}
 revisionDestinationEntry_revisionId :: Lens.Lens' RevisionDestinationEntry Prelude.Text
 revisionDestinationEntry_revisionId = Lens.lens (\RevisionDestinationEntry' {revisionId} -> revisionId) (\s@RevisionDestinationEntry' {} a -> s {revisionId = a} :: RevisionDestinationEntry)
 
-instance Core.FromJSON RevisionDestinationEntry where
+instance Data.FromJSON RevisionDestinationEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RevisionDestinationEntry"
       ( \x ->
           RevisionDestinationEntry'
-            Prelude.<$> (x Core..:? "KeyPattern")
-            Prelude.<*> (x Core..: "Bucket")
-            Prelude.<*> (x Core..: "RevisionId")
+            Prelude.<$> (x Data..:? "KeyPattern")
+            Prelude.<*> (x Data..: "Bucket")
+            Prelude.<*> (x Data..: "RevisionId")
       )
 
 instance Prelude.Hashable RevisionDestinationEntry where
@@ -104,12 +105,12 @@ instance Prelude.NFData RevisionDestinationEntry where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf revisionId
 
-instance Core.ToJSON RevisionDestinationEntry where
+instance Data.ToJSON RevisionDestinationEntry where
   toJSON RevisionDestinationEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KeyPattern" Core..=) Prelude.<$> keyPattern,
-            Prelude.Just ("Bucket" Core..= bucket),
-            Prelude.Just ("RevisionId" Core..= revisionId)
+          [ ("KeyPattern" Data..=) Prelude.<$> keyPattern,
+            Prelude.Just ("Bucket" Data..= bucket),
+            Prelude.Just ("RevisionId" Data..= revisionId)
           ]
       )

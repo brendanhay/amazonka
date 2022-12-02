@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.RevisionPublished where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the published revision.
@@ -52,13 +53,13 @@ newRevisionPublished pDataSetId_ =
 revisionPublished_dataSetId :: Lens.Lens' RevisionPublished Prelude.Text
 revisionPublished_dataSetId = Lens.lens (\RevisionPublished' {dataSetId} -> dataSetId) (\s@RevisionPublished' {} a -> s {dataSetId = a} :: RevisionPublished)
 
-instance Core.FromJSON RevisionPublished where
+instance Data.FromJSON RevisionPublished where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RevisionPublished"
       ( \x ->
           RevisionPublished'
-            Prelude.<$> (x Core..: "DataSetId")
+            Prelude.<$> (x Data..: "DataSetId")
       )
 
 instance Prelude.Hashable RevisionPublished where
@@ -68,9 +69,9 @@ instance Prelude.Hashable RevisionPublished where
 instance Prelude.NFData RevisionPublished where
   rnf RevisionPublished' {..} = Prelude.rnf dataSetId
 
-instance Core.ToJSON RevisionPublished where
+instance Data.ToJSON RevisionPublished where
   toJSON RevisionPublished' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DataSetId" Core..= dataSetId)]
+          [Prelude.Just ("DataSetId" Data..= dataSetId)]
       )

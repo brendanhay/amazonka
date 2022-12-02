@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -177,7 +178,7 @@ instance Core.AWSRequest SendApiAsset where
     Response.receiveBytes
       ( \s h x ->
           SendApiAssetResponse'
-            Prelude.<$> (Core.parseHeadersMap "" h)
+            Prelude.<$> (Data.parseHeadersMap "" h)
             Prelude.<*> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -204,31 +205,31 @@ instance Prelude.NFData SendApiAsset where
       `Prelude.seq` Prelude.rnf dataSetId
       `Prelude.seq` Prelude.rnf revisionId
 
-instance Core.ToBody SendApiAsset where
-  toBody SendApiAsset' {..} = Core.toBody body
+instance Data.ToBody SendApiAsset where
+  toBody SendApiAsset' {..} = Data.toBody body
 
-instance Core.ToHeaders SendApiAsset where
+instance Data.ToHeaders SendApiAsset where
   toHeaders SendApiAsset' {..} =
     Prelude.mconcat
-      [ "x-amzn-dataexchange-http-method" Core.=# method,
-        "x-amzn-dataexchange-header-" Core.=# requestHeaders,
-        "x-amzn-dataexchange-path" Core.=# path,
-        "x-amzn-dataexchange-asset-id" Core.=# assetId,
-        "x-amzn-dataexchange-data-set-id" Core.=# dataSetId,
-        "x-amzn-dataexchange-revision-id" Core.=# revisionId,
+      [ "x-amzn-dataexchange-http-method" Data.=# method,
+        "x-amzn-dataexchange-header-" Data.=# requestHeaders,
+        "x-amzn-dataexchange-path" Data.=# path,
+        "x-amzn-dataexchange-asset-id" Data.=# assetId,
+        "x-amzn-dataexchange-data-set-id" Data.=# dataSetId,
+        "x-amzn-dataexchange-revision-id" Data.=# revisionId,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath SendApiAsset where
+instance Data.ToPath SendApiAsset where
   toPath = Prelude.const "/v1"
 
-instance Core.ToQuery SendApiAsset where
+instance Data.ToQuery SendApiAsset where
   toQuery SendApiAsset' {..} =
     Prelude.mconcat
       [ "QueryStringParameters"
-          Core.=: Core.toQuery
-            ( Core.toQueryMap "entry" "key" "value"
+          Data.=: Data.toQuery
+            ( Data.toQueryMap "entry" "key" "value"
                 Prelude.<$> queryStringParameters
             )
       ]

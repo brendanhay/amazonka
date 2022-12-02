@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.Event where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types.RevisionPublished
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,12 +52,12 @@ newEvent =
 event_revisionPublished :: Lens.Lens' Event (Prelude.Maybe RevisionPublished)
 event_revisionPublished = Lens.lens (\Event' {revisionPublished} -> revisionPublished) (\s@Event' {} a -> s {revisionPublished = a} :: Event)
 
-instance Core.FromJSON Event where
+instance Data.FromJSON Event where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Event"
       ( \x ->
-          Event' Prelude.<$> (x Core..:? "RevisionPublished")
+          Event' Prelude.<$> (x Data..:? "RevisionPublished")
       )
 
 instance Prelude.Hashable Event where
@@ -66,11 +67,11 @@ instance Prelude.Hashable Event where
 instance Prelude.NFData Event where
   rnf Event' {..} = Prelude.rnf revisionPublished
 
-instance Core.ToJSON Event where
+instance Data.ToJSON Event where
   toJSON Event' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RevisionPublished" Core..=)
+          [ ("RevisionPublished" Data..=)
               Prelude.<$> revisionPublished
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.AssetDestinationEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The destination for the asset.
@@ -74,15 +75,15 @@ assetDestinationEntry_assetId = Lens.lens (\AssetDestinationEntry' {assetId} -> 
 assetDestinationEntry_bucket :: Lens.Lens' AssetDestinationEntry Prelude.Text
 assetDestinationEntry_bucket = Lens.lens (\AssetDestinationEntry' {bucket} -> bucket) (\s@AssetDestinationEntry' {} a -> s {bucket = a} :: AssetDestinationEntry)
 
-instance Core.FromJSON AssetDestinationEntry where
+instance Data.FromJSON AssetDestinationEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssetDestinationEntry"
       ( \x ->
           AssetDestinationEntry'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..: "AssetId")
-            Prelude.<*> (x Core..: "Bucket")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..: "AssetId")
+            Prelude.<*> (x Data..: "Bucket")
       )
 
 instance Prelude.Hashable AssetDestinationEntry where
@@ -97,12 +98,12 @@ instance Prelude.NFData AssetDestinationEntry where
       `Prelude.seq` Prelude.rnf assetId
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToJSON AssetDestinationEntry where
+instance Data.ToJSON AssetDestinationEntry where
   toJSON AssetDestinationEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            Prelude.Just ("AssetId" Core..= assetId),
-            Prelude.Just ("Bucket" Core..= bucket)
+          [ ("Key" Data..=) Prelude.<$> key,
+            Prelude.Just ("AssetId" Data..= assetId),
+            Prelude.Just ("Bucket" Data..= bucket)
           ]
       )

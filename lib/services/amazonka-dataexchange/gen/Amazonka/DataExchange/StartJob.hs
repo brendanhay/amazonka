@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,25 +90,25 @@ instance Prelude.Hashable StartJob where
 instance Prelude.NFData StartJob where
   rnf StartJob' {..} = Prelude.rnf jobId
 
-instance Core.ToHeaders StartJob where
+instance Data.ToHeaders StartJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartJob where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON StartJob where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath StartJob where
+instance Data.ToPath StartJob where
   toPath StartJob' {..} =
-    Prelude.mconcat ["/v1/jobs/", Core.toBS jobId]
+    Prelude.mconcat ["/v1/jobs/", Data.toBS jobId]
 
-instance Core.ToQuery StartJob where
+instance Data.ToQuery StartJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartJobResponse' smart constructor.

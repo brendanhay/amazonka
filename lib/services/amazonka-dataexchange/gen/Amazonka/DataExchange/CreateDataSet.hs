@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,17 +145,17 @@ instance Core.AWSRequest CreateDataSet where
     Response.receiveJSON
       ( \s h x ->
           CreateDataSetResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "SourceId")
-            Prelude.<*> (x Core..?> "OriginDetails")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "AssetType")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "Origin")
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "UpdatedAt")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "SourceId")
+            Prelude.<*> (x Data..?> "OriginDetails")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "AssetType")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "Origin")
+            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,32 +173,32 @@ instance Prelude.NFData CreateDataSet where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateDataSet where
+instance Data.ToHeaders CreateDataSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDataSet where
+instance Data.ToJSON CreateDataSet where
   toJSON CreateDataSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("AssetType" Core..= assetType),
-            Prelude.Just ("Description" Core..= description),
-            Prelude.Just ("Name" Core..= name)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("AssetType" Data..= assetType),
+            Prelude.Just ("Description" Data..= description),
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateDataSet where
+instance Data.ToPath CreateDataSet where
   toPath = Prelude.const "/v1/data-sets"
 
-instance Core.ToQuery CreateDataSet where
+instance Data.ToQuery CreateDataSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDataSetResponse' smart constructor.
@@ -225,10 +226,10 @@ data CreateDataSetResponse = CreateDataSetResponse'
     -- providers) or ENTITLED to the account (for subscribers).
     origin :: Prelude.Maybe Origin,
     -- | The date and time that the data set was created, in ISO 8601 format.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The date and time that the data set was last updated, in ISO 8601
     -- format.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -332,12 +333,12 @@ createDataSetResponse_origin = Lens.lens (\CreateDataSetResponse' {origin} -> or
 
 -- | The date and time that the data set was created, in ISO 8601 format.
 createDataSetResponse_createdAt :: Lens.Lens' CreateDataSetResponse (Prelude.Maybe Prelude.UTCTime)
-createDataSetResponse_createdAt = Lens.lens (\CreateDataSetResponse' {createdAt} -> createdAt) (\s@CreateDataSetResponse' {} a -> s {createdAt = a} :: CreateDataSetResponse) Prelude.. Lens.mapping Core._Time
+createDataSetResponse_createdAt = Lens.lens (\CreateDataSetResponse' {createdAt} -> createdAt) (\s@CreateDataSetResponse' {} a -> s {createdAt = a} :: CreateDataSetResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time that the data set was last updated, in ISO 8601
 -- format.
 createDataSetResponse_updatedAt :: Lens.Lens' CreateDataSetResponse (Prelude.Maybe Prelude.UTCTime)
-createDataSetResponse_updatedAt = Lens.lens (\CreateDataSetResponse' {updatedAt} -> updatedAt) (\s@CreateDataSetResponse' {} a -> s {updatedAt = a} :: CreateDataSetResponse) Prelude.. Lens.mapping Core._Time
+createDataSetResponse_updatedAt = Lens.lens (\CreateDataSetResponse' {updatedAt} -> updatedAt) (\s@CreateDataSetResponse' {} a -> s {updatedAt = a} :: CreateDataSetResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 createDataSetResponse_httpStatus :: Lens.Lens' CreateDataSetResponse Prelude.Int

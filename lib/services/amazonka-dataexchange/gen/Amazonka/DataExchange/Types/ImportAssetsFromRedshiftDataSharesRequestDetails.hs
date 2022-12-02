@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDeta
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types.RedshiftDataShareAssetSourceEntry
 import qualified Amazonka.Prelude as Prelude
 
@@ -100,15 +101,15 @@ instance
         `Prelude.seq` Prelude.rnf revisionId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ImportAssetsFromRedshiftDataSharesRequestDetails
   where
   toJSON
     ImportAssetsFromRedshiftDataSharesRequestDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ Prelude.Just ("AssetSources" Core..= assetSources),
-              Prelude.Just ("DataSetId" Core..= dataSetId),
-              Prelude.Just ("RevisionId" Core..= revisionId)
+            [ Prelude.Just ("AssetSources" Data..= assetSources),
+              Prelude.Just ("DataSetId" Data..= dataSetId),
+              Prelude.Just ("RevisionId" Data..= revisionId)
             ]
         )

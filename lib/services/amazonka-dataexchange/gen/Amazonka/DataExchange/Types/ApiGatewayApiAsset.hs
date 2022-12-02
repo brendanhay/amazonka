@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.ApiGatewayApiAsset where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types.ProtocolType
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,7 +34,7 @@ data ApiGatewayApiAsset = ApiGatewayApiAsset'
     -- | The unique identifier of the API asset.
     apiId :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the upload URL expires, in ISO 8601 format.
-    apiSpecificationDownloadUrlExpiresAt :: Prelude.Maybe Core.POSIX,
+    apiSpecificationDownloadUrlExpiresAt :: Prelude.Maybe Data.POSIX,
     -- | The API key of the API asset.
     apiKey :: Prelude.Maybe Prelude.Text,
     -- | The download URL of the API specification of the API asset.
@@ -100,7 +101,7 @@ apiGatewayApiAsset_apiId = Lens.lens (\ApiGatewayApiAsset' {apiId} -> apiId) (\s
 
 -- | The date and time that the upload URL expires, in ISO 8601 format.
 apiGatewayApiAsset_apiSpecificationDownloadUrlExpiresAt :: Lens.Lens' ApiGatewayApiAsset (Prelude.Maybe Prelude.UTCTime)
-apiGatewayApiAsset_apiSpecificationDownloadUrlExpiresAt = Lens.lens (\ApiGatewayApiAsset' {apiSpecificationDownloadUrlExpiresAt} -> apiSpecificationDownloadUrlExpiresAt) (\s@ApiGatewayApiAsset' {} a -> s {apiSpecificationDownloadUrlExpiresAt = a} :: ApiGatewayApiAsset) Prelude.. Lens.mapping Core._Time
+apiGatewayApiAsset_apiSpecificationDownloadUrlExpiresAt = Lens.lens (\ApiGatewayApiAsset' {apiSpecificationDownloadUrlExpiresAt} -> apiSpecificationDownloadUrlExpiresAt) (\s@ApiGatewayApiAsset' {} a -> s {apiSpecificationDownloadUrlExpiresAt = a} :: ApiGatewayApiAsset) Prelude.. Lens.mapping Data._Time
 
 -- | The API key of the API asset.
 apiGatewayApiAsset_apiKey :: Lens.Lens' ApiGatewayApiAsset (Prelude.Maybe Prelude.Text)
@@ -126,21 +127,21 @@ apiGatewayApiAsset_apiName = Lens.lens (\ApiGatewayApiAsset' {apiName} -> apiNam
 apiGatewayApiAsset_apiDescription :: Lens.Lens' ApiGatewayApiAsset (Prelude.Maybe Prelude.Text)
 apiGatewayApiAsset_apiDescription = Lens.lens (\ApiGatewayApiAsset' {apiDescription} -> apiDescription) (\s@ApiGatewayApiAsset' {} a -> s {apiDescription = a} :: ApiGatewayApiAsset)
 
-instance Core.FromJSON ApiGatewayApiAsset where
+instance Data.FromJSON ApiGatewayApiAsset where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApiGatewayApiAsset"
       ( \x ->
           ApiGatewayApiAsset'
-            Prelude.<$> (x Core..:? "ApiEndpoint")
-            Prelude.<*> (x Core..:? "ApiId")
-            Prelude.<*> (x Core..:? "ApiSpecificationDownloadUrlExpiresAt")
-            Prelude.<*> (x Core..:? "ApiKey")
-            Prelude.<*> (x Core..:? "ApiSpecificationDownloadUrl")
-            Prelude.<*> (x Core..:? "ProtocolType")
-            Prelude.<*> (x Core..:? "Stage")
-            Prelude.<*> (x Core..:? "ApiName")
-            Prelude.<*> (x Core..:? "ApiDescription")
+            Prelude.<$> (x Data..:? "ApiEndpoint")
+            Prelude.<*> (x Data..:? "ApiId")
+            Prelude.<*> (x Data..:? "ApiSpecificationDownloadUrlExpiresAt")
+            Prelude.<*> (x Data..:? "ApiKey")
+            Prelude.<*> (x Data..:? "ApiSpecificationDownloadUrl")
+            Prelude.<*> (x Data..:? "ProtocolType")
+            Prelude.<*> (x Data..:? "Stage")
+            Prelude.<*> (x Data..:? "ApiName")
+            Prelude.<*> (x Data..:? "ApiDescription")
       )
 
 instance Prelude.Hashable ApiGatewayApiAsset where

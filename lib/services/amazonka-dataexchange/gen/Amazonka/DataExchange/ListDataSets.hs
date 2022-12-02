@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,8 +133,8 @@ instance Core.AWSRequest ListDataSets where
     Response.receiveJSON
       ( \s h x ->
           ListDataSetsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "DataSets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "DataSets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,26 +150,26 @@ instance Prelude.NFData ListDataSets where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf origin
 
-instance Core.ToHeaders ListDataSets where
+instance Data.ToHeaders ListDataSets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListDataSets where
+instance Data.ToPath ListDataSets where
   toPath = Prelude.const "/v1/data-sets"
 
-instance Core.ToQuery ListDataSets where
+instance Data.ToQuery ListDataSets where
   toQuery ListDataSets' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "origin" Core.=: origin
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "origin" Data.=: origin
       ]
 
 -- | /See:/ 'newListDataSetsResponse' smart constructor.

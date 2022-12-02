@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the job error.
@@ -57,15 +58,15 @@ importAssetFromSignedUrlJobErrorDetails_assetName :: Lens.Lens' ImportAssetFromS
 importAssetFromSignedUrlJobErrorDetails_assetName = Lens.lens (\ImportAssetFromSignedUrlJobErrorDetails' {assetName} -> assetName) (\s@ImportAssetFromSignedUrlJobErrorDetails' {} a -> s {assetName = a} :: ImportAssetFromSignedUrlJobErrorDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ImportAssetFromSignedUrlJobErrorDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportAssetFromSignedUrlJobErrorDetails"
       ( \x ->
           ImportAssetFromSignedUrlJobErrorDetails'
-            Prelude.<$> (x Core..: "AssetName")
+            Prelude.<$> (x Data..: "AssetName")
       )
 
 instance

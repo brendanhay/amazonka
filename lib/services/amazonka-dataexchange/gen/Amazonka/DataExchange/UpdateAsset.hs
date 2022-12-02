@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,16 +145,16 @@ instance Core.AWSRequest UpdateAsset where
     Response.receiveJSON
       ( \s h x ->
           UpdateAssetResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "SourceId")
-            Prelude.<*> (x Core..?> "AssetDetails")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "AssetType")
-            Prelude.<*> (x Core..?> "RevisionId")
-            Prelude.<*> (x Core..?> "DataSetId")
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "UpdatedAt")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "SourceId")
+            Prelude.<*> (x Data..?> "AssetDetails")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "AssetType")
+            Prelude.<*> (x Data..?> "RevisionId")
+            Prelude.<*> (x Data..?> "DataSetId")
+            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,36 +172,36 @@ instance Prelude.NFData UpdateAsset where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf revisionId
 
-instance Core.ToHeaders UpdateAsset where
+instance Data.ToHeaders UpdateAsset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAsset where
+instance Data.ToJSON UpdateAsset where
   toJSON UpdateAsset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath UpdateAsset where
+instance Data.ToPath UpdateAsset where
   toPath UpdateAsset' {..} =
     Prelude.mconcat
       [ "/v1/data-sets/",
-        Core.toBS dataSetId,
+        Data.toBS dataSetId,
         "/revisions/",
-        Core.toBS revisionId,
+        Data.toBS revisionId,
         "/assets/",
-        Core.toBS assetId
+        Data.toBS assetId
       ]
 
-instance Core.ToQuery UpdateAsset where
+instance Data.ToQuery UpdateAsset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAssetResponse' smart constructor.
@@ -228,9 +229,9 @@ data UpdateAssetResponse = UpdateAssetResponse'
     -- | The unique identifier for the data set associated with this asset.
     dataSetId :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the asset was created, in ISO 8601 format.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The date and time that the asset was last updated, in ISO 8601 format.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -330,11 +331,11 @@ updateAssetResponse_dataSetId = Lens.lens (\UpdateAssetResponse' {dataSetId} -> 
 
 -- | The date and time that the asset was created, in ISO 8601 format.
 updateAssetResponse_createdAt :: Lens.Lens' UpdateAssetResponse (Prelude.Maybe Prelude.UTCTime)
-updateAssetResponse_createdAt = Lens.lens (\UpdateAssetResponse' {createdAt} -> createdAt) (\s@UpdateAssetResponse' {} a -> s {createdAt = a} :: UpdateAssetResponse) Prelude.. Lens.mapping Core._Time
+updateAssetResponse_createdAt = Lens.lens (\UpdateAssetResponse' {createdAt} -> createdAt) (\s@UpdateAssetResponse' {} a -> s {createdAt = a} :: UpdateAssetResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time that the asset was last updated, in ISO 8601 format.
 updateAssetResponse_updatedAt :: Lens.Lens' UpdateAssetResponse (Prelude.Maybe Prelude.UTCTime)
-updateAssetResponse_updatedAt = Lens.lens (\UpdateAssetResponse' {updatedAt} -> updatedAt) (\s@UpdateAssetResponse' {} a -> s {updatedAt = a} :: UpdateAssetResponse) Prelude.. Lens.mapping Core._Time
+updateAssetResponse_updatedAt = Lens.lens (\UpdateAssetResponse' {updatedAt} -> updatedAt) (\s@UpdateAssetResponse' {} a -> s {updatedAt = a} :: UpdateAssetResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 updateAssetResponse_httpStatus :: Lens.Lens' UpdateAssetResponse Prelude.Int

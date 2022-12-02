@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.AssetEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types.AssetDetails
 import Amazonka.DataExchange.Types.AssetType
 import qualified Amazonka.Prelude as Prelude
@@ -46,7 +47,7 @@ data AssetEntry = AssetEntry'
     -- | The type of asset that is added to a data set.
     assetType :: AssetType,
     -- | The date and time that the asset was created, in ISO 8601 format.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The unique identifier for the data set associated with this asset.
     dataSetId :: Prelude.Text,
     -- | The unique identifier for the asset.
@@ -60,7 +61,7 @@ data AssetEntry = AssetEntry'
     -- | The unique identifier for the revision associated with this asset.
     revisionId :: Prelude.Text,
     -- | The date and time that the asset was last updated, in ISO 8601 format.
-    updatedAt :: Core.POSIX
+    updatedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -132,12 +133,12 @@ newAssetEntry
         arn = pArn_,
         assetDetails = pAssetDetails_,
         assetType = pAssetType_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
         dataSetId = pDataSetId_,
         id = pId_,
         name = pName_,
         revisionId = pRevisionId_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_
+        updatedAt = Data._Time Lens.# pUpdatedAt_
       }
 
 -- | The asset ID of the owned asset corresponding to the entitled asset
@@ -160,7 +161,7 @@ assetEntry_assetType = Lens.lens (\AssetEntry' {assetType} -> assetType) (\s@Ass
 
 -- | The date and time that the asset was created, in ISO 8601 format.
 assetEntry_createdAt :: Lens.Lens' AssetEntry Prelude.UTCTime
-assetEntry_createdAt = Lens.lens (\AssetEntry' {createdAt} -> createdAt) (\s@AssetEntry' {} a -> s {createdAt = a} :: AssetEntry) Prelude.. Core._Time
+assetEntry_createdAt = Lens.lens (\AssetEntry' {createdAt} -> createdAt) (\s@AssetEntry' {} a -> s {createdAt = a} :: AssetEntry) Prelude.. Data._Time
 
 -- | The unique identifier for the data set associated with this asset.
 assetEntry_dataSetId :: Lens.Lens' AssetEntry Prelude.Text
@@ -184,24 +185,24 @@ assetEntry_revisionId = Lens.lens (\AssetEntry' {revisionId} -> revisionId) (\s@
 
 -- | The date and time that the asset was last updated, in ISO 8601 format.
 assetEntry_updatedAt :: Lens.Lens' AssetEntry Prelude.UTCTime
-assetEntry_updatedAt = Lens.lens (\AssetEntry' {updatedAt} -> updatedAt) (\s@AssetEntry' {} a -> s {updatedAt = a} :: AssetEntry) Prelude.. Core._Time
+assetEntry_updatedAt = Lens.lens (\AssetEntry' {updatedAt} -> updatedAt) (\s@AssetEntry' {} a -> s {updatedAt = a} :: AssetEntry) Prelude.. Data._Time
 
-instance Core.FromJSON AssetEntry where
+instance Data.FromJSON AssetEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssetEntry"
       ( \x ->
           AssetEntry'
-            Prelude.<$> (x Core..:? "SourceId")
-            Prelude.<*> (x Core..: "Arn")
-            Prelude.<*> (x Core..: "AssetDetails")
-            Prelude.<*> (x Core..: "AssetType")
-            Prelude.<*> (x Core..: "CreatedAt")
-            Prelude.<*> (x Core..: "DataSetId")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "RevisionId")
-            Prelude.<*> (x Core..: "UpdatedAt")
+            Prelude.<$> (x Data..:? "SourceId")
+            Prelude.<*> (x Data..: "Arn")
+            Prelude.<*> (x Data..: "AssetDetails")
+            Prelude.<*> (x Data..: "AssetType")
+            Prelude.<*> (x Data..: "CreatedAt")
+            Prelude.<*> (x Data..: "DataSetId")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "RevisionId")
+            Prelude.<*> (x Data..: "UpdatedAt")
       )
 
 instance Prelude.Hashable AssetEntry where

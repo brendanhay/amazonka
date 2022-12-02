@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details in the response for an import request, including the signed
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newImportAssetFromSignedUrlResponseDetails' smart constructor.
 data ImportAssetFromSignedUrlResponseDetails = ImportAssetFromSignedUrlResponseDetails'
   { -- | The time and date at which the signed URL expires, in ISO 8601 format.
-    signedUrlExpiresAt :: Prelude.Maybe Core.POSIX,
+    signedUrlExpiresAt :: Prelude.Maybe Data.POSIX,
     -- | The signed URL.
     signedUrl :: Prelude.Maybe Prelude.Text,
     -- | The Base64-encoded Md5 hash for the asset, used to ensure the integrity
@@ -90,7 +91,7 @@ newImportAssetFromSignedUrlResponseDetails
 
 -- | The time and date at which the signed URL expires, in ISO 8601 format.
 importAssetFromSignedUrlResponseDetails_signedUrlExpiresAt :: Lens.Lens' ImportAssetFromSignedUrlResponseDetails (Prelude.Maybe Prelude.UTCTime)
-importAssetFromSignedUrlResponseDetails_signedUrlExpiresAt = Lens.lens (\ImportAssetFromSignedUrlResponseDetails' {signedUrlExpiresAt} -> signedUrlExpiresAt) (\s@ImportAssetFromSignedUrlResponseDetails' {} a -> s {signedUrlExpiresAt = a} :: ImportAssetFromSignedUrlResponseDetails) Prelude.. Lens.mapping Core._Time
+importAssetFromSignedUrlResponseDetails_signedUrlExpiresAt = Lens.lens (\ImportAssetFromSignedUrlResponseDetails' {signedUrlExpiresAt} -> signedUrlExpiresAt) (\s@ImportAssetFromSignedUrlResponseDetails' {} a -> s {signedUrlExpiresAt = a} :: ImportAssetFromSignedUrlResponseDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The signed URL.
 importAssetFromSignedUrlResponseDetails_signedUrl :: Lens.Lens' ImportAssetFromSignedUrlResponseDetails (Prelude.Maybe Prelude.Text)
@@ -115,20 +116,20 @@ importAssetFromSignedUrlResponseDetails_revisionId :: Lens.Lens' ImportAssetFrom
 importAssetFromSignedUrlResponseDetails_revisionId = Lens.lens (\ImportAssetFromSignedUrlResponseDetails' {revisionId} -> revisionId) (\s@ImportAssetFromSignedUrlResponseDetails' {} a -> s {revisionId = a} :: ImportAssetFromSignedUrlResponseDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ImportAssetFromSignedUrlResponseDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportAssetFromSignedUrlResponseDetails"
       ( \x ->
           ImportAssetFromSignedUrlResponseDetails'
-            Prelude.<$> (x Core..:? "SignedUrlExpiresAt")
-            Prelude.<*> (x Core..:? "SignedUrl")
-            Prelude.<*> (x Core..:? "Md5Hash")
-            Prelude.<*> (x Core..: "AssetName")
-            Prelude.<*> (x Core..: "DataSetId")
-            Prelude.<*> (x Core..: "RevisionId")
+            Prelude.<$> (x Data..:? "SignedUrlExpiresAt")
+            Prelude.<*> (x Data..:? "SignedUrl")
+            Prelude.<*> (x Data..:? "Md5Hash")
+            Prelude.<*> (x Data..: "AssetName")
+            Prelude.<*> (x Data..: "DataSetId")
+            Prelude.<*> (x Data..: "RevisionId")
       )
 
 instance

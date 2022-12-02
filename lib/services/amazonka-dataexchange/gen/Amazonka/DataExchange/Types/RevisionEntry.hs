@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.RevisionEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A revision is a container for one or more assets.
@@ -46,21 +47,21 @@ data RevisionEntry = RevisionEntry'
     -- uniquely identified by their ARN.
     finalized :: Prelude.Maybe Prelude.Bool,
     -- | The date and time that the revision was revoked, in ISO 8601 format.
-    revokedAt :: Prelude.Maybe Core.POSIX,
+    revokedAt :: Prelude.Maybe Data.POSIX,
     -- | A status indicating that subscribers\' access to the revision was
     -- revoked.
     revoked :: Prelude.Maybe Prelude.Bool,
     -- | The ARN for the revision.
     arn :: Prelude.Text,
     -- | The date and time that the revision was created, in ISO 8601 format.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The unique identifier for the data set associated with this revision.
     dataSetId :: Prelude.Text,
     -- | The unique identifier for the revision.
     id :: Prelude.Text,
     -- | The date and time that the revision was last updated, in ISO 8601
     -- format.
-    updatedAt :: Core.POSIX
+    updatedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -131,10 +132,10 @@ newRevisionEntry
         revokedAt = Prelude.Nothing,
         revoked = Prelude.Nothing,
         arn = pArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
         dataSetId = pDataSetId_,
         id = pId_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_
+        updatedAt = Data._Time Lens.# pUpdatedAt_
       }
 
 -- | The revision ID of the owned revision corresponding to the entitled
@@ -165,7 +166,7 @@ revisionEntry_finalized = Lens.lens (\RevisionEntry' {finalized} -> finalized) (
 
 -- | The date and time that the revision was revoked, in ISO 8601 format.
 revisionEntry_revokedAt :: Lens.Lens' RevisionEntry (Prelude.Maybe Prelude.UTCTime)
-revisionEntry_revokedAt = Lens.lens (\RevisionEntry' {revokedAt} -> revokedAt) (\s@RevisionEntry' {} a -> s {revokedAt = a} :: RevisionEntry) Prelude.. Lens.mapping Core._Time
+revisionEntry_revokedAt = Lens.lens (\RevisionEntry' {revokedAt} -> revokedAt) (\s@RevisionEntry' {} a -> s {revokedAt = a} :: RevisionEntry) Prelude.. Lens.mapping Data._Time
 
 -- | A status indicating that subscribers\' access to the revision was
 -- revoked.
@@ -178,7 +179,7 @@ revisionEntry_arn = Lens.lens (\RevisionEntry' {arn} -> arn) (\s@RevisionEntry' 
 
 -- | The date and time that the revision was created, in ISO 8601 format.
 revisionEntry_createdAt :: Lens.Lens' RevisionEntry Prelude.UTCTime
-revisionEntry_createdAt = Lens.lens (\RevisionEntry' {createdAt} -> createdAt) (\s@RevisionEntry' {} a -> s {createdAt = a} :: RevisionEntry) Prelude.. Core._Time
+revisionEntry_createdAt = Lens.lens (\RevisionEntry' {createdAt} -> createdAt) (\s@RevisionEntry' {} a -> s {createdAt = a} :: RevisionEntry) Prelude.. Data._Time
 
 -- | The unique identifier for the data set associated with this revision.
 revisionEntry_dataSetId :: Lens.Lens' RevisionEntry Prelude.Text
@@ -191,25 +192,25 @@ revisionEntry_id = Lens.lens (\RevisionEntry' {id} -> id) (\s@RevisionEntry' {} 
 -- | The date and time that the revision was last updated, in ISO 8601
 -- format.
 revisionEntry_updatedAt :: Lens.Lens' RevisionEntry Prelude.UTCTime
-revisionEntry_updatedAt = Lens.lens (\RevisionEntry' {updatedAt} -> updatedAt) (\s@RevisionEntry' {} a -> s {updatedAt = a} :: RevisionEntry) Prelude.. Core._Time
+revisionEntry_updatedAt = Lens.lens (\RevisionEntry' {updatedAt} -> updatedAt) (\s@RevisionEntry' {} a -> s {updatedAt = a} :: RevisionEntry) Prelude.. Data._Time
 
-instance Core.FromJSON RevisionEntry where
+instance Data.FromJSON RevisionEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RevisionEntry"
       ( \x ->
           RevisionEntry'
-            Prelude.<$> (x Core..:? "SourceId")
-            Prelude.<*> (x Core..:? "RevocationComment")
-            Prelude.<*> (x Core..:? "Comment")
-            Prelude.<*> (x Core..:? "Finalized")
-            Prelude.<*> (x Core..:? "RevokedAt")
-            Prelude.<*> (x Core..:? "Revoked")
-            Prelude.<*> (x Core..: "Arn")
-            Prelude.<*> (x Core..: "CreatedAt")
-            Prelude.<*> (x Core..: "DataSetId")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "UpdatedAt")
+            Prelude.<$> (x Data..:? "SourceId")
+            Prelude.<*> (x Data..:? "RevocationComment")
+            Prelude.<*> (x Data..:? "Comment")
+            Prelude.<*> (x Data..:? "Finalized")
+            Prelude.<*> (x Data..:? "RevokedAt")
+            Prelude.<*> (x Data..:? "Revoked")
+            Prelude.<*> (x Data..: "Arn")
+            Prelude.<*> (x Data..: "CreatedAt")
+            Prelude.<*> (x Data..: "DataSetId")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "UpdatedAt")
       )
 
 instance Prelude.Hashable RevisionEntry where

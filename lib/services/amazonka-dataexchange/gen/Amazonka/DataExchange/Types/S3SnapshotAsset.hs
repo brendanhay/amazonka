@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.S3SnapshotAsset where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The S3 object that is the asset.
@@ -52,12 +53,12 @@ newS3SnapshotAsset pSize_ =
 s3SnapshotAsset_size :: Lens.Lens' S3SnapshotAsset Prelude.Double
 s3SnapshotAsset_size = Lens.lens (\S3SnapshotAsset' {size} -> size) (\s@S3SnapshotAsset' {} a -> s {size = a} :: S3SnapshotAsset)
 
-instance Core.FromJSON S3SnapshotAsset where
+instance Data.FromJSON S3SnapshotAsset where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3SnapshotAsset"
       ( \x ->
-          S3SnapshotAsset' Prelude.<$> (x Core..: "Size")
+          S3SnapshotAsset' Prelude.<$> (x Data..: "Size")
       )
 
 instance Prelude.Hashable S3SnapshotAsset where

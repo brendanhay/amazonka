@@ -21,6 +21,7 @@ module Amazonka.SSO.Types.RoleCredentials where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the role credentials that are assigned to the
@@ -33,7 +34,7 @@ data RoleCredentials = RoleCredentials'
     -- | The token used for temporary credentials. For more information, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html Using Temporary Security Credentials to Request Access to AWS Resources>
     -- in the /AWS IAM User Guide/.
-    sessionToken :: Prelude.Maybe (Core.Sensitive Core.SessionToken),
+    sessionToken :: Prelude.Maybe (Data.Sensitive Core.SessionToken),
     -- | The identifier used for the temporary security credentials. For more
     -- information, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html Using Temporary Security Credentials to Request Access to AWS Resources>
@@ -42,7 +43,7 @@ data RoleCredentials = RoleCredentials'
     -- | The key that is used to sign the request. For more information, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html Using Temporary Security Credentials to Request Access to AWS Resources>
     -- in the /AWS IAM User Guide/.
-    secretAccessKey :: Core.Sensitive Core.SecretKey
+    secretAccessKey :: Data.Sensitive Core.SecretKey
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -80,7 +81,7 @@ newRoleCredentials pAccessKeyId_ pSecretAccessKey_ =
       sessionToken = Prelude.Nothing,
       accessKeyId = pAccessKeyId_,
       secretAccessKey =
-        Core._Sensitive Lens.# pSecretAccessKey_
+        Data._Sensitive Lens.# pSecretAccessKey_
     }
 
 -- | The date on which temporary security credentials expire.
@@ -91,7 +92,7 @@ roleCredentials_expiration = Lens.lens (\RoleCredentials' {expiration} -> expira
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html Using Temporary Security Credentials to Request Access to AWS Resources>
 -- in the /AWS IAM User Guide/.
 roleCredentials_sessionToken :: Lens.Lens' RoleCredentials (Prelude.Maybe Core.SessionToken)
-roleCredentials_sessionToken = Lens.lens (\RoleCredentials' {sessionToken} -> sessionToken) (\s@RoleCredentials' {} a -> s {sessionToken = a} :: RoleCredentials) Prelude.. Lens.mapping Core._Sensitive
+roleCredentials_sessionToken = Lens.lens (\RoleCredentials' {sessionToken} -> sessionToken) (\s@RoleCredentials' {} a -> s {sessionToken = a} :: RoleCredentials) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The identifier used for the temporary security credentials. For more
 -- information, see
@@ -104,18 +105,18 @@ roleCredentials_accessKeyId = Lens.lens (\RoleCredentials' {accessKeyId} -> acce
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html Using Temporary Security Credentials to Request Access to AWS Resources>
 -- in the /AWS IAM User Guide/.
 roleCredentials_secretAccessKey :: Lens.Lens' RoleCredentials Core.SecretKey
-roleCredentials_secretAccessKey = Lens.lens (\RoleCredentials' {secretAccessKey} -> secretAccessKey) (\s@RoleCredentials' {} a -> s {secretAccessKey = a} :: RoleCredentials) Prelude.. Core._Sensitive
+roleCredentials_secretAccessKey = Lens.lens (\RoleCredentials' {secretAccessKey} -> secretAccessKey) (\s@RoleCredentials' {} a -> s {secretAccessKey = a} :: RoleCredentials) Prelude.. Data._Sensitive
 
-instance Core.FromJSON RoleCredentials where
+instance Data.FromJSON RoleCredentials where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RoleCredentials"
       ( \x ->
           RoleCredentials'
-            Prelude.<$> (x Core..:? "expiration")
-            Prelude.<*> (x Core..:? "sessionToken")
-            Prelude.<*> (x Core..: "accessKeyId")
-            Prelude.<*> (x Core..: "secretAccessKey")
+            Prelude.<$> (x Data..:? "expiration")
+            Prelude.<*> (x Data..:? "sessionToken")
+            Prelude.<*> (x Data..: "accessKeyId")
+            Prelude.<*> (x Data..: "secretAccessKey")
       )
 
 instance Prelude.Hashable RoleCredentials where

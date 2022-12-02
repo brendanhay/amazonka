@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -63,7 +64,7 @@ data ListAccountRoles = ListAccountRoles'
     -- see
     -- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html CreateToken>
     -- in the /IAM Identity Center OIDC API Reference Guide/.
-    accessToken :: Core.Sensitive Prelude.Text,
+    accessToken :: Data.Sensitive Prelude.Text,
     -- | The identifier for the AWS account that is assigned to the user.
     accountId :: Prelude.Text
   }
@@ -98,7 +99,7 @@ newListAccountRoles pAccessToken_ pAccountId_ =
   ListAccountRoles'
     { nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      accessToken = Core._Sensitive Lens.# pAccessToken_,
+      accessToken = Data._Sensitive Lens.# pAccessToken_,
       accountId = pAccountId_
     }
 
@@ -116,7 +117,7 @@ listAccountRoles_maxResults = Lens.lens (\ListAccountRoles' {maxResults} -> maxR
 -- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html CreateToken>
 -- in the /IAM Identity Center OIDC API Reference Guide/.
 listAccountRoles_accessToken :: Lens.Lens' ListAccountRoles Prelude.Text
-listAccountRoles_accessToken = Lens.lens (\ListAccountRoles' {accessToken} -> accessToken) (\s@ListAccountRoles' {} a -> s {accessToken = a} :: ListAccountRoles) Prelude.. Core._Sensitive
+listAccountRoles_accessToken = Lens.lens (\ListAccountRoles' {accessToken} -> accessToken) (\s@ListAccountRoles' {} a -> s {accessToken = a} :: ListAccountRoles) Prelude.. Data._Sensitive
 
 -- | The identifier for the AWS account that is assigned to the user.
 listAccountRoles_accountId :: Lens.Lens' ListAccountRoles Prelude.Text
@@ -154,8 +155,8 @@ instance Core.AWSRequest ListAccountRoles where
     Response.receiveJSON
       ( \s h x ->
           ListAccountRolesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "roleList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "roleList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,23 +174,23 @@ instance Prelude.NFData ListAccountRoles where
       `Prelude.seq` Prelude.rnf accessToken
       `Prelude.seq` Prelude.rnf accountId
 
-instance Core.ToHeaders ListAccountRoles where
+instance Data.ToHeaders ListAccountRoles where
   toHeaders ListAccountRoles' {..} =
     Prelude.mconcat
-      [ "x-amz-sso_bearer_token" Core.=# accessToken,
+      [ "x-amz-sso_bearer_token" Data.=# accessToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath ListAccountRoles where
+instance Data.ToPath ListAccountRoles where
   toPath = Prelude.const "/assignment/roles"
 
-instance Core.ToQuery ListAccountRoles where
+instance Data.ToQuery ListAccountRoles where
   toQuery ListAccountRoles' {..} =
     Prelude.mconcat
-      [ "next_token" Core.=: nextToken,
-        "max_result" Core.=: maxResults,
-        "account_id" Core.=: accountId
+      [ "next_token" Data.=: nextToken,
+        "max_result" Data.=: maxResults,
+        "account_id" Data.=: accountId
       ]
 
 -- | /See:/ 'newListAccountRolesResponse' smart constructor.

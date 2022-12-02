@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -63,7 +64,7 @@ data Logout = Logout'
     -- see
     -- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html CreateToken>
     -- in the /IAM Identity Center OIDC API Reference Guide/.
-    accessToken :: Core.Sensitive Prelude.Text
+    accessToken :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -86,7 +87,7 @@ newLogout ::
 newLogout pAccessToken_ =
   Logout'
     { accessToken =
-        Core._Sensitive Lens.# pAccessToken_
+        Data._Sensitive Lens.# pAccessToken_
     }
 
 -- | The token issued by the @CreateToken@ API call. For more information,
@@ -94,7 +95,7 @@ newLogout pAccessToken_ =
 -- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html CreateToken>
 -- in the /IAM Identity Center OIDC API Reference Guide/.
 logout_accessToken :: Lens.Lens' Logout Prelude.Text
-logout_accessToken = Lens.lens (\Logout' {accessToken} -> accessToken) (\s@Logout' {} a -> s {accessToken = a} :: Logout) Prelude.. Core._Sensitive
+logout_accessToken = Lens.lens (\Logout' {accessToken} -> accessToken) (\s@Logout' {} a -> s {accessToken = a} :: Logout) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest Logout where
   type AWSResponse Logout = LogoutResponse
@@ -109,21 +110,21 @@ instance Prelude.Hashable Logout where
 instance Prelude.NFData Logout where
   rnf Logout' {..} = Prelude.rnf accessToken
 
-instance Core.ToHeaders Logout where
+instance Data.ToHeaders Logout where
   toHeaders Logout' {..} =
     Prelude.mconcat
-      [ "x-amz-sso_bearer_token" Core.=# accessToken,
+      [ "x-amz-sso_bearer_token" Data.=# accessToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON Logout where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON Logout where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath Logout where
+instance Data.ToPath Logout where
   toPath = Prelude.const "/logout"
 
-instance Core.ToQuery Logout where
+instance Data.ToQuery Logout where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newLogoutResponse' smart constructor.

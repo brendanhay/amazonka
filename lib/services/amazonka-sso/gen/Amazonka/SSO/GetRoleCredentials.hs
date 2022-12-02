@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -59,7 +60,7 @@ data GetRoleCredentials = GetRoleCredentials'
     -- see
     -- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html CreateToken>
     -- in the /IAM Identity Center OIDC API Reference Guide/.
-    accessToken :: Core.Sensitive Prelude.Text
+    accessToken :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -94,7 +95,7 @@ newGetRoleCredentials
     GetRoleCredentials'
       { roleName = pRoleName_,
         accountId = pAccountId_,
-        accessToken = Core._Sensitive Lens.# pAccessToken_
+        accessToken = Data._Sensitive Lens.# pAccessToken_
       }
 
 -- | The friendly name of the role that is assigned to the user.
@@ -110,7 +111,7 @@ getRoleCredentials_accountId = Lens.lens (\GetRoleCredentials' {accountId} -> ac
 -- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html CreateToken>
 -- in the /IAM Identity Center OIDC API Reference Guide/.
 getRoleCredentials_accessToken :: Lens.Lens' GetRoleCredentials Prelude.Text
-getRoleCredentials_accessToken = Lens.lens (\GetRoleCredentials' {accessToken} -> accessToken) (\s@GetRoleCredentials' {} a -> s {accessToken = a} :: GetRoleCredentials) Prelude.. Core._Sensitive
+getRoleCredentials_accessToken = Lens.lens (\GetRoleCredentials' {accessToken} -> accessToken) (\s@GetRoleCredentials' {} a -> s {accessToken = a} :: GetRoleCredentials) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest GetRoleCredentials where
   type
@@ -123,7 +124,7 @@ instance Core.AWSRequest GetRoleCredentials where
       ( \s h x ->
           GetRoleCredentialsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "roleCredentials")
+            Prelude.<*> (x Data..:> "roleCredentials")
       )
 
 instance Prelude.Hashable GetRoleCredentials where
@@ -138,22 +139,22 @@ instance Prelude.NFData GetRoleCredentials where
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf accessToken
 
-instance Core.ToHeaders GetRoleCredentials where
+instance Data.ToHeaders GetRoleCredentials where
   toHeaders GetRoleCredentials' {..} =
     Prelude.mconcat
-      [ "x-amz-sso_bearer_token" Core.=# accessToken,
+      [ "x-amz-sso_bearer_token" Data.=# accessToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath GetRoleCredentials where
+instance Data.ToPath GetRoleCredentials where
   toPath = Prelude.const "/federation/credentials"
 
-instance Core.ToQuery GetRoleCredentials where
+instance Data.ToQuery GetRoleCredentials where
   toQuery GetRoleCredentials' {..} =
     Prelude.mconcat
-      [ "role_name" Core.=: roleName,
-        "account_id" Core.=: accountId
+      [ "role_name" Data.=: roleName,
+        "account_id" Data.=: accountId
       ]
 
 -- | /See:/ 'newGetRoleCredentialsResponse' smart constructor.

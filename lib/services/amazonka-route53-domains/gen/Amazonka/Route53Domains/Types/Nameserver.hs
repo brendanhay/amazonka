@@ -21,6 +21,7 @@ module Amazonka.Route53Domains.Types.Nameserver where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Nameserver includes the following elements.
@@ -87,14 +88,14 @@ nameserver_glueIps = Lens.lens (\Nameserver' {glueIps} -> glueIps) (\s@Nameserve
 nameserver_name :: Lens.Lens' Nameserver Prelude.Text
 nameserver_name = Lens.lens (\Nameserver' {name} -> name) (\s@Nameserver' {} a -> s {name = a} :: Nameserver)
 
-instance Core.FromJSON Nameserver where
+instance Data.FromJSON Nameserver where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Nameserver"
       ( \x ->
           Nameserver'
-            Prelude.<$> (x Core..:? "GlueIps" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "GlueIps" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable Nameserver where
@@ -106,11 +107,11 @@ instance Prelude.NFData Nameserver where
   rnf Nameserver' {..} =
     Prelude.rnf glueIps `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON Nameserver where
+instance Data.ToJSON Nameserver where
   toJSON Nameserver' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GlueIps" Core..=) Prelude.<$> glueIps,
-            Prelude.Just ("Name" Core..= name)
+          [ ("GlueIps" Data..=) Prelude.<$> glueIps,
+            Prelude.Just ("Name" Data..= name)
           ]
       )

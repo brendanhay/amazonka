@@ -21,6 +21,7 @@ module Amazonka.Route53Domains.Types.DomainSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about one domain.
@@ -31,7 +32,7 @@ data DomainSummary = DomainSummary'
     autoRenew :: Prelude.Maybe Prelude.Bool,
     -- | Expiration date of the domain in Unix time format and Coordinated
     -- Universal Time (UTC).
-    expiry :: Prelude.Maybe Core.POSIX,
+    expiry :: Prelude.Maybe Data.POSIX,
     -- | Indicates whether a domain is locked from unauthorized transfer to
     -- another party.
     transferLock :: Prelude.Maybe Prelude.Bool,
@@ -76,7 +77,7 @@ domainSummary_autoRenew = Lens.lens (\DomainSummary' {autoRenew} -> autoRenew) (
 -- | Expiration date of the domain in Unix time format and Coordinated
 -- Universal Time (UTC).
 domainSummary_expiry :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.UTCTime)
-domainSummary_expiry = Lens.lens (\DomainSummary' {expiry} -> expiry) (\s@DomainSummary' {} a -> s {expiry = a} :: DomainSummary) Prelude.. Lens.mapping Core._Time
+domainSummary_expiry = Lens.lens (\DomainSummary' {expiry} -> expiry) (\s@DomainSummary' {} a -> s {expiry = a} :: DomainSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates whether a domain is locked from unauthorized transfer to
 -- another party.
@@ -87,16 +88,16 @@ domainSummary_transferLock = Lens.lens (\DomainSummary' {transferLock} -> transf
 domainSummary_domainName :: Lens.Lens' DomainSummary Prelude.Text
 domainSummary_domainName = Lens.lens (\DomainSummary' {domainName} -> domainName) (\s@DomainSummary' {} a -> s {domainName = a} :: DomainSummary)
 
-instance Core.FromJSON DomainSummary where
+instance Data.FromJSON DomainSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainSummary"
       ( \x ->
           DomainSummary'
-            Prelude.<$> (x Core..:? "AutoRenew")
-            Prelude.<*> (x Core..:? "Expiry")
-            Prelude.<*> (x Core..:? "TransferLock")
-            Prelude.<*> (x Core..: "DomainName")
+            Prelude.<$> (x Data..:? "AutoRenew")
+            Prelude.<*> (x Data..:? "Expiry")
+            Prelude.<*> (x Data..:? "TransferLock")
+            Prelude.<*> (x Data..: "DomainName")
       )
 
 instance Prelude.Hashable DomainSummary where

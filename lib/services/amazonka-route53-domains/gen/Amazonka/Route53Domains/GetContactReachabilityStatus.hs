@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,8 +95,8 @@ instance Core.AWSRequest GetContactReachabilityStatus where
     Response.receiveJSON
       ( \s h x ->
           GetContactReachabilityStatusResponse'
-            Prelude.<$> (x Core..?> "domainName")
-            Prelude.<*> (x Core..?> "status")
+            Prelude.<$> (x Data..?> "domainName")
+            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,32 +111,32 @@ instance Prelude.NFData GetContactReachabilityStatus where
   rnf GetContactReachabilityStatus' {..} =
     Prelude.rnf domainName
 
-instance Core.ToHeaders GetContactReachabilityStatus where
+instance Data.ToHeaders GetContactReachabilityStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Domains_v20140515.GetContactReachabilityStatus" ::
+              Data.=# ( "Route53Domains_v20140515.GetContactReachabilityStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetContactReachabilityStatus where
+instance Data.ToJSON GetContactReachabilityStatus where
   toJSON GetContactReachabilityStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("domainName" Core..=) Prelude.<$> domainName]
+          [("domainName" Data..=) Prelude.<$> domainName]
       )
 
-instance Core.ToPath GetContactReachabilityStatus where
+instance Data.ToPath GetContactReachabilityStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetContactReachabilityStatus where
+instance Data.ToQuery GetContactReachabilityStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetContactReachabilityStatusResponse' smart constructor.

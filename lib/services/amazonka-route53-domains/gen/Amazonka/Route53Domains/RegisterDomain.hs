@@ -83,6 +83,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -172,15 +173,15 @@ data RegisterDomain = RegisterDomain'
     -- | Provides detailed contact information. For information about the values
     -- that you specify for each element, see
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail>.
-    adminContact :: Core.Sensitive ContactDetail,
+    adminContact :: Data.Sensitive ContactDetail,
     -- | Provides detailed contact information. For information about the values
     -- that you specify for each element, see
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail>.
-    registrantContact :: Core.Sensitive ContactDetail,
+    registrantContact :: Data.Sensitive ContactDetail,
     -- | Provides detailed contact information. For information about the values
     -- that you specify for each element, see
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail>.
-    techContact :: Core.Sensitive ContactDetail
+    techContact :: Data.Sensitive ContactDetail
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -306,10 +307,10 @@ newRegisterDomain
         privacyProtectTechContact = Prelude.Nothing,
         domainName = pDomainName_,
         durationInYears = pDurationInYears_,
-        adminContact = Core._Sensitive Lens.# pAdminContact_,
+        adminContact = Data._Sensitive Lens.# pAdminContact_,
         registrantContact =
-          Core._Sensitive Lens.# pRegistrantContact_,
-        techContact = Core._Sensitive Lens.# pTechContact_
+          Data._Sensitive Lens.# pRegistrantContact_,
+        techContact = Data._Sensitive Lens.# pTechContact_
       }
 
 -- | Indicates whether the domain will be automatically renewed (@true@) or
@@ -407,19 +408,19 @@ registerDomain_durationInYears = Lens.lens (\RegisterDomain' {durationInYears} -
 -- that you specify for each element, see
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail>.
 registerDomain_adminContact :: Lens.Lens' RegisterDomain ContactDetail
-registerDomain_adminContact = Lens.lens (\RegisterDomain' {adminContact} -> adminContact) (\s@RegisterDomain' {} a -> s {adminContact = a} :: RegisterDomain) Prelude.. Core._Sensitive
+registerDomain_adminContact = Lens.lens (\RegisterDomain' {adminContact} -> adminContact) (\s@RegisterDomain' {} a -> s {adminContact = a} :: RegisterDomain) Prelude.. Data._Sensitive
 
 -- | Provides detailed contact information. For information about the values
 -- that you specify for each element, see
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail>.
 registerDomain_registrantContact :: Lens.Lens' RegisterDomain ContactDetail
-registerDomain_registrantContact = Lens.lens (\RegisterDomain' {registrantContact} -> registrantContact) (\s@RegisterDomain' {} a -> s {registrantContact = a} :: RegisterDomain) Prelude.. Core._Sensitive
+registerDomain_registrantContact = Lens.lens (\RegisterDomain' {registrantContact} -> registrantContact) (\s@RegisterDomain' {} a -> s {registrantContact = a} :: RegisterDomain) Prelude.. Data._Sensitive
 
 -- | Provides detailed contact information. For information about the values
 -- that you specify for each element, see
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail>.
 registerDomain_techContact :: Lens.Lens' RegisterDomain ContactDetail
-registerDomain_techContact = Lens.lens (\RegisterDomain' {techContact} -> techContact) (\s@RegisterDomain' {} a -> s {techContact = a} :: RegisterDomain) Prelude.. Core._Sensitive
+registerDomain_techContact = Lens.lens (\RegisterDomain' {techContact} -> techContact) (\s@RegisterDomain' {} a -> s {techContact = a} :: RegisterDomain) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest RegisterDomain where
   type
@@ -432,7 +433,7 @@ instance Core.AWSRequest RegisterDomain where
       ( \s h x ->
           RegisterDomainResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "OperationId")
+            Prelude.<*> (x Data..:> "OperationId")
       )
 
 instance Prelude.Hashable RegisterDomain where
@@ -461,47 +462,47 @@ instance Prelude.NFData RegisterDomain where
       `Prelude.seq` Prelude.rnf registrantContact
       `Prelude.seq` Prelude.rnf techContact
 
-instance Core.ToHeaders RegisterDomain where
+instance Data.ToHeaders RegisterDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Domains_v20140515.RegisterDomain" ::
+              Data.=# ( "Route53Domains_v20140515.RegisterDomain" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterDomain where
+instance Data.ToJSON RegisterDomain where
   toJSON RegisterDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AutoRenew" Core..=) Prelude.<$> autoRenew,
-            ("IdnLangCode" Core..=) Prelude.<$> idnLangCode,
-            ("PrivacyProtectRegistrantContact" Core..=)
+          [ ("AutoRenew" Data..=) Prelude.<$> autoRenew,
+            ("IdnLangCode" Data..=) Prelude.<$> idnLangCode,
+            ("PrivacyProtectRegistrantContact" Data..=)
               Prelude.<$> privacyProtectRegistrantContact,
-            ("PrivacyProtectAdminContact" Core..=)
+            ("PrivacyProtectAdminContact" Data..=)
               Prelude.<$> privacyProtectAdminContact,
-            ("PrivacyProtectTechContact" Core..=)
+            ("PrivacyProtectTechContact" Data..=)
               Prelude.<$> privacyProtectTechContact,
-            Prelude.Just ("DomainName" Core..= domainName),
+            Prelude.Just ("DomainName" Data..= domainName),
             Prelude.Just
-              ("DurationInYears" Core..= durationInYears),
-            Prelude.Just ("AdminContact" Core..= adminContact),
+              ("DurationInYears" Data..= durationInYears),
+            Prelude.Just ("AdminContact" Data..= adminContact),
             Prelude.Just
-              ("RegistrantContact" Core..= registrantContact),
-            Prelude.Just ("TechContact" Core..= techContact)
+              ("RegistrantContact" Data..= registrantContact),
+            Prelude.Just ("TechContact" Data..= techContact)
           ]
       )
 
-instance Core.ToPath RegisterDomain where
+instance Data.ToPath RegisterDomain where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterDomain where
+instance Data.ToQuery RegisterDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The RegisterDomain response includes the following element.

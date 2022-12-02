@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -175,9 +176,9 @@ instance Core.AWSRequest ListPrices where
     Response.receiveJSON
       ( \s h x ->
           ListPricesResponse'
-            Prelude.<$> (x Core..?> "NextPageMarker")
+            Prelude.<$> (x Data..?> "NextPageMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Prices" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Prices" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListPrices where
@@ -192,35 +193,35 @@ instance Prelude.NFData ListPrices where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf tld
 
-instance Core.ToHeaders ListPrices where
+instance Data.ToHeaders ListPrices where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Domains_v20140515.ListPrices" ::
+              Data.=# ( "Route53Domains_v20140515.ListPrices" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListPrices where
+instance Data.ToJSON ListPrices where
   toJSON ListPrices' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("MaxItems" Core..=) Prelude.<$> maxItems,
-            ("Tld" Core..=) Prelude.<$> tld
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("MaxItems" Data..=) Prelude.<$> maxItems,
+            ("Tld" Data..=) Prelude.<$> tld
           ]
       )
 
-instance Core.ToPath ListPrices where
+instance Data.ToPath ListPrices where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListPrices where
+instance Data.ToQuery ListPrices where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListPricesResponse' smart constructor.

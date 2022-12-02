@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,28 +108,28 @@ instance Core.AWSRequest GetDomainDetail where
     Response.receiveJSON
       ( \s h x ->
           GetDomainDetailResponse'
-            Prelude.<$> (x Core..?> "Reseller")
-            Prelude.<*> (x Core..?> "RegistrantPrivacy")
-            Prelude.<*> (x Core..?> "AutoRenew")
-            Prelude.<*> (x Core..?> "RegistrarName")
-            Prelude.<*> (x Core..?> "CreationDate")
-            Prelude.<*> (x Core..?> "DnsSec")
-            Prelude.<*> (x Core..?> "RegistryDomainId")
-            Prelude.<*> (x Core..?> "TechPrivacy")
-            Prelude.<*> (x Core..?> "AdminPrivacy")
-            Prelude.<*> (x Core..?> "WhoIsServer")
-            Prelude.<*> (x Core..?> "StatusList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "UpdatedDate")
-            Prelude.<*> (x Core..?> "AbuseContactEmail")
-            Prelude.<*> (x Core..?> "AbuseContactPhone")
-            Prelude.<*> (x Core..?> "ExpirationDate")
-            Prelude.<*> (x Core..?> "RegistrarUrl")
+            Prelude.<$> (x Data..?> "Reseller")
+            Prelude.<*> (x Data..?> "RegistrantPrivacy")
+            Prelude.<*> (x Data..?> "AutoRenew")
+            Prelude.<*> (x Data..?> "RegistrarName")
+            Prelude.<*> (x Data..?> "CreationDate")
+            Prelude.<*> (x Data..?> "DnsSec")
+            Prelude.<*> (x Data..?> "RegistryDomainId")
+            Prelude.<*> (x Data..?> "TechPrivacy")
+            Prelude.<*> (x Data..?> "AdminPrivacy")
+            Prelude.<*> (x Data..?> "WhoIsServer")
+            Prelude.<*> (x Data..?> "StatusList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "UpdatedDate")
+            Prelude.<*> (x Data..?> "AbuseContactEmail")
+            Prelude.<*> (x Data..?> "AbuseContactPhone")
+            Prelude.<*> (x Data..?> "ExpirationDate")
+            Prelude.<*> (x Data..?> "RegistrarUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "DomainName")
-            Prelude.<*> (x Core..?> "Nameservers" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..:> "AdminContact")
-            Prelude.<*> (x Core..:> "RegistrantContact")
-            Prelude.<*> (x Core..:> "TechContact")
+            Prelude.<*> (x Data..:> "DomainName")
+            Prelude.<*> (x Data..?> "Nameservers" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "AdminContact")
+            Prelude.<*> (x Data..:> "RegistrantContact")
+            Prelude.<*> (x Data..:> "TechContact")
       )
 
 instance Prelude.Hashable GetDomainDetail where
@@ -138,32 +139,32 @@ instance Prelude.Hashable GetDomainDetail where
 instance Prelude.NFData GetDomainDetail where
   rnf GetDomainDetail' {..} = Prelude.rnf domainName
 
-instance Core.ToHeaders GetDomainDetail where
+instance Data.ToHeaders GetDomainDetail where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Domains_v20140515.GetDomainDetail" ::
+              Data.=# ( "Route53Domains_v20140515.GetDomainDetail" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDomainDetail where
+instance Data.ToJSON GetDomainDetail where
   toJSON GetDomainDetail' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DomainName" Core..= domainName)]
+          [Prelude.Just ("DomainName" Data..= domainName)]
       )
 
-instance Core.ToPath GetDomainDetail where
+instance Data.ToPath GetDomainDetail where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDomainDetail where
+instance Data.ToQuery GetDomainDetail where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The GetDomainDetail response includes the following elements.
@@ -191,7 +192,7 @@ data GetDomainDetailResponse = GetDomainDetailResponse'
     -- | The date when the domain was created as found in the response to a WHOIS
     -- query. The date and time is in Unix time format and Coordinated
     -- Universal time (UTC).
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | Deprecated.
     dnsSec :: Prelude.Maybe Prelude.Text,
     -- | Reserved for future use.
@@ -231,7 +232,7 @@ data GetDomainDetailResponse = GetDomainDetailResponse'
     -- | The last updated date of the domain as found in the response to a WHOIS
     -- query. The date and time is in Unix time format and Coordinated
     -- Universal time (UTC).
-    updatedDate :: Prelude.Maybe Core.POSIX,
+    updatedDate :: Prelude.Maybe Data.POSIX,
     -- | Email address to contact to report incorrect contact information for a
     -- domain, to report that the domain is being used to send spam, to report
     -- that someone is cybersquatting on a domain name, or report some other
@@ -241,7 +242,7 @@ data GetDomainDetailResponse = GetDomainDetailResponse'
     abuseContactPhone :: Prelude.Maybe Prelude.Text,
     -- | The date when the registration for the domain is set to expire. The date
     -- and time is in Unix time format and Coordinated Universal time (UTC).
-    expirationDate :: Prelude.Maybe Core.POSIX,
+    expirationDate :: Prelude.Maybe Data.POSIX,
     -- | Web address of the registrar.
     registrarUrl :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -251,11 +252,11 @@ data GetDomainDetailResponse = GetDomainDetailResponse'
     -- | The name of the domain.
     nameservers :: [Nameserver],
     -- | Provides details about the domain administrative contact.
-    adminContact :: Core.Sensitive ContactDetail,
+    adminContact :: Data.Sensitive ContactDetail,
     -- | Provides details about the domain registrant.
-    registrantContact :: Core.Sensitive ContactDetail,
+    registrantContact :: Data.Sensitive ContactDetail,
     -- | Provides details about the domain technical contact.
-    techContact :: Core.Sensitive ContactDetail
+    techContact :: Data.Sensitive ContactDetail
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -392,10 +393,10 @@ newGetDomainDetailResponse
         domainName = pDomainName_,
         nameservers = Prelude.mempty,
         adminContact =
-          Core._Sensitive Lens.# pAdminContact_,
+          Data._Sensitive Lens.# pAdminContact_,
         registrantContact =
-          Core._Sensitive Lens.# pRegistrantContact_,
-        techContact = Core._Sensitive Lens.# pTechContact_
+          Data._Sensitive Lens.# pRegistrantContact_,
+        techContact = Data._Sensitive Lens.# pTechContact_
       }
 
 -- | Reseller of the domain. Domains registered or transferred using Route 53
@@ -428,7 +429,7 @@ getDomainDetailResponse_registrarName = Lens.lens (\GetDomainDetailResponse' {re
 -- query. The date and time is in Unix time format and Coordinated
 -- Universal time (UTC).
 getDomainDetailResponse_creationDate :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.UTCTime)
-getDomainDetailResponse_creationDate = Lens.lens (\GetDomainDetailResponse' {creationDate} -> creationDate) (\s@GetDomainDetailResponse' {} a -> s {creationDate = a} :: GetDomainDetailResponse) Prelude.. Lens.mapping Core._Time
+getDomainDetailResponse_creationDate = Lens.lens (\GetDomainDetailResponse' {creationDate} -> creationDate) (\s@GetDomainDetailResponse' {} a -> s {creationDate = a} :: GetDomainDetailResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Deprecated.
 getDomainDetailResponse_dnsSec :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.Text)
@@ -482,7 +483,7 @@ getDomainDetailResponse_statusList = Lens.lens (\GetDomainDetailResponse' {statu
 -- query. The date and time is in Unix time format and Coordinated
 -- Universal time (UTC).
 getDomainDetailResponse_updatedDate :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.UTCTime)
-getDomainDetailResponse_updatedDate = Lens.lens (\GetDomainDetailResponse' {updatedDate} -> updatedDate) (\s@GetDomainDetailResponse' {} a -> s {updatedDate = a} :: GetDomainDetailResponse) Prelude.. Lens.mapping Core._Time
+getDomainDetailResponse_updatedDate = Lens.lens (\GetDomainDetailResponse' {updatedDate} -> updatedDate) (\s@GetDomainDetailResponse' {} a -> s {updatedDate = a} :: GetDomainDetailResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Email address to contact to report incorrect contact information for a
 -- domain, to report that the domain is being used to send spam, to report
@@ -498,7 +499,7 @@ getDomainDetailResponse_abuseContactPhone = Lens.lens (\GetDomainDetailResponse'
 -- | The date when the registration for the domain is set to expire. The date
 -- and time is in Unix time format and Coordinated Universal time (UTC).
 getDomainDetailResponse_expirationDate :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.UTCTime)
-getDomainDetailResponse_expirationDate = Lens.lens (\GetDomainDetailResponse' {expirationDate} -> expirationDate) (\s@GetDomainDetailResponse' {} a -> s {expirationDate = a} :: GetDomainDetailResponse) Prelude.. Lens.mapping Core._Time
+getDomainDetailResponse_expirationDate = Lens.lens (\GetDomainDetailResponse' {expirationDate} -> expirationDate) (\s@GetDomainDetailResponse' {} a -> s {expirationDate = a} :: GetDomainDetailResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Web address of the registrar.
 getDomainDetailResponse_registrarUrl :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.Text)
@@ -518,15 +519,15 @@ getDomainDetailResponse_nameservers = Lens.lens (\GetDomainDetailResponse' {name
 
 -- | Provides details about the domain administrative contact.
 getDomainDetailResponse_adminContact :: Lens.Lens' GetDomainDetailResponse ContactDetail
-getDomainDetailResponse_adminContact = Lens.lens (\GetDomainDetailResponse' {adminContact} -> adminContact) (\s@GetDomainDetailResponse' {} a -> s {adminContact = a} :: GetDomainDetailResponse) Prelude.. Core._Sensitive
+getDomainDetailResponse_adminContact = Lens.lens (\GetDomainDetailResponse' {adminContact} -> adminContact) (\s@GetDomainDetailResponse' {} a -> s {adminContact = a} :: GetDomainDetailResponse) Prelude.. Data._Sensitive
 
 -- | Provides details about the domain registrant.
 getDomainDetailResponse_registrantContact :: Lens.Lens' GetDomainDetailResponse ContactDetail
-getDomainDetailResponse_registrantContact = Lens.lens (\GetDomainDetailResponse' {registrantContact} -> registrantContact) (\s@GetDomainDetailResponse' {} a -> s {registrantContact = a} :: GetDomainDetailResponse) Prelude.. Core._Sensitive
+getDomainDetailResponse_registrantContact = Lens.lens (\GetDomainDetailResponse' {registrantContact} -> registrantContact) (\s@GetDomainDetailResponse' {} a -> s {registrantContact = a} :: GetDomainDetailResponse) Prelude.. Data._Sensitive
 
 -- | Provides details about the domain technical contact.
 getDomainDetailResponse_techContact :: Lens.Lens' GetDomainDetailResponse ContactDetail
-getDomainDetailResponse_techContact = Lens.lens (\GetDomainDetailResponse' {techContact} -> techContact) (\s@GetDomainDetailResponse' {} a -> s {techContact = a} :: GetDomainDetailResponse) Prelude.. Core._Sensitive
+getDomainDetailResponse_techContact = Lens.lens (\GetDomainDetailResponse' {techContact} -> techContact) (\s@GetDomainDetailResponse' {} a -> s {techContact = a} :: GetDomainDetailResponse) Prelude.. Data._Sensitive
 
 instance Prelude.NFData GetDomainDetailResponse where
   rnf GetDomainDetailResponse' {..} =

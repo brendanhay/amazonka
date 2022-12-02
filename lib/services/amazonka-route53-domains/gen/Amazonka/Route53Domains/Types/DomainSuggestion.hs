@@ -21,6 +21,7 @@ module Amazonka.Route53Domains.Types.DomainSuggestion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about one suggested domain name.
@@ -172,14 +173,14 @@ domainSuggestion_domainName = Lens.lens (\DomainSuggestion' {domainName} -> doma
 domainSuggestion_availability :: Lens.Lens' DomainSuggestion (Prelude.Maybe Prelude.Text)
 domainSuggestion_availability = Lens.lens (\DomainSuggestion' {availability} -> availability) (\s@DomainSuggestion' {} a -> s {availability = a} :: DomainSuggestion)
 
-instance Core.FromJSON DomainSuggestion where
+instance Data.FromJSON DomainSuggestion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainSuggestion"
       ( \x ->
           DomainSuggestion'
-            Prelude.<$> (x Core..:? "DomainName")
-            Prelude.<*> (x Core..:? "Availability")
+            Prelude.<$> (x Data..:? "DomainName")
+            Prelude.<*> (x Data..:? "Availability")
       )
 
 instance Prelude.Hashable DomainSuggestion where

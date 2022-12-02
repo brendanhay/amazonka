@@ -21,6 +21,7 @@ module Amazonka.Route53Domains.Types.PriceWithCurrency where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Currency-specific price information.
@@ -65,14 +66,14 @@ priceWithCurrency_price = Lens.lens (\PriceWithCurrency' {price} -> price) (\s@P
 priceWithCurrency_currency :: Lens.Lens' PriceWithCurrency Prelude.Text
 priceWithCurrency_currency = Lens.lens (\PriceWithCurrency' {currency} -> currency) (\s@PriceWithCurrency' {} a -> s {currency = a} :: PriceWithCurrency)
 
-instance Core.FromJSON PriceWithCurrency where
+instance Data.FromJSON PriceWithCurrency where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PriceWithCurrency"
       ( \x ->
           PriceWithCurrency'
-            Prelude.<$> (x Core..: "Price")
-            Prelude.<*> (x Core..: "Currency")
+            Prelude.<$> (x Data..: "Price")
+            Prelude.<*> (x Data..: "Currency")
       )
 
 instance Prelude.Hashable PriceWithCurrency where

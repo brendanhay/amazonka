@@ -21,6 +21,7 @@ module Amazonka.Route53Domains.Types.DomainPrice where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Domains.Types.PriceWithCurrency
 
@@ -98,18 +99,18 @@ domainPrice_restorationPrice = Lens.lens (\DomainPrice' {restorationPrice} -> re
 domainPrice_renewalPrice :: Lens.Lens' DomainPrice (Prelude.Maybe PriceWithCurrency)
 domainPrice_renewalPrice = Lens.lens (\DomainPrice' {renewalPrice} -> renewalPrice) (\s@DomainPrice' {} a -> s {renewalPrice = a} :: DomainPrice)
 
-instance Core.FromJSON DomainPrice where
+instance Data.FromJSON DomainPrice where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainPrice"
       ( \x ->
           DomainPrice'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "TransferPrice")
-            Prelude.<*> (x Core..:? "RegistrationPrice")
-            Prelude.<*> (x Core..:? "ChangeOwnershipPrice")
-            Prelude.<*> (x Core..:? "RestorationPrice")
-            Prelude.<*> (x Core..:? "RenewalPrice")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "TransferPrice")
+            Prelude.<*> (x Data..:? "RegistrationPrice")
+            Prelude.<*> (x Data..:? "ChangeOwnershipPrice")
+            Prelude.<*> (x Data..:? "RestorationPrice")
+            Prelude.<*> (x Data..:? "RenewalPrice")
       )
 
 instance Prelude.Hashable DomainPrice where

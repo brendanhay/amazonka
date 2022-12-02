@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,12 +100,12 @@ instance Core.AWSRequest GetOperationDetail where
     Response.receiveJSON
       ( \s h x ->
           GetOperationDetailResponse'
-            Prelude.<$> (x Core..?> "SubmittedDate")
-            Prelude.<*> (x Core..?> "Message")
-            Prelude.<*> (x Core..?> "Type")
-            Prelude.<*> (x Core..?> "DomainName")
-            Prelude.<*> (x Core..?> "OperationId")
-            Prelude.<*> (x Core..?> "Status")
+            Prelude.<$> (x Data..?> "SubmittedDate")
+            Prelude.<*> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "Type")
+            Prelude.<*> (x Data..?> "DomainName")
+            Prelude.<*> (x Data..?> "OperationId")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,32 +116,32 @@ instance Prelude.Hashable GetOperationDetail where
 instance Prelude.NFData GetOperationDetail where
   rnf GetOperationDetail' {..} = Prelude.rnf operationId
 
-instance Core.ToHeaders GetOperationDetail where
+instance Data.ToHeaders GetOperationDetail where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Domains_v20140515.GetOperationDetail" ::
+              Data.=# ( "Route53Domains_v20140515.GetOperationDetail" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetOperationDetail where
+instance Data.ToJSON GetOperationDetail where
   toJSON GetOperationDetail' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("OperationId" Core..= operationId)]
+          [Prelude.Just ("OperationId" Data..= operationId)]
       )
 
-instance Core.ToPath GetOperationDetail where
+instance Data.ToPath GetOperationDetail where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetOperationDetail where
+instance Data.ToQuery GetOperationDetail where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The GetOperationDetail response includes the following elements.
@@ -148,7 +149,7 @@ instance Core.ToQuery GetOperationDetail where
 -- /See:/ 'newGetOperationDetailResponse' smart constructor.
 data GetOperationDetailResponse = GetOperationDetailResponse'
   { -- | The date when the request was submitted.
-    submittedDate :: Prelude.Maybe Core.POSIX,
+    submittedDate :: Prelude.Maybe Data.POSIX,
     -- | Detailed information on the status including possible errors.
     message :: Prelude.Maybe Prelude.Text,
     -- | The type of operation that was requested.
@@ -203,7 +204,7 @@ newGetOperationDetailResponse pHttpStatus_ =
 
 -- | The date when the request was submitted.
 getOperationDetailResponse_submittedDate :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe Prelude.UTCTime)
-getOperationDetailResponse_submittedDate = Lens.lens (\GetOperationDetailResponse' {submittedDate} -> submittedDate) (\s@GetOperationDetailResponse' {} a -> s {submittedDate = a} :: GetOperationDetailResponse) Prelude.. Lens.mapping Core._Time
+getOperationDetailResponse_submittedDate = Lens.lens (\GetOperationDetailResponse' {submittedDate} -> submittedDate) (\s@GetOperationDetailResponse' {} a -> s {submittedDate = a} :: GetOperationDetailResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Detailed information on the status including possible errors.
 getOperationDetailResponse_message :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe Prelude.Text)

@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -139,7 +140,7 @@ instance Core.AWSRequest RenewDomain where
       ( \s h x ->
           RenewDomainResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "OperationId")
+            Prelude.<*> (x Data..:> "OperationId")
       )
 
 instance Prelude.Hashable RenewDomain where
@@ -154,37 +155,37 @@ instance Prelude.NFData RenewDomain where
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf currentExpiryYear
 
-instance Core.ToHeaders RenewDomain where
+instance Data.ToHeaders RenewDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Domains_v20140515.RenewDomain" ::
+              Data.=# ( "Route53Domains_v20140515.RenewDomain" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RenewDomain where
+instance Data.ToJSON RenewDomain where
   toJSON RenewDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DurationInYears" Core..=)
+          [ ("DurationInYears" Data..=)
               Prelude.<$> durationInYears,
-            Prelude.Just ("DomainName" Core..= domainName),
+            Prelude.Just ("DomainName" Data..= domainName),
             Prelude.Just
-              ("CurrentExpiryYear" Core..= currentExpiryYear)
+              ("CurrentExpiryYear" Data..= currentExpiryYear)
           ]
       )
 
-instance Core.ToPath RenewDomain where
+instance Data.ToPath RenewDomain where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RenewDomain where
+instance Data.ToQuery RenewDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRenewDomainResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Route53Domains.Types.OperationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Domains.Types.OperationStatus
 import Amazonka.Route53Domains.Types.OperationType
@@ -36,7 +37,7 @@ data OperationSummary = OperationSummary'
     -- | Type of the action requested.
     type' :: OperationType,
     -- | The date when the request was submitted.
-    submittedDate :: Core.POSIX
+    submittedDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,7 +75,7 @@ newOperationSummary
       { operationId = pOperationId_,
         status = pStatus_,
         type' = pType_,
-        submittedDate = Core._Time Lens.# pSubmittedDate_
+        submittedDate = Data._Time Lens.# pSubmittedDate_
       }
 
 -- | Identifier returned to track the requested action.
@@ -91,18 +92,18 @@ operationSummary_type = Lens.lens (\OperationSummary' {type'} -> type') (\s@Oper
 
 -- | The date when the request was submitted.
 operationSummary_submittedDate :: Lens.Lens' OperationSummary Prelude.UTCTime
-operationSummary_submittedDate = Lens.lens (\OperationSummary' {submittedDate} -> submittedDate) (\s@OperationSummary' {} a -> s {submittedDate = a} :: OperationSummary) Prelude.. Core._Time
+operationSummary_submittedDate = Lens.lens (\OperationSummary' {submittedDate} -> submittedDate) (\s@OperationSummary' {} a -> s {submittedDate = a} :: OperationSummary) Prelude.. Data._Time
 
-instance Core.FromJSON OperationSummary where
+instance Data.FromJSON OperationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OperationSummary"
       ( \x ->
           OperationSummary'
-            Prelude.<$> (x Core..: "OperationId")
-            Prelude.<*> (x Core..: "Status")
-            Prelude.<*> (x Core..: "Type")
-            Prelude.<*> (x Core..: "SubmittedDate")
+            Prelude.<$> (x Data..: "OperationId")
+            Prelude.<*> (x Data..: "Status")
+            Prelude.<*> (x Data..: "Type")
+            Prelude.<*> (x Data..: "SubmittedDate")
       )
 
 instance Prelude.Hashable OperationSummary where

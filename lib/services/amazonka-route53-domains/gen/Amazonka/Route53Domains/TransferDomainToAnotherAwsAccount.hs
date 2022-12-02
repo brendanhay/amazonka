@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,8 +144,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           TransferDomainToAnotherAwsAccountResponse'
-            Prelude.<$> (x Core..?> "Password")
-              Prelude.<*> (x Core..?> "OperationId")
+            Prelude.<$> (x Data..?> "Password")
+              Prelude.<*> (x Data..?> "OperationId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,43 +168,43 @@ instance
       `Prelude.seq` Prelude.rnf accountId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     TransferDomainToAnotherAwsAccount
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Domains_v20140515.TransferDomainToAnotherAwsAccount" ::
+              Data.=# ( "Route53Domains_v20140515.TransferDomainToAnotherAwsAccount" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     TransferDomainToAnotherAwsAccount
   where
   toJSON TransferDomainToAnotherAwsAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DomainName" Core..= domainName),
-            Prelude.Just ("AccountId" Core..= accountId)
+          [ Prelude.Just ("DomainName" Data..= domainName),
+            Prelude.Just ("AccountId" Data..= accountId)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     TransferDomainToAnotherAwsAccount
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     TransferDomainToAnotherAwsAccount
   where
   toQuery = Prelude.const Prelude.mempty

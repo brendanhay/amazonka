@@ -21,6 +21,7 @@ module Amazonka.Route53Domains.Types.FilterCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Domains.Types.ListDomainsAttributeName
 import Amazonka.Route53Domains.Types.Operator
@@ -115,12 +116,12 @@ instance Prelude.NFData FilterCondition where
       `Prelude.seq` Prelude.rnf operator
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON FilterCondition where
+instance Data.ToJSON FilterCondition where
   toJSON FilterCondition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Operator" Core..= operator),
-            Prelude.Just ("Values" Core..= values)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Operator" Data..= operator),
+            Prelude.Just ("Values" Data..= values)
           ]
       )

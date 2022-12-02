@@ -21,6 +21,7 @@ module Amazonka.Route53Domains.Types.ContactDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Domains.Types.ContactType
 import Amazonka.Route53Domains.Types.CountryCode
@@ -238,26 +239,26 @@ contactDetail_fax = Lens.lens (\ContactDetail' {fax} -> fax) (\s@ContactDetail' 
 contactDetail_phoneNumber :: Lens.Lens' ContactDetail (Prelude.Maybe Prelude.Text)
 contactDetail_phoneNumber = Lens.lens (\ContactDetail' {phoneNumber} -> phoneNumber) (\s@ContactDetail' {} a -> s {phoneNumber = a} :: ContactDetail)
 
-instance Core.FromJSON ContactDetail where
+instance Data.FromJSON ContactDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContactDetail"
       ( \x ->
           ContactDetail'
-            Prelude.<$> (x Core..:? "ZipCode")
-            Prelude.<*> (x Core..:? "FirstName")
-            Prelude.<*> (x Core..:? "Email")
-            Prelude.<*> (x Core..:? "ExtraParams" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AddressLine2")
-            Prelude.<*> (x Core..:? "OrganizationName")
-            Prelude.<*> (x Core..:? "CountryCode")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "ContactType")
-            Prelude.<*> (x Core..:? "LastName")
-            Prelude.<*> (x Core..:? "AddressLine1")
-            Prelude.<*> (x Core..:? "City")
-            Prelude.<*> (x Core..:? "Fax")
-            Prelude.<*> (x Core..:? "PhoneNumber")
+            Prelude.<$> (x Data..:? "ZipCode")
+            Prelude.<*> (x Data..:? "FirstName")
+            Prelude.<*> (x Data..:? "Email")
+            Prelude.<*> (x Data..:? "ExtraParams" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AddressLine2")
+            Prelude.<*> (x Data..:? "OrganizationName")
+            Prelude.<*> (x Data..:? "CountryCode")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "ContactType")
+            Prelude.<*> (x Data..:? "LastName")
+            Prelude.<*> (x Data..:? "AddressLine1")
+            Prelude.<*> (x Data..:? "City")
+            Prelude.<*> (x Data..:? "Fax")
+            Prelude.<*> (x Data..:? "PhoneNumber")
       )
 
 instance Prelude.Hashable ContactDetail where
@@ -294,24 +295,24 @@ instance Prelude.NFData ContactDetail where
       `Prelude.seq` Prelude.rnf fax
       `Prelude.seq` Prelude.rnf phoneNumber
 
-instance Core.ToJSON ContactDetail where
+instance Data.ToJSON ContactDetail where
   toJSON ContactDetail' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ZipCode" Core..=) Prelude.<$> zipCode,
-            ("FirstName" Core..=) Prelude.<$> firstName,
-            ("Email" Core..=) Prelude.<$> email,
-            ("ExtraParams" Core..=) Prelude.<$> extraParams,
-            ("AddressLine2" Core..=) Prelude.<$> addressLine2,
-            ("OrganizationName" Core..=)
+          [ ("ZipCode" Data..=) Prelude.<$> zipCode,
+            ("FirstName" Data..=) Prelude.<$> firstName,
+            ("Email" Data..=) Prelude.<$> email,
+            ("ExtraParams" Data..=) Prelude.<$> extraParams,
+            ("AddressLine2" Data..=) Prelude.<$> addressLine2,
+            ("OrganizationName" Data..=)
               Prelude.<$> organizationName,
-            ("CountryCode" Core..=) Prelude.<$> countryCode,
-            ("State" Core..=) Prelude.<$> state,
-            ("ContactType" Core..=) Prelude.<$> contactType,
-            ("LastName" Core..=) Prelude.<$> lastName,
-            ("AddressLine1" Core..=) Prelude.<$> addressLine1,
-            ("City" Core..=) Prelude.<$> city,
-            ("Fax" Core..=) Prelude.<$> fax,
-            ("PhoneNumber" Core..=) Prelude.<$> phoneNumber
+            ("CountryCode" Data..=) Prelude.<$> countryCode,
+            ("State" Data..=) Prelude.<$> state,
+            ("ContactType" Data..=) Prelude.<$> contactType,
+            ("LastName" Data..=) Prelude.<$> lastName,
+            ("AddressLine1" Data..=) Prelude.<$> addressLine1,
+            ("City" Data..=) Prelude.<$> city,
+            ("Fax" Data..=) Prelude.<$> fax,
+            ("PhoneNumber" Data..=) Prelude.<$> phoneNumber
           ]
       )

@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -216,7 +217,7 @@ instance Core.AWSRequest UpdateDomainContactPrivacy where
       ( \s h x ->
           UpdateDomainContactPrivacyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "OperationId")
+            Prelude.<*> (x Data..:> "OperationId")
       )
 
 instance Prelude.Hashable UpdateDomainContactPrivacy where
@@ -233,37 +234,37 @@ instance Prelude.NFData UpdateDomainContactPrivacy where
       `Prelude.seq` Prelude.rnf adminPrivacy
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders UpdateDomainContactPrivacy where
+instance Data.ToHeaders UpdateDomainContactPrivacy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Domains_v20140515.UpdateDomainContactPrivacy" ::
+              Data.=# ( "Route53Domains_v20140515.UpdateDomainContactPrivacy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDomainContactPrivacy where
+instance Data.ToJSON UpdateDomainContactPrivacy where
   toJSON UpdateDomainContactPrivacy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RegistrantPrivacy" Core..=)
+          [ ("RegistrantPrivacy" Data..=)
               Prelude.<$> registrantPrivacy,
-            ("TechPrivacy" Core..=) Prelude.<$> techPrivacy,
-            ("AdminPrivacy" Core..=) Prelude.<$> adminPrivacy,
-            Prelude.Just ("DomainName" Core..= domainName)
+            ("TechPrivacy" Data..=) Prelude.<$> techPrivacy,
+            ("AdminPrivacy" Data..=) Prelude.<$> adminPrivacy,
+            Prelude.Just ("DomainName" Data..= domainName)
           ]
       )
 
-instance Core.ToPath UpdateDomainContactPrivacy where
+instance Data.ToPath UpdateDomainContactPrivacy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDomainContactPrivacy where
+instance Data.ToQuery UpdateDomainContactPrivacy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The UpdateDomainContactPrivacy response includes the following element.

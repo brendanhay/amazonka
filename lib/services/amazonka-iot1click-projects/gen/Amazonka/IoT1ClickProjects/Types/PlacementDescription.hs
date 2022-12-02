@@ -21,6 +21,7 @@ module Amazonka.IoT1ClickProjects.Types.PlacementDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object describing a project\'s placement.
@@ -35,11 +36,11 @@ data PlacementDescription = PlacementDescription'
     attributes :: Prelude.HashMap Prelude.Text Prelude.Text,
     -- | The date when the placement was initially created, in UNIX epoch time
     -- format.
-    createdDate :: Core.POSIX,
+    createdDate :: Data.POSIX,
     -- | The date when the placement was last updated, in UNIX epoch time format.
     -- If the placement was not updated, then @createdDate@ and @updatedDate@
     -- are the same.
-    updatedDate :: Core.POSIX
+    updatedDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,8 +83,8 @@ newPlacementDescription
       { projectName = pProjectName_,
         placementName = pPlacementName_,
         attributes = Prelude.mempty,
-        createdDate = Core._Time Lens.# pCreatedDate_,
-        updatedDate = Core._Time Lens.# pUpdatedDate_
+        createdDate = Data._Time Lens.# pCreatedDate_,
+        updatedDate = Data._Time Lens.# pUpdatedDate_
       }
 
 -- | The name of the project containing the placement.
@@ -101,25 +102,25 @@ placementDescription_attributes = Lens.lens (\PlacementDescription' {attributes}
 -- | The date when the placement was initially created, in UNIX epoch time
 -- format.
 placementDescription_createdDate :: Lens.Lens' PlacementDescription Prelude.UTCTime
-placementDescription_createdDate = Lens.lens (\PlacementDescription' {createdDate} -> createdDate) (\s@PlacementDescription' {} a -> s {createdDate = a} :: PlacementDescription) Prelude.. Core._Time
+placementDescription_createdDate = Lens.lens (\PlacementDescription' {createdDate} -> createdDate) (\s@PlacementDescription' {} a -> s {createdDate = a} :: PlacementDescription) Prelude.. Data._Time
 
 -- | The date when the placement was last updated, in UNIX epoch time format.
 -- If the placement was not updated, then @createdDate@ and @updatedDate@
 -- are the same.
 placementDescription_updatedDate :: Lens.Lens' PlacementDescription Prelude.UTCTime
-placementDescription_updatedDate = Lens.lens (\PlacementDescription' {updatedDate} -> updatedDate) (\s@PlacementDescription' {} a -> s {updatedDate = a} :: PlacementDescription) Prelude.. Core._Time
+placementDescription_updatedDate = Lens.lens (\PlacementDescription' {updatedDate} -> updatedDate) (\s@PlacementDescription' {} a -> s {updatedDate = a} :: PlacementDescription) Prelude.. Data._Time
 
-instance Core.FromJSON PlacementDescription where
+instance Data.FromJSON PlacementDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PlacementDescription"
       ( \x ->
           PlacementDescription'
-            Prelude.<$> (x Core..: "projectName")
-            Prelude.<*> (x Core..: "placementName")
-            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "createdDate")
-            Prelude.<*> (x Core..: "updatedDate")
+            Prelude.<$> (x Data..: "projectName")
+            Prelude.<*> (x Data..: "placementName")
+            Prelude.<*> (x Data..:? "attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "createdDate")
+            Prelude.<*> (x Data..: "updatedDate")
       )
 
 instance Prelude.Hashable PlacementDescription where

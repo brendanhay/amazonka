@@ -21,6 +21,7 @@ module Amazonka.IoT1ClickProjects.Types.PlacementSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object providing summary information for a particular placement.
@@ -33,11 +34,11 @@ data PlacementSummary = PlacementSummary'
     placementName :: Prelude.Text,
     -- | The date when the placement was originally created, in UNIX epoch time
     -- format.
-    createdDate :: Core.POSIX,
+    createdDate :: Data.POSIX,
     -- | The date when the placement was last updated, in UNIX epoch time format.
     -- If the placement was not updated, then @createdDate@ and @updatedDate@
     -- are the same.
-    updatedDate :: Core.POSIX
+    updatedDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,8 +78,8 @@ newPlacementSummary
     PlacementSummary'
       { projectName = pProjectName_,
         placementName = pPlacementName_,
-        createdDate = Core._Time Lens.# pCreatedDate_,
-        updatedDate = Core._Time Lens.# pUpdatedDate_
+        createdDate = Data._Time Lens.# pCreatedDate_,
+        updatedDate = Data._Time Lens.# pUpdatedDate_
       }
 
 -- | The name of the project containing the placement.
@@ -92,24 +93,24 @@ placementSummary_placementName = Lens.lens (\PlacementSummary' {placementName} -
 -- | The date when the placement was originally created, in UNIX epoch time
 -- format.
 placementSummary_createdDate :: Lens.Lens' PlacementSummary Prelude.UTCTime
-placementSummary_createdDate = Lens.lens (\PlacementSummary' {createdDate} -> createdDate) (\s@PlacementSummary' {} a -> s {createdDate = a} :: PlacementSummary) Prelude.. Core._Time
+placementSummary_createdDate = Lens.lens (\PlacementSummary' {createdDate} -> createdDate) (\s@PlacementSummary' {} a -> s {createdDate = a} :: PlacementSummary) Prelude.. Data._Time
 
 -- | The date when the placement was last updated, in UNIX epoch time format.
 -- If the placement was not updated, then @createdDate@ and @updatedDate@
 -- are the same.
 placementSummary_updatedDate :: Lens.Lens' PlacementSummary Prelude.UTCTime
-placementSummary_updatedDate = Lens.lens (\PlacementSummary' {updatedDate} -> updatedDate) (\s@PlacementSummary' {} a -> s {updatedDate = a} :: PlacementSummary) Prelude.. Core._Time
+placementSummary_updatedDate = Lens.lens (\PlacementSummary' {updatedDate} -> updatedDate) (\s@PlacementSummary' {} a -> s {updatedDate = a} :: PlacementSummary) Prelude.. Data._Time
 
-instance Core.FromJSON PlacementSummary where
+instance Data.FromJSON PlacementSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PlacementSummary"
       ( \x ->
           PlacementSummary'
-            Prelude.<$> (x Core..: "projectName")
-            Prelude.<*> (x Core..: "placementName")
-            Prelude.<*> (x Core..: "createdDate")
-            Prelude.<*> (x Core..: "updatedDate")
+            Prelude.<$> (x Data..: "projectName")
+            Prelude.<*> (x Data..: "placementName")
+            Prelude.<*> (x Data..: "createdDate")
+            Prelude.<*> (x Data..: "updatedDate")
       )
 
 instance Prelude.Hashable PlacementSummary where

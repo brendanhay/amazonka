@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT1ClickProjects.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest DescribeProject where
       ( \s h x ->
           DescribeProjectResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "project")
+            Prelude.<*> (x Data..:> "project")
       )
 
 instance Prelude.Hashable DescribeProject where
@@ -94,23 +95,23 @@ instance Prelude.Hashable DescribeProject where
 instance Prelude.NFData DescribeProject where
   rnf DescribeProject' {..} = Prelude.rnf projectName
 
-instance Core.ToHeaders DescribeProject where
+instance Data.ToHeaders DescribeProject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeProject where
+instance Data.ToPath DescribeProject where
   toPath DescribeProject' {..} =
     Prelude.mconcat
-      ["/projects/", Core.toBS projectName]
+      ["/projects/", Data.toBS projectName]
 
-instance Core.ToQuery DescribeProject where
+instance Data.ToQuery DescribeProject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeProjectResponse' smart constructor.

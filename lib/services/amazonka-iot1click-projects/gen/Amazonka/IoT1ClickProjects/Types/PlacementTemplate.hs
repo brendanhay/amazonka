@@ -21,6 +21,7 @@ module Amazonka.IoT1ClickProjects.Types.PlacementTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT1ClickProjects.Types.DeviceTemplate
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,17 +70,17 @@ placementTemplate_deviceTemplates = Lens.lens (\PlacementTemplate' {deviceTempla
 placementTemplate_defaultAttributes :: Lens.Lens' PlacementTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 placementTemplate_defaultAttributes = Lens.lens (\PlacementTemplate' {defaultAttributes} -> defaultAttributes) (\s@PlacementTemplate' {} a -> s {defaultAttributes = a} :: PlacementTemplate) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PlacementTemplate where
+instance Data.FromJSON PlacementTemplate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PlacementTemplate"
       ( \x ->
           PlacementTemplate'
-            Prelude.<$> ( x Core..:? "deviceTemplates"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "deviceTemplates"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "defaultAttributes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "defaultAttributes"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -93,13 +94,13 @@ instance Prelude.NFData PlacementTemplate where
     Prelude.rnf deviceTemplates
       `Prelude.seq` Prelude.rnf defaultAttributes
 
-instance Core.ToJSON PlacementTemplate where
+instance Data.ToJSON PlacementTemplate where
   toJSON PlacementTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("deviceTemplates" Core..=)
+          [ ("deviceTemplates" Data..=)
               Prelude.<$> deviceTemplates,
-            ("defaultAttributes" Core..=)
+            ("defaultAttributes" Data..=)
               Prelude.<$> defaultAttributes
           ]
       )

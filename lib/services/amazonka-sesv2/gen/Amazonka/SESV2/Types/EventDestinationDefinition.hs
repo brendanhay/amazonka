@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.EventDestinationDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.CloudWatchDestination
 import Amazonka.SESV2.Types.EventType
@@ -175,20 +176,20 @@ instance Prelude.NFData EventDestinationDefinition where
       `Prelude.seq` Prelude.rnf cloudWatchDestination
       `Prelude.seq` Prelude.rnf kinesisFirehoseDestination
 
-instance Core.ToJSON EventDestinationDefinition where
+instance Data.ToJSON EventDestinationDefinition where
   toJSON EventDestinationDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MatchingEventTypes" Core..=)
+          [ ("MatchingEventTypes" Data..=)
               Prelude.<$> matchingEventTypes,
-            ("PinpointDestination" Core..=)
+            ("PinpointDestination" Data..=)
               Prelude.<$> pinpointDestination,
-            ("SnsDestination" Core..=)
+            ("SnsDestination" Data..=)
               Prelude.<$> snsDestination,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("CloudWatchDestination" Core..=)
+            ("Enabled" Data..=) Prelude.<$> enabled,
+            ("CloudWatchDestination" Data..=)
               Prelude.<$> cloudWatchDestination,
-            ("KinesisFirehoseDestination" Core..=)
+            ("KinesisFirehoseDestination" Data..=)
               Prelude.<$> kinesisFirehoseDestination
           ]
       )

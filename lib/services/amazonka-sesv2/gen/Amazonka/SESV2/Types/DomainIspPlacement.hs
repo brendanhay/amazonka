@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.DomainIspPlacement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains inbox placement data for email sent from one of
@@ -108,17 +109,17 @@ domainIspPlacement_spamRawCount = Lens.lens (\DomainIspPlacement' {spamRawCount}
 domainIspPlacement_ispName :: Lens.Lens' DomainIspPlacement (Prelude.Maybe Prelude.Text)
 domainIspPlacement_ispName = Lens.lens (\DomainIspPlacement' {ispName} -> ispName) (\s@DomainIspPlacement' {} a -> s {ispName = a} :: DomainIspPlacement)
 
-instance Core.FromJSON DomainIspPlacement where
+instance Data.FromJSON DomainIspPlacement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainIspPlacement"
       ( \x ->
           DomainIspPlacement'
-            Prelude.<$> (x Core..:? "InboxRawCount")
-            Prelude.<*> (x Core..:? "SpamPercentage")
-            Prelude.<*> (x Core..:? "InboxPercentage")
-            Prelude.<*> (x Core..:? "SpamRawCount")
-            Prelude.<*> (x Core..:? "IspName")
+            Prelude.<$> (x Data..:? "InboxRawCount")
+            Prelude.<*> (x Data..:? "SpamPercentage")
+            Prelude.<*> (x Data..:? "InboxPercentage")
+            Prelude.<*> (x Data..:? "SpamRawCount")
+            Prelude.<*> (x Data..:? "IspName")
       )
 
 instance Prelude.Hashable DomainIspPlacement where

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,7 +96,7 @@ instance Core.AWSRequest GetBlacklistReports where
       ( \s h x ->
           GetBlacklistReportsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "BlacklistReport"
+            Prelude.<*> ( x Data..?> "BlacklistReport"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -108,27 +109,27 @@ instance Prelude.NFData GetBlacklistReports where
   rnf GetBlacklistReports' {..} =
     Prelude.rnf blacklistItemNames
 
-instance Core.ToHeaders GetBlacklistReports where
+instance Data.ToHeaders GetBlacklistReports where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetBlacklistReports where
+instance Data.ToPath GetBlacklistReports where
   toPath =
     Prelude.const
       "/v2/email/deliverability-dashboard/blacklist-report"
 
-instance Core.ToQuery GetBlacklistReports where
+instance Data.ToQuery GetBlacklistReports where
   toQuery GetBlacklistReports' {..} =
     Prelude.mconcat
       [ "BlacklistItemNames"
-          Core.=: Core.toQueryList "member" blacklistItemNames
+          Data.=: Data.toQueryList "member" blacklistItemNames
       ]
 
 -- | An object that contains information about blacklist events.

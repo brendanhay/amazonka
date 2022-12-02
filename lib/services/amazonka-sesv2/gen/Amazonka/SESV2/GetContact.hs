@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,18 +103,18 @@ instance Core.AWSRequest GetContact where
     Response.receiveJSON
       ( \s h x ->
           GetContactResponse'
-            Prelude.<$> (x Core..?> "LastUpdatedTimestamp")
-            Prelude.<*> (x Core..?> "UnsubscribeAll")
-            Prelude.<*> ( x Core..?> "TopicPreferences"
+            Prelude.<$> (x Data..?> "LastUpdatedTimestamp")
+            Prelude.<*> (x Data..?> "UnsubscribeAll")
+            Prelude.<*> ( x Data..?> "TopicPreferences"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "CreatedTimestamp")
-            Prelude.<*> ( x Core..?> "TopicDefaultPreferences"
+            Prelude.<*> (x Data..?> "CreatedTimestamp")
+            Prelude.<*> ( x Data..?> "TopicDefaultPreferences"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "EmailAddress")
-            Prelude.<*> (x Core..?> "AttributesData")
-            Prelude.<*> (x Core..?> "ContactListName")
+            Prelude.<*> (x Data..?> "EmailAddress")
+            Prelude.<*> (x Data..?> "AttributesData")
+            Prelude.<*> (x Data..?> "ContactListName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,33 +128,33 @@ instance Prelude.NFData GetContact where
     Prelude.rnf contactListName
       `Prelude.seq` Prelude.rnf emailAddress
 
-instance Core.ToHeaders GetContact where
+instance Data.ToHeaders GetContact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetContact where
+instance Data.ToPath GetContact where
   toPath GetContact' {..} =
     Prelude.mconcat
       [ "/v2/email/contact-lists/",
-        Core.toBS contactListName,
+        Data.toBS contactListName,
         "/contacts/",
-        Core.toBS emailAddress
+        Data.toBS emailAddress
       ]
 
-instance Core.ToQuery GetContact where
+instance Data.ToQuery GetContact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetContactResponse' smart constructor.
 data GetContactResponse = GetContactResponse'
   { -- | A timestamp noting the last time the contact\'s information was updated.
-    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | A boolean value status noting if the contact is unsubscribed from all
     -- contact list topics.
     unsubscribeAll :: Prelude.Maybe Prelude.Bool,
@@ -161,7 +162,7 @@ data GetContactResponse = GetContactResponse'
     -- topic.>
     topicPreferences :: Prelude.Maybe [TopicPreference],
     -- | A timestamp noting when the contact was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The default topic preferences applied to the contact.
     topicDefaultPreferences :: Prelude.Maybe [TopicPreference],
     -- | The contact\'s email addres.
@@ -222,7 +223,7 @@ newGetContactResponse pHttpStatus_ =
 
 -- | A timestamp noting the last time the contact\'s information was updated.
 getContactResponse_lastUpdatedTimestamp :: Lens.Lens' GetContactResponse (Prelude.Maybe Prelude.UTCTime)
-getContactResponse_lastUpdatedTimestamp = Lens.lens (\GetContactResponse' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@GetContactResponse' {} a -> s {lastUpdatedTimestamp = a} :: GetContactResponse) Prelude.. Lens.mapping Core._Time
+getContactResponse_lastUpdatedTimestamp = Lens.lens (\GetContactResponse' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@GetContactResponse' {} a -> s {lastUpdatedTimestamp = a} :: GetContactResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A boolean value status noting if the contact is unsubscribed from all
 -- contact list topics.
@@ -236,7 +237,7 @@ getContactResponse_topicPreferences = Lens.lens (\GetContactResponse' {topicPref
 
 -- | A timestamp noting when the contact was created.
 getContactResponse_createdTimestamp :: Lens.Lens' GetContactResponse (Prelude.Maybe Prelude.UTCTime)
-getContactResponse_createdTimestamp = Lens.lens (\GetContactResponse' {createdTimestamp} -> createdTimestamp) (\s@GetContactResponse' {} a -> s {createdTimestamp = a} :: GetContactResponse) Prelude.. Lens.mapping Core._Time
+getContactResponse_createdTimestamp = Lens.lens (\GetContactResponse' {createdTimestamp} -> createdTimestamp) (\s@GetContactResponse' {} a -> s {createdTimestamp = a} :: GetContactResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The default topic preferences applied to the contact.
 getContactResponse_topicDefaultPreferences :: Lens.Lens' GetContactResponse (Prelude.Maybe [TopicPreference])

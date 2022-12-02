@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,12 +90,12 @@ instance Core.AWSRequest GetDeliverabilityTestReport where
     Response.receiveJSON
       ( \s h x ->
           GetDeliverabilityTestReportResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Message")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Message")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "DeliverabilityTestReport")
-            Prelude.<*> (x Core..:> "OverallPlacement")
-            Prelude.<*> (x Core..?> "IspPlacements" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "DeliverabilityTestReport")
+            Prelude.<*> (x Data..:> "OverallPlacement")
+            Prelude.<*> (x Data..?> "IspPlacements" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable GetDeliverabilityTestReport where
@@ -105,25 +106,25 @@ instance Prelude.NFData GetDeliverabilityTestReport where
   rnf GetDeliverabilityTestReport' {..} =
     Prelude.rnf reportId
 
-instance Core.ToHeaders GetDeliverabilityTestReport where
+instance Data.ToHeaders GetDeliverabilityTestReport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDeliverabilityTestReport where
+instance Data.ToPath GetDeliverabilityTestReport where
   toPath GetDeliverabilityTestReport' {..} =
     Prelude.mconcat
       [ "/v2/email/deliverability-dashboard/test-reports/",
-        Core.toBS reportId
+        Data.toBS reportId
       ]
 
-instance Core.ToQuery GetDeliverabilityTestReport where
+instance Data.ToQuery GetDeliverabilityTestReport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The results of the predictive inbox placement test.

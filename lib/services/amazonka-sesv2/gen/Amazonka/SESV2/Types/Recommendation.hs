@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.Recommendation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.RecommendationImpact
 import Amazonka.SESV2.Types.RecommendationStatus
@@ -31,14 +32,14 @@ import Amazonka.SESV2.Types.RecommendationType
 -- /See:/ 'newRecommendation' smart constructor.
 data Recommendation = Recommendation'
   { -- | The last time the recommendation was updated.
-    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The recommendation impact, with values like @HIGH@ or @LOW@.
     impact :: Prelude.Maybe RecommendationImpact,
     -- | The recommendation type, with values like @DKIM@, @SPF@ or @DMARC@.
     type' :: Prelude.Maybe RecommendationType,
     -- | The first time this issue was encountered and the recommendation was
     -- generated.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The recommendation status, with values like @OPEN@ or @FIXED@.
     status :: Prelude.Maybe RecommendationStatus,
     -- | The recommendation description \/ disambiguator - e.g. @DKIM1@ and
@@ -90,7 +91,7 @@ newRecommendation =
 
 -- | The last time the recommendation was updated.
 recommendation_lastUpdatedTimestamp :: Lens.Lens' Recommendation (Prelude.Maybe Prelude.UTCTime)
-recommendation_lastUpdatedTimestamp = Lens.lens (\Recommendation' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@Recommendation' {} a -> s {lastUpdatedTimestamp = a} :: Recommendation) Prelude.. Lens.mapping Core._Time
+recommendation_lastUpdatedTimestamp = Lens.lens (\Recommendation' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@Recommendation' {} a -> s {lastUpdatedTimestamp = a} :: Recommendation) Prelude.. Lens.mapping Data._Time
 
 -- | The recommendation impact, with values like @HIGH@ or @LOW@.
 recommendation_impact :: Lens.Lens' Recommendation (Prelude.Maybe RecommendationImpact)
@@ -103,7 +104,7 @@ recommendation_type = Lens.lens (\Recommendation' {type'} -> type') (\s@Recommen
 -- | The first time this issue was encountered and the recommendation was
 -- generated.
 recommendation_createdTimestamp :: Lens.Lens' Recommendation (Prelude.Maybe Prelude.UTCTime)
-recommendation_createdTimestamp = Lens.lens (\Recommendation' {createdTimestamp} -> createdTimestamp) (\s@Recommendation' {} a -> s {createdTimestamp = a} :: Recommendation) Prelude.. Lens.mapping Core._Time
+recommendation_createdTimestamp = Lens.lens (\Recommendation' {createdTimestamp} -> createdTimestamp) (\s@Recommendation' {} a -> s {createdTimestamp = a} :: Recommendation) Prelude.. Lens.mapping Data._Time
 
 -- | The recommendation status, with values like @OPEN@ or @FIXED@.
 recommendation_status :: Lens.Lens' Recommendation (Prelude.Maybe RecommendationStatus)
@@ -119,19 +120,19 @@ recommendation_description = Lens.lens (\Recommendation' {description} -> descri
 recommendation_resourceArn :: Lens.Lens' Recommendation (Prelude.Maybe Prelude.Text)
 recommendation_resourceArn = Lens.lens (\Recommendation' {resourceArn} -> resourceArn) (\s@Recommendation' {} a -> s {resourceArn = a} :: Recommendation)
 
-instance Core.FromJSON Recommendation where
+instance Data.FromJSON Recommendation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Recommendation"
       ( \x ->
           Recommendation'
-            Prelude.<$> (x Core..:? "LastUpdatedTimestamp")
-            Prelude.<*> (x Core..:? "Impact")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ResourceArn")
+            Prelude.<$> (x Data..:? "LastUpdatedTimestamp")
+            Prelude.<*> (x Data..:? "Impact")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ResourceArn")
       )
 
 instance Prelude.Hashable Recommendation where

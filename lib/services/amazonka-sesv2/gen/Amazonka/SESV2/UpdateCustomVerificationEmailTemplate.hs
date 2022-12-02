@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -218,55 +219,55 @@ instance
       `Prelude.seq` Prelude.rnf failureRedirectionURL
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateCustomVerificationEmailTemplate
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateCustomVerificationEmailTemplate
   where
   toJSON UpdateCustomVerificationEmailTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("FromEmailAddress" Core..= fromEmailAddress),
+              ("FromEmailAddress" Data..= fromEmailAddress),
             Prelude.Just
-              ("TemplateSubject" Core..= templateSubject),
+              ("TemplateSubject" Data..= templateSubject),
             Prelude.Just
-              ("TemplateContent" Core..= templateContent),
+              ("TemplateContent" Data..= templateContent),
             Prelude.Just
               ( "SuccessRedirectionURL"
-                  Core..= successRedirectionURL
+                  Data..= successRedirectionURL
               ),
             Prelude.Just
               ( "FailureRedirectionURL"
-                  Core..= failureRedirectionURL
+                  Data..= failureRedirectionURL
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateCustomVerificationEmailTemplate
   where
   toPath UpdateCustomVerificationEmailTemplate' {..} =
     Prelude.mconcat
       [ "/v2/email/custom-verification-email-templates/",
-        Core.toBS templateName
+        Data.toBS templateName
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateCustomVerificationEmailTemplate
   where
   toQuery = Prelude.const Prelude.mempty

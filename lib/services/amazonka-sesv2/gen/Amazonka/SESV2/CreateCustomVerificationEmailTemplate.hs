@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -214,46 +215,46 @@ instance
       `Prelude.seq` Prelude.rnf failureRedirectionURL
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateCustomVerificationEmailTemplate
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateCustomVerificationEmailTemplate
   where
   toJSON CreateCustomVerificationEmailTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("TemplateName" Core..= templateName),
+          [ Prelude.Just ("TemplateName" Data..= templateName),
             Prelude.Just
-              ("FromEmailAddress" Core..= fromEmailAddress),
+              ("FromEmailAddress" Data..= fromEmailAddress),
             Prelude.Just
-              ("TemplateSubject" Core..= templateSubject),
+              ("TemplateSubject" Data..= templateSubject),
             Prelude.Just
-              ("TemplateContent" Core..= templateContent),
+              ("TemplateContent" Data..= templateContent),
             Prelude.Just
               ( "SuccessRedirectionURL"
-                  Core..= successRedirectionURL
+                  Data..= successRedirectionURL
               ),
             Prelude.Just
               ( "FailureRedirectionURL"
-                  Core..= failureRedirectionURL
+                  Data..= failureRedirectionURL
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateCustomVerificationEmailTemplate
   where
   toPath =
@@ -261,7 +262,7 @@ instance
       "/v2/email/custom-verification-email-templates"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateCustomVerificationEmailTemplate
   where
   toQuery = Prelude.const Prelude.mempty

@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.BulkEmailEntryResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.BulkEmailStatus
 
@@ -231,15 +232,15 @@ bulkEmailEntryResult_status = Lens.lens (\BulkEmailEntryResult' {status} -> stat
 bulkEmailEntryResult_error :: Lens.Lens' BulkEmailEntryResult (Prelude.Maybe Prelude.Text)
 bulkEmailEntryResult_error = Lens.lens (\BulkEmailEntryResult' {error} -> error) (\s@BulkEmailEntryResult' {} a -> s {error = a} :: BulkEmailEntryResult)
 
-instance Core.FromJSON BulkEmailEntryResult where
+instance Data.FromJSON BulkEmailEntryResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BulkEmailEntryResult"
       ( \x ->
           BulkEmailEntryResult'
-            Prelude.<$> (x Core..:? "MessageId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Error")
+            Prelude.<$> (x Data..:? "MessageId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Error")
       )
 
 instance Prelude.Hashable BulkEmailEntryResult where

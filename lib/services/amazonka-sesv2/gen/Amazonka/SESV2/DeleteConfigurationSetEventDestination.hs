@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,33 +139,33 @@ instance
       `Prelude.seq` Prelude.rnf eventDestinationName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteConfigurationSetEventDestination
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeleteConfigurationSetEventDestination
   where
   toPath DeleteConfigurationSetEventDestination' {..} =
     Prelude.mconcat
       [ "/v2/email/configuration-sets/",
-        Core.toBS configurationSetName,
+        Data.toBS configurationSetName,
         "/event-destinations/",
-        Core.toBS eventDestinationName
+        Data.toBS eventDestinationName
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteConfigurationSetEventDestination
   where
   toQuery = Prelude.const Prelude.mempty

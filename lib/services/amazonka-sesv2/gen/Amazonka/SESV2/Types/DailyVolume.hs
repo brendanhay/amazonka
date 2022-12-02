@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.DailyVolume where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.DomainIspPlacement
 import Amazonka.SESV2.Types.VolumeStatistics
@@ -34,7 +35,7 @@ data DailyVolume = DailyVolume'
     -- the analysis period.
     volumeStatistics :: Prelude.Maybe VolumeStatistics,
     -- | The date that the DailyVolume metrics apply to, in Unix time.
-    startDate :: Prelude.Maybe Core.POSIX,
+    startDate :: Prelude.Maybe Data.POSIX,
     -- | An object that contains inbox placement metrics for a specified day in
     -- the analysis period, broken out by the recipient\'s email provider.
     domainIspPlacements :: Prelude.Maybe [DomainIspPlacement]
@@ -72,23 +73,23 @@ dailyVolume_volumeStatistics = Lens.lens (\DailyVolume' {volumeStatistics} -> vo
 
 -- | The date that the DailyVolume metrics apply to, in Unix time.
 dailyVolume_startDate :: Lens.Lens' DailyVolume (Prelude.Maybe Prelude.UTCTime)
-dailyVolume_startDate = Lens.lens (\DailyVolume' {startDate} -> startDate) (\s@DailyVolume' {} a -> s {startDate = a} :: DailyVolume) Prelude.. Lens.mapping Core._Time
+dailyVolume_startDate = Lens.lens (\DailyVolume' {startDate} -> startDate) (\s@DailyVolume' {} a -> s {startDate = a} :: DailyVolume) Prelude.. Lens.mapping Data._Time
 
 -- | An object that contains inbox placement metrics for a specified day in
 -- the analysis period, broken out by the recipient\'s email provider.
 dailyVolume_domainIspPlacements :: Lens.Lens' DailyVolume (Prelude.Maybe [DomainIspPlacement])
 dailyVolume_domainIspPlacements = Lens.lens (\DailyVolume' {domainIspPlacements} -> domainIspPlacements) (\s@DailyVolume' {} a -> s {domainIspPlacements = a} :: DailyVolume) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DailyVolume where
+instance Data.FromJSON DailyVolume where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DailyVolume"
       ( \x ->
           DailyVolume'
-            Prelude.<$> (x Core..:? "VolumeStatistics")
-            Prelude.<*> (x Core..:? "StartDate")
-            Prelude.<*> ( x Core..:? "DomainIspPlacements"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "VolumeStatistics")
+            Prelude.<*> (x Data..:? "StartDate")
+            Prelude.<*> ( x Data..:? "DomainIspPlacements"
+                            Data..!= Prelude.mempty
                         )
       )
 

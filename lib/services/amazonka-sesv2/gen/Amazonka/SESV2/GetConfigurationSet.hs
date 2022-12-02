@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,14 +104,14 @@ instance Core.AWSRequest GetConfigurationSet where
     Response.receiveJSON
       ( \s h x ->
           GetConfigurationSetResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ReputationOptions")
-            Prelude.<*> (x Core..?> "ConfigurationSetName")
-            Prelude.<*> (x Core..?> "DeliveryOptions")
-            Prelude.<*> (x Core..?> "TrackingOptions")
-            Prelude.<*> (x Core..?> "SuppressionOptions")
-            Prelude.<*> (x Core..?> "SendingOptions")
-            Prelude.<*> (x Core..?> "VdmOptions")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ReputationOptions")
+            Prelude.<*> (x Data..?> "ConfigurationSetName")
+            Prelude.<*> (x Data..?> "DeliveryOptions")
+            Prelude.<*> (x Data..?> "TrackingOptions")
+            Prelude.<*> (x Data..?> "SuppressionOptions")
+            Prelude.<*> (x Data..?> "SendingOptions")
+            Prelude.<*> (x Data..?> "VdmOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,25 +123,25 @@ instance Prelude.NFData GetConfigurationSet where
   rnf GetConfigurationSet' {..} =
     Prelude.rnf configurationSetName
 
-instance Core.ToHeaders GetConfigurationSet where
+instance Data.ToHeaders GetConfigurationSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetConfigurationSet where
+instance Data.ToPath GetConfigurationSet where
   toPath GetConfigurationSet' {..} =
     Prelude.mconcat
       [ "/v2/email/configuration-sets/",
-        Core.toBS configurationSetName
+        Data.toBS configurationSetName
       ]
 
-instance Core.ToQuery GetConfigurationSet where
+instance Data.ToQuery GetConfigurationSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Information about a configuration set.

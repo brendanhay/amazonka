@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.DedicatedIp where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.WarmupStatus
 
@@ -121,16 +122,16 @@ dedicatedIp_warmupStatus = Lens.lens (\DedicatedIp' {warmupStatus} -> warmupStat
 dedicatedIp_warmupPercentage :: Lens.Lens' DedicatedIp Prelude.Int
 dedicatedIp_warmupPercentage = Lens.lens (\DedicatedIp' {warmupPercentage} -> warmupPercentage) (\s@DedicatedIp' {} a -> s {warmupPercentage = a} :: DedicatedIp)
 
-instance Core.FromJSON DedicatedIp where
+instance Data.FromJSON DedicatedIp where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DedicatedIp"
       ( \x ->
           DedicatedIp'
-            Prelude.<$> (x Core..:? "PoolName")
-            Prelude.<*> (x Core..: "Ip")
-            Prelude.<*> (x Core..: "WarmupStatus")
-            Prelude.<*> (x Core..: "WarmupPercentage")
+            Prelude.<$> (x Data..:? "PoolName")
+            Prelude.<*> (x Data..: "Ip")
+            Prelude.<*> (x Data..: "WarmupStatus")
+            Prelude.<*> (x Data..: "WarmupPercentage")
       )
 
 instance Prelude.Hashable DedicatedIp where

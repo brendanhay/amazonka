@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.SuppressionListDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.SuppressionListImportAction
 
@@ -75,13 +76,13 @@ newSuppressionListDestination
 suppressionListDestination_suppressionListImportAction :: Lens.Lens' SuppressionListDestination SuppressionListImportAction
 suppressionListDestination_suppressionListImportAction = Lens.lens (\SuppressionListDestination' {suppressionListImportAction} -> suppressionListImportAction) (\s@SuppressionListDestination' {} a -> s {suppressionListImportAction = a} :: SuppressionListDestination)
 
-instance Core.FromJSON SuppressionListDestination where
+instance Data.FromJSON SuppressionListDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SuppressionListDestination"
       ( \x ->
           SuppressionListDestination'
-            Prelude.<$> (x Core..: "SuppressionListImportAction")
+            Prelude.<$> (x Data..: "SuppressionListImportAction")
       )
 
 instance Prelude.Hashable SuppressionListDestination where
@@ -93,13 +94,13 @@ instance Prelude.NFData SuppressionListDestination where
   rnf SuppressionListDestination' {..} =
     Prelude.rnf suppressionListImportAction
 
-instance Core.ToJSON SuppressionListDestination where
+instance Data.ToJSON SuppressionListDestination where
   toJSON SuppressionListDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "SuppressionListImportAction"
-                  Core..= suppressionListImportAction
+                  Data..= suppressionListImportAction
               )
           ]
       )

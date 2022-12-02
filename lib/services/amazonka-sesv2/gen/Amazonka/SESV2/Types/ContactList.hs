@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.ContactList where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list that contains contacts that have subscribed to a particular topic
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newContactList' smart constructor.
 data ContactList = ContactList'
   { -- | A timestamp noting the last time the contact list was updated.
-    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The name of the contact list.
     contactListName :: Prelude.Maybe Prelude.Text
   }
@@ -57,20 +58,20 @@ newContactList =
 
 -- | A timestamp noting the last time the contact list was updated.
 contactList_lastUpdatedTimestamp :: Lens.Lens' ContactList (Prelude.Maybe Prelude.UTCTime)
-contactList_lastUpdatedTimestamp = Lens.lens (\ContactList' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@ContactList' {} a -> s {lastUpdatedTimestamp = a} :: ContactList) Prelude.. Lens.mapping Core._Time
+contactList_lastUpdatedTimestamp = Lens.lens (\ContactList' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@ContactList' {} a -> s {lastUpdatedTimestamp = a} :: ContactList) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the contact list.
 contactList_contactListName :: Lens.Lens' ContactList (Prelude.Maybe Prelude.Text)
 contactList_contactListName = Lens.lens (\ContactList' {contactListName} -> contactListName) (\s@ContactList' {} a -> s {contactListName = a} :: ContactList)
 
-instance Core.FromJSON ContactList where
+instance Data.FromJSON ContactList where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContactList"
       ( \x ->
           ContactList'
-            Prelude.<$> (x Core..:? "LastUpdatedTimestamp")
-            Prelude.<*> (x Core..:? "ContactListName")
+            Prelude.<$> (x Data..:? "LastUpdatedTimestamp")
+            Prelude.<*> (x Data..:? "ContactListName")
       )
 
 instance Prelude.Hashable ContactList where

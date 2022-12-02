@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.ListContactsFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.SubscriptionStatus
 import Amazonka.SESV2.Types.TopicFilter
@@ -74,12 +75,12 @@ instance Prelude.NFData ListContactsFilter where
     Prelude.rnf filteredStatus
       `Prelude.seq` Prelude.rnf topicFilter
 
-instance Core.ToJSON ListContactsFilter where
+instance Data.ToJSON ListContactsFilter where
   toJSON ListContactsFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FilteredStatus" Core..=)
+          [ ("FilteredStatus" Data..=)
               Prelude.<$> filteredStatus,
-            ("TopicFilter" Core..=) Prelude.<$> topicFilter
+            ("TopicFilter" Data..=) Prelude.<$> topicFilter
           ]
       )

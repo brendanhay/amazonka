@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,25 +97,25 @@ instance Prelude.NFData DeleteContactList where
   rnf DeleteContactList' {..} =
     Prelude.rnf contactListName
 
-instance Core.ToHeaders DeleteContactList where
+instance Data.ToHeaders DeleteContactList where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteContactList where
+instance Data.ToPath DeleteContactList where
   toPath DeleteContactList' {..} =
     Prelude.mconcat
       [ "/v2/email/contact-lists/",
-        Core.toBS contactListName
+        Data.toBS contactListName
       ]
 
-instance Core.ToQuery DeleteContactList where
+instance Data.ToQuery DeleteContactList where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteContactListResponse' smart constructor.

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,33 +120,33 @@ instance
     Prelude.rnf autoWarmupEnabled
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutAccountDedicatedIpWarmupAttributes
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     PutAccountDedicatedIpWarmupAttributes
   where
   toJSON PutAccountDedicatedIpWarmupAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AutoWarmupEnabled" Core..=)
+          [ ("AutoWarmupEnabled" Data..=)
               Prelude.<$> autoWarmupEnabled
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     PutAccountDedicatedIpWarmupAttributes
   where
   toPath =
@@ -153,7 +154,7 @@ instance
       "/v2/email/account/dedicated-ips/warmup"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PutAccountDedicatedIpWarmupAttributes
   where
   toQuery = Prelude.const Prelude.mempty

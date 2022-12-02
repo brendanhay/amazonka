@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,30 +112,30 @@ instance Prelude.NFData PutAccountSendingAttributes where
   rnf PutAccountSendingAttributes' {..} =
     Prelude.rnf sendingEnabled
 
-instance Core.ToHeaders PutAccountSendingAttributes where
+instance Data.ToHeaders PutAccountSendingAttributes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutAccountSendingAttributes where
+instance Data.ToJSON PutAccountSendingAttributes where
   toJSON PutAccountSendingAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SendingEnabled" Core..=)
+          [ ("SendingEnabled" Data..=)
               Prelude.<$> sendingEnabled
           ]
       )
 
-instance Core.ToPath PutAccountSendingAttributes where
+instance Data.ToPath PutAccountSendingAttributes where
   toPath = Prelude.const "/v2/email/account/sending"
 
-instance Core.ToQuery PutAccountSendingAttributes where
+instance Data.ToQuery PutAccountSendingAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | An HTTP 200 response if the request succeeds, or an error message if the

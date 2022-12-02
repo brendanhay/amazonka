@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.ReviewDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.ReviewStatus
 
@@ -101,14 +102,14 @@ reviewDetails_caseId = Lens.lens (\ReviewDetails' {caseId} -> caseId) (\s@Review
 reviewDetails_status :: Lens.Lens' ReviewDetails (Prelude.Maybe ReviewStatus)
 reviewDetails_status = Lens.lens (\ReviewDetails' {status} -> status) (\s@ReviewDetails' {} a -> s {status = a} :: ReviewDetails)
 
-instance Core.FromJSON ReviewDetails where
+instance Data.FromJSON ReviewDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReviewDetails"
       ( \x ->
           ReviewDetails'
-            Prelude.<$> (x Core..:? "CaseId")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Data..:? "CaseId")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable ReviewDetails where

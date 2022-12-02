@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.CloudWatchDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.CloudWatchDimensionConfiguration
 
@@ -59,14 +60,14 @@ newCloudWatchDestination =
 cloudWatchDestination_dimensionConfigurations :: Lens.Lens' CloudWatchDestination [CloudWatchDimensionConfiguration]
 cloudWatchDestination_dimensionConfigurations = Lens.lens (\CloudWatchDestination' {dimensionConfigurations} -> dimensionConfigurations) (\s@CloudWatchDestination' {} a -> s {dimensionConfigurations = a} :: CloudWatchDestination) Prelude.. Lens.coerced
 
-instance Core.FromJSON CloudWatchDestination where
+instance Data.FromJSON CloudWatchDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudWatchDestination"
       ( \x ->
           CloudWatchDestination'
-            Prelude.<$> ( x Core..:? "DimensionConfigurations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "DimensionConfigurations"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -79,13 +80,13 @@ instance Prelude.NFData CloudWatchDestination where
   rnf CloudWatchDestination' {..} =
     Prelude.rnf dimensionConfigurations
 
-instance Core.ToJSON CloudWatchDestination where
+instance Data.ToJSON CloudWatchDestination where
   toJSON CloudWatchDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "DimensionConfigurations"
-                  Core..= dimensionConfigurations
+                  Data..= dimensionConfigurations
               )
           ]
       )

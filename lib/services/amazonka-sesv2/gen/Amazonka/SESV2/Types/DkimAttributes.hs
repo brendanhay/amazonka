@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.DkimAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.DkimSigningAttributesOrigin
 import Amazonka.SESV2.Types.DkimSigningKeyLength
@@ -94,7 +95,7 @@ data DkimAttributes = DkimAttributes'
     -- messages that you send from the identity aren\'t DKIM-signed.
     signingEnabled :: Prelude.Maybe Prelude.Bool,
     -- | [Easy DKIM] The last time a key pair was generated for this identity.
-    lastKeyGenerationTimestamp :: Prelude.Maybe Core.POSIX,
+    lastKeyGenerationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | [Easy DKIM] The key length of the future DKIM key pair to be generated.
     -- This can be changed at most once per day.
     nextSigningKeyLength :: Prelude.Maybe DkimSigningKeyLength
@@ -243,26 +244,26 @@ dkimAttributes_signingEnabled = Lens.lens (\DkimAttributes' {signingEnabled} -> 
 
 -- | [Easy DKIM] The last time a key pair was generated for this identity.
 dkimAttributes_lastKeyGenerationTimestamp :: Lens.Lens' DkimAttributes (Prelude.Maybe Prelude.UTCTime)
-dkimAttributes_lastKeyGenerationTimestamp = Lens.lens (\DkimAttributes' {lastKeyGenerationTimestamp} -> lastKeyGenerationTimestamp) (\s@DkimAttributes' {} a -> s {lastKeyGenerationTimestamp = a} :: DkimAttributes) Prelude.. Lens.mapping Core._Time
+dkimAttributes_lastKeyGenerationTimestamp = Lens.lens (\DkimAttributes' {lastKeyGenerationTimestamp} -> lastKeyGenerationTimestamp) (\s@DkimAttributes' {} a -> s {lastKeyGenerationTimestamp = a} :: DkimAttributes) Prelude.. Lens.mapping Data._Time
 
 -- | [Easy DKIM] The key length of the future DKIM key pair to be generated.
 -- This can be changed at most once per day.
 dkimAttributes_nextSigningKeyLength :: Lens.Lens' DkimAttributes (Prelude.Maybe DkimSigningKeyLength)
 dkimAttributes_nextSigningKeyLength = Lens.lens (\DkimAttributes' {nextSigningKeyLength} -> nextSigningKeyLength) (\s@DkimAttributes' {} a -> s {nextSigningKeyLength = a} :: DkimAttributes)
 
-instance Core.FromJSON DkimAttributes where
+instance Data.FromJSON DkimAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DkimAttributes"
       ( \x ->
           DkimAttributes'
-            Prelude.<$> (x Core..:? "SigningAttributesOrigin")
-            Prelude.<*> (x Core..:? "Tokens" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CurrentSigningKeyLength")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "SigningEnabled")
-            Prelude.<*> (x Core..:? "LastKeyGenerationTimestamp")
-            Prelude.<*> (x Core..:? "NextSigningKeyLength")
+            Prelude.<$> (x Data..:? "SigningAttributesOrigin")
+            Prelude.<*> (x Data..:? "Tokens" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CurrentSigningKeyLength")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "SigningEnabled")
+            Prelude.<*> (x Data..:? "LastKeyGenerationTimestamp")
+            Prelude.<*> (x Data..:? "NextSigningKeyLength")
       )
 
 instance Prelude.Hashable DkimAttributes where

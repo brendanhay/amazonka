@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.Message where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.Body
 import Amazonka.SESV2.Types.Content
@@ -86,11 +87,11 @@ instance Prelude.NFData Message where
   rnf Message' {..} =
     Prelude.rnf subject `Prelude.seq` Prelude.rnf body
 
-instance Core.ToJSON Message where
+instance Data.ToJSON Message where
   toJSON Message' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Subject" Core..= subject),
-            Prelude.Just ("Body" Core..= body)
+          [ Prelude.Just ("Subject" Data..= subject),
+            Prelude.Just ("Body" Data..= body)
           ]
       )

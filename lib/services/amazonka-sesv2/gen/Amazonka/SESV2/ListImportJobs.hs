@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -131,8 +132,8 @@ instance Core.AWSRequest ListImportJobs where
     Response.receiveJSON
       ( \s h x ->
           ListImportJobsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ImportJobs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ImportJobs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,25 +149,25 @@ instance Prelude.NFData ListImportJobs where
       `Prelude.seq` Prelude.rnf pageSize
       `Prelude.seq` Prelude.rnf importDestinationType
 
-instance Core.ToHeaders ListImportJobs where
+instance Data.ToHeaders ListImportJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListImportJobs where
+instance Data.ToPath ListImportJobs where
   toPath = Prelude.const "/v2/email/import-jobs"
 
-instance Core.ToQuery ListImportJobs where
+instance Data.ToQuery ListImportJobs where
   toQuery ListImportJobs' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "PageSize" Core.=: pageSize
+      [ "NextToken" Data.=: nextToken,
+        "PageSize" Data.=: pageSize
       ]
 
 -- | An HTTP 200 response if the request succeeds, or an error message if the

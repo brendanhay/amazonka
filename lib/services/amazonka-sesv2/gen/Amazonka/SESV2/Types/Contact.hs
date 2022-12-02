@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.Contact where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.TopicPreference
 
@@ -29,7 +30,7 @@ import Amazonka.SESV2.Types.TopicPreference
 -- /See:/ 'newContact' smart constructor.
 data Contact = Contact'
   { -- | A timestamp noting the last time the contact\'s information was updated.
-    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | A boolean value status noting if the contact is unsubscribed from all
     -- contact list topics.
     unsubscribeAll :: Prelude.Maybe Prelude.Bool,
@@ -73,7 +74,7 @@ newContact =
 
 -- | A timestamp noting the last time the contact\'s information was updated.
 contact_lastUpdatedTimestamp :: Lens.Lens' Contact (Prelude.Maybe Prelude.UTCTime)
-contact_lastUpdatedTimestamp = Lens.lens (\Contact' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@Contact' {} a -> s {lastUpdatedTimestamp = a} :: Contact) Prelude.. Lens.mapping Core._Time
+contact_lastUpdatedTimestamp = Lens.lens (\Contact' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@Contact' {} a -> s {lastUpdatedTimestamp = a} :: Contact) Prelude.. Lens.mapping Data._Time
 
 -- | A boolean value status noting if the contact is unsubscribed from all
 -- contact list topics.
@@ -92,21 +93,21 @@ contact_topicDefaultPreferences = Lens.lens (\Contact' {topicDefaultPreferences}
 contact_emailAddress :: Lens.Lens' Contact (Prelude.Maybe Prelude.Text)
 contact_emailAddress = Lens.lens (\Contact' {emailAddress} -> emailAddress) (\s@Contact' {} a -> s {emailAddress = a} :: Contact)
 
-instance Core.FromJSON Contact where
+instance Data.FromJSON Contact where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Contact"
       ( \x ->
           Contact'
-            Prelude.<$> (x Core..:? "LastUpdatedTimestamp")
-            Prelude.<*> (x Core..:? "UnsubscribeAll")
-            Prelude.<*> ( x Core..:? "TopicPreferences"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "LastUpdatedTimestamp")
+            Prelude.<*> (x Data..:? "UnsubscribeAll")
+            Prelude.<*> ( x Data..:? "TopicPreferences"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "TopicDefaultPreferences"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "TopicDefaultPreferences"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EmailAddress")
+            Prelude.<*> (x Data..:? "EmailAddress")
       )
 
 instance Prelude.Hashable Contact where

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,31 +129,31 @@ instance Prelude.NFData CreateDedicatedIpPool where
       `Prelude.seq` Prelude.rnf scalingMode
       `Prelude.seq` Prelude.rnf poolName
 
-instance Core.ToHeaders CreateDedicatedIpPool where
+instance Data.ToHeaders CreateDedicatedIpPool where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDedicatedIpPool where
+instance Data.ToJSON CreateDedicatedIpPool where
   toJSON CreateDedicatedIpPool' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ScalingMode" Core..=) Prelude.<$> scalingMode,
-            Prelude.Just ("PoolName" Core..= poolName)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ScalingMode" Data..=) Prelude.<$> scalingMode,
+            Prelude.Just ("PoolName" Data..= poolName)
           ]
       )
 
-instance Core.ToPath CreateDedicatedIpPool where
+instance Data.ToPath CreateDedicatedIpPool where
   toPath = Prelude.const "/v2/email/dedicated-ip-pools"
 
-instance Core.ToQuery CreateDedicatedIpPool where
+instance Data.ToQuery CreateDedicatedIpPool where
   toQuery = Prelude.const Prelude.mempty
 
 -- | An HTTP 200 response if the request succeeds, or an error message if the

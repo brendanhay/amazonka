@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.ReputationOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Enable or disable collection of reputation metrics for emails that you
@@ -37,7 +38,7 @@ data ReputationOptions = ReputationOptions'
     -- given a fresh start. When your account is given a fresh start, your
     -- reputation metrics are calculated starting from the date of the fresh
     -- start.
-    lastFreshStart :: Prelude.Maybe Core.POSIX
+    lastFreshStart :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,16 +78,16 @@ reputationOptions_reputationMetricsEnabled = Lens.lens (\ReputationOptions' {rep
 -- reputation metrics are calculated starting from the date of the fresh
 -- start.
 reputationOptions_lastFreshStart :: Lens.Lens' ReputationOptions (Prelude.Maybe Prelude.UTCTime)
-reputationOptions_lastFreshStart = Lens.lens (\ReputationOptions' {lastFreshStart} -> lastFreshStart) (\s@ReputationOptions' {} a -> s {lastFreshStart = a} :: ReputationOptions) Prelude.. Lens.mapping Core._Time
+reputationOptions_lastFreshStart = Lens.lens (\ReputationOptions' {lastFreshStart} -> lastFreshStart) (\s@ReputationOptions' {} a -> s {lastFreshStart = a} :: ReputationOptions) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ReputationOptions where
+instance Data.FromJSON ReputationOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReputationOptions"
       ( \x ->
           ReputationOptions'
-            Prelude.<$> (x Core..:? "ReputationMetricsEnabled")
-            Prelude.<*> (x Core..:? "LastFreshStart")
+            Prelude.<$> (x Data..:? "ReputationMetricsEnabled")
+            Prelude.<*> (x Data..:? "LastFreshStart")
       )
 
 instance Prelude.Hashable ReputationOptions where
@@ -100,13 +101,13 @@ instance Prelude.NFData ReputationOptions where
     Prelude.rnf reputationMetricsEnabled
       `Prelude.seq` Prelude.rnf lastFreshStart
 
-instance Core.ToJSON ReputationOptions where
+instance Data.ToJSON ReputationOptions where
   toJSON ReputationOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ReputationMetricsEnabled" Core..=)
+          [ ("ReputationMetricsEnabled" Data..=)
               Prelude.<$> reputationMetricsEnabled,
-            ("LastFreshStart" Core..=)
+            ("LastFreshStart" Data..=)
               Prelude.<$> lastFreshStart
           ]
       )

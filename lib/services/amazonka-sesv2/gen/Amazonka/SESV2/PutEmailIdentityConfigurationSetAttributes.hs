@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,46 +125,46 @@ instance
       `Prelude.seq` Prelude.rnf emailIdentity
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutEmailIdentityConfigurationSetAttributes
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     PutEmailIdentityConfigurationSetAttributes
   where
   toJSON
     PutEmailIdentityConfigurationSetAttributes' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("ConfigurationSetName" Core..=)
+            [ ("ConfigurationSetName" Data..=)
                 Prelude.<$> configurationSetName
             ]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     PutEmailIdentityConfigurationSetAttributes
   where
   toPath
     PutEmailIdentityConfigurationSetAttributes' {..} =
       Prelude.mconcat
         [ "/v2/email/identities/",
-          Core.toBS emailIdentity,
+          Data.toBS emailIdentity,
           "/configuration-set"
         ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PutEmailIdentityConfigurationSetAttributes
   where
   toQuery = Prelude.const Prelude.mempty

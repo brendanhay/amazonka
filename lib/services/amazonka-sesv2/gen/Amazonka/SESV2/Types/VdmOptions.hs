@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.VdmOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.DashboardOptions
 import Amazonka.SESV2.Types.GuardianOptions
@@ -70,14 +71,14 @@ vdmOptions_guardianOptions = Lens.lens (\VdmOptions' {guardianOptions} -> guardi
 vdmOptions_dashboardOptions :: Lens.Lens' VdmOptions (Prelude.Maybe DashboardOptions)
 vdmOptions_dashboardOptions = Lens.lens (\VdmOptions' {dashboardOptions} -> dashboardOptions) (\s@VdmOptions' {} a -> s {dashboardOptions = a} :: VdmOptions)
 
-instance Core.FromJSON VdmOptions where
+instance Data.FromJSON VdmOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VdmOptions"
       ( \x ->
           VdmOptions'
-            Prelude.<$> (x Core..:? "GuardianOptions")
-            Prelude.<*> (x Core..:? "DashboardOptions")
+            Prelude.<$> (x Data..:? "GuardianOptions")
+            Prelude.<*> (x Data..:? "DashboardOptions")
       )
 
 instance Prelude.Hashable VdmOptions where
@@ -90,13 +91,13 @@ instance Prelude.NFData VdmOptions where
     Prelude.rnf guardianOptions
       `Prelude.seq` Prelude.rnf dashboardOptions
 
-instance Core.ToJSON VdmOptions where
+instance Data.ToJSON VdmOptions where
   toJSON VdmOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GuardianOptions" Core..=)
+          [ ("GuardianOptions" Data..=)
               Prelude.<$> guardianOptions,
-            ("DashboardOptions" Core..=)
+            ("DashboardOptions" Data..=)
               Prelude.<$> dashboardOptions
           ]
       )

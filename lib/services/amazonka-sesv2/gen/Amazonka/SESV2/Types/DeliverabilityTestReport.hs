@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.DeliverabilityTestReport where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.DeliverabilityTestStatus
 
@@ -37,7 +38,7 @@ data DeliverabilityTestReport = DeliverabilityTestReport'
     -- | A unique string that identifies the predictive inbox placement test.
     reportId :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the predictive inbox placement test was created.
-    createDate :: Prelude.Maybe Core.POSIX,
+    createDate :: Prelude.Maybe Data.POSIX,
     -- | The status of the predictive inbox placement test. If the status is
     -- @IN_PROGRESS@, then the predictive inbox placement test is currently
     -- running. Predictive inbox placement tests are usually complete within 24
@@ -105,7 +106,7 @@ deliverabilityTestReport_reportId = Lens.lens (\DeliverabilityTestReport' {repor
 
 -- | The date and time when the predictive inbox placement test was created.
 deliverabilityTestReport_createDate :: Lens.Lens' DeliverabilityTestReport (Prelude.Maybe Prelude.UTCTime)
-deliverabilityTestReport_createDate = Lens.lens (\DeliverabilityTestReport' {createDate} -> createDate) (\s@DeliverabilityTestReport' {} a -> s {createDate = a} :: DeliverabilityTestReport) Prelude.. Lens.mapping Core._Time
+deliverabilityTestReport_createDate = Lens.lens (\DeliverabilityTestReport' {createDate} -> createDate) (\s@DeliverabilityTestReport' {} a -> s {createDate = a} :: DeliverabilityTestReport) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the predictive inbox placement test. If the status is
 -- @IN_PROGRESS@, then the predictive inbox placement test is currently
@@ -121,18 +122,18 @@ deliverabilityTestReport_deliverabilityTestStatus = Lens.lens (\DeliverabilityTe
 deliverabilityTestReport_subject :: Lens.Lens' DeliverabilityTestReport (Prelude.Maybe Prelude.Text)
 deliverabilityTestReport_subject = Lens.lens (\DeliverabilityTestReport' {subject} -> subject) (\s@DeliverabilityTestReport' {} a -> s {subject = a} :: DeliverabilityTestReport)
 
-instance Core.FromJSON DeliverabilityTestReport where
+instance Data.FromJSON DeliverabilityTestReport where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeliverabilityTestReport"
       ( \x ->
           DeliverabilityTestReport'
-            Prelude.<$> (x Core..:? "ReportName")
-            Prelude.<*> (x Core..:? "FromEmailAddress")
-            Prelude.<*> (x Core..:? "ReportId")
-            Prelude.<*> (x Core..:? "CreateDate")
-            Prelude.<*> (x Core..:? "DeliverabilityTestStatus")
-            Prelude.<*> (x Core..:? "Subject")
+            Prelude.<$> (x Data..:? "ReportName")
+            Prelude.<*> (x Data..:? "FromEmailAddress")
+            Prelude.<*> (x Data..:? "ReportId")
+            Prelude.<*> (x Data..:? "CreateDate")
+            Prelude.<*> (x Data..:? "DeliverabilityTestStatus")
+            Prelude.<*> (x Data..:? "Subject")
       )
 
 instance Prelude.Hashable DeliverabilityTestReport where

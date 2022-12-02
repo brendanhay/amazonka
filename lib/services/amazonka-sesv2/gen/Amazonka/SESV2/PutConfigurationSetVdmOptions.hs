@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,33 +122,33 @@ instance Prelude.NFData PutConfigurationSetVdmOptions where
     Prelude.rnf vdmOptions
       `Prelude.seq` Prelude.rnf configurationSetName
 
-instance Core.ToHeaders PutConfigurationSetVdmOptions where
+instance Data.ToHeaders PutConfigurationSetVdmOptions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutConfigurationSetVdmOptions where
+instance Data.ToJSON PutConfigurationSetVdmOptions where
   toJSON PutConfigurationSetVdmOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("VdmOptions" Core..=) Prelude.<$> vdmOptions]
+          [("VdmOptions" Data..=) Prelude.<$> vdmOptions]
       )
 
-instance Core.ToPath PutConfigurationSetVdmOptions where
+instance Data.ToPath PutConfigurationSetVdmOptions where
   toPath PutConfigurationSetVdmOptions' {..} =
     Prelude.mconcat
       [ "/v2/email/configuration-sets/",
-        Core.toBS configurationSetName,
+        Data.toBS configurationSetName,
         "/vdm-options"
       ]
 
-instance Core.ToQuery PutConfigurationSetVdmOptions where
+instance Data.ToQuery PutConfigurationSetVdmOptions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | An HTTP 200 response if the request succeeds, or an error message if the

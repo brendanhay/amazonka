@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.ReplacementEmailContent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.ReplacementTemplate
 
@@ -64,11 +65,11 @@ instance Prelude.NFData ReplacementEmailContent where
   rnf ReplacementEmailContent' {..} =
     Prelude.rnf replacementTemplate
 
-instance Core.ToJSON ReplacementEmailContent where
+instance Data.ToJSON ReplacementEmailContent where
   toJSON ReplacementEmailContent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ReplacementTemplate" Core..=)
+          [ ("ReplacementTemplate" Data..=)
               Prelude.<$> replacementTemplate
           ]
       )

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,37 +136,37 @@ instance
       `Prelude.seq` Prelude.rnf emailIdentity
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutEmailIdentityDkimAttributes
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutEmailIdentityDkimAttributes where
+instance Data.ToJSON PutEmailIdentityDkimAttributes where
   toJSON PutEmailIdentityDkimAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SigningEnabled" Core..=)
+          [ ("SigningEnabled" Data..=)
               Prelude.<$> signingEnabled
           ]
       )
 
-instance Core.ToPath PutEmailIdentityDkimAttributes where
+instance Data.ToPath PutEmailIdentityDkimAttributes where
   toPath PutEmailIdentityDkimAttributes' {..} =
     Prelude.mconcat
       [ "/v2/email/identities/",
-        Core.toBS emailIdentity,
+        Data.toBS emailIdentity,
         "/dkim"
       ]
 
-instance Core.ToQuery PutEmailIdentityDkimAttributes where
+instance Data.ToQuery PutEmailIdentityDkimAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | An HTTP 200 response if the request succeeds, or an error message if the

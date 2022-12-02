@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.ImportDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.ContactListDestination
 import Amazonka.SESV2.Types.SuppressionListDestination
@@ -71,14 +72,14 @@ importDestination_suppressionListDestination = Lens.lens (\ImportDestination' {s
 importDestination_contactListDestination :: Lens.Lens' ImportDestination (Prelude.Maybe ContactListDestination)
 importDestination_contactListDestination = Lens.lens (\ImportDestination' {contactListDestination} -> contactListDestination) (\s@ImportDestination' {} a -> s {contactListDestination = a} :: ImportDestination)
 
-instance Core.FromJSON ImportDestination where
+instance Data.FromJSON ImportDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportDestination"
       ( \x ->
           ImportDestination'
-            Prelude.<$> (x Core..:? "SuppressionListDestination")
-            Prelude.<*> (x Core..:? "ContactListDestination")
+            Prelude.<$> (x Data..:? "SuppressionListDestination")
+            Prelude.<*> (x Data..:? "ContactListDestination")
       )
 
 instance Prelude.Hashable ImportDestination where
@@ -92,13 +93,13 @@ instance Prelude.NFData ImportDestination where
     Prelude.rnf suppressionListDestination
       `Prelude.seq` Prelude.rnf contactListDestination
 
-instance Core.ToJSON ImportDestination where
+instance Data.ToJSON ImportDestination where
   toJSON ImportDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SuppressionListDestination" Core..=)
+          [ ("SuppressionListDestination" Data..=)
               Prelude.<$> suppressionListDestination,
-            ("ContactListDestination" Core..=)
+            ("ContactListDestination" Data..=)
               Prelude.<$> contactListDestination
           ]
       )

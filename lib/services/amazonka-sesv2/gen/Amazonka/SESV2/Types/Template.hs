@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.Template where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that defines the email template to use for an email message,
@@ -101,12 +102,12 @@ instance Prelude.NFData Template where
       `Prelude.seq` Prelude.rnf templateData
       `Prelude.seq` Prelude.rnf templateArn
 
-instance Core.ToJSON Template where
+instance Data.ToJSON Template where
   toJSON Template' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TemplateName" Core..=) Prelude.<$> templateName,
-            ("TemplateData" Core..=) Prelude.<$> templateData,
-            ("TemplateArn" Core..=) Prelude.<$> templateArn
+          [ ("TemplateName" Data..=) Prelude.<$> templateName,
+            ("TemplateData" Data..=) Prelude.<$> templateData,
+            ("TemplateArn" Data..=) Prelude.<$> templateArn
           ]
       )

@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -165,34 +166,34 @@ instance Prelude.NFData CreateEmailIdentityPolicy where
       `Prelude.seq` Prelude.rnf policyName
       `Prelude.seq` Prelude.rnf policy
 
-instance Core.ToHeaders CreateEmailIdentityPolicy where
+instance Data.ToHeaders CreateEmailIdentityPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEmailIdentityPolicy where
+instance Data.ToJSON CreateEmailIdentityPolicy where
   toJSON CreateEmailIdentityPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Policy" Core..= policy)]
+          [Prelude.Just ("Policy" Data..= policy)]
       )
 
-instance Core.ToPath CreateEmailIdentityPolicy where
+instance Data.ToPath CreateEmailIdentityPolicy where
   toPath CreateEmailIdentityPolicy' {..} =
     Prelude.mconcat
       [ "/v2/email/identities/",
-        Core.toBS emailIdentity,
+        Data.toBS emailIdentity,
         "/policies/",
-        Core.toBS policyName
+        Data.toBS policyName
       ]
 
-instance Core.ToQuery CreateEmailIdentityPolicy where
+instance Data.ToQuery CreateEmailIdentityPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | An HTTP 200 response if the request succeeds, or an error message if the

@@ -22,6 +22,7 @@ module Amazonka.CodeGuruProfiler.Types.Metric where
 import Amazonka.CodeGuruProfiler.Types.MetricType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the metric that the analysis used when it detected the
@@ -93,15 +94,15 @@ metric_threadStates = Lens.lens (\Metric' {threadStates} -> threadStates) (\s@Me
 metric_type :: Lens.Lens' Metric MetricType
 metric_type = Lens.lens (\Metric' {type'} -> type') (\s@Metric' {} a -> s {type' = a} :: Metric)
 
-instance Core.FromJSON Metric where
+instance Data.FromJSON Metric where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Metric"
       ( \x ->
           Metric'
-            Prelude.<$> (x Core..: "frameName")
-            Prelude.<*> (x Core..:? "threadStates" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..: "frameName")
+            Prelude.<*> (x Data..:? "threadStates" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable Metric where

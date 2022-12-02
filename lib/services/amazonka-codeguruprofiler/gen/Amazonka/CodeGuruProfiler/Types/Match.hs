@@ -21,6 +21,7 @@ module Amazonka.CodeGuruProfiler.Types.Match where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The part of a profile that contains a recommendation found during
@@ -77,15 +78,15 @@ match_frameAddress = Lens.lens (\Match' {frameAddress} -> frameAddress) (\s@Matc
 match_targetFramesIndex :: Lens.Lens' Match (Prelude.Maybe Prelude.Int)
 match_targetFramesIndex = Lens.lens (\Match' {targetFramesIndex} -> targetFramesIndex) (\s@Match' {} a -> s {targetFramesIndex = a} :: Match)
 
-instance Core.FromJSON Match where
+instance Data.FromJSON Match where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Match"
       ( \x ->
           Match'
-            Prelude.<$> (x Core..:? "thresholdBreachValue")
-            Prelude.<*> (x Core..:? "frameAddress")
-            Prelude.<*> (x Core..:? "targetFramesIndex")
+            Prelude.<$> (x Data..:? "thresholdBreachValue")
+            Prelude.<*> (x Data..:? "frameAddress")
+            Prelude.<*> (x Data..:? "targetFramesIndex")
       )
 
 instance Prelude.Hashable Match where

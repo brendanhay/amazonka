@@ -45,6 +45,7 @@ where
 import Amazonka.CodeGuruProfiler.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -150,37 +151,37 @@ instance Prelude.NFData SubmitFeedback where
       `Prelude.seq` Prelude.rnf profilingGroupName
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders SubmitFeedback where
+instance Data.ToHeaders SubmitFeedback where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SubmitFeedback where
+instance Data.ToJSON SubmitFeedback where
   toJSON SubmitFeedback' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("comment" Core..=) Prelude.<$> comment,
-            Prelude.Just ("type" Core..= type')
+          [ ("comment" Data..=) Prelude.<$> comment,
+            Prelude.Just ("type" Data..= type')
           ]
       )
 
-instance Core.ToPath SubmitFeedback where
+instance Data.ToPath SubmitFeedback where
   toPath SubmitFeedback' {..} =
     Prelude.mconcat
       [ "/internal/profilingGroups/",
-        Core.toBS profilingGroupName,
+        Data.toBS profilingGroupName,
         "/anomalies/",
-        Core.toBS anomalyInstanceId,
+        Data.toBS anomalyInstanceId,
         "/feedback"
       ]
 
-instance Core.ToQuery SubmitFeedback where
+instance Data.ToQuery SubmitFeedback where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The structure representing the SubmitFeedbackResponse.

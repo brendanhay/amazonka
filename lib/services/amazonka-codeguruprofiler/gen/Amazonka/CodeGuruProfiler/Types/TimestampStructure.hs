@@ -21,6 +21,7 @@ module Amazonka.CodeGuruProfiler.Types.TimestampStructure where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A data type that contains a @Timestamp@ object. This is specified using
@@ -32,7 +33,7 @@ data TimestampStructure = TimestampStructure'
   { -- | A @Timestamp@. This is specified using the ISO 8601 format. For example,
     -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
     -- 1:15:02 PM UTC.
-    value :: Core.POSIX
+    value :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,21 +55,21 @@ newTimestampStructure ::
 newTimestampStructure pValue_ =
   TimestampStructure'
     { value =
-        Core._Time Lens.# pValue_
+        Data._Time Lens.# pValue_
     }
 
 -- | A @Timestamp@. This is specified using the ISO 8601 format. For example,
 -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
 -- 1:15:02 PM UTC.
 timestampStructure_value :: Lens.Lens' TimestampStructure Prelude.UTCTime
-timestampStructure_value = Lens.lens (\TimestampStructure' {value} -> value) (\s@TimestampStructure' {} a -> s {value = a} :: TimestampStructure) Prelude.. Core._Time
+timestampStructure_value = Lens.lens (\TimestampStructure' {value} -> value) (\s@TimestampStructure' {} a -> s {value = a} :: TimestampStructure) Prelude.. Data._Time
 
-instance Core.FromJSON TimestampStructure where
+instance Data.FromJSON TimestampStructure where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimestampStructure"
       ( \x ->
-          TimestampStructure' Prelude.<$> (x Core..: "value")
+          TimestampStructure' Prelude.<$> (x Data..: "value")
       )
 
 instance Prelude.Hashable TimestampStructure where

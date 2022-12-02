@@ -22,6 +22,7 @@ module Amazonka.CodeGuruProfiler.Types.AggregatedProfileTime where
 import Amazonka.CodeGuruProfiler.Types.AggregationPeriod
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the aggregation period and aggregation start time for an
@@ -39,7 +40,7 @@ data AggregatedProfileTime = AggregatedProfileTime'
     -- Specify @start@ using the ISO 8601 format. For example,
     -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
     -- 1:15:02 PM UTC.
-    start :: Prelude.Maybe Core.POSIX,
+    start :: Prelude.Maybe Data.POSIX,
     -- | The aggregation period. This indicates the period during which an
     -- aggregation profile collects posted agent profiles for a profiling
     -- group. Use one of three valid durations that are specified using the ISO
@@ -98,7 +99,7 @@ newAggregatedProfileTime =
 -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
 -- 1:15:02 PM UTC.
 aggregatedProfileTime_start :: Lens.Lens' AggregatedProfileTime (Prelude.Maybe Prelude.UTCTime)
-aggregatedProfileTime_start = Lens.lens (\AggregatedProfileTime' {start} -> start) (\s@AggregatedProfileTime' {} a -> s {start = a} :: AggregatedProfileTime) Prelude.. Lens.mapping Core._Time
+aggregatedProfileTime_start = Lens.lens (\AggregatedProfileTime' {start} -> start) (\s@AggregatedProfileTime' {} a -> s {start = a} :: AggregatedProfileTime) Prelude.. Lens.mapping Data._Time
 
 -- | The aggregation period. This indicates the period during which an
 -- aggregation profile collects posted agent profiles for a profiling
@@ -113,14 +114,14 @@ aggregatedProfileTime_start = Lens.lens (\AggregatedProfileTime' {start} -> star
 aggregatedProfileTime_period :: Lens.Lens' AggregatedProfileTime (Prelude.Maybe AggregationPeriod)
 aggregatedProfileTime_period = Lens.lens (\AggregatedProfileTime' {period} -> period) (\s@AggregatedProfileTime' {} a -> s {period = a} :: AggregatedProfileTime)
 
-instance Core.FromJSON AggregatedProfileTime where
+instance Data.FromJSON AggregatedProfileTime where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AggregatedProfileTime"
       ( \x ->
           AggregatedProfileTime'
-            Prelude.<$> (x Core..:? "start")
-            Prelude.<*> (x Core..:? "period")
+            Prelude.<$> (x Data..:? "start")
+            Prelude.<*> (x Data..:? "period")
       )
 
 instance Prelude.Hashable AggregatedProfileTime where

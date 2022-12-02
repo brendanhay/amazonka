@@ -55,6 +55,7 @@ where
 import Amazonka.CodeGuruProfiler.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,14 +93,14 @@ data GetRecommendations = GetRecommendations'
     -- specify @startTime@ and @endTime@. This is specified using the ISO 8601
     -- format. For example, 2020-06-01T13:15:02.001Z represents 1 millisecond
     -- past June 1, 2020 1:15:02 PM UTC.
-    endTime :: Core.POSIX,
+    endTime :: Data.POSIX,
     -- | The name of the profiling group to get analysis data about.
     profilingGroupName :: Prelude.Text,
     -- | The end time of the profile to get analysis data about. You must specify
     -- @startTime@ and @endTime@. This is specified using the ISO 8601 format.
     -- For example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June
     -- 1, 2020 1:15:02 PM UTC.
-    startTime :: Core.POSIX
+    startTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -161,9 +162,9 @@ newGetRecommendations
   pStartTime_ =
     GetRecommendations'
       { locale = Prelude.Nothing,
-        endTime = Core._Time Lens.# pEndTime_,
+        endTime = Data._Time Lens.# pEndTime_,
         profilingGroupName = pProfilingGroupName_,
-        startTime = Core._Time Lens.# pStartTime_
+        startTime = Data._Time Lens.# pStartTime_
       }
 
 -- | The language used to provide analysis. Specify using a string that is
@@ -198,7 +199,7 @@ getRecommendations_locale = Lens.lens (\GetRecommendations' {locale} -> locale) 
 -- format. For example, 2020-06-01T13:15:02.001Z represents 1 millisecond
 -- past June 1, 2020 1:15:02 PM UTC.
 getRecommendations_endTime :: Lens.Lens' GetRecommendations Prelude.UTCTime
-getRecommendations_endTime = Lens.lens (\GetRecommendations' {endTime} -> endTime) (\s@GetRecommendations' {} a -> s {endTime = a} :: GetRecommendations) Prelude.. Core._Time
+getRecommendations_endTime = Lens.lens (\GetRecommendations' {endTime} -> endTime) (\s@GetRecommendations' {} a -> s {endTime = a} :: GetRecommendations) Prelude.. Data._Time
 
 -- | The name of the profiling group to get analysis data about.
 getRecommendations_profilingGroupName :: Lens.Lens' GetRecommendations Prelude.Text
@@ -209,7 +210,7 @@ getRecommendations_profilingGroupName = Lens.lens (\GetRecommendations' {profili
 -- For example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June
 -- 1, 2020 1:15:02 PM UTC.
 getRecommendations_startTime :: Lens.Lens' GetRecommendations Prelude.UTCTime
-getRecommendations_startTime = Lens.lens (\GetRecommendations' {startTime} -> startTime) (\s@GetRecommendations' {} a -> s {startTime = a} :: GetRecommendations) Prelude.. Core._Time
+getRecommendations_startTime = Lens.lens (\GetRecommendations' {startTime} -> startTime) (\s@GetRecommendations' {} a -> s {startTime = a} :: GetRecommendations) Prelude.. Data._Time
 
 instance Core.AWSRequest GetRecommendations where
   type
@@ -222,11 +223,11 @@ instance Core.AWSRequest GetRecommendations where
       ( \s h x ->
           GetRecommendationsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "anomalies" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..:> "profileEndTime")
-            Prelude.<*> (x Core..:> "profileStartTime")
-            Prelude.<*> (x Core..:> "profilingGroupName")
-            Prelude.<*> ( x Core..?> "recommendations"
+            Prelude.<*> (x Data..?> "anomalies" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "profileEndTime")
+            Prelude.<*> (x Data..:> "profileStartTime")
+            Prelude.<*> (x Data..:> "profilingGroupName")
+            Prelude.<*> ( x Data..?> "recommendations"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -245,31 +246,31 @@ instance Prelude.NFData GetRecommendations where
       `Prelude.seq` Prelude.rnf profilingGroupName
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToHeaders GetRecommendations where
+instance Data.ToHeaders GetRecommendations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetRecommendations where
+instance Data.ToPath GetRecommendations where
   toPath GetRecommendations' {..} =
     Prelude.mconcat
       [ "/internal/profilingGroups/",
-        Core.toBS profilingGroupName,
+        Data.toBS profilingGroupName,
         "/recommendations"
       ]
 
-instance Core.ToQuery GetRecommendations where
+instance Data.ToQuery GetRecommendations where
   toQuery GetRecommendations' {..} =
     Prelude.mconcat
-      [ "locale" Core.=: locale,
-        "endTime" Core.=: endTime,
-        "startTime" Core.=: startTime
+      [ "locale" Data.=: locale,
+        "endTime" Data.=: endTime,
+        "startTime" Data.=: startTime
       ]
 
 -- | The structure representing the GetRecommendationsResponse.
@@ -284,12 +285,12 @@ data GetRecommendationsResponse = GetRecommendationsResponse'
     -- specified using the ISO 8601 format. For example,
     -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
     -- 1:15:02 PM UTC.
-    profileEndTime :: Core.POSIX,
+    profileEndTime :: Data.POSIX,
     -- | The start time of the profile the analysis data is about. This is
     -- specified using the ISO 8601 format. For example,
     -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
     -- 1:15:02 PM UTC.
-    profileStartTime :: Core.POSIX,
+    profileStartTime :: Data.POSIX,
     -- | The name of the profiling group the analysis data is about.
     profilingGroupName :: Prelude.Text,
     -- | The list of recommendations that the analysis found for this profile.
@@ -342,9 +343,9 @@ newGetRecommendationsResponse
           pHttpStatus_,
         anomalies = Prelude.mempty,
         profileEndTime =
-          Core._Time Lens.# pProfileEndTime_,
+          Data._Time Lens.# pProfileEndTime_,
         profileStartTime =
-          Core._Time Lens.# pProfileStartTime_,
+          Data._Time Lens.# pProfileStartTime_,
         profilingGroupName = pProfilingGroupName_,
         recommendations = Prelude.mempty
       }
@@ -362,14 +363,14 @@ getRecommendationsResponse_anomalies = Lens.lens (\GetRecommendationsResponse' {
 -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
 -- 1:15:02 PM UTC.
 getRecommendationsResponse_profileEndTime :: Lens.Lens' GetRecommendationsResponse Prelude.UTCTime
-getRecommendationsResponse_profileEndTime = Lens.lens (\GetRecommendationsResponse' {profileEndTime} -> profileEndTime) (\s@GetRecommendationsResponse' {} a -> s {profileEndTime = a} :: GetRecommendationsResponse) Prelude.. Core._Time
+getRecommendationsResponse_profileEndTime = Lens.lens (\GetRecommendationsResponse' {profileEndTime} -> profileEndTime) (\s@GetRecommendationsResponse' {} a -> s {profileEndTime = a} :: GetRecommendationsResponse) Prelude.. Data._Time
 
 -- | The start time of the profile the analysis data is about. This is
 -- specified using the ISO 8601 format. For example,
 -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
 -- 1:15:02 PM UTC.
 getRecommendationsResponse_profileStartTime :: Lens.Lens' GetRecommendationsResponse Prelude.UTCTime
-getRecommendationsResponse_profileStartTime = Lens.lens (\GetRecommendationsResponse' {profileStartTime} -> profileStartTime) (\s@GetRecommendationsResponse' {} a -> s {profileStartTime = a} :: GetRecommendationsResponse) Prelude.. Core._Time
+getRecommendationsResponse_profileStartTime = Lens.lens (\GetRecommendationsResponse' {profileStartTime} -> profileStartTime) (\s@GetRecommendationsResponse' {} a -> s {profileStartTime = a} :: GetRecommendationsResponse) Prelude.. Data._Time
 
 -- | The name of the profiling group the analysis data is about.
 getRecommendationsResponse_profilingGroupName :: Lens.Lens' GetRecommendationsResponse Prelude.Text

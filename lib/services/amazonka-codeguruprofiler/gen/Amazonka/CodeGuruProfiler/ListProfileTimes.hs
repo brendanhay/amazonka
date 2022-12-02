@@ -53,6 +53,7 @@ where
 import Amazonka.CodeGuruProfiler.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -81,7 +82,7 @@ data ListProfileTimes = ListProfileTimes'
     -- when listing profiles. Defaults to @TIMESTAMP_DESCENDING@.
     orderBy :: Prelude.Maybe OrderBy,
     -- | The end time of the time range from which to list the profiles.
-    endTime :: Core.POSIX,
+    endTime :: Data.POSIX,
     -- | The aggregation period. This specifies the period during which an
     -- aggregation profile collects posted agent profiles for a profiling
     -- group. There are 3 valid values.
@@ -95,7 +96,7 @@ data ListProfileTimes = ListProfileTimes'
     -- | The name of the profiling group.
     profilingGroupName :: Prelude.Text,
     -- | The start time of the time range from which to list the profiles.
-    startTime :: Core.POSIX
+    startTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -160,10 +161,10 @@ newListProfileTimes
       { nextToken = Prelude.Nothing,
         maxResults = Prelude.Nothing,
         orderBy = Prelude.Nothing,
-        endTime = Core._Time Lens.# pEndTime_,
+        endTime = Data._Time Lens.# pEndTime_,
         period = pPeriod_,
         profilingGroupName = pProfilingGroupName_,
-        startTime = Core._Time Lens.# pStartTime_
+        startTime = Data._Time Lens.# pStartTime_
       }
 
 -- | The @nextToken@ value returned from a previous paginated
@@ -193,7 +194,7 @@ listProfileTimes_orderBy = Lens.lens (\ListProfileTimes' {orderBy} -> orderBy) (
 
 -- | The end time of the time range from which to list the profiles.
 listProfileTimes_endTime :: Lens.Lens' ListProfileTimes Prelude.UTCTime
-listProfileTimes_endTime = Lens.lens (\ListProfileTimes' {endTime} -> endTime) (\s@ListProfileTimes' {} a -> s {endTime = a} :: ListProfileTimes) Prelude.. Core._Time
+listProfileTimes_endTime = Lens.lens (\ListProfileTimes' {endTime} -> endTime) (\s@ListProfileTimes' {} a -> s {endTime = a} :: ListProfileTimes) Prelude.. Data._Time
 
 -- | The aggregation period. This specifies the period during which an
 -- aggregation profile collects posted agent profiles for a profiling
@@ -213,7 +214,7 @@ listProfileTimes_profilingGroupName = Lens.lens (\ListProfileTimes' {profilingGr
 
 -- | The start time of the time range from which to list the profiles.
 listProfileTimes_startTime :: Lens.Lens' ListProfileTimes Prelude.UTCTime
-listProfileTimes_startTime = Lens.lens (\ListProfileTimes' {startTime} -> startTime) (\s@ListProfileTimes' {} a -> s {startTime = a} :: ListProfileTimes) Prelude.. Core._Time
+listProfileTimes_startTime = Lens.lens (\ListProfileTimes' {startTime} -> startTime) (\s@ListProfileTimes' {} a -> s {startTime = a} :: ListProfileTimes) Prelude.. Data._Time
 
 instance Core.AWSPager ListProfileTimes where
   page rq rs
@@ -244,9 +245,9 @@ instance Core.AWSRequest ListProfileTimes where
     Response.receiveJSON
       ( \s h x ->
           ListProfileTimesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "profileTimes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "profileTimes" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListProfileTimes where
@@ -269,34 +270,34 @@ instance Prelude.NFData ListProfileTimes where
       `Prelude.seq` Prelude.rnf profilingGroupName
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToHeaders ListProfileTimes where
+instance Data.ToHeaders ListProfileTimes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListProfileTimes where
+instance Data.ToPath ListProfileTimes where
   toPath ListProfileTimes' {..} =
     Prelude.mconcat
       [ "/profilingGroups/",
-        Core.toBS profilingGroupName,
+        Data.toBS profilingGroupName,
         "/profileTimes"
       ]
 
-instance Core.ToQuery ListProfileTimes where
+instance Data.ToQuery ListProfileTimes where
   toQuery ListProfileTimes' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "orderBy" Core.=: orderBy,
-        "endTime" Core.=: endTime,
-        "period" Core.=: period,
-        "startTime" Core.=: startTime
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "orderBy" Data.=: orderBy,
+        "endTime" Data.=: endTime,
+        "period" Data.=: period,
+        "startTime" Data.=: startTime
       ]
 
 -- | The structure representing the listProfileTimesResponse.

@@ -53,6 +53,7 @@ where
 import Amazonka.CodeGuruProfiler.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -69,7 +70,7 @@ data BatchGetFrameMetricData = BatchGetFrameMetricData'
     -- This is specified using the ISO 8601 format. For example,
     -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
     -- 1:15:02 PM UTC.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The details of the metrics that are used to request a time series of
     -- values. The metric includes the name of the frame, the aggregation type
     -- to calculate the metric value for the frame, and the thread states to
@@ -91,7 +92,7 @@ data BatchGetFrameMetricData = BatchGetFrameMetricData'
     -- the time series values. This is specified using the ISO 8601 format. For
     -- example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1,
     -- 2020 1:15:02 PM UTC.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the profiling group associated with the the frame metrics
     -- used to return the time series values.
     profilingGroupName :: Prelude.Text
@@ -164,7 +165,7 @@ batchGetFrameMetricData_period = Lens.lens (\BatchGetFrameMetricData' {period} -
 -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
 -- 1:15:02 PM UTC.
 batchGetFrameMetricData_endTime :: Lens.Lens' BatchGetFrameMetricData (Prelude.Maybe Prelude.UTCTime)
-batchGetFrameMetricData_endTime = Lens.lens (\BatchGetFrameMetricData' {endTime} -> endTime) (\s@BatchGetFrameMetricData' {} a -> s {endTime = a} :: BatchGetFrameMetricData) Prelude.. Lens.mapping Core._Time
+batchGetFrameMetricData_endTime = Lens.lens (\BatchGetFrameMetricData' {endTime} -> endTime) (\s@BatchGetFrameMetricData' {} a -> s {endTime = a} :: BatchGetFrameMetricData) Prelude.. Lens.mapping Data._Time
 
 -- | The details of the metrics that are used to request a time series of
 -- values. The metric includes the name of the frame, the aggregation type
@@ -192,7 +193,7 @@ batchGetFrameMetricData_targetResolution = Lens.lens (\BatchGetFrameMetricData' 
 -- example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1,
 -- 2020 1:15:02 PM UTC.
 batchGetFrameMetricData_startTime :: Lens.Lens' BatchGetFrameMetricData (Prelude.Maybe Prelude.UTCTime)
-batchGetFrameMetricData_startTime = Lens.lens (\BatchGetFrameMetricData' {startTime} -> startTime) (\s@BatchGetFrameMetricData' {} a -> s {startTime = a} :: BatchGetFrameMetricData) Prelude.. Lens.mapping Core._Time
+batchGetFrameMetricData_startTime = Lens.lens (\BatchGetFrameMetricData' {startTime} -> startTime) (\s@BatchGetFrameMetricData' {} a -> s {startTime = a} :: BatchGetFrameMetricData) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the profiling group associated with the the frame metrics
 -- used to return the time series values.
@@ -210,14 +211,14 @@ instance Core.AWSRequest BatchGetFrameMetricData where
       ( \s h x ->
           BatchGetFrameMetricDataResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "endTime")
-            Prelude.<*> (x Core..?> "endTimes" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "frameMetricData"
+            Prelude.<*> (x Data..:> "endTime")
+            Prelude.<*> (x Data..?> "endTimes" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "frameMetricData"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..:> "resolution")
-            Prelude.<*> (x Core..:> "startTime")
-            Prelude.<*> ( x Core..?> "unprocessedEndTimes"
+            Prelude.<*> (x Data..:> "resolution")
+            Prelude.<*> (x Data..:> "startTime")
+            Prelude.<*> ( x Data..?> "unprocessedEndTimes"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -240,39 +241,39 @@ instance Prelude.NFData BatchGetFrameMetricData where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf profilingGroupName
 
-instance Core.ToHeaders BatchGetFrameMetricData where
+instance Data.ToHeaders BatchGetFrameMetricData where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetFrameMetricData where
+instance Data.ToJSON BatchGetFrameMetricData where
   toJSON BatchGetFrameMetricData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("frameMetrics" Core..=) Prelude.<$> frameMetrics]
+          [("frameMetrics" Data..=) Prelude.<$> frameMetrics]
       )
 
-instance Core.ToPath BatchGetFrameMetricData where
+instance Data.ToPath BatchGetFrameMetricData where
   toPath BatchGetFrameMetricData' {..} =
     Prelude.mconcat
       [ "/profilingGroups/",
-        Core.toBS profilingGroupName,
+        Data.toBS profilingGroupName,
         "/frames/-/metrics"
       ]
 
-instance Core.ToQuery BatchGetFrameMetricData where
+instance Data.ToQuery BatchGetFrameMetricData where
   toQuery BatchGetFrameMetricData' {..} =
     Prelude.mconcat
-      [ "period" Core.=: period,
-        "endTime" Core.=: endTime,
-        "targetResolution" Core.=: targetResolution,
-        "startTime" Core.=: startTime
+      [ "period" Data.=: period,
+        "endTime" Data.=: endTime,
+        "targetResolution" Data.=: targetResolution,
+        "startTime" Data.=: startTime
       ]
 
 -- | The structure representing the BatchGetFrameMetricDataResponse.
@@ -285,7 +286,7 @@ data BatchGetFrameMetricDataResponse = BatchGetFrameMetricDataResponse'
     -- This is specified using the ISO 8601 format. For example,
     -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
     -- 1:15:02 PM UTC.
-    endTime :: Core.POSIX,
+    endTime :: Data.POSIX,
     -- | List of instances, or time steps, in the time series. For example, if
     -- the @period@ is one day (@PT24H)@), and the @resolution@ is five minutes
     -- (@PT5M@), then there are 288 @endTimes@ in the list that are each five
@@ -310,7 +311,7 @@ data BatchGetFrameMetricDataResponse = BatchGetFrameMetricDataResponse'
     -- This is specified using the ISO 8601 format. For example,
     -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
     -- 1:15:02 PM UTC.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | List of instances which remained unprocessed. This will create a missing
     -- time step in the list of end times.
     unprocessedEndTimes :: Prelude.HashMap Prelude.Text [TimestampStructure]
@@ -377,11 +378,11 @@ newBatchGetFrameMetricDataResponse
     BatchGetFrameMetricDataResponse'
       { httpStatus =
           pHttpStatus_,
-        endTime = Core._Time Lens.# pEndTime_,
+        endTime = Data._Time Lens.# pEndTime_,
         endTimes = Prelude.mempty,
         frameMetricData = Prelude.mempty,
         resolution = pResolution_,
-        startTime = Core._Time Lens.# pStartTime_,
+        startTime = Data._Time Lens.# pStartTime_,
         unprocessedEndTimes = Prelude.mempty
       }
 
@@ -394,7 +395,7 @@ batchGetFrameMetricDataResponse_httpStatus = Lens.lens (\BatchGetFrameMetricData
 -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
 -- 1:15:02 PM UTC.
 batchGetFrameMetricDataResponse_endTime :: Lens.Lens' BatchGetFrameMetricDataResponse Prelude.UTCTime
-batchGetFrameMetricDataResponse_endTime = Lens.lens (\BatchGetFrameMetricDataResponse' {endTime} -> endTime) (\s@BatchGetFrameMetricDataResponse' {} a -> s {endTime = a} :: BatchGetFrameMetricDataResponse) Prelude.. Core._Time
+batchGetFrameMetricDataResponse_endTime = Lens.lens (\BatchGetFrameMetricDataResponse' {endTime} -> endTime) (\s@BatchGetFrameMetricDataResponse' {} a -> s {endTime = a} :: BatchGetFrameMetricDataResponse) Prelude.. Data._Time
 
 -- | List of instances, or time steps, in the time series. For example, if
 -- the @period@ is one day (@PT24H)@), and the @resolution@ is five minutes
@@ -427,7 +428,7 @@ batchGetFrameMetricDataResponse_resolution = Lens.lens (\BatchGetFrameMetricData
 -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
 -- 1:15:02 PM UTC.
 batchGetFrameMetricDataResponse_startTime :: Lens.Lens' BatchGetFrameMetricDataResponse Prelude.UTCTime
-batchGetFrameMetricDataResponse_startTime = Lens.lens (\BatchGetFrameMetricDataResponse' {startTime} -> startTime) (\s@BatchGetFrameMetricDataResponse' {} a -> s {startTime = a} :: BatchGetFrameMetricDataResponse) Prelude.. Core._Time
+batchGetFrameMetricDataResponse_startTime = Lens.lens (\BatchGetFrameMetricDataResponse' {startTime} -> startTime) (\s@BatchGetFrameMetricDataResponse' {} a -> s {startTime = a} :: BatchGetFrameMetricDataResponse) Prelude.. Data._Time
 
 -- | List of instances which remained unprocessed. This will create a missing
 -- time step in the list of end times.

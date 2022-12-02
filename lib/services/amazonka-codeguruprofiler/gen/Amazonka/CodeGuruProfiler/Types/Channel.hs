@@ -22,6 +22,7 @@ module Amazonka.CodeGuruProfiler.Types.Channel where
 import Amazonka.CodeGuruProfiler.Types.EventPublisher
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Notification medium for users to get alerted for events that occur in
@@ -95,15 +96,15 @@ channel_eventPublishers = Lens.lens (\Channel' {eventPublishers} -> eventPublish
 channel_uri :: Lens.Lens' Channel Prelude.Text
 channel_uri = Lens.lens (\Channel' {uri} -> uri) (\s@Channel' {} a -> s {uri = a} :: Channel)
 
-instance Core.FromJSON Channel where
+instance Data.FromJSON Channel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Channel"
       ( \x ->
           Channel'
-            Prelude.<$> (x Core..:? "id")
-            Prelude.<*> (x Core..: "eventPublishers")
-            Prelude.<*> (x Core..: "uri")
+            Prelude.<$> (x Data..:? "id")
+            Prelude.<*> (x Data..: "eventPublishers")
+            Prelude.<*> (x Data..: "uri")
       )
 
 instance Prelude.Hashable Channel where
@@ -118,13 +119,13 @@ instance Prelude.NFData Channel where
       `Prelude.seq` Prelude.rnf eventPublishers
       `Prelude.seq` Prelude.rnf uri
 
-instance Core.ToJSON Channel where
+instance Data.ToJSON Channel where
   toJSON Channel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("id" Core..=) Prelude.<$> id,
+          [ ("id" Data..=) Prelude.<$> id,
             Prelude.Just
-              ("eventPublishers" Core..= eventPublishers),
-            Prelude.Just ("uri" Core..= uri)
+              ("eventPublishers" Data..= eventPublishers),
+            Prelude.Just ("uri" Data..= uri)
           ]
       )

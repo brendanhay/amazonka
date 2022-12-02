@@ -21,6 +21,7 @@ module Amazonka.CodeGuruProfiler.Types.ProfileTime where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the start time of a profile.
@@ -30,7 +31,7 @@ data ProfileTime = ProfileTime'
   { -- | The start time of a profile. It is specified using the ISO 8601 format.
     -- For example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June
     -- 1, 2020 1:15:02 PM UTC.
-    start :: Prelude.Maybe Core.POSIX
+    start :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,14 +55,14 @@ newProfileTime =
 -- For example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June
 -- 1, 2020 1:15:02 PM UTC.
 profileTime_start :: Lens.Lens' ProfileTime (Prelude.Maybe Prelude.UTCTime)
-profileTime_start = Lens.lens (\ProfileTime' {start} -> start) (\s@ProfileTime' {} a -> s {start = a} :: ProfileTime) Prelude.. Lens.mapping Core._Time
+profileTime_start = Lens.lens (\ProfileTime' {start} -> start) (\s@ProfileTime' {} a -> s {start = a} :: ProfileTime) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ProfileTime where
+instance Data.FromJSON ProfileTime where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProfileTime"
       ( \x ->
-          ProfileTime' Prelude.<$> (x Core..:? "start")
+          ProfileTime' Prelude.<$> (x Data..:? "start")
       )
 
 instance Prelude.Hashable ProfileTime where

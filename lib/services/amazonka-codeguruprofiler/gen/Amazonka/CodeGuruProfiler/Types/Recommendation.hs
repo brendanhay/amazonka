@@ -23,6 +23,7 @@ import Amazonka.CodeGuruProfiler.Types.Match
 import Amazonka.CodeGuruProfiler.Types.Pattern
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A potential improvement that was found from analyzing the profiling
@@ -38,7 +39,7 @@ data Recommendation = Recommendation'
     -- specified using the ISO 8601 format. For example,
     -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
     -- 1:15:02 PM UTC.
-    endTime :: Core.POSIX,
+    endTime :: Data.POSIX,
     -- | The pattern that analysis recognized in the profile to make this
     -- recommendation.
     pattern' :: Pattern,
@@ -46,7 +47,7 @@ data Recommendation = Recommendation'
     -- specified using the ISO 8601 format. For example,
     -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
     -- 1:15:02 PM UTC.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | List of the matches with most impact.
     topMatches :: [Match]
   }
@@ -100,9 +101,9 @@ newRecommendation
       { allMatchesCount =
           pAllMatchesCount_,
         allMatchesSum = pAllMatchesSum_,
-        endTime = Core._Time Lens.# pEndTime_,
+        endTime = Data._Time Lens.# pEndTime_,
         pattern' = pPattern_,
-        startTime = Core._Time Lens.# pStartTime_,
+        startTime = Data._Time Lens.# pStartTime_,
         topMatches = Prelude.mempty
       }
 
@@ -119,7 +120,7 @@ recommendation_allMatchesSum = Lens.lens (\Recommendation' {allMatchesSum} -> al
 -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
 -- 1:15:02 PM UTC.
 recommendation_endTime :: Lens.Lens' Recommendation Prelude.UTCTime
-recommendation_endTime = Lens.lens (\Recommendation' {endTime} -> endTime) (\s@Recommendation' {} a -> s {endTime = a} :: Recommendation) Prelude.. Core._Time
+recommendation_endTime = Lens.lens (\Recommendation' {endTime} -> endTime) (\s@Recommendation' {} a -> s {endTime = a} :: Recommendation) Prelude.. Data._Time
 
 -- | The pattern that analysis recognized in the profile to make this
 -- recommendation.
@@ -131,24 +132,24 @@ recommendation_pattern = Lens.lens (\Recommendation' {pattern'} -> pattern') (\s
 -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
 -- 1:15:02 PM UTC.
 recommendation_startTime :: Lens.Lens' Recommendation Prelude.UTCTime
-recommendation_startTime = Lens.lens (\Recommendation' {startTime} -> startTime) (\s@Recommendation' {} a -> s {startTime = a} :: Recommendation) Prelude.. Core._Time
+recommendation_startTime = Lens.lens (\Recommendation' {startTime} -> startTime) (\s@Recommendation' {} a -> s {startTime = a} :: Recommendation) Prelude.. Data._Time
 
 -- | List of the matches with most impact.
 recommendation_topMatches :: Lens.Lens' Recommendation [Match]
 recommendation_topMatches = Lens.lens (\Recommendation' {topMatches} -> topMatches) (\s@Recommendation' {} a -> s {topMatches = a} :: Recommendation) Prelude.. Lens.coerced
 
-instance Core.FromJSON Recommendation where
+instance Data.FromJSON Recommendation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Recommendation"
       ( \x ->
           Recommendation'
-            Prelude.<$> (x Core..: "allMatchesCount")
-            Prelude.<*> (x Core..: "allMatchesSum")
-            Prelude.<*> (x Core..: "endTime")
-            Prelude.<*> (x Core..: "pattern")
-            Prelude.<*> (x Core..: "startTime")
-            Prelude.<*> (x Core..:? "topMatches" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "allMatchesCount")
+            Prelude.<*> (x Data..: "allMatchesSum")
+            Prelude.<*> (x Data..: "endTime")
+            Prelude.<*> (x Data..: "pattern")
+            Prelude.<*> (x Data..: "startTime")
+            Prelude.<*> (x Data..:? "topMatches" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Recommendation where

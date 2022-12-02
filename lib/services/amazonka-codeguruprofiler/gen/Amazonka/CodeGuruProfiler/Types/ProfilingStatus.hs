@@ -22,6 +22,7 @@ module Amazonka.CodeGuruProfiler.Types.ProfilingStatus where
 import Amazonka.CodeGuruProfiler.Types.AggregatedProfileTime
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Profiling status includes information about the last time a profile
@@ -34,11 +35,11 @@ data ProfilingStatus = ProfilingStatus'
   { -- | The date and time when the profiling agent most recently pinged back.
     -- Specify using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
     -- represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
-    latestAgentOrchestratedAt :: Prelude.Maybe Core.POSIX,
+    latestAgentOrchestratedAt :: Prelude.Maybe Data.POSIX,
     -- | The date and time when the most recent profile was received. Specify
     -- using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
     -- represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
-    latestAgentProfileReportedAt :: Prelude.Maybe Core.POSIX,
+    latestAgentProfileReportedAt :: Prelude.Maybe Data.POSIX,
     -- | An
     -- <https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_AggregatedProfileTime.html AggregatedProfileTime>
     -- object that contains the aggregation period and start time for an
@@ -81,13 +82,13 @@ newProfilingStatus =
 -- Specify using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
 -- represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
 profilingStatus_latestAgentOrchestratedAt :: Lens.Lens' ProfilingStatus (Prelude.Maybe Prelude.UTCTime)
-profilingStatus_latestAgentOrchestratedAt = Lens.lens (\ProfilingStatus' {latestAgentOrchestratedAt} -> latestAgentOrchestratedAt) (\s@ProfilingStatus' {} a -> s {latestAgentOrchestratedAt = a} :: ProfilingStatus) Prelude.. Lens.mapping Core._Time
+profilingStatus_latestAgentOrchestratedAt = Lens.lens (\ProfilingStatus' {latestAgentOrchestratedAt} -> latestAgentOrchestratedAt) (\s@ProfilingStatus' {} a -> s {latestAgentOrchestratedAt = a} :: ProfilingStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when the most recent profile was received. Specify
 -- using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
 -- represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
 profilingStatus_latestAgentProfileReportedAt :: Lens.Lens' ProfilingStatus (Prelude.Maybe Prelude.UTCTime)
-profilingStatus_latestAgentProfileReportedAt = Lens.lens (\ProfilingStatus' {latestAgentProfileReportedAt} -> latestAgentProfileReportedAt) (\s@ProfilingStatus' {} a -> s {latestAgentProfileReportedAt = a} :: ProfilingStatus) Prelude.. Lens.mapping Core._Time
+profilingStatus_latestAgentProfileReportedAt = Lens.lens (\ProfilingStatus' {latestAgentProfileReportedAt} -> latestAgentProfileReportedAt) (\s@ProfilingStatus' {} a -> s {latestAgentProfileReportedAt = a} :: ProfilingStatus) Prelude.. Lens.mapping Data._Time
 
 -- | An
 -- <https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_AggregatedProfileTime.html AggregatedProfileTime>
@@ -96,15 +97,15 @@ profilingStatus_latestAgentProfileReportedAt = Lens.lens (\ProfilingStatus' {lat
 profilingStatus_latestAggregatedProfile :: Lens.Lens' ProfilingStatus (Prelude.Maybe AggregatedProfileTime)
 profilingStatus_latestAggregatedProfile = Lens.lens (\ProfilingStatus' {latestAggregatedProfile} -> latestAggregatedProfile) (\s@ProfilingStatus' {} a -> s {latestAggregatedProfile = a} :: ProfilingStatus)
 
-instance Core.FromJSON ProfilingStatus where
+instance Data.FromJSON ProfilingStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProfilingStatus"
       ( \x ->
           ProfilingStatus'
-            Prelude.<$> (x Core..:? "latestAgentOrchestratedAt")
-            Prelude.<*> (x Core..:? "latestAgentProfileReportedAt")
-            Prelude.<*> (x Core..:? "latestAggregatedProfile")
+            Prelude.<$> (x Data..:? "latestAgentOrchestratedAt")
+            Prelude.<*> (x Data..:? "latestAgentProfileReportedAt")
+            Prelude.<*> (x Data..:? "latestAggregatedProfile")
       )
 
 instance Prelude.Hashable ProfilingStatus where

@@ -22,6 +22,7 @@ module Amazonka.CodeGuruProfiler.Types.FrameMetricDatum where
 import Amazonka.CodeGuruProfiler.Types.FrameMetric
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a frame metric and its values.
@@ -63,14 +64,14 @@ frameMetricDatum_frameMetric = Lens.lens (\FrameMetricDatum' {frameMetric} -> fr
 frameMetricDatum_values :: Lens.Lens' FrameMetricDatum [Prelude.Double]
 frameMetricDatum_values = Lens.lens (\FrameMetricDatum' {values} -> values) (\s@FrameMetricDatum' {} a -> s {values = a} :: FrameMetricDatum) Prelude.. Lens.coerced
 
-instance Core.FromJSON FrameMetricDatum where
+instance Data.FromJSON FrameMetricDatum where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FrameMetricDatum"
       ( \x ->
           FrameMetricDatum'
-            Prelude.<$> (x Core..: "frameMetric")
-            Prelude.<*> (x Core..:? "values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "frameMetric")
+            Prelude.<*> (x Data..:? "values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable FrameMetricDatum where

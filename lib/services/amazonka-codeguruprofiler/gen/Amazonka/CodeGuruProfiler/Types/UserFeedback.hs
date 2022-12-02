@@ -22,6 +22,7 @@ module Amazonka.CodeGuruProfiler.Types.UserFeedback where
 import Amazonka.CodeGuruProfiler.Types.FeedbackType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Feedback that can be submitted for each instance of an anomaly by the
@@ -58,11 +59,11 @@ newUserFeedback pType_ =
 userFeedback_type :: Lens.Lens' UserFeedback FeedbackType
 userFeedback_type = Lens.lens (\UserFeedback' {type'} -> type') (\s@UserFeedback' {} a -> s {type' = a} :: UserFeedback)
 
-instance Core.FromJSON UserFeedback where
+instance Data.FromJSON UserFeedback where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserFeedback"
-      (\x -> UserFeedback' Prelude.<$> (x Core..: "type"))
+      (\x -> UserFeedback' Prelude.<$> (x Data..: "type"))
 
 instance Prelude.Hashable UserFeedback where
   hashWithSalt _salt UserFeedback' {..} =

@@ -23,6 +23,7 @@ import Amazonka.CodeGuruProfiler.Types.AnomalyInstance
 import Amazonka.CodeGuruProfiler.Types.Metric
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about an anomaly in a specific metric of application profile.
@@ -90,15 +91,15 @@ anomaly_metric = Lens.lens (\Anomaly' {metric} -> metric) (\s@Anomaly' {} a -> s
 anomaly_reason :: Lens.Lens' Anomaly Prelude.Text
 anomaly_reason = Lens.lens (\Anomaly' {reason} -> reason) (\s@Anomaly' {} a -> s {reason = a} :: Anomaly)
 
-instance Core.FromJSON Anomaly where
+instance Data.FromJSON Anomaly where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Anomaly"
       ( \x ->
           Anomaly'
-            Prelude.<$> (x Core..:? "instances" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "metric")
-            Prelude.<*> (x Core..: "reason")
+            Prelude.<$> (x Data..:? "instances" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "metric")
+            Prelude.<*> (x Data..: "reason")
       )
 
 instance Prelude.Hashable Anomaly where

@@ -43,6 +43,7 @@ where
 import Amazonka.CodeGuruProfiler.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,7 +107,7 @@ instance Core.AWSRequest UpdateProfilingGroup where
       ( \s h x ->
           UpdateProfilingGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable UpdateProfilingGroup where
@@ -120,34 +121,34 @@ instance Prelude.NFData UpdateProfilingGroup where
     Prelude.rnf agentOrchestrationConfig
       `Prelude.seq` Prelude.rnf profilingGroupName
 
-instance Core.ToHeaders UpdateProfilingGroup where
+instance Data.ToHeaders UpdateProfilingGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateProfilingGroup where
+instance Data.ToJSON UpdateProfilingGroup where
   toJSON UpdateProfilingGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "agentOrchestrationConfig"
-                  Core..= agentOrchestrationConfig
+                  Data..= agentOrchestrationConfig
               )
           ]
       )
 
-instance Core.ToPath UpdateProfilingGroup where
+instance Data.ToPath UpdateProfilingGroup where
   toPath UpdateProfilingGroup' {..} =
     Prelude.mconcat
-      ["/profilingGroups/", Core.toBS profilingGroupName]
+      ["/profilingGroups/", Data.toBS profilingGroupName]
 
-instance Core.ToQuery UpdateProfilingGroup where
+instance Data.ToQuery UpdateProfilingGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The structure representing the updateProfilingGroupResponse.

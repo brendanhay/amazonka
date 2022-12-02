@@ -47,6 +47,7 @@ where
 import Amazonka.CodeGuruProfiler.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -164,27 +165,27 @@ instance Prelude.NFData PostAgentProfile where
       `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf profilingGroupName
 
-instance Core.ToBody PostAgentProfile where
+instance Data.ToBody PostAgentProfile where
   toBody PostAgentProfile' {..} =
-    Core.toBody agentProfile
+    Data.toBody agentProfile
 
-instance Core.ToHeaders PostAgentProfile where
+instance Data.ToHeaders PostAgentProfile where
   toHeaders PostAgentProfile' {..} =
     Prelude.mconcat
-      ["Content-Type" Core.=# contentType]
+      ["Content-Type" Data.=# contentType]
 
-instance Core.ToPath PostAgentProfile where
+instance Data.ToPath PostAgentProfile where
   toPath PostAgentProfile' {..} =
     Prelude.mconcat
       [ "/profilingGroups/",
-        Core.toBS profilingGroupName,
+        Data.toBS profilingGroupName,
         "/agentProfile"
       ]
 
-instance Core.ToQuery PostAgentProfile where
+instance Data.ToQuery PostAgentProfile where
   toQuery PostAgentProfile' {..} =
     Prelude.mconcat
-      ["profileToken" Core.=: profileToken]
+      ["profileToken" Data.=: profileToken]
 
 -- | The structure representing the postAgentProfileResponse.
 --

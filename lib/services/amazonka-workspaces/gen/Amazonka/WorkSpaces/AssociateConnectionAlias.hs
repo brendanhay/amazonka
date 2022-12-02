@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,7 +105,7 @@ instance Core.AWSRequest AssociateConnectionAlias where
     Response.receiveJSON
       ( \s h x ->
           AssociateConnectionAliasResponse'
-            Prelude.<$> (x Core..?> "ConnectionIdentifier")
+            Prelude.<$> (x Data..?> "ConnectionIdentifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,34 +119,34 @@ instance Prelude.NFData AssociateConnectionAlias where
     Prelude.rnf aliasId
       `Prelude.seq` Prelude.rnf resourceId
 
-instance Core.ToHeaders AssociateConnectionAlias where
+instance Data.ToHeaders AssociateConnectionAlias where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.AssociateConnectionAlias" ::
+              Data.=# ( "WorkspacesService.AssociateConnectionAlias" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateConnectionAlias where
+instance Data.ToJSON AssociateConnectionAlias where
   toJSON AssociateConnectionAlias' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AliasId" Core..= aliasId),
-            Prelude.Just ("ResourceId" Core..= resourceId)
+          [ Prelude.Just ("AliasId" Data..= aliasId),
+            Prelude.Just ("ResourceId" Data..= resourceId)
           ]
       )
 
-instance Core.ToPath AssociateConnectionAlias where
+instance Data.ToPath AssociateConnectionAlias where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateConnectionAlias where
+instance Data.ToQuery AssociateConnectionAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateConnectionAliasResponse' smart constructor.

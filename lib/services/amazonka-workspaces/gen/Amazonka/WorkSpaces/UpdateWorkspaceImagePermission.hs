@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -179,39 +180,39 @@ instance
       `Prelude.seq` Prelude.rnf sharedAccountId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateWorkspaceImagePermission
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.UpdateWorkspaceImagePermission" ::
+              Data.=# ( "WorkspacesService.UpdateWorkspaceImagePermission" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateWorkspaceImagePermission where
+instance Data.ToJSON UpdateWorkspaceImagePermission where
   toJSON UpdateWorkspaceImagePermission' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ImageId" Core..= imageId),
+          [ Prelude.Just ("ImageId" Data..= imageId),
             Prelude.Just
-              ("AllowCopyImage" Core..= allowCopyImage),
+              ("AllowCopyImage" Data..= allowCopyImage),
             Prelude.Just
-              ("SharedAccountId" Core..= sharedAccountId)
+              ("SharedAccountId" Data..= sharedAccountId)
           ]
       )
 
-instance Core.ToPath UpdateWorkspaceImagePermission where
+instance Data.ToPath UpdateWorkspaceImagePermission where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateWorkspaceImagePermission where
+instance Data.ToQuery UpdateWorkspaceImagePermission where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateWorkspaceImagePermissionResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.WorkspaceCreationProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the default properties that are used for creating WorkSpaces.
@@ -206,20 +207,20 @@ instance Prelude.NFData WorkspaceCreationProperties where
       `Prelude.seq` Prelude.rnf enableMaintenanceMode
       `Prelude.seq` Prelude.rnf customSecurityGroupId
 
-instance Core.ToJSON WorkspaceCreationProperties where
+instance Data.ToJSON WorkspaceCreationProperties where
   toJSON WorkspaceCreationProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UserEnabledAsLocalAdministrator" Core..=)
+          [ ("UserEnabledAsLocalAdministrator" Data..=)
               Prelude.<$> userEnabledAsLocalAdministrator,
-            ("EnableInternetAccess" Core..=)
+            ("EnableInternetAccess" Data..=)
               Prelude.<$> enableInternetAccess,
-            ("EnableWorkDocs" Core..=)
+            ("EnableWorkDocs" Data..=)
               Prelude.<$> enableWorkDocs,
-            ("DefaultOu" Core..=) Prelude.<$> defaultOu,
-            ("EnableMaintenanceMode" Core..=)
+            ("DefaultOu" Data..=) Prelude.<$> defaultOu,
+            ("EnableMaintenanceMode" Data..=)
               Prelude.<$> enableMaintenanceMode,
-            ("CustomSecurityGroupId" Core..=)
+            ("CustomSecurityGroupId" Data..=)
               Prelude.<$> customSecurityGroupId
           ]
       )

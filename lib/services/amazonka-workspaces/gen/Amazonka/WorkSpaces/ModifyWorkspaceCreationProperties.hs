@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -125,46 +126,46 @@ instance
       `Prelude.seq` Prelude.rnf workspaceCreationProperties
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ModifyWorkspaceCreationProperties
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.ModifyWorkspaceCreationProperties" ::
+              Data.=# ( "WorkspacesService.ModifyWorkspaceCreationProperties" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ModifyWorkspaceCreationProperties
   where
   toJSON ModifyWorkspaceCreationProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceId" Core..= resourceId),
+          [ Prelude.Just ("ResourceId" Data..= resourceId),
             Prelude.Just
               ( "WorkspaceCreationProperties"
-                  Core..= workspaceCreationProperties
+                  Data..= workspaceCreationProperties
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ModifyWorkspaceCreationProperties
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ModifyWorkspaceCreationProperties
   where
   toQuery = Prelude.const Prelude.mempty

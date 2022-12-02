@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,7 +90,7 @@ instance Core.AWSRequest StartWorkspaces where
     Response.receiveJSON
       ( \s h x ->
           StartWorkspacesResponse'
-            Prelude.<$> (x Core..?> "FailedRequests" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "FailedRequests" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -101,36 +102,36 @@ instance Prelude.NFData StartWorkspaces where
   rnf StartWorkspaces' {..} =
     Prelude.rnf startWorkspaceRequests
 
-instance Core.ToHeaders StartWorkspaces where
+instance Data.ToHeaders StartWorkspaces where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.StartWorkspaces" ::
+              Data.=# ( "WorkspacesService.StartWorkspaces" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartWorkspaces where
+instance Data.ToJSON StartWorkspaces where
   toJSON StartWorkspaces' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "StartWorkspaceRequests"
-                  Core..= startWorkspaceRequests
+                  Data..= startWorkspaceRequests
               )
           ]
       )
 
-instance Core.ToPath StartWorkspaces where
+instance Data.ToPath StartWorkspaces where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartWorkspaces where
+instance Data.ToQuery StartWorkspaces where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartWorkspacesResponse' smart constructor.

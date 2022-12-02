@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.DefaultClientBrandingAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns default client branding attributes that were imported. These
@@ -148,19 +149,19 @@ defaultClientBrandingAttributes_forgotPasswordLink :: Lens.Lens' DefaultClientBr
 defaultClientBrandingAttributes_forgotPasswordLink = Lens.lens (\DefaultClientBrandingAttributes' {forgotPasswordLink} -> forgotPasswordLink) (\s@DefaultClientBrandingAttributes' {} a -> s {forgotPasswordLink = a} :: DefaultClientBrandingAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DefaultClientBrandingAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DefaultClientBrandingAttributes"
       ( \x ->
           DefaultClientBrandingAttributes'
-            Prelude.<$> (x Core..:? "SupportLink")
-            Prelude.<*> (x Core..:? "SupportEmail")
-            Prelude.<*> (x Core..:? "LogoUrl")
-            Prelude.<*> (x Core..:? "LoginMessage" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ForgotPasswordLink")
+            Prelude.<$> (x Data..:? "SupportLink")
+            Prelude.<*> (x Data..:? "SupportEmail")
+            Prelude.<*> (x Data..:? "LogoUrl")
+            Prelude.<*> (x Data..:? "LoginMessage" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ForgotPasswordLink")
       )
 
 instance

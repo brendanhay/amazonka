@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.ConnectionAliasAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.AssociationStatus
 
@@ -92,16 +93,16 @@ connectionAliasAssociation_associationStatus = Lens.lens (\ConnectionAliasAssoci
 connectionAliasAssociation_connectionIdentifier :: Lens.Lens' ConnectionAliasAssociation (Prelude.Maybe Prelude.Text)
 connectionAliasAssociation_connectionIdentifier = Lens.lens (\ConnectionAliasAssociation' {connectionIdentifier} -> connectionIdentifier) (\s@ConnectionAliasAssociation' {} a -> s {connectionIdentifier = a} :: ConnectionAliasAssociation)
 
-instance Core.FromJSON ConnectionAliasAssociation where
+instance Data.FromJSON ConnectionAliasAssociation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectionAliasAssociation"
       ( \x ->
           ConnectionAliasAssociation'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "AssociatedAccountId")
-            Prelude.<*> (x Core..:? "AssociationStatus")
-            Prelude.<*> (x Core..:? "ConnectionIdentifier")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "AssociatedAccountId")
+            Prelude.<*> (x Data..:? "AssociationStatus")
+            Prelude.<*> (x Data..:? "ConnectionIdentifier")
       )
 
 instance Prelude.Hashable ConnectionAliasAssociation where

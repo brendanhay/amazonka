@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.RelatedWorkspaceProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.StandbyWorkspaceRelationshipType
 import Amazonka.WorkSpaces.Types.WorkspaceState
@@ -84,16 +85,16 @@ relatedWorkspaceProperties_workspaceId = Lens.lens (\RelatedWorkspaceProperties'
 relatedWorkspaceProperties_region :: Lens.Lens' RelatedWorkspaceProperties (Prelude.Maybe Prelude.Text)
 relatedWorkspaceProperties_region = Lens.lens (\RelatedWorkspaceProperties' {region} -> region) (\s@RelatedWorkspaceProperties' {} a -> s {region = a} :: RelatedWorkspaceProperties)
 
-instance Core.FromJSON RelatedWorkspaceProperties where
+instance Data.FromJSON RelatedWorkspaceProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RelatedWorkspaceProperties"
       ( \x ->
           RelatedWorkspaceProperties'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "WorkspaceId")
-            Prelude.<*> (x Core..:? "Region")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "WorkspaceId")
+            Prelude.<*> (x Data..:? "Region")
       )
 
 instance Prelude.Hashable RelatedWorkspaceProperties where

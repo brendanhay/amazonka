@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,10 +88,10 @@ instance Core.AWSRequest DescribeWorkspaceSnapshots where
     Response.receiveJSON
       ( \s h x ->
           DescribeWorkspaceSnapshotsResponse'
-            Prelude.<$> ( x Core..?> "RestoreSnapshots"
+            Prelude.<$> ( x Data..?> "RestoreSnapshots"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "RebuildSnapshots"
+            Prelude.<*> ( x Data..?> "RebuildSnapshots"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -104,32 +105,32 @@ instance Prelude.NFData DescribeWorkspaceSnapshots where
   rnf DescribeWorkspaceSnapshots' {..} =
     Prelude.rnf workspaceId
 
-instance Core.ToHeaders DescribeWorkspaceSnapshots where
+instance Data.ToHeaders DescribeWorkspaceSnapshots where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.DescribeWorkspaceSnapshots" ::
+              Data.=# ( "WorkspacesService.DescribeWorkspaceSnapshots" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeWorkspaceSnapshots where
+instance Data.ToJSON DescribeWorkspaceSnapshots where
   toJSON DescribeWorkspaceSnapshots' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("WorkspaceId" Core..= workspaceId)]
+          [Prelude.Just ("WorkspaceId" Data..= workspaceId)]
       )
 
-instance Core.ToPath DescribeWorkspaceSnapshots where
+instance Data.ToPath DescribeWorkspaceSnapshots where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeWorkspaceSnapshots where
+instance Data.ToQuery DescribeWorkspaceSnapshots where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeWorkspaceSnapshotsResponse' smart constructor.

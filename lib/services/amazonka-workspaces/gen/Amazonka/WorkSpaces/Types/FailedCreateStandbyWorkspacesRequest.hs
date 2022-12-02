@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.FailedCreateStandbyWorkspacesRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.StandbyWorkspace
 
@@ -80,17 +81,17 @@ failedCreateStandbyWorkspacesRequest_errorCode :: Lens.Lens' FailedCreateStandby
 failedCreateStandbyWorkspacesRequest_errorCode = Lens.lens (\FailedCreateStandbyWorkspacesRequest' {errorCode} -> errorCode) (\s@FailedCreateStandbyWorkspacesRequest' {} a -> s {errorCode = a} :: FailedCreateStandbyWorkspacesRequest)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     FailedCreateStandbyWorkspacesRequest
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailedCreateStandbyWorkspacesRequest"
       ( \x ->
           FailedCreateStandbyWorkspacesRequest'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "StandbyWorkspaceRequest")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "StandbyWorkspaceRequest")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance

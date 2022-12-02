@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,34 +109,34 @@ instance Prelude.NFData DisassociateIpGroups where
     Prelude.rnf directoryId
       `Prelude.seq` Prelude.rnf groupIds
 
-instance Core.ToHeaders DisassociateIpGroups where
+instance Data.ToHeaders DisassociateIpGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.DisassociateIpGroups" ::
+              Data.=# ( "WorkspacesService.DisassociateIpGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateIpGroups where
+instance Data.ToJSON DisassociateIpGroups where
   toJSON DisassociateIpGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Core..= directoryId),
-            Prelude.Just ("GroupIds" Core..= groupIds)
+          [ Prelude.Just ("DirectoryId" Data..= directoryId),
+            Prelude.Just ("GroupIds" Data..= groupIds)
           ]
       )
 
-instance Core.ToPath DisassociateIpGroups where
+instance Data.ToPath DisassociateIpGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateIpGroups where
+instance Data.ToQuery DisassociateIpGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateIpGroupsResponse' smart constructor.

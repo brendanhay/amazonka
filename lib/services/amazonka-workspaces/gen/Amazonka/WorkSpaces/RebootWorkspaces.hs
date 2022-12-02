@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,7 +93,7 @@ instance Core.AWSRequest RebootWorkspaces where
     Response.receiveJSON
       ( \s h x ->
           RebootWorkspacesResponse'
-            Prelude.<$> (x Core..?> "FailedRequests" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "FailedRequests" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -105,36 +106,36 @@ instance Prelude.NFData RebootWorkspaces where
   rnf RebootWorkspaces' {..} =
     Prelude.rnf rebootWorkspaceRequests
 
-instance Core.ToHeaders RebootWorkspaces where
+instance Data.ToHeaders RebootWorkspaces where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.RebootWorkspaces" ::
+              Data.=# ( "WorkspacesService.RebootWorkspaces" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RebootWorkspaces where
+instance Data.ToJSON RebootWorkspaces where
   toJSON RebootWorkspaces' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "RebootWorkspaceRequests"
-                  Core..= rebootWorkspaceRequests
+                  Data..= rebootWorkspaceRequests
               )
           ]
       )
 
-instance Core.ToPath RebootWorkspaces where
+instance Data.ToPath RebootWorkspaces where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RebootWorkspaces where
+instance Data.ToQuery RebootWorkspaces where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRebootWorkspacesResponse' smart constructor.

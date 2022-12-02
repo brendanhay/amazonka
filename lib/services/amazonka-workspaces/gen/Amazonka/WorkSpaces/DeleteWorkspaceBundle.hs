@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,32 +93,32 @@ instance Prelude.Hashable DeleteWorkspaceBundle where
 instance Prelude.NFData DeleteWorkspaceBundle where
   rnf DeleteWorkspaceBundle' {..} = Prelude.rnf bundleId
 
-instance Core.ToHeaders DeleteWorkspaceBundle where
+instance Data.ToHeaders DeleteWorkspaceBundle where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.DeleteWorkspaceBundle" ::
+              Data.=# ( "WorkspacesService.DeleteWorkspaceBundle" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteWorkspaceBundle where
+instance Data.ToJSON DeleteWorkspaceBundle where
   toJSON DeleteWorkspaceBundle' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("BundleId" Core..=) Prelude.<$> bundleId]
+          [("BundleId" Data..=) Prelude.<$> bundleId]
       )
 
-instance Core.ToPath DeleteWorkspaceBundle where
+instance Data.ToPath DeleteWorkspaceBundle where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteWorkspaceBundle where
+instance Data.ToQuery DeleteWorkspaceBundle where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteWorkspaceBundleResponse' smart constructor.

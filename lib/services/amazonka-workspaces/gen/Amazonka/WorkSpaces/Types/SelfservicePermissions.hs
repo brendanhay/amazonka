@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.SelfservicePermissions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.ReconnectEnum
 
@@ -101,17 +102,17 @@ selfservicePermissions_switchRunningMode = Lens.lens (\SelfservicePermissions' {
 selfservicePermissions_restartWorkspace :: Lens.Lens' SelfservicePermissions (Prelude.Maybe ReconnectEnum)
 selfservicePermissions_restartWorkspace = Lens.lens (\SelfservicePermissions' {restartWorkspace} -> restartWorkspace) (\s@SelfservicePermissions' {} a -> s {restartWorkspace = a} :: SelfservicePermissions)
 
-instance Core.FromJSON SelfservicePermissions where
+instance Data.FromJSON SelfservicePermissions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SelfservicePermissions"
       ( \x ->
           SelfservicePermissions'
-            Prelude.<$> (x Core..:? "IncreaseVolumeSize")
-            Prelude.<*> (x Core..:? "RebuildWorkspace")
-            Prelude.<*> (x Core..:? "ChangeComputeType")
-            Prelude.<*> (x Core..:? "SwitchRunningMode")
-            Prelude.<*> (x Core..:? "RestartWorkspace")
+            Prelude.<$> (x Data..:? "IncreaseVolumeSize")
+            Prelude.<*> (x Data..:? "RebuildWorkspace")
+            Prelude.<*> (x Data..:? "ChangeComputeType")
+            Prelude.<*> (x Data..:? "SwitchRunningMode")
+            Prelude.<*> (x Data..:? "RestartWorkspace")
       )
 
 instance Prelude.Hashable SelfservicePermissions where
@@ -130,19 +131,19 @@ instance Prelude.NFData SelfservicePermissions where
       `Prelude.seq` Prelude.rnf switchRunningMode
       `Prelude.seq` Prelude.rnf restartWorkspace
 
-instance Core.ToJSON SelfservicePermissions where
+instance Data.ToJSON SelfservicePermissions where
   toJSON SelfservicePermissions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IncreaseVolumeSize" Core..=)
+          [ ("IncreaseVolumeSize" Data..=)
               Prelude.<$> increaseVolumeSize,
-            ("RebuildWorkspace" Core..=)
+            ("RebuildWorkspace" Data..=)
               Prelude.<$> rebuildWorkspace,
-            ("ChangeComputeType" Core..=)
+            ("ChangeComputeType" Data..=)
               Prelude.<$> changeComputeType,
-            ("SwitchRunningMode" Core..=)
+            ("SwitchRunningMode" Data..=)
               Prelude.<$> switchRunningMode,
-            ("RestartWorkspace" Core..=)
+            ("RestartWorkspace" Data..=)
               Prelude.<$> restartWorkspace
           ]
       )

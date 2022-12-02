@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.FailedCreateWorkspaceRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.WorkspaceRequest
 
@@ -75,15 +76,15 @@ failedCreateWorkspaceRequest_workspaceRequest = Lens.lens (\FailedCreateWorkspac
 failedCreateWorkspaceRequest_errorCode :: Lens.Lens' FailedCreateWorkspaceRequest (Prelude.Maybe Prelude.Text)
 failedCreateWorkspaceRequest_errorCode = Lens.lens (\FailedCreateWorkspaceRequest' {errorCode} -> errorCode) (\s@FailedCreateWorkspaceRequest' {} a -> s {errorCode = a} :: FailedCreateWorkspaceRequest)
 
-instance Core.FromJSON FailedCreateWorkspaceRequest where
+instance Data.FromJSON FailedCreateWorkspaceRequest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailedCreateWorkspaceRequest"
       ( \x ->
           FailedCreateWorkspaceRequest'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "WorkspaceRequest")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "WorkspaceRequest")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance

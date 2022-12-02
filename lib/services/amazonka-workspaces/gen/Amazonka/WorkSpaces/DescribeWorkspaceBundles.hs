@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -153,8 +154,8 @@ instance Core.AWSRequest DescribeWorkspaceBundles where
     Response.receiveJSON
       ( \s h x ->
           DescribeWorkspaceBundlesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Bundles" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Bundles" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,35 +171,35 @@ instance Prelude.NFData DescribeWorkspaceBundles where
       `Prelude.seq` Prelude.rnf bundleIds
       `Prelude.seq` Prelude.rnf owner
 
-instance Core.ToHeaders DescribeWorkspaceBundles where
+instance Data.ToHeaders DescribeWorkspaceBundles where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.DescribeWorkspaceBundles" ::
+              Data.=# ( "WorkspacesService.DescribeWorkspaceBundles" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeWorkspaceBundles where
+instance Data.ToJSON DescribeWorkspaceBundles where
   toJSON DescribeWorkspaceBundles' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("BundleIds" Core..=) Prelude.<$> bundleIds,
-            ("Owner" Core..=) Prelude.<$> owner
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("BundleIds" Data..=) Prelude.<$> bundleIds,
+            ("Owner" Data..=) Prelude.<$> owner
           ]
       )
 
-instance Core.ToPath DescribeWorkspaceBundles where
+instance Data.ToPath DescribeWorkspaceBundles where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeWorkspaceBundles where
+instance Data.ToQuery DescribeWorkspaceBundles where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeWorkspaceBundlesResponse' smart constructor.

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,7 +115,7 @@ instance Core.AWSRequest CreateConnectClientAddIn where
     Response.receiveJSON
       ( \s h x ->
           CreateConnectClientAddInResponse'
-            Prelude.<$> (x Core..?> "AddInId")
+            Prelude.<$> (x Data..?> "AddInId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,35 +131,35 @@ instance Prelude.NFData CreateConnectClientAddIn where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf url
 
-instance Core.ToHeaders CreateConnectClientAddIn where
+instance Data.ToHeaders CreateConnectClientAddIn where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.CreateConnectClientAddIn" ::
+              Data.=# ( "WorkspacesService.CreateConnectClientAddIn" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateConnectClientAddIn where
+instance Data.ToJSON CreateConnectClientAddIn where
   toJSON CreateConnectClientAddIn' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceId" Core..= resourceId),
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("URL" Core..= url)
+          [ Prelude.Just ("ResourceId" Data..= resourceId),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("URL" Data..= url)
           ]
       )
 
-instance Core.ToPath CreateConnectClientAddIn where
+instance Data.ToPath CreateConnectClientAddIn where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateConnectClientAddIn where
+instance Data.ToQuery CreateConnectClientAddIn where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateConnectClientAddInResponse' smart constructor.

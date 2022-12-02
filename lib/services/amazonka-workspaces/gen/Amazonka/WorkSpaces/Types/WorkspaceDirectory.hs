@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.WorkspaceDirectory where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.CertificateBasedAuthProperties
 import Amazonka.WorkSpaces.Types.DefaultWorkspaceCreationProperties
@@ -273,30 +274,30 @@ workspaceDirectory_workspaceAccessProperties = Lens.lens (\WorkspaceDirectory' {
 workspaceDirectory_tenancy :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe Tenancy)
 workspaceDirectory_tenancy = Lens.lens (\WorkspaceDirectory' {tenancy} -> tenancy) (\s@WorkspaceDirectory' {} a -> s {tenancy = a} :: WorkspaceDirectory)
 
-instance Core.FromJSON WorkspaceDirectory where
+instance Data.FromJSON WorkspaceDirectory where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkspaceDirectory"
       ( \x ->
           WorkspaceDirectory'
-            Prelude.<$> (x Core..:? "Alias")
-            Prelude.<*> (x Core..:? "DirectoryName")
-            Prelude.<*> (x Core..:? "DirectoryId")
-            Prelude.<*> (x Core..:? "WorkspaceSecurityGroupId")
-            Prelude.<*> (x Core..:? "ipGroupIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DirectoryType")
-            Prelude.<*> (x Core..:? "CertificateBasedAuthProperties")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "CustomerUserName")
-            Prelude.<*> (x Core..:? "SamlProperties")
-            Prelude.<*> (x Core..:? "DnsIpAddresses" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "IamRoleId")
-            Prelude.<*> (x Core..:? "RegistrationCode")
-            Prelude.<*> (x Core..:? "WorkspaceCreationProperties")
-            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SelfservicePermissions")
-            Prelude.<*> (x Core..:? "WorkspaceAccessProperties")
-            Prelude.<*> (x Core..:? "Tenancy")
+            Prelude.<$> (x Data..:? "Alias")
+            Prelude.<*> (x Data..:? "DirectoryName")
+            Prelude.<*> (x Data..:? "DirectoryId")
+            Prelude.<*> (x Data..:? "WorkspaceSecurityGroupId")
+            Prelude.<*> (x Data..:? "ipGroupIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DirectoryType")
+            Prelude.<*> (x Data..:? "CertificateBasedAuthProperties")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "CustomerUserName")
+            Prelude.<*> (x Data..:? "SamlProperties")
+            Prelude.<*> (x Data..:? "DnsIpAddresses" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "IamRoleId")
+            Prelude.<*> (x Data..:? "RegistrationCode")
+            Prelude.<*> (x Data..:? "WorkspaceCreationProperties")
+            Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SelfservicePermissions")
+            Prelude.<*> (x Data..:? "WorkspaceAccessProperties")
+            Prelude.<*> (x Data..:? "Tenancy")
       )
 
 instance Prelude.Hashable WorkspaceDirectory where

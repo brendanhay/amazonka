@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.WorkspaceRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.Tag
 import Amazonka.WorkSpaces.Types.WorkspaceProperties
@@ -138,20 +139,20 @@ workspaceRequest_userName = Lens.lens (\WorkspaceRequest' {userName} -> userName
 workspaceRequest_bundleId :: Lens.Lens' WorkspaceRequest Prelude.Text
 workspaceRequest_bundleId = Lens.lens (\WorkspaceRequest' {bundleId} -> bundleId) (\s@WorkspaceRequest' {} a -> s {bundleId = a} :: WorkspaceRequest)
 
-instance Core.FromJSON WorkspaceRequest where
+instance Data.FromJSON WorkspaceRequest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkspaceRequest"
       ( \x ->
           WorkspaceRequest'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "WorkspaceProperties")
-            Prelude.<*> (x Core..:? "VolumeEncryptionKey")
-            Prelude.<*> (x Core..:? "UserVolumeEncryptionEnabled")
-            Prelude.<*> (x Core..:? "RootVolumeEncryptionEnabled")
-            Prelude.<*> (x Core..: "DirectoryId")
-            Prelude.<*> (x Core..: "UserName")
-            Prelude.<*> (x Core..: "BundleId")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "WorkspaceProperties")
+            Prelude.<*> (x Data..:? "VolumeEncryptionKey")
+            Prelude.<*> (x Data..:? "UserVolumeEncryptionEnabled")
+            Prelude.<*> (x Data..:? "RootVolumeEncryptionEnabled")
+            Prelude.<*> (x Data..: "DirectoryId")
+            Prelude.<*> (x Data..: "UserName")
+            Prelude.<*> (x Data..: "BundleId")
       )
 
 instance Prelude.Hashable WorkspaceRequest where
@@ -176,21 +177,21 @@ instance Prelude.NFData WorkspaceRequest where
       `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf bundleId
 
-instance Core.ToJSON WorkspaceRequest where
+instance Data.ToJSON WorkspaceRequest where
   toJSON WorkspaceRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("WorkspaceProperties" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("WorkspaceProperties" Data..=)
               Prelude.<$> workspaceProperties,
-            ("VolumeEncryptionKey" Core..=)
+            ("VolumeEncryptionKey" Data..=)
               Prelude.<$> volumeEncryptionKey,
-            ("UserVolumeEncryptionEnabled" Core..=)
+            ("UserVolumeEncryptionEnabled" Data..=)
               Prelude.<$> userVolumeEncryptionEnabled,
-            ("RootVolumeEncryptionEnabled" Core..=)
+            ("RootVolumeEncryptionEnabled" Data..=)
               Prelude.<$> rootVolumeEncryptionEnabled,
-            Prelude.Just ("DirectoryId" Core..= directoryId),
-            Prelude.Just ("UserName" Core..= userName),
-            Prelude.Just ("BundleId" Core..= bundleId)
+            Prelude.Just ("DirectoryId" Data..= directoryId),
+            Prelude.Just ("UserName" Data..= userName),
+            Prelude.Just ("BundleId" Data..= bundleId)
           ]
       )

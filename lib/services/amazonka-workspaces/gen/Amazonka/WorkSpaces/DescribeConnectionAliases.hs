@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,8 +121,8 @@ instance Core.AWSRequest DescribeConnectionAliases where
     Response.receiveJSON
       ( \s h x ->
           DescribeConnectionAliasesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ConnectionAliases")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ConnectionAliases")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,36 +140,36 @@ instance Prelude.NFData DescribeConnectionAliases where
       `Prelude.seq` Prelude.rnf aliasIds
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders DescribeConnectionAliases where
+instance Data.ToHeaders DescribeConnectionAliases where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.DescribeConnectionAliases" ::
+              Data.=# ( "WorkspacesService.DescribeConnectionAliases" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeConnectionAliases where
+instance Data.ToJSON DescribeConnectionAliases where
   toJSON DescribeConnectionAliases' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceId" Core..=) Prelude.<$> resourceId,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("AliasIds" Core..=) Prelude.<$> aliasIds,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("ResourceId" Data..=) Prelude.<$> resourceId,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("AliasIds" Data..=) Prelude.<$> aliasIds,
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
-instance Core.ToPath DescribeConnectionAliases where
+instance Data.ToPath DescribeConnectionAliases where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeConnectionAliases where
+instance Data.ToQuery DescribeConnectionAliases where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeConnectionAliasesResponse' smart constructor.

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,10 +98,10 @@ instance Core.AWSRequest CreateStandbyWorkspaces where
     Response.receiveJSON
       ( \s h x ->
           CreateStandbyWorkspacesResponse'
-            Prelude.<$> ( x Core..?> "FailedStandbyRequests"
+            Prelude.<$> ( x Data..?> "FailedStandbyRequests"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "PendingStandbyRequests"
+            Prelude.<*> ( x Data..?> "PendingStandbyRequests"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -116,36 +117,36 @@ instance Prelude.NFData CreateStandbyWorkspaces where
     Prelude.rnf primaryRegion
       `Prelude.seq` Prelude.rnf standbyWorkspaces
 
-instance Core.ToHeaders CreateStandbyWorkspaces where
+instance Data.ToHeaders CreateStandbyWorkspaces where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.CreateStandbyWorkspaces" ::
+              Data.=# ( "WorkspacesService.CreateStandbyWorkspaces" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateStandbyWorkspaces where
+instance Data.ToJSON CreateStandbyWorkspaces where
   toJSON CreateStandbyWorkspaces' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("PrimaryRegion" Core..= primaryRegion),
+              ("PrimaryRegion" Data..= primaryRegion),
             Prelude.Just
-              ("StandbyWorkspaces" Core..= standbyWorkspaces)
+              ("StandbyWorkspaces" Data..= standbyWorkspaces)
           ]
       )
 
-instance Core.ToPath CreateStandbyWorkspaces where
+instance Data.ToPath CreateStandbyWorkspaces where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateStandbyWorkspaces where
+instance Data.ToQuery CreateStandbyWorkspaces where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateStandbyWorkspacesResponse' smart constructor.

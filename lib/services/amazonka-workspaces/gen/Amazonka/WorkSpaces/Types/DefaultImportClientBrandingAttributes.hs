@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.DefaultImportClientBrandingAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The default client branding attributes to be imported. These attributes
@@ -50,7 +51,7 @@ data DefaultImportClientBrandingAttributes = DefaultImportClientBrandingAttribut
     supportEmail :: Prelude.Maybe Prelude.Text,
     -- | The logo. The only image format accepted is a binary data object that is
     -- converted from a @.png@ file.
-    logo :: Prelude.Maybe Core.Base64,
+    logo :: Prelude.Maybe Data.Base64,
     -- | The login message. Specified as a key value pair, in which the key is a
     -- locale and the value is the localized message for that locale. The only
     -- key supported is @en_US@. The HTML tags supported include the following:
@@ -141,7 +142,7 @@ defaultImportClientBrandingAttributes_supportEmail = Lens.lens (\DefaultImportCl
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 defaultImportClientBrandingAttributes_logo :: Lens.Lens' DefaultImportClientBrandingAttributes (Prelude.Maybe Prelude.ByteString)
-defaultImportClientBrandingAttributes_logo = Lens.lens (\DefaultImportClientBrandingAttributes' {logo} -> logo) (\s@DefaultImportClientBrandingAttributes' {} a -> s {logo = a} :: DefaultImportClientBrandingAttributes) Prelude.. Lens.mapping Core._Base64
+defaultImportClientBrandingAttributes_logo = Lens.lens (\DefaultImportClientBrandingAttributes' {logo} -> logo) (\s@DefaultImportClientBrandingAttributes' {} a -> s {logo = a} :: DefaultImportClientBrandingAttributes) Prelude.. Lens.mapping Data._Base64
 
 -- | The login message. Specified as a key value pair, in which the key is a
 -- locale and the value is the localized message for that locale. The only
@@ -180,17 +181,17 @@ instance
       `Prelude.seq` Prelude.rnf forgotPasswordLink
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DefaultImportClientBrandingAttributes
   where
   toJSON DefaultImportClientBrandingAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SupportLink" Core..=) Prelude.<$> supportLink,
-            ("SupportEmail" Core..=) Prelude.<$> supportEmail,
-            ("Logo" Core..=) Prelude.<$> logo,
-            ("LoginMessage" Core..=) Prelude.<$> loginMessage,
-            ("ForgotPasswordLink" Core..=)
+          [ ("SupportLink" Data..=) Prelude.<$> supportLink,
+            ("SupportEmail" Data..=) Prelude.<$> supportEmail,
+            ("Logo" Data..=) Prelude.<$> logo,
+            ("LoginMessage" Data..=) Prelude.<$> loginMessage,
+            ("ForgotPasswordLink" Data..=)
               Prelude.<$> forgotPasswordLink
           ]
       )

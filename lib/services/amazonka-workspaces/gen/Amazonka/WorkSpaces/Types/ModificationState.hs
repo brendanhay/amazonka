@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.ModificationState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.ModificationResourceEnum
 import Amazonka.WorkSpaces.Types.ModificationStateEnum
@@ -63,14 +64,14 @@ modificationState_state = Lens.lens (\ModificationState' {state} -> state) (\s@M
 modificationState_resource :: Lens.Lens' ModificationState (Prelude.Maybe ModificationResourceEnum)
 modificationState_resource = Lens.lens (\ModificationState' {resource} -> resource) (\s@ModificationState' {} a -> s {resource = a} :: ModificationState)
 
-instance Core.FromJSON ModificationState where
+instance Data.FromJSON ModificationState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModificationState"
       ( \x ->
           ModificationState'
-            Prelude.<$> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Resource")
+            Prelude.<$> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Resource")
       )
 
 instance Prelude.Hashable ModificationState where

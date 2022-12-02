@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -144,8 +145,8 @@ instance Core.AWSRequest DescribeWorkspaceImages where
     Response.receiveJSON
       ( \s h x ->
           DescribeWorkspaceImagesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Images" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Images" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,36 +164,36 @@ instance Prelude.NFData DescribeWorkspaceImages where
       `Prelude.seq` Prelude.rnf imageType
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeWorkspaceImages where
+instance Data.ToHeaders DescribeWorkspaceImages where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.DescribeWorkspaceImages" ::
+              Data.=# ( "WorkspacesService.DescribeWorkspaceImages" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeWorkspaceImages where
+instance Data.ToJSON DescribeWorkspaceImages where
   toJSON DescribeWorkspaceImages' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ImageIds" Core..=) Prelude.<$> imageIds,
-            ("ImageType" Core..=) Prelude.<$> imageType,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ImageIds" Data..=) Prelude.<$> imageIds,
+            ("ImageType" Data..=) Prelude.<$> imageType,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeWorkspaceImages where
+instance Data.ToPath DescribeWorkspaceImages where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeWorkspaceImages where
+instance Data.ToQuery DescribeWorkspaceImages where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeWorkspaceImagesResponse' smart constructor.

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -210,7 +211,7 @@ instance Core.AWSRequest ImportWorkspaceImage where
     Response.receiveJSON
       ( \s h x ->
           ImportWorkspaceImageResponse'
-            Prelude.<$> (x Core..?> "ImageId")
+            Prelude.<$> (x Data..?> "ImageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -232,40 +233,40 @@ instance Prelude.NFData ImportWorkspaceImage where
       `Prelude.seq` Prelude.rnf imageName
       `Prelude.seq` Prelude.rnf imageDescription
 
-instance Core.ToHeaders ImportWorkspaceImage where
+instance Data.ToHeaders ImportWorkspaceImage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.ImportWorkspaceImage" ::
+              Data.=# ( "WorkspacesService.ImportWorkspaceImage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportWorkspaceImage where
+instance Data.ToJSON ImportWorkspaceImage where
   toJSON ImportWorkspaceImage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Applications" Core..=) Prelude.<$> applications,
-            Prelude.Just ("Ec2ImageId" Core..= ec2ImageId),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Applications" Data..=) Prelude.<$> applications,
+            Prelude.Just ("Ec2ImageId" Data..= ec2ImageId),
             Prelude.Just
-              ("IngestionProcess" Core..= ingestionProcess),
-            Prelude.Just ("ImageName" Core..= imageName),
+              ("IngestionProcess" Data..= ingestionProcess),
+            Prelude.Just ("ImageName" Data..= imageName),
             Prelude.Just
-              ("ImageDescription" Core..= imageDescription)
+              ("ImageDescription" Data..= imageDescription)
           ]
       )
 
-instance Core.ToPath ImportWorkspaceImage where
+instance Data.ToPath ImportWorkspaceImage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ImportWorkspaceImage where
+instance Data.ToQuery ImportWorkspaceImage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportWorkspaceImageResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.WorkspaceBundle where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.BundleType
 import Amazonka.WorkSpaces.Types.ComputeType
@@ -44,13 +45,13 @@ data WorkspaceBundle = WorkspaceBundle'
     -- @AMAZON@ if the bundle is provided by Amazon Web Services.
     owner :: Prelude.Maybe Prelude.Text,
     -- | The last time that the bundle was updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the bundle.
     description :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the bundle.
     bundleId :: Prelude.Maybe Prelude.Text,
     -- | The time when the bundle was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The compute type of the bundle. For more information, see
     -- <http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles>.
     computeType :: Prelude.Maybe ComputeType,
@@ -135,7 +136,7 @@ workspaceBundle_owner = Lens.lens (\WorkspaceBundle' {owner} -> owner) (\s@Works
 
 -- | The last time that the bundle was updated.
 workspaceBundle_lastUpdatedTime :: Lens.Lens' WorkspaceBundle (Prelude.Maybe Prelude.UTCTime)
-workspaceBundle_lastUpdatedTime = Lens.lens (\WorkspaceBundle' {lastUpdatedTime} -> lastUpdatedTime) (\s@WorkspaceBundle' {} a -> s {lastUpdatedTime = a} :: WorkspaceBundle) Prelude.. Lens.mapping Core._Time
+workspaceBundle_lastUpdatedTime = Lens.lens (\WorkspaceBundle' {lastUpdatedTime} -> lastUpdatedTime) (\s@WorkspaceBundle' {} a -> s {lastUpdatedTime = a} :: WorkspaceBundle) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the bundle.
 workspaceBundle_description :: Lens.Lens' WorkspaceBundle (Prelude.Maybe Prelude.Text)
@@ -147,7 +148,7 @@ workspaceBundle_bundleId = Lens.lens (\WorkspaceBundle' {bundleId} -> bundleId) 
 
 -- | The time when the bundle was created.
 workspaceBundle_creationTime :: Lens.Lens' WorkspaceBundle (Prelude.Maybe Prelude.UTCTime)
-workspaceBundle_creationTime = Lens.lens (\WorkspaceBundle' {creationTime} -> creationTime) (\s@WorkspaceBundle' {} a -> s {creationTime = a} :: WorkspaceBundle) Prelude.. Lens.mapping Core._Time
+workspaceBundle_creationTime = Lens.lens (\WorkspaceBundle' {creationTime} -> creationTime) (\s@WorkspaceBundle' {} a -> s {creationTime = a} :: WorkspaceBundle) Prelude.. Lens.mapping Data._Time
 
 -- | The compute type of the bundle. For more information, see
 -- <http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles>.
@@ -162,24 +163,24 @@ workspaceBundle_userStorage = Lens.lens (\WorkspaceBundle' {userStorage} -> user
 workspaceBundle_imageId :: Lens.Lens' WorkspaceBundle (Prelude.Maybe Prelude.Text)
 workspaceBundle_imageId = Lens.lens (\WorkspaceBundle' {imageId} -> imageId) (\s@WorkspaceBundle' {} a -> s {imageId = a} :: WorkspaceBundle)
 
-instance Core.FromJSON WorkspaceBundle where
+instance Data.FromJSON WorkspaceBundle where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkspaceBundle"
       ( \x ->
           WorkspaceBundle'
-            Prelude.<$> (x Core..:? "BundleType")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "RootStorage")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Owner")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "BundleId")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "ComputeType")
-            Prelude.<*> (x Core..:? "UserStorage")
-            Prelude.<*> (x Core..:? "ImageId")
+            Prelude.<$> (x Data..:? "BundleType")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "RootStorage")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Owner")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "BundleId")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "ComputeType")
+            Prelude.<*> (x Data..:? "UserStorage")
+            Prelude.<*> (x Data..:? "ImageId")
       )
 
 instance Prelude.Hashable WorkspaceBundle where

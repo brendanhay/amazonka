@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.SamlProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.SamlStatusEnum
 
@@ -151,15 +152,15 @@ samlProperties_relayStateParameterName = Lens.lens (\SamlProperties' {relayState
 samlProperties_userAccessUrl :: Lens.Lens' SamlProperties (Prelude.Maybe Prelude.Text)
 samlProperties_userAccessUrl = Lens.lens (\SamlProperties' {userAccessUrl} -> userAccessUrl) (\s@SamlProperties' {} a -> s {userAccessUrl = a} :: SamlProperties)
 
-instance Core.FromJSON SamlProperties where
+instance Data.FromJSON SamlProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SamlProperties"
       ( \x ->
           SamlProperties'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "RelayStateParameterName")
-            Prelude.<*> (x Core..:? "UserAccessUrl")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "RelayStateParameterName")
+            Prelude.<*> (x Data..:? "UserAccessUrl")
       )
 
 instance Prelude.Hashable SamlProperties where
@@ -174,13 +175,13 @@ instance Prelude.NFData SamlProperties where
       `Prelude.seq` Prelude.rnf relayStateParameterName
       `Prelude.seq` Prelude.rnf userAccessUrl
 
-instance Core.ToJSON SamlProperties where
+instance Data.ToJSON SamlProperties where
   toJSON SamlProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("RelayStateParameterName" Core..=)
+          [ ("Status" Data..=) Prelude.<$> status,
+            ("RelayStateParameterName" Data..=)
               Prelude.<$> relayStateParameterName,
-            ("UserAccessUrl" Core..=) Prelude.<$> userAccessUrl
+            ("UserAccessUrl" Data..=) Prelude.<$> userAccessUrl
           ]
       )

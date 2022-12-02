@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.ConnectClientAddIn where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Amazon Connect client add-in.
@@ -79,16 +80,16 @@ connectClientAddIn_addInId = Lens.lens (\ConnectClientAddIn' {addInId} -> addInI
 connectClientAddIn_url :: Lens.Lens' ConnectClientAddIn (Prelude.Maybe Prelude.Text)
 connectClientAddIn_url = Lens.lens (\ConnectClientAddIn' {url} -> url) (\s@ConnectClientAddIn' {} a -> s {url = a} :: ConnectClientAddIn)
 
-instance Core.FromJSON ConnectClientAddIn where
+instance Data.FromJSON ConnectClientAddIn where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectClientAddIn"
       ( \x ->
           ConnectClientAddIn'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "AddInId")
-            Prelude.<*> (x Core..:? "URL")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "AddInId")
+            Prelude.<*> (x Data..:? "URL")
       )
 
 instance Prelude.Hashable ConnectClientAddIn where

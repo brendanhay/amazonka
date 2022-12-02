@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,34 +119,34 @@ instance Prelude.NFData DeleteClientBranding where
     Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf platforms
 
-instance Core.ToHeaders DeleteClientBranding where
+instance Data.ToHeaders DeleteClientBranding where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.DeleteClientBranding" ::
+              Data.=# ( "WorkspacesService.DeleteClientBranding" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteClientBranding where
+instance Data.ToJSON DeleteClientBranding where
   toJSON DeleteClientBranding' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceId" Core..= resourceId),
-            Prelude.Just ("Platforms" Core..= platforms)
+          [ Prelude.Just ("ResourceId" Data..= resourceId),
+            Prelude.Just ("Platforms" Data..= platforms)
           ]
       )
 
-instance Core.ToPath DeleteClientBranding where
+instance Data.ToPath DeleteClientBranding where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteClientBranding where
+instance Data.ToQuery DeleteClientBranding where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteClientBrandingResponse' smart constructor.

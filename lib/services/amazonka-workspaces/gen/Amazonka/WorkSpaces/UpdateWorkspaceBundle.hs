@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,34 +113,34 @@ instance Prelude.NFData UpdateWorkspaceBundle where
     Prelude.rnf bundleId
       `Prelude.seq` Prelude.rnf imageId
 
-instance Core.ToHeaders UpdateWorkspaceBundle where
+instance Data.ToHeaders UpdateWorkspaceBundle where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.UpdateWorkspaceBundle" ::
+              Data.=# ( "WorkspacesService.UpdateWorkspaceBundle" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateWorkspaceBundle where
+instance Data.ToJSON UpdateWorkspaceBundle where
   toJSON UpdateWorkspaceBundle' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BundleId" Core..=) Prelude.<$> bundleId,
-            ("ImageId" Core..=) Prelude.<$> imageId
+          [ ("BundleId" Data..=) Prelude.<$> bundleId,
+            ("ImageId" Data..=) Prelude.<$> imageId
           ]
       )
 
-instance Core.ToPath UpdateWorkspaceBundle where
+instance Data.ToPath UpdateWorkspaceBundle where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateWorkspaceBundle where
+instance Data.ToQuery UpdateWorkspaceBundle where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateWorkspaceBundleResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.StopRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the information used to stop a WorkSpace.
@@ -57,9 +58,9 @@ instance Prelude.Hashable StopRequest where
 instance Prelude.NFData StopRequest where
   rnf StopRequest' {..} = Prelude.rnf workspaceId
 
-instance Core.ToJSON StopRequest where
+instance Data.ToJSON StopRequest where
   toJSON StopRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("WorkspaceId" Core..=) Prelude.<$> workspaceId]
+          [("WorkspaceId" Data..=) Prelude.<$> workspaceId]
       )

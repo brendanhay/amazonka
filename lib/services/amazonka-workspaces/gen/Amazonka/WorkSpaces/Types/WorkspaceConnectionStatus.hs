@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.WorkspaceConnectionStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.ConnectionState
 
@@ -34,9 +35,9 @@ data WorkspaceConnectionStatus = WorkspaceConnectionStatus'
     -- | The identifier of the WorkSpace.
     workspaceId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of the last known user connection.
-    lastKnownUserConnectionTimestamp :: Prelude.Maybe Core.POSIX,
+    lastKnownUserConnectionTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The timestamp of the connection status check.
-    connectionStateCheckTimestamp :: Prelude.Maybe Core.POSIX
+    connectionStateCheckTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,22 +80,22 @@ workspaceConnectionStatus_workspaceId = Lens.lens (\WorkspaceConnectionStatus' {
 
 -- | The timestamp of the last known user connection.
 workspaceConnectionStatus_lastKnownUserConnectionTimestamp :: Lens.Lens' WorkspaceConnectionStatus (Prelude.Maybe Prelude.UTCTime)
-workspaceConnectionStatus_lastKnownUserConnectionTimestamp = Lens.lens (\WorkspaceConnectionStatus' {lastKnownUserConnectionTimestamp} -> lastKnownUserConnectionTimestamp) (\s@WorkspaceConnectionStatus' {} a -> s {lastKnownUserConnectionTimestamp = a} :: WorkspaceConnectionStatus) Prelude.. Lens.mapping Core._Time
+workspaceConnectionStatus_lastKnownUserConnectionTimestamp = Lens.lens (\WorkspaceConnectionStatus' {lastKnownUserConnectionTimestamp} -> lastKnownUserConnectionTimestamp) (\s@WorkspaceConnectionStatus' {} a -> s {lastKnownUserConnectionTimestamp = a} :: WorkspaceConnectionStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp of the connection status check.
 workspaceConnectionStatus_connectionStateCheckTimestamp :: Lens.Lens' WorkspaceConnectionStatus (Prelude.Maybe Prelude.UTCTime)
-workspaceConnectionStatus_connectionStateCheckTimestamp = Lens.lens (\WorkspaceConnectionStatus' {connectionStateCheckTimestamp} -> connectionStateCheckTimestamp) (\s@WorkspaceConnectionStatus' {} a -> s {connectionStateCheckTimestamp = a} :: WorkspaceConnectionStatus) Prelude.. Lens.mapping Core._Time
+workspaceConnectionStatus_connectionStateCheckTimestamp = Lens.lens (\WorkspaceConnectionStatus' {connectionStateCheckTimestamp} -> connectionStateCheckTimestamp) (\s@WorkspaceConnectionStatus' {} a -> s {connectionStateCheckTimestamp = a} :: WorkspaceConnectionStatus) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON WorkspaceConnectionStatus where
+instance Data.FromJSON WorkspaceConnectionStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkspaceConnectionStatus"
       ( \x ->
           WorkspaceConnectionStatus'
-            Prelude.<$> (x Core..:? "ConnectionState")
-            Prelude.<*> (x Core..:? "WorkspaceId")
-            Prelude.<*> (x Core..:? "LastKnownUserConnectionTimestamp")
-            Prelude.<*> (x Core..:? "ConnectionStateCheckTimestamp")
+            Prelude.<$> (x Data..:? "ConnectionState")
+            Prelude.<*> (x Data..:? "WorkspaceId")
+            Prelude.<*> (x Data..:? "LastKnownUserConnectionTimestamp")
+            Prelude.<*> (x Data..:? "ConnectionStateCheckTimestamp")
       )
 
 instance Prelude.Hashable WorkspaceConnectionStatus where

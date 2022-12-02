@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,12 +98,12 @@ instance Core.AWSRequest DescribeClientBranding where
     Response.receiveJSON
       ( \s h x ->
           DescribeClientBrandingResponse'
-            Prelude.<$> (x Core..?> "DeviceTypeAndroid")
-            Prelude.<*> (x Core..?> "DeviceTypeLinux")
-            Prelude.<*> (x Core..?> "DeviceTypeWeb")
-            Prelude.<*> (x Core..?> "DeviceTypeOsx")
-            Prelude.<*> (x Core..?> "DeviceTypeWindows")
-            Prelude.<*> (x Core..?> "DeviceTypeIos")
+            Prelude.<$> (x Data..?> "DeviceTypeAndroid")
+            Prelude.<*> (x Data..?> "DeviceTypeLinux")
+            Prelude.<*> (x Data..?> "DeviceTypeWeb")
+            Prelude.<*> (x Data..?> "DeviceTypeOsx")
+            Prelude.<*> (x Data..?> "DeviceTypeWindows")
+            Prelude.<*> (x Data..?> "DeviceTypeIos")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,32 +115,32 @@ instance Prelude.NFData DescribeClientBranding where
   rnf DescribeClientBranding' {..} =
     Prelude.rnf resourceId
 
-instance Core.ToHeaders DescribeClientBranding where
+instance Data.ToHeaders DescribeClientBranding where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.DescribeClientBranding" ::
+              Data.=# ( "WorkspacesService.DescribeClientBranding" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeClientBranding where
+instance Data.ToJSON DescribeClientBranding where
   toJSON DescribeClientBranding' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ResourceId" Core..= resourceId)]
+          [Prelude.Just ("ResourceId" Data..= resourceId)]
       )
 
-instance Core.ToPath DescribeClientBranding where
+instance Data.ToPath DescribeClientBranding where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeClientBranding where
+instance Data.ToQuery DescribeClientBranding where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeClientBrandingResponse' smart constructor.

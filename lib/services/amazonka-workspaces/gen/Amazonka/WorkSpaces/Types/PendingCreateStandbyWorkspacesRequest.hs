@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.PendingCreateStandbyWorkspacesRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.WorkspaceState
 
@@ -103,18 +104,18 @@ pendingCreateStandbyWorkspacesRequest_workspaceId :: Lens.Lens' PendingCreateSta
 pendingCreateStandbyWorkspacesRequest_workspaceId = Lens.lens (\PendingCreateStandbyWorkspacesRequest' {workspaceId} -> workspaceId) (\s@PendingCreateStandbyWorkspacesRequest' {} a -> s {workspaceId = a} :: PendingCreateStandbyWorkspacesRequest)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     PendingCreateStandbyWorkspacesRequest
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PendingCreateStandbyWorkspacesRequest"
       ( \x ->
           PendingCreateStandbyWorkspacesRequest'
-            Prelude.<$> (x Core..:? "DirectoryId")
-            Prelude.<*> (x Core..:? "UserName")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "WorkspaceId")
+            Prelude.<$> (x Data..:? "DirectoryId")
+            Prelude.<*> (x Data..:? "UserName")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "WorkspaceId")
       )
 
 instance

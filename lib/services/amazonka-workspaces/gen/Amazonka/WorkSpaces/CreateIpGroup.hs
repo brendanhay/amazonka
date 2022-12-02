@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,7 +129,7 @@ instance Core.AWSRequest CreateIpGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateIpGroupResponse'
-            Prelude.<$> (x Core..?> "GroupId")
+            Prelude.<$> (x Data..?> "GroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,36 +147,36 @@ instance Prelude.NFData CreateIpGroup where
       `Prelude.seq` Prelude.rnf groupDesc
       `Prelude.seq` Prelude.rnf groupName
 
-instance Core.ToHeaders CreateIpGroup where
+instance Data.ToHeaders CreateIpGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.CreateIpGroup" ::
+              Data.=# ( "WorkspacesService.CreateIpGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateIpGroup where
+instance Data.ToJSON CreateIpGroup where
   toJSON CreateIpGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("UserRules" Core..=) Prelude.<$> userRules,
-            ("GroupDesc" Core..=) Prelude.<$> groupDesc,
-            Prelude.Just ("GroupName" Core..= groupName)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("UserRules" Data..=) Prelude.<$> userRules,
+            ("GroupDesc" Data..=) Prelude.<$> groupDesc,
+            Prelude.Just ("GroupName" Data..= groupName)
           ]
       )
 
-instance Core.ToPath CreateIpGroup where
+instance Data.ToPath CreateIpGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateIpGroup where
+instance Data.ToQuery CreateIpGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateIpGroupResponse' smart constructor.

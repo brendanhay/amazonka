@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,8 +112,8 @@ instance Core.AWSRequest DescribeConnectClientAddIns where
     Response.receiveJSON
       ( \s h x ->
           DescribeConnectClientAddInsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "AddIns" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "AddIns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,35 +129,35 @@ instance Prelude.NFData DescribeConnectClientAddIns where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf resourceId
 
-instance Core.ToHeaders DescribeConnectClientAddIns where
+instance Data.ToHeaders DescribeConnectClientAddIns where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.DescribeConnectClientAddIns" ::
+              Data.=# ( "WorkspacesService.DescribeConnectClientAddIns" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeConnectClientAddIns where
+instance Data.ToJSON DescribeConnectClientAddIns where
   toJSON DescribeConnectClientAddIns' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("ResourceId" Core..= resourceId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("ResourceId" Data..= resourceId)
           ]
       )
 
-instance Core.ToPath DescribeConnectClientAddIns where
+instance Data.ToPath DescribeConnectClientAddIns where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeConnectClientAddIns where
+instance Data.ToQuery DescribeConnectClientAddIns where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeConnectClientAddInsResponse' smart constructor.

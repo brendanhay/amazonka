@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.WorkspaceAccessProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.AccessPropertyValue
 
@@ -137,20 +138,20 @@ workspaceAccessProperties_deviceTypeIos = Lens.lens (\WorkspaceAccessProperties'
 workspaceAccessProperties_deviceTypeZeroClient :: Lens.Lens' WorkspaceAccessProperties (Prelude.Maybe AccessPropertyValue)
 workspaceAccessProperties_deviceTypeZeroClient = Lens.lens (\WorkspaceAccessProperties' {deviceTypeZeroClient} -> deviceTypeZeroClient) (\s@WorkspaceAccessProperties' {} a -> s {deviceTypeZeroClient = a} :: WorkspaceAccessProperties)
 
-instance Core.FromJSON WorkspaceAccessProperties where
+instance Data.FromJSON WorkspaceAccessProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkspaceAccessProperties"
       ( \x ->
           WorkspaceAccessProperties'
-            Prelude.<$> (x Core..:? "DeviceTypeAndroid")
-            Prelude.<*> (x Core..:? "DeviceTypeLinux")
-            Prelude.<*> (x Core..:? "DeviceTypeWeb")
-            Prelude.<*> (x Core..:? "DeviceTypeOsx")
-            Prelude.<*> (x Core..:? "DeviceTypeChromeOs")
-            Prelude.<*> (x Core..:? "DeviceTypeWindows")
-            Prelude.<*> (x Core..:? "DeviceTypeIos")
-            Prelude.<*> (x Core..:? "DeviceTypeZeroClient")
+            Prelude.<$> (x Data..:? "DeviceTypeAndroid")
+            Prelude.<*> (x Data..:? "DeviceTypeLinux")
+            Prelude.<*> (x Data..:? "DeviceTypeWeb")
+            Prelude.<*> (x Data..:? "DeviceTypeOsx")
+            Prelude.<*> (x Data..:? "DeviceTypeChromeOs")
+            Prelude.<*> (x Data..:? "DeviceTypeWindows")
+            Prelude.<*> (x Data..:? "DeviceTypeIos")
+            Prelude.<*> (x Data..:? "DeviceTypeZeroClient")
       )
 
 instance Prelude.Hashable WorkspaceAccessProperties where
@@ -175,22 +176,22 @@ instance Prelude.NFData WorkspaceAccessProperties where
       `Prelude.seq` Prelude.rnf deviceTypeIos
       `Prelude.seq` Prelude.rnf deviceTypeZeroClient
 
-instance Core.ToJSON WorkspaceAccessProperties where
+instance Data.ToJSON WorkspaceAccessProperties where
   toJSON WorkspaceAccessProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeviceTypeAndroid" Core..=)
+          [ ("DeviceTypeAndroid" Data..=)
               Prelude.<$> deviceTypeAndroid,
-            ("DeviceTypeLinux" Core..=)
+            ("DeviceTypeLinux" Data..=)
               Prelude.<$> deviceTypeLinux,
-            ("DeviceTypeWeb" Core..=) Prelude.<$> deviceTypeWeb,
-            ("DeviceTypeOsx" Core..=) Prelude.<$> deviceTypeOsx,
-            ("DeviceTypeChromeOs" Core..=)
+            ("DeviceTypeWeb" Data..=) Prelude.<$> deviceTypeWeb,
+            ("DeviceTypeOsx" Data..=) Prelude.<$> deviceTypeOsx,
+            ("DeviceTypeChromeOs" Data..=)
               Prelude.<$> deviceTypeChromeOs,
-            ("DeviceTypeWindows" Core..=)
+            ("DeviceTypeWindows" Data..=)
               Prelude.<$> deviceTypeWindows,
-            ("DeviceTypeIos" Core..=) Prelude.<$> deviceTypeIos,
-            ("DeviceTypeZeroClient" Core..=)
+            ("DeviceTypeIos" Data..=) Prelude.<$> deviceTypeIos,
+            ("DeviceTypeZeroClient" Data..=)
               Prelude.<$> deviceTypeZeroClient
           ]
       )

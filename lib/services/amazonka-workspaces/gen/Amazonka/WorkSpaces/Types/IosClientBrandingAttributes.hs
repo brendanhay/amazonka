@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.IosClientBrandingAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The client branding attributes for iOS device types. These attributes
@@ -207,19 +208,19 @@ iosClientBrandingAttributes_loginMessage = Lens.lens (\IosClientBrandingAttribut
 iosClientBrandingAttributes_forgotPasswordLink :: Lens.Lens' IosClientBrandingAttributes (Prelude.Maybe Prelude.Text)
 iosClientBrandingAttributes_forgotPasswordLink = Lens.lens (\IosClientBrandingAttributes' {forgotPasswordLink} -> forgotPasswordLink) (\s@IosClientBrandingAttributes' {} a -> s {forgotPasswordLink = a} :: IosClientBrandingAttributes)
 
-instance Core.FromJSON IosClientBrandingAttributes where
+instance Data.FromJSON IosClientBrandingAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IosClientBrandingAttributes"
       ( \x ->
           IosClientBrandingAttributes'
-            Prelude.<$> (x Core..:? "SupportLink")
-            Prelude.<*> (x Core..:? "SupportEmail")
-            Prelude.<*> (x Core..:? "Logo2xUrl")
-            Prelude.<*> (x Core..:? "LogoUrl")
-            Prelude.<*> (x Core..:? "Logo3xUrl")
-            Prelude.<*> (x Core..:? "LoginMessage" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ForgotPasswordLink")
+            Prelude.<$> (x Data..:? "SupportLink")
+            Prelude.<*> (x Data..:? "SupportEmail")
+            Prelude.<*> (x Data..:? "Logo2xUrl")
+            Prelude.<*> (x Data..:? "LogoUrl")
+            Prelude.<*> (x Data..:? "Logo3xUrl")
+            Prelude.<*> (x Data..:? "LoginMessage" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ForgotPasswordLink")
       )
 
 instance Prelude.Hashable IosClientBrandingAttributes where

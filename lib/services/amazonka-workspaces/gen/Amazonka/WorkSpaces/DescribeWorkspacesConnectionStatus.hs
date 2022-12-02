@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,8 +129,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeWorkspacesConnectionStatusResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> ( x Core..?> "WorkspacesConnectionStatus"
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> ( x Data..?> "WorkspacesConnectionStatus"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -154,43 +155,43 @@ instance
       `Prelude.seq` Prelude.rnf workspaceIds
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeWorkspacesConnectionStatus
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.DescribeWorkspacesConnectionStatus" ::
+              Data.=# ( "WorkspacesService.DescribeWorkspacesConnectionStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeWorkspacesConnectionStatus
   where
   toJSON DescribeWorkspacesConnectionStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("WorkspaceIds" Core..=) Prelude.<$> workspaceIds
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("WorkspaceIds" Data..=) Prelude.<$> workspaceIds
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeWorkspacesConnectionStatus
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeWorkspacesConnectionStatus
   where
   toQuery = Prelude.const Prelude.mempty

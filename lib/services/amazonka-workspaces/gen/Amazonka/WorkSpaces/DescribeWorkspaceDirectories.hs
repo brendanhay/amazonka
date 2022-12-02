@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,8 +137,8 @@ instance Core.AWSRequest DescribeWorkspaceDirectories where
     Response.receiveJSON
       ( \s h x ->
           DescribeWorkspaceDirectoriesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Directories" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Directories" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,35 +157,35 @@ instance Prelude.NFData DescribeWorkspaceDirectories where
       `Prelude.seq` Prelude.rnf directoryIds
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders DescribeWorkspaceDirectories where
+instance Data.ToHeaders DescribeWorkspaceDirectories where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.DescribeWorkspaceDirectories" ::
+              Data.=# ( "WorkspacesService.DescribeWorkspaceDirectories" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeWorkspaceDirectories where
+instance Data.ToJSON DescribeWorkspaceDirectories where
   toJSON DescribeWorkspaceDirectories' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("DirectoryIds" Core..=) Prelude.<$> directoryIds,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("DirectoryIds" Data..=) Prelude.<$> directoryIds,
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
-instance Core.ToPath DescribeWorkspaceDirectories where
+instance Data.ToPath DescribeWorkspaceDirectories where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeWorkspaceDirectories where
+instance Data.ToQuery DescribeWorkspaceDirectories where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeWorkspaceDirectoriesResponse' smart constructor.

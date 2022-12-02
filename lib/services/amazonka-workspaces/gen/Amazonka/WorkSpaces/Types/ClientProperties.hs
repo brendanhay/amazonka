@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.ClientProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.LogUploadEnum
 import Amazonka.WorkSpaces.Types.ReconnectEnum
@@ -82,14 +83,14 @@ clientProperties_reconnectEnabled = Lens.lens (\ClientProperties' {reconnectEnab
 clientProperties_logUploadEnabled :: Lens.Lens' ClientProperties (Prelude.Maybe LogUploadEnum)
 clientProperties_logUploadEnabled = Lens.lens (\ClientProperties' {logUploadEnabled} -> logUploadEnabled) (\s@ClientProperties' {} a -> s {logUploadEnabled = a} :: ClientProperties)
 
-instance Core.FromJSON ClientProperties where
+instance Data.FromJSON ClientProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClientProperties"
       ( \x ->
           ClientProperties'
-            Prelude.<$> (x Core..:? "ReconnectEnabled")
-            Prelude.<*> (x Core..:? "LogUploadEnabled")
+            Prelude.<$> (x Data..:? "ReconnectEnabled")
+            Prelude.<*> (x Data..:? "LogUploadEnabled")
       )
 
 instance Prelude.Hashable ClientProperties where
@@ -102,13 +103,13 @@ instance Prelude.NFData ClientProperties where
     Prelude.rnf reconnectEnabled
       `Prelude.seq` Prelude.rnf logUploadEnabled
 
-instance Core.ToJSON ClientProperties where
+instance Data.ToJSON ClientProperties where
   toJSON ClientProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ReconnectEnabled" Core..=)
+          [ ("ReconnectEnabled" Data..=)
               Prelude.<$> reconnectEnabled,
-            ("LogUploadEnabled" Core..=)
+            ("LogUploadEnabled" Data..=)
               Prelude.<$> logUploadEnabled
           ]
       )

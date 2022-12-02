@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,8 +131,8 @@ instance Core.AWSRequest DescribeIpGroups where
     Response.receiveJSON
       ( \s h x ->
           DescribeIpGroupsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Result" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Result" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,35 +148,35 @@ instance Prelude.NFData DescribeIpGroups where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf groupIds
 
-instance Core.ToHeaders DescribeIpGroups where
+instance Data.ToHeaders DescribeIpGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.DescribeIpGroups" ::
+              Data.=# ( "WorkspacesService.DescribeIpGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeIpGroups where
+instance Data.ToJSON DescribeIpGroups where
   toJSON DescribeIpGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("GroupIds" Core..=) Prelude.<$> groupIds
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("GroupIds" Data..=) Prelude.<$> groupIds
           ]
       )
 
-instance Core.ToPath DescribeIpGroups where
+instance Data.ToPath DescribeIpGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeIpGroups where
+instance Data.ToQuery DescribeIpGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeIpGroupsResponse' smart constructor.

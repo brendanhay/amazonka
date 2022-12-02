@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -169,7 +170,7 @@ instance Core.AWSRequest CreateWorkspaceBundle where
     Response.receiveJSON
       ( \s h x ->
           CreateWorkspaceBundleResponse'
-            Prelude.<$> (x Core..?> "WorkspaceBundle")
+            Prelude.<$> (x Data..?> "WorkspaceBundle")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,40 +194,40 @@ instance Prelude.NFData CreateWorkspaceBundle where
       `Prelude.seq` Prelude.rnf computeType
       `Prelude.seq` Prelude.rnf userStorage
 
-instance Core.ToHeaders CreateWorkspaceBundle where
+instance Data.ToHeaders CreateWorkspaceBundle where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.CreateWorkspaceBundle" ::
+              Data.=# ( "WorkspacesService.CreateWorkspaceBundle" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWorkspaceBundle where
+instance Data.ToJSON CreateWorkspaceBundle where
   toJSON CreateWorkspaceBundle' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("RootStorage" Core..=) Prelude.<$> rootStorage,
-            Prelude.Just ("BundleName" Core..= bundleName),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("RootStorage" Data..=) Prelude.<$> rootStorage,
+            Prelude.Just ("BundleName" Data..= bundleName),
             Prelude.Just
-              ("BundleDescription" Core..= bundleDescription),
-            Prelude.Just ("ImageId" Core..= imageId),
-            Prelude.Just ("ComputeType" Core..= computeType),
-            Prelude.Just ("UserStorage" Core..= userStorage)
+              ("BundleDescription" Data..= bundleDescription),
+            Prelude.Just ("ImageId" Data..= imageId),
+            Prelude.Just ("ComputeType" Data..= computeType),
+            Prelude.Just ("UserStorage" Data..= userStorage)
           ]
       )
 
-instance Core.ToPath CreateWorkspaceBundle where
+instance Data.ToPath CreateWorkspaceBundle where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateWorkspaceBundle where
+instance Data.ToQuery CreateWorkspaceBundle where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWorkspaceBundleResponse' smart constructor.

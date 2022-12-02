@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,7 +150,7 @@ instance Core.AWSRequest CopyWorkspaceImage where
     Response.receiveJSON
       ( \s h x ->
           CopyWorkspaceImageResponse'
-            Prelude.<$> (x Core..?> "ImageId")
+            Prelude.<$> (x Data..?> "ImageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,37 +170,37 @@ instance Prelude.NFData CopyWorkspaceImage where
       `Prelude.seq` Prelude.rnf sourceImageId
       `Prelude.seq` Prelude.rnf sourceRegion
 
-instance Core.ToHeaders CopyWorkspaceImage where
+instance Data.ToHeaders CopyWorkspaceImage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.CopyWorkspaceImage" ::
+              Data.=# ( "WorkspacesService.CopyWorkspaceImage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CopyWorkspaceImage where
+instance Data.ToJSON CopyWorkspaceImage where
   toJSON CopyWorkspaceImage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("SourceImageId" Core..= sourceImageId),
-            Prelude.Just ("SourceRegion" Core..= sourceRegion)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("SourceImageId" Data..= sourceImageId),
+            Prelude.Just ("SourceRegion" Data..= sourceRegion)
           ]
       )
 
-instance Core.ToPath CopyWorkspaceImage where
+instance Data.ToPath CopyWorkspaceImage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CopyWorkspaceImage where
+instance Data.ToQuery CopyWorkspaceImage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCopyWorkspaceImageResponse' smart constructor.

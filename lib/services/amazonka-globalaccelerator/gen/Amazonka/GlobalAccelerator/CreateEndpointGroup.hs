@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -276,7 +277,7 @@ instance Core.AWSRequest CreateEndpointGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateEndpointGroupResponse'
-            Prelude.<$> (x Core..?> "EndpointGroup")
+            Prelude.<$> (x Data..?> "EndpointGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -308,52 +309,52 @@ instance Prelude.NFData CreateEndpointGroup where
       `Prelude.seq` Prelude.rnf endpointGroupRegion
       `Prelude.seq` Prelude.rnf idempotencyToken
 
-instance Core.ToHeaders CreateEndpointGroup where
+instance Data.ToHeaders CreateEndpointGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.CreateEndpointGroup" ::
+              Data.=# ( "GlobalAccelerator_V20180706.CreateEndpointGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEndpointGroup where
+instance Data.ToJSON CreateEndpointGroup where
   toJSON CreateEndpointGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HealthCheckProtocol" Core..=)
+          [ ("HealthCheckProtocol" Data..=)
               Prelude.<$> healthCheckProtocol,
-            ("PortOverrides" Core..=) Prelude.<$> portOverrides,
-            ("HealthCheckPath" Core..=)
+            ("PortOverrides" Data..=) Prelude.<$> portOverrides,
+            ("HealthCheckPath" Data..=)
               Prelude.<$> healthCheckPath,
-            ("HealthCheckIntervalSeconds" Core..=)
+            ("HealthCheckIntervalSeconds" Data..=)
               Prelude.<$> healthCheckIntervalSeconds,
-            ("EndpointConfigurations" Core..=)
+            ("EndpointConfigurations" Data..=)
               Prelude.<$> endpointConfigurations,
-            ("TrafficDialPercentage" Core..=)
+            ("TrafficDialPercentage" Data..=)
               Prelude.<$> trafficDialPercentage,
-            ("ThresholdCount" Core..=)
+            ("ThresholdCount" Data..=)
               Prelude.<$> thresholdCount,
-            ("HealthCheckPort" Core..=)
+            ("HealthCheckPort" Data..=)
               Prelude.<$> healthCheckPort,
-            Prelude.Just ("ListenerArn" Core..= listenerArn),
+            Prelude.Just ("ListenerArn" Data..= listenerArn),
             Prelude.Just
-              ("EndpointGroupRegion" Core..= endpointGroupRegion),
+              ("EndpointGroupRegion" Data..= endpointGroupRegion),
             Prelude.Just
-              ("IdempotencyToken" Core..= idempotencyToken)
+              ("IdempotencyToken" Data..= idempotencyToken)
           ]
       )
 
-instance Core.ToPath CreateEndpointGroup where
+instance Data.ToPath CreateEndpointGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateEndpointGroup where
+instance Data.ToQuery CreateEndpointGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEndpointGroupResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.GlobalAccelerator.Types.Listener where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types.ClientAffinity
 import Amazonka.GlobalAccelerator.Types.PortRange
 import Amazonka.GlobalAccelerator.Types.Protocol
@@ -145,16 +146,16 @@ listener_protocol = Lens.lens (\Listener' {protocol} -> protocol) (\s@Listener' 
 listener_portRanges :: Lens.Lens' Listener (Prelude.Maybe (Prelude.NonEmpty PortRange))
 listener_portRanges = Lens.lens (\Listener' {portRanges} -> portRanges) (\s@Listener' {} a -> s {portRanges = a} :: Listener) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Listener where
+instance Data.FromJSON Listener where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Listener"
       ( \x ->
           Listener'
-            Prelude.<$> (x Core..:? "ListenerArn")
-            Prelude.<*> (x Core..:? "ClientAffinity")
-            Prelude.<*> (x Core..:? "Protocol")
-            Prelude.<*> (x Core..:? "PortRanges")
+            Prelude.<$> (x Data..:? "ListenerArn")
+            Prelude.<*> (x Data..:? "ClientAffinity")
+            Prelude.<*> (x Data..:? "Protocol")
+            Prelude.<*> (x Data..:? "PortRanges")
       )
 
 instance Prelude.Hashable Listener where

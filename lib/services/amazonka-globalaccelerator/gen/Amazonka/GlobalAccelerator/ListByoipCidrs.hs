@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,8 +126,8 @@ instance Core.AWSRequest ListByoipCidrs where
     Response.receiveJSON
       ( \s h x ->
           ListByoipCidrsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ByoipCidrs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ByoipCidrs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,34 +141,34 @@ instance Prelude.NFData ListByoipCidrs where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListByoipCidrs where
+instance Data.ToHeaders ListByoipCidrs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.ListByoipCidrs" ::
+              Data.=# ( "GlobalAccelerator_V20180706.ListByoipCidrs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListByoipCidrs where
+instance Data.ToJSON ListByoipCidrs where
   toJSON ListByoipCidrs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListByoipCidrs where
+instance Data.ToPath ListByoipCidrs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListByoipCidrs where
+instance Data.ToQuery ListByoipCidrs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListByoipCidrsResponse' smart constructor.

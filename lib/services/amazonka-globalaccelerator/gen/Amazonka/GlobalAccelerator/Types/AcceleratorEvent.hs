@@ -21,6 +21,7 @@ module Amazonka.GlobalAccelerator.Types.AcceleratorEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that contains a @Timestamp@ value and @Message@ for
@@ -37,7 +38,7 @@ data AcceleratorEvent = AcceleratorEvent'
     message :: Prelude.Maybe Prelude.Text,
     -- | A timestamp for when you update an accelerator in Global Accelerator
     -- from IPv4 to dual-stack, or dual-stack to IPv4.
-    timestamp :: Prelude.Maybe Core.POSIX
+    timestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,16 +73,16 @@ acceleratorEvent_message = Lens.lens (\AcceleratorEvent' {message} -> message) (
 -- | A timestamp for when you update an accelerator in Global Accelerator
 -- from IPv4 to dual-stack, or dual-stack to IPv4.
 acceleratorEvent_timestamp :: Lens.Lens' AcceleratorEvent (Prelude.Maybe Prelude.UTCTime)
-acceleratorEvent_timestamp = Lens.lens (\AcceleratorEvent' {timestamp} -> timestamp) (\s@AcceleratorEvent' {} a -> s {timestamp = a} :: AcceleratorEvent) Prelude.. Lens.mapping Core._Time
+acceleratorEvent_timestamp = Lens.lens (\AcceleratorEvent' {timestamp} -> timestamp) (\s@AcceleratorEvent' {} a -> s {timestamp = a} :: AcceleratorEvent) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AcceleratorEvent where
+instance Data.FromJSON AcceleratorEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AcceleratorEvent"
       ( \x ->
           AcceleratorEvent'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Timestamp")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Timestamp")
       )
 
 instance Prelude.Hashable AcceleratorEvent where

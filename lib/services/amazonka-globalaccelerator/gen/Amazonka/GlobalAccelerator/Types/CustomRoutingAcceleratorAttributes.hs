@@ -21,6 +21,7 @@ module Amazonka.GlobalAccelerator.Types.CustomRoutingAcceleratorAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Attributes of a custom routing accelerator.
@@ -123,17 +124,17 @@ customRoutingAcceleratorAttributes_flowLogsS3Prefix :: Lens.Lens' CustomRoutingA
 customRoutingAcceleratorAttributes_flowLogsS3Prefix = Lens.lens (\CustomRoutingAcceleratorAttributes' {flowLogsS3Prefix} -> flowLogsS3Prefix) (\s@CustomRoutingAcceleratorAttributes' {} a -> s {flowLogsS3Prefix = a} :: CustomRoutingAcceleratorAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CustomRoutingAcceleratorAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomRoutingAcceleratorAttributes"
       ( \x ->
           CustomRoutingAcceleratorAttributes'
-            Prelude.<$> (x Core..:? "FlowLogsEnabled")
-            Prelude.<*> (x Core..:? "FlowLogsS3Bucket")
-            Prelude.<*> (x Core..:? "FlowLogsS3Prefix")
+            Prelude.<$> (x Data..:? "FlowLogsEnabled")
+            Prelude.<*> (x Data..:? "FlowLogsS3Bucket")
+            Prelude.<*> (x Data..:? "FlowLogsS3Prefix")
       )
 
 instance

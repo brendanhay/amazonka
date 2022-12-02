@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,34 +109,34 @@ instance Prelude.NFData DeleteAccelerator where
   rnf DeleteAccelerator' {..} =
     Prelude.rnf acceleratorArn
 
-instance Core.ToHeaders DeleteAccelerator where
+instance Data.ToHeaders DeleteAccelerator where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.DeleteAccelerator" ::
+              Data.=# ( "GlobalAccelerator_V20180706.DeleteAccelerator" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAccelerator where
+instance Data.ToJSON DeleteAccelerator where
   toJSON DeleteAccelerator' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AcceleratorArn" Core..= acceleratorArn)
+              ("AcceleratorArn" Data..= acceleratorArn)
           ]
       )
 
-instance Core.ToPath DeleteAccelerator where
+instance Data.ToPath DeleteAccelerator where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAccelerator where
+instance Data.ToQuery DeleteAccelerator where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAcceleratorResponse' smart constructor.

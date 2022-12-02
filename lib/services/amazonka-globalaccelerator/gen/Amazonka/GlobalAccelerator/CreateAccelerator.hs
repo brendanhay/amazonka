@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -247,7 +248,7 @@ instance Core.AWSRequest CreateAccelerator where
     Response.receiveJSON
       ( \s h x ->
           CreateAcceleratorResponse'
-            Prelude.<$> (x Core..?> "Accelerator")
+            Prelude.<$> (x Data..?> "Accelerator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -269,39 +270,39 @@ instance Prelude.NFData CreateAccelerator where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf idempotencyToken
 
-instance Core.ToHeaders CreateAccelerator where
+instance Data.ToHeaders CreateAccelerator where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.CreateAccelerator" ::
+              Data.=# ( "GlobalAccelerator_V20180706.CreateAccelerator" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAccelerator where
+instance Data.ToJSON CreateAccelerator where
   toJSON CreateAccelerator' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("IpAddressType" Core..=) Prelude.<$> ipAddressType,
-            ("IpAddresses" Core..=) Prelude.<$> ipAddresses,
-            Prelude.Just ("Name" Core..= name),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Enabled" Data..=) Prelude.<$> enabled,
+            ("IpAddressType" Data..=) Prelude.<$> ipAddressType,
+            ("IpAddresses" Data..=) Prelude.<$> ipAddresses,
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("IdempotencyToken" Core..= idempotencyToken)
+              ("IdempotencyToken" Data..= idempotencyToken)
           ]
       )
 
-instance Core.ToPath CreateAccelerator where
+instance Data.ToPath CreateAccelerator where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateAccelerator where
+instance Data.ToQuery CreateAccelerator where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAcceleratorResponse' smart constructor.

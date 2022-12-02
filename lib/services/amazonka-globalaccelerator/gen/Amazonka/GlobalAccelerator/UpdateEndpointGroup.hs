@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -245,7 +246,7 @@ instance Core.AWSRequest UpdateEndpointGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateEndpointGroupResponse'
-            Prelude.<$> (x Core..?> "EndpointGroup")
+            Prelude.<$> (x Data..?> "EndpointGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -273,49 +274,49 @@ instance Prelude.NFData UpdateEndpointGroup where
       `Prelude.seq` Prelude.rnf healthCheckPort
       `Prelude.seq` Prelude.rnf endpointGroupArn
 
-instance Core.ToHeaders UpdateEndpointGroup where
+instance Data.ToHeaders UpdateEndpointGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.UpdateEndpointGroup" ::
+              Data.=# ( "GlobalAccelerator_V20180706.UpdateEndpointGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateEndpointGroup where
+instance Data.ToJSON UpdateEndpointGroup where
   toJSON UpdateEndpointGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HealthCheckProtocol" Core..=)
+          [ ("HealthCheckProtocol" Data..=)
               Prelude.<$> healthCheckProtocol,
-            ("PortOverrides" Core..=) Prelude.<$> portOverrides,
-            ("HealthCheckPath" Core..=)
+            ("PortOverrides" Data..=) Prelude.<$> portOverrides,
+            ("HealthCheckPath" Data..=)
               Prelude.<$> healthCheckPath,
-            ("HealthCheckIntervalSeconds" Core..=)
+            ("HealthCheckIntervalSeconds" Data..=)
               Prelude.<$> healthCheckIntervalSeconds,
-            ("EndpointConfigurations" Core..=)
+            ("EndpointConfigurations" Data..=)
               Prelude.<$> endpointConfigurations,
-            ("TrafficDialPercentage" Core..=)
+            ("TrafficDialPercentage" Data..=)
               Prelude.<$> trafficDialPercentage,
-            ("ThresholdCount" Core..=)
+            ("ThresholdCount" Data..=)
               Prelude.<$> thresholdCount,
-            ("HealthCheckPort" Core..=)
+            ("HealthCheckPort" Data..=)
               Prelude.<$> healthCheckPort,
             Prelude.Just
-              ("EndpointGroupArn" Core..= endpointGroupArn)
+              ("EndpointGroupArn" Data..= endpointGroupArn)
           ]
       )
 
-instance Core.ToPath UpdateEndpointGroup where
+instance Data.ToPath UpdateEndpointGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateEndpointGroup where
+instance Data.ToQuery UpdateEndpointGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEndpointGroupResponse' smart constructor.

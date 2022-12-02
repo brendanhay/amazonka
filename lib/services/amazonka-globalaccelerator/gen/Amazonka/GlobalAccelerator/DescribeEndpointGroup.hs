@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,7 +87,7 @@ instance Core.AWSRequest DescribeEndpointGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeEndpointGroupResponse'
-            Prelude.<$> (x Core..?> "EndpointGroup")
+            Prelude.<$> (x Data..?> "EndpointGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,34 +99,34 @@ instance Prelude.NFData DescribeEndpointGroup where
   rnf DescribeEndpointGroup' {..} =
     Prelude.rnf endpointGroupArn
 
-instance Core.ToHeaders DescribeEndpointGroup where
+instance Data.ToHeaders DescribeEndpointGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.DescribeEndpointGroup" ::
+              Data.=# ( "GlobalAccelerator_V20180706.DescribeEndpointGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEndpointGroup where
+instance Data.ToJSON DescribeEndpointGroup where
   toJSON DescribeEndpointGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("EndpointGroupArn" Core..= endpointGroupArn)
+              ("EndpointGroupArn" Data..= endpointGroupArn)
           ]
       )
 
-instance Core.ToPath DescribeEndpointGroup where
+instance Data.ToPath DescribeEndpointGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEndpointGroup where
+instance Data.ToQuery DescribeEndpointGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEndpointGroupResponse' smart constructor.

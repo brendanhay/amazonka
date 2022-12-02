@@ -21,6 +21,7 @@ module Amazonka.GlobalAccelerator.Types.IpSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types.IpAddressFamily
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,15 +75,15 @@ ipSet_ipAddressFamily = Lens.lens (\IpSet' {ipAddressFamily} -> ipAddressFamily)
 ipSet_ipAddresses :: Lens.Lens' IpSet (Prelude.Maybe [Prelude.Text])
 ipSet_ipAddresses = Lens.lens (\IpSet' {ipAddresses} -> ipAddresses) (\s@IpSet' {} a -> s {ipAddresses = a} :: IpSet) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON IpSet where
+instance Data.FromJSON IpSet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IpSet"
       ( \x ->
           IpSet'
-            Prelude.<$> (x Core..:? "IpFamily")
-            Prelude.<*> (x Core..:? "IpAddressFamily")
-            Prelude.<*> (x Core..:? "IpAddresses" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "IpFamily")
+            Prelude.<*> (x Data..:? "IpAddressFamily")
+            Prelude.<*> (x Data..:? "IpAddresses" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable IpSet where

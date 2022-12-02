@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,36 +123,36 @@ instance Prelude.NFData RemoveEndpoints where
     Prelude.rnf endpointIdentifiers
       `Prelude.seq` Prelude.rnf endpointGroupArn
 
-instance Core.ToHeaders RemoveEndpoints where
+instance Data.ToHeaders RemoveEndpoints where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.RemoveEndpoints" ::
+              Data.=# ( "GlobalAccelerator_V20180706.RemoveEndpoints" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RemoveEndpoints where
+instance Data.ToJSON RemoveEndpoints where
   toJSON RemoveEndpoints' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("EndpointIdentifiers" Core..= endpointIdentifiers),
+              ("EndpointIdentifiers" Data..= endpointIdentifiers),
             Prelude.Just
-              ("EndpointGroupArn" Core..= endpointGroupArn)
+              ("EndpointGroupArn" Data..= endpointGroupArn)
           ]
       )
 
-instance Core.ToPath RemoveEndpoints where
+instance Data.ToPath RemoveEndpoints where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RemoveEndpoints where
+instance Data.ToQuery RemoveEndpoints where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveEndpointsResponse' smart constructor.

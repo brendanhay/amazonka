@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,7 +121,7 @@ instance Core.AWSRequest ProvisionByoipCidr where
     Response.receiveJSON
       ( \s h x ->
           ProvisionByoipCidrResponse'
-            Prelude.<$> (x Core..?> "ByoipCidr")
+            Prelude.<$> (x Data..?> "ByoipCidr")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,37 +135,37 @@ instance Prelude.NFData ProvisionByoipCidr where
     Prelude.rnf cidr
       `Prelude.seq` Prelude.rnf cidrAuthorizationContext
 
-instance Core.ToHeaders ProvisionByoipCidr where
+instance Data.ToHeaders ProvisionByoipCidr where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.ProvisionByoipCidr" ::
+              Data.=# ( "GlobalAccelerator_V20180706.ProvisionByoipCidr" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ProvisionByoipCidr where
+instance Data.ToJSON ProvisionByoipCidr where
   toJSON ProvisionByoipCidr' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Cidr" Core..= cidr),
+          [ Prelude.Just ("Cidr" Data..= cidr),
             Prelude.Just
               ( "CidrAuthorizationContext"
-                  Core..= cidrAuthorizationContext
+                  Data..= cidrAuthorizationContext
               )
           ]
       )
 
-instance Core.ToPath ProvisionByoipCidr where
+instance Data.ToPath ProvisionByoipCidr where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ProvisionByoipCidr where
+instance Data.ToQuery ProvisionByoipCidr where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newProvisionByoipCidrResponse' smart constructor.

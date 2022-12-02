@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,7 +93,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAcceleratorAttributesResponse'
-            Prelude.<$> (x Core..?> "AcceleratorAttributes")
+            Prelude.<$> (x Data..?> "AcceleratorAttributes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -107,34 +108,34 @@ instance Prelude.NFData DescribeAcceleratorAttributes where
   rnf DescribeAcceleratorAttributes' {..} =
     Prelude.rnf acceleratorArn
 
-instance Core.ToHeaders DescribeAcceleratorAttributes where
+instance Data.ToHeaders DescribeAcceleratorAttributes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.DescribeAcceleratorAttributes" ::
+              Data.=# ( "GlobalAccelerator_V20180706.DescribeAcceleratorAttributes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAcceleratorAttributes where
+instance Data.ToJSON DescribeAcceleratorAttributes where
   toJSON DescribeAcceleratorAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AcceleratorArn" Core..= acceleratorArn)
+              ("AcceleratorArn" Data..= acceleratorArn)
           ]
       )
 
-instance Core.ToPath DescribeAcceleratorAttributes where
+instance Data.ToPath DescribeAcceleratorAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAcceleratorAttributes where
+instance Data.ToQuery DescribeAcceleratorAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAcceleratorAttributesResponse' smart constructor.

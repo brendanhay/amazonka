@@ -21,6 +21,7 @@ module Amazonka.GlobalAccelerator.Types.EndpointConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type for endpoints. A resource must be valid and active when
@@ -171,13 +172,13 @@ instance Prelude.NFData EndpointConfiguration where
       `Prelude.seq` Prelude.rnf weight
       `Prelude.seq` Prelude.rnf clientIPPreservationEnabled
 
-instance Core.ToJSON EndpointConfiguration where
+instance Data.ToJSON EndpointConfiguration where
   toJSON EndpointConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EndpointId" Core..=) Prelude.<$> endpointId,
-            ("Weight" Core..=) Prelude.<$> weight,
-            ("ClientIPPreservationEnabled" Core..=)
+          [ ("EndpointId" Data..=) Prelude.<$> endpointId,
+            ("Weight" Data..=) Prelude.<$> weight,
+            ("ClientIPPreservationEnabled" Data..=)
               Prelude.<$> clientIPPreservationEnabled
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.GlobalAccelerator.Types.CustomRoutingAccelerator where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus
 import Amazonka.GlobalAccelerator.Types.IpAddressType
 import Amazonka.GlobalAccelerator.Types.IpSet
@@ -39,7 +40,7 @@ data CustomRoutingAccelerator = CustomRoutingAccelerator'
     -- | The Amazon Resource Name (ARN) of the custom routing accelerator.
     acceleratorArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the accelerator was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | Describes the deployment status of the accelerator.
     status :: Prelude.Maybe CustomRoutingAcceleratorStatus,
     -- | Indicates whether the accelerator is enabled. The value is true or
@@ -49,7 +50,7 @@ data CustomRoutingAccelerator = CustomRoutingAccelerator'
     -- to false, accelerator can be deleted.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | The date and time that the accelerator was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The Domain Name System (DNS) name that Global Accelerator creates that
     -- points to an accelerator\'s static IPv4 addresses.
     --
@@ -151,7 +152,7 @@ customRoutingAccelerator_acceleratorArn = Lens.lens (\CustomRoutingAccelerator' 
 
 -- | The date and time that the accelerator was created.
 customRoutingAccelerator_createdTime :: Lens.Lens' CustomRoutingAccelerator (Prelude.Maybe Prelude.UTCTime)
-customRoutingAccelerator_createdTime = Lens.lens (\CustomRoutingAccelerator' {createdTime} -> createdTime) (\s@CustomRoutingAccelerator' {} a -> s {createdTime = a} :: CustomRoutingAccelerator) Prelude.. Lens.mapping Core._Time
+customRoutingAccelerator_createdTime = Lens.lens (\CustomRoutingAccelerator' {createdTime} -> createdTime) (\s@CustomRoutingAccelerator' {} a -> s {createdTime = a} :: CustomRoutingAccelerator) Prelude.. Lens.mapping Data._Time
 
 -- | Describes the deployment status of the accelerator.
 customRoutingAccelerator_status :: Lens.Lens' CustomRoutingAccelerator (Prelude.Maybe CustomRoutingAcceleratorStatus)
@@ -167,7 +168,7 @@ customRoutingAccelerator_enabled = Lens.lens (\CustomRoutingAccelerator' {enable
 
 -- | The date and time that the accelerator was last modified.
 customRoutingAccelerator_lastModifiedTime :: Lens.Lens' CustomRoutingAccelerator (Prelude.Maybe Prelude.UTCTime)
-customRoutingAccelerator_lastModifiedTime = Lens.lens (\CustomRoutingAccelerator' {lastModifiedTime} -> lastModifiedTime) (\s@CustomRoutingAccelerator' {} a -> s {lastModifiedTime = a} :: CustomRoutingAccelerator) Prelude.. Lens.mapping Core._Time
+customRoutingAccelerator_lastModifiedTime = Lens.lens (\CustomRoutingAccelerator' {lastModifiedTime} -> lastModifiedTime) (\s@CustomRoutingAccelerator' {} a -> s {lastModifiedTime = a} :: CustomRoutingAccelerator) Prelude.. Lens.mapping Data._Time
 
 -- | The Domain Name System (DNS) name that Global Accelerator creates that
 -- points to an accelerator\'s static IPv4 addresses.
@@ -193,21 +194,21 @@ customRoutingAccelerator_dnsName = Lens.lens (\CustomRoutingAccelerator' {dnsNam
 customRoutingAccelerator_ipAddressType :: Lens.Lens' CustomRoutingAccelerator (Prelude.Maybe IpAddressType)
 customRoutingAccelerator_ipAddressType = Lens.lens (\CustomRoutingAccelerator' {ipAddressType} -> ipAddressType) (\s@CustomRoutingAccelerator' {} a -> s {ipAddressType = a} :: CustomRoutingAccelerator)
 
-instance Core.FromJSON CustomRoutingAccelerator where
+instance Data.FromJSON CustomRoutingAccelerator where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomRoutingAccelerator"
       ( \x ->
           CustomRoutingAccelerator'
-            Prelude.<$> (x Core..:? "IpSets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "AcceleratorArn")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "DnsName")
-            Prelude.<*> (x Core..:? "IpAddressType")
+            Prelude.<$> (x Data..:? "IpSets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "AcceleratorArn")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "DnsName")
+            Prelude.<*> (x Data..:? "IpAddressType")
       )
 
 instance Prelude.Hashable CustomRoutingAccelerator where

@@ -21,6 +21,7 @@ module Amazonka.GlobalAccelerator.Types.AcceleratorAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Attributes of an accelerator.
@@ -116,15 +117,15 @@ acceleratorAttributes_flowLogsS3Bucket = Lens.lens (\AcceleratorAttributes' {flo
 acceleratorAttributes_flowLogsS3Prefix :: Lens.Lens' AcceleratorAttributes (Prelude.Maybe Prelude.Text)
 acceleratorAttributes_flowLogsS3Prefix = Lens.lens (\AcceleratorAttributes' {flowLogsS3Prefix} -> flowLogsS3Prefix) (\s@AcceleratorAttributes' {} a -> s {flowLogsS3Prefix = a} :: AcceleratorAttributes)
 
-instance Core.FromJSON AcceleratorAttributes where
+instance Data.FromJSON AcceleratorAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AcceleratorAttributes"
       ( \x ->
           AcceleratorAttributes'
-            Prelude.<$> (x Core..:? "FlowLogsEnabled")
-            Prelude.<*> (x Core..:? "FlowLogsS3Bucket")
-            Prelude.<*> (x Core..:? "FlowLogsS3Prefix")
+            Prelude.<$> (x Data..:? "FlowLogsEnabled")
+            Prelude.<*> (x Data..:? "FlowLogsS3Bucket")
+            Prelude.<*> (x Data..:? "FlowLogsS3Prefix")
       )
 
 instance Prelude.Hashable AcceleratorAttributes where

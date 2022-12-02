@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -181,7 +182,7 @@ instance Core.AWSRequest UpdateListener where
     Response.receiveJSON
       ( \s h x ->
           UpdateListenerResponse'
-            Prelude.<$> (x Core..?> "Listener")
+            Prelude.<$> (x Data..?> "Listener")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,37 +200,37 @@ instance Prelude.NFData UpdateListener where
       `Prelude.seq` Prelude.rnf portRanges
       `Prelude.seq` Prelude.rnf listenerArn
 
-instance Core.ToHeaders UpdateListener where
+instance Data.ToHeaders UpdateListener where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.UpdateListener" ::
+              Data.=# ( "GlobalAccelerator_V20180706.UpdateListener" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateListener where
+instance Data.ToJSON UpdateListener where
   toJSON UpdateListener' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientAffinity" Core..=)
+          [ ("ClientAffinity" Data..=)
               Prelude.<$> clientAffinity,
-            ("Protocol" Core..=) Prelude.<$> protocol,
-            ("PortRanges" Core..=) Prelude.<$> portRanges,
-            Prelude.Just ("ListenerArn" Core..= listenerArn)
+            ("Protocol" Data..=) Prelude.<$> protocol,
+            ("PortRanges" Data..=) Prelude.<$> portRanges,
+            Prelude.Just ("ListenerArn" Data..= listenerArn)
           ]
       )
 
-instance Core.ToPath UpdateListener where
+instance Data.ToPath UpdateListener where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateListener where
+instance Data.ToQuery UpdateListener where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateListenerResponse' smart constructor.

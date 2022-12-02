@@ -21,6 +21,7 @@ module Amazonka.GlobalAccelerator.Types.Accelerator where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types.AcceleratorEvent
 import Amazonka.GlobalAccelerator.Types.AcceleratorStatus
 import Amazonka.GlobalAccelerator.Types.IpAddressType
@@ -43,7 +44,7 @@ data Accelerator = Accelerator'
     -- | The Amazon Resource Name (ARN) of the accelerator.
     acceleratorArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the accelerator was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | Describes the deployment status of the accelerator.
     status :: Prelude.Maybe AcceleratorStatus,
     -- | Indicates whether the accelerator is enabled. The value is true or
@@ -53,7 +54,7 @@ data Accelerator = Accelerator'
     -- to false, accelerator can be deleted.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | The date and time that the accelerator was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The Domain Name System (DNS) name that Global Accelerator creates that
     -- points to a dual-stack accelerator\'s four static IP addresses: two IPv4
     -- addresses and two IPv6 addresses.
@@ -195,7 +196,7 @@ accelerator_acceleratorArn = Lens.lens (\Accelerator' {acceleratorArn} -> accele
 
 -- | The date and time that the accelerator was created.
 accelerator_createdTime :: Lens.Lens' Accelerator (Prelude.Maybe Prelude.UTCTime)
-accelerator_createdTime = Lens.lens (\Accelerator' {createdTime} -> createdTime) (\s@Accelerator' {} a -> s {createdTime = a} :: Accelerator) Prelude.. Lens.mapping Core._Time
+accelerator_createdTime = Lens.lens (\Accelerator' {createdTime} -> createdTime) (\s@Accelerator' {} a -> s {createdTime = a} :: Accelerator) Prelude.. Lens.mapping Data._Time
 
 -- | Describes the deployment status of the accelerator.
 accelerator_status :: Lens.Lens' Accelerator (Prelude.Maybe AcceleratorStatus)
@@ -211,7 +212,7 @@ accelerator_enabled = Lens.lens (\Accelerator' {enabled} -> enabled) (\s@Acceler
 
 -- | The date and time that the accelerator was last modified.
 accelerator_lastModifiedTime :: Lens.Lens' Accelerator (Prelude.Maybe Prelude.UTCTime)
-accelerator_lastModifiedTime = Lens.lens (\Accelerator' {lastModifiedTime} -> lastModifiedTime) (\s@Accelerator' {} a -> s {lastModifiedTime = a} :: Accelerator) Prelude.. Lens.mapping Core._Time
+accelerator_lastModifiedTime = Lens.lens (\Accelerator' {lastModifiedTime} -> lastModifiedTime) (\s@Accelerator' {} a -> s {lastModifiedTime = a} :: Accelerator) Prelude.. Lens.mapping Data._Time
 
 -- | The Domain Name System (DNS) name that Global Accelerator creates that
 -- points to a dual-stack accelerator\'s four static IP addresses: two IPv4
@@ -260,23 +261,23 @@ accelerator_dnsName = Lens.lens (\Accelerator' {dnsName} -> dnsName) (\s@Acceler
 accelerator_ipAddressType :: Lens.Lens' Accelerator (Prelude.Maybe IpAddressType)
 accelerator_ipAddressType = Lens.lens (\Accelerator' {ipAddressType} -> ipAddressType) (\s@Accelerator' {} a -> s {ipAddressType = a} :: Accelerator)
 
-instance Core.FromJSON Accelerator where
+instance Data.FromJSON Accelerator where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Accelerator"
       ( \x ->
           Accelerator'
-            Prelude.<$> (x Core..:? "IpSets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "AcceleratorArn")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "DualStackDnsName")
-            Prelude.<*> (x Core..:? "Events" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DnsName")
-            Prelude.<*> (x Core..:? "IpAddressType")
+            Prelude.<$> (x Data..:? "IpSets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "AcceleratorArn")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "DualStackDnsName")
+            Prelude.<*> (x Data..:? "Events" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DnsName")
+            Prelude.<*> (x Data..:? "IpAddressType")
       )
 
 instance Prelude.Hashable Accelerator where

@@ -21,6 +21,7 @@ module Amazonka.GlobalAccelerator.Types.PortMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState
 import Amazonka.GlobalAccelerator.Types.CustomRoutingProtocol
 import Amazonka.GlobalAccelerator.Types.SocketAddress
@@ -113,18 +114,18 @@ portMapping_endpointGroupArn = Lens.lens (\PortMapping' {endpointGroupArn} -> en
 portMapping_destinationSocketAddress :: Lens.Lens' PortMapping (Prelude.Maybe SocketAddress)
 portMapping_destinationSocketAddress = Lens.lens (\PortMapping' {destinationSocketAddress} -> destinationSocketAddress) (\s@PortMapping' {} a -> s {destinationSocketAddress = a} :: PortMapping)
 
-instance Core.FromJSON PortMapping where
+instance Data.FromJSON PortMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PortMapping"
       ( \x ->
           PortMapping'
-            Prelude.<$> (x Core..:? "AcceleratorPort")
-            Prelude.<*> (x Core..:? "EndpointId")
-            Prelude.<*> (x Core..:? "Protocols")
-            Prelude.<*> (x Core..:? "DestinationTrafficState")
-            Prelude.<*> (x Core..:? "EndpointGroupArn")
-            Prelude.<*> (x Core..:? "DestinationSocketAddress")
+            Prelude.<$> (x Data..:? "AcceleratorPort")
+            Prelude.<*> (x Data..:? "EndpointId")
+            Prelude.<*> (x Data..:? "Protocols")
+            Prelude.<*> (x Data..:? "DestinationTrafficState")
+            Prelude.<*> (x Data..:? "EndpointGroupArn")
+            Prelude.<*> (x Data..:? "DestinationSocketAddress")
       )
 
 instance Prelude.Hashable PortMapping where

@@ -21,6 +21,7 @@ module Amazonka.GlobalAccelerator.Types.CidrAuthorizationContext where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides authorization for Amazon to bring a specific IP address range
@@ -81,11 +82,11 @@ instance Prelude.NFData CidrAuthorizationContext where
     Prelude.rnf message
       `Prelude.seq` Prelude.rnf signature
 
-instance Core.ToJSON CidrAuthorizationContext where
+instance Data.ToJSON CidrAuthorizationContext where
   toJSON CidrAuthorizationContext' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Message" Core..= message),
-            Prelude.Just ("Signature" Core..= signature)
+          [ Prelude.Just ("Message" Data..= message),
+            Prelude.Just ("Signature" Data..= signature)
           ]
       )

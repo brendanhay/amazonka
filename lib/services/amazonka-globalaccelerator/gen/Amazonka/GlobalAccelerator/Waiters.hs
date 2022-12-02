@@ -18,6 +18,7 @@ module Amazonka.GlobalAccelerator.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Lens
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude

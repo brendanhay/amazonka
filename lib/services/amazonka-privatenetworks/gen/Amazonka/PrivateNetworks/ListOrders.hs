@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types
 import qualified Amazonka.Request as Request
@@ -167,8 +168,8 @@ instance Core.AWSRequest ListOrders where
     Response.receiveJSON
       ( \s h x ->
           ListOrdersResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "orders" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "orders" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -186,32 +187,32 @@ instance Prelude.NFData ListOrders where
       `Prelude.seq` Prelude.rnf startToken
       `Prelude.seq` Prelude.rnf networkArn
 
-instance Core.ToHeaders ListOrders where
+instance Data.ToHeaders ListOrders where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListOrders where
+instance Data.ToJSON ListOrders where
   toJSON ListOrders' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("filters" Core..=) Prelude.<$> filters,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("startToken" Core..=) Prelude.<$> startToken,
-            Prelude.Just ("networkArn" Core..= networkArn)
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("startToken" Data..=) Prelude.<$> startToken,
+            Prelude.Just ("networkArn" Data..= networkArn)
           ]
       )
 
-instance Core.ToPath ListOrders where
+instance Data.ToPath ListOrders where
   toPath = Prelude.const "/v1/orders/list"
 
-instance Core.ToQuery ListOrders where
+instance Data.ToQuery ListOrders where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListOrdersResponse' smart constructor.

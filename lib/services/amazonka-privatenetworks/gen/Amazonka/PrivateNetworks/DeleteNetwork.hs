@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types
 import qualified Amazonka.Request as Request
@@ -105,7 +106,7 @@ instance Core.AWSRequest DeleteNetwork where
       ( \s h x ->
           DeleteNetworkResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "network")
+            Prelude.<*> (x Data..:> "network")
       )
 
 instance Prelude.Hashable DeleteNetwork where
@@ -118,25 +119,25 @@ instance Prelude.NFData DeleteNetwork where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf networkArn
 
-instance Core.ToHeaders DeleteNetwork where
+instance Data.ToHeaders DeleteNetwork where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteNetwork where
+instance Data.ToPath DeleteNetwork where
   toPath DeleteNetwork' {..} =
     Prelude.mconcat
-      ["/v1/networks/", Core.toBS networkArn]
+      ["/v1/networks/", Data.toBS networkArn]
 
-instance Core.ToQuery DeleteNetwork where
+instance Data.ToQuery DeleteNetwork where
   toQuery DeleteNetwork' {..} =
-    Prelude.mconcat ["clientToken" Core.=: clientToken]
+    Prelude.mconcat ["clientToken" Data.=: clientToken]
 
 -- | /See:/ 'newDeleteNetworkResponse' smart constructor.
 data DeleteNetworkResponse = DeleteNetworkResponse'

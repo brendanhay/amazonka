@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types
 import qualified Amazonka.Request as Request
@@ -103,9 +104,9 @@ instance Core.AWSRequest ActivateDeviceIdentifier where
     Response.receiveJSON
       ( \s h x ->
           ActivateDeviceIdentifierResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "deviceIdentifier")
+            Prelude.<*> (x Data..:> "deviceIdentifier")
       )
 
 instance Prelude.Hashable ActivateDeviceIdentifier where
@@ -118,38 +119,38 @@ instance Prelude.NFData ActivateDeviceIdentifier where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf deviceIdentifierArn
 
-instance Core.ToHeaders ActivateDeviceIdentifier where
+instance Data.ToHeaders ActivateDeviceIdentifier where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ActivateDeviceIdentifier where
+instance Data.ToJSON ActivateDeviceIdentifier where
   toJSON ActivateDeviceIdentifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
-              ("deviceIdentifierArn" Core..= deviceIdentifierArn)
+              ("deviceIdentifierArn" Data..= deviceIdentifierArn)
           ]
       )
 
-instance Core.ToPath ActivateDeviceIdentifier where
+instance Data.ToPath ActivateDeviceIdentifier where
   toPath =
     Prelude.const "/v1/device-identifiers/activate"
 
-instance Core.ToQuery ActivateDeviceIdentifier where
+instance Data.ToQuery ActivateDeviceIdentifier where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newActivateDeviceIdentifierResponse' smart constructor.
 data ActivateDeviceIdentifierResponse = ActivateDeviceIdentifierResponse'
   { -- | The tags on the device identifier.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | Information about the device identifier.
@@ -188,7 +189,7 @@ newActivateDeviceIdentifierResponse
 
 -- | The tags on the device identifier.
 activateDeviceIdentifierResponse_tags :: Lens.Lens' ActivateDeviceIdentifierResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-activateDeviceIdentifierResponse_tags = Lens.lens (\ActivateDeviceIdentifierResponse' {tags} -> tags) (\s@ActivateDeviceIdentifierResponse' {} a -> s {tags = a} :: ActivateDeviceIdentifierResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+activateDeviceIdentifierResponse_tags = Lens.lens (\ActivateDeviceIdentifierResponse' {tags} -> tags) (\s@ActivateDeviceIdentifierResponse' {} a -> s {tags = a} :: ActivateDeviceIdentifierResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The response's http status code.
 activateDeviceIdentifierResponse_httpStatus :: Lens.Lens' ActivateDeviceIdentifierResponse Prelude.Int

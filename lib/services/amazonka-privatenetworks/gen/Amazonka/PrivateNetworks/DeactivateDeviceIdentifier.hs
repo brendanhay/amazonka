@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types
 import qualified Amazonka.Request as Request
@@ -103,7 +104,7 @@ instance Core.AWSRequest DeactivateDeviceIdentifier where
       ( \s h x ->
           DeactivateDeviceIdentifierResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "deviceIdentifier")
+            Prelude.<*> (x Data..:> "deviceIdentifier")
       )
 
 instance Prelude.Hashable DeactivateDeviceIdentifier where
@@ -116,32 +117,32 @@ instance Prelude.NFData DeactivateDeviceIdentifier where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf deviceIdentifierArn
 
-instance Core.ToHeaders DeactivateDeviceIdentifier where
+instance Data.ToHeaders DeactivateDeviceIdentifier where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeactivateDeviceIdentifier where
+instance Data.ToJSON DeactivateDeviceIdentifier where
   toJSON DeactivateDeviceIdentifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
-              ("deviceIdentifierArn" Core..= deviceIdentifierArn)
+              ("deviceIdentifierArn" Data..= deviceIdentifierArn)
           ]
       )
 
-instance Core.ToPath DeactivateDeviceIdentifier where
+instance Data.ToPath DeactivateDeviceIdentifier where
   toPath =
     Prelude.const "/v1/device-identifiers/deactivate"
 
-instance Core.ToQuery DeactivateDeviceIdentifier where
+instance Data.ToQuery DeactivateDeviceIdentifier where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeactivateDeviceIdentifierResponse' smart constructor.

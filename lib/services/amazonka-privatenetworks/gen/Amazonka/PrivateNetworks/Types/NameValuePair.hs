@@ -21,6 +21,7 @@ module Amazonka.PrivateNetworks.Types.NameValuePair where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a name\/value pair.
@@ -63,13 +64,13 @@ nameValuePair_value = Lens.lens (\NameValuePair' {value} -> value) (\s@NameValue
 nameValuePair_name :: Lens.Lens' NameValuePair Prelude.Text
 nameValuePair_name = Lens.lens (\NameValuePair' {name} -> name) (\s@NameValuePair' {} a -> s {name = a} :: NameValuePair)
 
-instance Core.FromJSON NameValuePair where
+instance Data.FromJSON NameValuePair where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NameValuePair"
       ( \x ->
           NameValuePair'
-            Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "value") Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable NameValuePair where
@@ -81,11 +82,11 @@ instance Prelude.NFData NameValuePair where
   rnf NameValuePair' {..} =
     Prelude.rnf value `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON NameValuePair where
+instance Data.ToJSON NameValuePair where
   toJSON NameValuePair' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("value" Core..=) Prelude.<$> value,
-            Prelude.Just ("name" Core..= name)
+          [ ("value" Data..=) Prelude.<$> value,
+            Prelude.Just ("name" Data..= name)
           ]
       )

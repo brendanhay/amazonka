@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types
 import qualified Amazonka.Request as Request
@@ -114,7 +115,7 @@ instance Core.AWSRequest UpdateNetworkSitePlan where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateNetworkSitePlan where
   hashWithSalt _salt UpdateNetworkSitePlan' {..} =
@@ -128,30 +129,30 @@ instance Prelude.NFData UpdateNetworkSitePlan where
       `Prelude.seq` Prelude.rnf networkSiteArn
       `Prelude.seq` Prelude.rnf pendingPlan
 
-instance Core.ToHeaders UpdateNetworkSitePlan where
+instance Data.ToHeaders UpdateNetworkSitePlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateNetworkSitePlan where
+instance Data.ToJSON UpdateNetworkSitePlan where
   toJSON UpdateNetworkSitePlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
-              ("networkSiteArn" Core..= networkSiteArn),
-            Prelude.Just ("pendingPlan" Core..= pendingPlan)
+              ("networkSiteArn" Data..= networkSiteArn),
+            Prelude.Just ("pendingPlan" Data..= pendingPlan)
           ]
       )
 
-instance Core.ToPath UpdateNetworkSitePlan where
+instance Data.ToPath UpdateNetworkSitePlan where
   toPath = Prelude.const "/v1/network-sites/plan"
 
-instance Core.ToQuery UpdateNetworkSitePlan where
+instance Data.ToQuery UpdateNetworkSitePlan where
   toQuery = Prelude.const Prelude.mempty

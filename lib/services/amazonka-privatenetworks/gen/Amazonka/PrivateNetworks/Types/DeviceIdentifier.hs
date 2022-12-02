@@ -21,6 +21,7 @@ module Amazonka.PrivateNetworks.Types.DeviceIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types.DeviceIdentifierStatus
 
@@ -29,7 +30,7 @@ import Amazonka.PrivateNetworks.Types.DeviceIdentifierStatus
 -- /See:/ 'newDeviceIdentifier' smart constructor.
 data DeviceIdentifier = DeviceIdentifier'
   { -- | The International Mobile Subscriber Identity of the device identifier.
-    imsi :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    imsi :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the traffic group to which the device
     -- identifier belongs.
     trafficGroupArn :: Prelude.Maybe Prelude.Text,
@@ -44,7 +45,7 @@ data DeviceIdentifier = DeviceIdentifier'
     -- | The vendor of the device identifier.
     vendor :: Prelude.Maybe Prelude.Text,
     -- | The creation time of this device identifier.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Integrated Circuit Card Identifier of the device identifier.
     iccid :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the device identifier.
@@ -97,7 +98,7 @@ newDeviceIdentifier =
 
 -- | The International Mobile Subscriber Identity of the device identifier.
 deviceIdentifier_imsi :: Lens.Lens' DeviceIdentifier (Prelude.Maybe Prelude.Text)
-deviceIdentifier_imsi = Lens.lens (\DeviceIdentifier' {imsi} -> imsi) (\s@DeviceIdentifier' {} a -> s {imsi = a} :: DeviceIdentifier) Prelude.. Lens.mapping Core._Sensitive
+deviceIdentifier_imsi = Lens.lens (\DeviceIdentifier' {imsi} -> imsi) (\s@DeviceIdentifier' {} a -> s {imsi = a} :: DeviceIdentifier) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the traffic group to which the device
 -- identifier belongs.
@@ -124,7 +125,7 @@ deviceIdentifier_vendor = Lens.lens (\DeviceIdentifier' {vendor} -> vendor) (\s@
 
 -- | The creation time of this device identifier.
 deviceIdentifier_createdAt :: Lens.Lens' DeviceIdentifier (Prelude.Maybe Prelude.UTCTime)
-deviceIdentifier_createdAt = Lens.lens (\DeviceIdentifier' {createdAt} -> createdAt) (\s@DeviceIdentifier' {} a -> s {createdAt = a} :: DeviceIdentifier) Prelude.. Lens.mapping Core._Time
+deviceIdentifier_createdAt = Lens.lens (\DeviceIdentifier' {createdAt} -> createdAt) (\s@DeviceIdentifier' {} a -> s {createdAt = a} :: DeviceIdentifier) Prelude.. Lens.mapping Data._Time
 
 -- | The Integrated Circuit Card Identifier of the device identifier.
 deviceIdentifier_iccid :: Lens.Lens' DeviceIdentifier (Prelude.Maybe Prelude.Text)
@@ -134,21 +135,21 @@ deviceIdentifier_iccid = Lens.lens (\DeviceIdentifier' {iccid} -> iccid) (\s@Dev
 deviceIdentifier_deviceIdentifierArn :: Lens.Lens' DeviceIdentifier (Prelude.Maybe Prelude.Text)
 deviceIdentifier_deviceIdentifierArn = Lens.lens (\DeviceIdentifier' {deviceIdentifierArn} -> deviceIdentifierArn) (\s@DeviceIdentifier' {} a -> s {deviceIdentifierArn = a} :: DeviceIdentifier)
 
-instance Core.FromJSON DeviceIdentifier where
+instance Data.FromJSON DeviceIdentifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceIdentifier"
       ( \x ->
           DeviceIdentifier'
-            Prelude.<$> (x Core..:? "imsi")
-            Prelude.<*> (x Core..:? "trafficGroupArn")
-            Prelude.<*> (x Core..:? "networkArn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "orderArn")
-            Prelude.<*> (x Core..:? "vendor")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "iccid")
-            Prelude.<*> (x Core..:? "deviceIdentifierArn")
+            Prelude.<$> (x Data..:? "imsi")
+            Prelude.<*> (x Data..:? "trafficGroupArn")
+            Prelude.<*> (x Data..:? "networkArn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "orderArn")
+            Prelude.<*> (x Data..:? "vendor")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "iccid")
+            Prelude.<*> (x Data..:? "deviceIdentifierArn")
       )
 
 instance Prelude.Hashable DeviceIdentifier where

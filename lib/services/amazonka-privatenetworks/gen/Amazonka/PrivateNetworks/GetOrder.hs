@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types
 import qualified Amazonka.Request as Request
@@ -82,9 +83,9 @@ instance Core.AWSRequest GetOrder where
     Response.receiveJSON
       ( \s h x ->
           GetOrderResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "order")
+            Prelude.<*> (x Data..:> "order")
       )
 
 instance Prelude.Hashable GetOrder where
@@ -94,28 +95,28 @@ instance Prelude.Hashable GetOrder where
 instance Prelude.NFData GetOrder where
   rnf GetOrder' {..} = Prelude.rnf orderArn
 
-instance Core.ToHeaders GetOrder where
+instance Data.ToHeaders GetOrder where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetOrder where
+instance Data.ToPath GetOrder where
   toPath GetOrder' {..} =
-    Prelude.mconcat ["/v1/orders/", Core.toBS orderArn]
+    Prelude.mconcat ["/v1/orders/", Data.toBS orderArn]
 
-instance Core.ToQuery GetOrder where
+instance Data.ToQuery GetOrder where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetOrderResponse' smart constructor.
 data GetOrderResponse = GetOrderResponse'
   { -- | The order tags.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | Information about the order.
@@ -151,7 +152,7 @@ newGetOrderResponse pHttpStatus_ pOrder_ =
 
 -- | The order tags.
 getOrderResponse_tags :: Lens.Lens' GetOrderResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getOrderResponse_tags = Lens.lens (\GetOrderResponse' {tags} -> tags) (\s@GetOrderResponse' {} a -> s {tags = a} :: GetOrderResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+getOrderResponse_tags = Lens.lens (\GetOrderResponse' {tags} -> tags) (\s@GetOrderResponse' {} a -> s {tags = a} :: GetOrderResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The response's http status code.
 getOrderResponse_httpStatus :: Lens.Lens' GetOrderResponse Prelude.Int

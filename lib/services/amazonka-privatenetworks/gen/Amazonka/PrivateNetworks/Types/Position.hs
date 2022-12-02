@@ -21,6 +21,7 @@ module Amazonka.PrivateNetworks.Types.Position where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types.ElevationReference
 import Amazonka.PrivateNetworks.Types.ElevationUnit
@@ -90,17 +91,17 @@ position_elevationReference = Lens.lens (\Position' {elevationReference} -> elev
 position_elevationUnit :: Lens.Lens' Position (Prelude.Maybe ElevationUnit)
 position_elevationUnit = Lens.lens (\Position' {elevationUnit} -> elevationUnit) (\s@Position' {} a -> s {elevationUnit = a} :: Position)
 
-instance Core.FromJSON Position where
+instance Data.FromJSON Position where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Position"
       ( \x ->
           Position'
-            Prelude.<$> (x Core..:? "longitude")
-            Prelude.<*> (x Core..:? "latitude")
-            Prelude.<*> (x Core..:? "elevation")
-            Prelude.<*> (x Core..:? "elevationReference")
-            Prelude.<*> (x Core..:? "elevationUnit")
+            Prelude.<$> (x Data..:? "longitude")
+            Prelude.<*> (x Data..:? "latitude")
+            Prelude.<*> (x Data..:? "elevation")
+            Prelude.<*> (x Data..:? "elevationReference")
+            Prelude.<*> (x Data..:? "elevationUnit")
       )
 
 instance Prelude.Hashable Position where
@@ -119,15 +120,15 @@ instance Prelude.NFData Position where
       `Prelude.seq` Prelude.rnf elevationReference
       `Prelude.seq` Prelude.rnf elevationUnit
 
-instance Core.ToJSON Position where
+instance Data.ToJSON Position where
   toJSON Position' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("longitude" Core..=) Prelude.<$> longitude,
-            ("latitude" Core..=) Prelude.<$> latitude,
-            ("elevation" Core..=) Prelude.<$> elevation,
-            ("elevationReference" Core..=)
+          [ ("longitude" Data..=) Prelude.<$> longitude,
+            ("latitude" Data..=) Prelude.<$> latitude,
+            ("elevation" Data..=) Prelude.<$> elevation,
+            ("elevationReference" Data..=)
               Prelude.<$> elevationReference,
-            ("elevationUnit" Core..=) Prelude.<$> elevationUnit
+            ("elevationUnit" Data..=) Prelude.<$> elevationUnit
           ]
       )

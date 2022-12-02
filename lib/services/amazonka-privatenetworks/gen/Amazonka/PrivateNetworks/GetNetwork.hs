@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types
 import qualified Amazonka.Request as Request
@@ -82,9 +83,9 @@ instance Core.AWSRequest GetNetwork where
     Response.receiveJSON
       ( \s h x ->
           GetNetworkResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "network")
+            Prelude.<*> (x Data..:> "network")
       )
 
 instance Prelude.Hashable GetNetwork where
@@ -94,29 +95,29 @@ instance Prelude.Hashable GetNetwork where
 instance Prelude.NFData GetNetwork where
   rnf GetNetwork' {..} = Prelude.rnf networkArn
 
-instance Core.ToHeaders GetNetwork where
+instance Data.ToHeaders GetNetwork where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetNetwork where
+instance Data.ToPath GetNetwork where
   toPath GetNetwork' {..} =
     Prelude.mconcat
-      ["/v1/networks/", Core.toBS networkArn]
+      ["/v1/networks/", Data.toBS networkArn]
 
-instance Core.ToQuery GetNetwork where
+instance Data.ToQuery GetNetwork where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetNetworkResponse' smart constructor.
 data GetNetworkResponse = GetNetworkResponse'
   { -- | The network tags.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | Information about the network.
@@ -152,7 +153,7 @@ newGetNetworkResponse pHttpStatus_ pNetwork_ =
 
 -- | The network tags.
 getNetworkResponse_tags :: Lens.Lens' GetNetworkResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getNetworkResponse_tags = Lens.lens (\GetNetworkResponse' {tags} -> tags) (\s@GetNetworkResponse' {} a -> s {tags = a} :: GetNetworkResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+getNetworkResponse_tags = Lens.lens (\GetNetworkResponse' {tags} -> tags) (\s@GetNetworkResponse' {} a -> s {tags = a} :: GetNetworkResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The response's http status code.
 getNetworkResponse_httpStatus :: Lens.Lens' GetNetworkResponse Prelude.Int

@@ -21,6 +21,7 @@ module Amazonka.PrivateNetworks.Types.SitePlan where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types.NameValuePair
 import Amazonka.PrivateNetworks.Types.NetworkResourceDefinition
@@ -63,16 +64,16 @@ sitePlan_resourceDefinitions = Lens.lens (\SitePlan' {resourceDefinitions} -> re
 sitePlan_options :: Lens.Lens' SitePlan (Prelude.Maybe [NameValuePair])
 sitePlan_options = Lens.lens (\SitePlan' {options} -> options) (\s@SitePlan' {} a -> s {options = a} :: SitePlan) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SitePlan where
+instance Data.FromJSON SitePlan where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SitePlan"
       ( \x ->
           SitePlan'
-            Prelude.<$> ( x Core..:? "resourceDefinitions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "resourceDefinitions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "options" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "options" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SitePlan where
@@ -85,12 +86,12 @@ instance Prelude.NFData SitePlan where
     Prelude.rnf resourceDefinitions
       `Prelude.seq` Prelude.rnf options
 
-instance Core.ToJSON SitePlan where
+instance Data.ToJSON SitePlan where
   toJSON SitePlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("resourceDefinitions" Core..=)
+          [ ("resourceDefinitions" Data..=)
               Prelude.<$> resourceDefinitions,
-            ("options" Core..=) Prelude.<$> options
+            ("options" Data..=) Prelude.<$> options
           ]
       )

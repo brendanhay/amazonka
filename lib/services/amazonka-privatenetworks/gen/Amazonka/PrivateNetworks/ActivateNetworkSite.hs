@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types
 import qualified Amazonka.Request as Request
@@ -115,7 +116,7 @@ instance Core.AWSRequest ActivateNetworkSite where
     Response.receiveJSON
       ( \s h x ->
           ActivateNetworkSiteResponse'
-            Prelude.<$> (x Core..?> "networkSite")
+            Prelude.<$> (x Data..?> "networkSite")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,33 +132,33 @@ instance Prelude.NFData ActivateNetworkSite where
       `Prelude.seq` Prelude.rnf networkSiteArn
       `Prelude.seq` Prelude.rnf shippingAddress
 
-instance Core.ToHeaders ActivateNetworkSite where
+instance Data.ToHeaders ActivateNetworkSite where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ActivateNetworkSite where
+instance Data.ToJSON ActivateNetworkSite where
   toJSON ActivateNetworkSite' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
-              ("networkSiteArn" Core..= networkSiteArn),
+              ("networkSiteArn" Data..= networkSiteArn),
             Prelude.Just
-              ("shippingAddress" Core..= shippingAddress)
+              ("shippingAddress" Data..= shippingAddress)
           ]
       )
 
-instance Core.ToPath ActivateNetworkSite where
+instance Data.ToPath ActivateNetworkSite where
   toPath = Prelude.const "/v1/network-sites/activate"
 
-instance Core.ToQuery ActivateNetworkSite where
+instance Data.ToQuery ActivateNetworkSite where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newActivateNetworkSiteResponse' smart constructor.

@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types
 import qualified Amazonka.Request as Request
@@ -65,7 +66,7 @@ instance Core.AWSRequest Ping where
     Response.receiveJSON
       ( \s h x ->
           PingResponse'
-            Prelude.<$> (x Core..?> "status")
+            Prelude.<$> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -76,21 +77,21 @@ instance Prelude.Hashable Ping where
 instance Prelude.NFData Ping where
   rnf _ = ()
 
-instance Core.ToHeaders Ping where
+instance Data.ToHeaders Ping where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath Ping where
+instance Data.ToPath Ping where
   toPath = Prelude.const "/ping"
 
-instance Core.ToQuery Ping where
+instance Data.ToQuery Ping where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPingResponse' smart constructor.

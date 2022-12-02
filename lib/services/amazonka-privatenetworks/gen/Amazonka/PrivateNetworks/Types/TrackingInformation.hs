@@ -21,6 +21,7 @@ module Amazonka.PrivateNetworks.Types.TrackingInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about tracking a shipment.
@@ -53,13 +54,13 @@ newTrackingInformation =
 trackingInformation_trackingNumber :: Lens.Lens' TrackingInformation (Prelude.Maybe Prelude.Text)
 trackingInformation_trackingNumber = Lens.lens (\TrackingInformation' {trackingNumber} -> trackingNumber) (\s@TrackingInformation' {} a -> s {trackingNumber = a} :: TrackingInformation)
 
-instance Core.FromJSON TrackingInformation where
+instance Data.FromJSON TrackingInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrackingInformation"
       ( \x ->
           TrackingInformation'
-            Prelude.<$> (x Core..:? "trackingNumber")
+            Prelude.<$> (x Data..:? "trackingNumber")
       )
 
 instance Prelude.Hashable TrackingInformation where

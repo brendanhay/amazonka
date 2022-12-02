@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest AcknowledgeOrderReceipt where
       ( \s h x ->
           AcknowledgeOrderReceiptResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "order")
+            Prelude.<*> (x Data..:> "order")
       )
 
 instance Prelude.Hashable AcknowledgeOrderReceipt where
@@ -95,28 +96,28 @@ instance Prelude.NFData AcknowledgeOrderReceipt where
   rnf AcknowledgeOrderReceipt' {..} =
     Prelude.rnf orderArn
 
-instance Core.ToHeaders AcknowledgeOrderReceipt where
+instance Data.ToHeaders AcknowledgeOrderReceipt where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AcknowledgeOrderReceipt where
+instance Data.ToJSON AcknowledgeOrderReceipt where
   toJSON AcknowledgeOrderReceipt' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("orderArn" Core..= orderArn)]
+          [Prelude.Just ("orderArn" Data..= orderArn)]
       )
 
-instance Core.ToPath AcknowledgeOrderReceipt where
+instance Data.ToPath AcknowledgeOrderReceipt where
   toPath = Prelude.const "/v1/orders/acknowledge"
 
-instance Core.ToQuery AcknowledgeOrderReceipt where
+instance Data.ToQuery AcknowledgeOrderReceipt where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAcknowledgeOrderReceiptResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.ApplicationAutoScaling.Types.ScalableTargetAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the minimum and maximum capacity for a scheduled action.
@@ -104,14 +105,14 @@ scalableTargetAction_maxCapacity = Lens.lens (\ScalableTargetAction' {maxCapacit
 scalableTargetAction_minCapacity :: Lens.Lens' ScalableTargetAction (Prelude.Maybe Prelude.Int)
 scalableTargetAction_minCapacity = Lens.lens (\ScalableTargetAction' {minCapacity} -> minCapacity) (\s@ScalableTargetAction' {} a -> s {minCapacity = a} :: ScalableTargetAction)
 
-instance Core.FromJSON ScalableTargetAction where
+instance Data.FromJSON ScalableTargetAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScalableTargetAction"
       ( \x ->
           ScalableTargetAction'
-            Prelude.<$> (x Core..:? "MaxCapacity")
-            Prelude.<*> (x Core..:? "MinCapacity")
+            Prelude.<$> (x Data..:? "MaxCapacity")
+            Prelude.<*> (x Data..:? "MinCapacity")
       )
 
 instance Prelude.Hashable ScalableTargetAction where
@@ -124,11 +125,11 @@ instance Prelude.NFData ScalableTargetAction where
     Prelude.rnf maxCapacity
       `Prelude.seq` Prelude.rnf minCapacity
 
-instance Core.ToJSON ScalableTargetAction where
+instance Data.ToJSON ScalableTargetAction where
   toJSON ScalableTargetAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxCapacity" Core..=) Prelude.<$> maxCapacity,
-            ("MinCapacity" Core..=) Prelude.<$> minCapacity
+          [ ("MaxCapacity" Data..=) Prelude.<$> maxCapacity,
+            ("MinCapacity" Data..=) Prelude.<$> minCapacity
           ]
       )

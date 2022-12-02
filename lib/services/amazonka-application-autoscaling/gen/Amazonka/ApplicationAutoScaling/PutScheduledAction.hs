@@ -72,6 +72,7 @@ where
 import Amazonka.ApplicationAutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,7 +113,7 @@ data PutScheduledAction = PutScheduledAction'
     -- information, see <https://www.joda.org/joda-time/timezones.html>.
     timezone :: Prelude.Maybe Prelude.Text,
     -- | The date and time for the recurring schedule to end, in UTC.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The new minimum and maximum capacity. You can set both values or just
     -- one. At the scheduled time, if the current capacity is below the minimum
     -- capacity, Application Auto Scaling scales out to the minimum capacity.
@@ -120,7 +121,7 @@ data PutScheduledAction = PutScheduledAction'
     -- Scaling scales in to the maximum capacity.
     scalableTargetAction :: Prelude.Maybe ScalableTargetAction,
     -- | The date and time for this scheduled action to start, in UTC.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The namespace of the Amazon Web Services service that provides the
     -- resource. For a resource provided by your own application or service,
     -- use @custom-resource@ instead.
@@ -522,7 +523,7 @@ putScheduledAction_timezone = Lens.lens (\PutScheduledAction' {timezone} -> time
 
 -- | The date and time for the recurring schedule to end, in UTC.
 putScheduledAction_endTime :: Lens.Lens' PutScheduledAction (Prelude.Maybe Prelude.UTCTime)
-putScheduledAction_endTime = Lens.lens (\PutScheduledAction' {endTime} -> endTime) (\s@PutScheduledAction' {} a -> s {endTime = a} :: PutScheduledAction) Prelude.. Lens.mapping Core._Time
+putScheduledAction_endTime = Lens.lens (\PutScheduledAction' {endTime} -> endTime) (\s@PutScheduledAction' {} a -> s {endTime = a} :: PutScheduledAction) Prelude.. Lens.mapping Data._Time
 
 -- | The new minimum and maximum capacity. You can set both values or just
 -- one. At the scheduled time, if the current capacity is below the minimum
@@ -534,7 +535,7 @@ putScheduledAction_scalableTargetAction = Lens.lens (\PutScheduledAction' {scala
 
 -- | The date and time for this scheduled action to start, in UTC.
 putScheduledAction_startTime :: Lens.Lens' PutScheduledAction (Prelude.Maybe Prelude.UTCTime)
-putScheduledAction_startTime = Lens.lens (\PutScheduledAction' {startTime} -> startTime) (\s@PutScheduledAction' {} a -> s {startTime = a} :: PutScheduledAction) Prelude.. Lens.mapping Core._Time
+putScheduledAction_startTime = Lens.lens (\PutScheduledAction' {startTime} -> startTime) (\s@PutScheduledAction' {} a -> s {startTime = a} :: PutScheduledAction) Prelude.. Lens.mapping Data._Time
 
 -- | The namespace of the Amazon Web Services service that provides the
 -- resource. For a resource provided by your own application or service,
@@ -722,45 +723,45 @@ instance Prelude.NFData PutScheduledAction where
       `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf scalableDimension
 
-instance Core.ToHeaders PutScheduledAction where
+instance Data.ToHeaders PutScheduledAction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AnyScaleFrontendService.PutScheduledAction" ::
+              Data.=# ( "AnyScaleFrontendService.PutScheduledAction" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutScheduledAction where
+instance Data.ToJSON PutScheduledAction where
   toJSON PutScheduledAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Schedule" Core..=) Prelude.<$> schedule,
-            ("Timezone" Core..=) Prelude.<$> timezone,
-            ("EndTime" Core..=) Prelude.<$> endTime,
-            ("ScalableTargetAction" Core..=)
+          [ ("Schedule" Data..=) Prelude.<$> schedule,
+            ("Timezone" Data..=) Prelude.<$> timezone,
+            ("EndTime" Data..=) Prelude.<$> endTime,
+            ("ScalableTargetAction" Data..=)
               Prelude.<$> scalableTargetAction,
-            ("StartTime" Core..=) Prelude.<$> startTime,
+            ("StartTime" Data..=) Prelude.<$> startTime,
             Prelude.Just
-              ("ServiceNamespace" Core..= serviceNamespace),
+              ("ServiceNamespace" Data..= serviceNamespace),
             Prelude.Just
-              ("ScheduledActionName" Core..= scheduledActionName),
-            Prelude.Just ("ResourceId" Core..= resourceId),
+              ("ScheduledActionName" Data..= scheduledActionName),
+            Prelude.Just ("ResourceId" Data..= resourceId),
             Prelude.Just
-              ("ScalableDimension" Core..= scalableDimension)
+              ("ScalableDimension" Data..= scalableDimension)
           ]
       )
 
-instance Core.ToPath PutScheduledAction where
+instance Data.ToPath PutScheduledAction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutScheduledAction where
+instance Data.ToQuery PutScheduledAction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutScheduledActionResponse' smart constructor.

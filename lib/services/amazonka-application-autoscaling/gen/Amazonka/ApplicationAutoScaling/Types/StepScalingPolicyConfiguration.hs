@@ -24,6 +24,7 @@ import Amazonka.ApplicationAutoScaling.Types.MetricAggregationType
 import Amazonka.ApplicationAutoScaling.Types.StepAdjustment
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a step scaling policy configuration to use with Application
@@ -321,19 +322,19 @@ stepScalingPolicyConfiguration_stepAdjustments = Lens.lens (\StepScalingPolicyCo
 stepScalingPolicyConfiguration_minAdjustmentMagnitude :: Lens.Lens' StepScalingPolicyConfiguration (Prelude.Maybe Prelude.Int)
 stepScalingPolicyConfiguration_minAdjustmentMagnitude = Lens.lens (\StepScalingPolicyConfiguration' {minAdjustmentMagnitude} -> minAdjustmentMagnitude) (\s@StepScalingPolicyConfiguration' {} a -> s {minAdjustmentMagnitude = a} :: StepScalingPolicyConfiguration)
 
-instance Core.FromJSON StepScalingPolicyConfiguration where
+instance Data.FromJSON StepScalingPolicyConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StepScalingPolicyConfiguration"
       ( \x ->
           StepScalingPolicyConfiguration'
-            Prelude.<$> (x Core..:? "MetricAggregationType")
-            Prelude.<*> (x Core..:? "Cooldown")
-            Prelude.<*> (x Core..:? "AdjustmentType")
-            Prelude.<*> ( x Core..:? "StepAdjustments"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "MetricAggregationType")
+            Prelude.<*> (x Data..:? "Cooldown")
+            Prelude.<*> (x Data..:? "AdjustmentType")
+            Prelude.<*> ( x Data..:? "StepAdjustments"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "MinAdjustmentMagnitude")
+            Prelude.<*> (x Data..:? "MinAdjustmentMagnitude")
       )
 
 instance
@@ -360,18 +361,18 @@ instance
       `Prelude.seq` Prelude.rnf stepAdjustments
       `Prelude.seq` Prelude.rnf minAdjustmentMagnitude
 
-instance Core.ToJSON StepScalingPolicyConfiguration where
+instance Data.ToJSON StepScalingPolicyConfiguration where
   toJSON StepScalingPolicyConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MetricAggregationType" Core..=)
+          [ ("MetricAggregationType" Data..=)
               Prelude.<$> metricAggregationType,
-            ("Cooldown" Core..=) Prelude.<$> cooldown,
-            ("AdjustmentType" Core..=)
+            ("Cooldown" Data..=) Prelude.<$> cooldown,
+            ("AdjustmentType" Data..=)
               Prelude.<$> adjustmentType,
-            ("StepAdjustments" Core..=)
+            ("StepAdjustments" Data..=)
               Prelude.<$> stepAdjustments,
-            ("MinAdjustmentMagnitude" Core..=)
+            ("MinAdjustmentMagnitude" Data..=)
               Prelude.<$> minAdjustmentMagnitude
           ]
       )

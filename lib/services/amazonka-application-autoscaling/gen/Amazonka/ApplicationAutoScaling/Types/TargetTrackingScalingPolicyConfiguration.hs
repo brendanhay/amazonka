@@ -23,6 +23,7 @@ import Amazonka.ApplicationAutoScaling.Types.CustomizedMetricSpecification
 import Amazonka.ApplicationAutoScaling.Types.PredefinedMetricSpecification
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a target tracking scaling policy configuration to use with
@@ -402,20 +403,20 @@ targetTrackingScalingPolicyConfiguration_targetValue :: Lens.Lens' TargetTrackin
 targetTrackingScalingPolicyConfiguration_targetValue = Lens.lens (\TargetTrackingScalingPolicyConfiguration' {targetValue} -> targetValue) (\s@TargetTrackingScalingPolicyConfiguration' {} a -> s {targetValue = a} :: TargetTrackingScalingPolicyConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     TargetTrackingScalingPolicyConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TargetTrackingScalingPolicyConfiguration"
       ( \x ->
           TargetTrackingScalingPolicyConfiguration'
-            Prelude.<$> (x Core..:? "DisableScaleIn")
-            Prelude.<*> (x Core..:? "CustomizedMetricSpecification")
-            Prelude.<*> (x Core..:? "ScaleInCooldown")
-            Prelude.<*> (x Core..:? "ScaleOutCooldown")
-            Prelude.<*> (x Core..:? "PredefinedMetricSpecification")
-            Prelude.<*> (x Core..: "TargetValue")
+            Prelude.<$> (x Data..:? "DisableScaleIn")
+            Prelude.<*> (x Data..:? "CustomizedMetricSpecification")
+            Prelude.<*> (x Data..:? "ScaleInCooldown")
+            Prelude.<*> (x Data..:? "ScaleOutCooldown")
+            Prelude.<*> (x Data..:? "PredefinedMetricSpecification")
+            Prelude.<*> (x Data..: "TargetValue")
       )
 
 instance
@@ -445,22 +446,22 @@ instance
       `Prelude.seq` Prelude.rnf targetValue
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     TargetTrackingScalingPolicyConfiguration
   where
   toJSON TargetTrackingScalingPolicyConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DisableScaleIn" Core..=)
+          [ ("DisableScaleIn" Data..=)
               Prelude.<$> disableScaleIn,
-            ("CustomizedMetricSpecification" Core..=)
+            ("CustomizedMetricSpecification" Data..=)
               Prelude.<$> customizedMetricSpecification,
-            ("ScaleInCooldown" Core..=)
+            ("ScaleInCooldown" Data..=)
               Prelude.<$> scaleInCooldown,
-            ("ScaleOutCooldown" Core..=)
+            ("ScaleOutCooldown" Data..=)
               Prelude.<$> scaleOutCooldown,
-            ("PredefinedMetricSpecification" Core..=)
+            ("PredefinedMetricSpecification" Data..=)
               Prelude.<$> predefinedMetricSpecification,
-            Prelude.Just ("TargetValue" Core..= targetValue)
+            Prelude.Just ("TargetValue" Data..= targetValue)
           ]
       )

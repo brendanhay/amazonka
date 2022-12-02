@@ -21,6 +21,7 @@ module Amazonka.ApplicationAutoScaling.Types.StepAdjustment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a step adjustment for a
@@ -148,15 +149,15 @@ stepAdjustment_metricIntervalLowerBound = Lens.lens (\StepAdjustment' {metricInt
 stepAdjustment_scalingAdjustment :: Lens.Lens' StepAdjustment Prelude.Int
 stepAdjustment_scalingAdjustment = Lens.lens (\StepAdjustment' {scalingAdjustment} -> scalingAdjustment) (\s@StepAdjustment' {} a -> s {scalingAdjustment = a} :: StepAdjustment)
 
-instance Core.FromJSON StepAdjustment where
+instance Data.FromJSON StepAdjustment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StepAdjustment"
       ( \x ->
           StepAdjustment'
-            Prelude.<$> (x Core..:? "MetricIntervalUpperBound")
-            Prelude.<*> (x Core..:? "MetricIntervalLowerBound")
-            Prelude.<*> (x Core..: "ScalingAdjustment")
+            Prelude.<$> (x Data..:? "MetricIntervalUpperBound")
+            Prelude.<*> (x Data..:? "MetricIntervalLowerBound")
+            Prelude.<*> (x Data..: "ScalingAdjustment")
       )
 
 instance Prelude.Hashable StepAdjustment where
@@ -172,15 +173,15 @@ instance Prelude.NFData StepAdjustment where
       `Prelude.seq` Prelude.rnf metricIntervalLowerBound
       `Prelude.seq` Prelude.rnf scalingAdjustment
 
-instance Core.ToJSON StepAdjustment where
+instance Data.ToJSON StepAdjustment where
   toJSON StepAdjustment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MetricIntervalUpperBound" Core..=)
+          [ ("MetricIntervalUpperBound" Data..=)
               Prelude.<$> metricIntervalUpperBound,
-            ("MetricIntervalLowerBound" Core..=)
+            ("MetricIntervalLowerBound" Data..=)
               Prelude.<$> metricIntervalLowerBound,
             Prelude.Just
-              ("ScalingAdjustment" Core..= scalingAdjustment)
+              ("ScalingAdjustment" Data..= scalingAdjustment)
           ]
       )

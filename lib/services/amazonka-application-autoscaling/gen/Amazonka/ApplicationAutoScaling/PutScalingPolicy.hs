@@ -84,6 +84,7 @@ where
 import Amazonka.ApplicationAutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -651,9 +652,9 @@ instance Core.AWSRequest PutScalingPolicy where
     Response.receiveJSON
       ( \s h x ->
           PutScalingPolicyResponse'
-            Prelude.<$> (x Core..?> "Alarms" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Alarms" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "PolicyARN")
+            Prelude.<*> (x Data..:> "PolicyARN")
       )
 
 instance Prelude.Hashable PutScalingPolicy where
@@ -676,43 +677,43 @@ instance Prelude.NFData PutScalingPolicy where
       `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf scalableDimension
 
-instance Core.ToHeaders PutScalingPolicy where
+instance Data.ToHeaders PutScalingPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AnyScaleFrontendService.PutScalingPolicy" ::
+              Data.=# ( "AnyScaleFrontendService.PutScalingPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutScalingPolicy where
+instance Data.ToJSON PutScalingPolicy where
   toJSON PutScalingPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PolicyType" Core..=) Prelude.<$> policyType,
-            ("StepScalingPolicyConfiguration" Core..=)
+          [ ("PolicyType" Data..=) Prelude.<$> policyType,
+            ("StepScalingPolicyConfiguration" Data..=)
               Prelude.<$> stepScalingPolicyConfiguration,
-            ("TargetTrackingScalingPolicyConfiguration" Core..=)
+            ("TargetTrackingScalingPolicyConfiguration" Data..=)
               Prelude.<$> targetTrackingScalingPolicyConfiguration,
-            Prelude.Just ("PolicyName" Core..= policyName),
+            Prelude.Just ("PolicyName" Data..= policyName),
             Prelude.Just
-              ("ServiceNamespace" Core..= serviceNamespace),
-            Prelude.Just ("ResourceId" Core..= resourceId),
+              ("ServiceNamespace" Data..= serviceNamespace),
+            Prelude.Just ("ResourceId" Data..= resourceId),
             Prelude.Just
-              ("ScalableDimension" Core..= scalableDimension)
+              ("ScalableDimension" Data..= scalableDimension)
           ]
       )
 
-instance Core.ToPath PutScalingPolicy where
+instance Data.ToPath PutScalingPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutScalingPolicy where
+instance Data.ToQuery PutScalingPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutScalingPolicyResponse' smart constructor.

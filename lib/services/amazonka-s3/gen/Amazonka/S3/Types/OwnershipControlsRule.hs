@@ -21,6 +21,7 @@ module Amazonka.S3.Types.OwnershipControlsRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.ObjectOwnership
@@ -56,10 +57,10 @@ newOwnershipControlsRule pObjectOwnership_ =
 ownershipControlsRule_objectOwnership :: Lens.Lens' OwnershipControlsRule ObjectOwnership
 ownershipControlsRule_objectOwnership = Lens.lens (\OwnershipControlsRule' {objectOwnership} -> objectOwnership) (\s@OwnershipControlsRule' {} a -> s {objectOwnership = a} :: OwnershipControlsRule)
 
-instance Core.FromXML OwnershipControlsRule where
+instance Data.FromXML OwnershipControlsRule where
   parseXML x =
     OwnershipControlsRule'
-      Prelude.<$> (x Core..@ "ObjectOwnership")
+      Prelude.<$> (x Data..@ "ObjectOwnership")
 
 instance Prelude.Hashable OwnershipControlsRule where
   hashWithSalt _salt OwnershipControlsRule' {..} =
@@ -69,7 +70,7 @@ instance Prelude.NFData OwnershipControlsRule where
   rnf OwnershipControlsRule' {..} =
     Prelude.rnf objectOwnership
 
-instance Core.ToXML OwnershipControlsRule where
+instance Data.ToXML OwnershipControlsRule where
   toXML OwnershipControlsRule' {..} =
     Prelude.mconcat
-      ["ObjectOwnership" Core.@= objectOwnership]
+      ["ObjectOwnership" Data.@= objectOwnership]

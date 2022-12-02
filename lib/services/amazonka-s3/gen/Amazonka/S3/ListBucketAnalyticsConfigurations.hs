@@ -76,6 +76,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -156,12 +157,12 @@ instance
       ( \s h x ->
           ListBucketAnalyticsConfigurationsResponse'
             Prelude.<$> ( Core.may
-                            (Core.parseXMLList "AnalyticsConfiguration")
+                            (Data.parseXMLList "AnalyticsConfiguration")
                             x
                         )
-              Prelude.<*> (x Core..@? "IsTruncated")
-              Prelude.<*> (x Core..@? "ContinuationToken")
-              Prelude.<*> (x Core..@? "NextContinuationToken")
+              Prelude.<*> (x Data..@? "IsTruncated")
+              Prelude.<*> (x Data..@? "ContinuationToken")
+              Prelude.<*> (x Data..@? "NextContinuationToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -186,29 +187,29 @@ instance
       `Prelude.seq` Prelude.rnf bucket
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListBucketAnalyticsConfigurations
   where
   toHeaders ListBucketAnalyticsConfigurations' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListBucketAnalyticsConfigurations
   where
   toPath ListBucketAnalyticsConfigurations' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListBucketAnalyticsConfigurations
   where
   toQuery ListBucketAnalyticsConfigurations' {..} =
     Prelude.mconcat
-      [ "continuation-token" Core.=: continuationToken,
+      [ "continuation-token" Data.=: continuationToken,
         "analytics"
       ]
 

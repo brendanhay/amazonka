@@ -21,6 +21,7 @@ module Amazonka.S3.Types.AnalyticsAndOperator where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.Tag
@@ -69,13 +70,13 @@ analyticsAndOperator_tags = Lens.lens (\AnalyticsAndOperator' {tags} -> tags) (\
 analyticsAndOperator_prefix :: Lens.Lens' AnalyticsAndOperator (Prelude.Maybe Prelude.Text)
 analyticsAndOperator_prefix = Lens.lens (\AnalyticsAndOperator' {prefix} -> prefix) (\s@AnalyticsAndOperator' {} a -> s {prefix = a} :: AnalyticsAndOperator)
 
-instance Core.FromXML AnalyticsAndOperator where
+instance Data.FromXML AnalyticsAndOperator where
   parseXML x =
     AnalyticsAndOperator'
-      Prelude.<$> ( x Core..@? "Tag" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+      Prelude.<$> ( x Data..@? "Tag" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
-      Prelude.<*> (x Core..@? "Prefix")
+      Prelude.<*> (x Data..@? "Prefix")
 
 instance Prelude.Hashable AnalyticsAndOperator where
   hashWithSalt _salt AnalyticsAndOperator' {..} =
@@ -86,10 +87,10 @@ instance Prelude.NFData AnalyticsAndOperator where
   rnf AnalyticsAndOperator' {..} =
     Prelude.rnf tags `Prelude.seq` Prelude.rnf prefix
 
-instance Core.ToXML AnalyticsAndOperator where
+instance Data.ToXML AnalyticsAndOperator where
   toXML AnalyticsAndOperator' {..} =
     Prelude.mconcat
       [ "Tag"
-          Core.@= Core.toXML (Core.toXMLList "Tag" Prelude.<$> tags),
-        "Prefix" Core.@= prefix
+          Data.@= Data.toXML (Data.toXMLList "Tag" Prelude.<$> tags),
+        "Prefix" Data.@= prefix
       ]

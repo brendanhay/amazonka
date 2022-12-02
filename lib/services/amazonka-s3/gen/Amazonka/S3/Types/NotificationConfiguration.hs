@@ -21,6 +21,7 @@ module Amazonka.S3.Types.NotificationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.EventBridgeConfiguration
@@ -95,14 +96,14 @@ notificationConfiguration_topicConfigurations = Lens.lens (\NotificationConfigur
 notificationConfiguration_lambdaFunctionConfigurations :: Lens.Lens' NotificationConfiguration (Prelude.Maybe [LambdaFunctionConfiguration])
 notificationConfiguration_lambdaFunctionConfigurations = Lens.lens (\NotificationConfiguration' {lambdaFunctionConfigurations} -> lambdaFunctionConfigurations) (\s@NotificationConfiguration' {} a -> s {lambdaFunctionConfigurations = a} :: NotificationConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML NotificationConfiguration where
+instance Data.FromXML NotificationConfiguration where
   parseXML x =
     NotificationConfiguration'
-      Prelude.<$> (x Core..@? "EventBridgeConfiguration")
-      Prelude.<*> (Core.may (Core.parseXMLList "QueueConfiguration") x)
-      Prelude.<*> (Core.may (Core.parseXMLList "TopicConfiguration") x)
+      Prelude.<$> (x Data..@? "EventBridgeConfiguration")
+      Prelude.<*> (Core.may (Data.parseXMLList "QueueConfiguration") x)
+      Prelude.<*> (Core.may (Data.parseXMLList "TopicConfiguration") x)
       Prelude.<*> ( Core.may
-                      (Core.parseXMLList "CloudFunctionConfiguration")
+                      (Data.parseXMLList "CloudFunctionConfiguration")
                       x
                   )
 
@@ -121,21 +122,21 @@ instance Prelude.NFData NotificationConfiguration where
       `Prelude.seq` Prelude.rnf topicConfigurations
       `Prelude.seq` Prelude.rnf lambdaFunctionConfigurations
 
-instance Core.ToXML NotificationConfiguration where
+instance Data.ToXML NotificationConfiguration where
   toXML NotificationConfiguration' {..} =
     Prelude.mconcat
       [ "EventBridgeConfiguration"
-          Core.@= eventBridgeConfiguration,
-        Core.toXML
-          ( Core.toXMLList "QueueConfiguration"
+          Data.@= eventBridgeConfiguration,
+        Data.toXML
+          ( Data.toXMLList "QueueConfiguration"
               Prelude.<$> queueConfigurations
           ),
-        Core.toXML
-          ( Core.toXMLList "TopicConfiguration"
+        Data.toXML
+          ( Data.toXMLList "TopicConfiguration"
               Prelude.<$> topicConfigurations
           ),
-        Core.toXML
-          ( Core.toXMLList "CloudFunctionConfiguration"
+        Data.toXML
+          ( Data.toXMLList "CloudFunctionConfiguration"
               Prelude.<$> lambdaFunctionConfigurations
           )
       ]

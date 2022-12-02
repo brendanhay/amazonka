@@ -21,6 +21,7 @@ module Amazonka.S3.Types.MetricsFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.MetricsAndOperator
@@ -95,13 +96,13 @@ metricsFilter_prefix = Lens.lens (\MetricsFilter' {prefix} -> prefix) (\s@Metric
 metricsFilter_and :: Lens.Lens' MetricsFilter (Prelude.Maybe MetricsAndOperator)
 metricsFilter_and = Lens.lens (\MetricsFilter' {and} -> and) (\s@MetricsFilter' {} a -> s {and = a} :: MetricsFilter)
 
-instance Core.FromXML MetricsFilter where
+instance Data.FromXML MetricsFilter where
   parseXML x =
     MetricsFilter'
-      Prelude.<$> (x Core..@? "AccessPointArn")
-      Prelude.<*> (x Core..@? "Tag")
-      Prelude.<*> (x Core..@? "Prefix")
-      Prelude.<*> (x Core..@? "And")
+      Prelude.<$> (x Data..@? "AccessPointArn")
+      Prelude.<*> (x Data..@? "Tag")
+      Prelude.<*> (x Data..@? "Prefix")
+      Prelude.<*> (x Data..@? "And")
 
 instance Prelude.Hashable MetricsFilter where
   hashWithSalt _salt MetricsFilter' {..} =
@@ -117,11 +118,11 @@ instance Prelude.NFData MetricsFilter where
       `Prelude.seq` Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf and
 
-instance Core.ToXML MetricsFilter where
+instance Data.ToXML MetricsFilter where
   toXML MetricsFilter' {..} =
     Prelude.mconcat
-      [ "AccessPointArn" Core.@= accessPointArn,
-        "Tag" Core.@= tag,
-        "Prefix" Core.@= prefix,
-        "And" Core.@= and
+      [ "AccessPointArn" Data.@= accessPointArn,
+        "Tag" Data.@= tag,
+        "Prefix" Data.@= prefix,
+        "And" Data.@= and
       ]

@@ -97,6 +97,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -338,18 +339,18 @@ instance Core.AWSRequest ListObjectsV2 where
     Response.receiveXML
       ( \s h x ->
           ListObjectsV2Response'
-            Prelude.<$> (x Core..@? "MaxKeys")
-            Prelude.<*> (Core.may (Core.parseXMLList "CommonPrefixes") x)
-            Prelude.<*> (x Core..@? "StartAfter")
-            Prelude.<*> (x Core..@? "Name")
-            Prelude.<*> (x Core..@? "KeyCount")
-            Prelude.<*> (Core.may (Core.parseXMLList "Contents") x)
-            Prelude.<*> (x Core..@? "IsTruncated")
-            Prelude.<*> (x Core..@? "ContinuationToken")
-            Prelude.<*> (x Core..@? "NextContinuationToken")
-            Prelude.<*> (x Core..@? "Delimiter")
-            Prelude.<*> (x Core..@? "Prefix")
-            Prelude.<*> (x Core..@? "EncodingType")
+            Prelude.<$> (x Data..@? "MaxKeys")
+            Prelude.<*> (Core.may (Data.parseXMLList "CommonPrefixes") x)
+            Prelude.<*> (x Data..@? "StartAfter")
+            Prelude.<*> (x Data..@? "Name")
+            Prelude.<*> (x Data..@? "KeyCount")
+            Prelude.<*> (Core.may (Data.parseXMLList "Contents") x)
+            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<*> (x Data..@? "ContinuationToken")
+            Prelude.<*> (x Data..@? "NextContinuationToken")
+            Prelude.<*> (x Data..@? "Delimiter")
+            Prelude.<*> (x Data..@? "Prefix")
+            Prelude.<*> (x Data..@? "EncodingType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -379,28 +380,28 @@ instance Prelude.NFData ListObjectsV2 where
       `Prelude.seq` Prelude.rnf encodingType
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToHeaders ListObjectsV2 where
+instance Data.ToHeaders ListObjectsV2 where
   toHeaders ListObjectsV2' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-request-payer" Core.=# requestPayer
+          Data.=# expectedBucketOwner,
+        "x-amz-request-payer" Data.=# requestPayer
       ]
 
-instance Core.ToPath ListObjectsV2 where
+instance Data.ToPath ListObjectsV2 where
   toPath ListObjectsV2' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery ListObjectsV2 where
+instance Data.ToQuery ListObjectsV2 where
   toQuery ListObjectsV2' {..} =
     Prelude.mconcat
-      [ "max-keys" Core.=: maxKeys,
-        "start-after" Core.=: startAfter,
-        "fetch-owner" Core.=: fetchOwner,
-        "continuation-token" Core.=: continuationToken,
-        "delimiter" Core.=: delimiter,
-        "prefix" Core.=: prefix,
-        "encoding-type" Core.=: encodingType,
+      [ "max-keys" Data.=: maxKeys,
+        "start-after" Data.=: startAfter,
+        "fetch-owner" Data.=: fetchOwner,
+        "continuation-token" Data.=: continuationToken,
+        "delimiter" Data.=: delimiter,
+        "prefix" Data.=: prefix,
+        "encoding-type" Data.=: encodingType,
         "list-type=2"
       ]
 

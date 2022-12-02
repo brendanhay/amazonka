@@ -21,6 +21,7 @@ module Amazonka.S3.Types.S3ServiceError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -2480,13 +2481,13 @@ s3ServiceError_code = Lens.lens (\S3ServiceError' {code} -> code) (\s@S3ServiceE
 s3ServiceError_versionId :: Lens.Lens' S3ServiceError (Prelude.Maybe ObjectVersionId)
 s3ServiceError_versionId = Lens.lens (\S3ServiceError' {versionId} -> versionId) (\s@S3ServiceError' {} a -> s {versionId = a} :: S3ServiceError)
 
-instance Core.FromXML S3ServiceError where
+instance Data.FromXML S3ServiceError where
   parseXML x =
     S3ServiceError'
-      Prelude.<$> (x Core..@? "Key")
-      Prelude.<*> (x Core..@? "Message")
-      Prelude.<*> (x Core..@? "Code")
-      Prelude.<*> (x Core..@? "VersionId")
+      Prelude.<$> (x Data..@? "Key")
+      Prelude.<*> (x Data..@? "Message")
+      Prelude.<*> (x Data..@? "Code")
+      Prelude.<*> (x Data..@? "VersionId")
 
 instance Prelude.Hashable S3ServiceError where
   hashWithSalt _salt S3ServiceError' {..} =

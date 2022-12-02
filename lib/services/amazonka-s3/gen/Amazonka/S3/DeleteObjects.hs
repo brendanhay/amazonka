@@ -92,6 +92,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -310,9 +311,9 @@ instance Core.AWSRequest DeleteObjects where
     Response.receiveXML
       ( \s h x ->
           DeleteObjectsResponse'
-            Prelude.<$> (h Core..#? "x-amz-request-charged")
-            Prelude.<*> (Core.may (Core.parseXMLList "Deleted") x)
-            Prelude.<*> (Core.may (Core.parseXMLList "Error") x)
+            Prelude.<$> (h Data..#? "x-amz-request-charged")
+            Prelude.<*> (Core.may (Data.parseXMLList "Deleted") x)
+            Prelude.<*> (Core.may (Data.parseXMLList "Error") x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -336,30 +337,30 @@ instance Prelude.NFData DeleteObjects where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf delete'
 
-instance Core.ToElement DeleteObjects where
+instance Data.ToElement DeleteObjects where
   toElement DeleteObjects' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}Delete"
       delete'
 
-instance Core.ToHeaders DeleteObjects where
+instance Data.ToHeaders DeleteObjects where
   toHeaders DeleteObjects' {..} =
     Prelude.mconcat
       [ "x-amz-sdk-checksum-algorithm"
-          Core.=# checksumAlgorithm,
+          Data.=# checksumAlgorithm,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-request-payer" Core.=# requestPayer,
+          Data.=# expectedBucketOwner,
+        "x-amz-request-payer" Data.=# requestPayer,
         "x-amz-bypass-governance-retention"
-          Core.=# bypassGovernanceRetention,
-        "x-amz-mfa" Core.=# mfa
+          Data.=# bypassGovernanceRetention,
+        "x-amz-mfa" Data.=# mfa
       ]
 
-instance Core.ToPath DeleteObjects where
+instance Data.ToPath DeleteObjects where
   toPath DeleteObjects' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery DeleteObjects where
+instance Data.ToQuery DeleteObjects where
   toQuery = Prelude.const (Prelude.mconcat ["delete"])
 
 -- | /See:/ 'newDeleteObjectsResponse' smart constructor.

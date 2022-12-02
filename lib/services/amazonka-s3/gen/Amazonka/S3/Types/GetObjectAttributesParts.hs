@@ -21,6 +21,7 @@ module Amazonka.S3.Types.GetObjectAttributesParts where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.ObjectPart
@@ -117,15 +118,15 @@ getObjectAttributesParts_maxParts = Lens.lens (\GetObjectAttributesParts' {maxPa
 getObjectAttributesParts_partNumberMarker :: Lens.Lens' GetObjectAttributesParts (Prelude.Maybe Prelude.Int)
 getObjectAttributesParts_partNumberMarker = Lens.lens (\GetObjectAttributesParts' {partNumberMarker} -> partNumberMarker) (\s@GetObjectAttributesParts' {} a -> s {partNumberMarker = a} :: GetObjectAttributesParts)
 
-instance Core.FromXML GetObjectAttributesParts where
+instance Data.FromXML GetObjectAttributesParts where
   parseXML x =
     GetObjectAttributesParts'
-      Prelude.<$> (Core.may (Core.parseXMLList "Part") x)
-      Prelude.<*> (x Core..@? "NextPartNumberMarker")
-      Prelude.<*> (x Core..@? "IsTruncated")
-      Prelude.<*> (x Core..@? "PartsCount")
-      Prelude.<*> (x Core..@? "MaxParts")
-      Prelude.<*> (x Core..@? "PartNumberMarker")
+      Prelude.<$> (Core.may (Data.parseXMLList "Part") x)
+      Prelude.<*> (x Data..@? "NextPartNumberMarker")
+      Prelude.<*> (x Data..@? "IsTruncated")
+      Prelude.<*> (x Data..@? "PartsCount")
+      Prelude.<*> (x Data..@? "MaxParts")
+      Prelude.<*> (x Data..@? "PartNumberMarker")
 
 instance Prelude.Hashable GetObjectAttributesParts where
   hashWithSalt _salt GetObjectAttributesParts' {..} =

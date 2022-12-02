@@ -68,6 +68,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -217,10 +218,10 @@ instance Core.AWSRequest GetObjectTagging where
     Response.receiveXML
       ( \s h x ->
           GetObjectTaggingResponse'
-            Prelude.<$> (h Core..#? "x-amz-version-id")
+            Prelude.<$> (h Data..#? "x-amz-version-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "TagSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "Tag"
+            Prelude.<*> ( x Data..@? "TagSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "Tag"
                         )
       )
 
@@ -240,23 +241,23 @@ instance Prelude.NFData GetObjectTagging where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
 
-instance Core.ToHeaders GetObjectTagging where
+instance Data.ToHeaders GetObjectTagging where
   toHeaders GetObjectTagging' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-request-payer" Core.=# requestPayer
+          Data.=# expectedBucketOwner,
+        "x-amz-request-payer" Data.=# requestPayer
       ]
 
-instance Core.ToPath GetObjectTagging where
+instance Data.ToPath GetObjectTagging where
   toPath GetObjectTagging' {..} =
     Prelude.mconcat
-      ["/", Core.toBS bucket, "/", Core.toBS key]
+      ["/", Data.toBS bucket, "/", Data.toBS key]
 
-instance Core.ToQuery GetObjectTagging where
+instance Data.ToQuery GetObjectTagging where
   toQuery GetObjectTagging' {..} =
     Prelude.mconcat
-      ["versionId" Core.=: versionId, "tagging"]
+      ["versionId" Data.=: versionId, "tagging"]
 
 -- | /See:/ 'newGetObjectTaggingResponse' smart constructor.
 data GetObjectTaggingResponse = GetObjectTaggingResponse'

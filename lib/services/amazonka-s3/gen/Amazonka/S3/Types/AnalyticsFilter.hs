@@ -21,6 +21,7 @@ module Amazonka.S3.Types.AnalyticsFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.AnalyticsAndOperator
@@ -79,12 +80,12 @@ analyticsFilter_prefix = Lens.lens (\AnalyticsFilter' {prefix} -> prefix) (\s@An
 analyticsFilter_and :: Lens.Lens' AnalyticsFilter (Prelude.Maybe AnalyticsAndOperator)
 analyticsFilter_and = Lens.lens (\AnalyticsFilter' {and} -> and) (\s@AnalyticsFilter' {} a -> s {and = a} :: AnalyticsFilter)
 
-instance Core.FromXML AnalyticsFilter where
+instance Data.FromXML AnalyticsFilter where
   parseXML x =
     AnalyticsFilter'
-      Prelude.<$> (x Core..@? "Tag")
-      Prelude.<*> (x Core..@? "Prefix")
-      Prelude.<*> (x Core..@? "And")
+      Prelude.<$> (x Data..@? "Tag")
+      Prelude.<*> (x Data..@? "Prefix")
+      Prelude.<*> (x Data..@? "And")
 
 instance Prelude.Hashable AnalyticsFilter where
   hashWithSalt _salt AnalyticsFilter' {..} =
@@ -98,10 +99,10 @@ instance Prelude.NFData AnalyticsFilter where
       `Prelude.seq` Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf and
 
-instance Core.ToXML AnalyticsFilter where
+instance Data.ToXML AnalyticsFilter where
   toXML AnalyticsFilter' {..} =
     Prelude.mconcat
-      [ "Tag" Core.@= tag,
-        "Prefix" Core.@= prefix,
-        "And" Core.@= and
+      [ "Tag" Data.@= tag,
+        "Prefix" Data.@= prefix,
+        "And" Data.@= and
       ]

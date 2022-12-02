@@ -78,6 +78,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -218,32 +219,32 @@ instance
       `Prelude.seq` Prelude.rnf accelerateConfiguration
 
 instance
-  Core.ToElement
+  Data.ToElement
     PutBucketAccelerateConfiguration
   where
   toElement PutBucketAccelerateConfiguration' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}AccelerateConfiguration"
       accelerateConfiguration
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutBucketAccelerateConfiguration
   where
   toHeaders PutBucketAccelerateConfiguration' {..} =
     Prelude.mconcat
       [ "x-amz-sdk-checksum-algorithm"
-          Core.=# checksumAlgorithm,
+          Data.=# checksumAlgorithm,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath PutBucketAccelerateConfiguration where
+instance Data.ToPath PutBucketAccelerateConfiguration where
   toPath PutBucketAccelerateConfiguration' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PutBucketAccelerateConfiguration
   where
   toQuery =

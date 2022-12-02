@@ -177,6 +177,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -315,7 +316,7 @@ instance Core.AWSRequest CreateBucket where
     Response.receiveEmpty
       ( \s h x ->
           CreateBucketResponse'
-            Prelude.<$> (h Core..#? "Location")
+            Prelude.<$> (h Data..#? "Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -345,31 +346,31 @@ instance Prelude.NFData CreateBucket where
       `Prelude.seq` Prelude.rnf grantReadACP
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToElement CreateBucket where
+instance Data.ToElement CreateBucket where
   toElement CreateBucket' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}CreateBucketConfiguration"
       createBucketConfiguration
 
-instance Core.ToHeaders CreateBucket where
+instance Data.ToHeaders CreateBucket where
   toHeaders CreateBucket' {..} =
     Prelude.mconcat
-      [ "x-amz-grant-write-acp" Core.=# grantWriteACP,
-        "x-amz-grant-full-control" Core.=# grantFullControl,
-        "x-amz-acl" Core.=# acl,
+      [ "x-amz-grant-write-acp" Data.=# grantWriteACP,
+        "x-amz-grant-full-control" Data.=# grantFullControl,
+        "x-amz-acl" Data.=# acl,
         "x-amz-bucket-object-lock-enabled"
-          Core.=# objectLockEnabledForBucket,
-        "x-amz-grant-read" Core.=# grantRead,
-        "x-amz-object-ownership" Core.=# objectOwnership,
-        "x-amz-grant-write" Core.=# grantWrite,
-        "x-amz-grant-read-acp" Core.=# grantReadACP
+          Data.=# objectLockEnabledForBucket,
+        "x-amz-grant-read" Data.=# grantRead,
+        "x-amz-object-ownership" Data.=# objectOwnership,
+        "x-amz-grant-write" Data.=# grantWrite,
+        "x-amz-grant-read-acp" Data.=# grantReadACP
       ]
 
-instance Core.ToPath CreateBucket where
+instance Data.ToPath CreateBucket where
   toPath CreateBucket' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery CreateBucket where
+instance Data.ToQuery CreateBucket where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBucketResponse' smart constructor.

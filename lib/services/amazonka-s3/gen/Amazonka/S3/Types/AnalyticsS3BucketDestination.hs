@@ -21,6 +21,7 @@ module Amazonka.S3.Types.AnalyticsS3BucketDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.AnalyticsS3ExportFileFormat
@@ -101,13 +102,13 @@ analyticsS3BucketDestination_format = Lens.lens (\AnalyticsS3BucketDestination' 
 analyticsS3BucketDestination_bucket :: Lens.Lens' AnalyticsS3BucketDestination BucketName
 analyticsS3BucketDestination_bucket = Lens.lens (\AnalyticsS3BucketDestination' {bucket} -> bucket) (\s@AnalyticsS3BucketDestination' {} a -> s {bucket = a} :: AnalyticsS3BucketDestination)
 
-instance Core.FromXML AnalyticsS3BucketDestination where
+instance Data.FromXML AnalyticsS3BucketDestination where
   parseXML x =
     AnalyticsS3BucketDestination'
-      Prelude.<$> (x Core..@? "BucketAccountId")
-      Prelude.<*> (x Core..@? "Prefix")
-      Prelude.<*> (x Core..@ "Format")
-      Prelude.<*> (x Core..@ "Bucket")
+      Prelude.<$> (x Data..@? "BucketAccountId")
+      Prelude.<*> (x Data..@? "Prefix")
+      Prelude.<*> (x Data..@ "Format")
+      Prelude.<*> (x Data..@ "Bucket")
 
 instance
   Prelude.Hashable
@@ -126,11 +127,11 @@ instance Prelude.NFData AnalyticsS3BucketDestination where
       `Prelude.seq` Prelude.rnf format
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToXML AnalyticsS3BucketDestination where
+instance Data.ToXML AnalyticsS3BucketDestination where
   toXML AnalyticsS3BucketDestination' {..} =
     Prelude.mconcat
-      [ "BucketAccountId" Core.@= bucketAccountId,
-        "Prefix" Core.@= prefix,
-        "Format" Core.@= format,
-        "Bucket" Core.@= bucket
+      [ "BucketAccountId" Data.@= bucketAccountId,
+        "Prefix" Data.@= prefix,
+        "Format" Data.@= format,
+        "Bucket" Data.@= bucket
       ]

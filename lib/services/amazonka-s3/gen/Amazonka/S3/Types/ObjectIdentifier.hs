@@ -21,6 +21,7 @@ module Amazonka.S3.Types.ObjectIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -88,7 +89,7 @@ instance Prelude.NFData ObjectIdentifier where
   rnf ObjectIdentifier' {..} =
     Prelude.rnf versionId `Prelude.seq` Prelude.rnf key
 
-instance Core.ToXML ObjectIdentifier where
+instance Data.ToXML ObjectIdentifier where
   toXML ObjectIdentifier' {..} =
     Prelude.mconcat
-      ["VersionId" Core.@= versionId, "Key" Core.@= key]
+      ["VersionId" Data.@= versionId, "Key" Data.@= key]

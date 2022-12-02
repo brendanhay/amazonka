@@ -21,6 +21,7 @@ module Amazonka.S3.Types.SSES3 where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -40,7 +41,7 @@ newSSES3 ::
   SSES3
 newSSES3 = SSES3'
 
-instance Core.FromXML SSES3 where
+instance Data.FromXML SSES3 where
   parseXML = Prelude.const (Prelude.pure SSES3')
 
 instance Prelude.Hashable SSES3 where
@@ -50,5 +51,5 @@ instance Prelude.Hashable SSES3 where
 instance Prelude.NFData SSES3 where
   rnf _ = ()
 
-instance Core.ToXML SSES3 where
+instance Data.ToXML SSES3 where
   toXML = Prelude.const Prelude.mempty

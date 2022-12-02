@@ -21,6 +21,7 @@ module Amazonka.S3.Types.ObjectLockRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.DefaultRetention
@@ -64,10 +65,10 @@ newObjectLockRule =
 objectLockRule_defaultRetention :: Lens.Lens' ObjectLockRule (Prelude.Maybe DefaultRetention)
 objectLockRule_defaultRetention = Lens.lens (\ObjectLockRule' {defaultRetention} -> defaultRetention) (\s@ObjectLockRule' {} a -> s {defaultRetention = a} :: ObjectLockRule)
 
-instance Core.FromXML ObjectLockRule where
+instance Data.FromXML ObjectLockRule where
   parseXML x =
     ObjectLockRule'
-      Prelude.<$> (x Core..@? "DefaultRetention")
+      Prelude.<$> (x Data..@? "DefaultRetention")
 
 instance Prelude.Hashable ObjectLockRule where
   hashWithSalt _salt ObjectLockRule' {..} =
@@ -77,7 +78,7 @@ instance Prelude.NFData ObjectLockRule where
   rnf ObjectLockRule' {..} =
     Prelude.rnf defaultRetention
 
-instance Core.ToXML ObjectLockRule where
+instance Data.ToXML ObjectLockRule where
   toXML ObjectLockRule' {..} =
     Prelude.mconcat
-      ["DefaultRetention" Core.@= defaultRetention]
+      ["DefaultRetention" Data.@= defaultRetention]

@@ -21,6 +21,7 @@ module Amazonka.S3.Types.Encryption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.ServerSideEncryption
@@ -38,7 +39,7 @@ data Encryption = Encryption'
     -- see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
     -- in the /Amazon Web Services Key Management Service Developer Guide/.
-    kmsKeyId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    kmsKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The server-side encryption algorithm used when storing job results in
     -- Amazon S3 (for example, AES256, aws:kms).
     encryptionType :: ServerSideEncryption
@@ -88,7 +89,7 @@ encryption_kmsContext = Lens.lens (\Encryption' {kmsContext} -> kmsContext) (\s@
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
 -- in the /Amazon Web Services Key Management Service Developer Guide/.
 encryption_kmsKeyId :: Lens.Lens' Encryption (Prelude.Maybe Prelude.Text)
-encryption_kmsKeyId = Lens.lens (\Encryption' {kmsKeyId} -> kmsKeyId) (\s@Encryption' {} a -> s {kmsKeyId = a} :: Encryption) Prelude.. Lens.mapping Core._Sensitive
+encryption_kmsKeyId = Lens.lens (\Encryption' {kmsKeyId} -> kmsKeyId) (\s@Encryption' {} a -> s {kmsKeyId = a} :: Encryption) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The server-side encryption algorithm used when storing job results in
 -- Amazon S3 (for example, AES256, aws:kms).
@@ -107,10 +108,10 @@ instance Prelude.NFData Encryption where
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf encryptionType
 
-instance Core.ToXML Encryption where
+instance Data.ToXML Encryption where
   toXML Encryption' {..} =
     Prelude.mconcat
-      [ "KMSContext" Core.@= kmsContext,
-        "KMSKeyId" Core.@= kmsKeyId,
-        "EncryptionType" Core.@= encryptionType
+      [ "KMSContext" Data.@= kmsContext,
+        "KMSKeyId" Data.@= kmsKeyId,
+        "EncryptionType" Data.@= encryptionType
       ]

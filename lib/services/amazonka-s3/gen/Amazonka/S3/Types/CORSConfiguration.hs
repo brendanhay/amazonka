@@ -21,6 +21,7 @@ module Amazonka.S3.Types.CORSConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.CORSRule
@@ -65,7 +66,7 @@ instance Prelude.Hashable CORSConfiguration where
 instance Prelude.NFData CORSConfiguration where
   rnf CORSConfiguration' {..} = Prelude.rnf cORSRules
 
-instance Core.ToXML CORSConfiguration where
+instance Data.ToXML CORSConfiguration where
   toXML CORSConfiguration' {..} =
     Prelude.mconcat
-      [Core.toXMLList "CORSRule" cORSRules]
+      [Data.toXMLList "CORSRule" cORSRules]

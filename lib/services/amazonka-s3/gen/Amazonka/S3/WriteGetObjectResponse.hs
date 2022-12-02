@@ -125,6 +125,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -164,7 +165,7 @@ data WriteGetObjectResponse = WriteGetObjectResponse'
     expiration :: Prelude.Maybe Prelude.Text,
     requestCharged :: Prelude.Maybe RequestCharged,
     -- | The date and time when Object Lock is configured to expire.
-    objectLockRetainUntilDate :: Prelude.Maybe Core.ISO8601,
+    objectLockRetainUntilDate :: Prelude.Maybe Data.ISO8601,
     -- | This header can be used as a data integrity check to verify that the
     -- data received is the same data that was originally sent. This specifies
     -- the base64-encoded, 160-bit SHA-1 digest of the object returned by the
@@ -211,7 +212,7 @@ data WriteGetObjectResponse = WriteGetObjectResponse'
     -- | If present, specifies the ID of the Amazon Web Services Key Management
     -- Service (Amazon Web Services KMS) symmetric customer managed key that
     -- was used for stored in Amazon S3 object.
-    sSEKMSKeyId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sSEKMSKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specifies presentational information for the object.
     contentDisposition :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether an object stored in Amazon S3 has an active legal
@@ -250,7 +251,7 @@ data WriteGetObjectResponse = WriteGetObjectResponse'
     -- | The portion of the object returned in the response.
     contentRange :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the object was last modified.
-    lastModified :: Prelude.Maybe Core.ISO8601,
+    lastModified :: Prelude.Maybe Data.ISO8601,
     -- | Specifies caching behavior along the request\/reply chain.
     cacheControl :: Prelude.Maybe Prelude.Text,
     -- | Specifies what content encodings have been applied to the object and
@@ -268,7 +269,7 @@ data WriteGetObjectResponse = WriteGetObjectResponse'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html Protecting data using server-side encryption with customer-provided encryption keys (SSE-C)>.
     sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
     -- | The date and time at which the object is no longer cacheable.
-    expires :: Prelude.Maybe Core.ISO8601,
+    expires :: Prelude.Maybe Data.ISO8601,
     -- | Provides storage class information of the object. Amazon S3 returns this
     -- header for all objects except for S3 Standard storage class objects.
     --
@@ -324,7 +325,7 @@ data WriteGetObjectResponse = WriteGetObjectResponse'
     -- end user @GetObject@ request.
     requestToken :: Prelude.Text,
     -- | The object data.
-    body :: Core.RequestBody
+    body :: Data.RequestBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -535,7 +536,7 @@ newWriteGetObjectResponse ::
   -- | 'requestToken'
   Prelude.Text ->
   -- | 'body'
-  Core.RequestBody ->
+  Data.RequestBody ->
   WriteGetObjectResponse
 newWriteGetObjectResponse
   pRequestRoute_
@@ -633,7 +634,7 @@ writeGetObjectResponse_requestCharged = Lens.lens (\WriteGetObjectResponse' {req
 
 -- | The date and time when Object Lock is configured to expire.
 writeGetObjectResponse_objectLockRetainUntilDate :: Lens.Lens' WriteGetObjectResponse (Prelude.Maybe Prelude.UTCTime)
-writeGetObjectResponse_objectLockRetainUntilDate = Lens.lens (\WriteGetObjectResponse' {objectLockRetainUntilDate} -> objectLockRetainUntilDate) (\s@WriteGetObjectResponse' {} a -> s {objectLockRetainUntilDate = a} :: WriteGetObjectResponse) Prelude.. Lens.mapping Core._Time
+writeGetObjectResponse_objectLockRetainUntilDate = Lens.lens (\WriteGetObjectResponse' {objectLockRetainUntilDate} -> objectLockRetainUntilDate) (\s@WriteGetObjectResponse' {} a -> s {objectLockRetainUntilDate = a} :: WriteGetObjectResponse) Prelude.. Lens.mapping Data._Time
 
 -- | This header can be used as a data integrity check to verify that the
 -- data received is the same data that was originally sent. This specifies
@@ -696,7 +697,7 @@ writeGetObjectResponse_contentLanguage = Lens.lens (\WriteGetObjectResponse' {co
 -- Service (Amazon Web Services KMS) symmetric customer managed key that
 -- was used for stored in Amazon S3 object.
 writeGetObjectResponse_sSEKMSKeyId :: Lens.Lens' WriteGetObjectResponse (Prelude.Maybe Prelude.Text)
-writeGetObjectResponse_sSEKMSKeyId = Lens.lens (\WriteGetObjectResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@WriteGetObjectResponse' {} a -> s {sSEKMSKeyId = a} :: WriteGetObjectResponse) Prelude.. Lens.mapping Core._Sensitive
+writeGetObjectResponse_sSEKMSKeyId = Lens.lens (\WriteGetObjectResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@WriteGetObjectResponse' {} a -> s {sSEKMSKeyId = a} :: WriteGetObjectResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specifies presentational information for the object.
 writeGetObjectResponse_contentDisposition :: Lens.Lens' WriteGetObjectResponse (Prelude.Maybe Prelude.Text)
@@ -755,7 +756,7 @@ writeGetObjectResponse_contentRange = Lens.lens (\WriteGetObjectResponse' {conte
 
 -- | The date and time that the object was last modified.
 writeGetObjectResponse_lastModified :: Lens.Lens' WriteGetObjectResponse (Prelude.Maybe Prelude.UTCTime)
-writeGetObjectResponse_lastModified = Lens.lens (\WriteGetObjectResponse' {lastModified} -> lastModified) (\s@WriteGetObjectResponse' {} a -> s {lastModified = a} :: WriteGetObjectResponse) Prelude.. Lens.mapping Core._Time
+writeGetObjectResponse_lastModified = Lens.lens (\WriteGetObjectResponse' {lastModified} -> lastModified) (\s@WriteGetObjectResponse' {} a -> s {lastModified = a} :: WriteGetObjectResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies caching behavior along the request\/reply chain.
 writeGetObjectResponse_cacheControl :: Lens.Lens' WriteGetObjectResponse (Prelude.Maybe Prelude.Text)
@@ -783,7 +784,7 @@ writeGetObjectResponse_sSECustomerKeyMD5 = Lens.lens (\WriteGetObjectResponse' {
 
 -- | The date and time at which the object is no longer cacheable.
 writeGetObjectResponse_expires :: Lens.Lens' WriteGetObjectResponse (Prelude.Maybe Prelude.UTCTime)
-writeGetObjectResponse_expires = Lens.lens (\WriteGetObjectResponse' {expires} -> expires) (\s@WriteGetObjectResponse' {} a -> s {expires = a} :: WriteGetObjectResponse) Prelude.. Lens.mapping Core._Time
+writeGetObjectResponse_expires = Lens.lens (\WriteGetObjectResponse' {expires} -> expires) (\s@WriteGetObjectResponse' {} a -> s {expires = a} :: WriteGetObjectResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Provides storage class information of the object. Amazon S3 returns this
 -- header for all objects except for S3 Standard storage class objects.
@@ -856,7 +857,7 @@ writeGetObjectResponse_requestToken :: Lens.Lens' WriteGetObjectResponse Prelude
 writeGetObjectResponse_requestToken = Lens.lens (\WriteGetObjectResponse' {requestToken} -> requestToken) (\s@WriteGetObjectResponse' {} a -> s {requestToken = a} :: WriteGetObjectResponse)
 
 -- | The object data.
-writeGetObjectResponse_body :: Lens.Lens' WriteGetObjectResponse Core.RequestBody
+writeGetObjectResponse_body :: Lens.Lens' WriteGetObjectResponse Data.RequestBody
 writeGetObjectResponse_body = Lens.lens (\WriteGetObjectResponse' {body} -> body) (\s@WriteGetObjectResponse' {} a -> s {body = a} :: WriteGetObjectResponse)
 
 instance Core.AWSRequest WriteGetObjectResponse where
@@ -870,85 +871,85 @@ instance Core.AWSRequest WriteGetObjectResponse where
     Response.receiveNull
       WriteGetObjectResponseResponse'
 
-instance Core.ToBody WriteGetObjectResponse where
-  toBody WriteGetObjectResponse' {..} = Core.toBody body
+instance Data.ToBody WriteGetObjectResponse where
+  toBody WriteGetObjectResponse' {..} = Data.toBody body
 
-instance Core.ToHeaders WriteGetObjectResponse where
+instance Data.ToHeaders WriteGetObjectResponse where
   toHeaders WriteGetObjectResponse' {..} =
     Prelude.mconcat
       [ "x-amz-fwd-header-x-amz-server-side-encryption"
-          Core.=# serverSideEncryption,
+          Data.=# serverSideEncryption,
         "x-amz-fwd-header-x-amz-mp-parts-count"
-          Core.=# partsCount,
+          Data.=# partsCount,
         "x-amz-fwd-header-x-amz-checksum-crc32c"
-          Core.=# checksumCRC32C,
+          Data.=# checksumCRC32C,
         "x-amz-fwd-header-x-amz-object-lock-mode"
-          Core.=# objectLockMode,
+          Data.=# objectLockMode,
         "x-amz-fwd-header-x-amz-server-side-encryption-bucket-key-enabled"
-          Core.=# bucketKeyEnabled,
+          Data.=# bucketKeyEnabled,
         "x-amz-fwd-header-x-amz-expiration"
-          Core.=# expiration,
+          Data.=# expiration,
         "x-amz-fwd-header-x-amz-request-charged"
-          Core.=# requestCharged,
+          Data.=# requestCharged,
         "x-amz-fwd-header-x-amz-object-lock-retain-until-date"
-          Core.=# objectLockRetainUntilDate,
+          Data.=# objectLockRetainUntilDate,
         "x-amz-fwd-header-x-amz-checksum-sha1"
-          Core.=# checksumSHA1,
+          Data.=# checksumSHA1,
         "x-amz-fwd-header-x-amz-replication-status"
-          Core.=# replicationStatus,
-        "x-amz-fwd-error-message" Core.=# errorMessage,
-        "x-amz-meta-" Core.=# metadata,
+          Data.=# replicationStatus,
+        "x-amz-fwd-error-message" Data.=# errorMessage,
+        "x-amz-meta-" Data.=# metadata,
         "x-amz-fwd-header-x-amz-checksum-crc32"
-          Core.=# checksumCRC32,
-        "x-amz-fwd-header-x-amz-restore" Core.=# restore,
+          Data.=# checksumCRC32,
+        "x-amz-fwd-header-x-amz-restore" Data.=# restore,
         "x-amz-fwd-header-Content-Language"
-          Core.=# contentLanguage,
+          Data.=# contentLanguage,
         "x-amz-fwd-header-x-amz-server-side-encryption-aws-kms-key-id"
-          Core.=# sSEKMSKeyId,
+          Data.=# sSEKMSKeyId,
         "x-amz-fwd-header-Content-Disposition"
-          Core.=# contentDisposition,
+          Data.=# contentDisposition,
         "x-amz-fwd-header-x-amz-object-lock-legal-hold"
-          Core.=# objectLockLegalHoldStatus,
+          Data.=# objectLockLegalHoldStatus,
         "x-amz-fwd-header-x-amz-checksum-sha256"
-          Core.=# checksumSHA256,
+          Data.=# checksumSHA256,
         "x-amz-fwd-header-accept-ranges"
-          Core.=# acceptRanges,
-        "Content-Length" Core.=# contentLength,
+          Data.=# acceptRanges,
+        "Content-Length" Data.=# contentLength,
         "x-amz-fwd-header-x-amz-tagging-count"
-          Core.=# tagCount,
+          Data.=# tagCount,
         "x-amz-fwd-header-x-amz-server-side-encryption-customer-algorithm"
-          Core.=# sSECustomerAlgorithm,
-        "x-amz-fwd-error-code" Core.=# errorCode,
+          Data.=# sSECustomerAlgorithm,
+        "x-amz-fwd-error-code" Data.=# errorCode,
         "x-amz-fwd-header-Content-Range"
-          Core.=# contentRange,
+          Data.=# contentRange,
         "x-amz-fwd-header-Last-Modified"
-          Core.=# lastModified,
+          Data.=# lastModified,
         "x-amz-fwd-header-Cache-Control"
-          Core.=# cacheControl,
+          Data.=# cacheControl,
         "x-amz-fwd-header-Content-Encoding"
-          Core.=# contentEncoding,
+          Data.=# contentEncoding,
         "x-amz-fwd-header-x-amz-missing-meta"
-          Core.=# missingMeta,
+          Data.=# missingMeta,
         "x-amz-fwd-header-x-amz-server-side-encryption-customer-key-MD5"
-          Core.=# sSECustomerKeyMD5,
-        "x-amz-fwd-header-Expires" Core.=# expires,
+          Data.=# sSECustomerKeyMD5,
+        "x-amz-fwd-header-Expires" Data.=# expires,
         "x-amz-fwd-header-x-amz-storage-class"
-          Core.=# storageClass,
-        "x-amz-fwd-status" Core.=# statusCode,
-        "x-amz-fwd-header-ETag" Core.=# eTag,
+          Data.=# storageClass,
+        "x-amz-fwd-status" Data.=# statusCode,
+        "x-amz-fwd-header-ETag" Data.=# eTag,
         "x-amz-fwd-header-x-amz-delete-marker"
-          Core.=# deleteMarker,
-        "x-amz-fwd-header-Content-Type" Core.=# contentType,
+          Data.=# deleteMarker,
+        "x-amz-fwd-header-Content-Type" Data.=# contentType,
         "x-amz-fwd-header-x-amz-version-id"
-          Core.=# versionId,
-        "x-amz-request-route" Core.=# requestRoute,
-        "x-amz-request-token" Core.=# requestToken
+          Data.=# versionId,
+        "x-amz-request-route" Data.=# requestRoute,
+        "x-amz-request-token" Data.=# requestToken
       ]
 
-instance Core.ToPath WriteGetObjectResponse where
+instance Data.ToPath WriteGetObjectResponse where
   toPath = Prelude.const "/WriteGetObjectResponse"
 
-instance Core.ToQuery WriteGetObjectResponse where
+instance Data.ToQuery WriteGetObjectResponse where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newWriteGetObjectResponseResponse' smart constructor.

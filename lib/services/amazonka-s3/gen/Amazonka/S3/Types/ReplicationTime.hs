@@ -21,6 +21,7 @@ module Amazonka.S3.Types.ReplicationTime where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.ReplicationTimeStatus
@@ -71,10 +72,10 @@ replicationTime_status = Lens.lens (\ReplicationTime' {status} -> status) (\s@Re
 replicationTime_time :: Lens.Lens' ReplicationTime ReplicationTimeValue
 replicationTime_time = Lens.lens (\ReplicationTime' {time} -> time) (\s@ReplicationTime' {} a -> s {time = a} :: ReplicationTime)
 
-instance Core.FromXML ReplicationTime where
+instance Data.FromXML ReplicationTime where
   parseXML x =
     ReplicationTime'
-      Prelude.<$> (x Core..@ "Status") Prelude.<*> (x Core..@ "Time")
+      Prelude.<$> (x Data..@ "Status") Prelude.<*> (x Data..@ "Time")
 
 instance Prelude.Hashable ReplicationTime where
   hashWithSalt _salt ReplicationTime' {..} =
@@ -85,7 +86,7 @@ instance Prelude.NFData ReplicationTime where
   rnf ReplicationTime' {..} =
     Prelude.rnf status `Prelude.seq` Prelude.rnf time
 
-instance Core.ToXML ReplicationTime where
+instance Data.ToXML ReplicationTime where
   toXML ReplicationTime' {..} =
     Prelude.mconcat
-      ["Status" Core.@= status, "Time" Core.@= time]
+      ["Status" Data.@= status, "Time" Data.@= time]

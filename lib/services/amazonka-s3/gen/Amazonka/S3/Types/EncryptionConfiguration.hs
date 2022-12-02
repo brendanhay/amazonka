@@ -21,6 +21,7 @@ module Amazonka.S3.Types.EncryptionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -73,10 +74,10 @@ newEncryptionConfiguration =
 encryptionConfiguration_replicaKmsKeyID :: Lens.Lens' EncryptionConfiguration (Prelude.Maybe Prelude.Text)
 encryptionConfiguration_replicaKmsKeyID = Lens.lens (\EncryptionConfiguration' {replicaKmsKeyID} -> replicaKmsKeyID) (\s@EncryptionConfiguration' {} a -> s {replicaKmsKeyID = a} :: EncryptionConfiguration)
 
-instance Core.FromXML EncryptionConfiguration where
+instance Data.FromXML EncryptionConfiguration where
   parseXML x =
     EncryptionConfiguration'
-      Prelude.<$> (x Core..@? "ReplicaKmsKeyID")
+      Prelude.<$> (x Data..@? "ReplicaKmsKeyID")
 
 instance Prelude.Hashable EncryptionConfiguration where
   hashWithSalt _salt EncryptionConfiguration' {..} =
@@ -86,7 +87,7 @@ instance Prelude.NFData EncryptionConfiguration where
   rnf EncryptionConfiguration' {..} =
     Prelude.rnf replicaKmsKeyID
 
-instance Core.ToXML EncryptionConfiguration where
+instance Data.ToXML EncryptionConfiguration where
   toXML EncryptionConfiguration' {..} =
     Prelude.mconcat
-      ["ReplicaKmsKeyID" Core.@= replicaKmsKeyID]
+      ["ReplicaKmsKeyID" Data.@= replicaKmsKeyID]

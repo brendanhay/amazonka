@@ -21,6 +21,7 @@ module Amazonka.S3.Types.FilterRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.FilterRuleName
@@ -79,10 +80,10 @@ filterRule_name = Lens.lens (\FilterRule' {name} -> name) (\s@FilterRule' {} a -
 filterRule_value :: Lens.Lens' FilterRule (Prelude.Maybe Prelude.Text)
 filterRule_value = Lens.lens (\FilterRule' {value} -> value) (\s@FilterRule' {} a -> s {value = a} :: FilterRule)
 
-instance Core.FromXML FilterRule where
+instance Data.FromXML FilterRule where
   parseXML x =
     FilterRule'
-      Prelude.<$> (x Core..@? "Name") Prelude.<*> (x Core..@? "Value")
+      Prelude.<$> (x Data..@? "Name") Prelude.<*> (x Data..@? "Value")
 
 instance Prelude.Hashable FilterRule where
   hashWithSalt _salt FilterRule' {..} =
@@ -93,7 +94,7 @@ instance Prelude.NFData FilterRule where
   rnf FilterRule' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToXML FilterRule where
+instance Data.ToXML FilterRule where
   toXML FilterRule' {..} =
     Prelude.mconcat
-      ["Name" Core.@= name, "Value" Core.@= value]
+      ["Name" Data.@= name, "Value" Data.@= value]

@@ -152,6 +152,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -183,7 +184,7 @@ data GetObjectAttributes = GetObjectAttributes'
     -- discarded; Amazon S3 does not store the encryption key. The key must be
     -- appropriate for use with the algorithm specified in the
     -- @x-amz-server-side-encryption-customer-algorithm@ header.
-    sSECustomerKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sSECustomerKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the bucket that contains the object.
     --
     -- When using this action with an access point, you must direct requests to
@@ -336,7 +337,7 @@ getObjectAttributes_versionId = Lens.lens (\GetObjectAttributes' {versionId} -> 
 -- appropriate for use with the algorithm specified in the
 -- @x-amz-server-side-encryption-customer-algorithm@ header.
 getObjectAttributes_sSECustomerKey :: Lens.Lens' GetObjectAttributes (Prelude.Maybe Prelude.Text)
-getObjectAttributes_sSECustomerKey = Lens.lens (\GetObjectAttributes' {sSECustomerKey} -> sSECustomerKey) (\s@GetObjectAttributes' {} a -> s {sSECustomerKey = a} :: GetObjectAttributes) Prelude.. Lens.mapping Core._Sensitive
+getObjectAttributes_sSECustomerKey = Lens.lens (\GetObjectAttributes' {sSECustomerKey} -> sSECustomerKey) (\s@GetObjectAttributes' {} a -> s {sSECustomerKey = a} :: GetObjectAttributes) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the bucket that contains the object.
 --
@@ -382,15 +383,15 @@ instance Core.AWSRequest GetObjectAttributes where
     Response.receiveXML
       ( \s h x ->
           GetObjectAttributesResponse'
-            Prelude.<$> (h Core..#? "x-amz-request-charged")
-            Prelude.<*> (x Core..@? "Checksum")
-            Prelude.<*> (h Core..#? "Last-Modified")
-            Prelude.<*> (x Core..@? "ObjectParts")
-            Prelude.<*> (x Core..@? "StorageClass")
-            Prelude.<*> (x Core..@? "ETag")
-            Prelude.<*> (x Core..@? "ObjectSize")
-            Prelude.<*> (h Core..#? "x-amz-delete-marker")
-            Prelude.<*> (h Core..#? "x-amz-version-id")
+            Prelude.<$> (h Data..#? "x-amz-request-charged")
+            Prelude.<*> (x Data..@? "Checksum")
+            Prelude.<*> (h Data..#? "Last-Modified")
+            Prelude.<*> (x Data..@? "ObjectParts")
+            Prelude.<*> (x Data..@? "StorageClass")
+            Prelude.<*> (x Data..@? "ETag")
+            Prelude.<*> (x Data..@? "ObjectSize")
+            Prelude.<*> (h Data..#? "x-amz-delete-marker")
+            Prelude.<*> (h Data..#? "x-amz-version-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -422,32 +423,32 @@ instance Prelude.NFData GetObjectAttributes where
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf objectAttributes
 
-instance Core.ToHeaders GetObjectAttributes where
+instance Data.ToHeaders GetObjectAttributes where
   toHeaders GetObjectAttributes' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-request-payer" Core.=# requestPayer,
+          Data.=# expectedBucketOwner,
+        "x-amz-request-payer" Data.=# requestPayer,
         "x-amz-server-side-encryption-customer-algorithm"
-          Core.=# sSECustomerAlgorithm,
-        "x-amz-max-parts" Core.=# maxParts,
+          Data.=# sSECustomerAlgorithm,
+        "x-amz-max-parts" Data.=# maxParts,
         "x-amz-server-side-encryption-customer-key-MD5"
-          Core.=# sSECustomerKeyMD5,
-        "x-amz-part-number-marker" Core.=# partNumberMarker,
+          Data.=# sSECustomerKeyMD5,
+        "x-amz-part-number-marker" Data.=# partNumberMarker,
         "x-amz-server-side-encryption-customer-key"
-          Core.=# sSECustomerKey,
-        "x-amz-object-attributes" Core.=# objectAttributes
+          Data.=# sSECustomerKey,
+        "x-amz-object-attributes" Data.=# objectAttributes
       ]
 
-instance Core.ToPath GetObjectAttributes where
+instance Data.ToPath GetObjectAttributes where
   toPath GetObjectAttributes' {..} =
     Prelude.mconcat
-      ["/", Core.toBS bucket, "/", Core.toBS key]
+      ["/", Data.toBS bucket, "/", Data.toBS key]
 
-instance Core.ToQuery GetObjectAttributes where
+instance Data.ToQuery GetObjectAttributes where
   toQuery GetObjectAttributes' {..} =
     Prelude.mconcat
-      ["versionId" Core.=: versionId, "attributes"]
+      ["versionId" Data.=: versionId, "attributes"]
 
 -- | /See:/ 'newGetObjectAttributesResponse' smart constructor.
 data GetObjectAttributesResponse = GetObjectAttributesResponse'
@@ -455,7 +456,7 @@ data GetObjectAttributesResponse = GetObjectAttributesResponse'
     -- | The checksum or digest of the object.
     checksum :: Prelude.Maybe Checksum,
     -- | The creation date of the object.
-    lastModified :: Prelude.Maybe Core.ISO8601,
+    lastModified :: Prelude.Maybe Data.ISO8601,
     -- | A collection of parts associated with a multipart upload.
     objectParts :: Prelude.Maybe GetObjectAttributesParts,
     -- | Provides the storage class information of the object. Amazon S3 returns
@@ -545,7 +546,7 @@ getObjectAttributesResponse_checksum = Lens.lens (\GetObjectAttributesResponse' 
 
 -- | The creation date of the object.
 getObjectAttributesResponse_lastModified :: Lens.Lens' GetObjectAttributesResponse (Prelude.Maybe Prelude.UTCTime)
-getObjectAttributesResponse_lastModified = Lens.lens (\GetObjectAttributesResponse' {lastModified} -> lastModified) (\s@GetObjectAttributesResponse' {} a -> s {lastModified = a} :: GetObjectAttributesResponse) Prelude.. Lens.mapping Core._Time
+getObjectAttributesResponse_lastModified = Lens.lens (\GetObjectAttributesResponse' {lastModified} -> lastModified) (\s@GetObjectAttributesResponse' {} a -> s {lastModified = a} :: GetObjectAttributesResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A collection of parts associated with a multipart upload.
 getObjectAttributesResponse_objectParts :: Lens.Lens' GetObjectAttributesResponse (Prelude.Maybe GetObjectAttributesParts)

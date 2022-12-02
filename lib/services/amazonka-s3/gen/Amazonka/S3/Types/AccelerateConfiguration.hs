@@ -21,6 +21,7 @@ module Amazonka.S3.Types.AccelerateConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.BucketAccelerateStatus
@@ -62,6 +63,6 @@ instance Prelude.Hashable AccelerateConfiguration where
 instance Prelude.NFData AccelerateConfiguration where
   rnf AccelerateConfiguration' {..} = Prelude.rnf status
 
-instance Core.ToXML AccelerateConfiguration where
+instance Data.ToXML AccelerateConfiguration where
   toXML AccelerateConfiguration' {..} =
-    Prelude.mconcat ["Status" Core.@= status]
+    Prelude.mconcat ["Status" Data.@= status]

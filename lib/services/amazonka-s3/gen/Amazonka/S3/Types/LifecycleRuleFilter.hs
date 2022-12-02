@@ -21,6 +21,7 @@ module Amazonka.S3.Types.LifecycleRuleFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.LifecycleRuleAndOperator
@@ -111,14 +112,14 @@ lifecycleRuleFilter_and = Lens.lens (\LifecycleRuleFilter' {and} -> and) (\s@Lif
 lifecycleRuleFilter_objectSizeGreaterThan :: Lens.Lens' LifecycleRuleFilter (Prelude.Maybe Prelude.Integer)
 lifecycleRuleFilter_objectSizeGreaterThan = Lens.lens (\LifecycleRuleFilter' {objectSizeGreaterThan} -> objectSizeGreaterThan) (\s@LifecycleRuleFilter' {} a -> s {objectSizeGreaterThan = a} :: LifecycleRuleFilter)
 
-instance Core.FromXML LifecycleRuleFilter where
+instance Data.FromXML LifecycleRuleFilter where
   parseXML x =
     LifecycleRuleFilter'
-      Prelude.<$> (x Core..@? "ObjectSizeLessThan")
-      Prelude.<*> (x Core..@? "Tag")
-      Prelude.<*> (x Core..@? "Prefix")
-      Prelude.<*> (x Core..@? "And")
-      Prelude.<*> (x Core..@? "ObjectSizeGreaterThan")
+      Prelude.<$> (x Data..@? "ObjectSizeLessThan")
+      Prelude.<*> (x Data..@? "Tag")
+      Prelude.<*> (x Data..@? "Prefix")
+      Prelude.<*> (x Data..@? "And")
+      Prelude.<*> (x Data..@? "ObjectSizeGreaterThan")
 
 instance Prelude.Hashable LifecycleRuleFilter where
   hashWithSalt _salt LifecycleRuleFilter' {..} =
@@ -136,13 +137,13 @@ instance Prelude.NFData LifecycleRuleFilter where
       `Prelude.seq` Prelude.rnf and
       `Prelude.seq` Prelude.rnf objectSizeGreaterThan
 
-instance Core.ToXML LifecycleRuleFilter where
+instance Data.ToXML LifecycleRuleFilter where
   toXML LifecycleRuleFilter' {..} =
     Prelude.mconcat
-      [ "ObjectSizeLessThan" Core.@= objectSizeLessThan,
-        "Tag" Core.@= tag,
-        "Prefix" Core.@= prefix,
-        "And" Core.@= and,
+      [ "ObjectSizeLessThan" Data.@= objectSizeLessThan,
+        "Tag" Data.@= tag,
+        "Prefix" Data.@= prefix,
+        "And" Data.@= and,
         "ObjectSizeGreaterThan"
-          Core.@= objectSizeGreaterThan
+          Data.@= objectSizeGreaterThan
       ]

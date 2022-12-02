@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -243,7 +244,7 @@ instance Core.AWSRequest PutObjectLegalHold where
     Response.receiveEmpty
       ( \s h x ->
           PutObjectLegalHoldResponse'
-            Prelude.<$> (h Core..#? "x-amz-request-charged")
+            Prelude.<$> (h Data..#? "x-amz-request-charged")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -269,32 +270,32 @@ instance Prelude.NFData PutObjectLegalHold where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
 
-instance Core.ToElement PutObjectLegalHold where
+instance Data.ToElement PutObjectLegalHold where
   toElement PutObjectLegalHold' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}LegalHold"
       legalHold
 
-instance Core.ToHeaders PutObjectLegalHold where
+instance Data.ToHeaders PutObjectLegalHold where
   toHeaders PutObjectLegalHold' {..} =
     Prelude.mconcat
       [ "x-amz-sdk-checksum-algorithm"
-          Core.=# checksumAlgorithm,
-        "Content-MD5" Core.=# contentMD5,
+          Data.=# checksumAlgorithm,
+        "Content-MD5" Data.=# contentMD5,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-request-payer" Core.=# requestPayer
+          Data.=# expectedBucketOwner,
+        "x-amz-request-payer" Data.=# requestPayer
       ]
 
-instance Core.ToPath PutObjectLegalHold where
+instance Data.ToPath PutObjectLegalHold where
   toPath PutObjectLegalHold' {..} =
     Prelude.mconcat
-      ["/", Core.toBS bucket, "/", Core.toBS key]
+      ["/", Data.toBS bucket, "/", Data.toBS key]
 
-instance Core.ToQuery PutObjectLegalHold where
+instance Data.ToQuery PutObjectLegalHold where
   toQuery PutObjectLegalHold' {..} =
     Prelude.mconcat
-      ["versionId" Core.=: versionId, "legal-hold"]
+      ["versionId" Data.=: versionId, "legal-hold"]
 
 -- | /See:/ 'newPutObjectLegalHoldResponse' smart constructor.
 data PutObjectLegalHoldResponse = PutObjectLegalHoldResponse'

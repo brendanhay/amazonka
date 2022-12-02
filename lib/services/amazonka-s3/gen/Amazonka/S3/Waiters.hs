@@ -18,6 +18,7 @@ module Amazonka.S3.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.HeadBucket
 import Amazonka.S3.HeadObject

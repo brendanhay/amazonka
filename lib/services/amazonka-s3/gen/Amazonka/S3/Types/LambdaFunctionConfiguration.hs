@@ -21,6 +21,7 @@ module Amazonka.S3.Types.LambdaFunctionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.Event
@@ -94,13 +95,13 @@ lambdaFunctionConfiguration_lambdaFunctionArn = Lens.lens (\LambdaFunctionConfig
 lambdaFunctionConfiguration_events :: Lens.Lens' LambdaFunctionConfiguration [Event]
 lambdaFunctionConfiguration_events = Lens.lens (\LambdaFunctionConfiguration' {events} -> events) (\s@LambdaFunctionConfiguration' {} a -> s {events = a} :: LambdaFunctionConfiguration) Prelude.. Lens.coerced
 
-instance Core.FromXML LambdaFunctionConfiguration where
+instance Data.FromXML LambdaFunctionConfiguration where
   parseXML x =
     LambdaFunctionConfiguration'
-      Prelude.<$> (x Core..@? "Id")
-      Prelude.<*> (x Core..@? "Filter")
-      Prelude.<*> (x Core..@ "CloudFunction")
-      Prelude.<*> (Core.parseXMLList "Event" x)
+      Prelude.<$> (x Data..@? "Id")
+      Prelude.<*> (x Data..@? "Filter")
+      Prelude.<*> (x Data..@ "CloudFunction")
+      Prelude.<*> (Data.parseXMLList "Event" x)
 
 instance Prelude.Hashable LambdaFunctionConfiguration where
   hashWithSalt _salt LambdaFunctionConfiguration' {..} =
@@ -116,11 +117,11 @@ instance Prelude.NFData LambdaFunctionConfiguration where
       `Prelude.seq` Prelude.rnf lambdaFunctionArn
       `Prelude.seq` Prelude.rnf events
 
-instance Core.ToXML LambdaFunctionConfiguration where
+instance Data.ToXML LambdaFunctionConfiguration where
   toXML LambdaFunctionConfiguration' {..} =
     Prelude.mconcat
-      [ "Id" Core.@= id,
-        "Filter" Core.@= filter',
-        "CloudFunction" Core.@= lambdaFunctionArn,
-        Core.toXMLList "Event" events
+      [ "Id" Data.@= id,
+        "Filter" Data.@= filter',
+        "CloudFunction" Data.@= lambdaFunctionArn,
+        Data.toXMLList "Event" events
       ]

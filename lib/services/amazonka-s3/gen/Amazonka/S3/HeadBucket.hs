@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -185,18 +186,18 @@ instance Prelude.NFData HeadBucket where
     Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToHeaders HeadBucket where
+instance Data.ToHeaders HeadBucket where
   toHeaders HeadBucket' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath HeadBucket where
+instance Data.ToPath HeadBucket where
   toPath HeadBucket' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery HeadBucket where
+instance Data.ToQuery HeadBucket where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newHeadBucketResponse' smart constructor.

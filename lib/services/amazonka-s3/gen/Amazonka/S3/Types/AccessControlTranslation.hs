@@ -21,6 +21,7 @@ module Amazonka.S3.Types.AccessControlTranslation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.OwnerOverride
@@ -60,10 +61,10 @@ newAccessControlTranslation pOwner_ =
 accessControlTranslation_owner :: Lens.Lens' AccessControlTranslation OwnerOverride
 accessControlTranslation_owner = Lens.lens (\AccessControlTranslation' {owner} -> owner) (\s@AccessControlTranslation' {} a -> s {owner = a} :: AccessControlTranslation)
 
-instance Core.FromXML AccessControlTranslation where
+instance Data.FromXML AccessControlTranslation where
   parseXML x =
     AccessControlTranslation'
-      Prelude.<$> (x Core..@ "Owner")
+      Prelude.<$> (x Data..@ "Owner")
 
 instance Prelude.Hashable AccessControlTranslation where
   hashWithSalt _salt AccessControlTranslation' {..} =
@@ -72,6 +73,6 @@ instance Prelude.Hashable AccessControlTranslation where
 instance Prelude.NFData AccessControlTranslation where
   rnf AccessControlTranslation' {..} = Prelude.rnf owner
 
-instance Core.ToXML AccessControlTranslation where
+instance Data.ToXML AccessControlTranslation where
   toXML AccessControlTranslation' {..} =
-    Prelude.mconcat ["Owner" Core.@= owner]
+    Prelude.mconcat ["Owner" Data.@= owner]

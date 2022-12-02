@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -220,7 +221,7 @@ instance Core.AWSRequest AbortMultipartUpload where
     Response.receiveEmpty
       ( \s h x ->
           AbortMultipartUploadResponse'
-            Prelude.<$> (h Core..#? "x-amz-request-charged")
+            Prelude.<$> (h Data..#? "x-amz-request-charged")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -240,22 +241,22 @@ instance Prelude.NFData AbortMultipartUpload where
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf uploadId
 
-instance Core.ToHeaders AbortMultipartUpload where
+instance Data.ToHeaders AbortMultipartUpload where
   toHeaders AbortMultipartUpload' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-request-payer" Core.=# requestPayer
+          Data.=# expectedBucketOwner,
+        "x-amz-request-payer" Data.=# requestPayer
       ]
 
-instance Core.ToPath AbortMultipartUpload where
+instance Data.ToPath AbortMultipartUpload where
   toPath AbortMultipartUpload' {..} =
     Prelude.mconcat
-      ["/", Core.toBS bucket, "/", Core.toBS key]
+      ["/", Data.toBS bucket, "/", Data.toBS key]
 
-instance Core.ToQuery AbortMultipartUpload where
+instance Data.ToQuery AbortMultipartUpload where
   toQuery AbortMultipartUpload' {..} =
-    Prelude.mconcat ["uploadId" Core.=: uploadId]
+    Prelude.mconcat ["uploadId" Data.=: uploadId]
 
 -- | /See:/ 'newAbortMultipartUploadResponse' smart constructor.
 data AbortMultipartUploadResponse = AbortMultipartUploadResponse'

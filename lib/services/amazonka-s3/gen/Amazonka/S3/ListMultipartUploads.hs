@@ -98,6 +98,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -378,18 +379,18 @@ instance Core.AWSRequest ListMultipartUploads where
     Response.receiveXML
       ( \s h x ->
           ListMultipartUploadsResponse'
-            Prelude.<$> (Core.may (Core.parseXMLList "CommonPrefixes") x)
-            Prelude.<*> (Core.may (Core.parseXMLList "Upload") x)
-            Prelude.<*> (x Core..@? "Bucket")
-            Prelude.<*> (x Core..@? "MaxUploads")
-            Prelude.<*> (x Core..@? "IsTruncated")
-            Prelude.<*> (x Core..@? "KeyMarker")
-            Prelude.<*> (x Core..@? "Delimiter")
-            Prelude.<*> (x Core..@? "NextUploadIdMarker")
-            Prelude.<*> (x Core..@? "Prefix")
-            Prelude.<*> (x Core..@? "NextKeyMarker")
-            Prelude.<*> (x Core..@? "UploadIdMarker")
-            Prelude.<*> (x Core..@? "EncodingType")
+            Prelude.<$> (Core.may (Data.parseXMLList "CommonPrefixes") x)
+            Prelude.<*> (Core.may (Data.parseXMLList "Upload") x)
+            Prelude.<*> (x Data..@? "Bucket")
+            Prelude.<*> (x Data..@? "MaxUploads")
+            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<*> (x Data..@? "KeyMarker")
+            Prelude.<*> (x Data..@? "Delimiter")
+            Prelude.<*> (x Data..@? "NextUploadIdMarker")
+            Prelude.<*> (x Data..@? "Prefix")
+            Prelude.<*> (x Data..@? "NextKeyMarker")
+            Prelude.<*> (x Data..@? "UploadIdMarker")
+            Prelude.<*> (x Data..@? "EncodingType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -415,26 +416,26 @@ instance Prelude.NFData ListMultipartUploads where
       `Prelude.seq` Prelude.rnf encodingType
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToHeaders ListMultipartUploads where
+instance Data.ToHeaders ListMultipartUploads where
   toHeaders ListMultipartUploads' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath ListMultipartUploads where
+instance Data.ToPath ListMultipartUploads where
   toPath ListMultipartUploads' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery ListMultipartUploads where
+instance Data.ToQuery ListMultipartUploads where
   toQuery ListMultipartUploads' {..} =
     Prelude.mconcat
-      [ "max-uploads" Core.=: maxUploads,
-        "key-marker" Core.=: keyMarker,
-        "delimiter" Core.=: delimiter,
-        "prefix" Core.=: prefix,
-        "upload-id-marker" Core.=: uploadIdMarker,
-        "encoding-type" Core.=: encodingType,
+      [ "max-uploads" Data.=: maxUploads,
+        "key-marker" Data.=: keyMarker,
+        "delimiter" Data.=: delimiter,
+        "prefix" Data.=: prefix,
+        "upload-id-marker" Data.=: uploadIdMarker,
+        "encoding-type" Data.=: encodingType,
         "uploads"
       ]
 

@@ -21,6 +21,7 @@ module Amazonka.S3.Types.DeleteMarkerEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.Owner
@@ -37,7 +38,7 @@ data DeleteMarkerEntry = DeleteMarkerEntry'
     -- | The account that created the delete marker.>
     owner :: Prelude.Maybe Owner,
     -- | Date and time the object was last modified.
-    lastModified :: Prelude.Maybe Core.ISO8601,
+    lastModified :: Prelude.Maybe Data.ISO8601,
     -- | Version ID of an object.
     versionId :: Prelude.Maybe ObjectVersionId
   }
@@ -87,20 +88,20 @@ deleteMarkerEntry_owner = Lens.lens (\DeleteMarkerEntry' {owner} -> owner) (\s@D
 
 -- | Date and time the object was last modified.
 deleteMarkerEntry_lastModified :: Lens.Lens' DeleteMarkerEntry (Prelude.Maybe Prelude.UTCTime)
-deleteMarkerEntry_lastModified = Lens.lens (\DeleteMarkerEntry' {lastModified} -> lastModified) (\s@DeleteMarkerEntry' {} a -> s {lastModified = a} :: DeleteMarkerEntry) Prelude.. Lens.mapping Core._Time
+deleteMarkerEntry_lastModified = Lens.lens (\DeleteMarkerEntry' {lastModified} -> lastModified) (\s@DeleteMarkerEntry' {} a -> s {lastModified = a} :: DeleteMarkerEntry) Prelude.. Lens.mapping Data._Time
 
 -- | Version ID of an object.
 deleteMarkerEntry_versionId :: Lens.Lens' DeleteMarkerEntry (Prelude.Maybe ObjectVersionId)
 deleteMarkerEntry_versionId = Lens.lens (\DeleteMarkerEntry' {versionId} -> versionId) (\s@DeleteMarkerEntry' {} a -> s {versionId = a} :: DeleteMarkerEntry)
 
-instance Core.FromXML DeleteMarkerEntry where
+instance Data.FromXML DeleteMarkerEntry where
   parseXML x =
     DeleteMarkerEntry'
-      Prelude.<$> (x Core..@? "Key")
-      Prelude.<*> (x Core..@? "IsLatest")
-      Prelude.<*> (x Core..@? "Owner")
-      Prelude.<*> (x Core..@? "LastModified")
-      Prelude.<*> (x Core..@? "VersionId")
+      Prelude.<$> (x Data..@? "Key")
+      Prelude.<*> (x Data..@? "IsLatest")
+      Prelude.<*> (x Data..@? "Owner")
+      Prelude.<*> (x Data..@? "LastModified")
+      Prelude.<*> (x Data..@? "VersionId")
 
 instance Prelude.Hashable DeleteMarkerEntry where
   hashWithSalt _salt DeleteMarkerEntry' {..} =

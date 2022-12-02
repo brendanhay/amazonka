@@ -21,6 +21,7 @@ module Amazonka.S3.Types.Checksum where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -140,13 +141,13 @@ checksum_checksumCRC32 = Lens.lens (\Checksum' {checksumCRC32} -> checksumCRC32)
 checksum_checksumSHA256 :: Lens.Lens' Checksum (Prelude.Maybe Prelude.Text)
 checksum_checksumSHA256 = Lens.lens (\Checksum' {checksumSHA256} -> checksumSHA256) (\s@Checksum' {} a -> s {checksumSHA256 = a} :: Checksum)
 
-instance Core.FromXML Checksum where
+instance Data.FromXML Checksum where
   parseXML x =
     Checksum'
-      Prelude.<$> (x Core..@? "ChecksumCRC32C")
-      Prelude.<*> (x Core..@? "ChecksumSHA1")
-      Prelude.<*> (x Core..@? "ChecksumCRC32")
-      Prelude.<*> (x Core..@? "ChecksumSHA256")
+      Prelude.<$> (x Data..@? "ChecksumCRC32C")
+      Prelude.<*> (x Data..@? "ChecksumSHA1")
+      Prelude.<*> (x Data..@? "ChecksumCRC32")
+      Prelude.<*> (x Data..@? "ChecksumSHA256")
 
 instance Prelude.Hashable Checksum where
   hashWithSalt _salt Checksum' {..} =

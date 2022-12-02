@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -69,9 +70,9 @@ instance Core.AWSRequest ListBuckets where
     Response.receiveXML
       ( \s h x ->
           ListBucketsResponse'
-            Prelude.<$> (x Core..@? "Owner")
-            Prelude.<*> ( x Core..@? "Buckets" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "Bucket")
+            Prelude.<$> (x Data..@? "Owner")
+            Prelude.<*> ( x Data..@? "Buckets" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "Bucket")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -83,13 +84,13 @@ instance Prelude.Hashable ListBuckets where
 instance Prelude.NFData ListBuckets where
   rnf _ = ()
 
-instance Core.ToHeaders ListBuckets where
+instance Data.ToHeaders ListBuckets where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListBuckets where
+instance Data.ToPath ListBuckets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListBuckets where
+instance Data.ToQuery ListBuckets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListBucketsResponse' smart constructor.

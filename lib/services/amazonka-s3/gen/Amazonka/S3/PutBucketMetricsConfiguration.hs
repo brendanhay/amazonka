@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -179,26 +180,26 @@ instance Prelude.NFData PutBucketMetricsConfiguration where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf metricsConfiguration
 
-instance Core.ToElement PutBucketMetricsConfiguration where
+instance Data.ToElement PutBucketMetricsConfiguration where
   toElement PutBucketMetricsConfiguration' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}MetricsConfiguration"
       metricsConfiguration
 
-instance Core.ToHeaders PutBucketMetricsConfiguration where
+instance Data.ToHeaders PutBucketMetricsConfiguration where
   toHeaders PutBucketMetricsConfiguration' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath PutBucketMetricsConfiguration where
+instance Data.ToPath PutBucketMetricsConfiguration where
   toPath PutBucketMetricsConfiguration' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery PutBucketMetricsConfiguration where
+instance Data.ToQuery PutBucketMetricsConfiguration where
   toQuery PutBucketMetricsConfiguration' {..} =
-    Prelude.mconcat ["id" Core.=: id, "metrics"]
+    Prelude.mconcat ["id" Data.=: id, "metrics"]
 
 -- | /See:/ 'newPutBucketMetricsConfigurationResponse' smart constructor.
 data PutBucketMetricsConfigurationResponse = PutBucketMetricsConfigurationResponse'

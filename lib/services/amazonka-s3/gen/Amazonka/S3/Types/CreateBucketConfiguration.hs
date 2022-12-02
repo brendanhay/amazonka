@@ -21,6 +21,7 @@ module Amazonka.S3.Types.CreateBucketConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -68,7 +69,7 @@ instance Prelude.NFData CreateBucketConfiguration where
   rnf CreateBucketConfiguration' {..} =
     Prelude.rnf locationConstraint
 
-instance Core.ToXML CreateBucketConfiguration where
+instance Data.ToXML CreateBucketConfiguration where
   toXML CreateBucketConfiguration' {..} =
     Prelude.mconcat
-      ["LocationConstraint" Core.@= locationConstraint]
+      ["LocationConstraint" Data.@= locationConstraint]

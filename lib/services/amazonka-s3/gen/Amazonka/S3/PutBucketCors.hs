@@ -86,6 +86,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -251,27 +252,27 @@ instance Prelude.NFData PutBucketCors where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf cORSConfiguration
 
-instance Core.ToElement PutBucketCors where
+instance Data.ToElement PutBucketCors where
   toElement PutBucketCors' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}CORSConfiguration"
       cORSConfiguration
 
-instance Core.ToHeaders PutBucketCors where
+instance Data.ToHeaders PutBucketCors where
   toHeaders PutBucketCors' {..} =
     Prelude.mconcat
       [ "x-amz-sdk-checksum-algorithm"
-          Core.=# checksumAlgorithm,
-        "Content-MD5" Core.=# contentMD5,
+          Data.=# checksumAlgorithm,
+        "Content-MD5" Data.=# contentMD5,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath PutBucketCors where
+instance Data.ToPath PutBucketCors where
   toPath PutBucketCors' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery PutBucketCors where
+instance Data.ToQuery PutBucketCors where
   toQuery = Prelude.const (Prelude.mconcat ["cors"])
 
 -- | /See:/ 'newPutBucketCorsResponse' smart constructor.

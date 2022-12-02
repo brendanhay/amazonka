@@ -184,6 +184,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -197,7 +198,7 @@ data UploadPartCopy = UploadPartCopy'
     -- | Specifies the customer-provided encryption key for Amazon S3 to use to
     -- decrypt the source object. The encryption key provided in this header
     -- must be one that was used when the source object was created.
-    copySourceSSECustomerKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    copySourceSSECustomerKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
     -- 1321. Amazon S3 uses this header for a message integrity check to ensure
     -- that the encryption key was transmitted without error.
@@ -210,10 +211,10 @@ data UploadPartCopy = UploadPartCopy'
     -- with the HTTP status code @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | Copies the object if it has been modified since the specified time.
-    copySourceIfModifiedSince :: Prelude.Maybe Core.ISO8601,
+    copySourceIfModifiedSince :: Prelude.Maybe Data.ISO8601,
     requestPayer :: Prelude.Maybe RequestPayer,
     -- | Copies the object if it hasn\'t been modified since the specified time.
-    copySourceIfUnmodifiedSince :: Prelude.Maybe Core.ISO8601,
+    copySourceIfUnmodifiedSince :: Prelude.Maybe Data.ISO8601,
     -- | The account ID of the expected source bucket owner. If the source bucket
     -- is owned by a different account, the request fails with the HTTP status
     -- code @403 Forbidden@ (access denied).
@@ -240,7 +241,7 @@ data UploadPartCopy = UploadPartCopy'
     -- @x-amz-server-side-encryption-customer-algorithm@ header. This must be
     -- the same encryption key specified in the initiate multipart upload
     -- request.
-    sSECustomerKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sSECustomerKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The bucket name.
     --
     -- When using this action with an access point, you must direct requests to
@@ -490,7 +491,7 @@ uploadPartCopy_copySourceIfNoneMatch = Lens.lens (\UploadPartCopy' {copySourceIf
 -- decrypt the source object. The encryption key provided in this header
 -- must be one that was used when the source object was created.
 uploadPartCopy_copySourceSSECustomerKey :: Lens.Lens' UploadPartCopy (Prelude.Maybe Prelude.Text)
-uploadPartCopy_copySourceSSECustomerKey = Lens.lens (\UploadPartCopy' {copySourceSSECustomerKey} -> copySourceSSECustomerKey) (\s@UploadPartCopy' {} a -> s {copySourceSSECustomerKey = a} :: UploadPartCopy) Prelude.. Lens.mapping Core._Sensitive
+uploadPartCopy_copySourceSSECustomerKey = Lens.lens (\UploadPartCopy' {copySourceSSECustomerKey} -> copySourceSSECustomerKey) (\s@UploadPartCopy' {} a -> s {copySourceSSECustomerKey = a} :: UploadPartCopy) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
@@ -511,7 +512,7 @@ uploadPartCopy_expectedBucketOwner = Lens.lens (\UploadPartCopy' {expectedBucket
 
 -- | Copies the object if it has been modified since the specified time.
 uploadPartCopy_copySourceIfModifiedSince :: Lens.Lens' UploadPartCopy (Prelude.Maybe Prelude.UTCTime)
-uploadPartCopy_copySourceIfModifiedSince = Lens.lens (\UploadPartCopy' {copySourceIfModifiedSince} -> copySourceIfModifiedSince) (\s@UploadPartCopy' {} a -> s {copySourceIfModifiedSince = a} :: UploadPartCopy) Prelude.. Lens.mapping Core._Time
+uploadPartCopy_copySourceIfModifiedSince = Lens.lens (\UploadPartCopy' {copySourceIfModifiedSince} -> copySourceIfModifiedSince) (\s@UploadPartCopy' {} a -> s {copySourceIfModifiedSince = a} :: UploadPartCopy) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 uploadPartCopy_requestPayer :: Lens.Lens' UploadPartCopy (Prelude.Maybe RequestPayer)
@@ -519,7 +520,7 @@ uploadPartCopy_requestPayer = Lens.lens (\UploadPartCopy' {requestPayer} -> requ
 
 -- | Copies the object if it hasn\'t been modified since the specified time.
 uploadPartCopy_copySourceIfUnmodifiedSince :: Lens.Lens' UploadPartCopy (Prelude.Maybe Prelude.UTCTime)
-uploadPartCopy_copySourceIfUnmodifiedSince = Lens.lens (\UploadPartCopy' {copySourceIfUnmodifiedSince} -> copySourceIfUnmodifiedSince) (\s@UploadPartCopy' {} a -> s {copySourceIfUnmodifiedSince = a} :: UploadPartCopy) Prelude.. Lens.mapping Core._Time
+uploadPartCopy_copySourceIfUnmodifiedSince = Lens.lens (\UploadPartCopy' {copySourceIfUnmodifiedSince} -> copySourceIfUnmodifiedSince) (\s@UploadPartCopy' {} a -> s {copySourceIfUnmodifiedSince = a} :: UploadPartCopy) Prelude.. Lens.mapping Data._Time
 
 -- | The account ID of the expected source bucket owner. If the source bucket
 -- is owned by a different account, the request fails with the HTTP status
@@ -558,7 +559,7 @@ uploadPartCopy_copySourceIfMatch = Lens.lens (\UploadPartCopy' {copySourceIfMatc
 -- the same encryption key specified in the initiate multipart upload
 -- request.
 uploadPartCopy_sSECustomerKey :: Lens.Lens' UploadPartCopy (Prelude.Maybe Prelude.Text)
-uploadPartCopy_sSECustomerKey = Lens.lens (\UploadPartCopy' {sSECustomerKey} -> sSECustomerKey) (\s@UploadPartCopy' {} a -> s {sSECustomerKey = a} :: UploadPartCopy) Prelude.. Lens.mapping Core._Sensitive
+uploadPartCopy_sSECustomerKey = Lens.lens (\UploadPartCopy' {sSECustomerKey} -> sSECustomerKey) (\s@UploadPartCopy' {} a -> s {sSECustomerKey = a} :: UploadPartCopy) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The bucket name.
 --
@@ -650,21 +651,21 @@ instance Core.AWSRequest UploadPartCopy where
     Response.receiveXML
       ( \s h x ->
           UploadPartCopyResponse'
-            Prelude.<$> (h Core..#? "x-amz-server-side-encryption")
+            Prelude.<$> (h Data..#? "x-amz-server-side-encryption")
             Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-bucket-key-enabled"
+                            Data..#? "x-amz-server-side-encryption-bucket-key-enabled"
                         )
-            Prelude.<*> (h Core..#? "x-amz-request-charged")
+            Prelude.<*> (h Data..#? "x-amz-request-charged")
             Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-aws-kms-key-id"
+                            Data..#? "x-amz-server-side-encryption-aws-kms-key-id"
                         )
-            Prelude.<*> (Core.parseXML x)
-            Prelude.<*> (h Core..#? "x-amz-copy-source-version-id")
+            Prelude.<*> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "x-amz-copy-source-version-id")
             Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-customer-algorithm"
+                            Data..#? "x-amz-server-side-encryption-customer-algorithm"
                         )
             Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-customer-key-MD5"
+                            Data..#? "x-amz-server-side-encryption-customer-key-MD5"
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -713,48 +714,48 @@ instance Prelude.NFData UploadPartCopy where
       `Prelude.seq` Prelude.rnf partNumber
       `Prelude.seq` Prelude.rnf uploadId
 
-instance Core.ToHeaders UploadPartCopy where
+instance Data.ToHeaders UploadPartCopy where
   toHeaders UploadPartCopy' {..} =
     Prelude.mconcat
       [ "x-amz-copy-source-if-none-match"
-          Core.=# copySourceIfNoneMatch,
+          Data.=# copySourceIfNoneMatch,
         "x-amz-copy-source-server-side-encryption-customer-key"
-          Core.=# copySourceSSECustomerKey,
+          Data.=# copySourceSSECustomerKey,
         "x-amz-copy-source-server-side-encryption-customer-key-MD5"
-          Core.=# copySourceSSECustomerKeyMD5,
+          Data.=# copySourceSSECustomerKeyMD5,
         "x-amz-copy-source-server-side-encryption-customer-algorithm"
-          Core.=# copySourceSSECustomerAlgorithm,
+          Data.=# copySourceSSECustomerAlgorithm,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
+          Data.=# expectedBucketOwner,
         "x-amz-copy-source-if-modified-since"
-          Core.=# copySourceIfModifiedSince,
-        "x-amz-request-payer" Core.=# requestPayer,
+          Data.=# copySourceIfModifiedSince,
+        "x-amz-request-payer" Data.=# requestPayer,
         "x-amz-copy-source-if-unmodified-since"
-          Core.=# copySourceIfUnmodifiedSince,
+          Data.=# copySourceIfUnmodifiedSince,
         "x-amz-source-expected-bucket-owner"
-          Core.=# expectedSourceBucketOwner,
+          Data.=# expectedSourceBucketOwner,
         "x-amz-server-side-encryption-customer-algorithm"
-          Core.=# sSECustomerAlgorithm,
-        "x-amz-copy-source-range" Core.=# copySourceRange,
+          Data.=# sSECustomerAlgorithm,
+        "x-amz-copy-source-range" Data.=# copySourceRange,
         "x-amz-server-side-encryption-customer-key-MD5"
-          Core.=# sSECustomerKeyMD5,
+          Data.=# sSECustomerKeyMD5,
         "x-amz-copy-source-if-match"
-          Core.=# copySourceIfMatch,
+          Data.=# copySourceIfMatch,
         "x-amz-server-side-encryption-customer-key"
-          Core.=# sSECustomerKey,
-        "x-amz-copy-source" Core.=# copySource
+          Data.=# sSECustomerKey,
+        "x-amz-copy-source" Data.=# copySource
       ]
 
-instance Core.ToPath UploadPartCopy where
+instance Data.ToPath UploadPartCopy where
   toPath UploadPartCopy' {..} =
     Prelude.mconcat
-      ["/", Core.toBS bucket, "/", Core.toBS key]
+      ["/", Data.toBS bucket, "/", Data.toBS key]
 
-instance Core.ToQuery UploadPartCopy where
+instance Data.ToQuery UploadPartCopy where
   toQuery UploadPartCopy' {..} =
     Prelude.mconcat
-      [ "partNumber" Core.=: partNumber,
-        "uploadId" Core.=: uploadId
+      [ "partNumber" Data.=: partNumber,
+        "uploadId" Data.=: uploadId
       ]
 
 -- | /See:/ 'newUploadPartCopyResponse' smart constructor.
@@ -769,7 +770,7 @@ data UploadPartCopyResponse = UploadPartCopyResponse'
     -- | If present, specifies the ID of the Amazon Web Services Key Management
     -- Service (Amazon Web Services KMS) symmetric customer managed key that
     -- was used for the object.
-    sSEKMSKeyId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sSEKMSKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Container for all response elements.
     copyPartResult :: Prelude.Maybe CopyPartResult,
     -- | The version of the source object that was copied, if you have enabled
@@ -858,7 +859,7 @@ uploadPartCopyResponse_requestCharged = Lens.lens (\UploadPartCopyResponse' {req
 -- Service (Amazon Web Services KMS) symmetric customer managed key that
 -- was used for the object.
 uploadPartCopyResponse_sSEKMSKeyId :: Lens.Lens' UploadPartCopyResponse (Prelude.Maybe Prelude.Text)
-uploadPartCopyResponse_sSEKMSKeyId = Lens.lens (\UploadPartCopyResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@UploadPartCopyResponse' {} a -> s {sSEKMSKeyId = a} :: UploadPartCopyResponse) Prelude.. Lens.mapping Core._Sensitive
+uploadPartCopyResponse_sSEKMSKeyId = Lens.lens (\UploadPartCopyResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@UploadPartCopyResponse' {} a -> s {sSEKMSKeyId = a} :: UploadPartCopyResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Container for all response elements.
 uploadPartCopyResponse_copyPartResult :: Lens.Lens' UploadPartCopyResponse (Prelude.Maybe CopyPartResult)

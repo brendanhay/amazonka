@@ -21,6 +21,7 @@ module Amazonka.S3.Types.GlacierJobParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.Tier
@@ -61,6 +62,6 @@ instance Prelude.Hashable GlacierJobParameters where
 instance Prelude.NFData GlacierJobParameters where
   rnf GlacierJobParameters' {..} = Prelude.rnf tier
 
-instance Core.ToXML GlacierJobParameters where
+instance Data.ToXML GlacierJobParameters where
   toXML GlacierJobParameters' {..} =
-    Prelude.mconcat ["Tier" Core.@= tier]
+    Prelude.mconcat ["Tier" Data.@= tier]

@@ -95,6 +95,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -195,35 +196,35 @@ instance
       `Prelude.seq` Prelude.rnf intelligentTieringConfiguration
 
 instance
-  Core.ToElement
+  Data.ToElement
     PutBucketIntelligentTieringConfiguration
   where
   toElement
     PutBucketIntelligentTieringConfiguration' {..} =
-      Core.mkElement
+      Data.mkElement
         "{http://s3.amazonaws.com/doc/2006-03-01/}IntelligentTieringConfiguration"
         intelligentTieringConfiguration
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutBucketIntelligentTieringConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     PutBucketIntelligentTieringConfiguration
   where
   toPath PutBucketIntelligentTieringConfiguration' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PutBucketIntelligentTieringConfiguration
   where
   toQuery PutBucketIntelligentTieringConfiguration' {..} =
     Prelude.mconcat
-      ["id" Core.=: id, "intelligent-tiering"]
+      ["id" Data.=: id, "intelligent-tiering"]
 
 -- | /See:/ 'newPutBucketIntelligentTieringConfigurationResponse' smart constructor.
 data PutBucketIntelligentTieringConfigurationResponse = PutBucketIntelligentTieringConfigurationResponse'

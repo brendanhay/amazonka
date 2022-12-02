@@ -21,6 +21,7 @@ module Amazonka.S3.Types.NoncurrentVersionTransition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.TransitionStorageClass
@@ -110,12 +111,12 @@ noncurrentVersionTransition_noncurrentDays = Lens.lens (\NoncurrentVersionTransi
 noncurrentVersionTransition_storageClass :: Lens.Lens' NoncurrentVersionTransition TransitionStorageClass
 noncurrentVersionTransition_storageClass = Lens.lens (\NoncurrentVersionTransition' {storageClass} -> storageClass) (\s@NoncurrentVersionTransition' {} a -> s {storageClass = a} :: NoncurrentVersionTransition)
 
-instance Core.FromXML NoncurrentVersionTransition where
+instance Data.FromXML NoncurrentVersionTransition where
   parseXML x =
     NoncurrentVersionTransition'
-      Prelude.<$> (x Core..@? "NewerNoncurrentVersions")
-      Prelude.<*> (x Core..@ "NoncurrentDays")
-      Prelude.<*> (x Core..@ "StorageClass")
+      Prelude.<$> (x Data..@? "NewerNoncurrentVersions")
+      Prelude.<*> (x Data..@ "NoncurrentDays")
+      Prelude.<*> (x Data..@ "StorageClass")
 
 instance Prelude.Hashable NoncurrentVersionTransition where
   hashWithSalt _salt NoncurrentVersionTransition' {..} =
@@ -130,11 +131,11 @@ instance Prelude.NFData NoncurrentVersionTransition where
       `Prelude.seq` Prelude.rnf noncurrentDays
       `Prelude.seq` Prelude.rnf storageClass
 
-instance Core.ToXML NoncurrentVersionTransition where
+instance Data.ToXML NoncurrentVersionTransition where
   toXML NoncurrentVersionTransition' {..} =
     Prelude.mconcat
       [ "NewerNoncurrentVersions"
-          Core.@= newerNoncurrentVersions',
-        "NoncurrentDays" Core.@= noncurrentDays,
-        "StorageClass" Core.@= storageClass
+          Data.@= newerNoncurrentVersions',
+        "NoncurrentDays" Data.@= noncurrentDays,
+        "StorageClass" Data.@= storageClass
       ]

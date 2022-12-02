@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,12 +122,12 @@ instance Core.AWSRequest GetBucketWebsite where
     Response.receiveXML
       ( \s h x ->
           GetBucketWebsiteResponse'
-            Prelude.<$> ( x Core..@? "RoutingRules" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "RoutingRule")
+            Prelude.<$> ( x Data..@? "RoutingRules" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "RoutingRule")
                         )
-            Prelude.<*> (x Core..@? "ErrorDocument")
-            Prelude.<*> (x Core..@? "RedirectAllRequestsTo")
-            Prelude.<*> (x Core..@? "IndexDocument")
+            Prelude.<*> (x Data..@? "ErrorDocument")
+            Prelude.<*> (x Data..@? "RedirectAllRequestsTo")
+            Prelude.<*> (x Data..@? "IndexDocument")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,18 +141,18 @@ instance Prelude.NFData GetBucketWebsite where
     Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToHeaders GetBucketWebsite where
+instance Data.ToHeaders GetBucketWebsite where
   toHeaders GetBucketWebsite' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath GetBucketWebsite where
+instance Data.ToPath GetBucketWebsite where
   toPath GetBucketWebsite' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery GetBucketWebsite where
+instance Data.ToQuery GetBucketWebsite where
   toQuery = Prelude.const (Prelude.mconcat ["website"])
 
 -- | /See:/ 'newGetBucketWebsiteResponse' smart constructor.

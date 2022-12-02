@@ -21,6 +21,7 @@ module Amazonka.S3.Types.Destination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.AccessControlTranslation
@@ -185,16 +186,16 @@ destination_storageClass = Lens.lens (\Destination' {storageClass} -> storageCla
 destination_bucket :: Lens.Lens' Destination BucketName
 destination_bucket = Lens.lens (\Destination' {bucket} -> bucket) (\s@Destination' {} a -> s {bucket = a} :: Destination)
 
-instance Core.FromXML Destination where
+instance Data.FromXML Destination where
   parseXML x =
     Destination'
-      Prelude.<$> (x Core..@? "ReplicationTime")
-      Prelude.<*> (x Core..@? "Account")
-      Prelude.<*> (x Core..@? "Metrics")
-      Prelude.<*> (x Core..@? "EncryptionConfiguration")
-      Prelude.<*> (x Core..@? "AccessControlTranslation")
-      Prelude.<*> (x Core..@? "StorageClass")
-      Prelude.<*> (x Core..@ "Bucket")
+      Prelude.<$> (x Data..@? "ReplicationTime")
+      Prelude.<*> (x Data..@? "Account")
+      Prelude.<*> (x Data..@? "Metrics")
+      Prelude.<*> (x Data..@? "EncryptionConfiguration")
+      Prelude.<*> (x Data..@? "AccessControlTranslation")
+      Prelude.<*> (x Data..@? "StorageClass")
+      Prelude.<*> (x Data..@ "Bucket")
 
 instance Prelude.Hashable Destination where
   hashWithSalt _salt Destination' {..} =
@@ -216,16 +217,16 @@ instance Prelude.NFData Destination where
       `Prelude.seq` Prelude.rnf storageClass
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToXML Destination where
+instance Data.ToXML Destination where
   toXML Destination' {..} =
     Prelude.mconcat
-      [ "ReplicationTime" Core.@= replicationTime,
-        "Account" Core.@= account,
-        "Metrics" Core.@= metrics,
+      [ "ReplicationTime" Data.@= replicationTime,
+        "Account" Data.@= account,
+        "Metrics" Data.@= metrics,
         "EncryptionConfiguration"
-          Core.@= encryptionConfiguration,
+          Data.@= encryptionConfiguration,
         "AccessControlTranslation"
-          Core.@= accessControlTranslation,
-        "StorageClass" Core.@= storageClass,
-        "Bucket" Core.@= bucket
+          Data.@= accessControlTranslation,
+        "StorageClass" Data.@= storageClass,
+        "Bucket" Data.@= bucket
       ]

@@ -148,6 +148,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -207,7 +208,7 @@ data CompleteMultipartUpload = CompleteMultipartUpload'
     -- more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
     -- in the /Amazon S3 User Guide/.
-    sSECustomerKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sSECustomerKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Name of the bucket to which the multipart upload was initiated.
     --
     -- When using this action with an access point, you must direct requests to
@@ -420,7 +421,7 @@ completeMultipartUpload_multipartUpload = Lens.lens (\CompleteMultipartUpload' {
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
 -- in the /Amazon S3 User Guide/.
 completeMultipartUpload_sSECustomerKey :: Lens.Lens' CompleteMultipartUpload (Prelude.Maybe Prelude.Text)
-completeMultipartUpload_sSECustomerKey = Lens.lens (\CompleteMultipartUpload' {sSECustomerKey} -> sSECustomerKey) (\s@CompleteMultipartUpload' {} a -> s {sSECustomerKey = a} :: CompleteMultipartUpload) Prelude.. Lens.mapping Core._Sensitive
+completeMultipartUpload_sSECustomerKey = Lens.lens (\CompleteMultipartUpload' {sSECustomerKey} -> sSECustomerKey) (\s@CompleteMultipartUpload' {} a -> s {sSECustomerKey = a} :: CompleteMultipartUpload) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Name of the bucket to which the multipart upload was initiated.
 --
@@ -464,24 +465,24 @@ instance Core.AWSRequest CompleteMultipartUpload where
     Response.receiveXML
       ( \s h x ->
           CompleteMultipartUploadResponse'
-            Prelude.<$> (h Core..#? "x-amz-server-side-encryption")
-            Prelude.<*> (x Core..@? "Key")
-            Prelude.<*> (x Core..@? "ChecksumCRC32C")
+            Prelude.<$> (h Data..#? "x-amz-server-side-encryption")
+            Prelude.<*> (x Data..@? "Key")
+            Prelude.<*> (x Data..@? "ChecksumCRC32C")
             Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-bucket-key-enabled"
+                            Data..#? "x-amz-server-side-encryption-bucket-key-enabled"
                         )
-            Prelude.<*> (h Core..#? "x-amz-expiration")
-            Prelude.<*> (h Core..#? "x-amz-request-charged")
-            Prelude.<*> (x Core..@? "ChecksumSHA1")
-            Prelude.<*> (x Core..@? "Bucket")
-            Prelude.<*> (x Core..@? "ChecksumCRC32")
+            Prelude.<*> (h Data..#? "x-amz-expiration")
+            Prelude.<*> (h Data..#? "x-amz-request-charged")
+            Prelude.<*> (x Data..@? "ChecksumSHA1")
+            Prelude.<*> (x Data..@? "Bucket")
+            Prelude.<*> (x Data..@? "ChecksumCRC32")
             Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-aws-kms-key-id"
+                            Data..#? "x-amz-server-side-encryption-aws-kms-key-id"
                         )
-            Prelude.<*> (x Core..@? "ChecksumSHA256")
-            Prelude.<*> (x Core..@? "Location")
-            Prelude.<*> (x Core..@? "ETag")
-            Prelude.<*> (h Core..#? "x-amz-version-id")
+            Prelude.<*> (x Data..@? "ChecksumSHA256")
+            Prelude.<*> (x Data..@? "Location")
+            Prelude.<*> (x Data..@? "ETag")
+            Prelude.<*> (h Data..#? "x-amz-version-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -517,38 +518,38 @@ instance Prelude.NFData CompleteMultipartUpload where
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf uploadId
 
-instance Core.ToElement CompleteMultipartUpload where
+instance Data.ToElement CompleteMultipartUpload where
   toElement CompleteMultipartUpload' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}CompleteMultipartUpload"
       multipartUpload
 
-instance Core.ToHeaders CompleteMultipartUpload where
+instance Data.ToHeaders CompleteMultipartUpload where
   toHeaders CompleteMultipartUpload' {..} =
     Prelude.mconcat
-      [ "x-amz-checksum-crc32c" Core.=# checksumCRC32C,
-        "x-amz-checksum-sha1" Core.=# checksumSHA1,
+      [ "x-amz-checksum-crc32c" Data.=# checksumCRC32C,
+        "x-amz-checksum-sha1" Data.=# checksumSHA1,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-checksum-crc32" Core.=# checksumCRC32,
-        "x-amz-request-payer" Core.=# requestPayer,
-        "x-amz-checksum-sha256" Core.=# checksumSHA256,
+          Data.=# expectedBucketOwner,
+        "x-amz-checksum-crc32" Data.=# checksumCRC32,
+        "x-amz-request-payer" Data.=# requestPayer,
+        "x-amz-checksum-sha256" Data.=# checksumSHA256,
         "x-amz-server-side-encryption-customer-algorithm"
-          Core.=# sSECustomerAlgorithm,
+          Data.=# sSECustomerAlgorithm,
         "x-amz-server-side-encryption-customer-key-MD5"
-          Core.=# sSECustomerKeyMD5,
+          Data.=# sSECustomerKeyMD5,
         "x-amz-server-side-encryption-customer-key"
-          Core.=# sSECustomerKey
+          Data.=# sSECustomerKey
       ]
 
-instance Core.ToPath CompleteMultipartUpload where
+instance Data.ToPath CompleteMultipartUpload where
   toPath CompleteMultipartUpload' {..} =
     Prelude.mconcat
-      ["/", Core.toBS bucket, "/", Core.toBS key]
+      ["/", Data.toBS bucket, "/", Data.toBS key]
 
-instance Core.ToQuery CompleteMultipartUpload where
+instance Data.ToQuery CompleteMultipartUpload where
   toQuery CompleteMultipartUpload' {..} =
-    Prelude.mconcat ["uploadId" Core.=: uploadId]
+    Prelude.mconcat ["uploadId" Data.=: uploadId]
 
 -- | /See:/ 'newCompleteMultipartUploadResponse' smart constructor.
 data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
@@ -613,7 +614,7 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
     -- | If present, specifies the ID of the Amazon Web Services Key Management
     -- Service (Amazon Web Services KMS) symmetric customer managed key that
     -- was used for the object.
-    sSEKMSKeyId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sSEKMSKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The base64-encoded, 256-bit SHA-256 digest of the object. This will only
     -- be present if it was uploaded with the object. With multipart uploads,
     -- this may not be a checksum value of the object. For more information
@@ -840,7 +841,7 @@ completeMultipartUploadResponse_checksumCRC32 = Lens.lens (\CompleteMultipartUpl
 -- Service (Amazon Web Services KMS) symmetric customer managed key that
 -- was used for the object.
 completeMultipartUploadResponse_sSEKMSKeyId :: Lens.Lens' CompleteMultipartUploadResponse (Prelude.Maybe Prelude.Text)
-completeMultipartUploadResponse_sSEKMSKeyId = Lens.lens (\CompleteMultipartUploadResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@CompleteMultipartUploadResponse' {} a -> s {sSEKMSKeyId = a} :: CompleteMultipartUploadResponse) Prelude.. Lens.mapping Core._Sensitive
+completeMultipartUploadResponse_sSEKMSKeyId = Lens.lens (\CompleteMultipartUploadResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@CompleteMultipartUploadResponse' {} a -> s {sSEKMSKeyId = a} :: CompleteMultipartUploadResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The base64-encoded, 256-bit SHA-256 digest of the object. This will only
 -- be present if it was uploaded with the object. With multipart uploads,

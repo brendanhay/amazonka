@@ -193,6 +193,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -259,7 +260,7 @@ data PutObject = PutObject'
     grantWriteACP :: Prelude.Maybe Prelude.Text,
     -- | The date and time when you want this object\'s Object Lock to expire.
     -- Must be formatted as a timestamp parameter.
-    objectLockRetainUntilDate :: Prelude.Maybe Core.ISO8601,
+    objectLockRetainUntilDate :: Prelude.Maybe Data.ISO8601,
     -- | This header can be used as a data integrity check to verify that the
     -- data received is the same data that was originally sent. This header
     -- specifies the base64-encoded, 160-bit SHA-1 digest of the object. For
@@ -309,7 +310,7 @@ data PutObject = PutObject'
     -- the Amazon Web Services managed key to protect the data. If the KMS key
     -- does not exist in the same account issuing the command, you must use the
     -- full ARN and not just the ID.
-    sSEKMSKeyId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sSEKMSKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specifies presentational information for the object. For more
     -- information, see
     -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1>.
@@ -329,7 +330,7 @@ data PutObject = PutObject'
     -- | Specifies the Amazon Web Services KMS Encryption Context to use for
     -- object encryption. The value of this header is a base64-encoded UTF-8
     -- string holding JSON with the encryption context key-value pairs.
-    sSEKMSEncryptionContext :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sSEKMSEncryptionContext :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Size of the body in bytes. This parameter is useful when the size of the
     -- body cannot be determined automatically. For more information, see
     -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13>.
@@ -360,7 +361,7 @@ data PutObject = PutObject'
     -- | The date and time at which the object is no longer cacheable. For more
     -- information, see
     -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21>.
-    expires :: Prelude.Maybe Core.ISO8601,
+    expires :: Prelude.Maybe Data.ISO8601,
     -- | By default, Amazon S3 uses the STANDARD Storage Class to store newly
     -- created objects. The STANDARD storage class provides high durability and
     -- high availability. Depending on performance needs, you can specify a
@@ -382,7 +383,7 @@ data PutObject = PutObject'
     -- discarded; Amazon S3 does not store the encryption key. The key must be
     -- appropriate for use with the algorithm specified in the
     -- @x-amz-server-side-encryption-customer-algorithm@ header.
-    sSECustomerKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sSECustomerKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The bucket name to which the PUT action was initiated.
     --
     -- When using this action with an access point, you must direct requests to
@@ -407,7 +408,7 @@ data PutObject = PutObject'
     -- | Object key for which the PUT action was initiated.
     key :: ObjectKey,
     -- | Object data.
-    body :: Core.RequestBody
+    body :: Data.RequestBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -633,7 +634,7 @@ newPutObject ::
   -- | 'key'
   ObjectKey ->
   -- | 'body'
-  Core.RequestBody ->
+  Data.RequestBody ->
   PutObject
 newPutObject pBucket_ pKey_ pBody_ =
   PutObject'
@@ -750,7 +751,7 @@ putObject_grantWriteACP = Lens.lens (\PutObject' {grantWriteACP} -> grantWriteAC
 -- | The date and time when you want this object\'s Object Lock to expire.
 -- Must be formatted as a timestamp parameter.
 putObject_objectLockRetainUntilDate :: Lens.Lens' PutObject (Prelude.Maybe Prelude.UTCTime)
-putObject_objectLockRetainUntilDate = Lens.lens (\PutObject' {objectLockRetainUntilDate} -> objectLockRetainUntilDate) (\s@PutObject' {} a -> s {objectLockRetainUntilDate = a} :: PutObject) Prelude.. Lens.mapping Core._Time
+putObject_objectLockRetainUntilDate = Lens.lens (\PutObject' {objectLockRetainUntilDate} -> objectLockRetainUntilDate) (\s@PutObject' {} a -> s {objectLockRetainUntilDate = a} :: PutObject) Prelude.. Lens.mapping Data._Time
 
 -- | This header can be used as a data integrity check to verify that the
 -- data received is the same data that was originally sent. This header
@@ -818,7 +819,7 @@ putObject_contentLanguage = Lens.lens (\PutObject' {contentLanguage} -> contentL
 -- does not exist in the same account issuing the command, you must use the
 -- full ARN and not just the ID.
 putObject_sSEKMSKeyId :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
-putObject_sSEKMSKeyId = Lens.lens (\PutObject' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@PutObject' {} a -> s {sSEKMSKeyId = a} :: PutObject) Prelude.. Lens.mapping Core._Sensitive
+putObject_sSEKMSKeyId = Lens.lens (\PutObject' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@PutObject' {} a -> s {sSEKMSKeyId = a} :: PutObject) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specifies presentational information for the object. For more
 -- information, see
@@ -849,7 +850,7 @@ putObject_checksumSHA256 = Lens.lens (\PutObject' {checksumSHA256} -> checksumSH
 -- object encryption. The value of this header is a base64-encoded UTF-8
 -- string holding JSON with the encryption context key-value pairs.
 putObject_sSEKMSEncryptionContext :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
-putObject_sSEKMSEncryptionContext = Lens.lens (\PutObject' {sSEKMSEncryptionContext} -> sSEKMSEncryptionContext) (\s@PutObject' {} a -> s {sSEKMSEncryptionContext = a} :: PutObject) Prelude.. Lens.mapping Core._Sensitive
+putObject_sSEKMSEncryptionContext = Lens.lens (\PutObject' {sSEKMSEncryptionContext} -> sSEKMSEncryptionContext) (\s@PutObject' {} a -> s {sSEKMSEncryptionContext = a} :: PutObject) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Size of the body in bytes. This parameter is useful when the size of the
 -- body cannot be determined automatically. For more information, see
@@ -896,7 +897,7 @@ putObject_sSECustomerKeyMD5 = Lens.lens (\PutObject' {sSECustomerKeyMD5} -> sSEC
 -- information, see
 -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21>.
 putObject_expires :: Lens.Lens' PutObject (Prelude.Maybe Prelude.UTCTime)
-putObject_expires = Lens.lens (\PutObject' {expires} -> expires) (\s@PutObject' {} a -> s {expires = a} :: PutObject) Prelude.. Lens.mapping Core._Time
+putObject_expires = Lens.lens (\PutObject' {expires} -> expires) (\s@PutObject' {} a -> s {expires = a} :: PutObject) Prelude.. Lens.mapping Data._Time
 
 -- | By default, Amazon S3 uses the STANDARD Storage Class to store newly
 -- created objects. The STANDARD storage class provides high durability and
@@ -926,7 +927,7 @@ putObject_contentType = Lens.lens (\PutObject' {contentType} -> contentType) (\s
 -- appropriate for use with the algorithm specified in the
 -- @x-amz-server-side-encryption-customer-algorithm@ header.
 putObject_sSECustomerKey :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
-putObject_sSECustomerKey = Lens.lens (\PutObject' {sSECustomerKey} -> sSECustomerKey) (\s@PutObject' {} a -> s {sSECustomerKey = a} :: PutObject) Prelude.. Lens.mapping Core._Sensitive
+putObject_sSECustomerKey = Lens.lens (\PutObject' {sSECustomerKey} -> sSECustomerKey) (\s@PutObject' {} a -> s {sSECustomerKey = a} :: PutObject) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The bucket name to which the PUT action was initiated.
 --
@@ -956,7 +957,7 @@ putObject_key :: Lens.Lens' PutObject ObjectKey
 putObject_key = Lens.lens (\PutObject' {key} -> key) (\s@PutObject' {} a -> s {key = a} :: PutObject)
 
 -- | Object data.
-putObject_body :: Lens.Lens' PutObject Core.RequestBody
+putObject_body :: Lens.Lens' PutObject Data.RequestBody
 putObject_body = Lens.lens (\PutObject' {body} -> body) (\s@PutObject' {} a -> s {body = a} :: PutObject)
 
 instance Core.AWSRequest PutObject where
@@ -969,91 +970,91 @@ instance Core.AWSRequest PutObject where
     Response.receiveEmpty
       ( \s h x ->
           PutObjectResponse'
-            Prelude.<$> (h Core..#? "x-amz-server-side-encryption")
-            Prelude.<*> (h Core..#? "x-amz-checksum-crc32c")
+            Prelude.<$> (h Data..#? "x-amz-server-side-encryption")
+            Prelude.<*> (h Data..#? "x-amz-checksum-crc32c")
             Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-bucket-key-enabled"
+                            Data..#? "x-amz-server-side-encryption-bucket-key-enabled"
                         )
-            Prelude.<*> (h Core..#? "x-amz-expiration")
-            Prelude.<*> (h Core..#? "x-amz-request-charged")
-            Prelude.<*> (h Core..#? "x-amz-checksum-sha1")
-            Prelude.<*> (h Core..#? "x-amz-checksum-crc32")
+            Prelude.<*> (h Data..#? "x-amz-expiration")
+            Prelude.<*> (h Data..#? "x-amz-request-charged")
+            Prelude.<*> (h Data..#? "x-amz-checksum-sha1")
+            Prelude.<*> (h Data..#? "x-amz-checksum-crc32")
             Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-aws-kms-key-id"
+                            Data..#? "x-amz-server-side-encryption-aws-kms-key-id"
                         )
-            Prelude.<*> (h Core..#? "x-amz-checksum-sha256")
-            Prelude.<*> (h Core..#? "x-amz-server-side-encryption-context")
+            Prelude.<*> (h Data..#? "x-amz-checksum-sha256")
+            Prelude.<*> (h Data..#? "x-amz-server-side-encryption-context")
             Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-customer-algorithm"
+                            Data..#? "x-amz-server-side-encryption-customer-algorithm"
                         )
             Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-customer-key-MD5"
+                            Data..#? "x-amz-server-side-encryption-customer-key-MD5"
                         )
-            Prelude.<*> (h Core..#? "ETag")
-            Prelude.<*> (h Core..#? "x-amz-version-id")
+            Prelude.<*> (h Data..#? "ETag")
+            Prelude.<*> (h Data..#? "x-amz-version-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.ToBody PutObject where
-  toBody PutObject' {..} = Core.toBody body
+instance Data.ToBody PutObject where
+  toBody PutObject' {..} = Data.toBody body
 
-instance Core.ToHeaders PutObject where
+instance Data.ToHeaders PutObject where
   toHeaders PutObject' {..} =
     Prelude.mconcat
       [ "x-amz-server-side-encryption"
-          Core.=# serverSideEncryption,
+          Data.=# serverSideEncryption,
         "x-amz-sdk-checksum-algorithm"
-          Core.=# checksumAlgorithm,
-        "x-amz-checksum-crc32c" Core.=# checksumCRC32C,
-        "x-amz-object-lock-mode" Core.=# objectLockMode,
+          Data.=# checksumAlgorithm,
+        "x-amz-checksum-crc32c" Data.=# checksumCRC32C,
+        "x-amz-object-lock-mode" Data.=# objectLockMode,
         "x-amz-server-side-encryption-bucket-key-enabled"
-          Core.=# bucketKeyEnabled,
+          Data.=# bucketKeyEnabled,
         "x-amz-website-redirect-location"
-          Core.=# websiteRedirectLocation,
-        "x-amz-grant-write-acp" Core.=# grantWriteACP,
+          Data.=# websiteRedirectLocation,
+        "x-amz-grant-write-acp" Data.=# grantWriteACP,
         "x-amz-object-lock-retain-until-date"
-          Core.=# objectLockRetainUntilDate,
-        "x-amz-checksum-sha1" Core.=# checksumSHA1,
-        "x-amz-grant-full-control" Core.=# grantFullControl,
-        "x-amz-acl" Core.=# acl,
-        "Content-MD5" Core.=# contentMD5,
+          Data.=# objectLockRetainUntilDate,
+        "x-amz-checksum-sha1" Data.=# checksumSHA1,
+        "x-amz-grant-full-control" Data.=# grantFullControl,
+        "x-amz-acl" Data.=# acl,
+        "Content-MD5" Data.=# contentMD5,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-meta-" Core.=# metadata,
-        "x-amz-checksum-crc32" Core.=# checksumCRC32,
-        "Content-Language" Core.=# contentLanguage,
+          Data.=# expectedBucketOwner,
+        "x-amz-meta-" Data.=# metadata,
+        "x-amz-checksum-crc32" Data.=# checksumCRC32,
+        "Content-Language" Data.=# contentLanguage,
         "x-amz-server-side-encryption-aws-kms-key-id"
-          Core.=# sSEKMSKeyId,
-        "Content-Disposition" Core.=# contentDisposition,
+          Data.=# sSEKMSKeyId,
+        "Content-Disposition" Data.=# contentDisposition,
         "x-amz-object-lock-legal-hold"
-          Core.=# objectLockLegalHoldStatus,
-        "x-amz-request-payer" Core.=# requestPayer,
-        "x-amz-checksum-sha256" Core.=# checksumSHA256,
+          Data.=# objectLockLegalHoldStatus,
+        "x-amz-request-payer" Data.=# requestPayer,
+        "x-amz-checksum-sha256" Data.=# checksumSHA256,
         "x-amz-server-side-encryption-context"
-          Core.=# sSEKMSEncryptionContext,
-        "Content-Length" Core.=# contentLength,
-        "x-amz-grant-read" Core.=# grantRead,
+          Data.=# sSEKMSEncryptionContext,
+        "Content-Length" Data.=# contentLength,
+        "x-amz-grant-read" Data.=# grantRead,
         "x-amz-server-side-encryption-customer-algorithm"
-          Core.=# sSECustomerAlgorithm,
-        "Cache-Control" Core.=# cacheControl,
-        "Content-Encoding" Core.=# contentEncoding,
-        "x-amz-tagging" Core.=# tagging,
+          Data.=# sSECustomerAlgorithm,
+        "Cache-Control" Data.=# cacheControl,
+        "Content-Encoding" Data.=# contentEncoding,
+        "x-amz-tagging" Data.=# tagging,
         "x-amz-server-side-encryption-customer-key-MD5"
-          Core.=# sSECustomerKeyMD5,
-        "Expires" Core.=# expires,
-        "x-amz-storage-class" Core.=# storageClass,
-        "x-amz-grant-read-acp" Core.=# grantReadACP,
-        "Content-Type" Core.=# contentType,
+          Data.=# sSECustomerKeyMD5,
+        "Expires" Data.=# expires,
+        "x-amz-storage-class" Data.=# storageClass,
+        "x-amz-grant-read-acp" Data.=# grantReadACP,
+        "Content-Type" Data.=# contentType,
         "x-amz-server-side-encryption-customer-key"
-          Core.=# sSECustomerKey
+          Data.=# sSECustomerKey
       ]
 
-instance Core.ToPath PutObject where
+instance Data.ToPath PutObject where
   toPath PutObject' {..} =
     Prelude.mconcat
-      ["/", Core.toBS bucket, "/", Core.toBS key]
+      ["/", Data.toBS bucket, "/", Data.toBS key]
 
-instance Core.ToQuery PutObject where
+instance Data.ToQuery PutObject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutObjectResponse' smart constructor.
@@ -1098,7 +1099,7 @@ data PutObjectResponse = PutObjectResponse'
     -- @aws:kms@, this header specifies the ID of the Amazon Web Services Key
     -- Management Service (Amazon Web Services KMS) symmetric customer managed
     -- key that was used for the object.
-    sSEKMSKeyId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sSEKMSKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The base64-encoded, 256-bit SHA-256 digest of the object. This will only
     -- be present if it was uploaded with the object. With multipart uploads,
     -- this may not be a checksum value of the object. For more information
@@ -1109,7 +1110,7 @@ data PutObjectResponse = PutObjectResponse'
     -- | If present, specifies the Amazon Web Services KMS Encryption Context to
     -- use for object encryption. The value of this header is a base64-encoded
     -- UTF-8 string holding JSON with the encryption context key-value pairs.
-    sSEKMSEncryptionContext :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sSEKMSEncryptionContext :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | If server-side encryption with a customer-provided encryption key was
     -- requested, the response will include this header confirming the
     -- encryption algorithm used.
@@ -1281,7 +1282,7 @@ putObjectResponse_checksumCRC32 = Lens.lens (\PutObjectResponse' {checksumCRC32}
 -- Management Service (Amazon Web Services KMS) symmetric customer managed
 -- key that was used for the object.
 putObjectResponse_sSEKMSKeyId :: Lens.Lens' PutObjectResponse (Prelude.Maybe Prelude.Text)
-putObjectResponse_sSEKMSKeyId = Lens.lens (\PutObjectResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@PutObjectResponse' {} a -> s {sSEKMSKeyId = a} :: PutObjectResponse) Prelude.. Lens.mapping Core._Sensitive
+putObjectResponse_sSEKMSKeyId = Lens.lens (\PutObjectResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@PutObjectResponse' {} a -> s {sSEKMSKeyId = a} :: PutObjectResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The base64-encoded, 256-bit SHA-256 digest of the object. This will only
 -- be present if it was uploaded with the object. With multipart uploads,
@@ -1296,7 +1297,7 @@ putObjectResponse_checksumSHA256 = Lens.lens (\PutObjectResponse' {checksumSHA25
 -- use for object encryption. The value of this header is a base64-encoded
 -- UTF-8 string holding JSON with the encryption context key-value pairs.
 putObjectResponse_sSEKMSEncryptionContext :: Lens.Lens' PutObjectResponse (Prelude.Maybe Prelude.Text)
-putObjectResponse_sSEKMSEncryptionContext = Lens.lens (\PutObjectResponse' {sSEKMSEncryptionContext} -> sSEKMSEncryptionContext) (\s@PutObjectResponse' {} a -> s {sSEKMSEncryptionContext = a} :: PutObjectResponse) Prelude.. Lens.mapping Core._Sensitive
+putObjectResponse_sSEKMSEncryptionContext = Lens.lens (\PutObjectResponse' {sSEKMSEncryptionContext} -> sSEKMSEncryptionContext) (\s@PutObjectResponse' {} a -> s {sSEKMSEncryptionContext = a} :: PutObjectResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the

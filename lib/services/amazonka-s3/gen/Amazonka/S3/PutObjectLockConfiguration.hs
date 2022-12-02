@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -214,7 +215,7 @@ instance Core.AWSRequest PutObjectLockConfiguration where
     Response.receiveEmpty
       ( \s h x ->
           PutObjectLockConfigurationResponse'
-            Prelude.<$> (h Core..#? "x-amz-request-charged")
+            Prelude.<$> (h Data..#? "x-amz-request-charged")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -238,29 +239,29 @@ instance Prelude.NFData PutObjectLockConfiguration where
       `Prelude.seq` Prelude.rnf token
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToElement PutObjectLockConfiguration where
+instance Data.ToElement PutObjectLockConfiguration where
   toElement PutObjectLockConfiguration' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}ObjectLockConfiguration"
       objectLockConfiguration
 
-instance Core.ToHeaders PutObjectLockConfiguration where
+instance Data.ToHeaders PutObjectLockConfiguration where
   toHeaders PutObjectLockConfiguration' {..} =
     Prelude.mconcat
       [ "x-amz-sdk-checksum-algorithm"
-          Core.=# checksumAlgorithm,
-        "Content-MD5" Core.=# contentMD5,
+          Data.=# checksumAlgorithm,
+        "Content-MD5" Data.=# contentMD5,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-request-payer" Core.=# requestPayer,
-        "x-amz-bucket-object-lock-token" Core.=# token
+          Data.=# expectedBucketOwner,
+        "x-amz-request-payer" Data.=# requestPayer,
+        "x-amz-bucket-object-lock-token" Data.=# token
       ]
 
-instance Core.ToPath PutObjectLockConfiguration where
+instance Data.ToPath PutObjectLockConfiguration where
   toPath PutObjectLockConfiguration' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery PutObjectLockConfiguration where
+instance Data.ToQuery PutObjectLockConfiguration where
   toQuery =
     Prelude.const (Prelude.mconcat ["object-lock"])
 

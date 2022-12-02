@@ -21,6 +21,7 @@ module Amazonka.S3.Types.ServerSideEncryptionRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.ServerSideEncryptionByDefault
@@ -95,11 +96,11 @@ serverSideEncryptionRule_bucketKeyEnabled = Lens.lens (\ServerSideEncryptionRule
 serverSideEncryptionRule_applyServerSideEncryptionByDefault :: Lens.Lens' ServerSideEncryptionRule (Prelude.Maybe ServerSideEncryptionByDefault)
 serverSideEncryptionRule_applyServerSideEncryptionByDefault = Lens.lens (\ServerSideEncryptionRule' {applyServerSideEncryptionByDefault} -> applyServerSideEncryptionByDefault) (\s@ServerSideEncryptionRule' {} a -> s {applyServerSideEncryptionByDefault = a} :: ServerSideEncryptionRule)
 
-instance Core.FromXML ServerSideEncryptionRule where
+instance Data.FromXML ServerSideEncryptionRule where
   parseXML x =
     ServerSideEncryptionRule'
-      Prelude.<$> (x Core..@? "BucketKeyEnabled")
-      Prelude.<*> (x Core..@? "ApplyServerSideEncryptionByDefault")
+      Prelude.<$> (x Data..@? "BucketKeyEnabled")
+      Prelude.<*> (x Data..@? "ApplyServerSideEncryptionByDefault")
 
 instance Prelude.Hashable ServerSideEncryptionRule where
   hashWithSalt _salt ServerSideEncryptionRule' {..} =
@@ -111,10 +112,10 @@ instance Prelude.NFData ServerSideEncryptionRule where
     Prelude.rnf bucketKeyEnabled
       `Prelude.seq` Prelude.rnf applyServerSideEncryptionByDefault
 
-instance Core.ToXML ServerSideEncryptionRule where
+instance Data.ToXML ServerSideEncryptionRule where
   toXML ServerSideEncryptionRule' {..} =
     Prelude.mconcat
-      [ "BucketKeyEnabled" Core.@= bucketKeyEnabled,
+      [ "BucketKeyEnabled" Data.@= bucketKeyEnabled,
         "ApplyServerSideEncryptionByDefault"
-          Core.@= applyServerSideEncryptionByDefault
+          Data.@= applyServerSideEncryptionByDefault
       ]

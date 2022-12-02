@@ -76,6 +76,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -193,12 +194,12 @@ instance Core.AWSRequest GetObjectAcl where
     Response.receiveXML
       ( \s h x ->
           GetObjectAclResponse'
-            Prelude.<$> (h Core..#? "x-amz-request-charged")
-            Prelude.<*> ( x Core..@? "AccessControlList"
+            Prelude.<$> (h Data..#? "x-amz-request-charged")
+            Prelude.<*> ( x Data..@? "AccessControlList"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "Grant")
+                            Prelude.>>= Core.may (Data.parseXMLList "Grant")
                         )
-            Prelude.<*> (x Core..@? "Owner")
+            Prelude.<*> (x Data..@? "Owner")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -218,23 +219,23 @@ instance Prelude.NFData GetObjectAcl where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
 
-instance Core.ToHeaders GetObjectAcl where
+instance Data.ToHeaders GetObjectAcl where
   toHeaders GetObjectAcl' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-request-payer" Core.=# requestPayer
+          Data.=# expectedBucketOwner,
+        "x-amz-request-payer" Data.=# requestPayer
       ]
 
-instance Core.ToPath GetObjectAcl where
+instance Data.ToPath GetObjectAcl where
   toPath GetObjectAcl' {..} =
     Prelude.mconcat
-      ["/", Core.toBS bucket, "/", Core.toBS key]
+      ["/", Data.toBS bucket, "/", Data.toBS key]
 
-instance Core.ToQuery GetObjectAcl where
+instance Data.ToQuery GetObjectAcl where
   toQuery GetObjectAcl' {..} =
     Prelude.mconcat
-      ["versionId" Core.=: versionId, "acl"]
+      ["versionId" Data.=: versionId, "acl"]
 
 -- | /See:/ 'newGetObjectAclResponse' smart constructor.
 data GetObjectAclResponse = GetObjectAclResponse'

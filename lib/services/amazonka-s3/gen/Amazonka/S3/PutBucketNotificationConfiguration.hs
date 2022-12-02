@@ -100,6 +100,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -213,35 +214,35 @@ instance
       `Prelude.seq` Prelude.rnf notificationConfiguration
 
 instance
-  Core.ToElement
+  Data.ToElement
     PutBucketNotificationConfiguration
   where
   toElement PutBucketNotificationConfiguration' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}NotificationConfiguration"
       notificationConfiguration
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutBucketNotificationConfiguration
   where
   toHeaders PutBucketNotificationConfiguration' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
+          Data.=# expectedBucketOwner,
         "x-amz-skip-destination-validation"
-          Core.=# skipDestinationValidation
+          Data.=# skipDestinationValidation
       ]
 
 instance
-  Core.ToPath
+  Data.ToPath
     PutBucketNotificationConfiguration
   where
   toPath PutBucketNotificationConfiguration' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PutBucketNotificationConfiguration
   where
   toQuery =

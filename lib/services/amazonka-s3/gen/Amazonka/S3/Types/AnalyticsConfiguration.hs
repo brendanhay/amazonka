@@ -21,6 +21,7 @@ module Amazonka.S3.Types.AnalyticsConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.AnalyticsFilter
@@ -90,12 +91,12 @@ analyticsConfiguration_id = Lens.lens (\AnalyticsConfiguration' {id} -> id) (\s@
 analyticsConfiguration_storageClassAnalysis :: Lens.Lens' AnalyticsConfiguration StorageClassAnalysis
 analyticsConfiguration_storageClassAnalysis = Lens.lens (\AnalyticsConfiguration' {storageClassAnalysis} -> storageClassAnalysis) (\s@AnalyticsConfiguration' {} a -> s {storageClassAnalysis = a} :: AnalyticsConfiguration)
 
-instance Core.FromXML AnalyticsConfiguration where
+instance Data.FromXML AnalyticsConfiguration where
   parseXML x =
     AnalyticsConfiguration'
-      Prelude.<$> (x Core..@? "Filter")
-      Prelude.<*> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "StorageClassAnalysis")
+      Prelude.<$> (x Data..@? "Filter")
+      Prelude.<*> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "StorageClassAnalysis")
 
 instance Prelude.Hashable AnalyticsConfiguration where
   hashWithSalt _salt AnalyticsConfiguration' {..} =
@@ -109,10 +110,10 @@ instance Prelude.NFData AnalyticsConfiguration where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf storageClassAnalysis
 
-instance Core.ToXML AnalyticsConfiguration where
+instance Data.ToXML AnalyticsConfiguration where
   toXML AnalyticsConfiguration' {..} =
     Prelude.mconcat
-      [ "Filter" Core.@= filter',
-        "Id" Core.@= id,
-        "StorageClassAnalysis" Core.@= storageClassAnalysis
+      [ "Filter" Data.@= filter',
+        "Id" Data.@= id,
+        "StorageClassAnalysis" Data.@= storageClassAnalysis
       ]

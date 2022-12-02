@@ -21,6 +21,7 @@ module Amazonka.S3.Types.Bucket where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -32,7 +33,7 @@ import Amazonka.S3.Internal
 data Bucket = Bucket'
   { -- | Date the bucket was created. This date can change when making changes to
     -- your bucket, such as editing its bucket policy.
-    creationDate :: Core.ISO8601,
+    creationDate :: Data.ISO8601,
     -- | The name of the bucket.
     name :: BucketName
   }
@@ -59,24 +60,24 @@ newBucket ::
 newBucket pCreationDate_ pName_ =
   Bucket'
     { creationDate =
-        Core._Time Lens.# pCreationDate_,
+        Data._Time Lens.# pCreationDate_,
       name = pName_
     }
 
 -- | Date the bucket was created. This date can change when making changes to
 -- your bucket, such as editing its bucket policy.
 bucket_creationDate :: Lens.Lens' Bucket Prelude.UTCTime
-bucket_creationDate = Lens.lens (\Bucket' {creationDate} -> creationDate) (\s@Bucket' {} a -> s {creationDate = a} :: Bucket) Prelude.. Core._Time
+bucket_creationDate = Lens.lens (\Bucket' {creationDate} -> creationDate) (\s@Bucket' {} a -> s {creationDate = a} :: Bucket) Prelude.. Data._Time
 
 -- | The name of the bucket.
 bucket_name :: Lens.Lens' Bucket BucketName
 bucket_name = Lens.lens (\Bucket' {name} -> name) (\s@Bucket' {} a -> s {name = a} :: Bucket)
 
-instance Core.FromXML Bucket where
+instance Data.FromXML Bucket where
   parseXML x =
     Bucket'
-      Prelude.<$> (x Core..@ "CreationDate")
-      Prelude.<*> (x Core..@ "Name")
+      Prelude.<$> (x Data..@ "CreationDate")
+      Prelude.<*> (x Data..@ "Name")
 
 instance Prelude.Hashable Bucket where
   hashWithSalt _salt Bucket' {..} =

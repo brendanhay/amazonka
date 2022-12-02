@@ -21,6 +21,7 @@ module Amazonka.S3.Types.ParquetInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -47,5 +48,5 @@ instance Prelude.Hashable ParquetInput where
 instance Prelude.NFData ParquetInput where
   rnf _ = ()
 
-instance Core.ToXML ParquetInput where
+instance Data.ToXML ParquetInput where
   toXML = Prelude.const Prelude.mempty

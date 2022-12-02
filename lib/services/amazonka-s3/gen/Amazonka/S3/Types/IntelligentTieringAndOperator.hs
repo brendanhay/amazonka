@@ -21,6 +21,7 @@ module Amazonka.S3.Types.IntelligentTieringAndOperator where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.Tag
@@ -71,13 +72,13 @@ intelligentTieringAndOperator_tags = Lens.lens (\IntelligentTieringAndOperator' 
 intelligentTieringAndOperator_prefix :: Lens.Lens' IntelligentTieringAndOperator (Prelude.Maybe Prelude.Text)
 intelligentTieringAndOperator_prefix = Lens.lens (\IntelligentTieringAndOperator' {prefix} -> prefix) (\s@IntelligentTieringAndOperator' {} a -> s {prefix = a} :: IntelligentTieringAndOperator)
 
-instance Core.FromXML IntelligentTieringAndOperator where
+instance Data.FromXML IntelligentTieringAndOperator where
   parseXML x =
     IntelligentTieringAndOperator'
-      Prelude.<$> ( x Core..@? "Tag" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+      Prelude.<$> ( x Data..@? "Tag" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
-      Prelude.<*> (x Core..@? "Prefix")
+      Prelude.<*> (x Data..@? "Prefix")
 
 instance
   Prelude.Hashable
@@ -91,10 +92,10 @@ instance Prelude.NFData IntelligentTieringAndOperator where
   rnf IntelligentTieringAndOperator' {..} =
     Prelude.rnf tags `Prelude.seq` Prelude.rnf prefix
 
-instance Core.ToXML IntelligentTieringAndOperator where
+instance Data.ToXML IntelligentTieringAndOperator where
   toXML IntelligentTieringAndOperator' {..} =
     Prelude.mconcat
       [ "Tag"
-          Core.@= Core.toXML (Core.toXMLList "Tag" Prelude.<$> tags),
-        "Prefix" Core.@= prefix
+          Data.@= Data.toXML (Data.toXMLList "Tag" Prelude.<$> tags),
+        "Prefix" Data.@= prefix
       ]

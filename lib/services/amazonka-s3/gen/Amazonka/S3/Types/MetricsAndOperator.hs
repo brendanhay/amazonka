@@ -21,6 +21,7 @@ module Amazonka.S3.Types.MetricsAndOperator where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.Tag
@@ -75,14 +76,14 @@ metricsAndOperator_accessPointArn = Lens.lens (\MetricsAndOperator' {accessPoint
 metricsAndOperator_prefix :: Lens.Lens' MetricsAndOperator (Prelude.Maybe Prelude.Text)
 metricsAndOperator_prefix = Lens.lens (\MetricsAndOperator' {prefix} -> prefix) (\s@MetricsAndOperator' {} a -> s {prefix = a} :: MetricsAndOperator)
 
-instance Core.FromXML MetricsAndOperator where
+instance Data.FromXML MetricsAndOperator where
   parseXML x =
     MetricsAndOperator'
-      Prelude.<$> ( x Core..@? "Tag" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+      Prelude.<$> ( x Data..@? "Tag" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
-      Prelude.<*> (x Core..@? "AccessPointArn")
-      Prelude.<*> (x Core..@? "Prefix")
+      Prelude.<*> (x Data..@? "AccessPointArn")
+      Prelude.<*> (x Data..@? "Prefix")
 
 instance Prelude.Hashable MetricsAndOperator where
   hashWithSalt _salt MetricsAndOperator' {..} =
@@ -96,11 +97,11 @@ instance Prelude.NFData MetricsAndOperator where
       `Prelude.seq` Prelude.rnf accessPointArn
       `Prelude.seq` Prelude.rnf prefix
 
-instance Core.ToXML MetricsAndOperator where
+instance Data.ToXML MetricsAndOperator where
   toXML MetricsAndOperator' {..} =
     Prelude.mconcat
       [ "Tag"
-          Core.@= Core.toXML (Core.toXMLList "Tag" Prelude.<$> tags),
-        "AccessPointArn" Core.@= accessPointArn,
-        "Prefix" Core.@= prefix
+          Data.@= Data.toXML (Data.toXMLList "Tag" Prelude.<$> tags),
+        "AccessPointArn" Data.@= accessPointArn,
+        "Prefix" Data.@= prefix
       ]

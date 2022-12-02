@@ -21,6 +21,7 @@ module Amazonka.S3.Types.Stats where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -71,12 +72,12 @@ stats_bytesReturned = Lens.lens (\Stats' {bytesReturned} -> bytesReturned) (\s@S
 stats_bytesProcessed :: Lens.Lens' Stats (Prelude.Maybe Prelude.Integer)
 stats_bytesProcessed = Lens.lens (\Stats' {bytesProcessed} -> bytesProcessed) (\s@Stats' {} a -> s {bytesProcessed = a} :: Stats)
 
-instance Core.FromXML Stats where
+instance Data.FromXML Stats where
   parseXML x =
     Stats'
-      Prelude.<$> (x Core..@? "BytesScanned")
-      Prelude.<*> (x Core..@? "BytesReturned")
-      Prelude.<*> (x Core..@? "BytesProcessed")
+      Prelude.<$> (x Data..@? "BytesScanned")
+      Prelude.<*> (x Data..@? "BytesReturned")
+      Prelude.<*> (x Data..@? "BytesProcessed")
 
 instance Prelude.Hashable Stats where
   hashWithSalt _salt Stats' {..} =

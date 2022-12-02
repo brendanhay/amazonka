@@ -21,6 +21,7 @@ module Amazonka.S3.Types.CORSRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -125,15 +126,15 @@ cORSRule_allowedMethods = Lens.lens (\CORSRule' {allowedMethods} -> allowedMetho
 cORSRule_allowedOrigins :: Lens.Lens' CORSRule [Prelude.Text]
 cORSRule_allowedOrigins = Lens.lens (\CORSRule' {allowedOrigins} -> allowedOrigins) (\s@CORSRule' {} a -> s {allowedOrigins = a} :: CORSRule) Prelude.. Lens.coerced
 
-instance Core.FromXML CORSRule where
+instance Data.FromXML CORSRule where
   parseXML x =
     CORSRule'
-      Prelude.<$> (Core.may (Core.parseXMLList "AllowedHeader") x)
-      Prelude.<*> (x Core..@? "ID")
-      Prelude.<*> (Core.may (Core.parseXMLList "ExposeHeader") x)
-      Prelude.<*> (x Core..@? "MaxAgeSeconds")
-      Prelude.<*> (Core.parseXMLList "AllowedMethod" x)
-      Prelude.<*> (Core.parseXMLList "AllowedOrigin" x)
+      Prelude.<$> (Core.may (Data.parseXMLList "AllowedHeader") x)
+      Prelude.<*> (x Data..@? "ID")
+      Prelude.<*> (Core.may (Data.parseXMLList "ExposeHeader") x)
+      Prelude.<*> (x Data..@? "MaxAgeSeconds")
+      Prelude.<*> (Data.parseXMLList "AllowedMethod" x)
+      Prelude.<*> (Data.parseXMLList "AllowedOrigin" x)
 
 instance Prelude.Hashable CORSRule where
   hashWithSalt _salt CORSRule' {..} =
@@ -153,19 +154,19 @@ instance Prelude.NFData CORSRule where
       `Prelude.seq` Prelude.rnf allowedMethods
       `Prelude.seq` Prelude.rnf allowedOrigins
 
-instance Core.ToXML CORSRule where
+instance Data.ToXML CORSRule where
   toXML CORSRule' {..} =
     Prelude.mconcat
-      [ Core.toXML
-          ( Core.toXMLList "AllowedHeader"
+      [ Data.toXML
+          ( Data.toXMLList "AllowedHeader"
               Prelude.<$> allowedHeaders
           ),
-        "ID" Core.@= id,
-        Core.toXML
-          ( Core.toXMLList "ExposeHeader"
+        "ID" Data.@= id,
+        Data.toXML
+          ( Data.toXMLList "ExposeHeader"
               Prelude.<$> exposeHeaders
           ),
-        "MaxAgeSeconds" Core.@= maxAgeSeconds,
-        Core.toXMLList "AllowedMethod" allowedMethods,
-        Core.toXMLList "AllowedOrigin" allowedOrigins
+        "MaxAgeSeconds" Data.@= maxAgeSeconds,
+        Data.toXMLList "AllowedMethod" allowedMethods,
+        Data.toXMLList "AllowedOrigin" allowedOrigins
       ]

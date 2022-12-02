@@ -21,6 +21,7 @@ module Amazonka.S3.Types.QueueConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.Event
@@ -87,13 +88,13 @@ queueConfiguration_queueArn = Lens.lens (\QueueConfiguration' {queueArn} -> queu
 queueConfiguration_events :: Lens.Lens' QueueConfiguration [Event]
 queueConfiguration_events = Lens.lens (\QueueConfiguration' {events} -> events) (\s@QueueConfiguration' {} a -> s {events = a} :: QueueConfiguration) Prelude.. Lens.coerced
 
-instance Core.FromXML QueueConfiguration where
+instance Data.FromXML QueueConfiguration where
   parseXML x =
     QueueConfiguration'
-      Prelude.<$> (x Core..@? "Id")
-      Prelude.<*> (x Core..@? "Filter")
-      Prelude.<*> (x Core..@ "Queue")
-      Prelude.<*> (Core.parseXMLList "Event" x)
+      Prelude.<$> (x Data..@? "Id")
+      Prelude.<*> (x Data..@? "Filter")
+      Prelude.<*> (x Data..@ "Queue")
+      Prelude.<*> (Data.parseXMLList "Event" x)
 
 instance Prelude.Hashable QueueConfiguration where
   hashWithSalt _salt QueueConfiguration' {..} =
@@ -109,11 +110,11 @@ instance Prelude.NFData QueueConfiguration where
       `Prelude.seq` Prelude.rnf queueArn
       `Prelude.seq` Prelude.rnf events
 
-instance Core.ToXML QueueConfiguration where
+instance Data.ToXML QueueConfiguration where
   toXML QueueConfiguration' {..} =
     Prelude.mconcat
-      [ "Id" Core.@= id,
-        "Filter" Core.@= filter',
-        "Queue" Core.@= queueArn,
-        Core.toXMLList "Event" events
+      [ "Id" Data.@= id,
+        "Filter" Data.@= filter',
+        "Queue" Data.@= queueArn,
+        Data.toXMLList "Event" events
       ]

@@ -21,6 +21,7 @@ module Amazonka.S3.Types.CompletedPart where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -183,13 +184,13 @@ instance Prelude.NFData CompletedPart where
       `Prelude.seq` Prelude.rnf partNumber
       `Prelude.seq` Prelude.rnf eTag
 
-instance Core.ToXML CompletedPart where
+instance Data.ToXML CompletedPart where
   toXML CompletedPart' {..} =
     Prelude.mconcat
-      [ "ChecksumCRC32C" Core.@= checksumCRC32C,
-        "ChecksumSHA1" Core.@= checksumSHA1,
-        "ChecksumCRC32" Core.@= checksumCRC32,
-        "ChecksumSHA256" Core.@= checksumSHA256,
-        "PartNumber" Core.@= partNumber,
-        "ETag" Core.@= eTag
+      [ "ChecksumCRC32C" Data.@= checksumCRC32C,
+        "ChecksumSHA1" Data.@= checksumSHA1,
+        "ChecksumCRC32" Data.@= checksumCRC32,
+        "ChecksumSHA256" Data.@= checksumSHA256,
+        "PartNumber" Data.@= partNumber,
+        "ETag" Data.@= eTag
       ]

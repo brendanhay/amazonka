@@ -21,6 +21,7 @@ module Amazonka.S3.Types.InventoryEncryption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.SSEKMS
@@ -65,11 +66,11 @@ inventoryEncryption_sses3 = Lens.lens (\InventoryEncryption' {sses3} -> sses3) (
 inventoryEncryption_ssekms :: Lens.Lens' InventoryEncryption (Prelude.Maybe SSEKMS)
 inventoryEncryption_ssekms = Lens.lens (\InventoryEncryption' {ssekms} -> ssekms) (\s@InventoryEncryption' {} a -> s {ssekms = a} :: InventoryEncryption)
 
-instance Core.FromXML InventoryEncryption where
+instance Data.FromXML InventoryEncryption where
   parseXML x =
     InventoryEncryption'
-      Prelude.<$> (x Core..@? "SSE-S3")
-      Prelude.<*> (x Core..@? "SSE-KMS")
+      Prelude.<$> (x Data..@? "SSE-S3")
+      Prelude.<*> (x Data..@? "SSE-KMS")
 
 instance Prelude.Hashable InventoryEncryption where
   hashWithSalt _salt InventoryEncryption' {..} =
@@ -80,7 +81,7 @@ instance Prelude.NFData InventoryEncryption where
   rnf InventoryEncryption' {..} =
     Prelude.rnf sses3 `Prelude.seq` Prelude.rnf ssekms
 
-instance Core.ToXML InventoryEncryption where
+instance Data.ToXML InventoryEncryption where
   toXML InventoryEncryption' {..} =
     Prelude.mconcat
-      ["SSE-S3" Core.@= sses3, "SSE-KMS" Core.@= ssekms]
+      ["SSE-S3" Data.@= sses3, "SSE-KMS" Data.@= ssekms]

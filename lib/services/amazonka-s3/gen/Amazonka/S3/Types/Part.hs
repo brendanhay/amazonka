@@ -21,6 +21,7 @@ module Amazonka.S3.Types.Part where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -62,7 +63,7 @@ data Part = Part'
     -- in the /Amazon S3 User Guide/.
     checksumSHA256 :: Prelude.Maybe Prelude.Text,
     -- | Date and time at which the part was uploaded.
-    lastModified :: Prelude.Maybe Core.ISO8601,
+    lastModified :: Prelude.Maybe Data.ISO8601,
     -- | Entity tag returned when the part was uploaded.
     eTag :: Prelude.Maybe ETag
   }
@@ -173,23 +174,23 @@ part_checksumSHA256 = Lens.lens (\Part' {checksumSHA256} -> checksumSHA256) (\s@
 
 -- | Date and time at which the part was uploaded.
 part_lastModified :: Lens.Lens' Part (Prelude.Maybe Prelude.UTCTime)
-part_lastModified = Lens.lens (\Part' {lastModified} -> lastModified) (\s@Part' {} a -> s {lastModified = a} :: Part) Prelude.. Lens.mapping Core._Time
+part_lastModified = Lens.lens (\Part' {lastModified} -> lastModified) (\s@Part' {} a -> s {lastModified = a} :: Part) Prelude.. Lens.mapping Data._Time
 
 -- | Entity tag returned when the part was uploaded.
 part_eTag :: Lens.Lens' Part (Prelude.Maybe ETag)
 part_eTag = Lens.lens (\Part' {eTag} -> eTag) (\s@Part' {} a -> s {eTag = a} :: Part)
 
-instance Core.FromXML Part where
+instance Data.FromXML Part where
   parseXML x =
     Part'
-      Prelude.<$> (x Core..@? "ChecksumCRC32C")
-      Prelude.<*> (x Core..@? "ChecksumSHA1")
-      Prelude.<*> (x Core..@? "ChecksumCRC32")
-      Prelude.<*> (x Core..@? "PartNumber")
-      Prelude.<*> (x Core..@? "Size")
-      Prelude.<*> (x Core..@? "ChecksumSHA256")
-      Prelude.<*> (x Core..@? "LastModified")
-      Prelude.<*> (x Core..@? "ETag")
+      Prelude.<$> (x Data..@? "ChecksumCRC32C")
+      Prelude.<*> (x Data..@? "ChecksumSHA1")
+      Prelude.<*> (x Data..@? "ChecksumCRC32")
+      Prelude.<*> (x Data..@? "PartNumber")
+      Prelude.<*> (x Data..@? "Size")
+      Prelude.<*> (x Data..@? "ChecksumSHA256")
+      Prelude.<*> (x Data..@? "LastModified")
+      Prelude.<*> (x Data..@? "ETag")
 
 instance Prelude.Hashable Part where
   hashWithSalt _salt Part' {..} =

@@ -96,6 +96,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -253,27 +254,27 @@ instance Prelude.NFData PutBucketTagging where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf tagging
 
-instance Core.ToElement PutBucketTagging where
+instance Data.ToElement PutBucketTagging where
   toElement PutBucketTagging' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}Tagging"
       tagging
 
-instance Core.ToHeaders PutBucketTagging where
+instance Data.ToHeaders PutBucketTagging where
   toHeaders PutBucketTagging' {..} =
     Prelude.mconcat
       [ "x-amz-sdk-checksum-algorithm"
-          Core.=# checksumAlgorithm,
-        "Content-MD5" Core.=# contentMD5,
+          Data.=# checksumAlgorithm,
+        "Content-MD5" Data.=# contentMD5,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath PutBucketTagging where
+instance Data.ToPath PutBucketTagging where
   toPath PutBucketTagging' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery PutBucketTagging where
+instance Data.ToQuery PutBucketTagging where
   toQuery = Prelude.const (Prelude.mconcat ["tagging"])
 
 -- | /See:/ 'newPutBucketTaggingResponse' smart constructor.

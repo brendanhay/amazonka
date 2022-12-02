@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -212,27 +213,27 @@ instance Prelude.NFData PutBucketRequestPayment where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf requestPaymentConfiguration
 
-instance Core.ToElement PutBucketRequestPayment where
+instance Data.ToElement PutBucketRequestPayment where
   toElement PutBucketRequestPayment' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}RequestPaymentConfiguration"
       requestPaymentConfiguration
 
-instance Core.ToHeaders PutBucketRequestPayment where
+instance Data.ToHeaders PutBucketRequestPayment where
   toHeaders PutBucketRequestPayment' {..} =
     Prelude.mconcat
       [ "x-amz-sdk-checksum-algorithm"
-          Core.=# checksumAlgorithm,
-        "Content-MD5" Core.=# contentMD5,
+          Data.=# checksumAlgorithm,
+        "Content-MD5" Data.=# contentMD5,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath PutBucketRequestPayment where
+instance Data.ToPath PutBucketRequestPayment where
   toPath PutBucketRequestPayment' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery PutBucketRequestPayment where
+instance Data.ToQuery PutBucketRequestPayment where
   toQuery =
     Prelude.const (Prelude.mconcat ["requestPayment"])
 

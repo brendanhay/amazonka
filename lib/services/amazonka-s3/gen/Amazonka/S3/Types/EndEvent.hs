@@ -21,6 +21,7 @@ module Amazonka.S3.Types.EndEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -42,7 +43,7 @@ newEndEvent ::
   EndEvent
 newEndEvent = EndEvent'
 
-instance Core.FromXML EndEvent where
+instance Data.FromXML EndEvent where
   parseXML = Prelude.const (Prelude.pure EndEvent')
 
 instance Prelude.Hashable EndEvent where

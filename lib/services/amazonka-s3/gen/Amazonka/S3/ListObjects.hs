@@ -81,6 +81,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -308,16 +309,16 @@ instance Core.AWSRequest ListObjects where
     Response.receiveXML
       ( \s h x ->
           ListObjectsResponse'
-            Prelude.<$> (x Core..@? "MaxKeys")
-            Prelude.<*> (Core.may (Core.parseXMLList "CommonPrefixes") x)
-            Prelude.<*> (x Core..@? "Name")
-            Prelude.<*> (x Core..@? "Marker")
-            Prelude.<*> (Core.may (Core.parseXMLList "Contents") x)
-            Prelude.<*> (x Core..@? "IsTruncated")
-            Prelude.<*> (x Core..@? "Delimiter")
-            Prelude.<*> (x Core..@? "NextMarker")
-            Prelude.<*> (x Core..@? "Prefix")
-            Prelude.<*> (x Core..@? "EncodingType")
+            Prelude.<$> (x Data..@? "MaxKeys")
+            Prelude.<*> (Core.may (Data.parseXMLList "CommonPrefixes") x)
+            Prelude.<*> (x Data..@? "Name")
+            Prelude.<*> (x Data..@? "Marker")
+            Prelude.<*> (Core.may (Data.parseXMLList "Contents") x)
+            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<*> (x Data..@? "Delimiter")
+            Prelude.<*> (x Data..@? "NextMarker")
+            Prelude.<*> (x Data..@? "Prefix")
+            Prelude.<*> (x Data..@? "EncodingType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -343,26 +344,26 @@ instance Prelude.NFData ListObjects where
       `Prelude.seq` Prelude.rnf encodingType
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToHeaders ListObjects where
+instance Data.ToHeaders ListObjects where
   toHeaders ListObjects' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-request-payer" Core.=# requestPayer
+          Data.=# expectedBucketOwner,
+        "x-amz-request-payer" Data.=# requestPayer
       ]
 
-instance Core.ToPath ListObjects where
+instance Data.ToPath ListObjects where
   toPath ListObjects' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery ListObjects where
+instance Data.ToQuery ListObjects where
   toQuery ListObjects' {..} =
     Prelude.mconcat
-      [ "max-keys" Core.=: maxKeys,
-        "marker" Core.=: marker,
-        "delimiter" Core.=: delimiter,
-        "prefix" Core.=: prefix,
-        "encoding-type" Core.=: encodingType
+      [ "max-keys" Data.=: maxKeys,
+        "marker" Data.=: marker,
+        "delimiter" Data.=: delimiter,
+        "prefix" Data.=: prefix,
+        "encoding-type" Data.=: encodingType
       ]
 
 -- | /See:/ 'newListObjectsResponse' smart constructor.

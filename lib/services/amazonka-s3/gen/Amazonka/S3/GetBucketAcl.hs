@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,11 +118,11 @@ instance Core.AWSRequest GetBucketAcl where
     Response.receiveXML
       ( \s h x ->
           GetBucketAclResponse'
-            Prelude.<$> ( x Core..@? "AccessControlList"
+            Prelude.<$> ( x Data..@? "AccessControlList"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "Grant")
+                            Prelude.>>= Core.may (Data.parseXMLList "Grant")
                         )
-            Prelude.<*> (x Core..@? "Owner")
+            Prelude.<*> (x Data..@? "Owner")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,18 +136,18 @@ instance Prelude.NFData GetBucketAcl where
     Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToHeaders GetBucketAcl where
+instance Data.ToHeaders GetBucketAcl where
   toHeaders GetBucketAcl' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath GetBucketAcl where
+instance Data.ToPath GetBucketAcl where
   toPath GetBucketAcl' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery GetBucketAcl where
+instance Data.ToQuery GetBucketAcl where
   toQuery = Prelude.const (Prelude.mconcat ["acl"])
 
 -- | /See:/ 'newGetBucketAclResponse' smart constructor.

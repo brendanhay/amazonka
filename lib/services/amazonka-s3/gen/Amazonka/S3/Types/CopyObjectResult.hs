@@ -21,6 +21,7 @@ module Amazonka.S3.Types.CopyObjectResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -57,7 +58,7 @@ data CopyObjectResult = CopyObjectResult'
     -- in the /Amazon S3 User Guide/.
     checksumSHA256 :: Prelude.Maybe Prelude.Text,
     -- | Creation date of the object.
-    lastModified :: Prelude.Maybe Core.ISO8601,
+    lastModified :: Prelude.Maybe Data.ISO8601,
     -- | Returns the ETag of the new object. The ETag reflects only changes to
     -- the contents of an object, not its metadata.
     eTag :: Prelude.Maybe ETag
@@ -154,22 +155,22 @@ copyObjectResult_checksumSHA256 = Lens.lens (\CopyObjectResult' {checksumSHA256}
 
 -- | Creation date of the object.
 copyObjectResult_lastModified :: Lens.Lens' CopyObjectResult (Prelude.Maybe Prelude.UTCTime)
-copyObjectResult_lastModified = Lens.lens (\CopyObjectResult' {lastModified} -> lastModified) (\s@CopyObjectResult' {} a -> s {lastModified = a} :: CopyObjectResult) Prelude.. Lens.mapping Core._Time
+copyObjectResult_lastModified = Lens.lens (\CopyObjectResult' {lastModified} -> lastModified) (\s@CopyObjectResult' {} a -> s {lastModified = a} :: CopyObjectResult) Prelude.. Lens.mapping Data._Time
 
 -- | Returns the ETag of the new object. The ETag reflects only changes to
 -- the contents of an object, not its metadata.
 copyObjectResult_eTag :: Lens.Lens' CopyObjectResult (Prelude.Maybe ETag)
 copyObjectResult_eTag = Lens.lens (\CopyObjectResult' {eTag} -> eTag) (\s@CopyObjectResult' {} a -> s {eTag = a} :: CopyObjectResult)
 
-instance Core.FromXML CopyObjectResult where
+instance Data.FromXML CopyObjectResult where
   parseXML x =
     CopyObjectResult'
-      Prelude.<$> (x Core..@? "ChecksumCRC32C")
-      Prelude.<*> (x Core..@? "ChecksumSHA1")
-      Prelude.<*> (x Core..@? "ChecksumCRC32")
-      Prelude.<*> (x Core..@? "ChecksumSHA256")
-      Prelude.<*> (x Core..@? "LastModified")
-      Prelude.<*> (x Core..@? "ETag")
+      Prelude.<$> (x Data..@? "ChecksumCRC32C")
+      Prelude.<*> (x Data..@? "ChecksumSHA1")
+      Prelude.<*> (x Data..@? "ChecksumCRC32")
+      Prelude.<*> (x Data..@? "ChecksumSHA256")
+      Prelude.<*> (x Data..@? "LastModified")
+      Prelude.<*> (x Data..@? "ETag")
 
 instance Prelude.Hashable CopyObjectResult where
   hashWithSalt _salt CopyObjectResult' {..} =

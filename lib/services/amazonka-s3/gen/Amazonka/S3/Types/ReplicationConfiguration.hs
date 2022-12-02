@@ -21,6 +21,7 @@ module Amazonka.S3.Types.ReplicationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.ReplicationRule
@@ -84,11 +85,11 @@ replicationConfiguration_role = Lens.lens (\ReplicationConfiguration' {role'} ->
 replicationConfiguration_rules :: Lens.Lens' ReplicationConfiguration [ReplicationRule]
 replicationConfiguration_rules = Lens.lens (\ReplicationConfiguration' {rules} -> rules) (\s@ReplicationConfiguration' {} a -> s {rules = a} :: ReplicationConfiguration) Prelude.. Lens.coerced
 
-instance Core.FromXML ReplicationConfiguration where
+instance Data.FromXML ReplicationConfiguration where
   parseXML x =
     ReplicationConfiguration'
-      Prelude.<$> (x Core..@ "Role")
-      Prelude.<*> (Core.parseXMLList "Rule" x)
+      Prelude.<$> (x Data..@ "Role")
+      Prelude.<*> (Data.parseXMLList "Rule" x)
 
 instance Prelude.Hashable ReplicationConfiguration where
   hashWithSalt _salt ReplicationConfiguration' {..} =
@@ -99,7 +100,7 @@ instance Prelude.NFData ReplicationConfiguration where
   rnf ReplicationConfiguration' {..} =
     Prelude.rnf role' `Prelude.seq` Prelude.rnf rules
 
-instance Core.ToXML ReplicationConfiguration where
+instance Data.ToXML ReplicationConfiguration where
   toXML ReplicationConfiguration' {..} =
     Prelude.mconcat
-      ["Role" Core.@= role', Core.toXMLList "Rule" rules]
+      ["Role" Data.@= role', Data.toXMLList "Rule" rules]

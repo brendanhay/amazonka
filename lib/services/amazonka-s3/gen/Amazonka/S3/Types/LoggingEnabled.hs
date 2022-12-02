@@ -21,6 +21,7 @@ module Amazonka.S3.Types.LoggingEnabled where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.TargetGrant
@@ -115,14 +116,14 @@ loggingEnabled_targetBucket = Lens.lens (\LoggingEnabled' {targetBucket} -> targ
 loggingEnabled_targetPrefix :: Lens.Lens' LoggingEnabled Prelude.Text
 loggingEnabled_targetPrefix = Lens.lens (\LoggingEnabled' {targetPrefix} -> targetPrefix) (\s@LoggingEnabled' {} a -> s {targetPrefix = a} :: LoggingEnabled)
 
-instance Core.FromXML LoggingEnabled where
+instance Data.FromXML LoggingEnabled where
   parseXML x =
     LoggingEnabled'
-      Prelude.<$> ( x Core..@? "TargetGrants" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Grant")
+      Prelude.<$> ( x Data..@? "TargetGrants" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Grant")
                   )
-      Prelude.<*> (x Core..@ "TargetBucket")
-      Prelude.<*> (x Core..@ "TargetPrefix")
+      Prelude.<*> (x Data..@ "TargetBucket")
+      Prelude.<*> (x Data..@ "TargetPrefix")
 
 instance Prelude.Hashable LoggingEnabled where
   hashWithSalt _salt LoggingEnabled' {..} =
@@ -136,12 +137,12 @@ instance Prelude.NFData LoggingEnabled where
       `Prelude.seq` Prelude.rnf targetBucket
       `Prelude.seq` Prelude.rnf targetPrefix
 
-instance Core.ToXML LoggingEnabled where
+instance Data.ToXML LoggingEnabled where
   toXML LoggingEnabled' {..} =
     Prelude.mconcat
       [ "TargetGrants"
-          Core.@= Core.toXML
-            (Core.toXMLList "Grant" Prelude.<$> targetGrants),
-        "TargetBucket" Core.@= targetBucket,
-        "TargetPrefix" Core.@= targetPrefix
+          Data.@= Data.toXML
+            (Data.toXMLList "Grant" Prelude.<$> targetGrants),
+        "TargetBucket" Data.@= targetBucket,
+        "TargetPrefix" Data.@= targetPrefix
       ]

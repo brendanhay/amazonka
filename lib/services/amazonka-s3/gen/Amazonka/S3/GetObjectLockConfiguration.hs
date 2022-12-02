@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -137,7 +138,7 @@ instance Core.AWSRequest GetObjectLockConfiguration where
     Response.receiveXML
       ( \s h x ->
           GetObjectLockConfigurationResponse'
-            Prelude.<$> (Core.parseXML x)
+            Prelude.<$> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,18 +152,18 @@ instance Prelude.NFData GetObjectLockConfiguration where
     Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToHeaders GetObjectLockConfiguration where
+instance Data.ToHeaders GetObjectLockConfiguration where
   toHeaders GetObjectLockConfiguration' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath GetObjectLockConfiguration where
+instance Data.ToPath GetObjectLockConfiguration where
   toPath GetObjectLockConfiguration' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery GetObjectLockConfiguration where
+instance Data.ToQuery GetObjectLockConfiguration where
   toQuery =
     Prelude.const (Prelude.mconcat ["object-lock"])
 

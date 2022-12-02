@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -234,27 +235,27 @@ instance Prelude.NFData PutPublicAccessBlock where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf publicAccessBlockConfiguration
 
-instance Core.ToElement PutPublicAccessBlock where
+instance Data.ToElement PutPublicAccessBlock where
   toElement PutPublicAccessBlock' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}PublicAccessBlockConfiguration"
       publicAccessBlockConfiguration
 
-instance Core.ToHeaders PutPublicAccessBlock where
+instance Data.ToHeaders PutPublicAccessBlock where
   toHeaders PutPublicAccessBlock' {..} =
     Prelude.mconcat
       [ "x-amz-sdk-checksum-algorithm"
-          Core.=# checksumAlgorithm,
-        "Content-MD5" Core.=# contentMD5,
+          Data.=# checksumAlgorithm,
+        "Content-MD5" Data.=# contentMD5,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath PutPublicAccessBlock where
+instance Data.ToPath PutPublicAccessBlock where
   toPath PutPublicAccessBlock' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery PutPublicAccessBlock where
+instance Data.ToQuery PutPublicAccessBlock where
   toQuery =
     Prelude.const
       (Prelude.mconcat ["publicAccessBlock"])

@@ -21,6 +21,7 @@ module Amazonka.S3.Types.Tiering where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.IntelligentTieringAccessTier
@@ -84,11 +85,11 @@ tiering_days = Lens.lens (\Tiering' {days} -> days) (\s@Tiering' {} a -> s {days
 tiering_accessTier :: Lens.Lens' Tiering IntelligentTieringAccessTier
 tiering_accessTier = Lens.lens (\Tiering' {accessTier} -> accessTier) (\s@Tiering' {} a -> s {accessTier = a} :: Tiering)
 
-instance Core.FromXML Tiering where
+instance Data.FromXML Tiering where
   parseXML x =
     Tiering'
-      Prelude.<$> (x Core..@ "Days")
-      Prelude.<*> (x Core..@ "AccessTier")
+      Prelude.<$> (x Data..@ "Days")
+      Prelude.<*> (x Data..@ "AccessTier")
 
 instance Prelude.Hashable Tiering where
   hashWithSalt _salt Tiering' {..} =
@@ -100,9 +101,9 @@ instance Prelude.NFData Tiering where
     Prelude.rnf days
       `Prelude.seq` Prelude.rnf accessTier
 
-instance Core.ToXML Tiering where
+instance Data.ToXML Tiering where
   toXML Tiering' {..} =
     Prelude.mconcat
-      [ "Days" Core.@= days,
-        "AccessTier" Core.@= accessTier
+      [ "Days" Data.@= days,
+        "AccessTier" Data.@= accessTier
       ]

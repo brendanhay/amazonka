@@ -21,6 +21,7 @@ module Amazonka.S3.Types.S3Location where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.Encryption
@@ -148,23 +149,23 @@ instance Prelude.NFData S3Location where
       `Prelude.seq` Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf prefix
 
-instance Core.ToXML S3Location where
+instance Data.ToXML S3Location where
   toXML S3Location' {..} =
     Prelude.mconcat
       [ "AccessControlList"
-          Core.@= Core.toXML
-            ( Core.toXMLList "Grant"
+          Data.@= Data.toXML
+            ( Data.toXMLList "Grant"
                 Prelude.<$> accessControlList
             ),
-        "Tagging" Core.@= tagging,
-        "Encryption" Core.@= encryption,
-        "StorageClass" Core.@= storageClass,
-        "CannedACL" Core.@= cannedACL,
+        "Tagging" Data.@= tagging,
+        "Encryption" Data.@= encryption,
+        "StorageClass" Data.@= storageClass,
+        "CannedACL" Data.@= cannedACL,
         "UserMetadata"
-          Core.@= Core.toXML
-            ( Core.toXMLList "MetadataEntry"
+          Data.@= Data.toXML
+            ( Data.toXMLList "MetadataEntry"
                 Prelude.<$> userMetadata
             ),
-        "BucketName" Core.@= bucketName,
-        "Prefix" Core.@= prefix
+        "BucketName" Data.@= bucketName,
+        "Prefix" Data.@= prefix
       ]

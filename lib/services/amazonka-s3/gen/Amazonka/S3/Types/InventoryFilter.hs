@@ -21,6 +21,7 @@ module Amazonka.S3.Types.InventoryFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -57,9 +58,9 @@ newInventoryFilter pPrefix_ =
 inventoryFilter_prefix :: Lens.Lens' InventoryFilter Prelude.Text
 inventoryFilter_prefix = Lens.lens (\InventoryFilter' {prefix} -> prefix) (\s@InventoryFilter' {} a -> s {prefix = a} :: InventoryFilter)
 
-instance Core.FromXML InventoryFilter where
+instance Data.FromXML InventoryFilter where
   parseXML x =
-    InventoryFilter' Prelude.<$> (x Core..@ "Prefix")
+    InventoryFilter' Prelude.<$> (x Data..@ "Prefix")
 
 instance Prelude.Hashable InventoryFilter where
   hashWithSalt _salt InventoryFilter' {..} =
@@ -68,6 +69,6 @@ instance Prelude.Hashable InventoryFilter where
 instance Prelude.NFData InventoryFilter where
   rnf InventoryFilter' {..} = Prelude.rnf prefix
 
-instance Core.ToXML InventoryFilter where
+instance Data.ToXML InventoryFilter where
   toXML InventoryFilter' {..} =
-    Prelude.mconcat ["Prefix" Core.@= prefix]
+    Prelude.mconcat ["Prefix" Data.@= prefix]

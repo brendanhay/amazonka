@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,7 +137,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetBucketIntelligentTieringConfigurationResponse'
-            Prelude.<$> (Core.parseXML x)
+            Prelude.<$> (Data.parseXML x)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,25 +159,25 @@ instance
     Prelude.rnf bucket `Prelude.seq` Prelude.rnf id
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetBucketIntelligentTieringConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetBucketIntelligentTieringConfiguration
   where
   toPath GetBucketIntelligentTieringConfiguration' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetBucketIntelligentTieringConfiguration
   where
   toQuery GetBucketIntelligentTieringConfiguration' {..} =
     Prelude.mconcat
-      ["id" Core.=: id, "intelligent-tiering"]
+      ["id" Data.=: id, "intelligent-tiering"]
 
 -- | /See:/ 'newGetBucketIntelligentTieringConfigurationResponse' smart constructor.
 data GetBucketIntelligentTieringConfigurationResponse = GetBucketIntelligentTieringConfigurationResponse'

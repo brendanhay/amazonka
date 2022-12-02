@@ -201,6 +201,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -548,7 +549,7 @@ instance Core.AWSRequest PutObjectAcl where
     Response.receiveEmpty
       ( \s h x ->
           PutObjectAclResponse'
-            Prelude.<$> (h Core..#? "x-amz-request-charged")
+            Prelude.<$> (h Data..#? "x-amz-request-charged")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -586,38 +587,38 @@ instance Prelude.NFData PutObjectAcl where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
 
-instance Core.ToElement PutObjectAcl where
+instance Data.ToElement PutObjectAcl where
   toElement PutObjectAcl' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}AccessControlPolicy"
       accessControlPolicy
 
-instance Core.ToHeaders PutObjectAcl where
+instance Data.ToHeaders PutObjectAcl where
   toHeaders PutObjectAcl' {..} =
     Prelude.mconcat
       [ "x-amz-sdk-checksum-algorithm"
-          Core.=# checksumAlgorithm,
-        "x-amz-grant-write-acp" Core.=# grantWriteACP,
-        "x-amz-grant-full-control" Core.=# grantFullControl,
-        "x-amz-acl" Core.=# acl,
-        "Content-MD5" Core.=# contentMD5,
+          Data.=# checksumAlgorithm,
+        "x-amz-grant-write-acp" Data.=# grantWriteACP,
+        "x-amz-grant-full-control" Data.=# grantFullControl,
+        "x-amz-acl" Data.=# acl,
+        "Content-MD5" Data.=# contentMD5,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-request-payer" Core.=# requestPayer,
-        "x-amz-grant-read" Core.=# grantRead,
-        "x-amz-grant-write" Core.=# grantWrite,
-        "x-amz-grant-read-acp" Core.=# grantReadACP
+          Data.=# expectedBucketOwner,
+        "x-amz-request-payer" Data.=# requestPayer,
+        "x-amz-grant-read" Data.=# grantRead,
+        "x-amz-grant-write" Data.=# grantWrite,
+        "x-amz-grant-read-acp" Data.=# grantReadACP
       ]
 
-instance Core.ToPath PutObjectAcl where
+instance Data.ToPath PutObjectAcl where
   toPath PutObjectAcl' {..} =
     Prelude.mconcat
-      ["/", Core.toBS bucket, "/", Core.toBS key]
+      ["/", Data.toBS bucket, "/", Data.toBS key]
 
-instance Core.ToQuery PutObjectAcl where
+instance Data.ToQuery PutObjectAcl where
   toQuery PutObjectAcl' {..} =
     Prelude.mconcat
-      ["versionId" Core.=: versionId, "acl"]
+      ["versionId" Data.=: versionId, "acl"]
 
 -- | /See:/ 'newPutObjectAclResponse' smart constructor.
 data PutObjectAclResponse = PutObjectAclResponse'

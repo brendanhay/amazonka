@@ -21,6 +21,7 @@ module Amazonka.S3.Types.Grantee where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.Type
@@ -161,14 +162,14 @@ grantee_emailAddress = Lens.lens (\Grantee' {emailAddress} -> emailAddress) (\s@
 grantee_type :: Lens.Lens' Grantee Type
 grantee_type = Lens.lens (\Grantee' {type'} -> type') (\s@Grantee' {} a -> s {type' = a} :: Grantee)
 
-instance Core.FromXML Grantee where
+instance Data.FromXML Grantee where
   parseXML x =
     Grantee'
-      Prelude.<$> (x Core..@? "DisplayName")
-      Prelude.<*> (x Core..@? "URI")
-      Prelude.<*> (x Core..@? "ID")
-      Prelude.<*> (x Core..@? "EmailAddress")
-      Prelude.<*> (x Core..@ "xsi:type")
+      Prelude.<$> (x Data..@? "DisplayName")
+      Prelude.<*> (x Data..@? "URI")
+      Prelude.<*> (x Data..@? "ID")
+      Prelude.<*> (x Data..@? "EmailAddress")
+      Prelude.<*> (x Data..@ "xsi:type")
 
 instance Prelude.Hashable Grantee where
   hashWithSalt _salt Grantee' {..} =
@@ -186,12 +187,12 @@ instance Prelude.NFData Grantee where
       `Prelude.seq` Prelude.rnf emailAddress
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToXML Grantee where
+instance Data.ToXML Grantee where
   toXML Grantee' {..} =
     Prelude.mconcat
-      [ "DisplayName" Core.@= displayName,
-        "URI" Core.@= uri,
-        "ID" Core.@= id,
-        "EmailAddress" Core.@= emailAddress,
-        "xsi:type" Core.@@= type'
+      [ "DisplayName" Data.@= displayName,
+        "URI" Data.@= uri,
+        "ID" Data.@= id,
+        "EmailAddress" Data.@= emailAddress,
+        "xsi:type" Data.@@= type'
       ]

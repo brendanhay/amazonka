@@ -21,6 +21,7 @@ module Amazonka.S3.Types.Condition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -115,11 +116,11 @@ condition_httpErrorCodeReturnedEquals = Lens.lens (\Condition' {httpErrorCodeRet
 condition_keyPrefixEquals :: Lens.Lens' Condition (Prelude.Maybe Prelude.Text)
 condition_keyPrefixEquals = Lens.lens (\Condition' {keyPrefixEquals} -> keyPrefixEquals) (\s@Condition' {} a -> s {keyPrefixEquals = a} :: Condition)
 
-instance Core.FromXML Condition where
+instance Data.FromXML Condition where
   parseXML x =
     Condition'
-      Prelude.<$> (x Core..@? "HttpErrorCodeReturnedEquals")
-      Prelude.<*> (x Core..@? "KeyPrefixEquals")
+      Prelude.<$> (x Data..@? "HttpErrorCodeReturnedEquals")
+      Prelude.<*> (x Data..@? "KeyPrefixEquals")
 
 instance Prelude.Hashable Condition where
   hashWithSalt _salt Condition' {..} =
@@ -132,10 +133,10 @@ instance Prelude.NFData Condition where
     Prelude.rnf httpErrorCodeReturnedEquals
       `Prelude.seq` Prelude.rnf keyPrefixEquals
 
-instance Core.ToXML Condition where
+instance Data.ToXML Condition where
   toXML Condition' {..} =
     Prelude.mconcat
       [ "HttpErrorCodeReturnedEquals"
-          Core.@= httpErrorCodeReturnedEquals,
-        "KeyPrefixEquals" Core.@= keyPrefixEquals
+          Data.@= httpErrorCodeReturnedEquals,
+        "KeyPrefixEquals" Data.@= keyPrefixEquals
       ]

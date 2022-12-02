@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -113,7 +114,7 @@ instance Core.AWSRequest GetBucketRequestPayment where
     Response.receiveXML
       ( \s h x ->
           GetBucketRequestPaymentResponse'
-            Prelude.<$> (x Core..@? "Payer")
+            Prelude.<$> (x Data..@? "Payer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,18 +128,18 @@ instance Prelude.NFData GetBucketRequestPayment where
     Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToHeaders GetBucketRequestPayment where
+instance Data.ToHeaders GetBucketRequestPayment where
   toHeaders GetBucketRequestPayment' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath GetBucketRequestPayment where
+instance Data.ToPath GetBucketRequestPayment where
   toPath GetBucketRequestPayment' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery GetBucketRequestPayment where
+instance Data.ToQuery GetBucketRequestPayment where
   toQuery =
     Prelude.const (Prelude.mconcat ["requestPayment"])
 

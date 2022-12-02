@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -263,7 +264,7 @@ instance Core.AWSRequest PutObjectRetention where
     Response.receiveEmpty
       ( \s h x ->
           PutObjectRetentionResponse'
-            Prelude.<$> (h Core..#? "x-amz-request-charged")
+            Prelude.<$> (h Data..#? "x-amz-request-charged")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -291,34 +292,34 @@ instance Prelude.NFData PutObjectRetention where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
 
-instance Core.ToElement PutObjectRetention where
+instance Data.ToElement PutObjectRetention where
   toElement PutObjectRetention' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}Retention"
       retention
 
-instance Core.ToHeaders PutObjectRetention where
+instance Data.ToHeaders PutObjectRetention where
   toHeaders PutObjectRetention' {..} =
     Prelude.mconcat
       [ "x-amz-sdk-checksum-algorithm"
-          Core.=# checksumAlgorithm,
-        "Content-MD5" Core.=# contentMD5,
+          Data.=# checksumAlgorithm,
+        "Content-MD5" Data.=# contentMD5,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-request-payer" Core.=# requestPayer,
+          Data.=# expectedBucketOwner,
+        "x-amz-request-payer" Data.=# requestPayer,
         "x-amz-bypass-governance-retention"
-          Core.=# bypassGovernanceRetention
+          Data.=# bypassGovernanceRetention
       ]
 
-instance Core.ToPath PutObjectRetention where
+instance Data.ToPath PutObjectRetention where
   toPath PutObjectRetention' {..} =
     Prelude.mconcat
-      ["/", Core.toBS bucket, "/", Core.toBS key]
+      ["/", Data.toBS bucket, "/", Data.toBS key]
 
-instance Core.ToQuery PutObjectRetention where
+instance Data.ToQuery PutObjectRetention where
   toQuery PutObjectRetention' {..} =
     Prelude.mconcat
-      ["versionId" Core.=: versionId, "retention"]
+      ["versionId" Data.=: versionId, "retention"]
 
 -- | /See:/ 'newPutObjectRetentionResponse' smart constructor.
 data PutObjectRetentionResponse = PutObjectRetentionResponse'

@@ -51,6 +51,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -125,21 +126,21 @@ instance Prelude.NFData DeleteChangeSet where
     Prelude.rnf stackName
       `Prelude.seq` Prelude.rnf changeSetName
 
-instance Core.ToHeaders DeleteChangeSet where
+instance Data.ToHeaders DeleteChangeSet where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteChangeSet where
+instance Data.ToPath DeleteChangeSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteChangeSet where
+instance Data.ToQuery DeleteChangeSet where
   toQuery DeleteChangeSet' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteChangeSet" :: Prelude.ByteString),
+          Data.=: ("DeleteChangeSet" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "StackName" Core.=: stackName,
-        "ChangeSetName" Core.=: changeSetName
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "StackName" Data.=: stackName,
+        "ChangeSetName" Data.=: changeSetName
       ]
 
 -- | The output for the DeleteChangeSet action.

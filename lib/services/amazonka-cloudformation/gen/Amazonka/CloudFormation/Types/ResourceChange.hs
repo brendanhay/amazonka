@@ -26,6 +26,7 @@ import Amazonka.CloudFormation.Types.ResourceAttribute
 import Amazonka.CloudFormation.Types.ResourceChangeDetail
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The @ResourceChange@ structure describes the resource and the action
@@ -196,22 +197,22 @@ resourceChange_moduleInfo = Lens.lens (\ResourceChange' {moduleInfo} -> moduleIn
 resourceChange_physicalResourceId :: Lens.Lens' ResourceChange (Prelude.Maybe Prelude.Text)
 resourceChange_physicalResourceId = Lens.lens (\ResourceChange' {physicalResourceId} -> physicalResourceId) (\s@ResourceChange' {} a -> s {physicalResourceId = a} :: ResourceChange)
 
-instance Core.FromXML ResourceChange where
+instance Data.FromXML ResourceChange where
   parseXML x =
     ResourceChange'
-      Prelude.<$> (x Core..@? "ResourceType")
-      Prelude.<*> (x Core..@? "ChangeSetId")
-      Prelude.<*> (x Core..@? "Replacement")
-      Prelude.<*> ( x Core..@? "Details" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> (x Data..@? "ResourceType")
+      Prelude.<*> (x Data..@? "ChangeSetId")
+      Prelude.<*> (x Data..@? "Replacement")
+      Prelude.<*> ( x Data..@? "Details" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "LogicalResourceId")
-      Prelude.<*> ( x Core..@? "Scope" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "LogicalResourceId")
+      Prelude.<*> ( x Data..@? "Scope" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "Action")
-      Prelude.<*> (x Core..@? "ModuleInfo")
-      Prelude.<*> (x Core..@? "PhysicalResourceId")
+      Prelude.<*> (x Data..@? "Action")
+      Prelude.<*> (x Data..@? "ModuleInfo")
+      Prelude.<*> (x Data..@? "PhysicalResourceId")
 
 instance Prelude.Hashable ResourceChange where
   hashWithSalt _salt ResourceChange' {..} =

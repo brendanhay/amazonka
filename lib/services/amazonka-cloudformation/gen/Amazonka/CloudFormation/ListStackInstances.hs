@@ -54,6 +54,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -249,9 +250,9 @@ instance Core.AWSRequest ListStackInstances where
       "ListStackInstancesResult"
       ( \s h x ->
           ListStackInstancesResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "Summaries" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "Summaries" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -276,28 +277,28 @@ instance Prelude.NFData ListStackInstances where
       `Prelude.seq` Prelude.rnf stackInstanceAccount
       `Prelude.seq` Prelude.rnf stackSetName
 
-instance Core.ToHeaders ListStackInstances where
+instance Data.ToHeaders ListStackInstances where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListStackInstances where
+instance Data.ToPath ListStackInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListStackInstances where
+instance Data.ToQuery ListStackInstances where
   toQuery ListStackInstances' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListStackInstances" :: Prelude.ByteString),
+          Data.=: ("ListStackInstances" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "CallAs" Core.=: callAs,
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "CallAs" Data.=: callAs,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> filters),
-        "MaxResults" Core.=: maxResults,
-        "StackInstanceRegion" Core.=: stackInstanceRegion,
-        "StackInstanceAccount" Core.=: stackInstanceAccount,
-        "StackSetName" Core.=: stackSetName
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> filters),
+        "MaxResults" Data.=: maxResults,
+        "StackInstanceRegion" Data.=: stackInstanceRegion,
+        "StackInstanceAccount" Data.=: stackInstanceAccount,
+        "StackSetName" Data.=: stackSetName
       ]
 
 -- | /See:/ 'newListStackInstancesResponse' smart constructor.

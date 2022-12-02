@@ -21,6 +21,7 @@ module Amazonka.CloudFormation.Types.RequiredActivatedType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | For extensions that are modules, a public third-party extension that
@@ -122,15 +123,15 @@ requiredActivatedType_typeNameAlias = Lens.lens (\RequiredActivatedType' {typeNa
 requiredActivatedType_supportedMajorVersions :: Lens.Lens' RequiredActivatedType (Prelude.Maybe [Prelude.Natural])
 requiredActivatedType_supportedMajorVersions = Lens.lens (\RequiredActivatedType' {supportedMajorVersions} -> supportedMajorVersions) (\s@RequiredActivatedType' {} a -> s {supportedMajorVersions = a} :: RequiredActivatedType) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML RequiredActivatedType where
+instance Data.FromXML RequiredActivatedType where
   parseXML x =
     RequiredActivatedType'
-      Prelude.<$> (x Core..@? "PublisherId")
-      Prelude.<*> (x Core..@? "OriginalTypeName")
-      Prelude.<*> (x Core..@? "TypeNameAlias")
-      Prelude.<*> ( x Core..@? "SupportedMajorVersions"
+      Prelude.<$> (x Data..@? "PublisherId")
+      Prelude.<*> (x Data..@? "OriginalTypeName")
+      Prelude.<*> (x Data..@? "TypeNameAlias")
+      Prelude.<*> ( x Data..@? "SupportedMajorVersions"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable RequiredActivatedType where

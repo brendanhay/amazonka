@@ -21,6 +21,7 @@ module Amazonka.CloudFormation.Types.AccountLimit where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The AccountLimit data type.
@@ -80,10 +81,10 @@ accountLimit_name = Lens.lens (\AccountLimit' {name} -> name) (\s@AccountLimit' 
 accountLimit_value :: Lens.Lens' AccountLimit (Prelude.Maybe Prelude.Int)
 accountLimit_value = Lens.lens (\AccountLimit' {value} -> value) (\s@AccountLimit' {} a -> s {value = a} :: AccountLimit)
 
-instance Core.FromXML AccountLimit where
+instance Data.FromXML AccountLimit where
   parseXML x =
     AccountLimit'
-      Prelude.<$> (x Core..@? "Name") Prelude.<*> (x Core..@? "Value")
+      Prelude.<$> (x Data..@? "Name") Prelude.<*> (x Data..@? "Value")
 
 instance Prelude.Hashable AccountLimit where
   hashWithSalt _salt AccountLimit' {..} =

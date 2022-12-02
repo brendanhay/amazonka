@@ -40,6 +40,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -132,22 +133,22 @@ instance Prelude.NFData SetStackPolicy where
       `Prelude.seq` Prelude.rnf stackPolicyURL
       `Prelude.seq` Prelude.rnf stackName
 
-instance Core.ToHeaders SetStackPolicy where
+instance Data.ToHeaders SetStackPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SetStackPolicy where
+instance Data.ToPath SetStackPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetStackPolicy where
+instance Data.ToQuery SetStackPolicy where
   toQuery SetStackPolicy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SetStackPolicy" :: Prelude.ByteString),
+          Data.=: ("SetStackPolicy" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "StackPolicyBody" Core.=: stackPolicyBody,
-        "StackPolicyURL" Core.=: stackPolicyURL,
-        "StackName" Core.=: stackName
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "StackPolicyBody" Data.=: stackPolicyBody,
+        "StackPolicyURL" Data.=: stackPolicyURL,
+        "StackName" Data.=: stackName
       ]
 
 -- | /See:/ 'newSetStackPolicyResponse' smart constructor.

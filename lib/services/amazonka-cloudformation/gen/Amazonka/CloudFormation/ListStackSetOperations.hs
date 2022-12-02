@@ -48,6 +48,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -214,9 +215,9 @@ instance Core.AWSRequest ListStackSetOperations where
       "ListStackSetOperationsResult"
       ( \s h x ->
           ListStackSetOperationsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "Summaries" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "Summaries" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -235,23 +236,23 @@ instance Prelude.NFData ListStackSetOperations where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf stackSetName
 
-instance Core.ToHeaders ListStackSetOperations where
+instance Data.ToHeaders ListStackSetOperations where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListStackSetOperations where
+instance Data.ToPath ListStackSetOperations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListStackSetOperations where
+instance Data.ToQuery ListStackSetOperations where
   toQuery ListStackSetOperations' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListStackSetOperations" :: Prelude.ByteString),
+          Data.=: ("ListStackSetOperations" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "CallAs" Core.=: callAs,
-        "MaxResults" Core.=: maxResults,
-        "StackSetName" Core.=: stackSetName
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "CallAs" Data.=: callAs,
+        "MaxResults" Data.=: maxResults,
+        "StackSetName" Data.=: stackSetName
       ]
 
 -- | /See:/ 'newListStackSetOperationsResponse' smart constructor.

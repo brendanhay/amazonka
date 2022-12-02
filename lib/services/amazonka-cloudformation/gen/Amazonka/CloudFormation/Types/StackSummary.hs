@@ -23,6 +23,7 @@ import Amazonka.CloudFormation.Types.StackDriftInformationSummary
 import Amazonka.CloudFormation.Types.StackStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The StackSummary Data Type
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newStackSummary' smart constructor.
 data StackSummary = StackSummary'
   { -- | The time the stack was deleted.
-    deletionTime :: Prelude.Maybe Core.ISO8601,
+    deletionTime :: Prelude.Maybe Data.ISO8601,
     -- | Unique stack identifier.
     stackId :: Prelude.Maybe Prelude.Text,
     -- | Success\/Failure message associated with the stack status.
@@ -45,7 +46,7 @@ data StackSummary = StackSummary'
     parentId :: Prelude.Maybe Prelude.Text,
     -- | The time the stack was last updated. This field will only be returned if
     -- the stack has been updated at least once.
-    lastUpdatedTime :: Prelude.Maybe Core.ISO8601,
+    lastUpdatedTime :: Prelude.Maybe Data.ISO8601,
     -- | For nested stacks--stacks created as resources for another stack--the
     -- stack ID of the top-level stack to which the nested stack ultimately
     -- belongs.
@@ -65,7 +66,7 @@ data StackSummary = StackSummary'
     -- | The name associated with the stack.
     stackName :: Prelude.Text,
     -- | The time the stack was created.
-    creationTime :: Core.ISO8601,
+    creationTime :: Data.ISO8601,
     -- | The current status of the stack.
     stackStatus :: StackStatus
   }
@@ -139,13 +140,13 @@ newStackSummary
         driftInformation = Prelude.Nothing,
         templateDescription = Prelude.Nothing,
         stackName = pStackName_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         stackStatus = pStackStatus_
       }
 
 -- | The time the stack was deleted.
 stackSummary_deletionTime :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.UTCTime)
-stackSummary_deletionTime = Lens.lens (\StackSummary' {deletionTime} -> deletionTime) (\s@StackSummary' {} a -> s {deletionTime = a} :: StackSummary) Prelude.. Lens.mapping Core._Time
+stackSummary_deletionTime = Lens.lens (\StackSummary' {deletionTime} -> deletionTime) (\s@StackSummary' {} a -> s {deletionTime = a} :: StackSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Unique stack identifier.
 stackSummary_stackId :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Text)
@@ -168,7 +169,7 @@ stackSummary_parentId = Lens.lens (\StackSummary' {parentId} -> parentId) (\s@St
 -- | The time the stack was last updated. This field will only be returned if
 -- the stack has been updated at least once.
 stackSummary_lastUpdatedTime :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.UTCTime)
-stackSummary_lastUpdatedTime = Lens.lens (\StackSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@StackSummary' {} a -> s {lastUpdatedTime = a} :: StackSummary) Prelude.. Lens.mapping Core._Time
+stackSummary_lastUpdatedTime = Lens.lens (\StackSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@StackSummary' {} a -> s {lastUpdatedTime = a} :: StackSummary) Prelude.. Lens.mapping Data._Time
 
 -- | For nested stacks--stacks created as resources for another stack--the
 -- stack ID of the top-level stack to which the nested stack ultimately
@@ -198,26 +199,26 @@ stackSummary_stackName = Lens.lens (\StackSummary' {stackName} -> stackName) (\s
 
 -- | The time the stack was created.
 stackSummary_creationTime :: Lens.Lens' StackSummary Prelude.UTCTime
-stackSummary_creationTime = Lens.lens (\StackSummary' {creationTime} -> creationTime) (\s@StackSummary' {} a -> s {creationTime = a} :: StackSummary) Prelude.. Core._Time
+stackSummary_creationTime = Lens.lens (\StackSummary' {creationTime} -> creationTime) (\s@StackSummary' {} a -> s {creationTime = a} :: StackSummary) Prelude.. Data._Time
 
 -- | The current status of the stack.
 stackSummary_stackStatus :: Lens.Lens' StackSummary StackStatus
 stackSummary_stackStatus = Lens.lens (\StackSummary' {stackStatus} -> stackStatus) (\s@StackSummary' {} a -> s {stackStatus = a} :: StackSummary)
 
-instance Core.FromXML StackSummary where
+instance Data.FromXML StackSummary where
   parseXML x =
     StackSummary'
-      Prelude.<$> (x Core..@? "DeletionTime")
-      Prelude.<*> (x Core..@? "StackId")
-      Prelude.<*> (x Core..@? "StackStatusReason")
-      Prelude.<*> (x Core..@? "ParentId")
-      Prelude.<*> (x Core..@? "LastUpdatedTime")
-      Prelude.<*> (x Core..@? "RootId")
-      Prelude.<*> (x Core..@? "DriftInformation")
-      Prelude.<*> (x Core..@? "TemplateDescription")
-      Prelude.<*> (x Core..@ "StackName")
-      Prelude.<*> (x Core..@ "CreationTime")
-      Prelude.<*> (x Core..@ "StackStatus")
+      Prelude.<$> (x Data..@? "DeletionTime")
+      Prelude.<*> (x Data..@? "StackId")
+      Prelude.<*> (x Data..@? "StackStatusReason")
+      Prelude.<*> (x Data..@? "ParentId")
+      Prelude.<*> (x Data..@? "LastUpdatedTime")
+      Prelude.<*> (x Data..@? "RootId")
+      Prelude.<*> (x Data..@? "DriftInformation")
+      Prelude.<*> (x Data..@? "TemplateDescription")
+      Prelude.<*> (x Data..@ "StackName")
+      Prelude.<*> (x Data..@ "CreationTime")
+      Prelude.<*> (x Data..@ "StackStatus")
 
 instance Prelude.Hashable StackSummary where
   hashWithSalt _salt StackSummary' {..} =

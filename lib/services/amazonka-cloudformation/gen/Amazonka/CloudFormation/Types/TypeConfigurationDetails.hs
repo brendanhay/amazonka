@@ -21,6 +21,7 @@ module Amazonka.CloudFormation.Types.TypeConfigurationDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Detailed information concerning the specification of a CloudFormation
@@ -63,7 +64,7 @@ data TypeConfigurationDetails = TypeConfigurationDetails'
     --
     -- If a configuration hasn\'t been set for a specified extension,
     -- CloudFormation returns @null@.
-    lastUpdated :: Prelude.Maybe Core.ISO8601
+    lastUpdated :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -163,18 +164,18 @@ typeConfigurationDetails_isDefaultConfiguration = Lens.lens (\TypeConfigurationD
 -- If a configuration hasn\'t been set for a specified extension,
 -- CloudFormation returns @null@.
 typeConfigurationDetails_lastUpdated :: Lens.Lens' TypeConfigurationDetails (Prelude.Maybe Prelude.UTCTime)
-typeConfigurationDetails_lastUpdated = Lens.lens (\TypeConfigurationDetails' {lastUpdated} -> lastUpdated) (\s@TypeConfigurationDetails' {} a -> s {lastUpdated = a} :: TypeConfigurationDetails) Prelude.. Lens.mapping Core._Time
+typeConfigurationDetails_lastUpdated = Lens.lens (\TypeConfigurationDetails' {lastUpdated} -> lastUpdated) (\s@TypeConfigurationDetails' {} a -> s {lastUpdated = a} :: TypeConfigurationDetails) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML TypeConfigurationDetails where
+instance Data.FromXML TypeConfigurationDetails where
   parseXML x =
     TypeConfigurationDetails'
-      Prelude.<$> (x Core..@? "Alias")
-      Prelude.<*> (x Core..@? "TypeArn")
-      Prelude.<*> (x Core..@? "Configuration")
-      Prelude.<*> (x Core..@? "Arn")
-      Prelude.<*> (x Core..@? "TypeName")
-      Prelude.<*> (x Core..@? "IsDefaultConfiguration")
-      Prelude.<*> (x Core..@? "LastUpdated")
+      Prelude.<$> (x Data..@? "Alias")
+      Prelude.<*> (x Data..@? "TypeArn")
+      Prelude.<*> (x Data..@? "Configuration")
+      Prelude.<*> (x Data..@? "Arn")
+      Prelude.<*> (x Data..@? "TypeName")
+      Prelude.<*> (x Data..@? "IsDefaultConfiguration")
+      Prelude.<*> (x Data..@? "LastUpdated")
 
 instance Prelude.Hashable TypeConfigurationDetails where
   hashWithSalt _salt TypeConfigurationDetails' {..} =

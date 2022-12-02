@@ -54,6 +54,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -184,7 +185,7 @@ instance Core.AWSRequest PublishType where
       "PublishTypeResult"
       ( \s h x ->
           PublishTypeResponse'
-            Prelude.<$> (x Core..@? "PublicTypeArn")
+            Prelude.<$> (x Data..@? "PublicTypeArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,23 +203,23 @@ instance Prelude.NFData PublishType where
       `Prelude.seq` Prelude.rnf publicVersionNumber
       `Prelude.seq` Prelude.rnf typeName
 
-instance Core.ToHeaders PublishType where
+instance Data.ToHeaders PublishType where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath PublishType where
+instance Data.ToPath PublishType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PublishType where
+instance Data.ToQuery PublishType where
   toQuery PublishType' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("PublishType" :: Prelude.ByteString),
+          Data.=: ("PublishType" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "Type" Core.=: type',
-        "Arn" Core.=: arn,
-        "PublicVersionNumber" Core.=: publicVersionNumber,
-        "TypeName" Core.=: typeName
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "Type" Data.=: type',
+        "Arn" Data.=: arn,
+        "PublicVersionNumber" Data.=: publicVersionNumber,
+        "TypeName" Data.=: typeName
       ]
 
 -- | /See:/ 'newPublishTypeResponse' smart constructor.

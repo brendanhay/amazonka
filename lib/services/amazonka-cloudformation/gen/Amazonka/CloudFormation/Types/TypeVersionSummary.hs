@@ -22,6 +22,7 @@ module Amazonka.CloudFormation.Types.TypeVersionSummary where
 import Amazonka.CloudFormation.Types.RegistryType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains summary information about a specific version of a
@@ -40,7 +41,7 @@ data TypeVersionSummary = TypeVersionSummary'
     -- | The Amazon Resource Name (ARN) of the extension version.
     arn :: Prelude.Maybe Prelude.Text,
     -- | When the version was registered.
-    timeCreated :: Prelude.Maybe Core.ISO8601,
+    timeCreated :: Prelude.Maybe Data.ISO8601,
     -- | For public extensions that have been activated for this account and
     -- region, the version of the public extension to be used for
     -- CloudFormation operations in this account and region. For any extensions
@@ -138,7 +139,7 @@ typeVersionSummary_arn = Lens.lens (\TypeVersionSummary' {arn} -> arn) (\s@TypeV
 
 -- | When the version was registered.
 typeVersionSummary_timeCreated :: Lens.Lens' TypeVersionSummary (Prelude.Maybe Prelude.UTCTime)
-typeVersionSummary_timeCreated = Lens.lens (\TypeVersionSummary' {timeCreated} -> timeCreated) (\s@TypeVersionSummary' {} a -> s {timeCreated = a} :: TypeVersionSummary) Prelude.. Lens.mapping Core._Time
+typeVersionSummary_timeCreated = Lens.lens (\TypeVersionSummary' {timeCreated} -> timeCreated) (\s@TypeVersionSummary' {} a -> s {timeCreated = a} :: TypeVersionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | For public extensions that have been activated for this account and
 -- region, the version of the public extension to be used for
@@ -169,17 +170,17 @@ typeVersionSummary_description = Lens.lens (\TypeVersionSummary' {description} -
 typeVersionSummary_versionId :: Lens.Lens' TypeVersionSummary (Prelude.Maybe Prelude.Text)
 typeVersionSummary_versionId = Lens.lens (\TypeVersionSummary' {versionId} -> versionId) (\s@TypeVersionSummary' {} a -> s {versionId = a} :: TypeVersionSummary)
 
-instance Core.FromXML TypeVersionSummary where
+instance Data.FromXML TypeVersionSummary where
   parseXML x =
     TypeVersionSummary'
-      Prelude.<$> (x Core..@? "IsDefaultVersion")
-      Prelude.<*> (x Core..@? "Type")
-      Prelude.<*> (x Core..@? "Arn")
-      Prelude.<*> (x Core..@? "TimeCreated")
-      Prelude.<*> (x Core..@? "PublicVersionNumber")
-      Prelude.<*> (x Core..@? "TypeName")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "VersionId")
+      Prelude.<$> (x Data..@? "IsDefaultVersion")
+      Prelude.<*> (x Data..@? "Type")
+      Prelude.<*> (x Data..@? "Arn")
+      Prelude.<*> (x Data..@? "TimeCreated")
+      Prelude.<*> (x Data..@? "PublicVersionNumber")
+      Prelude.<*> (x Data..@? "TypeName")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "VersionId")
 
 instance Prelude.Hashable TypeVersionSummary where
   hashWithSalt _salt TypeVersionSummary' {..} =

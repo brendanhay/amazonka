@@ -24,6 +24,7 @@ import Amazonka.CloudFormation.Types.EvaluationType
 import Amazonka.CloudFormation.Types.ResourceTargetDefinition
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | For a resource with @Modify@ as the action, the @ResourceChange@
@@ -225,13 +226,13 @@ resourceChangeDetail_evaluation = Lens.lens (\ResourceChangeDetail' {evaluation}
 resourceChangeDetail_causingEntity :: Lens.Lens' ResourceChangeDetail (Prelude.Maybe Prelude.Text)
 resourceChangeDetail_causingEntity = Lens.lens (\ResourceChangeDetail' {causingEntity} -> causingEntity) (\s@ResourceChangeDetail' {} a -> s {causingEntity = a} :: ResourceChangeDetail)
 
-instance Core.FromXML ResourceChangeDetail where
+instance Data.FromXML ResourceChangeDetail where
   parseXML x =
     ResourceChangeDetail'
-      Prelude.<$> (x Core..@? "Target")
-      Prelude.<*> (x Core..@? "ChangeSource")
-      Prelude.<*> (x Core..@? "Evaluation")
-      Prelude.<*> (x Core..@? "CausingEntity")
+      Prelude.<$> (x Data..@? "Target")
+      Prelude.<*> (x Data..@? "ChangeSource")
+      Prelude.<*> (x Data..@? "Evaluation")
+      Prelude.<*> (x Data..@? "CausingEntity")
 
 instance Prelude.Hashable ResourceChangeDetail where
   hashWithSalt _salt ResourceChangeDetail' {..} =

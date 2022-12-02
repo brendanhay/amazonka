@@ -56,6 +56,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,10 +109,10 @@ instance Core.AWSRequest DescribePublisher where
       "DescribePublisherResult"
       ( \s h x ->
           DescribePublisherResponse'
-            Prelude.<$> (x Core..@? "PublisherId")
-            Prelude.<*> (x Core..@? "PublisherStatus")
-            Prelude.<*> (x Core..@? "PublisherProfile")
-            Prelude.<*> (x Core..@? "IdentityProvider")
+            Prelude.<$> (x Data..@? "PublisherId")
+            Prelude.<*> (x Data..@? "PublisherStatus")
+            Prelude.<*> (x Data..@? "PublisherProfile")
+            Prelude.<*> (x Data..@? "IdentityProvider")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,20 +123,20 @@ instance Prelude.Hashable DescribePublisher where
 instance Prelude.NFData DescribePublisher where
   rnf DescribePublisher' {..} = Prelude.rnf publisherId
 
-instance Core.ToHeaders DescribePublisher where
+instance Data.ToHeaders DescribePublisher where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribePublisher where
+instance Data.ToPath DescribePublisher where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribePublisher where
+instance Data.ToQuery DescribePublisher where
   toQuery DescribePublisher' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribePublisher" :: Prelude.ByteString),
+          Data.=: ("DescribePublisher" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "PublisherId" Core.=: publisherId
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "PublisherId" Data.=: publisherId
       ]
 
 -- | /See:/ 'newDescribePublisherResponse' smart constructor.

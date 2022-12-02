@@ -21,6 +21,7 @@ module Amazonka.CloudFormation.Types.ResourceIdentifierSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the target resources of a specific type in your import
@@ -86,17 +87,17 @@ resourceIdentifierSummary_resourceIdentifiers = Lens.lens (\ResourceIdentifierSu
 resourceIdentifierSummary_logicalResourceIds :: Lens.Lens' ResourceIdentifierSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 resourceIdentifierSummary_logicalResourceIds = Lens.lens (\ResourceIdentifierSummary' {logicalResourceIds} -> logicalResourceIds) (\s@ResourceIdentifierSummary' {} a -> s {logicalResourceIds = a} :: ResourceIdentifierSummary) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML ResourceIdentifierSummary where
+instance Data.FromXML ResourceIdentifierSummary where
   parseXML x =
     ResourceIdentifierSummary'
-      Prelude.<$> (x Core..@? "ResourceType")
-      Prelude.<*> ( x Core..@? "ResourceIdentifiers"
+      Prelude.<$> (x Data..@? "ResourceType")
+      Prelude.<*> ( x Data..@? "ResourceIdentifiers"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "LogicalResourceIds"
+      Prelude.<*> ( x Data..@? "LogicalResourceIds"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList1 "member")
+                      Prelude.>>= Core.may (Data.parseXMLList1 "member")
                   )
 
 instance Prelude.Hashable ResourceIdentifierSummary where

@@ -60,6 +60,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -177,11 +178,11 @@ instance Core.AWSRequest DescribeStackResourceDrifts where
       "DescribeStackResourceDriftsResult"
       ( \s h x ->
           DescribeStackResourceDriftsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<$> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "StackResourceDrifts"
+            Prelude.<*> ( x Data..@? "StackResourceDrifts"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -200,29 +201,29 @@ instance Prelude.NFData DescribeStackResourceDrifts where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf stackName
 
-instance Core.ToHeaders DescribeStackResourceDrifts where
+instance Data.ToHeaders DescribeStackResourceDrifts where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeStackResourceDrifts where
+instance Data.ToPath DescribeStackResourceDrifts where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeStackResourceDrifts where
+instance Data.ToQuery DescribeStackResourceDrifts where
   toQuery DescribeStackResourceDrifts' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeStackResourceDrifts" ::
+          Data.=: ( "DescribeStackResourceDrifts" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
         "StackResourceDriftStatusFilters"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> stackResourceDriftStatusFilters
             ),
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
-        "StackName" Core.=: stackName
+        "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults,
+        "StackName" Data.=: stackName
       ]
 
 -- | /See:/ 'newDescribeStackResourceDriftsResponse' smart constructor.

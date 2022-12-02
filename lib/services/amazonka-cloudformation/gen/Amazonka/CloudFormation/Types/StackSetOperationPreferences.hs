@@ -22,6 +22,7 @@ module Amazonka.CloudFormation.Types.StackSetOperationPreferences where
 import Amazonka.CloudFormation.Types.RegionConcurrencyType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The user-specified preferences for how CloudFormation performs a stack
@@ -248,17 +249,17 @@ stackSetOperationPreferences_regionConcurrencyType = Lens.lens (\StackSetOperati
 stackSetOperationPreferences_maxConcurrentPercentage :: Lens.Lens' StackSetOperationPreferences (Prelude.Maybe Prelude.Natural)
 stackSetOperationPreferences_maxConcurrentPercentage = Lens.lens (\StackSetOperationPreferences' {maxConcurrentPercentage} -> maxConcurrentPercentage) (\s@StackSetOperationPreferences' {} a -> s {maxConcurrentPercentage = a} :: StackSetOperationPreferences)
 
-instance Core.FromXML StackSetOperationPreferences where
+instance Data.FromXML StackSetOperationPreferences where
   parseXML x =
     StackSetOperationPreferences'
-      Prelude.<$> (x Core..@? "MaxConcurrentCount")
-      Prelude.<*> (x Core..@? "FailureToleranceCount")
-      Prelude.<*> ( x Core..@? "RegionOrder" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> (x Data..@? "MaxConcurrentCount")
+      Prelude.<*> (x Data..@? "FailureToleranceCount")
+      Prelude.<*> ( x Data..@? "RegionOrder" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "FailureTolerancePercentage")
-      Prelude.<*> (x Core..@? "RegionConcurrencyType")
-      Prelude.<*> (x Core..@? "MaxConcurrentPercentage")
+      Prelude.<*> (x Data..@? "FailureTolerancePercentage")
+      Prelude.<*> (x Data..@? "RegionConcurrencyType")
+      Prelude.<*> (x Data..@? "MaxConcurrentPercentage")
 
 instance
   Prelude.Hashable
@@ -281,19 +282,19 @@ instance Prelude.NFData StackSetOperationPreferences where
       `Prelude.seq` Prelude.rnf regionConcurrencyType
       `Prelude.seq` Prelude.rnf maxConcurrentPercentage
 
-instance Core.ToQuery StackSetOperationPreferences where
+instance Data.ToQuery StackSetOperationPreferences where
   toQuery StackSetOperationPreferences' {..} =
     Prelude.mconcat
-      [ "MaxConcurrentCount" Core.=: maxConcurrentCount,
+      [ "MaxConcurrentCount" Data.=: maxConcurrentCount,
         "FailureToleranceCount"
-          Core.=: failureToleranceCount,
+          Data.=: failureToleranceCount,
         "RegionOrder"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> regionOrder),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> regionOrder),
         "FailureTolerancePercentage"
-          Core.=: failureTolerancePercentage,
+          Data.=: failureTolerancePercentage,
         "RegionConcurrencyType"
-          Core.=: regionConcurrencyType,
+          Data.=: regionConcurrencyType,
         "MaxConcurrentPercentage"
-          Core.=: maxConcurrentPercentage
+          Data.=: maxConcurrentPercentage
       ]

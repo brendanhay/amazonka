@@ -21,6 +21,7 @@ module Amazonka.CloudFormation.Types.ModuleInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the module from which the resource was
@@ -124,11 +125,11 @@ moduleInfo_typeHierarchy = Lens.lens (\ModuleInfo' {typeHierarchy} -> typeHierar
 moduleInfo_logicalIdHierarchy :: Lens.Lens' ModuleInfo (Prelude.Maybe Prelude.Text)
 moduleInfo_logicalIdHierarchy = Lens.lens (\ModuleInfo' {logicalIdHierarchy} -> logicalIdHierarchy) (\s@ModuleInfo' {} a -> s {logicalIdHierarchy = a} :: ModuleInfo)
 
-instance Core.FromXML ModuleInfo where
+instance Data.FromXML ModuleInfo where
   parseXML x =
     ModuleInfo'
-      Prelude.<$> (x Core..@? "TypeHierarchy")
-      Prelude.<*> (x Core..@? "LogicalIdHierarchy")
+      Prelude.<$> (x Data..@? "TypeHierarchy")
+      Prelude.<*> (x Data..@? "LogicalIdHierarchy")
 
 instance Prelude.Hashable ModuleInfo where
   hashWithSalt _salt ModuleInfo' {..} =

@@ -23,6 +23,7 @@ import Amazonka.CloudFormation.Types.ChangeSetStatus
 import Amazonka.CloudFormation.Types.ExecutionStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The @ChangeSetSummary@ structure describes a change set, its status, and
@@ -54,7 +55,7 @@ data ChangeSetSummary = ChangeSetSummary'
     -- | The parent change set ID.
     parentChangeSetId :: Prelude.Maybe Prelude.Text,
     -- | The start time when the change set was created, in UTC.
-    creationTime :: Prelude.Maybe Core.ISO8601,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | If the change set execution status is @AVAILABLE@, you can execute the
     -- change set. If you can\'t execute the change set, the status indicates
     -- why. For example, a change set might be in an @UNAVAILABLE@ state
@@ -165,7 +166,7 @@ changeSetSummary_parentChangeSetId = Lens.lens (\ChangeSetSummary' {parentChange
 
 -- | The start time when the change set was created, in UTC.
 changeSetSummary_creationTime :: Lens.Lens' ChangeSetSummary (Prelude.Maybe Prelude.UTCTime)
-changeSetSummary_creationTime = Lens.lens (\ChangeSetSummary' {creationTime} -> creationTime) (\s@ChangeSetSummary' {} a -> s {creationTime = a} :: ChangeSetSummary) Prelude.. Lens.mapping Core._Time
+changeSetSummary_creationTime = Lens.lens (\ChangeSetSummary' {creationTime} -> creationTime) (\s@ChangeSetSummary' {} a -> s {creationTime = a} :: ChangeSetSummary) Prelude.. Lens.mapping Data._Time
 
 -- | If the change set execution status is @AVAILABLE@, you can execute the
 -- change set. If you can\'t execute the change set, the status indicates
@@ -175,21 +176,21 @@ changeSetSummary_creationTime = Lens.lens (\ChangeSetSummary' {creationTime} -> 
 changeSetSummary_executionStatus :: Lens.Lens' ChangeSetSummary (Prelude.Maybe ExecutionStatus)
 changeSetSummary_executionStatus = Lens.lens (\ChangeSetSummary' {executionStatus} -> executionStatus) (\s@ChangeSetSummary' {} a -> s {executionStatus = a} :: ChangeSetSummary)
 
-instance Core.FromXML ChangeSetSummary where
+instance Data.FromXML ChangeSetSummary where
   parseXML x =
     ChangeSetSummary'
-      Prelude.<$> (x Core..@? "StackId")
-      Prelude.<*> (x Core..@? "ChangeSetId")
-      Prelude.<*> (x Core..@? "ChangeSetName")
-      Prelude.<*> (x Core..@? "StatusReason")
-      Prelude.<*> (x Core..@? "RootChangeSetId")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "IncludeNestedStacks")
-      Prelude.<*> (x Core..@? "StackName")
-      Prelude.<*> (x Core..@? "ParentChangeSetId")
-      Prelude.<*> (x Core..@? "CreationTime")
-      Prelude.<*> (x Core..@? "ExecutionStatus")
+      Prelude.<$> (x Data..@? "StackId")
+      Prelude.<*> (x Data..@? "ChangeSetId")
+      Prelude.<*> (x Data..@? "ChangeSetName")
+      Prelude.<*> (x Data..@? "StatusReason")
+      Prelude.<*> (x Data..@? "RootChangeSetId")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "IncludeNestedStacks")
+      Prelude.<*> (x Data..@? "StackName")
+      Prelude.<*> (x Data..@? "ParentChangeSetId")
+      Prelude.<*> (x Data..@? "CreationTime")
+      Prelude.<*> (x Data..@? "ExecutionStatus")
 
 instance Prelude.Hashable ChangeSetSummary where
   hashWithSalt _salt ChangeSetSummary' {..} =

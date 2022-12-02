@@ -53,6 +53,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,7 +115,7 @@ instance Core.AWSRequest UpdateTerminationProtection where
       "UpdateTerminationProtectionResult"
       ( \s h x ->
           UpdateTerminationProtectionResponse'
-            Prelude.<$> (x Core..@? "StackId")
+            Prelude.<$> (x Data..@? "StackId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,24 +130,24 @@ instance Prelude.NFData UpdateTerminationProtection where
     Prelude.rnf enableTerminationProtection
       `Prelude.seq` Prelude.rnf stackName
 
-instance Core.ToHeaders UpdateTerminationProtection where
+instance Data.ToHeaders UpdateTerminationProtection where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UpdateTerminationProtection where
+instance Data.ToPath UpdateTerminationProtection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateTerminationProtection where
+instance Data.ToQuery UpdateTerminationProtection where
   toQuery UpdateTerminationProtection' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "UpdateTerminationProtection" ::
+          Data.=: ( "UpdateTerminationProtection" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
         "EnableTerminationProtection"
-          Core.=: enableTerminationProtection,
-        "StackName" Core.=: stackName
+          Data.=: enableTerminationProtection,
+        "StackName" Data.=: stackName
       ]
 
 -- | /See:/ 'newUpdateTerminationProtectionResponse' smart constructor.

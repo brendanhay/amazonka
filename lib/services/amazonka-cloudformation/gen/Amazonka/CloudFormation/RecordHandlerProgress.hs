@@ -51,6 +51,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -198,27 +199,27 @@ instance Prelude.NFData RecordHandlerProgress where
       `Prelude.seq` Prelude.rnf bearerToken
       `Prelude.seq` Prelude.rnf operationStatus
 
-instance Core.ToHeaders RecordHandlerProgress where
+instance Data.ToHeaders RecordHandlerProgress where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RecordHandlerProgress where
+instance Data.ToPath RecordHandlerProgress where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RecordHandlerProgress where
+instance Data.ToQuery RecordHandlerProgress where
   toQuery RecordHandlerProgress' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RecordHandlerProgress" :: Prelude.ByteString),
+          Data.=: ("RecordHandlerProgress" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "ResourceModel" Core.=: resourceModel,
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "ResourceModel" Data.=: resourceModel,
         "CurrentOperationStatus"
-          Core.=: currentOperationStatus,
-        "ClientRequestToken" Core.=: clientRequestToken,
-        "ErrorCode" Core.=: errorCode,
-        "StatusMessage" Core.=: statusMessage,
-        "BearerToken" Core.=: bearerToken,
-        "OperationStatus" Core.=: operationStatus
+          Data.=: currentOperationStatus,
+        "ClientRequestToken" Data.=: clientRequestToken,
+        "ErrorCode" Data.=: errorCode,
+        "StatusMessage" Data.=: statusMessage,
+        "BearerToken" Data.=: bearerToken,
+        "OperationStatus" Data.=: operationStatus
       ]
 
 -- | /See:/ 'newRecordHandlerProgressResponse' smart constructor.

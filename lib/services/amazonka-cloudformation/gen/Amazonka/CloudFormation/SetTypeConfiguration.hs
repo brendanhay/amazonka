@@ -60,6 +60,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -224,7 +225,7 @@ instance Core.AWSRequest SetTypeConfiguration where
       "SetTypeConfigurationResult"
       ( \s h x ->
           SetTypeConfigurationResponse'
-            Prelude.<$> (x Core..@? "ConfigurationArn")
+            Prelude.<$> (x Data..@? "ConfigurationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -244,24 +245,24 @@ instance Prelude.NFData SetTypeConfiguration where
       `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf configuration
 
-instance Core.ToHeaders SetTypeConfiguration where
+instance Data.ToHeaders SetTypeConfiguration where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SetTypeConfiguration where
+instance Data.ToPath SetTypeConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetTypeConfiguration where
+instance Data.ToQuery SetTypeConfiguration where
   toQuery SetTypeConfiguration' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SetTypeConfiguration" :: Prelude.ByteString),
+          Data.=: ("SetTypeConfiguration" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "Type" Core.=: type',
-        "TypeArn" Core.=: typeArn,
-        "ConfigurationAlias" Core.=: configurationAlias,
-        "TypeName" Core.=: typeName,
-        "Configuration" Core.=: configuration
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "Type" Data.=: type',
+        "TypeArn" Data.=: typeArn,
+        "ConfigurationAlias" Data.=: configurationAlias,
+        "TypeName" Data.=: typeName,
+        "Configuration" Data.=: configuration
       ]
 
 -- | /See:/ 'newSetTypeConfigurationResponse' smart constructor.

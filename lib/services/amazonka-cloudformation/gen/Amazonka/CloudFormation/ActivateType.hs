@@ -62,6 +62,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -293,7 +294,7 @@ instance Core.AWSRequest ActivateType where
       "ActivateTypeResult"
       ( \s h x ->
           ActivateTypeResponse'
-            Prelude.<$> (x Core..@? "Arn")
+            Prelude.<$> (x Data..@? "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -323,29 +324,29 @@ instance Prelude.NFData ActivateType where
       `Prelude.seq` Prelude.rnf executionRoleArn
       `Prelude.seq` Prelude.rnf loggingConfig
 
-instance Core.ToHeaders ActivateType where
+instance Data.ToHeaders ActivateType where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ActivateType where
+instance Data.ToPath ActivateType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ActivateType where
+instance Data.ToQuery ActivateType where
   toQuery ActivateType' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ActivateType" :: Prelude.ByteString),
+          Data.=: ("ActivateType" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "MajorVersion" Core.=: majorVersion,
-        "Type" Core.=: type',
-        "PublicTypeArn" Core.=: publicTypeArn,
-        "AutoUpdate" Core.=: autoUpdate,
-        "PublisherId" Core.=: publisherId,
-        "TypeName" Core.=: typeName,
-        "VersionBump" Core.=: versionBump,
-        "TypeNameAlias" Core.=: typeNameAlias,
-        "ExecutionRoleArn" Core.=: executionRoleArn,
-        "LoggingConfig" Core.=: loggingConfig
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "MajorVersion" Data.=: majorVersion,
+        "Type" Data.=: type',
+        "PublicTypeArn" Data.=: publicTypeArn,
+        "AutoUpdate" Data.=: autoUpdate,
+        "PublisherId" Data.=: publisherId,
+        "TypeName" Data.=: typeName,
+        "VersionBump" Data.=: versionBump,
+        "TypeNameAlias" Data.=: typeNameAlias,
+        "ExecutionRoleArn" Data.=: executionRoleArn,
+        "LoggingConfig" Data.=: loggingConfig
       ]
 
 -- | /See:/ 'newActivateTypeResponse' smart constructor.

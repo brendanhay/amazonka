@@ -23,6 +23,7 @@ import Amazonka.CloudFormation.Types.ChangeSetHookResourceTargetDetails
 import Amazonka.CloudFormation.Types.HookTargetType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies target details for an activated hook.
@@ -64,11 +65,11 @@ changeSetHookTargetDetails_targetType = Lens.lens (\ChangeSetHookTargetDetails' 
 changeSetHookTargetDetails_resourceTargetDetails :: Lens.Lens' ChangeSetHookTargetDetails (Prelude.Maybe ChangeSetHookResourceTargetDetails)
 changeSetHookTargetDetails_resourceTargetDetails = Lens.lens (\ChangeSetHookTargetDetails' {resourceTargetDetails} -> resourceTargetDetails) (\s@ChangeSetHookTargetDetails' {} a -> s {resourceTargetDetails = a} :: ChangeSetHookTargetDetails)
 
-instance Core.FromXML ChangeSetHookTargetDetails where
+instance Data.FromXML ChangeSetHookTargetDetails where
   parseXML x =
     ChangeSetHookTargetDetails'
-      Prelude.<$> (x Core..@? "TargetType")
-      Prelude.<*> (x Core..@? "ResourceTargetDetails")
+      Prelude.<$> (x Data..@? "TargetType")
+      Prelude.<*> (x Data..@? "ResourceTargetDetails")
 
 instance Prelude.Hashable ChangeSetHookTargetDetails where
   hashWithSalt _salt ChangeSetHookTargetDetails' {..} =

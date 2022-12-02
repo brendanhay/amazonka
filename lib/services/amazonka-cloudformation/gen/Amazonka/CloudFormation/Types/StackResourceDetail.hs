@@ -24,6 +24,7 @@ import Amazonka.CloudFormation.Types.ResourceStatus
 import Amazonka.CloudFormation.Types.StackResourceDriftInformation
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains detailed information about the specified stack resource.
@@ -63,7 +64,7 @@ data StackResourceDetail = StackResourceDetail'
     -- in the CloudFormation User Guide.
     resourceType :: Prelude.Text,
     -- | Time the status was updated.
-    lastUpdatedTimestamp :: Core.ISO8601,
+    lastUpdatedTimestamp :: Data.ISO8601,
     -- | Current status of the resource.
     resourceStatus :: ResourceStatus
   }
@@ -139,7 +140,7 @@ newStackResourceDetail
         logicalResourceId = pLogicalResourceId_,
         resourceType = pResourceType_,
         lastUpdatedTimestamp =
-          Core._Time Lens.# pLastUpdatedTimestamp_,
+          Data._Time Lens.# pLastUpdatedTimestamp_,
         resourceStatus = pResourceStatus_
       }
 
@@ -197,27 +198,27 @@ stackResourceDetail_resourceType = Lens.lens (\StackResourceDetail' {resourceTyp
 
 -- | Time the status was updated.
 stackResourceDetail_lastUpdatedTimestamp :: Lens.Lens' StackResourceDetail Prelude.UTCTime
-stackResourceDetail_lastUpdatedTimestamp = Lens.lens (\StackResourceDetail' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@StackResourceDetail' {} a -> s {lastUpdatedTimestamp = a} :: StackResourceDetail) Prelude.. Core._Time
+stackResourceDetail_lastUpdatedTimestamp = Lens.lens (\StackResourceDetail' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@StackResourceDetail' {} a -> s {lastUpdatedTimestamp = a} :: StackResourceDetail) Prelude.. Data._Time
 
 -- | Current status of the resource.
 stackResourceDetail_resourceStatus :: Lens.Lens' StackResourceDetail ResourceStatus
 stackResourceDetail_resourceStatus = Lens.lens (\StackResourceDetail' {resourceStatus} -> resourceStatus) (\s@StackResourceDetail' {} a -> s {resourceStatus = a} :: StackResourceDetail)
 
-instance Core.FromXML StackResourceDetail where
+instance Data.FromXML StackResourceDetail where
   parseXML x =
     StackResourceDetail'
-      Prelude.<$> (x Core..@? "StackId")
-      Prelude.<*> (x Core..@? "Metadata")
-      Prelude.<*> (x Core..@? "ResourceStatusReason")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "StackName")
-      Prelude.<*> (x Core..@? "ModuleInfo")
-      Prelude.<*> (x Core..@? "DriftInformation")
-      Prelude.<*> (x Core..@? "PhysicalResourceId")
-      Prelude.<*> (x Core..@ "LogicalResourceId")
-      Prelude.<*> (x Core..@ "ResourceType")
-      Prelude.<*> (x Core..@ "LastUpdatedTimestamp")
-      Prelude.<*> (x Core..@ "ResourceStatus")
+      Prelude.<$> (x Data..@? "StackId")
+      Prelude.<*> (x Data..@? "Metadata")
+      Prelude.<*> (x Data..@? "ResourceStatusReason")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "StackName")
+      Prelude.<*> (x Data..@? "ModuleInfo")
+      Prelude.<*> (x Data..@? "DriftInformation")
+      Prelude.<*> (x Data..@? "PhysicalResourceId")
+      Prelude.<*> (x Data..@ "LogicalResourceId")
+      Prelude.<*> (x Data..@ "ResourceType")
+      Prelude.<*> (x Data..@ "LastUpdatedTimestamp")
+      Prelude.<*> (x Data..@ "ResourceStatus")
 
 instance Prelude.Hashable StackResourceDetail where
   hashWithSalt _salt StackResourceDetail' {..} =

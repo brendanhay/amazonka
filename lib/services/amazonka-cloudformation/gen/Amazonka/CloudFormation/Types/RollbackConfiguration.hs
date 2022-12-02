@@ -22,6 +22,7 @@ module Amazonka.CloudFormation.Types.RollbackConfiguration where
 import Amazonka.CloudFormation.Types.RollbackTrigger
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Structure containing the rollback triggers for CloudFormation to monitor
@@ -188,13 +189,13 @@ rollbackConfiguration_monitoringTimeInMinutes = Lens.lens (\RollbackConfiguratio
 rollbackConfiguration_rollbackTriggers :: Lens.Lens' RollbackConfiguration (Prelude.Maybe [RollbackTrigger])
 rollbackConfiguration_rollbackTriggers = Lens.lens (\RollbackConfiguration' {rollbackTriggers} -> rollbackTriggers) (\s@RollbackConfiguration' {} a -> s {rollbackTriggers = a} :: RollbackConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML RollbackConfiguration where
+instance Data.FromXML RollbackConfiguration where
   parseXML x =
     RollbackConfiguration'
-      Prelude.<$> (x Core..@? "MonitoringTimeInMinutes")
-      Prelude.<*> ( x Core..@? "RollbackTriggers"
+      Prelude.<$> (x Data..@? "MonitoringTimeInMinutes")
+      Prelude.<*> ( x Data..@? "RollbackTriggers"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable RollbackConfiguration where
@@ -208,14 +209,14 @@ instance Prelude.NFData RollbackConfiguration where
     Prelude.rnf monitoringTimeInMinutes
       `Prelude.seq` Prelude.rnf rollbackTriggers
 
-instance Core.ToQuery RollbackConfiguration where
+instance Data.ToQuery RollbackConfiguration where
   toQuery RollbackConfiguration' {..} =
     Prelude.mconcat
       [ "MonitoringTimeInMinutes"
-          Core.=: monitoringTimeInMinutes,
+          Data.=: monitoringTimeInMinutes,
         "RollbackTriggers"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> rollbackTriggers
             )
       ]

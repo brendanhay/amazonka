@@ -22,6 +22,7 @@ module Amazonka.CloudFormation.Types.ParameterDeclaration where
 import Amazonka.CloudFormation.Types.ParameterConstraints
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The ParameterDeclaration data type.
@@ -101,15 +102,15 @@ parameterDeclaration_parameterType = Lens.lens (\ParameterDeclaration' {paramete
 parameterDeclaration_parameterKey :: Lens.Lens' ParameterDeclaration (Prelude.Maybe Prelude.Text)
 parameterDeclaration_parameterKey = Lens.lens (\ParameterDeclaration' {parameterKey} -> parameterKey) (\s@ParameterDeclaration' {} a -> s {parameterKey = a} :: ParameterDeclaration)
 
-instance Core.FromXML ParameterDeclaration where
+instance Data.FromXML ParameterDeclaration where
   parseXML x =
     ParameterDeclaration'
-      Prelude.<$> (x Core..@? "NoEcho")
-      Prelude.<*> (x Core..@? "DefaultValue")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "ParameterConstraints")
-      Prelude.<*> (x Core..@? "ParameterType")
-      Prelude.<*> (x Core..@? "ParameterKey")
+      Prelude.<$> (x Data..@? "NoEcho")
+      Prelude.<*> (x Data..@? "DefaultValue")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "ParameterConstraints")
+      Prelude.<*> (x Data..@? "ParameterType")
+      Prelude.<*> (x Data..@? "ParameterKey")
 
 instance Prelude.Hashable ParameterDeclaration where
   hashWithSalt _salt ParameterDeclaration' {..} =

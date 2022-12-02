@@ -23,6 +23,7 @@ import Amazonka.CloudFormation.Types.StackSetDriftDetectionStatus
 import Amazonka.CloudFormation.Types.StackSetDriftStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Detailed information about the drift status of the stack set.
@@ -101,7 +102,7 @@ data StackSetDriftDetectionDetails = StackSetDriftDetectionDetails'
     -- | Most recent time when CloudFormation performed a drift detection
     -- operation on the stack set. This value will be @NULL@ for any stack set
     -- on which drift detection hasn\'t yet been performed.
-    lastDriftCheckTimestamp :: Prelude.Maybe Core.ISO8601
+    lastDriftCheckTimestamp :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -265,19 +266,19 @@ stackSetDriftDetectionDetails_inSyncStackInstancesCount = Lens.lens (\StackSetDr
 -- operation on the stack set. This value will be @NULL@ for any stack set
 -- on which drift detection hasn\'t yet been performed.
 stackSetDriftDetectionDetails_lastDriftCheckTimestamp :: Lens.Lens' StackSetDriftDetectionDetails (Prelude.Maybe Prelude.UTCTime)
-stackSetDriftDetectionDetails_lastDriftCheckTimestamp = Lens.lens (\StackSetDriftDetectionDetails' {lastDriftCheckTimestamp} -> lastDriftCheckTimestamp) (\s@StackSetDriftDetectionDetails' {} a -> s {lastDriftCheckTimestamp = a} :: StackSetDriftDetectionDetails) Prelude.. Lens.mapping Core._Time
+stackSetDriftDetectionDetails_lastDriftCheckTimestamp = Lens.lens (\StackSetDriftDetectionDetails' {lastDriftCheckTimestamp} -> lastDriftCheckTimestamp) (\s@StackSetDriftDetectionDetails' {} a -> s {lastDriftCheckTimestamp = a} :: StackSetDriftDetectionDetails) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML StackSetDriftDetectionDetails where
+instance Data.FromXML StackSetDriftDetectionDetails where
   parseXML x =
     StackSetDriftDetectionDetails'
-      Prelude.<$> (x Core..@? "InProgressStackInstancesCount")
-      Prelude.<*> (x Core..@? "FailedStackInstancesCount")
-      Prelude.<*> (x Core..@? "DriftedStackInstancesCount")
-      Prelude.<*> (x Core..@? "DriftDetectionStatus")
-      Prelude.<*> (x Core..@? "DriftStatus")
-      Prelude.<*> (x Core..@? "TotalStackInstancesCount")
-      Prelude.<*> (x Core..@? "InSyncStackInstancesCount")
-      Prelude.<*> (x Core..@? "LastDriftCheckTimestamp")
+      Prelude.<$> (x Data..@? "InProgressStackInstancesCount")
+      Prelude.<*> (x Data..@? "FailedStackInstancesCount")
+      Prelude.<*> (x Data..@? "DriftedStackInstancesCount")
+      Prelude.<*> (x Data..@? "DriftDetectionStatus")
+      Prelude.<*> (x Data..@? "DriftStatus")
+      Prelude.<*> (x Data..@? "TotalStackInstancesCount")
+      Prelude.<*> (x Data..@? "InSyncStackInstancesCount")
+      Prelude.<*> (x Data..@? "LastDriftCheckTimestamp")
 
 instance
   Prelude.Hashable

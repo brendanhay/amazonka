@@ -25,6 +25,7 @@ import Amazonka.CloudFormation.Types.StackInstanceComprehensiveStatus
 import Amazonka.CloudFormation.Types.StackInstanceStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An CloudFormation stack, in a specific account and Region, that\'s part
@@ -106,7 +107,7 @@ data StackInstance = StackInstance'
     -- | Most recent time when CloudFormation performed a drift detection
     -- operation on the stack instance. This value will be @NULL@ for any stack
     -- instance on which drift detection hasn\'t yet been performed.
-    lastDriftCheckTimestamp :: Prelude.Maybe Core.ISO8601
+    lastDriftCheckTimestamp :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -295,26 +296,26 @@ stackInstance_organizationalUnitId = Lens.lens (\StackInstance' {organizationalU
 -- operation on the stack instance. This value will be @NULL@ for any stack
 -- instance on which drift detection hasn\'t yet been performed.
 stackInstance_lastDriftCheckTimestamp :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.UTCTime)
-stackInstance_lastDriftCheckTimestamp = Lens.lens (\StackInstance' {lastDriftCheckTimestamp} -> lastDriftCheckTimestamp) (\s@StackInstance' {} a -> s {lastDriftCheckTimestamp = a} :: StackInstance) Prelude.. Lens.mapping Core._Time
+stackInstance_lastDriftCheckTimestamp = Lens.lens (\StackInstance' {lastDriftCheckTimestamp} -> lastDriftCheckTimestamp) (\s@StackInstance' {} a -> s {lastDriftCheckTimestamp = a} :: StackInstance) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML StackInstance where
+instance Data.FromXML StackInstance where
   parseXML x =
     StackInstance'
-      Prelude.<$> (x Core..@? "StackId")
-      Prelude.<*> (x Core..@? "StackInstanceStatus")
-      Prelude.<*> (x Core..@? "DriftStatus")
-      Prelude.<*> (x Core..@? "StackSetId")
-      Prelude.<*> ( x Core..@? "ParameterOverrides"
+      Prelude.<$> (x Data..@? "StackId")
+      Prelude.<*> (x Data..@? "StackInstanceStatus")
+      Prelude.<*> (x Data..@? "DriftStatus")
+      Prelude.<*> (x Data..@? "StackSetId")
+      Prelude.<*> ( x Data..@? "ParameterOverrides"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "Account")
-      Prelude.<*> (x Core..@? "StatusReason")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "LastOperationId")
-      Prelude.<*> (x Core..@? "Region")
-      Prelude.<*> (x Core..@? "OrganizationalUnitId")
-      Prelude.<*> (x Core..@? "LastDriftCheckTimestamp")
+      Prelude.<*> (x Data..@? "Account")
+      Prelude.<*> (x Data..@? "StatusReason")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "LastOperationId")
+      Prelude.<*> (x Data..@? "Region")
+      Prelude.<*> (x Data..@? "OrganizationalUnitId")
+      Prelude.<*> (x Data..@? "LastDriftCheckTimestamp")
 
 instance Prelude.Hashable StackInstance where
   hashWithSalt _salt StackInstance' {..} =

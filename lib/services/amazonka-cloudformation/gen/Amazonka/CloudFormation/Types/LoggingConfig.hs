@@ -21,6 +21,7 @@ module Amazonka.CloudFormation.Types.LoggingConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains logging configuration information for an extension.
@@ -71,11 +72,11 @@ loggingConfig_logRoleArn = Lens.lens (\LoggingConfig' {logRoleArn} -> logRoleArn
 loggingConfig_logGroupName :: Lens.Lens' LoggingConfig Prelude.Text
 loggingConfig_logGroupName = Lens.lens (\LoggingConfig' {logGroupName} -> logGroupName) (\s@LoggingConfig' {} a -> s {logGroupName = a} :: LoggingConfig)
 
-instance Core.FromXML LoggingConfig where
+instance Data.FromXML LoggingConfig where
   parseXML x =
     LoggingConfig'
-      Prelude.<$> (x Core..@ "LogRoleArn")
-      Prelude.<*> (x Core..@ "LogGroupName")
+      Prelude.<$> (x Data..@ "LogRoleArn")
+      Prelude.<*> (x Data..@ "LogGroupName")
 
 instance Prelude.Hashable LoggingConfig where
   hashWithSalt _salt LoggingConfig' {..} =
@@ -87,9 +88,9 @@ instance Prelude.NFData LoggingConfig where
     Prelude.rnf logRoleArn
       `Prelude.seq` Prelude.rnf logGroupName
 
-instance Core.ToQuery LoggingConfig where
+instance Data.ToQuery LoggingConfig where
   toQuery LoggingConfig' {..} =
     Prelude.mconcat
-      [ "LogRoleArn" Core.=: logRoleArn,
-        "LogGroupName" Core.=: logGroupName
+      [ "LogRoleArn" Data.=: logRoleArn,
+        "LogGroupName" Data.=: logGroupName
       ]

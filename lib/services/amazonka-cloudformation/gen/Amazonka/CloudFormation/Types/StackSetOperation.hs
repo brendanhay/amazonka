@@ -27,6 +27,7 @@ import Amazonka.CloudFormation.Types.StackSetOperationStatus
 import Amazonka.CloudFormation.Types.StackSetOperationStatusDetails
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The structure that contains information about a stack set operation.
@@ -37,7 +38,7 @@ data StackSetOperation = StackSetOperation'
     -- Regions specified. Note that this doesn\'t necessarily mean that the
     -- stack set operation was successful, or even attempted, in each account
     -- or Region.
-    endTimestamp :: Prelude.Maybe Core.ISO8601,
+    endTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The preferences for how CloudFormation performs this stack set
     -- operation.
     operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
@@ -83,7 +84,7 @@ data StackSetOperation = StackSetOperation'
     -- to perform preparatory work for the operation, such as dispatching the
     -- work to the requested Regions, before actually creating the first
     -- stacks.
-    creationTimestamp :: Prelude.Maybe Core.ISO8601,
+    creationTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The type of stack set operation: @CREATE@, @UPDATE@, or @DELETE@. Create
     -- and delete operations affect only the specified stack set instances that
     -- are associated with the specified stack set. Update operations affect
@@ -250,7 +251,7 @@ newStackSetOperation =
 -- stack set operation was successful, or even attempted, in each account
 -- or Region.
 stackSetOperation_endTimestamp :: Lens.Lens' StackSetOperation (Prelude.Maybe Prelude.UTCTime)
-stackSetOperation_endTimestamp = Lens.lens (\StackSetOperation' {endTimestamp} -> endTimestamp) (\s@StackSetOperation' {} a -> s {endTimestamp = a} :: StackSetOperation) Prelude.. Lens.mapping Core._Time
+stackSetOperation_endTimestamp = Lens.lens (\StackSetOperation' {endTimestamp} -> endTimestamp) (\s@StackSetOperation' {} a -> s {endTimestamp = a} :: StackSetOperation) Prelude.. Lens.mapping Data._Time
 
 -- | The preferences for how CloudFormation performs this stack set
 -- operation.
@@ -310,7 +311,7 @@ stackSetOperation_status = Lens.lens (\StackSetOperation' {status} -> status) (\
 -- work to the requested Regions, before actually creating the first
 -- stacks.
 stackSetOperation_creationTimestamp :: Lens.Lens' StackSetOperation (Prelude.Maybe Prelude.UTCTime)
-stackSetOperation_creationTimestamp = Lens.lens (\StackSetOperation' {creationTimestamp} -> creationTimestamp) (\s@StackSetOperation' {} a -> s {creationTimestamp = a} :: StackSetOperation) Prelude.. Lens.mapping Core._Time
+stackSetOperation_creationTimestamp = Lens.lens (\StackSetOperation' {creationTimestamp} -> creationTimestamp) (\s@StackSetOperation' {} a -> s {creationTimestamp = a} :: StackSetOperation) Prelude.. Lens.mapping Data._Time
 
 -- | The type of stack set operation: @CREATE@, @UPDATE@, or @DELETE@. Create
 -- and delete operations affect only the specified stack set instances that
@@ -364,23 +365,23 @@ stackSetOperation_retainStacks = Lens.lens (\StackSetOperation' {retainStacks} -
 stackSetOperation_stackSetDriftDetectionDetails :: Lens.Lens' StackSetOperation (Prelude.Maybe StackSetDriftDetectionDetails)
 stackSetOperation_stackSetDriftDetectionDetails = Lens.lens (\StackSetOperation' {stackSetDriftDetectionDetails} -> stackSetDriftDetectionDetails) (\s@StackSetOperation' {} a -> s {stackSetDriftDetectionDetails = a} :: StackSetOperation)
 
-instance Core.FromXML StackSetOperation where
+instance Data.FromXML StackSetOperation where
   parseXML x =
     StackSetOperation'
-      Prelude.<$> (x Core..@? "EndTimestamp")
-      Prelude.<*> (x Core..@? "OperationPreferences")
-      Prelude.<*> (x Core..@? "StatusDetails")
-      Prelude.<*> (x Core..@? "StackSetId")
-      Prelude.<*> (x Core..@? "StatusReason")
-      Prelude.<*> (x Core..@? "OperationId")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "CreationTimestamp")
-      Prelude.<*> (x Core..@? "Action")
-      Prelude.<*> (x Core..@? "ExecutionRoleName")
-      Prelude.<*> (x Core..@? "AdministrationRoleARN")
-      Prelude.<*> (x Core..@? "DeploymentTargets")
-      Prelude.<*> (x Core..@? "RetainStacks")
-      Prelude.<*> (x Core..@? "StackSetDriftDetectionDetails")
+      Prelude.<$> (x Data..@? "EndTimestamp")
+      Prelude.<*> (x Data..@? "OperationPreferences")
+      Prelude.<*> (x Data..@? "StatusDetails")
+      Prelude.<*> (x Data..@? "StackSetId")
+      Prelude.<*> (x Data..@? "StatusReason")
+      Prelude.<*> (x Data..@? "OperationId")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "CreationTimestamp")
+      Prelude.<*> (x Data..@? "Action")
+      Prelude.<*> (x Data..@? "ExecutionRoleName")
+      Prelude.<*> (x Data..@? "AdministrationRoleARN")
+      Prelude.<*> (x Data..@? "DeploymentTargets")
+      Prelude.<*> (x Data..@? "RetainStacks")
+      Prelude.<*> (x Data..@? "StackSetDriftDetectionDetails")
 
 instance Prelude.Hashable StackSetOperation where
   hashWithSalt _salt StackSetOperation' {..} =

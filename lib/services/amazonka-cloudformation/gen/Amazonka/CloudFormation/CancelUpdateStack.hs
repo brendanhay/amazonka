@@ -43,6 +43,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,21 +120,21 @@ instance Prelude.NFData CancelUpdateStack where
     Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf stackName
 
-instance Core.ToHeaders CancelUpdateStack where
+instance Data.ToHeaders CancelUpdateStack where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CancelUpdateStack where
+instance Data.ToPath CancelUpdateStack where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelUpdateStack where
+instance Data.ToQuery CancelUpdateStack where
   toQuery CancelUpdateStack' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CancelUpdateStack" :: Prelude.ByteString),
+          Data.=: ("CancelUpdateStack" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "ClientRequestToken" Core.=: clientRequestToken,
-        "StackName" Core.=: stackName
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "ClientRequestToken" Data.=: clientRequestToken,
+        "StackName" Data.=: stackName
       ]
 
 -- | /See:/ 'newCancelUpdateStackResponse' smart constructor.

@@ -60,6 +60,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -761,7 +762,7 @@ instance Core.AWSRequest CreateStack where
       "CreateStackResult"
       ( \s h x ->
           CreateStackResponse'
-            Prelude.<$> (x Core..@? "StackId")
+            Prelude.<$> (x Data..@? "StackId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -805,52 +806,52 @@ instance Prelude.NFData CreateStack where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf stackName
 
-instance Core.ToHeaders CreateStack where
+instance Data.ToHeaders CreateStack where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateStack where
+instance Data.ToPath CreateStack where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateStack where
+instance Data.ToQuery CreateStack where
   toQuery CreateStack' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateStack" :: Prelude.ByteString),
+          Data.=: ("CreateStack" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "RoleARN" Core.=: roleARN,
-        "TimeoutInMinutes" Core.=: timeoutInMinutes,
-        "ClientRequestToken" Core.=: clientRequestToken,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
+        "RoleARN" Data.=: roleARN,
+        "TimeoutInMinutes" Data.=: timeoutInMinutes,
+        "ClientRequestToken" Data.=: clientRequestToken,
         "EnableTerminationProtection"
-          Core.=: enableTerminationProtection,
+          Data.=: enableTerminationProtection,
         "NotificationARNs"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> notificationARNs
             ),
-        "StackPolicyBody" Core.=: stackPolicyBody,
-        "StackPolicyURL" Core.=: stackPolicyURL,
-        "TemplateBody" Core.=: templateBody,
+        "StackPolicyBody" Data.=: stackPolicyBody,
+        "StackPolicyURL" Data.=: stackPolicyURL,
+        "TemplateBody" Data.=: templateBody,
         "ResourceTypes"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> resourceTypes
             ),
-        "DisableRollback" Core.=: disableRollback,
-        "OnFailure" Core.=: onFailure,
+        "DisableRollback" Data.=: disableRollback,
+        "OnFailure" Data.=: onFailure,
         "Capabilities"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> capabilities),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> capabilities),
         "RollbackConfiguration"
-          Core.=: rollbackConfiguration,
-        "TemplateURL" Core.=: templateURL,
+          Data.=: rollbackConfiguration,
+        "TemplateURL" Data.=: templateURL,
         "Parameters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> parameters),
-        "StackName" Core.=: stackName
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> parameters),
+        "StackName" Data.=: stackName
       ]
 
 -- | The output for a CreateStack action.

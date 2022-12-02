@@ -63,6 +63,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,7 +129,7 @@ instance Core.AWSRequest RollbackStack where
       "RollbackStackResult"
       ( \s h x ->
           RollbackStackResponse'
-            Prelude.<$> (x Core..@? "StackId")
+            Prelude.<$> (x Data..@? "StackId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,22 +145,22 @@ instance Prelude.NFData RollbackStack where
       `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf stackName
 
-instance Core.ToHeaders RollbackStack where
+instance Data.ToHeaders RollbackStack where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RollbackStack where
+instance Data.ToPath RollbackStack where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RollbackStack where
+instance Data.ToQuery RollbackStack where
   toQuery RollbackStack' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RollbackStack" :: Prelude.ByteString),
+          Data.=: ("RollbackStack" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "RoleARN" Core.=: roleARN,
-        "ClientRequestToken" Core.=: clientRequestToken,
-        "StackName" Core.=: stackName
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "RoleARN" Data.=: roleARN,
+        "ClientRequestToken" Data.=: clientRequestToken,
+        "StackName" Data.=: stackName
       ]
 
 -- | /See:/ 'newRollbackStackResponse' smart constructor.

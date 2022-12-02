@@ -43,6 +43,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -141,7 +142,7 @@ instance Core.AWSRequest DescribeStackSet where
       "DescribeStackSetResult"
       ( \s h x ->
           DescribeStackSetResponse'
-            Prelude.<$> (x Core..@? "StackSet")
+            Prelude.<$> (x Data..@? "StackSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,21 +156,21 @@ instance Prelude.NFData DescribeStackSet where
     Prelude.rnf callAs
       `Prelude.seq` Prelude.rnf stackSetName
 
-instance Core.ToHeaders DescribeStackSet where
+instance Data.ToHeaders DescribeStackSet where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeStackSet where
+instance Data.ToPath DescribeStackSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeStackSet where
+instance Data.ToQuery DescribeStackSet where
   toQuery DescribeStackSet' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeStackSet" :: Prelude.ByteString),
+          Data.=: ("DescribeStackSet" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "CallAs" Core.=: callAs,
-        "StackSetName" Core.=: stackSetName
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "CallAs" Data.=: callAs,
+        "StackSetName" Data.=: stackSetName
       ]
 
 -- | /See:/ 'newDescribeStackSetResponse' smart constructor.

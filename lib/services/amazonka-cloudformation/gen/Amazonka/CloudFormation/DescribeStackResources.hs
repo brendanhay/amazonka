@@ -63,6 +63,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -198,8 +199,8 @@ instance Core.AWSRequest DescribeStackResources where
       "DescribeStackResourcesResult"
       ( \s h x ->
           DescribeStackResourcesResponse'
-            Prelude.<$> ( x Core..@? "StackResources" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "StackResources" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -216,22 +217,22 @@ instance Prelude.NFData DescribeStackResources where
       `Prelude.seq` Prelude.rnf logicalResourceId
       `Prelude.seq` Prelude.rnf physicalResourceId
 
-instance Core.ToHeaders DescribeStackResources where
+instance Data.ToHeaders DescribeStackResources where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeStackResources where
+instance Data.ToPath DescribeStackResources where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeStackResources where
+instance Data.ToQuery DescribeStackResources where
   toQuery DescribeStackResources' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeStackResources" :: Prelude.ByteString),
+          Data.=: ("DescribeStackResources" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "StackName" Core.=: stackName,
-        "LogicalResourceId" Core.=: logicalResourceId,
-        "PhysicalResourceId" Core.=: physicalResourceId
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "StackName" Data.=: stackName,
+        "LogicalResourceId" Data.=: logicalResourceId,
+        "PhysicalResourceId" Data.=: physicalResourceId
       ]
 
 -- | The output for a DescribeStackResources action.

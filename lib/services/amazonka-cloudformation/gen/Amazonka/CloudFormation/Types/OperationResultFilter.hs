@@ -22,6 +22,7 @@ module Amazonka.CloudFormation.Types.OperationResultFilter where
 import Amazonka.CloudFormation.Types.OperationResultFilterName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The status that operation results are filtered by.
@@ -71,7 +72,7 @@ instance Prelude.NFData OperationResultFilter where
   rnf OperationResultFilter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToQuery OperationResultFilter where
+instance Data.ToQuery OperationResultFilter where
   toQuery OperationResultFilter' {..} =
     Prelude.mconcat
-      ["Name" Core.=: name, "Values" Core.=: values]
+      ["Name" Data.=: name, "Values" Data.=: values]

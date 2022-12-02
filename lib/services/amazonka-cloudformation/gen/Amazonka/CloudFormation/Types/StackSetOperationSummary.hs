@@ -25,6 +25,7 @@ import Amazonka.CloudFormation.Types.StackSetOperationStatus
 import Amazonka.CloudFormation.Types.StackSetOperationStatusDetails
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The structures that contain summary information about the specified
@@ -36,7 +37,7 @@ data StackSetOperationSummary = StackSetOperationSummary'
     -- Regions specified. Note that this doesn\'t necessarily mean that the
     -- stack set operation was successful, or even attempted, in each account
     -- or Region.
-    endTimestamp :: Prelude.Maybe Core.ISO8601,
+    endTimestamp :: Prelude.Maybe Data.ISO8601,
     operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
     -- | Detailed information about the stack set operation.
     statusDetails :: Prelude.Maybe StackSetOperationStatusDetails,
@@ -78,7 +79,7 @@ data StackSetOperationSummary = StackSetOperationSummary'
     -- to perform preparatory work for the operation, such as dispatching the
     -- work to the requested Regions, before actually creating the first
     -- stacks.
-    creationTimestamp :: Prelude.Maybe Core.ISO8601,
+    creationTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The type of operation: @CREATE@, @UPDATE@, or @DELETE@. Create and
     -- delete operations affect only the specified stack instances that are
     -- associated with the specified stack set. Update operations affect both
@@ -167,7 +168,7 @@ newStackSetOperationSummary =
 -- stack set operation was successful, or even attempted, in each account
 -- or Region.
 stackSetOperationSummary_endTimestamp :: Lens.Lens' StackSetOperationSummary (Prelude.Maybe Prelude.UTCTime)
-stackSetOperationSummary_endTimestamp = Lens.lens (\StackSetOperationSummary' {endTimestamp} -> endTimestamp) (\s@StackSetOperationSummary' {} a -> s {endTimestamp = a} :: StackSetOperationSummary) Prelude.. Lens.mapping Core._Time
+stackSetOperationSummary_endTimestamp = Lens.lens (\StackSetOperationSummary' {endTimestamp} -> endTimestamp) (\s@StackSetOperationSummary' {} a -> s {endTimestamp = a} :: StackSetOperationSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 stackSetOperationSummary_operationPreferences :: Lens.Lens' StackSetOperationSummary (Prelude.Maybe StackSetOperationPreferences)
@@ -222,7 +223,7 @@ stackSetOperationSummary_status = Lens.lens (\StackSetOperationSummary' {status}
 -- work to the requested Regions, before actually creating the first
 -- stacks.
 stackSetOperationSummary_creationTimestamp :: Lens.Lens' StackSetOperationSummary (Prelude.Maybe Prelude.UTCTime)
-stackSetOperationSummary_creationTimestamp = Lens.lens (\StackSetOperationSummary' {creationTimestamp} -> creationTimestamp) (\s@StackSetOperationSummary' {} a -> s {creationTimestamp = a} :: StackSetOperationSummary) Prelude.. Lens.mapping Core._Time
+stackSetOperationSummary_creationTimestamp = Lens.lens (\StackSetOperationSummary' {creationTimestamp} -> creationTimestamp) (\s@StackSetOperationSummary' {} a -> s {creationTimestamp = a} :: StackSetOperationSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The type of operation: @CREATE@, @UPDATE@, or @DELETE@. Create and
 -- delete operations affect only the specified stack instances that are
@@ -231,17 +232,17 @@ stackSetOperationSummary_creationTimestamp = Lens.lens (\StackSetOperationSummar
 stackSetOperationSummary_action :: Lens.Lens' StackSetOperationSummary (Prelude.Maybe StackSetOperationAction)
 stackSetOperationSummary_action = Lens.lens (\StackSetOperationSummary' {action} -> action) (\s@StackSetOperationSummary' {} a -> s {action = a} :: StackSetOperationSummary)
 
-instance Core.FromXML StackSetOperationSummary where
+instance Data.FromXML StackSetOperationSummary where
   parseXML x =
     StackSetOperationSummary'
-      Prelude.<$> (x Core..@? "EndTimestamp")
-      Prelude.<*> (x Core..@? "OperationPreferences")
-      Prelude.<*> (x Core..@? "StatusDetails")
-      Prelude.<*> (x Core..@? "StatusReason")
-      Prelude.<*> (x Core..@? "OperationId")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "CreationTimestamp")
-      Prelude.<*> (x Core..@? "Action")
+      Prelude.<$> (x Data..@? "EndTimestamp")
+      Prelude.<*> (x Data..@? "OperationPreferences")
+      Prelude.<*> (x Data..@? "StatusDetails")
+      Prelude.<*> (x Data..@? "StatusReason")
+      Prelude.<*> (x Data..@? "OperationId")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "CreationTimestamp")
+      Prelude.<*> (x Data..@? "Action")
 
 instance Prelude.Hashable StackSetOperationSummary where
   hashWithSalt _salt StackSetOperationSummary' {..} =

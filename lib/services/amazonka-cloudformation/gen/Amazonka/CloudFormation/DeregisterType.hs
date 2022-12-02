@@ -60,6 +60,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -170,23 +171,23 @@ instance Prelude.NFData DeregisterType where
       `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf versionId
 
-instance Core.ToHeaders DeregisterType where
+instance Data.ToHeaders DeregisterType where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeregisterType where
+instance Data.ToPath DeregisterType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeregisterType where
+instance Data.ToQuery DeregisterType where
   toQuery DeregisterType' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeregisterType" :: Prelude.ByteString),
+          Data.=: ("DeregisterType" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "Type" Core.=: type',
-        "Arn" Core.=: arn,
-        "TypeName" Core.=: typeName,
-        "VersionId" Core.=: versionId
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "Type" Data.=: type',
+        "Arn" Data.=: arn,
+        "TypeName" Data.=: typeName,
+        "VersionId" Data.=: versionId
       ]
 
 -- | /See:/ 'newDeregisterTypeResponse' smart constructor.

@@ -44,6 +44,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -158,21 +159,21 @@ instance Prelude.NFData DeleteStackSet where
     Prelude.rnf callAs
       `Prelude.seq` Prelude.rnf stackSetName
 
-instance Core.ToHeaders DeleteStackSet where
+instance Data.ToHeaders DeleteStackSet where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteStackSet where
+instance Data.ToPath DeleteStackSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteStackSet where
+instance Data.ToQuery DeleteStackSet where
   toQuery DeleteStackSet' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteStackSet" :: Prelude.ByteString),
+          Data.=: ("DeleteStackSet" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "CallAs" Core.=: callAs,
-        "StackSetName" Core.=: stackSetName
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "CallAs" Data.=: callAs,
+        "StackSetName" Data.=: stackSetName
       ]
 
 -- | /See:/ 'newDeleteStackSetResponse' smart constructor.

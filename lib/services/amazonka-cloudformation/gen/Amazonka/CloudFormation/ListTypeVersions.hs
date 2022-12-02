@@ -49,6 +49,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -236,10 +237,10 @@ instance Core.AWSRequest ListTypeVersions where
       "ListTypeVersionsResult"
       ( \s h x ->
           ListTypeVersionsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "TypeVersionSummaries"
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "TypeVersionSummaries"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -264,26 +265,26 @@ instance Prelude.NFData ListTypeVersions where
       `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListTypeVersions where
+instance Data.ToHeaders ListTypeVersions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListTypeVersions where
+instance Data.ToPath ListTypeVersions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTypeVersions where
+instance Data.ToQuery ListTypeVersions where
   toQuery ListTypeVersions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListTypeVersions" :: Prelude.ByteString),
+          Data.=: ("ListTypeVersions" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "DeprecatedStatus" Core.=: deprecatedStatus,
-        "NextToken" Core.=: nextToken,
-        "Type" Core.=: type',
-        "Arn" Core.=: arn,
-        "PublisherId" Core.=: publisherId,
-        "TypeName" Core.=: typeName,
-        "MaxResults" Core.=: maxResults
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "DeprecatedStatus" Data.=: deprecatedStatus,
+        "NextToken" Data.=: nextToken,
+        "Type" Data.=: type',
+        "Arn" Data.=: arn,
+        "PublisherId" Data.=: publisherId,
+        "TypeName" Data.=: typeName,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListTypeVersionsResponse' smart constructor.

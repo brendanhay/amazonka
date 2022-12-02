@@ -21,6 +21,7 @@ module Amazonka.CloudFormation.Types.RollbackTrigger where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A rollback trigger CloudFormation monitors during creation and updating
@@ -86,10 +87,10 @@ rollbackTrigger_arn = Lens.lens (\RollbackTrigger' {arn} -> arn) (\s@RollbackTri
 rollbackTrigger_type :: Lens.Lens' RollbackTrigger Prelude.Text
 rollbackTrigger_type = Lens.lens (\RollbackTrigger' {type'} -> type') (\s@RollbackTrigger' {} a -> s {type' = a} :: RollbackTrigger)
 
-instance Core.FromXML RollbackTrigger where
+instance Data.FromXML RollbackTrigger where
   parseXML x =
     RollbackTrigger'
-      Prelude.<$> (x Core..@ "Arn") Prelude.<*> (x Core..@ "Type")
+      Prelude.<$> (x Data..@ "Arn") Prelude.<*> (x Data..@ "Type")
 
 instance Prelude.Hashable RollbackTrigger where
   hashWithSalt _salt RollbackTrigger' {..} =
@@ -100,7 +101,7 @@ instance Prelude.NFData RollbackTrigger where
   rnf RollbackTrigger' {..} =
     Prelude.rnf arn `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToQuery RollbackTrigger where
+instance Data.ToQuery RollbackTrigger where
   toQuery RollbackTrigger' {..} =
     Prelude.mconcat
-      ["Arn" Core.=: arn, "Type" Core.=: type']
+      ["Arn" Data.=: arn, "Type" Data.=: type']

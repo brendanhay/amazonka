@@ -50,6 +50,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -142,17 +143,17 @@ instance Core.AWSRequest ValidateTemplate where
       "ValidateTemplateResult"
       ( \s h x ->
           ValidateTemplateResponse'
-            Prelude.<$> (x Core..@? "CapabilitiesReason")
-            Prelude.<*> (x Core..@? "Description")
-            Prelude.<*> ( x Core..@? "Capabilities" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "CapabilitiesReason")
+            Prelude.<*> (x Data..@? "Description")
+            Prelude.<*> ( x Data..@? "Capabilities" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Core..@? "DeclaredTransforms"
+            Prelude.<*> ( x Data..@? "DeclaredTransforms"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Core..@? "Parameters" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -167,21 +168,21 @@ instance Prelude.NFData ValidateTemplate where
     Prelude.rnf templateBody
       `Prelude.seq` Prelude.rnf templateURL
 
-instance Core.ToHeaders ValidateTemplate where
+instance Data.ToHeaders ValidateTemplate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ValidateTemplate where
+instance Data.ToPath ValidateTemplate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ValidateTemplate where
+instance Data.ToQuery ValidateTemplate where
   toQuery ValidateTemplate' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ValidateTemplate" :: Prelude.ByteString),
+          Data.=: ("ValidateTemplate" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "TemplateBody" Core.=: templateBody,
-        "TemplateURL" Core.=: templateURL
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "TemplateBody" Data.=: templateBody,
+        "TemplateURL" Data.=: templateURL
       ]
 
 -- | The output for ValidateTemplate action.

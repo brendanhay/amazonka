@@ -23,6 +23,7 @@ import Amazonka.CloudFormation.Types.RequiresRecreation
 import Amazonka.CloudFormation.Types.ResourceAttribute
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The field that CloudFormation will change, such as the name of a
@@ -94,12 +95,12 @@ resourceTargetDefinition_attribute = Lens.lens (\ResourceTargetDefinition' {attr
 resourceTargetDefinition_requiresRecreation :: Lens.Lens' ResourceTargetDefinition (Prelude.Maybe RequiresRecreation)
 resourceTargetDefinition_requiresRecreation = Lens.lens (\ResourceTargetDefinition' {requiresRecreation} -> requiresRecreation) (\s@ResourceTargetDefinition' {} a -> s {requiresRecreation = a} :: ResourceTargetDefinition)
 
-instance Core.FromXML ResourceTargetDefinition where
+instance Data.FromXML ResourceTargetDefinition where
   parseXML x =
     ResourceTargetDefinition'
-      Prelude.<$> (x Core..@? "Name")
-      Prelude.<*> (x Core..@? "Attribute")
-      Prelude.<*> (x Core..@? "RequiresRecreation")
+      Prelude.<$> (x Data..@? "Name")
+      Prelude.<*> (x Data..@? "Attribute")
+      Prelude.<*> (x Data..@? "RequiresRecreation")
 
 instance Prelude.Hashable ResourceTargetDefinition where
   hashWithSalt _salt ResourceTargetDefinition' {..} =

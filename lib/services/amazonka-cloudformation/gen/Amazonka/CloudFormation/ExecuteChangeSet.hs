@@ -58,6 +58,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -179,23 +180,23 @@ instance Prelude.NFData ExecuteChangeSet where
       `Prelude.seq` Prelude.rnf stackName
       `Prelude.seq` Prelude.rnf changeSetName
 
-instance Core.ToHeaders ExecuteChangeSet where
+instance Data.ToHeaders ExecuteChangeSet where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ExecuteChangeSet where
+instance Data.ToPath ExecuteChangeSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ExecuteChangeSet where
+instance Data.ToQuery ExecuteChangeSet where
   toQuery ExecuteChangeSet' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ExecuteChangeSet" :: Prelude.ByteString),
+          Data.=: ("ExecuteChangeSet" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "ClientRequestToken" Core.=: clientRequestToken,
-        "DisableRollback" Core.=: disableRollback,
-        "StackName" Core.=: stackName,
-        "ChangeSetName" Core.=: changeSetName
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "ClientRequestToken" Data.=: clientRequestToken,
+        "DisableRollback" Data.=: disableRollback,
+        "StackName" Data.=: stackName,
+        "ChangeSetName" Data.=: changeSetName
       ]
 
 -- | The output for the ExecuteChangeSet action.

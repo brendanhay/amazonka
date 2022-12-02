@@ -78,6 +78,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -208,36 +209,36 @@ instance Core.AWSRequest DescribeType where
       "DescribeTypeResult"
       ( \s h x ->
           DescribeTypeResponse'
-            Prelude.<$> (x Core..@? "TypeTestsStatusDescription")
-            Prelude.<*> (x Core..@? "DeprecatedStatus")
-            Prelude.<*> (x Core..@? "IsDefaultVersion")
-            Prelude.<*> (x Core..@? "DefaultVersionId")
-            Prelude.<*> (x Core..@? "Type")
-            Prelude.<*> (x Core..@? "DocumentationUrl")
-            Prelude.<*> ( x Core..@? "RequiredActivatedTypes"
+            Prelude.<$> (x Data..@? "TypeTestsStatusDescription")
+            Prelude.<*> (x Data..@? "DeprecatedStatus")
+            Prelude.<*> (x Data..@? "IsDefaultVersion")
+            Prelude.<*> (x Data..@? "DefaultVersionId")
+            Prelude.<*> (x Data..@? "Type")
+            Prelude.<*> (x Data..@? "DocumentationUrl")
+            Prelude.<*> ( x Data..@? "RequiredActivatedTypes"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "ConfigurationSchema")
-            Prelude.<*> (x Core..@? "Visibility")
-            Prelude.<*> (x Core..@? "AutoUpdate")
-            Prelude.<*> (x Core..@? "Arn")
-            Prelude.<*> (x Core..@? "TimeCreated")
-            Prelude.<*> (x Core..@? "PublicVersionNumber")
-            Prelude.<*> (x Core..@? "PublisherId")
-            Prelude.<*> (x Core..@? "TypeName")
-            Prelude.<*> (x Core..@? "Description")
-            Prelude.<*> (x Core..@? "LastUpdated")
-            Prelude.<*> (x Core..@? "OriginalTypeName")
-            Prelude.<*> (x Core..@? "ProvisioningType")
-            Prelude.<*> (x Core..@? "LatestPublicVersion")
-            Prelude.<*> (x Core..@? "Schema")
-            Prelude.<*> (x Core..@? "IsActivated")
-            Prelude.<*> (x Core..@? "ExecutionRoleArn")
-            Prelude.<*> (x Core..@? "TypeTestsStatus")
-            Prelude.<*> (x Core..@? "OriginalTypeArn")
-            Prelude.<*> (x Core..@? "SourceUrl")
-            Prelude.<*> (x Core..@? "LoggingConfig")
+            Prelude.<*> (x Data..@? "ConfigurationSchema")
+            Prelude.<*> (x Data..@? "Visibility")
+            Prelude.<*> (x Data..@? "AutoUpdate")
+            Prelude.<*> (x Data..@? "Arn")
+            Prelude.<*> (x Data..@? "TimeCreated")
+            Prelude.<*> (x Data..@? "PublicVersionNumber")
+            Prelude.<*> (x Data..@? "PublisherId")
+            Prelude.<*> (x Data..@? "TypeName")
+            Prelude.<*> (x Data..@? "Description")
+            Prelude.<*> (x Data..@? "LastUpdated")
+            Prelude.<*> (x Data..@? "OriginalTypeName")
+            Prelude.<*> (x Data..@? "ProvisioningType")
+            Prelude.<*> (x Data..@? "LatestPublicVersion")
+            Prelude.<*> (x Data..@? "Schema")
+            Prelude.<*> (x Data..@? "IsActivated")
+            Prelude.<*> (x Data..@? "ExecutionRoleArn")
+            Prelude.<*> (x Data..@? "TypeTestsStatus")
+            Prelude.<*> (x Data..@? "OriginalTypeArn")
+            Prelude.<*> (x Data..@? "SourceUrl")
+            Prelude.<*> (x Data..@? "LoggingConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -259,25 +260,25 @@ instance Prelude.NFData DescribeType where
       `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf versionId
 
-instance Core.ToHeaders DescribeType where
+instance Data.ToHeaders DescribeType where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeType where
+instance Data.ToPath DescribeType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeType where
+instance Data.ToQuery DescribeType where
   toQuery DescribeType' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeType" :: Prelude.ByteString),
+          Data.=: ("DescribeType" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "Type" Core.=: type',
-        "Arn" Core.=: arn,
-        "PublicVersionNumber" Core.=: publicVersionNumber,
-        "PublisherId" Core.=: publisherId,
-        "TypeName" Core.=: typeName,
-        "VersionId" Core.=: versionId
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "Type" Data.=: type',
+        "Arn" Data.=: arn,
+        "PublicVersionNumber" Data.=: publicVersionNumber,
+        "PublisherId" Data.=: publisherId,
+        "TypeName" Data.=: typeName,
+        "VersionId" Data.=: versionId
       ]
 
 -- | /See:/ 'newDescribeTypeResponse' smart constructor.
@@ -361,7 +362,7 @@ data DescribeTypeResponse = DescribeTypeResponse'
     arn :: Prelude.Maybe Prelude.Text,
     -- | When the specified private extension version was registered or activated
     -- in your account.
-    timeCreated :: Prelude.Maybe Core.ISO8601,
+    timeCreated :: Prelude.Maybe Data.ISO8601,
     -- | The version number of a public third-party extension.
     --
     -- This applies only if you specify a public extension you have activated
@@ -393,7 +394,7 @@ data DescribeTypeResponse = DescribeTypeResponse'
     -- -   Public extensions you have activated in your account with
     --     auto-update specified. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html ActivateType>.
-    lastUpdated :: Prelude.Maybe Core.ISO8601,
+    lastUpdated :: Prelude.Maybe Data.ISO8601,
     -- | For public extensions that have been activated for this account and
     -- region, the type name of the public extension.
     --
@@ -855,7 +856,7 @@ describeTypeResponse_arn = Lens.lens (\DescribeTypeResponse' {arn} -> arn) (\s@D
 -- | When the specified private extension version was registered or activated
 -- in your account.
 describeTypeResponse_timeCreated :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Prelude.UTCTime)
-describeTypeResponse_timeCreated = Lens.lens (\DescribeTypeResponse' {timeCreated} -> timeCreated) (\s@DescribeTypeResponse' {} a -> s {timeCreated = a} :: DescribeTypeResponse) Prelude.. Lens.mapping Core._Time
+describeTypeResponse_timeCreated = Lens.lens (\DescribeTypeResponse' {timeCreated} -> timeCreated) (\s@DescribeTypeResponse' {} a -> s {timeCreated = a} :: DescribeTypeResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The version number of a public third-party extension.
 --
@@ -897,7 +898,7 @@ describeTypeResponse_description = Lens.lens (\DescribeTypeResponse' {descriptio
 --     auto-update specified. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html ActivateType>.
 describeTypeResponse_lastUpdated :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Prelude.UTCTime)
-describeTypeResponse_lastUpdated = Lens.lens (\DescribeTypeResponse' {lastUpdated} -> lastUpdated) (\s@DescribeTypeResponse' {} a -> s {lastUpdated = a} :: DescribeTypeResponse) Prelude.. Lens.mapping Core._Time
+describeTypeResponse_lastUpdated = Lens.lens (\DescribeTypeResponse' {lastUpdated} -> lastUpdated) (\s@DescribeTypeResponse' {} a -> s {lastUpdated = a} :: DescribeTypeResponse) Prelude.. Lens.mapping Data._Time
 
 -- | For public extensions that have been activated for this account and
 -- region, the type name of the public extension.

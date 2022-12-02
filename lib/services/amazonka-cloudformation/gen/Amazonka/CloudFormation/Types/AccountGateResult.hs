@@ -22,6 +22,7 @@ module Amazonka.CloudFormation.Types.AccountGateResult where
 import Amazonka.CloudFormation.Types.AccountGateStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Structure that contains the results of the account gate function which
@@ -163,11 +164,11 @@ accountGateResult_statusReason = Lens.lens (\AccountGateResult' {statusReason} -
 accountGateResult_status :: Lens.Lens' AccountGateResult (Prelude.Maybe AccountGateStatus)
 accountGateResult_status = Lens.lens (\AccountGateResult' {status} -> status) (\s@AccountGateResult' {} a -> s {status = a} :: AccountGateResult)
 
-instance Core.FromXML AccountGateResult where
+instance Data.FromXML AccountGateResult where
   parseXML x =
     AccountGateResult'
-      Prelude.<$> (x Core..@? "StatusReason")
-      Prelude.<*> (x Core..@? "Status")
+      Prelude.<$> (x Data..@? "StatusReason")
+      Prelude.<*> (x Data..@? "Status")
 
 instance Prelude.Hashable AccountGateResult where
   hashWithSalt _salt AccountGateResult' {..} =

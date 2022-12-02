@@ -51,6 +51,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -139,7 +140,7 @@ instance Core.AWSRequest RegisterPublisher where
       "RegisterPublisherResult"
       ( \s h x ->
           RegisterPublisherResponse'
-            Prelude.<$> (x Core..@? "PublisherId")
+            Prelude.<$> (x Data..@? "PublisherId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,22 +155,22 @@ instance Prelude.NFData RegisterPublisher where
     Prelude.rnf acceptTermsAndConditions
       `Prelude.seq` Prelude.rnf connectionArn
 
-instance Core.ToHeaders RegisterPublisher where
+instance Data.ToHeaders RegisterPublisher where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RegisterPublisher where
+instance Data.ToPath RegisterPublisher where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterPublisher where
+instance Data.ToQuery RegisterPublisher where
   toQuery RegisterPublisher' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RegisterPublisher" :: Prelude.ByteString),
+          Data.=: ("RegisterPublisher" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
         "AcceptTermsAndConditions"
-          Core.=: acceptTermsAndConditions,
-        "ConnectionArn" Core.=: connectionArn
+          Data.=: acceptTermsAndConditions,
+        "ConnectionArn" Data.=: connectionArn
       ]
 
 -- | /See:/ 'newRegisterPublisherResponse' smart constructor.

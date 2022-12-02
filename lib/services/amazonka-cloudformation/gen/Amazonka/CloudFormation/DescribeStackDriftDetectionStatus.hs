@@ -62,6 +62,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,14 +124,14 @@ instance
       "DescribeStackDriftDetectionStatusResult"
       ( \s h x ->
           DescribeStackDriftDetectionStatusResponse'
-            Prelude.<$> (x Core..@? "StackDriftStatus")
-              Prelude.<*> (x Core..@? "DetectionStatusReason")
-              Prelude.<*> (x Core..@? "DriftedStackResourceCount")
+            Prelude.<$> (x Data..@? "StackDriftStatus")
+              Prelude.<*> (x Data..@? "DetectionStatusReason")
+              Prelude.<*> (x Data..@? "DriftedStackResourceCount")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..@ "StackId")
-              Prelude.<*> (x Core..@ "StackDriftDetectionId")
-              Prelude.<*> (x Core..@ "DetectionStatus")
-              Prelude.<*> (x Core..@ "Timestamp")
+              Prelude.<*> (x Data..@ "StackId")
+              Prelude.<*> (x Data..@ "StackDriftDetectionId")
+              Prelude.<*> (x Data..@ "DetectionStatus")
+              Prelude.<*> (x Data..@ "Timestamp")
       )
 
 instance
@@ -150,31 +151,31 @@ instance
     Prelude.rnf stackDriftDetectionId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeStackDriftDetectionStatus
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeStackDriftDetectionStatus
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeStackDriftDetectionStatus
   where
   toQuery DescribeStackDriftDetectionStatus' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeStackDriftDetectionStatus" ::
+          Data.=: ( "DescribeStackDriftDetectionStatus" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
         "StackDriftDetectionId"
-          Core.=: stackDriftDetectionId
+          Data.=: stackDriftDetectionId
       ]
 
 -- | /See:/ 'newDescribeStackDriftDetectionStatusResponse' smart constructor.
@@ -230,7 +231,7 @@ data DescribeStackDriftDetectionStatusResponse = DescribeStackDriftDetectionStat
     --     currently in progress.
     detectionStatus :: StackDriftDetectionStatus,
     -- | Time at which the stack drift detection operation was initiated.
-    timestamp :: Core.ISO8601
+    timestamp :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -325,7 +326,7 @@ newDescribeStackDriftDetectionStatusResponse
         detectionStatus =
           pDetectionStatus_,
         timestamp =
-          Core._Time Lens.# pTimestamp_
+          Data._Time Lens.# pTimestamp_
       }
 
 -- | Status of the stack\'s actual configuration compared to its expected
@@ -394,7 +395,7 @@ describeStackDriftDetectionStatusResponse_detectionStatus = Lens.lens (\Describe
 
 -- | Time at which the stack drift detection operation was initiated.
 describeStackDriftDetectionStatusResponse_timestamp :: Lens.Lens' DescribeStackDriftDetectionStatusResponse Prelude.UTCTime
-describeStackDriftDetectionStatusResponse_timestamp = Lens.lens (\DescribeStackDriftDetectionStatusResponse' {timestamp} -> timestamp) (\s@DescribeStackDriftDetectionStatusResponse' {} a -> s {timestamp = a} :: DescribeStackDriftDetectionStatusResponse) Prelude.. Core._Time
+describeStackDriftDetectionStatusResponse_timestamp = Lens.lens (\DescribeStackDriftDetectionStatusResponse' {timestamp} -> timestamp) (\s@DescribeStackDriftDetectionStatusResponse' {} a -> s {timestamp = a} :: DescribeStackDriftDetectionStatusResponse) Prelude.. Data._Time
 
 instance
   Prelude.NFData

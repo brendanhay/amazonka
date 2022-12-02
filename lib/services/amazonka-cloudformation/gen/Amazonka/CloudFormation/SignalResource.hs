@@ -47,6 +47,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -163,23 +164,23 @@ instance Prelude.NFData SignalResource where
       `Prelude.seq` Prelude.rnf uniqueId
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToHeaders SignalResource where
+instance Data.ToHeaders SignalResource where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SignalResource where
+instance Data.ToPath SignalResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SignalResource where
+instance Data.ToQuery SignalResource where
   toQuery SignalResource' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SignalResource" :: Prelude.ByteString),
+          Data.=: ("SignalResource" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "StackName" Core.=: stackName,
-        "LogicalResourceId" Core.=: logicalResourceId,
-        "UniqueId" Core.=: uniqueId,
-        "Status" Core.=: status
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "StackName" Data.=: stackName,
+        "LogicalResourceId" Data.=: logicalResourceId,
+        "UniqueId" Data.=: uniqueId,
+        "Status" Data.=: status
       ]
 
 -- | /See:/ 'newSignalResourceResponse' smart constructor.

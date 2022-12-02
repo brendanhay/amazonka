@@ -23,6 +23,7 @@ import Amazonka.CloudFormation.Types.IdentityProvider
 import Amazonka.CloudFormation.Types.RegistryType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains summary information about the specified CloudFormation
@@ -88,7 +89,7 @@ data TypeSummary = TypeSummary'
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html ActivateType>.
     --
     -- For all other extension types, CloudFormation returns @null@.
-    lastUpdated :: Prelude.Maybe Core.ISO8601,
+    lastUpdated :: Prelude.Maybe Data.ISO8601,
     -- | For public extensions that have been activated for this account and
     -- region, the type name of the public extension.
     --
@@ -312,7 +313,7 @@ typeSummary_description = Lens.lens (\TypeSummary' {description} -> description)
 --
 -- For all other extension types, CloudFormation returns @null@.
 typeSummary_lastUpdated :: Lens.Lens' TypeSummary (Prelude.Maybe Prelude.UTCTime)
-typeSummary_lastUpdated = Lens.lens (\TypeSummary' {lastUpdated} -> lastUpdated) (\s@TypeSummary' {} a -> s {lastUpdated = a} :: TypeSummary) Prelude.. Lens.mapping Core._Time
+typeSummary_lastUpdated = Lens.lens (\TypeSummary' {lastUpdated} -> lastUpdated) (\s@TypeSummary' {} a -> s {lastUpdated = a} :: TypeSummary) Prelude.. Lens.mapping Data._Time
 
 -- | For public extensions that have been activated for this account and
 -- region, the type name of the public extension.
@@ -352,22 +353,22 @@ typeSummary_isActivated = Lens.lens (\TypeSummary' {isActivated} -> isActivated)
 typeSummary_publisherName :: Lens.Lens' TypeSummary (Prelude.Maybe Prelude.Text)
 typeSummary_publisherName = Lens.lens (\TypeSummary' {publisherName} -> publisherName) (\s@TypeSummary' {} a -> s {publisherName = a} :: TypeSummary)
 
-instance Core.FromXML TypeSummary where
+instance Data.FromXML TypeSummary where
   parseXML x =
     TypeSummary'
-      Prelude.<$> (x Core..@? "DefaultVersionId")
-      Prelude.<*> (x Core..@? "Type")
-      Prelude.<*> (x Core..@? "TypeArn")
-      Prelude.<*> (x Core..@? "PublicVersionNumber")
-      Prelude.<*> (x Core..@? "PublisherId")
-      Prelude.<*> (x Core..@? "TypeName")
-      Prelude.<*> (x Core..@? "PublisherIdentity")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "LastUpdated")
-      Prelude.<*> (x Core..@? "OriginalTypeName")
-      Prelude.<*> (x Core..@? "LatestPublicVersion")
-      Prelude.<*> (x Core..@? "IsActivated")
-      Prelude.<*> (x Core..@? "PublisherName")
+      Prelude.<$> (x Data..@? "DefaultVersionId")
+      Prelude.<*> (x Data..@? "Type")
+      Prelude.<*> (x Data..@? "TypeArn")
+      Prelude.<*> (x Data..@? "PublicVersionNumber")
+      Prelude.<*> (x Data..@? "PublisherId")
+      Prelude.<*> (x Data..@? "TypeName")
+      Prelude.<*> (x Data..@? "PublisherIdentity")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "LastUpdated")
+      Prelude.<*> (x Data..@? "OriginalTypeName")
+      Prelude.<*> (x Data..@? "LatestPublicVersion")
+      Prelude.<*> (x Data..@? "IsActivated")
+      Prelude.<*> (x Data..@? "PublisherName")
 
 instance Prelude.Hashable TypeSummary where
   hashWithSalt _salt TypeSummary' {..} =

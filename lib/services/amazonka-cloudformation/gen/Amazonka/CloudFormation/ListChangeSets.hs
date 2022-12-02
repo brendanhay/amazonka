@@ -48,6 +48,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,9 +131,9 @@ instance Core.AWSRequest ListChangeSets where
       "ListChangeSetsResult"
       ( \s h x ->
           ListChangeSetsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "Summaries" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "Summaries" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -147,21 +148,21 @@ instance Prelude.NFData ListChangeSets where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf stackName
 
-instance Core.ToHeaders ListChangeSets where
+instance Data.ToHeaders ListChangeSets where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListChangeSets where
+instance Data.ToPath ListChangeSets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListChangeSets where
+instance Data.ToQuery ListChangeSets where
   toQuery ListChangeSets' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListChangeSets" :: Prelude.ByteString),
+          Data.=: ("ListChangeSets" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "StackName" Core.=: stackName
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "StackName" Data.=: stackName
       ]
 
 -- | The output for the ListChangeSets action.

@@ -49,6 +49,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -178,7 +179,7 @@ instance Core.AWSRequest DescribeStackInstance where
       "DescribeStackInstanceResult"
       ( \s h x ->
           DescribeStackInstanceResponse'
-            Prelude.<$> (x Core..@? "StackInstance")
+            Prelude.<$> (x Data..@? "StackInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -196,23 +197,23 @@ instance Prelude.NFData DescribeStackInstance where
       `Prelude.seq` Prelude.rnf stackInstanceAccount
       `Prelude.seq` Prelude.rnf stackInstanceRegion
 
-instance Core.ToHeaders DescribeStackInstance where
+instance Data.ToHeaders DescribeStackInstance where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeStackInstance where
+instance Data.ToPath DescribeStackInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeStackInstance where
+instance Data.ToQuery DescribeStackInstance where
   toQuery DescribeStackInstance' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeStackInstance" :: Prelude.ByteString),
+          Data.=: ("DescribeStackInstance" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "CallAs" Core.=: callAs,
-        "StackSetName" Core.=: stackSetName,
-        "StackInstanceAccount" Core.=: stackInstanceAccount,
-        "StackInstanceRegion" Core.=: stackInstanceRegion
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "CallAs" Data.=: callAs,
+        "StackSetName" Data.=: stackSetName,
+        "StackInstanceAccount" Data.=: stackInstanceAccount,
+        "StackInstanceRegion" Data.=: stackInstanceRegion
       ]
 
 -- | /See:/ 'newDescribeStackInstanceResponse' smart constructor.

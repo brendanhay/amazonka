@@ -67,6 +67,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -789,7 +790,7 @@ instance Core.AWSRequest UpdateStack where
       "UpdateStackResult"
       ( \s h x ->
           UpdateStackResponse'
-            Prelude.<$> (x Core..@? "StackId")
+            Prelude.<$> (x Data..@? "StackId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -833,53 +834,53 @@ instance Prelude.NFData UpdateStack where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf stackName
 
-instance Core.ToHeaders UpdateStack where
+instance Data.ToHeaders UpdateStack where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UpdateStack where
+instance Data.ToPath UpdateStack where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateStack where
+instance Data.ToQuery UpdateStack where
   toQuery UpdateStack' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateStack" :: Prelude.ByteString),
+          Data.=: ("UpdateStack" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "RoleARN" Core.=: roleARN,
-        "ClientRequestToken" Core.=: clientRequestToken,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
+        "RoleARN" Data.=: roleARN,
+        "ClientRequestToken" Data.=: clientRequestToken,
         "StackPolicyDuringUpdateURL"
-          Core.=: stackPolicyDuringUpdateURL,
+          Data.=: stackPolicyDuringUpdateURL,
         "NotificationARNs"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> notificationARNs
             ),
-        "UsePreviousTemplate" Core.=: usePreviousTemplate,
-        "StackPolicyBody" Core.=: stackPolicyBody,
-        "StackPolicyURL" Core.=: stackPolicyURL,
-        "TemplateBody" Core.=: templateBody,
+        "UsePreviousTemplate" Data.=: usePreviousTemplate,
+        "StackPolicyBody" Data.=: stackPolicyBody,
+        "StackPolicyURL" Data.=: stackPolicyURL,
+        "TemplateBody" Data.=: templateBody,
         "ResourceTypes"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> resourceTypes
             ),
-        "DisableRollback" Core.=: disableRollback,
+        "DisableRollback" Data.=: disableRollback,
         "Capabilities"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> capabilities),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> capabilities),
         "RollbackConfiguration"
-          Core.=: rollbackConfiguration,
+          Data.=: rollbackConfiguration,
         "StackPolicyDuringUpdateBody"
-          Core.=: stackPolicyDuringUpdateBody,
-        "TemplateURL" Core.=: templateURL,
+          Data.=: stackPolicyDuringUpdateBody,
+        "TemplateURL" Data.=: templateURL,
         "Parameters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> parameters),
-        "StackName" Core.=: stackName
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> parameters),
+        "StackName" Data.=: stackName
       ]
 
 -- | The output for an UpdateStack action.

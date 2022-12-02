@@ -21,6 +21,7 @@ module Amazonka.CloudFormation.Types.Parameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Parameter data type.
@@ -100,13 +101,13 @@ parameter_usePreviousValue = Lens.lens (\Parameter' {usePreviousValue} -> usePre
 parameter_parameterKey :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_parameterKey = Lens.lens (\Parameter' {parameterKey} -> parameterKey) (\s@Parameter' {} a -> s {parameterKey = a} :: Parameter)
 
-instance Core.FromXML Parameter where
+instance Data.FromXML Parameter where
   parseXML x =
     Parameter'
-      Prelude.<$> (x Core..@? "ParameterValue")
-      Prelude.<*> (x Core..@? "ResolvedValue")
-      Prelude.<*> (x Core..@? "UsePreviousValue")
-      Prelude.<*> (x Core..@? "ParameterKey")
+      Prelude.<$> (x Data..@? "ParameterValue")
+      Prelude.<*> (x Data..@? "ResolvedValue")
+      Prelude.<*> (x Data..@? "UsePreviousValue")
+      Prelude.<*> (x Data..@? "ParameterKey")
 
 instance Prelude.Hashable Parameter where
   hashWithSalt _salt Parameter' {..} =
@@ -122,11 +123,11 @@ instance Prelude.NFData Parameter where
       `Prelude.seq` Prelude.rnf usePreviousValue
       `Prelude.seq` Prelude.rnf parameterKey
 
-instance Core.ToQuery Parameter where
+instance Data.ToQuery Parameter where
   toQuery Parameter' {..} =
     Prelude.mconcat
-      [ "ParameterValue" Core.=: parameterValue,
-        "ResolvedValue" Core.=: resolvedValue,
-        "UsePreviousValue" Core.=: usePreviousValue,
-        "ParameterKey" Core.=: parameterKey
+      [ "ParameterValue" Data.=: parameterValue,
+        "ResolvedValue" Data.=: resolvedValue,
+        "UsePreviousValue" Data.=: usePreviousValue,
+        "ParameterKey" Data.=: parameterKey
       ]

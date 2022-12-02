@@ -84,6 +84,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -687,8 +688,8 @@ instance Core.AWSRequest CreateChangeSet where
       "CreateChangeSetResult"
       ( \s h x ->
           CreateChangeSetResponse'
-            Prelude.<$> (x Core..@? "StackId")
-            Prelude.<*> (x Core..@? "Id")
+            Prelude.<$> (x Data..@? "StackId")
+            Prelude.<*> (x Data..@? "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -732,55 +733,55 @@ instance Prelude.NFData CreateChangeSet where
       `Prelude.seq` Prelude.rnf stackName
       `Prelude.seq` Prelude.rnf changeSetName
 
-instance Core.ToHeaders CreateChangeSet where
+instance Data.ToHeaders CreateChangeSet where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateChangeSet where
+instance Data.ToPath CreateChangeSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateChangeSet where
+instance Data.ToQuery CreateChangeSet where
   toQuery CreateChangeSet' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateChangeSet" :: Prelude.ByteString),
+          Data.=: ("CreateChangeSet" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "ClientToken" Core.=: clientToken,
-        "RoleARN" Core.=: roleARN,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
+        "ClientToken" Data.=: clientToken,
+        "RoleARN" Data.=: roleARN,
         "NotificationARNs"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> notificationARNs
             ),
-        "UsePreviousTemplate" Core.=: usePreviousTemplate,
-        "TemplateBody" Core.=: templateBody,
+        "UsePreviousTemplate" Data.=: usePreviousTemplate,
+        "TemplateBody" Data.=: templateBody,
         "ResourceTypes"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> resourceTypes
             ),
-        "ChangeSetType" Core.=: changeSetType,
-        "Description" Core.=: description,
+        "ChangeSetType" Data.=: changeSetType,
+        "Description" Data.=: description,
         "ResourcesToImport"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> resourcesToImport
             ),
-        "IncludeNestedStacks" Core.=: includeNestedStacks,
+        "IncludeNestedStacks" Data.=: includeNestedStacks,
         "Capabilities"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> capabilities),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> capabilities),
         "RollbackConfiguration"
-          Core.=: rollbackConfiguration,
-        "TemplateURL" Core.=: templateURL,
+          Data.=: rollbackConfiguration,
+        "TemplateURL" Data.=: templateURL,
         "Parameters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> parameters),
-        "StackName" Core.=: stackName,
-        "ChangeSetName" Core.=: changeSetName
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> parameters),
+        "StackName" Data.=: stackName,
+        "ChangeSetName" Data.=: changeSetName
       ]
 
 -- | The output for the CreateChangeSet action.

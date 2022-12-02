@@ -25,6 +25,7 @@ import Amazonka.CloudFormation.Types.HookStatus
 import Amazonka.CloudFormation.Types.ResourceStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The StackEvent data type.
@@ -85,7 +86,7 @@ data StackEvent = StackEvent'
     -- | The name associated with a stack.
     stackName :: Prelude.Text,
     -- | Time the status was updated.
-    timestamp :: Core.ISO8601
+    timestamp :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -182,7 +183,7 @@ newStackEvent
         stackId = pStackId_,
         eventId = pEventId_,
         stackName = pStackName_,
-        timestamp = Core._Time Lens.# pTimestamp_
+        timestamp = Data._Time Lens.# pTimestamp_
       }
 
 -- | Type of resource. (For more information, go to
@@ -270,27 +271,27 @@ stackEvent_stackName = Lens.lens (\StackEvent' {stackName} -> stackName) (\s@Sta
 
 -- | Time the status was updated.
 stackEvent_timestamp :: Lens.Lens' StackEvent Prelude.UTCTime
-stackEvent_timestamp = Lens.lens (\StackEvent' {timestamp} -> timestamp) (\s@StackEvent' {} a -> s {timestamp = a} :: StackEvent) Prelude.. Core._Time
+stackEvent_timestamp = Lens.lens (\StackEvent' {timestamp} -> timestamp) (\s@StackEvent' {} a -> s {timestamp = a} :: StackEvent) Prelude.. Data._Time
 
-instance Core.FromXML StackEvent where
+instance Data.FromXML StackEvent where
   parseXML x =
     StackEvent'
-      Prelude.<$> (x Core..@? "ResourceType")
-      Prelude.<*> (x Core..@? "HookInvocationPoint")
-      Prelude.<*> (x Core..@? "ClientRequestToken")
-      Prelude.<*> (x Core..@? "ResourceStatusReason")
-      Prelude.<*> (x Core..@? "HookFailureMode")
-      Prelude.<*> (x Core..@? "HookStatus")
-      Prelude.<*> (x Core..@? "HookStatusReason")
-      Prelude.<*> (x Core..@? "LogicalResourceId")
-      Prelude.<*> (x Core..@? "HookType")
-      Prelude.<*> (x Core..@? "ResourceProperties")
-      Prelude.<*> (x Core..@? "PhysicalResourceId")
-      Prelude.<*> (x Core..@? "ResourceStatus")
-      Prelude.<*> (x Core..@ "StackId")
-      Prelude.<*> (x Core..@ "EventId")
-      Prelude.<*> (x Core..@ "StackName")
-      Prelude.<*> (x Core..@ "Timestamp")
+      Prelude.<$> (x Data..@? "ResourceType")
+      Prelude.<*> (x Data..@? "HookInvocationPoint")
+      Prelude.<*> (x Data..@? "ClientRequestToken")
+      Prelude.<*> (x Data..@? "ResourceStatusReason")
+      Prelude.<*> (x Data..@? "HookFailureMode")
+      Prelude.<*> (x Data..@? "HookStatus")
+      Prelude.<*> (x Data..@? "HookStatusReason")
+      Prelude.<*> (x Data..@? "LogicalResourceId")
+      Prelude.<*> (x Data..@? "HookType")
+      Prelude.<*> (x Data..@? "ResourceProperties")
+      Prelude.<*> (x Data..@? "PhysicalResourceId")
+      Prelude.<*> (x Data..@? "ResourceStatus")
+      Prelude.<*> (x Data..@ "StackId")
+      Prelude.<*> (x Data..@ "EventId")
+      Prelude.<*> (x Data..@ "StackName")
+      Prelude.<*> (x Data..@ "Timestamp")
 
 instance Prelude.Hashable StackEvent where
   hashWithSalt _salt StackEvent' {..} =

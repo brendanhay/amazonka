@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -260,14 +261,14 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateSlackChannelConfigurationResponse'
-            Prelude.<$> (x Core..?> "channelRoleArn")
-            Prelude.<*> (x Core..?> "notifyOnCaseSeverity")
-            Prelude.<*> (x Core..?> "channelName")
-            Prelude.<*> (x Core..?> "teamId")
-            Prelude.<*> (x Core..?> "notifyOnCreateOrReopenCase")
-            Prelude.<*> (x Core..?> "notifyOnAddCorrespondenceToCase")
-            Prelude.<*> (x Core..?> "channelId")
-            Prelude.<*> (x Core..?> "notifyOnResolveCase")
+            Prelude.<$> (x Data..?> "channelRoleArn")
+            Prelude.<*> (x Data..?> "notifyOnCaseSeverity")
+            Prelude.<*> (x Data..?> "channelName")
+            Prelude.<*> (x Data..?> "teamId")
+            Prelude.<*> (x Data..?> "notifyOnCreateOrReopenCase")
+            Prelude.<*> (x Data..?> "notifyOnAddCorrespondenceToCase")
+            Prelude.<*> (x Data..?> "channelId")
+            Prelude.<*> (x Data..?> "notifyOnResolveCase")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -302,45 +303,45 @@ instance
       `Prelude.seq` Prelude.rnf teamId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateSlackChannelConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSlackChannelConfiguration where
+instance Data.ToJSON UpdateSlackChannelConfiguration where
   toJSON UpdateSlackChannelConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("channelRoleArn" Core..=)
+          [ ("channelRoleArn" Data..=)
               Prelude.<$> channelRoleArn,
-            ("notifyOnCaseSeverity" Core..=)
+            ("notifyOnCaseSeverity" Data..=)
               Prelude.<$> notifyOnCaseSeverity,
-            ("channelName" Core..=) Prelude.<$> channelName,
-            ("notifyOnCreateOrReopenCase" Core..=)
+            ("channelName" Data..=) Prelude.<$> channelName,
+            ("notifyOnCreateOrReopenCase" Data..=)
               Prelude.<$> notifyOnCreateOrReopenCase,
-            ("notifyOnAddCorrespondenceToCase" Core..=)
+            ("notifyOnAddCorrespondenceToCase" Data..=)
               Prelude.<$> notifyOnAddCorrespondenceToCase,
-            ("notifyOnResolveCase" Core..=)
+            ("notifyOnResolveCase" Data..=)
               Prelude.<$> notifyOnResolveCase,
-            Prelude.Just ("channelId" Core..= channelId),
-            Prelude.Just ("teamId" Core..= teamId)
+            Prelude.Just ("channelId" Data..= channelId),
+            Prelude.Just ("teamId" Data..= teamId)
           ]
       )
 
-instance Core.ToPath UpdateSlackChannelConfiguration where
+instance Data.ToPath UpdateSlackChannelConfiguration where
   toPath =
     Prelude.const
       "/control/update-slack-channel-configuration"
 
-instance Core.ToQuery UpdateSlackChannelConfiguration where
+instance Data.ToQuery UpdateSlackChannelConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSlackChannelConfigurationResponse' smart constructor.

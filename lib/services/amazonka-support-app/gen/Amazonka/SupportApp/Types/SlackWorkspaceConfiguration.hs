@@ -21,6 +21,7 @@ module Amazonka.SupportApp.Types.SlackWorkspaceConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for a Slack workspace that you added to an Amazon Web
@@ -81,15 +82,15 @@ slackWorkspaceConfiguration_allowOrganizationMemberAccount = Lens.lens (\SlackWo
 slackWorkspaceConfiguration_teamId :: Lens.Lens' SlackWorkspaceConfiguration Prelude.Text
 slackWorkspaceConfiguration_teamId = Lens.lens (\SlackWorkspaceConfiguration' {teamId} -> teamId) (\s@SlackWorkspaceConfiguration' {} a -> s {teamId = a} :: SlackWorkspaceConfiguration)
 
-instance Core.FromJSON SlackWorkspaceConfiguration where
+instance Data.FromJSON SlackWorkspaceConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SlackWorkspaceConfiguration"
       ( \x ->
           SlackWorkspaceConfiguration'
-            Prelude.<$> (x Core..:? "teamName")
-            Prelude.<*> (x Core..:? "allowOrganizationMemberAccount")
-            Prelude.<*> (x Core..: "teamId")
+            Prelude.<$> (x Data..:? "teamName")
+            Prelude.<*> (x Data..:? "allowOrganizationMemberAccount")
+            Prelude.<*> (x Data..: "teamId")
       )
 
 instance Prelude.Hashable SlackWorkspaceConfiguration where

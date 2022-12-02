@@ -21,6 +21,7 @@ module Amazonka.SupportApp.Types.SlackChannelConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SupportApp.Types.NotificationSeverityLevel
 
@@ -150,20 +151,20 @@ slackChannelConfiguration_channelId = Lens.lens (\SlackChannelConfiguration' {ch
 slackChannelConfiguration_teamId :: Lens.Lens' SlackChannelConfiguration Prelude.Text
 slackChannelConfiguration_teamId = Lens.lens (\SlackChannelConfiguration' {teamId} -> teamId) (\s@SlackChannelConfiguration' {} a -> s {teamId = a} :: SlackChannelConfiguration)
 
-instance Core.FromJSON SlackChannelConfiguration where
+instance Data.FromJSON SlackChannelConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SlackChannelConfiguration"
       ( \x ->
           SlackChannelConfiguration'
-            Prelude.<$> (x Core..:? "channelRoleArn")
-            Prelude.<*> (x Core..:? "notifyOnCaseSeverity")
-            Prelude.<*> (x Core..:? "channelName")
-            Prelude.<*> (x Core..:? "notifyOnCreateOrReopenCase")
-            Prelude.<*> (x Core..:? "notifyOnAddCorrespondenceToCase")
-            Prelude.<*> (x Core..:? "notifyOnResolveCase")
-            Prelude.<*> (x Core..: "channelId")
-            Prelude.<*> (x Core..: "teamId")
+            Prelude.<$> (x Data..:? "channelRoleArn")
+            Prelude.<*> (x Data..:? "notifyOnCaseSeverity")
+            Prelude.<*> (x Data..:? "channelName")
+            Prelude.<*> (x Data..:? "notifyOnCreateOrReopenCase")
+            Prelude.<*> (x Data..:? "notifyOnAddCorrespondenceToCase")
+            Prelude.<*> (x Data..:? "notifyOnResolveCase")
+            Prelude.<*> (x Data..: "channelId")
+            Prelude.<*> (x Data..: "teamId")
       )
 
 instance Prelude.Hashable SlackChannelConfiguration where

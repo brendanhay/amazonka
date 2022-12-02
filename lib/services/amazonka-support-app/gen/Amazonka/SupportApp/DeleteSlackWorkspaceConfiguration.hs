@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,31 +113,31 @@ instance
     Prelude.rnf teamId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteSlackWorkspaceConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DeleteSlackWorkspaceConfiguration
   where
   toJSON DeleteSlackWorkspaceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("teamId" Core..= teamId)]
+          [Prelude.Just ("teamId" Data..= teamId)]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeleteSlackWorkspaceConfiguration
   where
   toPath =
@@ -144,7 +145,7 @@ instance
       "/control/delete-slack-workspace-configuration"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteSlackWorkspaceConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

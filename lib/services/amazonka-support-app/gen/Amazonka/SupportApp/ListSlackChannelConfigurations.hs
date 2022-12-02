@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,9 +102,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListSlackChannelConfigurationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "slackChannelConfigurations"
+            Prelude.<*> ( x Data..?> "slackChannelConfigurations"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -125,32 +126,32 @@ instance
     Prelude.rnf nextToken
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListSlackChannelConfigurations
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSlackChannelConfigurations where
+instance Data.ToJSON ListSlackChannelConfigurations where
   toJSON ListSlackChannelConfigurations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("nextToken" Core..=) Prelude.<$> nextToken]
+          [("nextToken" Data..=) Prelude.<$> nextToken]
       )
 
-instance Core.ToPath ListSlackChannelConfigurations where
+instance Data.ToPath ListSlackChannelConfigurations where
   toPath =
     Prelude.const
       "/control/list-slack-channel-configurations"
 
-instance Core.ToQuery ListSlackChannelConfigurations where
+instance Data.ToQuery ListSlackChannelConfigurations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSlackChannelConfigurationsResponse' smart constructor.

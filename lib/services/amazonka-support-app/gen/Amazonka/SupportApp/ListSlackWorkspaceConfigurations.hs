@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,8 +102,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListSlackWorkspaceConfigurationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "slackWorkspaceConfigurations"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "slackWorkspaceConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -125,33 +126,33 @@ instance
     Prelude.rnf nextToken
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListSlackWorkspaceConfigurations
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSlackWorkspaceConfigurations where
+instance Data.ToJSON ListSlackWorkspaceConfigurations where
   toJSON ListSlackWorkspaceConfigurations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("nextToken" Core..=) Prelude.<$> nextToken]
+          [("nextToken" Data..=) Prelude.<$> nextToken]
       )
 
-instance Core.ToPath ListSlackWorkspaceConfigurations where
+instance Data.ToPath ListSlackWorkspaceConfigurations where
   toPath =
     Prelude.const
       "/control/list-slack-workspace-configurations"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListSlackWorkspaceConfigurations
   where
   toQuery = Prelude.const Prelude.mempty

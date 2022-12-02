@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,28 +96,28 @@ instance Prelude.Hashable PutAccountAlias where
 instance Prelude.NFData PutAccountAlias where
   rnf PutAccountAlias' {..} = Prelude.rnf accountAlias
 
-instance Core.ToHeaders PutAccountAlias where
+instance Data.ToHeaders PutAccountAlias where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutAccountAlias where
+instance Data.ToJSON PutAccountAlias where
   toJSON PutAccountAlias' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("accountAlias" Core..= accountAlias)]
+          [Prelude.Just ("accountAlias" Data..= accountAlias)]
       )
 
-instance Core.ToPath PutAccountAlias where
+instance Data.ToPath PutAccountAlias where
   toPath = Prelude.const "/control/put-account-alias"
 
-instance Core.ToQuery PutAccountAlias where
+instance Data.ToQuery PutAccountAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutAccountAliasResponse' smart constructor.

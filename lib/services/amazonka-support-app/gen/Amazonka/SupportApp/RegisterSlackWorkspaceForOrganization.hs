@@ -75,6 +75,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,9 +131,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           RegisterSlackWorkspaceForOrganizationResponse'
-            Prelude.<$> (x Core..?> "teamName")
-              Prelude.<*> (x Core..?> "teamId")
-              Prelude.<*> (x Core..?> "accountType")
+            Prelude.<$> (x Data..?> "teamName")
+              Prelude.<*> (x Data..?> "teamId")
+              Prelude.<*> (x Data..?> "accountType")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,31 +154,31 @@ instance
     Prelude.rnf teamId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     RegisterSlackWorkspaceForOrganization
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RegisterSlackWorkspaceForOrganization
   where
   toJSON RegisterSlackWorkspaceForOrganization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("teamId" Core..= teamId)]
+          [Prelude.Just ("teamId" Data..= teamId)]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     RegisterSlackWorkspaceForOrganization
   where
   toPath =
@@ -185,7 +186,7 @@ instance
       "/control/register-slack-workspace-for-organization"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     RegisterSlackWorkspaceForOrganization
   where
   toQuery = Prelude.const Prelude.mempty

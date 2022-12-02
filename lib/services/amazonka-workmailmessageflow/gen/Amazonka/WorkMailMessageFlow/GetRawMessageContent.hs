@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,22 +96,22 @@ instance Prelude.Hashable GetRawMessageContent where
 instance Prelude.NFData GetRawMessageContent where
   rnf GetRawMessageContent' {..} = Prelude.rnf messageId
 
-instance Core.ToHeaders GetRawMessageContent where
+instance Data.ToHeaders GetRawMessageContent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetRawMessageContent where
+instance Data.ToPath GetRawMessageContent where
   toPath GetRawMessageContent' {..} =
-    Prelude.mconcat ["/messages/", Core.toBS messageId]
+    Prelude.mconcat ["/messages/", Data.toBS messageId]
 
-instance Core.ToQuery GetRawMessageContent where
+instance Data.ToQuery GetRawMessageContent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRawMessageContentResponse' smart constructor.
@@ -118,7 +119,7 @@ data GetRawMessageContentResponse = GetRawMessageContentResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The raw content of the email message, in MIME format.
-    messageContent :: Core.ResponseBody
+    messageContent :: Data.ResponseBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -137,7 +138,7 @@ newGetRawMessageContentResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
   -- | 'messageContent'
-  Core.ResponseBody ->
+  Data.ResponseBody ->
   GetRawMessageContentResponse
 newGetRawMessageContentResponse
   pHttpStatus_
@@ -153,5 +154,5 @@ getRawMessageContentResponse_httpStatus :: Lens.Lens' GetRawMessageContentRespon
 getRawMessageContentResponse_httpStatus = Lens.lens (\GetRawMessageContentResponse' {httpStatus} -> httpStatus) (\s@GetRawMessageContentResponse' {} a -> s {httpStatus = a} :: GetRawMessageContentResponse)
 
 -- | The raw content of the email message, in MIME format.
-getRawMessageContentResponse_messageContent :: Lens.Lens' GetRawMessageContentResponse Core.ResponseBody
+getRawMessageContentResponse_messageContent :: Lens.Lens' GetRawMessageContentResponse Data.ResponseBody
 getRawMessageContentResponse_messageContent = Lens.lens (\GetRawMessageContentResponse' {messageContent} -> messageContent) (\s@GetRawMessageContentResponse' {} a -> s {messageContent = a} :: GetRawMessageContentResponse)

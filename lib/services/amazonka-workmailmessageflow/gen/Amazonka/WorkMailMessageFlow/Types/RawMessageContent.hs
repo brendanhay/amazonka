@@ -21,6 +21,7 @@ module Amazonka.WorkMailMessageFlow.Types.RawMessageContent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkMailMessageFlow.Types.S3Reference
 
@@ -85,9 +86,9 @@ instance Prelude.Hashable RawMessageContent where
 instance Prelude.NFData RawMessageContent where
   rnf RawMessageContent' {..} = Prelude.rnf s3Reference
 
-instance Core.ToJSON RawMessageContent where
+instance Data.ToJSON RawMessageContent where
   toJSON RawMessageContent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("s3Reference" Core..= s3Reference)]
+          [Prelude.Just ("s3Reference" Data..= s3Reference)]
       )

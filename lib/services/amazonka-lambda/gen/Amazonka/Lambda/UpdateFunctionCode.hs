@@ -105,6 +105,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,7 +131,7 @@ data UpdateFunctionCode = UpdateFunctionCode'
     -- Services SDK and Amazon Web Services CLI clients handle the encoding for
     -- you. Use only with a function defined with a .zip file archive
     -- deployment package.
-    zipFile :: Prelude.Maybe (Core.Sensitive Core.Base64),
+    zipFile :: Prelude.Maybe (Data.Sensitive Data.Base64),
     -- | Set to true to validate the request parameters and access permissions
     -- without modifying the function code.
     dryRun :: Prelude.Maybe Prelude.Bool,
@@ -269,7 +270,7 @@ updateFunctionCode_s3Key = Lens.lens (\UpdateFunctionCode' {s3Key} -> s3Key) (\s
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 updateFunctionCode_zipFile :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.ByteString)
-updateFunctionCode_zipFile = Lens.lens (\UpdateFunctionCode' {zipFile} -> zipFile) (\s@UpdateFunctionCode' {} a -> s {zipFile = a} :: UpdateFunctionCode) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
+updateFunctionCode_zipFile = Lens.lens (\UpdateFunctionCode' {zipFile} -> zipFile) (\s@UpdateFunctionCode' {} a -> s {zipFile = a} :: UpdateFunctionCode) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Data._Base64)
 
 -- | Set to true to validate the request parameters and access permissions
 -- without modifying the function code.
@@ -317,7 +318,7 @@ instance Core.AWSRequest UpdateFunctionCode where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateFunctionCode where
   hashWithSalt _salt UpdateFunctionCode' {..} =
@@ -345,33 +346,33 @@ instance Prelude.NFData UpdateFunctionCode where
       `Prelude.seq` Prelude.rnf architectures
       `Prelude.seq` Prelude.rnf functionName
 
-instance Core.ToHeaders UpdateFunctionCode where
+instance Data.ToHeaders UpdateFunctionCode where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateFunctionCode where
+instance Data.ToJSON UpdateFunctionCode where
   toJSON UpdateFunctionCode' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3Bucket" Core..=) Prelude.<$> s3Bucket,
-            ("Publish" Core..=) Prelude.<$> publish,
-            ("ImageUri" Core..=) Prelude.<$> imageUri,
-            ("S3Key" Core..=) Prelude.<$> s3Key,
-            ("ZipFile" Core..=) Prelude.<$> zipFile,
-            ("DryRun" Core..=) Prelude.<$> dryRun,
-            ("RevisionId" Core..=) Prelude.<$> revisionId,
-            ("S3ObjectVersion" Core..=)
+          [ ("S3Bucket" Data..=) Prelude.<$> s3Bucket,
+            ("Publish" Data..=) Prelude.<$> publish,
+            ("ImageUri" Data..=) Prelude.<$> imageUri,
+            ("S3Key" Data..=) Prelude.<$> s3Key,
+            ("ZipFile" Data..=) Prelude.<$> zipFile,
+            ("DryRun" Data..=) Prelude.<$> dryRun,
+            ("RevisionId" Data..=) Prelude.<$> revisionId,
+            ("S3ObjectVersion" Data..=)
               Prelude.<$> s3ObjectVersion,
-            ("Architectures" Core..=) Prelude.<$> architectures
+            ("Architectures" Data..=) Prelude.<$> architectures
           ]
       )
 
-instance Core.ToPath UpdateFunctionCode where
+instance Data.ToPath UpdateFunctionCode where
   toPath UpdateFunctionCode' {..} =
     Prelude.mconcat
       [ "/2015-03-31/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/code"
       ]
 
-instance Core.ToQuery UpdateFunctionCode where
+instance Data.ToQuery UpdateFunctionCode where
   toQuery = Prelude.const Prelude.mempty

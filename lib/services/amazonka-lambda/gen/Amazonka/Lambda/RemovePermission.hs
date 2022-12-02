@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -179,23 +180,23 @@ instance Prelude.NFData RemovePermission where
       `Prelude.seq` Prelude.rnf functionName
       `Prelude.seq` Prelude.rnf statementId
 
-instance Core.ToHeaders RemovePermission where
+instance Data.ToHeaders RemovePermission where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RemovePermission where
+instance Data.ToPath RemovePermission where
   toPath RemovePermission' {..} =
     Prelude.mconcat
       [ "/2015-03-31/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/policy/",
-        Core.toBS statementId
+        Data.toBS statementId
       ]
 
-instance Core.ToQuery RemovePermission where
+instance Data.ToQuery RemovePermission where
   toQuery RemovePermission' {..} =
     Prelude.mconcat
-      [ "RevisionId" Core.=: revisionId,
-        "Qualifier" Core.=: qualifier
+      [ "RevisionId" Data.=: revisionId,
+        "Qualifier" Data.=: qualifier
       ]
 
 -- | /See:/ 'newRemovePermissionResponse' smart constructor.

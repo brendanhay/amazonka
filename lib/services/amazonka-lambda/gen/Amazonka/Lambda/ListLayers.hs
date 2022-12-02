@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,8 +145,8 @@ instance Core.AWSRequest ListLayers where
     Response.receiveJSON
       ( \s h x ->
           ListLayersResponse'
-            Prelude.<$> (x Core..?> "Layers" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<$> (x Data..?> "Layers" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,20 +164,20 @@ instance Prelude.NFData ListLayers where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf compatibleRuntime
 
-instance Core.ToHeaders ListLayers where
+instance Data.ToHeaders ListLayers where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListLayers where
+instance Data.ToPath ListLayers where
   toPath = Prelude.const "/2018-10-31/layers"
 
-instance Core.ToQuery ListLayers where
+instance Data.ToQuery ListLayers where
   toQuery ListLayers' {..} =
     Prelude.mconcat
       [ "CompatibleArchitecture"
-          Core.=: compatibleArchitecture,
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
-        "CompatibleRuntime" Core.=: compatibleRuntime
+          Data.=: compatibleArchitecture,
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "CompatibleRuntime" Data.=: compatibleRuntime
       ]
 
 -- | /See:/ 'newListLayersResponse' smart constructor.

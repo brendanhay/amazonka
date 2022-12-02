@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,7 +88,7 @@ instance Core.AWSRequest GetCodeSigningConfig where
       ( \s h x ->
           GetCodeSigningConfigResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "CodeSigningConfig")
+            Prelude.<*> (x Data..:> "CodeSigningConfig")
       )
 
 instance Prelude.Hashable GetCodeSigningConfig where
@@ -98,17 +99,17 @@ instance Prelude.NFData GetCodeSigningConfig where
   rnf GetCodeSigningConfig' {..} =
     Prelude.rnf codeSigningConfigArn
 
-instance Core.ToHeaders GetCodeSigningConfig where
+instance Data.ToHeaders GetCodeSigningConfig where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetCodeSigningConfig where
+instance Data.ToPath GetCodeSigningConfig where
   toPath GetCodeSigningConfig' {..} =
     Prelude.mconcat
       [ "/2020-04-22/code-signing-configs/",
-        Core.toBS codeSigningConfigArn
+        Data.toBS codeSigningConfigArn
       ]
 
-instance Core.ToQuery GetCodeSigningConfig where
+instance Data.ToQuery GetCodeSigningConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCodeSigningConfigResponse' smart constructor.

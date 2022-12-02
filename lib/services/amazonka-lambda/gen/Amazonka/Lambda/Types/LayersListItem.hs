@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.LayersListItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types.LayerVersionsListItem
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,15 +73,15 @@ layersListItem_layerName = Lens.lens (\LayersListItem' {layerName} -> layerName)
 layersListItem_latestMatchingVersion :: Lens.Lens' LayersListItem (Prelude.Maybe LayerVersionsListItem)
 layersListItem_latestMatchingVersion = Lens.lens (\LayersListItem' {latestMatchingVersion} -> latestMatchingVersion) (\s@LayersListItem' {} a -> s {latestMatchingVersion = a} :: LayersListItem)
 
-instance Core.FromJSON LayersListItem where
+instance Data.FromJSON LayersListItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LayersListItem"
       ( \x ->
           LayersListItem'
-            Prelude.<$> (x Core..:? "LayerArn")
-            Prelude.<*> (x Core..:? "LayerName")
-            Prelude.<*> (x Core..:? "LatestMatchingVersion")
+            Prelude.<$> (x Data..:? "LayerArn")
+            Prelude.<*> (x Data..:? "LayerName")
+            Prelude.<*> (x Data..:? "LatestMatchingVersion")
       )
 
 instance Prelude.Hashable LayersListItem where

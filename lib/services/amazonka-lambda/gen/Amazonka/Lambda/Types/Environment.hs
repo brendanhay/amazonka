@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.Environment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A function\'s environment variable settings. You can use environment
@@ -32,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 data Environment = Environment'
   { -- | Environment variable key-value pairs. For more information, see
     -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html Using Lambda environment variables>.
-    variables :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text)))
+    variables :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text)))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -54,7 +55,7 @@ newEnvironment =
 -- | Environment variable key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html Using Lambda environment variables>.
 environment_variables :: Lens.Lens' Environment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-environment_variables = Lens.lens (\Environment' {variables} -> variables) (\s@Environment' {} a -> s {variables = a} :: Environment) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+environment_variables = Lens.lens (\Environment' {variables} -> variables) (\s@Environment' {} a -> s {variables = a} :: Environment) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 instance Prelude.Hashable Environment where
   hashWithSalt _salt Environment' {..} =
@@ -63,9 +64,9 @@ instance Prelude.Hashable Environment where
 instance Prelude.NFData Environment where
   rnf Environment' {..} = Prelude.rnf variables
 
-instance Core.ToJSON Environment where
+instance Data.ToJSON Environment where
   toJSON Environment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Variables" Core..=) Prelude.<$> variables]
+          [("Variables" Data..=) Prelude.<$> variables]
       )

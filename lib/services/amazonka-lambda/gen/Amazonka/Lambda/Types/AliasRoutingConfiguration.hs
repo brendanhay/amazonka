@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.AliasRoutingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The
@@ -55,14 +56,14 @@ newAliasRoutingConfiguration =
 aliasRoutingConfiguration_additionalVersionWeights :: Lens.Lens' AliasRoutingConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
 aliasRoutingConfiguration_additionalVersionWeights = Lens.lens (\AliasRoutingConfiguration' {additionalVersionWeights} -> additionalVersionWeights) (\s@AliasRoutingConfiguration' {} a -> s {additionalVersionWeights = a} :: AliasRoutingConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AliasRoutingConfiguration where
+instance Data.FromJSON AliasRoutingConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AliasRoutingConfiguration"
       ( \x ->
           AliasRoutingConfiguration'
-            Prelude.<$> ( x Core..:? "AdditionalVersionWeights"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "AdditionalVersionWeights"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -75,11 +76,11 @@ instance Prelude.NFData AliasRoutingConfiguration where
   rnf AliasRoutingConfiguration' {..} =
     Prelude.rnf additionalVersionWeights
 
-instance Core.ToJSON AliasRoutingConfiguration where
+instance Data.ToJSON AliasRoutingConfiguration where
   toJSON AliasRoutingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AdditionalVersionWeights" Core..=)
+          [ ("AdditionalVersionWeights" Data..=)
               Prelude.<$> additionalVersionWeights
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.LayerVersionContentOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a version of an
@@ -90,17 +91,17 @@ layerVersionContentOutput_signingJobArn = Lens.lens (\LayerVersionContentOutput'
 layerVersionContentOutput_codeSize :: Lens.Lens' LayerVersionContentOutput (Prelude.Maybe Prelude.Integer)
 layerVersionContentOutput_codeSize = Lens.lens (\LayerVersionContentOutput' {codeSize} -> codeSize) (\s@LayerVersionContentOutput' {} a -> s {codeSize = a} :: LayerVersionContentOutput)
 
-instance Core.FromJSON LayerVersionContentOutput where
+instance Data.FromJSON LayerVersionContentOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LayerVersionContentOutput"
       ( \x ->
           LayerVersionContentOutput'
-            Prelude.<$> (x Core..:? "CodeSha256")
-            Prelude.<*> (x Core..:? "SigningProfileVersionArn")
-            Prelude.<*> (x Core..:? "Location")
-            Prelude.<*> (x Core..:? "SigningJobArn")
-            Prelude.<*> (x Core..:? "CodeSize")
+            Prelude.<$> (x Data..:? "CodeSha256")
+            Prelude.<*> (x Data..:? "SigningProfileVersionArn")
+            Prelude.<*> (x Data..:? "Location")
+            Prelude.<*> (x Data..:? "SigningJobArn")
+            Prelude.<*> (x Data..:? "CodeSize")
       )
 
 instance Prelude.Hashable LayerVersionContentOutput where

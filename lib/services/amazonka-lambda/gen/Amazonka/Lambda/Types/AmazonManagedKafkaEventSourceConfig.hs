@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.AmazonManagedKafkaEventSourceConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specific configuration settings for an Amazon Managed Streaming for
@@ -67,15 +68,15 @@ amazonManagedKafkaEventSourceConfig_consumerGroupId :: Lens.Lens' AmazonManagedK
 amazonManagedKafkaEventSourceConfig_consumerGroupId = Lens.lens (\AmazonManagedKafkaEventSourceConfig' {consumerGroupId} -> consumerGroupId) (\s@AmazonManagedKafkaEventSourceConfig' {} a -> s {consumerGroupId = a} :: AmazonManagedKafkaEventSourceConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AmazonManagedKafkaEventSourceConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AmazonManagedKafkaEventSourceConfig"
       ( \x ->
           AmazonManagedKafkaEventSourceConfig'
-            Prelude.<$> (x Core..:? "ConsumerGroupId")
+            Prelude.<$> (x Data..:? "ConsumerGroupId")
       )
 
 instance
@@ -95,13 +96,13 @@ instance
     Prelude.rnf consumerGroupId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AmazonManagedKafkaEventSourceConfig
   where
   toJSON AmazonManagedKafkaEventSourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConsumerGroupId" Core..=)
+          [ ("ConsumerGroupId" Data..=)
               Prelude.<$> consumerGroupId
           ]
       )

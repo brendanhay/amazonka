@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -160,8 +161,8 @@ instance Core.AWSRequest ListLayerVersions where
     Response.receiveJSON
       ( \s h x ->
           ListLayerVersionsResponse'
-            Prelude.<$> (x Core..?> "NextMarker")
-            Prelude.<*> (x Core..?> "LayerVersions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextMarker")
+            Prelude.<*> (x Data..?> "LayerVersions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,25 +182,25 @@ instance Prelude.NFData ListLayerVersions where
       `Prelude.seq` Prelude.rnf compatibleRuntime
       `Prelude.seq` Prelude.rnf layerName
 
-instance Core.ToHeaders ListLayerVersions where
+instance Data.ToHeaders ListLayerVersions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListLayerVersions where
+instance Data.ToPath ListLayerVersions where
   toPath ListLayerVersions' {..} =
     Prelude.mconcat
       [ "/2018-10-31/layers/",
-        Core.toBS layerName,
+        Data.toBS layerName,
         "/versions"
       ]
 
-instance Core.ToQuery ListLayerVersions where
+instance Data.ToQuery ListLayerVersions where
   toQuery ListLayerVersions' {..} =
     Prelude.mconcat
       [ "CompatibleArchitecture"
-          Core.=: compatibleArchitecture,
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
-        "CompatibleRuntime" Core.=: compatibleRuntime
+          Data.=: compatibleArchitecture,
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "CompatibleRuntime" Data.=: compatibleRuntime
       ]
 
 -- | /See:/ 'newListLayerVersionsResponse' smart constructor.

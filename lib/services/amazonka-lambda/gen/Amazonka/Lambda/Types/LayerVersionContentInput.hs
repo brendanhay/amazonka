@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.LayerVersionContentInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A ZIP archive that contains the contents of an
@@ -36,7 +37,7 @@ data LayerVersionContentInput = LayerVersionContentInput'
     s3Key :: Prelude.Maybe Prelude.Text,
     -- | The base64-encoded contents of the layer archive. Amazon Web Services
     -- SDK and Amazon Web Services CLI clients handle the encoding for you.
-    zipFile :: Prelude.Maybe (Core.Sensitive Core.Base64),
+    zipFile :: Prelude.Maybe (Data.Sensitive Data.Base64),
     -- | For versioned objects, the version of the layer archive object to use.
     s3ObjectVersion :: Prelude.Maybe Prelude.Text
   }
@@ -88,7 +89,7 @@ layerVersionContentInput_s3Key = Lens.lens (\LayerVersionContentInput' {s3Key} -
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 layerVersionContentInput_zipFile :: Lens.Lens' LayerVersionContentInput (Prelude.Maybe Prelude.ByteString)
-layerVersionContentInput_zipFile = Lens.lens (\LayerVersionContentInput' {zipFile} -> zipFile) (\s@LayerVersionContentInput' {} a -> s {zipFile = a} :: LayerVersionContentInput) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
+layerVersionContentInput_zipFile = Lens.lens (\LayerVersionContentInput' {zipFile} -> zipFile) (\s@LayerVersionContentInput' {} a -> s {zipFile = a} :: LayerVersionContentInput) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Data._Base64)
 
 -- | For versioned objects, the version of the layer archive object to use.
 layerVersionContentInput_s3ObjectVersion :: Lens.Lens' LayerVersionContentInput (Prelude.Maybe Prelude.Text)
@@ -108,14 +109,14 @@ instance Prelude.NFData LayerVersionContentInput where
       `Prelude.seq` Prelude.rnf zipFile
       `Prelude.seq` Prelude.rnf s3ObjectVersion
 
-instance Core.ToJSON LayerVersionContentInput where
+instance Data.ToJSON LayerVersionContentInput where
   toJSON LayerVersionContentInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3Bucket" Core..=) Prelude.<$> s3Bucket,
-            ("S3Key" Core..=) Prelude.<$> s3Key,
-            ("ZipFile" Core..=) Prelude.<$> zipFile,
-            ("S3ObjectVersion" Core..=)
+          [ ("S3Bucket" Data..=) Prelude.<$> s3Bucket,
+            ("S3Key" Data..=) Prelude.<$> s3Key,
+            ("ZipFile" Data..=) Prelude.<$> zipFile,
+            ("S3ObjectVersion" Data..=)
               Prelude.<$> s3ObjectVersion
           ]
       )

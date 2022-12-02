@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,7 +91,7 @@ instance Core.AWSRequest GetLayerVersionByArn where
     Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GetLayerVersionByArn where
   hashWithSalt _salt GetLayerVersionByArn' {..} =
@@ -99,13 +100,13 @@ instance Prelude.Hashable GetLayerVersionByArn where
 instance Prelude.NFData GetLayerVersionByArn where
   rnf GetLayerVersionByArn' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders GetLayerVersionByArn where
+instance Data.ToHeaders GetLayerVersionByArn where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetLayerVersionByArn where
+instance Data.ToPath GetLayerVersionByArn where
   toPath = Prelude.const "/2018-10-31/layers"
 
-instance Core.ToQuery GetLayerVersionByArn where
+instance Data.ToQuery GetLayerVersionByArn where
   toQuery GetLayerVersionByArn' {..} =
     Prelude.mconcat
-      ["Arn" Core.=: arn, "find=LayerVersion"]
+      ["Arn" Data.=: arn, "find=LayerVersion"]

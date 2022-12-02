@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.FunctionEventInvokeConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types.DestinationConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -47,7 +48,7 @@ data FunctionEventInvokeConfig = FunctionEventInvokeConfig'
     -- | The maximum number of times to retry when the function returns an error.
     maximumRetryAttempts :: Prelude.Maybe Prelude.Natural,
     -- | The date and time that the configuration was last updated.
-    lastModified :: Prelude.Maybe Core.POSIX
+    lastModified :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -122,19 +123,19 @@ functionEventInvokeConfig_maximumRetryAttempts = Lens.lens (\FunctionEventInvoke
 
 -- | The date and time that the configuration was last updated.
 functionEventInvokeConfig_lastModified :: Lens.Lens' FunctionEventInvokeConfig (Prelude.Maybe Prelude.UTCTime)
-functionEventInvokeConfig_lastModified = Lens.lens (\FunctionEventInvokeConfig' {lastModified} -> lastModified) (\s@FunctionEventInvokeConfig' {} a -> s {lastModified = a} :: FunctionEventInvokeConfig) Prelude.. Lens.mapping Core._Time
+functionEventInvokeConfig_lastModified = Lens.lens (\FunctionEventInvokeConfig' {lastModified} -> lastModified) (\s@FunctionEventInvokeConfig' {} a -> s {lastModified = a} :: FunctionEventInvokeConfig) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON FunctionEventInvokeConfig where
+instance Data.FromJSON FunctionEventInvokeConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FunctionEventInvokeConfig"
       ( \x ->
           FunctionEventInvokeConfig'
-            Prelude.<$> (x Core..:? "FunctionArn")
-            Prelude.<*> (x Core..:? "MaximumEventAgeInSeconds")
-            Prelude.<*> (x Core..:? "DestinationConfig")
-            Prelude.<*> (x Core..:? "MaximumRetryAttempts")
-            Prelude.<*> (x Core..:? "LastModified")
+            Prelude.<$> (x Data..:? "FunctionArn")
+            Prelude.<*> (x Data..:? "MaximumEventAgeInSeconds")
+            Prelude.<*> (x Data..:? "DestinationConfig")
+            Prelude.<*> (x Data..:? "MaximumRetryAttempts")
+            Prelude.<*> (x Data..:? "LastModified")
       )
 
 instance Prelude.Hashable FunctionEventInvokeConfig where

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -220,10 +221,10 @@ instance Core.AWSRequest ListEventSourceMappings where
     Response.receiveJSON
       ( \s h x ->
           ListEventSourceMappingsResponse'
-            Prelude.<$> ( x Core..?> "EventSourceMappings"
+            Prelude.<$> ( x Data..?> "EventSourceMappings"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -241,20 +242,20 @@ instance Prelude.NFData ListEventSourceMappings where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf eventSourceArn
 
-instance Core.ToHeaders ListEventSourceMappings where
+instance Data.ToHeaders ListEventSourceMappings where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListEventSourceMappings where
+instance Data.ToPath ListEventSourceMappings where
   toPath =
     Prelude.const "/2015-03-31/event-source-mappings/"
 
-instance Core.ToQuery ListEventSourceMappings where
+instance Data.ToQuery ListEventSourceMappings where
   toQuery ListEventSourceMappings' {..} =
     Prelude.mconcat
-      [ "Marker" Core.=: marker,
-        "FunctionName" Core.=: functionName,
-        "MaxItems" Core.=: maxItems,
-        "EventSourceArn" Core.=: eventSourceArn
+      [ "Marker" Data.=: marker,
+        "FunctionName" Data.=: functionName,
+        "MaxItems" Data.=: maxItems,
+        "EventSourceArn" Data.=: eventSourceArn
       ]
 
 -- | /See:/ 'newListEventSourceMappingsResponse' smart constructor.

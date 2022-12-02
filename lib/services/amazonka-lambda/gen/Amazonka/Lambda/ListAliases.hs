@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -179,8 +180,8 @@ instance Core.AWSRequest ListAliases where
     Response.receiveJSON
       ( \s h x ->
           ListAliasesResponse'
-            Prelude.<$> (x Core..?> "Aliases" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<$> (x Data..?> "Aliases" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -198,23 +199,23 @@ instance Prelude.NFData ListAliases where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf functionName
 
-instance Core.ToHeaders ListAliases where
+instance Data.ToHeaders ListAliases where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListAliases where
+instance Data.ToPath ListAliases where
   toPath ListAliases' {..} =
     Prelude.mconcat
       [ "/2015-03-31/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/aliases"
       ]
 
-instance Core.ToQuery ListAliases where
+instance Data.ToQuery ListAliases where
   toQuery ListAliases' {..} =
     Prelude.mconcat
-      [ "Marker" Core.=: marker,
-        "FunctionVersion" Core.=: functionVersion,
-        "MaxItems" Core.=: maxItems
+      [ "Marker" Data.=: marker,
+        "FunctionVersion" Data.=: functionVersion,
+        "MaxItems" Data.=: maxItems
       ]
 
 -- | /See:/ 'newListAliasesResponse' smart constructor.

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -186,7 +187,7 @@ instance Core.AWSRequest UpdateAlias where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateAlias where
   hashWithSalt _salt UpdateAlias' {..} =
@@ -206,29 +207,29 @@ instance Prelude.NFData UpdateAlias where
       `Prelude.seq` Prelude.rnf functionName
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateAlias where
+instance Data.ToHeaders UpdateAlias where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateAlias where
+instance Data.ToJSON UpdateAlias where
   toJSON UpdateAlias' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoutingConfig" Core..=) Prelude.<$> routingConfig,
-            ("FunctionVersion" Core..=)
+          [ ("RoutingConfig" Data..=) Prelude.<$> routingConfig,
+            ("FunctionVersion" Data..=)
               Prelude.<$> functionVersion,
-            ("Description" Core..=) Prelude.<$> description,
-            ("RevisionId" Core..=) Prelude.<$> revisionId
+            ("Description" Data..=) Prelude.<$> description,
+            ("RevisionId" Data..=) Prelude.<$> revisionId
           ]
       )
 
-instance Core.ToPath UpdateAlias where
+instance Data.ToPath UpdateAlias where
   toPath UpdateAlias' {..} =
     Prelude.mconcat
       [ "/2015-03-31/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/aliases/",
-        Core.toBS name
+        Data.toBS name
       ]
 
-instance Core.ToQuery UpdateAlias where
+instance Data.ToQuery UpdateAlias where
   toQuery = Prelude.const Prelude.mempty

@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.SourceAccessConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types.SourceAccessType
 import qualified Amazonka.Prelude as Prelude
 
@@ -186,13 +187,13 @@ sourceAccessConfiguration_type = Lens.lens (\SourceAccessConfiguration' {type'} 
 sourceAccessConfiguration_uri :: Lens.Lens' SourceAccessConfiguration (Prelude.Maybe Prelude.Text)
 sourceAccessConfiguration_uri = Lens.lens (\SourceAccessConfiguration' {uri} -> uri) (\s@SourceAccessConfiguration' {} a -> s {uri = a} :: SourceAccessConfiguration)
 
-instance Core.FromJSON SourceAccessConfiguration where
+instance Data.FromJSON SourceAccessConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceAccessConfiguration"
       ( \x ->
           SourceAccessConfiguration'
-            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "URI")
+            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..:? "URI")
       )
 
 instance Prelude.Hashable SourceAccessConfiguration where
@@ -204,11 +205,11 @@ instance Prelude.NFData SourceAccessConfiguration where
   rnf SourceAccessConfiguration' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf uri
 
-instance Core.ToJSON SourceAccessConfiguration where
+instance Data.ToJSON SourceAccessConfiguration where
   toJSON SourceAccessConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("URI" Core..=) Prelude.<$> uri
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("URI" Data..=) Prelude.<$> uri
           ]
       )

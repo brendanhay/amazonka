@@ -135,6 +135,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -240,7 +241,7 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
     tumblingWindowInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | With @StartingPosition@ set to @AT_TIMESTAMP@, the time from which to
     -- start reading.
-    startingPositionTimestamp :: Prelude.Maybe Core.POSIX,
+    startingPositionTimestamp :: Prelude.Maybe Data.POSIX,
     -- | An array of authentication protocols or VPC components required to
     -- secure your event source.
     sourceAccessConfigurations :: Prelude.Maybe [SourceAccessConfiguration],
@@ -557,7 +558,7 @@ createEventSourceMapping_tumblingWindowInSeconds = Lens.lens (\CreateEventSource
 -- | With @StartingPosition@ set to @AT_TIMESTAMP@, the time from which to
 -- start reading.
 createEventSourceMapping_startingPositionTimestamp :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe Prelude.UTCTime)
-createEventSourceMapping_startingPositionTimestamp = Lens.lens (\CreateEventSourceMapping' {startingPositionTimestamp} -> startingPositionTimestamp) (\s@CreateEventSourceMapping' {} a -> s {startingPositionTimestamp = a} :: CreateEventSourceMapping) Prelude.. Lens.mapping Core._Time
+createEventSourceMapping_startingPositionTimestamp = Lens.lens (\CreateEventSourceMapping' {startingPositionTimestamp} -> startingPositionTimestamp) (\s@CreateEventSourceMapping' {} a -> s {startingPositionTimestamp = a} :: CreateEventSourceMapping) Prelude.. Lens.mapping Data._Time
 
 -- | An array of authentication protocols or VPC components required to
 -- secure your event source.
@@ -591,7 +592,7 @@ instance Core.AWSRequest CreateEventSourceMapping where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateEventSourceMapping where
   hashWithSalt _salt CreateEventSourceMapping' {..} =
@@ -646,56 +647,56 @@ instance Prelude.NFData CreateEventSourceMapping where
         sourceAccessConfigurations
       `Prelude.seq` Prelude.rnf functionName
 
-instance Core.ToHeaders CreateEventSourceMapping where
+instance Data.ToHeaders CreateEventSourceMapping where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateEventSourceMapping where
+instance Data.ToJSON CreateEventSourceMapping where
   toJSON CreateEventSourceMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaximumRecordAgeInSeconds" Core..=)
+          [ ("MaximumRecordAgeInSeconds" Data..=)
               Prelude.<$> maximumRecordAgeInSeconds,
-            ("StartingPosition" Core..=)
+            ("StartingPosition" Data..=)
               Prelude.<$> startingPosition,
-            ("FunctionResponseTypes" Core..=)
+            ("FunctionResponseTypes" Data..=)
               Prelude.<$> functionResponseTypes,
-            ("AmazonManagedKafkaEventSourceConfig" Core..=)
+            ("AmazonManagedKafkaEventSourceConfig" Data..=)
               Prelude.<$> amazonManagedKafkaEventSourceConfig,
-            ("ParallelizationFactor" Core..=)
+            ("ParallelizationFactor" Data..=)
               Prelude.<$> parallelizationFactor,
-            ("MaximumBatchingWindowInSeconds" Core..=)
+            ("MaximumBatchingWindowInSeconds" Data..=)
               Prelude.<$> maximumBatchingWindowInSeconds,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("FilterCriteria" Core..=)
+            ("Enabled" Data..=) Prelude.<$> enabled,
+            ("FilterCriteria" Data..=)
               Prelude.<$> filterCriteria,
-            ("SelfManagedEventSource" Core..=)
+            ("SelfManagedEventSource" Data..=)
               Prelude.<$> selfManagedEventSource,
-            ("SelfManagedKafkaEventSourceConfig" Core..=)
+            ("SelfManagedKafkaEventSourceConfig" Data..=)
               Prelude.<$> selfManagedKafkaEventSourceConfig,
-            ("DestinationConfig" Core..=)
+            ("DestinationConfig" Data..=)
               Prelude.<$> destinationConfig,
-            ("EventSourceArn" Core..=)
+            ("EventSourceArn" Data..=)
               Prelude.<$> eventSourceArn,
-            ("MaximumRetryAttempts" Core..=)
+            ("MaximumRetryAttempts" Data..=)
               Prelude.<$> maximumRetryAttempts,
-            ("BatchSize" Core..=) Prelude.<$> batchSize,
-            ("Topics" Core..=) Prelude.<$> topics,
-            ("Queues" Core..=) Prelude.<$> queues,
-            ("BisectBatchOnFunctionError" Core..=)
+            ("BatchSize" Data..=) Prelude.<$> batchSize,
+            ("Topics" Data..=) Prelude.<$> topics,
+            ("Queues" Data..=) Prelude.<$> queues,
+            ("BisectBatchOnFunctionError" Data..=)
               Prelude.<$> bisectBatchOnFunctionError,
-            ("TumblingWindowInSeconds" Core..=)
+            ("TumblingWindowInSeconds" Data..=)
               Prelude.<$> tumblingWindowInSeconds,
-            ("StartingPositionTimestamp" Core..=)
+            ("StartingPositionTimestamp" Data..=)
               Prelude.<$> startingPositionTimestamp,
-            ("SourceAccessConfigurations" Core..=)
+            ("SourceAccessConfigurations" Data..=)
               Prelude.<$> sourceAccessConfigurations,
-            Prelude.Just ("FunctionName" Core..= functionName)
+            Prelude.Just ("FunctionName" Data..= functionName)
           ]
       )
 
-instance Core.ToPath CreateEventSourceMapping where
+instance Data.ToPath CreateEventSourceMapping where
   toPath =
     Prelude.const "/2015-03-31/event-source-mappings/"
 
-instance Core.ToQuery CreateEventSourceMapping where
+instance Data.ToQuery CreateEventSourceMapping where
   toQuery = Prelude.const Prelude.mempty

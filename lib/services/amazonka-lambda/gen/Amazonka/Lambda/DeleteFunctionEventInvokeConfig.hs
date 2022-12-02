@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -160,22 +161,22 @@ instance
       `Prelude.seq` Prelude.rnf functionName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteFunctionEventInvokeConfig
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteFunctionEventInvokeConfig where
+instance Data.ToPath DeleteFunctionEventInvokeConfig where
   toPath DeleteFunctionEventInvokeConfig' {..} =
     Prelude.mconcat
       [ "/2019-09-25/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/event-invoke-config"
       ]
 
-instance Core.ToQuery DeleteFunctionEventInvokeConfig where
+instance Data.ToQuery DeleteFunctionEventInvokeConfig where
   toQuery DeleteFunctionEventInvokeConfig' {..} =
-    Prelude.mconcat ["Qualifier" Core.=: qualifier]
+    Prelude.mconcat ["Qualifier" Data.=: qualifier]
 
 -- | /See:/ 'newDeleteFunctionEventInvokeConfigResponse' smart constructor.
 data DeleteFunctionEventInvokeConfigResponse = DeleteFunctionEventInvokeConfigResponse'

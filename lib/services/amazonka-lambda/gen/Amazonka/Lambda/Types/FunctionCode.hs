@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.FunctionCode where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The code for the Lambda function. You can specify either an object in
@@ -41,7 +42,7 @@ data FunctionCode = FunctionCode'
     -- | The base64-encoded contents of the deployment package. Amazon Web
     -- Services SDK and Amazon Web Services CLI clients handle the encoding for
     -- you.
-    zipFile :: Prelude.Maybe (Core.Sensitive Core.Base64),
+    zipFile :: Prelude.Maybe (Data.Sensitive Data.Base64),
     -- | For versioned objects, the version of the deployment package object to
     -- use.
     s3ObjectVersion :: Prelude.Maybe Prelude.Text
@@ -109,7 +110,7 @@ functionCode_s3Key = Lens.lens (\FunctionCode' {s3Key} -> s3Key) (\s@FunctionCod
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 functionCode_zipFile :: Lens.Lens' FunctionCode (Prelude.Maybe Prelude.ByteString)
-functionCode_zipFile = Lens.lens (\FunctionCode' {zipFile} -> zipFile) (\s@FunctionCode' {} a -> s {zipFile = a} :: FunctionCode) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
+functionCode_zipFile = Lens.lens (\FunctionCode' {zipFile} -> zipFile) (\s@FunctionCode' {} a -> s {zipFile = a} :: FunctionCode) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Data._Base64)
 
 -- | For versioned objects, the version of the deployment package object to
 -- use.
@@ -132,15 +133,15 @@ instance Prelude.NFData FunctionCode where
       `Prelude.seq` Prelude.rnf zipFile
       `Prelude.seq` Prelude.rnf s3ObjectVersion
 
-instance Core.ToJSON FunctionCode where
+instance Data.ToJSON FunctionCode where
   toJSON FunctionCode' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3Bucket" Core..=) Prelude.<$> s3Bucket,
-            ("ImageUri" Core..=) Prelude.<$> imageUri,
-            ("S3Key" Core..=) Prelude.<$> s3Key,
-            ("ZipFile" Core..=) Prelude.<$> zipFile,
-            ("S3ObjectVersion" Core..=)
+          [ ("S3Bucket" Data..=) Prelude.<$> s3Bucket,
+            ("ImageUri" Data..=) Prelude.<$> imageUri,
+            ("S3Key" Data..=) Prelude.<$> s3Key,
+            ("ZipFile" Data..=) Prelude.<$> zipFile,
+            ("S3ObjectVersion" Data..=)
               Prelude.<$> s3ObjectVersion
           ]
       )

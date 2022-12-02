@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.EnvironmentResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types.EnvironmentError
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,7 +34,7 @@ data EnvironmentResponse = EnvironmentResponse'
   { -- | Error messages for environment variables that couldn\'t be applied.
     error :: Prelude.Maybe EnvironmentError,
     -- | Environment variable key-value pairs. Omitted from CloudTrail logs.
-    variables :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text)))
+    variables :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text)))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -62,16 +63,16 @@ environmentResponse_error = Lens.lens (\EnvironmentResponse' {error} -> error) (
 
 -- | Environment variable key-value pairs. Omitted from CloudTrail logs.
 environmentResponse_variables :: Lens.Lens' EnvironmentResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-environmentResponse_variables = Lens.lens (\EnvironmentResponse' {variables} -> variables) (\s@EnvironmentResponse' {} a -> s {variables = a} :: EnvironmentResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+environmentResponse_variables = Lens.lens (\EnvironmentResponse' {variables} -> variables) (\s@EnvironmentResponse' {} a -> s {variables = a} :: EnvironmentResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
-instance Core.FromJSON EnvironmentResponse where
+instance Data.FromJSON EnvironmentResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnvironmentResponse"
       ( \x ->
           EnvironmentResponse'
-            Prelude.<$> (x Core..:? "Error")
-            Prelude.<*> (x Core..:? "Variables" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Error")
+            Prelude.<*> (x Data..:? "Variables" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EnvironmentResponse where

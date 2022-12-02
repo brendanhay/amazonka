@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.GetLayerVersionResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types.Architecture
 import Amazonka.Lambda.Types.LayerVersionContentOutput
 import Amazonka.Lambda.Types.Runtime
@@ -135,25 +136,25 @@ getLayerVersionResponse_content = Lens.lens (\GetLayerVersionResponse' {content}
 getLayerVersionResponse_version :: Lens.Lens' GetLayerVersionResponse (Prelude.Maybe Prelude.Integer)
 getLayerVersionResponse_version = Lens.lens (\GetLayerVersionResponse' {version} -> version) (\s@GetLayerVersionResponse' {} a -> s {version = a} :: GetLayerVersionResponse)
 
-instance Core.FromJSON GetLayerVersionResponse where
+instance Data.FromJSON GetLayerVersionResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GetLayerVersionResponse"
       ( \x ->
           GetLayerVersionResponse'
-            Prelude.<$> ( x Core..:? "CompatibleArchitectures"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "CompatibleArchitectures"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LayerArn")
-            Prelude.<*> (x Core..:? "LayerVersionArn")
-            Prelude.<*> (x Core..:? "LicenseInfo")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> ( x Core..:? "CompatibleRuntimes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "LayerArn")
+            Prelude.<*> (x Data..:? "LayerVersionArn")
+            Prelude.<*> (x Data..:? "LicenseInfo")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> ( x Data..:? "CompatibleRuntimes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CreatedDate")
-            Prelude.<*> (x Core..:? "Content")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<*> (x Data..:? "CreatedDate")
+            Prelude.<*> (x Data..:? "Content")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable GetLayerVersionResponse where

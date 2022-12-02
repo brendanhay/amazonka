@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.CodeSigningPolicies where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types.CodeSigningPolicy
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,13 +72,13 @@ newCodeSigningPolicies =
 codeSigningPolicies_untrustedArtifactOnDeployment :: Lens.Lens' CodeSigningPolicies (Prelude.Maybe CodeSigningPolicy)
 codeSigningPolicies_untrustedArtifactOnDeployment = Lens.lens (\CodeSigningPolicies' {untrustedArtifactOnDeployment} -> untrustedArtifactOnDeployment) (\s@CodeSigningPolicies' {} a -> s {untrustedArtifactOnDeployment = a} :: CodeSigningPolicies)
 
-instance Core.FromJSON CodeSigningPolicies where
+instance Data.FromJSON CodeSigningPolicies where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CodeSigningPolicies"
       ( \x ->
           CodeSigningPolicies'
-            Prelude.<$> (x Core..:? "UntrustedArtifactOnDeployment")
+            Prelude.<$> (x Data..:? "UntrustedArtifactOnDeployment")
       )
 
 instance Prelude.Hashable CodeSigningPolicies where
@@ -89,11 +90,11 @@ instance Prelude.NFData CodeSigningPolicies where
   rnf CodeSigningPolicies' {..} =
     Prelude.rnf untrustedArtifactOnDeployment
 
-instance Core.ToJSON CodeSigningPolicies where
+instance Data.ToJSON CodeSigningPolicies where
   toJSON CodeSigningPolicies' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UntrustedArtifactOnDeployment" Core..=)
+          [ ("UntrustedArtifactOnDeployment" Data..=)
               Prelude.<$> untrustedArtifactOnDeployment
           ]
       )

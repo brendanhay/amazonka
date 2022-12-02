@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -146,16 +147,16 @@ instance
       ( \s h x ->
           GetProvisionedConcurrencyConfigResponse'
             Prelude.<$> ( x
-                            Core..?> "AvailableProvisionedConcurrentExecutions"
+                            Data..?> "AvailableProvisionedConcurrentExecutions"
                         )
-            Prelude.<*> (x Core..?> "StatusReason")
-            Prelude.<*> (x Core..?> "Status")
+            Prelude.<*> (x Data..?> "StatusReason")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> ( x
-                            Core..?> "RequestedProvisionedConcurrentExecutions"
+                            Data..?> "RequestedProvisionedConcurrentExecutions"
                         )
-            Prelude.<*> (x Core..?> "LastModified")
+            Prelude.<*> (x Data..?> "LastModified")
             Prelude.<*> ( x
-                            Core..?> "AllocatedProvisionedConcurrentExecutions"
+                            Data..?> "AllocatedProvisionedConcurrentExecutions"
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -179,22 +180,22 @@ instance
       `Prelude.seq` Prelude.rnf qualifier
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetProvisionedConcurrencyConfig
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetProvisionedConcurrencyConfig where
+instance Data.ToPath GetProvisionedConcurrencyConfig where
   toPath GetProvisionedConcurrencyConfig' {..} =
     Prelude.mconcat
       [ "/2019-09-30/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/provisioned-concurrency"
       ]
 
-instance Core.ToQuery GetProvisionedConcurrencyConfig where
+instance Data.ToQuery GetProvisionedConcurrencyConfig where
   toQuery GetProvisionedConcurrencyConfig' {..} =
-    Prelude.mconcat ["Qualifier" Core.=: qualifier]
+    Prelude.mconcat ["Qualifier" Data.=: qualifier]
 
 -- | /See:/ 'newGetProvisionedConcurrencyConfigResponse' smart constructor.
 data GetProvisionedConcurrencyConfigResponse = GetProvisionedConcurrencyConfigResponse'

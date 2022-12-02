@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.LayerVersionsListItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types.Architecture
 import Amazonka.Lambda.Types.Runtime
 import qualified Amazonka.Prelude as Prelude
@@ -116,23 +117,23 @@ layerVersionsListItem_createdDate = Lens.lens (\LayerVersionsListItem' {createdD
 layerVersionsListItem_version :: Lens.Lens' LayerVersionsListItem (Prelude.Maybe Prelude.Integer)
 layerVersionsListItem_version = Lens.lens (\LayerVersionsListItem' {version} -> version) (\s@LayerVersionsListItem' {} a -> s {version = a} :: LayerVersionsListItem)
 
-instance Core.FromJSON LayerVersionsListItem where
+instance Data.FromJSON LayerVersionsListItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LayerVersionsListItem"
       ( \x ->
           LayerVersionsListItem'
-            Prelude.<$> ( x Core..:? "CompatibleArchitectures"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "CompatibleArchitectures"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LayerVersionArn")
-            Prelude.<*> (x Core..:? "LicenseInfo")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> ( x Core..:? "CompatibleRuntimes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "LayerVersionArn")
+            Prelude.<*> (x Data..:? "LicenseInfo")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> ( x Data..:? "CompatibleRuntimes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CreatedDate")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<*> (x Data..:? "CreatedDate")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable LayerVersionsListItem where

@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -226,7 +227,7 @@ instance Core.AWSRequest PutFunctionEventInvokeConfig where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance
   Prelude.Hashable
@@ -248,30 +249,30 @@ instance Prelude.NFData PutFunctionEventInvokeConfig where
       `Prelude.seq` Prelude.rnf qualifier
       `Prelude.seq` Prelude.rnf functionName
 
-instance Core.ToHeaders PutFunctionEventInvokeConfig where
+instance Data.ToHeaders PutFunctionEventInvokeConfig where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON PutFunctionEventInvokeConfig where
+instance Data.ToJSON PutFunctionEventInvokeConfig where
   toJSON PutFunctionEventInvokeConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaximumEventAgeInSeconds" Core..=)
+          [ ("MaximumEventAgeInSeconds" Data..=)
               Prelude.<$> maximumEventAgeInSeconds,
-            ("DestinationConfig" Core..=)
+            ("DestinationConfig" Data..=)
               Prelude.<$> destinationConfig,
-            ("MaximumRetryAttempts" Core..=)
+            ("MaximumRetryAttempts" Data..=)
               Prelude.<$> maximumRetryAttempts
           ]
       )
 
-instance Core.ToPath PutFunctionEventInvokeConfig where
+instance Data.ToPath PutFunctionEventInvokeConfig where
   toPath PutFunctionEventInvokeConfig' {..} =
     Prelude.mconcat
       [ "/2019-09-25/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/event-invoke-config"
       ]
 
-instance Core.ToQuery PutFunctionEventInvokeConfig where
+instance Data.ToQuery PutFunctionEventInvokeConfig where
   toQuery PutFunctionEventInvokeConfig' {..} =
-    Prelude.mconcat ["Qualifier" Core.=: qualifier]
+    Prelude.mconcat ["Qualifier" Data.=: qualifier]

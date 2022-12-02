@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -70,8 +71,8 @@ instance Core.AWSRequest GetAccountSettings where
     Response.receiveJSON
       ( \s h x ->
           GetAccountSettingsResponse'
-            Prelude.<$> (x Core..?> "AccountLimit")
-            Prelude.<*> (x Core..?> "AccountUsage")
+            Prelude.<$> (x Data..?> "AccountLimit")
+            Prelude.<*> (x Data..?> "AccountUsage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -82,14 +83,14 @@ instance Prelude.Hashable GetAccountSettings where
 instance Prelude.NFData GetAccountSettings where
   rnf _ = ()
 
-instance Core.ToHeaders GetAccountSettings where
+instance Data.ToHeaders GetAccountSettings where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetAccountSettings where
+instance Data.ToPath GetAccountSettings where
   toPath =
     Prelude.const "/2016-08-19/account-settings/"
 
-instance Core.ToQuery GetAccountSettings where
+instance Data.ToQuery GetAccountSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAccountSettingsResponse' smart constructor.

@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -194,8 +195,8 @@ instance Core.AWSRequest AddLayerVersionPermission where
     Response.receiveJSON
       ( \s h x ->
           AddLayerVersionPermissionResponse'
-            Prelude.<$> (x Core..?> "RevisionId")
-            Prelude.<*> (x Core..?> "Statement")
+            Prelude.<$> (x Data..?> "RevisionId")
+            Prelude.<*> (x Data..?> "Statement")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -219,34 +220,34 @@ instance Prelude.NFData AddLayerVersionPermission where
       `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf principal
 
-instance Core.ToHeaders AddLayerVersionPermission where
+instance Data.ToHeaders AddLayerVersionPermission where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON AddLayerVersionPermission where
+instance Data.ToJSON AddLayerVersionPermission where
   toJSON AddLayerVersionPermission' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OrganizationId" Core..=)
+          [ ("OrganizationId" Data..=)
               Prelude.<$> organizationId,
-            Prelude.Just ("StatementId" Core..= statementId),
-            Prelude.Just ("Action" Core..= action),
-            Prelude.Just ("Principal" Core..= principal)
+            Prelude.Just ("StatementId" Data..= statementId),
+            Prelude.Just ("Action" Data..= action),
+            Prelude.Just ("Principal" Data..= principal)
           ]
       )
 
-instance Core.ToPath AddLayerVersionPermission where
+instance Data.ToPath AddLayerVersionPermission where
   toPath AddLayerVersionPermission' {..} =
     Prelude.mconcat
       [ "/2018-10-31/layers/",
-        Core.toBS layerName,
+        Data.toBS layerName,
         "/versions/",
-        Core.toBS versionNumber,
+        Data.toBS versionNumber,
         "/policy"
       ]
 
-instance Core.ToQuery AddLayerVersionPermission where
+instance Data.ToQuery AddLayerVersionPermission where
   toQuery AddLayerVersionPermission' {..} =
-    Prelude.mconcat ["RevisionId" Core.=: revisionId]
+    Prelude.mconcat ["RevisionId" Data.=: revisionId]
 
 -- | /See:/ 'newAddLayerVersionPermissionResponse' smart constructor.
 data AddLayerVersionPermissionResponse = AddLayerVersionPermissionResponse'

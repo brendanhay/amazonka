@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -152,17 +153,17 @@ instance Prelude.NFData DeleteFunction where
     Prelude.rnf qualifier
       `Prelude.seq` Prelude.rnf functionName
 
-instance Core.ToHeaders DeleteFunction where
+instance Data.ToHeaders DeleteFunction where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteFunction where
+instance Data.ToPath DeleteFunction where
   toPath DeleteFunction' {..} =
     Prelude.mconcat
-      ["/2015-03-31/functions/", Core.toBS functionName]
+      ["/2015-03-31/functions/", Data.toBS functionName]
 
-instance Core.ToQuery DeleteFunction where
+instance Data.ToQuery DeleteFunction where
   toQuery DeleteFunction' {..} =
-    Prelude.mconcat ["Qualifier" Core.=: qualifier]
+    Prelude.mconcat ["Qualifier" Data.=: qualifier]
 
 -- | /See:/ 'newDeleteFunctionResponse' smart constructor.
 data DeleteFunctionResponse = DeleteFunctionResponse'

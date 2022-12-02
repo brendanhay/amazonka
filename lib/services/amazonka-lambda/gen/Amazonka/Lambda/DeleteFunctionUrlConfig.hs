@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,20 +141,20 @@ instance Prelude.NFData DeleteFunctionUrlConfig where
     Prelude.rnf qualifier
       `Prelude.seq` Prelude.rnf functionName
 
-instance Core.ToHeaders DeleteFunctionUrlConfig where
+instance Data.ToHeaders DeleteFunctionUrlConfig where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteFunctionUrlConfig where
+instance Data.ToPath DeleteFunctionUrlConfig where
   toPath DeleteFunctionUrlConfig' {..} =
     Prelude.mconcat
       [ "/2021-10-31/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/url"
       ]
 
-instance Core.ToQuery DeleteFunctionUrlConfig where
+instance Data.ToQuery DeleteFunctionUrlConfig where
   toQuery DeleteFunctionUrlConfig' {..} =
-    Prelude.mconcat ["Qualifier" Core.=: qualifier]
+    Prelude.mconcat ["Qualifier" Data.=: qualifier]
 
 -- | /See:/ 'newDeleteFunctionUrlConfigResponse' smart constructor.
 data DeleteFunctionUrlConfigResponse = DeleteFunctionUrlConfigResponse'

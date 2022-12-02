@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.SelfManagedKafkaEventSourceConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specific configuration settings for a self-managed Apache Kafka event
@@ -67,15 +68,15 @@ selfManagedKafkaEventSourceConfig_consumerGroupId :: Lens.Lens' SelfManagedKafka
 selfManagedKafkaEventSourceConfig_consumerGroupId = Lens.lens (\SelfManagedKafkaEventSourceConfig' {consumerGroupId} -> consumerGroupId) (\s@SelfManagedKafkaEventSourceConfig' {} a -> s {consumerGroupId = a} :: SelfManagedKafkaEventSourceConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SelfManagedKafkaEventSourceConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SelfManagedKafkaEventSourceConfig"
       ( \x ->
           SelfManagedKafkaEventSourceConfig'
-            Prelude.<$> (x Core..:? "ConsumerGroupId")
+            Prelude.<$> (x Data..:? "ConsumerGroupId")
       )
 
 instance
@@ -95,13 +96,13 @@ instance
     Prelude.rnf consumerGroupId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SelfManagedKafkaEventSourceConfig
   where
   toJSON SelfManagedKafkaEventSourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConsumerGroupId" Core..=)
+          [ ("ConsumerGroupId" Data..=)
               Prelude.<$> consumerGroupId
           ]
       )

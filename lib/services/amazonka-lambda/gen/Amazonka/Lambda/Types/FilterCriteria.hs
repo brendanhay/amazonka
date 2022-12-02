@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.FilterCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types.Filter
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,13 +52,13 @@ newFilterCriteria =
 filterCriteria_filters :: Lens.Lens' FilterCriteria (Prelude.Maybe [Filter])
 filterCriteria_filters = Lens.lens (\FilterCriteria' {filters} -> filters) (\s@FilterCriteria' {} a -> s {filters = a} :: FilterCriteria) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON FilterCriteria where
+instance Data.FromJSON FilterCriteria where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FilterCriteria"
       ( \x ->
           FilterCriteria'
-            Prelude.<$> (x Core..:? "Filters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Filters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable FilterCriteria where
@@ -67,9 +68,9 @@ instance Prelude.Hashable FilterCriteria where
 instance Prelude.NFData FilterCriteria where
   rnf FilterCriteria' {..} = Prelude.rnf filters
 
-instance Core.ToJSON FilterCriteria where
+instance Data.ToJSON FilterCriteria where
   toJSON FilterCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Filters" Core..=) Prelude.<$> filters]
+          [("Filters" Data..=) Prelude.<$> filters]
       )

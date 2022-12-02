@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.Layer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An
@@ -80,16 +81,16 @@ layer_signingJobArn = Lens.lens (\Layer' {signingJobArn} -> signingJobArn) (\s@L
 layer_codeSize :: Lens.Lens' Layer (Prelude.Maybe Prelude.Integer)
 layer_codeSize = Lens.lens (\Layer' {codeSize} -> codeSize) (\s@Layer' {} a -> s {codeSize = a} :: Layer)
 
-instance Core.FromJSON Layer where
+instance Data.FromJSON Layer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Layer"
       ( \x ->
           Layer'
-            Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "SigningProfileVersionArn")
-            Prelude.<*> (x Core..:? "SigningJobArn")
-            Prelude.<*> (x Core..:? "CodeSize")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "SigningProfileVersionArn")
+            Prelude.<*> (x Data..:? "SigningJobArn")
+            Prelude.<*> (x Data..:? "CodeSize")
       )
 
 instance Prelude.Hashable Layer where

@@ -87,6 +87,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -210,7 +211,7 @@ instance Core.AWSRequest PublishVersion where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable PublishVersion where
   hashWithSalt _salt PublishVersion' {..} =
@@ -226,26 +227,26 @@ instance Prelude.NFData PublishVersion where
       `Prelude.seq` Prelude.rnf revisionId
       `Prelude.seq` Prelude.rnf functionName
 
-instance Core.ToHeaders PublishVersion where
+instance Data.ToHeaders PublishVersion where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON PublishVersion where
+instance Data.ToJSON PublishVersion where
   toJSON PublishVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CodeSha256" Core..=) Prelude.<$> codeSha256,
-            ("Description" Core..=) Prelude.<$> description,
-            ("RevisionId" Core..=) Prelude.<$> revisionId
+          [ ("CodeSha256" Data..=) Prelude.<$> codeSha256,
+            ("Description" Data..=) Prelude.<$> description,
+            ("RevisionId" Data..=) Prelude.<$> revisionId
           ]
       )
 
-instance Core.ToPath PublishVersion where
+instance Data.ToPath PublishVersion where
   toPath PublishVersion' {..} =
     Prelude.mconcat
       [ "/2015-03-31/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/versions"
       ]
 
-instance Core.ToQuery PublishVersion where
+instance Data.ToQuery PublishVersion where
   toQuery = Prelude.const Prelude.mempty

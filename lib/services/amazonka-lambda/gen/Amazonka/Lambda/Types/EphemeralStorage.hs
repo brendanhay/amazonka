@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.EphemeralStorage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The size of the function’s \/tmp directory in MB. The default value is
@@ -53,12 +54,12 @@ newEphemeralStorage pSize_ =
 ephemeralStorage_size :: Lens.Lens' EphemeralStorage Prelude.Natural
 ephemeralStorage_size = Lens.lens (\EphemeralStorage' {size} -> size) (\s@EphemeralStorage' {} a -> s {size = a} :: EphemeralStorage)
 
-instance Core.FromJSON EphemeralStorage where
+instance Data.FromJSON EphemeralStorage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EphemeralStorage"
       ( \x ->
-          EphemeralStorage' Prelude.<$> (x Core..: "Size")
+          EphemeralStorage' Prelude.<$> (x Data..: "Size")
       )
 
 instance Prelude.Hashable EphemeralStorage where
@@ -68,9 +69,9 @@ instance Prelude.Hashable EphemeralStorage where
 instance Prelude.NFData EphemeralStorage where
   rnf EphemeralStorage' {..} = Prelude.rnf size
 
-instance Core.ToJSON EphemeralStorage where
+instance Data.ToJSON EphemeralStorage where
   toJSON EphemeralStorage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Size" Core..= size)]
+          [Prelude.Just ("Size" Data..= size)]
       )

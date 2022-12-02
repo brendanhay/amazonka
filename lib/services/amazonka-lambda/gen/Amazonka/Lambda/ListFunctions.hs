@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -169,8 +170,8 @@ instance Core.AWSRequest ListFunctions where
     Response.receiveJSON
       ( \s h x ->
           ListFunctionsResponse'
-            Prelude.<$> (x Core..?> "Functions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<$> (x Data..?> "Functions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -188,19 +189,19 @@ instance Prelude.NFData ListFunctions where
       `Prelude.seq` Prelude.rnf functionVersion
       `Prelude.seq` Prelude.rnf maxItems
 
-instance Core.ToHeaders ListFunctions where
+instance Data.ToHeaders ListFunctions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListFunctions where
+instance Data.ToPath ListFunctions where
   toPath = Prelude.const "/2015-03-31/functions/"
 
-instance Core.ToQuery ListFunctions where
+instance Data.ToQuery ListFunctions where
   toQuery ListFunctions' {..} =
     Prelude.mconcat
-      [ "Marker" Core.=: marker,
-        "MasterRegion" Core.=: masterRegion,
-        "FunctionVersion" Core.=: functionVersion,
-        "MaxItems" Core.=: maxItems
+      [ "Marker" Data.=: marker,
+        "MasterRegion" Data.=: masterRegion,
+        "FunctionVersion" Data.=: functionVersion,
+        "MaxItems" Data.=: maxItems
       ]
 
 -- | A list of Lambda functions.

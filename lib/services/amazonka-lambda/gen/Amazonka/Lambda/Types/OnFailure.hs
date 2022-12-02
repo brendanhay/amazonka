@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.OnFailure where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A destination for events that failed processing.
@@ -50,12 +51,12 @@ newOnFailure =
 onFailure_destination :: Lens.Lens' OnFailure (Prelude.Maybe Prelude.Text)
 onFailure_destination = Lens.lens (\OnFailure' {destination} -> destination) (\s@OnFailure' {} a -> s {destination = a} :: OnFailure)
 
-instance Core.FromJSON OnFailure where
+instance Data.FromJSON OnFailure where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OnFailure"
       ( \x ->
-          OnFailure' Prelude.<$> (x Core..:? "Destination")
+          OnFailure' Prelude.<$> (x Data..:? "Destination")
       )
 
 instance Prelude.Hashable OnFailure where
@@ -65,9 +66,9 @@ instance Prelude.Hashable OnFailure where
 instance Prelude.NFData OnFailure where
   rnf OnFailure' {..} = Prelude.rnf destination
 
-instance Core.ToJSON OnFailure where
+instance Data.ToJSON OnFailure where
   toJSON OnFailure' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Destination" Core..=) Prelude.<$> destination]
+          [("Destination" Data..=) Prelude.<$> destination]
       )

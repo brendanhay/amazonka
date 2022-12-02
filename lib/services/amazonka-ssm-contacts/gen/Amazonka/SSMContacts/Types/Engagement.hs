@@ -21,6 +21,7 @@ module Amazonka.SSMContacts.Types.Engagement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Incident Manager reaching out to a contact or escalation plan to engage
@@ -29,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEngagement' smart constructor.
 data Engagement = Engagement'
   { -- | The time that the engagement ended.
-    stopTime :: Prelude.Maybe Core.POSIX,
+    stopTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the incident that\'s engaging the contact.
     incidentId :: Prelude.Maybe Prelude.Text,
     -- | The time that the engagement began.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the engagement.
     engagementArn :: Prelude.Text,
     -- | The ARN of the escalation plan or contact that Incident Manager is
@@ -84,7 +85,7 @@ newEngagement pEngagementArn_ pContactArn_ pSender_ =
 
 -- | The time that the engagement ended.
 engagement_stopTime :: Lens.Lens' Engagement (Prelude.Maybe Prelude.UTCTime)
-engagement_stopTime = Lens.lens (\Engagement' {stopTime} -> stopTime) (\s@Engagement' {} a -> s {stopTime = a} :: Engagement) Prelude.. Lens.mapping Core._Time
+engagement_stopTime = Lens.lens (\Engagement' {stopTime} -> stopTime) (\s@Engagement' {} a -> s {stopTime = a} :: Engagement) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the incident that\'s engaging the contact.
 engagement_incidentId :: Lens.Lens' Engagement (Prelude.Maybe Prelude.Text)
@@ -92,7 +93,7 @@ engagement_incidentId = Lens.lens (\Engagement' {incidentId} -> incidentId) (\s@
 
 -- | The time that the engagement began.
 engagement_startTime :: Lens.Lens' Engagement (Prelude.Maybe Prelude.UTCTime)
-engagement_startTime = Lens.lens (\Engagement' {startTime} -> startTime) (\s@Engagement' {} a -> s {startTime = a} :: Engagement) Prelude.. Lens.mapping Core._Time
+engagement_startTime = Lens.lens (\Engagement' {startTime} -> startTime) (\s@Engagement' {} a -> s {startTime = a} :: Engagement) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the engagement.
 engagement_engagementArn :: Lens.Lens' Engagement Prelude.Text
@@ -107,18 +108,18 @@ engagement_contactArn = Lens.lens (\Engagement' {contactArn} -> contactArn) (\s@
 engagement_sender :: Lens.Lens' Engagement Prelude.Text
 engagement_sender = Lens.lens (\Engagement' {sender} -> sender) (\s@Engagement' {} a -> s {sender = a} :: Engagement)
 
-instance Core.FromJSON Engagement where
+instance Data.FromJSON Engagement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Engagement"
       ( \x ->
           Engagement'
-            Prelude.<$> (x Core..:? "StopTime")
-            Prelude.<*> (x Core..:? "IncidentId")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..: "EngagementArn")
-            Prelude.<*> (x Core..: "ContactArn")
-            Prelude.<*> (x Core..: "Sender")
+            Prelude.<$> (x Data..:? "StopTime")
+            Prelude.<*> (x Data..:? "IncidentId")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..: "EngagementArn")
+            Prelude.<*> (x Data..: "ContactArn")
+            Prelude.<*> (x Data..: "Sender")
       )
 
 instance Prelude.Hashable Engagement where

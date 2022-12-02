@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -113,34 +114,34 @@ instance Prelude.NFData PutContactPolicy where
     Prelude.rnf contactArn
       `Prelude.seq` Prelude.rnf policy
 
-instance Core.ToHeaders PutContactPolicy where
+instance Data.ToHeaders PutContactPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SSMContacts.PutContactPolicy" ::
+              Data.=# ( "SSMContacts.PutContactPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutContactPolicy where
+instance Data.ToJSON PutContactPolicy where
   toJSON PutContactPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ContactArn" Core..= contactArn),
-            Prelude.Just ("Policy" Core..= policy)
+          [ Prelude.Just ("ContactArn" Data..= contactArn),
+            Prelude.Just ("Policy" Data..= policy)
           ]
       )
 
-instance Core.ToPath PutContactPolicy where
+instance Data.ToPath PutContactPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutContactPolicy where
+instance Data.ToQuery PutContactPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutContactPolicyResponse' smart constructor.

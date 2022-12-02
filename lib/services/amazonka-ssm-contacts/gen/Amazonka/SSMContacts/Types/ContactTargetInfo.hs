@@ -21,6 +21,7 @@ module Amazonka.SSMContacts.Types.ContactTargetInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The contact that Incident Manager is engaging during an incident.
@@ -66,14 +67,14 @@ contactTargetInfo_contactId = Lens.lens (\ContactTargetInfo' {contactId} -> cont
 contactTargetInfo_isEssential :: Lens.Lens' ContactTargetInfo Prelude.Bool
 contactTargetInfo_isEssential = Lens.lens (\ContactTargetInfo' {isEssential} -> isEssential) (\s@ContactTargetInfo' {} a -> s {isEssential = a} :: ContactTargetInfo)
 
-instance Core.FromJSON ContactTargetInfo where
+instance Data.FromJSON ContactTargetInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContactTargetInfo"
       ( \x ->
           ContactTargetInfo'
-            Prelude.<$> (x Core..:? "ContactId")
-            Prelude.<*> (x Core..: "IsEssential")
+            Prelude.<$> (x Data..:? "ContactId")
+            Prelude.<*> (x Data..: "IsEssential")
       )
 
 instance Prelude.Hashable ContactTargetInfo where
@@ -86,11 +87,11 @@ instance Prelude.NFData ContactTargetInfo where
     Prelude.rnf contactId
       `Prelude.seq` Prelude.rnf isEssential
 
-instance Core.ToJSON ContactTargetInfo where
+instance Data.ToJSON ContactTargetInfo where
   toJSON ContactTargetInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ContactId" Core..=) Prelude.<$> contactId,
-            Prelude.Just ("IsEssential" Core..= isEssential)
+          [ ("ContactId" Data..=) Prelude.<$> contactId,
+            Prelude.Just ("IsEssential" Data..= isEssential)
           ]
       )

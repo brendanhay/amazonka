@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,32 +109,32 @@ instance Prelude.NFData StopEngagement where
     Prelude.rnf reason
       `Prelude.seq` Prelude.rnf engagementId
 
-instance Core.ToHeaders StopEngagement where
+instance Data.ToHeaders StopEngagement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SSMContacts.StopEngagement" :: Prelude.ByteString),
+              Data.=# ("SSMContacts.StopEngagement" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopEngagement where
+instance Data.ToJSON StopEngagement where
   toJSON StopEngagement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Reason" Core..=) Prelude.<$> reason,
-            Prelude.Just ("EngagementId" Core..= engagementId)
+          [ ("Reason" Data..=) Prelude.<$> reason,
+            Prelude.Just ("EngagementId" Data..= engagementId)
           ]
       )
 
-instance Core.ToPath StopEngagement where
+instance Data.ToPath StopEngagement where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopEngagement where
+instance Data.ToQuery StopEngagement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopEngagementResponse' smart constructor.

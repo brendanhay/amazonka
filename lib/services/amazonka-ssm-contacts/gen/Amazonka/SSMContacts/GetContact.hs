@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,12 +86,12 @@ instance Core.AWSRequest GetContact where
     Response.receiveJSON
       ( \s h x ->
           GetContactResponse'
-            Prelude.<$> (x Core..?> "DisplayName")
+            Prelude.<$> (x Data..?> "DisplayName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ContactArn")
-            Prelude.<*> (x Core..:> "Alias")
-            Prelude.<*> (x Core..:> "Type")
-            Prelude.<*> (x Core..:> "Plan")
+            Prelude.<*> (x Data..:> "ContactArn")
+            Prelude.<*> (x Data..:> "Alias")
+            Prelude.<*> (x Data..:> "Type")
+            Prelude.<*> (x Data..:> "Plan")
       )
 
 instance Prelude.Hashable GetContact where
@@ -100,30 +101,30 @@ instance Prelude.Hashable GetContact where
 instance Prelude.NFData GetContact where
   rnf GetContact' {..} = Prelude.rnf contactId
 
-instance Core.ToHeaders GetContact where
+instance Data.ToHeaders GetContact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SSMContacts.GetContact" :: Prelude.ByteString),
+              Data.=# ("SSMContacts.GetContact" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetContact where
+instance Data.ToJSON GetContact where
   toJSON GetContact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ContactId" Core..= contactId)]
+          [Prelude.Just ("ContactId" Data..= contactId)]
       )
 
-instance Core.ToPath GetContact where
+instance Data.ToPath GetContact where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetContact where
+instance Data.ToQuery GetContact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetContactResponse' smart constructor.

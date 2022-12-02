@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -125,37 +126,37 @@ instance Prelude.NFData UpdateContactChannel where
       `Prelude.seq` Prelude.rnf deliveryAddress
       `Prelude.seq` Prelude.rnf contactChannelId
 
-instance Core.ToHeaders UpdateContactChannel where
+instance Data.ToHeaders UpdateContactChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SSMContacts.UpdateContactChannel" ::
+              Data.=# ( "SSMContacts.UpdateContactChannel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateContactChannel where
+instance Data.ToJSON UpdateContactChannel where
   toJSON UpdateContactChannel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("DeliveryAddress" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("DeliveryAddress" Data..=)
               Prelude.<$> deliveryAddress,
             Prelude.Just
-              ("ContactChannelId" Core..= contactChannelId)
+              ("ContactChannelId" Data..= contactChannelId)
           ]
       )
 
-instance Core.ToPath UpdateContactChannel where
+instance Data.ToPath UpdateContactChannel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateContactChannel where
+instance Data.ToQuery UpdateContactChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateContactChannelResponse' smart constructor.

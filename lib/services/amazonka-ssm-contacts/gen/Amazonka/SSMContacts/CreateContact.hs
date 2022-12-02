@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -160,7 +161,7 @@ instance Core.AWSRequest CreateContact where
       ( \s h x ->
           CreateContactResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ContactArn")
+            Prelude.<*> (x Data..:> "ContactArn")
       )
 
 instance Prelude.Hashable CreateContact where
@@ -181,37 +182,37 @@ instance Prelude.NFData CreateContact where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf plan
 
-instance Core.ToHeaders CreateContact where
+instance Data.ToHeaders CreateContact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SSMContacts.CreateContact" :: Prelude.ByteString),
+              Data.=# ("SSMContacts.CreateContact" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateContact where
+instance Data.ToJSON CreateContact where
   toJSON CreateContact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("IdempotencyToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("IdempotencyToken" Data..=)
               Prelude.<$> idempotencyToken,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
-            Prelude.Just ("Alias" Core..= alias),
-            Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("Plan" Core..= plan)
+            ("DisplayName" Data..=) Prelude.<$> displayName,
+            Prelude.Just ("Alias" Data..= alias),
+            Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("Plan" Data..= plan)
           ]
       )
 
-instance Core.ToPath CreateContact where
+instance Data.ToPath CreateContact where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateContact where
+instance Data.ToQuery CreateContact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateContactResponse' smart constructor.

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -134,8 +135,8 @@ instance Core.AWSRequest ListPageReceipts where
     Response.receiveJSON
       ( \s h x ->
           ListPageReceiptsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Receipts" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Receipts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,35 +152,35 @@ instance Prelude.NFData ListPageReceipts where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf pageId
 
-instance Core.ToHeaders ListPageReceipts where
+instance Data.ToHeaders ListPageReceipts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SSMContacts.ListPageReceipts" ::
+              Data.=# ( "SSMContacts.ListPageReceipts" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListPageReceipts where
+instance Data.ToJSON ListPageReceipts where
   toJSON ListPageReceipts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("PageId" Core..= pageId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("PageId" Data..= pageId)
           ]
       )
 
-instance Core.ToPath ListPageReceipts where
+instance Data.ToPath ListPageReceipts where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListPageReceipts where
+instance Data.ToQuery ListPageReceipts where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListPageReceiptsResponse' smart constructor.

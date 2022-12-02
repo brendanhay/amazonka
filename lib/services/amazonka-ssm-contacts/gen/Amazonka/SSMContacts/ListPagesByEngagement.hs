@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -131,9 +132,9 @@ instance Core.AWSRequest ListPagesByEngagement where
     Response.receiveJSON
       ( \s h x ->
           ListPagesByEngagementResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Pages" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Pages" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListPagesByEngagement where
@@ -148,35 +149,35 @@ instance Prelude.NFData ListPagesByEngagement where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf engagementId
 
-instance Core.ToHeaders ListPagesByEngagement where
+instance Data.ToHeaders ListPagesByEngagement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SSMContacts.ListPagesByEngagement" ::
+              Data.=# ( "SSMContacts.ListPagesByEngagement" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListPagesByEngagement where
+instance Data.ToJSON ListPagesByEngagement where
   toJSON ListPagesByEngagement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("EngagementId" Core..= engagementId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("EngagementId" Data..= engagementId)
           ]
       )
 
-instance Core.ToPath ListPagesByEngagement where
+instance Data.ToPath ListPagesByEngagement where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListPagesByEngagement where
+instance Data.ToQuery ListPagesByEngagement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListPagesByEngagementResponse' smart constructor.

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,8 +86,8 @@ instance Core.AWSRequest GetContactPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetContactPolicyResponse'
-            Prelude.<$> (x Core..?> "Policy")
-            Prelude.<*> (x Core..?> "ContactArn")
+            Prelude.<$> (x Data..?> "Policy")
+            Prelude.<*> (x Data..?> "ContactArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -97,32 +98,32 @@ instance Prelude.Hashable GetContactPolicy where
 instance Prelude.NFData GetContactPolicy where
   rnf GetContactPolicy' {..} = Prelude.rnf contactArn
 
-instance Core.ToHeaders GetContactPolicy where
+instance Data.ToHeaders GetContactPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SSMContacts.GetContactPolicy" ::
+              Data.=# ( "SSMContacts.GetContactPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetContactPolicy where
+instance Data.ToJSON GetContactPolicy where
   toJSON GetContactPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ContactArn" Core..= contactArn)]
+          [Prelude.Just ("ContactArn" Data..= contactArn)]
       )
 
-instance Core.ToPath GetContactPolicy where
+instance Data.ToPath GetContactPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetContactPolicy where
+instance Data.ToQuery GetContactPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetContactPolicyResponse' smart constructor.

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideoSignaling.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,7 +122,7 @@ instance Core.AWSRequest SendAlexaOfferToMaster where
     Response.receiveJSON
       ( \s h x ->
           SendAlexaOfferToMasterResponse'
-            Prelude.<$> (x Core..?> "Answer")
+            Prelude.<$> (x Data..?> "Answer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,26 +138,26 @@ instance Prelude.NFData SendAlexaOfferToMaster where
       `Prelude.seq` Prelude.rnf senderClientId
       `Prelude.seq` Prelude.rnf messagePayload
 
-instance Core.ToHeaders SendAlexaOfferToMaster where
+instance Data.ToHeaders SendAlexaOfferToMaster where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON SendAlexaOfferToMaster where
+instance Data.ToJSON SendAlexaOfferToMaster where
   toJSON SendAlexaOfferToMaster' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ChannelARN" Core..= channelARN),
+          [ Prelude.Just ("ChannelARN" Data..= channelARN),
             Prelude.Just
-              ("SenderClientId" Core..= senderClientId),
+              ("SenderClientId" Data..= senderClientId),
             Prelude.Just
-              ("MessagePayload" Core..= messagePayload)
+              ("MessagePayload" Data..= messagePayload)
           ]
       )
 
-instance Core.ToPath SendAlexaOfferToMaster where
+instance Data.ToPath SendAlexaOfferToMaster where
   toPath =
     Prelude.const "/v1/send-alexa-offer-to-master"
 
-instance Core.ToQuery SendAlexaOfferToMaster where
+instance Data.ToQuery SendAlexaOfferToMaster where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSendAlexaOfferToMasterResponse' smart constructor.

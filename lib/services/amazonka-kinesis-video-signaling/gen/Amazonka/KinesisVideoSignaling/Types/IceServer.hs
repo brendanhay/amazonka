@@ -21,6 +21,7 @@ module Amazonka.KinesisVideoSignaling.Types.IceServer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure for the ICE server connection data.
@@ -91,16 +92,16 @@ iceServer_username = Lens.lens (\IceServer' {username} -> username) (\s@IceServe
 iceServer_uris :: Lens.Lens' IceServer (Prelude.Maybe [Prelude.Text])
 iceServer_uris = Lens.lens (\IceServer' {uris} -> uris) (\s@IceServer' {} a -> s {uris = a} :: IceServer) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON IceServer where
+instance Data.FromJSON IceServer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IceServer"
       ( \x ->
           IceServer'
-            Prelude.<$> (x Core..:? "Password")
-            Prelude.<*> (x Core..:? "Ttl")
-            Prelude.<*> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "Uris" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Password")
+            Prelude.<*> (x Data..:? "Ttl")
+            Prelude.<*> (x Data..:? "Username")
+            Prelude.<*> (x Data..:? "Uris" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable IceServer where

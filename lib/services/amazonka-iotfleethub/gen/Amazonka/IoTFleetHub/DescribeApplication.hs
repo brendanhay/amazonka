@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetHub.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,19 +102,19 @@ instance Core.AWSRequest DescribeApplication where
     Response.receiveJSON
       ( \s h x ->
           DescribeApplicationResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ssoClientId")
-            Prelude.<*> (x Core..?> "errorMessage")
-            Prelude.<*> (x Core..?> "applicationDescription")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ssoClientId")
+            Prelude.<*> (x Data..?> "errorMessage")
+            Prelude.<*> (x Data..?> "applicationDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "applicationId")
-            Prelude.<*> (x Core..:> "applicationArn")
-            Prelude.<*> (x Core..:> "applicationName")
-            Prelude.<*> (x Core..:> "applicationUrl")
-            Prelude.<*> (x Core..:> "applicationState")
-            Prelude.<*> (x Core..:> "applicationCreationDate")
-            Prelude.<*> (x Core..:> "applicationLastUpdateDate")
-            Prelude.<*> (x Core..:> "roleArn")
+            Prelude.<*> (x Data..:> "applicationId")
+            Prelude.<*> (x Data..:> "applicationArn")
+            Prelude.<*> (x Data..:> "applicationName")
+            Prelude.<*> (x Data..:> "applicationUrl")
+            Prelude.<*> (x Data..:> "applicationState")
+            Prelude.<*> (x Data..:> "applicationCreationDate")
+            Prelude.<*> (x Data..:> "applicationLastUpdateDate")
+            Prelude.<*> (x Data..:> "roleArn")
       )
 
 instance Prelude.Hashable DescribeApplication where
@@ -124,23 +125,23 @@ instance Prelude.NFData DescribeApplication where
   rnf DescribeApplication' {..} =
     Prelude.rnf applicationId
 
-instance Core.ToHeaders DescribeApplication where
+instance Data.ToHeaders DescribeApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeApplication where
+instance Data.ToPath DescribeApplication where
   toPath DescribeApplication' {..} =
     Prelude.mconcat
-      ["/applications/", Core.toBS applicationId]
+      ["/applications/", Data.toBS applicationId]
 
-instance Core.ToQuery DescribeApplication where
+instance Data.ToQuery DescribeApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeApplicationResponse' smart constructor.

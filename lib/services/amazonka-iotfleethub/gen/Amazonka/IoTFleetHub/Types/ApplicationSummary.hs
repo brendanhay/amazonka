@@ -21,6 +21,7 @@ module Amazonka.IoTFleetHub.Types.ApplicationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetHub.Types.ApplicationState
 import qualified Amazonka.Prelude as Prelude
 
@@ -121,19 +122,19 @@ applicationSummary_applicationName = Lens.lens (\ApplicationSummary' {applicatio
 applicationSummary_applicationUrl :: Lens.Lens' ApplicationSummary Prelude.Text
 applicationSummary_applicationUrl = Lens.lens (\ApplicationSummary' {applicationUrl} -> applicationUrl) (\s@ApplicationSummary' {} a -> s {applicationUrl = a} :: ApplicationSummary)
 
-instance Core.FromJSON ApplicationSummary where
+instance Data.FromJSON ApplicationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationSummary"
       ( \x ->
           ApplicationSummary'
-            Prelude.<$> (x Core..:? "applicationState")
-            Prelude.<*> (x Core..:? "applicationCreationDate")
-            Prelude.<*> (x Core..:? "applicationLastUpdateDate")
-            Prelude.<*> (x Core..:? "applicationDescription")
-            Prelude.<*> (x Core..: "applicationId")
-            Prelude.<*> (x Core..: "applicationName")
-            Prelude.<*> (x Core..: "applicationUrl")
+            Prelude.<$> (x Data..:? "applicationState")
+            Prelude.<*> (x Data..:? "applicationCreationDate")
+            Prelude.<*> (x Data..:? "applicationLastUpdateDate")
+            Prelude.<*> (x Data..:? "applicationDescription")
+            Prelude.<*> (x Data..: "applicationId")
+            Prelude.<*> (x Data..: "applicationName")
+            Prelude.<*> (x Data..: "applicationUrl")
       )
 
 instance Prelude.Hashable ApplicationSummary where

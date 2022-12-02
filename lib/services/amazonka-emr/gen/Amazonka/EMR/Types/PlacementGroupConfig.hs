@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.PlacementGroupConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.InstanceRoleType
 import Amazonka.EMR.Types.PlacementGroupStrategy
 import qualified Amazonka.Prelude as Prelude
@@ -89,14 +90,14 @@ placementGroupConfig_placementStrategy = Lens.lens (\PlacementGroupConfig' {plac
 placementGroupConfig_instanceRole :: Lens.Lens' PlacementGroupConfig InstanceRoleType
 placementGroupConfig_instanceRole = Lens.lens (\PlacementGroupConfig' {instanceRole} -> instanceRole) (\s@PlacementGroupConfig' {} a -> s {instanceRole = a} :: PlacementGroupConfig)
 
-instance Core.FromJSON PlacementGroupConfig where
+instance Data.FromJSON PlacementGroupConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PlacementGroupConfig"
       ( \x ->
           PlacementGroupConfig'
-            Prelude.<$> (x Core..:? "PlacementStrategy")
-            Prelude.<*> (x Core..: "InstanceRole")
+            Prelude.<$> (x Data..:? "PlacementStrategy")
+            Prelude.<*> (x Data..: "InstanceRole")
       )
 
 instance Prelude.Hashable PlacementGroupConfig where
@@ -109,12 +110,12 @@ instance Prelude.NFData PlacementGroupConfig where
     Prelude.rnf placementStrategy
       `Prelude.seq` Prelude.rnf instanceRole
 
-instance Core.ToJSON PlacementGroupConfig where
+instance Data.ToJSON PlacementGroupConfig where
   toJSON PlacementGroupConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PlacementStrategy" Core..=)
+          [ ("PlacementStrategy" Data..=)
               Prelude.<$> placementStrategy,
-            Prelude.Just ("InstanceRole" Core..= instanceRole)
+            Prelude.Just ("InstanceRole" Data..= instanceRole)
           ]
       )

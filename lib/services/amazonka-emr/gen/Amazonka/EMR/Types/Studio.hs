@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.Studio where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.AuthMode
 import Amazonka.EMR.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -58,7 +59,7 @@ data Studio = Studio'
     -- | The Amazon Resource Name (ARN) of the Amazon EMR Studio.
     studioArn :: Prelude.Maybe Prelude.Text,
     -- | The time the Amazon EMR Studio was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the IAM role assumed by users logged in to the Amazon EMR
     -- Studio. A Studio only requires a @UserRole@ when you use IAM
     -- authentication.
@@ -202,7 +203,7 @@ studio_studioArn = Lens.lens (\Studio' {studioArn} -> studioArn) (\s@Studio' {} 
 
 -- | The time the Amazon EMR Studio was created.
 studio_creationTime :: Lens.Lens' Studio (Prelude.Maybe Prelude.UTCTime)
-studio_creationTime = Lens.lens (\Studio' {creationTime} -> creationTime) (\s@Studio' {} a -> s {creationTime = a} :: Studio) Prelude.. Lens.mapping Core._Time
+studio_creationTime = Lens.lens (\Studio' {creationTime} -> creationTime) (\s@Studio' {} a -> s {creationTime = a} :: Studio) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the IAM role assumed by users logged in to the Amazon EMR
 -- Studio. A Studio only requires a @UserRole@ when you use IAM
@@ -229,29 +230,29 @@ studio_defaultS3Location = Lens.lens (\Studio' {defaultS3Location} -> defaultS3L
 studio_subnetIds :: Lens.Lens' Studio (Prelude.Maybe [Prelude.Text])
 studio_subnetIds = Lens.lens (\Studio' {subnetIds} -> subnetIds) (\s@Studio' {} a -> s {subnetIds = a} :: Studio) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Studio where
+instance Data.FromJSON Studio where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Studio"
       ( \x ->
           Studio'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "StudioId")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "WorkspaceSecurityGroupId")
-            Prelude.<*> (x Core..:? "IdpRelayStateParameterName")
-            Prelude.<*> (x Core..:? "IdpAuthUrl")
-            Prelude.<*> (x Core..:? "Url")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ServiceRole")
-            Prelude.<*> (x Core..:? "AuthMode")
-            Prelude.<*> (x Core..:? "StudioArn")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "UserRole")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "EngineSecurityGroupId")
-            Prelude.<*> (x Core..:? "DefaultS3Location")
-            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "StudioId")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "WorkspaceSecurityGroupId")
+            Prelude.<*> (x Data..:? "IdpRelayStateParameterName")
+            Prelude.<*> (x Data..:? "IdpAuthUrl")
+            Prelude.<*> (x Data..:? "Url")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ServiceRole")
+            Prelude.<*> (x Data..:? "AuthMode")
+            Prelude.<*> (x Data..:? "StudioArn")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "UserRole")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "EngineSecurityGroupId")
+            Prelude.<*> (x Data..:? "DefaultS3Location")
+            Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Studio where

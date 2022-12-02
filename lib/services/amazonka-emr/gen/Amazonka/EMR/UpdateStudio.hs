@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -149,38 +150,38 @@ instance Prelude.NFData UpdateStudio where
       `Prelude.seq` Prelude.rnf subnetIds
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders UpdateStudio where
+instance Data.ToHeaders UpdateStudio where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.UpdateStudio" ::
+              Data.=# ( "ElasticMapReduce.UpdateStudio" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateStudio where
+instance Data.ToJSON UpdateStudio where
   toJSON UpdateStudio' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Description" Core..=) Prelude.<$> description,
-            ("DefaultS3Location" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Description" Data..=) Prelude.<$> description,
+            ("DefaultS3Location" Data..=)
               Prelude.<$> defaultS3Location,
-            ("SubnetIds" Core..=) Prelude.<$> subnetIds,
-            Prelude.Just ("StudioId" Core..= studioId)
+            ("SubnetIds" Data..=) Prelude.<$> subnetIds,
+            Prelude.Just ("StudioId" Data..= studioId)
           ]
       )
 
-instance Core.ToPath UpdateStudio where
+instance Data.ToPath UpdateStudio where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateStudio where
+instance Data.ToQuery UpdateStudio where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateStudioResponse' smart constructor.

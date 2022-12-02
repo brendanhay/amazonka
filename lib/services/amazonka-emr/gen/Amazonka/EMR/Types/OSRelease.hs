@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.OSRelease where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Linux release specified for a cluster in the RunJobFlow
@@ -59,11 +60,11 @@ newOSRelease = OSRelease' {label = Prelude.Nothing}
 oSRelease_label :: Lens.Lens' OSRelease (Prelude.Maybe Prelude.Text)
 oSRelease_label = Lens.lens (\OSRelease' {label} -> label) (\s@OSRelease' {} a -> s {label = a} :: OSRelease)
 
-instance Core.FromJSON OSRelease where
+instance Data.FromJSON OSRelease where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OSRelease"
-      (\x -> OSRelease' Prelude.<$> (x Core..:? "Label"))
+      (\x -> OSRelease' Prelude.<$> (x Data..:? "Label"))
 
 instance Prelude.Hashable OSRelease where
   hashWithSalt _salt OSRelease' {..} =

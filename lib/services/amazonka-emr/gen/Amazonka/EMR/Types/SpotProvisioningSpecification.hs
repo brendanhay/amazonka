@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.SpotProvisioningSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.SpotProvisioningAllocationStrategy
 import Amazonka.EMR.Types.SpotProvisioningTimeoutAction
 import qualified Amazonka.Prelude as Prelude
@@ -172,16 +173,16 @@ spotProvisioningSpecification_timeoutDurationMinutes = Lens.lens (\SpotProvision
 spotProvisioningSpecification_timeoutAction :: Lens.Lens' SpotProvisioningSpecification SpotProvisioningTimeoutAction
 spotProvisioningSpecification_timeoutAction = Lens.lens (\SpotProvisioningSpecification' {timeoutAction} -> timeoutAction) (\s@SpotProvisioningSpecification' {} a -> s {timeoutAction = a} :: SpotProvisioningSpecification)
 
-instance Core.FromJSON SpotProvisioningSpecification where
+instance Data.FromJSON SpotProvisioningSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SpotProvisioningSpecification"
       ( \x ->
           SpotProvisioningSpecification'
-            Prelude.<$> (x Core..:? "BlockDurationMinutes")
-            Prelude.<*> (x Core..:? "AllocationStrategy")
-            Prelude.<*> (x Core..: "TimeoutDurationMinutes")
-            Prelude.<*> (x Core..: "TimeoutAction")
+            Prelude.<$> (x Data..:? "BlockDurationMinutes")
+            Prelude.<*> (x Data..:? "AllocationStrategy")
+            Prelude.<*> (x Data..: "TimeoutDurationMinutes")
+            Prelude.<*> (x Data..: "TimeoutAction")
       )
 
 instance
@@ -201,19 +202,19 @@ instance Prelude.NFData SpotProvisioningSpecification where
       `Prelude.seq` Prelude.rnf timeoutDurationMinutes
       `Prelude.seq` Prelude.rnf timeoutAction
 
-instance Core.ToJSON SpotProvisioningSpecification where
+instance Data.ToJSON SpotProvisioningSpecification where
   toJSON SpotProvisioningSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BlockDurationMinutes" Core..=)
+          [ ("BlockDurationMinutes" Data..=)
               Prelude.<$> blockDurationMinutes,
-            ("AllocationStrategy" Core..=)
+            ("AllocationStrategy" Data..=)
               Prelude.<$> allocationStrategy,
             Prelude.Just
               ( "TimeoutDurationMinutes"
-                  Core..= timeoutDurationMinutes
+                  Data..= timeoutDurationMinutes
               ),
             Prelude.Just
-              ("TimeoutAction" Core..= timeoutAction)
+              ("TimeoutAction" Data..= timeoutAction)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.JobFlowInstancesConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.InstanceFleetConfig
 import Amazonka.EMR.Types.InstanceGroupConfig
 import Amazonka.EMR.Types.PlacementType
@@ -341,37 +342,37 @@ instance Prelude.NFData JobFlowInstancesConfig where
         emrManagedSlaveSecurityGroup
       `Prelude.seq` Prelude.rnf masterInstanceType
 
-instance Core.ToJSON JobFlowInstancesConfig where
+instance Data.ToJSON JobFlowInstancesConfig where
   toJSON JobFlowInstancesConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Ec2SubnetIds" Core..=) Prelude.<$> ec2SubnetIds,
-            ("Ec2KeyName" Core..=) Prelude.<$> ec2KeyName,
-            ("Placement" Core..=) Prelude.<$> placement,
-            ("Ec2SubnetId" Core..=) Prelude.<$> ec2SubnetId,
-            ("HadoopVersion" Core..=) Prelude.<$> hadoopVersion,
-            ("EmrManagedMasterSecurityGroup" Core..=)
+          [ ("Ec2SubnetIds" Data..=) Prelude.<$> ec2SubnetIds,
+            ("Ec2KeyName" Data..=) Prelude.<$> ec2KeyName,
+            ("Placement" Data..=) Prelude.<$> placement,
+            ("Ec2SubnetId" Data..=) Prelude.<$> ec2SubnetId,
+            ("HadoopVersion" Data..=) Prelude.<$> hadoopVersion,
+            ("EmrManagedMasterSecurityGroup" Data..=)
               Prelude.<$> emrManagedMasterSecurityGroup,
-            ("AdditionalMasterSecurityGroups" Core..=)
+            ("AdditionalMasterSecurityGroups" Data..=)
               Prelude.<$> additionalMasterSecurityGroups,
-            ("ServiceAccessSecurityGroup" Core..=)
+            ("ServiceAccessSecurityGroup" Data..=)
               Prelude.<$> serviceAccessSecurityGroup,
-            ("TerminationProtected" Core..=)
+            ("TerminationProtected" Data..=)
               Prelude.<$> terminationProtected,
-            ("SlaveInstanceType" Core..=)
+            ("SlaveInstanceType" Data..=)
               Prelude.<$> slaveInstanceType,
-            ("InstanceCount" Core..=) Prelude.<$> instanceCount,
-            ("InstanceFleets" Core..=)
+            ("InstanceCount" Data..=) Prelude.<$> instanceCount,
+            ("InstanceFleets" Data..=)
               Prelude.<$> instanceFleets,
-            ("AdditionalSlaveSecurityGroups" Core..=)
+            ("AdditionalSlaveSecurityGroups" Data..=)
               Prelude.<$> additionalSlaveSecurityGroups,
-            ("InstanceGroups" Core..=)
+            ("InstanceGroups" Data..=)
               Prelude.<$> instanceGroups,
-            ("KeepJobFlowAliveWhenNoSteps" Core..=)
+            ("KeepJobFlowAliveWhenNoSteps" Data..=)
               Prelude.<$> keepJobFlowAliveWhenNoSteps,
-            ("EmrManagedSlaveSecurityGroup" Core..=)
+            ("EmrManagedSlaveSecurityGroup" Data..=)
               Prelude.<$> emrManagedSlaveSecurityGroup,
-            ("MasterInstanceType" Core..=)
+            ("MasterInstanceType" Data..=)
               Prelude.<$> masterInstanceType
           ]
       )

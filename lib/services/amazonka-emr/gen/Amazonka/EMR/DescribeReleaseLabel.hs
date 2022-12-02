@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,10 +110,10 @@ instance Core.AWSRequest DescribeReleaseLabel where
     Response.receiveJSON
       ( \s h x ->
           DescribeReleaseLabelResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Applications" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ReleaseLabel")
-            Prelude.<*> ( x Core..?> "AvailableOSReleases"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Applications" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ReleaseLabel")
+            Prelude.<*> ( x Data..?> "AvailableOSReleases"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -130,35 +131,35 @@ instance Prelude.NFData DescribeReleaseLabel where
       `Prelude.seq` Prelude.rnf releaseLabel
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeReleaseLabel where
+instance Data.ToHeaders DescribeReleaseLabel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.DescribeReleaseLabel" ::
+              Data.=# ( "ElasticMapReduce.DescribeReleaseLabel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeReleaseLabel where
+instance Data.ToJSON DescribeReleaseLabel where
   toJSON DescribeReleaseLabel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ReleaseLabel" Core..=) Prelude.<$> releaseLabel,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ReleaseLabel" Data..=) Prelude.<$> releaseLabel,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeReleaseLabel where
+instance Data.ToPath DescribeReleaseLabel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeReleaseLabel where
+instance Data.ToQuery DescribeReleaseLabel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeReleaseLabelResponse' smart constructor.

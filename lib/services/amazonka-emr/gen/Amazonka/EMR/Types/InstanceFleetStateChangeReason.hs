@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.InstanceFleetStateChangeReason where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.InstanceFleetStateChangeReasonCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,14 +67,14 @@ instanceFleetStateChangeReason_message = Lens.lens (\InstanceFleetStateChangeRea
 instanceFleetStateChangeReason_code :: Lens.Lens' InstanceFleetStateChangeReason (Prelude.Maybe InstanceFleetStateChangeReasonCode)
 instanceFleetStateChangeReason_code = Lens.lens (\InstanceFleetStateChangeReason' {code} -> code) (\s@InstanceFleetStateChangeReason' {} a -> s {code = a} :: InstanceFleetStateChangeReason)
 
-instance Core.FromJSON InstanceFleetStateChangeReason where
+instance Data.FromJSON InstanceFleetStateChangeReason where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceFleetStateChangeReason"
       ( \x ->
           InstanceFleetStateChangeReason'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Code")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Code")
       )
 
 instance

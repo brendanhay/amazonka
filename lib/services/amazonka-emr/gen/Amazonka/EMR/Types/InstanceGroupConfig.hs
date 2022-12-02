@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.InstanceGroupConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.AutoScalingPolicy
 import Amazonka.EMR.Types.Configuration
 import Amazonka.EMR.Types.EbsConfiguration
@@ -206,23 +207,23 @@ instance Prelude.NFData InstanceGroupConfig where
       `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf instanceCount
 
-instance Core.ToJSON InstanceGroupConfig where
+instance Data.ToJSON InstanceGroupConfig where
   toJSON InstanceGroupConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("EbsConfiguration" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("EbsConfiguration" Data..=)
               Prelude.<$> ebsConfiguration,
-            ("Configurations" Core..=)
+            ("Configurations" Data..=)
               Prelude.<$> configurations,
-            ("BidPrice" Core..=) Prelude.<$> bidPrice,
-            ("Market" Core..=) Prelude.<$> market,
-            ("CustomAmiId" Core..=) Prelude.<$> customAmiId,
-            ("AutoScalingPolicy" Core..=)
+            ("BidPrice" Data..=) Prelude.<$> bidPrice,
+            ("Market" Data..=) Prelude.<$> market,
+            ("CustomAmiId" Data..=) Prelude.<$> customAmiId,
+            ("AutoScalingPolicy" Data..=)
               Prelude.<$> autoScalingPolicy,
-            Prelude.Just ("InstanceRole" Core..= instanceRole),
-            Prelude.Just ("InstanceType" Core..= instanceType),
+            Prelude.Just ("InstanceRole" Data..= instanceRole),
+            Prelude.Just ("InstanceType" Data..= instanceType),
             Prelude.Just
-              ("InstanceCount" Core..= instanceCount)
+              ("InstanceCount" Data..= instanceCount)
           ]
       )

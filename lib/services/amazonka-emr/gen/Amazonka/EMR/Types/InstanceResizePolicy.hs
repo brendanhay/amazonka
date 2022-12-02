@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.InstanceResizePolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Custom policy for requesting termination protection or termination of
@@ -81,18 +82,18 @@ instanceResizePolicy_instanceTerminationTimeout = Lens.lens (\InstanceResizePoli
 instanceResizePolicy_instancesToProtect :: Lens.Lens' InstanceResizePolicy (Prelude.Maybe [Prelude.Text])
 instanceResizePolicy_instancesToProtect = Lens.lens (\InstanceResizePolicy' {instancesToProtect} -> instancesToProtect) (\s@InstanceResizePolicy' {} a -> s {instancesToProtect = a} :: InstanceResizePolicy) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON InstanceResizePolicy where
+instance Data.FromJSON InstanceResizePolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceResizePolicy"
       ( \x ->
           InstanceResizePolicy'
-            Prelude.<$> ( x Core..:? "InstancesToTerminate"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "InstancesToTerminate"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "InstanceTerminationTimeout")
-            Prelude.<*> ( x Core..:? "InstancesToProtect"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "InstanceTerminationTimeout")
+            Prelude.<*> ( x Data..:? "InstancesToProtect"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -108,15 +109,15 @@ instance Prelude.NFData InstanceResizePolicy where
       `Prelude.seq` Prelude.rnf instanceTerminationTimeout
       `Prelude.seq` Prelude.rnf instancesToProtect
 
-instance Core.ToJSON InstanceResizePolicy where
+instance Data.ToJSON InstanceResizePolicy where
   toJSON InstanceResizePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InstancesToTerminate" Core..=)
+          [ ("InstancesToTerminate" Data..=)
               Prelude.<$> instancesToTerminate,
-            ("InstanceTerminationTimeout" Core..=)
+            ("InstanceTerminationTimeout" Data..=)
               Prelude.<$> instanceTerminationTimeout,
-            ("InstancesToProtect" Core..=)
+            ("InstancesToProtect" Data..=)
               Prelude.<$> instancesToProtect
           ]
       )

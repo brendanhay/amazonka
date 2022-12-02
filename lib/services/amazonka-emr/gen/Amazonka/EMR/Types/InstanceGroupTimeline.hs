@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.InstanceGroupTimeline where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The timeline of the instance group lifecycle.
@@ -28,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newInstanceGroupTimeline' smart constructor.
 data InstanceGroupTimeline = InstanceGroupTimeline'
   { -- | The creation date and time of the instance group.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The date and time when the instance group became ready to perform tasks.
-    readyDateTime :: Prelude.Maybe Core.POSIX,
+    readyDateTime :: Prelude.Maybe Data.POSIX,
     -- | The date and time when the instance group terminated.
-    endDateTime :: Prelude.Maybe Core.POSIX
+    endDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,25 +62,25 @@ newInstanceGroupTimeline =
 
 -- | The creation date and time of the instance group.
 instanceGroupTimeline_creationDateTime :: Lens.Lens' InstanceGroupTimeline (Prelude.Maybe Prelude.UTCTime)
-instanceGroupTimeline_creationDateTime = Lens.lens (\InstanceGroupTimeline' {creationDateTime} -> creationDateTime) (\s@InstanceGroupTimeline' {} a -> s {creationDateTime = a} :: InstanceGroupTimeline) Prelude.. Lens.mapping Core._Time
+instanceGroupTimeline_creationDateTime = Lens.lens (\InstanceGroupTimeline' {creationDateTime} -> creationDateTime) (\s@InstanceGroupTimeline' {} a -> s {creationDateTime = a} :: InstanceGroupTimeline) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when the instance group became ready to perform tasks.
 instanceGroupTimeline_readyDateTime :: Lens.Lens' InstanceGroupTimeline (Prelude.Maybe Prelude.UTCTime)
-instanceGroupTimeline_readyDateTime = Lens.lens (\InstanceGroupTimeline' {readyDateTime} -> readyDateTime) (\s@InstanceGroupTimeline' {} a -> s {readyDateTime = a} :: InstanceGroupTimeline) Prelude.. Lens.mapping Core._Time
+instanceGroupTimeline_readyDateTime = Lens.lens (\InstanceGroupTimeline' {readyDateTime} -> readyDateTime) (\s@InstanceGroupTimeline' {} a -> s {readyDateTime = a} :: InstanceGroupTimeline) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when the instance group terminated.
 instanceGroupTimeline_endDateTime :: Lens.Lens' InstanceGroupTimeline (Prelude.Maybe Prelude.UTCTime)
-instanceGroupTimeline_endDateTime = Lens.lens (\InstanceGroupTimeline' {endDateTime} -> endDateTime) (\s@InstanceGroupTimeline' {} a -> s {endDateTime = a} :: InstanceGroupTimeline) Prelude.. Lens.mapping Core._Time
+instanceGroupTimeline_endDateTime = Lens.lens (\InstanceGroupTimeline' {endDateTime} -> endDateTime) (\s@InstanceGroupTimeline' {} a -> s {endDateTime = a} :: InstanceGroupTimeline) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON InstanceGroupTimeline where
+instance Data.FromJSON InstanceGroupTimeline where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceGroupTimeline"
       ( \x ->
           InstanceGroupTimeline'
-            Prelude.<$> (x Core..:? "CreationDateTime")
-            Prelude.<*> (x Core..:? "ReadyDateTime")
-            Prelude.<*> (x Core..:? "EndDateTime")
+            Prelude.<$> (x Data..:? "CreationDateTime")
+            Prelude.<*> (x Data..:? "ReadyDateTime")
+            Prelude.<*> (x Data..:? "EndDateTime")
       )
 
 instance Prelude.Hashable InstanceGroupTimeline where

@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,34 +90,34 @@ instance Prelude.NFData StopNotebookExecution where
   rnf StopNotebookExecution' {..} =
     Prelude.rnf notebookExecutionId
 
-instance Core.ToHeaders StopNotebookExecution where
+instance Data.ToHeaders StopNotebookExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.StopNotebookExecution" ::
+              Data.=# ( "ElasticMapReduce.StopNotebookExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopNotebookExecution where
+instance Data.ToJSON StopNotebookExecution where
   toJSON StopNotebookExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("NotebookExecutionId" Core..= notebookExecutionId)
+              ("NotebookExecutionId" Data..= notebookExecutionId)
           ]
       )
 
-instance Core.ToPath StopNotebookExecution where
+instance Data.ToPath StopNotebookExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopNotebookExecution where
+instance Data.ToQuery StopNotebookExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopNotebookExecutionResponse' smart constructor.

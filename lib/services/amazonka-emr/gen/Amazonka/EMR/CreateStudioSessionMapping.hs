@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -201,38 +202,38 @@ instance Prelude.NFData CreateStudioSessionMapping where
       `Prelude.seq` Prelude.rnf identityType
       `Prelude.seq` Prelude.rnf sessionPolicyArn
 
-instance Core.ToHeaders CreateStudioSessionMapping where
+instance Data.ToHeaders CreateStudioSessionMapping where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.CreateStudioSessionMapping" ::
+              Data.=# ( "ElasticMapReduce.CreateStudioSessionMapping" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateStudioSessionMapping where
+instance Data.ToJSON CreateStudioSessionMapping where
   toJSON CreateStudioSessionMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IdentityName" Core..=) Prelude.<$> identityName,
-            ("IdentityId" Core..=) Prelude.<$> identityId,
-            Prelude.Just ("StudioId" Core..= studioId),
-            Prelude.Just ("IdentityType" Core..= identityType),
+          [ ("IdentityName" Data..=) Prelude.<$> identityName,
+            ("IdentityId" Data..=) Prelude.<$> identityId,
+            Prelude.Just ("StudioId" Data..= studioId),
+            Prelude.Just ("IdentityType" Data..= identityType),
             Prelude.Just
-              ("SessionPolicyArn" Core..= sessionPolicyArn)
+              ("SessionPolicyArn" Data..= sessionPolicyArn)
           ]
       )
 
-instance Core.ToPath CreateStudioSessionMapping where
+instance Data.ToPath CreateStudioSessionMapping where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateStudioSessionMapping where
+instance Data.ToQuery CreateStudioSessionMapping where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateStudioSessionMappingResponse' smart constructor.

@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,35 +132,35 @@ instance Prelude.NFData SetVisibleToAllUsers where
     Prelude.rnf jobFlowIds
       `Prelude.seq` Prelude.rnf visibleToAllUsers
 
-instance Core.ToHeaders SetVisibleToAllUsers where
+instance Data.ToHeaders SetVisibleToAllUsers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.SetVisibleToAllUsers" ::
+              Data.=# ( "ElasticMapReduce.SetVisibleToAllUsers" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SetVisibleToAllUsers where
+instance Data.ToJSON SetVisibleToAllUsers where
   toJSON SetVisibleToAllUsers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("JobFlowIds" Core..= jobFlowIds),
+          [ Prelude.Just ("JobFlowIds" Data..= jobFlowIds),
             Prelude.Just
-              ("VisibleToAllUsers" Core..= visibleToAllUsers)
+              ("VisibleToAllUsers" Data..= visibleToAllUsers)
           ]
       )
 
-instance Core.ToPath SetVisibleToAllUsers where
+instance Data.ToPath SetVisibleToAllUsers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetVisibleToAllUsers where
+instance Data.ToQuery SetVisibleToAllUsers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetVisibleToAllUsersResponse' smart constructor.

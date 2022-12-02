@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest DescribeStudio where
     Response.receiveJSON
       ( \s h x ->
           DescribeStudioResponse'
-            Prelude.<$> (x Core..?> "Studio")
+            Prelude.<$> (x Data..?> "Studio")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,32 +96,32 @@ instance Prelude.Hashable DescribeStudio where
 instance Prelude.NFData DescribeStudio where
   rnf DescribeStudio' {..} = Prelude.rnf studioId
 
-instance Core.ToHeaders DescribeStudio where
+instance Data.ToHeaders DescribeStudio where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.DescribeStudio" ::
+              Data.=# ( "ElasticMapReduce.DescribeStudio" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeStudio where
+instance Data.ToJSON DescribeStudio where
   toJSON DescribeStudio' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("StudioId" Core..= studioId)]
+          [Prelude.Just ("StudioId" Data..= studioId)]
       )
 
-instance Core.ToPath DescribeStudio where
+instance Data.ToPath DescribeStudio where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeStudio where
+instance Data.ToQuery DescribeStudio where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeStudioResponse' smart constructor.

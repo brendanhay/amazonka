@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.StepSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.ActionOnFailure
 import Amazonka.EMR.Types.HadoopStepConfig
 import Amazonka.EMR.Types.StepStatus
@@ -97,17 +98,17 @@ stepSummary_actionOnFailure = Lens.lens (\StepSummary' {actionOnFailure} -> acti
 stepSummary_config :: Lens.Lens' StepSummary (Prelude.Maybe HadoopStepConfig)
 stepSummary_config = Lens.lens (\StepSummary' {config} -> config) (\s@StepSummary' {} a -> s {config = a} :: StepSummary)
 
-instance Core.FromJSON StepSummary where
+instance Data.FromJSON StepSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StepSummary"
       ( \x ->
           StepSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "ActionOnFailure")
-            Prelude.<*> (x Core..:? "Config")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "ActionOnFailure")
+            Prelude.<*> (x Data..:? "Config")
       )
 
 instance Prelude.Hashable StepSummary where

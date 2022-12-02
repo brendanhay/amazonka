@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,35 +119,35 @@ instance Prelude.NFData RemoveAutoScalingPolicy where
     Prelude.rnf clusterId
       `Prelude.seq` Prelude.rnf instanceGroupId
 
-instance Core.ToHeaders RemoveAutoScalingPolicy where
+instance Data.ToHeaders RemoveAutoScalingPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.RemoveAutoScalingPolicy" ::
+              Data.=# ( "ElasticMapReduce.RemoveAutoScalingPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RemoveAutoScalingPolicy where
+instance Data.ToJSON RemoveAutoScalingPolicy where
   toJSON RemoveAutoScalingPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ClusterId" Core..= clusterId),
+          [ Prelude.Just ("ClusterId" Data..= clusterId),
             Prelude.Just
-              ("InstanceGroupId" Core..= instanceGroupId)
+              ("InstanceGroupId" Data..= instanceGroupId)
           ]
       )
 
-instance Core.ToPath RemoveAutoScalingPolicy where
+instance Data.ToPath RemoveAutoScalingPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RemoveAutoScalingPolicy where
+instance Data.ToQuery RemoveAutoScalingPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveAutoScalingPolicyResponse' smart constructor.

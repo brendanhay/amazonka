@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.SupportedProductConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The list of supported product configurations that allow user-supplied
@@ -72,11 +73,11 @@ instance Prelude.NFData SupportedProductConfig where
   rnf SupportedProductConfig' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf args
 
-instance Core.ToJSON SupportedProductConfig where
+instance Data.ToJSON SupportedProductConfig where
   toJSON SupportedProductConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Args" Core..=) Prelude.<$> args
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Args" Data..=) Prelude.<$> args
           ]
       )

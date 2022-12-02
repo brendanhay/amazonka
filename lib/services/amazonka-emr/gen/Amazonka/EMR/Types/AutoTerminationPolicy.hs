@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.AutoTerminationPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An auto-termination policy for an Amazon EMR cluster. An
@@ -63,13 +64,13 @@ newAutoTerminationPolicy =
 autoTerminationPolicy_idleTimeout :: Lens.Lens' AutoTerminationPolicy (Prelude.Maybe Prelude.Integer)
 autoTerminationPolicy_idleTimeout = Lens.lens (\AutoTerminationPolicy' {idleTimeout} -> idleTimeout) (\s@AutoTerminationPolicy' {} a -> s {idleTimeout = a} :: AutoTerminationPolicy)
 
-instance Core.FromJSON AutoTerminationPolicy where
+instance Data.FromJSON AutoTerminationPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoTerminationPolicy"
       ( \x ->
           AutoTerminationPolicy'
-            Prelude.<$> (x Core..:? "IdleTimeout")
+            Prelude.<$> (x Data..:? "IdleTimeout")
       )
 
 instance Prelude.Hashable AutoTerminationPolicy where
@@ -80,9 +81,9 @@ instance Prelude.NFData AutoTerminationPolicy where
   rnf AutoTerminationPolicy' {..} =
     Prelude.rnf idleTimeout
 
-instance Core.ToJSON AutoTerminationPolicy where
+instance Data.ToJSON AutoTerminationPolicy where
   toJSON AutoTerminationPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("IdleTimeout" Core..=) Prelude.<$> idleTimeout]
+          [("IdleTimeout" Data..=) Prelude.<$> idleTimeout]
       )

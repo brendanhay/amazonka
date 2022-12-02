@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.BootstrapActionConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.ScriptBootstrapActionConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -78,14 +79,14 @@ instance Prelude.NFData BootstrapActionConfig where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf scriptBootstrapAction
 
-instance Core.ToJSON BootstrapActionConfig where
+instance Data.ToJSON BootstrapActionConfig where
   toJSON BootstrapActionConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
+          [ Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ( "ScriptBootstrapAction"
-                  Core..= scriptBootstrapAction
+                  Data..= scriptBootstrapAction
               )
           ]
       )

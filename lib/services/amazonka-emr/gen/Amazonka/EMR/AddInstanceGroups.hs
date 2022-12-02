@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,9 +100,9 @@ instance Core.AWSRequest AddInstanceGroups where
     Response.receiveJSON
       ( \s h x ->
           AddInstanceGroupsResponse'
-            Prelude.<$> (x Core..?> "ClusterArn")
-            Prelude.<*> (x Core..?> "JobFlowId")
-            Prelude.<*> ( x Core..?> "InstanceGroupIds"
+            Prelude.<$> (x Data..?> "ClusterArn")
+            Prelude.<*> (x Data..?> "JobFlowId")
+            Prelude.<*> ( x Data..?> "InstanceGroupIds"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -117,35 +118,35 @@ instance Prelude.NFData AddInstanceGroups where
     Prelude.rnf instanceGroups
       `Prelude.seq` Prelude.rnf jobFlowId
 
-instance Core.ToHeaders AddInstanceGroups where
+instance Data.ToHeaders AddInstanceGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.AddInstanceGroups" ::
+              Data.=# ( "ElasticMapReduce.AddInstanceGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AddInstanceGroups where
+instance Data.ToJSON AddInstanceGroups where
   toJSON AddInstanceGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("InstanceGroups" Core..= instanceGroups),
-            Prelude.Just ("JobFlowId" Core..= jobFlowId)
+              ("InstanceGroups" Data..= instanceGroups),
+            Prelude.Just ("JobFlowId" Data..= jobFlowId)
           ]
       )
 
-instance Core.ToPath AddInstanceGroups where
+instance Data.ToPath AddInstanceGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddInstanceGroups where
+instance Data.ToQuery AddInstanceGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Output from an AddInstanceGroups call.

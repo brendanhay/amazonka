@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.MetricDimension where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A CloudWatch dimension, which is specified using a @Key@ (known as a
@@ -65,13 +66,13 @@ metricDimension_key = Lens.lens (\MetricDimension' {key} -> key) (\s@MetricDimen
 metricDimension_value :: Lens.Lens' MetricDimension (Prelude.Maybe Prelude.Text)
 metricDimension_value = Lens.lens (\MetricDimension' {value} -> value) (\s@MetricDimension' {} a -> s {value = a} :: MetricDimension)
 
-instance Core.FromJSON MetricDimension where
+instance Data.FromJSON MetricDimension where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricDimension"
       ( \x ->
           MetricDimension'
-            Prelude.<$> (x Core..:? "Key") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Key") Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable MetricDimension where
@@ -83,11 +84,11 @@ instance Prelude.NFData MetricDimension where
   rnf MetricDimension' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON MetricDimension where
+instance Data.ToJSON MetricDimension where
   toJSON MetricDimension' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

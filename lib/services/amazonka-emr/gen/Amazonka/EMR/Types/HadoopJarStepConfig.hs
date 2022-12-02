@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.HadoopJarStepConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.KeyValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -107,13 +108,13 @@ instance Prelude.NFData HadoopJarStepConfig where
       `Prelude.seq` Prelude.rnf args
       `Prelude.seq` Prelude.rnf jar
 
-instance Core.ToJSON HadoopJarStepConfig where
+instance Data.ToJSON HadoopJarStepConfig where
   toJSON HadoopJarStepConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MainClass" Core..=) Prelude.<$> mainClass,
-            ("Properties" Core..=) Prelude.<$> properties,
-            ("Args" Core..=) Prelude.<$> args,
-            Prelude.Just ("Jar" Core..= jar)
+          [ ("MainClass" Data..=) Prelude.<$> mainClass,
+            ("Properties" Data..=) Prelude.<$> properties,
+            ("Args" Data..=) Prelude.<$> args,
+            Prelude.Just ("Jar" Data..= jar)
           ]
       )

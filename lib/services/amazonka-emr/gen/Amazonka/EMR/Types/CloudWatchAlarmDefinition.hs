@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.CloudWatchAlarmDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.ComparisonOperator
 import Amazonka.EMR.Types.MetricDimension
 import Amazonka.EMR.Types.Statistic
@@ -173,21 +174,21 @@ cloudWatchAlarmDefinition_period = Lens.lens (\CloudWatchAlarmDefinition' {perio
 cloudWatchAlarmDefinition_threshold :: Lens.Lens' CloudWatchAlarmDefinition Prelude.Double
 cloudWatchAlarmDefinition_threshold = Lens.lens (\CloudWatchAlarmDefinition' {threshold} -> threshold) (\s@CloudWatchAlarmDefinition' {} a -> s {threshold = a} :: CloudWatchAlarmDefinition)
 
-instance Core.FromJSON CloudWatchAlarmDefinition where
+instance Data.FromJSON CloudWatchAlarmDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudWatchAlarmDefinition"
       ( \x ->
           CloudWatchAlarmDefinition'
-            Prelude.<$> (x Core..:? "Dimensions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "EvaluationPeriods")
-            Prelude.<*> (x Core..:? "Namespace")
-            Prelude.<*> (x Core..:? "Statistic")
-            Prelude.<*> (x Core..:? "Unit")
-            Prelude.<*> (x Core..: "ComparisonOperator")
-            Prelude.<*> (x Core..: "MetricName")
-            Prelude.<*> (x Core..: "Period")
-            Prelude.<*> (x Core..: "Threshold")
+            Prelude.<$> (x Data..:? "Dimensions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "EvaluationPeriods")
+            Prelude.<*> (x Data..:? "Namespace")
+            Prelude.<*> (x Data..:? "Statistic")
+            Prelude.<*> (x Data..:? "Unit")
+            Prelude.<*> (x Data..: "ComparisonOperator")
+            Prelude.<*> (x Data..: "MetricName")
+            Prelude.<*> (x Data..: "Period")
+            Prelude.<*> (x Data..: "Threshold")
       )
 
 instance Prelude.Hashable CloudWatchAlarmDefinition where
@@ -214,20 +215,20 @@ instance Prelude.NFData CloudWatchAlarmDefinition where
       `Prelude.seq` Prelude.rnf period
       `Prelude.seq` Prelude.rnf threshold
 
-instance Core.ToJSON CloudWatchAlarmDefinition where
+instance Data.ToJSON CloudWatchAlarmDefinition where
   toJSON CloudWatchAlarmDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Dimensions" Core..=) Prelude.<$> dimensions,
-            ("EvaluationPeriods" Core..=)
+          [ ("Dimensions" Data..=) Prelude.<$> dimensions,
+            ("EvaluationPeriods" Data..=)
               Prelude.<$> evaluationPeriods,
-            ("Namespace" Core..=) Prelude.<$> namespace,
-            ("Statistic" Core..=) Prelude.<$> statistic,
-            ("Unit" Core..=) Prelude.<$> unit,
+            ("Namespace" Data..=) Prelude.<$> namespace,
+            ("Statistic" Data..=) Prelude.<$> statistic,
+            ("Unit" Data..=) Prelude.<$> unit,
             Prelude.Just
-              ("ComparisonOperator" Core..= comparisonOperator),
-            Prelude.Just ("MetricName" Core..= metricName),
-            Prelude.Just ("Period" Core..= period),
-            Prelude.Just ("Threshold" Core..= threshold)
+              ("ComparisonOperator" Data..= comparisonOperator),
+            Prelude.Just ("MetricName" Data..= metricName),
+            Prelude.Just ("Period" Data..= period),
+            Prelude.Just ("Threshold" Data..= threshold)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.SecurityConfigurationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The creation date and time, and name, of a security configuration.
@@ -30,7 +31,7 @@ data SecurityConfigurationSummary = SecurityConfigurationSummary'
   { -- | The name of the security configuration.
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time the security configuration was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX
+    creationDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,16 +61,16 @@ securityConfigurationSummary_name = Lens.lens (\SecurityConfigurationSummary' {n
 
 -- | The date and time the security configuration was created.
 securityConfigurationSummary_creationDateTime :: Lens.Lens' SecurityConfigurationSummary (Prelude.Maybe Prelude.UTCTime)
-securityConfigurationSummary_creationDateTime = Lens.lens (\SecurityConfigurationSummary' {creationDateTime} -> creationDateTime) (\s@SecurityConfigurationSummary' {} a -> s {creationDateTime = a} :: SecurityConfigurationSummary) Prelude.. Lens.mapping Core._Time
+securityConfigurationSummary_creationDateTime = Lens.lens (\SecurityConfigurationSummary' {creationDateTime} -> creationDateTime) (\s@SecurityConfigurationSummary' {} a -> s {creationDateTime = a} :: SecurityConfigurationSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON SecurityConfigurationSummary where
+instance Data.FromJSON SecurityConfigurationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SecurityConfigurationSummary"
       ( \x ->
           SecurityConfigurationSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CreationDateTime")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "CreationDateTime")
       )
 
 instance

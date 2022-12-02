@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.EbsBlockDeviceConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.VolumeSpecification
 import qualified Amazonka.Prelude as Prelude
 
@@ -85,13 +86,13 @@ instance Prelude.NFData EbsBlockDeviceConfig where
     Prelude.rnf volumesPerInstance
       `Prelude.seq` Prelude.rnf volumeSpecification
 
-instance Core.ToJSON EbsBlockDeviceConfig where
+instance Data.ToJSON EbsBlockDeviceConfig where
   toJSON EbsBlockDeviceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VolumesPerInstance" Core..=)
+          [ ("VolumesPerInstance" Data..=)
               Prelude.<$> volumesPerInstance,
             Prelude.Just
-              ("VolumeSpecification" Core..= volumeSpecification)
+              ("VolumeSpecification" Data..= volumeSpecification)
           ]
       )

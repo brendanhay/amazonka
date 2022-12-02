@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.InstanceFleet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.InstanceFleetProvisioningSpecifications
 import Amazonka.EMR.Types.InstanceFleetStatus
 import Amazonka.EMR.Types.InstanceFleetType
@@ -269,24 +270,24 @@ instanceFleet_provisionedOnDemandCapacity = Lens.lens (\InstanceFleet' {provisio
 instanceFleet_targetSpotCapacity :: Lens.Lens' InstanceFleet (Prelude.Maybe Prelude.Natural)
 instanceFleet_targetSpotCapacity = Lens.lens (\InstanceFleet' {targetSpotCapacity} -> targetSpotCapacity) (\s@InstanceFleet' {} a -> s {targetSpotCapacity = a} :: InstanceFleet)
 
-instance Core.FromJSON InstanceFleet where
+instance Data.FromJSON InstanceFleet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceFleet"
       ( \x ->
           InstanceFleet'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "TargetOnDemandCapacity")
-            Prelude.<*> (x Core..:? "ProvisionedSpotCapacity")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "LaunchSpecifications")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "InstanceFleetType")
-            Prelude.<*> ( x Core..:? "InstanceTypeSpecifications"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "TargetOnDemandCapacity")
+            Prelude.<*> (x Data..:? "ProvisionedSpotCapacity")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "LaunchSpecifications")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "InstanceFleetType")
+            Prelude.<*> ( x Data..:? "InstanceTypeSpecifications"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ProvisionedOnDemandCapacity")
-            Prelude.<*> (x Core..:? "TargetSpotCapacity")
+            Prelude.<*> (x Data..:? "ProvisionedOnDemandCapacity")
+            Prelude.<*> (x Data..:? "TargetSpotCapacity")
       )
 
 instance Prelude.Hashable InstanceFleet where

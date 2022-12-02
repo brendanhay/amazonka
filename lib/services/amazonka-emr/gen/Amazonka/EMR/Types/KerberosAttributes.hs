@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.KerberosAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Attributes for Kerberos configuration when Kerberos authentication is
@@ -113,17 +114,17 @@ kerberosAttributes_realm = Lens.lens (\KerberosAttributes' {realm} -> realm) (\s
 kerberosAttributes_crossRealmTrustPrincipalPassword :: Lens.Lens' KerberosAttributes (Prelude.Maybe Prelude.Text)
 kerberosAttributes_crossRealmTrustPrincipalPassword = Lens.lens (\KerberosAttributes' {crossRealmTrustPrincipalPassword} -> crossRealmTrustPrincipalPassword) (\s@KerberosAttributes' {} a -> s {crossRealmTrustPrincipalPassword = a} :: KerberosAttributes)
 
-instance Core.FromJSON KerberosAttributes where
+instance Data.FromJSON KerberosAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KerberosAttributes"
       ( \x ->
           KerberosAttributes'
-            Prelude.<$> (x Core..:? "KdcAdminPassword")
-            Prelude.<*> (x Core..:? "ADDomainJoinUser")
-            Prelude.<*> (x Core..:? "ADDomainJoinPassword")
-            Prelude.<*> (x Core..:? "Realm")
-            Prelude.<*> (x Core..:? "CrossRealmTrustPrincipalPassword")
+            Prelude.<$> (x Data..:? "KdcAdminPassword")
+            Prelude.<*> (x Data..:? "ADDomainJoinUser")
+            Prelude.<*> (x Data..:? "ADDomainJoinPassword")
+            Prelude.<*> (x Data..:? "Realm")
+            Prelude.<*> (x Data..:? "CrossRealmTrustPrincipalPassword")
       )
 
 instance Prelude.Hashable KerberosAttributes where
@@ -142,18 +143,18 @@ instance Prelude.NFData KerberosAttributes where
       `Prelude.seq` Prelude.rnf realm
       `Prelude.seq` Prelude.rnf crossRealmTrustPrincipalPassword
 
-instance Core.ToJSON KerberosAttributes where
+instance Data.ToJSON KerberosAttributes where
   toJSON KerberosAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KdcAdminPassword" Core..=)
+          [ ("KdcAdminPassword" Data..=)
               Prelude.<$> kdcAdminPassword,
-            ("ADDomainJoinUser" Core..=)
+            ("ADDomainJoinUser" Data..=)
               Prelude.<$> aDDomainJoinUser,
-            ("ADDomainJoinPassword" Core..=)
+            ("ADDomainJoinPassword" Data..=)
               Prelude.<$> aDDomainJoinPassword,
-            ("Realm" Core..=) Prelude.<$> realm,
-            ("CrossRealmTrustPrincipalPassword" Core..=)
+            ("Realm" Data..=) Prelude.<$> realm,
+            ("CrossRealmTrustPrincipalPassword" Data..=)
               Prelude.<$> crossRealmTrustPrincipalPassword
           ]
       )

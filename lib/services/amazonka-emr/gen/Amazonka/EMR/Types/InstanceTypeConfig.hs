@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.InstanceTypeConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.Configuration
 import Amazonka.EMR.Types.EbsConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -182,20 +183,20 @@ instance Prelude.NFData InstanceTypeConfig where
       `Prelude.seq` Prelude.rnf weightedCapacity
       `Prelude.seq` Prelude.rnf instanceType
 
-instance Core.ToJSON InstanceTypeConfig where
+instance Data.ToJSON InstanceTypeConfig where
   toJSON InstanceTypeConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BidPriceAsPercentageOfOnDemandPrice" Core..=)
+          [ ("BidPriceAsPercentageOfOnDemandPrice" Data..=)
               Prelude.<$> bidPriceAsPercentageOfOnDemandPrice,
-            ("EbsConfiguration" Core..=)
+            ("EbsConfiguration" Data..=)
               Prelude.<$> ebsConfiguration,
-            ("Configurations" Core..=)
+            ("Configurations" Data..=)
               Prelude.<$> configurations,
-            ("BidPrice" Core..=) Prelude.<$> bidPrice,
-            ("CustomAmiId" Core..=) Prelude.<$> customAmiId,
-            ("WeightedCapacity" Core..=)
+            ("BidPrice" Data..=) Prelude.<$> bidPrice,
+            ("CustomAmiId" Data..=) Prelude.<$> customAmiId,
+            ("WeightedCapacity" Data..=)
               Prelude.<$> weightedCapacity,
-            Prelude.Just ("InstanceType" Core..= instanceType)
+            Prelude.Just ("InstanceType" Data..= instanceType)
           ]
       )

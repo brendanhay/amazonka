@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,32 +95,32 @@ instance Prelude.Hashable TerminateJobFlows where
 instance Prelude.NFData TerminateJobFlows where
   rnf TerminateJobFlows' {..} = Prelude.rnf jobFlowIds
 
-instance Core.ToHeaders TerminateJobFlows where
+instance Data.ToHeaders TerminateJobFlows where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.TerminateJobFlows" ::
+              Data.=# ( "ElasticMapReduce.TerminateJobFlows" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON TerminateJobFlows where
+instance Data.ToJSON TerminateJobFlows where
   toJSON TerminateJobFlows' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("JobFlowIds" Core..= jobFlowIds)]
+          [Prelude.Just ("JobFlowIds" Data..= jobFlowIds)]
       )
 
-instance Core.ToPath TerminateJobFlows where
+instance Data.ToPath TerminateJobFlows where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery TerminateJobFlows where
+instance Data.ToQuery TerminateJobFlows where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTerminateJobFlowsResponse' smart constructor.

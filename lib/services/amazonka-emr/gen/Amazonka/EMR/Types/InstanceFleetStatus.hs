@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.InstanceFleetStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.InstanceFleetState
 import Amazonka.EMR.Types.InstanceFleetStateChangeReason
 import Amazonka.EMR.Types.InstanceFleetTimeline
@@ -146,15 +147,15 @@ instanceFleetStatus_timeline = Lens.lens (\InstanceFleetStatus' {timeline} -> ti
 instanceFleetStatus_state :: Lens.Lens' InstanceFleetStatus (Prelude.Maybe InstanceFleetState)
 instanceFleetStatus_state = Lens.lens (\InstanceFleetStatus' {state} -> state) (\s@InstanceFleetStatus' {} a -> s {state = a} :: InstanceFleetStatus)
 
-instance Core.FromJSON InstanceFleetStatus where
+instance Data.FromJSON InstanceFleetStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceFleetStatus"
       ( \x ->
           InstanceFleetStatus'
-            Prelude.<$> (x Core..:? "StateChangeReason")
-            Prelude.<*> (x Core..:? "Timeline")
-            Prelude.<*> (x Core..:? "State")
+            Prelude.<$> (x Data..:? "StateChangeReason")
+            Prelude.<*> (x Data..:? "Timeline")
+            Prelude.<*> (x Data..:? "State")
       )
 
 instance Prelude.Hashable InstanceFleetStatus where

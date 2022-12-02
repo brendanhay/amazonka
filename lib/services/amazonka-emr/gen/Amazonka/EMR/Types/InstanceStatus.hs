@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.InstanceStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.InstanceState
 import Amazonka.EMR.Types.InstanceStateChangeReason
 import Amazonka.EMR.Types.InstanceTimeline
@@ -74,15 +75,15 @@ instanceStatus_timeline = Lens.lens (\InstanceStatus' {timeline} -> timeline) (\
 instanceStatus_state :: Lens.Lens' InstanceStatus (Prelude.Maybe InstanceState)
 instanceStatus_state = Lens.lens (\InstanceStatus' {state} -> state) (\s@InstanceStatus' {} a -> s {state = a} :: InstanceStatus)
 
-instance Core.FromJSON InstanceStatus where
+instance Data.FromJSON InstanceStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceStatus"
       ( \x ->
           InstanceStatus'
-            Prelude.<$> (x Core..:? "StateChangeReason")
-            Prelude.<*> (x Core..:? "Timeline")
-            Prelude.<*> (x Core..:? "State")
+            Prelude.<$> (x Data..:? "StateChangeReason")
+            Prelude.<*> (x Data..:? "Timeline")
+            Prelude.<*> (x Data..:? "State")
       )
 
 instance Prelude.Hashable InstanceStatus where

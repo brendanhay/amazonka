@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.OnDemandCapacityReservationOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.OnDemandCapacityReservationPreference
 import Amazonka.EMR.Types.OnDemandCapacityReservationUsageStrategy
 import qualified Amazonka.Prelude as Prelude
@@ -142,17 +143,17 @@ onDemandCapacityReservationOptions_usageStrategy :: Lens.Lens' OnDemandCapacityR
 onDemandCapacityReservationOptions_usageStrategy = Lens.lens (\OnDemandCapacityReservationOptions' {usageStrategy} -> usageStrategy) (\s@OnDemandCapacityReservationOptions' {} a -> s {usageStrategy = a} :: OnDemandCapacityReservationOptions)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     OnDemandCapacityReservationOptions
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OnDemandCapacityReservationOptions"
       ( \x ->
           OnDemandCapacityReservationOptions'
-            Prelude.<$> (x Core..:? "CapacityReservationPreference")
-            Prelude.<*> (x Core..:? "CapacityReservationResourceGroupArn")
-            Prelude.<*> (x Core..:? "UsageStrategy")
+            Prelude.<$> (x Data..:? "CapacityReservationPreference")
+            Prelude.<*> (x Data..:? "CapacityReservationResourceGroupArn")
+            Prelude.<*> (x Data..:? "UsageStrategy")
       )
 
 instance
@@ -177,16 +178,16 @@ instance
       `Prelude.seq` Prelude.rnf usageStrategy
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     OnDemandCapacityReservationOptions
   where
   toJSON OnDemandCapacityReservationOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CapacityReservationPreference" Core..=)
+          [ ("CapacityReservationPreference" Data..=)
               Prelude.<$> capacityReservationPreference,
-            ("CapacityReservationResourceGroupArn" Core..=)
+            ("CapacityReservationResourceGroupArn" Data..=)
               Prelude.<$> capacityReservationResourceGroupArn,
-            ("UsageStrategy" Core..=) Prelude.<$> usageStrategy
+            ("UsageStrategy" Data..=) Prelude.<$> usageStrategy
           ]
       )

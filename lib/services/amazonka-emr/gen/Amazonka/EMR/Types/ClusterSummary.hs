@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.ClusterSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.ClusterStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -116,18 +117,18 @@ clusterSummary_id = Lens.lens (\ClusterSummary' {id} -> id) (\s@ClusterSummary' 
 clusterSummary_normalizedInstanceHours :: Lens.Lens' ClusterSummary (Prelude.Maybe Prelude.Int)
 clusterSummary_normalizedInstanceHours = Lens.lens (\ClusterSummary' {normalizedInstanceHours} -> normalizedInstanceHours) (\s@ClusterSummary' {} a -> s {normalizedInstanceHours = a} :: ClusterSummary)
 
-instance Core.FromJSON ClusterSummary where
+instance Data.FromJSON ClusterSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClusterSummary"
       ( \x ->
           ClusterSummary'
-            Prelude.<$> (x Core..:? "ClusterArn")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "OutpostArn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "NormalizedInstanceHours")
+            Prelude.<$> (x Data..:? "ClusterArn")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "OutpostArn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "NormalizedInstanceHours")
       )
 
 instance Prelude.Hashable ClusterSummary where

@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.Step where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.ActionOnFailure
 import Amazonka.EMR.Types.HadoopStepConfig
 import Amazonka.EMR.Types.StepStatus
@@ -166,18 +167,18 @@ step_executionRoleArn = Lens.lens (\Step' {executionRoleArn} -> executionRoleArn
 step_config :: Lens.Lens' Step (Prelude.Maybe HadoopStepConfig)
 step_config = Lens.lens (\Step' {config} -> config) (\s@Step' {} a -> s {config = a} :: Step)
 
-instance Core.FromJSON Step where
+instance Data.FromJSON Step where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Step"
       ( \x ->
           Step'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "ActionOnFailure")
-            Prelude.<*> (x Core..:? "ExecutionRoleArn")
-            Prelude.<*> (x Core..:? "Config")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "ActionOnFailure")
+            Prelude.<*> (x Data..:? "ExecutionRoleArn")
+            Prelude.<*> (x Data..:? "Config")
       )
 
 instance Prelude.Hashable Step where

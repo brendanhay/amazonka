@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.InstanceStateChangeReason where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.InstanceStateChangeReasonCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ instanceStateChangeReason_message = Lens.lens (\InstanceStateChangeReason' {mess
 instanceStateChangeReason_code :: Lens.Lens' InstanceStateChangeReason (Prelude.Maybe InstanceStateChangeReasonCode)
 instanceStateChangeReason_code = Lens.lens (\InstanceStateChangeReason' {code} -> code) (\s@InstanceStateChangeReason' {} a -> s {code = a} :: InstanceStateChangeReason)
 
-instance Core.FromJSON InstanceStateChangeReason where
+instance Data.FromJSON InstanceStateChangeReason where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceStateChangeReason"
       ( \x ->
           InstanceStateChangeReason'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Code")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Code")
       )
 
 instance Prelude.Hashable InstanceStateChangeReason where

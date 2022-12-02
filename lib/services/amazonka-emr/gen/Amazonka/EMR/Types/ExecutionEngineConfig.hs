@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.ExecutionEngineConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.ExecutionEngineType
 import qualified Amazonka.Prelude as Prelude
 
@@ -89,15 +90,15 @@ executionEngineConfig_masterInstanceSecurityGroupId = Lens.lens (\ExecutionEngin
 executionEngineConfig_id :: Lens.Lens' ExecutionEngineConfig Prelude.Text
 executionEngineConfig_id = Lens.lens (\ExecutionEngineConfig' {id} -> id) (\s@ExecutionEngineConfig' {} a -> s {id = a} :: ExecutionEngineConfig)
 
-instance Core.FromJSON ExecutionEngineConfig where
+instance Data.FromJSON ExecutionEngineConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExecutionEngineConfig"
       ( \x ->
           ExecutionEngineConfig'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "MasterInstanceSecurityGroupId")
-            Prelude.<*> (x Core..: "Id")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "MasterInstanceSecurityGroupId")
+            Prelude.<*> (x Data..: "Id")
       )
 
 instance Prelude.Hashable ExecutionEngineConfig where
@@ -112,13 +113,13 @@ instance Prelude.NFData ExecutionEngineConfig where
       `Prelude.seq` Prelude.rnf masterInstanceSecurityGroupId
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToJSON ExecutionEngineConfig where
+instance Data.ToJSON ExecutionEngineConfig where
   toJSON ExecutionEngineConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("MasterInstanceSecurityGroupId" Core..=)
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("MasterInstanceSecurityGroupId" Data..=)
               Prelude.<$> masterInstanceSecurityGroupId,
-            Prelude.Just ("Id" Core..= id)
+            Prelude.Just ("Id" Data..= id)
           ]
       )

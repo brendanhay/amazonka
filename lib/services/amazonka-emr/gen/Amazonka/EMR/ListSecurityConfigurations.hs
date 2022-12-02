@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,8 +114,8 @@ instance Core.AWSRequest ListSecurityConfigurations where
     Response.receiveJSON
       ( \s h x ->
           ListSecurityConfigurationsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> ( x Core..?> "SecurityConfigurations"
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> ( x Data..?> "SecurityConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -128,32 +129,32 @@ instance Prelude.NFData ListSecurityConfigurations where
   rnf ListSecurityConfigurations' {..} =
     Prelude.rnf marker
 
-instance Core.ToHeaders ListSecurityConfigurations where
+instance Data.ToHeaders ListSecurityConfigurations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.ListSecurityConfigurations" ::
+              Data.=# ( "ElasticMapReduce.ListSecurityConfigurations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSecurityConfigurations where
+instance Data.ToJSON ListSecurityConfigurations where
   toJSON ListSecurityConfigurations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Marker" Core..=) Prelude.<$> marker]
+          [("Marker" Data..=) Prelude.<$> marker]
       )
 
-instance Core.ToPath ListSecurityConfigurations where
+instance Data.ToPath ListSecurityConfigurations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSecurityConfigurations where
+instance Data.ToQuery ListSecurityConfigurations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSecurityConfigurationsResponse' smart constructor.

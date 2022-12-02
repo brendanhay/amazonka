@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.EbsConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.EbsBlockDeviceConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,12 +76,12 @@ instance Prelude.NFData EbsConfiguration where
     Prelude.rnf ebsOptimized
       `Prelude.seq` Prelude.rnf ebsBlockDeviceConfigs
 
-instance Core.ToJSON EbsConfiguration where
+instance Data.ToJSON EbsConfiguration where
   toJSON EbsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EbsOptimized" Core..=) Prelude.<$> ebsOptimized,
-            ("EbsBlockDeviceConfigs" Core..=)
+          [ ("EbsOptimized" Data..=) Prelude.<$> ebsOptimized,
+            ("EbsBlockDeviceConfigs" Data..=)
               Prelude.<$> ebsBlockDeviceConfigs
           ]
       )

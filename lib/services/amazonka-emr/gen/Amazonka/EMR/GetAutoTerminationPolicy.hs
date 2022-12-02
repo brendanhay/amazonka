@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,7 +87,7 @@ instance Core.AWSRequest GetAutoTerminationPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetAutoTerminationPolicyResponse'
-            Prelude.<$> (x Core..?> "AutoTerminationPolicy")
+            Prelude.<$> (x Data..?> "AutoTerminationPolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,32 +99,32 @@ instance Prelude.NFData GetAutoTerminationPolicy where
   rnf GetAutoTerminationPolicy' {..} =
     Prelude.rnf clusterId
 
-instance Core.ToHeaders GetAutoTerminationPolicy where
+instance Data.ToHeaders GetAutoTerminationPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.GetAutoTerminationPolicy" ::
+              Data.=# ( "ElasticMapReduce.GetAutoTerminationPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAutoTerminationPolicy where
+instance Data.ToJSON GetAutoTerminationPolicy where
   toJSON GetAutoTerminationPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ClusterId" Core..= clusterId)]
+          [Prelude.Just ("ClusterId" Data..= clusterId)]
       )
 
-instance Core.ToPath GetAutoTerminationPolicy where
+instance Data.ToPath GetAutoTerminationPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAutoTerminationPolicy where
+instance Data.ToQuery GetAutoTerminationPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAutoTerminationPolicyResponse' smart constructor.

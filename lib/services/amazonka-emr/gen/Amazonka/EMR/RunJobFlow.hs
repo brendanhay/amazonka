@@ -100,6 +100,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -755,8 +756,8 @@ instance Core.AWSRequest RunJobFlow where
     Response.receiveJSON
       ( \s h x ->
           RunJobFlowResponse'
-            Prelude.<$> (x Core..?> "ClusterArn")
-            Prelude.<*> (x Core..?> "JobFlowId")
+            Prelude.<$> (x Data..?> "ClusterArn")
+            Prelude.<*> (x Data..?> "JobFlowId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -832,79 +833,79 @@ instance Prelude.NFData RunJobFlow where
       `Prelude.seq` Prelude.rnf
         instances
 
-instance Core.ToHeaders RunJobFlow where
+instance Data.ToHeaders RunJobFlow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.RunJobFlow" ::
+              Data.=# ( "ElasticMapReduce.RunJobFlow" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RunJobFlow where
+instance Data.ToJSON RunJobFlow where
   toJSON RunJobFlow' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SecurityConfiguration" Core..=)
+          [ ("SecurityConfiguration" Data..=)
               Prelude.<$> securityConfiguration,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("AmiVersion" Core..=) Prelude.<$> amiVersion,
-            ("PlacementGroupConfigs" Core..=)
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("AmiVersion" Data..=) Prelude.<$> amiVersion,
+            ("PlacementGroupConfigs" Data..=)
               Prelude.<$> placementGroupConfigs,
-            ("ManagedScalingPolicy" Core..=)
+            ("ManagedScalingPolicy" Data..=)
               Prelude.<$> managedScalingPolicy,
-            ("AdditionalInfo" Core..=)
+            ("AdditionalInfo" Data..=)
               Prelude.<$> additionalInfo,
-            ("SupportedProducts" Core..=)
+            ("SupportedProducts" Data..=)
               Prelude.<$> supportedProducts,
-            ("LogEncryptionKmsKeyId" Core..=)
+            ("LogEncryptionKmsKeyId" Data..=)
               Prelude.<$> logEncryptionKmsKeyId,
-            ("JobFlowRole" Core..=) Prelude.<$> jobFlowRole,
-            ("EbsRootVolumeSize" Core..=)
+            ("JobFlowRole" Data..=) Prelude.<$> jobFlowRole,
+            ("EbsRootVolumeSize" Data..=)
               Prelude.<$> ebsRootVolumeSize,
-            ("Applications" Core..=) Prelude.<$> applications,
-            ("ReleaseLabel" Core..=) Prelude.<$> releaseLabel,
-            ("AutoScalingRole" Core..=)
+            ("Applications" Data..=) Prelude.<$> applications,
+            ("ReleaseLabel" Data..=) Prelude.<$> releaseLabel,
+            ("AutoScalingRole" Data..=)
               Prelude.<$> autoScalingRole,
-            ("ScaleDownBehavior" Core..=)
+            ("ScaleDownBehavior" Data..=)
               Prelude.<$> scaleDownBehavior,
-            ("Steps" Core..=) Prelude.<$> steps,
-            ("RepoUpgradeOnBoot" Core..=)
+            ("Steps" Data..=) Prelude.<$> steps,
+            ("RepoUpgradeOnBoot" Data..=)
               Prelude.<$> repoUpgradeOnBoot,
-            ("AutoTerminationPolicy" Core..=)
+            ("AutoTerminationPolicy" Data..=)
               Prelude.<$> autoTerminationPolicy,
-            ("ServiceRole" Core..=) Prelude.<$> serviceRole,
-            ("Configurations" Core..=)
+            ("ServiceRole" Data..=) Prelude.<$> serviceRole,
+            ("Configurations" Data..=)
               Prelude.<$> configurations,
-            ("OSReleaseLabel" Core..=)
+            ("OSReleaseLabel" Data..=)
               Prelude.<$> oSReleaseLabel,
-            ("StepConcurrencyLevel" Core..=)
+            ("StepConcurrencyLevel" Data..=)
               Prelude.<$> stepConcurrencyLevel,
-            ("NewSupportedProducts" Core..=)
+            ("NewSupportedProducts" Data..=)
               Prelude.<$> newSupportedProducts',
-            ("LogUri" Core..=) Prelude.<$> logUri,
-            ("VisibleToAllUsers" Core..=)
+            ("LogUri" Data..=) Prelude.<$> logUri,
+            ("VisibleToAllUsers" Data..=)
               Prelude.<$> visibleToAllUsers,
-            ("CustomAmiId" Core..=) Prelude.<$> customAmiId,
-            ("KerberosAttributes" Core..=)
+            ("CustomAmiId" Data..=) Prelude.<$> customAmiId,
+            ("KerberosAttributes" Data..=)
               Prelude.<$> kerberosAttributes,
-            ("BootstrapActions" Core..=)
+            ("BootstrapActions" Data..=)
               Prelude.<$> bootstrapActions,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Instances" Core..= instances)
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Instances" Data..= instances)
           ]
       )
 
-instance Core.ToPath RunJobFlow where
+instance Data.ToPath RunJobFlow where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RunJobFlow where
+instance Data.ToQuery RunJobFlow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result of the RunJobFlow operation.

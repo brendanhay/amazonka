@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -162,45 +163,45 @@ instance
     Prelude.rnf blockPublicAccessConfiguration
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutBlockPublicAccessConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.PutBlockPublicAccessConfiguration" ::
+              Data.=# ( "ElasticMapReduce.PutBlockPublicAccessConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     PutBlockPublicAccessConfiguration
   where
   toJSON PutBlockPublicAccessConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "BlockPublicAccessConfiguration"
-                  Core..= blockPublicAccessConfiguration
+                  Data..= blockPublicAccessConfiguration
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     PutBlockPublicAccessConfiguration
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PutBlockPublicAccessConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.Instance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.EbsVolume
 import Amazonka.EMR.Types.InstanceStatus
 import Amazonka.EMR.Types.MarketType
@@ -157,24 +158,24 @@ instance_privateDnsName = Lens.lens (\Instance' {privateDnsName} -> privateDnsNa
 instance_instanceGroupId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_instanceGroupId = Lens.lens (\Instance' {instanceGroupId} -> instanceGroupId) (\s@Instance' {} a -> s {instanceGroupId = a} :: Instance)
 
-instance Core.FromJSON Instance where
+instance Data.FromJSON Instance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Instance"
       ( \x ->
           Instance'
-            Prelude.<$> (x Core..:? "EbsVolumes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Ec2InstanceId")
-            Prelude.<*> (x Core..:? "InstanceFleetId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "PublicIpAddress")
-            Prelude.<*> (x Core..:? "PublicDnsName")
-            Prelude.<*> (x Core..:? "Market")
-            Prelude.<*> (x Core..:? "PrivateIpAddress")
-            Prelude.<*> (x Core..:? "PrivateDnsName")
-            Prelude.<*> (x Core..:? "InstanceGroupId")
+            Prelude.<$> (x Data..:? "EbsVolumes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Ec2InstanceId")
+            Prelude.<*> (x Data..:? "InstanceFleetId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "PublicIpAddress")
+            Prelude.<*> (x Data..:? "PublicDnsName")
+            Prelude.<*> (x Data..:? "Market")
+            Prelude.<*> (x Data..:? "PrivateIpAddress")
+            Prelude.<*> (x Data..:? "PrivateDnsName")
+            Prelude.<*> (x Data..:? "InstanceGroupId")
       )
 
 instance Prelude.Hashable Instance where

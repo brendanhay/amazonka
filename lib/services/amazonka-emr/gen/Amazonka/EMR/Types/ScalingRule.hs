@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.ScalingRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.ScalingAction
 import Amazonka.EMR.Types.ScalingTrigger
 import qualified Amazonka.Prelude as Prelude
@@ -97,16 +98,16 @@ scalingRule_action = Lens.lens (\ScalingRule' {action} -> action) (\s@ScalingRul
 scalingRule_trigger :: Lens.Lens' ScalingRule ScalingTrigger
 scalingRule_trigger = Lens.lens (\ScalingRule' {trigger} -> trigger) (\s@ScalingRule' {} a -> s {trigger = a} :: ScalingRule)
 
-instance Core.FromJSON ScalingRule where
+instance Data.FromJSON ScalingRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScalingRule"
       ( \x ->
           ScalingRule'
-            Prelude.<$> (x Core..:? "Description")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Action")
-            Prelude.<*> (x Core..: "Trigger")
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Action")
+            Prelude.<*> (x Data..: "Trigger")
       )
 
 instance Prelude.Hashable ScalingRule where
@@ -123,13 +124,13 @@ instance Prelude.NFData ScalingRule where
       `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf trigger
 
-instance Core.ToJSON ScalingRule where
+instance Data.ToJSON ScalingRule where
   toJSON ScalingRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Action" Core..= action),
-            Prelude.Just ("Trigger" Core..= trigger)
+          [ ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Action" Data..= action),
+            Prelude.Just ("Trigger" Data..= trigger)
           ]
       )

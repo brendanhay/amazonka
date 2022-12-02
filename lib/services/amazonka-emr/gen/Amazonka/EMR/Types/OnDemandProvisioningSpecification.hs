@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.OnDemandProvisioningSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.OnDemandCapacityReservationOptions
 import Amazonka.EMR.Types.OnDemandProvisioningAllocationStrategy
 import qualified Amazonka.Prelude as Prelude
@@ -83,16 +84,16 @@ onDemandProvisioningSpecification_allocationStrategy :: Lens.Lens' OnDemandProvi
 onDemandProvisioningSpecification_allocationStrategy = Lens.lens (\OnDemandProvisioningSpecification' {allocationStrategy} -> allocationStrategy) (\s@OnDemandProvisioningSpecification' {} a -> s {allocationStrategy = a} :: OnDemandProvisioningSpecification)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     OnDemandProvisioningSpecification
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OnDemandProvisioningSpecification"
       ( \x ->
           OnDemandProvisioningSpecification'
-            Prelude.<$> (x Core..:? "CapacityReservationOptions")
-            Prelude.<*> (x Core..: "AllocationStrategy")
+            Prelude.<$> (x Data..:? "CapacityReservationOptions")
+            Prelude.<*> (x Data..: "AllocationStrategy")
       )
 
 instance
@@ -115,15 +116,15 @@ instance
       `Prelude.seq` Prelude.rnf allocationStrategy
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     OnDemandProvisioningSpecification
   where
   toJSON OnDemandProvisioningSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CapacityReservationOptions" Core..=)
+          [ ("CapacityReservationOptions" Data..=)
               Prelude.<$> capacityReservationOptions,
             Prelude.Just
-              ("AllocationStrategy" Core..= allocationStrategy)
+              ("AllocationStrategy" Data..= allocationStrategy)
           ]
       )

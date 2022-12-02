@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.InstanceGroupStateChangeReason where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.InstanceGroupStateChangeReasonCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ instanceGroupStateChangeReason_message = Lens.lens (\InstanceGroupStateChangeRea
 instanceGroupStateChangeReason_code :: Lens.Lens' InstanceGroupStateChangeReason (Prelude.Maybe InstanceGroupStateChangeReasonCode)
 instanceGroupStateChangeReason_code = Lens.lens (\InstanceGroupStateChangeReason' {code} -> code) (\s@InstanceGroupStateChangeReason' {} a -> s {code = a} :: InstanceGroupStateChangeReason)
 
-instance Core.FromJSON InstanceGroupStateChangeReason where
+instance Data.FromJSON InstanceGroupStateChangeReason where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceGroupStateChangeReason"
       ( \x ->
           InstanceGroupStateChangeReason'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Code")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Code")
       )
 
 instance

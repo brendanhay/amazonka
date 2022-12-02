@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.StepStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.FailureDetails
 import Amazonka.EMR.Types.StepState
 import Amazonka.EMR.Types.StepStateChangeReason
@@ -86,16 +87,16 @@ stepStatus_state = Lens.lens (\StepStatus' {state} -> state) (\s@StepStatus' {} 
 stepStatus_failureDetails :: Lens.Lens' StepStatus (Prelude.Maybe FailureDetails)
 stepStatus_failureDetails = Lens.lens (\StepStatus' {failureDetails} -> failureDetails) (\s@StepStatus' {} a -> s {failureDetails = a} :: StepStatus)
 
-instance Core.FromJSON StepStatus where
+instance Data.FromJSON StepStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StepStatus"
       ( \x ->
           StepStatus'
-            Prelude.<$> (x Core..:? "StateChangeReason")
-            Prelude.<*> (x Core..:? "Timeline")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "FailureDetails")
+            Prelude.<$> (x Data..:? "StateChangeReason")
+            Prelude.<*> (x Data..:? "Timeline")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "FailureDetails")
       )
 
 instance Prelude.Hashable StepStatus where

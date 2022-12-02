@@ -21,6 +21,7 @@ module Amazonka.KinesisVideo.Types.ImageGenerationDestinationConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The structure that contains the information required to deliver images
@@ -75,16 +76,16 @@ imageGenerationDestinationConfig_destinationRegion :: Lens.Lens' ImageGeneration
 imageGenerationDestinationConfig_destinationRegion = Lens.lens (\ImageGenerationDestinationConfig' {destinationRegion} -> destinationRegion) (\s@ImageGenerationDestinationConfig' {} a -> s {destinationRegion = a} :: ImageGenerationDestinationConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ImageGenerationDestinationConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageGenerationDestinationConfig"
       ( \x ->
           ImageGenerationDestinationConfig'
-            Prelude.<$> (x Core..: "Uri")
-            Prelude.<*> (x Core..: "DestinationRegion")
+            Prelude.<$> (x Data..: "Uri")
+            Prelude.<*> (x Data..: "DestinationRegion")
       )
 
 instance
@@ -105,12 +106,12 @@ instance
     Prelude.rnf uri
       `Prelude.seq` Prelude.rnf destinationRegion
 
-instance Core.ToJSON ImageGenerationDestinationConfig where
+instance Data.ToJSON ImageGenerationDestinationConfig where
   toJSON ImageGenerationDestinationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Uri" Core..= uri),
+          [ Prelude.Just ("Uri" Data..= uri),
             Prelude.Just
-              ("DestinationRegion" Core..= destinationRegion)
+              ("DestinationRegion" Data..= destinationRegion)
           ]
       )

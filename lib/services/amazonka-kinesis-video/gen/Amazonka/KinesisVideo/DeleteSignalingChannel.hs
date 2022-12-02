@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideo.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,23 +120,23 @@ instance Prelude.NFData DeleteSignalingChannel where
     Prelude.rnf currentVersion
       `Prelude.seq` Prelude.rnf channelARN
 
-instance Core.ToHeaders DeleteSignalingChannel where
+instance Data.ToHeaders DeleteSignalingChannel where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON DeleteSignalingChannel where
+instance Data.ToJSON DeleteSignalingChannel where
   toJSON DeleteSignalingChannel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CurrentVersion" Core..=)
+          [ ("CurrentVersion" Data..=)
               Prelude.<$> currentVersion,
-            Prelude.Just ("ChannelARN" Core..= channelARN)
+            Prelude.Just ("ChannelARN" Data..= channelARN)
           ]
       )
 
-instance Core.ToPath DeleteSignalingChannel where
+instance Data.ToPath DeleteSignalingChannel where
   toPath = Prelude.const "/deleteSignalingChannel"
 
-instance Core.ToQuery DeleteSignalingChannel where
+instance Data.ToQuery DeleteSignalingChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSignalingChannelResponse' smart constructor.

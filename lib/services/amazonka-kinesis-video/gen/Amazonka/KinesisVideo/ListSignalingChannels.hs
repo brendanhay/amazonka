@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideo.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -142,8 +143,8 @@ instance Core.AWSRequest ListSignalingChannels where
     Response.receiveJSON
       ( \s h x ->
           ListSignalingChannelsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ChannelInfoList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ChannelInfoList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -161,24 +162,24 @@ instance Prelude.NFData ListSignalingChannels where
       `Prelude.seq` Prelude.rnf channelNameCondition
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListSignalingChannels where
+instance Data.ToHeaders ListSignalingChannels where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON ListSignalingChannels where
+instance Data.ToJSON ListSignalingChannels where
   toJSON ListSignalingChannels' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ChannelNameCondition" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ChannelNameCondition" Data..=)
               Prelude.<$> channelNameCondition,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListSignalingChannels where
+instance Data.ToPath ListSignalingChannels where
   toPath = Prelude.const "/listSignalingChannels"
 
-instance Core.ToQuery ListSignalingChannels where
+instance Data.ToQuery ListSignalingChannels where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSignalingChannelsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.KinesisVideo.Types.ChannelInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideo.Types.ChannelType
 import Amazonka.KinesisVideo.Types.SingleMasterConfiguration
 import Amazonka.KinesisVideo.Types.StreamStatus
@@ -41,7 +42,7 @@ data ChannelInfo = ChannelInfo'
     -- | The Amazon Resource Name (ARN) of the signaling channel.
     channelARN :: Prelude.Maybe Prelude.Text,
     -- | The time at which the signaling channel was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The type of the signaling channel.
     channelType :: Prelude.Maybe ChannelType,
     -- | The current version of the signaling channel.
@@ -103,7 +104,7 @@ channelInfo_channelARN = Lens.lens (\ChannelInfo' {channelARN} -> channelARN) (\
 
 -- | The time at which the signaling channel was created.
 channelInfo_creationTime :: Lens.Lens' ChannelInfo (Prelude.Maybe Prelude.UTCTime)
-channelInfo_creationTime = Lens.lens (\ChannelInfo' {creationTime} -> creationTime) (\s@ChannelInfo' {} a -> s {creationTime = a} :: ChannelInfo) Prelude.. Lens.mapping Core._Time
+channelInfo_creationTime = Lens.lens (\ChannelInfo' {creationTime} -> creationTime) (\s@ChannelInfo' {} a -> s {creationTime = a} :: ChannelInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The type of the signaling channel.
 channelInfo_channelType :: Lens.Lens' ChannelInfo (Prelude.Maybe ChannelType)
@@ -113,19 +114,19 @@ channelInfo_channelType = Lens.lens (\ChannelInfo' {channelType} -> channelType)
 channelInfo_version :: Lens.Lens' ChannelInfo (Prelude.Maybe Prelude.Text)
 channelInfo_version = Lens.lens (\ChannelInfo' {version} -> version) (\s@ChannelInfo' {} a -> s {version = a} :: ChannelInfo)
 
-instance Core.FromJSON ChannelInfo where
+instance Data.FromJSON ChannelInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelInfo"
       ( \x ->
           ChannelInfo'
-            Prelude.<$> (x Core..:? "ChannelStatus")
-            Prelude.<*> (x Core..:? "SingleMasterConfiguration")
-            Prelude.<*> (x Core..:? "ChannelName")
-            Prelude.<*> (x Core..:? "ChannelARN")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "ChannelType")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Data..:? "ChannelStatus")
+            Prelude.<*> (x Data..:? "SingleMasterConfiguration")
+            Prelude.<*> (x Data..:? "ChannelName")
+            Prelude.<*> (x Data..:? "ChannelARN")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "ChannelType")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable ChannelInfo where

@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideo.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,7 +124,7 @@ instance Core.AWSRequest GetDataEndpoint where
     Response.receiveJSON
       ( \s h x ->
           GetDataEndpointResponse'
-            Prelude.<$> (x Core..?> "DataEndpoint")
+            Prelude.<$> (x Data..?> "DataEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,23 +140,23 @@ instance Prelude.NFData GetDataEndpoint where
       `Prelude.seq` Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf aPIName
 
-instance Core.ToHeaders GetDataEndpoint where
+instance Data.ToHeaders GetDataEndpoint where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetDataEndpoint where
+instance Data.ToJSON GetDataEndpoint where
   toJSON GetDataEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StreamARN" Core..=) Prelude.<$> streamARN,
-            ("StreamName" Core..=) Prelude.<$> streamName,
-            Prelude.Just ("APIName" Core..= aPIName)
+          [ ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName,
+            Prelude.Just ("APIName" Data..= aPIName)
           ]
       )
 
-instance Core.ToPath GetDataEndpoint where
+instance Data.ToPath GetDataEndpoint where
   toPath = Prelude.const "/getDataEndpoint"
 
-instance Core.ToQuery GetDataEndpoint where
+instance Data.ToQuery GetDataEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDataEndpointResponse' smart constructor.

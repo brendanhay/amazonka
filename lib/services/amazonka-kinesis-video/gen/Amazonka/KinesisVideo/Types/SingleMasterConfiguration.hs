@@ -21,6 +21,7 @@ module Amazonka.KinesisVideo.Types.SingleMasterConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains the configuration for the @SINGLE_MASTER@
@@ -57,13 +58,13 @@ newSingleMasterConfiguration =
 singleMasterConfiguration_messageTtlSeconds :: Lens.Lens' SingleMasterConfiguration (Prelude.Maybe Prelude.Natural)
 singleMasterConfiguration_messageTtlSeconds = Lens.lens (\SingleMasterConfiguration' {messageTtlSeconds} -> messageTtlSeconds) (\s@SingleMasterConfiguration' {} a -> s {messageTtlSeconds = a} :: SingleMasterConfiguration)
 
-instance Core.FromJSON SingleMasterConfiguration where
+instance Data.FromJSON SingleMasterConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SingleMasterConfiguration"
       ( \x ->
           SingleMasterConfiguration'
-            Prelude.<$> (x Core..:? "MessageTtlSeconds")
+            Prelude.<$> (x Data..:? "MessageTtlSeconds")
       )
 
 instance Prelude.Hashable SingleMasterConfiguration where
@@ -74,11 +75,11 @@ instance Prelude.NFData SingleMasterConfiguration where
   rnf SingleMasterConfiguration' {..} =
     Prelude.rnf messageTtlSeconds
 
-instance Core.ToJSON SingleMasterConfiguration where
+instance Data.ToJSON SingleMasterConfiguration where
   toJSON SingleMasterConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MessageTtlSeconds" Core..=)
+          [ ("MessageTtlSeconds" Data..=)
               Prelude.<$> messageTtlSeconds
           ]
       )

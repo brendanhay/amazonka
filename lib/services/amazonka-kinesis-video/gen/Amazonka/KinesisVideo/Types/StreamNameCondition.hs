@@ -21,6 +21,7 @@ module Amazonka.KinesisVideo.Types.StreamNameCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideo.Types.ComparisonOperator
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,13 +81,13 @@ instance Prelude.NFData StreamNameCondition where
     Prelude.rnf comparisonValue
       `Prelude.seq` Prelude.rnf comparisonOperator
 
-instance Core.ToJSON StreamNameCondition where
+instance Data.ToJSON StreamNameCondition where
   toJSON StreamNameCondition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ComparisonValue" Core..=)
+          [ ("ComparisonValue" Data..=)
               Prelude.<$> comparisonValue,
-            ("ComparisonOperator" Core..=)
+            ("ComparisonOperator" Data..=)
               Prelude.<$> comparisonOperator
           ]
       )

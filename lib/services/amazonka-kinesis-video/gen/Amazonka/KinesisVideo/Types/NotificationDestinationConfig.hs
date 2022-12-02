@@ -21,6 +21,7 @@ module Amazonka.KinesisVideo.Types.NotificationDestinationConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The structure that contains the information required to deliver a
@@ -56,13 +57,13 @@ newNotificationDestinationConfig pUri_ =
 notificationDestinationConfig_uri :: Lens.Lens' NotificationDestinationConfig Prelude.Text
 notificationDestinationConfig_uri = Lens.lens (\NotificationDestinationConfig' {uri} -> uri) (\s@NotificationDestinationConfig' {} a -> s {uri = a} :: NotificationDestinationConfig)
 
-instance Core.FromJSON NotificationDestinationConfig where
+instance Data.FromJSON NotificationDestinationConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NotificationDestinationConfig"
       ( \x ->
           NotificationDestinationConfig'
-            Prelude.<$> (x Core..: "Uri")
+            Prelude.<$> (x Data..: "Uri")
       )
 
 instance
@@ -76,9 +77,9 @@ instance Prelude.NFData NotificationDestinationConfig where
   rnf NotificationDestinationConfig' {..} =
     Prelude.rnf uri
 
-instance Core.ToJSON NotificationDestinationConfig where
+instance Data.ToJSON NotificationDestinationConfig where
   toJSON NotificationDestinationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Uri" Core..= uri)]
+          [Prelude.Just ("Uri" Data..= uri)]
       )

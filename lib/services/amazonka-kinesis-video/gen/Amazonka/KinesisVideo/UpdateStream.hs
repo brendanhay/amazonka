@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideo.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -197,26 +198,26 @@ instance Prelude.NFData UpdateStream where
       `Prelude.seq` Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf currentVersion
 
-instance Core.ToHeaders UpdateStream where
+instance Data.ToHeaders UpdateStream where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateStream where
+instance Data.ToJSON UpdateStream where
   toJSON UpdateStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeviceName" Core..=) Prelude.<$> deviceName,
-            ("MediaType" Core..=) Prelude.<$> mediaType,
-            ("StreamARN" Core..=) Prelude.<$> streamARN,
-            ("StreamName" Core..=) Prelude.<$> streamName,
+          [ ("DeviceName" Data..=) Prelude.<$> deviceName,
+            ("MediaType" Data..=) Prelude.<$> mediaType,
+            ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName,
             Prelude.Just
-              ("CurrentVersion" Core..= currentVersion)
+              ("CurrentVersion" Data..= currentVersion)
           ]
       )
 
-instance Core.ToPath UpdateStream where
+instance Data.ToPath UpdateStream where
   toPath = Prelude.const "/updateStream"
 
-instance Core.ToQuery UpdateStream where
+instance Data.ToQuery UpdateStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateStreamResponse' smart constructor.

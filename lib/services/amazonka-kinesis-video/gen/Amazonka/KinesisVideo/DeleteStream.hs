@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideo.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,23 +136,23 @@ instance Prelude.NFData DeleteStream where
     Prelude.rnf currentVersion
       `Prelude.seq` Prelude.rnf streamARN
 
-instance Core.ToHeaders DeleteStream where
+instance Data.ToHeaders DeleteStream where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON DeleteStream where
+instance Data.ToJSON DeleteStream where
   toJSON DeleteStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CurrentVersion" Core..=)
+          [ ("CurrentVersion" Data..=)
               Prelude.<$> currentVersion,
-            Prelude.Just ("StreamARN" Core..= streamARN)
+            Prelude.Just ("StreamARN" Data..= streamARN)
           ]
       )
 
-instance Core.ToPath DeleteStream where
+instance Data.ToPath DeleteStream where
   toPath = Prelude.const "/deleteStream"
 
-instance Core.ToQuery DeleteStream where
+instance Data.ToQuery DeleteStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteStreamResponse' smart constructor.

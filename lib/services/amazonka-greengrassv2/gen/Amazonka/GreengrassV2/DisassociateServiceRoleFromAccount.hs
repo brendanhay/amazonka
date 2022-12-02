@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -77,7 +78,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DisassociateServiceRoleFromAccountResponse'
-            Prelude.<$> (x Core..?> "DisassociatedAt")
+            Prelude.<$> (x Data..?> "DisassociatedAt")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,19 +96,19 @@ instance
   rnf _ = ()
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateServiceRoleFromAccount
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DisassociateServiceRoleFromAccount
   where
   toPath = Prelude.const "/greengrass/servicerole"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisassociateServiceRoleFromAccount
   where
   toQuery = Prelude.const Prelude.mempty

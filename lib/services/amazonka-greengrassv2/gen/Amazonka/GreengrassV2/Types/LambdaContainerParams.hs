@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.LambdaContainerParams where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types.LambdaDeviceMount
 import Amazonka.GreengrassV2.Types.LambdaVolumeMount
 import qualified Amazonka.Prelude as Prelude
@@ -111,14 +112,14 @@ instance Prelude.NFData LambdaContainerParams where
       `Prelude.seq` Prelude.rnf volumes
       `Prelude.seq` Prelude.rnf mountROSysfs
 
-instance Core.ToJSON LambdaContainerParams where
+instance Data.ToJSON LambdaContainerParams where
   toJSON LambdaContainerParams' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("devices" Core..=) Prelude.<$> devices,
-            ("memorySizeInKB" Core..=)
+          [ ("devices" Data..=) Prelude.<$> devices,
+            ("memorySizeInKB" Data..=)
               Prelude.<$> memorySizeInKB,
-            ("volumes" Core..=) Prelude.<$> volumes,
-            ("mountROSysfs" Core..=) Prelude.<$> mountROSysfs
+            ("volumes" Data..=) Prelude.<$> volumes,
+            ("mountROSysfs" Data..=) Prelude.<$> mountROSysfs
           ]
       )

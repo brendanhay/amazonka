@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.ComponentVersionListItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a component version in a list.
@@ -77,15 +78,15 @@ componentVersionListItem_componentName = Lens.lens (\ComponentVersionListItem' {
 componentVersionListItem_arn :: Lens.Lens' ComponentVersionListItem (Prelude.Maybe Prelude.Text)
 componentVersionListItem_arn = Lens.lens (\ComponentVersionListItem' {arn} -> arn) (\s@ComponentVersionListItem' {} a -> s {arn = a} :: ComponentVersionListItem)
 
-instance Core.FromJSON ComponentVersionListItem where
+instance Data.FromJSON ComponentVersionListItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentVersionListItem"
       ( \x ->
           ComponentVersionListItem'
-            Prelude.<$> (x Core..:? "componentVersion")
-            Prelude.<*> (x Core..:? "componentName")
-            Prelude.<*> (x Core..:? "arn")
+            Prelude.<$> (x Data..:? "componentVersion")
+            Prelude.<*> (x Data..:? "componentName")
+            Prelude.<*> (x Data..:? "arn")
       )
 
 instance Prelude.Hashable ComponentVersionListItem where

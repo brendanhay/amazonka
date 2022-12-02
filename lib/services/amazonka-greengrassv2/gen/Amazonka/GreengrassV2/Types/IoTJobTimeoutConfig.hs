@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.IoTJobTimeoutConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the timeout configuration for a job.
@@ -71,13 +72,13 @@ newIoTJobTimeoutConfig =
 ioTJobTimeoutConfig_inProgressTimeoutInMinutes :: Lens.Lens' IoTJobTimeoutConfig (Prelude.Maybe Prelude.Integer)
 ioTJobTimeoutConfig_inProgressTimeoutInMinutes = Lens.lens (\IoTJobTimeoutConfig' {inProgressTimeoutInMinutes} -> inProgressTimeoutInMinutes) (\s@IoTJobTimeoutConfig' {} a -> s {inProgressTimeoutInMinutes = a} :: IoTJobTimeoutConfig)
 
-instance Core.FromJSON IoTJobTimeoutConfig where
+instance Data.FromJSON IoTJobTimeoutConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IoTJobTimeoutConfig"
       ( \x ->
           IoTJobTimeoutConfig'
-            Prelude.<$> (x Core..:? "inProgressTimeoutInMinutes")
+            Prelude.<$> (x Data..:? "inProgressTimeoutInMinutes")
       )
 
 instance Prelude.Hashable IoTJobTimeoutConfig where
@@ -89,11 +90,11 @@ instance Prelude.NFData IoTJobTimeoutConfig where
   rnf IoTJobTimeoutConfig' {..} =
     Prelude.rnf inProgressTimeoutInMinutes
 
-instance Core.ToJSON IoTJobTimeoutConfig where
+instance Data.ToJSON IoTJobTimeoutConfig where
   toJSON IoTJobTimeoutConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("inProgressTimeoutInMinutes" Core..=)
+          [ ("inProgressTimeoutInMinutes" Data..=)
               Prelude.<$> inProgressTimeoutInMinutes
           ]
       )

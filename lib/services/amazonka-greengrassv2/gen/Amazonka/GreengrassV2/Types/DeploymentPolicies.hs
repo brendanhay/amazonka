@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.DeploymentPolicies where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicy
 import Amazonka.GreengrassV2.Types.DeploymentConfigurationValidationPolicy
 import Amazonka.GreengrassV2.Types.DeploymentFailureHandlingPolicy
@@ -93,15 +94,15 @@ deploymentPolicies_configurationValidationPolicy = Lens.lens (\DeploymentPolicie
 deploymentPolicies_failureHandlingPolicy :: Lens.Lens' DeploymentPolicies (Prelude.Maybe DeploymentFailureHandlingPolicy)
 deploymentPolicies_failureHandlingPolicy = Lens.lens (\DeploymentPolicies' {failureHandlingPolicy} -> failureHandlingPolicy) (\s@DeploymentPolicies' {} a -> s {failureHandlingPolicy = a} :: DeploymentPolicies)
 
-instance Core.FromJSON DeploymentPolicies where
+instance Data.FromJSON DeploymentPolicies where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeploymentPolicies"
       ( \x ->
           DeploymentPolicies'
-            Prelude.<$> (x Core..:? "componentUpdatePolicy")
-            Prelude.<*> (x Core..:? "configurationValidationPolicy")
-            Prelude.<*> (x Core..:? "failureHandlingPolicy")
+            Prelude.<$> (x Data..:? "componentUpdatePolicy")
+            Prelude.<*> (x Data..:? "configurationValidationPolicy")
+            Prelude.<*> (x Data..:? "failureHandlingPolicy")
       )
 
 instance Prelude.Hashable DeploymentPolicies where
@@ -116,15 +117,15 @@ instance Prelude.NFData DeploymentPolicies where
       `Prelude.seq` Prelude.rnf configurationValidationPolicy
       `Prelude.seq` Prelude.rnf failureHandlingPolicy
 
-instance Core.ToJSON DeploymentPolicies where
+instance Data.ToJSON DeploymentPolicies where
   toJSON DeploymentPolicies' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("componentUpdatePolicy" Core..=)
+          [ ("componentUpdatePolicy" Data..=)
               Prelude.<$> componentUpdatePolicy,
-            ("configurationValidationPolicy" Core..=)
+            ("configurationValidationPolicy" Data..=)
               Prelude.<$> configurationValidationPolicy,
-            ("failureHandlingPolicy" Core..=)
+            ("failureHandlingPolicy" Data..=)
               Prelude.<$> failureHandlingPolicy
           ]
       )

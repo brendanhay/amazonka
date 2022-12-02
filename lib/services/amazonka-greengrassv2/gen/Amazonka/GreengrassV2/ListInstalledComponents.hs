@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -200,8 +201,8 @@ instance Core.AWSRequest ListInstalledComponents where
     Response.receiveJSON
       ( \s h x ->
           ListInstalledComponentsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "installedComponents"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "installedComponents"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -221,23 +222,23 @@ instance Prelude.NFData ListInstalledComponents where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf coreDeviceThingName
 
-instance Core.ToHeaders ListInstalledComponents where
+instance Data.ToHeaders ListInstalledComponents where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListInstalledComponents where
+instance Data.ToPath ListInstalledComponents where
   toPath ListInstalledComponents' {..} =
     Prelude.mconcat
       [ "/greengrass/v2/coreDevices/",
-        Core.toBS coreDeviceThingName,
+        Data.toBS coreDeviceThingName,
         "/installedComponents"
       ]
 
-instance Core.ToQuery ListInstalledComponents where
+instance Data.ToQuery ListInstalledComponents where
   toQuery ListInstalledComponents' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "topologyFilter" Core.=: topologyFilter,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "topologyFilter" Data.=: topologyFilter,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListInstalledComponentsResponse' smart constructor.

@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,8 +106,8 @@ instance Core.AWSRequest UpdateConnectivityInfo where
     Response.receiveJSON
       ( \s h x ->
           UpdateConnectivityInfoResponse'
-            Prelude.<$> (x Core..?> "Message")
-            Prelude.<*> (x Core..?> "Version")
+            Prelude.<$> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,27 +121,27 @@ instance Prelude.NFData UpdateConnectivityInfo where
     Prelude.rnf thingName
       `Prelude.seq` Prelude.rnf connectivityInfo
 
-instance Core.ToHeaders UpdateConnectivityInfo where
+instance Data.ToHeaders UpdateConnectivityInfo where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateConnectivityInfo where
+instance Data.ToJSON UpdateConnectivityInfo where
   toJSON UpdateConnectivityInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ConnectivityInfo" Core..= connectivityInfo)
+              ("ConnectivityInfo" Data..= connectivityInfo)
           ]
       )
 
-instance Core.ToPath UpdateConnectivityInfo where
+instance Data.ToPath UpdateConnectivityInfo where
   toPath UpdateConnectivityInfo' {..} =
     Prelude.mconcat
       [ "/greengrass/things/",
-        Core.toBS thingName,
+        Data.toBS thingName,
         "/connectivityInfo"
       ]
 
-instance Core.ToQuery UpdateConnectivityInfo where
+instance Data.ToQuery UpdateConnectivityInfo where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateConnectivityInfoResponse' smart constructor.

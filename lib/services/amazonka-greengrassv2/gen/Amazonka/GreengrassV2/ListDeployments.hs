@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -184,8 +185,8 @@ instance Core.AWSRequest ListDeployments where
     Response.receiveJSON
       ( \s h x ->
           ListDeploymentsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "deployments" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "deployments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -205,20 +206,20 @@ instance Prelude.NFData ListDeployments where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf historyFilter
 
-instance Core.ToHeaders ListDeployments where
+instance Data.ToHeaders ListDeployments where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListDeployments where
+instance Data.ToPath ListDeployments where
   toPath = Prelude.const "/greengrass/v2/deployments"
 
-instance Core.ToQuery ListDeployments where
+instance Data.ToQuery ListDeployments where
   toQuery ListDeployments' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "targetArn" Core.=: targetArn,
-        "parentTargetArn" Core.=: parentTargetArn,
-        "maxResults" Core.=: maxResults,
-        "historyFilter" Core.=: historyFilter
+      [ "nextToken" Data.=: nextToken,
+        "targetArn" Data.=: targetArn,
+        "parentTargetArn" Data.=: parentTargetArn,
+        "maxResults" Data.=: maxResults,
+        "historyFilter" Data.=: historyFilter
       ]
 
 -- | /See:/ 'newListDeploymentsResponse' smart constructor.

@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,20 +98,20 @@ instance Core.AWSRequest GetDeployment where
     Response.receiveJSON
       ( \s h x ->
           GetDeploymentResponse'
-            Prelude.<$> (x Core..?> "deploymentStatus")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "iotJobConfiguration")
-            Prelude.<*> (x Core..?> "iotJobArn")
-            Prelude.<*> (x Core..?> "iotJobId")
-            Prelude.<*> (x Core..?> "deploymentName")
-            Prelude.<*> (x Core..?> "deploymentId")
-            Prelude.<*> (x Core..?> "targetArn")
-            Prelude.<*> (x Core..?> "isLatestForTarget")
-            Prelude.<*> (x Core..?> "creationTimestamp")
-            Prelude.<*> (x Core..?> "parentTargetArn")
-            Prelude.<*> (x Core..?> "deploymentPolicies")
-            Prelude.<*> (x Core..?> "components" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "revisionId")
+            Prelude.<$> (x Data..?> "deploymentStatus")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "iotJobConfiguration")
+            Prelude.<*> (x Data..?> "iotJobArn")
+            Prelude.<*> (x Data..?> "iotJobId")
+            Prelude.<*> (x Data..?> "deploymentName")
+            Prelude.<*> (x Data..?> "deploymentId")
+            Prelude.<*> (x Data..?> "targetArn")
+            Prelude.<*> (x Data..?> "isLatestForTarget")
+            Prelude.<*> (x Data..?> "creationTimestamp")
+            Prelude.<*> (x Data..?> "parentTargetArn")
+            Prelude.<*> (x Data..?> "deploymentPolicies")
+            Prelude.<*> (x Data..?> "components" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "revisionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,17 +122,17 @@ instance Prelude.Hashable GetDeployment where
 instance Prelude.NFData GetDeployment where
   rnf GetDeployment' {..} = Prelude.rnf deploymentId
 
-instance Core.ToHeaders GetDeployment where
+instance Data.ToHeaders GetDeployment where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetDeployment where
+instance Data.ToPath GetDeployment where
   toPath GetDeployment' {..} =
     Prelude.mconcat
       [ "/greengrass/v2/deployments/",
-        Core.toBS deploymentId
+        Data.toBS deploymentId
       ]
 
-instance Core.ToQuery GetDeployment where
+instance Data.ToQuery GetDeployment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDeploymentResponse' smart constructor.
@@ -165,7 +166,7 @@ data GetDeploymentResponse = GetDeploymentResponse'
     isLatestForTarget :: Prelude.Maybe Prelude.Bool,
     -- | The time at which the deployment was created, expressed in ISO 8601
     -- format.
-    creationTimestamp :: Prelude.Maybe Core.POSIX,
+    creationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The parent deployment\'s target
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
     -- within a subdeployment.
@@ -308,7 +309,7 @@ getDeploymentResponse_isLatestForTarget = Lens.lens (\GetDeploymentResponse' {is
 -- | The time at which the deployment was created, expressed in ISO 8601
 -- format.
 getDeploymentResponse_creationTimestamp :: Lens.Lens' GetDeploymentResponse (Prelude.Maybe Prelude.UTCTime)
-getDeploymentResponse_creationTimestamp = Lens.lens (\GetDeploymentResponse' {creationTimestamp} -> creationTimestamp) (\s@GetDeploymentResponse' {} a -> s {creationTimestamp = a} :: GetDeploymentResponse) Prelude.. Lens.mapping Core._Time
+getDeploymentResponse_creationTimestamp = Lens.lens (\GetDeploymentResponse' {creationTimestamp} -> creationTimestamp) (\s@GetDeploymentResponse' {} a -> s {creationTimestamp = a} :: GetDeploymentResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The parent deployment\'s target
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>

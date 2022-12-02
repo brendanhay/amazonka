@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,8 +94,8 @@ instance Core.AWSRequest GetConnectivityInfo where
     Response.receiveJSON
       ( \s h x ->
           GetConnectivityInfoResponse'
-            Prelude.<$> (x Core..?> "Message")
-            Prelude.<*> ( x Core..?> "ConnectivityInfo"
+            Prelude.<$> (x Data..?> "Message")
+            Prelude.<*> ( x Data..?> "ConnectivityInfo"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -107,18 +108,18 @@ instance Prelude.Hashable GetConnectivityInfo where
 instance Prelude.NFData GetConnectivityInfo where
   rnf GetConnectivityInfo' {..} = Prelude.rnf thingName
 
-instance Core.ToHeaders GetConnectivityInfo where
+instance Data.ToHeaders GetConnectivityInfo where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetConnectivityInfo where
+instance Data.ToPath GetConnectivityInfo where
   toPath GetConnectivityInfo' {..} =
     Prelude.mconcat
       [ "/greengrass/things/",
-        Core.toBS thingName,
+        Data.toBS thingName,
         "/connectivityInfo"
       ]
 
-instance Core.ToQuery GetConnectivityInfo where
+instance Data.ToQuery GetConnectivityInfo where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetConnectivityInfoResponse' smart constructor.

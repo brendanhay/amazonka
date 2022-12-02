@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,7 +131,7 @@ instance Core.AWSRequest GetComponentVersionArtifact where
       ( \s h x ->
           GetComponentVersionArtifactResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "preSignedUrl")
+            Prelude.<*> (x Data..:> "preSignedUrl")
       )
 
 instance Prelude.Hashable GetComponentVersionArtifact where
@@ -143,19 +144,19 @@ instance Prelude.NFData GetComponentVersionArtifact where
     Prelude.rnf arn
       `Prelude.seq` Prelude.rnf artifactName
 
-instance Core.ToHeaders GetComponentVersionArtifact where
+instance Data.ToHeaders GetComponentVersionArtifact where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetComponentVersionArtifact where
+instance Data.ToPath GetComponentVersionArtifact where
   toPath GetComponentVersionArtifact' {..} =
     Prelude.mconcat
       [ "/greengrass/v2/components/",
-        Core.toBS arn,
+        Data.toBS arn,
         "/artifacts/",
-        Core.toBS artifactName
+        Data.toBS artifactName
       ]
 
-instance Core.ToQuery GetComponentVersionArtifact where
+instance Data.ToQuery GetComponentVersionArtifact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetComponentVersionArtifactResponse' smart constructor.

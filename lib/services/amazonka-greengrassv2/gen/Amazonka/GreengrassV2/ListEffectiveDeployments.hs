@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,10 +133,10 @@ instance Core.AWSRequest ListEffectiveDeployments where
     Response.receiveJSON
       ( \s h x ->
           ListEffectiveDeploymentsResponse'
-            Prelude.<$> ( x Core..?> "effectiveDeployments"
+            Prelude.<$> ( x Data..?> "effectiveDeployments"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,22 +152,22 @@ instance Prelude.NFData ListEffectiveDeployments where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf coreDeviceThingName
 
-instance Core.ToHeaders ListEffectiveDeployments where
+instance Data.ToHeaders ListEffectiveDeployments where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListEffectiveDeployments where
+instance Data.ToPath ListEffectiveDeployments where
   toPath ListEffectiveDeployments' {..} =
     Prelude.mconcat
       [ "/greengrass/v2/coreDevices/",
-        Core.toBS coreDeviceThingName,
+        Data.toBS coreDeviceThingName,
         "/effectiveDeployments"
       ]
 
-instance Core.ToQuery ListEffectiveDeployments where
+instance Data.ToQuery ListEffectiveDeployments where
   toQuery ListEffectiveDeployments' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListEffectiveDeploymentsResponse' smart constructor.

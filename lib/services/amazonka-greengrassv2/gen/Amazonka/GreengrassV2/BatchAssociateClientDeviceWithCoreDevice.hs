@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,7 +117,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchAssociateClientDeviceWithCoreDeviceResponse'
-            Prelude.<$> (x Core..?> "errorEntries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "errorEntries" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,34 +140,34 @@ instance
       `Prelude.seq` Prelude.rnf coreDeviceThingName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     BatchAssociateClientDeviceWithCoreDevice
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     BatchAssociateClientDeviceWithCoreDevice
   where
   toJSON BatchAssociateClientDeviceWithCoreDevice' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("entries" Core..=) Prelude.<$> entries]
+          [("entries" Data..=) Prelude.<$> entries]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     BatchAssociateClientDeviceWithCoreDevice
   where
   toPath BatchAssociateClientDeviceWithCoreDevice' {..} =
     Prelude.mconcat
       [ "/greengrass/v2/coreDevices/",
-        Core.toBS coreDeviceThingName,
+        Data.toBS coreDeviceThingName,
         "/associateClientDevices"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     BatchAssociateClientDeviceWithCoreDevice
   where
   toQuery = Prelude.const Prelude.mempty

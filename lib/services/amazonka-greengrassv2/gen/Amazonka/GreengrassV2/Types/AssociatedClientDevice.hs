@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.AssociatedClientDevice where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a client device that is associated to a core
@@ -32,7 +33,7 @@ data AssociatedClientDevice = AssociatedClientDevice'
     thingName :: Prelude.Maybe Prelude.Text,
     -- | The time that the client device was associated, expressed in ISO 8601
     -- format.
-    associationTimestamp :: Prelude.Maybe Core.POSIX
+    associationTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,16 +65,16 @@ associatedClientDevice_thingName = Lens.lens (\AssociatedClientDevice' {thingNam
 -- | The time that the client device was associated, expressed in ISO 8601
 -- format.
 associatedClientDevice_associationTimestamp :: Lens.Lens' AssociatedClientDevice (Prelude.Maybe Prelude.UTCTime)
-associatedClientDevice_associationTimestamp = Lens.lens (\AssociatedClientDevice' {associationTimestamp} -> associationTimestamp) (\s@AssociatedClientDevice' {} a -> s {associationTimestamp = a} :: AssociatedClientDevice) Prelude.. Lens.mapping Core._Time
+associatedClientDevice_associationTimestamp = Lens.lens (\AssociatedClientDevice' {associationTimestamp} -> associationTimestamp) (\s@AssociatedClientDevice' {} a -> s {associationTimestamp = a} :: AssociatedClientDevice) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AssociatedClientDevice where
+instance Data.FromJSON AssociatedClientDevice where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssociatedClientDevice"
       ( \x ->
           AssociatedClientDevice'
-            Prelude.<$> (x Core..:? "thingName")
-            Prelude.<*> (x Core..:? "associationTimestamp")
+            Prelude.<$> (x Data..:? "thingName")
+            Prelude.<*> (x Data..:? "associationTimestamp")
       )
 
 instance Prelude.Hashable AssociatedClientDevice where

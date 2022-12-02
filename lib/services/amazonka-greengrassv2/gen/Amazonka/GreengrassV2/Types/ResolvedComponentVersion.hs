@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.ResolvedComponentVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types.VendorGuidance
 import qualified Amazonka.Prelude as Prelude
 
@@ -52,7 +53,7 @@ data ResolvedComponentVersion = ResolvedComponentVersion'
     -- | The version of the component.
     componentVersion :: Prelude.Maybe Prelude.Text,
     -- | The recipe of the component version.
-    recipe :: Prelude.Maybe Core.Base64,
+    recipe :: Prelude.Maybe Data.Base64,
     -- | The name of the component.
     componentName :: Prelude.Maybe Prelude.Text,
     -- | The
@@ -150,7 +151,7 @@ resolvedComponentVersion_componentVersion = Lens.lens (\ResolvedComponentVersion
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 resolvedComponentVersion_recipe :: Lens.Lens' ResolvedComponentVersion (Prelude.Maybe Prelude.ByteString)
-resolvedComponentVersion_recipe = Lens.lens (\ResolvedComponentVersion' {recipe} -> recipe) (\s@ResolvedComponentVersion' {} a -> s {recipe = a} :: ResolvedComponentVersion) Prelude.. Lens.mapping Core._Base64
+resolvedComponentVersion_recipe = Lens.lens (\ResolvedComponentVersion' {recipe} -> recipe) (\s@ResolvedComponentVersion' {} a -> s {recipe = a} :: ResolvedComponentVersion) Prelude.. Lens.mapping Data._Base64
 
 -- | The name of the component.
 resolvedComponentVersion_componentName :: Lens.Lens' ResolvedComponentVersion (Prelude.Maybe Prelude.Text)
@@ -162,18 +163,18 @@ resolvedComponentVersion_componentName = Lens.lens (\ResolvedComponentVersion' {
 resolvedComponentVersion_arn :: Lens.Lens' ResolvedComponentVersion (Prelude.Maybe Prelude.Text)
 resolvedComponentVersion_arn = Lens.lens (\ResolvedComponentVersion' {arn} -> arn) (\s@ResolvedComponentVersion' {} a -> s {arn = a} :: ResolvedComponentVersion)
 
-instance Core.FromJSON ResolvedComponentVersion where
+instance Data.FromJSON ResolvedComponentVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResolvedComponentVersion"
       ( \x ->
           ResolvedComponentVersion'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "vendorGuidance")
-            Prelude.<*> (x Core..:? "componentVersion")
-            Prelude.<*> (x Core..:? "recipe")
-            Prelude.<*> (x Core..:? "componentName")
-            Prelude.<*> (x Core..:? "arn")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "vendorGuidance")
+            Prelude.<*> (x Data..:? "componentVersion")
+            Prelude.<*> (x Data..:? "recipe")
+            Prelude.<*> (x Data..:? "componentName")
+            Prelude.<*> (x Data..:? "arn")
       )
 
 instance Prelude.Hashable ResolvedComponentVersion where

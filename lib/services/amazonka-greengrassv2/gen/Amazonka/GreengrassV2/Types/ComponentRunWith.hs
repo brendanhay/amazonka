@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.ComponentRunWith where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types.SystemResourceLimits
 import qualified Amazonka.Prelude as Prelude
 
@@ -151,15 +152,15 @@ componentRunWith_posixUser = Lens.lens (\ComponentRunWith' {posixUser} -> posixU
 componentRunWith_windowsUser :: Lens.Lens' ComponentRunWith (Prelude.Maybe Prelude.Text)
 componentRunWith_windowsUser = Lens.lens (\ComponentRunWith' {windowsUser} -> windowsUser) (\s@ComponentRunWith' {} a -> s {windowsUser = a} :: ComponentRunWith)
 
-instance Core.FromJSON ComponentRunWith where
+instance Data.FromJSON ComponentRunWith where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentRunWith"
       ( \x ->
           ComponentRunWith'
-            Prelude.<$> (x Core..:? "systemResourceLimits")
-            Prelude.<*> (x Core..:? "posixUser")
-            Prelude.<*> (x Core..:? "windowsUser")
+            Prelude.<$> (x Data..:? "systemResourceLimits")
+            Prelude.<*> (x Data..:? "posixUser")
+            Prelude.<*> (x Data..:? "windowsUser")
       )
 
 instance Prelude.Hashable ComponentRunWith where
@@ -174,13 +175,13 @@ instance Prelude.NFData ComponentRunWith where
       `Prelude.seq` Prelude.rnf posixUser
       `Prelude.seq` Prelude.rnf windowsUser
 
-instance Core.ToJSON ComponentRunWith where
+instance Data.ToJSON ComponentRunWith where
   toJSON ComponentRunWith' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("systemResourceLimits" Core..=)
+          [ ("systemResourceLimits" Data..=)
               Prelude.<$> systemResourceLimits,
-            ("posixUser" Core..=) Prelude.<$> posixUser,
-            ("windowsUser" Core..=) Prelude.<$> windowsUser
+            ("posixUser" Data..=) Prelude.<$> posixUser,
+            ("windowsUser" Data..=) Prelude.<$> windowsUser
           ]
       )

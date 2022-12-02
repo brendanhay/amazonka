@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,13 +116,13 @@ instance Core.AWSRequest GetCoreDevice where
     Response.receiveJSON
       ( \s h x ->
           GetCoreDeviceResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "coreDeviceThingName")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "platform")
-            Prelude.<*> (x Core..?> "coreVersion")
-            Prelude.<*> (x Core..?> "lastStatusUpdateTimestamp")
-            Prelude.<*> (x Core..?> "architecture")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "coreDeviceThingName")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "platform")
+            Prelude.<*> (x Data..?> "coreVersion")
+            Prelude.<*> (x Data..?> "lastStatusUpdateTimestamp")
+            Prelude.<*> (x Data..?> "architecture")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,17 +134,17 @@ instance Prelude.NFData GetCoreDevice where
   rnf GetCoreDevice' {..} =
     Prelude.rnf coreDeviceThingName
 
-instance Core.ToHeaders GetCoreDevice where
+instance Data.ToHeaders GetCoreDevice where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetCoreDevice where
+instance Data.ToPath GetCoreDevice where
   toPath GetCoreDevice' {..} =
     Prelude.mconcat
       [ "/greengrass/v2/coreDevices/",
-        Core.toBS coreDeviceThingName
+        Data.toBS coreDeviceThingName
       ]
 
-instance Core.ToQuery GetCoreDevice where
+instance Data.ToQuery GetCoreDevice where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCoreDeviceResponse' smart constructor.
@@ -174,7 +175,7 @@ data GetCoreDeviceResponse = GetCoreDeviceResponse'
     coreVersion :: Prelude.Maybe Prelude.Text,
     -- | The time at which the core device\'s status last updated, expressed in
     -- ISO 8601 format.
-    lastStatusUpdateTimestamp :: Prelude.Maybe Core.POSIX,
+    lastStatusUpdateTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The computer architecture of the core device.
     architecture :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -273,7 +274,7 @@ getCoreDeviceResponse_coreVersion = Lens.lens (\GetCoreDeviceResponse' {coreVers
 -- | The time at which the core device\'s status last updated, expressed in
 -- ISO 8601 format.
 getCoreDeviceResponse_lastStatusUpdateTimestamp :: Lens.Lens' GetCoreDeviceResponse (Prelude.Maybe Prelude.UTCTime)
-getCoreDeviceResponse_lastStatusUpdateTimestamp = Lens.lens (\GetCoreDeviceResponse' {lastStatusUpdateTimestamp} -> lastStatusUpdateTimestamp) (\s@GetCoreDeviceResponse' {} a -> s {lastStatusUpdateTimestamp = a} :: GetCoreDeviceResponse) Prelude.. Lens.mapping Core._Time
+getCoreDeviceResponse_lastStatusUpdateTimestamp = Lens.lens (\GetCoreDeviceResponse' {lastStatusUpdateTimestamp} -> lastStatusUpdateTimestamp) (\s@GetCoreDeviceResponse' {} a -> s {lastStatusUpdateTimestamp = a} :: GetCoreDeviceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The computer architecture of the core device.
 getCoreDeviceResponse_architecture :: Lens.Lens' GetCoreDeviceResponse (Prelude.Maybe Prelude.Text)

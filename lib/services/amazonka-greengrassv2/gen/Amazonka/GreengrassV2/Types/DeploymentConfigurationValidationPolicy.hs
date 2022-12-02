@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.DeploymentConfigurationValidationPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about how long a component on a core device can
@@ -75,15 +76,15 @@ deploymentConfigurationValidationPolicy_timeoutInSeconds :: Lens.Lens' Deploymen
 deploymentConfigurationValidationPolicy_timeoutInSeconds = Lens.lens (\DeploymentConfigurationValidationPolicy' {timeoutInSeconds} -> timeoutInSeconds) (\s@DeploymentConfigurationValidationPolicy' {} a -> s {timeoutInSeconds = a} :: DeploymentConfigurationValidationPolicy)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DeploymentConfigurationValidationPolicy
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeploymentConfigurationValidationPolicy"
       ( \x ->
           DeploymentConfigurationValidationPolicy'
-            Prelude.<$> (x Core..:? "timeoutInSeconds")
+            Prelude.<$> (x Data..:? "timeoutInSeconds")
       )
 
 instance
@@ -103,13 +104,13 @@ instance
     Prelude.rnf timeoutInSeconds
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DeploymentConfigurationValidationPolicy
   where
   toJSON DeploymentConfigurationValidationPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("timeoutInSeconds" Core..=)
+          [ ("timeoutInSeconds" Data..=)
               Prelude.<$> timeoutInSeconds
           ]
       )

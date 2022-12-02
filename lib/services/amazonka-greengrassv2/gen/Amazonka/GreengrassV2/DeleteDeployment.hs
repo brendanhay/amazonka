@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,17 +93,17 @@ instance Prelude.Hashable DeleteDeployment where
 instance Prelude.NFData DeleteDeployment where
   rnf DeleteDeployment' {..} = Prelude.rnf deploymentId
 
-instance Core.ToHeaders DeleteDeployment where
+instance Data.ToHeaders DeleteDeployment where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteDeployment where
+instance Data.ToPath DeleteDeployment where
   toPath DeleteDeployment' {..} =
     Prelude.mconcat
       [ "/greengrass/v2/deployments/",
-        Core.toBS deploymentId
+        Data.toBS deploymentId
       ]
 
-instance Core.ToQuery DeleteDeployment where
+instance Data.ToQuery DeleteDeployment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDeploymentResponse' smart constructor.

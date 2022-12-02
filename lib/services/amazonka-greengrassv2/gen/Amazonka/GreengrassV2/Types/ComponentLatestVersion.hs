@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.ComponentLatestVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types.ComponentPlatform
 import qualified Amazonka.Prelude as Prelude
 
@@ -38,7 +39,7 @@ data ComponentLatestVersion = ComponentLatestVersion'
     description :: Prelude.Maybe Prelude.Text,
     -- | The time at which the component was created, expressed in ISO 8601
     -- format.
-    creationTimestamp :: Prelude.Maybe Core.POSIX,
+    creationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The platforms that the component version supports.
     platforms :: Prelude.Maybe [ComponentPlatform],
     -- | The publisher of the component version.
@@ -98,7 +99,7 @@ componentLatestVersion_description = Lens.lens (\ComponentLatestVersion' {descri
 -- | The time at which the component was created, expressed in ISO 8601
 -- format.
 componentLatestVersion_creationTimestamp :: Lens.Lens' ComponentLatestVersion (Prelude.Maybe Prelude.UTCTime)
-componentLatestVersion_creationTimestamp = Lens.lens (\ComponentLatestVersion' {creationTimestamp} -> creationTimestamp) (\s@ComponentLatestVersion' {} a -> s {creationTimestamp = a} :: ComponentLatestVersion) Prelude.. Lens.mapping Core._Time
+componentLatestVersion_creationTimestamp = Lens.lens (\ComponentLatestVersion' {creationTimestamp} -> creationTimestamp) (\s@ComponentLatestVersion' {} a -> s {creationTimestamp = a} :: ComponentLatestVersion) Prelude.. Lens.mapping Data._Time
 
 -- | The platforms that the component version supports.
 componentLatestVersion_platforms :: Lens.Lens' ComponentLatestVersion (Prelude.Maybe [ComponentPlatform])
@@ -108,18 +109,18 @@ componentLatestVersion_platforms = Lens.lens (\ComponentLatestVersion' {platform
 componentLatestVersion_publisher :: Lens.Lens' ComponentLatestVersion (Prelude.Maybe Prelude.Text)
 componentLatestVersion_publisher = Lens.lens (\ComponentLatestVersion' {publisher} -> publisher) (\s@ComponentLatestVersion' {} a -> s {publisher = a} :: ComponentLatestVersion)
 
-instance Core.FromJSON ComponentLatestVersion where
+instance Data.FromJSON ComponentLatestVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentLatestVersion"
       ( \x ->
           ComponentLatestVersion'
-            Prelude.<$> (x Core..:? "componentVersion")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "creationTimestamp")
-            Prelude.<*> (x Core..:? "platforms" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "publisher")
+            Prelude.<$> (x Data..:? "componentVersion")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "creationTimestamp")
+            Prelude.<*> (x Data..:? "platforms" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "publisher")
       )
 
 instance Prelude.Hashable ComponentLatestVersion where

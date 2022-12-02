@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.EffectiveDeploymentStatusDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains all error-related information for the deployment record. The
@@ -83,16 +84,16 @@ effectiveDeploymentStatusDetails_errorTypes :: Lens.Lens' EffectiveDeploymentSta
 effectiveDeploymentStatusDetails_errorTypes = Lens.lens (\EffectiveDeploymentStatusDetails' {errorTypes} -> errorTypes) (\s@EffectiveDeploymentStatusDetails' {} a -> s {errorTypes = a} :: EffectiveDeploymentStatusDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     EffectiveDeploymentStatusDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EffectiveDeploymentStatusDetails"
       ( \x ->
           EffectiveDeploymentStatusDetails'
-            Prelude.<$> (x Core..:? "errorStack" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "errorTypes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "errorStack" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "errorTypes" Data..!= Prelude.mempty)
       )
 
 instance

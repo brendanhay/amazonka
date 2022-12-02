@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.AssociateClientDeviceWithCoreDeviceErrorEntry
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an error that occurs from a request to associate a client
@@ -75,17 +76,17 @@ associateClientDeviceWithCoreDeviceErrorEntry_code :: Lens.Lens' AssociateClient
 associateClientDeviceWithCoreDeviceErrorEntry_code = Lens.lens (\AssociateClientDeviceWithCoreDeviceErrorEntry' {code} -> code) (\s@AssociateClientDeviceWithCoreDeviceErrorEntry' {} a -> s {code = a} :: AssociateClientDeviceWithCoreDeviceErrorEntry)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AssociateClientDeviceWithCoreDeviceErrorEntry
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssociateClientDeviceWithCoreDeviceErrorEntry"
       ( \x ->
           AssociateClientDeviceWithCoreDeviceErrorEntry'
-            Prelude.<$> (x Core..:? "message")
-              Prelude.<*> (x Core..:? "thingName")
-              Prelude.<*> (x Core..:? "code")
+            Prelude.<$> (x Data..:? "message")
+              Prelude.<*> (x Data..:? "thingName")
+              Prelude.<*> (x Data..:? "code")
       )
 
 instance

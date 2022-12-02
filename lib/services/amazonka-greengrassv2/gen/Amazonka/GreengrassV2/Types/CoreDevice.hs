@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.CoreDevice where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types.CoreDeviceStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -42,7 +43,7 @@ data CoreDevice = CoreDevice'
     status :: Prelude.Maybe CoreDeviceStatus,
     -- | The time at which the core device\'s status last updated, expressed in
     -- ISO 8601 format.
-    lastStatusUpdateTimestamp :: Prelude.Maybe Core.POSIX
+    lastStatusUpdateTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,17 +95,17 @@ coreDevice_status = Lens.lens (\CoreDevice' {status} -> status) (\s@CoreDevice' 
 -- | The time at which the core device\'s status last updated, expressed in
 -- ISO 8601 format.
 coreDevice_lastStatusUpdateTimestamp :: Lens.Lens' CoreDevice (Prelude.Maybe Prelude.UTCTime)
-coreDevice_lastStatusUpdateTimestamp = Lens.lens (\CoreDevice' {lastStatusUpdateTimestamp} -> lastStatusUpdateTimestamp) (\s@CoreDevice' {} a -> s {lastStatusUpdateTimestamp = a} :: CoreDevice) Prelude.. Lens.mapping Core._Time
+coreDevice_lastStatusUpdateTimestamp = Lens.lens (\CoreDevice' {lastStatusUpdateTimestamp} -> lastStatusUpdateTimestamp) (\s@CoreDevice' {} a -> s {lastStatusUpdateTimestamp = a} :: CoreDevice) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON CoreDevice where
+instance Data.FromJSON CoreDevice where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CoreDevice"
       ( \x ->
           CoreDevice'
-            Prelude.<$> (x Core..:? "coreDeviceThingName")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "lastStatusUpdateTimestamp")
+            Prelude.<$> (x Data..:? "coreDeviceThingName")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "lastStatusUpdateTimestamp")
       )
 
 instance Prelude.Hashable CoreDevice where

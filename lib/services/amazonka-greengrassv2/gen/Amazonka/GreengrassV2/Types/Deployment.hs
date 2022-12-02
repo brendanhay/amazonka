@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.Deployment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types.DeploymentStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -43,7 +44,7 @@ data Deployment = Deployment'
     isLatestForTarget :: Prelude.Maybe Prelude.Bool,
     -- | The time at which the deployment was created, expressed in ISO 8601
     -- format.
-    creationTimestamp :: Prelude.Maybe Core.POSIX,
+    creationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The parent deployment\'s target
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
     -- within a subdeployment.
@@ -122,7 +123,7 @@ deployment_isLatestForTarget = Lens.lens (\Deployment' {isLatestForTarget} -> is
 -- | The time at which the deployment was created, expressed in ISO 8601
 -- format.
 deployment_creationTimestamp :: Lens.Lens' Deployment (Prelude.Maybe Prelude.UTCTime)
-deployment_creationTimestamp = Lens.lens (\Deployment' {creationTimestamp} -> creationTimestamp) (\s@Deployment' {} a -> s {creationTimestamp = a} :: Deployment) Prelude.. Lens.mapping Core._Time
+deployment_creationTimestamp = Lens.lens (\Deployment' {creationTimestamp} -> creationTimestamp) (\s@Deployment' {} a -> s {creationTimestamp = a} :: Deployment) Prelude.. Lens.mapping Data._Time
 
 -- | The parent deployment\'s target
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
@@ -134,20 +135,20 @@ deployment_parentTargetArn = Lens.lens (\Deployment' {parentTargetArn} -> parent
 deployment_revisionId :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_revisionId = Lens.lens (\Deployment' {revisionId} -> revisionId) (\s@Deployment' {} a -> s {revisionId = a} :: Deployment)
 
-instance Core.FromJSON Deployment where
+instance Data.FromJSON Deployment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Deployment"
       ( \x ->
           Deployment'
-            Prelude.<$> (x Core..:? "deploymentStatus")
-            Prelude.<*> (x Core..:? "deploymentName")
-            Prelude.<*> (x Core..:? "deploymentId")
-            Prelude.<*> (x Core..:? "targetArn")
-            Prelude.<*> (x Core..:? "isLatestForTarget")
-            Prelude.<*> (x Core..:? "creationTimestamp")
-            Prelude.<*> (x Core..:? "parentTargetArn")
-            Prelude.<*> (x Core..:? "revisionId")
+            Prelude.<$> (x Data..:? "deploymentStatus")
+            Prelude.<*> (x Data..:? "deploymentName")
+            Prelude.<*> (x Data..:? "deploymentId")
+            Prelude.<*> (x Data..:? "targetArn")
+            Prelude.<*> (x Data..:? "isLatestForTarget")
+            Prelude.<*> (x Data..:? "creationTimestamp")
+            Prelude.<*> (x Data..:? "parentTargetArn")
+            Prelude.<*> (x Data..:? "revisionId")
       )
 
 instance Prelude.Hashable Deployment where

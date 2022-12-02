@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.IoTJobExponentialRolloutRate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types.IoTJobRateIncreaseCriteria
 import qualified Amazonka.Prelude as Prelude
 
@@ -97,15 +98,15 @@ ioTJobExponentialRolloutRate_incrementFactor = Lens.lens (\IoTJobExponentialRoll
 ioTJobExponentialRolloutRate_rateIncreaseCriteria :: Lens.Lens' IoTJobExponentialRolloutRate IoTJobRateIncreaseCriteria
 ioTJobExponentialRolloutRate_rateIncreaseCriteria = Lens.lens (\IoTJobExponentialRolloutRate' {rateIncreaseCriteria} -> rateIncreaseCriteria) (\s@IoTJobExponentialRolloutRate' {} a -> s {rateIncreaseCriteria = a} :: IoTJobExponentialRolloutRate)
 
-instance Core.FromJSON IoTJobExponentialRolloutRate where
+instance Data.FromJSON IoTJobExponentialRolloutRate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IoTJobExponentialRolloutRate"
       ( \x ->
           IoTJobExponentialRolloutRate'
-            Prelude.<$> (x Core..: "baseRatePerMinute")
-            Prelude.<*> (x Core..: "incrementFactor")
-            Prelude.<*> (x Core..: "rateIncreaseCriteria")
+            Prelude.<$> (x Data..: "baseRatePerMinute")
+            Prelude.<*> (x Data..: "incrementFactor")
+            Prelude.<*> (x Data..: "rateIncreaseCriteria")
       )
 
 instance
@@ -123,17 +124,17 @@ instance Prelude.NFData IoTJobExponentialRolloutRate where
       `Prelude.seq` Prelude.rnf incrementFactor
       `Prelude.seq` Prelude.rnf rateIncreaseCriteria
 
-instance Core.ToJSON IoTJobExponentialRolloutRate where
+instance Data.ToJSON IoTJobExponentialRolloutRate where
   toJSON IoTJobExponentialRolloutRate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("baseRatePerMinute" Core..= baseRatePerMinute),
+              ("baseRatePerMinute" Data..= baseRatePerMinute),
             Prelude.Just
-              ("incrementFactor" Core..= incrementFactor),
+              ("incrementFactor" Data..= incrementFactor),
             Prelude.Just
               ( "rateIncreaseCriteria"
-                  Core..= rateIncreaseCriteria
+                  Data..= rateIncreaseCriteria
               )
           ]
       )

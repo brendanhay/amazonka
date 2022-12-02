@@ -25,6 +25,7 @@ import Amazonka.CodePipeline.Types.SourceRevision
 import Amazonka.CodePipeline.Types.StopExecutionTrigger
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about a pipeline execution.
@@ -66,10 +67,10 @@ data PipelineExecutionSummary = PipelineExecutionSummary'
     stopTrigger :: Prelude.Maybe StopExecutionTrigger,
     -- | The date and time of the last change to the pipeline execution, in
     -- timestamp format.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The date and time when the pipeline execution began, in timestamp
     -- format.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -179,28 +180,28 @@ pipelineExecutionSummary_stopTrigger = Lens.lens (\PipelineExecutionSummary' {st
 -- | The date and time of the last change to the pipeline execution, in
 -- timestamp format.
 pipelineExecutionSummary_lastUpdateTime :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe Prelude.UTCTime)
-pipelineExecutionSummary_lastUpdateTime = Lens.lens (\PipelineExecutionSummary' {lastUpdateTime} -> lastUpdateTime) (\s@PipelineExecutionSummary' {} a -> s {lastUpdateTime = a} :: PipelineExecutionSummary) Prelude.. Lens.mapping Core._Time
+pipelineExecutionSummary_lastUpdateTime = Lens.lens (\PipelineExecutionSummary' {lastUpdateTime} -> lastUpdateTime) (\s@PipelineExecutionSummary' {} a -> s {lastUpdateTime = a} :: PipelineExecutionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when the pipeline execution began, in timestamp
 -- format.
 pipelineExecutionSummary_startTime :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe Prelude.UTCTime)
-pipelineExecutionSummary_startTime = Lens.lens (\PipelineExecutionSummary' {startTime} -> startTime) (\s@PipelineExecutionSummary' {} a -> s {startTime = a} :: PipelineExecutionSummary) Prelude.. Lens.mapping Core._Time
+pipelineExecutionSummary_startTime = Lens.lens (\PipelineExecutionSummary' {startTime} -> startTime) (\s@PipelineExecutionSummary' {} a -> s {startTime = a} :: PipelineExecutionSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON PipelineExecutionSummary where
+instance Data.FromJSON PipelineExecutionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PipelineExecutionSummary"
       ( \x ->
           PipelineExecutionSummary'
-            Prelude.<$> (x Core..:? "trigger")
-            Prelude.<*> (x Core..:? "pipelineExecutionId")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> ( x Core..:? "sourceRevisions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "trigger")
+            Prelude.<*> (x Data..:? "pipelineExecutionId")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> ( x Data..:? "sourceRevisions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "stopTrigger")
-            Prelude.<*> (x Core..:? "lastUpdateTime")
-            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<*> (x Data..:? "stopTrigger")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
+            Prelude.<*> (x Data..:? "startTime")
       )
 
 instance Prelude.Hashable PipelineExecutionSummary where

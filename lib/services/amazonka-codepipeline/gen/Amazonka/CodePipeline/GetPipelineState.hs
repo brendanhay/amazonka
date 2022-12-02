@@ -51,6 +51,7 @@ where
 import Amazonka.CodePipeline.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,11 +95,11 @@ instance Core.AWSRequest GetPipelineState where
     Response.receiveJSON
       ( \s h x ->
           GetPipelineStateResponse'
-            Prelude.<$> (x Core..?> "stageStates" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "updated")
-            Prelude.<*> (x Core..?> "created")
-            Prelude.<*> (x Core..?> "pipelineVersion")
-            Prelude.<*> (x Core..?> "pipelineName")
+            Prelude.<$> (x Data..?> "stageStates" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "updated")
+            Prelude.<*> (x Data..?> "created")
+            Prelude.<*> (x Data..?> "pipelineVersion")
+            Prelude.<*> (x Data..?> "pipelineName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,32 +110,32 @@ instance Prelude.Hashable GetPipelineState where
 instance Prelude.NFData GetPipelineState where
   rnf GetPipelineState' {..} = Prelude.rnf name
 
-instance Core.ToHeaders GetPipelineState where
+instance Data.ToHeaders GetPipelineState where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodePipeline_20150709.GetPipelineState" ::
+              Data.=# ( "CodePipeline_20150709.GetPipelineState" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetPipelineState where
+instance Data.ToJSON GetPipelineState where
   toJSON GetPipelineState' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )
 
-instance Core.ToPath GetPipelineState where
+instance Data.ToPath GetPipelineState where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetPipelineState where
+instance Data.ToQuery GetPipelineState where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @GetPipelineState@ action.
@@ -146,9 +147,9 @@ data GetPipelineStateResponse = GetPipelineStateResponse'
     -- data.
     stageStates :: Prelude.Maybe [StageState],
     -- | The date and time the pipeline was last updated, in timestamp format.
-    updated :: Prelude.Maybe Core.POSIX,
+    updated :: Prelude.Maybe Data.POSIX,
     -- | The date and time the pipeline was created, in timestamp format.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | The version number of the pipeline.
     --
     -- A newly created pipeline is always assigned a version number of @1@.
@@ -206,11 +207,11 @@ getPipelineStateResponse_stageStates = Lens.lens (\GetPipelineStateResponse' {st
 
 -- | The date and time the pipeline was last updated, in timestamp format.
 getPipelineStateResponse_updated :: Lens.Lens' GetPipelineStateResponse (Prelude.Maybe Prelude.UTCTime)
-getPipelineStateResponse_updated = Lens.lens (\GetPipelineStateResponse' {updated} -> updated) (\s@GetPipelineStateResponse' {} a -> s {updated = a} :: GetPipelineStateResponse) Prelude.. Lens.mapping Core._Time
+getPipelineStateResponse_updated = Lens.lens (\GetPipelineStateResponse' {updated} -> updated) (\s@GetPipelineStateResponse' {} a -> s {updated = a} :: GetPipelineStateResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time the pipeline was created, in timestamp format.
 getPipelineStateResponse_created :: Lens.Lens' GetPipelineStateResponse (Prelude.Maybe Prelude.UTCTime)
-getPipelineStateResponse_created = Lens.lens (\GetPipelineStateResponse' {created} -> created) (\s@GetPipelineStateResponse' {} a -> s {created = a} :: GetPipelineStateResponse) Prelude.. Lens.mapping Core._Time
+getPipelineStateResponse_created = Lens.lens (\GetPipelineStateResponse' {created} -> created) (\s@GetPipelineStateResponse' {} a -> s {created = a} :: GetPipelineStateResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The version number of the pipeline.
 --

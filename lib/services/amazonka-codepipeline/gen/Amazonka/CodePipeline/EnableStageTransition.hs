@@ -40,6 +40,7 @@ where
 import Amazonka.CodePipeline.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -140,36 +141,36 @@ instance Prelude.NFData EnableStageTransition where
       `Prelude.seq` Prelude.rnf stageName
       `Prelude.seq` Prelude.rnf transitionType
 
-instance Core.ToHeaders EnableStageTransition where
+instance Data.ToHeaders EnableStageTransition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodePipeline_20150709.EnableStageTransition" ::
+              Data.=# ( "CodePipeline_20150709.EnableStageTransition" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON EnableStageTransition where
+instance Data.ToJSON EnableStageTransition where
   toJSON EnableStageTransition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("pipelineName" Core..= pipelineName),
-            Prelude.Just ("stageName" Core..= stageName),
+          [ Prelude.Just ("pipelineName" Data..= pipelineName),
+            Prelude.Just ("stageName" Data..= stageName),
             Prelude.Just
-              ("transitionType" Core..= transitionType)
+              ("transitionType" Data..= transitionType)
           ]
       )
 
-instance Core.ToPath EnableStageTransition where
+instance Data.ToPath EnableStageTransition where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery EnableStageTransition where
+instance Data.ToQuery EnableStageTransition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEnableStageTransitionResponse' smart constructor.

@@ -23,6 +23,7 @@ import Amazonka.CodePipeline.Types.ArtifactStoreType
 import Amazonka.CodePipeline.Types.EncryptionKey
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The S3 bucket where artifacts for the pipeline are stored.
@@ -98,15 +99,15 @@ artifactStore_type = Lens.lens (\ArtifactStore' {type'} -> type') (\s@ArtifactSt
 artifactStore_location :: Lens.Lens' ArtifactStore Prelude.Text
 artifactStore_location = Lens.lens (\ArtifactStore' {location} -> location) (\s@ArtifactStore' {} a -> s {location = a} :: ArtifactStore)
 
-instance Core.FromJSON ArtifactStore where
+instance Data.FromJSON ArtifactStore where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ArtifactStore"
       ( \x ->
           ArtifactStore'
-            Prelude.<$> (x Core..:? "encryptionKey")
-            Prelude.<*> (x Core..: "type")
-            Prelude.<*> (x Core..: "location")
+            Prelude.<$> (x Data..:? "encryptionKey")
+            Prelude.<*> (x Data..: "type")
+            Prelude.<*> (x Data..: "location")
       )
 
 instance Prelude.Hashable ArtifactStore where
@@ -121,12 +122,12 @@ instance Prelude.NFData ArtifactStore where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf location
 
-instance Core.ToJSON ArtifactStore where
+instance Data.ToJSON ArtifactStore where
   toJSON ArtifactStore' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("encryptionKey" Core..=) Prelude.<$> encryptionKey,
-            Prelude.Just ("type" Core..= type'),
-            Prelude.Just ("location" Core..= location)
+          [ ("encryptionKey" Data..=) Prelude.<$> encryptionKey,
+            Prelude.Just ("type" Data..= type'),
+            Prelude.Just ("location" Data..= location)
           ]
       )

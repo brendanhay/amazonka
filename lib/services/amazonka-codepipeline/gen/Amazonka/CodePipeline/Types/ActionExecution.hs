@@ -23,6 +23,7 @@ import Amazonka.CodePipeline.Types.ActionExecutionStatus
 import Amazonka.CodePipeline.Types.ErrorDetails
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about the run of an action.
@@ -44,7 +45,7 @@ data ActionExecution = ActionExecution'
     -- the action.
     status :: Prelude.Maybe ActionExecutionStatus,
     -- | The last status change of the action.
-    lastStatusChange :: Prelude.Maybe Core.POSIX,
+    lastStatusChange :: Prelude.Maybe Data.POSIX,
     -- | The external ID of the run of the action.
     externalExecutionId :: Prelude.Maybe Prelude.Text,
     -- | A percentage of completeness of the action as it runs.
@@ -139,7 +140,7 @@ actionExecution_status = Lens.lens (\ActionExecution' {status} -> status) (\s@Ac
 
 -- | The last status change of the action.
 actionExecution_lastStatusChange :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.UTCTime)
-actionExecution_lastStatusChange = Lens.lens (\ActionExecution' {lastStatusChange} -> lastStatusChange) (\s@ActionExecution' {} a -> s {lastStatusChange = a} :: ActionExecution) Prelude.. Lens.mapping Core._Time
+actionExecution_lastStatusChange = Lens.lens (\ActionExecution' {lastStatusChange} -> lastStatusChange) (\s@ActionExecution' {} a -> s {lastStatusChange = a} :: ActionExecution) Prelude.. Lens.mapping Data._Time
 
 -- | The external ID of the run of the action.
 actionExecution_externalExecutionId :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Text)
@@ -165,22 +166,22 @@ actionExecution_lastUpdatedBy = Lens.lens (\ActionExecution' {lastUpdatedBy} -> 
 actionExecution_token :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Text)
 actionExecution_token = Lens.lens (\ActionExecution' {token} -> token) (\s@ActionExecution' {} a -> s {token = a} :: ActionExecution)
 
-instance Core.FromJSON ActionExecution where
+instance Data.FromJSON ActionExecution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionExecution"
       ( \x ->
           ActionExecution'
-            Prelude.<$> (x Core..:? "errorDetails")
-            Prelude.<*> (x Core..:? "actionExecutionId")
-            Prelude.<*> (x Core..:? "summary")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "lastStatusChange")
-            Prelude.<*> (x Core..:? "externalExecutionId")
-            Prelude.<*> (x Core..:? "percentComplete")
-            Prelude.<*> (x Core..:? "externalExecutionUrl")
-            Prelude.<*> (x Core..:? "lastUpdatedBy")
-            Prelude.<*> (x Core..:? "token")
+            Prelude.<$> (x Data..:? "errorDetails")
+            Prelude.<*> (x Data..:? "actionExecutionId")
+            Prelude.<*> (x Data..:? "summary")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "lastStatusChange")
+            Prelude.<*> (x Data..:? "externalExecutionId")
+            Prelude.<*> (x Data..:? "percentComplete")
+            Prelude.<*> (x Data..:? "externalExecutionUrl")
+            Prelude.<*> (x Data..:? "lastUpdatedBy")
+            Prelude.<*> (x Data..:? "token")
       )
 
 instance Prelude.Hashable ActionExecution where

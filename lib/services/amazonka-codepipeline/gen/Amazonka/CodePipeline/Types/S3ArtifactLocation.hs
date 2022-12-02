@@ -21,6 +21,7 @@ module Amazonka.CodePipeline.Types.S3ArtifactLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The location of the S3 bucket that contains a revision.
@@ -68,14 +69,14 @@ s3ArtifactLocation_bucketName = Lens.lens (\S3ArtifactLocation' {bucketName} -> 
 s3ArtifactLocation_objectKey :: Lens.Lens' S3ArtifactLocation Prelude.Text
 s3ArtifactLocation_objectKey = Lens.lens (\S3ArtifactLocation' {objectKey} -> objectKey) (\s@S3ArtifactLocation' {} a -> s {objectKey = a} :: S3ArtifactLocation)
 
-instance Core.FromJSON S3ArtifactLocation where
+instance Data.FromJSON S3ArtifactLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3ArtifactLocation"
       ( \x ->
           S3ArtifactLocation'
-            Prelude.<$> (x Core..: "bucketName")
-            Prelude.<*> (x Core..: "objectKey")
+            Prelude.<$> (x Data..: "bucketName")
+            Prelude.<*> (x Data..: "objectKey")
       )
 
 instance Prelude.Hashable S3ArtifactLocation where

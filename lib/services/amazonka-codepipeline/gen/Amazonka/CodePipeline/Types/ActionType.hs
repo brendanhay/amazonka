@@ -25,6 +25,7 @@ import Amazonka.CodePipeline.Types.ActionTypeSettings
 import Amazonka.CodePipeline.Types.ArtifactDetails
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about the details of an action type.
@@ -101,19 +102,19 @@ actionType_inputArtifactDetails = Lens.lens (\ActionType' {inputArtifactDetails}
 actionType_outputArtifactDetails :: Lens.Lens' ActionType ArtifactDetails
 actionType_outputArtifactDetails = Lens.lens (\ActionType' {outputArtifactDetails} -> outputArtifactDetails) (\s@ActionType' {} a -> s {outputArtifactDetails = a} :: ActionType)
 
-instance Core.FromJSON ActionType where
+instance Data.FromJSON ActionType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionType"
       ( \x ->
           ActionType'
-            Prelude.<$> (x Core..:? "settings")
-            Prelude.<*> ( x Core..:? "actionConfigurationProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "settings")
+            Prelude.<*> ( x Data..:? "actionConfigurationProperties"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "inputArtifactDetails")
-            Prelude.<*> (x Core..: "outputArtifactDetails")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "inputArtifactDetails")
+            Prelude.<*> (x Data..: "outputArtifactDetails")
       )
 
 instance Prelude.Hashable ActionType where

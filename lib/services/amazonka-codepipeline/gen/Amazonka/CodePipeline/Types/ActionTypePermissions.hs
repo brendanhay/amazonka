@@ -21,6 +21,7 @@ module Amazonka.CodePipeline.Types.ActionTypePermissions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details identifying the users with permissions to use the action type.
@@ -58,13 +59,13 @@ newActionTypePermissions pAllowedAccounts_ =
 actionTypePermissions_allowedAccounts :: Lens.Lens' ActionTypePermissions (Prelude.NonEmpty Prelude.Text)
 actionTypePermissions_allowedAccounts = Lens.lens (\ActionTypePermissions' {allowedAccounts} -> allowedAccounts) (\s@ActionTypePermissions' {} a -> s {allowedAccounts = a} :: ActionTypePermissions) Prelude.. Lens.coerced
 
-instance Core.FromJSON ActionTypePermissions where
+instance Data.FromJSON ActionTypePermissions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionTypePermissions"
       ( \x ->
           ActionTypePermissions'
-            Prelude.<$> (x Core..: "allowedAccounts")
+            Prelude.<$> (x Data..: "allowedAccounts")
       )
 
 instance Prelude.Hashable ActionTypePermissions where
@@ -75,11 +76,11 @@ instance Prelude.NFData ActionTypePermissions where
   rnf ActionTypePermissions' {..} =
     Prelude.rnf allowedAccounts
 
-instance Core.ToJSON ActionTypePermissions where
+instance Data.ToJSON ActionTypePermissions where
   toJSON ActionTypePermissions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("allowedAccounts" Core..= allowedAccounts)
+              ("allowedAccounts" Data..= allowedAccounts)
           ]
       )

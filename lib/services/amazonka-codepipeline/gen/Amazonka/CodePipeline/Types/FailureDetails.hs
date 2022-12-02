@@ -22,6 +22,7 @@ module Amazonka.CodePipeline.Types.FailureDetails where
 import Amazonka.CodePipeline.Types.FailureType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about failure details.
@@ -88,13 +89,13 @@ instance Prelude.NFData FailureDetails where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf message
 
-instance Core.ToJSON FailureDetails where
+instance Data.ToJSON FailureDetails where
   toJSON FailureDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("externalExecutionId" Core..=)
+          [ ("externalExecutionId" Data..=)
               Prelude.<$> externalExecutionId,
-            Prelude.Just ("type" Core..= type'),
-            Prelude.Just ("message" Core..= message)
+            Prelude.Just ("type" Data..= type'),
+            Prelude.Just ("message" Data..= message)
           ]
       )

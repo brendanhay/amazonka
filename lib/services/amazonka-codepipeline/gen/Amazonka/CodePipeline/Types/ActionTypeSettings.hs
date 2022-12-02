@@ -21,6 +21,7 @@ module Amazonka.CodePipeline.Types.ActionTypeSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about the settings for an action type.
@@ -113,16 +114,16 @@ actionTypeSettings_entityUrlTemplate = Lens.lens (\ActionTypeSettings' {entityUr
 actionTypeSettings_executionUrlTemplate :: Lens.Lens' ActionTypeSettings (Prelude.Maybe Prelude.Text)
 actionTypeSettings_executionUrlTemplate = Lens.lens (\ActionTypeSettings' {executionUrlTemplate} -> executionUrlTemplate) (\s@ActionTypeSettings' {} a -> s {executionUrlTemplate = a} :: ActionTypeSettings)
 
-instance Core.FromJSON ActionTypeSettings where
+instance Data.FromJSON ActionTypeSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionTypeSettings"
       ( \x ->
           ActionTypeSettings'
-            Prelude.<$> (x Core..:? "thirdPartyConfigurationUrl")
-            Prelude.<*> (x Core..:? "revisionUrlTemplate")
-            Prelude.<*> (x Core..:? "entityUrlTemplate")
-            Prelude.<*> (x Core..:? "executionUrlTemplate")
+            Prelude.<$> (x Data..:? "thirdPartyConfigurationUrl")
+            Prelude.<*> (x Data..:? "revisionUrlTemplate")
+            Prelude.<*> (x Data..:? "entityUrlTemplate")
+            Prelude.<*> (x Data..:? "executionUrlTemplate")
       )
 
 instance Prelude.Hashable ActionTypeSettings where
@@ -140,17 +141,17 @@ instance Prelude.NFData ActionTypeSettings where
       `Prelude.seq` Prelude.rnf entityUrlTemplate
       `Prelude.seq` Prelude.rnf executionUrlTemplate
 
-instance Core.ToJSON ActionTypeSettings where
+instance Data.ToJSON ActionTypeSettings where
   toJSON ActionTypeSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("thirdPartyConfigurationUrl" Core..=)
+          [ ("thirdPartyConfigurationUrl" Data..=)
               Prelude.<$> thirdPartyConfigurationUrl,
-            ("revisionUrlTemplate" Core..=)
+            ("revisionUrlTemplate" Data..=)
               Prelude.<$> revisionUrlTemplate,
-            ("entityUrlTemplate" Core..=)
+            ("entityUrlTemplate" Data..=)
               Prelude.<$> entityUrlTemplate,
-            ("executionUrlTemplate" Core..=)
+            ("executionUrlTemplate" Data..=)
               Prelude.<$> executionUrlTemplate
           ]
       )

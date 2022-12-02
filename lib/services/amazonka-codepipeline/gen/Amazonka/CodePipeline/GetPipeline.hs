@@ -47,6 +47,7 @@ where
 import Amazonka.CodePipeline.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,8 +106,8 @@ instance Core.AWSRequest GetPipeline where
     Response.receiveJSON
       ( \s h x ->
           GetPipelineResponse'
-            Prelude.<$> (x Core..?> "metadata")
-            Prelude.<*> (x Core..?> "pipeline")
+            Prelude.<$> (x Data..?> "metadata")
+            Prelude.<*> (x Data..?> "pipeline")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,34 +120,34 @@ instance Prelude.NFData GetPipeline where
   rnf GetPipeline' {..} =
     Prelude.rnf version `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders GetPipeline where
+instance Data.ToHeaders GetPipeline where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodePipeline_20150709.GetPipeline" ::
+              Data.=# ( "CodePipeline_20150709.GetPipeline" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetPipeline where
+instance Data.ToJSON GetPipeline where
   toJSON GetPipeline' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("version" Core..=) Prelude.<$> version,
-            Prelude.Just ("name" Core..= name)
+          [ ("version" Data..=) Prelude.<$> version,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath GetPipeline where
+instance Data.ToPath GetPipeline where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetPipeline where
+instance Data.ToQuery GetPipeline where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @GetPipeline@ action.

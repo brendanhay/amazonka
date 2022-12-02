@@ -21,6 +21,7 @@ module Amazonka.CodePipeline.Types.AWSSessionCredentials where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an AWS session credentials object. These credentials are
@@ -31,11 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAWSSessionCredentials' smart constructor.
 data AWSSessionCredentials = AWSSessionCredentials'
   { -- | The access key for the session.
-    accessKeyId :: Core.Sensitive Prelude.Text,
+    accessKeyId :: Data.Sensitive Prelude.Text,
     -- | The secret access key for the session.
-    secretAccessKey :: Core.Sensitive Prelude.Text,
+    secretAccessKey :: Data.Sensitive Prelude.Text,
     -- | The token for the session.
-    sessionToken :: Core.Sensitive Prelude.Text
+    sessionToken :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -66,33 +67,33 @@ newAWSSessionCredentials
   pSessionToken_ =
     AWSSessionCredentials'
       { accessKeyId =
-          Core._Sensitive Lens.# pAccessKeyId_,
+          Data._Sensitive Lens.# pAccessKeyId_,
         secretAccessKey =
-          Core._Sensitive Lens.# pSecretAccessKey_,
-        sessionToken = Core._Sensitive Lens.# pSessionToken_
+          Data._Sensitive Lens.# pSecretAccessKey_,
+        sessionToken = Data._Sensitive Lens.# pSessionToken_
       }
 
 -- | The access key for the session.
 aWSSessionCredentials_accessKeyId :: Lens.Lens' AWSSessionCredentials Prelude.Text
-aWSSessionCredentials_accessKeyId = Lens.lens (\AWSSessionCredentials' {accessKeyId} -> accessKeyId) (\s@AWSSessionCredentials' {} a -> s {accessKeyId = a} :: AWSSessionCredentials) Prelude.. Core._Sensitive
+aWSSessionCredentials_accessKeyId = Lens.lens (\AWSSessionCredentials' {accessKeyId} -> accessKeyId) (\s@AWSSessionCredentials' {} a -> s {accessKeyId = a} :: AWSSessionCredentials) Prelude.. Data._Sensitive
 
 -- | The secret access key for the session.
 aWSSessionCredentials_secretAccessKey :: Lens.Lens' AWSSessionCredentials Prelude.Text
-aWSSessionCredentials_secretAccessKey = Lens.lens (\AWSSessionCredentials' {secretAccessKey} -> secretAccessKey) (\s@AWSSessionCredentials' {} a -> s {secretAccessKey = a} :: AWSSessionCredentials) Prelude.. Core._Sensitive
+aWSSessionCredentials_secretAccessKey = Lens.lens (\AWSSessionCredentials' {secretAccessKey} -> secretAccessKey) (\s@AWSSessionCredentials' {} a -> s {secretAccessKey = a} :: AWSSessionCredentials) Prelude.. Data._Sensitive
 
 -- | The token for the session.
 aWSSessionCredentials_sessionToken :: Lens.Lens' AWSSessionCredentials Prelude.Text
-aWSSessionCredentials_sessionToken = Lens.lens (\AWSSessionCredentials' {sessionToken} -> sessionToken) (\s@AWSSessionCredentials' {} a -> s {sessionToken = a} :: AWSSessionCredentials) Prelude.. Core._Sensitive
+aWSSessionCredentials_sessionToken = Lens.lens (\AWSSessionCredentials' {sessionToken} -> sessionToken) (\s@AWSSessionCredentials' {} a -> s {sessionToken = a} :: AWSSessionCredentials) Prelude.. Data._Sensitive
 
-instance Core.FromJSON AWSSessionCredentials where
+instance Data.FromJSON AWSSessionCredentials where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AWSSessionCredentials"
       ( \x ->
           AWSSessionCredentials'
-            Prelude.<$> (x Core..: "accessKeyId")
-            Prelude.<*> (x Core..: "secretAccessKey")
-            Prelude.<*> (x Core..: "sessionToken")
+            Prelude.<$> (x Data..: "accessKeyId")
+            Prelude.<*> (x Data..: "secretAccessKey")
+            Prelude.<*> (x Data..: "sessionToken")
       )
 
 instance Prelude.Hashable AWSSessionCredentials where

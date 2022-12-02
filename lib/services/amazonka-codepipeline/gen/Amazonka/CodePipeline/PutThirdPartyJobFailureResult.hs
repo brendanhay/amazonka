@@ -41,6 +41,7 @@ where
 import Amazonka.CodePipeline.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,36 +139,36 @@ instance Prelude.NFData PutThirdPartyJobFailureResult where
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf failureDetails
 
-instance Core.ToHeaders PutThirdPartyJobFailureResult where
+instance Data.ToHeaders PutThirdPartyJobFailureResult where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodePipeline_20150709.PutThirdPartyJobFailureResult" ::
+              Data.=# ( "CodePipeline_20150709.PutThirdPartyJobFailureResult" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutThirdPartyJobFailureResult where
+instance Data.ToJSON PutThirdPartyJobFailureResult where
   toJSON PutThirdPartyJobFailureResult' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("jobId" Core..= jobId),
-            Prelude.Just ("clientToken" Core..= clientToken),
+          [ Prelude.Just ("jobId" Data..= jobId),
+            Prelude.Just ("clientToken" Data..= clientToken),
             Prelude.Just
-              ("failureDetails" Core..= failureDetails)
+              ("failureDetails" Data..= failureDetails)
           ]
       )
 
-instance Core.ToPath PutThirdPartyJobFailureResult where
+instance Data.ToPath PutThirdPartyJobFailureResult where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutThirdPartyJobFailureResult where
+instance Data.ToQuery PutThirdPartyJobFailureResult where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutThirdPartyJobFailureResultResponse' smart constructor.

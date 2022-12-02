@@ -21,6 +21,7 @@ module Amazonka.CodePipeline.Types.PipelineSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns a summary of a pipeline.
@@ -31,9 +32,9 @@ data PipelineSummary = PipelineSummary'
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time of the last update to the pipeline, in timestamp
     -- format.
-    updated :: Prelude.Maybe Core.POSIX,
+    updated :: Prelude.Maybe Data.POSIX,
     -- | The date and time the pipeline was created, in timestamp format.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | The version number of the pipeline.
     version :: Prelude.Maybe Prelude.Natural
   }
@@ -72,26 +73,26 @@ pipelineSummary_name = Lens.lens (\PipelineSummary' {name} -> name) (\s@Pipeline
 -- | The date and time of the last update to the pipeline, in timestamp
 -- format.
 pipelineSummary_updated :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.UTCTime)
-pipelineSummary_updated = Lens.lens (\PipelineSummary' {updated} -> updated) (\s@PipelineSummary' {} a -> s {updated = a} :: PipelineSummary) Prelude.. Lens.mapping Core._Time
+pipelineSummary_updated = Lens.lens (\PipelineSummary' {updated} -> updated) (\s@PipelineSummary' {} a -> s {updated = a} :: PipelineSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time the pipeline was created, in timestamp format.
 pipelineSummary_created :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.UTCTime)
-pipelineSummary_created = Lens.lens (\PipelineSummary' {created} -> created) (\s@PipelineSummary' {} a -> s {created = a} :: PipelineSummary) Prelude.. Lens.mapping Core._Time
+pipelineSummary_created = Lens.lens (\PipelineSummary' {created} -> created) (\s@PipelineSummary' {} a -> s {created = a} :: PipelineSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The version number of the pipeline.
 pipelineSummary_version :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.Natural)
 pipelineSummary_version = Lens.lens (\PipelineSummary' {version} -> version) (\s@PipelineSummary' {} a -> s {version = a} :: PipelineSummary)
 
-instance Core.FromJSON PipelineSummary where
+instance Data.FromJSON PipelineSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PipelineSummary"
       ( \x ->
           PipelineSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "updated")
-            Prelude.<*> (x Core..:? "created")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "updated")
+            Prelude.<*> (x Data..:? "created")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable PipelineSummary where

@@ -21,6 +21,7 @@ module Amazonka.CodePipeline.Types.ActionRevision where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about the version (or revision) of an action.
@@ -35,7 +36,7 @@ data ActionRevision = ActionRevision'
     revisionChangeId :: Prelude.Text,
     -- | The date and time when the most recent version of the action was
     -- created, in timestamp format.
-    created :: Core.POSIX
+    created :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,7 +71,7 @@ newActionRevision
     ActionRevision'
       { revisionId = pRevisionId_,
         revisionChangeId = pRevisionChangeId_,
-        created = Core._Time Lens.# pCreated_
+        created = Data._Time Lens.# pCreated_
       }
 
 -- | The system-generated unique ID that identifies the revision number of
@@ -86,17 +87,17 @@ actionRevision_revisionChangeId = Lens.lens (\ActionRevision' {revisionChangeId}
 -- | The date and time when the most recent version of the action was
 -- created, in timestamp format.
 actionRevision_created :: Lens.Lens' ActionRevision Prelude.UTCTime
-actionRevision_created = Lens.lens (\ActionRevision' {created} -> created) (\s@ActionRevision' {} a -> s {created = a} :: ActionRevision) Prelude.. Core._Time
+actionRevision_created = Lens.lens (\ActionRevision' {created} -> created) (\s@ActionRevision' {} a -> s {created = a} :: ActionRevision) Prelude.. Data._Time
 
-instance Core.FromJSON ActionRevision where
+instance Data.FromJSON ActionRevision where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionRevision"
       ( \x ->
           ActionRevision'
-            Prelude.<$> (x Core..: "revisionId")
-            Prelude.<*> (x Core..: "revisionChangeId")
-            Prelude.<*> (x Core..: "created")
+            Prelude.<$> (x Data..: "revisionId")
+            Prelude.<*> (x Data..: "revisionChangeId")
+            Prelude.<*> (x Data..: "created")
       )
 
 instance Prelude.Hashable ActionRevision where
@@ -111,13 +112,13 @@ instance Prelude.NFData ActionRevision where
       `Prelude.seq` Prelude.rnf revisionChangeId
       `Prelude.seq` Prelude.rnf created
 
-instance Core.ToJSON ActionRevision where
+instance Data.ToJSON ActionRevision where
   toJSON ActionRevision' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("revisionId" Core..= revisionId),
+          [ Prelude.Just ("revisionId" Data..= revisionId),
             Prelude.Just
-              ("revisionChangeId" Core..= revisionChangeId),
-            Prelude.Just ("created" Core..= created)
+              ("revisionChangeId" Data..= revisionChangeId),
+            Prelude.Just ("created" Data..= created)
           ]
       )

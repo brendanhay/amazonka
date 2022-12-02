@@ -48,6 +48,7 @@ where
 import Amazonka.CodePipeline.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -139,7 +140,7 @@ instance Core.AWSRequest RetryStageExecution where
     Response.receiveJSON
       ( \s h x ->
           RetryStageExecutionResponse'
-            Prelude.<$> (x Core..?> "pipelineExecutionId")
+            Prelude.<$> (x Data..?> "pipelineExecutionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,37 +158,37 @@ instance Prelude.NFData RetryStageExecution where
       `Prelude.seq` Prelude.rnf pipelineExecutionId
       `Prelude.seq` Prelude.rnf retryMode
 
-instance Core.ToHeaders RetryStageExecution where
+instance Data.ToHeaders RetryStageExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodePipeline_20150709.RetryStageExecution" ::
+              Data.=# ( "CodePipeline_20150709.RetryStageExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RetryStageExecution where
+instance Data.ToJSON RetryStageExecution where
   toJSON RetryStageExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("pipelineName" Core..= pipelineName),
-            Prelude.Just ("stageName" Core..= stageName),
+          [ Prelude.Just ("pipelineName" Data..= pipelineName),
+            Prelude.Just ("stageName" Data..= stageName),
             Prelude.Just
-              ("pipelineExecutionId" Core..= pipelineExecutionId),
-            Prelude.Just ("retryMode" Core..= retryMode)
+              ("pipelineExecutionId" Data..= pipelineExecutionId),
+            Prelude.Just ("retryMode" Data..= retryMode)
           ]
       )
 
-instance Core.ToPath RetryStageExecution where
+instance Data.ToPath RetryStageExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RetryStageExecution where
+instance Data.ToQuery RetryStageExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @RetryStageExecution@ action.

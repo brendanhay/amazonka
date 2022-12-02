@@ -44,6 +44,7 @@ where
 import Amazonka.CodePipeline.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,7 +103,7 @@ instance Core.AWSRequest StartPipelineExecution where
     Response.receiveJSON
       ( \s h x ->
           StartPipelineExecutionResponse'
-            Prelude.<$> (x Core..?> "pipelineExecutionId")
+            Prelude.<$> (x Data..?> "pipelineExecutionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,35 +117,35 @@ instance Prelude.NFData StartPipelineExecution where
     Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders StartPipelineExecution where
+instance Data.ToHeaders StartPipelineExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodePipeline_20150709.StartPipelineExecution" ::
+              Data.=# ( "CodePipeline_20150709.StartPipelineExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartPipelineExecution where
+instance Data.ToJSON StartPipelineExecution where
   toJSON StartPipelineExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientRequestToken" Core..=)
+          [ ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            Prelude.Just ("name" Core..= name)
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath StartPipelineExecution where
+instance Data.ToPath StartPipelineExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartPipelineExecution where
+instance Data.ToQuery StartPipelineExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @StartPipelineExecution@ action.

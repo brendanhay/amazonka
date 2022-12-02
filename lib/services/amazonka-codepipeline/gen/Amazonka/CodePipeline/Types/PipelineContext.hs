@@ -23,6 +23,7 @@ import Amazonka.CodePipeline.Types.ActionContext
 import Amazonka.CodePipeline.Types.StageContext
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about a pipeline to a job worker.
@@ -101,17 +102,17 @@ pipelineContext_stage = Lens.lens (\PipelineContext' {stage} -> stage) (\s@Pipel
 pipelineContext_action :: Lens.Lens' PipelineContext (Prelude.Maybe ActionContext)
 pipelineContext_action = Lens.lens (\PipelineContext' {action} -> action) (\s@PipelineContext' {} a -> s {action = a} :: PipelineContext)
 
-instance Core.FromJSON PipelineContext where
+instance Data.FromJSON PipelineContext where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PipelineContext"
       ( \x ->
           PipelineContext'
-            Prelude.<$> (x Core..:? "pipelineExecutionId")
-            Prelude.<*> (x Core..:? "pipelineArn")
-            Prelude.<*> (x Core..:? "pipelineName")
-            Prelude.<*> (x Core..:? "stage")
-            Prelude.<*> (x Core..:? "action")
+            Prelude.<$> (x Data..:? "pipelineExecutionId")
+            Prelude.<*> (x Data..:? "pipelineArn")
+            Prelude.<*> (x Data..:? "pipelineName")
+            Prelude.<*> (x Data..:? "stage")
+            Prelude.<*> (x Data..:? "action")
       )
 
 instance Prelude.Hashable PipelineContext where

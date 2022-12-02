@@ -21,6 +21,7 @@ module Amazonka.CodePipeline.Types.StopExecutionTrigger where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The interaction that stopped a pipeline execution.
@@ -50,13 +51,13 @@ newStopExecutionTrigger =
 stopExecutionTrigger_reason :: Lens.Lens' StopExecutionTrigger (Prelude.Maybe Prelude.Text)
 stopExecutionTrigger_reason = Lens.lens (\StopExecutionTrigger' {reason} -> reason) (\s@StopExecutionTrigger' {} a -> s {reason = a} :: StopExecutionTrigger)
 
-instance Core.FromJSON StopExecutionTrigger where
+instance Data.FromJSON StopExecutionTrigger where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StopExecutionTrigger"
       ( \x ->
           StopExecutionTrigger'
-            Prelude.<$> (x Core..:? "reason")
+            Prelude.<$> (x Data..:? "reason")
       )
 
 instance Prelude.Hashable StopExecutionTrigger where

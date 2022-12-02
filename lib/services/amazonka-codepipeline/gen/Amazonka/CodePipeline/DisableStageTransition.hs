@@ -42,6 +42,7 @@ where
 import Amazonka.CodePipeline.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -160,37 +161,37 @@ instance Prelude.NFData DisableStageTransition where
       `Prelude.seq` Prelude.rnf transitionType
       `Prelude.seq` Prelude.rnf reason
 
-instance Core.ToHeaders DisableStageTransition where
+instance Data.ToHeaders DisableStageTransition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodePipeline_20150709.DisableStageTransition" ::
+              Data.=# ( "CodePipeline_20150709.DisableStageTransition" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisableStageTransition where
+instance Data.ToJSON DisableStageTransition where
   toJSON DisableStageTransition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("pipelineName" Core..= pipelineName),
-            Prelude.Just ("stageName" Core..= stageName),
+          [ Prelude.Just ("pipelineName" Data..= pipelineName),
+            Prelude.Just ("stageName" Data..= stageName),
             Prelude.Just
-              ("transitionType" Core..= transitionType),
-            Prelude.Just ("reason" Core..= reason)
+              ("transitionType" Data..= transitionType),
+            Prelude.Just ("reason" Data..= reason)
           ]
       )
 
-instance Core.ToPath DisableStageTransition where
+instance Data.ToPath DisableStageTransition where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisableStageTransition where
+instance Data.ToQuery DisableStageTransition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisableStageTransitionResponse' smart constructor.

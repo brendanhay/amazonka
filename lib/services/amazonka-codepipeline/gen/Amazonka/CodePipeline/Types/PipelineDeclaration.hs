@@ -23,6 +23,7 @@ import Amazonka.CodePipeline.Types.ArtifactStore
 import Amazonka.CodePipeline.Types.StageDeclaration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the structure of actions and stages to be performed in the
@@ -147,18 +148,18 @@ pipelineDeclaration_roleArn = Lens.lens (\PipelineDeclaration' {roleArn} -> role
 pipelineDeclaration_stages :: Lens.Lens' PipelineDeclaration [StageDeclaration]
 pipelineDeclaration_stages = Lens.lens (\PipelineDeclaration' {stages} -> stages) (\s@PipelineDeclaration' {} a -> s {stages = a} :: PipelineDeclaration) Prelude.. Lens.coerced
 
-instance Core.FromJSON PipelineDeclaration where
+instance Data.FromJSON PipelineDeclaration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PipelineDeclaration"
       ( \x ->
           PipelineDeclaration'
-            Prelude.<$> (x Core..:? "artifactStores" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "artifactStore")
-            Prelude.<*> (x Core..:? "version")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "roleArn")
-            Prelude.<*> (x Core..:? "stages" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "artifactStores" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "artifactStore")
+            Prelude.<*> (x Data..:? "version")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "roleArn")
+            Prelude.<*> (x Data..:? "stages" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PipelineDeclaration where
@@ -179,16 +180,16 @@ instance Prelude.NFData PipelineDeclaration where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf stages
 
-instance Core.ToJSON PipelineDeclaration where
+instance Data.ToJSON PipelineDeclaration where
   toJSON PipelineDeclaration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("artifactStores" Core..=)
+          [ ("artifactStores" Data..=)
               Prelude.<$> artifactStores,
-            ("artifactStore" Core..=) Prelude.<$> artifactStore,
-            ("version" Core..=) Prelude.<$> version,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("roleArn" Core..= roleArn),
-            Prelude.Just ("stages" Core..= stages)
+            ("artifactStore" Data..=) Prelude.<$> artifactStore,
+            ("version" Data..=) Prelude.<$> version,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("roleArn" Data..= roleArn),
+            Prelude.Just ("stages" Data..= stages)
           ]
       )

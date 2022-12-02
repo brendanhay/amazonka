@@ -23,6 +23,7 @@ import Amazonka.CodePipeline.Types.ActionExecutionResult
 import Amazonka.CodePipeline.Types.ArtifactDetail
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Output details listed for an action execution, such as the action
@@ -83,18 +84,18 @@ actionExecutionOutput_executionResult = Lens.lens (\ActionExecutionOutput' {exec
 actionExecutionOutput_outputVariables :: Lens.Lens' ActionExecutionOutput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 actionExecutionOutput_outputVariables = Lens.lens (\ActionExecutionOutput' {outputVariables} -> outputVariables) (\s@ActionExecutionOutput' {} a -> s {outputVariables = a} :: ActionExecutionOutput) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ActionExecutionOutput where
+instance Data.FromJSON ActionExecutionOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionExecutionOutput"
       ( \x ->
           ActionExecutionOutput'
-            Prelude.<$> ( x Core..:? "outputArtifacts"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "outputArtifacts"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "executionResult")
-            Prelude.<*> ( x Core..:? "outputVariables"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "executionResult")
+            Prelude.<*> ( x Data..:? "outputVariables"
+                            Data..!= Prelude.mempty
                         )
       )
 

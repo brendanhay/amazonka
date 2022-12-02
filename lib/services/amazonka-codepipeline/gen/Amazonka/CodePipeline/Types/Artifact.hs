@@ -22,6 +22,7 @@ module Amazonka.CodePipeline.Types.Artifact where
 import Amazonka.CodePipeline.Types.ArtifactLocation
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about an artifact that is worked on by actions in
@@ -75,15 +76,15 @@ artifact_revision = Lens.lens (\Artifact' {revision} -> revision) (\s@Artifact' 
 artifact_location :: Lens.Lens' Artifact (Prelude.Maybe ArtifactLocation)
 artifact_location = Lens.lens (\Artifact' {location} -> location) (\s@Artifact' {} a -> s {location = a} :: Artifact)
 
-instance Core.FromJSON Artifact where
+instance Data.FromJSON Artifact where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Artifact"
       ( \x ->
           Artifact'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "revision")
-            Prelude.<*> (x Core..:? "location")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "revision")
+            Prelude.<*> (x Data..:? "location")
       )
 
 instance Prelude.Hashable Artifact where

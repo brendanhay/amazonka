@@ -22,6 +22,7 @@ module Amazonka.CodePipeline.Types.BlockerDeclaration where
 import Amazonka.CodePipeline.Types.BlockerType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Reserved for future use.
@@ -63,13 +64,13 @@ blockerDeclaration_name = Lens.lens (\BlockerDeclaration' {name} -> name) (\s@Bl
 blockerDeclaration_type :: Lens.Lens' BlockerDeclaration BlockerType
 blockerDeclaration_type = Lens.lens (\BlockerDeclaration' {type'} -> type') (\s@BlockerDeclaration' {} a -> s {type' = a} :: BlockerDeclaration)
 
-instance Core.FromJSON BlockerDeclaration where
+instance Data.FromJSON BlockerDeclaration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BlockerDeclaration"
       ( \x ->
           BlockerDeclaration'
-            Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..: "name") Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable BlockerDeclaration where
@@ -81,11 +82,11 @@ instance Prelude.NFData BlockerDeclaration where
   rnf BlockerDeclaration' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON BlockerDeclaration where
+instance Data.ToJSON BlockerDeclaration where
   toJSON BlockerDeclaration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
-            Prelude.Just ("type" Core..= type')
+          [ Prelude.Just ("name" Data..= name),
+            Prelude.Just ("type" Data..= type')
           ]
       )

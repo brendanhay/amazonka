@@ -23,6 +23,7 @@ import Amazonka.CodePipeline.Types.ActionCategory
 import Amazonka.CodePipeline.Types.ActionOwner
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about an action type.
@@ -156,16 +157,16 @@ actionTypeId_provider = Lens.lens (\ActionTypeId' {provider} -> provider) (\s@Ac
 actionTypeId_version :: Lens.Lens' ActionTypeId Prelude.Text
 actionTypeId_version = Lens.lens (\ActionTypeId' {version} -> version) (\s@ActionTypeId' {} a -> s {version = a} :: ActionTypeId)
 
-instance Core.FromJSON ActionTypeId where
+instance Data.FromJSON ActionTypeId where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionTypeId"
       ( \x ->
           ActionTypeId'
-            Prelude.<$> (x Core..: "category")
-            Prelude.<*> (x Core..: "owner")
-            Prelude.<*> (x Core..: "provider")
-            Prelude.<*> (x Core..: "version")
+            Prelude.<$> (x Data..: "category")
+            Prelude.<*> (x Data..: "owner")
+            Prelude.<*> (x Data..: "provider")
+            Prelude.<*> (x Data..: "version")
       )
 
 instance Prelude.Hashable ActionTypeId where
@@ -182,13 +183,13 @@ instance Prelude.NFData ActionTypeId where
       `Prelude.seq` Prelude.rnf provider
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON ActionTypeId where
+instance Data.ToJSON ActionTypeId where
   toJSON ActionTypeId' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("category" Core..= category),
-            Prelude.Just ("owner" Core..= owner),
-            Prelude.Just ("provider" Core..= provider),
-            Prelude.Just ("version" Core..= version)
+          [ Prelude.Just ("category" Data..= category),
+            Prelude.Just ("owner" Data..= owner),
+            Prelude.Just ("provider" Data..= provider),
+            Prelude.Just ("version" Data..= version)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.CodePipeline.Types.LambdaExecutorConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the configuration for the @Lambda@ action engine, or
@@ -56,13 +57,13 @@ newLambdaExecutorConfiguration pLambdaFunctionArn_ =
 lambdaExecutorConfiguration_lambdaFunctionArn :: Lens.Lens' LambdaExecutorConfiguration Prelude.Text
 lambdaExecutorConfiguration_lambdaFunctionArn = Lens.lens (\LambdaExecutorConfiguration' {lambdaFunctionArn} -> lambdaFunctionArn) (\s@LambdaExecutorConfiguration' {} a -> s {lambdaFunctionArn = a} :: LambdaExecutorConfiguration)
 
-instance Core.FromJSON LambdaExecutorConfiguration where
+instance Data.FromJSON LambdaExecutorConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaExecutorConfiguration"
       ( \x ->
           LambdaExecutorConfiguration'
-            Prelude.<$> (x Core..: "lambdaFunctionArn")
+            Prelude.<$> (x Data..: "lambdaFunctionArn")
       )
 
 instance Prelude.Hashable LambdaExecutorConfiguration where
@@ -73,11 +74,11 @@ instance Prelude.NFData LambdaExecutorConfiguration where
   rnf LambdaExecutorConfiguration' {..} =
     Prelude.rnf lambdaFunctionArn
 
-instance Core.ToJSON LambdaExecutorConfiguration where
+instance Data.ToJSON LambdaExecutorConfiguration where
   toJSON LambdaExecutorConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("lambdaFunctionArn" Core..= lambdaFunctionArn)
+              ("lambdaFunctionArn" Data..= lambdaFunctionArn)
           ]
       )

@@ -47,6 +47,7 @@ where
 import Amazonka.CodePipeline.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -150,7 +151,7 @@ instance Core.AWSRequest PutApprovalResult where
     Response.receiveJSON
       ( \s h x ->
           PutApprovalResultResponse'
-            Prelude.<$> (x Core..?> "approvedAt")
+            Prelude.<$> (x Data..?> "approvedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,37 +171,37 @@ instance Prelude.NFData PutApprovalResult where
       `Prelude.seq` Prelude.rnf result
       `Prelude.seq` Prelude.rnf token
 
-instance Core.ToHeaders PutApprovalResult where
+instance Data.ToHeaders PutApprovalResult where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodePipeline_20150709.PutApprovalResult" ::
+              Data.=# ( "CodePipeline_20150709.PutApprovalResult" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutApprovalResult where
+instance Data.ToJSON PutApprovalResult where
   toJSON PutApprovalResult' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("pipelineName" Core..= pipelineName),
-            Prelude.Just ("stageName" Core..= stageName),
-            Prelude.Just ("actionName" Core..= actionName),
-            Prelude.Just ("result" Core..= result),
-            Prelude.Just ("token" Core..= token)
+          [ Prelude.Just ("pipelineName" Data..= pipelineName),
+            Prelude.Just ("stageName" Data..= stageName),
+            Prelude.Just ("actionName" Data..= actionName),
+            Prelude.Just ("result" Data..= result),
+            Prelude.Just ("token" Data..= token)
           ]
       )
 
-instance Core.ToPath PutApprovalResult where
+instance Data.ToPath PutApprovalResult where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutApprovalResult where
+instance Data.ToQuery PutApprovalResult where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @PutApprovalResult@ action.
@@ -208,7 +209,7 @@ instance Core.ToQuery PutApprovalResult where
 -- /See:/ 'newPutApprovalResultResponse' smart constructor.
 data PutApprovalResultResponse = PutApprovalResultResponse'
   { -- | The timestamp showing when the approval or rejection was submitted.
-    approvedAt :: Prelude.Maybe Core.POSIX,
+    approvedAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -238,7 +239,7 @@ newPutApprovalResultResponse pHttpStatus_ =
 
 -- | The timestamp showing when the approval or rejection was submitted.
 putApprovalResultResponse_approvedAt :: Lens.Lens' PutApprovalResultResponse (Prelude.Maybe Prelude.UTCTime)
-putApprovalResultResponse_approvedAt = Lens.lens (\PutApprovalResultResponse' {approvedAt} -> approvedAt) (\s@PutApprovalResultResponse' {} a -> s {approvedAt = a} :: PutApprovalResultResponse) Prelude.. Lens.mapping Core._Time
+putApprovalResultResponse_approvedAt = Lens.lens (\PutApprovalResultResponse' {approvedAt} -> approvedAt) (\s@PutApprovalResultResponse' {} a -> s {approvedAt = a} :: PutApprovalResultResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 putApprovalResultResponse_httpStatus :: Lens.Lens' PutApprovalResultResponse Prelude.Int

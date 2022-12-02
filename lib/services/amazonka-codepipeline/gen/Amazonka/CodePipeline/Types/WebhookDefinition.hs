@@ -24,6 +24,7 @@ import Amazonka.CodePipeline.Types.WebhookAuthenticationType
 import Amazonka.CodePipeline.Types.WebhookFilterRule
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about a webhook and its definition.
@@ -173,18 +174,18 @@ webhookDefinition_authentication = Lens.lens (\WebhookDefinition' {authenticatio
 webhookDefinition_authenticationConfiguration :: Lens.Lens' WebhookDefinition WebhookAuthConfiguration
 webhookDefinition_authenticationConfiguration = Lens.lens (\WebhookDefinition' {authenticationConfiguration} -> authenticationConfiguration) (\s@WebhookDefinition' {} a -> s {authenticationConfiguration = a} :: WebhookDefinition)
 
-instance Core.FromJSON WebhookDefinition where
+instance Data.FromJSON WebhookDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WebhookDefinition"
       ( \x ->
           WebhookDefinition'
-            Prelude.<$> (x Core..: "name")
-            Prelude.<*> (x Core..: "targetPipeline")
-            Prelude.<*> (x Core..: "targetAction")
-            Prelude.<*> (x Core..:? "filters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "authentication")
-            Prelude.<*> (x Core..: "authenticationConfiguration")
+            Prelude.<$> (x Data..: "name")
+            Prelude.<*> (x Data..: "targetPipeline")
+            Prelude.<*> (x Data..: "targetAction")
+            Prelude.<*> (x Data..:? "filters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "authentication")
+            Prelude.<*> (x Data..: "authenticationConfiguration")
       )
 
 instance Prelude.Hashable WebhookDefinition where
@@ -205,20 +206,20 @@ instance Prelude.NFData WebhookDefinition where
       `Prelude.seq` Prelude.rnf authentication
       `Prelude.seq` Prelude.rnf authenticationConfiguration
 
-instance Core.ToJSON WebhookDefinition where
+instance Data.ToJSON WebhookDefinition where
   toJSON WebhookDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
+          [ Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("targetPipeline" Core..= targetPipeline),
-            Prelude.Just ("targetAction" Core..= targetAction),
-            Prelude.Just ("filters" Core..= filters),
+              ("targetPipeline" Data..= targetPipeline),
+            Prelude.Just ("targetAction" Data..= targetAction),
+            Prelude.Just ("filters" Data..= filters),
             Prelude.Just
-              ("authentication" Core..= authentication),
+              ("authentication" Data..= authentication),
             Prelude.Just
               ( "authenticationConfiguration"
-                  Core..= authenticationConfiguration
+                  Data..= authenticationConfiguration
               )
           ]
       )

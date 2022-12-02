@@ -21,6 +21,7 @@ module Amazonka.CodePipeline.Types.ActionExecutionFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filter values for the action execution.
@@ -61,11 +62,11 @@ instance Prelude.NFData ActionExecutionFilter where
   rnf ActionExecutionFilter' {..} =
     Prelude.rnf pipelineExecutionId
 
-instance Core.ToJSON ActionExecutionFilter where
+instance Data.ToJSON ActionExecutionFilter where
   toJSON ActionExecutionFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("pipelineExecutionId" Core..=)
+          [ ("pipelineExecutionId" Data..=)
               Prelude.<$> pipelineExecutionId
           ]
       )

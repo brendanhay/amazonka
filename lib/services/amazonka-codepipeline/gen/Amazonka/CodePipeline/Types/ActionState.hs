@@ -23,6 +23,7 @@ import Amazonka.CodePipeline.Types.ActionExecution
 import Amazonka.CodePipeline.Types.ActionRevision
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about the state of an action.
@@ -96,17 +97,17 @@ actionState_currentRevision = Lens.lens (\ActionState' {currentRevision} -> curr
 actionState_latestExecution :: Lens.Lens' ActionState (Prelude.Maybe ActionExecution)
 actionState_latestExecution = Lens.lens (\ActionState' {latestExecution} -> latestExecution) (\s@ActionState' {} a -> s {latestExecution = a} :: ActionState)
 
-instance Core.FromJSON ActionState where
+instance Data.FromJSON ActionState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionState"
       ( \x ->
           ActionState'
-            Prelude.<$> (x Core..:? "actionName")
-            Prelude.<*> (x Core..:? "entityUrl")
-            Prelude.<*> (x Core..:? "revisionUrl")
-            Prelude.<*> (x Core..:? "currentRevision")
-            Prelude.<*> (x Core..:? "latestExecution")
+            Prelude.<$> (x Data..:? "actionName")
+            Prelude.<*> (x Data..:? "entityUrl")
+            Prelude.<*> (x Data..:? "revisionUrl")
+            Prelude.<*> (x Data..:? "currentRevision")
+            Prelude.<*> (x Data..:? "latestExecution")
       )
 
 instance Prelude.Hashable ActionState where

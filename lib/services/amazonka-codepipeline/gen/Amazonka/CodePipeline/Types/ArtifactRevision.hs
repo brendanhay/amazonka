@@ -21,6 +21,7 @@ module Amazonka.CodePipeline.Types.ArtifactRevision where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents revision details of an artifact.
@@ -35,7 +36,7 @@ data ArtifactRevision = ArtifactRevision'
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the most recent revision of the artifact was
     -- created, in timestamp format.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | The revision ID of the artifact.
     revisionId :: Prelude.Maybe Prelude.Text,
     -- | The commit ID for the artifact revision. For artifacts stored in GitHub
@@ -105,7 +106,7 @@ artifactRevision_name = Lens.lens (\ArtifactRevision' {name} -> name) (\s@Artifa
 -- | The date and time when the most recent revision of the artifact was
 -- created, in timestamp format.
 artifactRevision_created :: Lens.Lens' ArtifactRevision (Prelude.Maybe Prelude.UTCTime)
-artifactRevision_created = Lens.lens (\ArtifactRevision' {created} -> created) (\s@ArtifactRevision' {} a -> s {created = a} :: ArtifactRevision) Prelude.. Lens.mapping Core._Time
+artifactRevision_created = Lens.lens (\ArtifactRevision' {created} -> created) (\s@ArtifactRevision' {} a -> s {created = a} :: ArtifactRevision) Prelude.. Lens.mapping Data._Time
 
 -- | The revision ID of the artifact.
 artifactRevision_revisionId :: Lens.Lens' ArtifactRevision (Prelude.Maybe Prelude.Text)
@@ -125,18 +126,18 @@ artifactRevision_revisionUrl = Lens.lens (\ArtifactRevision' {revisionUrl} -> re
 artifactRevision_revisionSummary :: Lens.Lens' ArtifactRevision (Prelude.Maybe Prelude.Text)
 artifactRevision_revisionSummary = Lens.lens (\ArtifactRevision' {revisionSummary} -> revisionSummary) (\s@ArtifactRevision' {} a -> s {revisionSummary = a} :: ArtifactRevision)
 
-instance Core.FromJSON ArtifactRevision where
+instance Data.FromJSON ArtifactRevision where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ArtifactRevision"
       ( \x ->
           ArtifactRevision'
-            Prelude.<$> (x Core..:? "revisionChangeIdentifier")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "created")
-            Prelude.<*> (x Core..:? "revisionId")
-            Prelude.<*> (x Core..:? "revisionUrl")
-            Prelude.<*> (x Core..:? "revisionSummary")
+            Prelude.<$> (x Data..:? "revisionChangeIdentifier")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "created")
+            Prelude.<*> (x Data..:? "revisionId")
+            Prelude.<*> (x Data..:? "revisionUrl")
+            Prelude.<*> (x Data..:? "revisionSummary")
       )
 
 instance Prelude.Hashable ArtifactRevision where

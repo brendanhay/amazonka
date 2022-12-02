@@ -22,6 +22,7 @@ module Amazonka.CodePipeline.Types.ArtifactDetail where
 import Amazonka.CodePipeline.Types.S3Location
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Artifact details for the action execution, such as the artifact
@@ -63,14 +64,14 @@ artifactDetail_name = Lens.lens (\ArtifactDetail' {name} -> name) (\s@ArtifactDe
 artifactDetail_s3location :: Lens.Lens' ArtifactDetail (Prelude.Maybe S3Location)
 artifactDetail_s3location = Lens.lens (\ArtifactDetail' {s3location} -> s3location) (\s@ArtifactDetail' {} a -> s {s3location = a} :: ArtifactDetail)
 
-instance Core.FromJSON ArtifactDetail where
+instance Data.FromJSON ArtifactDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ArtifactDetail"
       ( \x ->
           ArtifactDetail'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "s3location")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "s3location")
       )
 
 instance Prelude.Hashable ArtifactDetail where

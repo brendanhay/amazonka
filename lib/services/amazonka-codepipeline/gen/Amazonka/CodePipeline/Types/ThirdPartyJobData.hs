@@ -27,6 +27,7 @@ import Amazonka.CodePipeline.Types.EncryptionKey
 import Amazonka.CodePipeline.Types.PipelineContext
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about the job data for a partner action.
@@ -43,7 +44,7 @@ data ThirdPartyJobData = ThirdPartyJobData'
     -- temporary credentials that are issued by AWS Secure Token Service (STS).
     -- They can be used to access input and output artifacts in the S3 bucket
     -- used to store artifact for the pipeline in AWS CodePipeline.
-    artifactCredentials :: Prelude.Maybe (Core.Sensitive AWSSessionCredentials),
+    artifactCredentials :: Prelude.Maybe (Data.Sensitive AWSSessionCredentials),
     -- | A system-generated token, such as a AWS CodeDeploy deployment ID, that a
     -- job requires to continue the job asynchronously.
     continuationToken :: Prelude.Maybe Prelude.Text,
@@ -134,7 +135,7 @@ thirdPartyJobData_outputArtifacts = Lens.lens (\ThirdPartyJobData' {outputArtifa
 -- They can be used to access input and output artifacts in the S3 bucket
 -- used to store artifact for the pipeline in AWS CodePipeline.
 thirdPartyJobData_artifactCredentials :: Lens.Lens' ThirdPartyJobData (Prelude.Maybe AWSSessionCredentials)
-thirdPartyJobData_artifactCredentials = Lens.lens (\ThirdPartyJobData' {artifactCredentials} -> artifactCredentials) (\s@ThirdPartyJobData' {} a -> s {artifactCredentials = a} :: ThirdPartyJobData) Prelude.. Lens.mapping Core._Sensitive
+thirdPartyJobData_artifactCredentials = Lens.lens (\ThirdPartyJobData' {artifactCredentials} -> artifactCredentials) (\s@ThirdPartyJobData' {} a -> s {artifactCredentials = a} :: ThirdPartyJobData) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A system-generated token, such as a AWS CodeDeploy deployment ID, that a
 -- job requires to continue the job asynchronously.
@@ -166,22 +167,22 @@ thirdPartyJobData_encryptionKey = Lens.lens (\ThirdPartyJobData' {encryptionKey}
 thirdPartyJobData_pipelineContext :: Lens.Lens' ThirdPartyJobData (Prelude.Maybe PipelineContext)
 thirdPartyJobData_pipelineContext = Lens.lens (\ThirdPartyJobData' {pipelineContext} -> pipelineContext) (\s@ThirdPartyJobData' {} a -> s {pipelineContext = a} :: ThirdPartyJobData)
 
-instance Core.FromJSON ThirdPartyJobData where
+instance Data.FromJSON ThirdPartyJobData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThirdPartyJobData"
       ( \x ->
           ThirdPartyJobData'
-            Prelude.<$> (x Core..:? "actionTypeId")
-            Prelude.<*> ( x Core..:? "outputArtifacts"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "actionTypeId")
+            Prelude.<*> ( x Data..:? "outputArtifacts"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "artifactCredentials")
-            Prelude.<*> (x Core..:? "continuationToken")
-            Prelude.<*> (x Core..:? "actionConfiguration")
-            Prelude.<*> (x Core..:? "inputArtifacts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "encryptionKey")
-            Prelude.<*> (x Core..:? "pipelineContext")
+            Prelude.<*> (x Data..:? "artifactCredentials")
+            Prelude.<*> (x Data..:? "continuationToken")
+            Prelude.<*> (x Data..:? "actionConfiguration")
+            Prelude.<*> (x Data..:? "inputArtifacts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "encryptionKey")
+            Prelude.<*> (x Data..:? "pipelineContext")
       )
 
 instance Prelude.Hashable ThirdPartyJobData where

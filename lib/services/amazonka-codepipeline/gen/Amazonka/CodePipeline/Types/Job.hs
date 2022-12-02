@@ -22,6 +22,7 @@ module Amazonka.CodePipeline.Types.Job where
 import Amazonka.CodePipeline.Types.JobData
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about a job.
@@ -86,16 +87,16 @@ job_accountId = Lens.lens (\Job' {accountId} -> accountId) (\s@Job' {} a -> s {a
 job_data :: Lens.Lens' Job (Prelude.Maybe JobData)
 job_data = Lens.lens (\Job' {data'} -> data') (\s@Job' {} a -> s {data' = a} :: Job)
 
-instance Core.FromJSON Job where
+instance Data.FromJSON Job where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Job"
       ( \x ->
           Job'
-            Prelude.<$> (x Core..:? "nonce")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "data")
+            Prelude.<$> (x Data..:? "nonce")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "data")
       )
 
 instance Prelude.Hashable Job where

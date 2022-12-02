@@ -21,6 +21,7 @@ module Amazonka.CodePipeline.Types.SourceRevision where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the version (or revision) of a source artifact that
@@ -106,16 +107,16 @@ sourceRevision_revisionSummary = Lens.lens (\SourceRevision' {revisionSummary} -
 sourceRevision_actionName :: Lens.Lens' SourceRevision Prelude.Text
 sourceRevision_actionName = Lens.lens (\SourceRevision' {actionName} -> actionName) (\s@SourceRevision' {} a -> s {actionName = a} :: SourceRevision)
 
-instance Core.FromJSON SourceRevision where
+instance Data.FromJSON SourceRevision where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceRevision"
       ( \x ->
           SourceRevision'
-            Prelude.<$> (x Core..:? "revisionId")
-            Prelude.<*> (x Core..:? "revisionUrl")
-            Prelude.<*> (x Core..:? "revisionSummary")
-            Prelude.<*> (x Core..: "actionName")
+            Prelude.<$> (x Data..:? "revisionId")
+            Prelude.<*> (x Data..:? "revisionUrl")
+            Prelude.<*> (x Data..:? "revisionSummary")
+            Prelude.<*> (x Data..: "actionName")
       )
 
 instance Prelude.Hashable SourceRevision where

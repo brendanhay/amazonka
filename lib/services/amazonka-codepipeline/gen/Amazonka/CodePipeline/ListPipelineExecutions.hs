@@ -47,6 +47,7 @@ where
 import Amazonka.CodePipeline.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -151,8 +152,8 @@ instance Core.AWSRequest ListPipelineExecutions where
     Response.receiveJSON
       ( \s h x ->
           ListPipelineExecutionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "pipelineExecutionSummaries"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "pipelineExecutionSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -170,35 +171,35 @@ instance Prelude.NFData ListPipelineExecutions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf pipelineName
 
-instance Core.ToHeaders ListPipelineExecutions where
+instance Data.ToHeaders ListPipelineExecutions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodePipeline_20150709.ListPipelineExecutions" ::
+              Data.=# ( "CodePipeline_20150709.ListPipelineExecutions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListPipelineExecutions where
+instance Data.ToJSON ListPipelineExecutions where
   toJSON ListPipelineExecutions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("pipelineName" Core..= pipelineName)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("pipelineName" Data..= pipelineName)
           ]
       )
 
-instance Core.ToPath ListPipelineExecutions where
+instance Data.ToPath ListPipelineExecutions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListPipelineExecutions where
+instance Data.ToQuery ListPipelineExecutions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @ListPipelineExecutions@ action.

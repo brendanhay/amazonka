@@ -23,6 +23,7 @@ import Amazonka.CodePipeline.Types.ExecutorConfiguration
 import Amazonka.CodePipeline.Types.ExecutorType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The action engine, or executor, for an action type created for a
@@ -128,16 +129,16 @@ actionTypeExecutor_configuration = Lens.lens (\ActionTypeExecutor' {configuratio
 actionTypeExecutor_type :: Lens.Lens' ActionTypeExecutor ExecutorType
 actionTypeExecutor_type = Lens.lens (\ActionTypeExecutor' {type'} -> type') (\s@ActionTypeExecutor' {} a -> s {type' = a} :: ActionTypeExecutor)
 
-instance Core.FromJSON ActionTypeExecutor where
+instance Data.FromJSON ActionTypeExecutor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionTypeExecutor"
       ( \x ->
           ActionTypeExecutor'
-            Prelude.<$> (x Core..:? "policyStatementsTemplate")
-            Prelude.<*> (x Core..:? "jobTimeout")
-            Prelude.<*> (x Core..: "configuration")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "policyStatementsTemplate")
+            Prelude.<*> (x Data..:? "jobTimeout")
+            Prelude.<*> (x Data..: "configuration")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable ActionTypeExecutor where
@@ -155,14 +156,14 @@ instance Prelude.NFData ActionTypeExecutor where
       `Prelude.seq` Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON ActionTypeExecutor where
+instance Data.ToJSON ActionTypeExecutor where
   toJSON ActionTypeExecutor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("policyStatementsTemplate" Core..=)
+          [ ("policyStatementsTemplate" Data..=)
               Prelude.<$> policyStatementsTemplate,
-            ("jobTimeout" Core..=) Prelude.<$> jobTimeout,
-            Prelude.Just ("configuration" Core..= configuration),
-            Prelude.Just ("type" Core..= type')
+            ("jobTimeout" Data..=) Prelude.<$> jobTimeout,
+            Prelude.Just ("configuration" Data..= configuration),
+            Prelude.Just ("type" Data..= type')
           ]
       )

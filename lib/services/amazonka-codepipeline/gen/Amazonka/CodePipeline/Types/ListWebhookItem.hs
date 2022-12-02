@@ -23,6 +23,7 @@ import Amazonka.CodePipeline.Types.Tag
 import Amazonka.CodePipeline.Types.WebhookDefinition
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The detail returned for each webhook after listing webhooks, such as the
@@ -38,7 +39,7 @@ data ListWebhookItem = ListWebhookItem'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time a webhook was last successfully triggered, in
     -- timestamp format.
-    lastTriggered :: Prelude.Maybe Core.POSIX,
+    lastTriggered :: Prelude.Maybe Data.POSIX,
     -- | The number code of the error.
     errorCode :: Prelude.Maybe Prelude.Text,
     -- | The detail returned for each webhook, such as the webhook authentication
@@ -112,7 +113,7 @@ listWebhookItem_arn = Lens.lens (\ListWebhookItem' {arn} -> arn) (\s@ListWebhook
 -- | The date and time a webhook was last successfully triggered, in
 -- timestamp format.
 listWebhookItem_lastTriggered :: Lens.Lens' ListWebhookItem (Prelude.Maybe Prelude.UTCTime)
-listWebhookItem_lastTriggered = Lens.lens (\ListWebhookItem' {lastTriggered} -> lastTriggered) (\s@ListWebhookItem' {} a -> s {lastTriggered = a} :: ListWebhookItem) Prelude.. Lens.mapping Core._Time
+listWebhookItem_lastTriggered = Lens.lens (\ListWebhookItem' {lastTriggered} -> lastTriggered) (\s@ListWebhookItem' {} a -> s {lastTriggered = a} :: ListWebhookItem) Prelude.. Lens.mapping Data._Time
 
 -- | The number code of the error.
 listWebhookItem_errorCode :: Lens.Lens' ListWebhookItem (Prelude.Maybe Prelude.Text)
@@ -131,19 +132,19 @@ listWebhookItem_definition = Lens.lens (\ListWebhookItem' {definition} -> defini
 listWebhookItem_url :: Lens.Lens' ListWebhookItem Prelude.Text
 listWebhookItem_url = Lens.lens (\ListWebhookItem' {url} -> url) (\s@ListWebhookItem' {} a -> s {url = a} :: ListWebhookItem)
 
-instance Core.FromJSON ListWebhookItem where
+instance Data.FromJSON ListWebhookItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListWebhookItem"
       ( \x ->
           ListWebhookItem'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "lastTriggered")
-            Prelude.<*> (x Core..:? "errorCode")
-            Prelude.<*> (x Core..: "definition")
-            Prelude.<*> (x Core..: "url")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "lastTriggered")
+            Prelude.<*> (x Data..:? "errorCode")
+            Prelude.<*> (x Data..: "definition")
+            Prelude.<*> (x Data..: "url")
       )
 
 instance Prelude.Hashable ListWebhookItem where

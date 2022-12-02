@@ -51,6 +51,7 @@ where
 import Amazonka.CodePipeline.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -196,9 +197,9 @@ instance Core.AWSRequest CreateCustomActionType where
     Response.receiveJSON
       ( \s h x ->
           CreateCustomActionTypeResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "actionType")
+            Prelude.<*> (x Data..:> "actionType")
       )
 
 instance Prelude.Hashable CreateCustomActionType where
@@ -223,47 +224,47 @@ instance Prelude.NFData CreateCustomActionType where
       `Prelude.seq` Prelude.rnf inputArtifactDetails
       `Prelude.seq` Prelude.rnf outputArtifactDetails
 
-instance Core.ToHeaders CreateCustomActionType where
+instance Data.ToHeaders CreateCustomActionType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodePipeline_20150709.CreateCustomActionType" ::
+              Data.=# ( "CodePipeline_20150709.CreateCustomActionType" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCustomActionType where
+instance Data.ToJSON CreateCustomActionType where
   toJSON CreateCustomActionType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("settings" Core..=) Prelude.<$> settings,
-            ("configurationProperties" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("settings" Data..=) Prelude.<$> settings,
+            ("configurationProperties" Data..=)
               Prelude.<$> configurationProperties,
-            Prelude.Just ("category" Core..= category),
-            Prelude.Just ("provider" Core..= provider),
-            Prelude.Just ("version" Core..= version),
+            Prelude.Just ("category" Data..= category),
+            Prelude.Just ("provider" Data..= provider),
+            Prelude.Just ("version" Data..= version),
             Prelude.Just
               ( "inputArtifactDetails"
-                  Core..= inputArtifactDetails
+                  Data..= inputArtifactDetails
               ),
             Prelude.Just
               ( "outputArtifactDetails"
-                  Core..= outputArtifactDetails
+                  Data..= outputArtifactDetails
               )
           ]
       )
 
-instance Core.ToPath CreateCustomActionType where
+instance Data.ToPath CreateCustomActionType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCustomActionType where
+instance Data.ToQuery CreateCustomActionType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @CreateCustomActionType@ operation.

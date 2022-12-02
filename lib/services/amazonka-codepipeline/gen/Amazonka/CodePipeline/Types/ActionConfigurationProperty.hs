@@ -22,6 +22,7 @@ module Amazonka.CodePipeline.Types.ActionConfigurationProperty where
 import Amazonka.CodePipeline.Types.ActionConfigurationPropertyType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about an action configuration property.
@@ -162,19 +163,19 @@ actionConfigurationProperty_key = Lens.lens (\ActionConfigurationProperty' {key}
 actionConfigurationProperty_secret :: Lens.Lens' ActionConfigurationProperty Prelude.Bool
 actionConfigurationProperty_secret = Lens.lens (\ActionConfigurationProperty' {secret} -> secret) (\s@ActionConfigurationProperty' {} a -> s {secret = a} :: ActionConfigurationProperty)
 
-instance Core.FromJSON ActionConfigurationProperty where
+instance Data.FromJSON ActionConfigurationProperty where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionConfigurationProperty"
       ( \x ->
           ActionConfigurationProperty'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "queryable")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "required")
-            Prelude.<*> (x Core..: "key")
-            Prelude.<*> (x Core..: "secret")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "queryable")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "required")
+            Prelude.<*> (x Data..: "key")
+            Prelude.<*> (x Data..: "secret")
       )
 
 instance Prelude.Hashable ActionConfigurationProperty where
@@ -197,16 +198,16 @@ instance Prelude.NFData ActionConfigurationProperty where
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf secret
 
-instance Core.ToJSON ActionConfigurationProperty where
+instance Data.ToJSON ActionConfigurationProperty where
   toJSON ActionConfigurationProperty' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("type" Core..=) Prelude.<$> type',
-            ("queryable" Core..=) Prelude.<$> queryable,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("required" Core..= required),
-            Prelude.Just ("key" Core..= key),
-            Prelude.Just ("secret" Core..= secret)
+          [ ("type" Data..=) Prelude.<$> type',
+            ("queryable" Data..=) Prelude.<$> queryable,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("required" Data..= required),
+            Prelude.Just ("key" Data..= key),
+            Prelude.Just ("secret" Data..= secret)
           ]
       )

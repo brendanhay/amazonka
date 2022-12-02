@@ -21,6 +21,7 @@ module Amazonka.CodePipeline.Types.ActionTypeArtifactDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about parameters for artifacts associated with the action
@@ -81,14 +82,14 @@ actionTypeArtifactDetails_minimumCount = Lens.lens (\ActionTypeArtifactDetails' 
 actionTypeArtifactDetails_maximumCount :: Lens.Lens' ActionTypeArtifactDetails Prelude.Natural
 actionTypeArtifactDetails_maximumCount = Lens.lens (\ActionTypeArtifactDetails' {maximumCount} -> maximumCount) (\s@ActionTypeArtifactDetails' {} a -> s {maximumCount = a} :: ActionTypeArtifactDetails)
 
-instance Core.FromJSON ActionTypeArtifactDetails where
+instance Data.FromJSON ActionTypeArtifactDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionTypeArtifactDetails"
       ( \x ->
           ActionTypeArtifactDetails'
-            Prelude.<$> (x Core..: "minimumCount")
-            Prelude.<*> (x Core..: "maximumCount")
+            Prelude.<$> (x Data..: "minimumCount")
+            Prelude.<*> (x Data..: "maximumCount")
       )
 
 instance Prelude.Hashable ActionTypeArtifactDetails where
@@ -101,11 +102,11 @@ instance Prelude.NFData ActionTypeArtifactDetails where
     Prelude.rnf minimumCount
       `Prelude.seq` Prelude.rnf maximumCount
 
-instance Core.ToJSON ActionTypeArtifactDetails where
+instance Data.ToJSON ActionTypeArtifactDetails where
   toJSON ActionTypeArtifactDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("minimumCount" Core..= minimumCount),
-            Prelude.Just ("maximumCount" Core..= maximumCount)
+          [ Prelude.Just ("minimumCount" Data..= minimumCount),
+            Prelude.Just ("maximumCount" Data..= maximumCount)
           ]
       )

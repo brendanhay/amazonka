@@ -21,6 +21,7 @@ module Amazonka.CodePipeline.Types.WebhookAuthConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The authentication applied to incoming webhook trigger requests.
@@ -71,14 +72,14 @@ webhookAuthConfiguration_secretToken = Lens.lens (\WebhookAuthConfiguration' {se
 webhookAuthConfiguration_allowedIPRange :: Lens.Lens' WebhookAuthConfiguration (Prelude.Maybe Prelude.Text)
 webhookAuthConfiguration_allowedIPRange = Lens.lens (\WebhookAuthConfiguration' {allowedIPRange} -> allowedIPRange) (\s@WebhookAuthConfiguration' {} a -> s {allowedIPRange = a} :: WebhookAuthConfiguration)
 
-instance Core.FromJSON WebhookAuthConfiguration where
+instance Data.FromJSON WebhookAuthConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WebhookAuthConfiguration"
       ( \x ->
           WebhookAuthConfiguration'
-            Prelude.<$> (x Core..:? "SecretToken")
-            Prelude.<*> (x Core..:? "AllowedIPRange")
+            Prelude.<$> (x Data..:? "SecretToken")
+            Prelude.<*> (x Data..:? "AllowedIPRange")
       )
 
 instance Prelude.Hashable WebhookAuthConfiguration where
@@ -91,12 +92,12 @@ instance Prelude.NFData WebhookAuthConfiguration where
     Prelude.rnf secretToken
       `Prelude.seq` Prelude.rnf allowedIPRange
 
-instance Core.ToJSON WebhookAuthConfiguration where
+instance Data.ToJSON WebhookAuthConfiguration where
   toJSON WebhookAuthConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SecretToken" Core..=) Prelude.<$> secretToken,
-            ("AllowedIPRange" Core..=)
+          [ ("SecretToken" Data..=) Prelude.<$> secretToken,
+            ("AllowedIPRange" Data..=)
               Prelude.<$> allowedIPRange
           ]
       )

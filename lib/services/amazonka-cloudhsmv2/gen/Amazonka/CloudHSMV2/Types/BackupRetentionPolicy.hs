@@ -22,6 +22,7 @@ module Amazonka.CloudHSMV2.Types.BackupRetentionPolicy where
 import Amazonka.CloudHSMV2.Types.BackupRetentionType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A policy that defines the number of days to retain backups.
@@ -65,13 +66,13 @@ backupRetentionPolicy_type = Lens.lens (\BackupRetentionPolicy' {type'} -> type'
 backupRetentionPolicy_value :: Lens.Lens' BackupRetentionPolicy (Prelude.Maybe Prelude.Text)
 backupRetentionPolicy_value = Lens.lens (\BackupRetentionPolicy' {value} -> value) (\s@BackupRetentionPolicy' {} a -> s {value = a} :: BackupRetentionPolicy)
 
-instance Core.FromJSON BackupRetentionPolicy where
+instance Data.FromJSON BackupRetentionPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackupRetentionPolicy"
       ( \x ->
           BackupRetentionPolicy'
-            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable BackupRetentionPolicy where
@@ -83,11 +84,11 @@ instance Prelude.NFData BackupRetentionPolicy where
   rnf BackupRetentionPolicy' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON BackupRetentionPolicy where
+instance Data.ToJSON BackupRetentionPolicy where
   toJSON BackupRetentionPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

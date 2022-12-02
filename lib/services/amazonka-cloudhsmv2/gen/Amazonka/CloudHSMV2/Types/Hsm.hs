@@ -22,6 +22,7 @@ module Amazonka.CloudHSMV2.Types.Hsm where
 import Amazonka.CloudHSMV2.Types.HsmState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a hardware security module (HSM) in an AWS
@@ -119,20 +120,20 @@ hsm_eniId = Lens.lens (\Hsm' {eniId} -> eniId) (\s@Hsm' {} a -> s {eniId = a} ::
 hsm_hsmId :: Lens.Lens' Hsm Prelude.Text
 hsm_hsmId = Lens.lens (\Hsm' {hsmId} -> hsmId) (\s@Hsm' {} a -> s {hsmId = a} :: Hsm)
 
-instance Core.FromJSON Hsm where
+instance Data.FromJSON Hsm where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Hsm"
       ( \x ->
           Hsm'
-            Prelude.<$> (x Core..:? "SubnetId")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "AvailabilityZone")
-            Prelude.<*> (x Core..:? "ClusterId")
-            Prelude.<*> (x Core..:? "StateMessage")
-            Prelude.<*> (x Core..:? "EniIp")
-            Prelude.<*> (x Core..:? "EniId")
-            Prelude.<*> (x Core..: "HsmId")
+            Prelude.<$> (x Data..:? "SubnetId")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "AvailabilityZone")
+            Prelude.<*> (x Data..:? "ClusterId")
+            Prelude.<*> (x Data..:? "StateMessage")
+            Prelude.<*> (x Data..:? "EniIp")
+            Prelude.<*> (x Data..:? "EniId")
+            Prelude.<*> (x Data..: "HsmId")
       )
 
 instance Prelude.Hashable Hsm where

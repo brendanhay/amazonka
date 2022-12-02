@@ -49,6 +49,7 @@ where
 import Amazonka.CloudHSMV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,8 +139,8 @@ instance Core.AWSRequest InitializeCluster where
     Response.receiveJSON
       ( \s h x ->
           InitializeClusterResponse'
-            Prelude.<$> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "StateMessage")
+            Prelude.<$> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "StateMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,35 +156,35 @@ instance Prelude.NFData InitializeCluster where
       `Prelude.seq` Prelude.rnf signedCert
       `Prelude.seq` Prelude.rnf trustAnchor
 
-instance Core.ToHeaders InitializeCluster where
+instance Data.ToHeaders InitializeCluster where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "BaldrApiService.InitializeCluster" ::
+              Data.=# ( "BaldrApiService.InitializeCluster" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON InitializeCluster where
+instance Data.ToJSON InitializeCluster where
   toJSON InitializeCluster' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ClusterId" Core..= clusterId),
-            Prelude.Just ("SignedCert" Core..= signedCert),
-            Prelude.Just ("TrustAnchor" Core..= trustAnchor)
+          [ Prelude.Just ("ClusterId" Data..= clusterId),
+            Prelude.Just ("SignedCert" Data..= signedCert),
+            Prelude.Just ("TrustAnchor" Data..= trustAnchor)
           ]
       )
 
-instance Core.ToPath InitializeCluster where
+instance Data.ToPath InitializeCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery InitializeCluster where
+instance Data.ToQuery InitializeCluster where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newInitializeClusterResponse' smart constructor.

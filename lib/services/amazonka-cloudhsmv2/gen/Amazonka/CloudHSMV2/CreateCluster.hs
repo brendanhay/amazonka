@@ -46,6 +46,7 @@ where
 import Amazonka.CloudHSMV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -154,7 +155,7 @@ instance Core.AWSRequest CreateCluster where
     Response.receiveJSON
       ( \s h x ->
           CreateClusterResponse'
-            Prelude.<$> (x Core..?> "Cluster")
+            Prelude.<$> (x Data..?> "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,39 +175,39 @@ instance Prelude.NFData CreateCluster where
       `Prelude.seq` Prelude.rnf hsmType
       `Prelude.seq` Prelude.rnf subnetIds
 
-instance Core.ToHeaders CreateCluster where
+instance Data.ToHeaders CreateCluster where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "BaldrApiService.CreateCluster" ::
+              Data.=# ( "BaldrApiService.CreateCluster" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCluster where
+instance Data.ToJSON CreateCluster where
   toJSON CreateCluster' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TagList" Core..=) Prelude.<$> tagList,
-            ("BackupRetentionPolicy" Core..=)
+          [ ("TagList" Data..=) Prelude.<$> tagList,
+            ("BackupRetentionPolicy" Data..=)
               Prelude.<$> backupRetentionPolicy,
-            ("SourceBackupId" Core..=)
+            ("SourceBackupId" Data..=)
               Prelude.<$> sourceBackupId,
-            Prelude.Just ("HsmType" Core..= hsmType),
-            Prelude.Just ("SubnetIds" Core..= subnetIds)
+            Prelude.Just ("HsmType" Data..= hsmType),
+            Prelude.Just ("SubnetIds" Data..= subnetIds)
           ]
       )
 
-instance Core.ToPath CreateCluster where
+instance Data.ToPath CreateCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCluster where
+instance Data.ToQuery CreateCluster where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateClusterResponse' smart constructor.

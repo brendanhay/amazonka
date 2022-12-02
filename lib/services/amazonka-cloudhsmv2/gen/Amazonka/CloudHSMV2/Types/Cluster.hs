@@ -27,6 +27,7 @@ import Amazonka.CloudHSMV2.Types.Hsm
 import Amazonka.CloudHSMV2.Types.Tag
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an AWS CloudHSM cluster.
@@ -39,7 +40,7 @@ data Cluster = Cluster'
     -- | The identifier (ID) of the cluster\'s security group.
     securityGroup :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the cluster was created.
-    createTimestamp :: Prelude.Maybe Core.POSIX,
+    createTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The list of tags for the cluster.
     tagList :: Prelude.Maybe [Tag],
     -- | The type of HSM that the cluster contains.
@@ -143,7 +144,7 @@ cluster_securityGroup = Lens.lens (\Cluster' {securityGroup} -> securityGroup) (
 
 -- | The date and time when the cluster was created.
 cluster_createTimestamp :: Lens.Lens' Cluster (Prelude.Maybe Prelude.UTCTime)
-cluster_createTimestamp = Lens.lens (\Cluster' {createTimestamp} -> createTimestamp) (\s@Cluster' {} a -> s {createTimestamp = a} :: Cluster) Prelude.. Lens.mapping Core._Time
+cluster_createTimestamp = Lens.lens (\Cluster' {createTimestamp} -> createTimestamp) (\s@Cluster' {} a -> s {createTimestamp = a} :: Cluster) Prelude.. Lens.mapping Data._Time
 
 -- | The list of tags for the cluster.
 cluster_tagList :: Lens.Lens' Cluster (Prelude.Maybe [Tag])
@@ -196,27 +197,27 @@ cluster_vpcId = Lens.lens (\Cluster' {vpcId} -> vpcId) (\s@Cluster' {} a -> s {v
 cluster_sourceBackupId :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_sourceBackupId = Lens.lens (\Cluster' {sourceBackupId} -> sourceBackupId) (\s@Cluster' {} a -> s {sourceBackupId = a} :: Cluster)
 
-instance Core.FromJSON Cluster where
+instance Data.FromJSON Cluster where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Cluster"
       ( \x ->
           Cluster'
-            Prelude.<$> (x Core..:? "SubnetMapping" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SecurityGroup")
-            Prelude.<*> (x Core..:? "CreateTimestamp")
-            Prelude.<*> (x Core..:? "TagList" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "HsmType")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "BackupRetentionPolicy")
-            Prelude.<*> (x Core..:? "Hsms" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Certificates")
-            Prelude.<*> (x Core..:? "PreCoPassword")
-            Prelude.<*> (x Core..:? "BackupPolicy")
-            Prelude.<*> (x Core..:? "ClusterId")
-            Prelude.<*> (x Core..:? "StateMessage")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "SourceBackupId")
+            Prelude.<$> (x Data..:? "SubnetMapping" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SecurityGroup")
+            Prelude.<*> (x Data..:? "CreateTimestamp")
+            Prelude.<*> (x Data..:? "TagList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "HsmType")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "BackupRetentionPolicy")
+            Prelude.<*> (x Data..:? "Hsms" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Certificates")
+            Prelude.<*> (x Data..:? "PreCoPassword")
+            Prelude.<*> (x Data..:? "BackupPolicy")
+            Prelude.<*> (x Data..:? "ClusterId")
+            Prelude.<*> (x Data..:? "StateMessage")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "SourceBackupId")
       )
 
 instance Prelude.Hashable Cluster where

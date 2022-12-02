@@ -43,6 +43,7 @@ where
 import Amazonka.CloudHSMV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,7 +110,7 @@ instance Core.AWSRequest ModifyBackupAttributes where
     Response.receiveJSON
       ( \s h x ->
           ModifyBackupAttributesResponse'
-            Prelude.<$> (x Core..?> "Backup")
+            Prelude.<$> (x Data..?> "Backup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,34 +124,34 @@ instance Prelude.NFData ModifyBackupAttributes where
     Prelude.rnf backupId
       `Prelude.seq` Prelude.rnf neverExpires
 
-instance Core.ToHeaders ModifyBackupAttributes where
+instance Data.ToHeaders ModifyBackupAttributes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "BaldrApiService.ModifyBackupAttributes" ::
+              Data.=# ( "BaldrApiService.ModifyBackupAttributes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ModifyBackupAttributes where
+instance Data.ToJSON ModifyBackupAttributes where
   toJSON ModifyBackupAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("BackupId" Core..= backupId),
-            Prelude.Just ("NeverExpires" Core..= neverExpires)
+          [ Prelude.Just ("BackupId" Data..= backupId),
+            Prelude.Just ("NeverExpires" Data..= neverExpires)
           ]
       )
 
-instance Core.ToPath ModifyBackupAttributes where
+instance Data.ToPath ModifyBackupAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyBackupAttributes where
+instance Data.ToQuery ModifyBackupAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newModifyBackupAttributesResponse' smart constructor.

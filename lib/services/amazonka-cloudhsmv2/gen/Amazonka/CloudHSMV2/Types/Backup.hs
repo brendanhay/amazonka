@@ -23,6 +23,7 @@ import Amazonka.CloudHSMV2.Types.BackupState
 import Amazonka.CloudHSMV2.Types.Tag
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a backup of an AWS CloudHSM cluster. All
@@ -46,9 +47,9 @@ data Backup = Backup'
     -- was copied.
     sourceRegion :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the backup will be permanently deleted.
-    deleteTimestamp :: Prelude.Maybe Core.POSIX,
+    deleteTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The date and time when the backup was created.
-    createTimestamp :: Prelude.Maybe Core.POSIX,
+    createTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The list of tags for the backup.
     tagList :: Prelude.Maybe [Tag],
     -- | The identifier (ID) of the cluster that was backed up.
@@ -59,7 +60,7 @@ data Backup = Backup'
     -- | The state of the backup.
     backupState :: Prelude.Maybe BackupState,
     -- | The date and time when the backup was copied from a source backup.
-    copyTimestamp :: Prelude.Maybe Core.POSIX,
+    copyTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The identifier (ID) of the backup.
     backupId :: Prelude.Text
   }
@@ -138,11 +139,11 @@ backup_sourceRegion = Lens.lens (\Backup' {sourceRegion} -> sourceRegion) (\s@Ba
 
 -- | The date and time when the backup will be permanently deleted.
 backup_deleteTimestamp :: Lens.Lens' Backup (Prelude.Maybe Prelude.UTCTime)
-backup_deleteTimestamp = Lens.lens (\Backup' {deleteTimestamp} -> deleteTimestamp) (\s@Backup' {} a -> s {deleteTimestamp = a} :: Backup) Prelude.. Lens.mapping Core._Time
+backup_deleteTimestamp = Lens.lens (\Backup' {deleteTimestamp} -> deleteTimestamp) (\s@Backup' {} a -> s {deleteTimestamp = a} :: Backup) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when the backup was created.
 backup_createTimestamp :: Lens.Lens' Backup (Prelude.Maybe Prelude.UTCTime)
-backup_createTimestamp = Lens.lens (\Backup' {createTimestamp} -> createTimestamp) (\s@Backup' {} a -> s {createTimestamp = a} :: Backup) Prelude.. Lens.mapping Core._Time
+backup_createTimestamp = Lens.lens (\Backup' {createTimestamp} -> createTimestamp) (\s@Backup' {} a -> s {createTimestamp = a} :: Backup) Prelude.. Lens.mapping Data._Time
 
 -- | The list of tags for the backup.
 backup_tagList :: Lens.Lens' Backup (Prelude.Maybe [Tag])
@@ -163,29 +164,29 @@ backup_backupState = Lens.lens (\Backup' {backupState} -> backupState) (\s@Backu
 
 -- | The date and time when the backup was copied from a source backup.
 backup_copyTimestamp :: Lens.Lens' Backup (Prelude.Maybe Prelude.UTCTime)
-backup_copyTimestamp = Lens.lens (\Backup' {copyTimestamp} -> copyTimestamp) (\s@Backup' {} a -> s {copyTimestamp = a} :: Backup) Prelude.. Lens.mapping Core._Time
+backup_copyTimestamp = Lens.lens (\Backup' {copyTimestamp} -> copyTimestamp) (\s@Backup' {} a -> s {copyTimestamp = a} :: Backup) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier (ID) of the backup.
 backup_backupId :: Lens.Lens' Backup Prelude.Text
 backup_backupId = Lens.lens (\Backup' {backupId} -> backupId) (\s@Backup' {} a -> s {backupId = a} :: Backup)
 
-instance Core.FromJSON Backup where
+instance Data.FromJSON Backup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Backup"
       ( \x ->
           Backup'
-            Prelude.<$> (x Core..:? "NeverExpires")
-            Prelude.<*> (x Core..:? "SourceCluster")
-            Prelude.<*> (x Core..:? "SourceRegion")
-            Prelude.<*> (x Core..:? "DeleteTimestamp")
-            Prelude.<*> (x Core..:? "CreateTimestamp")
-            Prelude.<*> (x Core..:? "TagList" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ClusterId")
-            Prelude.<*> (x Core..:? "SourceBackup")
-            Prelude.<*> (x Core..:? "BackupState")
-            Prelude.<*> (x Core..:? "CopyTimestamp")
-            Prelude.<*> (x Core..: "BackupId")
+            Prelude.<$> (x Data..:? "NeverExpires")
+            Prelude.<*> (x Data..:? "SourceCluster")
+            Prelude.<*> (x Data..:? "SourceRegion")
+            Prelude.<*> (x Data..:? "DeleteTimestamp")
+            Prelude.<*> (x Data..:? "CreateTimestamp")
+            Prelude.<*> (x Data..:? "TagList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ClusterId")
+            Prelude.<*> (x Data..:? "SourceBackup")
+            Prelude.<*> (x Data..:? "BackupState")
+            Prelude.<*> (x Data..:? "CopyTimestamp")
+            Prelude.<*> (x Data..: "BackupId")
       )
 
 instance Prelude.Hashable Backup where

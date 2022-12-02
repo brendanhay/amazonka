@@ -55,6 +55,7 @@ where
 import Amazonka.CloudHSMV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -210,8 +211,8 @@ instance Core.AWSRequest DescribeBackups where
     Response.receiveJSON
       ( \s h x ->
           DescribeBackupsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Backups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Backups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -229,36 +230,36 @@ instance Prelude.NFData DescribeBackups where
       `Prelude.seq` Prelude.rnf sortAscending
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeBackups where
+instance Data.ToHeaders DescribeBackups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "BaldrApiService.DescribeBackups" ::
+              Data.=# ( "BaldrApiService.DescribeBackups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeBackups where
+instance Data.ToJSON DescribeBackups where
   toJSON DescribeBackups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("SortAscending" Core..=) Prelude.<$> sortAscending,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("SortAscending" Data..=) Prelude.<$> sortAscending,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeBackups where
+instance Data.ToPath DescribeBackups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeBackups where
+instance Data.ToQuery DescribeBackups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeBackupsResponse' smart constructor.

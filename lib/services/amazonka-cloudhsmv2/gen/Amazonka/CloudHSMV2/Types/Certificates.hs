@@ -21,6 +21,7 @@ module Amazonka.CloudHSMV2.Types.Certificates where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains one or more certificates or a certificate signing request
@@ -98,17 +99,17 @@ certificates_manufacturerHardwareCertificate = Lens.lens (\Certificates' {manufa
 certificates_awsHardwareCertificate :: Lens.Lens' Certificates (Prelude.Maybe Prelude.Text)
 certificates_awsHardwareCertificate = Lens.lens (\Certificates' {awsHardwareCertificate} -> awsHardwareCertificate) (\s@Certificates' {} a -> s {awsHardwareCertificate = a} :: Certificates)
 
-instance Core.FromJSON Certificates where
+instance Data.FromJSON Certificates where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Certificates"
       ( \x ->
           Certificates'
-            Prelude.<$> (x Core..:? "HsmCertificate")
-            Prelude.<*> (x Core..:? "ClusterCertificate")
-            Prelude.<*> (x Core..:? "ClusterCsr")
-            Prelude.<*> (x Core..:? "ManufacturerHardwareCertificate")
-            Prelude.<*> (x Core..:? "AwsHardwareCertificate")
+            Prelude.<$> (x Data..:? "HsmCertificate")
+            Prelude.<*> (x Data..:? "ClusterCertificate")
+            Prelude.<*> (x Data..:? "ClusterCsr")
+            Prelude.<*> (x Data..:? "ManufacturerHardwareCertificate")
+            Prelude.<*> (x Data..:? "AwsHardwareCertificate")
       )
 
 instance Prelude.Hashable Certificates where

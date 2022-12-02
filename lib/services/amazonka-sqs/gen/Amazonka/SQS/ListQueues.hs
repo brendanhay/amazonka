@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -157,8 +158,8 @@ instance Core.AWSRequest ListQueues where
       "ListQueuesResult"
       ( \s h x ->
           ListQueuesResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> (Core.may (Core.parseXMLList "QueueUrl") x)
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> (Core.may (Data.parseXMLList "QueueUrl") x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,22 +175,22 @@ instance Prelude.NFData ListQueues where
       `Prelude.seq` Prelude.rnf queueNamePrefix
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListQueues where
+instance Data.ToHeaders ListQueues where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListQueues where
+instance Data.ToPath ListQueues where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListQueues where
+instance Data.ToQuery ListQueues where
   toQuery ListQueues' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListQueues" :: Prelude.ByteString),
+          Data.=: ("ListQueues" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-11-05" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "QueueNamePrefix" Core.=: queueNamePrefix,
-        "MaxResults" Core.=: maxResults
+          Data.=: ("2012-11-05" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "QueueNamePrefix" Data.=: queueNamePrefix,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | A list of your queues.

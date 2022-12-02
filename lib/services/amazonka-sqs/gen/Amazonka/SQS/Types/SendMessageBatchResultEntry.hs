@@ -21,6 +21,7 @@ module Amazonka.SQS.Types.SendMessageBatchResultEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Encloses a @MessageId@ for a successfully-enqueued message in a
@@ -162,15 +163,15 @@ sendMessageBatchResultEntry_messageId = Lens.lens (\SendMessageBatchResultEntry'
 sendMessageBatchResultEntry_mD5OfMessageBody :: Lens.Lens' SendMessageBatchResultEntry Prelude.Text
 sendMessageBatchResultEntry_mD5OfMessageBody = Lens.lens (\SendMessageBatchResultEntry' {mD5OfMessageBody} -> mD5OfMessageBody) (\s@SendMessageBatchResultEntry' {} a -> s {mD5OfMessageBody = a} :: SendMessageBatchResultEntry)
 
-instance Core.FromXML SendMessageBatchResultEntry where
+instance Data.FromXML SendMessageBatchResultEntry where
   parseXML x =
     SendMessageBatchResultEntry'
-      Prelude.<$> (x Core..@? "MD5OfMessageSystemAttributes")
-      Prelude.<*> (x Core..@? "SequenceNumber")
-      Prelude.<*> (x Core..@? "MD5OfMessageAttributes")
-      Prelude.<*> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "MessageId")
-      Prelude.<*> (x Core..@ "MD5OfMessageBody")
+      Prelude.<$> (x Data..@? "MD5OfMessageSystemAttributes")
+      Prelude.<*> (x Data..@? "SequenceNumber")
+      Prelude.<*> (x Data..@? "MD5OfMessageAttributes")
+      Prelude.<*> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "MessageId")
+      Prelude.<*> (x Data..@ "MD5OfMessageBody")
 
 instance Prelude.Hashable SendMessageBatchResultEntry where
   hashWithSalt _salt SendMessageBatchResultEntry' {..} =

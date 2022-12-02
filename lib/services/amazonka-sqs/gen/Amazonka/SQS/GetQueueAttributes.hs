@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -533,7 +534,7 @@ instance Core.AWSRequest GetQueueAttributes where
       ( \s h x ->
           GetQueueAttributesResponse'
             Prelude.<$> ( Core.may
-                            (Core.parseXMLMap "Attribute" "Name" "Value")
+                            (Data.parseXMLMap "Attribute" "Name" "Value")
                             x
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -549,24 +550,24 @@ instance Prelude.NFData GetQueueAttributes where
     Prelude.rnf attributeNames
       `Prelude.seq` Prelude.rnf queueUrl
 
-instance Core.ToHeaders GetQueueAttributes where
+instance Data.ToHeaders GetQueueAttributes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetQueueAttributes where
+instance Data.ToPath GetQueueAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetQueueAttributes where
+instance Data.ToQuery GetQueueAttributes where
   toQuery GetQueueAttributes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetQueueAttributes" :: Prelude.ByteString),
+          Data.=: ("GetQueueAttributes" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-11-05" :: Prelude.ByteString),
-        Core.toQuery
-          ( Core.toQueryList "AttributeName"
+          Data.=: ("2012-11-05" :: Prelude.ByteString),
+        Data.toQuery
+          ( Data.toQueryList "AttributeName"
               Prelude.<$> attributeNames
           ),
-        "QueueUrl" Core.=: queueUrl
+        "QueueUrl" Data.=: queueUrl
       ]
 
 -- | A list of returned queue attributes.

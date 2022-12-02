@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -563,21 +564,21 @@ instance Prelude.NFData SetQueueAttributes where
     Prelude.rnf queueUrl
       `Prelude.seq` Prelude.rnf attributes
 
-instance Core.ToHeaders SetQueueAttributes where
+instance Data.ToHeaders SetQueueAttributes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SetQueueAttributes where
+instance Data.ToPath SetQueueAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetQueueAttributes where
+instance Data.ToQuery SetQueueAttributes where
   toQuery SetQueueAttributes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SetQueueAttributes" :: Prelude.ByteString),
+          Data.=: ("SetQueueAttributes" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-11-05" :: Prelude.ByteString),
-        "QueueUrl" Core.=: queueUrl,
-        Core.toQueryMap
+          Data.=: ("2012-11-05" :: Prelude.ByteString),
+        "QueueUrl" Data.=: queueUrl,
+        Data.toQueryMap
           "Attribute"
           "Name"
           "Value"

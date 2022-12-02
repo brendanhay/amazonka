@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,20 +121,20 @@ instance Prelude.NFData TagQueue where
   rnf TagQueue' {..} =
     Prelude.rnf queueUrl `Prelude.seq` Prelude.rnf tags
 
-instance Core.ToHeaders TagQueue where
+instance Data.ToHeaders TagQueue where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath TagQueue where
+instance Data.ToPath TagQueue where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery TagQueue where
+instance Data.ToQuery TagQueue where
   toQuery TagQueue' {..} =
     Prelude.mconcat
-      [ "Action" Core.=: ("TagQueue" :: Prelude.ByteString),
+      [ "Action" Data.=: ("TagQueue" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-11-05" :: Prelude.ByteString),
-        "QueueUrl" Core.=: queueUrl,
-        Core.toQueryMap "Tags" "Key" "Value" tags
+          Data.=: ("2012-11-05" :: Prelude.ByteString),
+        "QueueUrl" Data.=: queueUrl,
+        Data.toQueryMap "Tags" "Key" "Value" tags
       ]
 
 -- | /See:/ 'newTagQueueResponse' smart constructor.

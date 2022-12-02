@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,20 +106,20 @@ instance Prelude.Hashable PurgeQueue where
 instance Prelude.NFData PurgeQueue where
   rnf PurgeQueue' {..} = Prelude.rnf queueUrl
 
-instance Core.ToHeaders PurgeQueue where
+instance Data.ToHeaders PurgeQueue where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath PurgeQueue where
+instance Data.ToPath PurgeQueue where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PurgeQueue where
+instance Data.ToQuery PurgeQueue where
   toQuery PurgeQueue' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("PurgeQueue" :: Prelude.ByteString),
+          Data.=: ("PurgeQueue" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-11-05" :: Prelude.ByteString),
-        "QueueUrl" Core.=: queueUrl
+          Data.=: ("2012-11-05" :: Prelude.ByteString),
+        "QueueUrl" Data.=: queueUrl
       ]
 
 -- | /See:/ 'newPurgeQueueResponse' smart constructor.

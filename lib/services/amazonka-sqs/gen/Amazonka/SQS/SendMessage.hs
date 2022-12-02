@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -496,11 +497,11 @@ instance Core.AWSRequest SendMessage where
       "SendMessageResult"
       ( \s h x ->
           SendMessageResponse'
-            Prelude.<$> (x Core..@? "MessageId")
-            Prelude.<*> (x Core..@? "MD5OfMessageSystemAttributes")
-            Prelude.<*> (x Core..@? "SequenceNumber")
-            Prelude.<*> (x Core..@? "MD5OfMessageBody")
-            Prelude.<*> (x Core..@? "MD5OfMessageAttributes")
+            Prelude.<$> (x Data..@? "MessageId")
+            Prelude.<*> (x Data..@? "MD5OfMessageSystemAttributes")
+            Prelude.<*> (x Data..@? "SequenceNumber")
+            Prelude.<*> (x Data..@? "MD5OfMessageBody")
+            Prelude.<*> (x Data..@? "MD5OfMessageAttributes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -524,36 +525,36 @@ instance Prelude.NFData SendMessage where
       `Prelude.seq` Prelude.rnf queueUrl
       `Prelude.seq` Prelude.rnf messageBody
 
-instance Core.ToHeaders SendMessage where
+instance Data.ToHeaders SendMessage where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SendMessage where
+instance Data.ToPath SendMessage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SendMessage where
+instance Data.ToQuery SendMessage where
   toQuery SendMessage' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SendMessage" :: Prelude.ByteString),
+          Data.=: ("SendMessage" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-11-05" :: Prelude.ByteString),
+          Data.=: ("2012-11-05" :: Prelude.ByteString),
         "MessageDeduplicationId"
-          Core.=: messageDeduplicationId,
-        "MessageGroupId" Core.=: messageGroupId,
-        "DelaySeconds" Core.=: delaySeconds,
-        Core.toQuery
-          ( Core.toQueryMap "MessageAttribute" "Name" "Value"
+          Data.=: messageDeduplicationId,
+        "MessageGroupId" Data.=: messageGroupId,
+        "DelaySeconds" Data.=: delaySeconds,
+        Data.toQuery
+          ( Data.toQueryMap "MessageAttribute" "Name" "Value"
               Prelude.<$> messageAttributes
           ),
-        Core.toQuery
-          ( Core.toQueryMap
+        Data.toQuery
+          ( Data.toQueryMap
               "MessageSystemAttribute"
               "Name"
               "Value"
               Prelude.<$> messageSystemAttributes
           ),
-        "QueueUrl" Core.=: queueUrl,
-        "MessageBody" Core.=: messageBody
+        "QueueUrl" Data.=: queueUrl,
+        "MessageBody" Data.=: messageBody
       ]
 
 -- | The @MD5OfMessageBody@ and @MessageId@ elements.

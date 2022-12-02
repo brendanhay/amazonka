@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -218,23 +219,23 @@ instance Prelude.NFData AddPermission where
       `Prelude.seq` Prelude.rnf aWSAccountIds
       `Prelude.seq` Prelude.rnf actions
 
-instance Core.ToHeaders AddPermission where
+instance Data.ToHeaders AddPermission where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AddPermission where
+instance Data.ToPath AddPermission where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddPermission where
+instance Data.ToQuery AddPermission where
   toQuery AddPermission' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AddPermission" :: Prelude.ByteString),
+          Data.=: ("AddPermission" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-11-05" :: Prelude.ByteString),
-        "QueueUrl" Core.=: queueUrl,
-        "Label" Core.=: label,
-        Core.toQueryList "AWSAccountId" aWSAccountIds,
-        Core.toQueryList "ActionName" actions
+          Data.=: ("2012-11-05" :: Prelude.ByteString),
+        "QueueUrl" Data.=: queueUrl,
+        "Label" Data.=: label,
+        Data.toQueryList "AWSAccountId" aWSAccountIds,
+        Data.toQueryList "ActionName" actions
       ]
 
 -- | /See:/ 'newAddPermissionResponse' smart constructor.

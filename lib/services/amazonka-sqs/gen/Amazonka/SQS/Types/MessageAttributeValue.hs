@@ -21,6 +21,7 @@ module Amazonka.SQS.Types.MessageAttributeValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The user-specified message attribute value. For string data types, the
@@ -38,9 +39,9 @@ data MessageAttributeValue = MessageAttributeValue'
     stringListValues :: Prelude.Maybe [Prelude.Text],
     -- | Binary type attributes can store any binary data, such as compressed
     -- data, encrypted data, or images.
-    binaryValue :: Prelude.Maybe Core.Base64,
+    binaryValue :: Prelude.Maybe Data.Base64,
     -- | Not implemented. Reserved for future use.
-    binaryListValues :: Prelude.Maybe [Core.Base64],
+    binaryListValues :: Prelude.Maybe [Data.Base64],
     -- | Strings are Unicode with UTF-8 binary encoding. For a list of code
     -- values, see
     -- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters>.
@@ -111,7 +112,7 @@ messageAttributeValue_stringListValues = Lens.lens (\MessageAttributeValue' {str
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 messageAttributeValue_binaryValue :: Lens.Lens' MessageAttributeValue (Prelude.Maybe Prelude.ByteString)
-messageAttributeValue_binaryValue = Lens.lens (\MessageAttributeValue' {binaryValue} -> binaryValue) (\s@MessageAttributeValue' {} a -> s {binaryValue = a} :: MessageAttributeValue) Prelude.. Lens.mapping Core._Base64
+messageAttributeValue_binaryValue = Lens.lens (\MessageAttributeValue' {binaryValue} -> binaryValue) (\s@MessageAttributeValue' {} a -> s {binaryValue = a} :: MessageAttributeValue) Prelude.. Lens.mapping Data._Base64
 
 -- | Not implemented. Reserved for future use.
 messageAttributeValue_binaryListValues :: Lens.Lens' MessageAttributeValue (Prelude.Maybe [Prelude.ByteString])
@@ -133,18 +134,18 @@ messageAttributeValue_stringValue = Lens.lens (\MessageAttributeValue' {stringVa
 messageAttributeValue_dataType :: Lens.Lens' MessageAttributeValue Prelude.Text
 messageAttributeValue_dataType = Lens.lens (\MessageAttributeValue' {dataType} -> dataType) (\s@MessageAttributeValue' {} a -> s {dataType = a} :: MessageAttributeValue)
 
-instance Core.FromXML MessageAttributeValue where
+instance Data.FromXML MessageAttributeValue where
   parseXML x =
     MessageAttributeValue'
-      Prelude.<$> ( x Core..@? "StringListValue" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "StringListValue")
+      Prelude.<$> ( x Data..@? "StringListValue" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "StringListValue")
                   )
-      Prelude.<*> (x Core..@? "BinaryValue")
-      Prelude.<*> ( x Core..@? "BinaryListValue" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "BinaryListValue")
+      Prelude.<*> (x Data..@? "BinaryValue")
+      Prelude.<*> ( x Data..@? "BinaryListValue" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "BinaryListValue")
                   )
-      Prelude.<*> (x Core..@? "StringValue")
-      Prelude.<*> (x Core..@ "DataType")
+      Prelude.<*> (x Data..@? "StringValue")
+      Prelude.<*> (x Data..@ "DataType")
 
 instance Prelude.Hashable MessageAttributeValue where
   hashWithSalt _salt MessageAttributeValue' {..} =
@@ -162,20 +163,20 @@ instance Prelude.NFData MessageAttributeValue where
       `Prelude.seq` Prelude.rnf stringValue
       `Prelude.seq` Prelude.rnf dataType
 
-instance Core.ToQuery MessageAttributeValue where
+instance Data.ToQuery MessageAttributeValue where
   toQuery MessageAttributeValue' {..} =
     Prelude.mconcat
       [ "StringListValue"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "StringListValue"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "StringListValue"
                 Prelude.<$> stringListValues
             ),
-        "BinaryValue" Core.=: binaryValue,
+        "BinaryValue" Data.=: binaryValue,
         "BinaryListValue"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "BinaryListValue"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "BinaryListValue"
                 Prelude.<$> binaryListValues
             ),
-        "StringValue" Core.=: stringValue,
-        "DataType" Core.=: dataType
+        "StringValue" Data.=: stringValue,
+        "DataType" Data.=: dataType
       ]

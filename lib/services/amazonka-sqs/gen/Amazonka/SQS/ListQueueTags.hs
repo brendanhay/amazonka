@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,7 +93,7 @@ instance Core.AWSRequest ListQueueTags where
       "ListQueueTagsResult"
       ( \s h x ->
           ListQueueTagsResponse'
-            Prelude.<$> (Core.may (Core.parseXMLMap "Tag" "Key" "Value") x)
+            Prelude.<$> (Core.may (Data.parseXMLMap "Tag" "Key" "Value") x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,20 +104,20 @@ instance Prelude.Hashable ListQueueTags where
 instance Prelude.NFData ListQueueTags where
   rnf ListQueueTags' {..} = Prelude.rnf queueUrl
 
-instance Core.ToHeaders ListQueueTags where
+instance Data.ToHeaders ListQueueTags where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListQueueTags where
+instance Data.ToPath ListQueueTags where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListQueueTags where
+instance Data.ToQuery ListQueueTags where
   toQuery ListQueueTags' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListQueueTags" :: Prelude.ByteString),
+          Data.=: ("ListQueueTags" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-11-05" :: Prelude.ByteString),
-        "QueueUrl" Core.=: queueUrl
+          Data.=: ("2012-11-05" :: Prelude.ByteString),
+        "QueueUrl" Data.=: queueUrl
       ]
 
 -- | /See:/ 'newListQueueTagsResponse' smart constructor.

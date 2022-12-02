@@ -93,6 +93,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -735,7 +736,7 @@ instance Core.AWSRequest CreateQueue where
       "CreateQueueResult"
       ( \s h x ->
           CreateQueueResponse'
-            Prelude.<$> (x Core..@? "QueueUrl")
+            Prelude.<$> (x Data..@? "QueueUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -751,28 +752,28 @@ instance Prelude.NFData CreateQueue where
       `Prelude.seq` Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf queueName
 
-instance Core.ToHeaders CreateQueue where
+instance Data.ToHeaders CreateQueue where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateQueue where
+instance Data.ToPath CreateQueue where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateQueue where
+instance Data.ToQuery CreateQueue where
   toQuery CreateQueue' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateQueue" :: Prelude.ByteString),
+          Data.=: ("CreateQueue" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-11-05" :: Prelude.ByteString),
-        Core.toQuery
-          ( Core.toQueryMap "Tag" "Key" "Value"
+          Data.=: ("2012-11-05" :: Prelude.ByteString),
+        Data.toQuery
+          ( Data.toQueryMap "Tag" "Key" "Value"
               Prelude.<$> tags
           ),
-        Core.toQuery
-          ( Core.toQueryMap "Attribute" "Name" "Value"
+        Data.toQuery
+          ( Data.toQueryMap "Attribute" "Name" "Value"
               Prelude.<$> attributes
           ),
-        "QueueName" Core.=: queueName
+        "QueueName" Data.=: queueName
       ]
 
 -- | Returns the @QueueUrl@ attribute of the created queue.

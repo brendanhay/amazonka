@@ -75,6 +75,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,8 +139,8 @@ instance Core.AWSRequest SendMessageBatch where
       ( \s h x ->
           SendMessageBatchResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.parseXMLList "SendMessageBatchResultEntry" x)
-            Prelude.<*> (Core.parseXMLList "BatchResultErrorEntry" x)
+            Prelude.<*> (Data.parseXMLList "SendMessageBatchResultEntry" x)
+            Prelude.<*> (Data.parseXMLList "BatchResultErrorEntry" x)
       )
 
 instance Prelude.Hashable SendMessageBatch where
@@ -152,21 +153,21 @@ instance Prelude.NFData SendMessageBatch where
     Prelude.rnf queueUrl
       `Prelude.seq` Prelude.rnf entries
 
-instance Core.ToHeaders SendMessageBatch where
+instance Data.ToHeaders SendMessageBatch where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SendMessageBatch where
+instance Data.ToPath SendMessageBatch where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SendMessageBatch where
+instance Data.ToQuery SendMessageBatch where
   toQuery SendMessageBatch' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SendMessageBatch" :: Prelude.ByteString),
+          Data.=: ("SendMessageBatch" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-11-05" :: Prelude.ByteString),
-        "QueueUrl" Core.=: queueUrl,
-        Core.toQueryList
+          Data.=: ("2012-11-05" :: Prelude.ByteString),
+        "QueueUrl" Data.=: queueUrl,
+        Data.toQueryList
           "SendMessageBatchRequestEntry"
           entries
       ]

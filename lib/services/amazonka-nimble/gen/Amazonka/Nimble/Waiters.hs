@@ -18,6 +18,7 @@ module Amazonka.Nimble.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.GetLaunchProfile
 import Amazonka.Nimble.GetStreamingImage
 import Amazonka.Nimble.GetStreamingSession
@@ -42,7 +43,7 @@ newStudioReady =
             ( getStudioResponse_studio
                 Prelude.. studio_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CREATE_FAILED"
@@ -50,7 +51,7 @@ newStudioReady =
             ( getStudioResponse_studio
                 Prelude.. studio_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "UPDATE_FAILED"
@@ -58,7 +59,7 @@ newStudioReady =
             ( getStudioResponse_studio
                 Prelude.. studio_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -78,7 +79,7 @@ newStudioComponentReady =
                 Prelude.. Lens._Just
                 Prelude.. studioComponent_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CREATE_FAILED"
@@ -87,7 +88,7 @@ newStudioComponentReady =
                 Prelude.. Lens._Just
                 Prelude.. studioComponent_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "UPDATE_FAILED"
@@ -96,7 +97,7 @@ newStudioComponentReady =
                 Prelude.. Lens._Just
                 Prelude.. studioComponent_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -116,7 +117,7 @@ newStreamingSessionStopped =
                 Prelude.. Lens._Just
                 Prelude.. streamingSession_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "STOP_FAILED"
@@ -125,7 +126,7 @@ newStreamingSessionStopped =
                 Prelude.. Lens._Just
                 Prelude.. streamingSession_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -146,7 +147,7 @@ newStreamingSessionStreamReady =
                 Prelude.. Lens._Just
                 Prelude.. streamingSessionStream_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CREATE_FAILED"
@@ -155,7 +156,7 @@ newStreamingSessionStreamReady =
                 Prelude.. Lens._Just
                 Prelude.. streamingSessionStream_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -175,7 +176,7 @@ newStreamingImageReady =
                 Prelude.. Lens._Just
                 Prelude.. streamingImage_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CREATE_FAILED"
@@ -184,7 +185,7 @@ newStreamingImageReady =
                 Prelude.. Lens._Just
                 Prelude.. streamingImage_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "UPDATE_FAILED"
@@ -193,7 +194,7 @@ newStreamingImageReady =
                 Prelude.. Lens._Just
                 Prelude.. streamingImage_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -212,7 +213,7 @@ newStudioDeleted =
             ( getStudioResponse_studio
                 Prelude.. studio_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "DELETE_FAILED"
@@ -220,7 +221,7 @@ newStudioDeleted =
             ( getStudioResponse_studio
                 Prelude.. studio_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -240,7 +241,7 @@ newStudioComponentDeleted =
                 Prelude.. Lens._Just
                 Prelude.. studioComponent_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "DELETE_FAILED"
@@ -249,7 +250,7 @@ newStudioComponentDeleted =
                 Prelude.. Lens._Just
                 Prelude.. studioComponent_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -269,7 +270,7 @@ newStreamingSessionDeleted =
                 Prelude.. Lens._Just
                 Prelude.. streamingSession_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "DELETE_FAILED"
@@ -278,7 +279,7 @@ newStreamingSessionDeleted =
                 Prelude.. Lens._Just
                 Prelude.. streamingSession_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -298,7 +299,7 @@ newStreamingSessionReady =
                 Prelude.. Lens._Just
                 Prelude.. streamingSession_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CREATE_FAILED"
@@ -307,7 +308,7 @@ newStreamingSessionReady =
                 Prelude.. Lens._Just
                 Prelude.. streamingSession_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "START_FAILED"
@@ -316,7 +317,7 @@ newStreamingSessionReady =
                 Prelude.. Lens._Just
                 Prelude.. streamingSession_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -336,7 +337,7 @@ newLaunchProfileReady =
                 Prelude.. Lens._Just
                 Prelude.. launchProfile_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CREATE_FAILED"
@@ -345,7 +346,7 @@ newLaunchProfileReady =
                 Prelude.. Lens._Just
                 Prelude.. launchProfile_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "UPDATE_FAILED"
@@ -354,7 +355,7 @@ newLaunchProfileReady =
                 Prelude.. Lens._Just
                 Prelude.. launchProfile_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -374,7 +375,7 @@ newLaunchProfileDeleted =
                 Prelude.. Lens._Just
                 Prelude.. launchProfile_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "DELETE_FAILED"
@@ -383,7 +384,7 @@ newLaunchProfileDeleted =
                 Prelude.. Lens._Just
                 Prelude.. launchProfile_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -403,7 +404,7 @@ newStreamingImageDeleted =
                 Prelude.. Lens._Just
                 Prelude.. streamingImage_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "DELETE_FAILED"
@@ -412,7 +413,7 @@ newStreamingImageDeleted =
                 Prelude.. Lens._Just
                 Prelude.. streamingImage_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

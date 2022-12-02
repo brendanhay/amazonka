@@ -76,6 +76,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,7 +98,7 @@ data CreateStudio = CreateStudio'
     -- Nimble Studio portal.
     adminRoleArn :: Prelude.Text,
     -- | A friendly name for the studio.
-    displayName :: Core.Sensitive Prelude.Text,
+    displayName :: Data.Sensitive Prelude.Text,
     -- | The studio name that is used in the URL of the Nimble Studio portal when
     -- accessed by Nimble Studio users.
     studioName :: Prelude.Text,
@@ -155,7 +156,7 @@ newCreateStudio
         clientToken = Prelude.Nothing,
         studioEncryptionConfiguration = Prelude.Nothing,
         adminRoleArn = pAdminRoleArn_,
-        displayName = Core._Sensitive Lens.# pDisplayName_,
+        displayName = Data._Sensitive Lens.# pDisplayName_,
         studioName = pStudioName_,
         userRoleArn = pUserRoleArn_
       }
@@ -183,7 +184,7 @@ createStudio_adminRoleArn = Lens.lens (\CreateStudio' {adminRoleArn} -> adminRol
 
 -- | A friendly name for the studio.
 createStudio_displayName :: Lens.Lens' CreateStudio Prelude.Text
-createStudio_displayName = Lens.lens (\CreateStudio' {displayName} -> displayName) (\s@CreateStudio' {} a -> s {displayName = a} :: CreateStudio) Prelude.. Core._Sensitive
+createStudio_displayName = Lens.lens (\CreateStudio' {displayName} -> displayName) (\s@CreateStudio' {} a -> s {displayName = a} :: CreateStudio) Prelude.. Data._Sensitive
 
 -- | The studio name that is used in the URL of the Nimble Studio portal when
 -- accessed by Nimble Studio users.
@@ -203,7 +204,7 @@ instance Core.AWSRequest CreateStudio where
     Response.receiveJSON
       ( \s h x ->
           CreateStudioResponse'
-            Prelude.<$> (x Core..?> "studio")
+            Prelude.<$> (x Data..?> "studio")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -227,32 +228,32 @@ instance Prelude.NFData CreateStudio where
       `Prelude.seq` Prelude.rnf studioName
       `Prelude.seq` Prelude.rnf userRoleArn
 
-instance Core.ToHeaders CreateStudio where
+instance Data.ToHeaders CreateStudio where
   toHeaders CreateStudio' {..} =
     Prelude.mconcat
-      [ "X-Amz-Client-Token" Core.=# clientToken,
+      [ "X-Amz-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateStudio where
+instance Data.ToJSON CreateStudio where
   toJSON CreateStudio' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("studioEncryptionConfiguration" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("studioEncryptionConfiguration" Data..=)
               Prelude.<$> studioEncryptionConfiguration,
-            Prelude.Just ("adminRoleArn" Core..= adminRoleArn),
-            Prelude.Just ("displayName" Core..= displayName),
-            Prelude.Just ("studioName" Core..= studioName),
-            Prelude.Just ("userRoleArn" Core..= userRoleArn)
+            Prelude.Just ("adminRoleArn" Data..= adminRoleArn),
+            Prelude.Just ("displayName" Data..= displayName),
+            Prelude.Just ("studioName" Data..= studioName),
+            Prelude.Just ("userRoleArn" Data..= userRoleArn)
           ]
       )
 
-instance Core.ToPath CreateStudio where
+instance Data.ToPath CreateStudio where
   toPath = Prelude.const "/2020-08-01/studios"
 
-instance Core.ToQuery CreateStudio where
+instance Data.ToQuery CreateStudio where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateStudioResponse' smart constructor.

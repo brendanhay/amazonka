@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,7 +98,7 @@ instance Core.AWSRequest GetStudioMember where
     Response.receiveJSON
       ( \s h x ->
           GetStudioMemberResponse'
-            Prelude.<$> (x Core..?> "member")
+            Prelude.<$> (x Data..?> "member")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,27 +112,27 @@ instance Prelude.NFData GetStudioMember where
     Prelude.rnf principalId
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders GetStudioMember where
+instance Data.ToHeaders GetStudioMember where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetStudioMember where
+instance Data.ToPath GetStudioMember where
   toPath GetStudioMember' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/membership/",
-        Core.toBS principalId
+        Data.toBS principalId
       ]
 
-instance Core.ToQuery GetStudioMember where
+instance Data.ToQuery GetStudioMember where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetStudioMemberResponse' smart constructor.

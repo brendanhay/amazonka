@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.StreamingSessionStorageRoot where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The upload storage root location (folder) on streaming workstations
@@ -29,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newStreamingSessionStorageRoot' smart constructor.
 data StreamingSessionStorageRoot = StreamingSessionStorageRoot'
   { -- | The folder path in Windows workstations where files are uploaded.
-    windows :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    windows :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The folder path in Linux workstations where files are uploaded.
-    linux :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    linux :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -57,20 +58,20 @@ newStreamingSessionStorageRoot =
 
 -- | The folder path in Windows workstations where files are uploaded.
 streamingSessionStorageRoot_windows :: Lens.Lens' StreamingSessionStorageRoot (Prelude.Maybe Prelude.Text)
-streamingSessionStorageRoot_windows = Lens.lens (\StreamingSessionStorageRoot' {windows} -> windows) (\s@StreamingSessionStorageRoot' {} a -> s {windows = a} :: StreamingSessionStorageRoot) Prelude.. Lens.mapping Core._Sensitive
+streamingSessionStorageRoot_windows = Lens.lens (\StreamingSessionStorageRoot' {windows} -> windows) (\s@StreamingSessionStorageRoot' {} a -> s {windows = a} :: StreamingSessionStorageRoot) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The folder path in Linux workstations where files are uploaded.
 streamingSessionStorageRoot_linux :: Lens.Lens' StreamingSessionStorageRoot (Prelude.Maybe Prelude.Text)
-streamingSessionStorageRoot_linux = Lens.lens (\StreamingSessionStorageRoot' {linux} -> linux) (\s@StreamingSessionStorageRoot' {} a -> s {linux = a} :: StreamingSessionStorageRoot) Prelude.. Lens.mapping Core._Sensitive
+streamingSessionStorageRoot_linux = Lens.lens (\StreamingSessionStorageRoot' {linux} -> linux) (\s@StreamingSessionStorageRoot' {} a -> s {linux = a} :: StreamingSessionStorageRoot) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON StreamingSessionStorageRoot where
+instance Data.FromJSON StreamingSessionStorageRoot where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamingSessionStorageRoot"
       ( \x ->
           StreamingSessionStorageRoot'
-            Prelude.<$> (x Core..:? "windows")
-            Prelude.<*> (x Core..:? "linux")
+            Prelude.<$> (x Data..:? "windows")
+            Prelude.<*> (x Data..:? "linux")
       )
 
 instance Prelude.Hashable StreamingSessionStorageRoot where
@@ -82,11 +83,11 @@ instance Prelude.NFData StreamingSessionStorageRoot where
   rnf StreamingSessionStorageRoot' {..} =
     Prelude.rnf windows `Prelude.seq` Prelude.rnf linux
 
-instance Core.ToJSON StreamingSessionStorageRoot where
+instance Data.ToJSON StreamingSessionStorageRoot where
   toJSON StreamingSessionStorageRoot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("windows" Core..=) Prelude.<$> windows,
-            ("linux" Core..=) Prelude.<$> linux
+          [ ("windows" Data..=) Prelude.<$> windows,
+            ("linux" Data..=) Prelude.<$> linux
           ]
       )

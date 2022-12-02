@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.StudioComponentSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types.StudioComponentSubtype
 import Amazonka.Nimble.Types.StudioComponentType
 import qualified Amazonka.Prelude as Prelude
@@ -30,13 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newStudioComponentSummary' smart constructor.
 data StudioComponentSummary = StudioComponentSummary'
   { -- | The name for the studio component.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The type of the studio component.
     type' :: Prelude.Maybe StudioComponentType,
     -- | The user ID of the user that most recently updated the resource.
     updatedBy :: Prelude.Maybe Prelude.Text,
     -- | The description.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The unique identifier for a studio component resource.
     studioComponentId :: Prelude.Maybe Prelude.Text,
     -- | The specific subtype of a studio component.
@@ -44,9 +45,9 @@ data StudioComponentSummary = StudioComponentSummary'
     -- | The user ID of the user that created the studio component.
     createdBy :: Prelude.Maybe Prelude.Text,
     -- | The Unix epoch timestamp in seconds for when the resource was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Unix epoch timestamp in seconds for when the resource was updated.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -92,7 +93,7 @@ newStudioComponentSummary =
 
 -- | The name for the studio component.
 studioComponentSummary_name :: Lens.Lens' StudioComponentSummary (Prelude.Maybe Prelude.Text)
-studioComponentSummary_name = Lens.lens (\StudioComponentSummary' {name} -> name) (\s@StudioComponentSummary' {} a -> s {name = a} :: StudioComponentSummary) Prelude.. Lens.mapping Core._Sensitive
+studioComponentSummary_name = Lens.lens (\StudioComponentSummary' {name} -> name) (\s@StudioComponentSummary' {} a -> s {name = a} :: StudioComponentSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The type of the studio component.
 studioComponentSummary_type :: Lens.Lens' StudioComponentSummary (Prelude.Maybe StudioComponentType)
@@ -104,7 +105,7 @@ studioComponentSummary_updatedBy = Lens.lens (\StudioComponentSummary' {updatedB
 
 -- | The description.
 studioComponentSummary_description :: Lens.Lens' StudioComponentSummary (Prelude.Maybe Prelude.Text)
-studioComponentSummary_description = Lens.lens (\StudioComponentSummary' {description} -> description) (\s@StudioComponentSummary' {} a -> s {description = a} :: StudioComponentSummary) Prelude.. Lens.mapping Core._Sensitive
+studioComponentSummary_description = Lens.lens (\StudioComponentSummary' {description} -> description) (\s@StudioComponentSummary' {} a -> s {description = a} :: StudioComponentSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The unique identifier for a studio component resource.
 studioComponentSummary_studioComponentId :: Lens.Lens' StudioComponentSummary (Prelude.Maybe Prelude.Text)
@@ -120,27 +121,27 @@ studioComponentSummary_createdBy = Lens.lens (\StudioComponentSummary' {createdB
 
 -- | The Unix epoch timestamp in seconds for when the resource was created.
 studioComponentSummary_createdAt :: Lens.Lens' StudioComponentSummary (Prelude.Maybe Prelude.UTCTime)
-studioComponentSummary_createdAt = Lens.lens (\StudioComponentSummary' {createdAt} -> createdAt) (\s@StudioComponentSummary' {} a -> s {createdAt = a} :: StudioComponentSummary) Prelude.. Lens.mapping Core._Time
+studioComponentSummary_createdAt = Lens.lens (\StudioComponentSummary' {createdAt} -> createdAt) (\s@StudioComponentSummary' {} a -> s {createdAt = a} :: StudioComponentSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Unix epoch timestamp in seconds for when the resource was updated.
 studioComponentSummary_updatedAt :: Lens.Lens' StudioComponentSummary (Prelude.Maybe Prelude.UTCTime)
-studioComponentSummary_updatedAt = Lens.lens (\StudioComponentSummary' {updatedAt} -> updatedAt) (\s@StudioComponentSummary' {} a -> s {updatedAt = a} :: StudioComponentSummary) Prelude.. Lens.mapping Core._Time
+studioComponentSummary_updatedAt = Lens.lens (\StudioComponentSummary' {updatedAt} -> updatedAt) (\s@StudioComponentSummary' {} a -> s {updatedAt = a} :: StudioComponentSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON StudioComponentSummary where
+instance Data.FromJSON StudioComponentSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StudioComponentSummary"
       ( \x ->
           StudioComponentSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "updatedBy")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "studioComponentId")
-            Prelude.<*> (x Core..:? "subtype")
-            Prelude.<*> (x Core..:? "createdBy")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "updatedAt")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "updatedBy")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "studioComponentId")
+            Prelude.<*> (x Data..:? "subtype")
+            Prelude.<*> (x Data..:? "createdBy")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "updatedAt")
       )
 
 instance Prelude.Hashable StudioComponentSummary where

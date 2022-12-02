@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -166,7 +167,7 @@ instance Core.AWSRequest CreateStreamingSession where
     Response.receiveJSON
       ( \s h x ->
           CreateStreamingSessionResponse'
-            Prelude.<$> (x Core..?> "session")
+            Prelude.<$> (x Data..?> "session")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,38 +191,38 @@ instance Prelude.NFData CreateStreamingSession where
       `Prelude.seq` Prelude.rnf ownedBy
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders CreateStreamingSession where
+instance Data.ToHeaders CreateStreamingSession where
   toHeaders CreateStreamingSession' {..} =
     Prelude.mconcat
-      [ "X-Amz-Client-Token" Core.=# clientToken,
+      [ "X-Amz-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateStreamingSession where
+instance Data.ToJSON CreateStreamingSession where
   toJSON CreateStreamingSession' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("launchProfileId" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("launchProfileId" Data..=)
               Prelude.<$> launchProfileId,
-            ("streamingImageId" Core..=)
+            ("streamingImageId" Data..=)
               Prelude.<$> streamingImageId,
-            ("ec2InstanceType" Core..=)
+            ("ec2InstanceType" Data..=)
               Prelude.<$> ec2InstanceType,
-            ("ownedBy" Core..=) Prelude.<$> ownedBy
+            ("ownedBy" Data..=) Prelude.<$> ownedBy
           ]
       )
 
-instance Core.ToPath CreateStreamingSession where
+instance Data.ToPath CreateStreamingSession where
   toPath CreateStreamingSession' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/streaming-sessions"
       ]
 
-instance Core.ToQuery CreateStreamingSession where
+instance Data.ToQuery CreateStreamingSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateStreamingSessionResponse' smart constructor.

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,24 +131,24 @@ instance Prelude.NFData DeleteStudioMember where
       `Prelude.seq` Prelude.rnf principalId
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders DeleteStudioMember where
+instance Data.ToHeaders DeleteStudioMember where
   toHeaders DeleteStudioMember' {..} =
     Prelude.mconcat
-      [ "X-Amz-Client-Token" Core.=# clientToken,
+      [ "X-Amz-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath DeleteStudioMember where
+instance Data.ToPath DeleteStudioMember where
   toPath DeleteStudioMember' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/membership/",
-        Core.toBS principalId
+        Data.toBS principalId
       ]
 
-instance Core.ToQuery DeleteStudioMember where
+instance Data.ToQuery DeleteStudioMember where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteStudioMemberResponse' smart constructor.

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -64,7 +65,7 @@ data UpdateStudio = UpdateStudio'
     -- Nimble Studio portal.
     adminRoleArn :: Prelude.Maybe Prelude.Text,
     -- | A friendly name for the studio.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The IAM role that Studio Users will assume when logging in to the Nimble
     -- Studio portal.
     userRoleArn :: Prelude.Maybe Prelude.Text,
@@ -122,7 +123,7 @@ updateStudio_adminRoleArn = Lens.lens (\UpdateStudio' {adminRoleArn} -> adminRol
 
 -- | A friendly name for the studio.
 updateStudio_displayName :: Lens.Lens' UpdateStudio (Prelude.Maybe Prelude.Text)
-updateStudio_displayName = Lens.lens (\UpdateStudio' {displayName} -> displayName) (\s@UpdateStudio' {} a -> s {displayName = a} :: UpdateStudio) Prelude.. Lens.mapping Core._Sensitive
+updateStudio_displayName = Lens.lens (\UpdateStudio' {displayName} -> displayName) (\s@UpdateStudio' {} a -> s {displayName = a} :: UpdateStudio) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The IAM role that Studio Users will assume when logging in to the Nimble
 -- Studio portal.
@@ -142,7 +143,7 @@ instance Core.AWSRequest UpdateStudio where
       ( \s h x ->
           UpdateStudioResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "studio")
+            Prelude.<*> (x Data..:> "studio")
       )
 
 instance Prelude.Hashable UpdateStudio where
@@ -161,30 +162,30 @@ instance Prelude.NFData UpdateStudio where
       `Prelude.seq` Prelude.rnf userRoleArn
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders UpdateStudio where
+instance Data.ToHeaders UpdateStudio where
   toHeaders UpdateStudio' {..} =
     Prelude.mconcat
-      [ "X-Amz-Client-Token" Core.=# clientToken,
+      [ "X-Amz-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON UpdateStudio where
+instance Data.ToJSON UpdateStudio where
   toJSON UpdateStudio' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("adminRoleArn" Core..=) Prelude.<$> adminRoleArn,
-            ("displayName" Core..=) Prelude.<$> displayName,
-            ("userRoleArn" Core..=) Prelude.<$> userRoleArn
+          [ ("adminRoleArn" Data..=) Prelude.<$> adminRoleArn,
+            ("displayName" Data..=) Prelude.<$> displayName,
+            ("userRoleArn" Data..=) Prelude.<$> userRoleArn
           ]
       )
 
-instance Core.ToPath UpdateStudio where
+instance Data.ToPath UpdateStudio where
   toPath UpdateStudio' {..} =
     Prelude.mconcat
-      ["/2020-08-01/studios/", Core.toBS studioId]
+      ["/2020-08-01/studios/", Data.toBS studioId]
 
-instance Core.ToQuery UpdateStudio where
+instance Data.ToQuery UpdateStudio where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateStudioResponse' smart constructor.

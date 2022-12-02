@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,9 +100,9 @@ instance Core.AWSRequest ListStudios where
     Response.receiveJSON
       ( \s h x ->
           ListStudiosResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "studios" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "studios" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListStudios where
@@ -111,23 +112,23 @@ instance Prelude.Hashable ListStudios where
 instance Prelude.NFData ListStudios where
   rnf ListStudios' {..} = Prelude.rnf nextToken
 
-instance Core.ToHeaders ListStudios where
+instance Data.ToHeaders ListStudios where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListStudios where
+instance Data.ToPath ListStudios where
   toPath = Prelude.const "/2020-08-01/studios"
 
-instance Core.ToQuery ListStudios where
+instance Data.ToQuery ListStudios where
   toQuery ListStudios' {..} =
-    Prelude.mconcat ["nextToken" Core.=: nextToken]
+    Prelude.mconcat ["nextToken" Data.=: nextToken]
 
 -- | /See:/ 'newListStudiosResponse' smart constructor.
 data ListStudiosResponse = ListStudiosResponse'

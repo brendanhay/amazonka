@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.LaunchProfileInitializationActiveDirectory where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types.ActiveDirectoryComputerAttribute
 import qualified Amazonka.Prelude as Prelude
 
@@ -35,7 +36,7 @@ data LaunchProfileInitializationActiveDirectory = LaunchProfileInitializationAct
     -- | The directory name.
     directoryName :: Prelude.Maybe Prelude.Text,
     -- | A collection of custom attributes for an Active Directory computer.
-    computerAttributes :: Prelude.Maybe (Core.Sensitive [ActiveDirectoryComputerAttribute]),
+    computerAttributes :: Prelude.Maybe (Data.Sensitive [ActiveDirectoryComputerAttribute]),
     -- | The unique identifier for a studio component resource.
     studioComponentId :: Prelude.Maybe Prelude.Text,
     -- | The name for the organizational unit distinguished name.
@@ -43,7 +44,7 @@ data LaunchProfileInitializationActiveDirectory = LaunchProfileInitializationAct
     -- | The DNS IP address.
     dnsIpAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The name for the studio component.
-    studioComponentName :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    studioComponentName :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -99,7 +100,7 @@ launchProfileInitializationActiveDirectory_directoryName = Lens.lens (\LaunchPro
 
 -- | A collection of custom attributes for an Active Directory computer.
 launchProfileInitializationActiveDirectory_computerAttributes :: Lens.Lens' LaunchProfileInitializationActiveDirectory (Prelude.Maybe [ActiveDirectoryComputerAttribute])
-launchProfileInitializationActiveDirectory_computerAttributes = Lens.lens (\LaunchProfileInitializationActiveDirectory' {computerAttributes} -> computerAttributes) (\s@LaunchProfileInitializationActiveDirectory' {} a -> s {computerAttributes = a} :: LaunchProfileInitializationActiveDirectory) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+launchProfileInitializationActiveDirectory_computerAttributes = Lens.lens (\LaunchProfileInitializationActiveDirectory' {computerAttributes} -> computerAttributes) (\s@LaunchProfileInitializationActiveDirectory' {} a -> s {computerAttributes = a} :: LaunchProfileInitializationActiveDirectory) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The unique identifier for a studio component resource.
 launchProfileInitializationActiveDirectory_studioComponentId :: Lens.Lens' LaunchProfileInitializationActiveDirectory (Prelude.Maybe Prelude.Text)
@@ -115,26 +116,26 @@ launchProfileInitializationActiveDirectory_dnsIpAddresses = Lens.lens (\LaunchPr
 
 -- | The name for the studio component.
 launchProfileInitializationActiveDirectory_studioComponentName :: Lens.Lens' LaunchProfileInitializationActiveDirectory (Prelude.Maybe Prelude.Text)
-launchProfileInitializationActiveDirectory_studioComponentName = Lens.lens (\LaunchProfileInitializationActiveDirectory' {studioComponentName} -> studioComponentName) (\s@LaunchProfileInitializationActiveDirectory' {} a -> s {studioComponentName = a} :: LaunchProfileInitializationActiveDirectory) Prelude.. Lens.mapping Core._Sensitive
+launchProfileInitializationActiveDirectory_studioComponentName = Lens.lens (\LaunchProfileInitializationActiveDirectory' {studioComponentName} -> studioComponentName) (\s@LaunchProfileInitializationActiveDirectory' {} a -> s {studioComponentName = a} :: LaunchProfileInitializationActiveDirectory) Prelude.. Lens.mapping Data._Sensitive
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LaunchProfileInitializationActiveDirectory
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LaunchProfileInitializationActiveDirectory"
       ( \x ->
           LaunchProfileInitializationActiveDirectory'
-            Prelude.<$> (x Core..:? "directoryId")
-              Prelude.<*> (x Core..:? "directoryName")
-              Prelude.<*> ( x Core..:? "computerAttributes"
-                              Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "directoryId")
+              Prelude.<*> (x Data..:? "directoryName")
+              Prelude.<*> ( x Data..:? "computerAttributes"
+                              Data..!= Prelude.mempty
                           )
-              Prelude.<*> (x Core..:? "studioComponentId")
-              Prelude.<*> (x Core..:? "organizationalUnitDistinguishedName")
-              Prelude.<*> (x Core..:? "dnsIpAddresses" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "studioComponentName")
+              Prelude.<*> (x Data..:? "studioComponentId")
+              Prelude.<*> (x Data..:? "organizationalUnitDistinguishedName")
+              Prelude.<*> (x Data..:? "dnsIpAddresses" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "studioComponentName")
       )
 
 instance

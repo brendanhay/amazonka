@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.LaunchProfileInitializationScript where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Launch Profile Initialization Script is used when start streaming
@@ -39,9 +40,9 @@ data LaunchProfileInitializationScript = LaunchProfileInitializationScript'
     -- running.
     runtimeRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The name for the studio component.
-    studioComponentName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    studioComponentName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The initialization script.
-    script :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    script :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -96,26 +97,26 @@ launchProfileInitializationScript_runtimeRoleArn = Lens.lens (\LaunchProfileInit
 
 -- | The name for the studio component.
 launchProfileInitializationScript_studioComponentName :: Lens.Lens' LaunchProfileInitializationScript (Prelude.Maybe Prelude.Text)
-launchProfileInitializationScript_studioComponentName = Lens.lens (\LaunchProfileInitializationScript' {studioComponentName} -> studioComponentName) (\s@LaunchProfileInitializationScript' {} a -> s {studioComponentName = a} :: LaunchProfileInitializationScript) Prelude.. Lens.mapping Core._Sensitive
+launchProfileInitializationScript_studioComponentName = Lens.lens (\LaunchProfileInitializationScript' {studioComponentName} -> studioComponentName) (\s@LaunchProfileInitializationScript' {} a -> s {studioComponentName = a} :: LaunchProfileInitializationScript) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The initialization script.
 launchProfileInitializationScript_script :: Lens.Lens' LaunchProfileInitializationScript (Prelude.Maybe Prelude.Text)
-launchProfileInitializationScript_script = Lens.lens (\LaunchProfileInitializationScript' {script} -> script) (\s@LaunchProfileInitializationScript' {} a -> s {script = a} :: LaunchProfileInitializationScript) Prelude.. Lens.mapping Core._Sensitive
+launchProfileInitializationScript_script = Lens.lens (\LaunchProfileInitializationScript' {script} -> script) (\s@LaunchProfileInitializationScript' {} a -> s {script = a} :: LaunchProfileInitializationScript) Prelude.. Lens.mapping Data._Sensitive
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LaunchProfileInitializationScript
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LaunchProfileInitializationScript"
       ( \x ->
           LaunchProfileInitializationScript'
-            Prelude.<$> (x Core..:? "secureInitializationRoleArn")
-            Prelude.<*> (x Core..:? "studioComponentId")
-            Prelude.<*> (x Core..:? "runtimeRoleArn")
-            Prelude.<*> (x Core..:? "studioComponentName")
-            Prelude.<*> (x Core..:? "script")
+            Prelude.<$> (x Data..:? "secureInitializationRoleArn")
+            Prelude.<*> (x Data..:? "studioComponentId")
+            Prelude.<*> (x Data..:? "runtimeRoleArn")
+            Prelude.<*> (x Data..:? "studioComponentName")
+            Prelude.<*> (x Data..:? "script")
       )
 
 instance

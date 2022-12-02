@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,7 +124,7 @@ instance Core.AWSRequest DeleteStreamingSession where
     Response.receiveJSON
       ( \s h x ->
           DeleteStreamingSessionResponse'
-            Prelude.<$> (x Core..?> "session")
+            Prelude.<$> (x Data..?> "session")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,24 +140,24 @@ instance Prelude.NFData DeleteStreamingSession where
       `Prelude.seq` Prelude.rnf sessionId
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders DeleteStreamingSession where
+instance Data.ToHeaders DeleteStreamingSession where
   toHeaders DeleteStreamingSession' {..} =
     Prelude.mconcat
-      [ "X-Amz-Client-Token" Core.=# clientToken,
+      [ "X-Amz-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath DeleteStreamingSession where
+instance Data.ToPath DeleteStreamingSession where
   toPath DeleteStreamingSession' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/streaming-sessions/",
-        Core.toBS sessionId
+        Data.toBS sessionId
       ]
 
-instance Core.ToQuery DeleteStreamingSession where
+instance Data.ToQuery DeleteStreamingSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteStreamingSessionResponse' smart constructor.

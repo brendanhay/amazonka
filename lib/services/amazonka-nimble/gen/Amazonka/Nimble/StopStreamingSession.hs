@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,7 +120,7 @@ instance Core.AWSRequest StopStreamingSession where
     Response.receiveJSON
       ( \s h x ->
           StopStreamingSessionResponse'
-            Prelude.<$> (x Core..?> "session")
+            Prelude.<$> (x Data..?> "session")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,28 +136,28 @@ instance Prelude.NFData StopStreamingSession where
       `Prelude.seq` Prelude.rnf sessionId
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders StopStreamingSession where
+instance Data.ToHeaders StopStreamingSession where
   toHeaders StopStreamingSession' {..} =
     Prelude.mconcat
-      [ "X-Amz-Client-Token" Core.=# clientToken,
+      [ "X-Amz-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON StopStreamingSession where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON StopStreamingSession where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath StopStreamingSession where
+instance Data.ToPath StopStreamingSession where
   toPath StopStreamingSession' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/streaming-sessions/",
-        Core.toBS sessionId,
+        Data.toBS sessionId,
         "/stop"
       ]
 
-instance Core.ToQuery StopStreamingSession where
+instance Data.ToQuery StopStreamingSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopStreamingSessionResponse' smart constructor.

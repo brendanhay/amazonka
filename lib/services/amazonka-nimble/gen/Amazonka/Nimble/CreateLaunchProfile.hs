@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -65,7 +66,7 @@ data CreateLaunchProfile = CreateLaunchProfile'
     -- to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specifies the IDs of the EC2 subnets where streaming sessions will be
     -- accessible from. These subnets must support the specified instance
     -- types.
@@ -74,7 +75,7 @@ data CreateLaunchProfile = CreateLaunchProfile'
     -- The only valid version is \"2021-03-31\".
     launchProfileProtocolVersions :: [Prelude.Text],
     -- | The name for the launch profile.
-    name :: Core.Sensitive Prelude.Text,
+    name :: Data.Sensitive Prelude.Text,
     -- | A configuration for a streaming session.
     streamConfiguration :: StreamConfigurationCreate,
     -- | Unique identifiers for a collection of studio components that can be
@@ -139,7 +140,7 @@ newCreateLaunchProfile
         description = Prelude.Nothing,
         ec2SubnetIds = Prelude.mempty,
         launchProfileProtocolVersions = Prelude.mempty,
-        name = Core._Sensitive Lens.# pName_,
+        name = Data._Sensitive Lens.# pName_,
         streamConfiguration = pStreamConfiguration_,
         studioComponentIds =
           Lens.coerced Lens.# pStudioComponentIds_,
@@ -160,7 +161,7 @@ createLaunchProfile_clientToken = Lens.lens (\CreateLaunchProfile' {clientToken}
 
 -- | The description.
 createLaunchProfile_description :: Lens.Lens' CreateLaunchProfile (Prelude.Maybe Prelude.Text)
-createLaunchProfile_description = Lens.lens (\CreateLaunchProfile' {description} -> description) (\s@CreateLaunchProfile' {} a -> s {description = a} :: CreateLaunchProfile) Prelude.. Lens.mapping Core._Sensitive
+createLaunchProfile_description = Lens.lens (\CreateLaunchProfile' {description} -> description) (\s@CreateLaunchProfile' {} a -> s {description = a} :: CreateLaunchProfile) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specifies the IDs of the EC2 subnets where streaming sessions will be
 -- accessible from. These subnets must support the specified instance
@@ -175,7 +176,7 @@ createLaunchProfile_launchProfileProtocolVersions = Lens.lens (\CreateLaunchProf
 
 -- | The name for the launch profile.
 createLaunchProfile_name :: Lens.Lens' CreateLaunchProfile Prelude.Text
-createLaunchProfile_name = Lens.lens (\CreateLaunchProfile' {name} -> name) (\s@CreateLaunchProfile' {} a -> s {name = a} :: CreateLaunchProfile) Prelude.. Core._Sensitive
+createLaunchProfile_name = Lens.lens (\CreateLaunchProfile' {name} -> name) (\s@CreateLaunchProfile' {} a -> s {name = a} :: CreateLaunchProfile) Prelude.. Data._Sensitive
 
 -- | A configuration for a streaming session.
 createLaunchProfile_streamConfiguration :: Lens.Lens' CreateLaunchProfile StreamConfigurationCreate
@@ -200,7 +201,7 @@ instance Core.AWSRequest CreateLaunchProfile where
     Response.receiveJSON
       ( \s h x ->
           CreateLaunchProfileResponse'
-            Prelude.<$> (x Core..?> "launchProfile")
+            Prelude.<$> (x Data..?> "launchProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -228,42 +229,42 @@ instance Prelude.NFData CreateLaunchProfile where
       `Prelude.seq` Prelude.rnf studioComponentIds
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders CreateLaunchProfile where
+instance Data.ToHeaders CreateLaunchProfile where
   toHeaders CreateLaunchProfile' {..} =
     Prelude.mconcat
-      [ "X-Amz-Client-Token" Core.=# clientToken,
+      [ "X-Amz-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateLaunchProfile where
+instance Data.ToJSON CreateLaunchProfile where
   toJSON CreateLaunchProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("ec2SubnetIds" Core..= ec2SubnetIds),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("ec2SubnetIds" Data..= ec2SubnetIds),
             Prelude.Just
               ( "launchProfileProtocolVersions"
-                  Core..= launchProfileProtocolVersions
+                  Data..= launchProfileProtocolVersions
               ),
-            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("streamConfiguration" Core..= streamConfiguration),
+              ("streamConfiguration" Data..= streamConfiguration),
             Prelude.Just
-              ("studioComponentIds" Core..= studioComponentIds)
+              ("studioComponentIds" Data..= studioComponentIds)
           ]
       )
 
-instance Core.ToPath CreateLaunchProfile where
+instance Data.ToPath CreateLaunchProfile where
   toPath CreateLaunchProfile' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/launch-profiles"
       ]
 
-instance Core.ToQuery CreateLaunchProfile where
+instance Data.ToQuery CreateLaunchProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLaunchProfileResponse' smart constructor.

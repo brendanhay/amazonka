@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.StudioMembership where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types.StudioPersona
 import qualified Amazonka.Prelude as Prelude
 
@@ -92,16 +93,16 @@ studioMembership_sid = Lens.lens (\StudioMembership' {sid} -> sid) (\s@StudioMem
 studioMembership_identityStoreId :: Lens.Lens' StudioMembership (Prelude.Maybe Prelude.Text)
 studioMembership_identityStoreId = Lens.lens (\StudioMembership' {identityStoreId} -> identityStoreId) (\s@StudioMembership' {} a -> s {identityStoreId = a} :: StudioMembership)
 
-instance Core.FromJSON StudioMembership where
+instance Data.FromJSON StudioMembership where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StudioMembership"
       ( \x ->
           StudioMembership'
-            Prelude.<$> (x Core..:? "principalId")
-            Prelude.<*> (x Core..:? "persona")
-            Prelude.<*> (x Core..:? "sid")
-            Prelude.<*> (x Core..:? "identityStoreId")
+            Prelude.<$> (x Data..:? "principalId")
+            Prelude.<*> (x Data..:? "persona")
+            Prelude.<*> (x Data..:? "sid")
+            Prelude.<*> (x Data..:? "identityStoreId")
       )
 
 instance Prelude.Hashable StudioMembership where

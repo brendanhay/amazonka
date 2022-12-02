@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -53,14 +54,14 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdateStreamingImage' smart constructor.
 data UpdateStreamingImage = UpdateStreamingImage'
   { -- | The name for the streaming image.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. If you don’t specify a client token, the AWS
     -- SDK automatically generates a client token and uses it for the request
     -- to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The streaming image ID.
     streamingImageId :: Prelude.Text,
     -- | The studio ID.
@@ -105,7 +106,7 @@ newUpdateStreamingImage pStreamingImageId_ pStudioId_ =
 
 -- | The name for the streaming image.
 updateStreamingImage_name :: Lens.Lens' UpdateStreamingImage (Prelude.Maybe Prelude.Text)
-updateStreamingImage_name = Lens.lens (\UpdateStreamingImage' {name} -> name) (\s@UpdateStreamingImage' {} a -> s {name = a} :: UpdateStreamingImage) Prelude.. Lens.mapping Core._Sensitive
+updateStreamingImage_name = Lens.lens (\UpdateStreamingImage' {name} -> name) (\s@UpdateStreamingImage' {} a -> s {name = a} :: UpdateStreamingImage) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If you don’t specify a client token, the AWS
@@ -116,7 +117,7 @@ updateStreamingImage_clientToken = Lens.lens (\UpdateStreamingImage' {clientToke
 
 -- | The description.
 updateStreamingImage_description :: Lens.Lens' UpdateStreamingImage (Prelude.Maybe Prelude.Text)
-updateStreamingImage_description = Lens.lens (\UpdateStreamingImage' {description} -> description) (\s@UpdateStreamingImage' {} a -> s {description = a} :: UpdateStreamingImage) Prelude.. Lens.mapping Core._Sensitive
+updateStreamingImage_description = Lens.lens (\UpdateStreamingImage' {description} -> description) (\s@UpdateStreamingImage' {} a -> s {description = a} :: UpdateStreamingImage) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The streaming image ID.
 updateStreamingImage_streamingImageId :: Lens.Lens' UpdateStreamingImage Prelude.Text
@@ -136,7 +137,7 @@ instance Core.AWSRequest UpdateStreamingImage where
     Response.receiveJSON
       ( \s h x ->
           UpdateStreamingImageResponse'
-            Prelude.<$> (x Core..?> "streamingImage")
+            Prelude.<$> (x Data..?> "streamingImage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,33 +157,33 @@ instance Prelude.NFData UpdateStreamingImage where
       `Prelude.seq` Prelude.rnf streamingImageId
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders UpdateStreamingImage where
+instance Data.ToHeaders UpdateStreamingImage where
   toHeaders UpdateStreamingImage' {..} =
     Prelude.mconcat
-      [ "X-Amz-Client-Token" Core.=# clientToken,
+      [ "X-Amz-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON UpdateStreamingImage where
+instance Data.ToJSON UpdateStreamingImage where
   toJSON UpdateStreamingImage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("description" Core..=) Prelude.<$> description
+          [ ("name" Data..=) Prelude.<$> name,
+            ("description" Data..=) Prelude.<$> description
           ]
       )
 
-instance Core.ToPath UpdateStreamingImage where
+instance Data.ToPath UpdateStreamingImage where
   toPath UpdateStreamingImage' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/streaming-images/",
-        Core.toBS streamingImageId
+        Data.toBS streamingImageId
       ]
 
-instance Core.ToQuery UpdateStreamingImage where
+instance Data.ToQuery UpdateStreamingImage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateStreamingImageResponse' smart constructor.

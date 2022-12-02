@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.LaunchProfileMembership where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types.LaunchProfilePersona
 import qualified Amazonka.Prelude as Prelude
 
@@ -100,16 +101,16 @@ launchProfileMembership_sid = Lens.lens (\LaunchProfileMembership' {sid} -> sid)
 launchProfileMembership_identityStoreId :: Lens.Lens' LaunchProfileMembership (Prelude.Maybe Prelude.Text)
 launchProfileMembership_identityStoreId = Lens.lens (\LaunchProfileMembership' {identityStoreId} -> identityStoreId) (\s@LaunchProfileMembership' {} a -> s {identityStoreId = a} :: LaunchProfileMembership)
 
-instance Core.FromJSON LaunchProfileMembership where
+instance Data.FromJSON LaunchProfileMembership where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LaunchProfileMembership"
       ( \x ->
           LaunchProfileMembership'
-            Prelude.<$> (x Core..:? "principalId")
-            Prelude.<*> (x Core..:? "persona")
-            Prelude.<*> (x Core..:? "sid")
-            Prelude.<*> (x Core..:? "identityStoreId")
+            Prelude.<$> (x Data..:? "principalId")
+            Prelude.<*> (x Data..:? "persona")
+            Prelude.<*> (x Data..:? "sid")
+            Prelude.<*> (x Data..:? "identityStoreId")
       )
 
 instance Prelude.Hashable LaunchProfileMembership where

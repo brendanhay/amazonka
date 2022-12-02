@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.StudioComponent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types.ScriptParameterKeyValue
 import Amazonka.Nimble.Types.StudioComponentConfiguration
 import Amazonka.Nimble.Types.StudioComponentInitializationScript
@@ -50,9 +51,9 @@ data StudioComponent = StudioComponent'
     -- this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Parameters for the studio component scripts.
-    scriptParameters :: Prelude.Maybe (Core.Sensitive [ScriptParameterKeyValue]),
+    scriptParameters :: Prelude.Maybe (Data.Sensitive [ScriptParameterKeyValue]),
     -- | A friendly name for the studio component resource.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The type of the studio component.
     type' :: Prelude.Maybe StudioComponentType,
     -- | The user ID of the user that most recently updated the resource.
@@ -66,7 +67,7 @@ data StudioComponent = StudioComponent'
     -- | The current state.
     state :: Prelude.Maybe StudioComponentState,
     -- | A human-readable description for the studio component resource.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | An IAM role attached to Studio Component when the system initialization
     -- script runs which give the studio component access to AWS resources when
     -- the system initialization script runs.
@@ -88,9 +89,9 @@ data StudioComponent = StudioComponent'
     -- | The EC2 security groups that control access to the studio component.
     ec2SecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The Unix epoch timestamp in seconds for when the resource was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Unix epoch timestamp in seconds for when the resource was updated.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -179,11 +180,11 @@ studioComponent_tags = Lens.lens (\StudioComponent' {tags} -> tags) (\s@StudioCo
 
 -- | Parameters for the studio component scripts.
 studioComponent_scriptParameters :: Lens.Lens' StudioComponent (Prelude.Maybe [ScriptParameterKeyValue])
-studioComponent_scriptParameters = Lens.lens (\StudioComponent' {scriptParameters} -> scriptParameters) (\s@StudioComponent' {} a -> s {scriptParameters = a} :: StudioComponent) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+studioComponent_scriptParameters = Lens.lens (\StudioComponent' {scriptParameters} -> scriptParameters) (\s@StudioComponent' {} a -> s {scriptParameters = a} :: StudioComponent) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | A friendly name for the studio component resource.
 studioComponent_name :: Lens.Lens' StudioComponent (Prelude.Maybe Prelude.Text)
-studioComponent_name = Lens.lens (\StudioComponent' {name} -> name) (\s@StudioComponent' {} a -> s {name = a} :: StudioComponent) Prelude.. Lens.mapping Core._Sensitive
+studioComponent_name = Lens.lens (\StudioComponent' {name} -> name) (\s@StudioComponent' {} a -> s {name = a} :: StudioComponent) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The type of the studio component.
 studioComponent_type :: Lens.Lens' StudioComponent (Prelude.Maybe StudioComponentType)
@@ -211,7 +212,7 @@ studioComponent_state = Lens.lens (\StudioComponent' {state} -> state) (\s@Studi
 
 -- | A human-readable description for the studio component resource.
 studioComponent_description :: Lens.Lens' StudioComponent (Prelude.Maybe Prelude.Text)
-studioComponent_description = Lens.lens (\StudioComponent' {description} -> description) (\s@StudioComponent' {} a -> s {description = a} :: StudioComponent) Prelude.. Lens.mapping Core._Sensitive
+studioComponent_description = Lens.lens (\StudioComponent' {description} -> description) (\s@StudioComponent' {} a -> s {description = a} :: StudioComponent) Prelude.. Lens.mapping Data._Sensitive
 
 -- | An IAM role attached to Studio Component when the system initialization
 -- script runs which give the studio component access to AWS resources when
@@ -251,44 +252,44 @@ studioComponent_ec2SecurityGroupIds = Lens.lens (\StudioComponent' {ec2SecurityG
 
 -- | The Unix epoch timestamp in seconds for when the resource was created.
 studioComponent_createdAt :: Lens.Lens' StudioComponent (Prelude.Maybe Prelude.UTCTime)
-studioComponent_createdAt = Lens.lens (\StudioComponent' {createdAt} -> createdAt) (\s@StudioComponent' {} a -> s {createdAt = a} :: StudioComponent) Prelude.. Lens.mapping Core._Time
+studioComponent_createdAt = Lens.lens (\StudioComponent' {createdAt} -> createdAt) (\s@StudioComponent' {} a -> s {createdAt = a} :: StudioComponent) Prelude.. Lens.mapping Data._Time
 
 -- | The Unix epoch timestamp in seconds for when the resource was updated.
 studioComponent_updatedAt :: Lens.Lens' StudioComponent (Prelude.Maybe Prelude.UTCTime)
-studioComponent_updatedAt = Lens.lens (\StudioComponent' {updatedAt} -> updatedAt) (\s@StudioComponent' {} a -> s {updatedAt = a} :: StudioComponent) Prelude.. Lens.mapping Core._Time
+studioComponent_updatedAt = Lens.lens (\StudioComponent' {updatedAt} -> updatedAt) (\s@StudioComponent' {} a -> s {updatedAt = a} :: StudioComponent) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON StudioComponent where
+instance Data.FromJSON StudioComponent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StudioComponent"
       ( \x ->
           StudioComponent'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "scriptParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "scriptParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "updatedBy")
-            Prelude.<*> ( x Core..:? "initializationScripts"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "updatedBy")
+            Prelude.<*> ( x Data..:? "initializationScripts"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "configuration")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "secureInitializationRoleArn")
-            Prelude.<*> (x Core..:? "studioComponentId")
-            Prelude.<*> (x Core..:? "subtype")
-            Prelude.<*> (x Core..:? "runtimeRoleArn")
-            Prelude.<*> (x Core..:? "statusCode")
-            Prelude.<*> (x Core..:? "createdBy")
-            Prelude.<*> (x Core..:? "statusMessage")
-            Prelude.<*> ( x Core..:? "ec2SecurityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "configuration")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "secureInitializationRoleArn")
+            Prelude.<*> (x Data..:? "studioComponentId")
+            Prelude.<*> (x Data..:? "subtype")
+            Prelude.<*> (x Data..:? "runtimeRoleArn")
+            Prelude.<*> (x Data..:? "statusCode")
+            Prelude.<*> (x Data..:? "createdBy")
+            Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<*> ( x Data..:? "ec2SecurityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "updatedAt")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "updatedAt")
       )
 
 instance Prelude.Hashable StudioComponent where

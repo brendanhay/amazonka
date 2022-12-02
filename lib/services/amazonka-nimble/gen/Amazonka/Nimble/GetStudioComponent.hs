@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,7 +99,7 @@ instance Core.AWSRequest GetStudioComponent where
     Response.receiveJSON
       ( \s h x ->
           GetStudioComponentResponse'
-            Prelude.<$> (x Core..?> "studioComponent")
+            Prelude.<$> (x Data..?> "studioComponent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,27 +113,27 @@ instance Prelude.NFData GetStudioComponent where
     Prelude.rnf studioComponentId
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders GetStudioComponent where
+instance Data.ToHeaders GetStudioComponent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetStudioComponent where
+instance Data.ToPath GetStudioComponent where
   toPath GetStudioComponent' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/studio-components/",
-        Core.toBS studioComponentId
+        Data.toBS studioComponentId
       ]
 
-instance Core.ToQuery GetStudioComponent where
+instance Data.ToQuery GetStudioComponent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetStudioComponentResponse' smart constructor.

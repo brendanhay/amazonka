@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,8 +131,8 @@ instance Core.AWSRequest ListEulaAcceptances where
     Response.receiveJSON
       ( \s h x ->
           ListEulaAcceptancesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "eulaAcceptances"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "eulaAcceptances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -149,32 +150,32 @@ instance Prelude.NFData ListEulaAcceptances where
       `Prelude.seq` Prelude.rnf eulaIds
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders ListEulaAcceptances where
+instance Data.ToHeaders ListEulaAcceptances where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListEulaAcceptances where
+instance Data.ToPath ListEulaAcceptances where
   toPath ListEulaAcceptances' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/eula-acceptances"
       ]
 
-instance Core.ToQuery ListEulaAcceptances where
+instance Data.ToQuery ListEulaAcceptances where
   toQuery ListEulaAcceptances' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
+      [ "nextToken" Data.=: nextToken,
         "eulaIds"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> eulaIds)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> eulaIds)
       ]
 
 -- | /See:/ 'newListEulaAcceptancesResponse' smart constructor.

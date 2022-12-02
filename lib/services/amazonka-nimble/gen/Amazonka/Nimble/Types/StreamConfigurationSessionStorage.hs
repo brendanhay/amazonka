@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.StreamConfigurationSessionStorage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types.StreamingSessionStorageMode
 import Amazonka.Nimble.Types.StreamingSessionStorageRoot
 import qualified Amazonka.Prelude as Prelude
@@ -70,15 +71,15 @@ streamConfigurationSessionStorage_mode :: Lens.Lens' StreamConfigurationSessionS
 streamConfigurationSessionStorage_mode = Lens.lens (\StreamConfigurationSessionStorage' {mode} -> mode) (\s@StreamConfigurationSessionStorage' {} a -> s {mode = a} :: StreamConfigurationSessionStorage) Prelude.. Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     StreamConfigurationSessionStorage
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamConfigurationSessionStorage"
       ( \x ->
           StreamConfigurationSessionStorage'
-            Prelude.<$> (x Core..:? "root") Prelude.<*> (x Core..: "mode")
+            Prelude.<$> (x Data..:? "root") Prelude.<*> (x Data..: "mode")
       )
 
 instance
@@ -99,13 +100,13 @@ instance
     Prelude.rnf root `Prelude.seq` Prelude.rnf mode
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     StreamConfigurationSessionStorage
   where
   toJSON StreamConfigurationSessionStorage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("root" Core..=) Prelude.<$> root,
-            Prelude.Just ("mode" Core..= mode)
+          [ ("root" Data..=) Prelude.<$> root,
+            Prelude.Just ("mode" Data..= mode)
           ]
       )

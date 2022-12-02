@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.StudioEncryptionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types.StudioEncryptionConfigurationKeyType
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,14 +66,14 @@ studioEncryptionConfiguration_keyArn = Lens.lens (\StudioEncryptionConfiguration
 studioEncryptionConfiguration_keyType :: Lens.Lens' StudioEncryptionConfiguration StudioEncryptionConfigurationKeyType
 studioEncryptionConfiguration_keyType = Lens.lens (\StudioEncryptionConfiguration' {keyType} -> keyType) (\s@StudioEncryptionConfiguration' {} a -> s {keyType = a} :: StudioEncryptionConfiguration)
 
-instance Core.FromJSON StudioEncryptionConfiguration where
+instance Data.FromJSON StudioEncryptionConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StudioEncryptionConfiguration"
       ( \x ->
           StudioEncryptionConfiguration'
-            Prelude.<$> (x Core..:? "keyArn")
-            Prelude.<*> (x Core..: "keyType")
+            Prelude.<$> (x Data..:? "keyArn")
+            Prelude.<*> (x Data..: "keyType")
       )
 
 instance
@@ -88,11 +89,11 @@ instance Prelude.NFData StudioEncryptionConfiguration where
     Prelude.rnf keyArn
       `Prelude.seq` Prelude.rnf keyType
 
-instance Core.ToJSON StudioEncryptionConfiguration where
+instance Data.ToJSON StudioEncryptionConfiguration where
   toJSON StudioEncryptionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("keyArn" Core..=) Prelude.<$> keyArn,
-            Prelude.Just ("keyType" Core..= keyType)
+          [ ("keyArn" Data..=) Prelude.<$> keyArn,
+            Prelude.Just ("keyType" Data..= keyType)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.StreamConfigurationCreate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types.StreamConfigurationSessionStorage
 import Amazonka.Nimble.Types.StreamingClipboardMode
 import Amazonka.Nimble.Types.StreamingInstanceType
@@ -195,20 +196,20 @@ instance Prelude.NFData StreamConfigurationCreate where
       `Prelude.seq` Prelude.rnf ec2InstanceTypes
       `Prelude.seq` Prelude.rnf streamingImageIds
 
-instance Core.ToJSON StreamConfigurationCreate where
+instance Data.ToJSON StreamConfigurationCreate where
   toJSON StreamConfigurationCreate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("maxStoppedSessionLengthInMinutes" Core..=)
+          [ ("maxStoppedSessionLengthInMinutes" Data..=)
               Prelude.<$> maxStoppedSessionLengthInMinutes,
-            ("maxSessionLengthInMinutes" Core..=)
+            ("maxSessionLengthInMinutes" Data..=)
               Prelude.<$> maxSessionLengthInMinutes,
-            ("sessionStorage" Core..=)
+            ("sessionStorage" Data..=)
               Prelude.<$> sessionStorage,
-            Prelude.Just ("clipboardMode" Core..= clipboardMode),
+            Prelude.Just ("clipboardMode" Data..= clipboardMode),
             Prelude.Just
-              ("ec2InstanceTypes" Core..= ec2InstanceTypes),
+              ("ec2InstanceTypes" Data..= ec2InstanceTypes),
             Prelude.Just
-              ("streamingImageIds" Core..= streamingImageIds)
+              ("streamingImageIds" Data..= streamingImageIds)
           ]
       )

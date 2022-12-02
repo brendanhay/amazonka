@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.LaunchProfile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types.LaunchProfileState
 import Amazonka.Nimble.Types.LaunchProfileStatusCode
 import Amazonka.Nimble.Types.StreamConfiguration
@@ -47,7 +48,7 @@ data LaunchProfile = LaunchProfile'
     -- used with this launch profile.
     studioComponentIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A friendly name for the launch profile.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The user ID of the user that most recently updated the resource.
     updatedBy :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the resource.
@@ -55,7 +56,7 @@ data LaunchProfile = LaunchProfile'
     -- | The current state.
     state :: Prelude.Maybe LaunchProfileState,
     -- | A human-readable description of the launch profile.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A configuration for a streaming session.
     streamConfiguration :: Prelude.Maybe StreamConfiguration,
     -- | The list of the latest validation results.
@@ -70,9 +71,9 @@ data LaunchProfile = LaunchProfile'
     -- | The status message for the launch profile.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The Unix epoch timestamp in seconds for when the resource was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Unix epoch timestamp in seconds for when the resource was updated.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -163,7 +164,7 @@ launchProfile_studioComponentIds = Lens.lens (\LaunchProfile' {studioComponentId
 
 -- | A friendly name for the launch profile.
 launchProfile_name :: Lens.Lens' LaunchProfile (Prelude.Maybe Prelude.Text)
-launchProfile_name = Lens.lens (\LaunchProfile' {name} -> name) (\s@LaunchProfile' {} a -> s {name = a} :: LaunchProfile) Prelude.. Lens.mapping Core._Sensitive
+launchProfile_name = Lens.lens (\LaunchProfile' {name} -> name) (\s@LaunchProfile' {} a -> s {name = a} :: LaunchProfile) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The user ID of the user that most recently updated the resource.
 launchProfile_updatedBy :: Lens.Lens' LaunchProfile (Prelude.Maybe Prelude.Text)
@@ -179,7 +180,7 @@ launchProfile_state = Lens.lens (\LaunchProfile' {state} -> state) (\s@LaunchPro
 
 -- | A human-readable description of the launch profile.
 launchProfile_description :: Lens.Lens' LaunchProfile (Prelude.Maybe Prelude.Text)
-launchProfile_description = Lens.lens (\LaunchProfile' {description} -> description) (\s@LaunchProfile' {} a -> s {description = a} :: LaunchProfile) Prelude.. Lens.mapping Core._Sensitive
+launchProfile_description = Lens.lens (\LaunchProfile' {description} -> description) (\s@LaunchProfile' {} a -> s {description = a} :: LaunchProfile) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A configuration for a streaming session.
 launchProfile_streamConfiguration :: Lens.Lens' LaunchProfile (Prelude.Maybe StreamConfiguration)
@@ -208,39 +209,39 @@ launchProfile_statusMessage = Lens.lens (\LaunchProfile' {statusMessage} -> stat
 
 -- | The Unix epoch timestamp in seconds for when the resource was created.
 launchProfile_createdAt :: Lens.Lens' LaunchProfile (Prelude.Maybe Prelude.UTCTime)
-launchProfile_createdAt = Lens.lens (\LaunchProfile' {createdAt} -> createdAt) (\s@LaunchProfile' {} a -> s {createdAt = a} :: LaunchProfile) Prelude.. Lens.mapping Core._Time
+launchProfile_createdAt = Lens.lens (\LaunchProfile' {createdAt} -> createdAt) (\s@LaunchProfile' {} a -> s {createdAt = a} :: LaunchProfile) Prelude.. Lens.mapping Data._Time
 
 -- | The Unix epoch timestamp in seconds for when the resource was updated.
 launchProfile_updatedAt :: Lens.Lens' LaunchProfile (Prelude.Maybe Prelude.UTCTime)
-launchProfile_updatedAt = Lens.lens (\LaunchProfile' {updatedAt} -> updatedAt) (\s@LaunchProfile' {} a -> s {updatedAt = a} :: LaunchProfile) Prelude.. Lens.mapping Core._Time
+launchProfile_updatedAt = Lens.lens (\LaunchProfile' {updatedAt} -> updatedAt) (\s@LaunchProfile' {} a -> s {updatedAt = a} :: LaunchProfile) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON LaunchProfile where
+instance Data.FromJSON LaunchProfile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LaunchProfile"
       ( \x ->
           LaunchProfile'
-            Prelude.<$> (x Core..:? "ec2SubnetIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "launchProfileId")
-            Prelude.<*> (x Core..:? "studioComponentIds")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "updatedBy")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "streamConfiguration")
-            Prelude.<*> ( x Core..:? "validationResults"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ec2SubnetIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "launchProfileId")
+            Prelude.<*> (x Data..:? "studioComponentIds")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "updatedBy")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "streamConfiguration")
+            Prelude.<*> ( x Data..:? "validationResults"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "launchProfileProtocolVersions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "launchProfileProtocolVersions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "statusCode")
-            Prelude.<*> (x Core..:? "createdBy")
-            Prelude.<*> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "updatedAt")
+            Prelude.<*> (x Data..:? "statusCode")
+            Prelude.<*> (x Data..:? "createdBy")
+            Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "updatedAt")
       )
 
 instance Prelude.Hashable LaunchProfile where

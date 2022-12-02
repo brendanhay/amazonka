@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.NewStudioMember where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types.StudioPersona
 import qualified Amazonka.Prelude as Prelude
 
@@ -76,11 +77,11 @@ instance Prelude.NFData NewStudioMember where
     Prelude.rnf persona
       `Prelude.seq` Prelude.rnf principalId
 
-instance Core.ToJSON NewStudioMember where
+instance Data.ToJSON NewStudioMember where
   toJSON NewStudioMember' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("persona" Core..= persona),
-            Prelude.Just ("principalId" Core..= principalId)
+          [ Prelude.Just ("persona" Data..= persona),
+            Prelude.Just ("principalId" Data..= principalId)
           ]
       )

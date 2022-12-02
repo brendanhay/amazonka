@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.ComputeFarmConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for a render farm that is associated with a studio
@@ -33,7 +34,7 @@ data ComputeFarmConfiguration = ComputeFarmConfiguration'
     activeDirectoryUser :: Prelude.Maybe Prelude.Text,
     -- | The endpoint of the ComputeFarm that is accessed by the studio component
     -- resource.
-    endpoint :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    endpoint :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -67,16 +68,16 @@ computeFarmConfiguration_activeDirectoryUser = Lens.lens (\ComputeFarmConfigurat
 -- | The endpoint of the ComputeFarm that is accessed by the studio component
 -- resource.
 computeFarmConfiguration_endpoint :: Lens.Lens' ComputeFarmConfiguration (Prelude.Maybe Prelude.Text)
-computeFarmConfiguration_endpoint = Lens.lens (\ComputeFarmConfiguration' {endpoint} -> endpoint) (\s@ComputeFarmConfiguration' {} a -> s {endpoint = a} :: ComputeFarmConfiguration) Prelude.. Lens.mapping Core._Sensitive
+computeFarmConfiguration_endpoint = Lens.lens (\ComputeFarmConfiguration' {endpoint} -> endpoint) (\s@ComputeFarmConfiguration' {} a -> s {endpoint = a} :: ComputeFarmConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON ComputeFarmConfiguration where
+instance Data.FromJSON ComputeFarmConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComputeFarmConfiguration"
       ( \x ->
           ComputeFarmConfiguration'
-            Prelude.<$> (x Core..:? "activeDirectoryUser")
-            Prelude.<*> (x Core..:? "endpoint")
+            Prelude.<$> (x Data..:? "activeDirectoryUser")
+            Prelude.<*> (x Data..:? "endpoint")
       )
 
 instance Prelude.Hashable ComputeFarmConfiguration where
@@ -89,12 +90,12 @@ instance Prelude.NFData ComputeFarmConfiguration where
     Prelude.rnf activeDirectoryUser
       `Prelude.seq` Prelude.rnf endpoint
 
-instance Core.ToJSON ComputeFarmConfiguration where
+instance Data.ToJSON ComputeFarmConfiguration where
   toJSON ComputeFarmConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("activeDirectoryUser" Core..=)
+          [ ("activeDirectoryUser" Data..=)
               Prelude.<$> activeDirectoryUser,
-            ("endpoint" Core..=) Prelude.<$> endpoint
+            ("endpoint" Data..=) Prelude.<$> endpoint
           ]
       )

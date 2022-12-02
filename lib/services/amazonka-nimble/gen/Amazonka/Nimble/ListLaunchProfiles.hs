@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -150,8 +151,8 @@ instance Core.AWSRequest ListLaunchProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListLaunchProfilesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "launchProfiles" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "launchProfiles" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,34 +172,34 @@ instance Prelude.NFData ListLaunchProfiles where
       `Prelude.seq` Prelude.rnf states
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders ListLaunchProfiles where
+instance Data.ToHeaders ListLaunchProfiles where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListLaunchProfiles where
+instance Data.ToPath ListLaunchProfiles where
   toPath ListLaunchProfiles' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/launch-profiles"
       ]
 
-instance Core.ToQuery ListLaunchProfiles where
+instance Data.ToQuery ListLaunchProfiles where
   toQuery ListLaunchProfiles' {..} =
     Prelude.mconcat
-      [ "principalId" Core.=: principalId,
-        "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
+      [ "principalId" Data.=: principalId,
+        "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
         "states"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> states)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> states)
       ]
 
 -- | /See:/ 'newListLaunchProfilesResponse' smart constructor.

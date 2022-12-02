@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,7 +99,7 @@ instance Core.AWSRequest GetLaunchProfile where
     Response.receiveJSON
       ( \s h x ->
           GetLaunchProfileResponse'
-            Prelude.<$> (x Core..?> "launchProfile")
+            Prelude.<$> (x Data..?> "launchProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,27 +113,27 @@ instance Prelude.NFData GetLaunchProfile where
     Prelude.rnf launchProfileId
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders GetLaunchProfile where
+instance Data.ToHeaders GetLaunchProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetLaunchProfile where
+instance Data.ToPath GetLaunchProfile where
   toPath GetLaunchProfile' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/launch-profiles/",
-        Core.toBS launchProfileId
+        Data.toBS launchProfileId
       ]
 
-instance Core.ToQuery GetLaunchProfile where
+instance Data.ToQuery GetLaunchProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLaunchProfileResponse' smart constructor.

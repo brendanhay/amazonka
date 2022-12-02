@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -145,8 +146,8 @@ instance Core.AWSRequest ListLaunchProfileMembers where
     Response.receiveJSON
       ( \s h x ->
           ListLaunchProfileMembersResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "members" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "members" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,32 +165,32 @@ instance Prelude.NFData ListLaunchProfileMembers where
       `Prelude.seq` Prelude.rnf launchProfileId
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders ListLaunchProfileMembers where
+instance Data.ToHeaders ListLaunchProfileMembers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListLaunchProfileMembers where
+instance Data.ToPath ListLaunchProfileMembers where
   toPath ListLaunchProfileMembers' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/launch-profiles/",
-        Core.toBS launchProfileId,
+        Data.toBS launchProfileId,
         "/membership"
       ]
 
-instance Core.ToQuery ListLaunchProfileMembers where
+instance Data.ToQuery ListLaunchProfileMembers where
   toQuery ListLaunchProfileMembers' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListLaunchProfileMembersResponse' smart constructor.

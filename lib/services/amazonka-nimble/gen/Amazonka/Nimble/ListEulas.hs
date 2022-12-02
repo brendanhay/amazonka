@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,8 +114,8 @@ instance Core.AWSRequest ListEulas where
     Response.receiveJSON
       ( \s h x ->
           ListEulasResponse'
-            Prelude.<$> (x Core..?> "eulas" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "eulas" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,27 +129,27 @@ instance Prelude.NFData ListEulas where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf eulaIds
 
-instance Core.ToHeaders ListEulas where
+instance Data.ToHeaders ListEulas where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListEulas where
+instance Data.ToPath ListEulas where
   toPath = Prelude.const "/2020-08-01/eulas"
 
-instance Core.ToQuery ListEulas where
+instance Data.ToQuery ListEulas where
   toQuery ListEulas' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
+      [ "nextToken" Data.=: nextToken,
         "eulaIds"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> eulaIds)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> eulaIds)
       ]
 
 -- | /See:/ 'newListEulasResponse' smart constructor.

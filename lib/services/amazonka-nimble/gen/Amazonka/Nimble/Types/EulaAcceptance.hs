@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.EulaAcceptance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The acceptance of a EULA, required to use Amazon-provided streaming
@@ -35,7 +36,7 @@ data EulaAcceptance = EulaAcceptance'
     -- | The EULA ID.
     eulaId :: Prelude.Maybe Prelude.Text,
     -- | The Unix epoch timestamp in seconds for when the EULA was accepted.
-    acceptedAt :: Prelude.Maybe Core.POSIX,
+    acceptedAt :: Prelude.Maybe Data.POSIX,
     -- | The ID of the person who accepted the EULA.
     acceptedBy :: Prelude.Maybe Prelude.Text
   }
@@ -83,23 +84,23 @@ eulaAcceptance_eulaId = Lens.lens (\EulaAcceptance' {eulaId} -> eulaId) (\s@Eula
 
 -- | The Unix epoch timestamp in seconds for when the EULA was accepted.
 eulaAcceptance_acceptedAt :: Lens.Lens' EulaAcceptance (Prelude.Maybe Prelude.UTCTime)
-eulaAcceptance_acceptedAt = Lens.lens (\EulaAcceptance' {acceptedAt} -> acceptedAt) (\s@EulaAcceptance' {} a -> s {acceptedAt = a} :: EulaAcceptance) Prelude.. Lens.mapping Core._Time
+eulaAcceptance_acceptedAt = Lens.lens (\EulaAcceptance' {acceptedAt} -> acceptedAt) (\s@EulaAcceptance' {} a -> s {acceptedAt = a} :: EulaAcceptance) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the person who accepted the EULA.
 eulaAcceptance_acceptedBy :: Lens.Lens' EulaAcceptance (Prelude.Maybe Prelude.Text)
 eulaAcceptance_acceptedBy = Lens.lens (\EulaAcceptance' {acceptedBy} -> acceptedBy) (\s@EulaAcceptance' {} a -> s {acceptedBy = a} :: EulaAcceptance)
 
-instance Core.FromJSON EulaAcceptance where
+instance Data.FromJSON EulaAcceptance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EulaAcceptance"
       ( \x ->
           EulaAcceptance'
-            Prelude.<$> (x Core..:? "eulaAcceptanceId")
-            Prelude.<*> (x Core..:? "accepteeId")
-            Prelude.<*> (x Core..:? "eulaId")
-            Prelude.<*> (x Core..:? "acceptedAt")
-            Prelude.<*> (x Core..:? "acceptedBy")
+            Prelude.<$> (x Data..:? "eulaAcceptanceId")
+            Prelude.<*> (x Data..:? "accepteeId")
+            Prelude.<*> (x Data..:? "eulaId")
+            Prelude.<*> (x Data..:? "acceptedAt")
+            Prelude.<*> (x Data..:? "acceptedBy")
       )
 
 instance Prelude.Hashable EulaAcceptance where

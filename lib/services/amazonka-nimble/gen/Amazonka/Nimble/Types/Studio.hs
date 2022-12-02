@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.Studio where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types.StudioEncryptionConfiguration
 import Amazonka.Nimble.Types.StudioState
 import Amazonka.Nimble.Types.StudioStatusCode
@@ -69,7 +70,7 @@ data Studio = Studio'
     -- uniquely identifies it. ARNs are unique across all Regions.
     arn :: Prelude.Maybe Prelude.Text,
     -- | A friendly name for the studio.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The current state of the studio resource.
     state :: Prelude.Maybe StudioState,
     -- | Configuration of the encryption method that is used for the studio.
@@ -86,9 +87,9 @@ data Studio = Studio'
     -- | Additional detail on the studio state.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The Unix epoch timestamp in seconds for when the resource was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Unix epoch timestamp in seconds for when the resource was updated.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -194,7 +195,7 @@ studio_arn = Lens.lens (\Studio' {arn} -> arn) (\s@Studio' {} a -> s {arn = a} :
 
 -- | A friendly name for the studio.
 studio_displayName :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
-studio_displayName = Lens.lens (\Studio' {displayName} -> displayName) (\s@Studio' {} a -> s {displayName = a} :: Studio) Prelude.. Lens.mapping Core._Sensitive
+studio_displayName = Lens.lens (\Studio' {displayName} -> displayName) (\s@Studio' {} a -> s {displayName = a} :: Studio) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The current state of the studio resource.
 studio_state :: Lens.Lens' Studio (Prelude.Maybe StudioState)
@@ -227,34 +228,34 @@ studio_statusMessage = Lens.lens (\Studio' {statusMessage} -> statusMessage) (\s
 
 -- | The Unix epoch timestamp in seconds for when the resource was created.
 studio_createdAt :: Lens.Lens' Studio (Prelude.Maybe Prelude.UTCTime)
-studio_createdAt = Lens.lens (\Studio' {createdAt} -> createdAt) (\s@Studio' {} a -> s {createdAt = a} :: Studio) Prelude.. Lens.mapping Core._Time
+studio_createdAt = Lens.lens (\Studio' {createdAt} -> createdAt) (\s@Studio' {} a -> s {createdAt = a} :: Studio) Prelude.. Lens.mapping Data._Time
 
 -- | The Unix epoch timestamp in seconds for when the resource was updated.
 studio_updatedAt :: Lens.Lens' Studio (Prelude.Maybe Prelude.UTCTime)
-studio_updatedAt = Lens.lens (\Studio' {updatedAt} -> updatedAt) (\s@Studio' {} a -> s {updatedAt = a} :: Studio) Prelude.. Lens.mapping Core._Time
+studio_updatedAt = Lens.lens (\Studio' {updatedAt} -> updatedAt) (\s@Studio' {} a -> s {updatedAt = a} :: Studio) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Studio where
+instance Data.FromJSON Studio where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Studio"
       ( \x ->
           Studio'
-            Prelude.<$> (x Core..:? "studioId")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "studioName")
-            Prelude.<*> (x Core..:? "ssoClientId")
-            Prelude.<*> (x Core..:? "adminRoleArn")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "displayName")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "studioEncryptionConfiguration")
-            Prelude.<*> (x Core..:? "studioUrl")
-            Prelude.<*> (x Core..:? "userRoleArn")
-            Prelude.<*> (x Core..:? "homeRegion")
-            Prelude.<*> (x Core..:? "statusCode")
-            Prelude.<*> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "updatedAt")
+            Prelude.<$> (x Data..:? "studioId")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "studioName")
+            Prelude.<*> (x Data..:? "ssoClientId")
+            Prelude.<*> (x Data..:? "adminRoleArn")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "displayName")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "studioEncryptionConfiguration")
+            Prelude.<*> (x Data..:? "studioUrl")
+            Prelude.<*> (x Data..:? "userRoleArn")
+            Prelude.<*> (x Data..:? "homeRegion")
+            Prelude.<*> (x Data..:? "statusCode")
+            Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "updatedAt")
       )
 
 instance Prelude.Hashable Studio where

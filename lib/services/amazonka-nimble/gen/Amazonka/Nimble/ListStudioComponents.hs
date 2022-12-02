@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -156,8 +157,8 @@ instance Core.AWSRequest ListStudioComponents where
     Response.receiveJSON
       ( \s h x ->
           ListStudioComponentsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "studioComponents"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "studioComponents"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -179,36 +180,36 @@ instance Prelude.NFData ListStudioComponents where
       `Prelude.seq` Prelude.rnf states
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders ListStudioComponents where
+instance Data.ToHeaders ListStudioComponents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListStudioComponents where
+instance Data.ToPath ListStudioComponents where
   toPath ListStudioComponents' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/studio-components"
       ]
 
-instance Core.ToQuery ListStudioComponents where
+instance Data.ToQuery ListStudioComponents where
   toQuery ListStudioComponents' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
+      [ "nextToken" Data.=: nextToken,
         "types"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> types),
-        "maxResults" Core.=: maxResults,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> types),
+        "maxResults" Data.=: maxResults,
         "states"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> states)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> states)
       ]
 
 -- | /See:/ 'newListStudioComponentsResponse' smart constructor.

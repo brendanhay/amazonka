@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.StudioComponentInitializationScript where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types.LaunchProfilePlatform
 import Amazonka.Nimble.Types.StudioComponentInitializationScriptRunContext
 import qualified Amazonka.Prelude as Prelude
@@ -37,7 +38,7 @@ data StudioComponentInitializationScript = StudioComponentInitializationScript'
     -- | The method to use when running the initialization script.
     runContext :: Prelude.Maybe StudioComponentInitializationScriptRunContext,
     -- | The initialization script.
-    script :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    script :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -84,21 +85,21 @@ studioComponentInitializationScript_runContext = Lens.lens (\StudioComponentInit
 
 -- | The initialization script.
 studioComponentInitializationScript_script :: Lens.Lens' StudioComponentInitializationScript (Prelude.Maybe Prelude.Text)
-studioComponentInitializationScript_script = Lens.lens (\StudioComponentInitializationScript' {script} -> script) (\s@StudioComponentInitializationScript' {} a -> s {script = a} :: StudioComponentInitializationScript) Prelude.. Lens.mapping Core._Sensitive
+studioComponentInitializationScript_script = Lens.lens (\StudioComponentInitializationScript' {script} -> script) (\s@StudioComponentInitializationScript' {} a -> s {script = a} :: StudioComponentInitializationScript) Prelude.. Lens.mapping Data._Sensitive
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     StudioComponentInitializationScript
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StudioComponentInitializationScript"
       ( \x ->
           StudioComponentInitializationScript'
-            Prelude.<$> (x Core..:? "platform")
-            Prelude.<*> (x Core..:? "launchProfileProtocolVersion")
-            Prelude.<*> (x Core..:? "runContext")
-            Prelude.<*> (x Core..:? "script")
+            Prelude.<$> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "launchProfileProtocolVersion")
+            Prelude.<*> (x Data..:? "runContext")
+            Prelude.<*> (x Data..:? "script")
       )
 
 instance
@@ -124,16 +125,16 @@ instance
       `Prelude.seq` Prelude.rnf script
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     StudioComponentInitializationScript
   where
   toJSON StudioComponentInitializationScript' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("platform" Core..=) Prelude.<$> platform,
-            ("launchProfileProtocolVersion" Core..=)
+          [ ("platform" Data..=) Prelude.<$> platform,
+            ("launchProfileProtocolVersion" Data..=)
               Prelude.<$> launchProfileProtocolVersion,
-            ("runContext" Core..=) Prelude.<$> runContext,
-            ("script" Core..=) Prelude.<$> script
+            ("runContext" Data..=) Prelude.<$> runContext,
+            ("script" Data..=) Prelude.<$> script
           ]
       )

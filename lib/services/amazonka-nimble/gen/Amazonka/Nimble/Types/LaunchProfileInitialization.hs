@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.LaunchProfileInitialization where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types.LaunchProfileInitializationActiveDirectory
 import Amazonka.Nimble.Types.LaunchProfileInitializationScript
 import Amazonka.Nimble.Types.LaunchProfilePlatform
@@ -37,7 +38,7 @@ data LaunchProfileInitialization = LaunchProfileInitialization'
   { -- | The launch profile ID.
     launchProfileId :: Prelude.Maybe Prelude.Text,
     -- | The name for the launch profile.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The platform of the launch platform, either WINDOWS or LINUX.
     platform :: Prelude.Maybe LaunchProfilePlatform,
     -- | The user initializtion scripts.
@@ -104,7 +105,7 @@ launchProfileInitialization_launchProfileId = Lens.lens (\LaunchProfileInitializ
 
 -- | The name for the launch profile.
 launchProfileInitialization_name :: Lens.Lens' LaunchProfileInitialization (Prelude.Maybe Prelude.Text)
-launchProfileInitialization_name = Lens.lens (\LaunchProfileInitialization' {name} -> name) (\s@LaunchProfileInitialization' {} a -> s {name = a} :: LaunchProfileInitialization) Prelude.. Lens.mapping Core._Sensitive
+launchProfileInitialization_name = Lens.lens (\LaunchProfileInitialization' {name} -> name) (\s@LaunchProfileInitialization' {} a -> s {name = a} :: LaunchProfileInitialization) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The platform of the launch platform, either WINDOWS or LINUX.
 launchProfileInitialization_platform :: Lens.Lens' LaunchProfileInitialization (Prelude.Maybe LaunchProfilePlatform)
@@ -135,24 +136,24 @@ launchProfileInitialization_ec2SecurityGroupIds = Lens.lens (\LaunchProfileIniti
 launchProfileInitialization_systemInitializationScripts :: Lens.Lens' LaunchProfileInitialization (Prelude.Maybe [LaunchProfileInitializationScript])
 launchProfileInitialization_systemInitializationScripts = Lens.lens (\LaunchProfileInitialization' {systemInitializationScripts} -> systemInitializationScripts) (\s@LaunchProfileInitialization' {} a -> s {systemInitializationScripts = a} :: LaunchProfileInitialization) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON LaunchProfileInitialization where
+instance Data.FromJSON LaunchProfileInitialization where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LaunchProfileInitialization"
       ( \x ->
           LaunchProfileInitialization'
-            Prelude.<$> (x Core..:? "launchProfileId")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "platform")
-            Prelude.<*> ( x Core..:? "userInitializationScripts"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "launchProfileId")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "platform")
+            Prelude.<*> ( x Data..:? "userInitializationScripts"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "activeDirectory")
-            Prelude.<*> (x Core..:? "launchPurpose")
-            Prelude.<*> (x Core..:? "launchProfileProtocolVersion")
-            Prelude.<*> (x Core..:? "ec2SecurityGroupIds")
-            Prelude.<*> ( x Core..:? "systemInitializationScripts"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "activeDirectory")
+            Prelude.<*> (x Data..:? "launchPurpose")
+            Prelude.<*> (x Data..:? "launchProfileProtocolVersion")
+            Prelude.<*> (x Data..:? "ec2SecurityGroupIds")
+            Prelude.<*> ( x Data..:? "systemInitializationScripts"
+                            Data..!= Prelude.mempty
                         )
       )
 

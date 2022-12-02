@@ -21,6 +21,7 @@ module Amazonka.AppStream.Types.ApplicationSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The persistent application settings for users of a stack.
@@ -86,11 +87,11 @@ instance Prelude.NFData ApplicationSettings where
     Prelude.rnf settingsGroup
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON ApplicationSettings where
+instance Data.ToJSON ApplicationSettings where
   toJSON ApplicationSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SettingsGroup" Core..=) Prelude.<$> settingsGroup,
-            Prelude.Just ("Enabled" Core..= enabled)
+          [ ("SettingsGroup" Data..=) Prelude.<$> settingsGroup,
+            Prelude.Just ("Enabled" Data..= enabled)
           ]
       )

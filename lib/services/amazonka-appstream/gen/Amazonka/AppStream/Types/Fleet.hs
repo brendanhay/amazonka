@@ -30,6 +30,7 @@ import Amazonka.AppStream.Types.StreamView
 import Amazonka.AppStream.Types.VpcConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a fleet.
@@ -37,7 +38,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newFleet' smart constructor.
 data Fleet = Fleet'
   { -- | The time the fleet was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The S3 location of the session scripts configuration zip file. This only
     -- applies to Elastic fleets.
     sessionScriptS3Location :: Prelude.Maybe S3Location,
@@ -447,7 +448,7 @@ newFleet
 
 -- | The time the fleet was created.
 fleet_createdTime :: Lens.Lens' Fleet (Prelude.Maybe Prelude.UTCTime)
-fleet_createdTime = Lens.lens (\Fleet' {createdTime} -> createdTime) (\s@Fleet' {} a -> s {createdTime = a} :: Fleet) Prelude.. Lens.mapping Core._Time
+fleet_createdTime = Lens.lens (\Fleet' {createdTime} -> createdTime) (\s@Fleet' {} a -> s {createdTime = a} :: Fleet) Prelude.. Lens.mapping Data._Time
 
 -- | The S3 location of the session scripts configuration zip file. This only
 -- applies to Elastic fleets.
@@ -670,38 +671,38 @@ fleet_computeCapacityStatus = Lens.lens (\Fleet' {computeCapacityStatus} -> comp
 fleet_state :: Lens.Lens' Fleet FleetState
 fleet_state = Lens.lens (\Fleet' {state} -> state) (\s@Fleet' {} a -> s {state = a} :: Fleet)
 
-instance Core.FromJSON Fleet where
+instance Data.FromJSON Fleet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Fleet"
       ( \x ->
           Fleet'
-            Prelude.<$> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "SessionScriptS3Location")
-            Prelude.<*> (x Core..:? "MaxConcurrentSessions")
-            Prelude.<*> (x Core..:? "FleetType")
-            Prelude.<*> (x Core..:? "VpcConfig")
-            Prelude.<*> (x Core..:? "FleetErrors" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..:? "ImageArn")
-            Prelude.<*> (x Core..:? "Platform")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "DisconnectTimeoutInSeconds")
-            Prelude.<*> (x Core..:? "IdleDisconnectTimeoutInSeconds")
-            Prelude.<*> (x Core..:? "IamRoleArn")
-            Prelude.<*> ( x Core..:? "UsbDeviceFilterStrings"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "SessionScriptS3Location")
+            Prelude.<*> (x Data..:? "MaxConcurrentSessions")
+            Prelude.<*> (x Data..:? "FleetType")
+            Prelude.<*> (x Data..:? "VpcConfig")
+            Prelude.<*> (x Data..:? "FleetErrors" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..:? "ImageArn")
+            Prelude.<*> (x Data..:? "Platform")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "DisconnectTimeoutInSeconds")
+            Prelude.<*> (x Data..:? "IdleDisconnectTimeoutInSeconds")
+            Prelude.<*> (x Data..:? "IamRoleArn")
+            Prelude.<*> ( x Data..:? "UsbDeviceFilterStrings"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DomainJoinInfo")
-            Prelude.<*> (x Core..:? "StreamView")
-            Prelude.<*> (x Core..:? "EnableDefaultInternetAccess")
-            Prelude.<*> (x Core..:? "ImageName")
-            Prelude.<*> (x Core..:? "MaxUserDurationInSeconds")
-            Prelude.<*> (x Core..: "Arn")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "InstanceType")
-            Prelude.<*> (x Core..: "ComputeCapacityStatus")
-            Prelude.<*> (x Core..: "State")
+            Prelude.<*> (x Data..:? "DomainJoinInfo")
+            Prelude.<*> (x Data..:? "StreamView")
+            Prelude.<*> (x Data..:? "EnableDefaultInternetAccess")
+            Prelude.<*> (x Data..:? "ImageName")
+            Prelude.<*> (x Data..:? "MaxUserDurationInSeconds")
+            Prelude.<*> (x Data..: "Arn")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "InstanceType")
+            Prelude.<*> (x Data..: "ComputeCapacityStatus")
+            Prelude.<*> (x Data..: "State")
       )
 
 instance Prelude.Hashable Fleet where

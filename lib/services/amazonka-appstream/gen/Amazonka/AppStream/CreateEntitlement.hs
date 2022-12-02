@@ -52,6 +52,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -141,7 +142,7 @@ instance Core.AWSRequest CreateEntitlement where
     Response.receiveJSON
       ( \s h x ->
           CreateEntitlementResponse'
-            Prelude.<$> (x Core..?> "Entitlement")
+            Prelude.<$> (x Data..?> "Entitlement")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,37 +162,37 @@ instance Prelude.NFData CreateEntitlement where
       `Prelude.seq` Prelude.rnf appVisibility
       `Prelude.seq` Prelude.rnf attributes
 
-instance Core.ToHeaders CreateEntitlement where
+instance Data.ToHeaders CreateEntitlement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.CreateEntitlement" ::
+              Data.=# ( "PhotonAdminProxyService.CreateEntitlement" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEntitlement where
+instance Data.ToJSON CreateEntitlement where
   toJSON CreateEntitlement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("StackName" Core..= stackName),
-            Prelude.Just ("AppVisibility" Core..= appVisibility),
-            Prelude.Just ("Attributes" Core..= attributes)
+          [ ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("StackName" Data..= stackName),
+            Prelude.Just ("AppVisibility" Data..= appVisibility),
+            Prelude.Just ("Attributes" Data..= attributes)
           ]
       )
 
-instance Core.ToPath CreateEntitlement where
+instance Data.ToPath CreateEntitlement where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateEntitlement where
+instance Data.ToQuery CreateEntitlement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEntitlementResponse' smart constructor.

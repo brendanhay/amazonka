@@ -54,6 +54,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -233,7 +234,7 @@ instance Core.AWSRequest UpdateStack where
     Response.receiveJSON
       ( \s h x ->
           UpdateStackResponse'
-            Prelude.<$> (x Core..?> "Stack")
+            Prelude.<$> (x Data..?> "Stack")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -269,52 +270,52 @@ instance Prelude.NFData UpdateStack where
       `Prelude.seq` Prelude.rnf userSettings
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateStack where
+instance Data.ToHeaders UpdateStack where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.UpdateStack" ::
+              Data.=# ( "PhotonAdminProxyService.UpdateStack" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateStack where
+instance Data.ToJSON UpdateStack where
   toJSON UpdateStack' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StorageConnectors" Core..=)
+          [ ("StorageConnectors" Data..=)
               Prelude.<$> storageConnectors,
-            ("AttributesToDelete" Core..=)
+            ("AttributesToDelete" Data..=)
               Prelude.<$> attributesToDelete,
-            ("EmbedHostDomains" Core..=)
+            ("EmbedHostDomains" Data..=)
               Prelude.<$> embedHostDomains,
-            ("DeleteStorageConnectors" Core..=)
+            ("DeleteStorageConnectors" Data..=)
               Prelude.<$> deleteStorageConnectors,
-            ("ApplicationSettings" Core..=)
+            ("ApplicationSettings" Data..=)
               Prelude.<$> applicationSettings,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("AccessEndpoints" Core..=)
+            ("DisplayName" Data..=) Prelude.<$> displayName,
+            ("AccessEndpoints" Data..=)
               Prelude.<$> accessEndpoints,
-            ("Description" Core..=) Prelude.<$> description,
-            ("RedirectURL" Core..=) Prelude.<$> redirectURL,
-            ("StreamingExperienceSettings" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("RedirectURL" Data..=) Prelude.<$> redirectURL,
+            ("StreamingExperienceSettings" Data..=)
               Prelude.<$> streamingExperienceSettings,
-            ("FeedbackURL" Core..=) Prelude.<$> feedbackURL,
-            ("UserSettings" Core..=) Prelude.<$> userSettings,
-            Prelude.Just ("Name" Core..= name)
+            ("FeedbackURL" Data..=) Prelude.<$> feedbackURL,
+            ("UserSettings" Data..=) Prelude.<$> userSettings,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateStack where
+instance Data.ToPath UpdateStack where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateStack where
+instance Data.ToQuery UpdateStack where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateStackResponse' smart constructor.

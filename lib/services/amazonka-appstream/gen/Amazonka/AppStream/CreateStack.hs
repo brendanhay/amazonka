@@ -55,6 +55,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -264,7 +265,7 @@ instance Core.AWSRequest CreateStack where
     Response.receiveJSON
       ( \s h x ->
           CreateStackResponse'
-            Prelude.<$> (x Core..?> "Stack")
+            Prelude.<$> (x Data..?> "Stack")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -298,49 +299,49 @@ instance Prelude.NFData CreateStack where
       `Prelude.seq` Prelude.rnf userSettings
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateStack where
+instance Data.ToHeaders CreateStack where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.CreateStack" ::
+              Data.=# ( "PhotonAdminProxyService.CreateStack" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateStack where
+instance Data.ToJSON CreateStack where
   toJSON CreateStack' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("StorageConnectors" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("StorageConnectors" Data..=)
               Prelude.<$> storageConnectors,
-            ("EmbedHostDomains" Core..=)
+            ("EmbedHostDomains" Data..=)
               Prelude.<$> embedHostDomains,
-            ("ApplicationSettings" Core..=)
+            ("ApplicationSettings" Data..=)
               Prelude.<$> applicationSettings,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("AccessEndpoints" Core..=)
+            ("DisplayName" Data..=) Prelude.<$> displayName,
+            ("AccessEndpoints" Data..=)
               Prelude.<$> accessEndpoints,
-            ("Description" Core..=) Prelude.<$> description,
-            ("RedirectURL" Core..=) Prelude.<$> redirectURL,
-            ("StreamingExperienceSettings" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("RedirectURL" Data..=) Prelude.<$> redirectURL,
+            ("StreamingExperienceSettings" Data..=)
               Prelude.<$> streamingExperienceSettings,
-            ("FeedbackURL" Core..=) Prelude.<$> feedbackURL,
-            ("UserSettings" Core..=) Prelude.<$> userSettings,
-            Prelude.Just ("Name" Core..= name)
+            ("FeedbackURL" Data..=) Prelude.<$> feedbackURL,
+            ("UserSettings" Data..=) Prelude.<$> userSettings,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateStack where
+instance Data.ToPath CreateStack where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateStack where
+instance Data.ToQuery CreateStack where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateStackResponse' smart constructor.

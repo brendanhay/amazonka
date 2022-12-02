@@ -48,6 +48,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -134,8 +135,8 @@ instance Core.AWSRequest DescribeUsers where
     Response.receiveJSON
       ( \s h x ->
           DescribeUsersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Users" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Users" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,36 +152,36 @@ instance Prelude.NFData DescribeUsers where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf authenticationType
 
-instance Core.ToHeaders DescribeUsers where
+instance Data.ToHeaders DescribeUsers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.DescribeUsers" ::
+              Data.=# ( "PhotonAdminProxyService.DescribeUsers" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeUsers where
+instance Data.ToJSON DescribeUsers where
   toJSON DescribeUsers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("AuthenticationType" Core..= authenticationType)
+              ("AuthenticationType" Data..= authenticationType)
           ]
       )
 
-instance Core.ToPath DescribeUsers where
+instance Data.ToPath DescribeUsers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeUsers where
+instance Data.ToQuery DescribeUsers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeUsersResponse' smart constructor.

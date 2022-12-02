@@ -42,6 +42,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,34 +110,34 @@ instance Prelude.NFData DisassociateFleet where
     Prelude.rnf fleetName
       `Prelude.seq` Prelude.rnf stackName
 
-instance Core.ToHeaders DisassociateFleet where
+instance Data.ToHeaders DisassociateFleet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.DisassociateFleet" ::
+              Data.=# ( "PhotonAdminProxyService.DisassociateFleet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateFleet where
+instance Data.ToJSON DisassociateFleet where
   toJSON DisassociateFleet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("FleetName" Core..= fleetName),
-            Prelude.Just ("StackName" Core..= stackName)
+          [ Prelude.Just ("FleetName" Data..= fleetName),
+            Prelude.Just ("StackName" Data..= stackName)
           ]
       )
 
-instance Core.ToPath DisassociateFleet where
+instance Data.ToPath DisassociateFleet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateFleet where
+instance Data.ToQuery DisassociateFleet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateFleetResponse' smart constructor.

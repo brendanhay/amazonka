@@ -21,6 +21,7 @@ module Amazonka.AppStream.Types.DomainJoinInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration information required to join fleets and
@@ -66,14 +67,14 @@ domainJoinInfo_directoryName = Lens.lens (\DomainJoinInfo' {directoryName} -> di
 domainJoinInfo_organizationalUnitDistinguishedName :: Lens.Lens' DomainJoinInfo (Prelude.Maybe Prelude.Text)
 domainJoinInfo_organizationalUnitDistinguishedName = Lens.lens (\DomainJoinInfo' {organizationalUnitDistinguishedName} -> organizationalUnitDistinguishedName) (\s@DomainJoinInfo' {} a -> s {organizationalUnitDistinguishedName = a} :: DomainJoinInfo)
 
-instance Core.FromJSON DomainJoinInfo where
+instance Data.FromJSON DomainJoinInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainJoinInfo"
       ( \x ->
           DomainJoinInfo'
-            Prelude.<$> (x Core..:? "DirectoryName")
-            Prelude.<*> (x Core..:? "OrganizationalUnitDistinguishedName")
+            Prelude.<$> (x Data..:? "DirectoryName")
+            Prelude.<*> (x Data..:? "OrganizationalUnitDistinguishedName")
       )
 
 instance Prelude.Hashable DomainJoinInfo where
@@ -86,12 +87,12 @@ instance Prelude.NFData DomainJoinInfo where
     Prelude.rnf directoryName
       `Prelude.seq` Prelude.rnf organizationalUnitDistinguishedName
 
-instance Core.ToJSON DomainJoinInfo where
+instance Data.ToJSON DomainJoinInfo where
   toJSON DomainJoinInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DirectoryName" Core..=) Prelude.<$> directoryName,
-            ("OrganizationalUnitDistinguishedName" Core..=)
+          [ ("DirectoryName" Data..=) Prelude.<$> directoryName,
+            ("OrganizationalUnitDistinguishedName" Data..=)
               Prelude.<$> organizationalUnitDistinguishedName
           ]
       )

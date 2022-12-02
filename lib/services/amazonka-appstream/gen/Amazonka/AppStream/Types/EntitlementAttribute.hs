@@ -21,6 +21,7 @@ module Amazonka.AppStream.Types.EntitlementAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An attribute associated with an entitlement. Application entitlements
@@ -124,13 +125,13 @@ entitlementAttribute_name = Lens.lens (\EntitlementAttribute' {name} -> name) (\
 entitlementAttribute_value :: Lens.Lens' EntitlementAttribute Prelude.Text
 entitlementAttribute_value = Lens.lens (\EntitlementAttribute' {value} -> value) (\s@EntitlementAttribute' {} a -> s {value = a} :: EntitlementAttribute)
 
-instance Core.FromJSON EntitlementAttribute where
+instance Data.FromJSON EntitlementAttribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EntitlementAttribute"
       ( \x ->
           EntitlementAttribute'
-            Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable EntitlementAttribute where
@@ -142,11 +143,11 @@ instance Prelude.NFData EntitlementAttribute where
   rnf EntitlementAttribute' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON EntitlementAttribute where
+instance Data.ToJSON EntitlementAttribute where
   toJSON EntitlementAttribute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

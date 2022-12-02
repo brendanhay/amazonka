@@ -40,6 +40,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -72,8 +73,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateUsageReportSubscriptionResponse'
-            Prelude.<$> (x Core..?> "Schedule")
-            Prelude.<*> (x Core..?> "S3BucketName")
+            Prelude.<$> (x Data..?> "Schedule")
+            Prelude.<*> (x Data..?> "S3BucketName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -87,28 +88,28 @@ instance
 instance Prelude.NFData CreateUsageReportSubscription where
   rnf _ = ()
 
-instance Core.ToHeaders CreateUsageReportSubscription where
+instance Data.ToHeaders CreateUsageReportSubscription where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.CreateUsageReportSubscription" ::
+              Data.=# ( "PhotonAdminProxyService.CreateUsageReportSubscription" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateUsageReportSubscription where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON CreateUsageReportSubscription where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath CreateUsageReportSubscription where
+instance Data.ToPath CreateUsageReportSubscription where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateUsageReportSubscription where
+instance Data.ToQuery CreateUsageReportSubscription where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateUsageReportSubscriptionResponse' smart constructor.

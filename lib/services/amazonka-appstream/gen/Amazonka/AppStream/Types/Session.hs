@@ -25,6 +25,7 @@ import Amazonka.AppStream.Types.SessionConnectionState
 import Amazonka.AppStream.Types.SessionState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a streaming session.
@@ -46,9 +47,9 @@ data Session = Session'
     -- his or her session. If the @DisconnectTimeOutInSeconds@ elapses, or the
     -- user chooses to end his or her session, the streaming instance is
     -- terminated and the streaming session ends.
-    maxExpirationTime :: Prelude.Maybe Core.POSIX,
+    maxExpirationTime :: Prelude.Maybe Data.POSIX,
     -- | The time when a streaming instance is dedicated for the user.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the streaming session.
     id :: Prelude.Text,
     -- | The identifier of the user for whom the session was created.
@@ -150,11 +151,11 @@ session_connectionState = Lens.lens (\Session' {connectionState} -> connectionSt
 -- user chooses to end his or her session, the streaming instance is
 -- terminated and the streaming session ends.
 session_maxExpirationTime :: Lens.Lens' Session (Prelude.Maybe Prelude.UTCTime)
-session_maxExpirationTime = Lens.lens (\Session' {maxExpirationTime} -> maxExpirationTime) (\s@Session' {} a -> s {maxExpirationTime = a} :: Session) Prelude.. Lens.mapping Core._Time
+session_maxExpirationTime = Lens.lens (\Session' {maxExpirationTime} -> maxExpirationTime) (\s@Session' {} a -> s {maxExpirationTime = a} :: Session) Prelude.. Lens.mapping Data._Time
 
 -- | The time when a streaming instance is dedicated for the user.
 session_startTime :: Lens.Lens' Session (Prelude.Maybe Prelude.UTCTime)
-session_startTime = Lens.lens (\Session' {startTime} -> startTime) (\s@Session' {} a -> s {startTime = a} :: Session) Prelude.. Lens.mapping Core._Time
+session_startTime = Lens.lens (\Session' {startTime} -> startTime) (\s@Session' {} a -> s {startTime = a} :: Session) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier of the streaming session.
 session_id :: Lens.Lens' Session Prelude.Text
@@ -176,22 +177,22 @@ session_fleetName = Lens.lens (\Session' {fleetName} -> fleetName) (\s@Session' 
 session_state :: Lens.Lens' Session SessionState
 session_state = Lens.lens (\Session' {state} -> state) (\s@Session' {} a -> s {state = a} :: Session)
 
-instance Core.FromJSON Session where
+instance Data.FromJSON Session where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Session"
       ( \x ->
           Session'
-            Prelude.<$> (x Core..:? "AuthenticationType")
-            Prelude.<*> (x Core..:? "NetworkAccessConfiguration")
-            Prelude.<*> (x Core..:? "ConnectionState")
-            Prelude.<*> (x Core..:? "MaxExpirationTime")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "UserId")
-            Prelude.<*> (x Core..: "StackName")
-            Prelude.<*> (x Core..: "FleetName")
-            Prelude.<*> (x Core..: "State")
+            Prelude.<$> (x Data..:? "AuthenticationType")
+            Prelude.<*> (x Data..:? "NetworkAccessConfiguration")
+            Prelude.<*> (x Data..:? "ConnectionState")
+            Prelude.<*> (x Data..:? "MaxExpirationTime")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "UserId")
+            Prelude.<*> (x Data..: "StackName")
+            Prelude.<*> (x Data..: "FleetName")
+            Prelude.<*> (x Data..: "State")
       )
 
 instance Prelude.Hashable Session where

@@ -23,6 +23,7 @@ import Amazonka.AppStream.Types.Action
 import Amazonka.AppStream.Types.Permission
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an action and whether the action is enabled or disabled for
@@ -68,14 +69,14 @@ userSetting_action = Lens.lens (\UserSetting' {action} -> action) (\s@UserSettin
 userSetting_permission :: Lens.Lens' UserSetting Permission
 userSetting_permission = Lens.lens (\UserSetting' {permission} -> permission) (\s@UserSetting' {} a -> s {permission = a} :: UserSetting)
 
-instance Core.FromJSON UserSetting where
+instance Data.FromJSON UserSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserSetting"
       ( \x ->
           UserSetting'
-            Prelude.<$> (x Core..: "Action")
-            Prelude.<*> (x Core..: "Permission")
+            Prelude.<$> (x Data..: "Action")
+            Prelude.<*> (x Data..: "Permission")
       )
 
 instance Prelude.Hashable UserSetting where
@@ -88,11 +89,11 @@ instance Prelude.NFData UserSetting where
     Prelude.rnf action
       `Prelude.seq` Prelude.rnf permission
 
-instance Core.ToJSON UserSetting where
+instance Data.ToJSON UserSetting where
   toJSON UserSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Action" Core..= action),
-            Prelude.Just ("Permission" Core..= permission)
+          [ Prelude.Just ("Action" Data..= action),
+            Prelude.Just ("Permission" Data..= permission)
           ]
       )

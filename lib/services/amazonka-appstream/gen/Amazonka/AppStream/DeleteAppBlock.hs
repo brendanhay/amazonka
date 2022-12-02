@@ -41,6 +41,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,32 +93,32 @@ instance Prelude.Hashable DeleteAppBlock where
 instance Prelude.NFData DeleteAppBlock where
   rnf DeleteAppBlock' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteAppBlock where
+instance Data.ToHeaders DeleteAppBlock where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.DeleteAppBlock" ::
+              Data.=# ( "PhotonAdminProxyService.DeleteAppBlock" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAppBlock where
+instance Data.ToJSON DeleteAppBlock where
   toJSON DeleteAppBlock' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath DeleteAppBlock where
+instance Data.ToPath DeleteAppBlock where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAppBlock where
+instance Data.ToQuery DeleteAppBlock where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAppBlockResponse' smart constructor.

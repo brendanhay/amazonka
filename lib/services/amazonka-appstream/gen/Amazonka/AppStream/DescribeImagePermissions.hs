@@ -48,6 +48,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,9 +129,9 @@ instance Core.AWSRequest DescribeImagePermissions where
     Response.receiveJSON
       ( \s h x ->
           DescribeImagePermissionsResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "SharedImagePermissionsList"
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "SharedImagePermissionsList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -150,37 +151,37 @@ instance Prelude.NFData DescribeImagePermissions where
       `Prelude.seq` Prelude.rnf sharedAwsAccountIds
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders DescribeImagePermissions where
+instance Data.ToHeaders DescribeImagePermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.DescribeImagePermissions" ::
+              Data.=# ( "PhotonAdminProxyService.DescribeImagePermissions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeImagePermissions where
+instance Data.ToJSON DescribeImagePermissions where
   toJSON DescribeImagePermissions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("SharedAwsAccountIds" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("SharedAwsAccountIds" Data..=)
               Prelude.<$> sharedAwsAccountIds,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath DescribeImagePermissions where
+instance Data.ToPath DescribeImagePermissions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeImagePermissions where
+instance Data.ToQuery DescribeImagePermissions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeImagePermissionsResponse' smart constructor.

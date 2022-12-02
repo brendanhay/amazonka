@@ -51,6 +51,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -151,8 +152,8 @@ instance Core.AWSRequest DescribeImages where
     Response.receiveJSON
       ( \s h x ->
           DescribeImagesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Images" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Images" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,37 +173,37 @@ instance Prelude.NFData DescribeImages where
       `Prelude.seq` Prelude.rnf names
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeImages where
+instance Data.ToHeaders DescribeImages where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.DescribeImages" ::
+              Data.=# ( "PhotonAdminProxyService.DescribeImages" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeImages where
+instance Data.ToJSON DescribeImages where
   toJSON DescribeImages' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Type" Core..=) Prelude.<$> type',
-            ("Arns" Core..=) Prelude.<$> arns,
-            ("Names" Core..=) Prelude.<$> names,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Type" Data..=) Prelude.<$> type',
+            ("Arns" Data..=) Prelude.<$> arns,
+            ("Names" Data..=) Prelude.<$> names,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeImages where
+instance Data.ToPath DescribeImages where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeImages where
+instance Data.ToQuery DescribeImages where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeImagesResponse' smart constructor.

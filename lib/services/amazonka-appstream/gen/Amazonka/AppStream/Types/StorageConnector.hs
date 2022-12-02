@@ -22,6 +22,7 @@ module Amazonka.AppStream.Types.StorageConnector where
 import Amazonka.AppStream.Types.StorageConnectorType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a connector that enables persistent storage for users.
@@ -73,15 +74,15 @@ storageConnector_resourceIdentifier = Lens.lens (\StorageConnector' {resourceIde
 storageConnector_connectorType :: Lens.Lens' StorageConnector StorageConnectorType
 storageConnector_connectorType = Lens.lens (\StorageConnector' {connectorType} -> connectorType) (\s@StorageConnector' {} a -> s {connectorType = a} :: StorageConnector)
 
-instance Core.FromJSON StorageConnector where
+instance Data.FromJSON StorageConnector where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StorageConnector"
       ( \x ->
           StorageConnector'
-            Prelude.<$> (x Core..:? "Domains" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ResourceIdentifier")
-            Prelude.<*> (x Core..: "ConnectorType")
+            Prelude.<$> (x Data..:? "Domains" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ResourceIdentifier")
+            Prelude.<*> (x Data..: "ConnectorType")
       )
 
 instance Prelude.Hashable StorageConnector where
@@ -96,14 +97,14 @@ instance Prelude.NFData StorageConnector where
       `Prelude.seq` Prelude.rnf resourceIdentifier
       `Prelude.seq` Prelude.rnf connectorType
 
-instance Core.ToJSON StorageConnector where
+instance Data.ToJSON StorageConnector where
   toJSON StorageConnector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Domains" Core..=) Prelude.<$> domains,
-            ("ResourceIdentifier" Core..=)
+          [ ("Domains" Data..=) Prelude.<$> domains,
+            ("ResourceIdentifier" Data..=)
               Prelude.<$> resourceIdentifier,
             Prelude.Just
-              ("ConnectorType" Core..= connectorType)
+              ("ConnectorType" Data..= connectorType)
           ]
       )

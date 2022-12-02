@@ -21,6 +21,7 @@ module Amazonka.AppStream.Types.ServiceAccountCredentials where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the credentials for the service account used by the fleet or
@@ -32,9 +33,9 @@ data ServiceAccountCredentials = ServiceAccountCredentials'
     -- privileges: create computer objects, join computers to the domain, and
     -- change\/reset the password on descendant computer objects for the
     -- organizational units specified.
-    accountName :: Core.Sensitive Prelude.Text,
+    accountName :: Data.Sensitive Prelude.Text,
     -- | The password for the account.
-    accountPassword :: Core.Sensitive Prelude.Text
+    accountPassword :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -63,9 +64,9 @@ newServiceAccountCredentials
   pAccountPassword_ =
     ServiceAccountCredentials'
       { accountName =
-          Core._Sensitive Lens.# pAccountName_,
+          Data._Sensitive Lens.# pAccountName_,
         accountPassword =
-          Core._Sensitive Lens.# pAccountPassword_
+          Data._Sensitive Lens.# pAccountPassword_
       }
 
 -- | The user name of the account. This account must have the following
@@ -73,20 +74,20 @@ newServiceAccountCredentials
 -- change\/reset the password on descendant computer objects for the
 -- organizational units specified.
 serviceAccountCredentials_accountName :: Lens.Lens' ServiceAccountCredentials Prelude.Text
-serviceAccountCredentials_accountName = Lens.lens (\ServiceAccountCredentials' {accountName} -> accountName) (\s@ServiceAccountCredentials' {} a -> s {accountName = a} :: ServiceAccountCredentials) Prelude.. Core._Sensitive
+serviceAccountCredentials_accountName = Lens.lens (\ServiceAccountCredentials' {accountName} -> accountName) (\s@ServiceAccountCredentials' {} a -> s {accountName = a} :: ServiceAccountCredentials) Prelude.. Data._Sensitive
 
 -- | The password for the account.
 serviceAccountCredentials_accountPassword :: Lens.Lens' ServiceAccountCredentials Prelude.Text
-serviceAccountCredentials_accountPassword = Lens.lens (\ServiceAccountCredentials' {accountPassword} -> accountPassword) (\s@ServiceAccountCredentials' {} a -> s {accountPassword = a} :: ServiceAccountCredentials) Prelude.. Core._Sensitive
+serviceAccountCredentials_accountPassword = Lens.lens (\ServiceAccountCredentials' {accountPassword} -> accountPassword) (\s@ServiceAccountCredentials' {} a -> s {accountPassword = a} :: ServiceAccountCredentials) Prelude.. Data._Sensitive
 
-instance Core.FromJSON ServiceAccountCredentials where
+instance Data.FromJSON ServiceAccountCredentials where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceAccountCredentials"
       ( \x ->
           ServiceAccountCredentials'
-            Prelude.<$> (x Core..: "AccountName")
-            Prelude.<*> (x Core..: "AccountPassword")
+            Prelude.<$> (x Data..: "AccountName")
+            Prelude.<*> (x Data..: "AccountPassword")
       )
 
 instance Prelude.Hashable ServiceAccountCredentials where
@@ -99,12 +100,12 @@ instance Prelude.NFData ServiceAccountCredentials where
     Prelude.rnf accountName
       `Prelude.seq` Prelude.rnf accountPassword
 
-instance Core.ToJSON ServiceAccountCredentials where
+instance Data.ToJSON ServiceAccountCredentials where
   toJSON ServiceAccountCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AccountName" Core..= accountName),
+          [ Prelude.Just ("AccountName" Data..= accountName),
             Prelude.Just
-              ("AccountPassword" Core..= accountPassword)
+              ("AccountPassword" Data..= accountPassword)
           ]
       )

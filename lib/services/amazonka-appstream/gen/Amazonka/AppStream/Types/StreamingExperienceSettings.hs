@@ -22,6 +22,7 @@ module Amazonka.AppStream.Types.StreamingExperienceSettings where
 import Amazonka.AppStream.Types.PreferredProtocol
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The streaming protocol you want your stack to prefer. This can be UDP or
@@ -58,13 +59,13 @@ newStreamingExperienceSettings =
 streamingExperienceSettings_preferredProtocol :: Lens.Lens' StreamingExperienceSettings (Prelude.Maybe PreferredProtocol)
 streamingExperienceSettings_preferredProtocol = Lens.lens (\StreamingExperienceSettings' {preferredProtocol} -> preferredProtocol) (\s@StreamingExperienceSettings' {} a -> s {preferredProtocol = a} :: StreamingExperienceSettings)
 
-instance Core.FromJSON StreamingExperienceSettings where
+instance Data.FromJSON StreamingExperienceSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamingExperienceSettings"
       ( \x ->
           StreamingExperienceSettings'
-            Prelude.<$> (x Core..:? "PreferredProtocol")
+            Prelude.<$> (x Data..:? "PreferredProtocol")
       )
 
 instance Prelude.Hashable StreamingExperienceSettings where
@@ -75,11 +76,11 @@ instance Prelude.NFData StreamingExperienceSettings where
   rnf StreamingExperienceSettings' {..} =
     Prelude.rnf preferredProtocol
 
-instance Core.ToJSON StreamingExperienceSettings where
+instance Data.ToJSON StreamingExperienceSettings where
   toJSON StreamingExperienceSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PreferredProtocol" Core..=)
+          [ ("PreferredProtocol" Data..=)
               Prelude.<$> preferredProtocol
           ]
       )

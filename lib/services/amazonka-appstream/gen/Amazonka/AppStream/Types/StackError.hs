@@ -22,6 +22,7 @@ module Amazonka.AppStream.Types.StackError where
 import Amazonka.AppStream.Types.StackErrorCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a stack error.
@@ -62,14 +63,14 @@ stackError_errorMessage = Lens.lens (\StackError' {errorMessage} -> errorMessage
 stackError_errorCode :: Lens.Lens' StackError (Prelude.Maybe StackErrorCode)
 stackError_errorCode = Lens.lens (\StackError' {errorCode} -> errorCode) (\s@StackError' {} a -> s {errorCode = a} :: StackError)
 
-instance Core.FromJSON StackError where
+instance Data.FromJSON StackError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StackError"
       ( \x ->
           StackError'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable StackError where

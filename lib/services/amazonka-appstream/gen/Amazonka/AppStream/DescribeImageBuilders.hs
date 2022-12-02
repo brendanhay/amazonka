@@ -49,6 +49,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,8 +134,8 @@ instance Core.AWSRequest DescribeImageBuilders where
     Response.receiveJSON
       ( \s h x ->
           DescribeImageBuildersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ImageBuilders" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ImageBuilders" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,35 +151,35 @@ instance Prelude.NFData DescribeImageBuilders where
       `Prelude.seq` Prelude.rnf names
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeImageBuilders where
+instance Data.ToHeaders DescribeImageBuilders where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.DescribeImageBuilders" ::
+              Data.=# ( "PhotonAdminProxyService.DescribeImageBuilders" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeImageBuilders where
+instance Data.ToJSON DescribeImageBuilders where
   toJSON DescribeImageBuilders' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Names" Core..=) Prelude.<$> names,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Names" Data..=) Prelude.<$> names,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeImageBuilders where
+instance Data.ToPath DescribeImageBuilders where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeImageBuilders where
+instance Data.ToQuery DescribeImageBuilders where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeImageBuildersResponse' smart constructor.

@@ -46,6 +46,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,8 +120,8 @@ instance Core.AWSRequest DescribeEntitlements where
     Response.receiveJSON
       ( \s h x ->
           DescribeEntitlementsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Entitlements" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Entitlements" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,36 +139,36 @@ instance Prelude.NFData DescribeEntitlements where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf stackName
 
-instance Core.ToHeaders DescribeEntitlements where
+instance Data.ToHeaders DescribeEntitlements where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.DescribeEntitlements" ::
+              Data.=# ( "PhotonAdminProxyService.DescribeEntitlements" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEntitlements where
+instance Data.ToJSON DescribeEntitlements where
   toJSON DescribeEntitlements' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("StackName" Core..= stackName)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("StackName" Data..= stackName)
           ]
       )
 
-instance Core.ToPath DescribeEntitlements where
+instance Data.ToPath DescribeEntitlements where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEntitlements where
+instance Data.ToQuery DescribeEntitlements where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEntitlementsResponse' smart constructor.

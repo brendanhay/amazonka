@@ -23,6 +23,7 @@ import Amazonka.AppStream.Types.LastReportGenerationExecutionError
 import Amazonka.AppStream.Types.UsageReportSchedule
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes information about the usage report subscription.
@@ -42,7 +43,7 @@ data UsageReportSubscription = UsageReportSubscription'
     -- AppStream 2.0 creates a new S3 bucket.
     s3BucketName :: Prelude.Maybe Prelude.Text,
     -- | The time when the last usage report was generated.
-    lastGeneratedReportDate :: Prelude.Maybe Core.POSIX,
+    lastGeneratedReportDate :: Prelude.Maybe Data.POSIX,
     -- | The errors that were returned if usage reports couldn\'t be generated.
     subscriptionErrors :: Prelude.Maybe [LastReportGenerationExecutionError]
   }
@@ -100,23 +101,23 @@ usageReportSubscription_s3BucketName = Lens.lens (\UsageReportSubscription' {s3B
 
 -- | The time when the last usage report was generated.
 usageReportSubscription_lastGeneratedReportDate :: Lens.Lens' UsageReportSubscription (Prelude.Maybe Prelude.UTCTime)
-usageReportSubscription_lastGeneratedReportDate = Lens.lens (\UsageReportSubscription' {lastGeneratedReportDate} -> lastGeneratedReportDate) (\s@UsageReportSubscription' {} a -> s {lastGeneratedReportDate = a} :: UsageReportSubscription) Prelude.. Lens.mapping Core._Time
+usageReportSubscription_lastGeneratedReportDate = Lens.lens (\UsageReportSubscription' {lastGeneratedReportDate} -> lastGeneratedReportDate) (\s@UsageReportSubscription' {} a -> s {lastGeneratedReportDate = a} :: UsageReportSubscription) Prelude.. Lens.mapping Data._Time
 
 -- | The errors that were returned if usage reports couldn\'t be generated.
 usageReportSubscription_subscriptionErrors :: Lens.Lens' UsageReportSubscription (Prelude.Maybe [LastReportGenerationExecutionError])
 usageReportSubscription_subscriptionErrors = Lens.lens (\UsageReportSubscription' {subscriptionErrors} -> subscriptionErrors) (\s@UsageReportSubscription' {} a -> s {subscriptionErrors = a} :: UsageReportSubscription) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON UsageReportSubscription where
+instance Data.FromJSON UsageReportSubscription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UsageReportSubscription"
       ( \x ->
           UsageReportSubscription'
-            Prelude.<$> (x Core..:? "Schedule")
-            Prelude.<*> (x Core..:? "S3BucketName")
-            Prelude.<*> (x Core..:? "LastGeneratedReportDate")
-            Prelude.<*> ( x Core..:? "SubscriptionErrors"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Schedule")
+            Prelude.<*> (x Data..:? "S3BucketName")
+            Prelude.<*> (x Data..:? "LastGeneratedReportDate")
+            Prelude.<*> ( x Data..:? "SubscriptionErrors"
+                            Data..!= Prelude.mempty
                         )
       )
 

@@ -50,6 +50,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -171,7 +172,7 @@ instance Core.AWSRequest UpdateApplication where
     Response.receiveJSON
       ( \s h x ->
           UpdateApplicationResponse'
-            Prelude.<$> (x Core..?> "Application")
+            Prelude.<$> (x Data..?> "Application")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,45 +200,45 @@ instance Prelude.NFData UpdateApplication where
       `Prelude.seq` Prelude.rnf workingDirectory
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateApplication where
+instance Data.ToHeaders UpdateApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.UpdateApplication" ::
+              Data.=# ( "PhotonAdminProxyService.UpdateApplication" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateApplication where
+instance Data.ToJSON UpdateApplication where
   toJSON UpdateApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LaunchPath" Core..=) Prelude.<$> launchPath,
-            ("AttributesToDelete" Core..=)
+          [ ("LaunchPath" Data..=) Prelude.<$> launchPath,
+            ("AttributesToDelete" Data..=)
               Prelude.<$> attributesToDelete,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("Description" Core..=) Prelude.<$> description,
-            ("IconS3Location" Core..=)
+            ("DisplayName" Data..=) Prelude.<$> displayName,
+            ("Description" Data..=) Prelude.<$> description,
+            ("IconS3Location" Data..=)
               Prelude.<$> iconS3Location,
-            ("AppBlockArn" Core..=) Prelude.<$> appBlockArn,
-            ("LaunchParameters" Core..=)
+            ("AppBlockArn" Data..=) Prelude.<$> appBlockArn,
+            ("LaunchParameters" Data..=)
               Prelude.<$> launchParameters,
-            ("WorkingDirectory" Core..=)
+            ("WorkingDirectory" Data..=)
               Prelude.<$> workingDirectory,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateApplication where
+instance Data.ToPath UpdateApplication where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateApplication where
+instance Data.ToQuery UpdateApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateApplicationResponse' smart constructor.

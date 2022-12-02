@@ -48,6 +48,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,8 +122,8 @@ instance Core.AWSRequest DescribeFleets where
     Response.receiveJSON
       ( \s h x ->
           DescribeFleetsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Fleets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Fleets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,34 +137,34 @@ instance Prelude.NFData DescribeFleets where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf names
 
-instance Core.ToHeaders DescribeFleets where
+instance Data.ToHeaders DescribeFleets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.DescribeFleets" ::
+              Data.=# ( "PhotonAdminProxyService.DescribeFleets" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFleets where
+instance Data.ToJSON DescribeFleets where
   toJSON DescribeFleets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Names" Core..=) Prelude.<$> names
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Names" Data..=) Prelude.<$> names
           ]
       )
 
-instance Core.ToPath DescribeFleets where
+instance Data.ToPath DescribeFleets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFleets where
+instance Data.ToQuery DescribeFleets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeFleetsResponse' smart constructor.

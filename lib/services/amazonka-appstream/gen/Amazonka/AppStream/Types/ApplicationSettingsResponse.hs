@@ -21,6 +21,7 @@ module Amazonka.AppStream.Types.ApplicationSettingsResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the persistent application settings for users of a stack.
@@ -86,15 +87,15 @@ applicationSettingsResponse_enabled = Lens.lens (\ApplicationSettingsResponse' {
 applicationSettingsResponse_settingsGroup :: Lens.Lens' ApplicationSettingsResponse (Prelude.Maybe Prelude.Text)
 applicationSettingsResponse_settingsGroup = Lens.lens (\ApplicationSettingsResponse' {settingsGroup} -> settingsGroup) (\s@ApplicationSettingsResponse' {} a -> s {settingsGroup = a} :: ApplicationSettingsResponse)
 
-instance Core.FromJSON ApplicationSettingsResponse where
+instance Data.FromJSON ApplicationSettingsResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationSettingsResponse"
       ( \x ->
           ApplicationSettingsResponse'
-            Prelude.<$> (x Core..:? "S3BucketName")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "SettingsGroup")
+            Prelude.<$> (x Data..:? "S3BucketName")
+            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "SettingsGroup")
       )
 
 instance Prelude.Hashable ApplicationSettingsResponse where

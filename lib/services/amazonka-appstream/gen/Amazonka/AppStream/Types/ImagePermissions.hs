@@ -21,6 +21,7 @@ module Amazonka.AppStream.Types.ImagePermissions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the permissions for an image.
@@ -61,14 +62,14 @@ imagePermissions_allowFleet = Lens.lens (\ImagePermissions' {allowFleet} -> allo
 imagePermissions_allowImageBuilder :: Lens.Lens' ImagePermissions (Prelude.Maybe Prelude.Bool)
 imagePermissions_allowImageBuilder = Lens.lens (\ImagePermissions' {allowImageBuilder} -> allowImageBuilder) (\s@ImagePermissions' {} a -> s {allowImageBuilder = a} :: ImagePermissions)
 
-instance Core.FromJSON ImagePermissions where
+instance Data.FromJSON ImagePermissions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImagePermissions"
       ( \x ->
           ImagePermissions'
-            Prelude.<$> (x Core..:? "allowFleet")
-            Prelude.<*> (x Core..:? "allowImageBuilder")
+            Prelude.<$> (x Data..:? "allowFleet")
+            Prelude.<*> (x Data..:? "allowImageBuilder")
       )
 
 instance Prelude.Hashable ImagePermissions where
@@ -81,12 +82,12 @@ instance Prelude.NFData ImagePermissions where
     Prelude.rnf allowFleet
       `Prelude.seq` Prelude.rnf allowImageBuilder
 
-instance Core.ToJSON ImagePermissions where
+instance Data.ToJSON ImagePermissions where
   toJSON ImagePermissions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("allowFleet" Core..=) Prelude.<$> allowFleet,
-            ("allowImageBuilder" Core..=)
+          [ ("allowFleet" Data..=) Prelude.<$> allowFleet,
+            ("allowImageBuilder" Data..=)
               Prelude.<$> allowImageBuilder
           ]
       )

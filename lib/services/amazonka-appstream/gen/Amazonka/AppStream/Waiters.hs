@@ -21,6 +21,7 @@ import Amazonka.AppStream.Lens
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.AppStream.DescribeFleets' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
@@ -39,7 +40,7 @@ newFleetStopped =
                     (describeFleetsResponse_fleets Prelude.. Lens._Just)
                 )
                 Prelude.. fleet_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "PENDING_ACTIVATE"
@@ -49,7 +50,7 @@ newFleetStopped =
                     (describeFleetsResponse_fleets Prelude.. Lens._Just)
                 )
                 Prelude.. fleet_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "ACTIVE"
@@ -59,7 +60,7 @@ newFleetStopped =
                     (describeFleetsResponse_fleets Prelude.. Lens._Just)
                 )
                 Prelude.. fleet_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -80,7 +81,7 @@ newFleetStarted =
                     (describeFleetsResponse_fleets Prelude.. Lens._Just)
                 )
                 Prelude.. fleet_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "PENDING_DEACTIVATE"
@@ -90,7 +91,7 @@ newFleetStarted =
                     (describeFleetsResponse_fleets Prelude.. Lens._Just)
                 )
                 Prelude.. fleet_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "INACTIVE"
@@ -100,7 +101,7 @@ newFleetStarted =
                     (describeFleetsResponse_fleets Prelude.. Lens._Just)
                 )
                 Prelude.. fleet_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

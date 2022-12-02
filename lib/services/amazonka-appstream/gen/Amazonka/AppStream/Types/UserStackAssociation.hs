@@ -22,6 +22,7 @@ module Amazonka.AppStream.Types.UserStackAssociation where
 import Amazonka.AppStream.Types.AuthenticationType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a user in the user pool and the associated stack.
@@ -36,7 +37,7 @@ data UserStackAssociation = UserStackAssociation'
     -- | The email address of the user who is associated with the stack.
     --
     -- Users\' email addresses are case-sensitive.
-    userName :: Core.Sensitive Prelude.Text,
+    userName :: Data.Sensitive Prelude.Text,
     -- | The authentication type for the user.
     authenticationType :: AuthenticationType
   }
@@ -76,7 +77,7 @@ newUserStackAssociation
       { sendEmailNotification =
           Prelude.Nothing,
         stackName = pStackName_,
-        userName = Core._Sensitive Lens.# pUserName_,
+        userName = Data._Sensitive Lens.# pUserName_,
         authenticationType = pAuthenticationType_
       }
 
@@ -93,22 +94,22 @@ userStackAssociation_stackName = Lens.lens (\UserStackAssociation' {stackName} -
 --
 -- Users\' email addresses are case-sensitive.
 userStackAssociation_userName :: Lens.Lens' UserStackAssociation Prelude.Text
-userStackAssociation_userName = Lens.lens (\UserStackAssociation' {userName} -> userName) (\s@UserStackAssociation' {} a -> s {userName = a} :: UserStackAssociation) Prelude.. Core._Sensitive
+userStackAssociation_userName = Lens.lens (\UserStackAssociation' {userName} -> userName) (\s@UserStackAssociation' {} a -> s {userName = a} :: UserStackAssociation) Prelude.. Data._Sensitive
 
 -- | The authentication type for the user.
 userStackAssociation_authenticationType :: Lens.Lens' UserStackAssociation AuthenticationType
 userStackAssociation_authenticationType = Lens.lens (\UserStackAssociation' {authenticationType} -> authenticationType) (\s@UserStackAssociation' {} a -> s {authenticationType = a} :: UserStackAssociation)
 
-instance Core.FromJSON UserStackAssociation where
+instance Data.FromJSON UserStackAssociation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserStackAssociation"
       ( \x ->
           UserStackAssociation'
-            Prelude.<$> (x Core..:? "SendEmailNotification")
-            Prelude.<*> (x Core..: "StackName")
-            Prelude.<*> (x Core..: "UserName")
-            Prelude.<*> (x Core..: "AuthenticationType")
+            Prelude.<$> (x Data..:? "SendEmailNotification")
+            Prelude.<*> (x Data..: "StackName")
+            Prelude.<*> (x Data..: "UserName")
+            Prelude.<*> (x Data..: "AuthenticationType")
       )
 
 instance Prelude.Hashable UserStackAssociation where
@@ -125,15 +126,15 @@ instance Prelude.NFData UserStackAssociation where
       `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf authenticationType
 
-instance Core.ToJSON UserStackAssociation where
+instance Data.ToJSON UserStackAssociation where
   toJSON UserStackAssociation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SendEmailNotification" Core..=)
+          [ ("SendEmailNotification" Data..=)
               Prelude.<$> sendEmailNotification,
-            Prelude.Just ("StackName" Core..= stackName),
-            Prelude.Just ("UserName" Core..= userName),
+            Prelude.Just ("StackName" Data..= stackName),
+            Prelude.Just ("UserName" Data..= userName),
             Prelude.Just
-              ("AuthenticationType" Core..= authenticationType)
+              ("AuthenticationType" Data..= authenticationType)
           ]
       )

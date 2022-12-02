@@ -43,6 +43,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,34 +99,34 @@ instance Prelude.NFData DeleteDirectoryConfig where
   rnf DeleteDirectoryConfig' {..} =
     Prelude.rnf directoryName
 
-instance Core.ToHeaders DeleteDirectoryConfig where
+instance Data.ToHeaders DeleteDirectoryConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.DeleteDirectoryConfig" ::
+              Data.=# ( "PhotonAdminProxyService.DeleteDirectoryConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteDirectoryConfig where
+instance Data.ToJSON DeleteDirectoryConfig where
   toJSON DeleteDirectoryConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("DirectoryName" Core..= directoryName)
+              ("DirectoryName" Data..= directoryName)
           ]
       )
 
-instance Core.ToPath DeleteDirectoryConfig where
+instance Data.ToPath DeleteDirectoryConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDirectoryConfig where
+instance Data.ToQuery DeleteDirectoryConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDirectoryConfigResponse' smart constructor.

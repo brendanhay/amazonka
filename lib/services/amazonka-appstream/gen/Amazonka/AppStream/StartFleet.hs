@@ -41,6 +41,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,32 +90,32 @@ instance Prelude.Hashable StartFleet where
 instance Prelude.NFData StartFleet where
   rnf StartFleet' {..} = Prelude.rnf name
 
-instance Core.ToHeaders StartFleet where
+instance Data.ToHeaders StartFleet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.StartFleet" ::
+              Data.=# ( "PhotonAdminProxyService.StartFleet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartFleet where
+instance Data.ToJSON StartFleet where
   toJSON StartFleet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath StartFleet where
+instance Data.ToPath StartFleet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartFleet where
+instance Data.ToQuery StartFleet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartFleetResponse' smart constructor.

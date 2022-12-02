@@ -47,6 +47,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -152,7 +153,7 @@ instance Core.AWSRequest UpdateDirectoryConfig where
     Response.receiveJSON
       ( \s h x ->
           UpdateDirectoryConfigResponse'
-            Prelude.<$> (x Core..?> "DirectoryConfig")
+            Prelude.<$> (x Data..?> "DirectoryConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,40 +172,40 @@ instance Prelude.NFData UpdateDirectoryConfig where
       `Prelude.seq` Prelude.rnf certificateBasedAuthProperties
       `Prelude.seq` Prelude.rnf directoryName
 
-instance Core.ToHeaders UpdateDirectoryConfig where
+instance Data.ToHeaders UpdateDirectoryConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.UpdateDirectoryConfig" ::
+              Data.=# ( "PhotonAdminProxyService.UpdateDirectoryConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDirectoryConfig where
+instance Data.ToJSON UpdateDirectoryConfig where
   toJSON UpdateDirectoryConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ServiceAccountCredentials" Core..=)
+          [ ("ServiceAccountCredentials" Data..=)
               Prelude.<$> serviceAccountCredentials,
-            ("OrganizationalUnitDistinguishedNames" Core..=)
+            ("OrganizationalUnitDistinguishedNames" Data..=)
               Prelude.<$> organizationalUnitDistinguishedNames,
-            ("CertificateBasedAuthProperties" Core..=)
+            ("CertificateBasedAuthProperties" Data..=)
               Prelude.<$> certificateBasedAuthProperties,
             Prelude.Just
-              ("DirectoryName" Core..= directoryName)
+              ("DirectoryName" Data..= directoryName)
           ]
       )
 
-instance Core.ToPath UpdateDirectoryConfig where
+instance Data.ToPath UpdateDirectoryConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDirectoryConfig where
+instance Data.ToQuery UpdateDirectoryConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDirectoryConfigResponse' smart constructor.

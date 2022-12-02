@@ -22,6 +22,7 @@ module Amazonka.AppStream.Types.AccessEndpoint where
 import Amazonka.AppStream.Types.AccessEndpointType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an interface VPC endpoint (interface endpoint) that lets you
@@ -70,14 +71,14 @@ accessEndpoint_vpceId = Lens.lens (\AccessEndpoint' {vpceId} -> vpceId) (\s@Acce
 accessEndpoint_endpointType :: Lens.Lens' AccessEndpoint AccessEndpointType
 accessEndpoint_endpointType = Lens.lens (\AccessEndpoint' {endpointType} -> endpointType) (\s@AccessEndpoint' {} a -> s {endpointType = a} :: AccessEndpoint)
 
-instance Core.FromJSON AccessEndpoint where
+instance Data.FromJSON AccessEndpoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccessEndpoint"
       ( \x ->
           AccessEndpoint'
-            Prelude.<$> (x Core..:? "VpceId")
-            Prelude.<*> (x Core..: "EndpointType")
+            Prelude.<$> (x Data..:? "VpceId")
+            Prelude.<*> (x Data..: "EndpointType")
       )
 
 instance Prelude.Hashable AccessEndpoint where
@@ -90,11 +91,11 @@ instance Prelude.NFData AccessEndpoint where
     Prelude.rnf vpceId
       `Prelude.seq` Prelude.rnf endpointType
 
-instance Core.ToJSON AccessEndpoint where
+instance Data.ToJSON AccessEndpoint where
   toJSON AccessEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VpceId" Core..=) Prelude.<$> vpceId,
-            Prelude.Just ("EndpointType" Core..= endpointType)
+          [ ("VpceId" Data..=) Prelude.<$> vpceId,
+            Prelude.Just ("EndpointType" Data..= endpointType)
           ]
       )

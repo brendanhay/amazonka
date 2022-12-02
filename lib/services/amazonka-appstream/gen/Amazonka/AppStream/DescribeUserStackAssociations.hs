@@ -55,6 +55,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -70,7 +71,7 @@ data DescribeUserStackAssociations = DescribeUserStackAssociations'
     -- | The email address of the user who is associated with the stack.
     --
     -- Users\' email addresses are case-sensitive.
-    userName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    userName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the stack that is associated with the user.
     stackName :: Prelude.Maybe Prelude.Text,
     -- | The maximum size of each page of results.
@@ -125,7 +126,7 @@ describeUserStackAssociations_authenticationType = Lens.lens (\DescribeUserStack
 --
 -- Users\' email addresses are case-sensitive.
 describeUserStackAssociations_userName :: Lens.Lens' DescribeUserStackAssociations (Prelude.Maybe Prelude.Text)
-describeUserStackAssociations_userName = Lens.lens (\DescribeUserStackAssociations' {userName} -> userName) (\s@DescribeUserStackAssociations' {} a -> s {userName = a} :: DescribeUserStackAssociations) Prelude.. Lens.mapping Core._Sensitive
+describeUserStackAssociations_userName = Lens.lens (\DescribeUserStackAssociations' {userName} -> userName) (\s@DescribeUserStackAssociations' {} a -> s {userName = a} :: DescribeUserStackAssociations) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the stack that is associated with the user.
 describeUserStackAssociations_stackName :: Lens.Lens' DescribeUserStackAssociations (Prelude.Maybe Prelude.Text)
@@ -171,8 +172,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeUserStackAssociationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "UserStackAssociations")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "UserStackAssociations")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -195,38 +196,38 @@ instance Prelude.NFData DescribeUserStackAssociations where
       `Prelude.seq` Prelude.rnf stackName
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeUserStackAssociations where
+instance Data.ToHeaders DescribeUserStackAssociations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.DescribeUserStackAssociations" ::
+              Data.=# ( "PhotonAdminProxyService.DescribeUserStackAssociations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeUserStackAssociations where
+instance Data.ToJSON DescribeUserStackAssociations where
   toJSON DescribeUserStackAssociations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("AuthenticationType" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("AuthenticationType" Data..=)
               Prelude.<$> authenticationType,
-            ("UserName" Core..=) Prelude.<$> userName,
-            ("StackName" Core..=) Prelude.<$> stackName,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("UserName" Data..=) Prelude.<$> userName,
+            ("StackName" Data..=) Prelude.<$> stackName,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeUserStackAssociations where
+instance Data.ToPath DescribeUserStackAssociations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeUserStackAssociations where
+instance Data.ToQuery DescribeUserStackAssociations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeUserStackAssociationsResponse' smart constructor.

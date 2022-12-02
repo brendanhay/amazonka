@@ -48,6 +48,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,8 +122,8 @@ instance Core.AWSRequest DescribeStacks where
     Response.receiveJSON
       ( \s h x ->
           DescribeStacksResponse'
-            Prelude.<$> (x Core..?> "Stacks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Stacks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,34 +137,34 @@ instance Prelude.NFData DescribeStacks where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf names
 
-instance Core.ToHeaders DescribeStacks where
+instance Data.ToHeaders DescribeStacks where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.DescribeStacks" ::
+              Data.=# ( "PhotonAdminProxyService.DescribeStacks" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeStacks where
+instance Data.ToJSON DescribeStacks where
   toJSON DescribeStacks' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Names" Core..=) Prelude.<$> names
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Names" Data..=) Prelude.<$> names
           ]
       )
 
-instance Core.ToPath DescribeStacks where
+instance Data.ToPath DescribeStacks where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeStacks where
+instance Data.ToQuery DescribeStacks where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeStacksResponse' smart constructor.

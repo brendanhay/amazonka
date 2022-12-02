@@ -63,6 +63,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -784,7 +785,7 @@ instance Core.AWSRequest CreateFleet where
     Response.receiveJSON
       ( \s h x ->
           CreateFleetResponse'
-            Prelude.<$> (x Core..?> "Fleet")
+            Prelude.<$> (x Data..?> "Fleet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -838,62 +839,62 @@ instance Prelude.NFData CreateFleet where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf instanceType
 
-instance Core.ToHeaders CreateFleet where
+instance Data.ToHeaders CreateFleet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.CreateFleet" ::
+              Data.=# ( "PhotonAdminProxyService.CreateFleet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFleet where
+instance Data.ToJSON CreateFleet where
   toJSON CreateFleet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("SessionScriptS3Location" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("SessionScriptS3Location" Data..=)
               Prelude.<$> sessionScriptS3Location,
-            ("MaxConcurrentSessions" Core..=)
+            ("MaxConcurrentSessions" Data..=)
               Prelude.<$> maxConcurrentSessions,
-            ("FleetType" Core..=) Prelude.<$> fleetType,
-            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("ImageArn" Core..=) Prelude.<$> imageArn,
-            ("Platform" Core..=) Prelude.<$> platform,
-            ("Description" Core..=) Prelude.<$> description,
-            ("DisconnectTimeoutInSeconds" Core..=)
+            ("FleetType" Data..=) Prelude.<$> fleetType,
+            ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("DisplayName" Data..=) Prelude.<$> displayName,
+            ("ImageArn" Data..=) Prelude.<$> imageArn,
+            ("Platform" Data..=) Prelude.<$> platform,
+            ("Description" Data..=) Prelude.<$> description,
+            ("DisconnectTimeoutInSeconds" Data..=)
               Prelude.<$> disconnectTimeoutInSeconds,
-            ("IdleDisconnectTimeoutInSeconds" Core..=)
+            ("IdleDisconnectTimeoutInSeconds" Data..=)
               Prelude.<$> idleDisconnectTimeoutInSeconds,
-            ("IamRoleArn" Core..=) Prelude.<$> iamRoleArn,
-            ("UsbDeviceFilterStrings" Core..=)
+            ("IamRoleArn" Data..=) Prelude.<$> iamRoleArn,
+            ("UsbDeviceFilterStrings" Data..=)
               Prelude.<$> usbDeviceFilterStrings,
-            ("DomainJoinInfo" Core..=)
+            ("DomainJoinInfo" Data..=)
               Prelude.<$> domainJoinInfo,
-            ("StreamView" Core..=) Prelude.<$> streamView,
-            ("EnableDefaultInternetAccess" Core..=)
+            ("StreamView" Data..=) Prelude.<$> streamView,
+            ("EnableDefaultInternetAccess" Data..=)
               Prelude.<$> enableDefaultInternetAccess,
-            ("ComputeCapacity" Core..=)
+            ("ComputeCapacity" Data..=)
               Prelude.<$> computeCapacity,
-            ("ImageName" Core..=) Prelude.<$> imageName,
-            ("MaxUserDurationInSeconds" Core..=)
+            ("ImageName" Data..=) Prelude.<$> imageName,
+            ("MaxUserDurationInSeconds" Data..=)
               Prelude.<$> maxUserDurationInSeconds,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("InstanceType" Core..= instanceType)
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("InstanceType" Data..= instanceType)
           ]
       )
 
-instance Core.ToPath CreateFleet where
+instance Data.ToPath CreateFleet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateFleet where
+instance Data.ToQuery CreateFleet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFleetResponse' smart constructor.

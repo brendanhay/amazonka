@@ -42,6 +42,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest DeleteImageBuilder where
     Response.receiveJSON
       ( \s h x ->
           DeleteImageBuilderResponse'
-            Prelude.<$> (x Core..?> "ImageBuilder")
+            Prelude.<$> (x Data..?> "ImageBuilder")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,32 +95,32 @@ instance Prelude.Hashable DeleteImageBuilder where
 instance Prelude.NFData DeleteImageBuilder where
   rnf DeleteImageBuilder' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteImageBuilder where
+instance Data.ToHeaders DeleteImageBuilder where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.DeleteImageBuilder" ::
+              Data.=# ( "PhotonAdminProxyService.DeleteImageBuilder" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteImageBuilder where
+instance Data.ToJSON DeleteImageBuilder where
   toJSON DeleteImageBuilder' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath DeleteImageBuilder where
+instance Data.ToPath DeleteImageBuilder where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteImageBuilder where
+instance Data.ToQuery DeleteImageBuilder where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteImageBuilderResponse' smart constructor.

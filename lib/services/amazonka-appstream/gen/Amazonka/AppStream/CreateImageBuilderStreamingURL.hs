@@ -44,6 +44,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,8 +104,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateImageBuilderStreamingURLResponse'
-            Prelude.<$> (x Core..?> "StreamingURL")
-            Prelude.<*> (x Core..?> "Expires")
+            Prelude.<$> (x Data..?> "StreamingURL")
+            Prelude.<*> (x Data..?> "Expires")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,36 +127,36 @@ instance
     Prelude.rnf validity `Prelude.seq` Prelude.rnf name
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateImageBuilderStreamingURL
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.CreateImageBuilderStreamingURL" ::
+              Data.=# ( "PhotonAdminProxyService.CreateImageBuilderStreamingURL" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateImageBuilderStreamingURL where
+instance Data.ToJSON CreateImageBuilderStreamingURL where
   toJSON CreateImageBuilderStreamingURL' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Validity" Core..=) Prelude.<$> validity,
-            Prelude.Just ("Name" Core..= name)
+          [ ("Validity" Data..=) Prelude.<$> validity,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateImageBuilderStreamingURL where
+instance Data.ToPath CreateImageBuilderStreamingURL where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateImageBuilderStreamingURL where
+instance Data.ToQuery CreateImageBuilderStreamingURL where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateImageBuilderStreamingURLResponse' smart constructor.
@@ -164,7 +165,7 @@ data CreateImageBuilderStreamingURLResponse = CreateImageBuilderStreamingURLResp
     streamingURL :: Prelude.Maybe Prelude.Text,
     -- | The elapsed time, in seconds after the Unix epoch, when this URL
     -- expires.
-    expires :: Prelude.Maybe Core.POSIX,
+    expires :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -204,7 +205,7 @@ createImageBuilderStreamingURLResponse_streamingURL = Lens.lens (\CreateImageBui
 -- | The elapsed time, in seconds after the Unix epoch, when this URL
 -- expires.
 createImageBuilderStreamingURLResponse_expires :: Lens.Lens' CreateImageBuilderStreamingURLResponse (Prelude.Maybe Prelude.UTCTime)
-createImageBuilderStreamingURLResponse_expires = Lens.lens (\CreateImageBuilderStreamingURLResponse' {expires} -> expires) (\s@CreateImageBuilderStreamingURLResponse' {} a -> s {expires = a} :: CreateImageBuilderStreamingURLResponse) Prelude.. Lens.mapping Core._Time
+createImageBuilderStreamingURLResponse_expires = Lens.lens (\CreateImageBuilderStreamingURLResponse' {expires} -> expires) (\s@CreateImageBuilderStreamingURLResponse' {} a -> s {expires = a} :: CreateImageBuilderStreamingURLResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 createImageBuilderStreamingURLResponse_httpStatus :: Lens.Lens' CreateImageBuilderStreamingURLResponse Prelude.Int

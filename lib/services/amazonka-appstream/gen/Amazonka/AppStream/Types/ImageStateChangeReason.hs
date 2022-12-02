@@ -22,6 +22,7 @@ module Amazonka.AppStream.Types.ImageStateChangeReason where
 import Amazonka.AppStream.Types.ImageStateChangeReasonCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the reason why the last image state change occurred.
@@ -62,14 +63,14 @@ imageStateChangeReason_message = Lens.lens (\ImageStateChangeReason' {message} -
 imageStateChangeReason_code :: Lens.Lens' ImageStateChangeReason (Prelude.Maybe ImageStateChangeReasonCode)
 imageStateChangeReason_code = Lens.lens (\ImageStateChangeReason' {code} -> code) (\s@ImageStateChangeReason' {} a -> s {code = a} :: ImageStateChangeReason)
 
-instance Core.FromJSON ImageStateChangeReason where
+instance Data.FromJSON ImageStateChangeReason where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageStateChangeReason"
       ( \x ->
           ImageStateChangeReason'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Code")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Code")
       )
 
 instance Prelude.Hashable ImageStateChangeReason where

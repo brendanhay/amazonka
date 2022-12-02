@@ -61,6 +61,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -216,7 +217,7 @@ instance Core.AWSRequest CreateApplication where
     Response.receiveJSON
       ( \s h x ->
           CreateApplicationResponse'
-            Prelude.<$> (x Core..?> "Application")
+            Prelude.<$> (x Data..?> "Application")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -248,47 +249,47 @@ instance Prelude.NFData CreateApplication where
       `Prelude.seq` Prelude.rnf instanceFamilies
       `Prelude.seq` Prelude.rnf appBlockArn
 
-instance Core.ToHeaders CreateApplication where
+instance Data.ToHeaders CreateApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.CreateApplication" ::
+              Data.=# ( "PhotonAdminProxyService.CreateApplication" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateApplication where
+instance Data.ToJSON CreateApplication where
   toJSON CreateApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("Description" Core..=) Prelude.<$> description,
-            ("LaunchParameters" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("DisplayName" Data..=) Prelude.<$> displayName,
+            ("Description" Data..=) Prelude.<$> description,
+            ("LaunchParameters" Data..=)
               Prelude.<$> launchParameters,
-            ("WorkingDirectory" Core..=)
+            ("WorkingDirectory" Data..=)
               Prelude.<$> workingDirectory,
-            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("IconS3Location" Core..= iconS3Location),
-            Prelude.Just ("LaunchPath" Core..= launchPath),
-            Prelude.Just ("Platforms" Core..= platforms),
+              ("IconS3Location" Data..= iconS3Location),
+            Prelude.Just ("LaunchPath" Data..= launchPath),
+            Prelude.Just ("Platforms" Data..= platforms),
             Prelude.Just
-              ("InstanceFamilies" Core..= instanceFamilies),
-            Prelude.Just ("AppBlockArn" Core..= appBlockArn)
+              ("InstanceFamilies" Data..= instanceFamilies),
+            Prelude.Just ("AppBlockArn" Data..= appBlockArn)
           ]
       )
 
-instance Core.ToPath CreateApplication where
+instance Data.ToPath CreateApplication where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateApplication where
+instance Data.ToQuery CreateApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateApplicationResponse' smart constructor.

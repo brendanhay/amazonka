@@ -46,6 +46,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,7 +128,7 @@ instance Core.AWSRequest UpdateEntitlement where
     Response.receiveJSON
       ( \s h x ->
           UpdateEntitlementResponse'
-            Prelude.<$> (x Core..?> "Entitlement")
+            Prelude.<$> (x Data..?> "Entitlement")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,37 +148,37 @@ instance Prelude.NFData UpdateEntitlement where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf stackName
 
-instance Core.ToHeaders UpdateEntitlement where
+instance Data.ToHeaders UpdateEntitlement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.UpdateEntitlement" ::
+              Data.=# ( "PhotonAdminProxyService.UpdateEntitlement" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateEntitlement where
+instance Data.ToJSON UpdateEntitlement where
   toJSON UpdateEntitlement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("Attributes" Core..=) Prelude.<$> attributes,
-            ("AppVisibility" Core..=) Prelude.<$> appVisibility,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("StackName" Core..= stackName)
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Attributes" Data..=) Prelude.<$> attributes,
+            ("AppVisibility" Data..=) Prelude.<$> appVisibility,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("StackName" Data..= stackName)
           ]
       )
 
-instance Core.ToPath UpdateEntitlement where
+instance Data.ToPath UpdateEntitlement where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateEntitlement where
+instance Data.ToQuery UpdateEntitlement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEntitlementResponse' smart constructor.

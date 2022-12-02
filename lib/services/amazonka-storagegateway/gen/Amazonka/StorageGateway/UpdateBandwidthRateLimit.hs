@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -125,7 +126,7 @@ instance Core.AWSRequest UpdateBandwidthRateLimit where
     Response.receiveJSON
       ( \s h x ->
           UpdateBandwidthRateLimitResponse'
-            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<$> (x Data..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,37 +143,37 @@ instance Prelude.NFData UpdateBandwidthRateLimit where
       `Prelude.seq` Prelude.rnf averageDownloadRateLimitInBitsPerSec
       `Prelude.seq` Prelude.rnf gatewayARN
 
-instance Core.ToHeaders UpdateBandwidthRateLimit where
+instance Data.ToHeaders UpdateBandwidthRateLimit where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.UpdateBandwidthRateLimit" ::
+              Data.=# ( "StorageGateway_20130630.UpdateBandwidthRateLimit" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateBandwidthRateLimit where
+instance Data.ToJSON UpdateBandwidthRateLimit where
   toJSON UpdateBandwidthRateLimit' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AverageUploadRateLimitInBitsPerSec" Core..=)
+          [ ("AverageUploadRateLimitInBitsPerSec" Data..=)
               Prelude.<$> averageUploadRateLimitInBitsPerSec,
-            ("AverageDownloadRateLimitInBitsPerSec" Core..=)
+            ("AverageDownloadRateLimitInBitsPerSec" Data..=)
               Prelude.<$> averageDownloadRateLimitInBitsPerSec,
-            Prelude.Just ("GatewayARN" Core..= gatewayARN)
+            Prelude.Just ("GatewayARN" Data..= gatewayARN)
           ]
       )
 
-instance Core.ToPath UpdateBandwidthRateLimit where
+instance Data.ToPath UpdateBandwidthRateLimit where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateBandwidthRateLimit where
+instance Data.ToQuery UpdateBandwidthRateLimit where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway

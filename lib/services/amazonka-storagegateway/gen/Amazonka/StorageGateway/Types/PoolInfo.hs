@@ -21,6 +21,7 @@ module Amazonka.StorageGateway.Types.PoolInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StorageGateway.Types.PoolStatus
 import Amazonka.StorageGateway.Types.RetentionLockType
@@ -136,18 +137,18 @@ poolInfo_poolName = Lens.lens (\PoolInfo' {poolName} -> poolName) (\s@PoolInfo' 
 poolInfo_storageClass :: Lens.Lens' PoolInfo (Prelude.Maybe TapeStorageClass)
 poolInfo_storageClass = Lens.lens (\PoolInfo' {storageClass} -> storageClass) (\s@PoolInfo' {} a -> s {storageClass = a} :: PoolInfo)
 
-instance Core.FromJSON PoolInfo where
+instance Data.FromJSON PoolInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PoolInfo"
       ( \x ->
           PoolInfo'
-            Prelude.<$> (x Core..:? "PoolARN")
-            Prelude.<*> (x Core..:? "RetentionLockTimeInDays")
-            Prelude.<*> (x Core..:? "RetentionLockType")
-            Prelude.<*> (x Core..:? "PoolStatus")
-            Prelude.<*> (x Core..:? "PoolName")
-            Prelude.<*> (x Core..:? "StorageClass")
+            Prelude.<$> (x Data..:? "PoolARN")
+            Prelude.<*> (x Data..:? "RetentionLockTimeInDays")
+            Prelude.<*> (x Data..:? "RetentionLockType")
+            Prelude.<*> (x Data..:? "PoolStatus")
+            Prelude.<*> (x Data..:? "PoolName")
+            Prelude.<*> (x Data..:? "StorageClass")
       )
 
 instance Prelude.Hashable PoolInfo where

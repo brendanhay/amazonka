@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,8 +137,8 @@ instance Core.AWSRequest ListGateways where
     Response.receiveJSON
       ( \s h x ->
           ListGatewaysResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "Gateways" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "Gateways" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,34 +151,34 @@ instance Prelude.NFData ListGateways where
   rnf ListGateways' {..} =
     Prelude.rnf marker `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders ListGateways where
+instance Data.ToHeaders ListGateways where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.ListGateways" ::
+              Data.=# ( "StorageGateway_20130630.ListGateways" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListGateways where
+instance Data.ToJSON ListGateways where
   toJSON ListGateways' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
-instance Core.ToPath ListGateways where
+instance Data.ToPath ListGateways where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListGateways where
+instance Data.ToQuery ListGateways where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListGatewaysResponse' smart constructor.

@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,8 +98,8 @@ instance Core.AWSRequest NotifyWhenUploaded where
     Response.receiveJSON
       ( \s h x ->
           NotifyWhenUploadedResponse'
-            Prelude.<$> (x Core..?> "FileShareARN")
-            Prelude.<*> (x Core..?> "NotificationId")
+            Prelude.<$> (x Data..?> "FileShareARN")
+            Prelude.<*> (x Data..?> "NotificationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,32 +111,32 @@ instance Prelude.NFData NotifyWhenUploaded where
   rnf NotifyWhenUploaded' {..} =
     Prelude.rnf fileShareARN
 
-instance Core.ToHeaders NotifyWhenUploaded where
+instance Data.ToHeaders NotifyWhenUploaded where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.NotifyWhenUploaded" ::
+              Data.=# ( "StorageGateway_20130630.NotifyWhenUploaded" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON NotifyWhenUploaded where
+instance Data.ToJSON NotifyWhenUploaded where
   toJSON NotifyWhenUploaded' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("FileShareARN" Core..= fileShareARN)]
+          [Prelude.Just ("FileShareARN" Data..= fileShareARN)]
       )
 
-instance Core.ToPath NotifyWhenUploaded where
+instance Data.ToPath NotifyWhenUploaded where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery NotifyWhenUploaded where
+instance Data.ToQuery NotifyWhenUploaded where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newNotifyWhenUploadedResponse' smart constructor.

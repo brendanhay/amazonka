@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,7 +128,7 @@ instance Core.AWSRequest DeleteTape where
     Response.receiveJSON
       ( \s h x ->
           DeleteTapeResponse'
-            Prelude.<$> (x Core..?> "TapeARN")
+            Prelude.<$> (x Data..?> "TapeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,36 +145,36 @@ instance Prelude.NFData DeleteTape where
       `Prelude.seq` Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf tapeARN
 
-instance Core.ToHeaders DeleteTape where
+instance Data.ToHeaders DeleteTape where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DeleteTape" ::
+              Data.=# ( "StorageGateway_20130630.DeleteTape" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteTape where
+instance Data.ToJSON DeleteTape where
   toJSON DeleteTape' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BypassGovernanceRetention" Core..=)
+          [ ("BypassGovernanceRetention" Data..=)
               Prelude.<$> bypassGovernanceRetention,
-            Prelude.Just ("GatewayARN" Core..= gatewayARN),
-            Prelude.Just ("TapeARN" Core..= tapeARN)
+            Prelude.Just ("GatewayARN" Data..= gatewayARN),
+            Prelude.Just ("TapeARN" Data..= tapeARN)
           ]
       )
 
-instance Core.ToPath DeleteTape where
+instance Data.ToPath DeleteTape where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteTape where
+instance Data.ToQuery DeleteTape where
   toQuery = Prelude.const Prelude.mempty
 
 -- | DeleteTapeOutput

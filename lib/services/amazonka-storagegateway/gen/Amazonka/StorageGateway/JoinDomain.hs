@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ data JoinDomain = JoinDomain'
     userName :: Prelude.Text,
     -- | Sets the password of the user who has permission to add the gateway to
     -- the Active Directory domain.
-    password :: Core.Sensitive Prelude.Text
+    password :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -142,7 +143,7 @@ newJoinDomain
         gatewayARN = pGatewayARN_,
         domainName = pDomainName_,
         userName = pUserName_,
-        password = Core._Sensitive Lens.# pPassword_
+        password = Data._Sensitive Lens.# pPassword_
       }
 
 -- | The organizational unit (OU) is a container in an Active Directory that
@@ -183,7 +184,7 @@ joinDomain_userName = Lens.lens (\JoinDomain' {userName} -> userName) (\s@JoinDo
 -- | Sets the password of the user who has permission to add the gateway to
 -- the Active Directory domain.
 joinDomain_password :: Lens.Lens' JoinDomain Prelude.Text
-joinDomain_password = Lens.lens (\JoinDomain' {password} -> password) (\s@JoinDomain' {} a -> s {password = a} :: JoinDomain) Prelude.. Core._Sensitive
+joinDomain_password = Lens.lens (\JoinDomain' {password} -> password) (\s@JoinDomain' {} a -> s {password = a} :: JoinDomain) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest JoinDomain where
   type AWSResponse JoinDomain = JoinDomainResponse
@@ -193,8 +194,8 @@ instance Core.AWSRequest JoinDomain where
     Response.receiveJSON
       ( \s h x ->
           JoinDomainResponse'
-            Prelude.<$> (x Core..?> "GatewayARN")
-            Prelude.<*> (x Core..?> "ActiveDirectoryStatus")
+            Prelude.<$> (x Data..?> "GatewayARN")
+            Prelude.<*> (x Data..?> "ActiveDirectoryStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -218,42 +219,42 @@ instance Prelude.NFData JoinDomain where
       `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf password
 
-instance Core.ToHeaders JoinDomain where
+instance Data.ToHeaders JoinDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.JoinDomain" ::
+              Data.=# ( "StorageGateway_20130630.JoinDomain" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON JoinDomain where
+instance Data.ToJSON JoinDomain where
   toJSON JoinDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OrganizationalUnit" Core..=)
+          [ ("OrganizationalUnit" Data..=)
               Prelude.<$> organizationalUnit,
-            ("TimeoutInSeconds" Core..=)
+            ("TimeoutInSeconds" Data..=)
               Prelude.<$> timeoutInSeconds,
-            ("DomainControllers" Core..=)
+            ("DomainControllers" Data..=)
               Prelude.<$> domainControllers,
-            Prelude.Just ("GatewayARN" Core..= gatewayARN),
-            Prelude.Just ("DomainName" Core..= domainName),
-            Prelude.Just ("UserName" Core..= userName),
-            Prelude.Just ("Password" Core..= password)
+            Prelude.Just ("GatewayARN" Data..= gatewayARN),
+            Prelude.Just ("DomainName" Data..= domainName),
+            Prelude.Just ("UserName" Data..= userName),
+            Prelude.Just ("Password" Data..= password)
           ]
       )
 
-instance Core.ToPath JoinDomain where
+instance Data.ToPath JoinDomain where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery JoinDomain where
+instance Data.ToQuery JoinDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | JoinDomainOutput

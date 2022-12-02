@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,7 +104,7 @@ instance Core.AWSRequest CancelArchival where
     Response.receiveJSON
       ( \s h x ->
           CancelArchivalResponse'
-            Prelude.<$> (x Core..?> "TapeARN")
+            Prelude.<$> (x Data..?> "TapeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,34 +118,34 @@ instance Prelude.NFData CancelArchival where
     Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf tapeARN
 
-instance Core.ToHeaders CancelArchival where
+instance Data.ToHeaders CancelArchival where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.CancelArchival" ::
+              Data.=# ( "StorageGateway_20130630.CancelArchival" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelArchival where
+instance Data.ToJSON CancelArchival where
   toJSON CancelArchival' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("GatewayARN" Core..= gatewayARN),
-            Prelude.Just ("TapeARN" Core..= tapeARN)
+          [ Prelude.Just ("GatewayARN" Data..= gatewayARN),
+            Prelude.Just ("TapeARN" Data..= tapeARN)
           ]
       )
 
-instance Core.ToPath CancelArchival where
+instance Data.ToPath CancelArchival where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelArchival where
+instance Data.ToQuery CancelArchival where
   toQuery = Prelude.const Prelude.mempty
 
 -- | CancelArchivalOutput

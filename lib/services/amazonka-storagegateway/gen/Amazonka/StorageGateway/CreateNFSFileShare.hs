@@ -77,6 +77,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -607,7 +608,7 @@ instance Core.AWSRequest CreateNFSFileShare where
     Response.receiveJSON
       ( \s h x ->
           CreateNFSFileShareResponse'
-            Prelude.<$> (x Core..?> "FileShareARN")
+            Prelude.<$> (x Data..?> "FileShareARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -659,60 +660,60 @@ instance Prelude.NFData CreateNFSFileShare where
       `Prelude.seq` Prelude.rnf role'
       `Prelude.seq` Prelude.rnf locationARN
 
-instance Core.ToHeaders CreateNFSFileShare where
+instance Data.ToHeaders CreateNFSFileShare where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.CreateNFSFileShare" ::
+              Data.=# ( "StorageGateway_20130630.CreateNFSFileShare" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateNFSFileShare where
+instance Data.ToJSON CreateNFSFileShare where
   toJSON CreateNFSFileShare' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Squash" Core..=) Prelude.<$> squash,
-            ("NFSFileShareDefaults" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Squash" Data..=) Prelude.<$> squash,
+            ("NFSFileShareDefaults" Data..=)
               Prelude.<$> nFSFileShareDefaults,
-            ("FileShareName" Core..=) Prelude.<$> fileShareName,
-            ("RequesterPays" Core..=) Prelude.<$> requesterPays,
-            ("ObjectACL" Core..=) Prelude.<$> objectACL,
-            ("KMSKey" Core..=) Prelude.<$> kmsKey,
-            ("VPCEndpointDNSName" Core..=)
+            ("FileShareName" Data..=) Prelude.<$> fileShareName,
+            ("RequesterPays" Data..=) Prelude.<$> requesterPays,
+            ("ObjectACL" Data..=) Prelude.<$> objectACL,
+            ("KMSKey" Data..=) Prelude.<$> kmsKey,
+            ("VPCEndpointDNSName" Data..=)
               Prelude.<$> vPCEndpointDNSName,
-            ("KMSEncrypted" Core..=) Prelude.<$> kmsEncrypted,
-            ("DefaultStorageClass" Core..=)
+            ("KMSEncrypted" Data..=) Prelude.<$> kmsEncrypted,
+            ("DefaultStorageClass" Data..=)
               Prelude.<$> defaultStorageClass,
-            ("CacheAttributes" Core..=)
+            ("CacheAttributes" Data..=)
               Prelude.<$> cacheAttributes,
-            ("ReadOnly" Core..=) Prelude.<$> readOnly,
-            ("BucketRegion" Core..=) Prelude.<$> bucketRegion,
-            ("AuditDestinationARN" Core..=)
+            ("ReadOnly" Data..=) Prelude.<$> readOnly,
+            ("BucketRegion" Data..=) Prelude.<$> bucketRegion,
+            ("AuditDestinationARN" Data..=)
               Prelude.<$> auditDestinationARN,
-            ("ClientList" Core..=) Prelude.<$> clientList,
-            ("GuessMIMETypeEnabled" Core..=)
+            ("ClientList" Data..=) Prelude.<$> clientList,
+            ("GuessMIMETypeEnabled" Data..=)
               Prelude.<$> guessMIMETypeEnabled,
-            ("NotificationPolicy" Core..=)
+            ("NotificationPolicy" Data..=)
               Prelude.<$> notificationPolicy,
-            Prelude.Just ("ClientToken" Core..= clientToken),
-            Prelude.Just ("GatewayARN" Core..= gatewayARN),
-            Prelude.Just ("Role" Core..= role'),
-            Prelude.Just ("LocationARN" Core..= locationARN)
+            Prelude.Just ("ClientToken" Data..= clientToken),
+            Prelude.Just ("GatewayARN" Data..= gatewayARN),
+            Prelude.Just ("Role" Data..= role'),
+            Prelude.Just ("LocationARN" Data..= locationARN)
           ]
       )
 
-instance Core.ToPath CreateNFSFileShare where
+instance Data.ToPath CreateNFSFileShare where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateNFSFileShare where
+instance Data.ToQuery CreateNFSFileShare where
   toQuery = Prelude.const Prelude.mempty
 
 -- | CreateNFSFileShareOutput

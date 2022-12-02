@@ -21,6 +21,7 @@ module Amazonka.StorageGateway.Types.CachediSCSIVolume where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StorageGateway.Types.VolumeiSCSIAttributes
 
@@ -82,7 +83,7 @@ data CachediSCSIVolume = CachediSCSIVolume'
     volumeARN :: Prelude.Maybe Prelude.Text,
     -- | The date the volume was created. Volumes created prior to March 28, 2017
     -- don’t have this timestamp.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of the volume, e.g., vol-AE4B946D.
     volumeId :: Prelude.Maybe Prelude.Text
   }
@@ -251,31 +252,31 @@ cachediSCSIVolume_volumeARN = Lens.lens (\CachediSCSIVolume' {volumeARN} -> volu
 -- | The date the volume was created. Volumes created prior to March 28, 2017
 -- don’t have this timestamp.
 cachediSCSIVolume_createdDate :: Lens.Lens' CachediSCSIVolume (Prelude.Maybe Prelude.UTCTime)
-cachediSCSIVolume_createdDate = Lens.lens (\CachediSCSIVolume' {createdDate} -> createdDate) (\s@CachediSCSIVolume' {} a -> s {createdDate = a} :: CachediSCSIVolume) Prelude.. Lens.mapping Core._Time
+cachediSCSIVolume_createdDate = Lens.lens (\CachediSCSIVolume' {createdDate} -> createdDate) (\s@CachediSCSIVolume' {} a -> s {createdDate = a} :: CachediSCSIVolume) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier of the volume, e.g., vol-AE4B946D.
 cachediSCSIVolume_volumeId :: Lens.Lens' CachediSCSIVolume (Prelude.Maybe Prelude.Text)
 cachediSCSIVolume_volumeId = Lens.lens (\CachediSCSIVolume' {volumeId} -> volumeId) (\s@CachediSCSIVolume' {} a -> s {volumeId = a} :: CachediSCSIVolume)
 
-instance Core.FromJSON CachediSCSIVolume where
+instance Data.FromJSON CachediSCSIVolume where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CachediSCSIVolume"
       ( \x ->
           CachediSCSIVolume'
-            Prelude.<$> (x Core..:? "VolumeUsedInBytes")
-            Prelude.<*> (x Core..:? "VolumeProgress")
-            Prelude.<*> (x Core..:? "VolumeSizeInBytes")
-            Prelude.<*> (x Core..:? "TargetName")
-            Prelude.<*> (x Core..:? "VolumeiSCSIAttributes")
-            Prelude.<*> (x Core..:? "VolumeStatus")
-            Prelude.<*> (x Core..:? "VolumeAttachmentStatus")
-            Prelude.<*> (x Core..:? "SourceSnapshotId")
-            Prelude.<*> (x Core..:? "KMSKey")
-            Prelude.<*> (x Core..:? "VolumeType")
-            Prelude.<*> (x Core..:? "VolumeARN")
-            Prelude.<*> (x Core..:? "CreatedDate")
-            Prelude.<*> (x Core..:? "VolumeId")
+            Prelude.<$> (x Data..:? "VolumeUsedInBytes")
+            Prelude.<*> (x Data..:? "VolumeProgress")
+            Prelude.<*> (x Data..:? "VolumeSizeInBytes")
+            Prelude.<*> (x Data..:? "TargetName")
+            Prelude.<*> (x Data..:? "VolumeiSCSIAttributes")
+            Prelude.<*> (x Data..:? "VolumeStatus")
+            Prelude.<*> (x Data..:? "VolumeAttachmentStatus")
+            Prelude.<*> (x Data..:? "SourceSnapshotId")
+            Prelude.<*> (x Data..:? "KMSKey")
+            Prelude.<*> (x Data..:? "VolumeType")
+            Prelude.<*> (x Data..:? "VolumeARN")
+            Prelude.<*> (x Data..:? "CreatedDate")
+            Prelude.<*> (x Data..:? "VolumeId")
       )
 
 instance Prelude.Hashable CachediSCSIVolume where

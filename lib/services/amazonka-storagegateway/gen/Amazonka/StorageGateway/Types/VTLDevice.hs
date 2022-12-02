@@ -21,6 +21,7 @@ module Amazonka.StorageGateway.Types.VTLDevice where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StorageGateway.Types.DeviceiSCSIAttributes
 
@@ -92,17 +93,17 @@ vTLDevice_deviceiSCSIAttributes = Lens.lens (\VTLDevice' {deviceiSCSIAttributes}
 vTLDevice_vTLDeviceARN :: Lens.Lens' VTLDevice (Prelude.Maybe Prelude.Text)
 vTLDevice_vTLDeviceARN = Lens.lens (\VTLDevice' {vTLDeviceARN} -> vTLDeviceARN) (\s@VTLDevice' {} a -> s {vTLDeviceARN = a} :: VTLDevice)
 
-instance Core.FromJSON VTLDevice where
+instance Data.FromJSON VTLDevice where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VTLDevice"
       ( \x ->
           VTLDevice'
-            Prelude.<$> (x Core..:? "VTLDeviceVendor")
-            Prelude.<*> (x Core..:? "VTLDeviceType")
-            Prelude.<*> (x Core..:? "VTLDeviceProductIdentifier")
-            Prelude.<*> (x Core..:? "DeviceiSCSIAttributes")
-            Prelude.<*> (x Core..:? "VTLDeviceARN")
+            Prelude.<$> (x Data..:? "VTLDeviceVendor")
+            Prelude.<*> (x Data..:? "VTLDeviceType")
+            Prelude.<*> (x Data..:? "VTLDeviceProductIdentifier")
+            Prelude.<*> (x Data..:? "DeviceiSCSIAttributes")
+            Prelude.<*> (x Data..:? "VTLDeviceARN")
       )
 
 instance Prelude.Hashable VTLDevice where

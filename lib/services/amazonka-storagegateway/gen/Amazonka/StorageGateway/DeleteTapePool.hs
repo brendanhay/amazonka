@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,7 +86,7 @@ instance Core.AWSRequest DeleteTapePool where
     Response.receiveJSON
       ( \s h x ->
           DeleteTapePoolResponse'
-            Prelude.<$> (x Core..?> "PoolARN")
+            Prelude.<$> (x Data..?> "PoolARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,32 +97,32 @@ instance Prelude.Hashable DeleteTapePool where
 instance Prelude.NFData DeleteTapePool where
   rnf DeleteTapePool' {..} = Prelude.rnf poolARN
 
-instance Core.ToHeaders DeleteTapePool where
+instance Data.ToHeaders DeleteTapePool where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DeleteTapePool" ::
+              Data.=# ( "StorageGateway_20130630.DeleteTapePool" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteTapePool where
+instance Data.ToJSON DeleteTapePool where
   toJSON DeleteTapePool' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("PoolARN" Core..= poolARN)]
+          [Prelude.Just ("PoolARN" Data..= poolARN)]
       )
 
-instance Core.ToPath DeleteTapePool where
+instance Data.ToPath DeleteTapePool where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteTapePool where
+instance Data.ToQuery DeleteTapePool where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteTapePoolResponse' smart constructor.

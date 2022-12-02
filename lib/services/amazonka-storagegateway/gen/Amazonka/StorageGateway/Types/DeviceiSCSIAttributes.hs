@@ -21,6 +21,7 @@ module Amazonka.StorageGateway.Types.DeviceiSCSIAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Lists iSCSI information about a VTL device.
@@ -83,16 +84,16 @@ deviceiSCSIAttributes_chapEnabled = Lens.lens (\DeviceiSCSIAttributes' {chapEnab
 deviceiSCSIAttributes_networkInterfaceId :: Lens.Lens' DeviceiSCSIAttributes (Prelude.Maybe Prelude.Text)
 deviceiSCSIAttributes_networkInterfaceId = Lens.lens (\DeviceiSCSIAttributes' {networkInterfaceId} -> networkInterfaceId) (\s@DeviceiSCSIAttributes' {} a -> s {networkInterfaceId = a} :: DeviceiSCSIAttributes)
 
-instance Core.FromJSON DeviceiSCSIAttributes where
+instance Data.FromJSON DeviceiSCSIAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceiSCSIAttributes"
       ( \x ->
           DeviceiSCSIAttributes'
-            Prelude.<$> (x Core..:? "NetworkInterfacePort")
-            Prelude.<*> (x Core..:? "TargetARN")
-            Prelude.<*> (x Core..:? "ChapEnabled")
-            Prelude.<*> (x Core..:? "NetworkInterfaceId")
+            Prelude.<$> (x Data..:? "NetworkInterfacePort")
+            Prelude.<*> (x Data..:? "TargetARN")
+            Prelude.<*> (x Data..:? "ChapEnabled")
+            Prelude.<*> (x Data..:? "NetworkInterfaceId")
       )
 
 instance Prelude.Hashable DeviceiSCSIAttributes where

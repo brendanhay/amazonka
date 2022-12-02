@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,7 +118,7 @@ instance Core.AWSRequest DeleteBandwidthRateLimit where
     Response.receiveJSON
       ( \s h x ->
           DeleteBandwidthRateLimitResponse'
-            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<$> (x Data..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,35 +132,35 @@ instance Prelude.NFData DeleteBandwidthRateLimit where
     Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf bandwidthType
 
-instance Core.ToHeaders DeleteBandwidthRateLimit where
+instance Data.ToHeaders DeleteBandwidthRateLimit where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DeleteBandwidthRateLimit" ::
+              Data.=# ( "StorageGateway_20130630.DeleteBandwidthRateLimit" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteBandwidthRateLimit where
+instance Data.ToJSON DeleteBandwidthRateLimit where
   toJSON DeleteBandwidthRateLimit' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("GatewayARN" Core..= gatewayARN),
+          [ Prelude.Just ("GatewayARN" Data..= gatewayARN),
             Prelude.Just
-              ("BandwidthType" Core..= bandwidthType)
+              ("BandwidthType" Data..= bandwidthType)
           ]
       )
 
-instance Core.ToPath DeleteBandwidthRateLimit where
+instance Data.ToPath DeleteBandwidthRateLimit where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteBandwidthRateLimit where
+instance Data.ToQuery DeleteBandwidthRateLimit where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway

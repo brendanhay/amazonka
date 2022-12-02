@@ -21,6 +21,7 @@ module Amazonka.StorageGateway.Types.GatewayInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StorageGateway.Types.HostEnvironment
 
@@ -152,21 +153,21 @@ gatewayInfo_hostEnvironmentId = Lens.lens (\GatewayInfo' {hostEnvironmentId} -> 
 gatewayInfo_hostEnvironment :: Lens.Lens' GatewayInfo (Prelude.Maybe HostEnvironment)
 gatewayInfo_hostEnvironment = Lens.lens (\GatewayInfo' {hostEnvironment} -> hostEnvironment) (\s@GatewayInfo' {} a -> s {hostEnvironment = a} :: GatewayInfo)
 
-instance Core.FromJSON GatewayInfo where
+instance Data.FromJSON GatewayInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GatewayInfo"
       ( \x ->
           GatewayInfo'
-            Prelude.<$> (x Core..:? "Ec2InstanceId")
-            Prelude.<*> (x Core..:? "GatewayName")
-            Prelude.<*> (x Core..:? "GatewayType")
-            Prelude.<*> (x Core..:? "GatewayARN")
-            Prelude.<*> (x Core..:? "GatewayOperationalState")
-            Prelude.<*> (x Core..:? "GatewayId")
-            Prelude.<*> (x Core..:? "Ec2InstanceRegion")
-            Prelude.<*> (x Core..:? "HostEnvironmentId")
-            Prelude.<*> (x Core..:? "HostEnvironment")
+            Prelude.<$> (x Data..:? "Ec2InstanceId")
+            Prelude.<*> (x Data..:? "GatewayName")
+            Prelude.<*> (x Data..:? "GatewayType")
+            Prelude.<*> (x Data..:? "GatewayARN")
+            Prelude.<*> (x Data..:? "GatewayOperationalState")
+            Prelude.<*> (x Data..:? "GatewayId")
+            Prelude.<*> (x Data..:? "Ec2InstanceRegion")
+            Prelude.<*> (x Data..:? "HostEnvironmentId")
+            Prelude.<*> (x Data..:? "HostEnvironment")
       )
 
 instance Prelude.Hashable GatewayInfo where

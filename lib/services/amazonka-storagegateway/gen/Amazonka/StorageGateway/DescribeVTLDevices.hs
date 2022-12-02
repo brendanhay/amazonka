@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -167,9 +168,9 @@ instance Core.AWSRequest DescribeVTLDevices where
     Response.receiveJSON
       ( \s h x ->
           DescribeVTLDevicesResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "GatewayARN")
-            Prelude.<*> (x Core..?> "VTLDevices" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "GatewayARN")
+            Prelude.<*> (x Data..?> "VTLDevices" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,36 +188,36 @@ instance Prelude.NFData DescribeVTLDevices where
       `Prelude.seq` Prelude.rnf vTLDeviceARNs
       `Prelude.seq` Prelude.rnf gatewayARN
 
-instance Core.ToHeaders DescribeVTLDevices where
+instance Data.ToHeaders DescribeVTLDevices where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DescribeVTLDevices" ::
+              Data.=# ( "StorageGateway_20130630.DescribeVTLDevices" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeVTLDevices where
+instance Data.ToJSON DescribeVTLDevices where
   toJSON DescribeVTLDevices' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("VTLDeviceARNs" Core..=) Prelude.<$> vTLDeviceARNs,
-            Prelude.Just ("GatewayARN" Core..= gatewayARN)
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("VTLDeviceARNs" Data..=) Prelude.<$> vTLDeviceARNs,
+            Prelude.Just ("GatewayARN" Data..= gatewayARN)
           ]
       )
 
-instance Core.ToPath DescribeVTLDevices where
+instance Data.ToPath DescribeVTLDevices where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeVTLDevices where
+instance Data.ToQuery DescribeVTLDevices where
   toQuery = Prelude.const Prelude.mempty
 
 -- | DescribeVTLDevicesOutput

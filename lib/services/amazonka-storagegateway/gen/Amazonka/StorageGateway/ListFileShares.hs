@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -148,11 +149,11 @@ instance Core.AWSRequest ListFileShares where
     Response.receiveJSON
       ( \s h x ->
           ListFileSharesResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> ( x Core..?> "FileShareInfoList"
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> ( x Data..?> "FileShareInfoList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,35 +169,35 @@ instance Prelude.NFData ListFileShares where
       `Prelude.seq` Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders ListFileShares where
+instance Data.ToHeaders ListFileShares where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.ListFileShares" ::
+              Data.=# ( "StorageGateway_20130630.ListFileShares" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListFileShares where
+instance Data.ToJSON ListFileShares where
   toJSON ListFileShares' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("GatewayARN" Core..=) Prelude.<$> gatewayARN,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("GatewayARN" Data..=) Prelude.<$> gatewayARN,
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
-instance Core.ToPath ListFileShares where
+instance Data.ToPath ListFileShares where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListFileShares where
+instance Data.ToQuery ListFileShares where
   toQuery = Prelude.const Prelude.mempty
 
 -- | ListFileShareOutput

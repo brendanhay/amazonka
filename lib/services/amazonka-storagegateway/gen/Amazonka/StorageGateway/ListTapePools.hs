@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -146,8 +147,8 @@ instance Core.AWSRequest ListTapePools where
     Response.receiveJSON
       ( \s h x ->
           ListTapePoolsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "PoolInfos" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "PoolInfos" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,35 +164,35 @@ instance Prelude.NFData ListTapePools where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf poolARNs
 
-instance Core.ToHeaders ListTapePools where
+instance Data.ToHeaders ListTapePools where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.ListTapePools" ::
+              Data.=# ( "StorageGateway_20130630.ListTapePools" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListTapePools where
+instance Data.ToJSON ListTapePools where
   toJSON ListTapePools' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("PoolARNs" Core..=) Prelude.<$> poolARNs
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("PoolARNs" Data..=) Prelude.<$> poolARNs
           ]
       )
 
-instance Core.ToPath ListTapePools where
+instance Data.ToPath ListTapePools where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTapePools where
+instance Data.ToQuery ListTapePools where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTapePoolsResponse' smart constructor.

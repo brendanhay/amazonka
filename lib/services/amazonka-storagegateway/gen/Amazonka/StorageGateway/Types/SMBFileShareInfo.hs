@@ -21,6 +21,7 @@ module Amazonka.StorageGateway.Types.SMBFileShareInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StorageGateway.Types.CacheAttributes
 import Amazonka.StorageGateway.Types.CaseSensitivity
@@ -556,43 +557,43 @@ sMBFileShareInfo_guessMIMETypeEnabled = Lens.lens (\SMBFileShareInfo' {guessMIME
 sMBFileShareInfo_notificationPolicy :: Lens.Lens' SMBFileShareInfo (Prelude.Maybe Prelude.Text)
 sMBFileShareInfo_notificationPolicy = Lens.lens (\SMBFileShareInfo' {notificationPolicy} -> notificationPolicy) (\s@SMBFileShareInfo' {} a -> s {notificationPolicy = a} :: SMBFileShareInfo)
 
-instance Core.FromJSON SMBFileShareInfo where
+instance Data.FromJSON SMBFileShareInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SMBFileShareInfo"
       ( \x ->
           SMBFileShareInfo'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ValidUserList" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Authentication")
-            Prelude.<*> (x Core..:? "FileShareStatus")
-            Prelude.<*> (x Core..:? "FileShareId")
-            Prelude.<*> (x Core..:? "FileShareName")
-            Prelude.<*> (x Core..:? "RequesterPays")
-            Prelude.<*> (x Core..:? "ObjectACL")
-            Prelude.<*> (x Core..:? "CaseSensitivity")
-            Prelude.<*> (x Core..:? "KMSKey")
-            Prelude.<*> (x Core..:? "SMBACLEnabled")
-            Prelude.<*> (x Core..:? "OplocksEnabled")
-            Prelude.<*> (x Core..:? "LocationARN")
-            Prelude.<*> (x Core..:? "Path")
-            Prelude.<*> (x Core..:? "FileShareARN")
-            Prelude.<*> (x Core..:? "VPCEndpointDNSName")
-            Prelude.<*> (x Core..:? "AccessBasedEnumeration")
-            Prelude.<*> (x Core..:? "GatewayARN")
-            Prelude.<*> ( x Core..:? "InvalidUserList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ValidUserList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Authentication")
+            Prelude.<*> (x Data..:? "FileShareStatus")
+            Prelude.<*> (x Data..:? "FileShareId")
+            Prelude.<*> (x Data..:? "FileShareName")
+            Prelude.<*> (x Data..:? "RequesterPays")
+            Prelude.<*> (x Data..:? "ObjectACL")
+            Prelude.<*> (x Data..:? "CaseSensitivity")
+            Prelude.<*> (x Data..:? "KMSKey")
+            Prelude.<*> (x Data..:? "SMBACLEnabled")
+            Prelude.<*> (x Data..:? "OplocksEnabled")
+            Prelude.<*> (x Data..:? "LocationARN")
+            Prelude.<*> (x Data..:? "Path")
+            Prelude.<*> (x Data..:? "FileShareARN")
+            Prelude.<*> (x Data..:? "VPCEndpointDNSName")
+            Prelude.<*> (x Data..:? "AccessBasedEnumeration")
+            Prelude.<*> (x Data..:? "GatewayARN")
+            Prelude.<*> ( x Data..:? "InvalidUserList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "AdminUserList" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "KMSEncrypted")
-            Prelude.<*> (x Core..:? "DefaultStorageClass")
-            Prelude.<*> (x Core..:? "CacheAttributes")
-            Prelude.<*> (x Core..:? "ReadOnly")
-            Prelude.<*> (x Core..:? "BucketRegion")
-            Prelude.<*> (x Core..:? "Role")
-            Prelude.<*> (x Core..:? "AuditDestinationARN")
-            Prelude.<*> (x Core..:? "GuessMIMETypeEnabled")
-            Prelude.<*> (x Core..:? "NotificationPolicy")
+            Prelude.<*> (x Data..:? "AdminUserList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "KMSEncrypted")
+            Prelude.<*> (x Data..:? "DefaultStorageClass")
+            Prelude.<*> (x Data..:? "CacheAttributes")
+            Prelude.<*> (x Data..:? "ReadOnly")
+            Prelude.<*> (x Data..:? "BucketRegion")
+            Prelude.<*> (x Data..:? "Role")
+            Prelude.<*> (x Data..:? "AuditDestinationARN")
+            Prelude.<*> (x Data..:? "GuessMIMETypeEnabled")
+            Prelude.<*> (x Data..:? "NotificationPolicy")
       )
 
 instance Prelude.Hashable SMBFileShareInfo where

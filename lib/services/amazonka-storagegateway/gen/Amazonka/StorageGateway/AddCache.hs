@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,7 +106,7 @@ instance Core.AWSRequest AddCache where
     Response.receiveJSON
       ( \s h x ->
           AddCacheResponse'
-            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<$> (x Data..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,34 +120,34 @@ instance Prelude.NFData AddCache where
     Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf diskIds
 
-instance Core.ToHeaders AddCache where
+instance Data.ToHeaders AddCache where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.AddCache" ::
+              Data.=# ( "StorageGateway_20130630.AddCache" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AddCache where
+instance Data.ToJSON AddCache where
   toJSON AddCache' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("GatewayARN" Core..= gatewayARN),
-            Prelude.Just ("DiskIds" Core..= diskIds)
+          [ Prelude.Just ("GatewayARN" Data..= gatewayARN),
+            Prelude.Just ("DiskIds" Data..= diskIds)
           ]
       )
 
-instance Core.ToPath AddCache where
+instance Data.ToPath AddCache where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddCache where
+instance Data.ToQuery AddCache where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddCacheResponse' smart constructor.

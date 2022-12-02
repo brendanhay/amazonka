@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,13 +90,13 @@ instance Core.AWSRequest DescribeSMBSettings where
     Response.receiveJSON
       ( \s h x ->
           DescribeSMBSettingsResponse'
-            Prelude.<$> (x Core..?> "SMBSecurityStrategy")
-            Prelude.<*> (x Core..?> "DomainName")
-            Prelude.<*> (x Core..?> "SMBLocalGroups")
-            Prelude.<*> (x Core..?> "GatewayARN")
-            Prelude.<*> (x Core..?> "SMBGuestPasswordSet")
-            Prelude.<*> (x Core..?> "FileSharesVisible")
-            Prelude.<*> (x Core..?> "ActiveDirectoryStatus")
+            Prelude.<$> (x Data..?> "SMBSecurityStrategy")
+            Prelude.<*> (x Data..?> "DomainName")
+            Prelude.<*> (x Data..?> "SMBLocalGroups")
+            Prelude.<*> (x Data..?> "GatewayARN")
+            Prelude.<*> (x Data..?> "SMBGuestPasswordSet")
+            Prelude.<*> (x Data..?> "FileSharesVisible")
+            Prelude.<*> (x Data..?> "ActiveDirectoryStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,32 +107,32 @@ instance Prelude.Hashable DescribeSMBSettings where
 instance Prelude.NFData DescribeSMBSettings where
   rnf DescribeSMBSettings' {..} = Prelude.rnf gatewayARN
 
-instance Core.ToHeaders DescribeSMBSettings where
+instance Data.ToHeaders DescribeSMBSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DescribeSMBSettings" ::
+              Data.=# ( "StorageGateway_20130630.DescribeSMBSettings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeSMBSettings where
+instance Data.ToJSON DescribeSMBSettings where
   toJSON DescribeSMBSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GatewayARN" Core..= gatewayARN)]
+          [Prelude.Just ("GatewayARN" Data..= gatewayARN)]
       )
 
-instance Core.ToPath DescribeSMBSettings where
+instance Data.ToPath DescribeSMBSettings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSMBSettings where
+instance Data.ToQuery DescribeSMBSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSMBSettingsResponse' smart constructor.

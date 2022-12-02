@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,7 +92,7 @@ instance Core.AWSRequest ListVolumeInitiators where
     Response.receiveJSON
       ( \s h x ->
           ListVolumeInitiatorsResponse'
-            Prelude.<$> (x Core..?> "Initiators" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Initiators" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -102,32 +103,32 @@ instance Prelude.Hashable ListVolumeInitiators where
 instance Prelude.NFData ListVolumeInitiators where
   rnf ListVolumeInitiators' {..} = Prelude.rnf volumeARN
 
-instance Core.ToHeaders ListVolumeInitiators where
+instance Data.ToHeaders ListVolumeInitiators where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.ListVolumeInitiators" ::
+              Data.=# ( "StorageGateway_20130630.ListVolumeInitiators" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListVolumeInitiators where
+instance Data.ToJSON ListVolumeInitiators where
   toJSON ListVolumeInitiators' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("VolumeARN" Core..= volumeARN)]
+          [Prelude.Just ("VolumeARN" Data..= volumeARN)]
       )
 
-instance Core.ToPath ListVolumeInitiators where
+instance Data.ToPath ListVolumeInitiators where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListVolumeInitiators where
+instance Data.ToQuery ListVolumeInitiators where
   toQuery = Prelude.const Prelude.mempty
 
 -- | ListVolumeInitiatorsOutput

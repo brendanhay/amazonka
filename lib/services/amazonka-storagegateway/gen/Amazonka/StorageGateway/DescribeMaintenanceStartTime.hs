@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,12 +95,12 @@ instance Core.AWSRequest DescribeMaintenanceStartTime where
     Response.receiveJSON
       ( \s h x ->
           DescribeMaintenanceStartTimeResponse'
-            Prelude.<$> (x Core..?> "MinuteOfHour")
-            Prelude.<*> (x Core..?> "Timezone")
-            Prelude.<*> (x Core..?> "GatewayARN")
-            Prelude.<*> (x Core..?> "DayOfWeek")
-            Prelude.<*> (x Core..?> "HourOfDay")
-            Prelude.<*> (x Core..?> "DayOfMonth")
+            Prelude.<$> (x Data..?> "MinuteOfHour")
+            Prelude.<*> (x Data..?> "Timezone")
+            Prelude.<*> (x Data..?> "GatewayARN")
+            Prelude.<*> (x Data..?> "DayOfWeek")
+            Prelude.<*> (x Data..?> "HourOfDay")
+            Prelude.<*> (x Data..?> "DayOfMonth")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,32 +115,32 @@ instance Prelude.NFData DescribeMaintenanceStartTime where
   rnf DescribeMaintenanceStartTime' {..} =
     Prelude.rnf gatewayARN
 
-instance Core.ToHeaders DescribeMaintenanceStartTime where
+instance Data.ToHeaders DescribeMaintenanceStartTime where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DescribeMaintenanceStartTime" ::
+              Data.=# ( "StorageGateway_20130630.DescribeMaintenanceStartTime" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeMaintenanceStartTime where
+instance Data.ToJSON DescribeMaintenanceStartTime where
   toJSON DescribeMaintenanceStartTime' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GatewayARN" Core..= gatewayARN)]
+          [Prelude.Just ("GatewayARN" Data..= gatewayARN)]
       )
 
-instance Core.ToPath DescribeMaintenanceStartTime where
+instance Data.ToPath DescribeMaintenanceStartTime where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeMaintenanceStartTime where
+instance Data.ToQuery DescribeMaintenanceStartTime where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the following fields:

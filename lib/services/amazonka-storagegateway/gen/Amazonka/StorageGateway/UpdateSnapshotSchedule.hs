@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -183,7 +184,7 @@ instance Core.AWSRequest UpdateSnapshotSchedule where
     Response.receiveJSON
       ( \s h x ->
           UpdateSnapshotScheduleResponse'
-            Prelude.<$> (x Core..?> "VolumeARN")
+            Prelude.<$> (x Data..?> "VolumeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,38 +204,38 @@ instance Prelude.NFData UpdateSnapshotSchedule where
       `Prelude.seq` Prelude.rnf startAt
       `Prelude.seq` Prelude.rnf recurrenceInHours
 
-instance Core.ToHeaders UpdateSnapshotSchedule where
+instance Data.ToHeaders UpdateSnapshotSchedule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.UpdateSnapshotSchedule" ::
+              Data.=# ( "StorageGateway_20130630.UpdateSnapshotSchedule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSnapshotSchedule where
+instance Data.ToJSON UpdateSnapshotSchedule where
   toJSON UpdateSnapshotSchedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("VolumeARN" Core..= volumeARN),
-            Prelude.Just ("StartAt" Core..= startAt),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("VolumeARN" Data..= volumeARN),
+            Prelude.Just ("StartAt" Data..= startAt),
             Prelude.Just
-              ("RecurrenceInHours" Core..= recurrenceInHours)
+              ("RecurrenceInHours" Data..= recurrenceInHours)
           ]
       )
 
-instance Core.ToPath UpdateSnapshotSchedule where
+instance Data.ToPath UpdateSnapshotSchedule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateSnapshotSchedule where
+instance Data.ToQuery UpdateSnapshotSchedule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the updated

@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,7 +97,7 @@ instance Core.AWSRequest DeleteSnapshotSchedule where
     Response.receiveJSON
       ( \s h x ->
           DeleteSnapshotScheduleResponse'
-            Prelude.<$> (x Core..?> "VolumeARN")
+            Prelude.<$> (x Data..?> "VolumeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,32 +109,32 @@ instance Prelude.NFData DeleteSnapshotSchedule where
   rnf DeleteSnapshotSchedule' {..} =
     Prelude.rnf volumeARN
 
-instance Core.ToHeaders DeleteSnapshotSchedule where
+instance Data.ToHeaders DeleteSnapshotSchedule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DeleteSnapshotSchedule" ::
+              Data.=# ( "StorageGateway_20130630.DeleteSnapshotSchedule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteSnapshotSchedule where
+instance Data.ToJSON DeleteSnapshotSchedule where
   toJSON DeleteSnapshotSchedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("VolumeARN" Core..= volumeARN)]
+          [Prelude.Just ("VolumeARN" Data..= volumeARN)]
       )
 
-instance Core.ToPath DeleteSnapshotSchedule where
+instance Data.ToPath DeleteSnapshotSchedule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteSnapshotSchedule where
+instance Data.ToQuery DeleteSnapshotSchedule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSnapshotScheduleResponse' smart constructor.

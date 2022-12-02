@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -76,7 +77,7 @@ data AssociateFileSystem = AssociateFileSystem'
     -- belong to the Amazon FSx delegated admin user group.
     userName :: Prelude.Text,
     -- | The password of the user credential.
-    password :: Core.Sensitive Prelude.Text,
+    password :: Data.Sensitive Prelude.Text,
     -- | A unique string value that you supply that is used by the FSx File
     -- Gateway to ensure idempotent file system association creation.
     clientToken :: Prelude.Text,
@@ -145,7 +146,7 @@ newAssociateFileSystem
         cacheAttributes = Prelude.Nothing,
         auditDestinationARN = Prelude.Nothing,
         userName = pUserName_,
-        password = Core._Sensitive Lens.# pPassword_,
+        password = Data._Sensitive Lens.# pPassword_,
         clientToken = pClientToken_,
         gatewayARN = pGatewayARN_,
         locationARN = pLocationARN_
@@ -180,7 +181,7 @@ associateFileSystem_userName = Lens.lens (\AssociateFileSystem' {userName} -> us
 
 -- | The password of the user credential.
 associateFileSystem_password :: Lens.Lens' AssociateFileSystem Prelude.Text
-associateFileSystem_password = Lens.lens (\AssociateFileSystem' {password} -> password) (\s@AssociateFileSystem' {} a -> s {password = a} :: AssociateFileSystem) Prelude.. Core._Sensitive
+associateFileSystem_password = Lens.lens (\AssociateFileSystem' {password} -> password) (\s@AssociateFileSystem' {} a -> s {password = a} :: AssociateFileSystem) Prelude.. Data._Sensitive
 
 -- | A unique string value that you supply that is used by the FSx File
 -- Gateway to ensure idempotent file system association creation.
@@ -206,7 +207,7 @@ instance Core.AWSRequest AssociateFileSystem where
     Response.receiveJSON
       ( \s h x ->
           AssociateFileSystemResponse'
-            Prelude.<$> (x Core..?> "FileSystemAssociationARN")
+            Prelude.<$> (x Data..?> "FileSystemAssociationARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -234,44 +235,44 @@ instance Prelude.NFData AssociateFileSystem where
       `Prelude.seq` Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf locationARN
 
-instance Core.ToHeaders AssociateFileSystem where
+instance Data.ToHeaders AssociateFileSystem where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.AssociateFileSystem" ::
+              Data.=# ( "StorageGateway_20130630.AssociateFileSystem" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateFileSystem where
+instance Data.ToJSON AssociateFileSystem where
   toJSON AssociateFileSystem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("EndpointNetworkConfiguration" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("EndpointNetworkConfiguration" Data..=)
               Prelude.<$> endpointNetworkConfiguration,
-            ("CacheAttributes" Core..=)
+            ("CacheAttributes" Data..=)
               Prelude.<$> cacheAttributes,
-            ("AuditDestinationARN" Core..=)
+            ("AuditDestinationARN" Data..=)
               Prelude.<$> auditDestinationARN,
-            Prelude.Just ("UserName" Core..= userName),
-            Prelude.Just ("Password" Core..= password),
-            Prelude.Just ("ClientToken" Core..= clientToken),
-            Prelude.Just ("GatewayARN" Core..= gatewayARN),
-            Prelude.Just ("LocationARN" Core..= locationARN)
+            Prelude.Just ("UserName" Data..= userName),
+            Prelude.Just ("Password" Data..= password),
+            Prelude.Just ("ClientToken" Data..= clientToken),
+            Prelude.Just ("GatewayARN" Data..= gatewayARN),
+            Prelude.Just ("LocationARN" Data..= locationARN)
           ]
       )
 
-instance Core.ToPath AssociateFileSystem where
+instance Data.ToPath AssociateFileSystem where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateFileSystem where
+instance Data.ToQuery AssociateFileSystem where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateFileSystemResponse' smart constructor.

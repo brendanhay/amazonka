@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,7 +94,7 @@ instance Core.AWSRequest ResetCache where
     Response.receiveJSON
       ( \s h x ->
           ResetCacheResponse'
-            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<$> (x Data..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,32 +105,32 @@ instance Prelude.Hashable ResetCache where
 instance Prelude.NFData ResetCache where
   rnf ResetCache' {..} = Prelude.rnf gatewayARN
 
-instance Core.ToHeaders ResetCache where
+instance Data.ToHeaders ResetCache where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.ResetCache" ::
+              Data.=# ( "StorageGateway_20130630.ResetCache" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ResetCache where
+instance Data.ToJSON ResetCache where
   toJSON ResetCache' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GatewayARN" Core..= gatewayARN)]
+          [Prelude.Just ("GatewayARN" Data..= gatewayARN)]
       )
 
-instance Core.ToPath ResetCache where
+instance Data.ToPath ResetCache where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResetCache where
+instance Data.ToQuery ResetCache where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newResetCacheResponse' smart constructor.

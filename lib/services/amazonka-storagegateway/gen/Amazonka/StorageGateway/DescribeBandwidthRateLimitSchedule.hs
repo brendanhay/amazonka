@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,8 +109,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeBandwidthRateLimitScheduleResponse'
-            Prelude.<$> (x Core..?> "GatewayARN")
-              Prelude.<*> ( x Core..?> "BandwidthRateLimitIntervals"
+            Prelude.<$> (x Data..?> "GatewayARN")
+              Prelude.<*> ( x Data..?> "BandwidthRateLimitIntervals"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -132,41 +133,41 @@ instance
     Prelude.rnf gatewayARN
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeBandwidthRateLimitSchedule
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DescribeBandwidthRateLimitSchedule" ::
+              Data.=# ( "StorageGateway_20130630.DescribeBandwidthRateLimitSchedule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeBandwidthRateLimitSchedule
   where
   toJSON DescribeBandwidthRateLimitSchedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GatewayARN" Core..= gatewayARN)]
+          [Prelude.Just ("GatewayARN" Data..= gatewayARN)]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeBandwidthRateLimitSchedule
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeBandwidthRateLimitSchedule
   where
   toQuery = Prelude.const Prelude.mempty

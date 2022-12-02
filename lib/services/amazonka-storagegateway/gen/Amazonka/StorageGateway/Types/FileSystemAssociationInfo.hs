@@ -21,6 +21,7 @@ module Amazonka.StorageGateway.Types.FileSystemAssociationInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StorageGateway.Types.CacheAttributes
 import Amazonka.StorageGateway.Types.EndpointNetworkConfiguration
@@ -158,23 +159,23 @@ fileSystemAssociationInfo_auditDestinationARN = Lens.lens (\FileSystemAssociatio
 fileSystemAssociationInfo_fileSystemAssociationARN :: Lens.Lens' FileSystemAssociationInfo (Prelude.Maybe Prelude.Text)
 fileSystemAssociationInfo_fileSystemAssociationARN = Lens.lens (\FileSystemAssociationInfo' {fileSystemAssociationARN} -> fileSystemAssociationARN) (\s@FileSystemAssociationInfo' {} a -> s {fileSystemAssociationARN = a} :: FileSystemAssociationInfo)
 
-instance Core.FromJSON FileSystemAssociationInfo where
+instance Data.FromJSON FileSystemAssociationInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileSystemAssociationInfo"
       ( \x ->
           FileSystemAssociationInfo'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "FileSystemAssociationStatusDetails"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "FileSystemAssociationStatusDetails"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EndpointNetworkConfiguration")
-            Prelude.<*> (x Core..:? "LocationARN")
-            Prelude.<*> (x Core..:? "GatewayARN")
-            Prelude.<*> (x Core..:? "FileSystemAssociationStatus")
-            Prelude.<*> (x Core..:? "CacheAttributes")
-            Prelude.<*> (x Core..:? "AuditDestinationARN")
-            Prelude.<*> (x Core..:? "FileSystemAssociationARN")
+            Prelude.<*> (x Data..:? "EndpointNetworkConfiguration")
+            Prelude.<*> (x Data..:? "LocationARN")
+            Prelude.<*> (x Data..:? "GatewayARN")
+            Prelude.<*> (x Data..:? "FileSystemAssociationStatus")
+            Prelude.<*> (x Data..:? "CacheAttributes")
+            Prelude.<*> (x Data..:? "AuditDestinationARN")
+            Prelude.<*> (x Data..:? "FileSystemAssociationARN")
       )
 
 instance Prelude.Hashable FileSystemAssociationInfo where

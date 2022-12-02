@@ -21,6 +21,7 @@ module Amazonka.StorageGateway.Types.FileSystemAssociationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Gets the summary returned by @ListFileSystemAssociation@, which is a
@@ -83,16 +84,16 @@ fileSystemAssociationSummary_fileSystemAssociationStatus = Lens.lens (\FileSyste
 fileSystemAssociationSummary_fileSystemAssociationARN :: Lens.Lens' FileSystemAssociationSummary (Prelude.Maybe Prelude.Text)
 fileSystemAssociationSummary_fileSystemAssociationARN = Lens.lens (\FileSystemAssociationSummary' {fileSystemAssociationARN} -> fileSystemAssociationARN) (\s@FileSystemAssociationSummary' {} a -> s {fileSystemAssociationARN = a} :: FileSystemAssociationSummary)
 
-instance Core.FromJSON FileSystemAssociationSummary where
+instance Data.FromJSON FileSystemAssociationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileSystemAssociationSummary"
       ( \x ->
           FileSystemAssociationSummary'
-            Prelude.<$> (x Core..:? "FileSystemAssociationId")
-            Prelude.<*> (x Core..:? "GatewayARN")
-            Prelude.<*> (x Core..:? "FileSystemAssociationStatus")
-            Prelude.<*> (x Core..:? "FileSystemAssociationARN")
+            Prelude.<$> (x Data..:? "FileSystemAssociationId")
+            Prelude.<*> (x Data..:? "GatewayARN")
+            Prelude.<*> (x Data..:? "FileSystemAssociationStatus")
+            Prelude.<*> (x Data..:? "FileSystemAssociationARN")
       )
 
 instance

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -148,7 +149,7 @@ instance Core.AWSRequest AssignTapePool where
     Response.receiveJSON
       ( \s h x ->
           AssignTapePoolResponse'
-            Prelude.<$> (x Core..?> "TapeARN")
+            Prelude.<$> (x Data..?> "TapeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,36 +166,36 @@ instance Prelude.NFData AssignTapePool where
       `Prelude.seq` Prelude.rnf tapeARN
       `Prelude.seq` Prelude.rnf poolId
 
-instance Core.ToHeaders AssignTapePool where
+instance Data.ToHeaders AssignTapePool where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.AssignTapePool" ::
+              Data.=# ( "StorageGateway_20130630.AssignTapePool" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssignTapePool where
+instance Data.ToJSON AssignTapePool where
   toJSON AssignTapePool' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BypassGovernanceRetention" Core..=)
+          [ ("BypassGovernanceRetention" Data..=)
               Prelude.<$> bypassGovernanceRetention,
-            Prelude.Just ("TapeARN" Core..= tapeARN),
-            Prelude.Just ("PoolId" Core..= poolId)
+            Prelude.Just ("TapeARN" Data..= tapeARN),
+            Prelude.Just ("PoolId" Data..= poolId)
           ]
       )
 
-instance Core.ToPath AssignTapePool where
+instance Data.ToPath AssignTapePool where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssignTapePool where
+instance Data.ToQuery AssignTapePool where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssignTapePoolResponse' smart constructor.

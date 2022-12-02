@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,13 +93,13 @@ instance Core.AWSRequest DescribeCache where
     Response.receiveJSON
       ( \s h x ->
           DescribeCacheResponse'
-            Prelude.<$> (x Core..?> "CacheMissPercentage")
-            Prelude.<*> (x Core..?> "DiskIds" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "CacheHitPercentage")
-            Prelude.<*> (x Core..?> "CacheUsedPercentage")
-            Prelude.<*> (x Core..?> "CacheDirtyPercentage")
-            Prelude.<*> (x Core..?> "GatewayARN")
-            Prelude.<*> (x Core..?> "CacheAllocatedInBytes")
+            Prelude.<$> (x Data..?> "CacheMissPercentage")
+            Prelude.<*> (x Data..?> "DiskIds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "CacheHitPercentage")
+            Prelude.<*> (x Data..?> "CacheUsedPercentage")
+            Prelude.<*> (x Data..?> "CacheDirtyPercentage")
+            Prelude.<*> (x Data..?> "GatewayARN")
+            Prelude.<*> (x Data..?> "CacheAllocatedInBytes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,32 +110,32 @@ instance Prelude.Hashable DescribeCache where
 instance Prelude.NFData DescribeCache where
   rnf DescribeCache' {..} = Prelude.rnf gatewayARN
 
-instance Core.ToHeaders DescribeCache where
+instance Data.ToHeaders DescribeCache where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DescribeCache" ::
+              Data.=# ( "StorageGateway_20130630.DescribeCache" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeCache where
+instance Data.ToJSON DescribeCache where
   toJSON DescribeCache' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GatewayARN" Core..= gatewayARN)]
+          [Prelude.Just ("GatewayARN" Data..= gatewayARN)]
       )
 
-instance Core.ToPath DescribeCache where
+instance Data.ToPath DescribeCache where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCache where
+instance Data.ToQuery DescribeCache where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeCacheResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.StorageGateway.Types.VolumeRecoveryPointInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a storage volume recovery point object.
@@ -89,16 +90,16 @@ volumeRecoveryPointInfo_volumeARN = Lens.lens (\VolumeRecoveryPointInfo' {volume
 volumeRecoveryPointInfo_volumeRecoveryPointTime :: Lens.Lens' VolumeRecoveryPointInfo (Prelude.Maybe Prelude.Text)
 volumeRecoveryPointInfo_volumeRecoveryPointTime = Lens.lens (\VolumeRecoveryPointInfo' {volumeRecoveryPointTime} -> volumeRecoveryPointTime) (\s@VolumeRecoveryPointInfo' {} a -> s {volumeRecoveryPointTime = a} :: VolumeRecoveryPointInfo)
 
-instance Core.FromJSON VolumeRecoveryPointInfo where
+instance Data.FromJSON VolumeRecoveryPointInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VolumeRecoveryPointInfo"
       ( \x ->
           VolumeRecoveryPointInfo'
-            Prelude.<$> (x Core..:? "VolumeSizeInBytes")
-            Prelude.<*> (x Core..:? "VolumeUsageInBytes")
-            Prelude.<*> (x Core..:? "VolumeARN")
-            Prelude.<*> (x Core..:? "VolumeRecoveryPointTime")
+            Prelude.<$> (x Data..:? "VolumeSizeInBytes")
+            Prelude.<*> (x Data..:? "VolumeUsageInBytes")
+            Prelude.<*> (x Data..:? "VolumeARN")
+            Prelude.<*> (x Data..:? "VolumeRecoveryPointTime")
       )
 
 instance Prelude.Hashable VolumeRecoveryPointInfo where

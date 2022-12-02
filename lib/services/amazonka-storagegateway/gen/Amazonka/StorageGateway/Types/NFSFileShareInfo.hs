@@ -21,6 +21,7 @@ module Amazonka.StorageGateway.Types.NFSFileShareInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StorageGateway.Types.CacheAttributes
 import Amazonka.StorageGateway.Types.NFSFileShareDefaults
@@ -421,36 +422,36 @@ nFSFileShareInfo_guessMIMETypeEnabled = Lens.lens (\NFSFileShareInfo' {guessMIME
 nFSFileShareInfo_notificationPolicy :: Lens.Lens' NFSFileShareInfo (Prelude.Maybe Prelude.Text)
 nFSFileShareInfo_notificationPolicy = Lens.lens (\NFSFileShareInfo' {notificationPolicy} -> notificationPolicy) (\s@NFSFileShareInfo' {} a -> s {notificationPolicy = a} :: NFSFileShareInfo)
 
-instance Core.FromJSON NFSFileShareInfo where
+instance Data.FromJSON NFSFileShareInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NFSFileShareInfo"
       ( \x ->
           NFSFileShareInfo'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Squash")
-            Prelude.<*> (x Core..:? "NFSFileShareDefaults")
-            Prelude.<*> (x Core..:? "FileShareStatus")
-            Prelude.<*> (x Core..:? "FileShareId")
-            Prelude.<*> (x Core..:? "FileShareName")
-            Prelude.<*> (x Core..:? "RequesterPays")
-            Prelude.<*> (x Core..:? "ObjectACL")
-            Prelude.<*> (x Core..:? "KMSKey")
-            Prelude.<*> (x Core..:? "LocationARN")
-            Prelude.<*> (x Core..:? "Path")
-            Prelude.<*> (x Core..:? "FileShareARN")
-            Prelude.<*> (x Core..:? "VPCEndpointDNSName")
-            Prelude.<*> (x Core..:? "GatewayARN")
-            Prelude.<*> (x Core..:? "KMSEncrypted")
-            Prelude.<*> (x Core..:? "DefaultStorageClass")
-            Prelude.<*> (x Core..:? "CacheAttributes")
-            Prelude.<*> (x Core..:? "ReadOnly")
-            Prelude.<*> (x Core..:? "BucketRegion")
-            Prelude.<*> (x Core..:? "Role")
-            Prelude.<*> (x Core..:? "AuditDestinationARN")
-            Prelude.<*> (x Core..:? "ClientList")
-            Prelude.<*> (x Core..:? "GuessMIMETypeEnabled")
-            Prelude.<*> (x Core..:? "NotificationPolicy")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Squash")
+            Prelude.<*> (x Data..:? "NFSFileShareDefaults")
+            Prelude.<*> (x Data..:? "FileShareStatus")
+            Prelude.<*> (x Data..:? "FileShareId")
+            Prelude.<*> (x Data..:? "FileShareName")
+            Prelude.<*> (x Data..:? "RequesterPays")
+            Prelude.<*> (x Data..:? "ObjectACL")
+            Prelude.<*> (x Data..:? "KMSKey")
+            Prelude.<*> (x Data..:? "LocationARN")
+            Prelude.<*> (x Data..:? "Path")
+            Prelude.<*> (x Data..:? "FileShareARN")
+            Prelude.<*> (x Data..:? "VPCEndpointDNSName")
+            Prelude.<*> (x Data..:? "GatewayARN")
+            Prelude.<*> (x Data..:? "KMSEncrypted")
+            Prelude.<*> (x Data..:? "DefaultStorageClass")
+            Prelude.<*> (x Data..:? "CacheAttributes")
+            Prelude.<*> (x Data..:? "ReadOnly")
+            Prelude.<*> (x Data..:? "BucketRegion")
+            Prelude.<*> (x Data..:? "Role")
+            Prelude.<*> (x Data..:? "AuditDestinationARN")
+            Prelude.<*> (x Data..:? "ClientList")
+            Prelude.<*> (x Data..:? "GuessMIMETypeEnabled")
+            Prelude.<*> (x Data..:? "NotificationPolicy")
       )
 
 instance Prelude.Hashable NFSFileShareInfo where

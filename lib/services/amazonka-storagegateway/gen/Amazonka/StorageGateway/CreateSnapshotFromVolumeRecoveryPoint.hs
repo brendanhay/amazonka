@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -172,9 +173,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateSnapshotFromVolumeRecoveryPointResponse'
-            Prelude.<$> (x Core..?> "SnapshotId")
-              Prelude.<*> (x Core..?> "VolumeARN")
-              Prelude.<*> (x Core..?> "VolumeRecoveryPointTime")
+            Prelude.<$> (x Data..?> "SnapshotId")
+              Prelude.<*> (x Data..?> "VolumeARN")
+              Prelude.<*> (x Data..?> "VolumeRecoveryPointTime")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,45 +200,45 @@ instance
       `Prelude.seq` Prelude.rnf snapshotDescription
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateSnapshotFromVolumeRecoveryPoint
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.CreateSnapshotFromVolumeRecoveryPoint" ::
+              Data.=# ( "StorageGateway_20130630.CreateSnapshotFromVolumeRecoveryPoint" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateSnapshotFromVolumeRecoveryPoint
   where
   toJSON CreateSnapshotFromVolumeRecoveryPoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("VolumeARN" Core..= volumeARN),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("VolumeARN" Data..= volumeARN),
             Prelude.Just
-              ("SnapshotDescription" Core..= snapshotDescription)
+              ("SnapshotDescription" Data..= snapshotDescription)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateSnapshotFromVolumeRecoveryPoint
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateSnapshotFromVolumeRecoveryPoint
   where
   toQuery = Prelude.const Prelude.mempty

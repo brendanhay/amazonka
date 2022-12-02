@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Detective.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,8 +106,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListOrganizationAdminAccountsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Administrators" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Administrators" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,30 +124,30 @@ instance Prelude.NFData ListOrganizationAdminAccounts where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListOrganizationAdminAccounts where
+instance Data.ToHeaders ListOrganizationAdminAccounts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListOrganizationAdminAccounts where
+instance Data.ToJSON ListOrganizationAdminAccounts where
   toJSON ListOrganizationAdminAccounts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListOrganizationAdminAccounts where
+instance Data.ToPath ListOrganizationAdminAccounts where
   toPath = Prelude.const "/orgs/adminAccountslist"
 
-instance Core.ToQuery ListOrganizationAdminAccounts where
+instance Data.ToQuery ListOrganizationAdminAccounts where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListOrganizationAdminAccountsResponse' smart constructor.

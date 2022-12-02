@@ -21,6 +21,7 @@ module Amazonka.Detective.Types.DatasourcePackageUsageInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information on the usage of a data source package in the behavior graph.
@@ -33,7 +34,7 @@ data DatasourcePackageUsageInfo = DatasourcePackageUsageInfo'
     -- | The data and time when the member account data volume was last updated.
     -- The value is an ISO8601 formatted string. For example,
     -- @2021-08-18T16:35:56.284Z@.
-    volumeUsageUpdateTime :: Prelude.Maybe Core.POSIX
+    volumeUsageUpdateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,16 +70,16 @@ datasourcePackageUsageInfo_volumeUsageInBytes = Lens.lens (\DatasourcePackageUsa
 -- The value is an ISO8601 formatted string. For example,
 -- @2021-08-18T16:35:56.284Z@.
 datasourcePackageUsageInfo_volumeUsageUpdateTime :: Lens.Lens' DatasourcePackageUsageInfo (Prelude.Maybe Prelude.UTCTime)
-datasourcePackageUsageInfo_volumeUsageUpdateTime = Lens.lens (\DatasourcePackageUsageInfo' {volumeUsageUpdateTime} -> volumeUsageUpdateTime) (\s@DatasourcePackageUsageInfo' {} a -> s {volumeUsageUpdateTime = a} :: DatasourcePackageUsageInfo) Prelude.. Lens.mapping Core._Time
+datasourcePackageUsageInfo_volumeUsageUpdateTime = Lens.lens (\DatasourcePackageUsageInfo' {volumeUsageUpdateTime} -> volumeUsageUpdateTime) (\s@DatasourcePackageUsageInfo' {} a -> s {volumeUsageUpdateTime = a} :: DatasourcePackageUsageInfo) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON DatasourcePackageUsageInfo where
+instance Data.FromJSON DatasourcePackageUsageInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasourcePackageUsageInfo"
       ( \x ->
           DatasourcePackageUsageInfo'
-            Prelude.<$> (x Core..:? "VolumeUsageInBytes")
-            Prelude.<*> (x Core..:? "VolumeUsageUpdateTime")
+            Prelude.<$> (x Data..:? "VolumeUsageInBytes")
+            Prelude.<*> (x Data..:? "VolumeUsageUpdateTime")
       )
 
 instance Prelude.Hashable DatasourcePackageUsageInfo where

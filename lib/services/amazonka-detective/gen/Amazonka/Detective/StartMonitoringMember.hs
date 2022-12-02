@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Detective.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,31 +121,31 @@ instance Prelude.NFData StartMonitoringMember where
     Prelude.rnf graphArn
       `Prelude.seq` Prelude.rnf accountId
 
-instance Core.ToHeaders StartMonitoringMember where
+instance Data.ToHeaders StartMonitoringMember where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartMonitoringMember where
+instance Data.ToJSON StartMonitoringMember where
   toJSON StartMonitoringMember' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("GraphArn" Core..= graphArn),
-            Prelude.Just ("AccountId" Core..= accountId)
+          [ Prelude.Just ("GraphArn" Data..= graphArn),
+            Prelude.Just ("AccountId" Data..= accountId)
           ]
       )
 
-instance Core.ToPath StartMonitoringMember where
+instance Data.ToPath StartMonitoringMember where
   toPath =
     Prelude.const "/graph/member/monitoringstate"
 
-instance Core.ToQuery StartMonitoringMember where
+instance Data.ToQuery StartMonitoringMember where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartMonitoringMemberResponse' smart constructor.

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Detective.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,10 +109,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchGetGraphMemberDatasourcesResponse'
-            Prelude.<$> ( x Core..?> "UnprocessedAccounts"
+            Prelude.<$> ( x Data..?> "UnprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "MemberDatasources"
+            Prelude.<*> ( x Data..?> "MemberDatasources"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -136,32 +137,32 @@ instance
       `Prelude.seq` Prelude.rnf accountIds
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     BatchGetGraphMemberDatasources
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetGraphMemberDatasources where
+instance Data.ToJSON BatchGetGraphMemberDatasources where
   toJSON BatchGetGraphMemberDatasources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("GraphArn" Core..= graphArn),
-            Prelude.Just ("AccountIds" Core..= accountIds)
+          [ Prelude.Just ("GraphArn" Data..= graphArn),
+            Prelude.Just ("AccountIds" Data..= accountIds)
           ]
       )
 
-instance Core.ToPath BatchGetGraphMemberDatasources where
+instance Data.ToPath BatchGetGraphMemberDatasources where
   toPath = Prelude.const "/graph/datasources/get"
 
-instance Core.ToQuery BatchGetGraphMemberDatasources where
+instance Data.ToQuery BatchGetGraphMemberDatasources where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetGraphMemberDatasourcesResponse' smart constructor.

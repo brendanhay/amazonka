@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Detective.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,28 +88,28 @@ instance Prelude.Hashable DeleteGraph where
 instance Prelude.NFData DeleteGraph where
   rnf DeleteGraph' {..} = Prelude.rnf graphArn
 
-instance Core.ToHeaders DeleteGraph where
+instance Data.ToHeaders DeleteGraph where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteGraph where
+instance Data.ToJSON DeleteGraph where
   toJSON DeleteGraph' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GraphArn" Core..= graphArn)]
+          [Prelude.Just ("GraphArn" Data..= graphArn)]
       )
 
-instance Core.ToPath DeleteGraph where
+instance Data.ToPath DeleteGraph where
   toPath = Prelude.const "/graph/removal"
 
-instance Core.ToQuery DeleteGraph where
+instance Data.ToQuery DeleteGraph where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteGraphResponse' smart constructor.

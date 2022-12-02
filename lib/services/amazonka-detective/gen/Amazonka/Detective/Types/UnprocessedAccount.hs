@@ -21,6 +21,7 @@ module Amazonka.Detective.Types.UnprocessedAccount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A member account that was included in a request but for which the
@@ -65,14 +66,14 @@ unprocessedAccount_accountId = Lens.lens (\UnprocessedAccount' {accountId} -> ac
 unprocessedAccount_reason :: Lens.Lens' UnprocessedAccount (Prelude.Maybe Prelude.Text)
 unprocessedAccount_reason = Lens.lens (\UnprocessedAccount' {reason} -> reason) (\s@UnprocessedAccount' {} a -> s {reason = a} :: UnprocessedAccount)
 
-instance Core.FromJSON UnprocessedAccount where
+instance Data.FromJSON UnprocessedAccount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UnprocessedAccount"
       ( \x ->
           UnprocessedAccount'
-            Prelude.<$> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "Reason")
+            Prelude.<$> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "Reason")
       )
 
 instance Prelude.Hashable UnprocessedAccount where

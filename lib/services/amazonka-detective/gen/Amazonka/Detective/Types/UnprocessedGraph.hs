@@ -21,6 +21,7 @@ module Amazonka.Detective.Types.UnprocessedGraph where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Behavior graphs that could not be processed in the request.
@@ -64,14 +65,14 @@ unprocessedGraph_graphArn = Lens.lens (\UnprocessedGraph' {graphArn} -> graphArn
 unprocessedGraph_reason :: Lens.Lens' UnprocessedGraph (Prelude.Maybe Prelude.Text)
 unprocessedGraph_reason = Lens.lens (\UnprocessedGraph' {reason} -> reason) (\s@UnprocessedGraph' {} a -> s {reason = a} :: UnprocessedGraph)
 
-instance Core.FromJSON UnprocessedGraph where
+instance Data.FromJSON UnprocessedGraph where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UnprocessedGraph"
       ( \x ->
           UnprocessedGraph'
-            Prelude.<$> (x Core..:? "GraphArn")
-            Prelude.<*> (x Core..:? "Reason")
+            Prelude.<$> (x Data..:? "GraphArn")
+            Prelude.<*> (x Data..:? "Reason")
       )
 
 instance Prelude.Hashable UnprocessedGraph where

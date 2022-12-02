@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Detective.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,10 +114,10 @@ instance Core.AWSRequest ListDatasourcePackages where
     Response.receiveJSON
       ( \s h x ->
           ListDatasourcePackagesResponse'
-            Prelude.<$> ( x Core..?> "DatasourcePackages"
+            Prelude.<$> ( x Data..?> "DatasourcePackages"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,31 +133,31 @@ instance Prelude.NFData ListDatasourcePackages where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf graphArn
 
-instance Core.ToHeaders ListDatasourcePackages where
+instance Data.ToHeaders ListDatasourcePackages where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDatasourcePackages where
+instance Data.ToJSON ListDatasourcePackages where
   toJSON ListDatasourcePackages' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("GraphArn" Core..= graphArn)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("GraphArn" Data..= graphArn)
           ]
       )
 
-instance Core.ToPath ListDatasourcePackages where
+instance Data.ToPath ListDatasourcePackages where
   toPath = Prelude.const "/graph/datasources/list"
 
-instance Core.ToQuery ListDatasourcePackages where
+instance Data.ToQuery ListDatasourcePackages where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDatasourcePackagesResponse' smart constructor.

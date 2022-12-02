@@ -21,6 +21,7 @@ module Amazonka.Detective.Types.Account where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Amazon Web Services account that is the administrator account of or a
@@ -79,11 +80,11 @@ instance Prelude.NFData Account where
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf emailAddress
 
-instance Core.ToJSON Account where
+instance Data.ToJSON Account where
   toJSON Account' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AccountId" Core..= accountId),
-            Prelude.Just ("EmailAddress" Core..= emailAddress)
+          [ Prelude.Just ("AccountId" Data..= accountId),
+            Prelude.Just ("EmailAddress" Data..= emailAddress)
           ]
       )

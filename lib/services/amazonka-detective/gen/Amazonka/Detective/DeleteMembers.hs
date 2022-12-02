@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Detective.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,8 +122,8 @@ instance Core.AWSRequest DeleteMembers where
     Response.receiveJSON
       ( \s h x ->
           DeleteMembersResponse'
-            Prelude.<$> (x Core..?> "AccountIds")
-            Prelude.<*> ( x Core..?> "UnprocessedAccounts"
+            Prelude.<$> (x Data..?> "AccountIds")
+            Prelude.<*> ( x Data..?> "UnprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -138,30 +139,30 @@ instance Prelude.NFData DeleteMembers where
     Prelude.rnf graphArn
       `Prelude.seq` Prelude.rnf accountIds
 
-instance Core.ToHeaders DeleteMembers where
+instance Data.ToHeaders DeleteMembers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteMembers where
+instance Data.ToJSON DeleteMembers where
   toJSON DeleteMembers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("GraphArn" Core..= graphArn),
-            Prelude.Just ("AccountIds" Core..= accountIds)
+          [ Prelude.Just ("GraphArn" Data..= graphArn),
+            Prelude.Just ("AccountIds" Data..= accountIds)
           ]
       )
 
-instance Core.ToPath DeleteMembers where
+instance Data.ToPath DeleteMembers where
   toPath = Prelude.const "/graph/members/removal"
 
-instance Core.ToQuery DeleteMembers where
+instance Data.ToQuery DeleteMembers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMembersResponse' smart constructor.

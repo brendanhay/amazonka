@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Detective.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,31 +107,31 @@ instance Prelude.NFData UpdateDatasourcePackages where
     Prelude.rnf graphArn
       `Prelude.seq` Prelude.rnf datasourcePackages
 
-instance Core.ToHeaders UpdateDatasourcePackages where
+instance Data.ToHeaders UpdateDatasourcePackages where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDatasourcePackages where
+instance Data.ToJSON UpdateDatasourcePackages where
   toJSON UpdateDatasourcePackages' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("GraphArn" Core..= graphArn),
+          [ Prelude.Just ("GraphArn" Data..= graphArn),
             Prelude.Just
-              ("DatasourcePackages" Core..= datasourcePackages)
+              ("DatasourcePackages" Data..= datasourcePackages)
           ]
       )
 
-instance Core.ToPath UpdateDatasourcePackages where
+instance Data.ToPath UpdateDatasourcePackages where
   toPath = Prelude.const "/graph/datasources/update"
 
-instance Core.ToQuery UpdateDatasourcePackages where
+instance Data.ToQuery UpdateDatasourcePackages where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDatasourcePackagesResponse' smart constructor.

@@ -77,6 +77,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Detective.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -180,10 +181,10 @@ instance Core.AWSRequest CreateMembers where
     Response.receiveJSON
       ( \s h x ->
           CreateMembersResponse'
-            Prelude.<$> ( x Core..?> "UnprocessedAccounts"
+            Prelude.<$> ( x Data..?> "UnprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Members" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Members" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,33 +202,33 @@ instance Prelude.NFData CreateMembers where
       `Prelude.seq` Prelude.rnf graphArn
       `Prelude.seq` Prelude.rnf accounts
 
-instance Core.ToHeaders CreateMembers where
+instance Data.ToHeaders CreateMembers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateMembers where
+instance Data.ToJSON CreateMembers where
   toJSON CreateMembers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Message" Core..=) Prelude.<$> message,
-            ("DisableEmailNotification" Core..=)
+          [ ("Message" Data..=) Prelude.<$> message,
+            ("DisableEmailNotification" Data..=)
               Prelude.<$> disableEmailNotification,
-            Prelude.Just ("GraphArn" Core..= graphArn),
-            Prelude.Just ("Accounts" Core..= accounts)
+            Prelude.Just ("GraphArn" Data..= graphArn),
+            Prelude.Just ("Accounts" Data..= accounts)
           ]
       )
 
-instance Core.ToPath CreateMembers where
+instance Data.ToPath CreateMembers where
   toPath = Prelude.const "/graph/members"
 
-instance Core.ToQuery CreateMembers where
+instance Data.ToQuery CreateMembers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateMembersResponse' smart constructor.

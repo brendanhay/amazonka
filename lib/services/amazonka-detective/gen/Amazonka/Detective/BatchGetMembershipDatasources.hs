@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Detective.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,10 +91,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchGetMembershipDatasourcesResponse'
-            Prelude.<$> ( x Core..?> "UnprocessedGraphs"
+            Prelude.<$> ( x Data..?> "UnprocessedGraphs"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "MembershipDatasources"
+            Prelude.<*> ( x Data..?> "MembershipDatasources"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -110,28 +111,28 @@ instance Prelude.NFData BatchGetMembershipDatasources where
   rnf BatchGetMembershipDatasources' {..} =
     Prelude.rnf graphArns
 
-instance Core.ToHeaders BatchGetMembershipDatasources where
+instance Data.ToHeaders BatchGetMembershipDatasources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetMembershipDatasources where
+instance Data.ToJSON BatchGetMembershipDatasources where
   toJSON BatchGetMembershipDatasources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GraphArns" Core..= graphArns)]
+          [Prelude.Just ("GraphArns" Data..= graphArns)]
       )
 
-instance Core.ToPath BatchGetMembershipDatasources where
+instance Data.ToPath BatchGetMembershipDatasources where
   toPath = Prelude.const "/membership/datasources/get"
 
-instance Core.ToQuery BatchGetMembershipDatasources where
+instance Data.ToQuery BatchGetMembershipDatasources where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetMembershipDatasourcesResponse' smart constructor.

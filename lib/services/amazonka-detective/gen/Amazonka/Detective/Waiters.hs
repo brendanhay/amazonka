@@ -18,6 +18,7 @@ module Amazonka.Detective.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Detective.Lens
 import Amazonka.Detective.Types
 import qualified Amazonka.Prelude as Prelude

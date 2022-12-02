@@ -25,6 +25,7 @@ import Amazonka.CloudWatchEvents.Types.UpdateConnectionBasicAuthRequestParameter
 import Amazonka.CloudWatchEvents.Types.UpdateConnectionOAuthRequestParameters
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the additional parameters to use for the connection.
@@ -122,19 +123,19 @@ instance
       `Prelude.seq` Prelude.rnf apiKeyAuthParameters
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateConnectionAuthRequestParameters
   where
   toJSON UpdateConnectionAuthRequestParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OAuthParameters" Core..=)
+          [ ("OAuthParameters" Data..=)
               Prelude.<$> oAuthParameters,
-            ("InvocationHttpParameters" Core..=)
+            ("InvocationHttpParameters" Data..=)
               Prelude.<$> invocationHttpParameters,
-            ("BasicAuthParameters" Core..=)
+            ("BasicAuthParameters" Data..=)
               Prelude.<$> basicAuthParameters,
-            ("ApiKeyAuthParameters" Core..=)
+            ("ApiKeyAuthParameters" Data..=)
               Prelude.<$> apiKeyAuthParameters
           ]
       )

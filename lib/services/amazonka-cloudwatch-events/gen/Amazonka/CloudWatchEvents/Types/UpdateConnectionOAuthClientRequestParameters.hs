@@ -21,6 +21,7 @@ module Amazonka.CloudWatchEvents.Types.UpdateConnectionOAuthClientRequestParamet
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the OAuth authorization parameters to use for the connection.
@@ -84,14 +85,14 @@ instance
       `Prelude.seq` Prelude.rnf clientID
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateConnectionOAuthClientRequestParameters
   where
   toJSON
     UpdateConnectionOAuthClientRequestParameters' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("ClientSecret" Core..=) Prelude.<$> clientSecret,
-              ("ClientID" Core..=) Prelude.<$> clientID
+            [ ("ClientSecret" Data..=) Prelude.<$> clientSecret,
+              ("ClientID" Data..=) Prelude.<$> clientID
             ]
         )

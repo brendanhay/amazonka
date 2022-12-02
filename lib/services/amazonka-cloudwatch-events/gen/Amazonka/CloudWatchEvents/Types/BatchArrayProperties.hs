@@ -21,6 +21,7 @@ module Amazonka.CloudWatchEvents.Types.BatchArrayProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The array properties for the submitted job, such as the size of the
@@ -56,13 +57,13 @@ newBatchArrayProperties =
 batchArrayProperties_size :: Lens.Lens' BatchArrayProperties (Prelude.Maybe Prelude.Int)
 batchArrayProperties_size = Lens.lens (\BatchArrayProperties' {size} -> size) (\s@BatchArrayProperties' {} a -> s {size = a} :: BatchArrayProperties)
 
-instance Core.FromJSON BatchArrayProperties where
+instance Data.FromJSON BatchArrayProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchArrayProperties"
       ( \x ->
           BatchArrayProperties'
-            Prelude.<$> (x Core..:? "Size")
+            Prelude.<$> (x Data..:? "Size")
       )
 
 instance Prelude.Hashable BatchArrayProperties where
@@ -72,9 +73,9 @@ instance Prelude.Hashable BatchArrayProperties where
 instance Prelude.NFData BatchArrayProperties where
   rnf BatchArrayProperties' {..} = Prelude.rnf size
 
-instance Core.ToJSON BatchArrayProperties where
+instance Data.ToJSON BatchArrayProperties where
   toJSON BatchArrayProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Size" Core..=) Prelude.<$> size]
+          [("Size" Data..=) Prelude.<$> size]
       )

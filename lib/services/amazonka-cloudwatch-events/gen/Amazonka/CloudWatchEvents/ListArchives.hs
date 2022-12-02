@@ -49,6 +49,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,8 +131,8 @@ instance Core.AWSRequest ListArchives where
     Response.receiveJSON
       ( \s h x ->
           ListArchivesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Archives" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Archives" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,36 +152,36 @@ instance Prelude.NFData ListArchives where
       `Prelude.seq` Prelude.rnf eventSourceArn
       `Prelude.seq` Prelude.rnf namePrefix
 
-instance Core.ToHeaders ListArchives where
+instance Data.ToHeaders ListArchives where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.ListArchives" :: Prelude.ByteString),
+              Data.=# ("AWSEvents.ListArchives" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListArchives where
+instance Data.ToJSON ListArchives where
   toJSON ListArchives' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("State" Core..=) Prelude.<$> state,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("EventSourceArn" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("State" Data..=) Prelude.<$> state,
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("EventSourceArn" Data..=)
               Prelude.<$> eventSourceArn,
-            ("NamePrefix" Core..=) Prelude.<$> namePrefix
+            ("NamePrefix" Data..=) Prelude.<$> namePrefix
           ]
       )
 
-instance Core.ToPath ListArchives where
+instance Data.ToPath ListArchives where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListArchives where
+instance Data.ToQuery ListArchives where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListArchivesResponse' smart constructor.

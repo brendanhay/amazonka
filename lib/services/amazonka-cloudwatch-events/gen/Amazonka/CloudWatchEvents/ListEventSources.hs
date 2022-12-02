@@ -48,6 +48,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,8 +120,8 @@ instance Core.AWSRequest ListEventSources where
     Response.receiveJSON
       ( \s h x ->
           ListEventSourcesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "EventSources" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "EventSources" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,33 +137,33 @@ instance Prelude.NFData ListEventSources where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf namePrefix
 
-instance Core.ToHeaders ListEventSources where
+instance Data.ToHeaders ListEventSources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.ListEventSources" :: Prelude.ByteString),
+              Data.=# ("AWSEvents.ListEventSources" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListEventSources where
+instance Data.ToJSON ListEventSources where
   toJSON ListEventSources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("NamePrefix" Core..=) Prelude.<$> namePrefix
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("NamePrefix" Data..=) Prelude.<$> namePrefix
           ]
       )
 
-instance Core.ToPath ListEventSources where
+instance Data.ToPath ListEventSources where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListEventSources where
+instance Data.ToQuery ListEventSources where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListEventSourcesResponse' smart constructor.

@@ -58,6 +58,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,19 +117,19 @@ instance Core.AWSRequest DescribeEndpoint where
     Response.receiveJSON
       ( \s h x ->
           DescribeEndpointResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "EndpointId")
-            Prelude.<*> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "RoutingConfig")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "ReplicationConfig")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "EndpointUrl")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "EventBuses")
-            Prelude.<*> (x Core..?> "StateReason")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "EndpointId")
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "RoutingConfig")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "ReplicationConfig")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "EndpointUrl")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "EventBuses")
+            Prelude.<*> (x Data..?> "StateReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,32 +143,32 @@ instance Prelude.NFData DescribeEndpoint where
     Prelude.rnf homeRegion
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders DescribeEndpoint where
+instance Data.ToHeaders DescribeEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.DescribeEndpoint" :: Prelude.ByteString),
+              Data.=# ("AWSEvents.DescribeEndpoint" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEndpoint where
+instance Data.ToJSON DescribeEndpoint where
   toJSON DescribeEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HomeRegion" Core..=) Prelude.<$> homeRegion,
-            Prelude.Just ("Name" Core..= name)
+          [ ("HomeRegion" Data..=) Prelude.<$> homeRegion,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath DescribeEndpoint where
+instance Data.ToPath DescribeEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEndpoint where
+instance Data.ToQuery DescribeEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEndpointResponse' smart constructor.
@@ -192,11 +193,11 @@ data DescribeEndpointResponse = DescribeEndpointResponse'
     -- | The description of the endpoint you asked for information about.
     description :: Prelude.Maybe Prelude.Text,
     -- | The last time the endpoint you asked for information about was modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The URL of the endpoint you asked for information about.
     endpointUrl :: Prelude.Maybe Prelude.Text,
     -- | The time the endpoint you asked for information about was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The event buses being used by the endpoint you asked for information
     -- about.
     eventBuses :: Prelude.Maybe (Prelude.NonEmpty EndpointEventBus),
@@ -307,7 +308,7 @@ describeEndpointResponse_description = Lens.lens (\DescribeEndpointResponse' {de
 
 -- | The last time the endpoint you asked for information about was modified.
 describeEndpointResponse_lastModifiedTime :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe Prelude.UTCTime)
-describeEndpointResponse_lastModifiedTime = Lens.lens (\DescribeEndpointResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeEndpointResponse' {} a -> s {lastModifiedTime = a} :: DescribeEndpointResponse) Prelude.. Lens.mapping Core._Time
+describeEndpointResponse_lastModifiedTime = Lens.lens (\DescribeEndpointResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeEndpointResponse' {} a -> s {lastModifiedTime = a} :: DescribeEndpointResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The URL of the endpoint you asked for information about.
 describeEndpointResponse_endpointUrl :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe Prelude.Text)
@@ -315,7 +316,7 @@ describeEndpointResponse_endpointUrl = Lens.lens (\DescribeEndpointResponse' {en
 
 -- | The time the endpoint you asked for information about was created.
 describeEndpointResponse_creationTime :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe Prelude.UTCTime)
-describeEndpointResponse_creationTime = Lens.lens (\DescribeEndpointResponse' {creationTime} -> creationTime) (\s@DescribeEndpointResponse' {} a -> s {creationTime = a} :: DescribeEndpointResponse) Prelude.. Lens.mapping Core._Time
+describeEndpointResponse_creationTime = Lens.lens (\DescribeEndpointResponse' {creationTime} -> creationTime) (\s@DescribeEndpointResponse' {} a -> s {creationTime = a} :: DescribeEndpointResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The event buses being used by the endpoint you asked for information
 -- about.

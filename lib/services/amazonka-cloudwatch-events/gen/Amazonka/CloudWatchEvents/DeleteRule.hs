@@ -56,6 +56,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -140,33 +141,33 @@ instance Prelude.NFData DeleteRule where
       `Prelude.seq` Prelude.rnf force
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders DeleteRule where
+instance Data.ToHeaders DeleteRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.DeleteRule" :: Prelude.ByteString),
+              Data.=# ("AWSEvents.DeleteRule" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteRule where
+instance Data.ToJSON DeleteRule where
   toJSON DeleteRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EventBusName" Core..=) Prelude.<$> eventBusName,
-            ("Force" Core..=) Prelude.<$> force,
-            Prelude.Just ("Name" Core..= name)
+          [ ("EventBusName" Data..=) Prelude.<$> eventBusName,
+            ("Force" Data..=) Prelude.<$> force,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath DeleteRule where
+instance Data.ToPath DeleteRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteRule where
+instance Data.ToQuery DeleteRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRuleResponse' smart constructor.

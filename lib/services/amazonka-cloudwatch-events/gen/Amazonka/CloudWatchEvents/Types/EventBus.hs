@@ -21,6 +21,7 @@ module Amazonka.CloudWatchEvents.Types.EventBus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An event bus receives events from a source and routes them to rules
@@ -78,15 +79,15 @@ eventBus_name = Lens.lens (\EventBus' {name} -> name) (\s@EventBus' {} a -> s {n
 eventBus_arn :: Lens.Lens' EventBus (Prelude.Maybe Prelude.Text)
 eventBus_arn = Lens.lens (\EventBus' {arn} -> arn) (\s@EventBus' {} a -> s {arn = a} :: EventBus)
 
-instance Core.FromJSON EventBus where
+instance Data.FromJSON EventBus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventBus"
       ( \x ->
           EventBus'
-            Prelude.<$> (x Core..:? "Policy")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<$> (x Data..:? "Policy")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
       )
 
 instance Prelude.Hashable EventBus where

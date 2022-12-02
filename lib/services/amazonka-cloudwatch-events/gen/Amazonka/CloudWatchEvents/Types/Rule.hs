@@ -22,6 +22,7 @@ module Amazonka.CloudWatchEvents.Types.Rule where
 import Amazonka.CloudWatchEvents.Types.RuleState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a rule in Amazon EventBridge.
@@ -167,21 +168,21 @@ rule_scheduleExpression = Lens.lens (\Rule' {scheduleExpression} -> scheduleExpr
 rule_managedBy :: Lens.Lens' Rule (Prelude.Maybe Prelude.Text)
 rule_managedBy = Lens.lens (\Rule' {managedBy} -> managedBy) (\s@Rule' {} a -> s {managedBy = a} :: Rule)
 
-instance Core.FromJSON Rule where
+instance Data.FromJSON Rule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Rule"
       ( \x ->
           Rule'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "EventPattern")
-            Prelude.<*> (x Core..:? "EventBusName")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ScheduleExpression")
-            Prelude.<*> (x Core..:? "ManagedBy")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "EventPattern")
+            Prelude.<*> (x Data..:? "EventBusName")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ScheduleExpression")
+            Prelude.<*> (x Data..:? "ManagedBy")
       )
 
 instance Prelude.Hashable Rule where

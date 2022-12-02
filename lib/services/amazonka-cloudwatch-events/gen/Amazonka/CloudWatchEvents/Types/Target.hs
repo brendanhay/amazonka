@@ -32,6 +32,7 @@ import Amazonka.CloudWatchEvents.Types.SageMakerPipelineParameters
 import Amazonka.CloudWatchEvents.Types.SqsParameters
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Targets are the resources to be invoked when a rule is triggered. For a
@@ -344,28 +345,28 @@ target_id = Lens.lens (\Target' {id} -> id) (\s@Target' {} a -> s {id = a} :: Ta
 target_arn :: Lens.Lens' Target Prelude.Text
 target_arn = Lens.lens (\Target' {arn} -> arn) (\s@Target' {} a -> s {arn = a} :: Target)
 
-instance Core.FromJSON Target where
+instance Data.FromJSON Target where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Target"
       ( \x ->
           Target'
-            Prelude.<$> (x Core..:? "KinesisParameters")
-            Prelude.<*> (x Core..:? "HttpParameters")
-            Prelude.<*> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "InputPath")
-            Prelude.<*> (x Core..:? "SageMakerPipelineParameters")
-            Prelude.<*> (x Core..:? "RunCommandParameters")
-            Prelude.<*> (x Core..:? "Input")
-            Prelude.<*> (x Core..:? "RedshiftDataParameters")
-            Prelude.<*> (x Core..:? "SqsParameters")
-            Prelude.<*> (x Core..:? "InputTransformer")
-            Prelude.<*> (x Core..:? "BatchParameters")
-            Prelude.<*> (x Core..:? "EcsParameters")
-            Prelude.<*> (x Core..:? "RetryPolicy")
-            Prelude.<*> (x Core..:? "DeadLetterConfig")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "Arn")
+            Prelude.<$> (x Data..:? "KinesisParameters")
+            Prelude.<*> (x Data..:? "HttpParameters")
+            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "InputPath")
+            Prelude.<*> (x Data..:? "SageMakerPipelineParameters")
+            Prelude.<*> (x Data..:? "RunCommandParameters")
+            Prelude.<*> (x Data..:? "Input")
+            Prelude.<*> (x Data..:? "RedshiftDataParameters")
+            Prelude.<*> (x Data..:? "SqsParameters")
+            Prelude.<*> (x Data..:? "InputTransformer")
+            Prelude.<*> (x Data..:? "BatchParameters")
+            Prelude.<*> (x Data..:? "EcsParameters")
+            Prelude.<*> (x Data..:? "RetryPolicy")
+            Prelude.<*> (x Data..:? "DeadLetterConfig")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "Arn")
       )
 
 instance Prelude.Hashable Target where
@@ -406,33 +407,33 @@ instance Prelude.NFData Target where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToJSON Target where
+instance Data.ToJSON Target where
   toJSON Target' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KinesisParameters" Core..=)
+          [ ("KinesisParameters" Data..=)
               Prelude.<$> kinesisParameters,
-            ("HttpParameters" Core..=)
+            ("HttpParameters" Data..=)
               Prelude.<$> httpParameters,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("InputPath" Core..=) Prelude.<$> inputPath,
-            ("SageMakerPipelineParameters" Core..=)
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("InputPath" Data..=) Prelude.<$> inputPath,
+            ("SageMakerPipelineParameters" Data..=)
               Prelude.<$> sageMakerPipelineParameters,
-            ("RunCommandParameters" Core..=)
+            ("RunCommandParameters" Data..=)
               Prelude.<$> runCommandParameters,
-            ("Input" Core..=) Prelude.<$> input,
-            ("RedshiftDataParameters" Core..=)
+            ("Input" Data..=) Prelude.<$> input,
+            ("RedshiftDataParameters" Data..=)
               Prelude.<$> redshiftDataParameters,
-            ("SqsParameters" Core..=) Prelude.<$> sqsParameters,
-            ("InputTransformer" Core..=)
+            ("SqsParameters" Data..=) Prelude.<$> sqsParameters,
+            ("InputTransformer" Data..=)
               Prelude.<$> inputTransformer,
-            ("BatchParameters" Core..=)
+            ("BatchParameters" Data..=)
               Prelude.<$> batchParameters,
-            ("EcsParameters" Core..=) Prelude.<$> ecsParameters,
-            ("RetryPolicy" Core..=) Prelude.<$> retryPolicy,
-            ("DeadLetterConfig" Core..=)
+            ("EcsParameters" Data..=) Prelude.<$> ecsParameters,
+            ("RetryPolicy" Data..=) Prelude.<$> retryPolicy,
+            ("DeadLetterConfig" Data..=)
               Prelude.<$> deadLetterConfig,
-            Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("Arn" Core..= arn)
+            Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("Arn" Data..= arn)
           ]
       )

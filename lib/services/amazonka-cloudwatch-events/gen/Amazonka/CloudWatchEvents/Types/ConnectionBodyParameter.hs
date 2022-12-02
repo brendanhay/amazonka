@@ -21,6 +21,7 @@ module Amazonka.CloudWatchEvents.Types.ConnectionBodyParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Additional parameter included in the body. You can include up to 100
@@ -72,15 +73,15 @@ connectionBodyParameter_isValueSecret = Lens.lens (\ConnectionBodyParameter' {is
 connectionBodyParameter_value :: Lens.Lens' ConnectionBodyParameter (Prelude.Maybe Prelude.Text)
 connectionBodyParameter_value = Lens.lens (\ConnectionBodyParameter' {value} -> value) (\s@ConnectionBodyParameter' {} a -> s {value = a} :: ConnectionBodyParameter)
 
-instance Core.FromJSON ConnectionBodyParameter where
+instance Data.FromJSON ConnectionBodyParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectionBodyParameter"
       ( \x ->
           ConnectionBodyParameter'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "IsValueSecret")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "IsValueSecret")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable ConnectionBodyParameter where
@@ -95,12 +96,12 @@ instance Prelude.NFData ConnectionBodyParameter where
       `Prelude.seq` Prelude.rnf isValueSecret
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ConnectionBodyParameter where
+instance Data.ToJSON ConnectionBodyParameter where
   toJSON ConnectionBodyParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("IsValueSecret" Core..=) Prelude.<$> isValueSecret,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("IsValueSecret" Data..=) Prelude.<$> isValueSecret,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

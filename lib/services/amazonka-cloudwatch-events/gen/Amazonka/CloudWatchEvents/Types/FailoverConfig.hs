@@ -23,6 +23,7 @@ import Amazonka.CloudWatchEvents.Types.Primary
 import Amazonka.CloudWatchEvents.Types.Secondary
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The failover configuration for an endpoint. This includes what triggers
@@ -71,14 +72,14 @@ failoverConfig_primary = Lens.lens (\FailoverConfig' {primary} -> primary) (\s@F
 failoverConfig_secondary :: Lens.Lens' FailoverConfig Secondary
 failoverConfig_secondary = Lens.lens (\FailoverConfig' {secondary} -> secondary) (\s@FailoverConfig' {} a -> s {secondary = a} :: FailoverConfig)
 
-instance Core.FromJSON FailoverConfig where
+instance Data.FromJSON FailoverConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailoverConfig"
       ( \x ->
           FailoverConfig'
-            Prelude.<$> (x Core..: "Primary")
-            Prelude.<*> (x Core..: "Secondary")
+            Prelude.<$> (x Data..: "Primary")
+            Prelude.<*> (x Data..: "Secondary")
       )
 
 instance Prelude.Hashable FailoverConfig where
@@ -91,11 +92,11 @@ instance Prelude.NFData FailoverConfig where
     Prelude.rnf primary
       `Prelude.seq` Prelude.rnf secondary
 
-instance Core.ToJSON FailoverConfig where
+instance Data.ToJSON FailoverConfig where
   toJSON FailoverConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Primary" Core..= primary),
-            Prelude.Just ("Secondary" Core..= secondary)
+          [ Prelude.Just ("Primary" Data..= primary),
+            Prelude.Just ("Secondary" Data..= secondary)
           ]
       )

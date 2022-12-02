@@ -49,6 +49,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,11 +120,11 @@ instance Core.AWSRequest UpdateConnection where
     Response.receiveJSON
       ( \s h x ->
           UpdateConnectionResponse'
-            Prelude.<$> (x Core..?> "ConnectionState")
-            Prelude.<*> (x Core..?> "ConnectionArn")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "LastAuthorizedTime")
-            Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<$> (x Data..?> "ConnectionState")
+            Prelude.<*> (x Data..?> "ConnectionArn")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "LastAuthorizedTime")
+            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,36 +142,36 @@ instance Prelude.NFData UpdateConnection where
       `Prelude.seq` Prelude.rnf authorizationType
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateConnection where
+instance Data.ToHeaders UpdateConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.UpdateConnection" :: Prelude.ByteString),
+              Data.=# ("AWSEvents.UpdateConnection" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateConnection where
+instance Data.ToJSON UpdateConnection where
   toJSON UpdateConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AuthParameters" Core..=)
+          [ ("AuthParameters" Data..=)
               Prelude.<$> authParameters,
-            ("Description" Core..=) Prelude.<$> description,
-            ("AuthorizationType" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("AuthorizationType" Data..=)
               Prelude.<$> authorizationType,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateConnection where
+instance Data.ToPath UpdateConnection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateConnection where
+instance Data.ToQuery UpdateConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateConnectionResponse' smart constructor.
@@ -180,11 +181,11 @@ data UpdateConnectionResponse = UpdateConnectionResponse'
     -- | The ARN of the connection that was updated.
     connectionArn :: Prelude.Maybe Prelude.Text,
     -- | A time stamp for the time that the connection was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | A time stamp for the time that the connection was last authorized.
-    lastAuthorizedTime :: Prelude.Maybe Core.POSIX,
+    lastAuthorizedTime :: Prelude.Maybe Data.POSIX,
     -- | A time stamp for the time that the connection was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -234,15 +235,15 @@ updateConnectionResponse_connectionArn = Lens.lens (\UpdateConnectionResponse' {
 
 -- | A time stamp for the time that the connection was last modified.
 updateConnectionResponse_lastModifiedTime :: Lens.Lens' UpdateConnectionResponse (Prelude.Maybe Prelude.UTCTime)
-updateConnectionResponse_lastModifiedTime = Lens.lens (\UpdateConnectionResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateConnectionResponse' {} a -> s {lastModifiedTime = a} :: UpdateConnectionResponse) Prelude.. Lens.mapping Core._Time
+updateConnectionResponse_lastModifiedTime = Lens.lens (\UpdateConnectionResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateConnectionResponse' {} a -> s {lastModifiedTime = a} :: UpdateConnectionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A time stamp for the time that the connection was last authorized.
 updateConnectionResponse_lastAuthorizedTime :: Lens.Lens' UpdateConnectionResponse (Prelude.Maybe Prelude.UTCTime)
-updateConnectionResponse_lastAuthorizedTime = Lens.lens (\UpdateConnectionResponse' {lastAuthorizedTime} -> lastAuthorizedTime) (\s@UpdateConnectionResponse' {} a -> s {lastAuthorizedTime = a} :: UpdateConnectionResponse) Prelude.. Lens.mapping Core._Time
+updateConnectionResponse_lastAuthorizedTime = Lens.lens (\UpdateConnectionResponse' {lastAuthorizedTime} -> lastAuthorizedTime) (\s@UpdateConnectionResponse' {} a -> s {lastAuthorizedTime = a} :: UpdateConnectionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A time stamp for the time that the connection was created.
 updateConnectionResponse_creationTime :: Lens.Lens' UpdateConnectionResponse (Prelude.Maybe Prelude.UTCTime)
-updateConnectionResponse_creationTime = Lens.lens (\UpdateConnectionResponse' {creationTime} -> creationTime) (\s@UpdateConnectionResponse' {} a -> s {creationTime = a} :: UpdateConnectionResponse) Prelude.. Lens.mapping Core._Time
+updateConnectionResponse_creationTime = Lens.lens (\UpdateConnectionResponse' {creationTime} -> creationTime) (\s@UpdateConnectionResponse' {} a -> s {creationTime = a} :: UpdateConnectionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 updateConnectionResponse_httpStatus :: Lens.Lens' UpdateConnectionResponse Prelude.Int

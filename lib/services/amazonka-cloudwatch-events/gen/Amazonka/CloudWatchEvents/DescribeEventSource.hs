@@ -48,6 +48,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,12 +90,12 @@ instance Core.AWSRequest DescribeEventSource where
     Response.receiveJSON
       ( \s h x ->
           DescribeEventSourceResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "ExpirationTime")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "CreatedBy")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "ExpirationTime")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "CreatedBy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -105,32 +106,32 @@ instance Prelude.Hashable DescribeEventSource where
 instance Prelude.NFData DescribeEventSource where
   rnf DescribeEventSource' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DescribeEventSource where
+instance Data.ToHeaders DescribeEventSource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSEvents.DescribeEventSource" ::
+              Data.=# ( "AWSEvents.DescribeEventSource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEventSource where
+instance Data.ToJSON DescribeEventSource where
   toJSON DescribeEventSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath DescribeEventSource where
+instance Data.ToPath DescribeEventSource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEventSource where
+instance Data.ToQuery DescribeEventSource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEventSourceResponse' smart constructor.
@@ -139,7 +140,7 @@ data DescribeEventSourceResponse = DescribeEventSourceResponse'
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the event source will expire if you do not create
     -- a matching event bus.
-    expirationTime :: Prelude.Maybe Core.POSIX,
+    expirationTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the partner event source.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The state of the event source. If it is ACTIVE, you have already created
@@ -150,7 +151,7 @@ data DescribeEventSourceResponse = DescribeEventSourceResponse'
     -- deleted.
     state :: Prelude.Maybe EventSourceState,
     -- | The date and time that the event source was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the SaaS partner that created the event source.
     createdBy :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -208,7 +209,7 @@ describeEventSourceResponse_name = Lens.lens (\DescribeEventSourceResponse' {nam
 -- | The date and time that the event source will expire if you do not create
 -- a matching event bus.
 describeEventSourceResponse_expirationTime :: Lens.Lens' DescribeEventSourceResponse (Prelude.Maybe Prelude.UTCTime)
-describeEventSourceResponse_expirationTime = Lens.lens (\DescribeEventSourceResponse' {expirationTime} -> expirationTime) (\s@DescribeEventSourceResponse' {} a -> s {expirationTime = a} :: DescribeEventSourceResponse) Prelude.. Lens.mapping Core._Time
+describeEventSourceResponse_expirationTime = Lens.lens (\DescribeEventSourceResponse' {expirationTime} -> expirationTime) (\s@DescribeEventSourceResponse' {} a -> s {expirationTime = a} :: DescribeEventSourceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the partner event source.
 describeEventSourceResponse_arn :: Lens.Lens' DescribeEventSourceResponse (Prelude.Maybe Prelude.Text)
@@ -225,7 +226,7 @@ describeEventSourceResponse_state = Lens.lens (\DescribeEventSourceResponse' {st
 
 -- | The date and time that the event source was created.
 describeEventSourceResponse_creationTime :: Lens.Lens' DescribeEventSourceResponse (Prelude.Maybe Prelude.UTCTime)
-describeEventSourceResponse_creationTime = Lens.lens (\DescribeEventSourceResponse' {creationTime} -> creationTime) (\s@DescribeEventSourceResponse' {} a -> s {creationTime = a} :: DescribeEventSourceResponse) Prelude.. Lens.mapping Core._Time
+describeEventSourceResponse_creationTime = Lens.lens (\DescribeEventSourceResponse' {creationTime} -> creationTime) (\s@DescribeEventSourceResponse' {} a -> s {creationTime = a} :: DescribeEventSourceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the SaaS partner that created the event source.
 describeEventSourceResponse_createdBy :: Lens.Lens' DescribeEventSourceResponse (Prelude.Maybe Prelude.Text)

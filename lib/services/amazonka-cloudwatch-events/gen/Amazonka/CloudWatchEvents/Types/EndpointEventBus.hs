@@ -21,6 +21,7 @@ module Amazonka.CloudWatchEvents.Types.EndpointEventBus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The event buses the endpoint is associated with.
@@ -52,13 +53,13 @@ newEndpointEventBus pEventBusArn_ =
 endpointEventBus_eventBusArn :: Lens.Lens' EndpointEventBus Prelude.Text
 endpointEventBus_eventBusArn = Lens.lens (\EndpointEventBus' {eventBusArn} -> eventBusArn) (\s@EndpointEventBus' {} a -> s {eventBusArn = a} :: EndpointEventBus)
 
-instance Core.FromJSON EndpointEventBus where
+instance Data.FromJSON EndpointEventBus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointEventBus"
       ( \x ->
           EndpointEventBus'
-            Prelude.<$> (x Core..: "EventBusArn")
+            Prelude.<$> (x Data..: "EventBusArn")
       )
 
 instance Prelude.Hashable EndpointEventBus where
@@ -68,9 +69,9 @@ instance Prelude.Hashable EndpointEventBus where
 instance Prelude.NFData EndpointEventBus where
   rnf EndpointEventBus' {..} = Prelude.rnf eventBusArn
 
-instance Core.ToJSON EndpointEventBus where
+instance Data.ToJSON EndpointEventBus where
   toJSON EndpointEventBus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("EventBusArn" Core..= eventBusArn)]
+          [Prelude.Just ("EventBusArn" Data..= eventBusArn)]
       )

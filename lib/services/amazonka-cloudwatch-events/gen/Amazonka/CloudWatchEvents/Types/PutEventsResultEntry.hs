@@ -21,6 +21,7 @@ module Amazonka.CloudWatchEvents.Types.PutEventsResultEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an event that failed to be submitted. For information about
@@ -73,15 +74,15 @@ putEventsResultEntry_eventId = Lens.lens (\PutEventsResultEntry' {eventId} -> ev
 putEventsResultEntry_errorCode :: Lens.Lens' PutEventsResultEntry (Prelude.Maybe Prelude.Text)
 putEventsResultEntry_errorCode = Lens.lens (\PutEventsResultEntry' {errorCode} -> errorCode) (\s@PutEventsResultEntry' {} a -> s {errorCode = a} :: PutEventsResultEntry)
 
-instance Core.FromJSON PutEventsResultEntry where
+instance Data.FromJSON PutEventsResultEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PutEventsResultEntry"
       ( \x ->
           PutEventsResultEntry'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "EventId")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "EventId")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable PutEventsResultEntry where

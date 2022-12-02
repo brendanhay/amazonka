@@ -44,6 +44,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,9 +84,9 @@ instance Core.AWSRequest CancelReplay where
     Response.receiveJSON
       ( \s h x ->
           CancelReplayResponse'
-            Prelude.<$> (x Core..?> "ReplayArn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "StateReason")
+            Prelude.<$> (x Data..?> "ReplayArn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "StateReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,30 +97,30 @@ instance Prelude.Hashable CancelReplay where
 instance Prelude.NFData CancelReplay where
   rnf CancelReplay' {..} = Prelude.rnf replayName
 
-instance Core.ToHeaders CancelReplay where
+instance Data.ToHeaders CancelReplay where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.CancelReplay" :: Prelude.ByteString),
+              Data.=# ("AWSEvents.CancelReplay" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelReplay where
+instance Data.ToJSON CancelReplay where
   toJSON CancelReplay' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ReplayName" Core..= replayName)]
+          [Prelude.Just ("ReplayName" Data..= replayName)]
       )
 
-instance Core.ToPath CancelReplay where
+instance Data.ToPath CancelReplay where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelReplay where
+instance Data.ToQuery CancelReplay where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelReplayResponse' smart constructor.

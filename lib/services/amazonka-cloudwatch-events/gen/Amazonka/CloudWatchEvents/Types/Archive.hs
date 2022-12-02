@@ -22,6 +22,7 @@ module Amazonka.CloudWatchEvents.Types.Archive where
 import Amazonka.CloudWatchEvents.Types.ArchiveState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An @Archive@ object that contains details about an archive.
@@ -43,7 +44,7 @@ data Archive = Archive'
     -- this event bus are sent to the archive.
     eventSourceArn :: Prelude.Maybe Prelude.Text,
     -- | The time stamp for the time that the archive was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | A description for the reason that the archive is in the current state.
     stateReason :: Prelude.Maybe Prelude.Text
   }
@@ -116,26 +117,26 @@ archive_eventSourceArn = Lens.lens (\Archive' {eventSourceArn} -> eventSourceArn
 
 -- | The time stamp for the time that the archive was created.
 archive_creationTime :: Lens.Lens' Archive (Prelude.Maybe Prelude.UTCTime)
-archive_creationTime = Lens.lens (\Archive' {creationTime} -> creationTime) (\s@Archive' {} a -> s {creationTime = a} :: Archive) Prelude.. Lens.mapping Core._Time
+archive_creationTime = Lens.lens (\Archive' {creationTime} -> creationTime) (\s@Archive' {} a -> s {creationTime = a} :: Archive) Prelude.. Lens.mapping Data._Time
 
 -- | A description for the reason that the archive is in the current state.
 archive_stateReason :: Lens.Lens' Archive (Prelude.Maybe Prelude.Text)
 archive_stateReason = Lens.lens (\Archive' {stateReason} -> stateReason) (\s@Archive' {} a -> s {stateReason = a} :: Archive)
 
-instance Core.FromJSON Archive where
+instance Data.FromJSON Archive where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Archive"
       ( \x ->
           Archive'
-            Prelude.<$> (x Core..:? "RetentionDays")
-            Prelude.<*> (x Core..:? "SizeBytes")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "EventCount")
-            Prelude.<*> (x Core..:? "ArchiveName")
-            Prelude.<*> (x Core..:? "EventSourceArn")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "StateReason")
+            Prelude.<$> (x Data..:? "RetentionDays")
+            Prelude.<*> (x Data..:? "SizeBytes")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "EventCount")
+            Prelude.<*> (x Data..:? "ArchiveName")
+            Prelude.<*> (x Data..:? "EventSourceArn")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "StateReason")
       )
 
 instance Prelude.Hashable Archive where

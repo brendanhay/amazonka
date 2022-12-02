@@ -52,6 +52,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,17 +94,17 @@ instance Core.AWSRequest DescribeConnection where
     Response.receiveJSON
       ( \s h x ->
           DescribeConnectionResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "AuthParameters")
-            Prelude.<*> (x Core..?> "ConnectionState")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "ConnectionArn")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "SecretArn")
-            Prelude.<*> (x Core..?> "LastAuthorizedTime")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "AuthorizationType")
-            Prelude.<*> (x Core..?> "StateReason")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "AuthParameters")
+            Prelude.<*> (x Data..?> "ConnectionState")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "ConnectionArn")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "SecretArn")
+            Prelude.<*> (x Data..?> "LastAuthorizedTime")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "AuthorizationType")
+            Prelude.<*> (x Data..?> "StateReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,32 +115,32 @@ instance Prelude.Hashable DescribeConnection where
 instance Prelude.NFData DescribeConnection where
   rnf DescribeConnection' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DescribeConnection where
+instance Data.ToHeaders DescribeConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSEvents.DescribeConnection" ::
+              Data.=# ( "AWSEvents.DescribeConnection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeConnection where
+instance Data.ToJSON DescribeConnection where
   toJSON DescribeConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath DescribeConnection where
+instance Data.ToPath DescribeConnection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeConnection where
+instance Data.ToQuery DescribeConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeConnectionResponse' smart constructor.
@@ -155,14 +156,14 @@ data DescribeConnectionResponse = DescribeConnectionResponse'
     -- | The ARN of the connection retrieved.
     connectionArn :: Prelude.Maybe Prelude.Text,
     -- | A time stamp for the time that the connection was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the secret created from the authorization parameters
     -- specified for the connection.
     secretArn :: Prelude.Maybe Prelude.Text,
     -- | A time stamp for the time that the connection was last authorized.
-    lastAuthorizedTime :: Prelude.Maybe Core.POSIX,
+    lastAuthorizedTime :: Prelude.Maybe Data.POSIX,
     -- | A time stamp for the time that the connection was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The type of authorization specified for the connection.
     authorizationType :: Prelude.Maybe ConnectionAuthorizationType,
     -- | The reason that the connection is in the current connection state.
@@ -246,7 +247,7 @@ describeConnectionResponse_connectionArn = Lens.lens (\DescribeConnectionRespons
 
 -- | A time stamp for the time that the connection was last modified.
 describeConnectionResponse_lastModifiedTime :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe Prelude.UTCTime)
-describeConnectionResponse_lastModifiedTime = Lens.lens (\DescribeConnectionResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeConnectionResponse' {} a -> s {lastModifiedTime = a} :: DescribeConnectionResponse) Prelude.. Lens.mapping Core._Time
+describeConnectionResponse_lastModifiedTime = Lens.lens (\DescribeConnectionResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeConnectionResponse' {} a -> s {lastModifiedTime = a} :: DescribeConnectionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the secret created from the authorization parameters
 -- specified for the connection.
@@ -255,11 +256,11 @@ describeConnectionResponse_secretArn = Lens.lens (\DescribeConnectionResponse' {
 
 -- | A time stamp for the time that the connection was last authorized.
 describeConnectionResponse_lastAuthorizedTime :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe Prelude.UTCTime)
-describeConnectionResponse_lastAuthorizedTime = Lens.lens (\DescribeConnectionResponse' {lastAuthorizedTime} -> lastAuthorizedTime) (\s@DescribeConnectionResponse' {} a -> s {lastAuthorizedTime = a} :: DescribeConnectionResponse) Prelude.. Lens.mapping Core._Time
+describeConnectionResponse_lastAuthorizedTime = Lens.lens (\DescribeConnectionResponse' {lastAuthorizedTime} -> lastAuthorizedTime) (\s@DescribeConnectionResponse' {} a -> s {lastAuthorizedTime = a} :: DescribeConnectionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A time stamp for the time that the connection was created.
 describeConnectionResponse_creationTime :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe Prelude.UTCTime)
-describeConnectionResponse_creationTime = Lens.lens (\DescribeConnectionResponse' {creationTime} -> creationTime) (\s@DescribeConnectionResponse' {} a -> s {creationTime = a} :: DescribeConnectionResponse) Prelude.. Lens.mapping Core._Time
+describeConnectionResponse_creationTime = Lens.lens (\DescribeConnectionResponse' {creationTime} -> creationTime) (\s@DescribeConnectionResponse' {} a -> s {creationTime = a} :: DescribeConnectionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The type of authorization specified for the connection.
 describeConnectionResponse_authorizationType :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe ConnectionAuthorizationType)

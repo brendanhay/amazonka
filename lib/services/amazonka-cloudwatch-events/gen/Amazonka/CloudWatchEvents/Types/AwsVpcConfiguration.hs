@@ -22,6 +22,7 @@ module Amazonka.CloudWatchEvents.Types.AwsVpcConfiguration where
 import Amazonka.CloudWatchEvents.Types.AssignPublicIp
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure specifies the VPC subnets and security groups for the
@@ -92,15 +93,15 @@ awsVpcConfiguration_assignPublicIp = Lens.lens (\AwsVpcConfiguration' {assignPub
 awsVpcConfiguration_subnets :: Lens.Lens' AwsVpcConfiguration [Prelude.Text]
 awsVpcConfiguration_subnets = Lens.lens (\AwsVpcConfiguration' {subnets} -> subnets) (\s@AwsVpcConfiguration' {} a -> s {subnets = a} :: AwsVpcConfiguration) Prelude.. Lens.coerced
 
-instance Core.FromJSON AwsVpcConfiguration where
+instance Data.FromJSON AwsVpcConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsVpcConfiguration"
       ( \x ->
           AwsVpcConfiguration'
-            Prelude.<$> (x Core..:? "SecurityGroups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AssignPublicIp")
-            Prelude.<*> (x Core..:? "Subnets" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "SecurityGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AssignPublicIp")
+            Prelude.<*> (x Data..:? "Subnets" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AwsVpcConfiguration where
@@ -115,14 +116,14 @@ instance Prelude.NFData AwsVpcConfiguration where
       `Prelude.seq` Prelude.rnf assignPublicIp
       `Prelude.seq` Prelude.rnf subnets
 
-instance Core.ToJSON AwsVpcConfiguration where
+instance Data.ToJSON AwsVpcConfiguration where
   toJSON AwsVpcConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SecurityGroups" Core..=)
+          [ ("SecurityGroups" Data..=)
               Prelude.<$> securityGroups,
-            ("AssignPublicIp" Core..=)
+            ("AssignPublicIp" Data..=)
               Prelude.<$> assignPublicIp,
-            Prelude.Just ("Subnets" Core..= subnets)
+            Prelude.Just ("Subnets" Data..= subnets)
           ]
       )

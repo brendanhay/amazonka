@@ -21,6 +21,7 @@ module Amazonka.CloudWatchEvents.Types.SageMakerPipelineParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Name\/Value pair of a parameter to start execution of a SageMaker Model
@@ -72,13 +73,13 @@ sageMakerPipelineParameter_name = Lens.lens (\SageMakerPipelineParameter' {name}
 sageMakerPipelineParameter_value :: Lens.Lens' SageMakerPipelineParameter Prelude.Text
 sageMakerPipelineParameter_value = Lens.lens (\SageMakerPipelineParameter' {value} -> value) (\s@SageMakerPipelineParameter' {} a -> s {value = a} :: SageMakerPipelineParameter)
 
-instance Core.FromJSON SageMakerPipelineParameter where
+instance Data.FromJSON SageMakerPipelineParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SageMakerPipelineParameter"
       ( \x ->
           SageMakerPipelineParameter'
-            Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable SageMakerPipelineParameter where
@@ -90,11 +91,11 @@ instance Prelude.NFData SageMakerPipelineParameter where
   rnf SageMakerPipelineParameter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON SageMakerPipelineParameter where
+instance Data.ToJSON SageMakerPipelineParameter where
   toJSON SageMakerPipelineParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

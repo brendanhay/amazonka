@@ -25,6 +25,7 @@ import Amazonka.CloudWatchEvents.Types.ConnectionHttpParameters
 import Amazonka.CloudWatchEvents.Types.ConnectionOAuthResponseParameters
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the authorization parameters to use for the connection.
@@ -89,18 +90,18 @@ connectionAuthResponseParameters_apiKeyAuthParameters :: Lens.Lens' ConnectionAu
 connectionAuthResponseParameters_apiKeyAuthParameters = Lens.lens (\ConnectionAuthResponseParameters' {apiKeyAuthParameters} -> apiKeyAuthParameters) (\s@ConnectionAuthResponseParameters' {} a -> s {apiKeyAuthParameters = a} :: ConnectionAuthResponseParameters)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ConnectionAuthResponseParameters
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectionAuthResponseParameters"
       ( \x ->
           ConnectionAuthResponseParameters'
-            Prelude.<$> (x Core..:? "OAuthParameters")
-            Prelude.<*> (x Core..:? "InvocationHttpParameters")
-            Prelude.<*> (x Core..:? "BasicAuthParameters")
-            Prelude.<*> (x Core..:? "ApiKeyAuthParameters")
+            Prelude.<$> (x Data..:? "OAuthParameters")
+            Prelude.<*> (x Data..:? "InvocationHttpParameters")
+            Prelude.<*> (x Data..:? "BasicAuthParameters")
+            Prelude.<*> (x Data..:? "ApiKeyAuthParameters")
       )
 
 instance

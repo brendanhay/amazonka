@@ -56,6 +56,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,16 +110,16 @@ instance Core.AWSRequest DescribeRule where
     Response.receiveJSON
       ( \s h x ->
           DescribeRuleResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "EventPattern")
-            Prelude.<*> (x Core..?> "EventBusName")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "ScheduleExpression")
-            Prelude.<*> (x Core..?> "CreatedBy")
-            Prelude.<*> (x Core..?> "ManagedBy")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "EventPattern")
+            Prelude.<*> (x Data..?> "EventBusName")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "ScheduleExpression")
+            Prelude.<*> (x Data..?> "CreatedBy")
+            Prelude.<*> (x Data..?> "ManagedBy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,32 +133,32 @@ instance Prelude.NFData DescribeRule where
     Prelude.rnf eventBusName
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders DescribeRule where
+instance Data.ToHeaders DescribeRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.DescribeRule" :: Prelude.ByteString),
+              Data.=# ("AWSEvents.DescribeRule" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeRule where
+instance Data.ToJSON DescribeRule where
   toJSON DescribeRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EventBusName" Core..=) Prelude.<$> eventBusName,
-            Prelude.Just ("Name" Core..= name)
+          [ ("EventBusName" Data..=) Prelude.<$> eventBusName,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath DescribeRule where
+instance Data.ToPath DescribeRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeRule where
+instance Data.ToQuery DescribeRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRuleResponse' smart constructor.

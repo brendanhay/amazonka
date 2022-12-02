@@ -22,6 +22,7 @@ module Amazonka.CloudWatchEvents.Types.Replay where
 import Amazonka.CloudWatchEvents.Types.ReplayState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A @Replay@ object that contains details about a replay.
@@ -31,24 +32,24 @@ data Replay = Replay'
   { -- | The current state of the replay.
     state :: Prelude.Maybe ReplayState,
     -- | A time stamp for the time that the last event was replayed.
-    eventLastReplayedTime :: Prelude.Maybe Core.POSIX,
+    eventLastReplayedTime :: Prelude.Maybe Data.POSIX,
     -- | A time stamp for the time to start replaying events. Any event with a
     -- creation time prior to the @EventEndTime@ specified is replayed.
-    eventEndTime :: Prelude.Maybe Core.POSIX,
+    eventEndTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the archive to replay event from.
     eventSourceArn :: Prelude.Maybe Prelude.Text,
     -- | A time stamp for the time that the replay completed.
-    replayEndTime :: Prelude.Maybe Core.POSIX,
+    replayEndTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the replay.
     replayName :: Prelude.Maybe Prelude.Text,
     -- | A time stamp for the time that the replay started.
-    replayStartTime :: Prelude.Maybe Core.POSIX,
+    replayStartTime :: Prelude.Maybe Data.POSIX,
     -- | A description of why the replay is in the current state.
     stateReason :: Prelude.Maybe Prelude.Text,
     -- | A time stamp for the time to start replaying events. This is determined
     -- by the time in the event as described in
     -- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEventsRequestEntry.html#eventbridge-Type-PutEventsRequestEntry-Time Time>.
-    eventStartTime :: Prelude.Maybe Core.POSIX
+    eventStartTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -101,12 +102,12 @@ replay_state = Lens.lens (\Replay' {state} -> state) (\s@Replay' {} a -> s {stat
 
 -- | A time stamp for the time that the last event was replayed.
 replay_eventLastReplayedTime :: Lens.Lens' Replay (Prelude.Maybe Prelude.UTCTime)
-replay_eventLastReplayedTime = Lens.lens (\Replay' {eventLastReplayedTime} -> eventLastReplayedTime) (\s@Replay' {} a -> s {eventLastReplayedTime = a} :: Replay) Prelude.. Lens.mapping Core._Time
+replay_eventLastReplayedTime = Lens.lens (\Replay' {eventLastReplayedTime} -> eventLastReplayedTime) (\s@Replay' {} a -> s {eventLastReplayedTime = a} :: Replay) Prelude.. Lens.mapping Data._Time
 
 -- | A time stamp for the time to start replaying events. Any event with a
 -- creation time prior to the @EventEndTime@ specified is replayed.
 replay_eventEndTime :: Lens.Lens' Replay (Prelude.Maybe Prelude.UTCTime)
-replay_eventEndTime = Lens.lens (\Replay' {eventEndTime} -> eventEndTime) (\s@Replay' {} a -> s {eventEndTime = a} :: Replay) Prelude.. Lens.mapping Core._Time
+replay_eventEndTime = Lens.lens (\Replay' {eventEndTime} -> eventEndTime) (\s@Replay' {} a -> s {eventEndTime = a} :: Replay) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the archive to replay event from.
 replay_eventSourceArn :: Lens.Lens' Replay (Prelude.Maybe Prelude.Text)
@@ -114,7 +115,7 @@ replay_eventSourceArn = Lens.lens (\Replay' {eventSourceArn} -> eventSourceArn) 
 
 -- | A time stamp for the time that the replay completed.
 replay_replayEndTime :: Lens.Lens' Replay (Prelude.Maybe Prelude.UTCTime)
-replay_replayEndTime = Lens.lens (\Replay' {replayEndTime} -> replayEndTime) (\s@Replay' {} a -> s {replayEndTime = a} :: Replay) Prelude.. Lens.mapping Core._Time
+replay_replayEndTime = Lens.lens (\Replay' {replayEndTime} -> replayEndTime) (\s@Replay' {} a -> s {replayEndTime = a} :: Replay) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the replay.
 replay_replayName :: Lens.Lens' Replay (Prelude.Maybe Prelude.Text)
@@ -122,7 +123,7 @@ replay_replayName = Lens.lens (\Replay' {replayName} -> replayName) (\s@Replay' 
 
 -- | A time stamp for the time that the replay started.
 replay_replayStartTime :: Lens.Lens' Replay (Prelude.Maybe Prelude.UTCTime)
-replay_replayStartTime = Lens.lens (\Replay' {replayStartTime} -> replayStartTime) (\s@Replay' {} a -> s {replayStartTime = a} :: Replay) Prelude.. Lens.mapping Core._Time
+replay_replayStartTime = Lens.lens (\Replay' {replayStartTime} -> replayStartTime) (\s@Replay' {} a -> s {replayStartTime = a} :: Replay) Prelude.. Lens.mapping Data._Time
 
 -- | A description of why the replay is in the current state.
 replay_stateReason :: Lens.Lens' Replay (Prelude.Maybe Prelude.Text)
@@ -132,23 +133,23 @@ replay_stateReason = Lens.lens (\Replay' {stateReason} -> stateReason) (\s@Repla
 -- by the time in the event as described in
 -- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEventsRequestEntry.html#eventbridge-Type-PutEventsRequestEntry-Time Time>.
 replay_eventStartTime :: Lens.Lens' Replay (Prelude.Maybe Prelude.UTCTime)
-replay_eventStartTime = Lens.lens (\Replay' {eventStartTime} -> eventStartTime) (\s@Replay' {} a -> s {eventStartTime = a} :: Replay) Prelude.. Lens.mapping Core._Time
+replay_eventStartTime = Lens.lens (\Replay' {eventStartTime} -> eventStartTime) (\s@Replay' {} a -> s {eventStartTime = a} :: Replay) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Replay where
+instance Data.FromJSON Replay where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Replay"
       ( \x ->
           Replay'
-            Prelude.<$> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "EventLastReplayedTime")
-            Prelude.<*> (x Core..:? "EventEndTime")
-            Prelude.<*> (x Core..:? "EventSourceArn")
-            Prelude.<*> (x Core..:? "ReplayEndTime")
-            Prelude.<*> (x Core..:? "ReplayName")
-            Prelude.<*> (x Core..:? "ReplayStartTime")
-            Prelude.<*> (x Core..:? "StateReason")
-            Prelude.<*> (x Core..:? "EventStartTime")
+            Prelude.<$> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "EventLastReplayedTime")
+            Prelude.<*> (x Data..:? "EventEndTime")
+            Prelude.<*> (x Data..:? "EventSourceArn")
+            Prelude.<*> (x Data..:? "ReplayEndTime")
+            Prelude.<*> (x Data..:? "ReplayName")
+            Prelude.<*> (x Data..:? "ReplayStartTime")
+            Prelude.<*> (x Data..:? "StateReason")
+            Prelude.<*> (x Data..:? "EventStartTime")
       )
 
 instance Prelude.Hashable Replay where

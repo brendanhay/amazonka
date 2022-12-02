@@ -25,6 +25,7 @@ import Amazonka.CloudWatchEvents.Types.ReplicationConfig
 import Amazonka.CloudWatchEvents.Types.RoutingConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An global endpoint used to improve your application\'s availability by
@@ -54,11 +55,11 @@ data Endpoint = Endpoint'
     -- | A description for the endpoint.
     description :: Prelude.Maybe Prelude.Text,
     -- | The last time the endpoint was modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The URL of the endpoint.
     endpointUrl :: Prelude.Maybe Prelude.Text,
     -- | The time the endpoint was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The event buses being used by the endpoint.
     eventBuses :: Prelude.Maybe (Prelude.NonEmpty EndpointEventBus),
     -- | The reason the endpoint is in its current state.
@@ -156,7 +157,7 @@ endpoint_description = Lens.lens (\Endpoint' {description} -> description) (\s@E
 
 -- | The last time the endpoint was modified.
 endpoint_lastModifiedTime :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.UTCTime)
-endpoint_lastModifiedTime = Lens.lens (\Endpoint' {lastModifiedTime} -> lastModifiedTime) (\s@Endpoint' {} a -> s {lastModifiedTime = a} :: Endpoint) Prelude.. Lens.mapping Core._Time
+endpoint_lastModifiedTime = Lens.lens (\Endpoint' {lastModifiedTime} -> lastModifiedTime) (\s@Endpoint' {} a -> s {lastModifiedTime = a} :: Endpoint) Prelude.. Lens.mapping Data._Time
 
 -- | The URL of the endpoint.
 endpoint_endpointUrl :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
@@ -164,7 +165,7 @@ endpoint_endpointUrl = Lens.lens (\Endpoint' {endpointUrl} -> endpointUrl) (\s@E
 
 -- | The time the endpoint was created.
 endpoint_creationTime :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.UTCTime)
-endpoint_creationTime = Lens.lens (\Endpoint' {creationTime} -> creationTime) (\s@Endpoint' {} a -> s {creationTime = a} :: Endpoint) Prelude.. Lens.mapping Core._Time
+endpoint_creationTime = Lens.lens (\Endpoint' {creationTime} -> creationTime) (\s@Endpoint' {} a -> s {creationTime = a} :: Endpoint) Prelude.. Lens.mapping Data._Time
 
 -- | The event buses being used by the endpoint.
 endpoint_eventBuses :: Lens.Lens' Endpoint (Prelude.Maybe (Prelude.NonEmpty EndpointEventBus))
@@ -174,25 +175,25 @@ endpoint_eventBuses = Lens.lens (\Endpoint' {eventBuses} -> eventBuses) (\s@Endp
 endpoint_stateReason :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_stateReason = Lens.lens (\Endpoint' {stateReason} -> stateReason) (\s@Endpoint' {} a -> s {stateReason = a} :: Endpoint)
 
-instance Core.FromJSON Endpoint where
+instance Data.FromJSON Endpoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Endpoint"
       ( \x ->
           Endpoint'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "EndpointId")
-            Prelude.<*> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "RoutingConfig")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "ReplicationConfig")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "EndpointUrl")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "EventBuses")
-            Prelude.<*> (x Core..:? "StateReason")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "EndpointId")
+            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "RoutingConfig")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "ReplicationConfig")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "EndpointUrl")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "EventBuses")
+            Prelude.<*> (x Data..:? "StateReason")
       )
 
 instance Prelude.Hashable Endpoint where

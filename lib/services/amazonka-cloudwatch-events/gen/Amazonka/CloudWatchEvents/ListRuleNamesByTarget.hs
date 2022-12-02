@@ -49,6 +49,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -147,8 +148,8 @@ instance Core.AWSRequest ListRuleNamesByTarget where
     Response.receiveJSON
       ( \s h x ->
           ListRuleNamesByTargetResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "RuleNames" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "RuleNames" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,36 +167,36 @@ instance Prelude.NFData ListRuleNamesByTarget where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf targetArn
 
-instance Core.ToHeaders ListRuleNamesByTarget where
+instance Data.ToHeaders ListRuleNamesByTarget where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSEvents.ListRuleNamesByTarget" ::
+              Data.=# ( "AWSEvents.ListRuleNamesByTarget" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListRuleNamesByTarget where
+instance Data.ToJSON ListRuleNamesByTarget where
   toJSON ListRuleNamesByTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("EventBusName" Core..=) Prelude.<$> eventBusName,
-            ("Limit" Core..=) Prelude.<$> limit,
-            Prelude.Just ("TargetArn" Core..= targetArn)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("EventBusName" Data..=) Prelude.<$> eventBusName,
+            ("Limit" Data..=) Prelude.<$> limit,
+            Prelude.Just ("TargetArn" Data..= targetArn)
           ]
       )
 
-instance Core.ToPath ListRuleNamesByTarget where
+instance Data.ToPath ListRuleNamesByTarget where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListRuleNamesByTarget where
+instance Data.ToQuery ListRuleNamesByTarget where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListRuleNamesByTargetResponse' smart constructor.

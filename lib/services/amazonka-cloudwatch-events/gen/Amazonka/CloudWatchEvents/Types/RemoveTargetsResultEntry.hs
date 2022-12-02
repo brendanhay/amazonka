@@ -21,6 +21,7 @@ module Amazonka.CloudWatchEvents.Types.RemoveTargetsResultEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a target that failed to be removed from a rule.
@@ -77,15 +78,15 @@ removeTargetsResultEntry_errorMessage = Lens.lens (\RemoveTargetsResultEntry' {e
 removeTargetsResultEntry_errorCode :: Lens.Lens' RemoveTargetsResultEntry (Prelude.Maybe Prelude.Text)
 removeTargetsResultEntry_errorCode = Lens.lens (\RemoveTargetsResultEntry' {errorCode} -> errorCode) (\s@RemoveTargetsResultEntry' {} a -> s {errorCode = a} :: RemoveTargetsResultEntry)
 
-instance Core.FromJSON RemoveTargetsResultEntry where
+instance Data.FromJSON RemoveTargetsResultEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RemoveTargetsResultEntry"
       ( \x ->
           RemoveTargetsResultEntry'
-            Prelude.<$> (x Core..:? "TargetId")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "TargetId")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable RemoveTargetsResultEntry where

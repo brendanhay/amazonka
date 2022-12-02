@@ -21,6 +21,7 @@ module Amazonka.CloudWatchEvents.Types.PutTargetsResultEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a target that failed to be added to a rule.
@@ -76,15 +77,15 @@ putTargetsResultEntry_errorMessage = Lens.lens (\PutTargetsResultEntry' {errorMe
 putTargetsResultEntry_errorCode :: Lens.Lens' PutTargetsResultEntry (Prelude.Maybe Prelude.Text)
 putTargetsResultEntry_errorCode = Lens.lens (\PutTargetsResultEntry' {errorCode} -> errorCode) (\s@PutTargetsResultEntry' {} a -> s {errorCode = a} :: PutTargetsResultEntry)
 
-instance Core.FromJSON PutTargetsResultEntry where
+instance Data.FromJSON PutTargetsResultEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PutTargetsResultEntry"
       ( \x ->
           PutTargetsResultEntry'
-            Prelude.<$> (x Core..:? "TargetId")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "TargetId")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable PutTargetsResultEntry where

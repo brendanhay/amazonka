@@ -22,6 +22,7 @@ module Amazonka.CloudWatchEvents.Types.SageMakerPipelineParameters where
 import Amazonka.CloudWatchEvents.Types.SageMakerPipelineParameter
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | These are custom parameters to use when the target is a SageMaker Model
@@ -58,14 +59,14 @@ newSageMakerPipelineParameters =
 sageMakerPipelineParameters_pipelineParameterList :: Lens.Lens' SageMakerPipelineParameters (Prelude.Maybe [SageMakerPipelineParameter])
 sageMakerPipelineParameters_pipelineParameterList = Lens.lens (\SageMakerPipelineParameters' {pipelineParameterList} -> pipelineParameterList) (\s@SageMakerPipelineParameters' {} a -> s {pipelineParameterList = a} :: SageMakerPipelineParameters) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SageMakerPipelineParameters where
+instance Data.FromJSON SageMakerPipelineParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SageMakerPipelineParameters"
       ( \x ->
           SageMakerPipelineParameters'
-            Prelude.<$> ( x Core..:? "PipelineParameterList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "PipelineParameterList"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -77,11 +78,11 @@ instance Prelude.NFData SageMakerPipelineParameters where
   rnf SageMakerPipelineParameters' {..} =
     Prelude.rnf pipelineParameterList
 
-instance Core.ToJSON SageMakerPipelineParameters where
+instance Data.ToJSON SageMakerPipelineParameters where
   toJSON SageMakerPipelineParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PipelineParameterList" Core..=)
+          [ ("PipelineParameterList" Data..=)
               Prelude.<$> pipelineParameterList
           ]
       )

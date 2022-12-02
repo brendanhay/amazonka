@@ -51,6 +51,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,16 +93,16 @@ instance Core.AWSRequest DescribeApiDestination where
     Response.receiveJSON
       ( \s h x ->
           DescribeApiDestinationResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "InvocationRateLimitPerSecond")
-            Prelude.<*> (x Core..?> "InvocationEndpoint")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "ConnectionArn")
-            Prelude.<*> (x Core..?> "HttpMethod")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "ApiDestinationState")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "ApiDestinationArn")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "InvocationRateLimitPerSecond")
+            Prelude.<*> (x Data..?> "InvocationEndpoint")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "ConnectionArn")
+            Prelude.<*> (x Data..?> "HttpMethod")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "ApiDestinationState")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "ApiDestinationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,32 +113,32 @@ instance Prelude.Hashable DescribeApiDestination where
 instance Prelude.NFData DescribeApiDestination where
   rnf DescribeApiDestination' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DescribeApiDestination where
+instance Data.ToHeaders DescribeApiDestination where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSEvents.DescribeApiDestination" ::
+              Data.=# ( "AWSEvents.DescribeApiDestination" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeApiDestination where
+instance Data.ToJSON DescribeApiDestination where
   toJSON DescribeApiDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath DescribeApiDestination where
+instance Data.ToPath DescribeApiDestination where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeApiDestination where
+instance Data.ToQuery DescribeApiDestination where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeApiDestinationResponse' smart constructor.
@@ -161,11 +162,11 @@ data DescribeApiDestinationResponse = DescribeApiDestinationResponse'
     -- | The method to use to connect to the HTTP endpoint.
     httpMethod :: Prelude.Maybe ApiDestinationHttpMethod,
     -- | A time stamp for the time that the API destination was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The state of the API destination retrieved.
     apiDestinationState :: Prelude.Maybe ApiDestinationState,
     -- | A time stamp for the time that the API destination was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the API destination retrieved.
     apiDestinationArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -261,7 +262,7 @@ describeApiDestinationResponse_httpMethod = Lens.lens (\DescribeApiDestinationRe
 
 -- | A time stamp for the time that the API destination was last modified.
 describeApiDestinationResponse_lastModifiedTime :: Lens.Lens' DescribeApiDestinationResponse (Prelude.Maybe Prelude.UTCTime)
-describeApiDestinationResponse_lastModifiedTime = Lens.lens (\DescribeApiDestinationResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeApiDestinationResponse' {} a -> s {lastModifiedTime = a} :: DescribeApiDestinationResponse) Prelude.. Lens.mapping Core._Time
+describeApiDestinationResponse_lastModifiedTime = Lens.lens (\DescribeApiDestinationResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeApiDestinationResponse' {} a -> s {lastModifiedTime = a} :: DescribeApiDestinationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The state of the API destination retrieved.
 describeApiDestinationResponse_apiDestinationState :: Lens.Lens' DescribeApiDestinationResponse (Prelude.Maybe ApiDestinationState)
@@ -269,7 +270,7 @@ describeApiDestinationResponse_apiDestinationState = Lens.lens (\DescribeApiDest
 
 -- | A time stamp for the time that the API destination was created.
 describeApiDestinationResponse_creationTime :: Lens.Lens' DescribeApiDestinationResponse (Prelude.Maybe Prelude.UTCTime)
-describeApiDestinationResponse_creationTime = Lens.lens (\DescribeApiDestinationResponse' {creationTime} -> creationTime) (\s@DescribeApiDestinationResponse' {} a -> s {creationTime = a} :: DescribeApiDestinationResponse) Prelude.. Lens.mapping Core._Time
+describeApiDestinationResponse_creationTime = Lens.lens (\DescribeApiDestinationResponse' {creationTime} -> creationTime) (\s@DescribeApiDestinationResponse' {} a -> s {creationTime = a} :: DescribeApiDestinationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the API destination retrieved.
 describeApiDestinationResponse_apiDestinationArn :: Lens.Lens' DescribeApiDestinationResponse (Prelude.Maybe Prelude.Text)

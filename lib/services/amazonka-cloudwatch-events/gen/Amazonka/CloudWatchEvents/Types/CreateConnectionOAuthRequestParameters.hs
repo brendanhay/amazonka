@@ -24,6 +24,7 @@ import Amazonka.CloudWatchEvents.Types.ConnectionOAuthHttpMethod
 import Amazonka.CloudWatchEvents.Types.CreateConnectionOAuthClientRequestParameters
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the OAuth authorization parameters to use for the connection.
@@ -126,20 +127,20 @@ instance
       `Prelude.seq` Prelude.rnf httpMethod
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateConnectionOAuthRequestParameters
   where
   toJSON CreateConnectionOAuthRequestParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OAuthHttpParameters" Core..=)
+          [ ("OAuthHttpParameters" Data..=)
               Prelude.<$> oAuthHttpParameters,
             Prelude.Just
-              ("ClientParameters" Core..= clientParameters),
+              ("ClientParameters" Data..= clientParameters),
             Prelude.Just
               ( "AuthorizationEndpoint"
-                  Core..= authorizationEndpoint
+                  Data..= authorizationEndpoint
               ),
-            Prelude.Just ("HttpMethod" Core..= httpMethod)
+            Prelude.Just ("HttpMethod" Data..= httpMethod)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.CloudWatchEvents.Types.CreateConnectionOAuthClientRequestParamet
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the Basic authorization parameters to use for the connection.
@@ -90,14 +91,14 @@ instance
       `Prelude.seq` Prelude.rnf clientSecret
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateConnectionOAuthClientRequestParameters
   where
   toJSON
     CreateConnectionOAuthClientRequestParameters' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ Prelude.Just ("ClientID" Core..= clientID),
-              Prelude.Just ("ClientSecret" Core..= clientSecret)
+            [ Prelude.Just ("ClientID" Data..= clientID),
+              Prelude.Just ("ClientSecret" Data..= clientSecret)
             ]
         )

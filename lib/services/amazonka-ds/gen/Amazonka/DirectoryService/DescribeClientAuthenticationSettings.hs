@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -169,8 +170,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeClientAuthenticationSettingsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> ( x Core..?> "ClientAuthenticationSettingsInfo"
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> ( x Data..?> "ClientAuthenticationSettingsInfo"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -199,45 +200,45 @@ instance
       `Prelude.seq` Prelude.rnf directoryId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeClientAuthenticationSettings
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.DescribeClientAuthenticationSettings" ::
+              Data.=# ( "DirectoryService_20150416.DescribeClientAuthenticationSettings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeClientAuthenticationSettings
   where
   toJSON DescribeClientAuthenticationSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Type" Core..=) Prelude.<$> type',
-            ("Limit" Core..=) Prelude.<$> limit,
-            Prelude.Just ("DirectoryId" Core..= directoryId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Type" Data..=) Prelude.<$> type',
+            ("Limit" Data..=) Prelude.<$> limit,
+            Prelude.Just ("DirectoryId" Data..= directoryId)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeClientAuthenticationSettings
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeClientAuthenticationSettings
   where
   toQuery = Prelude.const Prelude.mempty

@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.Computer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types.Attribute
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,17 +75,17 @@ computer_computerName = Lens.lens (\Computer' {computerName} -> computerName) (\
 computer_computerId :: Lens.Lens' Computer (Prelude.Maybe Prelude.Text)
 computer_computerId = Lens.lens (\Computer' {computerId} -> computerId) (\s@Computer' {} a -> s {computerId = a} :: Computer)
 
-instance Core.FromJSON Computer where
+instance Data.FromJSON Computer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Computer"
       ( \x ->
           Computer'
-            Prelude.<$> ( x Core..:? "ComputerAttributes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ComputerAttributes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ComputerName")
-            Prelude.<*> (x Core..:? "ComputerId")
+            Prelude.<*> (x Data..:? "ComputerName")
+            Prelude.<*> (x Data..:? "ComputerId")
       )
 
 instance Prelude.Hashable Computer where

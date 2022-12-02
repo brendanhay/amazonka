@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,7 +105,7 @@ instance Core.AWSRequest UnshareDirectory where
     Response.receiveJSON
       ( \s h x ->
           UnshareDirectoryResponse'
-            Prelude.<$> (x Core..?> "SharedDirectoryId")
+            Prelude.<$> (x Data..?> "SharedDirectoryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,35 +119,35 @@ instance Prelude.NFData UnshareDirectory where
     Prelude.rnf directoryId
       `Prelude.seq` Prelude.rnf unshareTarget
 
-instance Core.ToHeaders UnshareDirectory where
+instance Data.ToHeaders UnshareDirectory where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.UnshareDirectory" ::
+              Data.=# ( "DirectoryService_20150416.UnshareDirectory" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UnshareDirectory where
+instance Data.ToJSON UnshareDirectory where
   toJSON UnshareDirectory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Core..= directoryId),
+          [ Prelude.Just ("DirectoryId" Data..= directoryId),
             Prelude.Just
-              ("UnshareTarget" Core..= unshareTarget)
+              ("UnshareTarget" Data..= unshareTarget)
           ]
       )
 
-instance Core.ToPath UnshareDirectory where
+instance Data.ToPath UnshareDirectory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UnshareDirectory where
+instance Data.ToQuery UnshareDirectory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUnshareDirectoryResponse' smart constructor.

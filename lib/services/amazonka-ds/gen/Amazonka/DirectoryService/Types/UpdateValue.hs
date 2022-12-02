@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.UpdateValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types.OSUpdateSettings
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,13 +52,13 @@ newUpdateValue =
 updateValue_oSUpdateSettings :: Lens.Lens' UpdateValue (Prelude.Maybe OSUpdateSettings)
 updateValue_oSUpdateSettings = Lens.lens (\UpdateValue' {oSUpdateSettings} -> oSUpdateSettings) (\s@UpdateValue' {} a -> s {oSUpdateSettings = a} :: UpdateValue)
 
-instance Core.FromJSON UpdateValue where
+instance Data.FromJSON UpdateValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UpdateValue"
       ( \x ->
           UpdateValue'
-            Prelude.<$> (x Core..:? "OSUpdateSettings")
+            Prelude.<$> (x Data..:? "OSUpdateSettings")
       )
 
 instance Prelude.Hashable UpdateValue where

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -143,10 +144,10 @@ instance Core.AWSRequest DescribeLDAPSSettings where
     Response.receiveJSON
       ( \s h x ->
           DescribeLDAPSSettingsResponse'
-            Prelude.<$> ( x Core..?> "LDAPSSettingsInfo"
+            Prelude.<$> ( x Data..?> "LDAPSSettingsInfo"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,36 +165,36 @@ instance Prelude.NFData DescribeLDAPSSettings where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf directoryId
 
-instance Core.ToHeaders DescribeLDAPSSettings where
+instance Data.ToHeaders DescribeLDAPSSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.DescribeLDAPSSettings" ::
+              Data.=# ( "DirectoryService_20150416.DescribeLDAPSSettings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeLDAPSSettings where
+instance Data.ToJSON DescribeLDAPSSettings where
   toJSON DescribeLDAPSSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Type" Core..=) Prelude.<$> type',
-            ("Limit" Core..=) Prelude.<$> limit,
-            Prelude.Just ("DirectoryId" Core..= directoryId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Type" Data..=) Prelude.<$> type',
+            ("Limit" Data..=) Prelude.<$> limit,
+            Prelude.Just ("DirectoryId" Data..= directoryId)
           ]
       )
 
-instance Core.ToPath DescribeLDAPSSettings where
+instance Data.ToPath DescribeLDAPSSettings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLDAPSSettings where
+instance Data.ToQuery DescribeLDAPSSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeLDAPSSettingsResponse' smart constructor.

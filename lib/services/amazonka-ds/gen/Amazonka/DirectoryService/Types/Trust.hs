@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.Trust where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types.SelectiveAuth
 import Amazonka.DirectoryService.Types.TrustDirection
 import Amazonka.DirectoryService.Types.TrustState
@@ -45,7 +46,7 @@ data Trust = Trust'
     -- | The trust relationship state.
     trustState :: Prelude.Maybe TrustState,
     -- | The date and time that the trust relationship was created.
-    createdDateTime :: Prelude.Maybe Core.POSIX,
+    createdDateTime :: Prelude.Maybe Data.POSIX,
     -- | Current state of selective authentication for the trust.
     selectiveAuth :: Prelude.Maybe SelectiveAuth,
     -- | The reason for the TrustState.
@@ -53,9 +54,9 @@ data Trust = Trust'
     -- | The trust relationship direction.
     trustDirection :: Prelude.Maybe TrustDirection,
     -- | The date and time that the TrustState was last updated.
-    stateLastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    stateLastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The date and time that the trust relationship was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -131,7 +132,7 @@ trust_trustState = Lens.lens (\Trust' {trustState} -> trustState) (\s@Trust' {} 
 
 -- | The date and time that the trust relationship was created.
 trust_createdDateTime :: Lens.Lens' Trust (Prelude.Maybe Prelude.UTCTime)
-trust_createdDateTime = Lens.lens (\Trust' {createdDateTime} -> createdDateTime) (\s@Trust' {} a -> s {createdDateTime = a} :: Trust) Prelude.. Lens.mapping Core._Time
+trust_createdDateTime = Lens.lens (\Trust' {createdDateTime} -> createdDateTime) (\s@Trust' {} a -> s {createdDateTime = a} :: Trust) Prelude.. Lens.mapping Data._Time
 
 -- | Current state of selective authentication for the trust.
 trust_selectiveAuth :: Lens.Lens' Trust (Prelude.Maybe SelectiveAuth)
@@ -147,29 +148,29 @@ trust_trustDirection = Lens.lens (\Trust' {trustDirection} -> trustDirection) (\
 
 -- | The date and time that the TrustState was last updated.
 trust_stateLastUpdatedDateTime :: Lens.Lens' Trust (Prelude.Maybe Prelude.UTCTime)
-trust_stateLastUpdatedDateTime = Lens.lens (\Trust' {stateLastUpdatedDateTime} -> stateLastUpdatedDateTime) (\s@Trust' {} a -> s {stateLastUpdatedDateTime = a} :: Trust) Prelude.. Lens.mapping Core._Time
+trust_stateLastUpdatedDateTime = Lens.lens (\Trust' {stateLastUpdatedDateTime} -> stateLastUpdatedDateTime) (\s@Trust' {} a -> s {stateLastUpdatedDateTime = a} :: Trust) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time that the trust relationship was last updated.
 trust_lastUpdatedDateTime :: Lens.Lens' Trust (Prelude.Maybe Prelude.UTCTime)
-trust_lastUpdatedDateTime = Lens.lens (\Trust' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@Trust' {} a -> s {lastUpdatedDateTime = a} :: Trust) Prelude.. Lens.mapping Core._Time
+trust_lastUpdatedDateTime = Lens.lens (\Trust' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@Trust' {} a -> s {lastUpdatedDateTime = a} :: Trust) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Trust where
+instance Data.FromJSON Trust where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Trust"
       ( \x ->
           Trust'
-            Prelude.<$> (x Core..:? "DirectoryId")
-            Prelude.<*> (x Core..:? "RemoteDomainName")
-            Prelude.<*> (x Core..:? "TrustType")
-            Prelude.<*> (x Core..:? "TrustId")
-            Prelude.<*> (x Core..:? "TrustState")
-            Prelude.<*> (x Core..:? "CreatedDateTime")
-            Prelude.<*> (x Core..:? "SelectiveAuth")
-            Prelude.<*> (x Core..:? "TrustStateReason")
-            Prelude.<*> (x Core..:? "TrustDirection")
-            Prelude.<*> (x Core..:? "StateLastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "LastUpdatedDateTime")
+            Prelude.<$> (x Data..:? "DirectoryId")
+            Prelude.<*> (x Data..:? "RemoteDomainName")
+            Prelude.<*> (x Data..:? "TrustType")
+            Prelude.<*> (x Data..:? "TrustId")
+            Prelude.<*> (x Data..:? "TrustState")
+            Prelude.<*> (x Data..:? "CreatedDateTime")
+            Prelude.<*> (x Data..:? "SelectiveAuth")
+            Prelude.<*> (x Data..:? "TrustStateReason")
+            Prelude.<*> (x Data..:? "TrustDirection")
+            Prelude.<*> (x Data..:? "StateLastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "LastUpdatedDateTime")
       )
 
 instance Prelude.Hashable Trust where

@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.SchemaExtensionInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types.SchemaExtensionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -35,7 +36,7 @@ data SchemaExtensionInfo = SchemaExtensionInfo'
     schemaExtensionId :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the schema extension started being applied to the
     -- directory.
-    startDateTime :: Prelude.Maybe Core.POSIX,
+    startDateTime :: Prelude.Maybe Data.POSIX,
     -- | The current status of the schema extension.
     schemaExtensionStatus :: Prelude.Maybe SchemaExtensionStatus,
     -- | A description of the schema extension.
@@ -43,7 +44,7 @@ data SchemaExtensionInfo = SchemaExtensionInfo'
     -- | The reason for the @SchemaExtensionStatus@.
     schemaExtensionStatusReason :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the schema extension was completed.
-    endDateTime :: Prelude.Maybe Core.POSIX
+    endDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,7 +96,7 @@ schemaExtensionInfo_schemaExtensionId = Lens.lens (\SchemaExtensionInfo' {schema
 -- | The date and time that the schema extension started being applied to the
 -- directory.
 schemaExtensionInfo_startDateTime :: Lens.Lens' SchemaExtensionInfo (Prelude.Maybe Prelude.UTCTime)
-schemaExtensionInfo_startDateTime = Lens.lens (\SchemaExtensionInfo' {startDateTime} -> startDateTime) (\s@SchemaExtensionInfo' {} a -> s {startDateTime = a} :: SchemaExtensionInfo) Prelude.. Lens.mapping Core._Time
+schemaExtensionInfo_startDateTime = Lens.lens (\SchemaExtensionInfo' {startDateTime} -> startDateTime) (\s@SchemaExtensionInfo' {} a -> s {startDateTime = a} :: SchemaExtensionInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The current status of the schema extension.
 schemaExtensionInfo_schemaExtensionStatus :: Lens.Lens' SchemaExtensionInfo (Prelude.Maybe SchemaExtensionStatus)
@@ -111,21 +112,21 @@ schemaExtensionInfo_schemaExtensionStatusReason = Lens.lens (\SchemaExtensionInf
 
 -- | The date and time that the schema extension was completed.
 schemaExtensionInfo_endDateTime :: Lens.Lens' SchemaExtensionInfo (Prelude.Maybe Prelude.UTCTime)
-schemaExtensionInfo_endDateTime = Lens.lens (\SchemaExtensionInfo' {endDateTime} -> endDateTime) (\s@SchemaExtensionInfo' {} a -> s {endDateTime = a} :: SchemaExtensionInfo) Prelude.. Lens.mapping Core._Time
+schemaExtensionInfo_endDateTime = Lens.lens (\SchemaExtensionInfo' {endDateTime} -> endDateTime) (\s@SchemaExtensionInfo' {} a -> s {endDateTime = a} :: SchemaExtensionInfo) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON SchemaExtensionInfo where
+instance Data.FromJSON SchemaExtensionInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SchemaExtensionInfo"
       ( \x ->
           SchemaExtensionInfo'
-            Prelude.<$> (x Core..:? "DirectoryId")
-            Prelude.<*> (x Core..:? "SchemaExtensionId")
-            Prelude.<*> (x Core..:? "StartDateTime")
-            Prelude.<*> (x Core..:? "SchemaExtensionStatus")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "SchemaExtensionStatusReason")
-            Prelude.<*> (x Core..:? "EndDateTime")
+            Prelude.<$> (x Data..:? "DirectoryId")
+            Prelude.<*> (x Data..:? "SchemaExtensionId")
+            Prelude.<*> (x Data..:? "StartDateTime")
+            Prelude.<*> (x Data..:? "SchemaExtensionStatus")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "SchemaExtensionStatusReason")
+            Prelude.<*> (x Data..:? "EndDateTime")
       )
 
 instance Prelude.Hashable SchemaExtensionInfo where

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,34 +118,34 @@ instance Prelude.NFData CreateLogSubscription where
     Prelude.rnf directoryId
       `Prelude.seq` Prelude.rnf logGroupName
 
-instance Core.ToHeaders CreateLogSubscription where
+instance Data.ToHeaders CreateLogSubscription where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.CreateLogSubscription" ::
+              Data.=# ( "DirectoryService_20150416.CreateLogSubscription" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLogSubscription where
+instance Data.ToJSON CreateLogSubscription where
   toJSON CreateLogSubscription' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Core..= directoryId),
-            Prelude.Just ("LogGroupName" Core..= logGroupName)
+          [ Prelude.Just ("DirectoryId" Data..= directoryId),
+            Prelude.Just ("LogGroupName" Data..= logGroupName)
           ]
       )
 
-instance Core.ToPath CreateLogSubscription where
+instance Data.ToPath CreateLogSubscription where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLogSubscription where
+instance Data.ToQuery CreateLogSubscription where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLogSubscriptionResponse' smart constructor.

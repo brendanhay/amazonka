@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.DirectoryConnectSettingsDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an AD Connector directory.
@@ -99,22 +100,22 @@ directoryConnectSettingsDescription_subnetIds :: Lens.Lens' DirectoryConnectSett
 directoryConnectSettingsDescription_subnetIds = Lens.lens (\DirectoryConnectSettingsDescription' {subnetIds} -> subnetIds) (\s@DirectoryConnectSettingsDescription' {} a -> s {subnetIds = a} :: DirectoryConnectSettingsDescription) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DirectoryConnectSettingsDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DirectoryConnectSettingsDescription"
       ( \x ->
           DirectoryConnectSettingsDescription'
-            Prelude.<$> (x Core..:? "ConnectIps" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "AvailabilityZones"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ConnectIps" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "AvailabilityZones"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SecurityGroupId")
-            Prelude.<*> (x Core..:? "CustomerUserName")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SecurityGroupId")
+            Prelude.<*> (x Data..:? "CustomerUserName")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
       )
 
 instance

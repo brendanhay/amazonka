@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.Snapshot where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types.SnapshotStatus
 import Amazonka.DirectoryService.Types.SnapshotType
 import qualified Amazonka.Prelude as Prelude
@@ -40,7 +41,7 @@ data Snapshot = Snapshot'
     -- | The snapshot status.
     status :: Prelude.Maybe SnapshotStatus,
     -- | The date and time that the snapshot was taken.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,20 +98,20 @@ snapshot_status = Lens.lens (\Snapshot' {status} -> status) (\s@Snapshot' {} a -
 
 -- | The date and time that the snapshot was taken.
 snapshot_startTime :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.UTCTime)
-snapshot_startTime = Lens.lens (\Snapshot' {startTime} -> startTime) (\s@Snapshot' {} a -> s {startTime = a} :: Snapshot) Prelude.. Lens.mapping Core._Time
+snapshot_startTime = Lens.lens (\Snapshot' {startTime} -> startTime) (\s@Snapshot' {} a -> s {startTime = a} :: Snapshot) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Snapshot where
+instance Data.FromJSON Snapshot where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Snapshot"
       ( \x ->
           Snapshot'
-            Prelude.<$> (x Core..:? "DirectoryId")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "SnapshotId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<$> (x Data..:? "DirectoryId")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "SnapshotId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable Snapshot where

@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.SnapshotLimits where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains manual snapshot limit information for a directory.
@@ -71,15 +72,15 @@ snapshotLimits_manualSnapshotsCurrentCount = Lens.lens (\SnapshotLimits' {manual
 snapshotLimits_manualSnapshotsLimit :: Lens.Lens' SnapshotLimits (Prelude.Maybe Prelude.Natural)
 snapshotLimits_manualSnapshotsLimit = Lens.lens (\SnapshotLimits' {manualSnapshotsLimit} -> manualSnapshotsLimit) (\s@SnapshotLimits' {} a -> s {manualSnapshotsLimit = a} :: SnapshotLimits)
 
-instance Core.FromJSON SnapshotLimits where
+instance Data.FromJSON SnapshotLimits where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SnapshotLimits"
       ( \x ->
           SnapshotLimits'
-            Prelude.<$> (x Core..:? "ManualSnapshotsLimitReached")
-            Prelude.<*> (x Core..:? "ManualSnapshotsCurrentCount")
-            Prelude.<*> (x Core..:? "ManualSnapshotsLimit")
+            Prelude.<$> (x Data..:? "ManualSnapshotsLimitReached")
+            Prelude.<*> (x Data..:? "ManualSnapshotsCurrentCount")
+            Prelude.<*> (x Data..:? "ManualSnapshotsLimit")
       )
 
 instance Prelude.Hashable SnapshotLimits where

@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.ConditionalForwarder where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types.ReplicationScope
 import qualified Amazonka.Prelude as Prelude
 
@@ -89,15 +90,15 @@ conditionalForwarder_replicationScope = Lens.lens (\ConditionalForwarder' {repli
 conditionalForwarder_dnsIpAddrs :: Lens.Lens' ConditionalForwarder (Prelude.Maybe [Prelude.Text])
 conditionalForwarder_dnsIpAddrs = Lens.lens (\ConditionalForwarder' {dnsIpAddrs} -> dnsIpAddrs) (\s@ConditionalForwarder' {} a -> s {dnsIpAddrs = a} :: ConditionalForwarder) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ConditionalForwarder where
+instance Data.FromJSON ConditionalForwarder where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConditionalForwarder"
       ( \x ->
           ConditionalForwarder'
-            Prelude.<$> (x Core..:? "RemoteDomainName")
-            Prelude.<*> (x Core..:? "ReplicationScope")
-            Prelude.<*> (x Core..:? "DnsIpAddrs" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "RemoteDomainName")
+            Prelude.<*> (x Data..:? "ReplicationScope")
+            Prelude.<*> (x Data..:? "DnsIpAddrs" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ConditionalForwarder where

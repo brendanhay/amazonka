@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,34 +126,34 @@ instance Prelude.NFData RegisterEventTopic where
     Prelude.rnf directoryId
       `Prelude.seq` Prelude.rnf topicName
 
-instance Core.ToHeaders RegisterEventTopic where
+instance Data.ToHeaders RegisterEventTopic where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.RegisterEventTopic" ::
+              Data.=# ( "DirectoryService_20150416.RegisterEventTopic" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterEventTopic where
+instance Data.ToJSON RegisterEventTopic where
   toJSON RegisterEventTopic' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Core..= directoryId),
-            Prelude.Just ("TopicName" Core..= topicName)
+          [ Prelude.Just ("DirectoryId" Data..= directoryId),
+            Prelude.Just ("TopicName" Data..= topicName)
           ]
       )
 
-instance Core.ToPath RegisterEventTopic where
+instance Data.ToPath RegisterEventTopic where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterEventTopic where
+instance Data.ToQuery RegisterEventTopic where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result of a RegisterEventTopic request.

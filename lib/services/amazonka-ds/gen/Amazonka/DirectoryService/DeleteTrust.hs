@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,7 +99,7 @@ instance Core.AWSRequest DeleteTrust where
     Response.receiveJSON
       ( \s h x ->
           DeleteTrustResponse'
-            Prelude.<$> (x Core..?> "TrustId")
+            Prelude.<$> (x Data..?> "TrustId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,35 +114,35 @@ instance Prelude.NFData DeleteTrust where
     Prelude.rnf deleteAssociatedConditionalForwarder
       `Prelude.seq` Prelude.rnf trustId
 
-instance Core.ToHeaders DeleteTrust where
+instance Data.ToHeaders DeleteTrust where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.DeleteTrust" ::
+              Data.=# ( "DirectoryService_20150416.DeleteTrust" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteTrust where
+instance Data.ToJSON DeleteTrust where
   toJSON DeleteTrust' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeleteAssociatedConditionalForwarder" Core..=)
+          [ ("DeleteAssociatedConditionalForwarder" Data..=)
               Prelude.<$> deleteAssociatedConditionalForwarder,
-            Prelude.Just ("TrustId" Core..= trustId)
+            Prelude.Just ("TrustId" Data..= trustId)
           ]
       )
 
-instance Core.ToPath DeleteTrust where
+instance Data.ToPath DeleteTrust where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteTrust where
+instance Data.ToQuery DeleteTrust where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result of a DeleteTrust request.

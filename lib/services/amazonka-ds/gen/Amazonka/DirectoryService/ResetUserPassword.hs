@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -72,7 +73,7 @@ data ResetUserPassword = ResetUserPassword'
     -- | The user name of the user whose password will be reset.
     userName :: Prelude.Text,
     -- | The new password that will be reset.
-    newPassword' :: Core.Sensitive Prelude.Text
+    newPassword' :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -105,7 +106,7 @@ newResetUserPassword
     ResetUserPassword'
       { directoryId = pDirectoryId_,
         userName = pUserName_,
-        newPassword' = Core._Sensitive Lens.# pNewPassword_
+        newPassword' = Data._Sensitive Lens.# pNewPassword_
       }
 
 -- | Identifier of the Managed Microsoft AD or Simple AD directory in which
@@ -119,7 +120,7 @@ resetUserPassword_userName = Lens.lens (\ResetUserPassword' {userName} -> userNa
 
 -- | The new password that will be reset.
 resetUserPassword_newPassword :: Lens.Lens' ResetUserPassword Prelude.Text
-resetUserPassword_newPassword = Lens.lens (\ResetUserPassword' {newPassword'} -> newPassword') (\s@ResetUserPassword' {} a -> s {newPassword' = a} :: ResetUserPassword) Prelude.. Core._Sensitive
+resetUserPassword_newPassword = Lens.lens (\ResetUserPassword' {newPassword'} -> newPassword') (\s@ResetUserPassword' {} a -> s {newPassword' = a} :: ResetUserPassword) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest ResetUserPassword where
   type
@@ -146,35 +147,35 @@ instance Prelude.NFData ResetUserPassword where
       `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf newPassword'
 
-instance Core.ToHeaders ResetUserPassword where
+instance Data.ToHeaders ResetUserPassword where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.ResetUserPassword" ::
+              Data.=# ( "DirectoryService_20150416.ResetUserPassword" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ResetUserPassword where
+instance Data.ToJSON ResetUserPassword where
   toJSON ResetUserPassword' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Core..= directoryId),
-            Prelude.Just ("UserName" Core..= userName),
-            Prelude.Just ("NewPassword" Core..= newPassword')
+          [ Prelude.Just ("DirectoryId" Data..= directoryId),
+            Prelude.Just ("UserName" Data..= userName),
+            Prelude.Just ("NewPassword" Data..= newPassword')
           ]
       )
 
-instance Core.ToPath ResetUserPassword where
+instance Data.ToPath ResetUserPassword where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResetUserPassword where
+instance Data.ToQuery ResetUserPassword where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newResetUserPasswordResponse' smart constructor.

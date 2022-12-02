@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,34 +121,34 @@ instance Prelude.NFData EnableClientAuthentication where
     Prelude.rnf directoryId
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders EnableClientAuthentication where
+instance Data.ToHeaders EnableClientAuthentication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.EnableClientAuthentication" ::
+              Data.=# ( "DirectoryService_20150416.EnableClientAuthentication" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON EnableClientAuthentication where
+instance Data.ToJSON EnableClientAuthentication where
   toJSON EnableClientAuthentication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Core..= directoryId),
-            Prelude.Just ("Type" Core..= type')
+          [ Prelude.Just ("DirectoryId" Data..= directoryId),
+            Prelude.Just ("Type" Data..= type')
           ]
       )
 
-instance Core.ToPath EnableClientAuthentication where
+instance Data.ToPath EnableClientAuthentication where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery EnableClientAuthentication where
+instance Data.ToQuery EnableClientAuthentication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEnableClientAuthenticationResponse' smart constructor.

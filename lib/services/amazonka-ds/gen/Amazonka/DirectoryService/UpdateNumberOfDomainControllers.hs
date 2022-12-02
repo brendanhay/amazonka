@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,37 +133,37 @@ instance
       `Prelude.seq` Prelude.rnf desiredNumber
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateNumberOfDomainControllers
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.UpdateNumberOfDomainControllers" ::
+              Data.=# ( "DirectoryService_20150416.UpdateNumberOfDomainControllers" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateNumberOfDomainControllers where
+instance Data.ToJSON UpdateNumberOfDomainControllers where
   toJSON UpdateNumberOfDomainControllers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Core..= directoryId),
+          [ Prelude.Just ("DirectoryId" Data..= directoryId),
             Prelude.Just
-              ("DesiredNumber" Core..= desiredNumber)
+              ("DesiredNumber" Data..= desiredNumber)
           ]
       )
 
-instance Core.ToPath UpdateNumberOfDomainControllers where
+instance Data.ToPath UpdateNumberOfDomainControllers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateNumberOfDomainControllers where
+instance Data.ToQuery UpdateNumberOfDomainControllers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateNumberOfDomainControllersResponse' smart constructor.

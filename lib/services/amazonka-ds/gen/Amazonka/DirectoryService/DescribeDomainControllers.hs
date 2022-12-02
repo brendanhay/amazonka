@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -150,8 +151,8 @@ instance Core.AWSRequest DescribeDomainControllers where
     Response.receiveJSON
       ( \s h x ->
           DescribeDomainControllersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "DomainControllers"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "DomainControllers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -171,37 +172,37 @@ instance Prelude.NFData DescribeDomainControllers where
       `Prelude.seq` Prelude.rnf domainControllerIds
       `Prelude.seq` Prelude.rnf directoryId
 
-instance Core.ToHeaders DescribeDomainControllers where
+instance Data.ToHeaders DescribeDomainControllers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.DescribeDomainControllers" ::
+              Data.=# ( "DirectoryService_20150416.DescribeDomainControllers" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDomainControllers where
+instance Data.ToJSON DescribeDomainControllers where
   toJSON DescribeDomainControllers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("DomainControllerIds" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("DomainControllerIds" Data..=)
               Prelude.<$> domainControllerIds,
-            Prelude.Just ("DirectoryId" Core..= directoryId)
+            Prelude.Just ("DirectoryId" Data..= directoryId)
           ]
       )
 
-instance Core.ToPath DescribeDomainControllers where
+instance Data.ToPath DescribeDomainControllers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDomainControllers where
+instance Data.ToQuery DescribeDomainControllers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDomainControllersResponse' smart constructor.

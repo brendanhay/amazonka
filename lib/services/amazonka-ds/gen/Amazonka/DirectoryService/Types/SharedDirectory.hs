@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.SharedDirectory where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types.ShareMethod
 import Amazonka.DirectoryService.Types.ShareStatus
 import qualified Amazonka.Prelude as Prelude
@@ -35,7 +36,7 @@ data SharedDirectory = SharedDirectory'
     -- directory consumer. The request includes a typed message to help the
     -- directory consumer administrator determine whether to approve or reject
     -- the share invitation.
-    shareNotes :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    shareNotes :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Current directory status of the shared Managed Microsoft AD directory.
     shareStatus :: Prelude.Maybe ShareStatus,
     -- | The method used when sharing a directory to determine whether the
@@ -44,7 +45,7 @@ data SharedDirectory = SharedDirectory'
     -- shared directory request (@HANDSHAKE@).
     shareMethod :: Prelude.Maybe ShareMethod,
     -- | The date and time that the shared directory was created.
-    createdDateTime :: Prelude.Maybe Core.POSIX,
+    createdDateTime :: Prelude.Maybe Data.POSIX,
     -- | Identifier of the directory in the directory owner account.
     ownerDirectoryId :: Prelude.Maybe Prelude.Text,
     -- | Identifier of the directory owner account, which contains the directory
@@ -57,7 +58,7 @@ data SharedDirectory = SharedDirectory'
     -- This identifier is different for each directory owner account.
     sharedDirectoryId :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the shared directory was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -115,7 +116,7 @@ newSharedDirectory =
 -- directory consumer administrator determine whether to approve or reject
 -- the share invitation.
 sharedDirectory_shareNotes :: Lens.Lens' SharedDirectory (Prelude.Maybe Prelude.Text)
-sharedDirectory_shareNotes = Lens.lens (\SharedDirectory' {shareNotes} -> shareNotes) (\s@SharedDirectory' {} a -> s {shareNotes = a} :: SharedDirectory) Prelude.. Lens.mapping Core._Sensitive
+sharedDirectory_shareNotes = Lens.lens (\SharedDirectory' {shareNotes} -> shareNotes) (\s@SharedDirectory' {} a -> s {shareNotes = a} :: SharedDirectory) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Current directory status of the shared Managed Microsoft AD directory.
 sharedDirectory_shareStatus :: Lens.Lens' SharedDirectory (Prelude.Maybe ShareStatus)
@@ -130,7 +131,7 @@ sharedDirectory_shareMethod = Lens.lens (\SharedDirectory' {shareMethod} -> shar
 
 -- | The date and time that the shared directory was created.
 sharedDirectory_createdDateTime :: Lens.Lens' SharedDirectory (Prelude.Maybe Prelude.UTCTime)
-sharedDirectory_createdDateTime = Lens.lens (\SharedDirectory' {createdDateTime} -> createdDateTime) (\s@SharedDirectory' {} a -> s {createdDateTime = a} :: SharedDirectory) Prelude.. Lens.mapping Core._Time
+sharedDirectory_createdDateTime = Lens.lens (\SharedDirectory' {createdDateTime} -> createdDateTime) (\s@SharedDirectory' {} a -> s {createdDateTime = a} :: SharedDirectory) Prelude.. Lens.mapping Data._Time
 
 -- | Identifier of the directory in the directory owner account.
 sharedDirectory_ownerDirectoryId :: Lens.Lens' SharedDirectory (Prelude.Maybe Prelude.Text)
@@ -153,23 +154,23 @@ sharedDirectory_sharedDirectoryId = Lens.lens (\SharedDirectory' {sharedDirector
 
 -- | The date and time that the shared directory was last updated.
 sharedDirectory_lastUpdatedDateTime :: Lens.Lens' SharedDirectory (Prelude.Maybe Prelude.UTCTime)
-sharedDirectory_lastUpdatedDateTime = Lens.lens (\SharedDirectory' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@SharedDirectory' {} a -> s {lastUpdatedDateTime = a} :: SharedDirectory) Prelude.. Lens.mapping Core._Time
+sharedDirectory_lastUpdatedDateTime = Lens.lens (\SharedDirectory' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@SharedDirectory' {} a -> s {lastUpdatedDateTime = a} :: SharedDirectory) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON SharedDirectory where
+instance Data.FromJSON SharedDirectory where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SharedDirectory"
       ( \x ->
           SharedDirectory'
-            Prelude.<$> (x Core..:? "ShareNotes")
-            Prelude.<*> (x Core..:? "ShareStatus")
-            Prelude.<*> (x Core..:? "ShareMethod")
-            Prelude.<*> (x Core..:? "CreatedDateTime")
-            Prelude.<*> (x Core..:? "OwnerDirectoryId")
-            Prelude.<*> (x Core..:? "OwnerAccountId")
-            Prelude.<*> (x Core..:? "SharedAccountId")
-            Prelude.<*> (x Core..:? "SharedDirectoryId")
-            Prelude.<*> (x Core..:? "LastUpdatedDateTime")
+            Prelude.<$> (x Data..:? "ShareNotes")
+            Prelude.<*> (x Data..:? "ShareStatus")
+            Prelude.<*> (x Data..:? "ShareMethod")
+            Prelude.<*> (x Data..:? "CreatedDateTime")
+            Prelude.<*> (x Data..:? "OwnerDirectoryId")
+            Prelude.<*> (x Data..:? "OwnerAccountId")
+            Prelude.<*> (x Data..:? "SharedAccountId")
+            Prelude.<*> (x Data..:? "SharedDirectoryId")
+            Prelude.<*> (x Data..:? "LastUpdatedDateTime")
       )
 
 instance Prelude.Hashable SharedDirectory where

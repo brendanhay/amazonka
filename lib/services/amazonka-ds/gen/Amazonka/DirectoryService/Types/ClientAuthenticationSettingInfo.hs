@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.ClientAuthenticationSettingInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types.ClientAuthenticationStatus
 import Amazonka.DirectoryService.Types.ClientAuthenticationType
 import qualified Amazonka.Prelude as Prelude
@@ -39,7 +40,7 @@ data ClientAuthenticationSettingInfo = ClientAuthenticationSettingInfo'
     status :: Prelude.Maybe ClientAuthenticationStatus,
     -- | The date and time when the status of the client authentication type was
     -- last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,20 +85,20 @@ clientAuthenticationSettingInfo_status = Lens.lens (\ClientAuthenticationSetting
 -- | The date and time when the status of the client authentication type was
 -- last updated.
 clientAuthenticationSettingInfo_lastUpdatedDateTime :: Lens.Lens' ClientAuthenticationSettingInfo (Prelude.Maybe Prelude.UTCTime)
-clientAuthenticationSettingInfo_lastUpdatedDateTime = Lens.lens (\ClientAuthenticationSettingInfo' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@ClientAuthenticationSettingInfo' {} a -> s {lastUpdatedDateTime = a} :: ClientAuthenticationSettingInfo) Prelude.. Lens.mapping Core._Time
+clientAuthenticationSettingInfo_lastUpdatedDateTime = Lens.lens (\ClientAuthenticationSettingInfo' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@ClientAuthenticationSettingInfo' {} a -> s {lastUpdatedDateTime = a} :: ClientAuthenticationSettingInfo) Prelude.. Lens.mapping Data._Time
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ClientAuthenticationSettingInfo
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClientAuthenticationSettingInfo"
       ( \x ->
           ClientAuthenticationSettingInfo'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "LastUpdatedDateTime")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "LastUpdatedDateTime")
       )
 
 instance

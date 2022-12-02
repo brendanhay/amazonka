@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -57,7 +58,7 @@ data EnableSso = EnableSso'
   { -- | The password of an alternate account to use to enable single-sign on.
     -- This is only used for AD Connector directories. For more information,
     -- see the /UserName/ parameter.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The username of an alternate account to use to enable single-sign on.
     -- This is only used for AD Connector directories. This account must have
     -- privileges to add a service principal name.
@@ -111,7 +112,7 @@ newEnableSso pDirectoryId_ =
 -- This is only used for AD Connector directories. For more information,
 -- see the /UserName/ parameter.
 enableSso_password :: Lens.Lens' EnableSso (Prelude.Maybe Prelude.Text)
-enableSso_password = Lens.lens (\EnableSso' {password} -> password) (\s@EnableSso' {} a -> s {password = a} :: EnableSso) Prelude.. Lens.mapping Core._Sensitive
+enableSso_password = Lens.lens (\EnableSso' {password} -> password) (\s@EnableSso' {} a -> s {password = a} :: EnableSso) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The username of an alternate account to use to enable single-sign on.
 -- This is only used for AD Connector directories. This account must have
@@ -152,35 +153,35 @@ instance Prelude.NFData EnableSso where
       `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf directoryId
 
-instance Core.ToHeaders EnableSso where
+instance Data.ToHeaders EnableSso where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.EnableSso" ::
+              Data.=# ( "DirectoryService_20150416.EnableSso" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON EnableSso where
+instance Data.ToJSON EnableSso where
   toJSON EnableSso' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Password" Core..=) Prelude.<$> password,
-            ("UserName" Core..=) Prelude.<$> userName,
-            Prelude.Just ("DirectoryId" Core..= directoryId)
+          [ ("Password" Data..=) Prelude.<$> password,
+            ("UserName" Data..=) Prelude.<$> userName,
+            Prelude.Just ("DirectoryId" Data..= directoryId)
           ]
       )
 
-instance Core.ToPath EnableSso where
+instance Data.ToPath EnableSso where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery EnableSso where
+instance Data.ToQuery EnableSso where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the results of the EnableSso operation.

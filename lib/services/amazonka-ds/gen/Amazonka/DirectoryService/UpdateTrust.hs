@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,8 +96,8 @@ instance Core.AWSRequest UpdateTrust where
     Response.receiveJSON
       ( \s h x ->
           UpdateTrustResponse'
-            Prelude.<$> (x Core..?> "TrustId")
-            Prelude.<*> (x Core..?> "RequestId")
+            Prelude.<$> (x Data..?> "TrustId")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,34 +111,34 @@ instance Prelude.NFData UpdateTrust where
     Prelude.rnf selectiveAuth
       `Prelude.seq` Prelude.rnf trustId
 
-instance Core.ToHeaders UpdateTrust where
+instance Data.ToHeaders UpdateTrust where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.UpdateTrust" ::
+              Data.=# ( "DirectoryService_20150416.UpdateTrust" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTrust where
+instance Data.ToJSON UpdateTrust where
   toJSON UpdateTrust' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SelectiveAuth" Core..=) Prelude.<$> selectiveAuth,
-            Prelude.Just ("TrustId" Core..= trustId)
+          [ ("SelectiveAuth" Data..=) Prelude.<$> selectiveAuth,
+            Prelude.Just ("TrustId" Data..= trustId)
           ]
       )
 
-instance Core.ToPath UpdateTrust where
+instance Data.ToPath UpdateTrust where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateTrust where
+instance Data.ToQuery UpdateTrust where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTrustResponse' smart constructor.

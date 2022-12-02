@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.LogSubscription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a log subscription, which tracks real-time data from a chosen
@@ -32,7 +33,7 @@ data LogSubscription = LogSubscription'
     -- subscription.
     directoryId :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the log subscription was created.
-    subscriptionCreatedDateTime :: Prelude.Maybe Core.POSIX,
+    subscriptionCreatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the log group.
     logGroupName :: Prelude.Maybe Prelude.Text
   }
@@ -68,21 +69,21 @@ logSubscription_directoryId = Lens.lens (\LogSubscription' {directoryId} -> dire
 
 -- | The date and time that the log subscription was created.
 logSubscription_subscriptionCreatedDateTime :: Lens.Lens' LogSubscription (Prelude.Maybe Prelude.UTCTime)
-logSubscription_subscriptionCreatedDateTime = Lens.lens (\LogSubscription' {subscriptionCreatedDateTime} -> subscriptionCreatedDateTime) (\s@LogSubscription' {} a -> s {subscriptionCreatedDateTime = a} :: LogSubscription) Prelude.. Lens.mapping Core._Time
+logSubscription_subscriptionCreatedDateTime = Lens.lens (\LogSubscription' {subscriptionCreatedDateTime} -> subscriptionCreatedDateTime) (\s@LogSubscription' {} a -> s {subscriptionCreatedDateTime = a} :: LogSubscription) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the log group.
 logSubscription_logGroupName :: Lens.Lens' LogSubscription (Prelude.Maybe Prelude.Text)
 logSubscription_logGroupName = Lens.lens (\LogSubscription' {logGroupName} -> logGroupName) (\s@LogSubscription' {} a -> s {logGroupName = a} :: LogSubscription)
 
-instance Core.FromJSON LogSubscription where
+instance Data.FromJSON LogSubscription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogSubscription"
       ( \x ->
           LogSubscription'
-            Prelude.<$> (x Core..:? "DirectoryId")
-            Prelude.<*> (x Core..:? "SubscriptionCreatedDateTime")
-            Prelude.<*> (x Core..:? "LogGroupName")
+            Prelude.<$> (x Data..:? "DirectoryId")
+            Prelude.<*> (x Data..:? "SubscriptionCreatedDateTime")
+            Prelude.<*> (x Data..:? "LogGroupName")
       )
 
 instance Prelude.Hashable LogSubscription where

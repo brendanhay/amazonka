@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,32 +104,32 @@ instance Prelude.Hashable RestoreFromSnapshot where
 instance Prelude.NFData RestoreFromSnapshot where
   rnf RestoreFromSnapshot' {..} = Prelude.rnf snapshotId
 
-instance Core.ToHeaders RestoreFromSnapshot where
+instance Data.ToHeaders RestoreFromSnapshot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.RestoreFromSnapshot" ::
+              Data.=# ( "DirectoryService_20150416.RestoreFromSnapshot" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RestoreFromSnapshot where
+instance Data.ToJSON RestoreFromSnapshot where
   toJSON RestoreFromSnapshot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("SnapshotId" Core..= snapshotId)]
+          [Prelude.Just ("SnapshotId" Data..= snapshotId)]
       )
 
-instance Core.ToPath RestoreFromSnapshot where
+instance Data.ToPath RestoreFromSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestoreFromSnapshot where
+instance Data.ToQuery RestoreFromSnapshot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the results of the RestoreFromSnapshot operation.

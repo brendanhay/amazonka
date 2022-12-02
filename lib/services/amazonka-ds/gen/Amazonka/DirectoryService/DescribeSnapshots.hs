@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -161,8 +162,8 @@ instance Core.AWSRequest DescribeSnapshots where
     Response.receiveJSON
       ( \s h x ->
           DescribeSnapshotsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Snapshots" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Snapshots" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,36 +181,36 @@ instance Prelude.NFData DescribeSnapshots where
       `Prelude.seq` Prelude.rnf snapshotIds
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders DescribeSnapshots where
+instance Data.ToHeaders DescribeSnapshots where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.DescribeSnapshots" ::
+              Data.=# ( "DirectoryService_20150416.DescribeSnapshots" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeSnapshots where
+instance Data.ToJSON DescribeSnapshots where
   toJSON DescribeSnapshots' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DirectoryId" Core..=) Prelude.<$> directoryId,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SnapshotIds" Core..=) Prelude.<$> snapshotIds,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("DirectoryId" Data..=) Prelude.<$> directoryId,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SnapshotIds" Data..=) Prelude.<$> snapshotIds,
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
-instance Core.ToPath DescribeSnapshots where
+instance Data.ToPath DescribeSnapshots where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSnapshots where
+instance Data.ToQuery DescribeSnapshots where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the results of the DescribeSnapshots operation.

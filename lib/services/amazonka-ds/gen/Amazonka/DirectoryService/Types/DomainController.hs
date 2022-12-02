@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.DomainController where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types.DomainControllerStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newDomainController' smart constructor.
 data DomainController = DomainController'
   { -- | The date and time that the status was last updated.
-    statusLastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    statusLastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | Identifier of the directory where the domain controller resides.
     directoryId :: Prelude.Maybe Prelude.Text,
     -- | Identifies a specific domain controller in the directory.
@@ -38,7 +39,7 @@ data DomainController = DomainController'
     -- | The IP address of the domain controller.
     dnsIpAddr :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the domain controller was created.
-    launchTime :: Prelude.Maybe Core.POSIX,
+    launchTime :: Prelude.Maybe Data.POSIX,
     -- | Identifier of the subnet in the VPC that contains the domain controller.
     subnetId :: Prelude.Maybe Prelude.Text,
     -- | A description of the domain controller state.
@@ -98,7 +99,7 @@ newDomainController =
 
 -- | The date and time that the status was last updated.
 domainController_statusLastUpdatedDateTime :: Lens.Lens' DomainController (Prelude.Maybe Prelude.UTCTime)
-domainController_statusLastUpdatedDateTime = Lens.lens (\DomainController' {statusLastUpdatedDateTime} -> statusLastUpdatedDateTime) (\s@DomainController' {} a -> s {statusLastUpdatedDateTime = a} :: DomainController) Prelude.. Lens.mapping Core._Time
+domainController_statusLastUpdatedDateTime = Lens.lens (\DomainController' {statusLastUpdatedDateTime} -> statusLastUpdatedDateTime) (\s@DomainController' {} a -> s {statusLastUpdatedDateTime = a} :: DomainController) Prelude.. Lens.mapping Data._Time
 
 -- | Identifier of the directory where the domain controller resides.
 domainController_directoryId :: Lens.Lens' DomainController (Prelude.Maybe Prelude.Text)
@@ -114,7 +115,7 @@ domainController_dnsIpAddr = Lens.lens (\DomainController' {dnsIpAddr} -> dnsIpA
 
 -- | Specifies when the domain controller was created.
 domainController_launchTime :: Lens.Lens' DomainController (Prelude.Maybe Prelude.UTCTime)
-domainController_launchTime = Lens.lens (\DomainController' {launchTime} -> launchTime) (\s@DomainController' {} a -> s {launchTime = a} :: DomainController) Prelude.. Lens.mapping Core._Time
+domainController_launchTime = Lens.lens (\DomainController' {launchTime} -> launchTime) (\s@DomainController' {} a -> s {launchTime = a} :: DomainController) Prelude.. Lens.mapping Data._Time
 
 -- | Identifier of the subnet in the VPC that contains the domain controller.
 domainController_subnetId :: Lens.Lens' DomainController (Prelude.Maybe Prelude.Text)
@@ -136,22 +137,22 @@ domainController_availabilityZone = Lens.lens (\DomainController' {availabilityZ
 domainController_vpcId :: Lens.Lens' DomainController (Prelude.Maybe Prelude.Text)
 domainController_vpcId = Lens.lens (\DomainController' {vpcId} -> vpcId) (\s@DomainController' {} a -> s {vpcId = a} :: DomainController)
 
-instance Core.FromJSON DomainController where
+instance Data.FromJSON DomainController where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainController"
       ( \x ->
           DomainController'
-            Prelude.<$> (x Core..:? "StatusLastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "DirectoryId")
-            Prelude.<*> (x Core..:? "DomainControllerId")
-            Prelude.<*> (x Core..:? "DnsIpAddr")
-            Prelude.<*> (x Core..:? "LaunchTime")
-            Prelude.<*> (x Core..:? "SubnetId")
-            Prelude.<*> (x Core..:? "StatusReason")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "AvailabilityZone")
-            Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<$> (x Data..:? "StatusLastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "DirectoryId")
+            Prelude.<*> (x Data..:? "DomainControllerId")
+            Prelude.<*> (x Data..:? "DnsIpAddr")
+            Prelude.<*> (x Data..:? "LaunchTime")
+            Prelude.<*> (x Data..:? "SubnetId")
+            Prelude.<*> (x Data..:? "StatusReason")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "AvailabilityZone")
+            Prelude.<*> (x Data..:? "VpcId")
       )
 
 instance Prelude.Hashable DomainController where

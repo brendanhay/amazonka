@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,8 +145,8 @@ instance Core.AWSRequest DescribeSharedDirectories where
     Response.receiveJSON
       ( \s h x ->
           DescribeSharedDirectoriesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "SharedDirectories"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "SharedDirectories"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -165,38 +166,38 @@ instance Prelude.NFData DescribeSharedDirectories where
       `Prelude.seq` Prelude.rnf sharedDirectoryIds
       `Prelude.seq` Prelude.rnf ownerDirectoryId
 
-instance Core.ToHeaders DescribeSharedDirectories where
+instance Data.ToHeaders DescribeSharedDirectories where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.DescribeSharedDirectories" ::
+              Data.=# ( "DirectoryService_20150416.DescribeSharedDirectories" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeSharedDirectories where
+instance Data.ToJSON DescribeSharedDirectories where
   toJSON DescribeSharedDirectories' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("SharedDirectoryIds" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("SharedDirectoryIds" Data..=)
               Prelude.<$> sharedDirectoryIds,
             Prelude.Just
-              ("OwnerDirectoryId" Core..= ownerDirectoryId)
+              ("OwnerDirectoryId" Data..= ownerDirectoryId)
           ]
       )
 
-instance Core.ToPath DescribeSharedDirectories where
+instance Data.ToPath DescribeSharedDirectories where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSharedDirectories where
+instance Data.ToQuery DescribeSharedDirectories where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSharedDirectoriesResponse' smart constructor.

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,34 +120,34 @@ instance Prelude.NFData DeregisterEventTopic where
     Prelude.rnf directoryId
       `Prelude.seq` Prelude.rnf topicName
 
-instance Core.ToHeaders DeregisterEventTopic where
+instance Data.ToHeaders DeregisterEventTopic where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.DeregisterEventTopic" ::
+              Data.=# ( "DirectoryService_20150416.DeregisterEventTopic" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeregisterEventTopic where
+instance Data.ToJSON DeregisterEventTopic where
   toJSON DeregisterEventTopic' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Core..= directoryId),
-            Prelude.Just ("TopicName" Core..= topicName)
+          [ Prelude.Just ("DirectoryId" Data..= directoryId),
+            Prelude.Just ("TopicName" Data..= topicName)
           ]
       )
 
-instance Core.ToPath DeregisterEventTopic where
+instance Data.ToPath DeregisterEventTopic where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeregisterEventTopic where
+instance Data.ToQuery DeregisterEventTopic where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result of a DeregisterEventTopic request.

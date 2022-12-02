@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.CertificateInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types.CertificateState
 import Amazonka.DirectoryService.Types.CertificateType
 import qualified Amazonka.Prelude as Prelude
@@ -40,7 +41,7 @@ data CertificateInfo = CertificateInfo'
     -- | The common name for the certificate.
     commonName :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the certificate will expire.
-    expiryDateTime :: Prelude.Maybe Core.POSIX
+    expiryDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,19 +95,19 @@ certificateInfo_commonName = Lens.lens (\CertificateInfo' {commonName} -> common
 
 -- | The date and time when the certificate will expire.
 certificateInfo_expiryDateTime :: Lens.Lens' CertificateInfo (Prelude.Maybe Prelude.UTCTime)
-certificateInfo_expiryDateTime = Lens.lens (\CertificateInfo' {expiryDateTime} -> expiryDateTime) (\s@CertificateInfo' {} a -> s {expiryDateTime = a} :: CertificateInfo) Prelude.. Lens.mapping Core._Time
+certificateInfo_expiryDateTime = Lens.lens (\CertificateInfo' {expiryDateTime} -> expiryDateTime) (\s@CertificateInfo' {} a -> s {expiryDateTime = a} :: CertificateInfo) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON CertificateInfo where
+instance Data.FromJSON CertificateInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CertificateInfo"
       ( \x ->
           CertificateInfo'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "CertificateId")
-            Prelude.<*> (x Core..:? "CommonName")
-            Prelude.<*> (x Core..:? "ExpiryDateTime")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "CertificateId")
+            Prelude.<*> (x Data..:? "CommonName")
+            Prelude.<*> (x Data..:? "ExpiryDateTime")
       )
 
 instance Prelude.Hashable CertificateInfo where

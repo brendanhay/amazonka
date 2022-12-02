@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,32 +96,32 @@ instance Prelude.Hashable RemoveRegion where
 instance Prelude.NFData RemoveRegion where
   rnf RemoveRegion' {..} = Prelude.rnf directoryId
 
-instance Core.ToHeaders RemoveRegion where
+instance Data.ToHeaders RemoveRegion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.RemoveRegion" ::
+              Data.=# ( "DirectoryService_20150416.RemoveRegion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RemoveRegion where
+instance Data.ToJSON RemoveRegion where
   toJSON RemoveRegion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DirectoryId" Core..= directoryId)]
+          [Prelude.Just ("DirectoryId" Data..= directoryId)]
       )
 
-instance Core.ToPath RemoveRegion where
+instance Data.ToPath RemoveRegion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RemoveRegion where
+instance Data.ToQuery RemoveRegion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveRegionResponse' smart constructor.

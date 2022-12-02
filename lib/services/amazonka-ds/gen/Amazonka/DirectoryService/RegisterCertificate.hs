@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,7 +130,7 @@ instance Core.AWSRequest RegisterCertificate where
     Response.receiveJSON
       ( \s h x ->
           RegisterCertificateResponse'
-            Prelude.<$> (x Core..?> "CertificateId")
+            Prelude.<$> (x Data..?> "CertificateId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,38 +148,38 @@ instance Prelude.NFData RegisterCertificate where
       `Prelude.seq` Prelude.rnf directoryId
       `Prelude.seq` Prelude.rnf certificateData
 
-instance Core.ToHeaders RegisterCertificate where
+instance Data.ToHeaders RegisterCertificate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.RegisterCertificate" ::
+              Data.=# ( "DirectoryService_20150416.RegisterCertificate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterCertificate where
+instance Data.ToJSON RegisterCertificate where
   toJSON RegisterCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("ClientCertAuthSettings" Core..=)
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("ClientCertAuthSettings" Data..=)
               Prelude.<$> clientCertAuthSettings,
-            Prelude.Just ("DirectoryId" Core..= directoryId),
+            Prelude.Just ("DirectoryId" Data..= directoryId),
             Prelude.Just
-              ("CertificateData" Core..= certificateData)
+              ("CertificateData" Data..= certificateData)
           ]
       )
 
-instance Core.ToPath RegisterCertificate where
+instance Data.ToPath RegisterCertificate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterCertificate where
+instance Data.ToQuery RegisterCertificate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterCertificateResponse' smart constructor.

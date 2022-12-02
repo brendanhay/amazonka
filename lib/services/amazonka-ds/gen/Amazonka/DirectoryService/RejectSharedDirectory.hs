@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,7 +91,7 @@ instance Core.AWSRequest RejectSharedDirectory where
     Response.receiveJSON
       ( \s h x ->
           RejectSharedDirectoryResponse'
-            Prelude.<$> (x Core..?> "SharedDirectoryId")
+            Prelude.<$> (x Data..?> "SharedDirectoryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -102,34 +103,34 @@ instance Prelude.NFData RejectSharedDirectory where
   rnf RejectSharedDirectory' {..} =
     Prelude.rnf sharedDirectoryId
 
-instance Core.ToHeaders RejectSharedDirectory where
+instance Data.ToHeaders RejectSharedDirectory where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.RejectSharedDirectory" ::
+              Data.=# ( "DirectoryService_20150416.RejectSharedDirectory" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RejectSharedDirectory where
+instance Data.ToJSON RejectSharedDirectory where
   toJSON RejectSharedDirectory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("SharedDirectoryId" Core..= sharedDirectoryId)
+              ("SharedDirectoryId" Data..= sharedDirectoryId)
           ]
       )
 
-instance Core.ToPath RejectSharedDirectory where
+instance Data.ToPath RejectSharedDirectory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RejectSharedDirectory where
+instance Data.ToQuery RejectSharedDirectory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRejectSharedDirectoryResponse' smart constructor.

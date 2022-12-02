@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -54,7 +55,7 @@ data DisableSso = DisableSso'
   { -- | The password of an alternate account to use to disable single-sign on.
     -- This is only used for AD Connector directories. For more information,
     -- see the /UserName/ parameter.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The username of an alternate account to use to disable single-sign on.
     -- This is only used for AD Connector directories. This account must have
     -- privileges to remove a service principal name.
@@ -108,7 +109,7 @@ newDisableSso pDirectoryId_ =
 -- This is only used for AD Connector directories. For more information,
 -- see the /UserName/ parameter.
 disableSso_password :: Lens.Lens' DisableSso (Prelude.Maybe Prelude.Text)
-disableSso_password = Lens.lens (\DisableSso' {password} -> password) (\s@DisableSso' {} a -> s {password = a} :: DisableSso) Prelude.. Lens.mapping Core._Sensitive
+disableSso_password = Lens.lens (\DisableSso' {password} -> password) (\s@DisableSso' {} a -> s {password = a} :: DisableSso) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The username of an alternate account to use to disable single-sign on.
 -- This is only used for AD Connector directories. This account must have
@@ -149,35 +150,35 @@ instance Prelude.NFData DisableSso where
       `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf directoryId
 
-instance Core.ToHeaders DisableSso where
+instance Data.ToHeaders DisableSso where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.DisableSso" ::
+              Data.=# ( "DirectoryService_20150416.DisableSso" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisableSso where
+instance Data.ToJSON DisableSso where
   toJSON DisableSso' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Password" Core..=) Prelude.<$> password,
-            ("UserName" Core..=) Prelude.<$> userName,
-            Prelude.Just ("DirectoryId" Core..= directoryId)
+          [ ("Password" Data..=) Prelude.<$> password,
+            ("UserName" Data..=) Prelude.<$> userName,
+            Prelude.Just ("DirectoryId" Data..= directoryId)
           ]
       )
 
-instance Core.ToPath DisableSso where
+instance Data.ToPath DisableSso where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisableSso where
+instance Data.ToQuery DisableSso where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the results of the DisableSso operation.

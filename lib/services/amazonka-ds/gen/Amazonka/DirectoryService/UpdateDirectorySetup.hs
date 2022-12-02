@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,38 +145,38 @@ instance Prelude.NFData UpdateDirectorySetup where
       `Prelude.seq` Prelude.rnf directoryId
       `Prelude.seq` Prelude.rnf updateType
 
-instance Core.ToHeaders UpdateDirectorySetup where
+instance Data.ToHeaders UpdateDirectorySetup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.UpdateDirectorySetup" ::
+              Data.=# ( "DirectoryService_20150416.UpdateDirectorySetup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDirectorySetup where
+instance Data.ToJSON UpdateDirectorySetup where
   toJSON UpdateDirectorySetup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CreateSnapshotBeforeUpdate" Core..=)
+          [ ("CreateSnapshotBeforeUpdate" Data..=)
               Prelude.<$> createSnapshotBeforeUpdate,
-            ("OSUpdateSettings" Core..=)
+            ("OSUpdateSettings" Data..=)
               Prelude.<$> oSUpdateSettings,
-            Prelude.Just ("DirectoryId" Core..= directoryId),
-            Prelude.Just ("UpdateType" Core..= updateType)
+            Prelude.Just ("DirectoryId" Data..= directoryId),
+            Prelude.Just ("UpdateType" Data..= updateType)
           ]
       )
 
-instance Core.ToPath UpdateDirectorySetup where
+instance Data.ToPath UpdateDirectorySetup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDirectorySetup where
+instance Data.ToQuery UpdateDirectorySetup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDirectorySetupResponse' smart constructor.

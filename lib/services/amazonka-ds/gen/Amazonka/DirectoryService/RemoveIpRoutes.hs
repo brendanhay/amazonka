@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,34 +111,34 @@ instance Prelude.NFData RemoveIpRoutes where
     Prelude.rnf directoryId
       `Prelude.seq` Prelude.rnf cidrIps
 
-instance Core.ToHeaders RemoveIpRoutes where
+instance Data.ToHeaders RemoveIpRoutes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.RemoveIpRoutes" ::
+              Data.=# ( "DirectoryService_20150416.RemoveIpRoutes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RemoveIpRoutes where
+instance Data.ToJSON RemoveIpRoutes where
   toJSON RemoveIpRoutes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Core..= directoryId),
-            Prelude.Just ("CidrIps" Core..= cidrIps)
+          [ Prelude.Just ("DirectoryId" Data..= directoryId),
+            Prelude.Just ("CidrIps" Data..= cidrIps)
           ]
       )
 
-instance Core.ToPath RemoveIpRoutes where
+instance Data.ToPath RemoveIpRoutes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RemoveIpRoutes where
+instance Data.ToQuery RemoveIpRoutes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveIpRoutesResponse' smart constructor.

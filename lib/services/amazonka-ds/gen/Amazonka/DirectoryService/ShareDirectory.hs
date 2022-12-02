@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -74,7 +75,7 @@ data ShareDirectory = ShareDirectory'
     -- directory consumer. The request includes a typed message to help the
     -- directory consumer administrator determine whether to approve or reject
     -- the share invitation.
-    shareNotes :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    shareNotes :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Identifier of the Managed Microsoft AD directory that you want to share
     -- with other Amazon Web Services accounts.
     directoryId :: Prelude.Text,
@@ -136,7 +137,7 @@ newShareDirectory
 -- directory consumer administrator determine whether to approve or reject
 -- the share invitation.
 shareDirectory_shareNotes :: Lens.Lens' ShareDirectory (Prelude.Maybe Prelude.Text)
-shareDirectory_shareNotes = Lens.lens (\ShareDirectory' {shareNotes} -> shareNotes) (\s@ShareDirectory' {} a -> s {shareNotes = a} :: ShareDirectory) Prelude.. Lens.mapping Core._Sensitive
+shareDirectory_shareNotes = Lens.lens (\ShareDirectory' {shareNotes} -> shareNotes) (\s@ShareDirectory' {} a -> s {shareNotes = a} :: ShareDirectory) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Identifier of the Managed Microsoft AD directory that you want to share
 -- with other Amazon Web Services accounts.
@@ -165,7 +166,7 @@ instance Core.AWSRequest ShareDirectory where
     Response.receiveJSON
       ( \s h x ->
           ShareDirectoryResponse'
-            Prelude.<$> (x Core..?> "SharedDirectoryId")
+            Prelude.<$> (x Data..?> "SharedDirectoryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,36 +184,36 @@ instance Prelude.NFData ShareDirectory where
       `Prelude.seq` Prelude.rnf shareTarget
       `Prelude.seq` Prelude.rnf shareMethod
 
-instance Core.ToHeaders ShareDirectory where
+instance Data.ToHeaders ShareDirectory where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.ShareDirectory" ::
+              Data.=# ( "DirectoryService_20150416.ShareDirectory" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ShareDirectory where
+instance Data.ToJSON ShareDirectory where
   toJSON ShareDirectory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ShareNotes" Core..=) Prelude.<$> shareNotes,
-            Prelude.Just ("DirectoryId" Core..= directoryId),
-            Prelude.Just ("ShareTarget" Core..= shareTarget),
-            Prelude.Just ("ShareMethod" Core..= shareMethod)
+          [ ("ShareNotes" Data..=) Prelude.<$> shareNotes,
+            Prelude.Just ("DirectoryId" Data..= directoryId),
+            Prelude.Just ("ShareTarget" Data..= shareTarget),
+            Prelude.Just ("ShareMethod" Data..= shareMethod)
           ]
       )
 
-instance Core.ToPath ShareDirectory where
+instance Data.ToPath ShareDirectory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ShareDirectory where
+instance Data.ToQuery ShareDirectory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newShareDirectoryResponse' smart constructor.

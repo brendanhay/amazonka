@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.LDAPSSettingInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types.LDAPSStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,7 +34,7 @@ data LDAPSSettingInfo = LDAPSSettingInfo'
     -- | The state of the LDAPS settings.
     lDAPSStatus :: Prelude.Maybe LDAPSStatus,
     -- | The date and time when the LDAPS settings were last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,17 +71,17 @@ lDAPSSettingInfo_lDAPSStatus = Lens.lens (\LDAPSSettingInfo' {lDAPSStatus} -> lD
 
 -- | The date and time when the LDAPS settings were last updated.
 lDAPSSettingInfo_lastUpdatedDateTime :: Lens.Lens' LDAPSSettingInfo (Prelude.Maybe Prelude.UTCTime)
-lDAPSSettingInfo_lastUpdatedDateTime = Lens.lens (\LDAPSSettingInfo' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@LDAPSSettingInfo' {} a -> s {lastUpdatedDateTime = a} :: LDAPSSettingInfo) Prelude.. Lens.mapping Core._Time
+lDAPSSettingInfo_lastUpdatedDateTime = Lens.lens (\LDAPSSettingInfo' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@LDAPSSettingInfo' {} a -> s {lastUpdatedDateTime = a} :: LDAPSSettingInfo) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON LDAPSSettingInfo where
+instance Data.FromJSON LDAPSSettingInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LDAPSSettingInfo"
       ( \x ->
           LDAPSSettingInfo'
-            Prelude.<$> (x Core..:? "LDAPSStatusReason")
-            Prelude.<*> (x Core..:? "LDAPSStatus")
-            Prelude.<*> (x Core..:? "LastUpdatedDateTime")
+            Prelude.<$> (x Data..:? "LDAPSStatusReason")
+            Prelude.<*> (x Data..:? "LDAPSStatus")
+            Prelude.<*> (x Data..:? "LastUpdatedDateTime")
       )
 
 instance Prelude.Hashable LDAPSSettingInfo where

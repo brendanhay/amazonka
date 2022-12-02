@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,7 +87,7 @@ data CreateMicrosoftAD = CreateMicrosoftAD'
     --
     -- If you need to change the password for the administrator account, you
     -- can use the ResetUserPassword API call.
-    password :: Core.Sensitive Prelude.Text,
+    password :: Data.Sensitive Prelude.Text,
     -- | Contains VPC information for the CreateDirectory or CreateMicrosoftAD
     -- operation.
     vpcSettings :: DirectoryVpcSettings
@@ -140,7 +141,7 @@ newCreateMicrosoftAD pName_ pPassword_ pVpcSettings_ =
       description = Prelude.Nothing,
       shortName = Prelude.Nothing,
       name = pName_,
-      password = Core._Sensitive Lens.# pPassword_,
+      password = Data._Sensitive Lens.# pPassword_,
       vpcSettings = pVpcSettings_
     }
 
@@ -176,7 +177,7 @@ createMicrosoftAD_name = Lens.lens (\CreateMicrosoftAD' {name} -> name) (\s@Crea
 -- If you need to change the password for the administrator account, you
 -- can use the ResetUserPassword API call.
 createMicrosoftAD_password :: Lens.Lens' CreateMicrosoftAD Prelude.Text
-createMicrosoftAD_password = Lens.lens (\CreateMicrosoftAD' {password} -> password) (\s@CreateMicrosoftAD' {} a -> s {password = a} :: CreateMicrosoftAD) Prelude.. Core._Sensitive
+createMicrosoftAD_password = Lens.lens (\CreateMicrosoftAD' {password} -> password) (\s@CreateMicrosoftAD' {} a -> s {password = a} :: CreateMicrosoftAD) Prelude.. Data._Sensitive
 
 -- | Contains VPC information for the CreateDirectory or CreateMicrosoftAD
 -- operation.
@@ -193,7 +194,7 @@ instance Core.AWSRequest CreateMicrosoftAD where
     Response.receiveJSON
       ( \s h x ->
           CreateMicrosoftADResponse'
-            Prelude.<$> (x Core..?> "DirectoryId")
+            Prelude.<$> (x Data..?> "DirectoryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -217,39 +218,39 @@ instance Prelude.NFData CreateMicrosoftAD where
       `Prelude.seq` Prelude.rnf password
       `Prelude.seq` Prelude.rnf vpcSettings
 
-instance Core.ToHeaders CreateMicrosoftAD where
+instance Data.ToHeaders CreateMicrosoftAD where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.CreateMicrosoftAD" ::
+              Data.=# ( "DirectoryService_20150416.CreateMicrosoftAD" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateMicrosoftAD where
+instance Data.ToJSON CreateMicrosoftAD where
   toJSON CreateMicrosoftAD' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Edition" Core..=) Prelude.<$> edition,
-            ("Description" Core..=) Prelude.<$> description,
-            ("ShortName" Core..=) Prelude.<$> shortName,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Password" Core..= password),
-            Prelude.Just ("VpcSettings" Core..= vpcSettings)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Edition" Data..=) Prelude.<$> edition,
+            ("Description" Data..=) Prelude.<$> description,
+            ("ShortName" Data..=) Prelude.<$> shortName,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Password" Data..= password),
+            Prelude.Just ("VpcSettings" Data..= vpcSettings)
           ]
       )
 
-instance Core.ToPath CreateMicrosoftAD where
+instance Data.ToPath CreateMicrosoftAD where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateMicrosoftAD where
+instance Data.ToQuery CreateMicrosoftAD where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Result of a CreateMicrosoftAD request.

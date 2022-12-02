@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -72,7 +73,7 @@ data ConnectDirectory = ConnectDirectory'
     -- @corp.example.com@.
     name :: Prelude.Text,
     -- | The password for your self-managed user account.
-    password :: Core.Sensitive Prelude.Text,
+    password :: Data.Sensitive Prelude.Text,
     -- | The size of the directory.
     size :: DirectorySize,
     -- | A DirectoryConnectSettings object that contains additional information
@@ -124,7 +125,7 @@ newConnectDirectory
         description = Prelude.Nothing,
         shortName = Prelude.Nothing,
         name = pName_,
-        password = Core._Sensitive Lens.# pPassword_,
+        password = Data._Sensitive Lens.# pPassword_,
         size = pSize_,
         connectSettings = pConnectSettings_
       }
@@ -148,7 +149,7 @@ connectDirectory_name = Lens.lens (\ConnectDirectory' {name} -> name) (\s@Connec
 
 -- | The password for your self-managed user account.
 connectDirectory_password :: Lens.Lens' ConnectDirectory Prelude.Text
-connectDirectory_password = Lens.lens (\ConnectDirectory' {password} -> password) (\s@ConnectDirectory' {} a -> s {password = a} :: ConnectDirectory) Prelude.. Core._Sensitive
+connectDirectory_password = Lens.lens (\ConnectDirectory' {password} -> password) (\s@ConnectDirectory' {} a -> s {password = a} :: ConnectDirectory) Prelude.. Data._Sensitive
 
 -- | The size of the directory.
 connectDirectory_size :: Lens.Lens' ConnectDirectory DirectorySize
@@ -169,7 +170,7 @@ instance Core.AWSRequest ConnectDirectory where
     Response.receiveJSON
       ( \s h x ->
           ConnectDirectoryResponse'
-            Prelude.<$> (x Core..?> "DirectoryId")
+            Prelude.<$> (x Data..?> "DirectoryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,40 +194,40 @@ instance Prelude.NFData ConnectDirectory where
       `Prelude.seq` Prelude.rnf size
       `Prelude.seq` Prelude.rnf connectSettings
 
-instance Core.ToHeaders ConnectDirectory where
+instance Data.ToHeaders ConnectDirectory where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.ConnectDirectory" ::
+              Data.=# ( "DirectoryService_20150416.ConnectDirectory" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ConnectDirectory where
+instance Data.ToJSON ConnectDirectory where
   toJSON ConnectDirectory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            ("ShortName" Core..=) Prelude.<$> shortName,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Password" Core..= password),
-            Prelude.Just ("Size" Core..= size),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            ("ShortName" Data..=) Prelude.<$> shortName,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Password" Data..= password),
+            Prelude.Just ("Size" Data..= size),
             Prelude.Just
-              ("ConnectSettings" Core..= connectSettings)
+              ("ConnectSettings" Data..= connectSettings)
           ]
       )
 
-instance Core.ToPath ConnectDirectory where
+instance Data.ToPath ConnectDirectory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ConnectDirectory where
+instance Data.ToQuery ConnectDirectory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the results of the ConnectDirectory operation.

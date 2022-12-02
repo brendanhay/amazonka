@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubConfig.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,8 +141,8 @@ instance Core.AWSRequest DescribeHomeRegionControls where
     Response.receiveJSON
       ( \s h x ->
           DescribeHomeRegionControlsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "HomeRegionControls"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "HomeRegionControls"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -163,37 +164,37 @@ instance Prelude.NFData DescribeHomeRegionControls where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf homeRegion
 
-instance Core.ToHeaders DescribeHomeRegionControls where
+instance Data.ToHeaders DescribeHomeRegionControls where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSMigrationHubMultiAccountService.DescribeHomeRegionControls" ::
+              Data.=# ( "AWSMigrationHubMultiAccountService.DescribeHomeRegionControls" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeHomeRegionControls where
+instance Data.ToJSON DescribeHomeRegionControls where
   toJSON DescribeHomeRegionControls' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ControlId" Core..=) Prelude.<$> controlId,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Target" Core..=) Prelude.<$> target,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("HomeRegion" Core..=) Prelude.<$> homeRegion
+          [ ("ControlId" Data..=) Prelude.<$> controlId,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Target" Data..=) Prelude.<$> target,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("HomeRegion" Data..=) Prelude.<$> homeRegion
           ]
       )
 
-instance Core.ToPath DescribeHomeRegionControls where
+instance Data.ToPath DescribeHomeRegionControls where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeHomeRegionControls where
+instance Data.ToQuery DescribeHomeRegionControls where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeHomeRegionControlsResponse' smart constructor.

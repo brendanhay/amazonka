@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubConfig.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -72,7 +73,7 @@ instance Core.AWSRequest GetHomeRegion where
     Response.receiveJSON
       ( \s h x ->
           GetHomeRegionResponse'
-            Prelude.<$> (x Core..?> "HomeRegion")
+            Prelude.<$> (x Data..?> "HomeRegion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -83,28 +84,28 @@ instance Prelude.Hashable GetHomeRegion where
 instance Prelude.NFData GetHomeRegion where
   rnf _ = ()
 
-instance Core.ToHeaders GetHomeRegion where
+instance Data.ToHeaders GetHomeRegion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSMigrationHubMultiAccountService.GetHomeRegion" ::
+              Data.=# ( "AWSMigrationHubMultiAccountService.GetHomeRegion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetHomeRegion where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetHomeRegion where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetHomeRegion where
+instance Data.ToPath GetHomeRegion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetHomeRegion where
+instance Data.ToQuery GetHomeRegion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetHomeRegionResponse' smart constructor.

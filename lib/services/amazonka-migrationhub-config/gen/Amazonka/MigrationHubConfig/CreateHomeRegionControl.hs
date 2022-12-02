@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubConfig.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,7 +114,7 @@ instance Core.AWSRequest CreateHomeRegionControl where
     Response.receiveJSON
       ( \s h x ->
           CreateHomeRegionControlResponse'
-            Prelude.<$> (x Core..?> "HomeRegionControl")
+            Prelude.<$> (x Data..?> "HomeRegionControl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,35 +130,35 @@ instance Prelude.NFData CreateHomeRegionControl where
       `Prelude.seq` Prelude.rnf homeRegion
       `Prelude.seq` Prelude.rnf target
 
-instance Core.ToHeaders CreateHomeRegionControl where
+instance Data.ToHeaders CreateHomeRegionControl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSMigrationHubMultiAccountService.CreateHomeRegionControl" ::
+              Data.=# ( "AWSMigrationHubMultiAccountService.CreateHomeRegionControl" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateHomeRegionControl where
+instance Data.ToJSON CreateHomeRegionControl where
   toJSON CreateHomeRegionControl' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DryRun" Core..=) Prelude.<$> dryRun,
-            Prelude.Just ("HomeRegion" Core..= homeRegion),
-            Prelude.Just ("Target" Core..= target)
+          [ ("DryRun" Data..=) Prelude.<$> dryRun,
+            Prelude.Just ("HomeRegion" Data..= homeRegion),
+            Prelude.Just ("Target" Data..= target)
           ]
       )
 
-instance Core.ToPath CreateHomeRegionControl where
+instance Data.ToPath CreateHomeRegionControl where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateHomeRegionControl where
+instance Data.ToQuery CreateHomeRegionControl where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateHomeRegionControlResponse' smart constructor.

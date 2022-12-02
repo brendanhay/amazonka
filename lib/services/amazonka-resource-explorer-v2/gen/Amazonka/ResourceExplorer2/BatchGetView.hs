@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceExplorer2.Types
@@ -86,8 +87,8 @@ instance Core.AWSRequest BatchGetView where
     Response.receiveJSON
       ( \s h x ->
           BatchGetViewResponse'
-            Prelude.<$> (x Core..?> "Errors" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Views" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Views" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,28 +99,28 @@ instance Prelude.Hashable BatchGetView where
 instance Prelude.NFData BatchGetView where
   rnf BatchGetView' {..} = Prelude.rnf viewArns
 
-instance Core.ToHeaders BatchGetView where
+instance Data.ToHeaders BatchGetView where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetView where
+instance Data.ToJSON BatchGetView where
   toJSON BatchGetView' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("ViewArns" Core..=) Prelude.<$> viewArns]
+          [("ViewArns" Data..=) Prelude.<$> viewArns]
       )
 
-instance Core.ToPath BatchGetView where
+instance Data.ToPath BatchGetView where
   toPath = Prelude.const "/BatchGetView"
 
-instance Core.ToQuery BatchGetView where
+instance Data.ToQuery BatchGetView where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetViewResponse' smart constructor.

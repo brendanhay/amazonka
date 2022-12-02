@@ -21,6 +21,7 @@ module Amazonka.ResourceExplorer2.Types.Resource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResourceExplorer2.Types.ResourceProperty
 
@@ -34,7 +35,7 @@ data Resource = Resource'
     resourceType :: Prelude.Maybe Prelude.Text,
     -- | The date and time that Resource Explorer last queried this resource and
     -- updated the index with the latest information about the resource.
-    lastReportedAt :: Prelude.Maybe Core.POSIX,
+    lastReportedAt :: Prelude.Maybe Data.POSIX,
     -- | A structure with additional type-specific details about the resource.
     -- These properties can be added by turning on integration between Resource
     -- Explorer and other Amazon Web Services services.
@@ -102,7 +103,7 @@ resource_resourceType = Lens.lens (\Resource' {resourceType} -> resourceType) (\
 -- | The date and time that Resource Explorer last queried this resource and
 -- updated the index with the latest information about the resource.
 resource_lastReportedAt :: Lens.Lens' Resource (Prelude.Maybe Prelude.UTCTime)
-resource_lastReportedAt = Lens.lens (\Resource' {lastReportedAt} -> lastReportedAt) (\s@Resource' {} a -> s {lastReportedAt = a} :: Resource) Prelude.. Lens.mapping Core._Time
+resource_lastReportedAt = Lens.lens (\Resource' {lastReportedAt} -> lastReportedAt) (\s@Resource' {} a -> s {lastReportedAt = a} :: Resource) Prelude.. Lens.mapping Data._Time
 
 -- | A structure with additional type-specific details about the resource.
 -- These properties can be added by turning on integration between Resource
@@ -130,19 +131,19 @@ resource_region = Lens.lens (\Resource' {region} -> region) (\s@Resource' {} a -
 resource_owningAccountId :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_owningAccountId = Lens.lens (\Resource' {owningAccountId} -> owningAccountId) (\s@Resource' {} a -> s {owningAccountId = a} :: Resource)
 
-instance Core.FromJSON Resource where
+instance Data.FromJSON Resource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "LastReportedAt")
-            Prelude.<*> (x Core..:? "Properties" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Service")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "OwningAccountId")
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "LastReportedAt")
+            Prelude.<*> (x Data..:? "Properties" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Service")
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "OwningAccountId")
       )
 
 instance Prelude.Hashable Resource where

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceExplorer2.Types
@@ -73,16 +74,16 @@ instance Core.AWSRequest GetIndex where
     Response.receiveJSON
       ( \s h x ->
           GetIndexResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Type")
-            Prelude.<*> (x Core..?> "LastUpdatedAt")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "ReplicatingTo" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "ReplicatingFrom"
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Type")
+            Prelude.<*> (x Data..?> "LastUpdatedAt")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "ReplicatingTo" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "ReplicatingFrom"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "CreatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -93,24 +94,24 @@ instance Prelude.Hashable GetIndex where
 instance Prelude.NFData GetIndex where
   rnf _ = ()
 
-instance Core.ToHeaders GetIndex where
+instance Data.ToHeaders GetIndex where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetIndex where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetIndex where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetIndex where
+instance Data.ToPath GetIndex where
   toPath = Prelude.const "/GetIndex"
 
-instance Core.ToQuery GetIndex where
+instance Data.ToQuery GetIndex where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetIndexResponse' smart constructor.
@@ -122,7 +123,7 @@ data GetIndexResponse = GetIndexResponse'
     -- <https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html Turning on cross-Region search by creating an aggregator index>.
     type' :: Prelude.Maybe IndexType,
     -- | The date and time when the index was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon resource name (ARN)>
     -- of the index.
@@ -141,7 +142,7 @@ data GetIndexResponse = GetIndexResponse'
     -- the index in this Region. Not present for a local index.
     replicatingFrom :: Prelude.Maybe [Prelude.Text],
     -- | The date and time when the index was originally created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -212,7 +213,7 @@ getIndexResponse_type = Lens.lens (\GetIndexResponse' {type'} -> type') (\s@GetI
 
 -- | The date and time when the index was last updated.
 getIndexResponse_lastUpdatedAt :: Lens.Lens' GetIndexResponse (Prelude.Maybe Prelude.UTCTime)
-getIndexResponse_lastUpdatedAt = Lens.lens (\GetIndexResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetIndexResponse' {} a -> s {lastUpdatedAt = a} :: GetIndexResponse) Prelude.. Lens.mapping Core._Time
+getIndexResponse_lastUpdatedAt = Lens.lens (\GetIndexResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetIndexResponse' {} a -> s {lastUpdatedAt = a} :: GetIndexResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon resource name (ARN)>
@@ -241,7 +242,7 @@ getIndexResponse_replicatingFrom = Lens.lens (\GetIndexResponse' {replicatingFro
 
 -- | The date and time when the index was originally created.
 getIndexResponse_createdAt :: Lens.Lens' GetIndexResponse (Prelude.Maybe Prelude.UTCTime)
-getIndexResponse_createdAt = Lens.lens (\GetIndexResponse' {createdAt} -> createdAt) (\s@GetIndexResponse' {} a -> s {createdAt = a} :: GetIndexResponse) Prelude.. Lens.mapping Core._Time
+getIndexResponse_createdAt = Lens.lens (\GetIndexResponse' {createdAt} -> createdAt) (\s@GetIndexResponse' {} a -> s {createdAt = a} :: GetIndexResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getIndexResponse_httpStatus :: Lens.Lens' GetIndexResponse Prelude.Int

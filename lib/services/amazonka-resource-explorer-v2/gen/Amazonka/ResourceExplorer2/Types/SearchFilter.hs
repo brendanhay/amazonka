@@ -21,6 +21,7 @@ module Amazonka.ResourceExplorer2.Types.SearchFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A search filter defines which resources can be part of a search query
@@ -62,12 +63,12 @@ newSearchFilter pFilterString_ =
 searchFilter_filterString :: Lens.Lens' SearchFilter Prelude.Text
 searchFilter_filterString = Lens.lens (\SearchFilter' {filterString} -> filterString) (\s@SearchFilter' {} a -> s {filterString = a} :: SearchFilter)
 
-instance Core.FromJSON SearchFilter where
+instance Data.FromJSON SearchFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SearchFilter"
       ( \x ->
-          SearchFilter' Prelude.<$> (x Core..: "FilterString")
+          SearchFilter' Prelude.<$> (x Data..: "FilterString")
       )
 
 instance Prelude.Hashable SearchFilter where
@@ -77,9 +78,9 @@ instance Prelude.Hashable SearchFilter where
 instance Prelude.NFData SearchFilter where
   rnf SearchFilter' {..} = Prelude.rnf filterString
 
-instance Core.ToJSON SearchFilter where
+instance Data.ToJSON SearchFilter where
   toJSON SearchFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("FilterString" Core..= filterString)]
+          [Prelude.Just ("FilterString" Data..= filterString)]
       )

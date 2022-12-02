@@ -21,6 +21,7 @@ module Amazonka.ResourceExplorer2.Types.Document where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newDocument' smart constructor.
@@ -37,9 +38,9 @@ newDocument ::
   Document
 newDocument = Document'
 
-instance Core.FromJSON Document where
+instance Data.FromJSON Document where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Document"
       (\x -> Prelude.pure Document')
 

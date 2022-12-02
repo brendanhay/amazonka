@@ -21,6 +21,7 @@ module Amazonka.ResourceExplorer2.Types.SupportedResourceType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that describes a resource type supported by Amazon Web
@@ -69,14 +70,14 @@ supportedResourceType_resourceType = Lens.lens (\SupportedResourceType' {resourc
 supportedResourceType_service :: Lens.Lens' SupportedResourceType (Prelude.Maybe Prelude.Text)
 supportedResourceType_service = Lens.lens (\SupportedResourceType' {service} -> service) (\s@SupportedResourceType' {} a -> s {service = a} :: SupportedResourceType)
 
-instance Core.FromJSON SupportedResourceType where
+instance Data.FromJSON SupportedResourceType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SupportedResourceType"
       ( \x ->
           SupportedResourceType'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "Service")
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "Service")
       )
 
 instance Prelude.Hashable SupportedResourceType where

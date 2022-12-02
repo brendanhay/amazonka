@@ -21,6 +21,7 @@ module Amazonka.ResourceExplorer2.Types.IncludedProperty where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an additional property that describes a resource, that
@@ -67,12 +68,12 @@ newIncludedProperty pName_ =
 includedProperty_name :: Lens.Lens' IncludedProperty Prelude.Text
 includedProperty_name = Lens.lens (\IncludedProperty' {name} -> name) (\s@IncludedProperty' {} a -> s {name = a} :: IncludedProperty)
 
-instance Core.FromJSON IncludedProperty where
+instance Data.FromJSON IncludedProperty where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IncludedProperty"
       ( \x ->
-          IncludedProperty' Prelude.<$> (x Core..: "Name")
+          IncludedProperty' Prelude.<$> (x Data..: "Name")
       )
 
 instance Prelude.Hashable IncludedProperty where
@@ -82,9 +83,9 @@ instance Prelude.Hashable IncludedProperty where
 instance Prelude.NFData IncludedProperty where
   rnf IncludedProperty' {..} = Prelude.rnf name
 
-instance Core.ToJSON IncludedProperty where
+instance Data.ToJSON IncludedProperty where
   toJSON IncludedProperty' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )

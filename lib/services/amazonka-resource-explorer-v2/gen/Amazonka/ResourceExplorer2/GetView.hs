@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceExplorer2.Types
@@ -87,8 +88,8 @@ instance Core.AWSRequest GetView where
     Response.receiveJSON
       ( \s h x ->
           GetViewResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "View")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "View")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,28 +100,28 @@ instance Prelude.Hashable GetView where
 instance Prelude.NFData GetView where
   rnf GetView' {..} = Prelude.rnf viewArn
 
-instance Core.ToHeaders GetView where
+instance Data.ToHeaders GetView where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetView where
+instance Data.ToJSON GetView where
   toJSON GetView' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ViewArn" Core..= viewArn)]
+          [Prelude.Just ("ViewArn" Data..= viewArn)]
       )
 
-instance Core.ToPath GetView where
+instance Data.ToPath GetView where
   toPath = Prelude.const "/GetView"
 
-instance Core.ToQuery GetView where
+instance Data.ToQuery GetView where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetViewResponse' smart constructor.

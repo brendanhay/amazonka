@@ -18,6 +18,7 @@ module Amazonka.ResourceExplorer2.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResourceExplorer2.Lens
 import Amazonka.ResourceExplorer2.Types

@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceExplorer2.Types
@@ -87,7 +88,7 @@ data CreateView = CreateView'
     -- @region:us* service:ec2 -tag:stage=prod@ includes all Amazon EC2
     -- resources in any Amazon Web Services Region that begins with the letters
     -- @us@ and is /not/ tagged with a key @Stage@ that has the value @prod@.
-    filters :: Prelude.Maybe (Core.Sensitive SearchFilter),
+    filters :: Prelude.Maybe (Data.Sensitive SearchFilter),
     -- | Specifies optional fields that you want included in search results from
     -- this view. It is a list of objects that each describe a field to
     -- include.
@@ -195,7 +196,7 @@ createView_clientToken = Lens.lens (\CreateView' {clientToken} -> clientToken) (
 -- resources in any Amazon Web Services Region that begins with the letters
 -- @us@ and is /not/ tagged with a key @Stage@ that has the value @prod@.
 createView_filters :: Lens.Lens' CreateView (Prelude.Maybe SearchFilter)
-createView_filters = Lens.lens (\CreateView' {filters} -> filters) (\s@CreateView' {} a -> s {filters = a} :: CreateView) Prelude.. Lens.mapping Core._Sensitive
+createView_filters = Lens.lens (\CreateView' {filters} -> filters) (\s@CreateView' {} a -> s {filters = a} :: CreateView) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specifies optional fields that you want included in search results from
 -- this view. It is a list of objects that each describe a field to
@@ -223,7 +224,7 @@ instance Core.AWSRequest CreateView where
     Response.receiveJSON
       ( \s h x ->
           CreateViewResponse'
-            Prelude.<$> (x Core..?> "View")
+            Prelude.<$> (x Data..?> "View")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -243,34 +244,34 @@ instance Prelude.NFData CreateView where
       `Prelude.seq` Prelude.rnf includedProperties
       `Prelude.seq` Prelude.rnf viewName
 
-instance Core.ToHeaders CreateView where
+instance Data.ToHeaders CreateView where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateView where
+instance Data.ToJSON CreateView where
   toJSON CreateView' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("IncludedProperties" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("IncludedProperties" Data..=)
               Prelude.<$> includedProperties,
-            Prelude.Just ("ViewName" Core..= viewName)
+            Prelude.Just ("ViewName" Data..= viewName)
           ]
       )
 
-instance Core.ToPath CreateView where
+instance Data.ToPath CreateView where
   toPath = Prelude.const "/CreateView"
 
-instance Core.ToQuery CreateView where
+instance Data.ToQuery CreateView where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateViewResponse' smart constructor.

@@ -100,6 +100,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceExplorer2.Types
@@ -167,10 +168,10 @@ instance Core.AWSRequest UpdateIndexType where
     Response.receiveJSON
       ( \s h x ->
           UpdateIndexTypeResponse'
-            Prelude.<$> (x Core..?> "Type")
-            Prelude.<*> (x Core..?> "LastUpdatedAt")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
+            Prelude.<$> (x Data..?> "Type")
+            Prelude.<*> (x Data..?> "LastUpdatedAt")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,30 +184,30 @@ instance Prelude.NFData UpdateIndexType where
   rnf UpdateIndexType' {..} =
     Prelude.rnf arn `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders UpdateIndexType where
+instance Data.ToHeaders UpdateIndexType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateIndexType where
+instance Data.ToJSON UpdateIndexType where
   toJSON UpdateIndexType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Arn" Core..= arn),
-            Prelude.Just ("Type" Core..= type')
+          [ Prelude.Just ("Arn" Data..= arn),
+            Prelude.Just ("Type" Data..= type')
           ]
       )
 
-instance Core.ToPath UpdateIndexType where
+instance Data.ToPath UpdateIndexType where
   toPath = Prelude.const "/UpdateIndexType"
 
-instance Core.ToQuery UpdateIndexType where
+instance Data.ToQuery UpdateIndexType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateIndexTypeResponse' smart constructor.
@@ -214,7 +215,7 @@ data UpdateIndexTypeResponse = UpdateIndexTypeResponse'
   { -- | Specifies the type of the specified index after the operation completes.
     type' :: Prelude.Maybe IndexType,
     -- | The date and timestamp when the index was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon resource name (ARN)>
     -- of the index that you updated.
@@ -266,7 +267,7 @@ updateIndexTypeResponse_type = Lens.lens (\UpdateIndexTypeResponse' {type'} -> t
 
 -- | The date and timestamp when the index was last updated.
 updateIndexTypeResponse_lastUpdatedAt :: Lens.Lens' UpdateIndexTypeResponse (Prelude.Maybe Prelude.UTCTime)
-updateIndexTypeResponse_lastUpdatedAt = Lens.lens (\UpdateIndexTypeResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@UpdateIndexTypeResponse' {} a -> s {lastUpdatedAt = a} :: UpdateIndexTypeResponse) Prelude.. Lens.mapping Core._Time
+updateIndexTypeResponse_lastUpdatedAt = Lens.lens (\UpdateIndexTypeResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@UpdateIndexTypeResponse' {} a -> s {lastUpdatedAt = a} :: UpdateIndexTypeResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon resource name (ARN)>

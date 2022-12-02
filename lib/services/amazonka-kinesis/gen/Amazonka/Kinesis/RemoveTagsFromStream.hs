@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,34 +112,34 @@ instance Prelude.NFData RemoveTagsFromStream where
     Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf tagKeys
 
-instance Core.ToHeaders RemoveTagsFromStream where
+instance Data.ToHeaders RemoveTagsFromStream where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Kinesis_20131202.RemoveTagsFromStream" ::
+              Data.=# ( "Kinesis_20131202.RemoveTagsFromStream" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RemoveTagsFromStream where
+instance Data.ToJSON RemoveTagsFromStream where
   toJSON RemoveTagsFromStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Core..= streamName),
-            Prelude.Just ("TagKeys" Core..= tagKeys)
+          [ Prelude.Just ("StreamName" Data..= streamName),
+            Prelude.Just ("TagKeys" Data..= tagKeys)
           ]
       )
 
-instance Core.ToPath RemoveTagsFromStream where
+instance Data.ToPath RemoveTagsFromStream where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RemoveTagsFromStream where
+instance Data.ToQuery RemoveTagsFromStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveTagsFromStreamResponse' smart constructor.

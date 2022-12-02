@@ -21,6 +21,7 @@ module Amazonka.Kinesis.Types.StreamDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types.EncryptionType
 import Amazonka.Kinesis.Types.EnhancedMetrics
 import Amazonka.Kinesis.Types.Shard
@@ -94,7 +95,7 @@ data StreamDescription = StreamDescription'
     -- value of 168.
     retentionPeriodHours :: Prelude.Int,
     -- | The approximate time that the stream was created.
-    streamCreationTimestamp :: Core.POSIX,
+    streamCreationTimestamp :: Data.POSIX,
     -- | Represents the current enhanced monitoring settings of the stream.
     enhancedMonitoring :: [EnhancedMetrics]
   }
@@ -205,7 +206,7 @@ newStreamDescription
         hasMoreShards = pHasMoreShards_,
         retentionPeriodHours = pRetentionPeriodHours_,
         streamCreationTimestamp =
-          Core._Time Lens.# pStreamCreationTimestamp_,
+          Data._Time Lens.# pStreamCreationTimestamp_,
         enhancedMonitoring = Prelude.mempty
       }
 
@@ -290,30 +291,30 @@ streamDescription_retentionPeriodHours = Lens.lens (\StreamDescription' {retenti
 
 -- | The approximate time that the stream was created.
 streamDescription_streamCreationTimestamp :: Lens.Lens' StreamDescription Prelude.UTCTime
-streamDescription_streamCreationTimestamp = Lens.lens (\StreamDescription' {streamCreationTimestamp} -> streamCreationTimestamp) (\s@StreamDescription' {} a -> s {streamCreationTimestamp = a} :: StreamDescription) Prelude.. Core._Time
+streamDescription_streamCreationTimestamp = Lens.lens (\StreamDescription' {streamCreationTimestamp} -> streamCreationTimestamp) (\s@StreamDescription' {} a -> s {streamCreationTimestamp = a} :: StreamDescription) Prelude.. Data._Time
 
 -- | Represents the current enhanced monitoring settings of the stream.
 streamDescription_enhancedMonitoring :: Lens.Lens' StreamDescription [EnhancedMetrics]
 streamDescription_enhancedMonitoring = Lens.lens (\StreamDescription' {enhancedMonitoring} -> enhancedMonitoring) (\s@StreamDescription' {} a -> s {enhancedMonitoring = a} :: StreamDescription) Prelude.. Lens.coerced
 
-instance Core.FromJSON StreamDescription where
+instance Data.FromJSON StreamDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamDescription"
       ( \x ->
           StreamDescription'
-            Prelude.<$> (x Core..:? "EncryptionType")
-            Prelude.<*> (x Core..:? "StreamModeDetails")
-            Prelude.<*> (x Core..:? "KeyId")
-            Prelude.<*> (x Core..: "StreamName")
-            Prelude.<*> (x Core..: "StreamARN")
-            Prelude.<*> (x Core..: "StreamStatus")
-            Prelude.<*> (x Core..:? "Shards" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "HasMoreShards")
-            Prelude.<*> (x Core..: "RetentionPeriodHours")
-            Prelude.<*> (x Core..: "StreamCreationTimestamp")
-            Prelude.<*> ( x Core..:? "EnhancedMonitoring"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "EncryptionType")
+            Prelude.<*> (x Data..:? "StreamModeDetails")
+            Prelude.<*> (x Data..:? "KeyId")
+            Prelude.<*> (x Data..: "StreamName")
+            Prelude.<*> (x Data..: "StreamARN")
+            Prelude.<*> (x Data..: "StreamStatus")
+            Prelude.<*> (x Data..:? "Shards" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "HasMoreShards")
+            Prelude.<*> (x Data..: "RetentionPeriodHours")
+            Prelude.<*> (x Data..: "StreamCreationTimestamp")
+            Prelude.<*> ( x Data..:? "EnhancedMonitoring"
+                            Data..!= Prelude.mempty
                         )
       )
 

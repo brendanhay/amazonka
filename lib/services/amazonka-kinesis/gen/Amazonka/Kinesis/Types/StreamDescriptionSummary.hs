@@ -21,6 +21,7 @@ module Amazonka.Kinesis.Types.StreamDescriptionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types.EncryptionType
 import Amazonka.Kinesis.Types.EnhancedMetrics
 import Amazonka.Kinesis.Types.StreamModeDetails
@@ -88,7 +89,7 @@ data StreamDescriptionSummary = StreamDescriptionSummary'
     -- | The current retention period, in hours.
     retentionPeriodHours :: Prelude.Int,
     -- | The approximate time that the stream was created.
-    streamCreationTimestamp :: Core.POSIX,
+    streamCreationTimestamp :: Data.POSIX,
     -- | Represents the current enhanced monitoring settings of the stream.
     enhancedMonitoring :: [EnhancedMetrics],
     -- | The number of open shards in the stream.
@@ -197,7 +198,7 @@ newStreamDescriptionSummary
         streamStatus = pStreamStatus_,
         retentionPeriodHours = pRetentionPeriodHours_,
         streamCreationTimestamp =
-          Core._Time Lens.# pStreamCreationTimestamp_,
+          Data._Time Lens.# pStreamCreationTimestamp_,
         enhancedMonitoring = Prelude.mempty,
         openShardCount = pOpenShardCount_
       }
@@ -276,7 +277,7 @@ streamDescriptionSummary_retentionPeriodHours = Lens.lens (\StreamDescriptionSum
 
 -- | The approximate time that the stream was created.
 streamDescriptionSummary_streamCreationTimestamp :: Lens.Lens' StreamDescriptionSummary Prelude.UTCTime
-streamDescriptionSummary_streamCreationTimestamp = Lens.lens (\StreamDescriptionSummary' {streamCreationTimestamp} -> streamCreationTimestamp) (\s@StreamDescriptionSummary' {} a -> s {streamCreationTimestamp = a} :: StreamDescriptionSummary) Prelude.. Core._Time
+streamDescriptionSummary_streamCreationTimestamp = Lens.lens (\StreamDescriptionSummary' {streamCreationTimestamp} -> streamCreationTimestamp) (\s@StreamDescriptionSummary' {} a -> s {streamCreationTimestamp = a} :: StreamDescriptionSummary) Prelude.. Data._Time
 
 -- | Represents the current enhanced monitoring settings of the stream.
 streamDescriptionSummary_enhancedMonitoring :: Lens.Lens' StreamDescriptionSummary [EnhancedMetrics]
@@ -286,25 +287,25 @@ streamDescriptionSummary_enhancedMonitoring = Lens.lens (\StreamDescriptionSumma
 streamDescriptionSummary_openShardCount :: Lens.Lens' StreamDescriptionSummary Prelude.Natural
 streamDescriptionSummary_openShardCount = Lens.lens (\StreamDescriptionSummary' {openShardCount} -> openShardCount) (\s@StreamDescriptionSummary' {} a -> s {openShardCount = a} :: StreamDescriptionSummary)
 
-instance Core.FromJSON StreamDescriptionSummary where
+instance Data.FromJSON StreamDescriptionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamDescriptionSummary"
       ( \x ->
           StreamDescriptionSummary'
-            Prelude.<$> (x Core..:? "ConsumerCount")
-            Prelude.<*> (x Core..:? "EncryptionType")
-            Prelude.<*> (x Core..:? "StreamModeDetails")
-            Prelude.<*> (x Core..:? "KeyId")
-            Prelude.<*> (x Core..: "StreamName")
-            Prelude.<*> (x Core..: "StreamARN")
-            Prelude.<*> (x Core..: "StreamStatus")
-            Prelude.<*> (x Core..: "RetentionPeriodHours")
-            Prelude.<*> (x Core..: "StreamCreationTimestamp")
-            Prelude.<*> ( x Core..:? "EnhancedMonitoring"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ConsumerCount")
+            Prelude.<*> (x Data..:? "EncryptionType")
+            Prelude.<*> (x Data..:? "StreamModeDetails")
+            Prelude.<*> (x Data..:? "KeyId")
+            Prelude.<*> (x Data..: "StreamName")
+            Prelude.<*> (x Data..: "StreamARN")
+            Prelude.<*> (x Data..: "StreamStatus")
+            Prelude.<*> (x Data..: "RetentionPeriodHours")
+            Prelude.<*> (x Data..: "StreamCreationTimestamp")
+            Prelude.<*> ( x Data..:? "EnhancedMonitoring"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "OpenShardCount")
+            Prelude.<*> (x Data..: "OpenShardCount")
       )
 
 instance Prelude.Hashable StreamDescriptionSummary where

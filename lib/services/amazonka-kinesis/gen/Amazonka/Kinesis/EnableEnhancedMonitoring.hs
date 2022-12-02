@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -166,7 +167,7 @@ instance Core.AWSRequest EnableEnhancedMonitoring where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable EnableEnhancedMonitoring where
   hashWithSalt _salt EnableEnhancedMonitoring' {..} =
@@ -178,33 +179,33 @@ instance Prelude.NFData EnableEnhancedMonitoring where
     Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf shardLevelMetrics
 
-instance Core.ToHeaders EnableEnhancedMonitoring where
+instance Data.ToHeaders EnableEnhancedMonitoring where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Kinesis_20131202.EnableEnhancedMonitoring" ::
+              Data.=# ( "Kinesis_20131202.EnableEnhancedMonitoring" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON EnableEnhancedMonitoring where
+instance Data.ToJSON EnableEnhancedMonitoring where
   toJSON EnableEnhancedMonitoring' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Core..= streamName),
+          [ Prelude.Just ("StreamName" Data..= streamName),
             Prelude.Just
-              ("ShardLevelMetrics" Core..= shardLevelMetrics)
+              ("ShardLevelMetrics" Data..= shardLevelMetrics)
           ]
       )
 
-instance Core.ToPath EnableEnhancedMonitoring where
+instance Data.ToPath EnableEnhancedMonitoring where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery EnableEnhancedMonitoring where
+instance Data.ToQuery EnableEnhancedMonitoring where
   toQuery = Prelude.const Prelude.mempty

@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -148,7 +149,7 @@ instance Core.AWSRequest SubscribeToShard where
       ( \s h x ->
           SubscribeToShardResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "EventStream")
+            Prelude.<*> (x Data..:> "EventStream")
       )
 
 instance Prelude.Hashable SubscribeToShard where
@@ -163,36 +164,36 @@ instance Prelude.NFData SubscribeToShard where
       `Prelude.seq` Prelude.rnf shardId
       `Prelude.seq` Prelude.rnf startingPosition
 
-instance Core.ToHeaders SubscribeToShard where
+instance Data.ToHeaders SubscribeToShard where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Kinesis_20131202.SubscribeToShard" ::
+              Data.=# ( "Kinesis_20131202.SubscribeToShard" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SubscribeToShard where
+instance Data.ToJSON SubscribeToShard where
   toJSON SubscribeToShard' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ConsumerARN" Core..= consumerARN),
-            Prelude.Just ("ShardId" Core..= shardId),
+          [ Prelude.Just ("ConsumerARN" Data..= consumerARN),
+            Prelude.Just ("ShardId" Data..= shardId),
             Prelude.Just
-              ("StartingPosition" Core..= startingPosition)
+              ("StartingPosition" Data..= startingPosition)
           ]
       )
 
-instance Core.ToPath SubscribeToShard where
+instance Data.ToPath SubscribeToShard where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SubscribeToShard where
+instance Data.ToQuery SubscribeToShard where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSubscribeToShardResponse' smart constructor.
@@ -201,7 +202,7 @@ data SubscribeToShardResponse = SubscribeToShardResponse'
     httpStatus :: Prelude.Int,
     -- | The event stream that your consumer can use to read records from the
     -- shard.
-    eventStream :: Core.Value
+    eventStream :: Data.Value
   }
   deriving (Prelude.Generic)
 
@@ -221,7 +222,7 @@ newSubscribeToShardResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
   -- | 'eventStream'
-  Core.Value ->
+  Data.Value ->
   SubscribeToShardResponse
 newSubscribeToShardResponse
   pHttpStatus_
@@ -238,7 +239,7 @@ subscribeToShardResponse_httpStatus = Lens.lens (\SubscribeToShardResponse' {htt
 
 -- | The event stream that your consumer can use to read records from the
 -- shard.
-subscribeToShardResponse_eventStream :: Lens.Lens' SubscribeToShardResponse Core.Value
+subscribeToShardResponse_eventStream :: Lens.Lens' SubscribeToShardResponse Data.Value
 subscribeToShardResponse_eventStream = Lens.lens (\SubscribeToShardResponse' {eventStream} -> eventStream) (\s@SubscribeToShardResponse' {} a -> s {eventStream = a} :: SubscribeToShardResponse)
 
 instance Prelude.NFData SubscribeToShardResponse where

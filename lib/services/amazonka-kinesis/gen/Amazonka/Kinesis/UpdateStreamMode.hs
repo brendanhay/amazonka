@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,35 +117,35 @@ instance Prelude.NFData UpdateStreamMode where
     Prelude.rnf streamARN
       `Prelude.seq` Prelude.rnf streamModeDetails
 
-instance Core.ToHeaders UpdateStreamMode where
+instance Data.ToHeaders UpdateStreamMode where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Kinesis_20131202.UpdateStreamMode" ::
+              Data.=# ( "Kinesis_20131202.UpdateStreamMode" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateStreamMode where
+instance Data.ToJSON UpdateStreamMode where
   toJSON UpdateStreamMode' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("StreamARN" Core..= streamARN),
+          [ Prelude.Just ("StreamARN" Data..= streamARN),
             Prelude.Just
-              ("StreamModeDetails" Core..= streamModeDetails)
+              ("StreamModeDetails" Data..= streamModeDetails)
           ]
       )
 
-instance Core.ToPath UpdateStreamMode where
+instance Data.ToPath UpdateStreamMode where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateStreamMode where
+instance Data.ToQuery UpdateStreamMode where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateStreamModeResponse' smart constructor.

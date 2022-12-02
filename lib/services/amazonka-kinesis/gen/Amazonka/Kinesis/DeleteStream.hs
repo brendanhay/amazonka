@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,35 +127,35 @@ instance Prelude.NFData DeleteStream where
     Prelude.rnf enforceConsumerDeletion
       `Prelude.seq` Prelude.rnf streamName
 
-instance Core.ToHeaders DeleteStream where
+instance Data.ToHeaders DeleteStream where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Kinesis_20131202.DeleteStream" ::
+              Data.=# ( "Kinesis_20131202.DeleteStream" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteStream where
+instance Data.ToJSON DeleteStream where
   toJSON DeleteStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EnforceConsumerDeletion" Core..=)
+          [ ("EnforceConsumerDeletion" Data..=)
               Prelude.<$> enforceConsumerDeletion,
-            Prelude.Just ("StreamName" Core..= streamName)
+            Prelude.Just ("StreamName" Data..= streamName)
           ]
       )
 
-instance Core.ToPath DeleteStream where
+instance Data.ToPath DeleteStream where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteStream where
+instance Data.ToQuery DeleteStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteStreamResponse' smart constructor.

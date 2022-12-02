@@ -113,6 +113,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -169,10 +170,10 @@ instance Core.AWSRequest PutRecords where
     Response.receiveJSON
       ( \s h x ->
           PutRecordsResponse'
-            Prelude.<$> (x Core..?> "EncryptionType")
-            Prelude.<*> (x Core..?> "FailedRecordCount")
+            Prelude.<$> (x Data..?> "EncryptionType")
+            Prelude.<*> (x Data..?> "FailedRecordCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Records")
+            Prelude.<*> (x Data..:> "Records")
       )
 
 instance Prelude.Hashable PutRecords where
@@ -185,34 +186,34 @@ instance Prelude.NFData PutRecords where
     Prelude.rnf records
       `Prelude.seq` Prelude.rnf streamName
 
-instance Core.ToHeaders PutRecords where
+instance Data.ToHeaders PutRecords where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Kinesis_20131202.PutRecords" ::
+              Data.=# ( "Kinesis_20131202.PutRecords" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutRecords where
+instance Data.ToJSON PutRecords where
   toJSON PutRecords' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Records" Core..= records),
-            Prelude.Just ("StreamName" Core..= streamName)
+          [ Prelude.Just ("Records" Data..= records),
+            Prelude.Just ("StreamName" Data..= streamName)
           ]
       )
 
-instance Core.ToPath PutRecords where
+instance Data.ToPath PutRecords where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutRecords where
+instance Data.ToQuery PutRecords where
   toQuery = Prelude.const Prelude.mempty
 
 -- | @PutRecords@ results.

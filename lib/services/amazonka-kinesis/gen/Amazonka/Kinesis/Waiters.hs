@@ -18,6 +18,7 @@ module Amazonka.Kinesis.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.DescribeStream
 import Amazonka.Kinesis.Lens
 import Amazonka.Kinesis.Types
@@ -36,7 +37,7 @@ newStreamExists =
             Core.AcceptSuccess
             ( describeStreamResponse_streamDescription
                 Prelude.. streamDescription_streamStatus
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

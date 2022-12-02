@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ data ListStreamConsumers = ListStreamConsumers'
     --
     -- You can\'t specify this parameter if you specify the NextToken
     -- parameter.
-    streamCreationTimestamp :: Prelude.Maybe Core.POSIX,
+    streamCreationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of consumers that you want a single call of
     -- @ListStreamConsumers@ to return. The default value is 100. If you
     -- specify a value greater than 100, at most 100 results are returned.
@@ -193,7 +194,7 @@ listStreamConsumers_nextToken = Lens.lens (\ListStreamConsumers' {nextToken} -> 
 -- You can\'t specify this parameter if you specify the NextToken
 -- parameter.
 listStreamConsumers_streamCreationTimestamp :: Lens.Lens' ListStreamConsumers (Prelude.Maybe Prelude.UTCTime)
-listStreamConsumers_streamCreationTimestamp = Lens.lens (\ListStreamConsumers' {streamCreationTimestamp} -> streamCreationTimestamp) (\s@ListStreamConsumers' {} a -> s {streamCreationTimestamp = a} :: ListStreamConsumers) Prelude.. Lens.mapping Core._Time
+listStreamConsumers_streamCreationTimestamp = Lens.lens (\ListStreamConsumers' {streamCreationTimestamp} -> streamCreationTimestamp) (\s@ListStreamConsumers' {} a -> s {streamCreationTimestamp = a} :: ListStreamConsumers) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of consumers that you want a single call of
 -- @ListStreamConsumers@ to return. The default value is 100. If you
@@ -239,8 +240,8 @@ instance Core.AWSRequest ListStreamConsumers where
     Response.receiveJSON
       ( \s h x ->
           ListStreamConsumersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Consumers" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Consumers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -258,37 +259,37 @@ instance Prelude.NFData ListStreamConsumers where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf streamARN
 
-instance Core.ToHeaders ListStreamConsumers where
+instance Data.ToHeaders ListStreamConsumers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Kinesis_20131202.ListStreamConsumers" ::
+              Data.=# ( "Kinesis_20131202.ListStreamConsumers" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListStreamConsumers where
+instance Data.ToJSON ListStreamConsumers where
   toJSON ListStreamConsumers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("StreamCreationTimestamp" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("StreamCreationTimestamp" Data..=)
               Prelude.<$> streamCreationTimestamp,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("StreamARN" Core..= streamARN)
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("StreamARN" Data..= streamARN)
           ]
       )
 
-instance Core.ToPath ListStreamConsumers where
+instance Data.ToPath ListStreamConsumers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListStreamConsumers where
+instance Data.ToQuery ListStreamConsumers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListStreamConsumersResponse' smart constructor.

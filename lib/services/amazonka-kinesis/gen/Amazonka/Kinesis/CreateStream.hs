@@ -81,6 +81,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -180,36 +181,36 @@ instance Prelude.NFData CreateStream where
       `Prelude.seq` Prelude.rnf streamModeDetails
       `Prelude.seq` Prelude.rnf streamName
 
-instance Core.ToHeaders CreateStream where
+instance Data.ToHeaders CreateStream where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Kinesis_20131202.CreateStream" ::
+              Data.=# ( "Kinesis_20131202.CreateStream" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateStream where
+instance Data.ToJSON CreateStream where
   toJSON CreateStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ShardCount" Core..=) Prelude.<$> shardCount,
-            ("StreamModeDetails" Core..=)
+          [ ("ShardCount" Data..=) Prelude.<$> shardCount,
+            ("StreamModeDetails" Data..=)
               Prelude.<$> streamModeDetails,
-            Prelude.Just ("StreamName" Core..= streamName)
+            Prelude.Just ("StreamName" Data..= streamName)
           ]
       )
 
-instance Core.ToPath CreateStream where
+instance Data.ToPath CreateStream where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateStream where
+instance Data.ToQuery CreateStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateStreamResponse' smart constructor.

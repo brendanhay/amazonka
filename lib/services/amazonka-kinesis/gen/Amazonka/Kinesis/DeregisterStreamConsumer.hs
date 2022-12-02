@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -142,35 +143,35 @@ instance Prelude.NFData DeregisterStreamConsumer where
       `Prelude.seq` Prelude.rnf consumerName
       `Prelude.seq` Prelude.rnf streamARN
 
-instance Core.ToHeaders DeregisterStreamConsumer where
+instance Data.ToHeaders DeregisterStreamConsumer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Kinesis_20131202.DeregisterStreamConsumer" ::
+              Data.=# ( "Kinesis_20131202.DeregisterStreamConsumer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeregisterStreamConsumer where
+instance Data.ToJSON DeregisterStreamConsumer where
   toJSON DeregisterStreamConsumer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConsumerARN" Core..=) Prelude.<$> consumerARN,
-            ("ConsumerName" Core..=) Prelude.<$> consumerName,
-            ("StreamARN" Core..=) Prelude.<$> streamARN
+          [ ("ConsumerARN" Data..=) Prelude.<$> consumerARN,
+            ("ConsumerName" Data..=) Prelude.<$> consumerName,
+            ("StreamARN" Data..=) Prelude.<$> streamARN
           ]
       )
 
-instance Core.ToPath DeregisterStreamConsumer where
+instance Data.ToPath DeregisterStreamConsumer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeregisterStreamConsumer where
+instance Data.ToQuery DeregisterStreamConsumer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeregisterStreamConsumerResponse' smart constructor.

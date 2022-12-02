@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,7 +93,7 @@ instance Core.AWSRequest DescribeStreamSummary where
       ( \s h x ->
           DescribeStreamSummaryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "StreamDescriptionSummary")
+            Prelude.<*> (x Data..:> "StreamDescriptionSummary")
       )
 
 instance Prelude.Hashable DescribeStreamSummary where
@@ -103,32 +104,32 @@ instance Prelude.NFData DescribeStreamSummary where
   rnf DescribeStreamSummary' {..} =
     Prelude.rnf streamName
 
-instance Core.ToHeaders DescribeStreamSummary where
+instance Data.ToHeaders DescribeStreamSummary where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Kinesis_20131202.DescribeStreamSummary" ::
+              Data.=# ( "Kinesis_20131202.DescribeStreamSummary" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeStreamSummary where
+instance Data.ToJSON DescribeStreamSummary where
   toJSON DescribeStreamSummary' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("StreamName" Core..= streamName)]
+          [Prelude.Just ("StreamName" Data..= streamName)]
       )
 
-instance Core.ToPath DescribeStreamSummary where
+instance Data.ToPath DescribeStreamSummary where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeStreamSummary where
+instance Data.ToQuery DescribeStreamSummary where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeStreamSummaryResponse' smart constructor.

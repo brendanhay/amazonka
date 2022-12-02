@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,7 +124,7 @@ instance Core.AWSRequest DescribeStreamConsumer where
       ( \s h x ->
           DescribeStreamConsumerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ConsumerDescription")
+            Prelude.<*> (x Data..:> "ConsumerDescription")
       )
 
 instance Prelude.Hashable DescribeStreamConsumer where
@@ -138,35 +139,35 @@ instance Prelude.NFData DescribeStreamConsumer where
       `Prelude.seq` Prelude.rnf consumerName
       `Prelude.seq` Prelude.rnf streamARN
 
-instance Core.ToHeaders DescribeStreamConsumer where
+instance Data.ToHeaders DescribeStreamConsumer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Kinesis_20131202.DescribeStreamConsumer" ::
+              Data.=# ( "Kinesis_20131202.DescribeStreamConsumer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeStreamConsumer where
+instance Data.ToJSON DescribeStreamConsumer where
   toJSON DescribeStreamConsumer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConsumerARN" Core..=) Prelude.<$> consumerARN,
-            ("ConsumerName" Core..=) Prelude.<$> consumerName,
-            ("StreamARN" Core..=) Prelude.<$> streamARN
+          [ ("ConsumerARN" Data..=) Prelude.<$> consumerARN,
+            ("ConsumerName" Data..=) Prelude.<$> consumerName,
+            ("StreamARN" Data..=) Prelude.<$> streamARN
           ]
       )
 
-instance Core.ToPath DescribeStreamConsumer where
+instance Data.ToPath DescribeStreamConsumer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeStreamConsumer where
+instance Data.ToQuery DescribeStreamConsumer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeStreamConsumerResponse' smart constructor.

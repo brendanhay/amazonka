@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -191,7 +192,7 @@ instance Core.AWSRequest DescribeStream where
       ( \s h x ->
           DescribeStreamResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "StreamDescription")
+            Prelude.<*> (x Data..:> "StreamDescription")
       )
 
 instance Prelude.Hashable DescribeStream where
@@ -206,36 +207,36 @@ instance Prelude.NFData DescribeStream where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf streamName
 
-instance Core.ToHeaders DescribeStream where
+instance Data.ToHeaders DescribeStream where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Kinesis_20131202.DescribeStream" ::
+              Data.=# ( "Kinesis_20131202.DescribeStream" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeStream where
+instance Data.ToJSON DescribeStream where
   toJSON DescribeStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExclusiveStartShardId" Core..=)
+          [ ("ExclusiveStartShardId" Data..=)
               Prelude.<$> exclusiveStartShardId,
-            ("Limit" Core..=) Prelude.<$> limit,
-            Prelude.Just ("StreamName" Core..= streamName)
+            ("Limit" Data..=) Prelude.<$> limit,
+            Prelude.Just ("StreamName" Data..= streamName)
           ]
       )
 
-instance Core.ToPath DescribeStream where
+instance Data.ToPath DescribeStream where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeStream where
+instance Data.ToQuery DescribeStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output for @DescribeStream@.

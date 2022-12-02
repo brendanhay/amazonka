@@ -21,6 +21,7 @@ module Amazonka.Kinesis.Types.StartingPosition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types.ShardIteratorType
 import qualified Amazonka.Prelude as Prelude
 
@@ -36,7 +37,7 @@ data StartingPosition = StartingPosition'
     -- streamed from the next (later) record. If the time stamp is older than
     -- the current trim horizon, records will be streamed from the oldest
     -- untrimmed data record (@TRIM_HORIZON@).
-    timestamp :: Prelude.Maybe Core.POSIX,
+    timestamp :: Prelude.Maybe Data.POSIX,
     -- | The sequence number of the data record in the shard from which to start
     -- streaming. To specify a sequence number, set @StartingPosition@ to
     -- @AT_SEQUENCE_NUMBER@ or @AFTER_SEQUENCE_NUMBER@.
@@ -118,7 +119,7 @@ newStartingPosition pType_ =
 -- the current trim horizon, records will be streamed from the oldest
 -- untrimmed data record (@TRIM_HORIZON@).
 startingPosition_timestamp :: Lens.Lens' StartingPosition (Prelude.Maybe Prelude.UTCTime)
-startingPosition_timestamp = Lens.lens (\StartingPosition' {timestamp} -> timestamp) (\s@StartingPosition' {} a -> s {timestamp = a} :: StartingPosition) Prelude.. Lens.mapping Core._Time
+startingPosition_timestamp = Lens.lens (\StartingPosition' {timestamp} -> timestamp) (\s@StartingPosition' {} a -> s {timestamp = a} :: StartingPosition) Prelude.. Lens.mapping Data._Time
 
 -- | The sequence number of the data record in the shard from which to start
 -- streaming. To specify a sequence number, set @StartingPosition@ to
@@ -157,13 +158,13 @@ instance Prelude.NFData StartingPosition where
       `Prelude.seq` Prelude.rnf sequenceNumber
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON StartingPosition where
+instance Data.ToJSON StartingPosition where
   toJSON StartingPosition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Timestamp" Core..=) Prelude.<$> timestamp,
-            ("SequenceNumber" Core..=)
+          [ ("Timestamp" Data..=) Prelude.<$> timestamp,
+            ("SequenceNumber" Data..=)
               Prelude.<$> sequenceNumber,
-            Prelude.Just ("Type" Core..= type')
+            Prelude.Just ("Type" Data..= type')
           ]
       )

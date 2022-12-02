@@ -21,6 +21,7 @@ module Amazonka.Kinesis.Types.EnhancedMetrics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types.MetricsName
 import qualified Amazonka.Prelude as Prelude
 
@@ -123,14 +124,14 @@ newEnhancedMetrics =
 enhancedMetrics_shardLevelMetrics :: Lens.Lens' EnhancedMetrics (Prelude.Maybe [MetricsName])
 enhancedMetrics_shardLevelMetrics = Lens.lens (\EnhancedMetrics' {shardLevelMetrics} -> shardLevelMetrics) (\s@EnhancedMetrics' {} a -> s {shardLevelMetrics = a} :: EnhancedMetrics) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON EnhancedMetrics where
+instance Data.FromJSON EnhancedMetrics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnhancedMetrics"
       ( \x ->
           EnhancedMetrics'
-            Prelude.<$> ( x Core..:? "ShardLevelMetrics"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ShardLevelMetrics"
+                            Data..!= Prelude.mempty
                         )
       )
 

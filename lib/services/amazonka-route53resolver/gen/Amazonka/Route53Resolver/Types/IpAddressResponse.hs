@@ -21,6 +21,7 @@ module Amazonka.Route53Resolver.Types.IpAddressResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Resolver.Types.IpAddressStatus
 
@@ -119,19 +120,19 @@ ipAddressResponse_creationTime = Lens.lens (\IpAddressResponse' {creationTime} -
 ipAddressResponse_statusMessage :: Lens.Lens' IpAddressResponse (Prelude.Maybe Prelude.Text)
 ipAddressResponse_statusMessage = Lens.lens (\IpAddressResponse' {statusMessage} -> statusMessage) (\s@IpAddressResponse' {} a -> s {statusMessage = a} :: IpAddressResponse)
 
-instance Core.FromJSON IpAddressResponse where
+instance Data.FromJSON IpAddressResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IpAddressResponse"
       ( \x ->
           IpAddressResponse'
-            Prelude.<$> (x Core..:? "IpId")
-            Prelude.<*> (x Core..:? "SubnetId")
-            Prelude.<*> (x Core..:? "ModificationTime")
-            Prelude.<*> (x Core..:? "Ip")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "StatusMessage")
+            Prelude.<$> (x Data..:? "IpId")
+            Prelude.<*> (x Data..:? "SubnetId")
+            Prelude.<*> (x Data..:? "ModificationTime")
+            Prelude.<*> (x Data..:? "Ip")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "StatusMessage")
       )
 
 instance Prelude.Hashable IpAddressResponse where

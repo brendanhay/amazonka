@@ -21,6 +21,7 @@ module Amazonka.Route53Resolver.Types.TargetAddress where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | In a
@@ -65,13 +66,13 @@ targetAddress_port = Lens.lens (\TargetAddress' {port} -> port) (\s@TargetAddres
 targetAddress_ip :: Lens.Lens' TargetAddress Prelude.Text
 targetAddress_ip = Lens.lens (\TargetAddress' {ip} -> ip) (\s@TargetAddress' {} a -> s {ip = a} :: TargetAddress)
 
-instance Core.FromJSON TargetAddress where
+instance Data.FromJSON TargetAddress where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TargetAddress"
       ( \x ->
           TargetAddress'
-            Prelude.<$> (x Core..:? "Port") Prelude.<*> (x Core..: "Ip")
+            Prelude.<$> (x Data..:? "Port") Prelude.<*> (x Data..: "Ip")
       )
 
 instance Prelude.Hashable TargetAddress where
@@ -83,11 +84,11 @@ instance Prelude.NFData TargetAddress where
   rnf TargetAddress' {..} =
     Prelude.rnf port `Prelude.seq` Prelude.rnf ip
 
-instance Core.ToJSON TargetAddress where
+instance Data.ToJSON TargetAddress where
   toJSON TargetAddress' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Port" Core..=) Prelude.<$> port,
-            Prelude.Just ("Ip" Core..= ip)
+          [ ("Port" Data..=) Prelude.<$> port,
+            Prelude.Just ("Ip" Data..= ip)
           ]
       )

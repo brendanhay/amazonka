@@ -21,6 +21,7 @@ module Amazonka.Route53Resolver.Types.FirewallRuleGroupMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Resolver.Types.ShareStatus
 
@@ -123,18 +124,18 @@ firewallRuleGroupMetadata_id = Lens.lens (\FirewallRuleGroupMetadata' {id} -> id
 firewallRuleGroupMetadata_creatorRequestId :: Lens.Lens' FirewallRuleGroupMetadata (Prelude.Maybe Prelude.Text)
 firewallRuleGroupMetadata_creatorRequestId = Lens.lens (\FirewallRuleGroupMetadata' {creatorRequestId} -> creatorRequestId) (\s@FirewallRuleGroupMetadata' {} a -> s {creatorRequestId = a} :: FirewallRuleGroupMetadata)
 
-instance Core.FromJSON FirewallRuleGroupMetadata where
+instance Data.FromJSON FirewallRuleGroupMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FirewallRuleGroupMetadata"
       ( \x ->
           FirewallRuleGroupMetadata'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "OwnerId")
-            Prelude.<*> (x Core..:? "ShareStatus")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "CreatorRequestId")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "OwnerId")
+            Prelude.<*> (x Data..:? "ShareStatus")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "CreatorRequestId")
       )
 
 instance Prelude.Hashable FirewallRuleGroupMetadata where

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,7 +122,7 @@ instance Core.AWSRequest AssociateResolverRule where
     Response.receiveJSON
       ( \s h x ->
           AssociateResolverRuleResponse'
-            Prelude.<$> (x Core..?> "ResolverRuleAssociation")
+            Prelude.<$> (x Data..?> "ResolverRuleAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,36 +138,36 @@ instance Prelude.NFData AssociateResolverRule where
       `Prelude.seq` Prelude.rnf resolverRuleId
       `Prelude.seq` Prelude.rnf vPCId
 
-instance Core.ToHeaders AssociateResolverRule where
+instance Data.ToHeaders AssociateResolverRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.AssociateResolverRule" ::
+              Data.=# ( "Route53Resolver.AssociateResolverRule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateResolverRule where
+instance Data.ToJSON AssociateResolverRule where
   toJSON AssociateResolverRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
+          [ ("Name" Data..=) Prelude.<$> name,
             Prelude.Just
-              ("ResolverRuleId" Core..= resolverRuleId),
-            Prelude.Just ("VPCId" Core..= vPCId)
+              ("ResolverRuleId" Data..= resolverRuleId),
+            Prelude.Just ("VPCId" Data..= vPCId)
           ]
       )
 
-instance Core.ToPath AssociateResolverRule where
+instance Data.ToPath AssociateResolverRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateResolverRule where
+instance Data.ToQuery AssociateResolverRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateResolverRuleResponse' smart constructor.

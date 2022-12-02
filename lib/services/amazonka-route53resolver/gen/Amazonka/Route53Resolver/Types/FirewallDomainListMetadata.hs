@@ -21,6 +21,7 @@ module Amazonka.Route53Resolver.Types.FirewallDomainListMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Minimal high-level information for a firewall domain list. The action
@@ -107,17 +108,17 @@ firewallDomainListMetadata_id = Lens.lens (\FirewallDomainListMetadata' {id} -> 
 firewallDomainListMetadata_creatorRequestId :: Lens.Lens' FirewallDomainListMetadata (Prelude.Maybe Prelude.Text)
 firewallDomainListMetadata_creatorRequestId = Lens.lens (\FirewallDomainListMetadata' {creatorRequestId} -> creatorRequestId) (\s@FirewallDomainListMetadata' {} a -> s {creatorRequestId = a} :: FirewallDomainListMetadata)
 
-instance Core.FromJSON FirewallDomainListMetadata where
+instance Data.FromJSON FirewallDomainListMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FirewallDomainListMetadata"
       ( \x ->
           FirewallDomainListMetadata'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ManagedOwnerName")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "CreatorRequestId")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ManagedOwnerName")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "CreatorRequestId")
       )
 
 instance Prelude.Hashable FirewallDomainListMetadata where

@@ -21,6 +21,7 @@ module Amazonka.Route53Resolver.Types.FirewallConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Resolver.Types.FirewallFailOpenStatus
 
@@ -123,16 +124,16 @@ firewallConfig_firewallFailOpen = Lens.lens (\FirewallConfig' {firewallFailOpen}
 firewallConfig_id :: Lens.Lens' FirewallConfig (Prelude.Maybe Prelude.Text)
 firewallConfig_id = Lens.lens (\FirewallConfig' {id} -> id) (\s@FirewallConfig' {} a -> s {id = a} :: FirewallConfig)
 
-instance Core.FromJSON FirewallConfig where
+instance Data.FromJSON FirewallConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FirewallConfig"
       ( \x ->
           FirewallConfig'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "OwnerId")
-            Prelude.<*> (x Core..:? "FirewallFailOpen")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "OwnerId")
+            Prelude.<*> (x Data..:? "FirewallFailOpen")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable FirewallConfig where

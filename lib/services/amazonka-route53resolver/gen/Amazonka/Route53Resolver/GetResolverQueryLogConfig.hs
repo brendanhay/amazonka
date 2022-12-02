@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,7 +93,7 @@ instance Core.AWSRequest GetResolverQueryLogConfig where
     Response.receiveJSON
       ( \s h x ->
           GetResolverQueryLogConfigResponse'
-            Prelude.<$> (x Core..?> "ResolverQueryLogConfig")
+            Prelude.<$> (x Data..?> "ResolverQueryLogConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -105,36 +106,36 @@ instance Prelude.NFData GetResolverQueryLogConfig where
   rnf GetResolverQueryLogConfig' {..} =
     Prelude.rnf resolverQueryLogConfigId
 
-instance Core.ToHeaders GetResolverQueryLogConfig where
+instance Data.ToHeaders GetResolverQueryLogConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.GetResolverQueryLogConfig" ::
+              Data.=# ( "Route53Resolver.GetResolverQueryLogConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetResolverQueryLogConfig where
+instance Data.ToJSON GetResolverQueryLogConfig where
   toJSON GetResolverQueryLogConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ResolverQueryLogConfigId"
-                  Core..= resolverQueryLogConfigId
+                  Data..= resolverQueryLogConfigId
               )
           ]
       )
 
-instance Core.ToPath GetResolverQueryLogConfig where
+instance Data.ToPath GetResolverQueryLogConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetResolverQueryLogConfig where
+instance Data.ToQuery GetResolverQueryLogConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetResolverQueryLogConfigResponse' smart constructor.

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,7 +119,7 @@ instance Core.AWSRequest CreateFirewallRuleGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateFirewallRuleGroupResponse'
-            Prelude.<$> (x Core..?> "FirewallRuleGroup")
+            Prelude.<$> (x Data..?> "FirewallRuleGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,36 +135,36 @@ instance Prelude.NFData CreateFirewallRuleGroup where
       `Prelude.seq` Prelude.rnf creatorRequestId
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateFirewallRuleGroup where
+instance Data.ToHeaders CreateFirewallRuleGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.CreateFirewallRuleGroup" ::
+              Data.=# ( "Route53Resolver.CreateFirewallRuleGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFirewallRuleGroup where
+instance Data.ToJSON CreateFirewallRuleGroup where
   toJSON CreateFirewallRuleGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
-              ("CreatorRequestId" Core..= creatorRequestId),
-            Prelude.Just ("Name" Core..= name)
+              ("CreatorRequestId" Data..= creatorRequestId),
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateFirewallRuleGroup where
+instance Data.ToPath CreateFirewallRuleGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateFirewallRuleGroup where
+instance Data.ToQuery CreateFirewallRuleGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFirewallRuleGroupResponse' smart constructor.

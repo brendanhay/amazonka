@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -122,7 +123,7 @@ instance Core.AWSRequest CreateFirewallDomainList where
     Response.receiveJSON
       ( \s h x ->
           CreateFirewallDomainListResponse'
-            Prelude.<$> (x Core..?> "FirewallDomainList")
+            Prelude.<$> (x Data..?> "FirewallDomainList")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,36 +139,36 @@ instance Prelude.NFData CreateFirewallDomainList where
       `Prelude.seq` Prelude.rnf creatorRequestId
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateFirewallDomainList where
+instance Data.ToHeaders CreateFirewallDomainList where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.CreateFirewallDomainList" ::
+              Data.=# ( "Route53Resolver.CreateFirewallDomainList" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFirewallDomainList where
+instance Data.ToJSON CreateFirewallDomainList where
   toJSON CreateFirewallDomainList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
-              ("CreatorRequestId" Core..= creatorRequestId),
-            Prelude.Just ("Name" Core..= name)
+              ("CreatorRequestId" Data..= creatorRequestId),
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateFirewallDomainList where
+instance Data.ToPath CreateFirewallDomainList where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateFirewallDomainList where
+instance Data.ToQuery CreateFirewallDomainList where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFirewallDomainListResponse' smart constructor.

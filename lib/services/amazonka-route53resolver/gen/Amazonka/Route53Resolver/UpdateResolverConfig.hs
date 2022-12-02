@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,7 +125,7 @@ instance Core.AWSRequest UpdateResolverConfig where
     Response.receiveJSON
       ( \s h x ->
           UpdateResolverConfigResponse'
-            Prelude.<$> (x Core..?> "ResolverConfig")
+            Prelude.<$> (x Data..?> "ResolverConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,37 +139,37 @@ instance Prelude.NFData UpdateResolverConfig where
     Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf autodefinedReverseFlag
 
-instance Core.ToHeaders UpdateResolverConfig where
+instance Data.ToHeaders UpdateResolverConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.UpdateResolverConfig" ::
+              Data.=# ( "Route53Resolver.UpdateResolverConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateResolverConfig where
+instance Data.ToJSON UpdateResolverConfig where
   toJSON UpdateResolverConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceId" Core..= resourceId),
+          [ Prelude.Just ("ResourceId" Data..= resourceId),
             Prelude.Just
               ( "AutodefinedReverseFlag"
-                  Core..= autodefinedReverseFlag
+                  Data..= autodefinedReverseFlag
               )
           ]
       )
 
-instance Core.ToPath UpdateResolverConfig where
+instance Data.ToPath UpdateResolverConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateResolverConfig where
+instance Data.ToQuery UpdateResolverConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateResolverConfigResponse' smart constructor.

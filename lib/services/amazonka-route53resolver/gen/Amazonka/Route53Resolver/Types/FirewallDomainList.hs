@@ -21,6 +21,7 @@ module Amazonka.Route53Resolver.Types.FirewallDomainList where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Resolver.Types.FirewallDomainListStatus
 
@@ -159,22 +160,22 @@ firewallDomainList_creationTime = Lens.lens (\FirewallDomainList' {creationTime}
 firewallDomainList_statusMessage :: Lens.Lens' FirewallDomainList (Prelude.Maybe Prelude.Text)
 firewallDomainList_statusMessage = Lens.lens (\FirewallDomainList' {statusMessage} -> statusMessage) (\s@FirewallDomainList' {} a -> s {statusMessage = a} :: FirewallDomainList)
 
-instance Core.FromJSON FirewallDomainList where
+instance Data.FromJSON FirewallDomainList where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FirewallDomainList"
       ( \x ->
           FirewallDomainList'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "DomainCount")
-            Prelude.<*> (x Core..:? "ModificationTime")
-            Prelude.<*> (x Core..:? "ManagedOwnerName")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "CreatorRequestId")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "StatusMessage")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "DomainCount")
+            Prelude.<*> (x Data..:? "ModificationTime")
+            Prelude.<*> (x Data..:? "ManagedOwnerName")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "CreatorRequestId")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "StatusMessage")
       )
 
 instance Prelude.Hashable FirewallDomainList where

@@ -21,6 +21,7 @@ module Amazonka.Route53Resolver.Types.ResolverRuleConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Resolver.Types.TargetAddress
 
@@ -94,13 +95,13 @@ instance Prelude.NFData ResolverRuleConfig where
       `Prelude.seq` Prelude.rnf targetIps
       `Prelude.seq` Prelude.rnf resolverEndpointId
 
-instance Core.ToJSON ResolverRuleConfig where
+instance Data.ToJSON ResolverRuleConfig where
   toJSON ResolverRuleConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("TargetIps" Core..=) Prelude.<$> targetIps,
-            ("ResolverEndpointId" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("TargetIps" Data..=) Prelude.<$> targetIps,
+            ("ResolverEndpointId" Data..=)
               Prelude.<$> resolverEndpointId
           ]
       )

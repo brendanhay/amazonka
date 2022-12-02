@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -166,11 +167,11 @@ instance Core.AWSRequest ListResolverEndpoints where
     Response.receiveJSON
       ( \s h x ->
           ListResolverEndpointsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ResolverEndpoints"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ResolverEndpoints"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "MaxResults")
+            Prelude.<*> (x Data..?> "MaxResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -186,35 +187,35 @@ instance Prelude.NFData ListResolverEndpoints where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListResolverEndpoints where
+instance Data.ToHeaders ListResolverEndpoints where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.ListResolverEndpoints" ::
+              Data.=# ( "Route53Resolver.ListResolverEndpoints" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListResolverEndpoints where
+instance Data.ToJSON ListResolverEndpoints where
   toJSON ListResolverEndpoints' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListResolverEndpoints where
+instance Data.ToPath ListResolverEndpoints where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListResolverEndpoints where
+instance Data.ToQuery ListResolverEndpoints where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListResolverEndpointsResponse' smart constructor.

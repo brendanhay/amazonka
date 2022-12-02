@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -125,7 +126,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           AssociateResolverQueryLogConfigResponse'
-            Prelude.<$> (x Core..?> "ResolverQueryLogConfigAssociation")
+            Prelude.<$> (x Data..?> "ResolverQueryLogConfigAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,39 +150,39 @@ instance
       `Prelude.seq` Prelude.rnf resourceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AssociateResolverQueryLogConfig
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.AssociateResolverQueryLogConfig" ::
+              Data.=# ( "Route53Resolver.AssociateResolverQueryLogConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateResolverQueryLogConfig where
+instance Data.ToJSON AssociateResolverQueryLogConfig where
   toJSON AssociateResolverQueryLogConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ResolverQueryLogConfigId"
-                  Core..= resolverQueryLogConfigId
+                  Data..= resolverQueryLogConfigId
               ),
-            Prelude.Just ("ResourceId" Core..= resourceId)
+            Prelude.Just ("ResourceId" Data..= resourceId)
           ]
       )
 
-instance Core.ToPath AssociateResolverQueryLogConfig where
+instance Data.ToPath AssociateResolverQueryLogConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateResolverQueryLogConfig where
+instance Data.ToQuery AssociateResolverQueryLogConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateResolverQueryLogConfigResponse' smart constructor.

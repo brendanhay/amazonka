@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -157,7 +158,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           PutResolverQueryLogConfigPolicyResponse'
-            Prelude.<$> (x Core..?> "ReturnValue")
+            Prelude.<$> (x Data..?> "ReturnValue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,39 +181,39 @@ instance
       `Prelude.seq` Prelude.rnf resolverQueryLogConfigPolicy
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutResolverQueryLogConfigPolicy
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.PutResolverQueryLogConfigPolicy" ::
+              Data.=# ( "Route53Resolver.PutResolverQueryLogConfigPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutResolverQueryLogConfigPolicy where
+instance Data.ToJSON PutResolverQueryLogConfigPolicy where
   toJSON PutResolverQueryLogConfigPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Arn" Core..= arn),
+          [ Prelude.Just ("Arn" Data..= arn),
             Prelude.Just
               ( "ResolverQueryLogConfigPolicy"
-                  Core..= resolverQueryLogConfigPolicy
+                  Data..= resolverQueryLogConfigPolicy
               )
           ]
       )
 
-instance Core.ToPath PutResolverQueryLogConfigPolicy where
+instance Data.ToPath PutResolverQueryLogConfigPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutResolverQueryLogConfigPolicy where
+instance Data.ToQuery PutResolverQueryLogConfigPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response to a @PutResolverQueryLogConfigPolicy@ request.

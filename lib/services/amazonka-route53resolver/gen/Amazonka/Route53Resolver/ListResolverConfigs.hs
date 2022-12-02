@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -150,8 +151,8 @@ instance Core.AWSRequest ListResolverConfigs where
     Response.receiveJSON
       ( \s h x ->
           ListResolverConfigsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ResolverConfigs"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ResolverConfigs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -167,34 +168,34 @@ instance Prelude.NFData ListResolverConfigs where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListResolverConfigs where
+instance Data.ToHeaders ListResolverConfigs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.ListResolverConfigs" ::
+              Data.=# ( "Route53Resolver.ListResolverConfigs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListResolverConfigs where
+instance Data.ToJSON ListResolverConfigs where
   toJSON ListResolverConfigs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListResolverConfigs where
+instance Data.ToPath ListResolverConfigs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListResolverConfigs where
+instance Data.ToQuery ListResolverConfigs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListResolverConfigsResponse' smart constructor.

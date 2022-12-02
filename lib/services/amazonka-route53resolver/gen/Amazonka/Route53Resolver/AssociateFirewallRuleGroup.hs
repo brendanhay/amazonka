@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -216,7 +217,7 @@ instance Core.AWSRequest AssociateFirewallRuleGroup where
     Response.receiveJSON
       ( \s h x ->
           AssociateFirewallRuleGroupResponse'
-            Prelude.<$> (x Core..?> "FirewallRuleGroupAssociation")
+            Prelude.<$> (x Data..?> "FirewallRuleGroupAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -240,42 +241,42 @@ instance Prelude.NFData AssociateFirewallRuleGroup where
       `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders AssociateFirewallRuleGroup where
+instance Data.ToHeaders AssociateFirewallRuleGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.AssociateFirewallRuleGroup" ::
+              Data.=# ( "Route53Resolver.AssociateFirewallRuleGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateFirewallRuleGroup where
+instance Data.ToJSON AssociateFirewallRuleGroup where
   toJSON AssociateFirewallRuleGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("MutationProtection" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("MutationProtection" Data..=)
               Prelude.<$> mutationProtection,
             Prelude.Just
-              ("CreatorRequestId" Core..= creatorRequestId),
+              ("CreatorRequestId" Data..= creatorRequestId),
             Prelude.Just
-              ("FirewallRuleGroupId" Core..= firewallRuleGroupId),
-            Prelude.Just ("VpcId" Core..= vpcId),
-            Prelude.Just ("Priority" Core..= priority),
-            Prelude.Just ("Name" Core..= name)
+              ("FirewallRuleGroupId" Data..= firewallRuleGroupId),
+            Prelude.Just ("VpcId" Data..= vpcId),
+            Prelude.Just ("Priority" Data..= priority),
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath AssociateFirewallRuleGroup where
+instance Data.ToPath AssociateFirewallRuleGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateFirewallRuleGroup where
+instance Data.ToQuery AssociateFirewallRuleGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateFirewallRuleGroupResponse' smart constructor.

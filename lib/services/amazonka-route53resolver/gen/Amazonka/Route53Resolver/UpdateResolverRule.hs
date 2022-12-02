@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,7 +101,7 @@ instance Core.AWSRequest UpdateResolverRule where
     Response.receiveJSON
       ( \s h x ->
           UpdateResolverRuleResponse'
-            Prelude.<$> (x Core..?> "ResolverRule")
+            Prelude.<$> (x Data..?> "ResolverRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,35 +115,35 @@ instance Prelude.NFData UpdateResolverRule where
     Prelude.rnf resolverRuleId
       `Prelude.seq` Prelude.rnf config
 
-instance Core.ToHeaders UpdateResolverRule where
+instance Data.ToHeaders UpdateResolverRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.UpdateResolverRule" ::
+              Data.=# ( "Route53Resolver.UpdateResolverRule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateResolverRule where
+instance Data.ToJSON UpdateResolverRule where
   toJSON UpdateResolverRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ResolverRuleId" Core..= resolverRuleId),
-            Prelude.Just ("Config" Core..= config)
+              ("ResolverRuleId" Data..= resolverRuleId),
+            Prelude.Just ("Config" Data..= config)
           ]
       )
 
-instance Core.ToPath UpdateResolverRule where
+instance Data.ToPath UpdateResolverRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateResolverRule where
+instance Data.ToQuery UpdateResolverRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateResolverRuleResponse' smart constructor.

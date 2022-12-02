@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -159,10 +160,10 @@ instance Core.AWSRequest ListFirewallRuleGroups where
     Response.receiveJSON
       ( \s h x ->
           ListFirewallRuleGroupsResponse'
-            Prelude.<$> ( x Core..?> "FirewallRuleGroups"
+            Prelude.<$> ( x Data..?> "FirewallRuleGroups"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,34 +177,34 @@ instance Prelude.NFData ListFirewallRuleGroups where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListFirewallRuleGroups where
+instance Data.ToHeaders ListFirewallRuleGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.ListFirewallRuleGroups" ::
+              Data.=# ( "Route53Resolver.ListFirewallRuleGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListFirewallRuleGroups where
+instance Data.ToJSON ListFirewallRuleGroups where
   toJSON ListFirewallRuleGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListFirewallRuleGroups where
+instance Data.ToPath ListFirewallRuleGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListFirewallRuleGroups where
+instance Data.ToQuery ListFirewallRuleGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListFirewallRuleGroupsResponse' smart constructor.

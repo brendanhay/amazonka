@@ -21,6 +21,7 @@ module Amazonka.Route53Resolver.Types.IpAddressUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | In an
@@ -96,12 +97,12 @@ instance Prelude.NFData IpAddressUpdate where
       `Prelude.seq` Prelude.rnf subnetId
       `Prelude.seq` Prelude.rnf ip
 
-instance Core.ToJSON IpAddressUpdate where
+instance Data.ToJSON IpAddressUpdate where
   toJSON IpAddressUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IpId" Core..=) Prelude.<$> ipId,
-            ("SubnetId" Core..=) Prelude.<$> subnetId,
-            ("Ip" Core..=) Prelude.<$> ip
+          [ ("IpId" Data..=) Prelude.<$> ipId,
+            ("SubnetId" Data..=) Prelude.<$> subnetId,
+            ("Ip" Data..=) Prelude.<$> ip
           ]
       )

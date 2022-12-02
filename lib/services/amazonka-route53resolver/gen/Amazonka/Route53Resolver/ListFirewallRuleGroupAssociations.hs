@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -229,10 +230,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListFirewallRuleGroupAssociationsResponse'
-            Prelude.<$> ( x Core..?> "FirewallRuleGroupAssociations"
+            Prelude.<$> ( x Data..?> "FirewallRuleGroupAssociations"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Core..?> "NextToken")
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -263,48 +264,48 @@ instance
       `Prelude.seq` Prelude.rnf vpcId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListFirewallRuleGroupAssociations
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.ListFirewallRuleGroupAssociations" ::
+              Data.=# ( "Route53Resolver.ListFirewallRuleGroupAssociations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ListFirewallRuleGroupAssociations
   where
   toJSON ListFirewallRuleGroupAssociations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("FirewallRuleGroupId" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("FirewallRuleGroupId" Data..=)
               Prelude.<$> firewallRuleGroupId,
-            ("Status" Core..=) Prelude.<$> status,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Priority" Core..=) Prelude.<$> priority,
-            ("VpcId" Core..=) Prelude.<$> vpcId
+            ("Status" Data..=) Prelude.<$> status,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("Priority" Data..=) Prelude.<$> priority,
+            ("VpcId" Data..=) Prelude.<$> vpcId
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListFirewallRuleGroupAssociations
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListFirewallRuleGroupAssociations
   where
   toQuery = Prelude.const Prelude.mempty

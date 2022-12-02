@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,7 +94,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetFirewallRuleGroupAssociationResponse'
-            Prelude.<$> (x Core..?> "FirewallRuleGroupAssociation")
+            Prelude.<$> (x Data..?> "FirewallRuleGroupAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,38 +116,38 @@ instance
     Prelude.rnf firewallRuleGroupAssociationId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetFirewallRuleGroupAssociation
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.GetFirewallRuleGroupAssociation" ::
+              Data.=# ( "Route53Resolver.GetFirewallRuleGroupAssociation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetFirewallRuleGroupAssociation where
+instance Data.ToJSON GetFirewallRuleGroupAssociation where
   toJSON GetFirewallRuleGroupAssociation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "FirewallRuleGroupAssociationId"
-                  Core..= firewallRuleGroupAssociationId
+                  Data..= firewallRuleGroupAssociationId
               )
           ]
       )
 
-instance Core.ToPath GetFirewallRuleGroupAssociation where
+instance Data.ToPath GetFirewallRuleGroupAssociation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetFirewallRuleGroupAssociation where
+instance Data.ToQuery GetFirewallRuleGroupAssociation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFirewallRuleGroupAssociationResponse' smart constructor.

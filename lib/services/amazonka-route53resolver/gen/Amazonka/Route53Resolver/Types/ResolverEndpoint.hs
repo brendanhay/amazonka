@@ -21,6 +21,7 @@ module Amazonka.Route53Resolver.Types.ResolverEndpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Resolver.Types.ResolverEndpointDirection
 import Amazonka.Route53Resolver.Types.ResolverEndpointStatus
@@ -320,26 +321,26 @@ resolverEndpoint_direction = Lens.lens (\ResolverEndpoint' {direction} -> direct
 resolverEndpoint_hostVPCId :: Lens.Lens' ResolverEndpoint (Prelude.Maybe Prelude.Text)
 resolverEndpoint_hostVPCId = Lens.lens (\ResolverEndpoint' {hostVPCId} -> hostVPCId) (\s@ResolverEndpoint' {} a -> s {hostVPCId = a} :: ResolverEndpoint)
 
-instance Core.FromJSON ResolverEndpoint where
+instance Data.FromJSON ResolverEndpoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResolverEndpoint"
       ( \x ->
           ResolverEndpoint'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> ( x Core..:? "SecurityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> ( x Data..:? "SecurityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ModificationTime")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "IpAddressCount")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "CreatorRequestId")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "Direction")
-            Prelude.<*> (x Core..:? "HostVPCId")
+            Prelude.<*> (x Data..:? "ModificationTime")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "IpAddressCount")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "CreatorRequestId")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..:? "Direction")
+            Prelude.<*> (x Data..:? "HostVPCId")
       )
 
 instance Prelude.Hashable ResolverEndpoint where

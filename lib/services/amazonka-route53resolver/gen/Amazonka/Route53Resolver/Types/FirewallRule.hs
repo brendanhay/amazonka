@@ -21,6 +21,7 @@ module Amazonka.Route53Resolver.Types.FirewallRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Resolver.Types.Action
 import Amazonka.Route53Resolver.Types.BlockOverrideDnsType
@@ -250,24 +251,24 @@ firewallRule_action = Lens.lens (\FirewallRule' {action} -> action) (\s@Firewall
 firewallRule_creationTime :: Lens.Lens' FirewallRule (Prelude.Maybe Prelude.Text)
 firewallRule_creationTime = Lens.lens (\FirewallRule' {creationTime} -> creationTime) (\s@FirewallRule' {} a -> s {creationTime = a} :: FirewallRule)
 
-instance Core.FromJSON FirewallRule where
+instance Data.FromJSON FirewallRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FirewallRule"
       ( \x ->
           FirewallRule'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "BlockResponse")
-            Prelude.<*> (x Core..:? "ModificationTime")
-            Prelude.<*> (x Core..:? "FirewallRuleGroupId")
-            Prelude.<*> (x Core..:? "BlockOverrideTtl")
-            Prelude.<*> (x Core..:? "BlockOverrideDnsType")
-            Prelude.<*> (x Core..:? "CreatorRequestId")
-            Prelude.<*> (x Core..:? "FirewallDomainListId")
-            Prelude.<*> (x Core..:? "BlockOverrideDomain")
-            Prelude.<*> (x Core..:? "Priority")
-            Prelude.<*> (x Core..:? "Action")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "BlockResponse")
+            Prelude.<*> (x Data..:? "ModificationTime")
+            Prelude.<*> (x Data..:? "FirewallRuleGroupId")
+            Prelude.<*> (x Data..:? "BlockOverrideTtl")
+            Prelude.<*> (x Data..:? "BlockOverrideDnsType")
+            Prelude.<*> (x Data..:? "CreatorRequestId")
+            Prelude.<*> (x Data..:? "FirewallDomainListId")
+            Prelude.<*> (x Data..:? "BlockOverrideDomain")
+            Prelude.<*> (x Data..:? "Priority")
+            Prelude.<*> (x Data..:? "Action")
+            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance Prelude.Hashable FirewallRule where

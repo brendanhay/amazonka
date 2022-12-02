@@ -21,6 +21,7 @@ module Amazonka.Route53Resolver.Types.ResolverRuleAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Resolver.Types.ResolverRuleAssociationStatus
 
@@ -123,18 +124,18 @@ resolverRuleAssociation_vPCId = Lens.lens (\ResolverRuleAssociation' {vPCId} -> 
 resolverRuleAssociation_statusMessage :: Lens.Lens' ResolverRuleAssociation (Prelude.Maybe Prelude.Text)
 resolverRuleAssociation_statusMessage = Lens.lens (\ResolverRuleAssociation' {statusMessage} -> statusMessage) (\s@ResolverRuleAssociation' {} a -> s {statusMessage = a} :: ResolverRuleAssociation)
 
-instance Core.FromJSON ResolverRuleAssociation where
+instance Data.FromJSON ResolverRuleAssociation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResolverRuleAssociation"
       ( \x ->
           ResolverRuleAssociation'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "ResolverRuleId")
-            Prelude.<*> (x Core..:? "VPCId")
-            Prelude.<*> (x Core..:? "StatusMessage")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "ResolverRuleId")
+            Prelude.<*> (x Data..:? "VPCId")
+            Prelude.<*> (x Data..:? "StatusMessage")
       )
 
 instance Prelude.Hashable ResolverRuleAssociation where

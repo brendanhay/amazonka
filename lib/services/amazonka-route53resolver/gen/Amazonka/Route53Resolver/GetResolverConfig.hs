@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,7 +85,7 @@ instance Core.AWSRequest GetResolverConfig where
     Response.receiveJSON
       ( \s h x ->
           GetResolverConfigResponse'
-            Prelude.<$> (x Core..?> "ResolverConfig")
+            Prelude.<$> (x Data..?> "ResolverConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,32 +96,32 @@ instance Prelude.Hashable GetResolverConfig where
 instance Prelude.NFData GetResolverConfig where
   rnf GetResolverConfig' {..} = Prelude.rnf resourceId
 
-instance Core.ToHeaders GetResolverConfig where
+instance Data.ToHeaders GetResolverConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.GetResolverConfig" ::
+              Data.=# ( "Route53Resolver.GetResolverConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetResolverConfig where
+instance Data.ToJSON GetResolverConfig where
   toJSON GetResolverConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ResourceId" Core..= resourceId)]
+          [Prelude.Just ("ResourceId" Data..= resourceId)]
       )
 
-instance Core.ToPath GetResolverConfig where
+instance Data.ToPath GetResolverConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetResolverConfig where
+instance Data.ToQuery GetResolverConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetResolverConfigResponse' smart constructor.

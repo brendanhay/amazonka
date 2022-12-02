@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,7 +94,7 @@ instance Core.AWSRequest DeleteResolverEndpoint where
     Response.receiveJSON
       ( \s h x ->
           DeleteResolverEndpointResponse'
-            Prelude.<$> (x Core..?> "ResolverEndpoint")
+            Prelude.<$> (x Data..?> "ResolverEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -105,34 +106,34 @@ instance Prelude.NFData DeleteResolverEndpoint where
   rnf DeleteResolverEndpoint' {..} =
     Prelude.rnf resolverEndpointId
 
-instance Core.ToHeaders DeleteResolverEndpoint where
+instance Data.ToHeaders DeleteResolverEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.DeleteResolverEndpoint" ::
+              Data.=# ( "Route53Resolver.DeleteResolverEndpoint" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteResolverEndpoint where
+instance Data.ToJSON DeleteResolverEndpoint where
   toJSON DeleteResolverEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ResolverEndpointId" Core..= resolverEndpointId)
+              ("ResolverEndpointId" Data..= resolverEndpointId)
           ]
       )
 
-instance Core.ToPath DeleteResolverEndpoint where
+instance Data.ToPath DeleteResolverEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteResolverEndpoint where
+instance Data.ToQuery DeleteResolverEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteResolverEndpointResponse' smart constructor.

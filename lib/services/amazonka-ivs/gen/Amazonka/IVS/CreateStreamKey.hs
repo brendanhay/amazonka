@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,7 +115,7 @@ instance Core.AWSRequest CreateStreamKey where
     Response.receiveJSON
       ( \s h x ->
           CreateStreamKeyResponse'
-            Prelude.<$> (x Core..?> "streamKey")
+            Prelude.<$> (x Data..?> "streamKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,30 +129,30 @@ instance Prelude.NFData CreateStreamKey where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf channelArn
 
-instance Core.ToHeaders CreateStreamKey where
+instance Data.ToHeaders CreateStreamKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateStreamKey where
+instance Data.ToJSON CreateStreamKey where
   toJSON CreateStreamKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("channelArn" Core..= channelArn)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("channelArn" Data..= channelArn)
           ]
       )
 
-instance Core.ToPath CreateStreamKey where
+instance Data.ToPath CreateStreamKey where
   toPath = Prelude.const "/CreateStreamKey"
 
-instance Core.ToQuery CreateStreamKey where
+instance Data.ToQuery CreateStreamKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateStreamKeyResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IVS.Types.IngestConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types.AudioConfiguration
 import Amazonka.IVS.Types.VideoConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -64,14 +65,14 @@ ingestConfiguration_audio = Lens.lens (\IngestConfiguration' {audio} -> audio) (
 ingestConfiguration_video :: Lens.Lens' IngestConfiguration (Prelude.Maybe VideoConfiguration)
 ingestConfiguration_video = Lens.lens (\IngestConfiguration' {video} -> video) (\s@IngestConfiguration' {} a -> s {video = a} :: IngestConfiguration)
 
-instance Core.FromJSON IngestConfiguration where
+instance Data.FromJSON IngestConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IngestConfiguration"
       ( \x ->
           IngestConfiguration'
-            Prelude.<$> (x Core..:? "audio")
-            Prelude.<*> (x Core..:? "video")
+            Prelude.<$> (x Data..:? "audio")
+            Prelude.<*> (x Data..:? "video")
       )
 
 instance Prelude.Hashable IngestConfiguration where

@@ -21,6 +21,7 @@ module Amazonka.IVS.Types.RecordingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types.DestinationConfiguration
 import Amazonka.IVS.Types.RecordingConfigurationState
 import Amazonka.IVS.Types.ThumbnailConfiguration
@@ -152,19 +153,19 @@ recordingConfiguration_destinationConfiguration = Lens.lens (\RecordingConfigura
 recordingConfiguration_state :: Lens.Lens' RecordingConfiguration RecordingConfigurationState
 recordingConfiguration_state = Lens.lens (\RecordingConfiguration' {state} -> state) (\s@RecordingConfiguration' {} a -> s {state = a} :: RecordingConfiguration)
 
-instance Core.FromJSON RecordingConfiguration where
+instance Data.FromJSON RecordingConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecordingConfiguration"
       ( \x ->
           RecordingConfiguration'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "thumbnailConfiguration")
-            Prelude.<*> (x Core..:? "recordingReconnectWindowSeconds")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "destinationConfiguration")
-            Prelude.<*> (x Core..: "state")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "thumbnailConfiguration")
+            Prelude.<*> (x Data..:? "recordingReconnectWindowSeconds")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "destinationConfiguration")
+            Prelude.<*> (x Data..: "state")
       )
 
 instance Prelude.Hashable RecordingConfiguration where

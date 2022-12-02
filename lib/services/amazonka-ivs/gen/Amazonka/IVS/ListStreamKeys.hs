@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,9 +130,9 @@ instance Core.AWSRequest ListStreamKeys where
     Response.receiveJSON
       ( \s h x ->
           ListStreamKeysResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "streamKeys" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "streamKeys" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListStreamKeys where
@@ -146,31 +147,31 @@ instance Prelude.NFData ListStreamKeys where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf channelArn
 
-instance Core.ToHeaders ListStreamKeys where
+instance Data.ToHeaders ListStreamKeys where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListStreamKeys where
+instance Data.ToJSON ListStreamKeys where
   toJSON ListStreamKeys' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("channelArn" Core..= channelArn)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("channelArn" Data..= channelArn)
           ]
       )
 
-instance Core.ToPath ListStreamKeys where
+instance Data.ToPath ListStreamKeys where
   toPath = Prelude.const "/ListStreamKeys"
 
-instance Core.ToQuery ListStreamKeys where
+instance Data.ToQuery ListStreamKeys where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListStreamKeysResponse' smart constructor.

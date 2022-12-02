@@ -21,6 +21,7 @@ module Amazonka.IVS.Types.StreamSession where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types.Channel
 import Amazonka.IVS.Types.IngestConfiguration
 import Amazonka.IVS.Types.RecordingConfiguration
@@ -42,12 +43,12 @@ data StreamSession = StreamSession'
     streamId :: Prelude.Maybe Prelude.Text,
     -- | Time when the channel went offline. This is an ISO 8601 timestamp; /note
     -- that this is returned as a string/. For live streams, this is @NULL@.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The properties of recording the live stream.
     recordingConfiguration :: Prelude.Maybe RecordingConfiguration,
     -- | Time when the channel went live. This is an ISO 8601 timestamp; /note
     -- that this is returned as a string/.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | List of Amazon IVS events that the stream encountered. The list is
     -- sorted by most recent events and contains up to 500 events. For Amazon
     -- IVS events, see
@@ -113,7 +114,7 @@ streamSession_streamId = Lens.lens (\StreamSession' {streamId} -> streamId) (\s@
 -- | Time when the channel went offline. This is an ISO 8601 timestamp; /note
 -- that this is returned as a string/. For live streams, this is @NULL@.
 streamSession_endTime :: Lens.Lens' StreamSession (Prelude.Maybe Prelude.UTCTime)
-streamSession_endTime = Lens.lens (\StreamSession' {endTime} -> endTime) (\s@StreamSession' {} a -> s {endTime = a} :: StreamSession) Prelude.. Lens.mapping Core._Time
+streamSession_endTime = Lens.lens (\StreamSession' {endTime} -> endTime) (\s@StreamSession' {} a -> s {endTime = a} :: StreamSession) Prelude.. Lens.mapping Data._Time
 
 -- | The properties of recording the live stream.
 streamSession_recordingConfiguration :: Lens.Lens' StreamSession (Prelude.Maybe RecordingConfiguration)
@@ -122,7 +123,7 @@ streamSession_recordingConfiguration = Lens.lens (\StreamSession' {recordingConf
 -- | Time when the channel went live. This is an ISO 8601 timestamp; /note
 -- that this is returned as a string/.
 streamSession_startTime :: Lens.Lens' StreamSession (Prelude.Maybe Prelude.UTCTime)
-streamSession_startTime = Lens.lens (\StreamSession' {startTime} -> startTime) (\s@StreamSession' {} a -> s {startTime = a} :: StreamSession) Prelude.. Lens.mapping Core._Time
+streamSession_startTime = Lens.lens (\StreamSession' {startTime} -> startTime) (\s@StreamSession' {} a -> s {startTime = a} :: StreamSession) Prelude.. Lens.mapping Data._Time
 
 -- | List of Amazon IVS events that the stream encountered. The list is
 -- sorted by most recent events and contains up to 500 events. For Amazon
@@ -131,20 +132,20 @@ streamSession_startTime = Lens.lens (\StreamSession' {startTime} -> startTime) (
 streamSession_truncatedEvents :: Lens.Lens' StreamSession (Prelude.Maybe [StreamEvent])
 streamSession_truncatedEvents = Lens.lens (\StreamSession' {truncatedEvents} -> truncatedEvents) (\s@StreamSession' {} a -> s {truncatedEvents = a} :: StreamSession) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON StreamSession where
+instance Data.FromJSON StreamSession where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamSession"
       ( \x ->
           StreamSession'
-            Prelude.<$> (x Core..:? "ingestConfiguration")
-            Prelude.<*> (x Core..:? "channel")
-            Prelude.<*> (x Core..:? "streamId")
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "recordingConfiguration")
-            Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> ( x Core..:? "truncatedEvents"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ingestConfiguration")
+            Prelude.<*> (x Data..:? "channel")
+            Prelude.<*> (x Data..:? "streamId")
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "recordingConfiguration")
+            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> ( x Data..:? "truncatedEvents"
+                            Data..!= Prelude.mempty
                         )
       )
 

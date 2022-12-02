@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -81,7 +82,7 @@ instance Core.AWSRequest GetChannel where
     Response.receiveJSON
       ( \s h x ->
           GetChannelResponse'
-            Prelude.<$> (x Core..?> "channel")
+            Prelude.<$> (x Data..?> "channel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -92,28 +93,28 @@ instance Prelude.Hashable GetChannel where
 instance Prelude.NFData GetChannel where
   rnf GetChannel' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders GetChannel where
+instance Data.ToHeaders GetChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetChannel where
+instance Data.ToJSON GetChannel where
   toJSON GetChannel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arn" Core..= arn)]
+          [Prelude.Just ("arn" Data..= arn)]
       )
 
-instance Core.ToPath GetChannel where
+instance Data.ToPath GetChannel where
   toPath = Prelude.const "/GetChannel"
 
-instance Core.ToQuery GetChannel where
+instance Data.ToQuery GetChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetChannelResponse' smart constructor.

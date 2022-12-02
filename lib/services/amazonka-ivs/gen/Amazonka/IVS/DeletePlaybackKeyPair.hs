@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,28 +97,28 @@ instance Prelude.Hashable DeletePlaybackKeyPair where
 instance Prelude.NFData DeletePlaybackKeyPair where
   rnf DeletePlaybackKeyPair' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders DeletePlaybackKeyPair where
+instance Data.ToHeaders DeletePlaybackKeyPair where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeletePlaybackKeyPair where
+instance Data.ToJSON DeletePlaybackKeyPair where
   toJSON DeletePlaybackKeyPair' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arn" Core..= arn)]
+          [Prelude.Just ("arn" Data..= arn)]
       )
 
-instance Core.ToPath DeletePlaybackKeyPair where
+instance Data.ToPath DeletePlaybackKeyPair where
   toPath = Prelude.const "/DeletePlaybackKeyPair"
 
-instance Core.ToQuery DeletePlaybackKeyPair where
+instance Data.ToQuery DeletePlaybackKeyPair where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePlaybackKeyPairResponse' smart constructor.

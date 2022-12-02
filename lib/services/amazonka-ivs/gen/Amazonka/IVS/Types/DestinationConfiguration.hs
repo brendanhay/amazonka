@@ -21,6 +21,7 @@ module Amazonka.IVS.Types.DestinationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types.S3DestinationConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newDestinationConfiguration =
 destinationConfiguration_s3 :: Lens.Lens' DestinationConfiguration (Prelude.Maybe S3DestinationConfiguration)
 destinationConfiguration_s3 = Lens.lens (\DestinationConfiguration' {s3} -> s3) (\s@DestinationConfiguration' {} a -> s {s3 = a} :: DestinationConfiguration)
 
-instance Core.FromJSON DestinationConfiguration where
+instance Data.FromJSON DestinationConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DestinationConfiguration"
       ( \x ->
           DestinationConfiguration'
-            Prelude.<$> (x Core..:? "s3")
+            Prelude.<$> (x Data..:? "s3")
       )
 
 instance Prelude.Hashable DestinationConfiguration where
@@ -70,7 +71,7 @@ instance Prelude.Hashable DestinationConfiguration where
 instance Prelude.NFData DestinationConfiguration where
   rnf DestinationConfiguration' {..} = Prelude.rnf s3
 
-instance Core.ToJSON DestinationConfiguration where
+instance Data.ToJSON DestinationConfiguration where
   toJSON DestinationConfiguration' {..} =
-    Core.object
-      (Prelude.catMaybes [("s3" Core..=) Prelude.<$> s3])
+    Data.object
+      (Prelude.catMaybes [("s3" Data..=) Prelude.<$> s3])

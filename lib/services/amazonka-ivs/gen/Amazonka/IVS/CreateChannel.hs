@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -209,8 +210,8 @@ instance Core.AWSRequest CreateChannel where
     Response.receiveJSON
       ( \s h x ->
           CreateChannelResponse'
-            Prelude.<$> (x Core..?> "channel")
-            Prelude.<*> (x Core..?> "streamKey")
+            Prelude.<$> (x Data..?> "channel")
+            Prelude.<*> (x Data..?> "streamKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -232,35 +233,35 @@ instance Prelude.NFData CreateChannel where
       `Prelude.seq` Prelude.rnf authorized
       `Prelude.seq` Prelude.rnf recordingConfigurationArn
 
-instance Core.ToHeaders CreateChannel where
+instance Data.ToHeaders CreateChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateChannel where
+instance Data.ToJSON CreateChannel where
   toJSON CreateChannel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("name" Core..=) Prelude.<$> name,
-            ("type" Core..=) Prelude.<$> type',
-            ("latencyMode" Core..=) Prelude.<$> latencyMode,
-            ("authorized" Core..=) Prelude.<$> authorized,
-            ("recordingConfigurationArn" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("name" Data..=) Prelude.<$> name,
+            ("type" Data..=) Prelude.<$> type',
+            ("latencyMode" Data..=) Prelude.<$> latencyMode,
+            ("authorized" Data..=) Prelude.<$> authorized,
+            ("recordingConfigurationArn" Data..=)
               Prelude.<$> recordingConfigurationArn
           ]
       )
 
-instance Core.ToPath CreateChannel where
+instance Data.ToPath CreateChannel where
   toPath = Prelude.const "/CreateChannel"
 
-instance Core.ToQuery CreateChannel where
+instance Data.ToQuery CreateChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateChannelResponse' smart constructor.

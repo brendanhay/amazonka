@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,7 +102,7 @@ instance Core.AWSRequest GetStreamSession where
     Response.receiveJSON
       ( \s h x ->
           GetStreamSessionResponse'
-            Prelude.<$> (x Core..?> "streamSession")
+            Prelude.<$> (x Data..?> "streamSession")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,30 +116,30 @@ instance Prelude.NFData GetStreamSession where
     Prelude.rnf streamId
       `Prelude.seq` Prelude.rnf channelArn
 
-instance Core.ToHeaders GetStreamSession where
+instance Data.ToHeaders GetStreamSession where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetStreamSession where
+instance Data.ToJSON GetStreamSession where
   toJSON GetStreamSession' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("streamId" Core..=) Prelude.<$> streamId,
-            Prelude.Just ("channelArn" Core..= channelArn)
+          [ ("streamId" Data..=) Prelude.<$> streamId,
+            Prelude.Just ("channelArn" Data..= channelArn)
           ]
       )
 
-instance Core.ToPath GetStreamSession where
+instance Data.ToPath GetStreamSession where
   toPath = Prelude.const "/GetStreamSession"
 
-instance Core.ToQuery GetStreamSession where
+instance Data.ToQuery GetStreamSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetStreamSessionResponse' smart constructor.

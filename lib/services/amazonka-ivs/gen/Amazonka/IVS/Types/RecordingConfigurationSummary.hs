@@ -21,6 +21,7 @@ module Amazonka.IVS.Types.RecordingConfigurationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types.DestinationConfiguration
 import Amazonka.IVS.Types.RecordingConfigurationState
 import qualified Amazonka.Prelude as Prelude
@@ -122,17 +123,17 @@ recordingConfigurationSummary_destinationConfiguration = Lens.lens (\RecordingCo
 recordingConfigurationSummary_state :: Lens.Lens' RecordingConfigurationSummary RecordingConfigurationState
 recordingConfigurationSummary_state = Lens.lens (\RecordingConfigurationSummary' {state} -> state) (\s@RecordingConfigurationSummary' {} a -> s {state = a} :: RecordingConfigurationSummary)
 
-instance Core.FromJSON RecordingConfigurationSummary where
+instance Data.FromJSON RecordingConfigurationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecordingConfigurationSummary"
       ( \x ->
           RecordingConfigurationSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "destinationConfiguration")
-            Prelude.<*> (x Core..: "state")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "destinationConfiguration")
+            Prelude.<*> (x Data..: "state")
       )
 
 instance

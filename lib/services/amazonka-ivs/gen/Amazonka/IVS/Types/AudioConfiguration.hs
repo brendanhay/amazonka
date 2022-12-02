@@ -21,6 +21,7 @@ module Amazonka.IVS.Types.AudioConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object specifying a stream’s audio configuration, as set up by the
@@ -85,16 +86,16 @@ audioConfiguration_sampleRate = Lens.lens (\AudioConfiguration' {sampleRate} -> 
 audioConfiguration_codec :: Lens.Lens' AudioConfiguration (Prelude.Maybe Prelude.Text)
 audioConfiguration_codec = Lens.lens (\AudioConfiguration' {codec} -> codec) (\s@AudioConfiguration' {} a -> s {codec = a} :: AudioConfiguration)
 
-instance Core.FromJSON AudioConfiguration where
+instance Data.FromJSON AudioConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioConfiguration"
       ( \x ->
           AudioConfiguration'
-            Prelude.<$> (x Core..:? "targetBitrate")
-            Prelude.<*> (x Core..:? "channels")
-            Prelude.<*> (x Core..:? "sampleRate")
-            Prelude.<*> (x Core..:? "codec")
+            Prelude.<$> (x Data..:? "targetBitrate")
+            Prelude.<*> (x Data..:? "channels")
+            Prelude.<*> (x Data..:? "sampleRate")
+            Prelude.<*> (x Data..:? "codec")
       )
 
 instance Prelude.Hashable AudioConfiguration where

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,9 +142,9 @@ instance Core.AWSRequest ListChannels where
     Response.receiveJSON
       ( \s h x ->
           ListChannelsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "channels" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "channels" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListChannels where
@@ -160,33 +161,33 @@ instance Prelude.NFData ListChannels where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf filterByRecordingConfigurationArn
 
-instance Core.ToHeaders ListChannels where
+instance Data.ToHeaders ListChannels where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListChannels where
+instance Data.ToJSON ListChannels where
   toJSON ListChannels' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filterByName" Core..=) Prelude.<$> filterByName,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("filterByRecordingConfigurationArn" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filterByName" Data..=) Prelude.<$> filterByName,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("filterByRecordingConfigurationArn" Data..=)
               Prelude.<$> filterByRecordingConfigurationArn
           ]
       )
 
-instance Core.ToPath ListChannels where
+instance Data.ToPath ListChannels where
   toPath = Prelude.const "/ListChannels"
 
-instance Core.ToQuery ListChannels where
+instance Data.ToQuery ListChannels where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListChannelsResponse' smart constructor.

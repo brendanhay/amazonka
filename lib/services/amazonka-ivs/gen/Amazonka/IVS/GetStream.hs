@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -81,7 +82,7 @@ instance Core.AWSRequest GetStream where
     Response.receiveJSON
       ( \s h x ->
           GetStreamResponse'
-            Prelude.<$> (x Core..?> "stream")
+            Prelude.<$> (x Data..?> "stream")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -92,28 +93,28 @@ instance Prelude.Hashable GetStream where
 instance Prelude.NFData GetStream where
   rnf GetStream' {..} = Prelude.rnf channelArn
 
-instance Core.ToHeaders GetStream where
+instance Data.ToHeaders GetStream where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetStream where
+instance Data.ToJSON GetStream where
   toJSON GetStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("channelArn" Core..= channelArn)]
+          [Prelude.Just ("channelArn" Data..= channelArn)]
       )
 
-instance Core.ToPath GetStream where
+instance Data.ToPath GetStream where
   toPath = Prelude.const "/GetStream"
 
-instance Core.ToQuery GetStream where
+instance Data.ToQuery GetStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetStreamResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IVS.Types.Channel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types.ChannelLatencyMode
 import Amazonka.IVS.Types.ChannelType
 import qualified Amazonka.Prelude as Prelude
@@ -207,21 +208,21 @@ channel_ingestEndpoint = Lens.lens (\Channel' {ingestEndpoint} -> ingestEndpoint
 channel_recordingConfigurationArn :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
 channel_recordingConfigurationArn = Lens.lens (\Channel' {recordingConfigurationArn} -> recordingConfigurationArn) (\s@Channel' {} a -> s {recordingConfigurationArn = a} :: Channel)
 
-instance Core.FromJSON Channel where
+instance Data.FromJSON Channel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Channel"
       ( \x ->
           Channel'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "latencyMode")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "authorized")
-            Prelude.<*> (x Core..:? "playbackUrl")
-            Prelude.<*> (x Core..:? "ingestEndpoint")
-            Prelude.<*> (x Core..:? "recordingConfigurationArn")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "latencyMode")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "authorized")
+            Prelude.<*> (x Data..:? "playbackUrl")
+            Prelude.<*> (x Data..:? "ingestEndpoint")
+            Prelude.<*> (x Data..:? "recordingConfigurationArn")
       )
 
 instance Prelude.Hashable Channel where
